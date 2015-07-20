@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>info.magnolia</groupId>
+    <artifactId>magnolia-project</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <relativePath>../pom.xml</relativePath>
+  </parent>
+  <artifactId>magnolia-project-webapp</artifactId>
+  <name>magnolia-project: webapp</name>
+  <packaging>war</packaging>
+  <dependencies>
+    <!-- Add your project specific dependencies here: -->
+
+    <!-- Overlay Magnolia Empty Webapp. Alternatively, use the bundled-webapp or the enterprise-webapp. Dependencies versions are already imported by parent, so no need to replicate here. -->
+    <dependency>
+      <groupId>info.magnolia</groupId>
+      <artifactId>magnolia-empty-webapp</artifactId>
+      <type>pom</type>
+    </dependency>
+    <dependency>
+      <groupId>info.magnolia</groupId>
+      <artifactId>magnolia-empty-webapp</artifactId>
+      <type>war</type>
+    </dependency>
+    <dependency>
+	  <groupId>info.magnolia.resources</groupId>
+	  <artifactId>magnolia-resources</artifactId> 
+	</dependency>
+    <dependency>
+	  <groupId>info.magnolia.dam</groupId>
+	  <artifactId>magnolia-dam-app</artifactId>
+	</dependency>
+	<dependency>
+	  <groupId>info.magnolia.dam</groupId>
+	  <artifactId>magnolia-dam-imaging</artifactId>
+	  <version>2.1</version>
+	</dependency>
+	<dependency>
+	  <groupId>info.magnolia</groupId>
+	  <artifactId>magnolia-imaging-support</artifactId>
+	</dependency>
+	<dependency>
+  <groupId>info.magnolia.templating</groupId>
+  <artifactId>magnolia-templating-essentials-models</artifactId>
+</dependency>
+<dependency>
+  <groupId>info.magnolia.templating</groupId>
+  <artifactId>magnolia-templating-essentials-imaging</artifactId>
+</dependency>
+<dependency>
+  	<groupId>txstate.edu</groupId>
+  <artifactId>myModule</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-war-plugin</artifactId>
+        <configuration>
+          <!-- exclude jars copied "physically" from the webapp overlay - so we only get those resolved by Maven's dependency management -->
+          <dependentWarExcludes>WEB-INF/lib/*.jar</dependentWarExcludes>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

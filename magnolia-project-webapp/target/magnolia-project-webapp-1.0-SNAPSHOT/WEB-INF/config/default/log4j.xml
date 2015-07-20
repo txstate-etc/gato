@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+  <!-- add debug="true" to the log4j:configuration element above for log4j initialization messages -->
+  <!--  debug appender, write to stdout -->
+  <appender name="console" class="org.apache.log4j.ConsoleAppender">
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d %-5p %-50.50c: %m%n"/>
+      <!-- this pattern can be used for debugging - has a performance impact.
+      <param name="ConversionPattern" value="%-5p  %c %F(%M:%L) %t %d %m (uri:%X{requesturi} userid:%X{userid})%n" />
+      -->
+    </layout>
+  </appender>
+  <!-- mail appender. You may want to enable this on production to be immediately notified in case of errors -->
+  <!--
+  <appender name="mail" class="it.openutils.log4j.AlternateSMTPAppender">
+    <param name="Threshold" value="ERROR" />
+    <param name="To" value="myerrormailbox@mymailserver.com" />
+    <param name="From" value="my magnolia website &lt;magnolia@mymagnoliasite.com&gt;" />
+    <param name="SMTPHost" value="localhost" />
+    <param name="Subject" value="[magnolia error ${pom.version} ${server}] %m" />
+    <param name="Timeout" value="300" />
+    <layout class="it.openutils.log4j.FilteredPatternLayout">
+      <param name="ConversionPattern" value="[${server}] %-5p %d{dd.MM.yyyy HH:mm:ss} %c %F(%M:%L) - %m%n" />
+      <param name="Filter" value="org.apache.catalina" />
+      <param name="Filter" value="org.apache.coyote" />
+      <param name="Filter" value="org.apache.tomcat" />
+      <param name="Filter" value="org.apache.jasper" />
+      <param name="Filter" value="sun.reflect" />
+      <param name="Filter" value="javax.servlet.http" />
+      <param name="Header"
+        value="%n
+===================================%n
+Magnolia%n
+Version: ${pom.version}%n
+Server: ${server}%n
+Url: %X{requesturi}%n
+Referer: %X{Referer}%n
+User-Agent: %X{User-Agent}%n
+Remote-Host: %X{Remote-Host}%n
+Session Id: %X{SessionId}%n
+Userid: %X{userid}%n
+Number of occurrences: %o%n
+===================================%n
+        " />
+      <param name="Footer" value="%n===================================%n" />
+    </layout>
+  </appender>
+  -->
+  <appender name="sync-log-debug" class="org.apache.log4j.RollingFileAppender">
+    <param name="File" value="${magnolia.logs.dir}/magnolia-debug.log" />
+    <param name="MaxFileSize" value="1MB" />
+    <param name="Threshold" value="DEBUG" />
+    <param name="MaxBackupIndex" value="5" />
+    <param name="Append" value="true" />
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%-5p  %c %d{dd.MM.yyyy HH:mm:ss} -- %m%n" />
+    </layout>
+  </appender>
+  <appender name="log-debug" class="org.apache.log4j.AsyncAppender">
+    <appender-ref ref="sync-log-debug" />
+  </appender>
+  <appender name="sync-log-error" class="org.apache.log4j.RollingFileAppender">
+    <param name="File" value="${magnolia.logs.dir}/magnolia-error.log" />
+    <param name="MaxFileSize" value="1MB" />
+    <param name="Threshold" value="ERROR" />
+    <param name="MaxBackupIndex" value="5" />
+    <param name="Append" value="true" />
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%-5p  %c %d{dd.MM.yyyy HH:mm:ss} -- %m%n" />
+    </layout>
+  </appender>
+  <appender name="log-error" class="org.apache.log4j.AsyncAppender">
+    <appender-ref ref="sync-log-error" />
+  </appender>
+  <appender name="sync-log-activation" class="org.apache.log4j.RollingFileAppender">
+    <param name="File" value="${magnolia.logs.dir}/magnolia-activation.log" />
+    <param name="MaxFileSize" value="1MB" />
+    <param name="MaxBackupIndex" value="5" />
+    <param name="Append" value="true" />
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%-5p  %c %d{dd.MM.yyyy HH:mm:ss} -- %m%n" />
+    </layout>
+  </appender>
+  <appender name="log-activation" class="org.apache.log4j.AsyncAppender">
+    <appender-ref ref="sync-log-activation" />
+  </appender>
+  <appender name="log-bootstrap" class="org.apache.log4j.FileAppender">
+    <param name="File" value="${magnolia.logs.dir}/bootstrap.log" />
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%-5p %d{dd.MM.yyyy HH:mm:ss}  %m%n" />
+    </layout>
+  </appender>
+  <appender name="sync-log-access" class="org.apache.log4j.RollingFileAppender">
+    <param name="File" value="${magnolia.logs.dir}/magnolia-access.log" />
+    <param name="MaxFileSize" value="1MB" />
+    <param name="MaxBackupIndex" value="5" />
+    <param name="Append" value="true" />
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d{dd.MM.yyyy HH:mm:ss}%m%n" />
+    </layout>
+  </appender>
+  <appender name="log-access" class="org.apache.log4j.AsyncAppender">
+    <appender-ref ref="sync-log-access" />
+  </appender>
+  <appender name="sync-log-audit" class="org.apache.log4j.RollingFileAppender">
+    <param name="File" value="${magnolia.logs.dir}/magnolia-audit.log" />
+    <param name="MaxFileSize" value="1MB" />
+    <param name="MaxBackupIndex" value="5" />
+    <param name="Append" value="true" />
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d{dd.MM.yyyy HH:mm:ss}%m%n" />
+    </layout>
+  </appender>
+  <appender name="log-audit" class="org.apache.log4j.AsyncAppender">
+    <appender-ref ref="sync-log-audit" />
+  </appender>
+    <appender name="sync-log-form" class="org.apache.log4j.RollingFileAppender">
+    <param name="File" value="${magnolia.logs.dir}/magnolia-form.log" />
+    <param name="MaxFileSize" value="1MB" />
+    <param name="MaxBackupIndex" value="5" />
+    <param name="Append" value="true" />
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d{dd.MM.yyyy HH:mm:ss}%m%n" />
+    </layout>
+  </appender>
+  <appender name="log-form" class="org.apache.log4j.AsyncAppender">
+    <appender-ref ref="sync-log-form" />
+  </appender>
+
+  <!-- Magnolia categories -->
+  <category name="info.magnolia">
+    <priority value="INFO" />
+  </category>
+
+  <!-- Activation - additivity is true so logs also go to sub-categories' appenders -->
+  <category name="info.magnolia.cms.exchange" additivity="true">
+    <priority value="INFO" />
+    <appender-ref ref="log-activation" />
+  </category>
+  <category name="info.magnolia.module.activation" additivity="true">
+    <priority value="INFO" />
+    <appender-ref ref="log-activation" />
+  </category>
+
+  <!-- bootstrapping -->
+  <category name="info.magnolia.importexport.Bootstrapper" additivity="true">
+    <priority value="INFO" />
+    <appender-ref ref="log-bootstrap" />
+  </category>
+
+  <!-- Custom log categories - additivity is false so logs only go to the appenders configured here -->
+  <category name="log-access" additivity="false">
+    <appender-ref ref="log-access" />
+  </category>
+  <category name="log-audit" additivity="false">
+    <appender-ref ref="log-audit" />
+  </category>
+  <category name="log-form" additivity="false">
+    <appender-ref ref="log-form" />
+  </category>
+
+  <!-- External libraries -->
+  <category name="org">
+    <priority value="WARN" />
+  </category>
+  <category name="org.apache.jackrabbit">
+    <priority value="WARN" />
+  </category>
+  <!-- Reflections library spoils logs with hundreds of harmless warnings; tries to look into native libs but none of its DefaultUrlTypes can handle them. -->
+  <category name="org.reflections">
+    <priority value="ERROR" />
+  </category>
+  <category name="com">
+    <priority value="WARN" />
+  </category>
+  <category name="net">
+    <priority value="WARN" />
+  </category>
+  <category name="freemarker">
+    <priority value="WARN" />
+  </category>
+  <category name="httpclient">
+    <priority value="WARN" />
+  </category>
+  <category name="openwfe.org.log">
+    <priority value="WARN" />
+  </category>
+  <category name="openwfe">
+    <priority value="WARN" />
+  </category>
+
+  <root>
+    <priority value="ALL" />
+    <appender-ref ref="log-error" />
+    <appender-ref ref="log-debug" />
+    <!--  debug  -->
+    <appender-ref ref="console" />
+    <!--  enable this too to get mail notifications  -->
+    <!--
+      <appender-ref ref="mail" />
+    -->
+  </root>
+</log4j:configuration>

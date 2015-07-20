@@ -1,0 +1,17 @@
+templateScript: /myModule/templates/pages/standard-template.ftl
+renderType: freemarker
+visible: true
+title: Standard Template
+dialog: myModule:pages/page-properties
+ #areas:
+  # header:
+   #  renderType: freemarker
+    # availableComponents:
+#       quotation:
+#         id: myModule:components/quotation
+#       pinkpanel:
+#         id: myModule:components/pinkpanel
+#       bluepanel:
+#         id: myModule:components/bluepanel
+#       button:
+#         id: myModule:components/button
