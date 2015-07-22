@@ -1,0 +1,16 @@
+form:
+  tabs:
+    - name: tabText
+      label: Parent Organization
+      fields:
+        - name: parent_organization
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Name
+        - name: parent_org_url
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: URL
+actions:
+  commit:
+    class: info.magnolia.ui.admincentral.dialog.action.SaveDialogActionDefinition
+  cancel:
+    class: info.magnolia.ui.admincentral.dialog.action.CancelDialogActionDefinition

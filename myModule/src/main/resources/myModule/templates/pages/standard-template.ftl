@@ -9,7 +9,8 @@
 		[#include "includes/super-user.ftl"]
 		<!-- banner with logo and search bar -->
 		[#include "includes/top-banner.ftl"]
-		<!--[#include "includes/header.ftl"]-->
-		
+		<!--header image, parent organization, department name -->
+		[#include "includes/header.ftl"]
+
 	</body>
 </html>

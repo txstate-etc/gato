@@ -9,7 +9,7 @@ form:
         - name: hideInNav
           class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
           buttonLabel: Do not show this page in the navigation.
-          label: "" #without this, it makes its own messy label
+          label: "" #without this, Magnolia makes its own messy label
         - name: hideSidebar
           class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
           buttonLabel: Do not display navigation sidebar.

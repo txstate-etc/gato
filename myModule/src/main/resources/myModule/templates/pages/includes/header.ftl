@@ -1,11 +1,27 @@
+<!--
+   * Primary page with header image
+   * Primary page without header image
+   * Secondary page with header image
+   * Secondary page without header image
+
+   editable: image, parent organization, Department or office name (title)
+
+   parent organization is collegeLink -> name  There is also a url for the parent organization.
+
+   Is parent organization required now?
+-->
+
+
+<!-- set this div class based on whether or not there is a header image
+and whether or not it is a primary or secondary page -->
 <div class="header_3">
 
 	<div class="bg_container">
 	
-		<div class="bg_image_3"></div>
+		[@cms.area name="headerImage"/]
 		
 		<div class="overlay">
-		
+		 
 			<div class="bg_overlay"></div>
 			
 		</div>
@@ -16,10 +32,12 @@
 	
 		<div class="header_bg"></div>
 		<div class="dept_name">
-			<p class="parent_org"><a href="#nowhere">Parent Department or Division</a></p>
-			<h1><a href="#nowhere">Department or Office Name</a></h1>
+			[@cms.area name="collegeLink"/]
+			<!-- where should this url go? -->
+			<h1><a href="/">${content.title}</a></h1>
 		</div>
 		
 	</div>
 	
 </div>
+

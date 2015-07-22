@@ -1125,9 +1125,6 @@ figcaption {
   .header, .header_3 {
     min-height: 320px; }
 
-  .bg_image {
-    display: none; }
-
   .bg_video {
     display: inline-block;
     margin-top: -125px; }
@@ -1726,12 +1723,12 @@ p, ul, ol, table {
   height: 100%; }
 
 .bg_image {
-  opacity: 0;
+  opacity: 1;
   position: absolute;
   margin-top: -70px;
   height: 150%;
   width: 100%;
-  background: #501214 url("../images/poster_shepard.jpg") no-repeat 50% 0;
+  background: #501214 url("../images/poster_shepard.jpg") no-repeat 50% 65%;
   background-size: cover; }
 
 .bg_video_container {
