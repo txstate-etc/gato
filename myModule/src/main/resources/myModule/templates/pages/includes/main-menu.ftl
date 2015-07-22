@@ -1,5 +1,4 @@
-[#-- get the home page --]
-[#assign homePageContent = cmsfn.contentByPath(homePagePath)]
+[#--assign homePageContent = cmsfn.contentByPath(homePagePath)--]
 <div class="top_nav">
     <nav class="nav">
     	<ul class="primary_nav">

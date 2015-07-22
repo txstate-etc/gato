@@ -7,14 +7,19 @@
 		[@cms.page /]
 	</head>
 	<body>
-		<!--"super user" menu bar -->
-		[#include "includes/super-user.ftl"]
-		<!-- banner with logo and search bar -->
-		[#include "includes/top-banner.ftl"]
-		<!--header image, parent organization, department name -->
-		[#include "includes/header.ftl"]
-		<!-- main menu -->
-		[#include "includes/main-menu.ftl"]
-
+		<div id="panel" class="container">
+			<!--"super user" menu bar -->
+			[#include "includes/super-user.ftl"]
+			<!-- banner with logo and search bar -->
+			[#include "includes/top-banner.ftl"]
+			<!--header image, parent organization, department name -->
+			[#include "includes/header.ftl"]
+			<!-- main menu -->
+			[#include "includes/main-menu.ftl"]
+			<div class="page_content">
+				[#assign hidetxstate=false]
+				[#include "includes/breadcrumbs.ftl"]
+			</div> <!-- end of page_content -->
+		</div> <!-- end of the container -->
 	</body>
 </html>
