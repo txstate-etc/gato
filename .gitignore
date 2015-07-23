@@ -19,6 +19,9 @@
 # Apache tomcat #
 *tomcat/
 
+# direnv configuration #
+*.envrc
+
 # Mac junk files #
 *.DS_Store
 
