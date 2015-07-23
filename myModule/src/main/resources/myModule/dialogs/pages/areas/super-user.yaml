@@ -1,0 +1,28 @@
+form:
+  label: Top Menu
+  description: Multi value composite field desc.
+  tabs:
+    - name: tabText
+      label: ""
+      fields:
+        - name: links
+          class: info.magnolia.ui.form.field.definition.MultiValueFieldDefinition
+          label: Menu Items
+          transformerClass: info.magnolia.ui.form.field.transformer.multi.MultiValueSubChildrenNodePropertiesTransformer
+          field:
+            name: compositeField
+            class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
+            transformerClass: info.magnolia.ui.form.field.transformer.composite.NoOpCompositeTransformer
+            fields:
+              - name: title
+                class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                label: Title
+              - name: url
+                class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                label: URL
+
+actions:
+  commit:
+    class: info.magnolia.ui.admincentral.dialog.action.SaveDialogActionDefinition
+  cancel:
+    class: info.magnolia.ui.admincentral.dialog.action.CancelDialogActionDefinition
