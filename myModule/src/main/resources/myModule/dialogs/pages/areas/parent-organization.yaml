@@ -3,7 +3,7 @@ form:
     - name: tabText
       label: Parent Organization
       fields:
-        - name: collegeLink
+        - name: parentOrganization
           class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
           transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer 
           label: ""

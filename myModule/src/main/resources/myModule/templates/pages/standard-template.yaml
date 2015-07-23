@@ -4,7 +4,7 @@ visible: true
 title: Standard Template
 dialog: myModule:pages/page-properties
 areas:
-  collegeLink:
+  parentOrganization:
     renderType: freemarker
     type: noComponent
     #createAreaNode: false
