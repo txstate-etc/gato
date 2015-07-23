@@ -33,7 +33,7 @@ and whether or not it is a primary or secondary page -->
 		<div class="header_bg"></div>
 		<div class="dept_name">
 			[@cms.area name="parentOrganization" content=content/]
-			<h1><a href="${cmsfn.link(content)}">${content.title}</a></h1>
+			<h1><a href="${cmsfn.link(homePageContent)}">${homePageContent.title}</a></h1>
 		</div>
 		
 	</div>
