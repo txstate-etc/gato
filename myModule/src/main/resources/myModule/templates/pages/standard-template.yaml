@@ -18,3 +18,10 @@ areas:
     dialog: myModule:pages/areas/header-image
     templateScript: /myModule/templates/pages/areas/header-image.ftl
     title: Header Image
+  superUser:
+    renderType: freemarker
+    type: noComponent
+    createAreaNode: false
+    dialog: myModule:pages/areas/super-user
+    templateScript: /myModule/templates/pages/includes/super-user.ftl
+    title: Top Menu

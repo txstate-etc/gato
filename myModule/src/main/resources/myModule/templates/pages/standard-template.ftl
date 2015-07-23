@@ -9,7 +9,8 @@
 	<body>
 		<div id="panel" class="container">
 			<!--"super user" menu bar -->
-			[#include "includes/super-user.ftl"]
+			[@cms.area name="superUser"/]
+			[#--include "includes/super-user.ftl"--]
 			<!-- banner with logo and search bar -->
 			[#include "includes/top-banner.ftl"]
 			<!--header image, parent organization, department name -->
