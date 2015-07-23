@@ -3,12 +3,17 @@ form:
     - name: tabText
       label: Parent Organization
       fields:
-        - name: parent_organization
-          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-          label: Name
-        - name: parent_org_url
-          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-          label: URL
+        - name: collegeLink
+          class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
+          transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer 
+          label: ""
+          fields: 
+            - name: "parent_name"
+              class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+              label: Name
+            - name: url
+              class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+              label: URL
 actions:
   commit:
     class: info.magnolia.ui.admincentral.dialog.action.SaveDialogActionDefinition

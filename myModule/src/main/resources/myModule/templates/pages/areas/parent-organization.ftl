@@ -1,5 +1,5 @@
-[#assign parent_url = content.parent_org_url!"#"]
-[#assign parent_org = content.parent_organization!""]
+[#assign parent_url = content.url!"#"]
+[#assign parent_org = content.parent_name!""]
 
 [#if parent_org?length gt 0]
 <p class="parent_org">
