@@ -1,5 +1,4 @@
-[#-- for some reason, the area isn't getting the global variable --]
-[#assign homePageContent = cmsfn.contentByPath(ctx.getAggregationState().mainContentNode.getAncestor(1).getPath())]
+[#assign homePageContent = ctx.getAttribute('homePageContent')]
 [#if homePageContent.parentOrganization??]
 	[#assign parent_url = homePageContent.parentOrganization.url!"#"]
 	[#assign parent_org = homePageContent.parentOrganization.parent_name!""]
