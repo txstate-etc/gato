@@ -1,8 +1,8 @@
 <!--
-   * Primary page with header image
-   * Primary page without header image
-   * Secondary page with header image
-   * Secondary page without header image
+   * Primary page with header image :  header_3 
+   * Primary page without header image header_4 
+   * Secondary page with header image  header_2 
+   * Secondary page without header image  need to define
 
    editable: image, parent organization, Department or office name (title)
 
@@ -12,13 +12,32 @@
 -->
 
 
-<!-- set this div class based on whether or not there is a header image
-and whether or not it is a primary or secondary page -->
-<div class="header_3">
+[#assign homeLink = cmsfn.link(ctx.getAttribute("homePageContent"))]
+[#if content.header_image??]
+	[#assign headerImg = damfn.getAsset("jcr", content.header_image)!]
+	[#assign imgStyle = "style=\"background-image: url('${headerImg.getLink()}');\""]
+	[#if cmsfn.link(content) == homeLink ]
+		[#-- primary page with header image--]
+		[#assign headerClass = "header_with_image"]
+		[#assign imgClass = "bg_image"]
+	[#else]
+		[#-- secondary page with header image--]
+		[#assign headerClass = "header_with_image_secondary"]
+		[#assign imgClass = "bg_image_secondary"]
+	[/#if]
+[#else]
+	[#--  page with no header image--]
+	[#assign headerClass = "header_no_image"]
+	[#assign imgStyle = ""]
+	[#assign imgClass = "bg_image_none"]
+[/#if]
+
+
+<div class="${headerClass}">
 
 	<div class="bg_container">
-	
-		[@cms.area name="headerImage"/]
+
+		<div class="${imgClass}" id="headerImage" ${imgStyle}></div>
 		
 		<div class="overlay">
 		 

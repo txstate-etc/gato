@@ -4,20 +4,20 @@ visible: true
 title: Standard Template
 dialog: myModule:pages/page-properties
 areas:
-  parentOrganization:
-    renderType: freemarker
-    type: noComponent
-    #createAreaNode: false
-    dialog: myModule:pages/areas/parent-organization
-    templateScript: /myModule/templates/pages/areas/parent-organization.ftl
-    title: Parent Organization
-  headerImage:
+  header:
     renderType: freemarker
     type: noComponent
     createAreaNode: false
+    templateScript: /myModule/templates/pages/includes/header.ftl
     dialog: myModule:pages/areas/header-image
-    templateScript: /myModule/templates/pages/areas/header-image.ftl
-    title: Header Image
+    areas:
+      parentOrganization:
+        renderType: freemarker
+        type: noComponent
+        #createAreaNode: false
+        dialog: myModule:pages/areas/parent-organization
+        templateScript: /myModule/templates/pages/areas/parent-organization.ftl
+        title: Parent Organization
   superUser:
     renderType: freemarker
     type: noComponent

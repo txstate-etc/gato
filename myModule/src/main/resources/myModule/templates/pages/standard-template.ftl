@@ -14,7 +14,8 @@
 			<!-- banner with logo and search bar -->
 			[#include "includes/top-banner.ftl"]
 			<!--header image, parent organization, department name -->
-			[#include "includes/header.ftl"]
+			[#--include "includes/header.ftl"--]
+			[@cms.area name="header"/] 
 			<!-- main menu -->
 			[#include "includes/main-menu.ftl"]
 			<div class="page_content">
