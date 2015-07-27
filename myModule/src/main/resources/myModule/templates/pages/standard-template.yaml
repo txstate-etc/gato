@@ -4,24 +4,23 @@ visible: true
 title: Standard Template
 dialog: myModule:pages/page-properties
 areas:
-  header:
+  headerImage:
     renderType: freemarker
     type: noComponent
     createAreaNode: false
-    templateScript: /myModule/templates/pages/includes/header.ftl
     dialog: myModule:pages/areas/header-image
-    areas:
-      parentOrganization:
-        renderType: freemarker
-        type: noComponent
-        #createAreaNode: false
-        dialog: myModule:pages/areas/parent-organization
-        templateScript: /myModule/templates/pages/areas/parent-organization.ftl
-        title: Parent Organization
+    title: Header Image
+    templateScript: /myModule/templates/pages/areas/header-image.ftl
+  parentOrganization:
+    renderType: freemarker
+    type: noComponent
+    dialog: myModule:pages/areas/parent-organization
+    templateScript: /myModule/templates/pages/areas/parent-organization.ftl
+    title: Parent Organization
   superUser:
     renderType: freemarker
     type: noComponent
     createAreaNode: false
     dialog: myModule:pages/areas/super-user
-    templateScript: /myModule/templates/pages/includes/super-user.ftl
+    templateScript: /myModule/templates/pages/areas/super-user.ftl
     title: Top Menu

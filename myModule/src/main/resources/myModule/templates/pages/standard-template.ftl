@@ -10,12 +10,11 @@
 		<div id="panel" class="container">
 			<!--"super user" menu bar -->
 			[@cms.area name="superUser"/]
-			[#--include "includes/super-user.ftl"--]
 			<!-- banner with logo and search bar -->
 			[#include "includes/top-banner.ftl"]
 			<!--header image, parent organization, department name -->
-			[#--include "includes/header.ftl"--]
-			[@cms.area name="header"/] 
+			[#include "includes/header.ftl"]
+		
 			<!-- main menu -->
 			[#include "includes/main-menu.ftl"]
 			<div class="page_content">
