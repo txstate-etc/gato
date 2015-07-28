@@ -20,6 +20,7 @@
 			<div class="page_content">
 				[#assign hidetxstate=false]
 				[#include "includes/breadcrumbs.ftl"]
+				[#include "includes/headline.ftl"]
 			</div> <!-- end of page_content -->
 		</div> <!-- end of the container -->
 	</body>
