@@ -6,7 +6,11 @@ html {
 
 body {
   height: auto;
-  min-height: 100%; }
+  min-height: 100%;
+  font-family: 'Univers W01', Helvetica, Calibri, Arial, sans-serif;
+  font-weight: 100;
+  text-rendering: optimizeLegibility;
+  background-color: #6A5638; }
 
 input {
   -webkit-appearance: none !important; }
@@ -64,16 +68,16 @@ figcaption {
 
 .banner_logo {
   width: 195px; }
-
-.banner_logo img {
-  max-width: 100%;
-  margin-top: 11px; }
+  .banner_logo img {
+    max-width: 100%;
+    margin-top: 11px; }
 
 .breadcrumbs {
   text-align: left;
   font-weight: 400;
   font-size: 65%;
-  margin: -5px auto 0 auto; }
+  margin: -5px auto 0 auto;
+  line-height: 16px; }
 
 .back_to_top a, .back_to_top a:hover {
   bottom: -6px;
@@ -163,9 +167,6 @@ figcaption {
 
 .slider_3 .slide_caption {
   min-height: 200px; }
-
-.breadcrumbs {
-  line-height: 16px; }
 
 .side_nav_list a {
   font-size: 85%; }
@@ -568,17 +569,17 @@ figcaption {
     float: left; }
     .column.flow-opposite {
       float: right; }
-    .column .full {
+    .column.full {
       width: 100%; }
-    .column .three-fourths {
+    .column.three-fourths {
       width: 75%; }
-    .column .two-thirds {
+    .column.two-thirds {
       width: 66.7%; }
-    .column .half {
+    .column.half {
       width: 50%; }
-    .column .third {
+    .column.third {
       width: 33.3%; }
-    .column .fourth {
+    .column.fourth {
       width: 25%; }
 
   .main_section {
@@ -1566,12 +1567,6 @@ figcaption {
 .clearfix {
   *zoom: 1; }
 
-body {
-  font-family: 'Univers W01', Helvetica, Calibri, Arial, sans-serif;
-  font-weight: 100;
-  text-rendering: optimizeLegibility;
-  background-color: #6A5638; }
-
 figure {
   margin: 0; }
 
@@ -2315,17 +2310,17 @@ h1 {
   opacity: 1; }
 
 /* Footer */
-.footer_2 {
+.footer {
   background: #6A5638;
   width: 100%;
   color: #FFFFFF;
   position: relative; }
-  .footer_2 a {
+  .footer a {
     padding: 5px;
     margin: -5px; }
-    .footer_2 a:hover {
+    .footer a:hover {
       background: #501214; }
-  .footer_2 h3 a:hover {
+  .footer h3 a:hover {
     background: transparent;
     opacity: 1; }
 
@@ -2411,7 +2406,7 @@ a.image_link:hover {
   transition: all 0.2s ease-in-out;
   max-width: 5rem; }
   .btt:hover {
-    color: #fff !important;
+    color: #FFFFFF !important;
     background: transparent !important; }
   .btt i {
     font-size: 130%; }

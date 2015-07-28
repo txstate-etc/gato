@@ -21,7 +21,9 @@
 				[#assign hidetxstate=false]
 				[#include "includes/breadcrumbs.ftl"]
 				[#include "includes/headline.ftl"]
+				[@cms.area name="contentParagraph" /]
 			</div> <!-- end of page_content -->
+			[#include "includes/footer.ftl"]
 		</div> <!-- end of the container -->
 	</body>
 </html>

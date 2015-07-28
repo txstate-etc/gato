@@ -24,3 +24,20 @@ areas:
     dialog: myModule:pages/areas/super-user
     templateScript: /myModule/templates/pages/areas/super-user.ftl
     title: Top Menu
+  contactInformation:
+    renderType: freemarker
+    type: noComponent
+    title: Contact Information
+    templateScript: /myModule/templates/pages/areas/contact-information.ftl
+    dialog: myModule:pages/areas/contact-information
+  footerLinks:
+    renderType: freemarker
+    type: noComponent
+    title: Footer Links
+    templateScript: /myModule/templates/pages/areas/footer-links.ftl
+    dialog: myModule:pages/areas/footer-links
+  contentParagraph:
+    title: Main Content Area
+    availableComponents:
+      quotation:
+        id: myModule:components/quotation
