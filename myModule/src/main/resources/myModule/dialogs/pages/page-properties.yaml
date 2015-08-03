@@ -61,9 +61,5 @@ form:
           buttonLabel: I have upgraded to Universal Analytics
           class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition 
           label: ""       
-actions:
-  commit:
-    class: info.magnolia.ui.admincentral.dialog.action.SaveDialogActionDefinition
-  cancel:
-    class: info.magnolia.ui.admincentral.dialog.action.CancelDialogActionDefinition
+actions: !include /myModule/dialogs/common/actions-block.yaml
 label: Page Properties

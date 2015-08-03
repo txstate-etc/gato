@@ -6,7 +6,11 @@ html {
 
 body {
   height: auto;
-  min-height: 100%; }
+  min-height: 100%;
+  font-family: 'Univers W01', Helvetica, Calibri, Arial, sans-serif;
+  font-weight: 100;
+  text-rendering: optimizeLegibility;
+  background-color: #6A5638; }
 
 input {
   -webkit-appearance: none !important; }
@@ -36,7 +40,7 @@ figcaption {
 .float_right {
   float: right; }
 
-.header, .header_2, .header_3, .header_4 {
+.header, .header_with_image_secondary, .header_with_image, .header_no_image {
   min-height: 70px;
   padding: 0; }
 
@@ -64,16 +68,16 @@ figcaption {
 
 .banner_logo {
   width: 195px; }
-
-.banner_logo img {
-  max-width: 100%;
-  margin-top: 11px; }
+  .banner_logo img {
+    max-width: 100%;
+    margin-top: 11px; }
 
 .breadcrumbs {
   text-align: left;
   font-weight: 400;
   font-size: 65%;
-  margin: -5px auto 0 auto; }
+  margin: -5px auto 0 auto;
+  line-height: 16px; }
 
 .back_to_top a, .back_to_top a:hover {
   bottom: -6px;
@@ -163,9 +167,6 @@ figcaption {
 
 .slider_3 .slide_caption {
   min-height: 200px; }
-
-.breadcrumbs {
-  line-height: 16px; }
 
 .side_nav_list a {
   font-size: 85%; }
@@ -568,17 +569,17 @@ figcaption {
     float: left; }
     .column.flow-opposite {
       float: right; }
-    .column .full {
+    .column.full {
       width: 100%; }
-    .column .three-fourths {
+    .column.three-fourths {
       width: 75%; }
-    .column .two-thirds {
+    .column.two-thirds {
       width: 66.7%; }
-    .column .half {
+    .column.half {
       width: 50%; }
-    .column .third {
+    .column.third {
       width: 33.3%; }
-    .column .fourth {
+    .column.fourth {
       width: 25%; }
 
   .main_section {
@@ -588,15 +589,15 @@ figcaption {
     min-height: 350px;
     padding: 0; }
 
-  .header_2 {
+  .header_with_image_secondary {
     min-height: 180px;
     padding: 0; }
 
-  .header_3 {
+  .header_with_image {
     min-height: 280px;
     padding: 0; }
 
-  .header_4 {
+  .header_no_image {
     min-height: 100px;
     padding: 0; }
 
@@ -935,7 +936,7 @@ figcaption {
   .hide, .top_nav, .super_user, .txst_search {
     display: block; }
 
-  .header_4 {
+  .header_no_image {
     min-height: 120px;
     padding: 0; }
 
@@ -1134,7 +1135,7 @@ figcaption {
   html {
     font-size: 120%; }
 
-  .header, .header_3 {
+  .header, .header_with_image {
     min-height: 320px; }
 
   .bg_video {
@@ -1340,13 +1341,13 @@ figcaption {
   .pure-u-lg-24-24 {
     width: 100%; }
 
-  .header, .header_3 {
+  .header, .header_with_image {
     min-height: 360px; }
 
   .super_list, .banner_content, .parent_org, h1, .nav, .page_content, .footer_content {
     max-width: 1200px; }
 
-  .header_2 {
+  .header_with_image_secondary {
     min-height: 220px;
     padding: 0; }
 
@@ -1536,13 +1537,13 @@ figcaption {
   .pure-u-xl-24-24 {
     width: 100%; }
 
-  .header, .header_3 {
+  .header, .header_with_image {
     min-height: 360px; }
 
   .super_list, .banner_content, .parent_org, h1, .nav, .page_content, .footer_content {
     max-width: 1200px; }
 
-  .header_2 {
+  .header_with_image_secondary {
     min-height: 220px;
     padding: 0; }
 
@@ -1565,12 +1566,6 @@ figcaption {
 
 .clearfix {
   *zoom: 1; }
-
-body {
-  font-family: 'Univers W01', Helvetica, Calibri, Arial, sans-serif;
-  font-weight: 100;
-  text-rendering: optimizeLegibility;
-  background-color: #6A5638; }
 
 figure {
   margin: 0; }
@@ -1743,6 +1738,21 @@ p, ul, ol, table {
   background: #501214 url("../images/poster_shepard.jpg") no-repeat 50% 65%;
   background-size: cover; }
 
+.bg_image_secondary {
+  opacity: 1;
+  position: absolute;
+  margin-top: -70px;
+  height: 150%;
+  width: 100%;
+  background-color: #501214;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+.bg_image_none {
+  opacity: 0;
+  display: none; }
+
 .bg_video_container {
   position: absolute;
   height: 100%;
@@ -1803,7 +1813,7 @@ p, ul, ol, table {
   margin-left: 7px;
   vertical-align: top; }
 
-.header, .header_2, .header_3, .header_4, .header_5, .header_6 {
+.header, .header_with_image_secondary, .header_with_image, .header_no_image, .header_5, .header_6 {
   position: relative;
   overflow: hidden !important;
   background: #501214; }
@@ -1838,7 +1848,7 @@ h1 {
     padding: 0.4rem 1rem;
     line-height: 20px; }
 
-.header_4 .parent_org a {
+.header_no_image .parent_org a {
   bottom: -0.7rem; }
 
 .hamburger {
@@ -2300,17 +2310,17 @@ h1 {
   opacity: 1; }
 
 /* Footer */
-.footer_2 {
+.footer {
   background: #6A5638;
   width: 100%;
   color: #FFFFFF;
   position: relative; }
-  .footer_2 a {
+  .footer a {
     padding: 5px;
     margin: -5px; }
-    .footer_2 a:hover {
+    .footer a:hover {
       background: #501214; }
-  .footer_2 h3 a:hover {
+  .footer h3 a:hover {
     background: transparent;
     opacity: 1; }
 
@@ -2396,7 +2406,7 @@ a.image_link:hover {
   transition: all 0.2s ease-in-out;
   max-width: 5rem; }
   .btt:hover {
-    color: #fff !important;
+    color: #FFFFFF !important;
     background: transparent !important; }
   .btt i {
     font-size: 130%; }

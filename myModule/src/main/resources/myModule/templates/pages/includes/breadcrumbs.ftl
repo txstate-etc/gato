@@ -12,13 +12,13 @@
 			[#if !hidetxstate]
 				<a href="#nowhere">Texas State</a>
 			[/#if]
-			[#assign parentUrl = homePageContent.parent_org_url!]
+			[#assign parentUrl = ctx.getAttribute('homePageContent').parentOrganization.url!]
 			[#if parentUrl?length gt 0]
 				<span class="separator">
 					<i class="fa fa-angle-right"></i>
 				</span>
 				[#-- is it possible for them to set the parent org. url but not the name? --]
-				<a href="${parentUrl}">${homePageContent.parent_organization!"Parent Organization"}</a>
+				<a href="${parentUrl}">${ctx.getAttribute('homePageContent').parentOrganization.parent_name!"Parent Organization"}</a>
 			[/#if]
 			[#list cmsfn.ancestors(content, "mgnl:page") as ancestor ]
 				<span class="separator">

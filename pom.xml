@@ -133,5 +133,6 @@
   <modules>
     <module>magnolia-project-webapp</module>
     <module>myModule</module>
+    <module>gato-lib</module>
   </modules>
 </project>
