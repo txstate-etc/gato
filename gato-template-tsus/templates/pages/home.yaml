@@ -1,0 +1,7 @@
+templateScript: /gato-template-tsus/templates/pages/home.ftl
+renderType: freemarker
+visible: true
+title: TSUS Homepage Template
+dialog: gato-templates:pages/page-properties
+areas:
+  - !include /gato-templates/templates/areas/areas.yaml

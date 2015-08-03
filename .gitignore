@@ -16,6 +16,12 @@
 *.classpath
 *.settings/
 
+# Apache tomcat #
+*tomcat/
+
+# direnv configuration #
+*.envrc
+
 # Junk Files #
 *.DS_Store
 *derby.log
