@@ -1,14 +1,14 @@
-[#include "/gato-lib/templates/includes/head-include.ftl"]
+[#include "/gato-template/templates/includes/head.ftl"]
 
 <!DOCTYPE HTML>
 	<head>
-		[@title txstate=false]
+		[@title txstate=false/]
 		[@templatejs scripts=[
 			'/gato-templates-tsus/js/stretch-institutions.js'
-		]]
+		]/]
 		[@templatecss files=[
 			'/gato-templates-tsus/css/meta-home.css'
-		]]
+		]/]
 	</head>
 	
 	<body>

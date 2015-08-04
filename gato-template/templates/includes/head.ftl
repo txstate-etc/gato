@@ -1,16 +1,28 @@
 [#macro javascript scripts]
 	[#list ['gato-lib/js/jquery.js', 'gato-lib/js/gato-lib.js'] + scripts as script]
-		<script type="text/javascript" src="${script}"></script>
+		<script type="text/javascript" src="${ctx.contextPath}/.resources/${script}"></script>
 	[/#list]
 [/#macro]
 
 [#macro templatejs scripts]
 	[@javascript scripts = [
-		'/gato-templates/js/main-menus.js',
-		'/gato-templates/js/post-load.js',
+		'/gato-template/js/main-menus.js',
+		'/gato-template/js/post-load.js',
 		'/gato-faq-hierarchy/js/frontend.js',
 		'/gato-event-calendar/js/frontend.js'
-	]+scripts]
+	]+scripts /]
+[/#macro]
+
+[#macro css files]
+	[#list files as file]
+		<link rel="stylesheet" type="text/css" href="${ctx.contextPath}/.resources/${file}"></script>
+	[/#list]
+[/#macro]
+
+[#macro templatecss files]
+	[@css files = [
+		'/gato-template/css/common.css'
+	]+files /]
 [/#macro]
 
 [#macro title txstate=true]
@@ -44,7 +56,13 @@
 	<meta name="staleTimer" content="${inheritedcurrency}"/>
 [/#macro]
 
+[#macro sidebarmodal skipsocial=false]
+[/#macro]
+
+[#macro googleanalytics]
+[/#macro]
+
 [#assign page = cmsfn.page(content)]
 [#assign ancestorstopdown = cmsfn.ancestors(page)]
 [#assign ancestorsbottomup = cmsfn.ancestors(page)?reverse]
-[#assign isHomePage = ancestorstopdown?first.path == page.path]
+[#assign isHomePage = ancestorstopdown?has_content]

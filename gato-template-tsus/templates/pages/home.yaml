@@ -4,4 +4,4 @@ visible: true
 title: TSUS Homepage Template
 dialog: gato-templates:pages/page-properties
 areas:
-  - !include /gato-templates/templates/areas/areas.yaml
+  !include /gato-template/templates/areas/main.yaml
