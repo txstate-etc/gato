@@ -4,3 +4,27 @@
   my-department->"my url" instead of putting the properties under collegeLink.
   
 * I renamed the collegeLink node "parentOrganization" and it has 2 properties: parent_name and url.
+
+
+
+QUESTIONS:
+
+* Where can the super-user menu items be stored?  I don't think they can come from a YAML file.
+Where can we put them in the JCR so that every page can read them and only a handful of people
+can edit them?
+
+* The Texas State logos in the header and footer need to be stored in some common image location.  
+Also, we need to figure out how to put them there.  
+
+* Right now, the scss files that make the gato.css file are not in git.  Where should they go?
+Magnolia has an SCSS module https://wiki.magnolia-cms.com/display/WIKI/SCSS+Module but it doesn't
+seem to work with 5.4 yet.  
+
+* Where should the header images come from?  Can departments use their own image or just images
+provided by marketing?  
+
+* I had trouble getting around the fact that 'global' variables I set in the template were available
+in includes, but not in areas.
+
+* What happens if the user builds their whole page with no sidebar, using all four columns and then 
+decides that they want a sidebar?
