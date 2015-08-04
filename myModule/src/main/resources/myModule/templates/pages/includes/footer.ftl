@@ -14,12 +14,9 @@
 			[@cms.area name="contactInformation" editable=paramEditable/]
 		</div>
 		<div class="column third footer_column footer_column_2" >
-			[#assign footerLogo = damfn.getAsset("jcr", "txst_logo.svg")!]
-			[#if footerLogo??]
-				<div class="txst_logo">
-					<a class="image_link" href="#nowhere"><img alt="Texas State University - The Rising Star of Texas" src="${footerLogo.getLink()}"></a>
-				</div>
-			[/#if]
+			<div class="txst_logo">
+				<a class="image_link" href="#nowhere"><img alt="Texas State University - The Rising Star of Texas" src="${ctx.contextPath}/.resources/myModule/webresources/images/txst_logo.svg"></a>
+			</div>
 		</div>
 		<div class="column third footer_column footer_column_3">
 			[@cms.area name="footerLinks" editable=paramEditable/]

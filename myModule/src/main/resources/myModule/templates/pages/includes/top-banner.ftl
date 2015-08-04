@@ -1,10 +1,9 @@
 <div class="banner">
 	<div class="banner_content">
-		[#assign myAsset = damfn.getAsset("jcr", "txst-secondary.png")!]
 		<div class="banner_logo">
-			[#if myAsset??]
-			    <a href="http://www.txstate.edu"><img src="${myAsset.getLink()}"/></a>
-			[/#if]
+			    <a href="http://www.txstate.edu">
+			    	<img src="${ctx.contextPath}/.resources/myModule/webresources/images/txst-secondary.png"/>
+			    </a>
 		</div>
 		<div class="hamburger">
 			<a class="toggle-button" href="#nowhere"><i class="fa fa-bars fa-lg"></i></a>
