@@ -1730,7 +1730,7 @@ p, ul, ol, table {
   height: 100%; }
 
 .bg_image {
-  opacity: 1;
+  opacity: 0;
   position: absolute;
   margin-top: -70px;
   height: 150%;
