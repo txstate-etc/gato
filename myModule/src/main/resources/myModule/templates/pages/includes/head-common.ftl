@@ -6,4 +6,6 @@
 <script type="text/javascript" src="//code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript" src="//bigspotteddog.github.io/ScrollToFixed/jquery-scrolltofixed-min.js"></script>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
-<script type="text/javascript" src="${ctx.contextPath}/.resources/myModule/webresources/common.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.2/fastclick.min.js"></script>
+<script type="text/javascript" src="${ctx.contextPath}/.resources/myModule/webresources/js/slideout.js"></script>
+<script type="text/javascript" src="${ctx.contextPath}/.resources/myModule/webresources/js/common.js"></script>

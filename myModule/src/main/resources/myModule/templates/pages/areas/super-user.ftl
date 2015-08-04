@@ -1,6 +1,9 @@
-<div class="super_user">
+[#assign isMobile = ctx.getAttribute("isMobile")]
+[#assign divClass = isMobile?string('mobile_super_user', 'super_user')]
+[#assign mobileList = isMobile?string('mobile_super_list', '')]
+<div class="${divClass}">
 	
-	<ul class="super_list">
+	<ul class="super_list ${mobileList}">
 	
 	
 		[#-- This is how to create the menu from jcr content.--]

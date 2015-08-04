@@ -1,35 +1,28 @@
-[#-- 
-	The breadcrumbs jsp file takes a parameter "hidetxstate" which determines
-	whether or not Texas State appears in the breadcrumbs.  Freemarker includes don't
-	seem to take parameters.  If we need to have this functionality, we will have
-	to set a variable before calling the breadcrumbs import.
---]
-
-<div class="row trail clearfix">
-	<div class="column two-thirds flow-opposite">
-		<p class="breadcrumbs">
-			[#-- assume this variable is set in the calling template --]
-			[#if !hidetxstate]
-				<a href="#nowhere">Texas State</a>
-			[/#if]
-			[#assign parentUrl = ctx.getAttribute('homePageContent').parentOrganization.url!]
-			[#if parentUrl?length gt 0]
-				<span class="separator">
-					<i class="fa fa-angle-right"></i>
-				</span>
-				[#-- is it possible for them to set the parent org. url but not the name? --]
-				<a href="${parentUrl}">${ctx.getAttribute('homePageContent').parentOrganization.parent_name!"Parent Organization"}</a>
-			[/#if]
-			[#list cmsfn.ancestors(content, "mgnl:page") as ancestor ]
-				<span class="separator">
-					<i class="fa fa-angle-right"></i>
-				</span>
-				<a href="${cmsfn.link(ancestor)}">${ancestor.title!}</a>	
-			[/#list]
-			<span class="separator">
-				<i class="fa fa-angle-right"></i>
-			</span>
-			${content.title}
-		</p>
-	</div>
-</div> <!-- end breadcrumbs -->
+[#macro breadcrumbs hidetxstate isMobile]
+[#assign mobileBreadcrumbs = isMobile?string('mobile_breadcrumbs', '')]
+[#assign terminalPage = isMobile?string('terminal_page', '')]
+<p class="breadcrumbs ${mobileBreadcrumbs}">
+	[#-- assume this variable is set in the calling template --]
+	[#if !hidetxstate]
+		<a href="#nowhere">Texas State</a>
+	[/#if]
+	[#assign parentUrl = ctx.getAttribute('homePageContent').parentOrganization.url!]
+	[#if parentUrl?length gt 0]
+		<span class="separator">
+			<i class="fa fa-angle-right"></i>
+		</span>
+		[#-- is it possible for them to set the parent org. url but not the name? --]
+		<a href="${parentUrl}">${ctx.getAttribute('homePageContent').parentOrganization.parent_name!"Parent Organization"}</a>
+	[/#if]
+	[#list cmsfn.ancestors(content, "mgnl:page") as ancestor ]
+		<span class="separator">
+			<i class="fa fa-angle-right"></i>
+		</span>
+		<a href="${cmsfn.link(ancestor)}">${ancestor.title!}</a>	
+	[/#list]
+	<span class="separator">
+		<i class="fa fa-angle-right"></i>
+	</span>
+	<span class="${terminalPage}">${content.title}</span>
+</p>
+[/#macro]
