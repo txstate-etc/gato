@@ -1,11 +1,10 @@
-main:
-  renderType: freemarker
-  availableComponents:
-    quotation:
-      id: myModule:components/quotation
-    pinkpanel:
-      id: myModule:components/pinkpanel
-    bluepanel:
-      id: myModule:components/bluepanel
-    button:
-      id: myModule:components/button
+renderType: freemarker
+availableComponents:
+  quotation:
+    id: myModule:components/quotation
+  pinkpanel:
+    id: myModule:components/pinkpanel
+  bluepanel:
+    id: myModule:components/bluepanel
+  button:
+    id: myModule:components/button

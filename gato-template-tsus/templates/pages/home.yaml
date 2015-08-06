@@ -4,4 +4,18 @@ visible: true
 title: TSUS Homepage Template
 dialog: gato-templates:pages/page-properties
 areas:
-  !include /gato-template/templates/areas/main.yaml
+  main:
+    !include /gato-template/templates/areas/main.yaml
+
+  tsushomeleft:
+    availableComponents:
+      panel:
+        id: gato-template:components/richeditor
+  tsushomemiddle:
+    availableComponents:
+      panel:
+        id: gato-template:components/richeditor
+  tsushomeright:
+    availableComponents:
+      panel:
+        id: gato-template:components/richeditor
