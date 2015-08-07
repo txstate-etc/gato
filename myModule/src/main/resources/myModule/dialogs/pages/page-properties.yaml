@@ -13,6 +13,8 @@ form:
         - name: hideSidebar
           class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
           buttonLabel: Do not display navigation sidebar.
+          defaultValue: false
+          type: Boolean
           description: If you need more space for your content, you can turn off the template's sidebar
           label: Hide Sidebar
         - name: currency
