@@ -1,0 +1,13 @@
+templateScript: /myModule/templates/components/navigationBlock.ftl
+renderType: freemarker
+dialog: myModule:components/navigationBlock
+description: A Navigation Block
+title: Navigation Block
+areas:
+  links:
+    type: list
+    templateScript: /myModule/templates/pages/areas/navblock-area.ftl
+    title: Links
+    availableComponents:
+      texasLink:
+        id: myModule:components/texasLink

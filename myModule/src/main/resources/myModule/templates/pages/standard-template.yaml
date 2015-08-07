@@ -38,6 +38,15 @@ areas:
     dialog: myModule:pages/areas/footer-links
   contentParagraph:
     title: Main Content Area
+    # availableComponents:
+    #   quotation:
+    #     id: myModule:components/quotation
+    #   greenpanel:
+    #     id: myModule:components/greenpanel
+  navBlocks:
+    title: Sidebar
+    renderType: freemarker
+    type: list
     availableComponents:
-      quotation:
-        id: myModule:components/quotation
+      navigationBlock:
+        id: myModule:components/navigationBlock
