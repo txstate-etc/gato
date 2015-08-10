@@ -1,0 +1,27 @@
+form:
+  tabs:
+    - name: tabLink
+      label: Link
+      fields:
+        - name: link
+          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+          description: Enter a full URL to an external site (http://www.google.com/) or use the "Internal Link" button to link to another page in this site.
+          label: Link
+          buttonSelectNewLabel: Internal Link
+          appName: pages
+          targetWorkspace: website
+        - name: newWindow
+          class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+          selected: false
+          label: ""
+          buttonLabel: Open link in new window?
+        - name: text
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          description: "Empty text: External uses link, internal uses title of destination page"
+          label: Link Text
+          rows: 3
+actions:
+  commit:
+    class: info.magnolia.ui.admincentral.dialog.action.SaveDialogActionDefinition
+  cancel:
+    class: info.magnolia.ui.admincentral.dialog.action.CancelDialogActionDefinition
