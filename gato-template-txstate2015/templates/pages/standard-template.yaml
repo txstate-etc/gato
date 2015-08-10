@@ -1,0 +1,52 @@
+templateScript: /gato-template-txstate2015/templates/pages/standard-template.ftl
+renderType: freemarker
+visible: true
+title: Standard Template
+dialog: gato-template:pages/page-properties
+areas:
+  headerImage:
+    renderType: freemarker
+    type: noComponent
+    createAreaNode: false
+    dialog: gato-template-txstate2015:pages/areas/header-image
+    title: Header Image
+    templateScript: /gato-template-txstate2015/templates/pages/areas/header-image.ftl
+  parentOrganization:
+    renderType: freemarker
+    type: noComponent
+    dialog: gato-template-txstate2015:pages/areas/parent-organization
+    templateScript: /gato-template-txstate2015/templates/pages/areas/parent-organization.ftl
+    title: Parent Organization
+  superUser:
+    renderType: freemarker
+    type: noComponent
+    createAreaNode: false
+    dialog: gato-template-txstate2015:pages/areas/super-user
+    templateScript: /gato-template-txstate2015/templates/pages/areas/super-user.ftl
+    title: Top Menu
+  contactInformation:
+    renderType: freemarker
+    type: noComponent
+    title: Contact Information
+    templateScript: /gato-template-txstate2015/templates/pages/areas/contact-information.ftl
+    dialog: gato-template-txstate2015:pages/areas/contact-information
+  footerLinks:
+    renderType: freemarker
+    type: noComponent
+    title: Footer Links
+    templateScript: /gato-template-txstate2015/templates/pages/areas/footer-links.ftl
+    dialog: gato-template-txstate2015:pages/areas/footer-links
+  contentParagraph:
+    title: Main Content Area
+    # availableComponents:
+    #   quotation:
+    #     id: myModule:components/quotation
+    #   greenpanel:
+    #     id: myModule:components/greenpanel
+  navBlocks:
+    title: Sidebar
+    renderType: freemarker
+    type: list
+    availableComponents:
+      navigationBlock:
+        id: gato-template-txstate2015:components/navigationBlock

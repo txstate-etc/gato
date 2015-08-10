@@ -1,6 +1,6 @@
 templateScript: /myModule/templates/pages/standard-template.ftl
 renderType: freemarker
-visible: true
+visible: false
 title: Standard Template
 dialog: myModule:pages/page-properties
 areas:

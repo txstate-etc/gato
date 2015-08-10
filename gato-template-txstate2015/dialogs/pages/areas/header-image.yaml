@@ -1,0 +1,13 @@
+form:
+  tabs:
+    - name: tabText
+      label: Header Image
+      fields:
+        - name: header_image
+          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+          targetWorkspace: dam
+          appName: assets
+          label: Header Image
+          contentPreviewDefinition:
+            contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
+actions: !include /myModule/dialogs/common/actions-block.yaml
