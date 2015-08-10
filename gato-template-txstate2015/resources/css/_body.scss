@@ -1,0 +1,123 @@
+/* main body styles*/
+
+.page_content {
+    padding: 1rem 0; 
+    overflow: hidden; 
+    min-height: 32rem; 
+    background-color: $content-background;
+    .row {margin-bottom: 1.5rem;}
+    a:not(.button){
+        padding: 1px 3px; 
+        margin: -1px -3px; 
+        color: $content-link-text; 
+        text-decoration: underline;
+        &:hover {background: $content-link-hover;}
+    }
+}
+
+.breadcrumbs {
+    a {
+        color: $breadcrumbs-text; 
+        text-decoration: none;
+        &:hover{
+            text-decoration: underline; 
+            background: transparent;
+        }
+    }
+    .separator {margin: auto 5px auto 7px;}
+}
+
+
+//should move this to buttons file
+.top_services {
+    margin: 0; 
+    font-weight: 100; 
+    text-transform: uppercase; 
+    line-height: 1.5rem; 
+    margin-top: 2.5rem;
+
+    div {margin: 1.2rem 0;}
+
+    a {
+        margin: auto; 
+        text-decoration: none; 
+        color: #FFFFFF; 
+        padding: 1.4rem .75rem; 
+        background: #6A5638; 
+        display: block; 
+        text-align: center; 
+        border-radius: 3px; 
+        font-size: 90%;
+        &:hover {
+            background: #79674C; 
+            background: rgba(107, 86, 49, 0.85);
+        }
+    }
+
+}
+
+.button_press {
+    position: relative; 
+    @include vendor-prefix(transition, background .2s ease-in-out, box-shadow 0s !important );
+    box-shadow: 0 4px #4A3C27;
+    &:hover {background: #79674C !important;}
+    &:active {position: relative; top: 4px; box-shadow: 0 0 #4A3C27;}
+
+}
+
+//I think these are just for the demo page... they style the 'buttons'
+//.service_1 {background: url('../images/pencils.jpg') no-repeat; background-size: cover; border-radius: 3px;}
+//.service_1 a {padding: 1.6rem 1rem;}
+//.service_2 a {border: 3px solid #501214; background: none; color: #501214; font-weight: 700; box-shadow: none; padding: 1.3rem 0.65rem;}
+//.service_2 a:hover {background: #501214; color: #FFFFFF;}
+//.service_3 {background: url('../images/bobcat.jpg') no-repeat; background-size: cover; background-position: 100% 60%; border-radius: 3px;}
+//.service_4 {background: none; background-size: cover; border-radius: 3px;}
+
+/* icon/text paragraph style*/
+.display_icon {
+    font-size: 5rem; 
+    color: $icon-color;
+    a {
+        color: $icon-color; 
+        @include vendor-prefix(transition, all 0.2s ease-in-out);
+        &:hover{background-color: transparent; opacity: 0.8;}
+    }
+}
+.infographic p {max-width: 250px; text-align: center; margin: 1rem auto;}
+
+/* carousel styles */
+.slider, .slider_2 {margin-bottom: 4rem !important; margin-top: 2rem;}
+.has_caption {position: relative;}
+.slider_image_link {
+    img {width: 100%;}
+    margin: 0 !important; 
+    padding: 0 !important; 
+    opacity: 1; 
+    @include vendor-prefix(transition, opacity 0.2s ease-in-out);
+    display: block;
+    &:hover {opacity: .9;}
+}
+.slide_caption {
+    color: #FFFFFF; 
+    padding: .1rem 1.5rem .5rem 1.5rem; 
+    min-width: 100%
+    a {
+        color: #FFFFFF !important;  
+    }
+    a:hover {
+             background: #363534; 
+             background: rgba(255, 255, 255, 0.2);
+    }
+}
+.slide_caption_reverse {
+    color: #222222;
+    a {
+        color: #222222 !important;
+    }
+}
+.slider_3 {
+    .slide_caption {position: initial; font-size: 90%; padding: .1rem 1rem;}
+    .has_caption {margin: 8px;}
+    .slick-slide {opacity: 0.7; transition: all 300ms ease;}
+    .slick-center {opacity: 1;}
+}

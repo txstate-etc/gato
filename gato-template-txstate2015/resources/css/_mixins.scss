@@ -1,0 +1,106 @@
+//mixins
+
+
+//this should be done with an autoprefixer
+@mixin vendor-prefix($name, $argument...) {
+  -webkit-#{$name}: #{$argument};
+  -ms-#{$name}: #{$argument};
+  -moz-#{$name}: #{$argument};
+  -o-#{$name}: #{$argument};
+  #{$name}: #{$argument};
+}
+
+//converted from Bootstrap LESS mixin #gradient > vertical
+@mixin vertical-gradient($start-color: #555, $end-color: #333, $start-percent: 0%, $end-percent: 100%) {
+    background: $start-color;
+    background-image: -webkit-linear-gradint(top, $start-color $start-percent, $end-color $end-percent);  // Safari 5.1-6, Chrome 10+
+    background-image: -o-linear-gradient(top, $start-color $start-percent, $end-color $end-percent);  // Opera 12
+    background-image: linear-gradient(to bottom, $start-color $start-percent, $end-color $end-percent); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}', GradientType=0); // IE9 and down
+}
+
+
+//different from the other vendor prefixes.  might not be necessary if all browsers
+//we need support box shadows
+@mixin box-shadow($shadows...) {
+  -moz-box-shadow: $shadows;
+  -webkit-box-shadow: $shadows; 
+          box-shadow: $shadows;
+}
+
+@mixin gradient-button($border-color, $grad-top, $grad-bottom, $hover-grad-top, $hover-grad-bottom, $reverse-text){
+  
+  background: $grad-top;
+  border: $border-color;
+  @if $reverse-text == true{
+    color: $button-reverse-text;
+    font-weight: $button-reverse-text-weight;
+  }
+  @else{
+    color: $button-text;
+  }
+  
+  @include vertical-gradient($grad-top,$grad-bottom);
+  &:hover{
+    background: $hover-grad-top;
+    @include vertical-gradient($hover-grad-top,$hover-grad-bottom);
+  }
+
+}
+
+@mixin reverse-button($color){
+    color: $color;
+    background: $reverse-btn-background;
+    text-decoration: none;
+    font-weight: 700;
+    border: 3px solid $color;
+    &:hover{
+      background: $color;
+      color: $reverse-btn-background;
+    }
+}
+
+@mixin three-d-button($background, $hover-background, $shadow, $reverse-text){
+  border: 0px;
+    @if $reverse-text == true{
+      color: $button-reverse-text;
+    }
+    @else{
+      color: $button-text;
+    }
+    background: $background;
+    @include vendor-prefix(transition, background .2s ease-in-out, box-shadow 0s !important);
+    @include box-shadow(0 4px $shadow);
+    &:hover{
+      background: $hover-background;   
+    }
+    &:active{
+       @include box-shadow(0 0 $shadow);
+    }
+  
+}
+
+@mixin image-rollover-button($background, $rollover-background, $reverse-text){
+  @if $reverse-text == true{
+    color: $button-reverse-text;
+  }
+  @else{
+    color: $button-text;
+  }
+  background: url('images/pencils.jpg') no-repeat; 
+  padding: 0px;  //padding is set in the span so the image is covered
+  background-position: 100% 50%; 
+  background-size: cover;
+  border: 0px;
+  span{
+      display:block;
+      padding: 1.4rem 0.75rem;
+      vertical-align: middle;
+      font-weight:400;
+      background-color: $background;
+      border-radius: $default-border-radius;
+      &:hover {background-color: $rollover-background; background: rgba($background, 0.85);}
+      &:active {background-color: $rollover-background; background: rgba($background, 0.95);}
+  }
+}

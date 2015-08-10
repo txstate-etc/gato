@@ -1,0 +1,126 @@
+/* txstate specific media rules */
+
+//from Michael's spreadsheet
+@media handheld {
+.bg_video {display: none !important;}
+}
+
+@media handheld and (min-width: 64rem) {
+    .bg_image, .bg_image_secondary, .bg_image_none{display: block !important;}
+}
+
+//40rem = ~640px
+@media screen and (min-width: 40rem) {
+
+    html {font-size: 110%;}
+    figcaption {font-size: 75%;}
+    .column {
+        float: left;
+        &.flow-opposite{
+            float: right;
+        }
+        //leaving these in.  pure grid might be overkill.
+        &.full {width: 100%;}
+        &.three-fourths {width: 75%;}
+        &.two-thirds {width: 66.7%;}
+        &.half {width: 50%;}
+        &.third {width: 33.3%;}
+        &.fourth {width: 25%;}
+    }
+    .main_section {padding-bottom: 0;}
+    
+    .header {min-height: 350px; padding: 0;}
+    .header_with_image_secondary {min-height: 180px; padding: 0;}
+    .header_with_image {min-height: 280px; padding: 0;}
+    .header_no_image {min-height: 100px; padding: 0;}
+    .header_5 {min-height: 220px; padding: 0;}
+    h1 {font-size: 2.2rem; line-height: 46px; padding: 18px 16px 12px 16px;}
+    h2 {margin-top: 0; font-size: 1.4rem;}
+    .bg_overlay, .bg_image, .bg_image_secondary, .bg_image_none {display: block;}
+    .breadcrumbs {text-align: right; font-size: 12px; margin: 0 auto;}
+    .footer_column_1 {margin-top: auto; text-align: left;}
+    .dept_info {margin-left: 1.2rem; padding-left: 0.6rem;}
+    .foot_linkage {text-align: right; margin-bottom: 0.7rem;;}
+    .contact_us {font-size: 1.2rem; margin: .5rem auto 1rem auto;}
+    .office_contact_2, .foot_linkage {font-size: .65rem; line-height: 1.4rem;}
+    .office_contact_2 p {font-size: .65rem; line-height: 1.1rem;}
+    .apply_now {display: inline; max-width: 200px; float: right; padding: 0.7rem 2.4rem !important; font-size: .75rem; margin: 1rem 0 !important;}
+    .page_content {font-size: 95%;}
+    .parent_org a {bottom: .7rem;}
+    .sidebar {padding-right: 1rem;}
+    .sidebar_active {padding-left: 2rem;}
+    .sidebar_active_reverse {padding-right: 3rem;}
+    .dept_name, .title {position: absolute;}
+    .slide_caption {font-size: 100%; position: absolute; bottom: 0;}
+    //probably don't need these here
+    .caption_color_1 {background: $dark-charcoal; background: rgba($dark-charcoal, .9);}
+    .caption_color_2 {background:  $blue; background: rgba($blue, 0.9);}
+    .caption_color_3 {background: $maroon; background: rgba($maroon, 0.9);}
+    .caption_color_4 {background:  $gold; background: rgba($gold, 0.9);}
+    .caption_color_5 {background: $oldgold; background: rgba($oldgold, 0.9);}
+    .caption_color_6 {background:  $river; background: rgba($river, 0.9);}
+    .caption_color_7 {background: $dark-sandstone; background: rgba($dark-sandstone, 0.9);}
+    .slick-prev {left: 1.5rem;}
+    .slick-next {right: 1.5rem;}
+    .breadcrumbs {line-height: 18px;}
+    .side_nav_list a {font-size: 80%;}
+    .side_nav_header {font-size: 90%;}
+}
+
+//48rem = ~768px
+@media screen and (min-width: 48rem) {
+    
+    .nav {
+        margin: auto; display: block;
+        a {
+            width: auto;
+            border: none;
+            padding: .4rem .5rem; 
+            margin: auto 0; 
+            text-align: left; 
+            min-width: 0; 
+            font-size: 70%;
+        }
+    }
+    
+    .hamburger, .hamburger_2, .mobile_nav {display: none;}
+    .banner {height: 70px;}
+    .banner_logo {
+        width: 225px;
+        img {
+            max-width: 100%; 
+            margin-top: 15px;
+        }
+    }
+    
+    .primary_nav a, .secondary_nav a {font-size: 75%;}
+    .hide, .top_nav, .super_user, .txst_search {display: block;}
+    .header_no_image {min-height: 120px; padding: 0;}
+    .slider_3 .slide_caption {min-height: 260px;}
+    .trail {display: block;}
+    .page_content {margin: auto;}
+} 
+//64rem = ~1024px
+@media screen and (min-width: 64rem) {
+    html {font-size: 120%;}
+    .header, .header_with_image {min-height: 320px;}
+    .bg_video {display: inline-block; margin-top: -125px;}
+    .align_1, .align_2, .align_3 {padding: 0 1rem;}
+    .messaging_title {padding: 5.4rem 1rem 2.2rem 1rem; font-size: 5rem;}
+    .side_nav {margin-left: 0;}
+    .nav a {padding: .4rem .6rem;}
+    .primary_nav a, .seconday_nav a {font-size: 80%;}
+}
+
+//80rem = ~1280px
+@media screen and (min-width: 80rem) {
+    //nothing specific to this size- maybe we don't need it
+}
+
+//90rem = ~1440px
+@media screen and (min-width: 90rem) {
+    .header, .header_with_image {min-height: 360px;}
+    .super_list, .banner_content, .parent_org, h1, .nav, .page_content, .footer_content {max-width: 1200px;}
+    .header_with_image_secondary {min-height: 220px; padding: 0;}
+    .txst_logo {max-width: 280px;}
+}
