@@ -7,7 +7,7 @@
 		<a href="#nowhere">Texas State</a>
 	[/#if]
 	[#-- need to check for missing parent org here --]
-	[#assign parentUrl = ctx.getAttribute('homePageContent').parentOrganization.url!]
+	[#assign parentUrl = (ctx.getAttribute('homePageContent').parentOrganization.url)!]
 	[#if parentUrl?length gt 0]
 		<span class="separator">
 			<i class="fa fa-angle-right"></i>
