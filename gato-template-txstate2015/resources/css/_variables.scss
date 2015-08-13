@@ -43,13 +43,11 @@
  $darker-river:         #6F8BA1; //20% darker than river
  $river-shadow:         #617A71; //30% darker than river
 
-
- //rename sandstone shades to be more consistent
  $light-sandstone:      #F4F1ED; //50% lighter than sandstone
- $dark-sandstone:       #D1C7B7; //50% darker than sandstone.  Michael wants to call this khaki.
- $darkest-sandstone:    #BBAB92;
- $tan:                  #DDD5C9; //used with sandstone but not derived from it
-
+ $khaki:                #D1C7B7; //50% darker than sandstone
+ $darkest-sandstone:    #BBAB92; //40% darker than sandstone
+ $dark-sandstone:       #DDD5C9; //10% darker than sandstone
+ 
  $lightest-oldgold:     #E5C339; //20% lighter than oldgold
  $light-oldgold:        #E1BC20; //10% lighter than oldgold
  $dark-oldgold:         #C8A106; //10% darker than oldgold
@@ -67,7 +65,7 @@
  $default-background:               $gold;
  $container-background:             $white;
 
- $banner-top:                       $dark-sandstone;
+ $banner-top:                       $khaki;
  $banner-bottom:                    $darkest-sandstone;
  $banner-bottom-border:             $gold;
  $hamburger-button:                 $very-dark;
@@ -98,7 +96,7 @@
 
 
  $primary-nav-gradient-top:         $sandstone;
- $primary-nav-gradient-bottom:      $dark-sandstone;
+ $primary-nav-gradient-bottom:      $khaki;
  $primary-nav-box-shadow:           $darkest-sandstone;
  $primary-nav-item-left-border:     $darkest-sandstone;
  $primary-nav-item-text:            $very-dark;
@@ -109,12 +107,12 @@
  $secondary-nav-border:             $darkest-sandstone;
  $secondary-nav-background:         $sandstone;
  $secondary-nav-border-top:         $light-sandstone;
- $secondary-nav-border-bottom:      $tan;
- $secondary-nav-hover-background:   $dark-sandstone;
+ $secondary-nav-border-bottom:      $dark-sandstone;
+ $secondary-nav-hover-background:   $khaki;
  $secondary-nav-item-text:          $very-dark;
 
  $side-nav-background:              $light-sandstone;
- $side-nav-border-bottom:           $tan; 
+ $side-nav-border-bottom:           $dark-sandstone; 
  $side-nav-border-top:              $white;
  $side-nav-header-text:             $charcoal;
  $side-nav-link-text:               $maroon;
