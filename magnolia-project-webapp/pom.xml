@@ -65,6 +65,32 @@
           <dependentWarExcludes>WEB-INF/lib/*.jar</dependentWarExcludes>
         </configuration>
       </plugin>
+      <plugin>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <version>1.8</version>
+        <executions>
+          <execution>
+            <phase>prepare-package</phase>
+            <configuration>
+              <!-- Copy light modules into the WAR -->
+              <target>
+                <copy todir="target/${project.artifactId}-${project.version}/gato-template">
+                  <fileset dir="${project.basedir}/../gato-template"/>
+                </copy>
+                <copy todir="target/${project.artifactId}-${project.version}/gato-template-tsus">
+                  <fileset dir="${project.basedir}/../gato-template-tsus"/>
+                </copy>
+                <copy todir="target/${project.artifactId}-${project.version}/gato-template-txstate2015">
+                  <fileset dir="${project.basedir}/../gato-template-txstate2015"/>
+                </copy>
+              </target>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
   </build>
 </project>
