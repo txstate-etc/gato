@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>info.magnolia</groupId>
-  <artifactId>magnolia-project</artifactId>
-  <name>magnolia-project (parent pom)</name>
+  <groupId>edu.txstate.its.gato</groupId>
+  <artifactId>gato-base</artifactId>
+  <name>Gato Base</name>
   <version>1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
@@ -21,29 +21,6 @@
 
   <dependencyManagement>
     <dependencies>
-      <!-- Due to a bug in Maven 2, we have to import info.magnolia:magnolia-project here.
-           It would normally not be needed, since info.magnolia:magnolia-bundle-parent already imports it. (see below)
-           The dependency to info.magnolia:magnolia-project needs to be BEFORE the dependency
-           to info.magnolia:magnolia-bundle-parent, otherwise it doesn't work either.
-           Also note that this is assuming magnolia-project and magnolia-ui-project have the same version number as
-           magnolia-bundle-parent, which not always be true in the future.
-           If you are using Maven 3, you should not need the 2 dependencies below, and all should be well.
-       -->
-      <dependency>
-        <groupId>info.magnolia</groupId>
-        <artifactId>magnolia-project</artifactId>
-        <version>${magnoliaVersion}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <dependency>
-        <groupId>info.magnolia.ui</groupId>
-        <artifactId>magnolia-ui-project</artifactId>
-        <version>${magnoliaVersion}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-
       <!-- Importing dependencyManagement of CE bundle. This means you don't have to specify versions of modules you depend on (unless you want a different version than that of the bundle). -->
       <dependency>
         <groupId>info.magnolia.bundle</groupId>

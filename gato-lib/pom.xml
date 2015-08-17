@@ -2,9 +2,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <artifactId>magnolia-project</artifactId>
-    <groupId>info.magnolia</groupId>
+    <groupId>edu.txstate.its.gato</groupId>
+    <artifactId>gato-base</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <relativePath>../pom.xml</relativePath>
   </parent>
   <groupId>edu.txstate.its.gato</groupId>
   <artifactId>gato-lib</artifactId>
@@ -14,10 +15,6 @@
   <!--
   <description>Please uncomment and fill in ...</description>
   -->
-  <properties>
-    <magnoliaVersion>5.4</magnoliaVersion>
-    <javaVersion>1.6</javaVersion>
-  </properties>
 
   <dependencies>
     <dependency>
