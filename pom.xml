@@ -108,7 +108,7 @@
   </repositories>
 
   <modules>
-    <module>magnolia-project-webapp</module>
+    <module>gato-webapp</module>
     <module>gato-lib</module>
   </modules>
 </project>
