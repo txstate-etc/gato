@@ -28,7 +28,7 @@
 [#macro title txstate=true]
 	<title>
 		${page.title}
-		[#if !isHomePage]: ancestorstopdown?first.title[/#if]
+		[#if !isHomePage]: ${ancestorstopdown?first.title}[/#if]
 		[#if txstate]: Texas State University[/#if]
 	</title>
 [/#macro]
@@ -65,4 +65,4 @@
 [#assign page = cmsfn.page(content)]
 [#assign ancestorstopdown = cmsfn.ancestors(page)]
 [#assign ancestorsbottomup = cmsfn.ancestors(page)?reverse]
-[#assign isHomePage = ancestorstopdown?has_content]
+[#assign isHomePage = !ancestorstopdown?has_content]
