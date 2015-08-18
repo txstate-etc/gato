@@ -63,5 +63,5 @@ form:
           buttonLabel: I have upgraded to Universal Analytics
           class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition 
           label: ""       
-actions: !include /tago-template/dialogs/common/actions-block.yaml
+actions: !include /gato-template/dialogs/common/actions-block.yaml
 label: Page Properties
