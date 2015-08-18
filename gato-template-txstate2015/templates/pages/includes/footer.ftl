@@ -15,7 +15,7 @@
 		</div>
 		<div class="column third footer_column footer_column_2" >
 			<div class="txst_logo">
-				<a class="image_link" href="#nowhere"><img alt="Texas State University - The Rising Star of Texas" src="${ctx.contextPath}/.resources/myModule/webresources/images/txst_logo.svg"></a>
+				<a class="image_link" href="#nowhere"><img alt="Texas State University - The Rising Star of Texas" src="${ctx.contextPath}/.resources/gato-template-txstate2015/resources/images/txst_logo.svg"></a>
 			</div>
 		</div>
 		<div class="column third footer_column footer_column_3">
