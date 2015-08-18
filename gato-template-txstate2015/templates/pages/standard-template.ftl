@@ -40,12 +40,24 @@
 			</div>
 			<div class="page_content">
 				<div class="row trail clearfix">
-					<div class="column two-thirds flow-opposite">
+					<div class="column col-xs-2-3 flow-opposite">
 						[@trail.breadcrumbs hidetxstate=false isMobile=false/]
 					</div>
 				</div> <!-- end breadcrumbs -->
-				[#include "includes/headline.ftl"]
-				[@cms.area name="contentParagraph" /]
+				<div class="row clearfix">
+					[#assign hideSidebar = content.hideSidebar!false]
+
+					[#assign mainContentClass = hideSidebar?string('col-xs-1','col-xs-3-4')]
+					<div class="column ${mainContentClass}">
+						[#include "includes/headline.ftl"]
+						[@cms.area name="contentParagraph" /]
+					</div>
+					[#if hideSidebar == false]
+					<div class="column col-xs-1-4 sidebar">
+						[@cms.area name="navBlocks" /]
+					</div>
+					[/#if]
+				</div>
 			</div> <!-- end of page_content -->
 			[#include "includes/footer.ftl"]
 		</div> <!-- end of the container -->
