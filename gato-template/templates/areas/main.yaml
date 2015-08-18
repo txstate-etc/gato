@@ -1,10 +1,10 @@
 renderType: freemarker
 availableComponents:
   quotation:
-    id: myModule:components/quotation
+    id: gato-template:components/quotation
   pinkpanel:
-    id: myModule:components/pinkpanel
+    id: gato-template:components/pinkpanel
   bluepanel:
-    id: myModule:components/bluepanel
+    id: gato-template:components/bluepanel
   button:
-    id: myModule:components/button
+    id: gato-template:components/button

@@ -56,4 +56,4 @@ form:
         #  class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
          # buttonLabel: Collapse this block until user clicks on title (ignored if title is empty).
           #label: Collapsible
-actions: !include /myModule/dialogs/common/actions-block.yaml
+actions: !include /gato-template/dialogs/common/actions-block.yaml

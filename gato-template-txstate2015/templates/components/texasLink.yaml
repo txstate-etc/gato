@@ -1,5 +1,5 @@
-templateScript: /myModule/templates/components/texasLink.ftl
+templateScript: /gato-template-txstate2015/templates/components/texasLink.ftl
 renderType: freemarker
-dialog: myModule:components/texasLink
+dialog: gato-template-txstate2015:components/texasLink
 description: Make a link that points to another page within the site or to an external URL.
 title: Link

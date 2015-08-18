@@ -1,13 +1,13 @@
-templateScript: /myModule/templates/components/navigationBlock.ftl
+templateScript: /gato-template-txstate2015/templates/components/navigationBlock.ftl
 renderType: freemarker
-dialog: myModule:components/navigationBlock
+dialog: gato-template-txstate2015:components/navigationBlock
 description: A Navigation Block
 title: Navigation Block
 areas:
   links:
     type: list
-    templateScript: /myModule/templates/pages/areas/navblock-area.ftl
+    templateScript: /gato-template-txstate2015/templates/pages/areas/navblock-area.ftl
     title: Links
     availableComponents:
       texasLink:
-        id: myModule:components/texasLink
+        id: gato-template-txstate2015:components/texasLink
