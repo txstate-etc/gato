@@ -1,0 +1,5 @@
+type: list
+renderType: freemarker
+availableComponents:
+  customjs:
+    id: gato-template:components/customjs

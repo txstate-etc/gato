@@ -4,18 +4,29 @@ visible: true
 title: TSUS Homepage Template
 dialog: gato-templates:pages/page-properties
 areas:
-  main:
-    !include /gato-template/templates/areas/main.yaml
-
+  customcss:
+    !include /gato-template/templates/areas/customcss.yaml
+  customjs:
+    !include /gato-template/templates/areas/customjs.yaml
+  slideshow:
+    type: single
   tsushomeleft:
+    type: list
     availableComponents:
       panel:
         id: gato-template:components/richeditor
   tsushomemiddle:
+    type: list
     availableComponents:
       panel:
         id: gato-template:components/richeditor
   tsushomeright:
+    type: list
     availableComponents:
       panel:
         id: gato-template:components/richeditor
+  tsuslogos:
+    type: list
+    availableComponents:
+      logo:
+        id: gato-template-tsus:components/institutionlogo

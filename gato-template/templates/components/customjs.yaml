@@ -1,0 +1,5 @@
+templateScript: /gato-template/templates/components/customjs.ftl
+renderType: freemarker
+dialog: gato-template:components/customjs
+description: Add a custom block of Javascript (JS) code to your site.
+title: Custom JS

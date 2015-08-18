@@ -9,20 +9,10 @@
 		[@templatecss files=[
 			'/gato-templates-tsus/css/meta-home.css'
 		]/]
+		[@cms.page /]
 	</head>
 	
 	<body>
-		[#if cmsfn.isEditMode()]
-			<div id="gato-customjs-modal" class="gato-customjs-column">		
-				[@cms.area name="customjs" /]
-			</div>
-			<div id="gato-customcss-modal" class="gato-customjs-column">
-				[@cms.area name="customcss" /]
-			</div>
-			[@sidebarmodal skipsocial=true /]
-			</c:import>
-		[/#if]
-
 		[#include "includes/topbanner.ftl"]
 		<h1 id="maincontent" tabindex="-1" class="visuallyhidden">${content.title}</h1>
 
@@ -47,5 +37,16 @@
 		</ul>
 		[#include "includes/footer.ftl"]
 		[@googleanalytics /]
+		
+		[#if cmsfn.isEditMode()]
+			<div id="gato-customjs-modal" class="gato-customjs-column">		
+				[@cms.area name="customjs" /]
+			</div>
+			<div id="gato-customcss-modal" class="gato-customjs-column">
+				[@cms.area name="customcss" /]
+			</div>
+			[@sidebarmodal skipsocial=true /]
+		[/#if]
+
 	</body>
 </html>
