@@ -1,8 +1,4 @@
-[#macro javascript scripts]
-	[#list ['gato-lib/js/jquery.js', 'gato-lib/js/gato-lib.js'] + scripts as script]
-		<script type="text/javascript" src="${ctx.contextPath}/.resources/${script}"></script>
-	[/#list]
-[/#macro]
+[#include "/gato-lib/templates/includes/head.ftl"]
 
 [#macro templatejs scripts]
 	[@javascript scripts = [
@@ -11,12 +7,6 @@
 		'/gato-faq-hierarchy/js/frontend.js',
 		'/gato-event-calendar/js/frontend.js'
 	]+scripts /]
-[/#macro]
-
-[#macro css files]
-	[#list files as file]
-		<link rel="stylesheet" type="text/css" href="${ctx.contextPath}/.resources/${file}"></script>
-	[/#list]
 [/#macro]
 
 [#macro templatecss files]
