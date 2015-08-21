@@ -2,14 +2,13 @@
 
 <!DOCTYPE HTML>
 	<head>
-		[@title txstate=false/]
 		[@templatejs scripts=[
-			'/gato-templates-tsus/js/stretch-institutions.js'
+			'gato-templates-tsus/js/stretch-institutions.js'
 		]/]
 		[@templatecss files=[
-			'/gato-templates-tsus/css/meta-home.css'
+			'gato-templates-tsus/css/meta-home.css'
 		]/]
-		[@cms.page /]
+		[@templatehead publisher="Texas State University System"/]
 	</head>
 	
 	<body>

@@ -2,10 +2,10 @@
 
 [#macro templatejs scripts]
 	[@javascript scripts = [
-		'/gato-template/js/main-menus.js',
-		'/gato-template/js/post-load.js',
-		'/gato-faq-hierarchy/js/frontend.js',
-		'/gato-event-calendar/js/frontend.js'
+		'gato-template/js/main-menus.js',
+		'gato-template/js/post-load.js',
+		'gato-faq-hierarchy/js/frontend.js',
+		'gato-event-calendar/js/frontend.js'
 	]+scripts /]
 [/#macro]
 
@@ -15,18 +15,26 @@
 	]+files /]
 [/#macro]
 
-[#macro title txstate=true]
+[#macro templatehead publisher="Texas State University"]
+	[@meta publisher /]
+	[@customCSS page ancestorstopdown /]
+	[@customJS page ancestorstopdown /]
+	[@title publisher /]
+	[@cms.page /]
+[/#macro]
+
+[#macro title rootorg]
 	<title>
 		${page.title}
 		[#if !isHomePage]: ${ancestorstopdown?first.title}[/#if]
-		[#if txstate]: Texas State University[/#if]
+		[#if rootorg == "Texas State University"]: ${rootorg}[/#if]
 	</title>
 [/#macro]
 
 [#macro meta publisher="Texas State University"]
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	[#if page.metaNoIndex]
+	[#if page.metaNoIndex?has_content]
 		<meta name="ROBOTS" content="NOINDEX" />
 	[/#if]
 	[#if page.metaDescription?has_content]
@@ -39,11 +47,12 @@
 	[/#if]
 	<meta name="DC.publisher" content="${publisher}" />
 	<meta name="DC.creator" content="${page}" />
-	<meta name="DC.date" content="${pageModificationDate}" />
-	[#if contentIsStale]
+	<meta name="DC.date" content="${cmsfn.metaData(page, 'mgnl:lastModified')}" />
+	[#local lastmod = cmsfn.metaData(page, 'mgnl:lastModified')?datetime("yyyy-MM-dd'T'HH:mm:ss.SSSXXX")]
+	[#--TODO[#if contentIsStale]--]
 		<meta name="contentIsStale" content="true" />
-	[/#if]
-	<meta name="staleTimer" content="${inheritedcurrency}"/>
+	[#--[/#if]--]
+	[#--TODO <meta name="staleTimer" content="${inheritedcurrency}"/> --]
 [/#macro]
 
 [#macro sidebarmodal skipsocial=false]
