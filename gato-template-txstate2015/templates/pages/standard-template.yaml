@@ -38,7 +38,11 @@ areas:
     dialog: gato-template-txstate2015:pages/areas/footer-links
   contentParagraph:
     title: Main Content Area
-    # availableComponents:
+    availableComponents:
+      richeditor:
+        id: gato-template:components/richeditor
+      textimage:
+        id: gato-template:components/textimage
     #   quotation:
     #     id: myModule:components/quotation
     #   greenpanel:

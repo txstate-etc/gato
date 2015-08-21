@@ -157,7 +157,7 @@ figcaption {
   background: #8BAEA1; }
 
 .caption_color_7 {
-  background: #D1C7B7; }
+  background: #DDD5C9; }
 
 .slick-prev {
   left: 1rem; }
@@ -1253,8 +1253,8 @@ figcaption {
     background: rgba(139, 174, 161, 0.9); }
 
   .caption_color_7 {
-    background: #D1C7B7;
-    background: rgba(209, 199, 183, 0.9); }
+    background: #DDD5C9;
+    background: rgba(221, 213, 201, 0.9); }
 
   .slick-prev {
     left: 1.5rem; }
@@ -2638,5 +2638,28 @@ a.image_link:hover {
 
 a.button {
   text-decoration: none; }
+
+.txst-textimage-imageblock {
+  margin-bottom: 15px; }
+  .txst-textimage-imageblock img {
+    margin-bottom: 5px;
+    border-width: 1px; }
+
+.txst-textimage-caption {
+  font-size: .8em;
+  line-height: 1.1em;
+  color: #666666;
+  word-wrap: break-word;
+  min-width: 30px; }
+
+.txst-textimage-blockleft {
+  float: left;
+  margin-right: 10px; }
+
+.txst-textimage-blockright {
+  float: right;
+  margin-left: 10px; }
+  .txst-textimage-blockright .txst-textimage-caption {
+    text-align: right; }
 
 /*# sourceMappingURL=gato.css.map */
