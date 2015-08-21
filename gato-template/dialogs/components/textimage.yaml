@@ -1,0 +1,71 @@
+form:
+  tabs:
+    - name: tabTexts
+      label: Text
+      fields:
+        - name: title
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Title
+        - name: text
+          class: info.magnolia.ui.form.field.definition.RichTextFieldDefinition
+          label: Text
+          source: true
+    - name: tabImage
+      label: Image
+      fields:
+        - name: image
+          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+          appName: assets
+          targetWorkspace: dam
+          label: Image
+          identifierToPathConverter:
+            class: info.magnolia.ui.form.field.converter.BaseIdentifierToPathConverter
+          contentPreviewDefinition:
+            contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
+          description: "You may upload an image, or choose one from the Digital Asset Manager. If you upload an image, the DAM image will be ignored."
+        - name: imageWidth
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Width (px)
+          description: "If you want the image to be resized, enter the desired width here. The aspect ratio of the image will be preserved."
+        - name: imageAlt
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Alt. Text
+        - name: imageFloat
+          class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
+          label: Alignment
+          options:
+             - name: left
+               label: Image left of text
+               selected: true
+               value: left
+             - name: right
+               label: Image right of text
+               value: right
+        - name: imageCaption
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Image Caption
+        - name: imageLink
+          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+          label: Link (optional)
+          description: "Enter a full URL to an external site (http://www.google.com/) or use the \"Internal Link\" button to link to another page in this site."
+    - name: tabProps
+      label: Paragraph Properties
+      fields:
+        - name: lineAbove
+          class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+          label: Line
+          buttonLabel: Draw a line above this paragraph
+        - name: spacer
+          class: info.magnolia.ui.form.field.definition.SelectFieldDefinition
+          label: Spacer
+          options: 
+             - name: none
+               label: No Spacer
+               value: 0
+             - name: single
+               label: Single Blank Line
+               value: 1
+             - name: double
+               label: Double Blank Line
+               value: 2
+actions: !include /gato-template/dialogs/common/actions-block.yaml
