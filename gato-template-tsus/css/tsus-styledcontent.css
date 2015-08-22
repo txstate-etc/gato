@@ -1,0 +1,57 @@
+/*
+ * Overrides for content/css/styledcontent.css
+ */
+
+.txst-styledcontent {
+}
+
+.txst-styledcontent h1, .txst-styledcontent h2, .txst-styledcontent h3, 
+.txst-styledcontent h4, .txst-styledcontent h5, .txst-styledcontent h6 {
+	color: #383640;
+	font-weight: normal;
+	font-family: georgia, serif;
+}
+.txst-styledcontent h1 {
+	font-size: 40px;
+}
+.txst-styledcontent h2 {
+	font-size: 30px;
+}
+.txst-styledcontent h2.txst-faqitem-question {
+	font-size: 1.2em;
+	font-weight: bold;
+}
+.txst-styledcontent h3 {
+	font-size: 22px;
+}
+.txst-styledcontent h4 {
+	font-size: 18px;
+}
+.txst-styledcontent h5 {
+	font-size: 1em;
+}
+.txst-styledcontent h6 {
+	font-size: 1em;
+}
+
+.txst-styledcontent a {
+	color: #293e6b;
+	text-decoration: none;
+}
+.txst-styledcontent a:hover {
+	color: #b92c26;
+	text-decoration: none;
+}
+
+.txst-styledcontent img {
+	border-color: #777777;
+	border-style: solid;
+}
+
+.txst-styledcontent li {
+	list-style-image: url(../images/list-image-dot.png);
+}
+
+.tsus-rightcolumn .txst-filedownload {
+	margin-bottom: 5px;
+}

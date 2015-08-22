@@ -3,10 +3,15 @@
 <!DOCTYPE HTML>
 	<head>
 		[@templatejs scripts=[
-			'gato-templates-tsus/js/stretch-institutions.js'
+			'gato-template-tsus/js/stretch-institutions.js'
 		]/]
 		[@templatecss files=[
-			'gato-templates-tsus/css/meta-home.css'
+			'gato-template-tsus/css/tsus-master.css',
+			'gato-template-tsus/css/tsus-styledcontent.css',
+			'gato-template-tsus/css/tsus-banner.css',
+			'gato-template-tsus/css/tsus-ddmenu.css',
+			'gato-template-tsus/css/tsus-print.css',
+			'gato-template-tsus/css/tsus-home.css'
 		]/]
 		[@templatehead publisher="Texas State University System"/]
 	</head>

@@ -1,5 +1,5 @@
 [#macro javascript scripts]
-	[#list ['gato-lib/js/jquery.js', 'gato-lib/js/gato-lib.js'] + scripts as script]
+	[#list ['gato-lib/js/prototype.js', 'gato-lib/js/jquery.js', 'gato-lib/js/gato-lib.js'] + scripts as script]
 		<script type="text/javascript" src="${ctx.contextPath}/.resources/${script}"></script>
 	[/#list]
 [/#macro]
@@ -40,6 +40,7 @@
 
 [#macro customJS page ancestorstopdown]
 	<script type="text/javascript">
+		jQuery.noConflict();
 		[@inheritLoop page ancestorstopdown ; curr, isAncestor]
 			[@pageCustomJS page=curr isAncestor=isAncestor /]
 		[/@inheritLoop]

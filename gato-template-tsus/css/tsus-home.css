@@ -1,0 +1,159 @@
+.slideshow-bg {
+	background: url(../images/bluepattern.jpg);
+}
+
+.gato-slideshow {
+	margin: 0px auto;
+	width: 958px;
+	height: 342px;
+	background: url(../images/bluepattern.jpg);
+}
+
+.gato-slideshow .pages {
+	position: absolute;
+	right: auto;
+	left: 55%;
+}
+
+.tsus-home-content-bg {
+	background: url(../images/home-content-bg.png) repeat-x bottom left;
+}
+.tsus-home-content {
+	width: 958px;
+	margin: 0px auto;
+	height: 270px;
+}
+
+.tsus-home-contentbox {
+	position: relative;
+	float: left;
+	margin-top: 27px;
+	width: 290px;
+	height: 160px;
+	padding: 0px 20px;
+	font-size: 14px;
+	line-height: 20px;
+}
+
+.tsus-home-contentbox.left {
+	padding-left: 0px;
+}
+.tsus-home-contentbox.middle {
+	border-radius: 4px;
+	background: #FFFFFF url(../images/home-content-middle.png) repeat-x top left;
+	border: 1px solid #d5d5d5;
+	width: 359px;
+	font-family: georgia, serif;
+	line-height: 24px;
+	padding: 20px 15px;
+}
+.tsus-home-contentbox.middle img {
+	float: right;
+	margin-left: 8px;
+}
+.tsus-home-contentbox.right {
+	border: 1px solid #d5d5d5;
+	border-radius: 4px;
+	width: 205px;
+	height: 190px;
+	padding: 5px 15px;
+	margin-left: 20px;
+}
+.tsus-home-contentbox.right .follow-us {
+	display: block;
+	text-align: right;
+	font-size: 11px;
+	line-height: 13px;
+}
+.tsus-institution-logos {
+	clear: both;
+	position: relative;
+	width: 958px;
+	margin: 0px auto;
+}
+.tsus-institution-logos ul {
+	position: relative;
+}
+.tsus-institution-logos li {
+	position: relative;
+	float: left;
+	padding: 0px 5px;
+	height: 96px;
+	max-width: 110px;
+	display: table;
+}
+.tsus-institution-logos li .center-me {
+}
+
+.tsusred {
+	color: #B92C26;
+}
+
+.tsus-home-contentbox h4 {
+	color: #b92c26;
+	font-family: georgia, serif;
+	margin-bottom: 8px;
+	font-size: 18px;
+}
+
+.gato-twitter-feed {
+	display: table;
+	width: 205px;
+	padding-left: 0px;
+	padding-top: 5px;
+	border-top: 1px solid #d5d5d5;
+}
+.gato-twitter-feed .center-me {
+	display: block;
+}
+
+.gato-twitter-feed .tweet {
+	width: 199px;
+	padding-left: 3px;
+	padding-right: 3px;
+	border-bottom: 1px solid #d5d5d5;
+}
+.gato-twitter-feed .tweet-logo-link {
+	display: none;
+}
+.gato-twitter-feed .tweet div {
+  margin-left: 0px;
+  margin-bottom: 2px;
+}
+.gato-twitter-feed .tweet .text {
+	display: inline;
+	width: 205px;
+	color: #383640;
+}
+.gato-twitter-feed .tweet .text a {
+	color: #383640;
+}
+.gato-twitter-feed .tweet .text a:visited {
+	color: #383640;
+}
+.gato-twitter-feed .tweet .screen-name {
+	display: inline;
+	margin-right: 5px;
+}
+.gato-twitter-feed .tweet .screen-name a {
+	color: #b92c26;
+	font-weight: normal;
+	font-style: italic;
+}
+.gato-twitter-feed .tweet .created_at {
+	display: inline;
+	color: #293e6b;
+	margin-left: 5px;
+}
+
+.gato-navcolumn {
+	padding-right: 20px;
+}
+
+.gato-slideshow .slidecontent {
+	left: 541px;
+}
+
+.mgnlEditorPlaceholder.component .mgnlEditorPlaceholderElements {
+	display: none;
+}

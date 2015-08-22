@@ -11,7 +11,7 @@
 
 [#macro templatecss files]
 	[@css files = [
-		'/gato-template/css/common.css'
+		'gato-template/css/common.css'
 	]+files /]
 [/#macro]
 

@@ -1,0 +1,140 @@
+.tsus-topbanner-bg {
+	background: #FFFFFF url(../images/header-bg.png) repeat-x top left;
+}
+
+.tsus-topbanner {
+	position: relative;
+	width: 958px;
+	margin: 0px auto;
+	height: 146px;
+	z-index: 89;
+	background: #383640 url(../images/flare-bg.jpg) no-repeat;
+}
+
+.tsus-homelink {
+	position: absolute;
+	top: 35px;
+	left: 0px;
+	display: block;
+}
+
+.tsus-homelink img {
+	display: block;
+}
+
+ul.linkmenutop {
+	position: absolute;
+	top: 0px;
+	right: 311px;
+	background-color: #27242e;
+	border-left: 1px solid #5f5c67;
+	border-right: 1px solid #5f5c67;
+	border-bottom: 1px solid #5f5c67;
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+}
+
+ul.linkmenutop li {
+	position: relative;
+	max-width: 150px;
+	float: left;
+}
+
+ul.linkmenutop li a {
+	display: block;
+	color: #c2b6ac;
+	padding: 8px;
+	font-size: 12px;
+	border-right: 1px solid #5f5c67;
+}
+ul.linkmenutop li a:visited {
+	color: #c2b6ac;
+}
+ul.linkmenutop li.last a {
+	border-right: 0px;
+}
+
+.newslettersignup {
+	position: absolute;
+	top: 2px;
+	right: 168px;
+}
+.newslettersignup a {
+	display: block;
+	background-color: #e4d7cd;
+	border-radius: 4px;
+	box-shadow: 0px 0px 2px 2px #333333;
+	padding: 7px;
+	font-size: 11px;
+	font-weight: bold;
+	color: #383640;
+}
+.newslettersignup a:visited {
+	color: #383640;
+}
+
+.tsus-searchform {
+	position:absolute;
+	top: 151px;
+	right: 0px;
+}
+
+.tsus-searchform input.research {
+	width: 200px;
+	padding: 5px;
+	border: 1px solid #6c6259;
+	background-color: #c2b6ac;
+	box-shadow: inset #988d84 1px 1px 2px;
+	border-radius: 3px;
+	color: #333333;
+}
+
+#tsus-searchform-searchbutton {
+	position: absolute;
+	width: 19px;
+	height: 17px;
+	top: 4px;
+	right: 3px;
+}
+
+ul.social-media-container {
+	list-style-type: none;
+}
+
+/* social media links */
+.social-media-icons {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	height: 100%;
+	overflow-y: auto;
+	max-width: 170px;
+}
+
+#social-media-container .social-media-link {
+	float: left;
+	padding: 0px 4px 0px 0px;
+	height: 30px;
+}
+#social-media-container .social-media-link a .social-media-icon {
+	width: 30px;
+	height: 30px;
+	position: relative;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+}
+#social-media-container .social-media-link a .social-media-icon img {
+	width: 30px;
+	height: 30px;
+}
+
+/* admin rules */
+#social-media-container .mgnlEditorBar.component {
+	float: left !important;
+}
+
+.social-media-icons > .mgnlEditor + ul {
+	margin-top: 24px;
+}
