@@ -2,12 +2,22 @@
 use strict;
 use Cwd;
 
-my $gatodir = cwd();
-my $tomcatdir = $gatodir."/tomcat";
-my @lightmodules = ('gato-template', 'gato-template-tsus', 'gato-template-txstate2015');
-my $module = "";
+our $gatodir = cwd();
+our $tomcatdir = $gatodir."/tomcat";
+our @lightmodules = ('gato-template', 'gato-template-tsus', 'gato-template-txstate2015');
+our $module = "";
 if ($ARGV[0] eq '--module') {
 	$module = $ARGV[1];
+} elsif ($ARGV[0] eq '--light') {
+	tomcat_restart(sub {
+		print "copying light modules...\n";
+		`rm -rf $tomcatdir/webapps/ROOT/gato-*`;
+		foreach my $lm (@lightmodules) {
+			`cp -R $gatodir/$lm $tomcatdir/webapps/ROOT/$lm`;
+		}
+	});
+	print "Done.\n";
+	exit;
 }
 
 if ($module) {
@@ -19,44 +29,38 @@ if ($module) {
 
 print "mvn clean package...\n";
 my $output = `mvn clean package`;
-if ($output =~ m/FAILURE/) { print $output."\n"; }
+if ($output =~ m/FAILURE/) { print $output."\n"; exit; }
 
-print "stopping tomcat...\n";
-`$tomcatdir/bin/shutdown.sh`;
-
-if (!$module) {
-	print "removing old webapp...\n";
-	`rm -rf $tomcatdir/webapps/ROOT*`;
-
-	print "copying war...\n";
-	`cp $gatodir/gato-webapp/target/gato-webapp*war $tomcatdir/webapps/ROOT.war`;
-} else {
-	print "copying module jar to webapp...\n";
-	`rm $tomcatdir/webapps/ROOT/WEB-INF/lib/$module*.jar`;
-	`cp $gatodir/$module/target/$module*.jar $tomcatdir/webapps/ROOT/WEB-INF/lib/`;
-}
-
-print "starting tomcat...\n";
-`$tomcatdir/bin/startup.sh`;
-
-if (!$module) {
-	print "waiting to symlink light modules...\n";
-	my $tries = 0;
-	while (1) { 
-		sleep(1);
-		my $allpresent = 1;
-		foreach my $lm (@lightmodules) {
-			$allpresent = 0 unless -e "$tomcatdir/webapps/ROOT/$lm";
-		}
-		last if $allpresent || $tries++ > 60;
+tomcat_restart(sub {
+	if (!$module) {
+		print "removing old webapp...\n";
+		`rm -rf $tomcatdir/webapps/ROOT*`;
+		print "copying war...\n";
+		`cp $gatodir/gato-webapp/target/gato-webapp*war $tomcatdir/webapps/ROOT.war`;
+	} else {
+		print "removing old $module jar...\n";
+		`rm $tomcatdir/webapps/ROOT/WEB-INF/lib/$module*.jar`;
+		print "copying new $module jar to webapp...\n";
+		`cp $gatodir/$module/target/$module*.jar $tomcatdir/webapps/ROOT/WEB-INF/lib/`;
 	}
-	sleep(1); # just for good measure
-	
-	print "symlinking light modules...\n";
-	`rm -rf $tomcatdir/webapps/ROOT/gato-*`;
-	foreach my $lm (@lightmodules) {
-		`ln -s $gatodir/$lm $tomcatdir/webapps/ROOT/$lm`;
-	}
-}
+});
 
 print "Done.\n";
+
+sub tomcat_restart {
+	my $nested = shift;
+	
+	print "stopping tomcat...\n";
+	`$tomcatdir/bin/shutdown.sh`;
+
+	my $matchstr = quotemeta($tomcatdir);
+	while (`ps ax` =~ m/$matchstr/) {
+		print "waiting for tomcat to go away...\n";
+		sleep(1);
+	}
+	
+	$nested->();
+	
+	print "starting tomcat...\n";
+	`$tomcatdir/bin/startup.sh`;
+}
