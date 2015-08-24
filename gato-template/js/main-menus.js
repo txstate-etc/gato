@@ -43,7 +43,7 @@ Event.observe(document, 'dom:loaded', function (event) {
 		item.id = 'ddmenu-'+count;
 		count++;
 		
-		var menuwrap = item.down('.ddmenu-menu-wrap');
+		var menuwrap = item.down('.ddmenu-menu');
 		item.observe('touchstart', function (event) {
 			if (!item.dd_shown && menuwrap) {
 				showmenu(item);

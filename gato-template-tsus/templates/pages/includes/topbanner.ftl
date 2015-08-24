@@ -20,8 +20,6 @@
 		</form>
 	</div>
 </div>
-<div class="ddmenu-bg">
-	[@mainmenu textmenu=true /]
-</div>
+[@mainmenu textmenu=true /]
 
 </jsp:root>

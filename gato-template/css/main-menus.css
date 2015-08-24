@@ -1,0 +1,49 @@
+.ddmenu-menubar {
+	position: relative;
+	height: 35px;
+}
+
+div.ddmenu-menubaritem {
+	position: relative;
+	float: left;
+}
+
+a.ddmenu-menubaritem {
+	display: block;
+	padding: 10px 8px;
+	line-height: 15px;
+}
+
+a.ddmenu-menubaritem:hover {
+	text-decoration: none;
+}
+
+.ddmenu-menu {
+	position: relative;
+	z-index: 1;
+	padding: 2px 0px;
+}
+
+.ddmenu-visible .ddmenu-menu {
+	visibility: visible;
+}
+.ddmenu-visible {
+	margin-left: 0px;
+}
+.ddmenu-visible a.ddmenu-menubaritem img {
+	visibility: hidden;
+	margin-left: 0px;
+}
+
+.ddmenu-menu a {
+	display: block;
+	line-height: 16px;
+	padding: 6px 10px;
+	width: 200px;
+}
+.ddmenu-menu a:hover {
+	text-decoration: none;
+}
+.ddmenu-menu img {
+	display: block;
+}

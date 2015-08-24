@@ -11,7 +11,9 @@
 
 [#macro templatecss files]
 	[@css files = [
-		'gato-template/css/common.css'
+		'gato-template/css/yahoo-ui-reset.css',
+		'gato-template/css/common.css',
+		'gato-template/css/main-menus.css'
 	]+files /]
 [/#macro]
 
@@ -25,7 +27,7 @@
 
 [#macro title rootorg]
 	<title>
-		${page.title}
+		[@pagetitle page /]
 		[#if !isHomePage]: ${ancestorstopdown?first.title}[/#if]
 		[#if rootorg == "Texas State University"]: ${rootorg}[/#if]
 	</title>
@@ -61,7 +63,39 @@
 [#macro googleanalytics]
 [/#macro]
 
+[#macro navloop items]
+	[#list items as item]
+		[#if !(item.hideInNav!false)]
+			[#nested item]
+		[/#if]
+	[/#list]
+[/#macro]
+
+[#macro pagetitle page][#compress]
+	${page.title!page.@name?replace('\\W+',' ','r')?capitalize}
+[/#compress][/#macro]
+
 [#macro mainmenu textmenu=false]
+	<nav class="ddmenu-bg">
+		<div class="ddmenu-menubar">
+			[@navloop cmsfn.children(homepage, 'mgnl:page') ; page]
+				[#local haschildren = false]
+				[@navloop cmsfn.children(page, 'mgnl:page') ; subpage]
+					[#local haschildren = true]
+				[/@navloop]
+				<div class="ddmenu-menubaritem ${haschildren?string('haschildren', '')}">
+					<a href="${cmsfn.link(page)}" class="ddmenu-menubaritem">[@pagetitle page /]</a>
+					[#if haschildren]
+						<ul class="ddmenu-menu">
+							[@navloop cmsfn.children(page, 'mgnl:page') ; subpage]
+								<li><a href="${cmsfn.link(subpage)}">[@pagetitle page /]</a></li>
+							[/@navloop]
+						</ul>
+					[/#if]
+				</div>
+			[/@navloop]
+		</div>
+	</nav>
 [/#macro]
 
 [#assign page = cmsfn.page(content)]
