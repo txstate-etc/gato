@@ -28,9 +28,6 @@
 				<div class="tsus-home-contentbox left">
 					[@cms.area name="tsushomeleft" /]
 				</div>
-				<div class="tsus-home-contentbox middle">
-					[@cms.area name="tsushomemiddle" /]
-				</div>
 				<div class="tsus-home-contentbox right">
 					[@cms.area name="tsushomeright" /]
 				</div>

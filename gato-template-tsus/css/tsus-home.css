@@ -1,18 +1,29 @@
 .slideshow-bg {
 	background: url(../images/bluepattern.jpg);
 }
-
 .gato-slideshow {
 	margin: 0px auto;
 	width: 958px;
 	height: 342px;
 	background: url(../images/bluepattern.jpg);
 }
-
 .gato-slideshow .pages {
 	position: absolute;
 	right: auto;
 	left: 55%;
+}
+.gato-slideshow .caption {
+	font-size: 10px;
+	font-style: italic;
+	display: block;
+	padding-top: 10px;
+}
+.gato-slideshow .slidelink {
+	display: block;
+	padding-top: 10px;  
+}
+.slidecontent h4 {
+	display: none;
 }
 
 .tsus-home-content-bg {
@@ -36,21 +47,30 @@
 }
 
 .tsus-home-contentbox.left {
-	padding-left: 0px;
+  width: 684px;
+  height: 200px;
+  padding-right: 0px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid #d5d5d5;
+  border-radius: 4px;
+  padding-left: 15px;
 }
-.tsus-home-contentbox.middle {
-	border-radius: 4px;
-	background: #FFFFFF url(../images/home-content-middle.png) repeat-x top left;
-	border: 1px solid #d5d5d5;
-	width: 359px;
-	font-family: georgia, serif;
-	line-height: 24px;
-	padding: 20px 15px;
+.tsus-home-contentbox.left .bg {
+  float: right;
+  margin-left: 10px;
 }
-.tsus-home-contentbox.middle img {
-	float: right;
-	margin-left: 8px;
+.tsus-home-contentbox.left h4 {
+  color: #272530;
+  font-size: 24px;
+  padding-top: 10px;
 }
+.tsus-home-contentbox.left .dashboard-button {
+  position: absolute;
+  left: 15px;
+  bottom: 10px;
+}
+
 .tsus-home-contentbox.right {
 	border: 1px solid #d5d5d5;
 	border-radius: 4px;
@@ -65,6 +85,7 @@
 	font-size: 11px;
 	line-height: 13px;
 }
+
 .tsus-institution-logos {
 	clear: both;
 	position: relative;
@@ -82,7 +103,8 @@
 	max-width: 110px;
 	display: table;
 }
-.tsus-institution-logos li .center-me {
+.tsus-institution-logos li:last-child {
+padding-right: 0px !important;
 }
 
 .tsusred {

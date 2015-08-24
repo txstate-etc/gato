@@ -8,14 +8,15 @@ areas:
     !include /gato-template/templates/areas/customcss.yaml
   customjs:
     !include /gato-template/templates/areas/customjs.yaml
+  menulinks:
+    type: list
+  newsletter:
+    type: single
+  socialmedia:
+    type: list
   slideshow:
     type: single
   tsushomeleft:
-    type: list
-    availableComponents:
-      panel:
-        id: gato-template:components/richeditor
-  tsushomemiddle:
     type: list
     availableComponents:
       panel:
