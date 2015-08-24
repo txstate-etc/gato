@@ -17,7 +17,7 @@
         [#assign imgAsset = damfn.getAsset(itemKey)]
         [#assign assetMap = damfn.getAssetMap(imgAsset)]
         [#assign originalWidth = assetMap.metadata.mgnl.width]
-        [#assign originalHeight = assetMap.metadata.mgnl.width]
+        [#assign originalHeight = assetMap.metadata.mgnl.height]
     [/#if]
 
     [#assign ratio = originalHeight / originalWidth]
