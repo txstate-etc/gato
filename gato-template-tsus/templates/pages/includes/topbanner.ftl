@@ -4,12 +4,12 @@
 			<img src="${ctx.contextPath}/.resources/gato-template-tsus/images/tsus-logo.png" alt="Texas State University System Logo"/> 
 		</a>
 		<ul class="linkmenutop">
-      [@cms.area name="menulinks" content=homepage.menulinks /]
+      [@cms.area name="menulinks" content=gf.getOrCreateArea(homepage, 'menulinks') /]
 		</ul>
 	  <div class="newslettersignup">
-			[@cms.area name="newsletter" content=homepage.newsletter /]
+			[@cms.area name="newsletter" content=gf.getOrCreateArea(homepage, 'newsletter') /]
 		</div>
-		[@cms.area name="socialmedia" content=homepage.socialmedia /]
+		[@cms.area name="socialmedia" content=gf.getOrCreateArea(homepage, 'socialmedia') /]
 		<form action="http://search.txstate.edu/search" class="tsus-searchform">
 			<input type="text" name="q" id="q" value="Search" class="research search-default"><jsp:text /></input>
 			<input type="image" src="${ctx.contextPath}/.resources/gato-template-tsus/images/mag.png" id="tsus-searchform-searchbutton" alt="Search Site" title="Search Site"/>
