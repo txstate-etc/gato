@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sv:node sv:name="config" xmlns:sv="http://www.jcp.org/jcr/sv/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <sv:property sv:name="jcr:primaryType" sv:type="Name">
+    <sv:value>mgnl:content</sv:value>
+  </sv:property>
+  <sv:property sv:name="jcr:mixinTypes" sv:type="Name" sv:multiple="true">
+    <sv:value>mix:lockable</sv:value>
+  </sv:property>
+  <sv:property sv:name="jcr:uuid" sv:type="String">
+    <sv:value>35431714-94a6-431e-9e0b-0e8118465c25</sv:value>
+  </sv:property>
+  <sv:property sv:name="casLoginURL" sv:type="String">
+    <sv:value>https://llavero.its.txstate.edu/cas/login/</sv:value>
+  </sv:property>
+  <sv:property sv:name="casLogoutURL" sv:type="String">
+    <sv:value>https://llavero.its.txstate.edu/cas/logout?url={0}</sv:value>
+  </sv:property>
+  <sv:property sv:name="casValidateURL" sv:type="String">
+    <sv:value>https://llavero.its.txstate.edu/cas/</sv:value>
+  </sv:property>
+  <sv:property sv:name="jcr:createdBy" sv:type="String">
+    <sv:value>admin</sv:value>
+  </sv:property>
+  <sv:property sv:name="mgnl:created" sv:type="Date">
+    <sv:value>2012-06-19T14:00:40.780+02:00</sv:value>
+  </sv:property>
+  <sv:property sv:name="mgnl:lastModified" sv:type="Date">
+    <sv:value>2015-08-24T17:23:58.982-05:00</sv:value>
+  </sv:property>
+  <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
+    <sv:value>superuser</sv:value>
+  </sv:property>
+</sv:node>

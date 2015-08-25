@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sv:node sv:name="lt20" xmlns:sv="http://www.jcp.org/jcr/sv/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <sv:property sv:name="jcr:primaryType" sv:type="Name">
+    <sv:value>mgnl:user</sv:value>
+  </sv:property>
+  <sv:property sv:name="jcr:mixinTypes" sv:type="Name">
+    <sv:value>mix:lockable</sv:value>
+  </sv:property>
+  <sv:property sv:name="jcr:uuid" sv:type="String">
+    <sv:value>3b342df7-7029-44fa-8766-d0e46b7052da</sv:value>
+  </sv:property>
+  <sv:property sv:name="email" sv:type="String">
+    <sv:value>lt20@txstate.edu</sv:value>
+  </sv:property>
+  <sv:property sv:name="enabled" sv:type="String">
+    <sv:value>true</sv:value>
+  </sv:property>
+  <sv:property sv:name="language" sv:type="String">
+    <sv:value>en</sv:value>
+  </sv:property>
+  <sv:property sv:name="title" sv:type="String">
+    <sv:value>Laura Trial</sv:value>
+  </sv:property>
+  <sv:node sv:name="MetaData">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>mgnl:metaData</sv:value>
+    </sv:property>
+    <sv:property sv:name="mgnl:authorid" sv:type="String">
+      <sv:value>nw13</sv:value>
+    </sv:property>
+    <sv:property sv:name="mgnl:creationdate" sv:type="Date">
+      <sv:value>2010-09-30T10:42:00.718-05:00</sv:value>
+    </sv:property>
+    <sv:property sv:name="mgnl:lastmodified" sv:type="Date">
+      <sv:value>2010-09-30T10:42:36.167-05:00</sv:value>
+    </sv:property>
+    <sv:property sv:name="mgnl:template" sv:type="String">
+      <sv:value/>
+    </sv:property>
+  </sv:node>
+  <sv:node sv:name="groups">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>mgnl:contentNode</sv:value>
+    </sv:property>
+    <sv:property sv:name="jcr:mixinTypes" sv:type="Name">
+      <sv:value>mix:lockable</sv:value>
+    </sv:property>
+    <sv:property sv:name="jcr:uuid" sv:type="String">
+      <sv:value>2e40029e-e181-4d21-b82b-e125e3cee78f</sv:value>
+    </sv:property>
+    <sv:property sv:name="0" sv:type="String">
+      <sv:value>5e6895a6-aca3-4fed-9d38-216e3b889f2b</sv:value>
+    </sv:property>
+    <sv:node sv:name="MetaData">
+      <sv:property sv:name="jcr:primaryType" sv:type="Name">
+        <sv:value>mgnl:metaData</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:creationdate" sv:type="Date">
+        <sv:value>2010-09-30T10:42:36.167-05:00</sv:value>
+      </sv:property>
+    </sv:node>
+  </sv:node>
+  <sv:node sv:name="roles">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>mgnl:contentNode</sv:value>
+    </sv:property>
+    <sv:property sv:name="jcr:mixinTypes" sv:type="Name">
+      <sv:value>mix:lockable</sv:value>
+    </sv:property>
+    <sv:property sv:name="jcr:uuid" sv:type="String">
+      <sv:value>24e29c38-63b3-4008-9e76-1645263d31be</sv:value>
+    </sv:property>
+    <sv:property sv:name="0" sv:type="String">
+      <sv:value>bc2046da-b3d5-4cf5-9847-c2b6dbe145ff</sv:value>
+    </sv:property>
+    <sv:node sv:name="MetaData">
+      <sv:property sv:name="jcr:primaryType" sv:type="Name">
+        <sv:value>mgnl:metaData</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:creationdate" sv:type="Date">
+        <sv:value>2010-09-30T10:42:36.167-05:00</sv:value>
+      </sv:property>
+    </sv:node>
+  </sv:node>
+</sv:node>

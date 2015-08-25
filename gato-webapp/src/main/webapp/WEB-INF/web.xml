@@ -19,6 +19,9 @@
   <listener>
     <listener-class>info.magnolia.init.MagnoliaServletContextListener</listener-class>
   </listener>
+  <listener>
+    <listener-class>org.jasig.cas.client.session.SingleSignOutHttpSessionListener</listener-class>
+  </listener>
   <context-param>
     <description>Vaadin production mode</description>
     <param-name>productionMode</param-name>
