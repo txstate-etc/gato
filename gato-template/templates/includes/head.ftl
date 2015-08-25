@@ -1,4 +1,5 @@
 [#include "/gato-lib/templates/includes/head.ftl"]
+[#include "/gato-template/templates/includes/component.ftl"]
 
 [#macro templatejs scripts]
 	[@javascript scripts = [
@@ -97,10 +98,3 @@
 		</div>
 	</nav>
 [/#macro]
-
-[#assign page = cmsfn.page(content)]
-[#assign ancestorstopdown = cmsfn.ancestors(page)]
-[#assign ancestorsbottomup = cmsfn.ancestors(page)?reverse]
-[#assign isHomePage = !ancestorstopdown?has_content]
-[#assign homepage = page]
-[#if !isHomePage][#assign homepage = ancestorstopdown?first][/#if]

@@ -10,6 +10,9 @@ areas:
     !include /gato-template/templates/areas/customjs.yaml
   menulinks:
     type: list
+    availableComponents:
+      link:
+        id: gato-template:components/link
   newsletter:
     type: single
   socialmedia:
@@ -19,12 +22,12 @@ areas:
   tsushomeleft:
     type: list
     availableComponents:
-      panel:
+      richeditor:
         id: gato-template:components/richeditor
   tsushomeright:
     type: list
     availableComponents:
-      panel:
+      richeditor:
         id: gato-template:components/richeditor
   tsuslogos:
     type: list
