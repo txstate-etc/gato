@@ -17,7 +17,8 @@
 *.settings/
 
 # Apache tomcat #
-*tomcat/
+tomcat
+*tomcat*/
 
 # direnv configuration #
 *.envrc
