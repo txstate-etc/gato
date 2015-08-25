@@ -29,7 +29,7 @@ if ($module) {
 
 print "mvn clean package...\n";
 my $output = `mvn clean package`;
-if ($output =~ m/FAILURE/) { print $output."\n"; exit; }
+if ($output =~ m/FAILURE|ERROR/) { print $output."\n"; exit; }
 
 tomcat_restart(sub {
 	if (!$module) {

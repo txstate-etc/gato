@@ -8,7 +8,7 @@
   <packaging>pom</packaging>
 
   <properties>
-    <magnoliaVersion>5.4</magnoliaVersion>
+    <magnoliaVersion>5.4.1</magnoliaVersion>
     <javaVersion>1.6</javaVersion>
   </properties>
 
@@ -22,16 +22,17 @@
   <dependencyManagement>
     <dependencies>
       <!-- Importing dependencyManagement of CE bundle. This means you don't have to specify versions of modules you depend on (unless you want a different version than that of the bundle). -->
-      <dependency>
+<!--       <dependency>
         <groupId>info.magnolia.bundle</groupId>
         <artifactId>magnolia-bundle-parent</artifactId>
         <version>${magnoliaVersion}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
-
+ -->
       <!-- If you want to use the Enterprise Edition, use info.magnolia.eebundle:magnolia-enterprise-bundle-parent.
       If you are using Maven 2, for the same reasons as above, you will have to keep the dependency to the CE bundle as well. If you are using Maven 3, just keep this one dependency below and remove the above 3.
+      -->
       <dependency>
         <groupId>info.magnolia.eebundle</groupId>
         <artifactId>magnolia-enterprise-bundle-parent</artifactId>
@@ -39,7 +40,6 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
-      -->
 
       <!-- TEST -->
       <dependency>
@@ -84,6 +84,15 @@
   </build>
 
   <repositories>
+    
+    <repository>
+      <id>txstate-builder</id>
+      <url>https://projects.its.txstate.edu/hg/maven-repo/raw-file/default</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+
     <repository>
       <id>magnolia.public</id>
       <url>https://nexus.magnolia-cms.com/content/groups/public</url>
@@ -92,7 +101,7 @@
       </snapshots>
     </repository>
     <!-- IF YOU NEED MODULES FROM THE ENTERPRISE VERSION, UNCOMMENT THE FOLLOWING REPOSITORY -->
-    <!--
+    
     <repository>
       <id>magnolia.enterprise.releases</id>
       <url>https://nexus.magnolia-cms.com/content/repositories/magnolia.enterprise.releases</url>
@@ -100,7 +109,7 @@
         <enabled>false</enabled>
       </snapshots>
     </repository>
-    -->
+    
     <repository>
       <id>vaadin-addons</id>
       <url>https://maven.vaadin.com/vaadin-addons</url>
@@ -110,5 +119,6 @@
   <modules>
     <module>gato-webapp</module>
     <module>gato-lib</module>
+    <module>gato-internal</module>
   </modules>
 </project>
