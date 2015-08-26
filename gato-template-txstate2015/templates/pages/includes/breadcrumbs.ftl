@@ -2,7 +2,6 @@
 [#assign mobileBreadcrumbs = isMobile?string('mobile_breadcrumbs', '')]
 [#assign terminalPage = isMobile?string('terminal_page', '')]
 <p class="breadcrumbs ${mobileBreadcrumbs}">
-	[#-- assume this variable is set in the calling template --]
 	[#if !hidetxstate]
 		<a href="#nowhere">Texas State</a>
 	[/#if]

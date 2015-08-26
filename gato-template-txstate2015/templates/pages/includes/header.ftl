@@ -1,5 +1,6 @@
-[#assign homePageContent = ctx.getAttribute("homePageContent")]
-[#assign homeLink = cmsfn.link(homePageContent)]
+[#assign homePageContent = cmsfn.contentByPath(homepage)]
+[#assign homeLink = cmsfn.link(homepage)]
+
 [#assign paramEditable = true]
 [#if homePageContent.header_image??]
 	[#if cmsfn.link(content) == homeLink ]
@@ -17,7 +18,6 @@
 		[#assign paramEditable = false]
 	[/#if]
 [/#if]
-
 
 <div class="${headerClass}">
 	[@cms.area name="headerImage" editable=paramEditable /]

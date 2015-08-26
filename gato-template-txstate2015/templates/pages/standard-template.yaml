@@ -43,6 +43,8 @@ areas:
         id: gato-template:components/richeditor
       textimage:
         id: gato-template:components/textimage
+      faqhierarchy:
+        id: gato-faq:components/faq-hierarchy
     #   quotation:
     #     id: myModule:components/quotation
     #   greenpanel:

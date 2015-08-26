@@ -1,0 +1,21 @@
+form:
+  tabs:
+    - name: tabFaq
+      label: Configure FAQs
+      fields:
+        - name: faqTree
+          class: edu.txstate.its.gato.component.faq.FaqTreeFieldDefinition
+          label: FAQ Tree
+        - name: faqQuestion
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Question
+        - name: faqAnswer
+          class: info.magnolia.ui.form.field.definition.RichTextFieldDefinition
+          label: Answer
+actions:
+  commit:
+    class: edu.txstate.its.gato.component.faq.SaveFaqDialogActionDefinition
+    label: save
+  cancel:
+    class: info.magnolia.ui.admincentral.dialog.action.CancelDialogActionDefinition
+    label: cancel

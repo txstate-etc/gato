@@ -9,5 +9,5 @@ areas:
     templateScript: /gato-template-txstate2015/templates/pages/areas/navblock-area.ftl
     title: Links
     availableComponents:
-      texasLink:
-        id: gato-template-txstate2015:components/texasLink
+      link:
+        id: gato-template:components/link

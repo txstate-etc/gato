@@ -1,10 +1,28 @@
+[#include "/gato-template/templates/includes/head.ftl"]
+
 <!DOCTYPE HTML>
 [#-- important variables set in here --]
 [#include "includes/init.ftl"]
 <html lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		[#include "includes/head-common.ftl"]
-		[@cms.page /]
+		
+		[@templatejs scripts=[
+			'gato-template-txstate2015/resources/js/slideout.js',
+			'gato-template-txstate2015/resources/js/common.js'
+		]/]
+		<script type="text/javascript" src="//bigspotteddog.github.io/ScrollToFixed/jquery-scrolltofixed-min.js"></script>
+		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.2/fastclick.min.js"></script>
+		
+		[@templatecss files=[
+			'gato-template-txstate2015/resources/css/normalize.min.css',
+			'gato-template-txstate2015/resources/css/boilerplate.min.css',
+			'gato-template-txstate2015/resources/css/gato.css',
+			'gato-template-txstate2015/resources/css/txstate-ddmenu.css'
+		]/]
+		<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css"/>
+		[@templatehead/]
+		
 	</head>
 	<body>
 		<nav id="menu" class="mobile_nav">
@@ -17,7 +35,8 @@
 				</div>
 				<h3 class="contact_us mobile_dept"><a href="#nowhere">${content.title}</a></h3>
 				[#import "includes/main-menu.ftl" as menu]
-				[@menu.menuBar isMobile=true/]
+				[#--@menu.menuBar isMobile=true/--]
+				[#--@mainmenu textmenu=true /--]
 			</div>
 			<!-- does social media need to go here -->
 			<div class="mobile_super_container">
@@ -34,10 +53,11 @@
 		
 			<!-- main menu -->
 			<div class="top_nav">
-    			<nav class="nav">
-					[@menu.menuBar isMobile=false/]
-				</nav>
-			</div>
+    		<nav class="nav"> 
+					[#--@menu.menuBar isMobile=false/--]
+					[@mainmenu textmenu=true /]
+				</nav> 
+			</div> 
 			<div class="page_content">
 				<div class="row trail clearfix">
 					<div class="column col-xs-2-3 flow-opposite">
