@@ -22,7 +22,7 @@
 		]/]
 		<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css"/>
 		[@templatehead/]
-		[@cms.page /]
+		
 	</head>
 	<body>
 		<nav id="menu" class="mobile_nav">
