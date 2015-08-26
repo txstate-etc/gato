@@ -2,11 +2,12 @@ package edu.txstate.its.gato.component.faq;
 
 import com.vaadin.data.Item;
 import com.vaadin.ui.Field;
+import com.vaadin.ui.Tree;
 
 import info.magnolia.ui.form.field.definition.FieldDefinition;
 import info.magnolia.ui.form.field.factory.AbstractFieldFactory;
 
-public class FaqTreeFieldFactory<D extends FieldDefinition> extends AbstractFieldFactory<FaqTreeFieldDefinition, String> {
+public class FaqTreeFieldFactory<D extends FieldDefinition> extends AbstractFieldFactory<FaqTreeFieldDefinition, Object> {
 
     public FaqTreeFieldFactory(FaqTreeFieldDefinition definition,
             Item relatedFieldItem) {
@@ -15,9 +16,11 @@ public class FaqTreeFieldFactory<D extends FieldDefinition> extends AbstractFiel
     }
 
     @Override
-    protected Field<String> createFieldComponent() {
+    protected Field<Object> createFieldComponent() {
         // TODO Auto-generated method stub
-        return null;
+        Tree tree = new Tree("Test empty tree");
+
+        return tree;
     }
 
 }
