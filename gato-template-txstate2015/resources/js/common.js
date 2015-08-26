@@ -6,36 +6,37 @@ window.addEventListener('load', function() {
 
 // Background image delay and fade 
 
-$(window).load(function() {
-    $(".bg_image").delay(200).animate({
+jQuery(window).load(function() {
+    jQuery(".bg_image").delay(200).animate({
         opacity: "1"
     }, 500);
 });
 
-$(window).load(function() {
-    $(".bg_image_secondary").delay(0).animate({
+jQuery(window).load(function() {
+    jQuery(".bg_image_secondary").delay(0).animate({
         opacity: "1"
     }, 500);
 });
 
 // Parallax scrolling effect
 
-$(window).scroll(function(e) {
+jQuery(window).scroll(function(e) {
     parallax();
 });
 
 function parallax() {
-    var scrolled = $(window).scrollTop();
-    $(".bg_image, .bg_image_secondary").css("top", (scrolled * .6) + "px");
+    var scrolled = jQuery(window).scrollTop();
+    jQuery(".bg_image, .bg_image_secondary").css("top", (scrolled * .6) + "px");
 }
 
-$(document).ready(function() {
+jQuery(document).ready(function() {
+
 	// Fixed desktop navigation
-    $('.top_nav').scrollToFixed();
+    jQuery('.top_nav').scrollToFixed();
     
  // Back to top
-    $('.btt').on("click", function() {
-        $('html,body').animate({
+    jQuery('.btt').on("click", function() {
+        jQuery('html,body').animate({
             scrollTop: 0
         }, 500)
     });
@@ -53,7 +54,7 @@ $(document).ready(function() {
     	'touch': false
     });
     
-    $('.toggle-button').on("click", function(){
+    jQuery('.toggle-button').on("click", function(){
     	slideout.toggle();
     });
     

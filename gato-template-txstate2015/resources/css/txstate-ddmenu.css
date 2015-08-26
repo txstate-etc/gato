@@ -1,0 +1,105 @@
+.ddmenu-bg {
+  font-size: .9rem;
+  background: #E8E3DB;
+  background-image: -webkit-linear-gradint(top, #E8E3DB 0%, #D1C7B7 100%);
+  background-image: -o-linear-gradient(top, #E8E3DB 0%, #D1C7B7 100%);
+  background-image: linear-gradient(to bottom, #E8E3DB 0%, #D1C7B7 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFE8E3DB', endColorstr='#FFD1C7B7', GradientType=0);
+  max-width: 1000px;
+  margin: auto;
+}
+
+.ddmenu-menubar {
+ position: relative;
+  margin: 0px auto;
+  z-index: 88;
+  border-bottom: 1px solid #BBAB92;
+  box-shadow: 1px 0px #BBAB92 inset, -1px 0px #BBAB92 inset;
+  z-index:1000;
+}
+
+div.ddmenu-menubaritem {
+  line-height: 1.2rem !important;
+}
+
+a.ddmenu-menubaritem {
+  color: #222;
+  font-size: 80%;
+  font-weight: 400;
+  padding-left: 0.6rem;
+  padding-right: 0.6rem;
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+ 
+}
+
+a.ddmenu-menubaritem:visited {
+  color: #222;
+}
+a.ddmenu-menubaritem:hover {
+  color: #222;
+  background: #6A5638;
+  
+}
+
+div.ddmenu-menubaritem:hover > a{
+  background: #6A5638;
+}
+
+.ddmenu-menu-wrap .dropshadow {
+  display: none;
+}
+
+.ddmenu-menu-wrap .png-bg {
+  background-color: #c2b6ac;
+}
+
+.ddmenu-menu {
+  padding: 0px;
+  border-left: 1px solid #bbab92;
+  border-right: 1px solid #bbab92;
+  border-bottom: 1px solid #bbab92;
+  visibility: hidden;
+}
+
+.ddmenu-menu li:first-child a{
+  border-top: none;
+}
+
+.ddmenu-visible .ddmenu-menu-wrap {
+}
+.ddmenu-visible {
+  background-color: #e8e3db;
+}
+.ddmenu-visible a.ddmenu-menubaritem {
+  color: #ffffff;
+}
+.ddmenu-visible a.ddmenu-menubaritem:visited {
+  color: #ffffff;
+}
+.ddmenu-visible a.ddmenu-menubaritem img {
+}
+
+.ddmenu-menu a {
+  color: #222;
+  font-size: 80%;
+  font-weight: 400;
+  border-bottom: 1px solid #DDD5C9;
+  border-top: 1px solid #F4F1ED;
+  line-height: 1.2rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 0.35rem;
+  padding-bottom: 0.35rem;
+}
+.ddmenu-menu a:visited {
+  color: #222;
+}
+.ddmenu-menu a:hover {
+   background-color: #D1C7B7;
+  color: #222;
+  text-decoration: underline;
+}
+.ddmenu-menu img {
+}

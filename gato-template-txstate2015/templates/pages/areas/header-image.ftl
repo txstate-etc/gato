@@ -1,11 +1,13 @@
-[#assign homePageContent = ctx.getAttribute("homePageContent")]
-[#assign homeLink = cmsfn.link(homePageContent)]
+[#include "/gato-template/templates/includes/head.ftl"]
+[#assign homePageContent = cmsfn.contentByPath(homepage)]
+[#assign homeLink = cmsfn.link(homepage)]
 
 [#assign imgStyle = ""]
 [#assign imgClass = "bg_image_none"]
 [#if homePageContent.header_image??]
 	[#assign headerImg = damfn.getAsset("jcr", homePageContent.header_image)!]
 	[#assign imgStyle = "style=\"background-image: url('${headerImg.getLink()}');\""]
+
 	[#if cmsfn.link(content) == homeLink ]
 		[#-- primary page with header image--]
 		[#assign imgClass = "bg_image"]
