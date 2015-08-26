@@ -9,16 +9,15 @@ import info.magnolia.ui.form.field.factory.AbstractFieldFactory;
 
 public class FaqTreeFieldFactory<D extends FieldDefinition> extends AbstractFieldFactory<FaqTreeFieldDefinition, Object> {
 
-    public FaqTreeFieldFactory(FaqTreeFieldDefinition definition,
-            Item relatedFieldItem) {
+    public FaqTreeFieldFactory(FaqTreeFieldDefinition definition, Item relatedFieldItem) {
         super(definition, relatedFieldItem);
-        // TODO Auto-generated constructor stub
     }
 
     @Override
     protected Field<Object> createFieldComponent() {
-        // TODO Auto-generated method stub
         Tree tree = new Tree("Test empty tree");
+
+        tree.addItem("This is a test");
 
         return tree;
     }

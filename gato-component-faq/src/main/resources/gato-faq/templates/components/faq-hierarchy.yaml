@@ -1,5 +1,5 @@
 renderType: freemarker
-templateScript: /gato-template/templates/components/faq-hierarchy.ftl
+templateScript: /gato-faq/templates/components/faq-hierarchy.ftl
 dialog: gato-faq:components/faq-hierarchy
 modelClass: edu.txstate.its.gato.component.faq.FaqHierarchyModel
 title: FAQ Hierarchy
