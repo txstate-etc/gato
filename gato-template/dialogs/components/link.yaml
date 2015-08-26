@@ -7,6 +7,8 @@ form:
           class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
           label: Link Target
           appName: pages
+          identifierToPathConverter:
+            class: info.magnolia.ui.form.field.converter.BaseIdentifierToPathConverter
         - name: text
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Link Text
