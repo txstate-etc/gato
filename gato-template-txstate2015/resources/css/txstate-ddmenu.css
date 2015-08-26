@@ -13,7 +13,6 @@
 .ddmenu-menubar {
  position: relative;
   margin: 0px auto;
-  z-index: 88;
   border-bottom: 1px solid #BBAB92;
   box-shadow: 1px 0px #BBAB92 inset, -1px 0px #BBAB92 inset;
   z-index:1000;
@@ -21,6 +20,7 @@
 
 div.ddmenu-menubaritem {
   line-height: 1.2rem !important;
+   height: 100%;
 }
 
 a.ddmenu-menubaritem {
@@ -31,6 +31,7 @@ a.ddmenu-menubaritem {
   padding-right: 0.6rem;
   padding-top: 0.4rem;
   padding-bottom: 0.4rem;
+   height: 100%;
  
 }
 
@@ -61,6 +62,8 @@ div.ddmenu-menubaritem:hover > a{
   border-right: 1px solid #bbab92;
   border-bottom: 1px solid #bbab92;
   visibility: hidden;
+  position: absolute;
+  background-color: #e8e3db;
 }
 
 .ddmenu-menu li:first-child a{
