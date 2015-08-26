@@ -15,6 +15,7 @@ import info.magnolia.link.LinkUtil;
 import info.magnolia.objectfactory.Components;
 import info.magnolia.rendering.context.RenderingContext;
 import info.magnolia.rendering.engine.RenderingEngine;
+import info.magnolia.templating.functions.TemplatingFunctions;
 
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
@@ -32,6 +33,7 @@ import java.lang.reflect.Field;
 import java.text.SimpleDateFormat;
 import javax.servlet.http.HttpServletRequest;
 
+import javax.inject.Inject;
 import javax.jcr.Node;
 import javax.jcr.Property;
 import javax.jcr.PropertyType;
@@ -43,8 +45,16 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.codec.digest.DigestUtils;
 
 public final class GatoUtils {
-  public GatoUtils() { } // needs a public constructor for IoC? according to magnolia
-  public static String filterUrl(String url) {
+	private final TemplatingFunctions tf;
+  private final SimpleDateFormat timeformat;
+	
+	@Inject
+  public GatoUtils(TemplatingFunctions templatingFunctions) {
+  	tf = templatingFunctions;
+    timeformat = new SimpleDateFormat("HH:mm");
+  }
+  
+  public String filterUrl(String url) {
     if (StringUtils.isEmpty(url) || LinkUtil.isExternalLinkOrAnchor(url)) return url;
     String cpath = MgnlContext.getContextPath();
     boolean wasInWebsite = false;
@@ -97,7 +107,7 @@ public final class GatoUtils {
     return cpath+url;
   }
   
-  public static String absoluteUrl(String url) {
+  public String absoluteUrl(String url) {
     String relUrl = filterUrl(url);
     if (relUrl.matches("^\\w{3,15}://.*")) return relUrl;
     HttpServletRequest request = MgnlContext.getWebContext().getRequest();
@@ -109,7 +119,7 @@ public final class GatoUtils {
     return serverpath+relUrl;
   }
 
-  public static String filterLinkTitle(String title, String url) {
+  public String filterLinkTitle(String title, String url) {
     if (!StringUtils.isEmpty(title)) return title;
     String furl = filterUrl(url);
     String cpath = MgnlContext.getContextPath();
@@ -125,7 +135,7 @@ public final class GatoUtils {
     return url;
   }
   
-  public static String getCacheStr(Node n) {
+  public String getCacheStr(Node n) {
     // we don't need to do anything if we're not in the production environment
     // since our only goal here is to add a string to the URL that represents
     // the last-modified date (for caching purposes)
@@ -133,7 +143,7 @@ public final class GatoUtils {
     return "/cache"+md5(MetaDataUtil.getMetaData(n).getModificationDate().getTime().toString());
   }
   
-  public static String md5(String str) {
+  public String md5(String str) {
     return DigestUtils.md5Hex(str);
   }
   
@@ -224,7 +234,7 @@ public final class GatoUtils {
 */
   
   // dump an object to string
-  public static String dump(Object o, int callCount) {
+  public String dump(Object o, int callCount) {
     callCount++;
     StringBuffer tabs = new StringBuffer();
     for (int k = 0; k < callCount; k++) {
@@ -291,11 +301,11 @@ public final class GatoUtils {
     return buffer.toString();
   }
 
-  public static Calendar getCreationDate(ContentMap content) {
+  public Calendar getCreationDate(ContentMap content) {
     return MetaDataUtil.getMetaData(content.getJCRNode()).getCreationDate();
   }
 
-  public static Calendar getLastActionDate(ContentMap content) {
+  public Calendar getLastActionDate(ContentMap content) {
     try {
       return MetaDataUtil.getMetaData(content.getJCRNode()).getLastActionDate();
     } catch (Exception e) {
@@ -303,7 +313,7 @@ public final class GatoUtils {
     }
   }
 
-  public static Calendar getModificationDate(ContentMap content) {
+  public Calendar getModificationDate(ContentMap content) {
     try {
       return MetaDataUtil.getMetaData(content.getJCRNode()).getModificationDate();
     } catch (Exception e) {
@@ -311,19 +321,14 @@ public final class GatoUtils {
     }
   }
   
-  public static Date incrementDate(Date d) {
+  public Date incrementDate(Date d) {
     Calendar c = Calendar.getInstance();
     c.setTime(d);
     c.add(Calendar.DAY_OF_MONTH, 1);
     return c.getTime();
   }
   
-  private static final SimpleDateFormat timeformat;
-  static
-  {
-    timeformat = new SimpleDateFormat("HH:mm");
-  }
-  public static Date setTime(Date d, String tstr) {
+  public Date setTime(Date d, String tstr) {
     Calendar o = Calendar.getInstance();
     o.setTime(d);
     if (tstr.length() != 5) tstr = "00:00";
@@ -338,7 +343,7 @@ public final class GatoUtils {
     return c.getTime();
   }
   
-  public static Node toNode(Object obj) {
+  public Node toNode(Object obj) {
     Node n = null;
     try {
       if (obj instanceof ContentMap) n = ((ContentMap)obj).getJCRNode();
@@ -350,7 +355,7 @@ public final class GatoUtils {
     return n;
   } 
 
-  public static Collection<String> propertyValues(Object obj) {
+  public Collection<String> propertyValues(Object obj) {
     Node n = toNode(obj);
     List ret = new ArrayList<String>();
     try {
@@ -366,7 +371,7 @@ public final class GatoUtils {
     return ret;
   }
   
-  public static Collection<String> propertyKeys(Object obj) {
+  public Collection<String> propertyKeys(Object obj) {
     Node n = toNode(obj);
     List ret = new ArrayList<String>();
     try {
@@ -379,5 +384,24 @@ public final class GatoUtils {
       // ignore and return empty collection
     }
     return ret;
+  }
+  
+  public ContentMap getOrCreateArea(Object parent, String childName) {
+  	return getOrCreateNode(parent, childName, "mgnl:area");
+  }
+  
+  public ContentMap getOrCreateNode(Object parent, String childName, String type) {
+  	Node n = toNode(parent);
+  	ContentMap child = null;
+  	try {
+  		if (n.hasNode(childName)) child = tf.asContentMap(n.getNode(childName));
+  		else {
+  			child = tf.asContentMap(n.addNode(childName, type));
+  			n.save();
+  		}
+  	} catch (Exception e) {
+  		e.printStackTrace();
+  	}
+  	return child;
   }
 }

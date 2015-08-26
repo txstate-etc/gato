@@ -29,7 +29,7 @@
 [#macro title rootorg]
 	<title>
 		[@pagetitle page /]
-		[#if !isHomePage]: ${ancestorstopdown?first.title}[/#if]
+		[#if !isHomePage]: [@pagetitle homepage /][/#if]
 		[#if rootorg == "Texas State University"]: ${rootorg}[/#if]
 	</title>
 [/#macro]
@@ -89,7 +89,7 @@
 					[#if haschildren]
 						<ul class="ddmenu-menu">
 							[@navloop cmsfn.children(page, 'mgnl:page') ; subpage]
-								<li><a href="${cmsfn.link(subpage)}">[@pagetitle page /]</a></li>
+								<li><a href="${cmsfn.link(subpage)}">[@pagetitle subpage /]</a></li>
 							[/@navloop]
 						</ul>
 					[/#if]
