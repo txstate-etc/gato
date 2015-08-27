@@ -33,10 +33,12 @@ areas:
     dialog: gato-template-txstate2015:pages/areas/contact-information
   footerLinks:
     renderType: freemarker
-    type: noComponent
+    type: list
     title: Footer Links
     templateScript: /gato-template-txstate2015/templates/pages/areas/footer-links.ftl
-    dialog: gato-template-txstate2015:pages/areas/footer-links
+    availableComponents:
+      link:
+        id: gato-template:components/link
   contentParagraph:
     title: Main Content Area
     availableComponents:
