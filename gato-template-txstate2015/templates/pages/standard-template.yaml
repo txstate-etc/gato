@@ -19,11 +19,15 @@ areas:
     title: Parent Organization
   superUser:
     renderType: freemarker
-    type: noComponent
-    createAreaNode: false
-    dialog: gato-template-txstate2015:pages/areas/super-user
-    templateScript: /gato-template-txstate2015/templates/pages/areas/super-user.ftl
+    type: list
+    inheritance:
+      enabled: true
+      components: all
     title: Top Menu
+    templateScript: /gato-template-txstate2015/templates/pages/areas/super-user.ftl
+    availableComponents:
+      link:
+        id: gato-template:components/link
   contactInformation:
     renderType: freemarker
     type: noComponent
@@ -32,10 +36,15 @@ areas:
     dialog: gato-template-txstate2015:pages/areas/contact-information
   footerLinks:
     renderType: freemarker
-    type: noComponent
+    type: list
+    inheritance:
+      enabled: true
+      components: all
     title: Footer Links
     templateScript: /gato-template-txstate2015/templates/pages/areas/footer-links.ftl
-    dialog: gato-template-txstate2015:pages/areas/footer-links
+    availableComponents:
+      link:
+        id: gato-template:components/link
   contentParagraph:
     title: Main Content Area
     availableComponents:
