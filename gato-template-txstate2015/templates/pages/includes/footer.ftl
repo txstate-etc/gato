@@ -23,7 +23,8 @@
 			</div>
 		</div>
 		<div class="column col-xs-1-3 footer_column footer_column_3">
-			[@cms.area name="footerLinks"/]
+			[#assign globalData = cmsfn.asContentMap(cmsfn.nodeByPath('/global-data', 'website'))]
+			[@cms.area name="footerLinks" content=globalData.footerLinks/]
 			<a class="apply_now" href="https://www.applytexas.org">Apply Now</a>
 		</div>
 	</div> <!-- footer_content -->	
