@@ -35,12 +35,11 @@
 				</div>
 				<h3 class="contact_us mobile_dept"><a href="#nowhere">${content.title}</a></h3>
 				[#import "includes/main-menu.ftl" as menu]
-				[#--@menu.menuBar isMobile=true/--]
-				[#--@mainmenu textmenu=true /--]
+				[@menu.menuBar isMobile=true/]
 			</div>
 			<!-- does social media need to go here -->
 			<div class="mobile_super_container">
-				[@cms.area name="superUser" contextAttributes={"isMobile":true}/]		
+				[@cms.area name="superUser" editable=false contextAttributes={"isMobile":true}/]		
 			</div>
 		</nav>
 		<div id="panel" class="container">

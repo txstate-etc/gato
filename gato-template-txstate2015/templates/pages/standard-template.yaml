@@ -19,11 +19,12 @@ areas:
     title: Parent Organization
   superUser:
     renderType: freemarker
-    type: noComponent
-    createAreaNode: false
-    dialog: gato-template-txstate2015:pages/areas/super-user
-    templateScript: /gato-template-txstate2015/templates/pages/areas/super-user.ftl
+    type: list
     title: Top Menu
+    templateScript: /gato-template-txstate2015/templates/pages/areas/super-user.ftl
+    availableComponents:
+      link:
+        id: gato-template:components/link
   contactInformation:
     renderType: freemarker
     type: noComponent
