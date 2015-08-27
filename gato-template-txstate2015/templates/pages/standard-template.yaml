@@ -20,6 +20,9 @@ areas:
   superUser:
     renderType: freemarker
     type: list
+    inheritance:
+      enabled: true
+      components: all
     title: Top Menu
     templateScript: /gato-template-txstate2015/templates/pages/areas/super-user.ftl
     availableComponents:
@@ -34,6 +37,9 @@ areas:
   footerLinks:
     renderType: freemarker
     type: list
+    inheritance:
+      enabled: true
+      components: all
     title: Footer Links
     templateScript: /gato-template-txstate2015/templates/pages/areas/footer-links.ftl
     availableComponents:
