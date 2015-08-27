@@ -1,0 +1,1537 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sv:node sv:name="global-data" xmlns:sv="http://www.jcp.org/jcr/sv/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <sv:property sv:name="jcr:primaryType" sv:type="Name">
+    <sv:value>mgnl:area</sv:value>
+  </sv:property>
+  <sv:property sv:name="jcr:mixinTypes" sv:type="Name" sv:multiple="true">
+    <sv:value>mix:lockable</sv:value>
+  </sv:property>
+  <sv:property sv:name="jcr:uuid" sv:type="String">
+    <sv:value>d55a585c-c559-4a79-8829-6761713801fa</sv:value>
+  </sv:property>
+  <sv:property sv:name="jcr:createdBy" sv:type="String">
+    <sv:value>admin</sv:value>
+  </sv:property>
+  <sv:property sv:name="mgnl:created" sv:type="Date">
+    <sv:value>2012-08-28T13:10:06.639-05:00</sv:value>
+  </sv:property>
+  <sv:property sv:name="mgnl:lastModified" sv:type="Date">
+    <sv:value>2012-08-28T13:10:13.820-05:00</sv:value>
+  </sv:property>
+  <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
+    <sv:value>nw13</sv:value>
+  </sv:property>
+  <sv:node sv:name="webTools">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>mgnl:area</sv:value>
+    </sv:property>
+    <sv:property sv:name="jcr:mixinTypes" sv:type="Name" sv:multiple="true">
+      <sv:value>mix:lockable</sv:value>
+    </sv:property>
+    <sv:property sv:name="jcr:uuid" sv:type="String">
+      <sv:value>751f7f37-a838-49da-8b7d-d85d7180105e</sv:value>
+    </sv:property>
+    <sv:property sv:name="jcr:createdBy" sv:type="String">
+      <sv:value>admin</sv:value>
+    </sv:property>
+    <sv:property sv:name="mgnl:activationStatus" sv:type="Boolean">
+      <sv:value>true</sv:value>
+    </sv:property>
+    <sv:property sv:name="mgnl:created" sv:type="Date">
+      <sv:value>2009-05-01T15:59:41.437-05:00</sv:value>
+    </sv:property>
+    <sv:property sv:name="mgnl:lastActivated" sv:type="Date">
+      <sv:value>2012-02-15T11:51:57.550-06:00</sv:value>
+    </sv:property>
+    <sv:property sv:name="mgnl:lastActivatedBy" sv:type="String">
+      <sv:value>jb71</sv:value>
+    </sv:property>
+    <sv:property sv:name="mgnl:lastModified" sv:type="Date">
+      <sv:value>2011-09-02T09:05:37.236-05:00</sv:value>
+    </sv:property>
+    <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
+      <sv:value>pc32</sv:value>
+    </sv:property>
+    <sv:node sv:name="0">
+      <sv:property sv:name="jcr:primaryType" sv:type="Name">
+        <sv:value>mgnl:component</sv:value>
+      </sv:property>
+      <sv:property sv:name="jcr:uuid" sv:type="String">
+        <sv:value>720347cc-4dea-43e4-bdae-9dbb78b264c7</sv:value>
+      </sv:property>
+      <sv:property sv:name="jcr:createdBy" sv:type="String">
+        <sv:value>admin</sv:value>
+      </sv:property>
+      <sv:property sv:name="link" sv:type="String">
+        <sv:value>http://bobcatmail.txstate.edu</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:created" sv:type="Date">
+        <sv:value>2015-08-27T16:02:54.036-05:00</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:createdBy" sv:type="String">
+        <sv:value>a_f269</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:lastModified" sv:type="Date">
+        <sv:value>2015-08-27T16:02:54.036-05:00</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
+        <sv:value>a_f269</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:template" sv:type="String">
+        <sv:value>gato-template:components/link</sv:value>
+      </sv:property>
+      <sv:property sv:name="text" sv:type="String">
+        <sv:value>Bobcat Mail</sv:value>
+      </sv:property>
+    </sv:node>
+    <sv:node sv:name="00">
+      <sv:property sv:name="jcr:primaryType" sv:type="Name">
+        <sv:value>mgnl:component</sv:value>
+      </sv:property>
+      <sv:property sv:name="jcr:uuid" sv:type="String">
+        <sv:value>5a7ddfe9-ee5b-4a1e-a29b-337a7c96fadc</sv:value>
+      </sv:property>
+      <sv:property sv:name="jcr:createdBy" sv:type="String">
+        <sv:value>admin</sv:value>
+      </sv:property>
+      <sv:property sv:name="link" sv:type="String">
+        <sv:value>http://catsweb.txstate.edu/catsweb/index.htm</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:created" sv:type="Date">
+        <sv:value>2015-08-27T16:04:01.339-05:00</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:createdBy" sv:type="String">
+        <sv:value>a_f269</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:lastModified" sv:type="Date">
+        <sv:value>2015-08-27T16:04:01.339-05:00</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
+        <sv:value>a_f269</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:template" sv:type="String">
+        <sv:value>gato-template:components/link</sv:value>
+      </sv:property>
+      <sv:property sv:name="text" sv:type="String">
+        <sv:value>catsweb</sv:value>
+      </sv:property>
+    </sv:node>
+    <sv:node sv:name="01">
+      <sv:property sv:name="jcr:primaryType" sv:type="Name">
+        <sv:value>mgnl:component</sv:value>
+      </sv:property>
+      <sv:property sv:name="jcr:uuid" sv:type="String">
+        <sv:value>9343ed5e-6e11-4260-80e3-87e6efa53019</sv:value>
+      </sv:property>
+      <sv:property sv:name="jcr:createdBy" sv:type="String">
+        <sv:value>admin</sv:value>
+      </sv:property>
+      <sv:property sv:name="link" sv:type="String">
+        <sv:value>https://tracs.txstate.edu/portal/login</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:activationStatus" sv:type="Boolean">
+        <sv:value>false</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:created" sv:type="Date">
+        <sv:value>2015-08-27T16:04:19.300-05:00</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:createdBy" sv:type="String">
+        <sv:value>a_f269</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:lastActivated" sv:type="Date">
+        <sv:value>2015-08-27T16:04:19.300-05:00</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:lastActivatedBy" sv:type="String">
+        <sv:value>a_f269</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:lastModified" sv:type="Date">
+        <sv:value>2015-08-27T16:04:19.300-05:00</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
+        <sv:value>a_f269</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:template" sv:type="String">
+        <sv:value>gato-template:components/link</sv:value>
+      </sv:property>
+      <sv:property sv:name="text" sv:type="String">
+        <sv:value>tracs</sv:value>
+      </sv:property>
+    </sv:node>
+    <sv:node sv:name="02">
+      <sv:property sv:name="jcr:primaryType" sv:type="Name">
+        <sv:value>mgnl:component</sv:value>
+      </sv:property>
+      <sv:property sv:name="jcr:uuid" sv:type="String">
+        <sv:value>1aa9567d-77e5-40bb-a533-33ac2a24b845</sv:value>
+      </sv:property>
+      <sv:property sv:name="jcr:createdBy" sv:type="String">
+        <sv:value>admin</sv:value>
+      </sv:property>
+      <sv:property sv:name="link" sv:type="String">
+        <sv:value>http://mycatalog.txstate.edu/</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:activationStatus" sv:type="Boolean">
+        <sv:value>false</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:created" sv:type="Date">
+        <sv:value>2015-08-27T16:04:20.896-05:00</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:createdBy" sv:type="String">
+        <sv:value>a_f269</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:lastActivated" sv:type="Date">
+        <sv:value>2015-08-27T16:04:20.896-05:00</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:lastActivatedBy" sv:type="String">
+        <sv:value>a_f269</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:lastModified" sv:type="Date">
+        <sv:value>2015-08-27T16:04:20.896-05:00</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
+        <sv:value>a_f269</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:template" sv:type="String">
+        <sv:value>gato-template:components/link</sv:value>
+      </sv:property>
+      <sv:property sv:name="text" sv:type="String">
+        <sv:value>catalogs</sv:value>
+      </sv:property>
+    </sv:node>
+    <sv:node sv:name="03">
+      <sv:property sv:name="jcr:primaryType" sv:type="Name">
+        <sv:value>mgnl:component</sv:value>
+      </sv:property>
+      <sv:property sv:name="jcr:uuid" sv:type="String">
+        <sv:value>f36b4b8f-fddc-496f-a832-b022af994f1a</sv:value>
+      </sv:property>
+      <sv:property sv:name="jcr:createdBy" sv:type="String">
+        <sv:value>admin</sv:value>
+      </sv:property>
+      <sv:property sv:name="link" sv:type="String">
+        <sv:value>https://secure.touchnet.com/C24322_tsa/web/login.jsp</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:activationStatus" sv:type="Boolean">
+        <sv:value>false</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:created" sv:type="Date">
+        <sv:value>2015-08-27T16:04:24.749-05:00</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:createdBy" sv:type="String">
+        <sv:value>a_f269</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:lastActivated" sv:type="Date">
+        <sv:value>2015-08-27T16:04:24.749-05:00</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:lastActivatedBy" sv:type="String">
+        <sv:value>a_f269</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:lastModified" sv:type="Date">
+        <sv:value>2015-08-27T16:04:24.749-05:00</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
+        <sv:value>a_f269</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:template" sv:type="String">
+        <sv:value>gato-template:components/link</sv:value>
+      </sv:property>
+      <sv:property sv:name="text" sv:type="String">
+        <sv:value>pay tuition</sv:value>
+      </sv:property>
+    </sv:node>
+    <sv:node sv:name="04">
+      <sv:property sv:name="jcr:primaryType" sv:type="Name">
+        <sv:value>mgnl:component</sv:value>
+      </sv:property>
+      <sv:property sv:name="jcr:uuid" sv:type="String">
+        <sv:value>6c1a8171-d81b-423b-9ad6-a70fff0470bf</sv:value>
+      </sv:property>
+      <sv:property sv:name="jcr:createdBy" sv:type="String">
+        <sv:value>admin</sv:value>
+      </sv:property>
+      <sv:property sv:name="link" sv:type="String">
+        <sv:value>http://www.library.txstate.edu/</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:activationStatus" sv:type="Boolean">
+        <sv:value>false</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:created" sv:type="Date">
+        <sv:value>2015-08-27T16:04:26.760-05:00</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:createdBy" sv:type="String">
+        <sv:value>a_f269</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:lastActivated" sv:type="Date">
+        <sv:value>2015-08-27T16:04:26.760-05:00</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:lastActivatedBy" sv:type="String">
+        <sv:value>a_f269</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:lastModified" sv:type="Date">
+        <sv:value>2015-08-27T16:04:26.760-05:00</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
+        <sv:value>a_f269</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:template" sv:type="String">
+        <sv:value>gato-template:components/link</sv:value>
+      </sv:property>
+      <sv:property sv:name="text" sv:type="String">
+        <sv:value>library</sv:value>
+      </sv:property>
+    </sv:node>
+    <sv:node sv:name="05">
+      <sv:property sv:name="jcr:primaryType" sv:type="Name">
+        <sv:value>mgnl:component</sv:value>
+      </sv:property>
+      <sv:property sv:name="jcr:uuid" sv:type="String">
+        <sv:value>34b71b7c-bc22-4f68-b156-4a4f75c9718c</sv:value>
+      </sv:property>
+      <sv:property sv:name="jcr:createdBy" sv:type="String">
+        <sv:value>admin</sv:value>
+      </sv:property>
+      <sv:property sv:name="link" sv:type="String">
+        <sv:value>http://www.maps.txstate.edu/</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:activationStatus" sv:type="Boolean">
+        <sv:value>false</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:created" sv:type="Date">
+        <sv:value>2015-08-27T16:04:26.979-05:00</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:createdBy" sv:type="String">
+        <sv:value>a_f269</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:lastActivated" sv:type="Date">
+        <sv:value>2015-08-27T16:04:26.979-05:00</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:lastActivatedBy" sv:type="String">
+        <sv:value>a_f269</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:lastModified" sv:type="Date">
+        <sv:value>2015-08-27T16:04:26.979-05:00</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
+        <sv:value>a_f269</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:template" sv:type="String">
+        <sv:value>gato-template:components/link</sv:value>
+      </sv:property>
+      <sv:property sv:name="text" sv:type="String">
+        <sv:value>maps</sv:value>
+      </sv:property>
+    </sv:node>
+  </sv:node>
+  <sv:node sv:name="twitter">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>mgnl:contentNode</sv:value>
+    </sv:property>
+    <sv:property sv:name="jcr:mixinTypes" sv:type="Name" sv:multiple="true">
+      <sv:value>mix:lockable</sv:value>
+    </sv:property>
+    <sv:property sv:name="jcr:uuid" sv:type="String">
+      <sv:value>0bd66f76-c09d-4499-9454-b23ecafeba9e</sv:value>
+    </sv:property>
+    <sv:property sv:name="jcr:createdBy" sv:type="String">
+      <sv:value>admin</sv:value>
+    </sv:property>
+    <sv:property sv:name="mgnl:created" sv:type="Date">
+      <sv:value>2013-12-06T13:47:28.555-06:00</sv:value>
+    </sv:property>
+    <sv:node sv:name="user_map">
+      <sv:property sv:name="jcr:primaryType" sv:type="Name">
+        <sv:value>mgnl:contentNode</sv:value>
+      </sv:property>
+      <sv:property sv:name="jcr:mixinTypes" sv:type="Name" sv:multiple="true">
+        <sv:value>mix:lockable</sv:value>
+      </sv:property>
+      <sv:property sv:name="jcr:uuid" sv:type="String">
+        <sv:value>cb189a7e-151a-4392-befe-df497737422d</sv:value>
+      </sv:property>
+      <sv:property sv:name="jcr:createdBy" sv:type="String">
+        <sv:value>admin</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:created" sv:type="Date">
+        <sv:value>2013-12-06T13:47:28.556-06:00</sv:value>
+      </sv:property>
+      <sv:node sv:name="txstateunivsyst">
+        <sv:property sv:name="jcr:primaryType" sv:type="Name">
+          <sv:value>mgnl:contentNode</sv:value>
+        </sv:property>
+        <sv:property sv:name="jcr:mixinTypes" sv:type="Name" sv:multiple="true">
+          <sv:value>mix:lockable</sv:value>
+        </sv:property>
+        <sv:property sv:name="jcr:uuid" sv:type="String">
+          <sv:value>1079df3c-5df1-4dba-aaa4-baffbc5daa62</sv:value>
+        </sv:property>
+        <sv:property sv:name="jcr:createdBy" sv:type="String">
+          <sv:value>admin</sv:value>
+        </sv:property>
+        <sv:property sv:name="mgnl:created" sv:type="Date">
+          <sv:value>2013-12-06T13:47:29.133-06:00</sv:value>
+        </sv:property>
+        <sv:property sv:name="mgnl:lastModified" sv:type="Date">
+          <sv:value>2013-12-06T13:47:29.134-06:00</sv:value>
+        </sv:property>
+        <sv:property sv:name="user_id" sv:type="Long">
+          <sv:value>171163775</sv:value>
+        </sv:property>
+      </sv:node>
+      <sv:node sv:name="nickwork">
+        <sv:property sv:name="jcr:primaryType" sv:type="Name">
+          <sv:value>mgnl:contentNode</sv:value>
+        </sv:property>
+        <sv:property sv:name="jcr:mixinTypes" sv:type="Name" sv:multiple="true">
+          <sv:value>mix:lockable</sv:value>
+        </sv:property>
+        <sv:property sv:name="jcr:uuid" sv:type="String">
+          <sv:value>54f3839c-8bc6-4095-9076-e7c5053187f5</sv:value>
+        </sv:property>
+        <sv:property sv:name="jcr:createdBy" sv:type="String">
+          <sv:value>admin</sv:value>
+        </sv:property>
+        <sv:property sv:name="mgnl:created" sv:type="Date">
+          <sv:value>2015-08-27T04:09:01.565-05:00</sv:value>
+        </sv:property>
+        <sv:property sv:name="mgnl:lastModified" sv:type="Date">
+          <sv:value>2015-08-27T04:09:01.565-05:00</sv:value>
+        </sv:property>
+        <sv:property sv:name="user_id" sv:type="Long">
+          <sv:value>16364291</sv:value>
+        </sv:property>
+      </sv:node>
+      <sv:node sv:name="txst">
+        <sv:property sv:name="jcr:primaryType" sv:type="Name">
+          <sv:value>mgnl:contentNode</sv:value>
+        </sv:property>
+        <sv:property sv:name="jcr:mixinTypes" sv:type="Name" sv:multiple="true">
+          <sv:value>mix:lockable</sv:value>
+        </sv:property>
+        <sv:property sv:name="jcr:uuid" sv:type="String">
+          <sv:value>68958455-e91d-4640-8c21-7b9a17fd6d40</sv:value>
+        </sv:property>
+        <sv:property sv:name="jcr:createdBy" sv:type="String">
+          <sv:value>admin</sv:value>
+        </sv:property>
+        <sv:property sv:name="mgnl:created" sv:type="Date">
+          <sv:value>2015-08-27T04:09:01.685-05:00</sv:value>
+        </sv:property>
+        <sv:property sv:name="mgnl:lastModified" sv:type="Date">
+          <sv:value>2015-08-27T04:09:01.686-05:00</sv:value>
+        </sv:property>
+        <sv:property sv:name="user_id" sv:type="Long">
+          <sv:value>64826699</sv:value>
+        </sv:property>
+      </sv:node>
+    </sv:node>
+    <sv:node sv:name="tweets">
+      <sv:property sv:name="jcr:primaryType" sv:type="Name">
+        <sv:value>mgnl:contentNode</sv:value>
+      </sv:property>
+      <sv:property sv:name="jcr:mixinTypes" sv:type="Name" sv:multiple="true">
+        <sv:value>mix:lockable</sv:value>
+      </sv:property>
+      <sv:property sv:name="jcr:uuid" sv:type="String">
+        <sv:value>24b5bdd0-d238-4b0a-bc1b-7d619ddd0c1f</sv:value>
+      </sv:property>
+      <sv:property sv:name="jcr:createdBy" sv:type="String">
+        <sv:value>admin</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:created" sv:type="Date">
+        <sv:value>2013-12-06T13:47:28.557-06:00</sv:value>
+      </sv:property>
+      <sv:node sv:name="txstateunivsyst">
+        <sv:property sv:name="jcr:primaryType" sv:type="Name">
+          <sv:value>mgnl:contentNode</sv:value>
+        </sv:property>
+        <sv:property sv:name="jcr:mixinTypes" sv:type="Name" sv:multiple="true">
+          <sv:value>mix:lockable</sv:value>
+        </sv:property>
+        <sv:property sv:name="jcr:uuid" sv:type="String">
+          <sv:value>ab4cdee5-e5c5-4880-bfad-03dc5b5a959a</sv:value>
+        </sv:property>
+        <sv:property sv:name="jcr:createdBy" sv:type="String">
+          <sv:value>admin</sv:value>
+        </sv:property>
+        <sv:property sv:name="mgnl:created" sv:type="Date">
+          <sv:value>2013-12-06T13:47:29.110-06:00</sv:value>
+        </sv:property>
+        <sv:property sv:name="mgnl:lastModified" sv:type="Date">
+          <sv:value>2013-12-06T13:47:29.132-06:00</sv:value>
+        </sv:property>
+        <sv:node sv:name="408980579708067840">
+          <sv:property sv:name="jcr:primaryType" sv:type="Name">
+            <sv:value>mgnl:contentNode</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:mixinTypes" sv:type="Name" sv:multiple="true">
+            <sv:value>mix:lockable</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:uuid" sv:type="String">
+            <sv:value>16b256ef-2ab6-4632-a63f-99a211f996d2</sv:value>
+          </sv:property>
+          <sv:property sv:name="created_at" sv:type="String">
+            <sv:value>Fri Dec 06 09:25:43 CST 2013</sv:value>
+          </sv:property>
+          <sv:property sv:name="icon" sv:type="String">
+            <sv:value>https://pbs.twimg.com/profile_images/2656988796/e1aa6d583c87c33fb379bf6117a9790e_normal.png</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:createdBy" sv:type="String">
+            <sv:value>admin</sv:value>
+          </sv:property>
+          <sv:property sv:name="mgnl:created" sv:type="Date">
+            <sv:value>2013-12-06T13:47:29.112-06:00</sv:value>
+          </sv:property>
+          <sv:property sv:name="screen_name" sv:type="String">
+            <sv:value>TXStateUnivSyst</sv:value>
+          </sv:property>
+          <sv:property sv:name="text" sv:type="String">
+            <sv:value>SHSU President Dana Gibson named to federal panel investigating government red tape that drives up costs http://t.co/fewrqx9wiv</sv:value>
+          </sv:property>
+          <sv:property sv:name="tweet_id" sv:type="Long">
+            <sv:value>408980579708067840</sv:value>
+          </sv:property>
+        </sv:node>
+        <sv:node sv:name="408718517039398912">
+          <sv:property sv:name="jcr:primaryType" sv:type="Name">
+            <sv:value>mgnl:contentNode</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:mixinTypes" sv:type="Name" sv:multiple="true">
+            <sv:value>mix:lockable</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:uuid" sv:type="String">
+            <sv:value>f607bd9c-d386-495a-ba7e-c3987dca3547</sv:value>
+          </sv:property>
+          <sv:property sv:name="created_at" sv:type="String">
+            <sv:value>Thu Dec 05 16:04:22 CST 2013</sv:value>
+          </sv:property>
+          <sv:property sv:name="icon" sv:type="String">
+            <sv:value>https://pbs.twimg.com/profile_images/2656988796/e1aa6d583c87c33fb379bf6117a9790e_normal.png</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:createdBy" sv:type="String">
+            <sv:value>admin</sv:value>
+          </sv:property>
+          <sv:property sv:name="mgnl:created" sv:type="Date">
+            <sv:value>2013-12-06T13:47:29.114-06:00</sv:value>
+          </sv:property>
+          <sv:property sv:name="screen_name" sv:type="String">
+            <sv:value>TXStateUnivSyst</sv:value>
+          </sv:property>
+          <sv:property sv:name="text" sv:type="String">
+            <sv:value>Sam Houston State University President Dana Gibson named to U.S. Senate education task force http://t.co/YFxWWGFEse</sv:value>
+          </sv:property>
+          <sv:property sv:name="tweet_id" sv:type="Long">
+            <sv:value>408718517039398912</sv:value>
+          </sv:property>
+        </sv:node>
+        <sv:node sv:name="408334278884196355">
+          <sv:property sv:name="jcr:primaryType" sv:type="Name">
+            <sv:value>mgnl:contentNode</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:mixinTypes" sv:type="Name" sv:multiple="true">
+            <sv:value>mix:lockable</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:uuid" sv:type="String">
+            <sv:value>e400c1d7-3d33-4e3a-b347-6f4edaa5d4fd</sv:value>
+          </sv:property>
+          <sv:property sv:name="created_at" sv:type="String">
+            <sv:value>Wed Dec 04 14:37:33 CST 2013</sv:value>
+          </sv:property>
+          <sv:property sv:name="icon" sv:type="String">
+            <sv:value>https://pbs.twimg.com/profile_images/2656988796/e1aa6d583c87c33fb379bf6117a9790e_normal.png</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:createdBy" sv:type="String">
+            <sv:value>admin</sv:value>
+          </sv:property>
+          <sv:property sv:name="mgnl:created" sv:type="Date">
+            <sv:value>2013-12-06T13:47:29.117-06:00</sv:value>
+          </sv:property>
+          <sv:property sv:name="screen_name" sv:type="String">
+            <sv:value>TXStateUnivSyst</sv:value>
+          </sv:property>
+          <sv:property sv:name="text" sv:type="String">
+            <sv:value>TSUS chancellor to Congress: Don’t mess with student financial aid http://t.co/53rKFyfIGE</sv:value>
+          </sv:property>
+          <sv:property sv:name="tweet_id" sv:type="Long">
+            <sv:value>408334278884196355</sv:value>
+          </sv:property>
+        </sv:node>
+        <sv:node sv:name="408278100267397120">
+          <sv:property sv:name="jcr:primaryType" sv:type="Name">
+            <sv:value>mgnl:contentNode</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:mixinTypes" sv:type="Name" sv:multiple="true">
+            <sv:value>mix:lockable</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:uuid" sv:type="String">
+            <sv:value>e8a55c07-355f-472b-baeb-3797a597dede</sv:value>
+          </sv:property>
+          <sv:property sv:name="created_at" sv:type="String">
+            <sv:value>Wed Dec 04 10:54:19 CST 2013</sv:value>
+          </sv:property>
+          <sv:property sv:name="icon" sv:type="String">
+            <sv:value>https://pbs.twimg.com/profile_images/2656988796/e1aa6d583c87c33fb379bf6117a9790e_normal.png</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:createdBy" sv:type="String">
+            <sv:value>admin</sv:value>
+          </sv:property>
+          <sv:property sv:name="mgnl:created" sv:type="Date">
+            <sv:value>2013-12-06T13:47:29.119-06:00</sv:value>
+          </sv:property>
+          <sv:property sv:name="screen_name" sv:type="String">
+            <sv:value>TXStateUnivSyst</sv:value>
+          </sv:property>
+          <sv:property sv:name="text" sv:type="String">
+            <sv:value>Alpine Daily Planet: Early optimism on Sul Ross' future http://t.co/PCUfEx4XNP</sv:value>
+          </sv:property>
+          <sv:property sv:name="tweet_id" sv:type="Long">
+            <sv:value>408278100267397120</sv:value>
+          </sv:property>
+        </sv:node>
+        <sv:node sv:name="407904413429559296">
+          <sv:property sv:name="jcr:primaryType" sv:type="Name">
+            <sv:value>mgnl:contentNode</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:mixinTypes" sv:type="Name" sv:multiple="true">
+            <sv:value>mix:lockable</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:uuid" sv:type="String">
+            <sv:value>33c8a330-fa4b-441c-a610-3fdeca2f9635</sv:value>
+          </sv:property>
+          <sv:property sv:name="created_at" sv:type="String">
+            <sv:value>Tue Dec 03 10:09:25 CST 2013</sv:value>
+          </sv:property>
+          <sv:property sv:name="icon" sv:type="String">
+            <sv:value>https://pbs.twimg.com/profile_images/2656988796/e1aa6d583c87c33fb379bf6117a9790e_normal.png</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:createdBy" sv:type="String">
+            <sv:value>admin</sv:value>
+          </sv:property>
+          <sv:property sv:name="mgnl:created" sv:type="Date">
+            <sv:value>2013-12-06T13:47:29.121-06:00</sv:value>
+          </sv:property>
+          <sv:property sv:name="screen_name" sv:type="String">
+            <sv:value>TXStateUnivSyst</sv:value>
+          </sv:property>
+          <sv:property sv:name="text" sv:type="String">
+            <sv:value>TSUS outlines search process for Sul Ross State University's next president http://t.co/UdpiTNL4wU</sv:value>
+          </sv:property>
+          <sv:property sv:name="tweet_id" sv:type="Long">
+            <sv:value>407904413429559296</sv:value>
+          </sv:property>
+        </sv:node>
+        <sv:node sv:name="405026558412206080">
+          <sv:property sv:name="jcr:primaryType" sv:type="Name">
+            <sv:value>mgnl:contentNode</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:mixinTypes" sv:type="Name" sv:multiple="true">
+            <sv:value>mix:lockable</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:uuid" sv:type="String">
+            <sv:value>ec16f064-06bc-4523-bb74-6ebf44b6197c</sv:value>
+          </sv:property>
+          <sv:property sv:name="created_at" sv:type="String">
+            <sv:value>Mon Nov 25 11:33:51 CST 2013</sv:value>
+          </sv:property>
+          <sv:property sv:name="icon" sv:type="String">
+            <sv:value>https://pbs.twimg.com/profile_images/2656988796/e1aa6d583c87c33fb379bf6117a9790e_normal.png</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:createdBy" sv:type="String">
+            <sv:value>admin</sv:value>
+          </sv:property>
+          <sv:property sv:name="mgnl:created" sv:type="Date">
+            <sv:value>2013-12-06T13:47:29.123-06:00</sv:value>
+          </sv:property>
+          <sv:property sv:name="screen_name" sv:type="String">
+            <sv:value>TXStateUnivSyst</sv:value>
+          </sv:property>
+          <sv:property sv:name="text" sv:type="String">
+            <sv:value>Dr. Ricardo Maestas resigns as president of Sul Ross State University http://t.co/RE4IXu9nDg</sv:value>
+          </sv:property>
+          <sv:property sv:name="tweet_id" sv:type="Long">
+            <sv:value>405026558412206080</sv:value>
+          </sv:property>
+        </sv:node>
+        <sv:node sv:name="403200968294428673">
+          <sv:property sv:name="jcr:primaryType" sv:type="Name">
+            <sv:value>mgnl:contentNode</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:mixinTypes" sv:type="Name" sv:multiple="true">
+            <sv:value>mix:lockable</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:uuid" sv:type="String">
+            <sv:value>62494e3e-add6-42c7-b50f-db9f4ed8959e</sv:value>
+          </sv:property>
+          <sv:property sv:name="created_at" sv:type="String">
+            <sv:value>Wed Nov 20 10:39:36 CST 2013</sv:value>
+          </sv:property>
+          <sv:property sv:name="icon" sv:type="String">
+            <sv:value>https://pbs.twimg.com/profile_images/2656988796/e1aa6d583c87c33fb379bf6117a9790e_normal.png</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:createdBy" sv:type="String">
+            <sv:value>admin</sv:value>
+          </sv:property>
+          <sv:property sv:name="mgnl:created" sv:type="Date">
+            <sv:value>2013-12-06T13:47:29.125-06:00</sv:value>
+          </sv:property>
+          <sv:property sv:name="screen_name" sv:type="String">
+            <sv:value>TXStateUnivSyst</sv:value>
+          </sv:property>
+          <sv:property sv:name="text" sv:type="String">
+            <sv:value>Texas State University grad student to be honored for innovative cancer research http://t.co/vvdAlXaek3</sv:value>
+          </sv:property>
+          <sv:property sv:name="tweet_id" sv:type="Long">
+            <sv:value>403200968294428673</sv:value>
+          </sv:property>
+        </sv:node>
+        <sv:node sv:name="402561740140838913">
+          <sv:property sv:name="jcr:primaryType" sv:type="Name">
+            <sv:value>mgnl:contentNode</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:mixinTypes" sv:type="Name" sv:multiple="true">
+            <sv:value>mix:lockable</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:uuid" sv:type="String">
+            <sv:value>a93b3ed4-4315-40d6-8439-e9add0245cc1</sv:value>
+          </sv:property>
+          <sv:property sv:name="created_at" sv:type="String">
+            <sv:value>Mon Nov 18 16:19:32 CST 2013</sv:value>
+          </sv:property>
+          <sv:property sv:name="icon" sv:type="String">
+            <sv:value>https://pbs.twimg.com/profile_images/2656988796/e1aa6d583c87c33fb379bf6117a9790e_normal.png</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:createdBy" sv:type="String">
+            <sv:value>admin</sv:value>
+          </sv:property>
+          <sv:property sv:name="mgnl:created" sv:type="Date">
+            <sv:value>2013-12-06T13:47:29.127-06:00</sv:value>
+          </sv:property>
+          <sv:property sv:name="screen_name" sv:type="String">
+            <sv:value>TXStateUnivSyst</sv:value>
+          </sv:property>
+          <sv:property sv:name="text" sv:type="String">
+            <sv:value>Hundreds of degrees in one searchable database. The TSUS Degree Finder http://t.co/niuPKLOq5R</sv:value>
+          </sv:property>
+          <sv:property sv:name="tweet_id" sv:type="Long">
+            <sv:value>402561740140838913</sv:value>
+          </sv:property>
+        </sv:node>
+        <sv:node sv:name="398858698417655808">
+          <sv:property sv:name="jcr:primaryType" sv:type="Name">
+            <sv:value>mgnl:contentNode</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:mixinTypes" sv:type="Name" sv:multiple="true">
+            <sv:value>mix:lockable</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:uuid" sv:type="String">
+            <sv:value>521ecc4a-7f75-4d98-81cc-4b2399af3bcb</sv:value>
+          </sv:property>
+          <sv:property sv:name="created_at" sv:type="String">
+            <sv:value>Fri Nov 08 11:04:58 CST 2013</sv:value>
+          </sv:property>
+          <sv:property sv:name="icon" sv:type="String">
+            <sv:value>https://pbs.twimg.com/profile_images/2656988796/e1aa6d583c87c33fb379bf6117a9790e_normal.png</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:createdBy" sv:type="String">
+            <sv:value>admin</sv:value>
+          </sv:property>
+          <sv:property sv:name="mgnl:created" sv:type="Date">
+            <sv:value>2013-12-06T13:47:29.129-06:00</sv:value>
+          </sv:property>
+          <sv:property sv:name="screen_name" sv:type="String">
+            <sv:value>TXStateUnivSyst</sv:value>
+          </sv:property>
+          <sv:property sv:name="text" sv:type="String">
+            <sv:value>Donna N. Williams re-elected chairman, Ron Mitchell re-elected vice chairman of TSUS Board of Regents http://t.co/M5jh2Domv3</sv:value>
+          </sv:property>
+          <sv:property sv:name="tweet_id" sv:type="Long">
+            <sv:value>398858698417655808</sv:value>
+          </sv:property>
+        </sv:node>
+        <sv:node sv:name="398619260617887744">
+          <sv:property sv:name="jcr:primaryType" sv:type="Name">
+            <sv:value>mgnl:contentNode</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:mixinTypes" sv:type="Name" sv:multiple="true">
+            <sv:value>mix:lockable</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:uuid" sv:type="String">
+            <sv:value>b1a83bfe-c73f-4d17-8f1c-fd7171d3c1af</sv:value>
+          </sv:property>
+          <sv:property sv:name="created_at" sv:type="String">
+            <sv:value>Thu Nov 07 19:13:32 CST 2013</sv:value>
+          </sv:property>
+          <sv:property sv:name="icon" sv:type="String">
+            <sv:value>https://pbs.twimg.com/profile_images/2656988796/e1aa6d583c87c33fb379bf6117a9790e_normal.png</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:createdBy" sv:type="String">
+            <sv:value>admin</sv:value>
+          </sv:property>
+          <sv:property sv:name="mgnl:created" sv:type="Date">
+            <sv:value>2013-12-06T13:47:29.131-06:00</sv:value>
+          </sv:property>
+          <sv:property sv:name="screen_name" sv:type="String">
+            <sv:value>TXStateUnivSyst</sv:value>
+          </sv:property>
+          <sv:property sv:name="text" sv:type="String">
+            <sv:value>Dr. Kenneth Evans installed as president of Lamar University http://t.co/Gm2MJpcutt</sv:value>
+          </sv:property>
+          <sv:property sv:name="tweet_id" sv:type="Long">
+            <sv:value>398619260617887744</sv:value>
+          </sv:property>
+        </sv:node>
+      </sv:node>
+      <sv:node sv:name="nickwork">
+        <sv:property sv:name="jcr:primaryType" sv:type="Name">
+          <sv:value>mgnl:contentNode</sv:value>
+        </sv:property>
+        <sv:property sv:name="jcr:mixinTypes" sv:type="Name" sv:multiple="true">
+          <sv:value>mix:lockable</sv:value>
+        </sv:property>
+        <sv:property sv:name="jcr:uuid" sv:type="String">
+          <sv:value>ff7faf9b-7e53-459c-8712-744915f18b5d</sv:value>
+        </sv:property>
+        <sv:property sv:name="jcr:createdBy" sv:type="String">
+          <sv:value>admin</sv:value>
+        </sv:property>
+        <sv:property sv:name="mgnl:created" sv:type="Date">
+          <sv:value>2015-08-27T04:09:01.558-05:00</sv:value>
+        </sv:property>
+        <sv:property sv:name="mgnl:lastModified" sv:type="Date">
+          <sv:value>2015-08-27T04:09:01.565-05:00</sv:value>
+        </sv:property>
+        <sv:node sv:name="514858437411209216">
+          <sv:property sv:name="jcr:primaryType" sv:type="Name">
+            <sv:value>mgnl:contentNode</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:mixinTypes" sv:type="Name" sv:multiple="true">
+            <sv:value>mix:lockable</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:uuid" sv:type="String">
+            <sv:value>b2f7d9eb-698f-4f3a-b62d-fbc4f20466c0</sv:value>
+          </sv:property>
+          <sv:property sv:name="created_at" sv:type="String">
+            <sv:value>Wed Sep 24 14:26:31 CDT 2014</sv:value>
+          </sv:property>
+          <sv:property sv:name="icon" sv:type="String">
+            <sv:value>https://pbs.twimg.com/profile_images/60335551/Recent_1_normal.gif</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:createdBy" sv:type="String">
+            <sv:value>admin</sv:value>
+          </sv:property>
+          <sv:property sv:name="mgnl:created" sv:type="Date">
+            <sv:value>2015-08-27T04:09:01.558-05:00</sv:value>
+          </sv:property>
+          <sv:property sv:name="reply" sv:type="Boolean">
+            <sv:value>false</sv:value>
+          </sv:property>
+          <sv:property sv:name="screen_name" sv:type="String">
+            <sv:value>NickWork</sv:value>
+          </sv:property>
+          <sv:property sv:name="text" sv:type="String">
+            <sv:value>OUT: dr appt</sv:value>
+          </sv:property>
+          <sv:property sv:name="tweet_id" sv:type="Long">
+            <sv:value>514858437411209216</sv:value>
+          </sv:property>
+        </sv:node>
+        <sv:node sv:name="465901049685868544">
+          <sv:property sv:name="jcr:primaryType" sv:type="Name">
+            <sv:value>mgnl:contentNode</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:mixinTypes" sv:type="Name" sv:multiple="true">
+            <sv:value>mix:lockable</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:uuid" sv:type="String">
+            <sv:value>ea1aabb7-93c2-411c-9212-6fc943924b39</sv:value>
+          </sv:property>
+          <sv:property sv:name="created_at" sv:type="String">
+            <sv:value>Mon May 12 12:07:20 CDT 2014</sv:value>
+          </sv:property>
+          <sv:property sv:name="icon" sv:type="String">
+            <sv:value>https://pbs.twimg.com/profile_images/60335551/Recent_1_normal.gif</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:createdBy" sv:type="String">
+            <sv:value>admin</sv:value>
+          </sv:property>
+          <sv:property sv:name="mgnl:created" sv:type="Date">
+            <sv:value>2015-08-27T04:09:01.559-05:00</sv:value>
+          </sv:property>
+          <sv:property sv:name="reply" sv:type="Boolean">
+            <sv:value>false</sv:value>
+          </sv:property>
+          <sv:property sv:name="screen_name" sv:type="String">
+            <sv:value>NickWork</sv:value>
+          </sv:property>
+          <sv:property sv:name="text" sv:type="String">
+            <sv:value>OUT: feeling a little ill, working on CKEditor toolbar tweaks from home</sv:value>
+          </sv:property>
+          <sv:property sv:name="tweet_id" sv:type="Long">
+            <sv:value>465901049685868544</sv:value>
+          </sv:property>
+        </sv:node>
+        <sv:node sv:name="453614257569931264">
+          <sv:property sv:name="jcr:primaryType" sv:type="Name">
+            <sv:value>mgnl:contentNode</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:mixinTypes" sv:type="Name" sv:multiple="true">
+            <sv:value>mix:lockable</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:uuid" sv:type="String">
+            <sv:value>81036e7b-cf8e-4f45-bcee-96516d5ef435</sv:value>
+          </sv:property>
+          <sv:property sv:name="created_at" sv:type="String">
+            <sv:value>Tue Apr 08 14:24:01 CDT 2014</sv:value>
+          </sv:property>
+          <sv:property sv:name="icon" sv:type="String">
+            <sv:value>https://pbs.twimg.com/profile_images/60335551/Recent_1_normal.gif</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:createdBy" sv:type="String">
+            <sv:value>admin</sv:value>
+          </sv:property>
+          <sv:property sv:name="mgnl:created" sv:type="Date">
+            <sv:value>2015-08-27T04:09:01.560-05:00</sv:value>
+          </sv:property>
+          <sv:property sv:name="reply" sv:type="Boolean">
+            <sv:value>false</sv:value>
+          </sv:property>
+          <sv:property sv:name="screen_name" sv:type="String">
+            <sv:value>NickWork</sv:value>
+          </sv:property>
+          <sv:property sv:name="text" sv:type="String">
+            <sv:value>OUT: not coming in today</sv:value>
+          </sv:property>
+          <sv:property sv:name="tweet_id" sv:type="Long">
+            <sv:value>453614257569931264</sv:value>
+          </sv:property>
+        </sv:node>
+        <sv:node sv:name="446070987684323328">
+          <sv:property sv:name="jcr:primaryType" sv:type="Name">
+            <sv:value>mgnl:contentNode</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:mixinTypes" sv:type="Name" sv:multiple="true">
+            <sv:value>mix:lockable</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:uuid" sv:type="String">
+            <sv:value>6228f304-2486-477a-a958-7e5a0b5d4197</sv:value>
+          </sv:property>
+          <sv:property sv:name="created_at" sv:type="String">
+            <sv:value>Tue Mar 18 18:49:45 CDT 2014</sv:value>
+          </sv:property>
+          <sv:property sv:name="icon" sv:type="String">
+            <sv:value>https://pbs.twimg.com/profile_images/60335551/Recent_1_normal.gif</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:createdBy" sv:type="String">
+            <sv:value>admin</sv:value>
+          </sv:property>
+          <sv:property sv:name="mgnl:created" sv:type="Date">
+            <sv:value>2015-08-27T04:09:01.560-05:00</sv:value>
+          </sv:property>
+          <sv:property sv:name="reply" sv:type="Boolean">
+            <sv:value>false</sv:value>
+          </sv:property>
+          <sv:property sv:name="screen_name" sv:type="String">
+            <sv:value>NickWork</sv:value>
+          </sv:property>
+          <sv:property sv:name="text" sv:type="String">
+            <sv:value>OUT: for the evening</sv:value>
+          </sv:property>
+          <sv:property sv:name="tweet_id" sv:type="Long">
+            <sv:value>446070987684323328</sv:value>
+          </sv:property>
+        </sv:node>
+        <sv:node sv:name="446020130745491456">
+          <sv:property sv:name="jcr:primaryType" sv:type="Name">
+            <sv:value>mgnl:contentNode</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:mixinTypes" sv:type="Name" sv:multiple="true">
+            <sv:value>mix:lockable</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:uuid" sv:type="String">
+            <sv:value>ba77bf19-9cea-42c6-bf24-e9074f018c3c</sv:value>
+          </sv:property>
+          <sv:property sv:name="created_at" sv:type="String">
+            <sv:value>Tue Mar 18 15:27:40 CDT 2014</sv:value>
+          </sv:property>
+          <sv:property sv:name="icon" sv:type="String">
+            <sv:value>https://pbs.twimg.com/profile_images/60335551/Recent_1_normal.gif</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:createdBy" sv:type="String">
+            <sv:value>admin</sv:value>
+          </sv:property>
+          <sv:property sv:name="mgnl:created" sv:type="Date">
+            <sv:value>2015-08-27T04:09:01.561-05:00</sv:value>
+          </sv:property>
+          <sv:property sv:name="reply" sv:type="Boolean">
+            <sv:value>false</sv:value>
+          </sv:property>
+          <sv:property sv:name="screen_name" sv:type="String">
+            <sv:value>NickWork</sv:value>
+          </sv:property>
+          <sv:property sv:name="text" sv:type="String">
+            <sv:value>IN: didn't realize I had a meeting, mental health is overrated anyway</sv:value>
+          </sv:property>
+          <sv:property sv:name="tweet_id" sv:type="Long">
+            <sv:value>446020130745491456</sv:value>
+          </sv:property>
+        </sv:node>
+        <sv:node sv:name="445999355665715201">
+          <sv:property sv:name="jcr:primaryType" sv:type="Name">
+            <sv:value>mgnl:contentNode</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:mixinTypes" sv:type="Name" sv:multiple="true">
+            <sv:value>mix:lockable</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:uuid" sv:type="String">
+            <sv:value>a78d6a3c-1ae5-4a55-8e7f-a5dd7c7f72d8</sv:value>
+          </sv:property>
+          <sv:property sv:name="created_at" sv:type="String">
+            <sv:value>Tue Mar 18 14:05:07 CDT 2014</sv:value>
+          </sv:property>
+          <sv:property sv:name="icon" sv:type="String">
+            <sv:value>https://pbs.twimg.com/profile_images/60335551/Recent_1_normal.gif</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:createdBy" sv:type="String">
+            <sv:value>admin</sv:value>
+          </sv:property>
+          <sv:property sv:name="mgnl:created" sv:type="Date">
+            <sv:value>2015-08-27T04:09:01.562-05:00</sv:value>
+          </sv:property>
+          <sv:property sv:name="reply" sv:type="Boolean">
+            <sv:value>false</sv:value>
+          </sv:property>
+          <sv:property sv:name="screen_name" sv:type="String">
+            <sv:value>NickWork</sv:value>
+          </sv:property>
+          <sv:property sv:name="text" sv:type="String">
+            <sv:value>OUT: mental health day</sv:value>
+          </sv:property>
+          <sv:property sv:name="tweet_id" sv:type="Long">
+            <sv:value>445999355665715201</sv:value>
+          </sv:property>
+        </sv:node>
+        <sv:node sv:name="443884090572283904">
+          <sv:property sv:name="jcr:primaryType" sv:type="Name">
+            <sv:value>mgnl:contentNode</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:mixinTypes" sv:type="Name" sv:multiple="true">
+            <sv:value>mix:lockable</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:uuid" sv:type="String">
+            <sv:value>589e7cb3-2350-49d1-ad17-bfe0801f7a5b</sv:value>
+          </sv:property>
+          <sv:property sv:name="created_at" sv:type="String">
+            <sv:value>Wed Mar 12 17:59:48 CDT 2014</sv:value>
+          </sv:property>
+          <sv:property sv:name="icon" sv:type="String">
+            <sv:value>https://pbs.twimg.com/profile_images/60335551/Recent_1_normal.gif</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:createdBy" sv:type="String">
+            <sv:value>admin</sv:value>
+          </sv:property>
+          <sv:property sv:name="mgnl:created" sv:type="Date">
+            <sv:value>2015-08-27T04:09:01.562-05:00</sv:value>
+          </sv:property>
+          <sv:property sv:name="reply" sv:type="Boolean">
+            <sv:value>false</sv:value>
+          </sv:property>
+          <sv:property sv:name="screen_name" sv:type="String">
+            <sv:value>NickWork</sv:value>
+          </sv:property>
+          <sv:property sv:name="text" sv:type="String">
+            <sv:value>OUT: for the evening</sv:value>
+          </sv:property>
+          <sv:property sv:name="tweet_id" sv:type="Long">
+            <sv:value>443884090572283904</sv:value>
+          </sv:property>
+        </sv:node>
+        <sv:node sv:name="443748409183195136">
+          <sv:property sv:name="jcr:primaryType" sv:type="Name">
+            <sv:value>mgnl:contentNode</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:mixinTypes" sv:type="Name" sv:multiple="true">
+            <sv:value>mix:lockable</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:uuid" sv:type="String">
+            <sv:value>8025e261-3092-439e-90f1-e79f0b64997d</sv:value>
+          </sv:property>
+          <sv:property sv:name="created_at" sv:type="String">
+            <sv:value>Wed Mar 12 09:00:39 CDT 2014</sv:value>
+          </sv:property>
+          <sv:property sv:name="icon" sv:type="String">
+            <sv:value>https://pbs.twimg.com/profile_images/60335551/Recent_1_normal.gif</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:createdBy" sv:type="String">
+            <sv:value>admin</sv:value>
+          </sv:property>
+          <sv:property sv:name="mgnl:created" sv:type="Date">
+            <sv:value>2015-08-27T04:09:01.563-05:00</sv:value>
+          </sv:property>
+          <sv:property sv:name="reply" sv:type="Boolean">
+            <sv:value>false</sv:value>
+          </sv:property>
+          <sv:property sv:name="screen_name" sv:type="String">
+            <sv:value>NickWork</sv:value>
+          </sv:property>
+          <sv:property sv:name="text" sv:type="String">
+            <sv:value>IN: working on gato's new feature paragraph</sv:value>
+          </sv:property>
+          <sv:property sv:name="tweet_id" sv:type="Long">
+            <sv:value>443748409183195136</sv:value>
+          </sv:property>
+        </sv:node>
+        <sv:node sv:name="443536280958152704">
+          <sv:property sv:name="jcr:primaryType" sv:type="Name">
+            <sv:value>mgnl:contentNode</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:mixinTypes" sv:type="Name" sv:multiple="true">
+            <sv:value>mix:lockable</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:uuid" sv:type="String">
+            <sv:value>aef2eb28-e07b-42ce-ab65-68f602ba60ba</sv:value>
+          </sv:property>
+          <sv:property sv:name="created_at" sv:type="String">
+            <sv:value>Tue Mar 11 18:57:44 CDT 2014</sv:value>
+          </sv:property>
+          <sv:property sv:name="icon" sv:type="String">
+            <sv:value>https://pbs.twimg.com/profile_images/60335551/Recent_1_normal.gif</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:createdBy" sv:type="String">
+            <sv:value>admin</sv:value>
+          </sv:property>
+          <sv:property sv:name="mgnl:created" sv:type="Date">
+            <sv:value>2015-08-27T04:09:01.564-05:00</sv:value>
+          </sv:property>
+          <sv:property sv:name="reply" sv:type="Boolean">
+            <sv:value>false</sv:value>
+          </sv:property>
+          <sv:property sv:name="screen_name" sv:type="String">
+            <sv:value>NickWork</sv:value>
+          </sv:property>
+          <sv:property sv:name="text" sv:type="String">
+            <sv:value>OUT: for the evening</sv:value>
+          </sv:property>
+          <sv:property sv:name="tweet_id" sv:type="Long">
+            <sv:value>443536280958152704</sv:value>
+          </sv:property>
+        </sv:node>
+        <sv:node sv:name="443389504875798529">
+          <sv:property sv:name="jcr:primaryType" sv:type="Name">
+            <sv:value>mgnl:contentNode</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:mixinTypes" sv:type="Name" sv:multiple="true">
+            <sv:value>mix:lockable</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:uuid" sv:type="String">
+            <sv:value>f733f57f-065f-4452-b0b0-4e655de23e2b</sv:value>
+          </sv:property>
+          <sv:property sv:name="created_at" sv:type="String">
+            <sv:value>Tue Mar 11 09:14:30 CDT 2014</sv:value>
+          </sv:property>
+          <sv:property sv:name="icon" sv:type="String">
+            <sv:value>https://pbs.twimg.com/profile_images/60335551/Recent_1_normal.gif</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:createdBy" sv:type="String">
+            <sv:value>admin</sv:value>
+          </sv:property>
+          <sv:property sv:name="mgnl:created" sv:type="Date">
+            <sv:value>2015-08-27T04:09:01.565-05:00</sv:value>
+          </sv:property>
+          <sv:property sv:name="reply" sv:type="Boolean">
+            <sv:value>false</sv:value>
+          </sv:property>
+          <sv:property sv:name="screen_name" sv:type="String">
+            <sv:value>NickWork</sv:value>
+          </sv:property>
+          <sv:property sv:name="text" sv:type="String">
+            <sv:value>IN: ITS primary contact today, supposedly</sv:value>
+          </sv:property>
+          <sv:property sv:name="tweet_id" sv:type="Long">
+            <sv:value>443389504875798529</sv:value>
+          </sv:property>
+        </sv:node>
+      </sv:node>
+      <sv:node sv:name="txst">
+        <sv:property sv:name="jcr:primaryType" sv:type="Name">
+          <sv:value>mgnl:contentNode</sv:value>
+        </sv:property>
+        <sv:property sv:name="jcr:mixinTypes" sv:type="Name" sv:multiple="true">
+          <sv:value>mix:lockable</sv:value>
+        </sv:property>
+        <sv:property sv:name="jcr:uuid" sv:type="String">
+          <sv:value>aa4a656e-f0e6-44bf-becd-c3a0003b5493</sv:value>
+        </sv:property>
+        <sv:property sv:name="jcr:createdBy" sv:type="String">
+          <sv:value>admin</sv:value>
+        </sv:property>
+        <sv:property sv:name="mgnl:created" sv:type="Date">
+          <sv:value>2015-08-27T04:09:01.681-05:00</sv:value>
+        </sv:property>
+        <sv:property sv:name="mgnl:lastModified" sv:type="Date">
+          <sv:value>2015-08-27T09:15:19.918-05:00</sv:value>
+        </sv:property>
+        <sv:node sv:name="636645631700799488">
+          <sv:property sv:name="jcr:primaryType" sv:type="Name">
+            <sv:value>mgnl:contentNode</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:mixinTypes" sv:type="Name" sv:multiple="true">
+            <sv:value>mix:lockable</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:uuid" sv:type="String">
+            <sv:value>55f68a03-686c-4118-a625-74f96d131557</sv:value>
+          </sv:property>
+          <sv:property sv:name="created_at" sv:type="String">
+            <sv:value>Wed Aug 26 16:05:21 CDT 2015</sv:value>
+          </sv:property>
+          <sv:property sv:name="icon" sv:type="String">
+            <sv:value>https://pbs.twimg.com/profile_images/588805715747188736/r-yuTV15_normal.jpg</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:createdBy" sv:type="String">
+            <sv:value>admin</sv:value>
+          </sv:property>
+          <sv:property sv:name="mgnl:created" sv:type="Date">
+            <sv:value>2015-08-27T04:09:01.681-05:00</sv:value>
+          </sv:property>
+          <sv:property sv:name="reply" sv:type="Boolean">
+            <sv:value>true</sv:value>
+          </sv:property>
+          <sv:property sv:name="screen_name" sv:type="String">
+            <sv:value>txst</sv:value>
+          </sv:property>
+          <sv:property sv:name="text" sv:type="String">
+            <sv:value>@hileman38 Sept. 9 is the last day to drop with a full refund. Please visit http://t.co/TSg8R87izC for more info.</sv:value>
+          </sv:property>
+          <sv:property sv:name="tweet_id" sv:type="Long">
+            <sv:value>636645631700799488</sv:value>
+          </sv:property>
+        </sv:node>
+        <sv:node sv:name="636609298718683137">
+          <sv:property sv:name="jcr:primaryType" sv:type="Name">
+            <sv:value>mgnl:contentNode</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:mixinTypes" sv:type="Name" sv:multiple="true">
+            <sv:value>mix:lockable</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:uuid" sv:type="String">
+            <sv:value>51024637-a9f8-4593-ad84-501c2c33a01d</sv:value>
+          </sv:property>
+          <sv:property sv:name="created_at" sv:type="String">
+            <sv:value>Wed Aug 26 13:40:59 CDT 2015</sv:value>
+          </sv:property>
+          <sv:property sv:name="icon" sv:type="String">
+            <sv:value>https://pbs.twimg.com/profile_images/588805715747188736/r-yuTV15_normal.jpg</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:createdBy" sv:type="String">
+            <sv:value>admin</sv:value>
+          </sv:property>
+          <sv:property sv:name="mgnl:created" sv:type="Date">
+            <sv:value>2015-08-27T04:09:01.681-05:00</sv:value>
+          </sv:property>
+          <sv:property sv:name="reply" sv:type="Boolean">
+            <sv:value>false</sv:value>
+          </sv:property>
+          <sv:property sv:name="screen_name" sv:type="String">
+            <sv:value>txst</sv:value>
+          </sv:property>
+          <sv:property sv:name="text" sv:type="String">
+            <sv:value>Hungry? Here are the fall hours for @txstatedining! http://t.co/NGiq1Q05qS</sv:value>
+          </sv:property>
+          <sv:property sv:name="tweet_id" sv:type="Long">
+            <sv:value>636609298718683137</sv:value>
+          </sv:property>
+        </sv:node>
+        <sv:node sv:name="636605674349203457">
+          <sv:property sv:name="jcr:primaryType" sv:type="Name">
+            <sv:value>mgnl:contentNode</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:mixinTypes" sv:type="Name" sv:multiple="true">
+            <sv:value>mix:lockable</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:uuid" sv:type="String">
+            <sv:value>2a470fc7-a6e6-4dd2-baa3-a44c50655d14</sv:value>
+          </sv:property>
+          <sv:property sv:name="created_at" sv:type="String">
+            <sv:value>Wed Aug 26 13:26:34 CDT 2015</sv:value>
+          </sv:property>
+          <sv:property sv:name="hashtags" sv:type="String">
+            <sv:value>txst,TXSTRGW</sv:value>
+          </sv:property>
+          <sv:property sv:name="icon" sv:type="String">
+            <sv:value>https://pbs.twimg.com/profile_images/588805715747188736/r-yuTV15_normal.jpg</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:createdBy" sv:type="String">
+            <sv:value>admin</sv:value>
+          </sv:property>
+          <sv:property sv:name="mgnl:created" sv:type="Date">
+            <sv:value>2015-08-27T04:09:01.682-05:00</sv:value>
+          </sv:property>
+          <sv:property sv:name="reply" sv:type="Boolean">
+            <sv:value>false</sv:value>
+          </sv:property>
+          <sv:property sv:name="screen_name" sv:type="String">
+            <sv:value>txst</sv:value>
+          </sv:property>
+          <sv:property sv:name="text" sv:type="String">
+            <sv:value>RT @TxStateAlumni: Recent Grad Weekend will be here soon! Have you reserved your free game tickets yet? More info here: https://t.co/l4uH1D…</sv:value>
+          </sv:property>
+          <sv:property sv:name="tweet_id" sv:type="Long">
+            <sv:value>636605674349203457</sv:value>
+          </sv:property>
+        </sv:node>
+        <sv:node sv:name="636553846655950848">
+          <sv:property sv:name="jcr:primaryType" sv:type="Name">
+            <sv:value>mgnl:contentNode</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:mixinTypes" sv:type="Name" sv:multiple="true">
+            <sv:value>mix:lockable</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:uuid" sv:type="String">
+            <sv:value>69abe695-689d-4cf8-b9e1-8be6f1ebb291</sv:value>
+          </sv:property>
+          <sv:property sv:name="created_at" sv:type="String">
+            <sv:value>Wed Aug 26 10:00:38 CDT 2015</sv:value>
+          </sv:property>
+          <sv:property sv:name="hashtags" sv:type="String">
+            <sv:value>beabobcat</sv:value>
+          </sv:property>
+          <sv:property sv:name="icon" sv:type="String">
+            <sv:value>https://pbs.twimg.com/profile_images/588805715747188736/r-yuTV15_normal.jpg</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:createdBy" sv:type="String">
+            <sv:value>admin</sv:value>
+          </sv:property>
+          <sv:property sv:name="mgnl:created" sv:type="Date">
+            <sv:value>2015-08-27T04:09:01.682-05:00</sv:value>
+          </sv:property>
+          <sv:property sv:name="reply" sv:type="Boolean">
+            <sv:value>true</sv:value>
+          </sv:property>
+          <sv:property sv:name="screen_name" sv:type="String">
+            <sv:value>txst</sv:value>
+          </sv:property>
+          <sv:property sv:name="text" sv:type="String">
+            <sv:value>@johnayeee San Marcos is a great place to live...just saying. #beabobcat</sv:value>
+          </sv:property>
+          <sv:property sv:name="tweet_id" sv:type="Long">
+            <sv:value>636553846655950848</sv:value>
+          </sv:property>
+        </sv:node>
+        <sv:node sv:name="636543721035669504">
+          <sv:property sv:name="jcr:primaryType" sv:type="Name">
+            <sv:value>mgnl:contentNode</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:mixinTypes" sv:type="Name" sv:multiple="true">
+            <sv:value>mix:lockable</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:uuid" sv:type="String">
+            <sv:value>45f98cba-f7e2-487c-aeec-973ebd386c36</sv:value>
+          </sv:property>
+          <sv:property sv:name="created_at" sv:type="String">
+            <sv:value>Wed Aug 26 09:20:24 CDT 2015</sv:value>
+          </sv:property>
+          <sv:property sv:name="icon" sv:type="String">
+            <sv:value>https://pbs.twimg.com/profile_images/588805715747188736/r-yuTV15_normal.jpg</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:createdBy" sv:type="String">
+            <sv:value>admin</sv:value>
+          </sv:property>
+          <sv:property sv:name="mgnl:created" sv:type="Date">
+            <sv:value>2015-08-27T04:09:01.683-05:00</sv:value>
+          </sv:property>
+          <sv:property sv:name="reply" sv:type="Boolean">
+            <sv:value>false</sv:value>
+          </sv:property>
+          <sv:property sv:name="screen_name" sv:type="String">
+            <sv:value>txst</sv:value>
+          </sv:property>
+          <sv:property sv:name="text" sv:type="String">
+            <sv:value>The transfer student welcome is today from 11am-1pm on the 2nd floor of the LBJ Student Center. Read more here: http://t.co/i9a1t9JX4u</sv:value>
+          </sv:property>
+          <sv:property sv:name="tweet_id" sv:type="Long">
+            <sv:value>636543721035669504</sv:value>
+          </sv:property>
+        </sv:node>
+        <sv:node sv:name="636253284102045696">
+          <sv:property sv:name="jcr:primaryType" sv:type="Name">
+            <sv:value>mgnl:contentNode</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:mixinTypes" sv:type="Name" sv:multiple="true">
+            <sv:value>mix:lockable</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:uuid" sv:type="String">
+            <sv:value>324a6060-c55f-4516-8fb6-4d5fac6c9742</sv:value>
+          </sv:property>
+          <sv:property sv:name="created_at" sv:type="String">
+            <sv:value>Tue Aug 25 14:06:18 CDT 2015</sv:value>
+          </sv:property>
+          <sv:property sv:name="hashtags" sv:type="String">
+            <sv:value>TXST,TXSTpride</sv:value>
+          </sv:property>
+          <sv:property sv:name="icon" sv:type="String">
+            <sv:value>https://pbs.twimg.com/profile_images/588805715747188736/r-yuTV15_normal.jpg</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:createdBy" sv:type="String">
+            <sv:value>admin</sv:value>
+          </sv:property>
+          <sv:property sv:name="mgnl:created" sv:type="Date">
+            <sv:value>2015-08-27T04:09:01.683-05:00</sv:value>
+          </sv:property>
+          <sv:property sv:name="reply" sv:type="Boolean">
+            <sv:value>false</sv:value>
+          </sv:property>
+          <sv:property sv:name="screen_name" sv:type="String">
+            <sv:value>txst</sv:value>
+          </sv:property>
+          <sv:property sv:name="text" sv:type="String">
+            <sv:value>Amazing time-lapse of Friday's pep rally, where thousands of #TXST freshmen came together to show their #TXSTpride! http://t.co/7ZqNSrwAPh</sv:value>
+          </sv:property>
+          <sv:property sv:name="tweet_id" sv:type="Long">
+            <sv:value>636253284102045696</sv:value>
+          </sv:property>
+        </sv:node>
+        <sv:node sv:name="635971150300999681">
+          <sv:property sv:name="jcr:primaryType" sv:type="Name">
+            <sv:value>mgnl:contentNode</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:mixinTypes" sv:type="Name" sv:multiple="true">
+            <sv:value>mix:lockable</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:uuid" sv:type="String">
+            <sv:value>2f85eeff-a7f0-4cb3-b196-19db982a6026</sv:value>
+          </sv:property>
+          <sv:property sv:name="created_at" sv:type="String">
+            <sv:value>Mon Aug 24 19:25:12 CDT 2015</sv:value>
+          </sv:property>
+          <sv:property sv:name="icon" sv:type="String">
+            <sv:value>https://pbs.twimg.com/profile_images/588805715747188736/r-yuTV15_normal.jpg</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:createdBy" sv:type="String">
+            <sv:value>admin</sv:value>
+          </sv:property>
+          <sv:property sv:name="mgnl:created" sv:type="Date">
+            <sv:value>2015-08-27T04:09:01.684-05:00</sv:value>
+          </sv:property>
+          <sv:property sv:name="reply" sv:type="Boolean">
+            <sv:value>false</sv:value>
+          </sv:property>
+          <sv:property sv:name="screen_name" sv:type="String">
+            <sv:value>txst</sv:value>
+          </sv:property>
+          <sv:property sv:name="text" sv:type="String">
+            <sv:value>Great advice to start the semester off right from @UniversityStar: http://t.co/Z0aCf4YGDU</sv:value>
+          </sv:property>
+          <sv:property sv:name="tweet_id" sv:type="Long">
+            <sv:value>635971150300999681</sv:value>
+          </sv:property>
+        </sv:node>
+        <sv:node sv:name="635890103424974848">
+          <sv:property sv:name="jcr:primaryType" sv:type="Name">
+            <sv:value>mgnl:contentNode</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:mixinTypes" sv:type="Name" sv:multiple="true">
+            <sv:value>mix:lockable</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:uuid" sv:type="String">
+            <sv:value>a5dee454-9ea0-4a60-b83d-edfce8dc4a5d</sv:value>
+          </sv:property>
+          <sv:property sv:name="created_at" sv:type="String">
+            <sv:value>Mon Aug 24 14:03:09 CDT 2015</sv:value>
+          </sv:property>
+          <sv:property sv:name="icon" sv:type="String">
+            <sv:value>https://pbs.twimg.com/profile_images/588805715747188736/r-yuTV15_normal.jpg</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:createdBy" sv:type="String">
+            <sv:value>admin</sv:value>
+          </sv:property>
+          <sv:property sv:name="mgnl:created" sv:type="Date">
+            <sv:value>2015-08-27T04:09:01.684-05:00</sv:value>
+          </sv:property>
+          <sv:property sv:name="reply" sv:type="Boolean">
+            <sv:value>true</sv:value>
+          </sv:property>
+          <sv:property sv:name="screen_name" sv:type="String">
+            <sv:value>txst</sv:value>
+          </sv:property>
+          <sv:property sv:name="text" sv:type="String">
+            <sv:value>@April_Cor Glad you like them!</sv:value>
+          </sv:property>
+          <sv:property sv:name="tweet_id" sv:type="Long">
+            <sv:value>635890103424974848</sv:value>
+          </sv:property>
+        </sv:node>
+        <sv:node sv:name="636882076952756226">
+          <sv:property sv:name="jcr:primaryType" sv:type="Name">
+            <sv:value>mgnl:contentNode</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:mixinTypes" sv:type="Name" sv:multiple="true">
+            <sv:value>mix:lockable</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:uuid" sv:type="String">
+            <sv:value>9f1817a0-e250-4d3c-82e6-35f42390c48a</sv:value>
+          </sv:property>
+          <sv:property sv:name="created_at" sv:type="String">
+            <sv:value>Thu Aug 27 07:44:54 CDT 2015</sv:value>
+          </sv:property>
+          <sv:property sv:name="icon" sv:type="String">
+            <sv:value>https://pbs.twimg.com/profile_images/588805715747188736/r-yuTV15_normal.jpg</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:createdBy" sv:type="String">
+            <sv:value>admin</sv:value>
+          </sv:property>
+          <sv:property sv:name="mgnl:created" sv:type="Date">
+            <sv:value>2015-08-27T07:44:54.643-05:00</sv:value>
+          </sv:property>
+          <sv:property sv:name="reply" sv:type="Boolean">
+            <sv:value>true</sv:value>
+          </sv:property>
+          <sv:property sv:name="screen_name" sv:type="String">
+            <sv:value>txst</sv:value>
+          </sv:property>
+          <sv:property sv:name="text" sv:type="String">
+            <sv:value>@alexgcannon Thank you for letting us know. We will pass this information on to @TXST_Transport.</sv:value>
+          </sv:property>
+          <sv:property sv:name="tweet_id" sv:type="Long">
+            <sv:value>636882076952756226</sv:value>
+          </sv:property>
+        </sv:node>
+        <sv:node sv:name="636904831840591872">
+          <sv:property sv:name="jcr:primaryType" sv:type="Name">
+            <sv:value>mgnl:contentNode</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:mixinTypes" sv:type="Name" sv:multiple="true">
+            <sv:value>mix:lockable</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:uuid" sv:type="String">
+            <sv:value>aa40d476-ee9b-4b81-a1c1-e390ae4ef595</sv:value>
+          </sv:property>
+          <sv:property sv:name="created_at" sv:type="String">
+            <sv:value>Thu Aug 27 09:15:19 CDT 2015</sv:value>
+          </sv:property>
+          <sv:property sv:name="hashtags" sv:type="String">
+            <sv:value>TXST</sv:value>
+          </sv:property>
+          <sv:property sv:name="icon" sv:type="String">
+            <sv:value>https://pbs.twimg.com/profile_images/588805715747188736/r-yuTV15_normal.jpg</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:createdBy" sv:type="String">
+            <sv:value>admin</sv:value>
+          </sv:property>
+          <sv:property sv:name="mgnl:created" sv:type="Date">
+            <sv:value>2015-08-27T09:15:19.917-05:00</sv:value>
+          </sv:property>
+          <sv:property sv:name="reply" sv:type="Boolean">
+            <sv:value>false</sv:value>
+          </sv:property>
+          <sv:property sv:name="screen_name" sv:type="String">
+            <sv:value>txst</sv:value>
+          </sv:property>
+          <sv:property sv:name="text" sv:type="String">
+            <sv:value>Happy birthday LBJ, the 36th U.S. president and distinguished #TXST alumnus! http://t.co/bLgRdypuvu</sv:value>
+          </sv:property>
+          <sv:property sv:name="tweet_id" sv:type="Long">
+            <sv:value>636904831840591872</sv:value>
+          </sv:property>
+        </sv:node>
+      </sv:node>
+    </sv:node>
+  </sv:node>
+</sv:node>
