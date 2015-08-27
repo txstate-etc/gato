@@ -10,8 +10,6 @@ if ($ARGV[0] eq '--module') {
 	$module = $ARGV[1];
 } elsif ($ARGV[0] eq '--light') {
 	tomcat_restart(sub {
-		print "wiping out the cache directory so our CSS/JS gets reloaded...\n";
-		`rm -rf $tomcatdir/webapps/ROOT/cache`;
 		print "copying light modules...\n";
 		`rm -rf $tomcatdir/webapps/ROOT/gato-*`;
 		foreach my $lm (@lightmodules) {
@@ -60,6 +58,9 @@ sub tomcat_restart {
 		print "waiting for tomcat to go away...\n";
 		sleep(1);
 	}
+	
+	print "wiping out the cache directory so our CSS/JS gets reloaded...\n";
+	`rm -rf $tomcatdir/webapps/ROOT/cache`;
 	
 	$nested->();
 	
