@@ -1,0 +1,5 @@
+templateScript: /gato-template-txstate2015/templates/components/header-image.ftl
+renderType: freemarker
+dialog: gato-template-txstate2015:components/header-image
+description: The Header Image for a Page
+title: Header Image

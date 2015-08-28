@@ -4,11 +4,11 @@
 
 [#assign imgStyle = ""]
 [#assign imgClass = "bg_image_none"]
-[#if homePageContent.header_image??]
-	[#assign headerImg = damfn.getAsset("jcr", homePageContent.header_image)!]
+[#if content.image??]
+	[#assign headerImg = damfn.getAsset("jcr", content.image)!]
 	[#assign imgStyle = "style=\"background-image: url('${headerImg.getLink()}');\""]
 
-	[#if cmsfn.link(content) == homeLink ]
+	[#if isHomePage ]
 		[#-- primary page with header image--]
 		[#assign imgClass = "bg_image"]
 	[#else]

@@ -7,10 +7,10 @@ areas:
   headerImage:
     renderType: freemarker
     type: single
-    createAreaNode: false
-    dialog: gato-template-txstate2015:pages/areas/header-image
     title: Header Image
-    templateScript: /gato-template-txstate2015/templates/pages/areas/header-image.ftl
+    availableComponents:
+      headerImg:
+        id: gato-template-txstate2015:components/header-image
   parentOrganization:
     renderType: freemarker
     type: single
@@ -18,12 +18,9 @@ areas:
     inheritance:
       enabled: true
       components: all
-    autoGeneration:
-      content:
-        parentOrg:
-          nodeType: mgnl:component
-          templateId: gato-template-txstate2015:components/parent-organization
-      generatorClass: info.magnolia.rendering.generator.CopyGenerator
+    availableComponents:
+      parentOrg:
+        id: gato-template-txstate2015:components/parent-organization
   superUser:
     renderType: freemarker
     type: list

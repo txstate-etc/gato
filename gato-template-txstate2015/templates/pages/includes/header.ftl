@@ -1,9 +1,16 @@
 [#assign homePageContent = cmsfn.contentByPath(homepage)]
 [#assign homeLink = cmsfn.link(homepage)]
 
-[#assign paramEditable = true]
-[#if homePageContent.header_image??]
-	[#if cmsfn.link(content) == homeLink ]
+[#--check if the page has a header image--]
+[#assign hasHeaderImage = false]
+[#list cmsfn.children(gf.getOrCreateArea(page, 'headerImage')) as component]
+	[#if component.image??]
+		[#assign hasHeaderImage = true]
+	[/#if]
+[/#list]
+
+[#if hasHeaderImage]
+	[#if isHomePage ] 
 		[#-- primary page with header image--]
 		[#assign headerClass = "header_with_image"]
 	[#else]
@@ -20,7 +27,7 @@
 [/#if]
 
 <div class="${headerClass}">
-	[@cms.area name="headerImage" editable=isHomePage /]
-	[@cms.area name="parentOrganization" content=gf.getOrCreateArea(homepage, 'parentOrganization')  /]
+	[@cms.area name="headerImage" /]
+	[@cms.area name="parentOrganization" content=gf.getOrCreateArea(homepage, 'parentOrganization') editable=isHomePage  /]
 </div>
 

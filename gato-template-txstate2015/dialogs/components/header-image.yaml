@@ -3,7 +3,7 @@ form:
     - name: tabText
       label: Header Image
       fields:
-        - name: header_image
+        - name: image
           class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
           targetWorkspace: dam
           appName: assets
