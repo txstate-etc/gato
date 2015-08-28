@@ -20,7 +20,7 @@
 [/#if]
 
 <div class="${headerClass}">
-	[@cms.area name="headerImage" editable=paramEditable /]
-	[@cms.area name="parentOrganization" editable=paramEditable /]
+	[@cms.area name="headerImage" editable=isHomePage /]
+	[@cms.area name="parentOrganization" content=gf.getOrCreateArea(homepage, 'parentOrganization')  /]
 </div>
 

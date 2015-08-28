@@ -1,0 +1,5 @@
+templateScript: /gato-template-txstate2015/templates/components/parent-organization.ftl
+renderType: freemarker
+dialog: gato-template-txstate2015:components/parent-organization
+description: The Parent Organization for a Page
+title: Parent Organization

@@ -6,17 +6,24 @@ dialog: gato-template:pages/page-properties
 areas:
   headerImage:
     renderType: freemarker
-    type: noComponent
+    type: single
     createAreaNode: false
     dialog: gato-template-txstate2015:pages/areas/header-image
     title: Header Image
     templateScript: /gato-template-txstate2015/templates/pages/areas/header-image.ftl
   parentOrganization:
     renderType: freemarker
-    type: noComponent
-    dialog: gato-template-txstate2015:pages/areas/parent-organization
-    templateScript: /gato-template-txstate2015/templates/pages/areas/parent-organization.ftl
+    type: single
     title: Parent Organization
+    inheritance:
+      enabled: true
+      components: all
+    autoGeneration:
+      content:
+        parentOrg:
+          nodeType: mgnl:component
+          templateId: gato-template-txstate2015:components/parent-organization
+      generatorClass: info.magnolia.rendering.generator.CopyGenerator
   superUser:
     renderType: freemarker
     type: list
