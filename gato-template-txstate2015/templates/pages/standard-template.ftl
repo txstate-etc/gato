@@ -61,7 +61,7 @@
 			<div class="page_content">
 				<div class="row trail clearfix">
 					<div class="column col-xs-2-3 flow-opposite">
-						[@trail.breadcrumbs hidetxstate=false isMobile=false/]
+						[@breadcrumbs/]
 					</div>
 				</div> <!-- end breadcrumbs -->
 				<div class="row clearfix">
