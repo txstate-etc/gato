@@ -72,7 +72,7 @@ figcaption {
     max-width: 100%;
     margin-top: 11px; }
 
-.breadcrumbs {
+#breadcrumbs {
   text-align: left;
   font-weight: 400;
   font-size: 65%;
@@ -1168,7 +1168,7 @@ figcaption {
   .bg_overlay, .bg_image, .bg_image_secondary, .bg_image_none {
     display: block; }
 
-  .breadcrumbs {
+  #breadcrumbs {
     text-align: right;
     font-size: 12px;
     margin: 0 auto; }
@@ -1262,7 +1262,7 @@ figcaption {
   .slick-next {
     right: 1.5rem; }
 
-  .breadcrumbs {
+  #breadcrumbs {
     line-height: 18px; }
 
   .side_nav_list a {
@@ -1937,13 +1937,13 @@ h1 {
     .page_content a:not(.button):hover {
       background: #E8E3DB; }
 
-.breadcrumbs a {
+#breadcrumbs a {
   color: #005481;
   text-decoration: none; }
-  .breadcrumbs a:hover {
+  #breadcrumbs a:hover {
     text-decoration: underline;
     background: transparent; }
-.breadcrumbs .separator {
+#breadcrumbs .separator {
   margin: auto 5px auto 7px; }
 
 .top_services {

@@ -103,19 +103,19 @@
 	<div id="breadcrumbs">
 		[#if !hidetxstate]
 			<a href="http://www.txstate.edu">Texas State</a>
-			&gt;
+			<span class="separator">&gt;</span>
 		[/#if]
 		[#-- Put the parent organization in the breadcrumbs if there is one --]
 		[#if (homepage.parentOrganization)?? && cmsfn.children(homepage.parentOrganization)?size gt 0 ]
 			[#local parentOrg = cmsfn.children(homepage.parentOrganization)?first]
 			[#if parentOrg.parent_name?? && parentOrg.parent_name?length gt 0]
 				<a href="${parentOrg.url!cmsfn.link(page)}">${parentOrg.parent_name}</a>
-				&gt;
+				<span class="separator">&gt;</span>
 			[/#if]
 		[/#if] 
 		[#list ancestorstopdown as ancestor]
 			<a href="${cmsfn.link(ancestor)}">${ancestor.title}</a>
-			&gt;
+			<span class="separator">&gt;</span>
 		[/#list]
 		<a href="${cmsfn.link(page)}" class="active">${page.title}</a>
 	</div>
