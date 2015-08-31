@@ -1,0 +1,3 @@
+name: gatoJsInclude
+definitionClass: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
+factoryClass: edu.txstate.its.gato.vaadin.GatoJsIncludeFactory
