@@ -15,7 +15,6 @@
   margin: 0px auto;
   border-bottom: 1px solid #BBAB92;
   box-shadow: 1px 0px #BBAB92 inset, -1px 0px #BBAB92 inset;
-  z-index:1000;
 }
 
 .scroll-to-fixed-fixed .ddmenu-menubar  {
@@ -75,6 +74,7 @@ div.ddmenu-menubaritem:hover > a{
   visibility: hidden;
   position: absolute;
   background-color: #e8e3db;
+  width: 11rem;
 }
 
 .scroll-to-fixed-fixed .ddmenu-menu {
@@ -91,7 +91,7 @@ div.ddmenu-menubaritem:hover > a{
 .ddmenu-visible .ddmenu-menu-wrap {
 }
 .ddmenu-visible {
-  background-color: #e8e3db;
+   background: #6A5638;
 }
 .ddmenu-visible a.ddmenu-menubaritem {
   color: #ffffff;
@@ -100,6 +100,10 @@ div.ddmenu-menubaritem:hover > a{
   color: #ffffff;
 }
 .ddmenu-visible a.ddmenu-menubaritem img {
+}
+
+.ddmenu-visible > ul {
+  border-top: 1px solid #BBAB92;
 }
 
 .ddmenu-menu a {
