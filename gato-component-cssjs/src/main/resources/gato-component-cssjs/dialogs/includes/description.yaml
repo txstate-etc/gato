@@ -1,0 +1,5 @@
+name: description
+class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+multiselect: false
+label: Description (optional)
+description: This will be displayed in edit mode, to help other editors understand the purpose of the code.

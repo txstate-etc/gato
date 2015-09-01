@@ -2,4 +2,4 @@ type: list
 renderType: freemarker
 availableComponents:
   customcss:
-    id: gato-template:components/customcss
+    id: gato-component-cssjs:components/customcss

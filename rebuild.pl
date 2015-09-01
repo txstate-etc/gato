@@ -10,11 +10,7 @@ if ($ARGV[0] eq '--module') {
 	$module = $ARGV[1];
 } elsif ($ARGV[0] eq '--light') {
 	tomcat_restart(sub {
-		print "copying light modules...\n";
-		`rm -rf $tomcatdir/webapps/ROOT/gato-*`;
-		foreach my $lm (@lightmodules) {
-			`cp -R $gatodir/$lm $tomcatdir/webapps/ROOT/$lm`;
-		}
+		copy_light();
 	});
 	print "Done.\n";
 	exit;
@@ -38,6 +34,7 @@ tomcat_restart(sub {
 		print "copying war...\n";
 		`cp $gatodir/gato-webapp/target/gato-webapp*war $tomcatdir/webapps/ROOT.war`;
 	} else {
+		copy_light();
 		print "removing old $module jar...\n";
 		`rm $tomcatdir/webapps/ROOT/WEB-INF/lib/$module*.jar`;
 		print "copying new $module jar to webapp...\n";
@@ -66,4 +63,12 @@ sub tomcat_restart {
 	
 	print "starting tomcat...\n";
 	`$tomcatdir/bin/startup.sh`;
+}
+
+sub copy_light {
+	print "copying light modules...\n";
+	`rm -rf $tomcatdir/webapps/ROOT/gato-*`;
+	foreach my $lm (@lightmodules) {
+		`cp -R $gatodir/$lm $tomcatdir/webapps/ROOT/$lm`;
+	}
 }

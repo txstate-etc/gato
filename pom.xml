@@ -121,5 +121,6 @@
     <module>gato-lib</module>
     <module>gato-internal</module>
     <module>gato-component-faq</module>
+    <module>gato-component-cssjs</module>
   </modules>
 </project>

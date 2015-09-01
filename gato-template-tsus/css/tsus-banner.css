@@ -50,7 +50,7 @@ ul.linkmenutop li a {
 ul.linkmenutop li a:visited {
 	color: #c2b6ac;
 }
-ul.linkmenutop li.last a {
+ul.linkmenutop li:last-child a {
 	border-right: 0px;
 }
 

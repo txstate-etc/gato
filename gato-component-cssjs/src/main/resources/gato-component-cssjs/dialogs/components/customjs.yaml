@@ -1,0 +1,32 @@
+form:
+  tabs:
+    - name: tabGeneral
+      label: Custom Javascript
+      fields:
+        - name: framework
+          label: Framework
+          class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
+          multiselect: false
+          description: jQuery and Prototype are common javascript libraries that are very useful for writing cross-browser code.
+          sortOptions: false
+          options: 
+            - name: none
+              label: None
+              value: none
+              selected: true
+            - name: prototype
+              label: Prototype
+              value: prototype
+            - name: jquery
+              label: jQuery
+              value: jquery
+        - !include /gato-component-cssjs/dialogs/includes/inherit.yaml
+        - !include /gato-component-cssjs/dialogs/includes/description.yaml
+        - name: customJS
+          class: info.magnolia.ui.form.field.definition.CodeFieldDefinition
+          label: Javascript Code
+          language: javascript
+          rows: 8
+          description: "You can enter a block of javascript here that will be inserted into the HEAD of your page.<br/><br/>WARNING: For advanced users only. It is possible to make quite a mess of your site with this feature."
+actions: !include /gato-template/dialogs/common/actions-block.yaml
+label: Custom JS

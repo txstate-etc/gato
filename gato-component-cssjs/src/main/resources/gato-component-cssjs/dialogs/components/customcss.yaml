@@ -1,0 +1,15 @@
+form:
+  tabs:
+    - name: tabGeneral
+      label: Custom CSS
+      fields:
+        - !include /gato-component-cssjs/dialogs/includes/inherit.yaml
+        - !include /gato-component-cssjs/dialogs/includes/description.yaml
+        - name: customCSS
+          class: info.magnolia.ui.form.field.definition.CodeFieldDefinition
+          label: Styles
+          language: css
+          rows: 8
+          description: "You can enter stylesheet definitions here that will be inserted into the HEAD of your page.<br><br>WARNING: For advanced users only. It is possible to make quite a mess of your site with this feature."
+actions: !include /gato-template/dialogs/common/actions-block.yaml
+label: Custom CSS

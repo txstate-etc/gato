@@ -1,0 +1,13 @@
+name: inherit
+class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
+multiselect: false
+label: Include on subpages?
+sortOptions: false
+options:
+  - name: onepage
+    label: This page only.
+    value: 0
+    selected: true
+  - name: allchildren
+    label: This page and all subpages.
+    value: 1

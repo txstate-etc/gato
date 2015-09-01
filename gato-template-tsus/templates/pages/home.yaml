@@ -5,14 +5,13 @@ title: TSUS Homepage Template
 dialog: gato-templates:pages/page-properties
 areas:
   customcss:
-    !include /gato-template/templates/areas/customcss.yaml
+    !include /gato-component-cssjs/templates/areas/customcss.yaml
   customjs:
-    !include /gato-template/templates/areas/customjs.yaml
+    !include /gato-component-cssjs/templates/areas/customjs.yaml
   menulinks:
     type: list
-    inheritance:
-      enabled: true
-      components: all
+    renderType: freemarker
+    templateScript: /gato-template-tsus/templates/areas/menulinks.ftl
     availableComponents:
       link:
         id: gato-template:components/link

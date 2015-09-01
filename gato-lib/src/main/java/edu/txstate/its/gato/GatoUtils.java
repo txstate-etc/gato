@@ -55,7 +55,8 @@ public final class GatoUtils {
   }
   
   public String filterUrl(String url) {
-    if (StringUtils.isEmpty(url) || LinkUtil.isExternalLinkOrAnchor(url)) return url;
+    if (StringUtils.isEmpty(url)) return "";
+    if (LinkUtil.isExternalLinkOrAnchor(url)) return url;
     String cpath = MgnlContext.getContextPath();
     boolean wasInWebsite = false;
     Node cont = null;

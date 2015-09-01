@@ -9,7 +9,9 @@
 	  <div class="newslettersignup">
 			[@cms.area name="newsletter" content=gf.getOrCreateArea(homepage, 'newsletter') editable=isHomePage /]
 		</div>
-		[@cms.area name="socialmedia" content=gf.getOrCreateArea(homepage, 'socialmedia') editable=isHomePage /]
+		<div class="social-media-icons">
+			[@cms.area name="socialmedia" content=gf.getOrCreateArea(homepage, 'socialmedia') editable=isHomePage /]
+		</div>
 		<form action="http://search.txstate.edu/search" class="tsus-searchform">
 			<input type="text" name="q" id="q" value="Search" class="research search-default"><jsp:text /></input>
 			<input type="image" src="${ctx.contextPath}/.resources/gato-template-tsus/images/mag.png" id="tsus-searchform-searchbutton" alt="Search Site" title="Search Site"/>

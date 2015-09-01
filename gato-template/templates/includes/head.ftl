@@ -1,4 +1,5 @@
 [#include "/gato-lib/templates/includes/head.ftl"]
+[#include "/gato-component-cssjs/templates/includes/head.ftl"]
 [#include "/gato-template/templates/includes/component.ftl"]
 
 [#macro templatejs scripts]
