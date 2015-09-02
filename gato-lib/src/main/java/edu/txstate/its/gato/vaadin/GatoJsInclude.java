@@ -1,6 +1,7 @@
 package edu.txstate.its.gato.vaadin;
 
 import com.vaadin.data.Item;
+import com.vaadin.server.ClientConnector.AttachEvent;
 import com.vaadin.shared.ui.label.ContentMode;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.CustomField;
@@ -27,7 +28,6 @@ public class GatoJsInclude extends CustomField<Object> {
     @Override
     protected Component initContent() {
 
-        // TODO: Find best way to serialize JCR node, it just ends up as null right now
         Node node = null;
         if (fieldItem instanceof JcrNodeAdapter) {
             node = ((JcrNodeAdapter)fieldItem).getJcrItem();

@@ -6,5 +6,5 @@ import javax.jcr.Node;
 public class GatoJsState extends JavaScriptComponentState {
     public GatoJsIncludeDefinition definition;
     public String initFunction;
-    public Node node;
+    public String nodePath;
 }
