@@ -4,6 +4,10 @@ visible: true
 title: Standard Template
 dialog: gato-template:pages/page-properties
 areas:
+  customcss:
+    !include /gato-component-cssjs/templates/areas/customcss.yaml
+  customjs:
+    !include /gato-component-cssjs/templates/areas/customjs.yaml
   headerImage:
     renderType: freemarker
     type: single

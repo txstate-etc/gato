@@ -18,7 +18,8 @@
 			'gato-template-txstate2015/resources/css/normalize.min.css',
 			'gato-template-txstate2015/resources/css/boilerplate.min.css',
 			'gato-template-txstate2015/resources/css/gato.css',
-			'gato-template-txstate2015/resources/css/txstate-ddmenu.css'
+			'gato-template-txstate2015/resources/css/txstate-ddmenu.css',
+			'gato-template-txstate2015/resources/css/_customjs-modal.css'
 		]/]
 		<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css"/>
 		[@templatehead/]
@@ -43,6 +44,14 @@
 				[@cms.area name="superUser" content=globalData.webTools editable=false contextAttributes={"isMobile":true}/]		
 			</div>
 		</nav>
+		[#if cmsfn.isEditMode()]
+			<div id="gato-customjs-modal" class="gato-customjs-column">		
+				[@cms.area name="customjs" /]
+			</div>
+			<div id="gato-customcss-modal" class="gato-customjs-column">
+				[@cms.area name="customcss" /]
+			</div>
+		[/#if]
 		<div id="panel" class="container">
 			<!--"super user" menu bar -->
 			[@cms.area name="superUser" content=globalData.webTools contextAttributes={"isMobile":false}/]
@@ -66,7 +75,6 @@
 				</div> <!-- end breadcrumbs -->
 				<div class="row clearfix">
 					[#assign hideSidebar = content.hideSidebar!false]
-
 					[#assign mainContentClass = hideSidebar?string('col-xs-1','col-xs-3-4')]
 					<div class="column ${mainContentClass}">
 						[#include "includes/headline.ftl"]
