@@ -1,9 +1,20 @@
-[#--some formatting seems to be lost when the content is stored in ctx--]
-[#assign homePageContent = ctx.getAttribute('homePageContent')]
-[#assign contact = homePageContent.contactInformation]
+[#include "/gato-template/templates/includes/component.ftl"]
+
 <h3 class="contact_us">
-	<a href="#nowhere">${homePageContent.title}</a>
+	<a href="${cmsfn.link(homepage)}">${homepage.title}</a>
 </h3>
+<div class="office_contact_2 dept_info">
+	[@cms.component /]
+</div>
+
+
+
+
+
+
+
+[#-- This gives a more structured option for this area--]
+[#--
 <div class="office_contact_2">
 	[#if contact.address??]
 		<p class="dept_address dept_info">
@@ -20,3 +31,5 @@
 		<p class="dept_email dept_info">Email: <a href="mailto:${contact.email}">${contact.email}</a></p>
 	[/#if]
 </div>	
+
+--]

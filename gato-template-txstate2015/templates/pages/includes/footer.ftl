@@ -15,7 +15,7 @@
 			<a href="#nowhere" class="btt"><i class="fa fa-chevron-up"></i><br>Top</a>
 		</div>
 		<div class="column col-xs-1-3 footer_column footer_column_1">
-			[@cms.area name="contactInformation"/]
+			[@cms.area name="siteinfo" content=gf.getOrCreateArea(homepage, 'siteinfo') editable=isHomePage/]
 		</div>
 		<div class="column col-xs-1-3 footer_column footer_column_2" >
 			<div class="txst_logo">
