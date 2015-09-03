@@ -1,0 +1,5 @@
+templateScript: /gato-template/templates/components/misctext.ftl
+renderType: freemarker
+dialog: gato-template:components/misctext
+description: Miscellaneous Text
+title: Miscellaneous Text
