@@ -128,12 +128,34 @@ public final class GatoUtils {
     if (furl.startsWith(cpath)) {
       String path = furl.substring(furl.indexOf(cpath) + cpath.length());
       try {
-        return MgnlContext.getJCRSession("website").getNode(path).getProperty("title").getString();
+        return nodeTitle(MgnlContext.getJCRSession("website").getNode(path));
       } catch (Exception e) {
         return path;
       }
     }
     return url;
+  }
+  
+  public String nodeTitle(Object obj) {
+    Node n = toNode(obj);
+    if (n == null) return "";
+    try {
+      String title = n.getProperty("title").getString();
+      if (!StringUtils.isEmpty(title)) return title;
+    } catch (Exception e) {
+      // use name instead
+    }
+    try {
+      String[] words = n.getName().split("\\W+");
+      String ret = "";
+      for (int i = 0; i < words.length; i++) {
+        ret += StringUtils.capitalize(words[i]);
+        if (i < words.length - 1) ret += " ";
+      }
+      return ret;
+    } catch (Exception e) {
+      return "";
+    }
   }
   
   public String getCacheStr(Node n) {

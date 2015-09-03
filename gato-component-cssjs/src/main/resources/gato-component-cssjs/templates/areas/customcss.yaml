@@ -1,5 +1,9 @@
 type: list
 renderType: freemarker
+templateScript: /gato-component-cssjs/templates/areas/customcss.ftl
+inheritance:
+  enabled: true
+  components: filtered
 availableComponents:
   customcss:
     id: gato-component-cssjs:components/customcss

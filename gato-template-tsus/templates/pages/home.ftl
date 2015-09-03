@@ -39,15 +39,8 @@
 		[#include "includes/footer.ftl"]
 		[@googleanalytics /]
 		
-		[#if cmsfn.isEditMode()]
-			<div id="gato-customjs-modal" class="gato-customjs-column">		
-				[@cms.area name="customjs" /]
-			</div>
-			<div id="gato-customcss-modal" class="gato-customjs-column">
-				[@cms.area name="customcss" /]
-			</div>
-			[@sidebarmodal skipsocial=true /]
-		[/#if]
+		[@templatemodals /]
+		[@sidebarmodal skipsocial=true /]
 
 	</body>
 </html>

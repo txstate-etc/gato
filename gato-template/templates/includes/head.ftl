@@ -7,7 +7,8 @@
 		'gato-template/js/main-menus.js',
 		'gato-template/js/post-load.js',
 		'gato-faq-hierarchy/js/frontend.js',
-		'gato-event-calendar/js/frontend.js'
+		'gato-event-calendar/js/frontend.js',
+		'gato-component-cssjs/js/modal.js'
 	]+scripts /]
 [/#macro]
 
@@ -15,7 +16,8 @@
 	[@css files = [
 		'gato-template/css/yahoo-ui-reset.css',
 		'gato-template/css/common.css',
-		'gato-template/css/main-menus.css'
+		'gato-template/css/main-menus.css',
+		'gato-component-cssjs/css/custom.css'
 	]+files /]
 [/#macro]
 
@@ -60,6 +62,9 @@
 [/#macro]
 
 [#macro sidebarmodal skipsocial=false]
+	[#if cmsfn.isEditMode()]
+	
+	[/#if]
 [/#macro]
 
 [#macro googleanalytics]
@@ -73,9 +78,18 @@
 	[/#list]
 [/#macro]
 
-[#macro pagetitle page][#compress]
-	${page.title!page.@name?replace('\\W+',' ','r')?capitalize}
-[/#compress][/#macro]
+[#macro pagetitle page]${gf.nodeTitle(page)}[/#macro]
+
+[#macro templatemodals]
+	[#if cmsfn.isEditMode()]
+		<div id="gato-customjs-modal" class="gato-customjs-column">		
+			[@cms.area name="customjs" /]
+		</div>
+		<div id="gato-customcss-modal" class="gato-customjs-column">
+			[@cms.area name="customcss" /]
+		</div>
+	[/#if]
+[/#macro]
 
 [#macro mainmenu textmenu=false]
 	<nav class="ddmenu-bg">
