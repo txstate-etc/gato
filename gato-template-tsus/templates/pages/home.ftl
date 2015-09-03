@@ -37,7 +37,6 @@
 			[@cms.area name="tsuslogos" /]
 		</ul>
 		[#include "includes/footer.ftl"]
-		[@googleanalytics /]
 		
 		[@templatemodals /]
 		[@sidebarmodal skipsocial=true /]

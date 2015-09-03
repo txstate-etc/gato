@@ -237,10 +237,8 @@ figcaption {
     display: inline-block;
     *display: inline;
     zoom: 1;
-    letter-spacing: normal;
     word-spacing: normal;
-    vertical-align: top;
-    text-rendering: auto; }
+    vertical-align: top; }
 
   .col-xs-1-24 {
     width: 4.1667%;
@@ -420,10 +418,8 @@ figcaption {
     display: inline-block;
     *display: inline;
     zoom: 1;
-    letter-spacing: normal;
     word-spacing: normal;
-    vertical-align: top;
-    text-rendering: auto; }
+    vertical-align: top; }
 
   .col-sm-1-24 {
     width: 4.1667%;
@@ -603,10 +599,8 @@ figcaption {
     display: inline-block;
     *display: inline;
     zoom: 1;
-    letter-spacing: normal;
     word-spacing: normal;
-    vertical-align: top;
-    text-rendering: auto; }
+    vertical-align: top; }
 
   .col-md-1-24 {
     width: 4.1667%;
@@ -786,10 +780,8 @@ figcaption {
     display: inline-block;
     *display: inline;
     zoom: 1;
-    letter-spacing: normal;
     word-spacing: normal;
-    vertical-align: top;
-    text-rendering: auto; }
+    vertical-align: top; }
 
   .col-lg-1-24 {
     width: 4.1667%;
@@ -970,9 +962,7 @@ figcaption {
     *display: inline;
     zoom: 1;
     letter-spacing: normal;
-    word-spacing: normal;
-    vertical-align: top;
-    text-rendering: auto; }
+    vertical-align: top; }
 
   .col-xl-1-24 {
     width: 4.1667%;
