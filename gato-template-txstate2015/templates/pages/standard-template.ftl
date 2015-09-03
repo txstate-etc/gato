@@ -31,8 +31,7 @@
 			[@search.searchBar true/]
 			<div class="mobile_nav_container">
 				<div class="mobile_trail">
-					[#import "includes/breadcrumbs.ftl" as trail]
-					[@trail.breadcrumbs hidetxstate=false isMobile=true/]
+					[@breadcrumbs/]
 				</div>
 				<h3 class="contact_us mobile_dept"><a href="#nowhere">${content.title}</a></h3>
 				[#import "includes/main-menu.ftl" as menu]

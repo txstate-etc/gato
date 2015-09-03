@@ -105,7 +105,8 @@
 }
 
 .solo_nav {border-bottom: none !important; }
-.mobile_breadcrumbs {
+
+.mobile_trail div#breadcrumbs{
     margin-bottom: 1.5rem; 
     text-align: left;
     a, .separator {color: $hamburger-menu-color !important;}

@@ -1759,10 +1759,10 @@ h1 {
 .solo_nav {
   border-bottom: none !important; }
 
-.mobile_breadcrumbs {
+.mobile_trail div#breadcrumbs {
   margin-bottom: 1.5rem;
   text-align: left; }
-  .mobile_breadcrumbs a, .mobile_breadcrumbs .separator {
+  .mobile_trail div#breadcrumbs a, .mobile_trail div#breadcrumbs .separator {
     color: #D7D7D7 !important; }
 
 .terminal_page {
