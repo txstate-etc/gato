@@ -37,7 +37,6 @@
 			[@cms.area name="tsuslogos" /]
 		</ul>
 		[#include "includes/footer.ftl"]
-		[@googleanalytics /]
 		
 		[#if cmsfn.isEditMode()]
 			<div id="gato-customjs-modal" class="gato-customjs-column">		

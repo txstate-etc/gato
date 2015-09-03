@@ -1,10 +1,12 @@
 [#include "/gato-lib/templates/includes/head.ftl"]
 [#include "/gato-component-cssjs/templates/includes/head.ftl"]
 [#include "/gato-template/templates/includes/component.ftl"]
+[#include "/gato-template/templates/includes/analytics.ftl"]
 
 [#macro templatejs scripts]
 	[@javascript scripts = [
 		'gato-template/js/main-menus.js',
+		'gato-template/js/outgoing-clicks.js',
 		'gato-template/js/post-load.js',
 		'gato-faq-hierarchy/js/frontend.js',
 		'gato-event-calendar/js/frontend.js'
@@ -24,6 +26,7 @@
 	[@customCSS page ancestorstopdown /]
 	[@customJS page ancestorstopdown /]
 	[@title publisher /]
+	[@googleanalytics /]
 	[@cms.page /]
 [/#macro]
 
@@ -60,9 +63,6 @@
 [/#macro]
 
 [#macro sidebarmodal skipsocial=false]
-[/#macro]
-
-[#macro googleanalytics]
 [/#macro]
 
 [#macro navloop items]

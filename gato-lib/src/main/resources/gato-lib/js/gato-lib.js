@@ -47,8 +47,7 @@ function preventResizeBug(e) {
 Event.observe(window, 'resize', preventResizeBug);
 
 // google analytics stuff for videos
-var ga; // new 'universal' google analytics object
-var _gaq; // legacy google analytics object
+var ga; // google analytics object
 var destroyerGlobalPageTracker;
 var destroyerSitePageTracker;
 function record_video_analytics (videourl) {
@@ -57,26 +56,17 @@ function record_video_analytics (videourl) {
 		ga(destroyerGlobalPageTracker.name + '.send', { 
 			'hitType': 'event', 
 			'eventCategory': 'Videos', 
-			'eventAction': document.title+' <'+window.location+'>'
+			'eventAction': document.title+' <'+window.location+'>',
+			'transport': 'beacon'
 		});
 	}
 
-	if (destroyerSitePageTracker && !_gaq) {
+	if (destroyerSitePageTracker) {
 		ga(destroyerSitePageTracker.name + '.send', { 
 			'hitType': 'event', 
 			'eventCategory': 'Videos', 
-			'eventAction': document.title+' <'+window.location+'>'
-		});
-	}
-	
-	if (_gaq) {
-		// use the legacy analytics code
-		_gaq.push(function(){
-			try { 
-				if (destroyerSitePageTracker) { 
-					destroyerSitePageTracker._trackEvent('Videos', videourl, document.title+' <'+window.location+'>'); 
-				}
-			} catch (e) {} 
+			'eventAction': document.title+' <'+window.location+'>',
+			'transport': 'beacon'
 		});
 	}
 }
