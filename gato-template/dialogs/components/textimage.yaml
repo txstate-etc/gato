@@ -47,7 +47,9 @@ form:
         - name: imageLink
           class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
           label: Link (optional)
+          appName: pages
           description: "Enter a full URL to an external site (http://www.google.com/) or use the \"Internal Link\" button to link to another page in this site."
+          buttonSelectNewLabel: "Internal Link..."
     - name: tabProps
       label: Paragraph Properties
       fields:
