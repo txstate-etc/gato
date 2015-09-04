@@ -4,7 +4,9 @@
 	<a href="${cmsfn.link(homepage)}">${homepage.title}</a>
 </h3>
 <div class="office_contact_2 dept_info">
-	[@cms.component /]
+	[#list components as component ]
+	   [@cms.component content=component /]
+	[/#list]
 </div>
 
 

@@ -38,7 +38,11 @@ areas:
         id: gato-template:components/link
   siteinfo:
     renderType: freemarker
-    type: single
+    # type "single" was not working with an area script.  It gave the error:
+    # "The 'content' parameter was passed but not or wrongly specified."
+    # when content=component like in the documentation.
+    type: list
+    maxComponents: 1 
     title: Contact Information
     inheritance:
       enabled: true
