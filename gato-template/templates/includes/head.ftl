@@ -9,8 +9,7 @@
 		'gato-template/js/outgoing-clicks.js',
 		'gato-template/js/post-load.js',
 		'gato-faq-hierarchy/js/frontend.js',
-		'gato-event-calendar/js/frontend.js',
-		'gato-component-cssjs/js/modal.js'
+		'gato-event-calendar/js/frontend.js'
 	]+scripts /]
 [/#macro]
 
@@ -79,17 +78,6 @@
 [/#macro]
 
 [#macro pagetitle page]${gf.nodeTitle(page)}[/#macro]
-
-[#macro templatemodals]
-	[#if cmsfn.isEditMode()]
-		<div id="gato-customjs-modal" class="gato-customjs-column">		
-			[@cms.area name="customjs" /]
-		</div>
-		<div id="gato-customcss-modal" class="gato-customjs-column">
-			[@cms.area name="customcss" /]
-		</div>
-	[/#if]
-[/#macro]
 
 [#macro mainmenu textmenu=false]
 	<nav class="ddmenu-bg">

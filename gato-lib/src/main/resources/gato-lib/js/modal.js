@@ -1,14 +1,15 @@
 function modal(content) {
-	this.opacity = 0.85;
-	this.content = content;
-	this.contentparent = content.parentNode;
+	var mymodal = this;
+	mymodal.opacity = 0.85;
+	mymodal.content = content;
+	mymodal.contentparent = content.parentNode;
 	
 	// let's make sure the modal content isn't shown when we're not modal
-	this.content.setStyle({display: 'none'});
 	
-	if (gato_dom_loaded) this.init();
-	else document.observe('dom:loaded', this.init.bind(this));
-	
+	ensureReady(function () {
+		mymodal.content.setStyle({display: 'none'});
+		mymodal.init()
+	});
 }
 
 modal.prototype.init = function() {
@@ -25,7 +26,7 @@ modal.prototype.init = function() {
 			padding: 0,
 			top: 0,
 			left: 0,
-			zIndex: 899 
+			zIndex: 65536 
 		});
 		document.body.appendChild(modal.outerdiv);
 
@@ -127,5 +128,17 @@ modal.prototype.reloadid = function() {
 /**** MAGNOLIA-SPECIFIC ROUTINES ****/
 modal.prototype.addToMainbar = function(title) {
 	var mymodal = this;
-	gatoedit.addGenericToMainbar(title, function () { mymodal.toggle(); });
+	ensureReady(function() {
+		if (!$('modalbar')) {
+			var modalbar = $(document.createElement('div'));
+			modalbar.writeAttribute({ 'aria-label': 'Modal activation buttons' });
+			modalbar.id = 'modalbar';
+			modalbar.setStyle({ position: 'absolute', top: '0px', left: '0px' });
+			$(document.body).appendChild(modalbar);
+		}
+		var btn = $(document.createElement('button'));
+		btn.innerHTML = title;
+		$('modalbar').appendChild(btn);
+		btn.observe('click', function() { mymodal.toggle(); });
+	});
 };

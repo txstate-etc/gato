@@ -4,5 +4,7 @@
 	[#if pageid != owner.@id]
 		<div class="inherited">Inherited from parent page: ${gf.nodeTitle(owner)}</div>
 	[/#if]
-  [@cms.component content=component /]
+	<div class="gato-custom-block">
+	  [@cms.component content=component /]
+	</div>
 [/#list]

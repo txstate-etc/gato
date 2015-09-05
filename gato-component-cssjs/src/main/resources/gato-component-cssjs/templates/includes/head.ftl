@@ -44,3 +44,10 @@
 		[/@inheritLoop]
 	</style>
 [/#macro]
+
+[#macro cssjsmodals]
+	[#if cmsfn.isEditMode()]
+		[@cms.area name="customjs" /]
+		[@cms.area name="customcss" /]
+	[/#if]
+[/#macro]

@@ -1,7 +1,7 @@
 [#macro javascript scripts]
 	<script type="text/javascript" src="${ctx.contextPath}/.resources/gato-lib/js/jquery.js"></script>
 	<script type="text/javascript">jQuery.noConflict();</script>
-	[#list ['gato-lib/js/prototype.js', 'gato-lib/js/gato-lib.js'] + scripts as script]
+	[#list ['gato-lib/js/prototype.js', 'gato-lib/js/gato-lib.js', 'gato-lib/js/modal.js'] + scripts as script]
 		<script type="text/javascript" src="${ctx.contextPath}/.resources/${script}"></script>
 	[/#list]
 [/#macro]

@@ -38,7 +38,7 @@
 		</ul>
 		[#include "includes/footer.ftl"]
 		
-		[@templatemodals /]
+		[@cssjsmodals /]
 		[@sidebarmodal skipsocial=true /]
 
 	</body>
