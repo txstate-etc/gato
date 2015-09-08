@@ -78,6 +78,17 @@ modal.prototype.init = function() {
 
 modal.prototype.show = function() {
 	if (modal.currentmodal) modal.currentmodal.hide(true);
+	
+	// set aria-disabled="true" on everything in the page that is not
+	// inside our modal
+	$(document.body).childElements().each( function (itm) {
+		if (itm != modal.outerdiv) {
+			itm.modal_disabled = true;
+			itm.save_aria_disable = itm.readAttribute('aria-disabled');
+			itm.writeAttribute('aria-disabled', 'true');
+		}
+	});
+	
 	modal.outerdiv.setStyle({display: 'block'});
 	this.content.setStyle({display: 'block', cssFloat: 'none'});
 	modal.innerdiv.appendChild(this.content);
@@ -92,6 +103,14 @@ modal.prototype.hide = function(cleanup) {
 	if (!cleanup) {
 		modal.outerdiv.setStyle({display: 'none'});
 		document.body.setStyle({height: 'auto'});
+		
+		// undo what we did to aria-disabled on show()
+		$(document.body).childElements().each( function (itm) {
+			if (itm != modal.outerdiv) {
+				if (itm.modal_disabled) itm.writeAttribute('aria-disabled', itm.save_aria_disable);
+				itm.modal_disabled = false;
+			}
+		});
 	}
 	deleteCookie("modal_reload");
 };
@@ -124,6 +143,11 @@ modal.prototype.reloadid = function() {
 	if (this.content.id != "") return '#'+this.content.id;
 	return '.'+this.contentparent.className.split(' ').join('.') + ' ' + '.'+this.content.className.split(' ').join('.');
 };
+
+Event.observe(window, 'keydown', function (e) {
+	// escape key dismisses modal
+	if (modal.currentmodal && e.keyCode == 27) modal.currentmodal.hide();
+});
 
 /**** MAGNOLIA-SPECIFIC ROUTINES ****/
 modal.prototype.addToMainbar = function(title) {
