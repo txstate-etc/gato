@@ -2632,8 +2632,12 @@ a.button {
 .txst-textimage-imageblock {
   margin-bottom: 15px; }
   .txst-textimage-imageblock img {
+    max-width: 100%;
     margin-bottom: 5px;
     border-width: 1px; }
+
+.txst-textimage[max-width^='400px'] img {
+  width: 100%; }
 
 .txst-textimage-caption {
   font-size: .8em;
@@ -2651,5 +2655,55 @@ a.button {
   margin-left: 10px; }
   .txst-textimage-blockright .txst-textimage-caption {
     text-align: right; }
+
+/*txst-departmentdirectory*/
+div.txst-departmentdirectory {
+  font-size: 90%;
+  margin-left: 0px; }
+
+.txst-departmentdirectory div {
+  list-style-position: outside;
+  list-style-type: none;
+  /*padding-bottom: 5px;
+  margin-bottom: 5px;*/ }
+
+.txst-departmentdirectory-entry {
+  border-bottom: 1px dotted #B29F71; }
+
+.txst-departmentdirectory-name {
+  font-weight: 500;
+  float: left;
+  padding-right: 20px;
+  overflow: hidden; }
+
+.txst-departmentdirectory-email {
+  float: left;
+  padding-right: 20px;
+  overflow: hidden; }
+
+.txst-departmentdirectory-phone {
+  float: left;
+  overflow: hidden; }
+
+.txst-departmentdirectory-title {
+  float: left;
+  padding-right: 20px;
+  overflow: hidden; }
+
+.txst-departmentdirectory-address {
+  float: left;
+  padding-right: 20px;
+  overflow: hidden; }
+
+.txst-departmentdirectory-category {
+  float: left;
+  overflow: hidden; }
+
+.txst-departmentdirectory-extra2 {
+  clear: both;
+  margin-bottom: 3px; }
+
+.txst-departmentdirectory-extra1 {
+  clear: both; }
 
 /*# sourceMappingURL=gato.css.map */
