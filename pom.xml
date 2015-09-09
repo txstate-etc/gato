@@ -122,5 +122,6 @@
     <module>gato-internal</module>
     <module>gato-component-faq</module>
     <module>gato-component-cssjs</module>
+    <module>gato-component-dept-directory</module>
   </modules>
 </project>
