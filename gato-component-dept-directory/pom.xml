@@ -2,19 +2,22 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>edu.txstate.its.gato</groupId>
     <artifactId>gato-base</artifactId>
+    <groupId>edu.txstate.its.gato</groupId>
     <version>1.0-SNAPSHOT</version>
-    <relativePath>../pom.xml</relativePath>
   </parent>
   <groupId>edu.txstate.its.gato</groupId>
-  <artifactId>gato-lib</artifactId>
+  <artifactId>gato-component-dept-directory</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
-  <name>gato-lib Magnolia Module</name>
+  <name>Gato Department Directory Module</name>
   <!--
   <description>Please uncomment and fill in ...</description>
   -->
+  <properties>
+    <magnoliaVersion>5.4.1</magnoliaVersion>
+    <javaVersion>1.6</javaVersion>
+  </properties>
 
   <dependencies>
     <dependency>
@@ -24,17 +27,8 @@
     </dependency>
     <dependency>
       <groupId>info.magnolia</groupId>
-      <artifactId>magnolia-rendering</artifactId>
-      <version>${magnoliaVersion}</version>
-    </dependency>
-    <dependency>
-      <groupId>info.magnolia</groupId>
       <artifactId>magnolia-templating</artifactId>
       <version>${magnoliaVersion}</version>
-    </dependency>
-    <dependency>
-      <groupId>info.magnolia.ui</groupId>
-      <artifactId>magnolia-ui-form</artifactId>
     </dependency>
     <dependency>
       <groupId>javax.servlet</groupId>
@@ -43,21 +37,38 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>xmlrpc</groupId>
-      <artifactId>xmlrpc</artifactId>
-      <version>1.2-b1</version>
-    </dependency>
+  <groupId>xmlrpc</groupId>
+  <artifactId>xmlrpc</artifactId>
+  <version>1.2-b1</version>
+</dependency>
     <dependency>
-      <groupId>com.vaadin</groupId>
-      <artifactId>vaadin-server</artifactId>
+      <groupId>info.magnolia.ui</groupId>
+      <artifactId>magnolia-ui-framework</artifactId>
+      <version>${magnoliaVersion}</version>
     </dependency>
+    
+    <!-- TEST -->
     <dependency>
-      <groupId>com.vaadin</groupId>
-      <artifactId>vaadin-shared</artifactId>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+      <scope>test</scope>
     </dependency>
   </dependencies>
 
   <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.3.2</version>
+        <configuration>
+          <source>${javaVersion}</source>
+          <target>${javaVersion}</target>
+        </configuration>
+      </plugin>
+    </plugins>
+
     <!-- default resources configuration which will filter the module descriptor -->
     <resources>
       <resource>
@@ -83,6 +94,16 @@
       <snapshots>
       </snapshots>
     </repository>
+    <!-- IF YOU NEED MODULES FROM THE ENTERPRISE VERSION, UNCOMMENT THE FOLLOWING REPOSITORY -->
+    <!--
+    <repository>
+      <id>magnolia.enterprise.releases</id>
+      <url>https://nexus.magnolia-cms.com/content/repositories/magnolia.enterprise.releases</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+    -->
     <repository>
       <id>vaadin-addons</id>
       <url>https://maven.vaadin.com/vaadin-addons</url>

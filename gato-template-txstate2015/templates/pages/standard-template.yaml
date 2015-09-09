@@ -72,6 +72,8 @@ areas:
         id: gato-template:components/textimage
       faqhierarchy:
         id: gato-faq:components/faq-hierarchy
+      departmentdirectory:
+        id: gato-template:components/departmentdirectory
     #   quotation:
     #     id: myModule:components/quotation
     #   greenpanel:

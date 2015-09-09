@@ -1,0 +1,5 @@
+templateScript: /gato-template/templates/components/departmentdirectory.ftl
+renderType: freemarker
+dialog: gato-template:components/departmentdirectory
+description: Displays a Directory Based on the Information in People Search
+title: Department Directory
