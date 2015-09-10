@@ -6,12 +6,23 @@ form:
         - name: faqTree
           class: edu.txstate.its.gato.component.faq.FaqTreeFieldDefinition
           label: FAQ Tree
+        - name: faqTitle
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Title
+          styleName: faqTitle
         - name: faqQuestion
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Question
+          styleName: faqQuestion
         - name: faqAnswer
           class: info.magnolia.ui.form.field.definition.RichTextFieldDefinition
           label: Answer
+          styleName: faqAnswer
+        - name: faqScript
+          class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
+          file: gato-faq/js/faqHierarchy.js
+          initFunction: init
+          label: Script
 actions:
   commit:
     class: edu.txstate.its.gato.component.faq.SaveFaqDialogActionDefinition

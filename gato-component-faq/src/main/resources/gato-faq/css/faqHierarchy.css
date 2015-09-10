@@ -1,0 +1,157 @@
+#faq_tree {
+  display: block;
+  margin: 0;
+  padding: 5px;
+  list-style: none;
+  border: 1px solid black;
+  background-color: #FAFBF4;
+  max-height: 220px;
+  overflow: auto;
+}
+
+#faq_tree * { margin: 0; padding: 0}
+
+#faq_tree ul {
+  margin-left: 16px;
+}
+
+#faq_tree li {
+  display: block;
+  width: 100%;
+  clear: both;
+}
+
+#faq_tree dl {
+  position: relative;
+  display: block;
+  height: 16px;
+}
+
+#faq_tree dt {
+  float: left;
+  margin-right: 10px;
+  padding: 0 0 0 3px;
+  cursor: pointer;
+  width: 225px;
+}
+
+#faq_tree .node_drop_div {
+  height: 4px;
+}
+
+#faq_tree .node_drop_div_hover {
+  background-color: black;
+}
+
+#faq_tree .node_data {
+  display: none;
+}
+
+#faq_tree .selected_node > dl > dt {
+  background: #330099;
+  color: #FFFFFF;
+}
+
+#faq_tree dl:hover dd.node_actions { display: block; }
+
+#faq_tree .node_icon {
+  display: block;
+  float: left;
+  width: 16px;
+  height: 16px;
+  background: url(../images/iconText.gif) no-repeat 0 -1px;
+}
+
+#faq_tree .faq_tree_closed > ul {
+  display: none;
+}
+
+#faq_tree .faq_tree_closed > dl > .node_icon {
+  background: url(../images/folderClosed.gif) no-repeat 0 -3px;
+}
+
+#faq_tree .faq_tree_open > dl > .node_icon {
+  background: url(../images/folderOpen.gif) no-repeat 0 -3px;
+}
+
+#faq_tree .node_drop_hover {
+  background-color: #aaa;
+}
+
+#faq_tree .expander {
+  display: block;
+  float: left;
+  width: 16px;
+  height: 16px;
+  margin-right: 1px;
+}
+
+#faq_tree .faq_tree_closed > dl > .expander {
+  background: url(../images/plus.gif) -2px -3px;
+  cursor: pointer;
+}
+
+#faq_tree .faq_tree_open > dl > .expander {
+  background: url(../images/minus.gif) -2px -3px;
+  cursor: pointer;
+}
+
+#faq_tree .delete_node_action {
+  display: block;
+  float: left;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  margin-right: 5px;
+  background: url(../images/edit-delete-4.png) no-repeat;
+}
+
+#faq_tree .add_group_action {
+  display: block;
+  float: left;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  margin-right: 5px;
+  background: url(../images/folder-new-7.png) no-repeat;
+}
+
+#faq_tree .add_faq_action {
+  display: block;
+  float: left;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  margin-right: 5px;
+  background: url(../images/document-new-6.png) no-repeat;
+}
+
+#faq_tree .move_node_action {
+  display: block;
+  float: left;
+  width: 16px;
+  height: 20px;
+  cursor: pointer;
+  margin-right: 5px;
+  background: url(../images/transform-move.png);
+}
+
+#top_add_group_action {
+  display: block;
+  float: left;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  margin-right: 5px;
+  background: url(../images/folder-new-7.png) no-repeat;
+}
+
+#top_add_faq_action {
+  display: block;
+  float: left;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  margin-right: 5px;
+  background: url(../images/document-new-6.png) no-repeat;
+}
