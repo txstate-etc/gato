@@ -9,7 +9,7 @@
 
   <properties>
     <magnoliaVersion>5.4.1</magnoliaVersion>
-    <javaVersion>1.6</javaVersion>
+    <javaVersion>1.8</javaVersion>
   </properties>
 
   <!-- Fill the following in, so you can use the release plugin -->
