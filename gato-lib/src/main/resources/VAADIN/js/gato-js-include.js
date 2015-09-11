@@ -17,7 +17,7 @@ edu_txstate_its_gato_vaadin_GatoJsComponent = function() {
       loadGatoJsStyle(styleName);
     });
 
-    if (definition.loadDepsInOrder) {
+    if (definition.loadScriptsInOrder) {
       loadDepsInOrder(definition.scripts, callInit);
     } else {
       loadDeps(definition.scripts, callInit);
@@ -73,7 +73,7 @@ function loadDeps(scripts, callback) {
         callback();
       }
     });
-  })
+  });
 }
 
 /**
