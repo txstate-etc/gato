@@ -9,7 +9,7 @@
   </parent>
   <groupId>edu.txstate.its.gato</groupId>
   <artifactId>gato-internal</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0.1</version>
   <packaging>jar</packaging>
   <name>gato-internal Magnolia Module</name>
   <!--
@@ -17,6 +17,11 @@
   -->
 
   <dependencies>
+    <dependency>
+      <groupId>edu.txstate.its.gato</groupId>
+      <artifactId>gato-lib</artifactId>
+      <version>1.0-SNAPSHOT</version>
+    </dependency>
     <dependency>
       <groupId>info.magnolia</groupId>
       <artifactId>magnolia-core</artifactId>
