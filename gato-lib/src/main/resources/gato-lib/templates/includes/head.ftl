@@ -12,7 +12,7 @@
 [/#macro]
 
 [#macro css files]
-  [#list files as file]
+  [#list ['gato-lib/css/grid.css'] + files as file]
     <link rel="stylesheet" type="text/css" href="${ctx.contextPath}/.resources/${file}"/>
   [/#list]
 [/#macro]
