@@ -28,7 +28,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Vector;
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
 import java.text.SimpleDateFormat;
@@ -43,7 +42,6 @@ import javax.jcr.RepositoryException;
 import javax.jcr.PathNotFoundException;
 import javax.jcr.ValueFormatException;
 
-import org.apache.xmlrpc.XmlRpcClientLite;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.codec.digest.DigestUtils;
 
@@ -429,27 +427,5 @@ public final class GatoUtils {
   		e.printStackTrace();
   	}
   	return child;
-  }
-
-  //Retrieve Faculty and/or Staff for a particular
-  //department.  Used in the department directory component.
-  public Vector getPeople(String department){
-
-    Vector result = new Vector();
-    String method = "getResults";
-    Vector params = new Vector();
-    String searchTerm = "department=\"" + department + "\"";
-    params.addElement(searchTerm);
-
-    try{
-        XmlRpcClientLite client =
-            new XmlRpcClientLite("http://apps.its.txstate.edu/people/RPC.mpl");
-        result = (Vector)client.execute( method, params );
-    }
-    catch(Exception e){
-        e.printStackTrace();
-    }
-
-    return result;
   }
 }

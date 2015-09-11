@@ -1,0 +1,6 @@
+templateScript: /gato-component-dept-directory/templates/components/departmentdirectory.ftl
+renderType: freemarker
+dialog: gato-component-dept-directory:components/departmentdirectory
+description: Displays a Directory Based on the Information in People Search
+title: Department Directory
+modelClass: edu.txstate.its.gato.DepartmentDirectoryModel

@@ -5,7 +5,7 @@
             <h2>${content.title}</h2>
     [/#if]
     <div class="txst-departmentdirectory object">
-        [#list gf.getPeople(content.department) as person]
+        [#list model.getPeople(content.department) as person]
             [#assign showRecord = true]
             [#if person.category == "Retired"]
                 [#assign showRecord = false]
