@@ -31,8 +31,9 @@ import java.util.List;
  *         label: JS Include
  *         file: gato-example/js/test.js
  *         initFunction: foo
- *         dependencies: [gato-lib/js/prototype.js, gato-lib/js/modal.js]
- *         loadDepsInOrder: false
+ *         scripts: [gato-lib/js/prototype.js, gato-lib/js/modal.js]
+ *         styles: [gato-example/css/test.css]
+ *         loadScriptsInOrder: false
  *
  * Example gato-example/js/test.js:
  *
