@@ -2,6 +2,9 @@ package edu.txstate.its.gato.vaadin;
 
 import info.magnolia.ui.form.field.definition.ConfiguredFieldDefinition;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Definition for the GatoJSInclude field.
  *
@@ -25,6 +28,8 @@ import info.magnolia.ui.form.field.definition.ConfiguredFieldDefinition;
  *         label: JS Include
  *         file: gato-example/js/test.js
  *         initFunction: foo
+ *         dependencies: [gato-lib/js/prototype.js, gato-lib/js/modal.js]
+ *         loadDepsInOrder: false
  *
  * Example gato-example/js/test.js:
  *
@@ -35,8 +40,17 @@ import info.magnolia.ui.form.field.definition.ConfiguredFieldDefinition;
  */
 public class GatoJsIncludeDefinition extends ConfiguredFieldDefinition {
 
+    // The javascript file to include for this field. Path should be relative to magnolia resources
+    // root. This means you can use <module-name>/js/script.js.
     private String file;
     private String initFunction;
+
+    // An array of javascript files that should be loaded before included file. Paths of scripts
+    // should be relative to magnolia resources root.
+    private List<String> dependencies = new ArrayList<String>();
+
+    // If set to true, dependencies will be guaranteed to load in the order they're specified in the array.
+    private boolean loadDepsInOrder = false;
 
     public String getFile() {
         return file;
@@ -52,5 +66,21 @@ public class GatoJsIncludeDefinition extends ConfiguredFieldDefinition {
 
     public void setInitFunction(String init) {
         initFunction = init;
+    }
+
+    public void setDependencies(List<String> list) {
+        dependencies = list;
+    }
+
+    public List<String> getDependencies() {
+        return dependencies;
+    }
+
+    public boolean getLoadDepsInOrder() {
+        return loadDepsInOrder;
+    }
+
+    public void setLoadDepsInOrder(boolean b) {
+        loadDepsInOrder = b;
     }
 }

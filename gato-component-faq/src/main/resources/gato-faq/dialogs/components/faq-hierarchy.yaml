@@ -21,7 +21,9 @@ form:
         - name: faqScript
           class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
           file: gato-faq/js/faqHierarchy.js
-          initFunction: init
+          initFunction: initFaqHierarchy
+          dependencies: [gato-lib/js/prototype.js, gato-lib/js/scriptaculous/scriptaculous.js, gato-lib/js/scriptaculous/effects.js, gato-lib/js/scriptaculous/dragdrop.js]
+          loadDepsInOrder: true
           label: Script
 actions:
   commit:

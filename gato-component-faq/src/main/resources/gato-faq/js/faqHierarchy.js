@@ -355,33 +355,7 @@ function showGroupNodeData() {
   titleInput.focus();
 }
 
-function includeScript(src, onload) {
-  var script = document.createElement('script');
-  script.type = 'text/javascript';
-  script.src = src;
-  script.onload = onload;
-  document.getElementsByTagName("head")[0].appendChild(script);
-}
-
-function init(def, node, el) {
-  var style = document.createElement("link");
-  style.rel = "stylesheet";
-  style.type = "text/css";
-  style.href = "./../.resources/gato-faq/css/faqHierarchy.css";
-  document.getElementsByTagName("head")[0].appendChild(style);
-  
-  var gatoLibJs = './../.resources/gato-lib/js/';
-
-  // TODO: find a better way to deal with dependencies because this is bad, but
-  // doing it for now...Perhaps make it a part of GatoJsInclude
-  includeScript(gatoLibJs + 'prototype.js', function() {
-    includeScript(gatoLibJs + 'scriptaculous/scriptaculous.js', function() {
-      includeScript(gatoLibJs + 'scriptaculous/effects.js', function() {
-        includeScript(gatoLibJs + 'scriptaculous/dragdrop.js', function() {
-          $(el).up('.v-form-field-section').hide();
-          onLoad();
-        });
-      });
-    });
-  });
+function initFaqHierarchy(def, node, el) {
+  $(el).up('.v-form-field-section').hide();
+  onLoad();
 }
