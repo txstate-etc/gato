@@ -45,7 +45,7 @@ public class GatoJsIncludeDefinition extends ConfiguredFieldDefinition {
     private String file;
     private String initFunction;
 
-    // An array of javascript files that should be loaded before included file. Paths of scripts
+    // An array of javascript files to be loaded before the init function is called. Paths of scripts
     // should be relative to magnolia resources root.
     private List<String> dependencies = new ArrayList<String>();
 
