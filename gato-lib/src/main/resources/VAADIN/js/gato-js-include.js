@@ -13,14 +13,31 @@ edu_txstate_its_gato_vaadin_GatoJsComponent = function() {
   }
 
   var onLoad = function() {
+    definition.styles.forEach(function(styleName) {
+      loadGatoJsStyle(styleName);
+    });
+
     if (definition.loadDepsInOrder) {
-      loadDepsInOrder(definition.dependencies, callInit);
+      loadDepsInOrder(definition.scripts, callInit);
     } else {
-      loadDeps(definition.dependencies, callInit);
+      loadDeps(definition.scripts, callInit);
     }
   }
 
   loadGatoJsScript(this.getState().definition.file, onLoad);
+}
+
+function loadGatoJsStyle(styleName) {
+  if (loadedGatoJsScripts.has(styleName)) {
+    return;
+  }
+
+  var style = document.createElement("link");
+  style.rel = "stylesheet";
+  style.type = "text/css";
+  style.href = MGNL_RESOURCES_PATH + styleName;
+  style.onload = function() { loadedGatoJsScripts.add(styleName); }
+  document.getElementsByTagName("head")[0].appendChild(style);
 }
 
 function loadGatoJsScript(scriptName, callback) {
@@ -50,14 +67,13 @@ function loadDeps(scripts, callback) {
     return;
   }
 
-  for (var i = 0; i < scripts.length; i++) {
-    loadGatoJsScript(scripts[i], function() {
-      count--;
-      if (count == 0) {
+  scripts.forEach(function(scriptName) {
+    loadGatoJsScript(scriptName, function() {
+      if (--count == 0) {
         callback();
       }
     });
-  }
+  })
 }
 
 /**

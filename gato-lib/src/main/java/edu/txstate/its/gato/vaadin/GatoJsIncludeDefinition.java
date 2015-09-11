@@ -2,6 +2,9 @@ package edu.txstate.its.gato.vaadin;
 
 import info.magnolia.ui.form.field.definition.ConfiguredFieldDefinition;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,45 +45,18 @@ public class GatoJsIncludeDefinition extends ConfiguredFieldDefinition {
 
     // The javascript file to include for this field. Path should be relative to magnolia resources
     // root. This means you can use <module-name>/js/script.js.
-    private String file;
-    private String initFunction;
+    @Getter @Setter private String file;
+
+    // Function to be called after script is loaded. Should be of the form init(def, node, el).
+    @Getter @Setter private String initFunction;
 
     // An array of javascript files to be loaded before the init function is called. Paths of scripts
     // should be relative to magnolia resources root.
-    private List<String> dependencies = new ArrayList<String>();
+    @Getter @Setter private List<String> scripts = new ArrayList<String>();
+
+    // An array of css files to be loaded. Paths of files should be relative to magnolia resources root.
+    @Getter @Setter private List<String> styles = new ArrayList<String>();
 
     // If set to true, dependencies will be guaranteed to load in the order they're specified in the array.
-    private boolean loadDepsInOrder = false;
-
-    public String getFile() {
-        return file;
-    }
-
-    public void setFile(String f) {
-        file = f;
-    }
-
-    public String getInitFunction() {
-        return initFunction;
-    }
-
-    public void setInitFunction(String init) {
-        initFunction = init;
-    }
-
-    public void setDependencies(List<String> list) {
-        dependencies = list;
-    }
-
-    public List<String> getDependencies() {
-        return dependencies;
-    }
-
-    public boolean getLoadDepsInOrder() {
-        return loadDepsInOrder;
-    }
-
-    public void setLoadDepsInOrder(boolean b) {
-        loadDepsInOrder = b;
-    }
+    @Getter @Setter private boolean loadScriptsInOrder = false;
 }
