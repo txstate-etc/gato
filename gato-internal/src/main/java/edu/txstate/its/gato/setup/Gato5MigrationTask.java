@@ -35,8 +35,5 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
 
       }
     });
-    
-    renameTemplate(hm, "gato:components/texasState/texasEditor", "gato-template:components/richeditor");
-
   }  
 }

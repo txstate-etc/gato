@@ -46,14 +46,4 @@ public abstract class GatoBaseUpgradeTask extends info.magnolia.module.delta.Abs
 	protected void visitPages(Session ws, NodeVisitor visitor) throws RepositoryException, InvalidQueryException, ItemNotFoundException, AccessDeniedException {
 		NodeUtil.visit(ws.getRootNode(), visitor, new NodeTypePredicate("mgnl:page", true));
 	}
-	
-	protected void renameTemplate(Session ws, String oldTemplateId, String newTemplateId) throws RepositoryException, InvalidQueryException, ItemNotFoundException, AccessDeniedException {
-    visitByTemplate(ws, oldTemplateId, new NodeVisitor() {
-      public void visit(Node n) throws RepositoryException {
-        NodeTypes.Renderable.set(n, newTemplateId);
-      }
-    });
-    ws.save();
-  }
-
 }
