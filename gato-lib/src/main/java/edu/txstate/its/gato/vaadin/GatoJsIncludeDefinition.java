@@ -29,9 +29,8 @@ import java.util.List;
  *       - name: jsInclude
  *         class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
  *         label: JS Include
- *         file: gato-example/js/test.js
  *         initFunction: foo
- *         scripts: [gato-lib/js/prototype.js, gato-lib/js/modal.js]
+ *         scripts: [gato-lib/js/prototype.js, gato-lib/js/modal.js, gato-example/js/test.js]
  *         styles: [gato-example/css/test.css]
  *         loadScriptsInOrder: false
  *
@@ -44,20 +43,16 @@ import java.util.List;
  */
 public class GatoJsIncludeDefinition extends ConfiguredFieldDefinition {
 
-    // The javascript file to include for this field. Path should be relative to magnolia resources
-    // root. This means you can use <module-name>/js/script.js.
-    @Getter @Setter private String file;
-
     // Function to be called after script is loaded. Should be of the form init(def, node, el).
     @Getter @Setter private String initFunction;
 
-    // An array of javascript files to be loaded before the init function is called. Paths of scripts
-    // should be relative to magnolia resources root.
+    // An array of javascript files to be loaded. Paths of scripts should be relative to magnolia resources root.
     @Getter @Setter private List<String> scripts = new ArrayList<String>();
 
     // An array of css files to be loaded. Paths of files should be relative to magnolia resources root.
     @Getter @Setter private List<String> styles = new ArrayList<String>();
 
-    // If set to true, dependencies will be guaranteed to load in the order they're specified in the array.
+    // If set to true, scripts will be guaranteed to load in the order they're specified in the array.
+    // Note, with either option, all scripts will be loaded before the init function is called.
     @Getter @Setter private boolean loadScriptsInOrder = false;
 }

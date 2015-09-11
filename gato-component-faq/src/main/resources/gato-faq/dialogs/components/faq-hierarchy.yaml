@@ -20,9 +20,8 @@ form:
           styleName: faqAnswer
         - name: faqScript
           class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
-          file: gato-faq/js/faqHierarchy.js
           initFunction: initFaqHierarchy
-          scripts: [gato-lib/js/prototype.js, gato-lib/js/scriptaculous/scriptaculous.js, gato-lib/js/scriptaculous/effects.js, gato-lib/js/scriptaculous/dragdrop.js]
+          scripts: [gato-lib/js/prototype.js, gato-lib/js/scriptaculous/scriptaculous.js, gato-lib/js/scriptaculous/effects.js, gato-lib/js/scriptaculous/dragdrop.js, gato-faq/js/faqHierarchy.js]
           styles: [gato-faq/css/faqHierarchy.css]
           loadScriptsInOrder: true
           label: Script

@@ -12,19 +12,15 @@ edu_txstate_its_gato_vaadin_GatoJsComponent = function() {
     }
   }
 
-  var onLoad = function() {
-    definition.styles.forEach(function(styleName) {
-      loadGatoJsStyle(styleName);
-    });
+  definition.styles.forEach(function(styleName) {
+    loadGatoJsStyle(styleName);
+  });
 
-    if (definition.loadScriptsInOrder) {
-      loadDepsInOrder(definition.scripts, callInit);
-    } else {
-      loadDeps(definition.scripts, callInit);
-    }
+  if (definition.loadScriptsInOrder) {
+    loadScriptsInOrder(definition.scripts, callInit);
+  } else {
+    loadScripts(definition.scripts, callInit);
   }
-
-  loadGatoJsScript(this.getState().definition.file, onLoad);
 }
 
 function loadGatoJsStyle(styleName) {
@@ -57,7 +53,7 @@ function loadGatoJsScript(scriptName, callback) {
 }
 
 /**
- * Load dependencies and call a function after all dependencies have
+ * Load scripts and call a function after all scripts have
  * finished loading.
  */
 function loadDeps(scripts, callback) {
@@ -77,16 +73,16 @@ function loadDeps(scripts, callback) {
 }
 
 /**
- * Load dependencies from an array in order by loading the next script in the array
+ * Load scripts from an array in order by loading the next script in the array
  * in the onload callback of the previous script.
  */
-function loadDepsInOrder(scripts, callback) {
+function loadScriptsInOrder(scripts, callback) {
   if (scripts.length == 0) {
     callback();
     return;
   }
 
   loadGatoJsScript(scripts.shift(), function() {
-    loadDepsInOrder(scripts, callback);
+    loadScriptsInOrder(scripts, callback);
   });
 }
