@@ -1,109 +1,64 @@
 /* Simple Grid Using Element Queries */
-
-/* defaults */
-.eq-col-1-1,
-.eq-col-1-2,
-.eq-col-1-3,
-.eq-col-2-3,
-.eq-col-1-4,
-.eq-col-3-4 {
+@mixin eq-base($name) {
+  $ret : '';
+  $collist : 2 3 4 5 12;
+  @each $i in $collist {
+    @for $j from 1 through $i {
+      $ret : $ret + '.eq-'+$name+'-' + $j + '-' + $i + ', ';
+    }
+  }
+  #{$ret} {
     display: inline-block;
     zoom: 1;
     letter-spacing: normal;
     word-spacing: normal;
     vertical-align: top;
     text-rendering: auto;
-}
-
-.eq-col-1-1 {
     width: 100%;
-}
-.eq-col-1-2 {
-    width: 50%;
-}
-.eq-col-1-3 {
-    width: 33.33%;
-}
-.eq-col-2-3 {
-    width: 66.66%;
-}
-.eq-col-1-4{
-    width: 25%;
-}
-.eq-col-3-4 {
-    width: 75%;
+  }
 }
 
-
-/* min-width 400px */
-[min-width~="400px"] > * {
-    &.eq-col-sm-1-1,
-    &.eq-col-sm-1-2,
-    &.eq-col-sm-1-3,
-    &.eq-col-sm-2-3,
-    &.eq-col-sm-1-4,
-    &.eq-col-sm-3-4 {
-        display: inline-block;
-        zoom: 1;
-        letter-spacing: normal;
-        word-spacing: normal;
-        vertical-align: top;
-        text-rendering: auto;
+@mixin eq-cols($name) {
+  $collist : 2 3 4 5 12;
+  @each $i in $collist {
+    $max : $i - 1;
+    @for $j from 1 through $max {
+      &.eq-#{$name}-#{$j}-#{$i} {
+        width: 100% * $j / $i;
+      }
+      &.eq-#{$name}-off-#{$j}-#{$i} {
+        margin-left: 100% * $j / $i;
+      }
     }
-
-    &.eq-col-sm-1-1{
-        width: 100%;
-    }
-    &.eq-col-sm-1-2{
-        width: 50%;
-    }
-    &.eq-col-sm-1-3{
-        width: 33.33%;
-    }
-    &.eq-col-sm-2-3{
-        width: 66.66%;
-    }
-    &.eq-col-sm-1-4{
-        width: 25%;
-    }
-    &.eq-col-sm-3-4{
-        width: 75%;
-    }
+  }
 }
 
+@include eq-base('mn');
+.eq-parent > * {
+  @include eq-cols('mn');
+}
 
-/* min-width 800px */
-[min-width~="800px"] > * {
-    &.eq-col-lg-1-1,
-    &.eq-col-lg-1-2,
-    &.eq-col-lg-1-3,
-    &.eq-col-lg-2-3,
-    &.eq-col-lg-1-4,
-    &.eq-col-lg-3-4 {
-        display: inline-block;
-        zoom: 1;
-        letter-spacing: normal;
-        word-spacing: normal;
-        vertical-align: top;
-        text-rendering: auto;
-    }
+@include eq-base('xs');
+.eq-parent[min-width~="100px"] > * {
+  @include eq-cols('xs');
+}
 
-    &.eq-col-lg-1-1{
-        width: 100%;
-    }
-    &.eq-col-lg-1-2{
-        width: 50%;
-    }
-    &.eq-col-lg-1-3{
-        width: 33.33%;
-    }
-    &.eq-col-lg-2-3{
-        width: 66.66%;
-    }
-    &.eq-col-lg-1-4{
-        width: 25%;
-    }
-    &.eq-col-lg-3-4{
-        width: 75%;
-    }
+@include eq-base('sm');
+.eq-parent[min-width~="200px"] > * {
+  @include eq-cols('sm');
+}
+
+@include eq-base('md');
+.eq-parent[min-width~="400px"] > * {
+  @include eq-cols('md');
+}
+
+@include eq-base('lg');
+.eq-parent[min-width~="800px"] > * {
+  @include eq-cols('lg');
+}
+
+@include eq-base('xl');
+.eq-parent[min-width~="1200px"] > * {
+  @include eq-cols('xl');
 }

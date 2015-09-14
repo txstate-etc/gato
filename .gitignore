@@ -32,3 +32,4 @@ hs_err_pid*
 
 # sass cache files
 *.sass-cache
+*.css.map

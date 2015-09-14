@@ -26,11 +26,15 @@ areas:
     availableComponents:
       richeditor:
         id: gato-template:components/richeditor
+      textimage:
+        id: gato-template:components/textimage
   tsushomeright:
     type: list
     availableComponents:
       richeditor:
         id: gato-template:components/richeditor
+      textimage:
+        id: gato-template:components/textimage
   tsuslogos:
     type: list
     availableComponents:
