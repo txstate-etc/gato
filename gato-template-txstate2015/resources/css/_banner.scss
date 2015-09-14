@@ -15,15 +15,16 @@
     .search {
         position: absolute; 
         right: 0; 
-        width: 250px; 
-        height: 30px; 
-        background: $search-background; 
-        border: 0px solid $search-border; 
-        font-size: .75rem; 
+        width: 250px;
+        height: 30px;
+        background: transparent; 
+        border: none; 
+        font-size: .8rem; 
         padding-left: 10px; 
-        -webkit-border-radius: $default-border-radius; 
-        -moz-border-radius: $default-border-radius; 
-        border-radius: $default-border-radius;
+        -webkit-border-radius: 0; 
+        -moz-border-radius: 0; 
+        border-radius: 0;
+        color: $charcoal;
 
         &::-webkit-input-placeholder {color: $search-placeholder;}
         &:-moz-placeholder {color: $search-placeholder;}
@@ -40,15 +41,18 @@
          border-top-right-radius: $default-border-radius; 
          border-bottom-right-radius: $default-border-radius; 
          border: none; 
-         background: $search-button-background; 
+         background: transparent; 
          height: 32px; 
          width: 38px; 
-         color: #FFFFFF; 
+         color: $search-icon; 
          font-size: .9rem; 
          position: absolute; 
-         right: 0;
+         right: -10px;
         
-        &:hover{background: $search-button-hover;} 
+        &:hover{
+            background: transparent;
+            color: $search-icon-hover;
+        } 
 
     }
 }

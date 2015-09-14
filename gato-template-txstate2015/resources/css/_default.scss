@@ -33,6 +33,7 @@ figcaption {font-size: 85%;}
     margin: auto 8px; 
     text-transform: uppercase; 
     vertical-align: middle;
+
 }
 .footer_2:after {background: url('../images/old-main-footer-2.jpg');}
 .banner {padding: 0 1rem; width: 100% !important; height: 60px;}
@@ -81,3 +82,9 @@ figcaption {font-size: 85%;}
 .page_content {margin-top: .5rem;}
 .super_list, .banner_content, .parent_org, h1, .nav, .page_content, .footer_content {max-width: 1000px;}
 .txst_logo {max-width: 250px;}
+.search_bar {
+    .search {padding-left: 10px; font-weight: 100; box-shadow: none;}
+    .icon {right: 0; color: $search-text;}
+}
+
+

@@ -99,7 +99,11 @@
     .slider_3 .slide_caption {min-height: 260px;}
     .trail {display: block;}
     .page_content {margin: auto;}
-} 
+    .search_bar {
+        .search {padding-left: 0; font-weight: 400; box-shadow: inset 0 -2px $search-box-shadow;}
+        .icon {right: -10px; color: $search-icon;}
+    } 
+}
 //64rem = ~1024px
 @media screen and (min-width: 64rem) {
     html {font-size: 120%;}
