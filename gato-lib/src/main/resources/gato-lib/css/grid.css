@@ -1,5 +1,5 @@
 /* Simple Grid Using Element Queries */
-.eq-mn-1-2, .eq-mn-2-2, .eq-mn-1-3, .eq-mn-2-3, .eq-mn-3-3, .eq-mn-1-4, .eq-mn-2-4, .eq-mn-3-4, .eq-mn-4-4, .eq-mn-1-5, .eq-mn-2-5, .eq-mn-3-5, .eq-mn-4-5, .eq-mn-5-5, .eq-mn-1-12, .eq-mn-2-12, .eq-mn-3-12, .eq-mn-4-12, .eq-mn-5-12, .eq-mn-6-12, .eq-mn-7-12, .eq-mn-8-12, .eq-mn-9-12, .eq-mn-10-12, .eq-mn-11-12, .eq-mn-12-12 {
+.eq-mn-1-1, .eq-mn-1-2, .eq-mn-1-3, .eq-mn-2-3, .eq-mn-1-4, .eq-mn-2-4, .eq-mn-3-4, .eq-mn-1-5, .eq-mn-2-5, .eq-mn-3-5, .eq-mn-4-5, .eq-mn-1-12, .eq-mn-2-12, .eq-mn-3-12, .eq-mn-4-12, .eq-mn-5-12, .eq-mn-6-12, .eq-mn-7-12, .eq-mn-8-12, .eq-mn-9-12, .eq-mn-10-12, .eq-mn-11-12 {
   display: inline-block;
   zoom: 1;
   letter-spacing: normal;
@@ -93,7 +93,7 @@
 .eq-parent > *.eq-mn-off-11-12 {
   margin-left: 91.66667%; }
 
-.eq-xs-1-2, .eq-xs-2-2, .eq-xs-1-3, .eq-xs-2-3, .eq-xs-3-3, .eq-xs-1-4, .eq-xs-2-4, .eq-xs-3-4, .eq-xs-4-4, .eq-xs-1-5, .eq-xs-2-5, .eq-xs-3-5, .eq-xs-4-5, .eq-xs-5-5, .eq-xs-1-12, .eq-xs-2-12, .eq-xs-3-12, .eq-xs-4-12, .eq-xs-5-12, .eq-xs-6-12, .eq-xs-7-12, .eq-xs-8-12, .eq-xs-9-12, .eq-xs-10-12, .eq-xs-11-12, .eq-xs-12-12 {
+.eq-xs-1-1, .eq-xs-1-2, .eq-xs-1-3, .eq-xs-2-3, .eq-xs-1-4, .eq-xs-2-4, .eq-xs-3-4, .eq-xs-1-5, .eq-xs-2-5, .eq-xs-3-5, .eq-xs-4-5, .eq-xs-1-12, .eq-xs-2-12, .eq-xs-3-12, .eq-xs-4-12, .eq-xs-5-12, .eq-xs-6-12, .eq-xs-7-12, .eq-xs-8-12, .eq-xs-9-12, .eq-xs-10-12, .eq-xs-11-12 {
   display: inline-block;
   zoom: 1;
   letter-spacing: normal;
@@ -187,7 +187,7 @@
 .eq-parent[min-width~="100px"] > *.eq-xs-off-11-12 {
   margin-left: 91.66667%; }
 
-.eq-sm-1-2, .eq-sm-2-2, .eq-sm-1-3, .eq-sm-2-3, .eq-sm-3-3, .eq-sm-1-4, .eq-sm-2-4, .eq-sm-3-4, .eq-sm-4-4, .eq-sm-1-5, .eq-sm-2-5, .eq-sm-3-5, .eq-sm-4-5, .eq-sm-5-5, .eq-sm-1-12, .eq-sm-2-12, .eq-sm-3-12, .eq-sm-4-12, .eq-sm-5-12, .eq-sm-6-12, .eq-sm-7-12, .eq-sm-8-12, .eq-sm-9-12, .eq-sm-10-12, .eq-sm-11-12, .eq-sm-12-12 {
+.eq-sm-1-1, .eq-sm-1-2, .eq-sm-1-3, .eq-sm-2-3, .eq-sm-1-4, .eq-sm-2-4, .eq-sm-3-4, .eq-sm-1-5, .eq-sm-2-5, .eq-sm-3-5, .eq-sm-4-5, .eq-sm-1-12, .eq-sm-2-12, .eq-sm-3-12, .eq-sm-4-12, .eq-sm-5-12, .eq-sm-6-12, .eq-sm-7-12, .eq-sm-8-12, .eq-sm-9-12, .eq-sm-10-12, .eq-sm-11-12 {
   display: inline-block;
   zoom: 1;
   letter-spacing: normal;
@@ -281,7 +281,7 @@
 .eq-parent[min-width~="200px"] > *.eq-sm-off-11-12 {
   margin-left: 91.66667%; }
 
-.eq-md-1-2, .eq-md-2-2, .eq-md-1-3, .eq-md-2-3, .eq-md-3-3, .eq-md-1-4, .eq-md-2-4, .eq-md-3-4, .eq-md-4-4, .eq-md-1-5, .eq-md-2-5, .eq-md-3-5, .eq-md-4-5, .eq-md-5-5, .eq-md-1-12, .eq-md-2-12, .eq-md-3-12, .eq-md-4-12, .eq-md-5-12, .eq-md-6-12, .eq-md-7-12, .eq-md-8-12, .eq-md-9-12, .eq-md-10-12, .eq-md-11-12, .eq-md-12-12 {
+.eq-md-1-1, .eq-md-1-2, .eq-md-1-3, .eq-md-2-3, .eq-md-1-4, .eq-md-2-4, .eq-md-3-4, .eq-md-1-5, .eq-md-2-5, .eq-md-3-5, .eq-md-4-5, .eq-md-1-12, .eq-md-2-12, .eq-md-3-12, .eq-md-4-12, .eq-md-5-12, .eq-md-6-12, .eq-md-7-12, .eq-md-8-12, .eq-md-9-12, .eq-md-10-12, .eq-md-11-12 {
   display: inline-block;
   zoom: 1;
   letter-spacing: normal;
@@ -375,7 +375,7 @@
 .eq-parent[min-width~="400px"] > *.eq-md-off-11-12 {
   margin-left: 91.66667%; }
 
-.eq-lg-1-2, .eq-lg-2-2, .eq-lg-1-3, .eq-lg-2-3, .eq-lg-3-3, .eq-lg-1-4, .eq-lg-2-4, .eq-lg-3-4, .eq-lg-4-4, .eq-lg-1-5, .eq-lg-2-5, .eq-lg-3-5, .eq-lg-4-5, .eq-lg-5-5, .eq-lg-1-12, .eq-lg-2-12, .eq-lg-3-12, .eq-lg-4-12, .eq-lg-5-12, .eq-lg-6-12, .eq-lg-7-12, .eq-lg-8-12, .eq-lg-9-12, .eq-lg-10-12, .eq-lg-11-12, .eq-lg-12-12 {
+.eq-lg-1-1, .eq-lg-1-2, .eq-lg-1-3, .eq-lg-2-3, .eq-lg-1-4, .eq-lg-2-4, .eq-lg-3-4, .eq-lg-1-5, .eq-lg-2-5, .eq-lg-3-5, .eq-lg-4-5, .eq-lg-1-12, .eq-lg-2-12, .eq-lg-3-12, .eq-lg-4-12, .eq-lg-5-12, .eq-lg-6-12, .eq-lg-7-12, .eq-lg-8-12, .eq-lg-9-12, .eq-lg-10-12, .eq-lg-11-12 {
   display: inline-block;
   zoom: 1;
   letter-spacing: normal;
@@ -469,7 +469,7 @@
 .eq-parent[min-width~="800px"] > *.eq-lg-off-11-12 {
   margin-left: 91.66667%; }
 
-.eq-xl-1-2, .eq-xl-2-2, .eq-xl-1-3, .eq-xl-2-3, .eq-xl-3-3, .eq-xl-1-4, .eq-xl-2-4, .eq-xl-3-4, .eq-xl-4-4, .eq-xl-1-5, .eq-xl-2-5, .eq-xl-3-5, .eq-xl-4-5, .eq-xl-5-5, .eq-xl-1-12, .eq-xl-2-12, .eq-xl-3-12, .eq-xl-4-12, .eq-xl-5-12, .eq-xl-6-12, .eq-xl-7-12, .eq-xl-8-12, .eq-xl-9-12, .eq-xl-10-12, .eq-xl-11-12, .eq-xl-12-12 {
+.eq-xl-1-1, .eq-xl-1-2, .eq-xl-1-3, .eq-xl-2-3, .eq-xl-1-4, .eq-xl-2-4, .eq-xl-3-4, .eq-xl-1-5, .eq-xl-2-5, .eq-xl-3-5, .eq-xl-4-5, .eq-xl-1-12, .eq-xl-2-12, .eq-xl-3-12, .eq-xl-4-12, .eq-xl-5-12, .eq-xl-6-12, .eq-xl-7-12, .eq-xl-8-12, .eq-xl-9-12, .eq-xl-10-12, .eq-xl-11-12 {
   display: inline-block;
   zoom: 1;
   letter-spacing: normal;

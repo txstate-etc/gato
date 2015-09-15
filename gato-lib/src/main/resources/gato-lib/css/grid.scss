@@ -1,10 +1,11 @@
 /* Simple Grid Using Element Queries */
 @mixin eq-base($name) {
-  $ret : '';
+  $ret : '.eq-'+$name+'-1-1';
   $collist : 2 3 4 5 12;
   @each $i in $collist {
-    @for $j from 1 through $i {
-      $ret : $ret + '.eq-'+$name+'-' + $j + '-' + $i + ', ';
+    $max : $i - 1;
+    @for $j from 1 through $max {
+      $ret : $ret + ', .eq-'+$name+'-' + $j + '-' + $i;
     }
   }
   #{$ret} {
