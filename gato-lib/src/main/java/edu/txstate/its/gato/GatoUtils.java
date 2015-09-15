@@ -7,6 +7,7 @@ package edu.txstate.its.gato;
 
 import info.magnolia.cms.core.MgnlNodeType;
 import info.magnolia.context.MgnlContext;
+import info.magnolia.init.MagnoliaConfigurationProperties;
 import info.magnolia.jcr.util.ContentMap;
 import info.magnolia.jcr.util.MetaDataUtil;
 import info.magnolia.jcr.util.NodeUtil;
@@ -159,12 +160,44 @@ public final class GatoUtils {
     }
   }
   
+  public boolean isCacheEnvironment() {
+  	boolean cacheEnvironment = false;
+		String viaHeader = MgnlContext.getWebContext().getRequest().getHeader("via");
+		if (viaHeader != null) {
+			cacheEnvironment = viaHeader.contains("Proxy-HistoryCache");
+		}
+		return cacheEnvironment;
+  }
+  
+  public String getImageHandlerBase() {
+  	String propSuffix = "";
+		if (isCacheEnvironment()) propSuffix = ".cache";
+		MagnoliaConfigurationProperties mcp = Components.getSingleton(MagnoliaConfigurationProperties.class);
+	
+		// now we need a centralized variable for the base URL of the image handler scripts
+		// this allows us to switch between cache environments based on what type of installation
+		// this is - production, testing, or development
+		return mcp.getProperty("gato.imagehandlerbaseurl"+propSuffix);
+	}
+
   public String getCacheStr(Node n) {
     // we don't need to do anything if we're not in the production environment
     // since our only goal here is to add a string to the URL that represents
     // the last-modified date (for caching purposes)
-    if (!((Boolean)MgnlContext.getAttribute("cacheEnvironment")).booleanValue()) return "";
-    return "/cache"+md5(MetaDataUtil.getMetaData(n).getModificationDate().getTime().toString());
+    if (!isCacheEnvironment()) return "";
+    try {
+    	return "/cache"+md5(MetaDataUtil.getMetaData(n).getModificationDate().getTime().toString());
+    } catch (Exception e) {
+    	return "";
+    }
+  }
+  
+  public String getCacheStr(Property p) {
+  	try {
+	  	return getCacheStr(p.getParent());
+  	} catch (Exception e) {
+  		return "";
+  	}
   }
   
   public String md5(String str) {
