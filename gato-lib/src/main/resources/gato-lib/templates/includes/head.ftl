@@ -2,6 +2,8 @@
   <script type="text/javascript" src="${ctx.contextPath}/.resources/gato-lib/js/jquery.js"></script>
   <script type="text/javascript">jQuery.noConflict();</script>
   [#list ['gato-lib/js/prototype.js', 
+          'gato-lib/js/scriptaculous/scriptaculous.js',
+          'gato-lib/js/scriptaculous/effects.js',
           'gato-lib/js/gato-lib.js', 
           'gato-lib/js/modal.js', 
           'gato-lib/js/element-queries/ElementQueries.js',
@@ -12,7 +14,7 @@
 [/#macro]
 
 [#macro css files]
-  [#list ['gato-lib/css/grid.css'] + files as file]
+  [#list ['gato-lib/css/grid.css', 'gato-component-faq/css/faqitem.css'] + files as file]
     <link rel="stylesheet" type="text/css" href="${ctx.contextPath}/.resources/${file}"/>
   [/#list]
 [/#macro]
