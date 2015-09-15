@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE module SYSTEM "module.dtd" >
 <module>
-  <name>gato-faq</name>
+  <name>gato-component-faq</name>
   <displayName>${project.name}</displayName>
   <description>${project.description}</description>
-  <class>edu.txstate.its.gato.component.faq.GatoFaqHierarchy</class>
-  <versionHandler>edu.txstate.its.gato.component.faq.setup.GatoFaqHierarchyVersionHandler</versionHandler>
+  <class>edu.txstate.its.gato.GatoFaqHierarchy</class>
+  <versionHandler>edu.txstate.its.gato.setup.GatoFaqHierarchyVersionHandler</versionHandler>
   <version>${project.version}</version>
 
   <dependencies>

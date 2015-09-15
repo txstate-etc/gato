@@ -1,4 +1,4 @@
-package edu.txstate.its.gato.component.faq;
+package edu.txstate.its.gato;
 
 import info.magnolia.ui.form.field.definition.ConfiguredFieldDefinition;
 

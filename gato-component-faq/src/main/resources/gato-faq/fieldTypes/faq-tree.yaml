@@ -1,3 +1,0 @@
-name: faqTreeField
-definitionClass: edu.txstate.its.gato.component.faq.FaqTreeFieldDefinition
-factoryClass: edu.txstate.its.gato.component.faq.FaqTreeFieldFactory

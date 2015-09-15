@@ -1,4 +1,4 @@
-package edu.txstate.its.gato.component.faq;
+package edu.txstate.its.gato;
 
 import info.magnolia.jcr.util.ContentMap;
 import info.magnolia.jcr.util.NodeTypes;

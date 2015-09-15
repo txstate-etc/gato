@@ -4,7 +4,7 @@ form:
       label: Configure FAQs
       fields:
         - name: faqTree
-          class: edu.txstate.its.gato.component.faq.FaqTreeFieldDefinition
+          class: edu.txstate.its.gato.FaqTreeFieldDefinition
           label: FAQ Tree
         - name: faqTitle
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
@@ -21,13 +21,13 @@ form:
         - name: faqScript
           class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
           initFunction: initFaqHierarchy
-          scripts: [gato-lib/js/prototype.js, gato-lib/js/scriptaculous/scriptaculous.js, gato-lib/js/scriptaculous/effects.js, gato-lib/js/scriptaculous/dragdrop.js, gato-faq/js/faqHierarchy.js]
-          styles: [gato-faq/css/faqHierarchy.css]
+          scripts: [gato-lib/js/prototype.js, gato-lib/js/scriptaculous/scriptaculous.js, gato-lib/js/scriptaculous/effects.js, gato-lib/js/scriptaculous/dragdrop.js, gato-component-faq/js/faqHierarchy.js]
+          styles: [gato-component-faq/css/faqHierarchy.css]
           loadScriptsInOrder: true
           label: Script
 actions:
   commit:
-    class: edu.txstate.its.gato.component.faq.SaveFaqDialogActionDefinition
+    class: edu.txstate.its.gato.SaveFaqDialogActionDefinition
     label: save
   cancel:
     class: info.magnolia.ui.admincentral.dialog.action.CancelDialogActionDefinition

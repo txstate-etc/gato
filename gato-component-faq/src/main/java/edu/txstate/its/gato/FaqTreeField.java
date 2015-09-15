@@ -1,4 +1,4 @@
-package edu.txstate.its.gato.component.faq;
+package edu.txstate.its.gato;
 
 import com.vaadin.annotations.StyleSheet;
 import com.vaadin.ui.Label;

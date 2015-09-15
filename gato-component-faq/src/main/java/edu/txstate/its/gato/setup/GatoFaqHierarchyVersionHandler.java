@@ -1,4 +1,4 @@
-package edu.txstate.its.gato.component.faq.setup;
+package edu.txstate.its.gato.setup;
 
 import info.magnolia.module.DefaultModuleVersionHandler;
 

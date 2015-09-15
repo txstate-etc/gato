@@ -1,4 +1,4 @@
-package edu.txstate.its.gato.component.faq;
+package edu.txstate.its.gato;
 
 /**
  * This class is optional and represents the configuration for the gato-faq module.

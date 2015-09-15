@@ -1,0 +1,6 @@
+renderType: freemarker
+templateScript: /gato-component-faq/templates/components/faq-hierarchy.ftl
+dialog: gato-component-faq:components/faq-hierarchy
+modelClass: edu.txstate.its.gato.FaqHierarchyModel
+title: FAQ Hierarchy
+description: Used to organize a large number of FAQs.

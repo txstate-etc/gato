@@ -71,7 +71,7 @@ areas:
       textimage:
         id: gato-template:components/textimage
       faqhierarchy:
-        id: gato-faq:components/faq-hierarchy
+        id: gato-component-faq:components/faq-hierarchy
       departmentdirectory:
         id: gato-component-dept-directory:components/departmentdirectory
     #   quotation:
