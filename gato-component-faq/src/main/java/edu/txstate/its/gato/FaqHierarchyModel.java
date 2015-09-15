@@ -1,6 +1,5 @@
 package edu.txstate.its.gato;
 
-import info.magnolia.jcr.util.ContentMap;
 import info.magnolia.jcr.util.NodeTypes;
 import info.magnolia.jcr.util.NodeUtil;
 import info.magnolia.jcr.util.PropertyUtil;
@@ -15,6 +14,11 @@ import javax.jcr.Node;
 import javax.jcr.PathNotFoundException;
 import javax.jcr.RepositoryException;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import lombok.Getter;
+
 import org.apache.commons.lang.StringUtils;
 
 public class FaqHierarchyModel<RD extends ConfiguredTemplateDefinition> extends RenderingModelImpl<ConfiguredTemplateDefinition> {
@@ -23,74 +27,56 @@ public class FaqHierarchyModel<RD extends ConfiguredTemplateDefinition> extends 
         super(content, definition, parent);
     }
 
-    private String processTreeNode(Node node, StringBuffer out, int depth) throws RepositoryException {
-        int indent = 20 * depth;
+    private FaqNode createFaqNode(Node node) throws RepositoryException {
+        FaqNode faqNode = new FaqNode();
+        faqNode.nodetype = PropertyUtil.getString(node, "nodetype");
 
-        if ("group".equals(PropertyUtil.getString(node, "nodetype"))) {
-            String groupTitle = PropertyUtil.getString(node, "title", "");
-            if (StringUtils.isEmpty(groupTitle)) groupTitle = "--No Text Entered--";
+        if ("group".equals(faqNode.nodetype)) {
+            faqNode.title = PropertyUtil.getString(node, "title", "");
+            if (StringUtils.isEmpty(faqNode.title)) { faqNode.title = "--No Text Entered--"; }
 
-            out.append("<h2 class=\"txst-faq-group-title\" style=\"margin-left:" + indent + 
-                     "px\"><a href=\"#\">" + groupTitle + "</a></h2>\n");
-
-            out.append("<div class=\"txst-faq-group\">\n");
-
-            for (Node c : NodeUtil.getNodes(node, NodeTypes.Component.NAME)) {
-                processTreeNode(c, out, depth + 1);
+            for (Node c : NodeUtil.getNodes(node, NodeTypes.Area.NAME)) {
+                faqNode.children.add(createFaqNode(c));
             }
-
-            out.append("</div>\n");
-
-            return groupTitle;
         }
         else {
-            out.append("<div class=\"txst-faqitem\" style=\"margin-left:" + indent + "px\">\n");
+            faqNode.question = PropertyUtil.getString(node, "question", "");
+            faqNode.answer = PropertyUtil.getString(node, "answer", "");
+            if (StringUtils.isEmpty(faqNode.question)) { faqNode.question = "--No Text Entered--"; }
 
-            String question = PropertyUtil.getString(node, "question", "");
-            String answer = PropertyUtil.getString(node, "answer", "");
-            if (StringUtils.isEmpty(question)) question = "--No Text Entered--";
-
-            //convert links from uuid format
             try {
-                answer = LinkUtil.convertLinksFromUUIDPattern(answer);
+                faqNode.answer = LinkUtil.convertLinksFromUUIDPattern(faqNode.answer);
             }
             catch (LinkException e) {
-                //Failed to parse links
+                e.printStackTrace();
             }
-
-            out.append("<h2 class=\"txst-faqitem-question\"><a href=\"#\">" + question + "</a></h2>\n");
-
-            out.append("<div class=\"txst-faqitem-answer\">" + answer + "</div>\n");
-
-            out.append("</div>\n");
-
-            return question;
         }
+
+        return faqNode;
     }
 
-    public String getHtml() {
-        StringBuffer stringBuffer = new StringBuffer();
+    public List<FaqNode> getNodes() {
+        List<FaqNode> nodes = new ArrayList<FaqNode>();
 
         try {
             Node tree = content.getNode("faqTree");
             tree = NodeUtil.deepUnwrap(tree, HTMLEscapingNodeWrapper.class);
-            
-            String title = "";
 
-            for (Node c : NodeUtil.getNodes(tree, NodeTypes.Area.NAME)) {
-              String ret = processTreeNode(c, stringBuffer, 0);
-              if (StringUtils.isEmpty(title)) {
-                title = ret;
-              }
+            for (Node node : NodeUtil.getNodes(tree, NodeTypes.Area.NAME)) {
+                nodes.add(createFaqNode(node));
             }
-        } catch (PathNotFoundException e) {
-            e.printStackTrace();
-            return e.getMessage();
         } catch (RepositoryException e) {
             e.printStackTrace();
-            return e.getMessage();
         }
 
-        return stringBuffer.toString();
+        return nodes;
+    }
+
+    public class FaqNode {
+        @Getter public String nodetype;
+        @Getter public String question;
+        @Getter public String answer;
+        @Getter public String title;
+        @Getter public List<FaqNode> children = new ArrayList<FaqNode>();
     }
 }

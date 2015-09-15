@@ -43,8 +43,10 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>org.vaadin.addon</groupId>
-      <artifactId>easyuploads</artifactId>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.16.6</version>
+      <scope>provided</scope>
     </dependency>
 
     <!-- TEST -->
