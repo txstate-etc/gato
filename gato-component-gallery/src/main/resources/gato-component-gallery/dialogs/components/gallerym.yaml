@@ -1,0 +1,26 @@
+form:
+  tabs:
+    - name: tabGallery
+      label: Image Gallery Multi Settings
+      fields:
+        - name: title
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Title
+          description: If you'd like a title for your image gallery, enter it here. (It's optional.)
+          rows: 3
+        - name: images
+          class: info.magnolia.ui.form.field.definition.MultiValueFieldDefinition
+          label: Images
+          description: >
+            Select a folder or a single image from the chooser. Click Add to add more folders or images.
+          field:
+            name: image
+            class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+            appName: assets
+            targetWorkspace: dam
+            label: Image
+            identifierToPathConverter:
+              class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
+            contentPreviewDefinition:
+              contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
+actions: !include /gato-template/dialogs/common/actions-block.yaml

@@ -1,0 +1,13 @@
+templateScript: /gato-component-gallery/templates/components/gallery.ftl
+renderType: freemarker
+title: Image Gallery
+description: Displays multiple images that users can view as a slideshow.
+dialog: gato-component-gallery:components/gallery
+areas:
+  images:
+    type: list
+    templateScript: /gato-component-gallery/templates/components/images.ftl
+    title: Images
+    availableComponents:
+      image:
+        id: gato-component-gallery:components/image

@@ -8,14 +8,11 @@
     <relativePath>../pom.xml</relativePath>
   </parent>
   <groupId>edu.txstate.its.gato</groupId>
-  <artifactId>gato-lib</artifactId>
+  <artifactId>gato-component-gallery</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
-  <name>gato-lib Magnolia Module</name>
-  <!--
-  <description>Please uncomment and fill in ...</description>
-  -->
-
+  <name>Gato Image Gallery Component</name>
+  
   <dependencies>
     <dependency>
       <groupId>info.magnolia</groupId>
@@ -23,42 +20,9 @@
       <version>${magnoliaVersion}</version>
     </dependency>
     <dependency>
-      <groupId>info.magnolia</groupId>
-      <artifactId>magnolia-rendering</artifactId>
-      <version>${magnoliaVersion}</version>
-    </dependency>
-    <dependency>
-      <groupId>info.magnolia</groupId>
-      <artifactId>magnolia-templating</artifactId>
-      <version>${magnoliaVersion}</version>
-    </dependency>
-    <dependency>
-      <groupId>info.magnolia.ui</groupId>
-      <artifactId>magnolia-ui-form</artifactId>
-    </dependency>
-    <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>servlet-api</artifactId>
       <version>2.5</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>xmlrpc</groupId>
-      <artifactId>xmlrpc</artifactId>
-      <version>1.2-b1</version>
-    </dependency>
-    <dependency>
-      <groupId>com.vaadin</groupId>
-      <artifactId>vaadin-server</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>com.vaadin</groupId>
-      <artifactId>vaadin-shared</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-      <version>1.16.6</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
@@ -68,6 +32,18 @@
     <dependency>
       <groupId>info.magnolia.dam</groupId>
       <artifactId>magnolia-dam-templating</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>info.magnolia</groupId>
+      <artifactId>magnolia-rendering</artifactId>
+    </dependency>
+
+    <!-- TEST -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+      <scope>test</scope>
     </dependency>
   </dependencies>
 
@@ -97,6 +73,16 @@
       <snapshots>
       </snapshots>
     </repository>
+    <!-- IF YOU NEED MODULES FROM THE ENTERPRISE VERSION, UNCOMMENT THE FOLLOWING REPOSITORY -->
+    <!--
+    <repository>
+      <id>magnolia.enterprise.releases</id>
+      <url>https://nexus.magnolia-cms.com/content/repositories/magnolia.enterprise.releases</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+    -->
     <repository>
       <id>vaadin-addons</id>
       <url>https://maven.vaadin.com/vaadin-addons</url>

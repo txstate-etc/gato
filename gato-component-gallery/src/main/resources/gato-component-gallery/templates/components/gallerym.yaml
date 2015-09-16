@@ -1,0 +1,6 @@
+templateScript: /gato-component-gallery/templates/components/gallerym.ftl
+renderType: freemarker
+title: Image Gallery Multi
+description: Displays multiple images that users can view as a slideshow.
+dialog: gato-component-gallery:components/gallerym
+modelClass: edu.txstate.its.gato.GalleryModel
