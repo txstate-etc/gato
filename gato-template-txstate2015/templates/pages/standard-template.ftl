@@ -67,8 +67,8 @@
 				</nav> 
 			</div> 
 			<div class="page_content">
-				<div class="row trail clearfix">
-					<div class="column col-xs-2-3 flow-opposite">
+				<div class="row trail clearfix eq-parent">
+					<div class="column eq-mn-2-3 flow-opposite">
 						[@breadcrumbs/]
 					</div>
 				</div> <!-- end breadcrumbs -->
