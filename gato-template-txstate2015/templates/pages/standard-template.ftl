@@ -7,19 +7,19 @@
 	<head>
 		
 		[@templatejs scripts=[
-			'gato-template-txstate2015/resources/js/slideout.js',
-			'gato-template-txstate2015/resources/js/common.js'
+			'gato-template-txstate2015/js/slideout.js',
+			'gato-template-txstate2015/js/common.js'
 		]/]
 		<script type="text/javascript" src="//bigspotteddog.github.io/ScrollToFixed/jquery-scrolltofixed-min.js"></script>
 		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
 		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.2/fastclick.min.js"></script>
 		
 		[@templatecss files=[
-			'gato-template-txstate2015/resources/css/normalize.min.css',
-			'gato-template-txstate2015/resources/css/boilerplate.min.css',
-			'gato-template-txstate2015/resources/css/gato.css',
-			'gato-template-txstate2015/resources/css/txstate-ddmenu.css',
-			'gato-template-txstate2015/resources/css/_customjs-modal.css'
+			'gato-template-txstate2015/css/normalize.min.css',
+			'gato-template-txstate2015/css/boilerplate.min.css',
+			'gato-template-txstate2015/css/gato.css',
+			'gato-template-txstate2015/css/txstate-ddmenu.css',
+			'gato-template-txstate2015/css/_customjs-modal.css'
 		]/]
 		<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css"/>
 		[@templatehead/]
@@ -60,15 +60,10 @@
 			[#include "includes/header.ftl"]
 		
 			<!-- main menu -->
-			<div class="top_nav">
-    		<nav class="nav"> 
-					[#--@menu.menuBar isMobile=false/--]
 					[@mainmenu textmenu=true /]
-				</nav> 
-			</div> 
 			<div class="page_content">
 				<div class="row trail clearfix eq-parent">
-					<div class="column eq-mn-2-3 flow-opposite">
+					<div class="eq-mn-2-3 float_right">
 						[@breadcrumbs/]
 					</div>
 				</div> <!-- end breadcrumbs -->

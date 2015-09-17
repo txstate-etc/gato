@@ -1,0 +1,39 @@
+.txst-textimage-imageblock {
+    margin-bottom: 15px;
+
+    img{
+        max-width: 100%;
+        margin-bottom: 5px;
+        border-width: 1px;
+    }
+
+}
+
+.txst-textimage[max-width^='400px'] {
+    img{
+        width: 100%;
+    }
+}
+
+
+.txst-textimage-caption {
+    font-size: .8em;
+    line-height: 1.1em;
+    color: #666666;
+        word-wrap: break-word;
+    min-width: 30px;
+}
+
+.txst-textimage-blockleft {
+    float: left;
+    margin-right: 10px;
+}
+    
+.txst-textimage-blockright {
+    float: right;
+    margin-left: 10px;
+
+    .txst-textimage-caption {
+        text-align: right;
+    }
+}

@@ -1,7 +1,221 @@
 /* grid based on Pure grid */
 
+//default
+.col-1,
+.col-1-1,
+.col-1-2,
+.col-1-3,
+.col-2-3,
+.col-1-4,
+.col-3-4,
+.col-1-5,
+.col-2-5,
+.col-3-5,
+.col-4-5,
+.col-5-5,
+.col-1-6,
+.col-5-6,
+.col-1-8,
+.col-3-8,
+.col-5-8,
+.col-7-8,
+.col-1-12,
+.col-5-12,
+.col-7-12,
+.col-11-12,
+.col-1-24,
+.col-2-24,
+.col-3-24,
+.col-4-24,
+.col-5-24,
+.col-6-24,
+.col-7-24,
+.col-8-24,
+.col-9-24,
+.col-10-24,
+.col-11-24,
+.col-12-24,
+.col-13-24,
+.col-14-24,
+.col-15-24,
+.col-16-24,
+.col-17-24,
+.col-18-24,
+.col-19-24,
+.col-20-24,
+.col-21-24,
+.col-22-24,
+.col-23-24,
+.col-24-24 {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    word-spacing: normal;
+    vertical-align: top;
+}
+
+.col-1-24 {
+    width: 4.1667%;
+    *width: 4.1357%;
+}
+
+.col-1-12,
+.col-2-24 {
+    width: 8.3333%;
+    *width: 8.3023%;
+}
+
+.col-1-8,
+.col-3-24 {
+    width: 12.5000%;
+    *width: 12.4690%;
+}
+
+.col-1-6,
+.col-4-24 {
+    width: 16.6667%;
+    *width: 16.6357%;
+}
+
+.col-1-5 {
+    width: 20%;
+    *width: 19.9690%;
+}
+
+.col-5-24 {
+    width: 20.8333%;
+    *width: 20.8023%;
+}
+
+.col-1-4,
+.col-6-24 {
+    width: 25%;
+    *width: 24.9690%;
+}
+
+.col-7-24 {
+    width: 29.1667%;
+    *width: 29.1357%;
+}
+
+.col-1-3,
+.col-8-24 {
+    width: 33.3333%;
+    *width: 33.3023%;
+}
+
+.col-3-8,
+.col-9-24 {
+    width: 37.5000%;
+    *width: 37.4690%;
+}
+
+.col-2-5 {
+    width: 40%;
+    *width: 39.9690%;
+}
+
+.col-5-12,
+.col-10-24 {
+    width: 41.6667%;
+    *width: 41.6357%;
+}
+
+.col-11-24 {
+    width: 45.8333%;
+    *width: 45.8023%;
+}
+
+.col-1-2,
+.col-12-24 {
+    width: 50%;
+    *width: 49.9690%;
+}
+
+.col-13-24 {
+    width: 54.1667%;
+    *width: 54.1357%;
+}
+
+.col-7-12,
+.col-14-24 {
+    width: 58.3333%;
+    *width: 58.3023%;
+}
+
+.col-3-5 {
+    width: 60%;
+    *width: 59.9690%;
+}
+
+.col-5-8,
+.col-15-24 {
+    width: 62.5000%;
+    *width: 62.4690%;
+}
+
+.col-2-3,
+.col-16-24 {
+    width: 66.6667%;
+    *width: 66.6357%;
+}
+
+.col-17-24 {
+    width: 70.8333%;
+    *width: 70.8023%;
+}
+
+.col-3-4,
+.col-18-24 {
+    width: 75%;
+    *width: 74.9690%;
+}
+
+.col-19-24 {
+    width: 79.1667%;
+    *width: 79.1357%;
+}
+
+.col-4-5 {
+    width: 80%;
+    *width: 79.9690%;
+}
+
+.col-5-6,
+.col-20-24 {
+    width: 83.3333%;
+    *width: 83.3023%;
+}
+
+.col-7-8,
+.col-21-24 {
+    width: 87.5000%;
+    *width: 87.4690%;
+}
+
+.col-11-12,
+.col-22-24 {
+    width: 91.6667%;
+    *width: 91.6357%;
+}
+
+.col-23-24 {
+    width: 95.8333%;
+    *width: 95.8023%;
+}
+
+.col-1,
+.col-1-1,
+.col-5-5,
+.col-24-24 {
+    width: 100%;
+}
+
+/* change these to element queries.  fix breakpoints to be more like default pure */
+
+
 //40rem = ~640px
-@media screen and (min-width: 40rem) {
+[min-width='40rem'] {
     .col-xs-1,
     .col-xs-1-1,
     .col-xs-1-2,

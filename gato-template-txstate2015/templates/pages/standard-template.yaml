@@ -78,10 +78,6 @@ areas:
         id: gato-component-gallery:components/gallery
       gallerym:
         id: gato-component-gallery:components/gallerym
-    #   quotation:
-    #     id: myModule:components/quotation
-    #   greenpanel:
-    #     id: myModule:components/greenpanel
   navBlocks:
     title: Sidebar
     renderType: freemarker
