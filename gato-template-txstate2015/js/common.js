@@ -32,7 +32,7 @@ function parallax() {
 jQuery(document).ready(function() {
 
 	// Fixed desktop navigation
-    jQuery('.top_nav').scrollToFixed();
+    jQuery('.ddmenu-bg').scrollToFixed();
     
  // Back to top
     jQuery('.btt').on("click", function() {
