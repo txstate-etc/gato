@@ -32,7 +32,7 @@ public class GatoLibVersionHandler extends DefaultModuleVersionHandler {
   private List<Task> getFunctionsInstallerTask() {
     List<Task> tasks = new ArrayList<Task>();
     tasks.add(new InstallRendererContextAttributeTask("rendering", "freemarker", "gf", GatoUtils.class.getName()));
-		tasks.add(new BootstrapSingleResource("Bootstrap", "Bootstrap default class definition for doing image resizing", "config.modules.gato-lib.imaging.resize.xml"));
+		tasks.add(new BootstrapSingleResource("Bootstrap", "Bootstrap default class definition for doing image resizing", "/mgnl-bootstrap/gato-lib/config.modules.gato-lib.imaging.resize.xml"));
     return tasks;
   }
 }
