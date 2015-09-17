@@ -1,0 +1,65 @@
+.container {background-color: $white;}
+
+.page_content {
+    font-size: 100%;
+    margin-top: 0.5rem;
+    padding: 1rem 0; 
+    overflow: hidden; 
+    min-height: 32rem; 
+    background-color: $content-background;
+    max-width: 1000px;
+    .row {margin-bottom: 1.5rem;}
+    a:not(.button){
+        padding: 1px 3px; 
+        margin: -1px -3px; 
+        color: $content-link-text; 
+        text-decoration: underline;
+        &:hover {background: $content-link-hover;}
+    }
+}
+
+.column {padding: 0 1rem 1rem 1rem;}
+
+.trail {display: none;}
+
+#breadcrumbs {
+    a {
+        font-weight: 400; 
+        font-size: 65%;
+        margin: -5px auto 0 auto;
+        color: $breadcrumbs-text; 
+        text-decoration: none;
+        &:hover{
+            text-decoration: underline; 
+            background: transparent;
+        }
+    }
+    .separator {margin: auto 5px auto 7px;}
+}
+
+@media (min-width: 40rem) {
+    .page_content {font-size: 95%;}
+    .column {float: left; padding: 0 1rem 2rem 1rem;}
+    #breadcrumbs {
+        text-align: right; 
+        a{
+            font-size: 12px; 
+            margin: 0 auto;
+            line-height: 18px;
+        }
+    }
+}
+
+@media (min-width: $sm-breakpoint){
+    .column {padding: 0 1rem;}
+    .page_content {
+        margin: auto;
+        .row {margin-bottom: 1.5rem;}
+
+    }
+    .trail {display: block;}
+}
+
+@media (min-width: $xl-breakpoint) {
+    .page_content {max-width: 1200px;}
+}

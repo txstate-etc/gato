@@ -1,0 +1,134 @@
+// Styles for the main menu bar
+
+/* _menu.scss */
+.ddmenu-bg {
+  display: none;  //should not display on small screens
+  font-size: .9rem;
+  @include vertical-gradient($primary-nav-gradient-top, $primary-nav-gradient-bottom);
+  max-width: 1000px;
+  margin: auto;
+}
+
+.ddmenu-menubar {
+  position: relative;
+  margin: 0px auto;
+  border-bottom: 1px solid $primary-nav-bottom-border;
+  box-shadow: 1px 0px $primary-nav-box-shadow inset, -1px 0px $primary-nav-box-shadow inset;
+}
+
+.scroll-to-fixed-fixed .ddmenu-menubar  {
+  border: 0 solid $primary-nav-bottom-border;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none; }
+
+div.ddmenu-menubaritem {
+  line-height: 1.2rem !important;
+   height: 100%;
+
+   &:first-child a{
+      border-left: none;
+   }
+
+   &:hover > a {
+      background: $primary-nav-item-background-hover;
+   }
+}
+
+a.ddmenu-menubaritem {
+  color: $primary-nav-item-text;
+  font-size: 80%;
+  font-weight: 400;
+  padding-left: 0.6rem;
+  padding-right: 0.6rem;
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+  height: 100%;
+  border-left: 1px solid $primary-nav-item-left-border;
+  line-height: 1.2rem;
+  
+  &:visited {
+    color: $primary-nav-item-text;
+  }
+
+  &:hover{
+    color: $primary-nav-item-text;
+    background: $primary-nav-item-background-hover;
+  }
+}
+
+//these might not be used
+.ddmenu-menu-wrap {
+  .dropshadow {
+    display: none;
+  }
+  .png-bg {
+    background-color: #c2b6ac;
+  }
+}
+
+.ddmenu-menu {
+  padding: 0px;
+  border-left: 1px solid $secondary-nav-border;
+  border-right: 1px solid $secondary-nav-border;
+  border-bottom: 1px solid $secondary-nav-border;
+  visibility: hidden;
+  position: absolute;
+  background-color: $secondary-nav-background;
+  width: 11rem;
+
+  li:first-child a{
+    border-top: none;
+  }
+
+  a {
+    color: $secondary-nav-item-text;
+    font-size: 80%;
+    font-weight: 400;
+    border-bottom: 1px solid $secondary-nav-border-bottom;
+    border-top: 1px solid $secondary-nav-border-top;
+    line-height: 1.2rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-top: 0.35rem;
+    padding-bottom: 0.35rem;
+
+    &:visited{
+      color: $secondary-nav-item-text;
+    }
+
+    &:hover{
+      background-color: $secondary-nav-hover-background;
+      color: $secondary-nav-item-text;
+      text-decoration: underline;
+    }
+  }
+}
+
+.scroll-to-fixed-fixed .ddmenu-menu {
+  border: 2px solid $secondary-nav-fixed-border; 
+}
+.scroll-to-fixed-fixed .secondary_nav a {
+    padding-left: .45rem; 
+}
+
+
+.ddmenu-visible {
+  background: $primary-nav-item-background-hover;
+  a.ddmenu-menubaritem {
+    color: $primary-nav-item-text-hover;
+    :visited{
+      color: $primary-nav-item-text-hover;
+    }
+  }
+
+  & > ul {
+    border-top: 1px solid $primary-nav-bottom-border;
+  }
+}
+
+@media screen and (min-width: $sm-breakpoint) {
+  .ddmenu-bg{
+    display: block;
+}
+  }

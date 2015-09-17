@@ -16,8 +16,7 @@
 		
 		[@templatecss files=[
 
-			'gato-template-txstate2015/css/gato.css',
-			'gato-template-txstate2015/css/txstate-ddmenu.css',
+			'gato-template-txstate2015/css/txstate2015.css',
 			'gato-template-txstate2015/css/_customjs-modal.css'
 		]/]
 		<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css"/>

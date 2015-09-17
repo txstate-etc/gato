@@ -85,7 +85,7 @@
  $search-box-shadow:                $gold;
  $search-icon:                      $gold;
  $search-icon-hover:                $lightest-gold;
- $search-text:                      $white;
+ $search-text:                      $charcoal;
 
  $super-user-background:            $gold;
  $super-user-border:                $light-gold;
@@ -99,6 +99,7 @@
  $primary-nav-gradient-bottom:      $khaki;
  $primary-nav-box-shadow:           $darkest-sandstone;
  $primary-nav-item-left-border:     $darkest-sandstone;
+ $primary-nav-bottom-border:        $darkest-sandstone;
  $primary-nav-item-text:            $very-dark;
  $primary-nav-item-text-hover:      $white;
  $primary-nav-item-background-hover: $gold;
@@ -110,6 +111,7 @@
  $secondary-nav-border-bottom:      $dark-sandstone;
  $secondary-nav-hover-background:   $khaki;
  $secondary-nav-item-text:          $very-dark;
+ $secondary-nav-fixed-border:       $gold;
 
  $side-nav-background:              $light-sandstone;
  $side-nav-border-bottom:           $dark-sandstone; 
@@ -134,8 +136,14 @@
  $footer-text:                      $white;
  $footer-link-hover-background:     $maroon;
 
-@import "button-colors";
+//@import "button-colors";
  
+//media query breakpoints
+$xs-breakpoint: 40rem; //~640px
+$sm-breakpoint: 48rem; //~768px
+$md-breakpoint: 64rem; //~1024px
+$lg-breakpoint: 80rem; //~1280px
+$xl-breakpoint: 90rem; //~1440px
 
  //Other variables
  $default-border-radius:    3px;

@@ -1,0 +1,28 @@
+/* Gato Style Sheet txstate-2015 */
+
+//sass variables and mixins
+@import "variables-txstate2015";
+
+/* General Styles */
+@import "mixins-txstate2015";
+@import "general-txstate2015";
+
+/* Header Area (super user, logo, search, header image) */
+@import "header-txstate2015";
+
+/* Menu Bar */
+@import "menu-txstate2015";
+
+/* Main Content Area */
+@import "maincontent-txstate2015";
+
+/* Sidebar */
+@import "sidebar-txstate2015";
+
+/* Footer */
+@import "footer-txstate2015";
+
+/* Paragraphs */
+
+/* Mobile */
+@import "mobile-txstate2015";
