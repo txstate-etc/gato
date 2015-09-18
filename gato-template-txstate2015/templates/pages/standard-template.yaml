@@ -78,6 +78,8 @@ areas:
         id: gato-component-gallery:components/gallery
       gallerym:
         id: gato-component-gallery:components/gallerym
+      sitemap:
+        id: gato-template:components/sitemap
   navBlocks:
     title: Sidebar
     renderType: freemarker

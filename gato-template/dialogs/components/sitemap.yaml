@@ -1,0 +1,30 @@
+form:
+  tabs:
+    - name: tabSiteMap
+      label: Site Map Settings
+      fields:
+        - name: title
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Title
+          description: "If you'd like a title for your Site Map, enter it here. (It's optional.)"
+          rows: 3
+        - name: startLevel
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Start Level
+          description: "At what level would you like to start the site map? 1 is the site's menus, 2 the pages under each menu, etc."
+          rows: 1
+          type: Long
+        - name: endLevel
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: End Level
+          description: "At what level would you like to end the site map? If you want only one level, use the same number as Start Level"
+          rows: 1
+          type: Long
+        - name: alphabetical
+          class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+          label: Map Type
+          description: "If you would prefer that your site map be a flat, alphabetical list, use this option."
+          buttonLabel: Alphabetical
+
+actions: !include /gato-template/dialogs/common/actions-block.yaml
+label: Site Map
