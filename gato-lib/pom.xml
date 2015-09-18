@@ -43,6 +43,11 @@
       <version>3.2.2</version>
     </dependency>
     <dependency>
+      <groupId>info.magnolia.dam</groupId>
+      <artifactId>magnolia-dam-jcr</artifactId>
+      <version>2.1.1</version>
+    </dependency>
+    <dependency>
       <groupId>info.magnolia.ui</groupId>
       <artifactId>magnolia-ui-form</artifactId>
     </dependency>

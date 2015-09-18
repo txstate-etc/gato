@@ -48,9 +48,9 @@
         [#if imageUrl?has_content]
         <div class="txst-textimage-imageblock txst-textimage-block${content.imageFloat}" data-width="${imageWidth}">
             [#if (content.imageLink)?has_content]
-                <a href="#"><img src="${imageUrl}" alt="${content.imageAlt}" /></a>
+                <a href="#"><img src="${imageUrl}" alt="${content.imageAlt}" srcset="${gf.getSrcSet(content.image)}"/></a>
             [#else]
-                <img src="${imageUrl}" alt="${content.imageAlt}" />
+                <img src="${imageUrl}" alt="${content.imageAlt}" srcset="${gf.getSrcSet(content.image)}" />
             [/#if]
         
         [/#if]

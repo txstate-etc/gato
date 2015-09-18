@@ -7,14 +7,6 @@
   <class>edu.txstate.its.gato.GatoInternal</class>
   <versionHandler>edu.txstate.its.gato.setup.GatoInternalVersionHandler</versionHandler>
   <version>${project.version}</version>
-  <components>
-    <id>main</id>
-    <component>
-      <type>edu.txstate.its.gato.GatoResizeVariation</type>
-      <implementation>edu.txstate.its.gato.GatoResizeVariation</implementation>
-      <scope>singleton</scope>
-    </component>
-  </components>
   <dependencies>
     <dependency>
       <name>core</name>

@@ -7,6 +7,8 @@ package edu.txstate.its.gato;
 
 import info.magnolia.cms.core.MgnlNodeType;
 import info.magnolia.context.MgnlContext;
+import info.magnolia.dam.jcr.AssetNodeTypes;
+import info.magnolia.dam.jcr.DamConstants;
 import info.magnolia.init.MagnoliaConfigurationProperties;
 import info.magnolia.jcr.util.ContentMap;
 import info.magnolia.jcr.util.MetaDataUtil;
@@ -36,7 +38,6 @@ import java.lang.reflect.Field;
 import java.text.SimpleDateFormat;
 import javax.servlet.http.HttpServletRequest;
 
-
 import javax.inject.Inject;
 import javax.jcr.Node;
 import javax.jcr.Property;
@@ -47,6 +48,8 @@ import javax.jcr.ValueFormatException;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.codec.digest.DigestUtils;
+
+import org.apache.jackrabbit.JcrConstants;
 
 public final class GatoUtils {
   private final TemplatingFunctions tf;
@@ -182,6 +185,17 @@ public final class GatoUtils {
     return mcp.getProperty("gato.imagehandlerbaseurl"+propSuffix);
   }
   
+  public String getSrcSet(String damuuid) {
+    try {
+      Node assetNode = MgnlContext.getJCRSession(DamConstants.WORKSPACE).getNodeByIdentifier(damuuid);
+      final Node resourceNode = AssetNodeTypes.AssetResource.getResourceNodeFromAsset(assetNode);
+      return getSrcSet(resourceNode, JcrConstants.JCR_DATA);
+    } catch (Exception e) {
+      e.printStackTrace();
+      return "";
+    }
+  }
+  
   public String getSrcSet(ContentMap c, String propertyName) {
     return getSrcSet(c.getJCRNode(), propertyName);
   }
@@ -190,7 +204,7 @@ public final class GatoUtils {
     try {
       String resizeClass = MgnlContext.getJCRSession(RepositoryConstants.CONFIG)
         .getNode("/modules/gato-lib/imaging/resize").getProperty("class").getString();
-      SimpleResizeVariation srv = (SimpleResizeVariation) Components.getComponent(Class.forName(resizeClass));
+      SimpleResizeVariation srv = (SimpleResizeVariation) Class.forName(resizeClass).newInstance();
       srv.setHeight(0);
     
       Property binaryProperty = n.getProperty(propertyName);
@@ -204,6 +218,7 @@ public final class GatoUtils {
       }
       return ret.toString();
     } catch (Exception e) {
+      e.printStackTrace();
       return "";
     }
   }
