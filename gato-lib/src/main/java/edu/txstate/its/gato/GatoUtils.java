@@ -16,7 +16,9 @@ import info.magnolia.link.LinkUtil;
 import info.magnolia.objectfactory.Components;
 import info.magnolia.rendering.context.RenderingContext;
 import info.magnolia.rendering.engine.RenderingEngine;
+import info.magnolia.repository.RepositoryConstants;
 import info.magnolia.templating.functions.TemplatingFunctions;
+import info.magnolia.templating.imaging.variation.SimpleResizeVariation;
 
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
@@ -47,12 +49,12 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.codec.digest.DigestUtils;
 
 public final class GatoUtils {
-	private final TemplatingFunctions tf;
+  private final TemplatingFunctions tf;
   private final SimpleDateFormat timeformat;
-	
-	@Inject
+  
+  @Inject
   public GatoUtils(TemplatingFunctions templatingFunctions) {
-  	tf = templatingFunctions;
+    tf = templatingFunctions;
     timeformat = new SimpleDateFormat("HH:mm");
   }
   
@@ -161,24 +163,50 @@ public final class GatoUtils {
   }
   
   public boolean isCacheEnvironment() {
-  	boolean cacheEnvironment = false;
-		String viaHeader = MgnlContext.getWebContext().getRequest().getHeader("via");
-		if (viaHeader != null) {
-			cacheEnvironment = viaHeader.contains("Proxy-HistoryCache");
-		}
-		return cacheEnvironment;
+    boolean cacheEnvironment = false;
+    String viaHeader = MgnlContext.getWebContext().getRequest().getHeader("via");
+    if (viaHeader != null) {
+      cacheEnvironment = viaHeader.contains("Proxy-HistoryCache");
+    }
+    return cacheEnvironment;
   }
   
   public String getImageHandlerBase() {
-  	String propSuffix = "";
-		if (isCacheEnvironment()) propSuffix = ".cache";
-		MagnoliaConfigurationProperties mcp = Components.getSingleton(MagnoliaConfigurationProperties.class);
-	
-		// now we need a centralized variable for the base URL of the image handler scripts
-		// this allows us to switch between cache environments based on what type of installation
-		// this is - production, testing, or development
-		return mcp.getProperty("gato.imagehandlerbaseurl"+propSuffix);
-	}
+    String propSuffix = "";
+    if (isCacheEnvironment()) propSuffix = ".cache";
+    MagnoliaConfigurationProperties mcp = Components.getComponent(MagnoliaConfigurationProperties.class);
+  
+    // now we need a centralized variable for the base URL of the image handler scripts
+    // this allows us to switch between cache environments based on what type of installation
+    // this is - production, testing, or development
+    return mcp.getProperty("gato.imagehandlerbaseurl"+propSuffix);
+  }
+  
+  public String getSrcSet(ContentMap c, String propertyName) {
+    return getSrcSet(c.getJCRNode(), propertyName);
+  }
+  
+  public String getSrcSet(Node n, String propertyName) {
+    try {
+      String resizeClass = MgnlContext.getJCRSession(RepositoryConstants.CONFIG)
+        .getNode("/modules/gato-lib/imaging/resize").getProperty("class").getString();
+      SimpleResizeVariation srv = (SimpleResizeVariation) Components.getComponent(Class.forName(resizeClass));
+      srv.setHeight(0);
+    
+      Property binaryProperty = n.getProperty(propertyName);
+    
+      StringBuffer ret = new StringBuffer();
+      long[] widths = {100,200,400,800,1200,1600,2400};
+      for (long width : widths) {
+        srv.setWidth(100);
+        ret.append(srv.createLink(binaryProperty)+" "+width+"w");
+        if (width != widths[widths.length-1]) ret.append(", ");
+      }
+      return ret.toString();
+    } catch (Exception e) {
+      return "";
+    }
+  }
 
   public String getCacheStr(Node n) {
     // we don't need to do anything if we're not in the production environment
@@ -186,18 +214,18 @@ public final class GatoUtils {
     // the last-modified date (for caching purposes)
     if (!isCacheEnvironment()) return "";
     try {
-    	return "/cache"+md5(MetaDataUtil.getMetaData(n).getModificationDate().getTime().toString());
+      return "/cache"+md5(MetaDataUtil.getMetaData(n).getModificationDate().getTime().toString());
     } catch (Exception e) {
-    	return "";
+      return "";
     }
   }
   
   public String getCacheStr(Property p) {
-  	try {
-	  	return getCacheStr(p.getParent());
-  	} catch (Exception e) {
-  		return "";
-  	}
+    try {
+      return getCacheStr(p.getParent());
+    } catch (Exception e) {
+      return "";
+    }
   }
   
   public String md5(String str) {
@@ -444,21 +472,21 @@ public final class GatoUtils {
   }
   
   public ContentMap getOrCreateArea(Object parent, String childName) {
-  	return getOrCreateNode(parent, childName, "mgnl:area");
+    return getOrCreateNode(parent, childName, "mgnl:area");
   }
   
   public ContentMap getOrCreateNode(Object parent, String childName, String type) {
-  	Node n = toNode(parent);
-  	ContentMap child = null;
-  	try {
-  		if (n.hasNode(childName)) child = tf.asContentMap(n.getNode(childName));
-  		else {
-  			child = tf.asContentMap(n.addNode(childName, type));
-  			n.save();
-  		}
-  	} catch (Exception e) {
-  		e.printStackTrace();
-  	}
-  	return child;
+    Node n = toNode(parent);
+    ContentMap child = null;
+    try {
+      if (n.hasNode(childName)) child = tf.asContentMap(n.getNode(childName));
+      else {
+        child = tf.asContentMap(n.addNode(childName, type));
+        n.save();
+      }
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+    return child;
   }
 }
