@@ -176,6 +176,10 @@ header, .header_with_image_secondary, .header_with_image, .header_no_image {
         line-height: 20px;}
 }
 
+.header_no_image .parent_org a{
+    bottom: -0.7rem;
+}
+
 @media (min-width: 40rem){
     .header {min-height: 350px; padding: 0;}
     .header_with_image_secondary {min-height: 180px; padding: 0;}
@@ -183,7 +187,7 @@ header, .header_with_image_secondary, .header_with_image, .header_no_image {
     .header_no_image {min-height: 100px; padding: 0;}
     .bg_overlay, .bg_image, .bg_image_secondary, .bg_image_none {display: block;}
     .dept_name, .title {position: absolute;}
-    //.parent_org a {bottom: .7rem;}
+    .parent_org a {bottom: .7rem;}
 }
 
 
