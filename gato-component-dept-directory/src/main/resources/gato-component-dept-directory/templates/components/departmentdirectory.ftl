@@ -15,35 +15,32 @@
                 [/#if]
             [/#if] 
             [#if showRecord]
-                <div class="txst-departmentdirectory-entry vcard row clearfix">
-                    <div class="txst-departmentdirectory-name fn n column col-xs-1 col-sm-1-2 col-md-1-3 col-lg-1-6">
+                <div class="txst-departmentdirectory-entry vcard row clearfix eq-parent">
+                    <div class="txst-departmentdirectory-name fn n eq-md-1-1 eq-xs-1-1 eq-mn-1-1 eq-lg-1-5">
                         <span class="given-name">${person.firstname}</span>
                         <span class="family-name">${person.lastname}</span>
-                        &nbsp;
-                    </div>
-                    <div class="txst-departmentdirectory-title column col-xs-1 col-sm-1-2 col-md-1-3 col-lg-1-6">
-                        ${person.title} 
-                        &nbsp;
-                    </div>
-                    <div class="txst-departmentdirectory-email email column col-xs-1 col-sm-1-2 col-md-1-3 col-lg-1-6">
-                        <a href="mailto:${person.email}">${person.email}</a>
-                        &nbsp;
-                    </div>
-                    <div class="txst-departmentdirectory-phone tel column col-xs-1 col-sm-1-2 col-md-1-3 col-lg-1-6">
-                        ${person.phone} 
-                        &nbsp;
-                    </div>
-                   <!-- <div class="txst-departmentdirectory-extra2"></div> -->
-                    
-                    <div class="txst-departmentdirectory-address street-address column col-xs-1 col-sm-1-2 col-md-1-3 col-lg-1-6">
-                        ${person.address}
-                        &nbsp;
-                    </div> 
-                    <div class="txst-departmentdirectory-category column col-xs-1 col-sm-1-2 col-md-1-3 col-lg-1-6">
+                        -
                         ${person.category}
                         &nbsp;
                     </div>
-                 <!--   <div class="txst-departmentdirectory-extra1"></div> -->
+                    <div class="txst-departmentdirectory-title eq-md-1-2 eq-xs-1-1 eq-mn-1-1 eq-lg-1-5">
+                        ${person.title} 
+                        &nbsp;
+                    </div>
+                    <div class="txst-departmentdirectory-address street-address eq-md-1-2 eq-xs-1-1 eq-mn-1-1 eq-lg-1-5">
+                        ${person.address}
+                        &nbsp;
+                    </div> 
+                     <div class="txst-departmentdirectory-phone tel eq-md-1-2 eq-xs-1-1 eq-mn-1-1 eq-lg-1-5">
+                     <span class="dd-icon"><i class="fa fa-phone"></i></span>
+                        ${person.phone} 
+                        &nbsp;
+                    </div>
+                    <div class="txst-departmentdirectory-email email eq-md-1-2 eq-xs-1-1 eq-mn-1-1 eq-lg-1-5">
+                        <span class="dd-icon"><i class="fa fa-envelope"></i></span>
+                        <a href="mailto:${person.email}">${person.email}</a>
+                        &nbsp;
+                    </div>        
                 </div>
             [/#if]
         [/#list]
