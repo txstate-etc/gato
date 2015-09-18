@@ -18,6 +18,7 @@
 
 			'gato-template-txstate2015/css/txstate2015.css',
 			'gato-template-txstate2015/css/_customjs-modal.css'
+
 		]/]
 		<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css"/>
 		[@templatehead/]
@@ -58,7 +59,9 @@
 			[#include "includes/header.ftl"]
 		
 			<!-- main menu -->
-					[@mainmenu textmenu=true /]
+			<div class="top_nav">
+				[@mainmenu textmenu=true /]
+			</div>
 			<div class="page_content">
 				<div class="row trail clearfix eq-parent">
 					<div class="eq-mn-2-3 float_right">
