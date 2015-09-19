@@ -141,14 +141,8 @@
             <configuration>
               <!-- Copy light modules into the WAR -->
               <target>
-                <copy todir="target/${project.artifactId}-${project.version}/gato-template">
-                  <fileset dir="${project.basedir}/../gato-template"/>
-                </copy>
-                <copy todir="target/${project.artifactId}-${project.version}/gato-template-tsus">
-                  <fileset dir="${project.basedir}/../gato-template-tsus"/>
-                </copy>
-                <copy todir="target/${project.artifactId}-${project.version}/gato-template-txstate2015">
-                  <fileset dir="${project.basedir}/../gato-template-txstate2015"/>
+                <copy todir="target/${project.artifactId}-${project.version}/resources">
+                  <fileset dir="${project.basedir}/../resources" followsymlinks="false"/>
                 </copy>
               </target>
             </configuration>

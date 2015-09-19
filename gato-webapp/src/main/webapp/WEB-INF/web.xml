@@ -49,6 +49,13 @@
     </param-value>
     </context-param>
   -->
+  <context-param>
+    <param-name>magnolia.initialization.file</param-name>
+    <param-value>
+    /etc/magnolia/config/magnolia.properties,
+    WEB-INF/config/default/magnolia.properties
+    </param-value>
+  </context-param>
   <jsp-config>
     <jsp-property-group>
       <url-pattern>*.jsp</url-pattern>

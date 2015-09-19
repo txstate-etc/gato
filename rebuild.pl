@@ -71,11 +71,12 @@ sub tomcat_restart {
 }
 
 sub copy_light {
-	print "copying light modules...\n";
-	`rm -rf $tomcatdir/webapps/ROOT/gato-*`;
-	foreach my $lm (@lightmodules) {
-		`cp -R $gatodir/$lm $tomcatdir/webapps/ROOT/$lm`;
-	}
+	# print "copying light modules...\n";
+	# `rm -rf $tomcatdir/webapps/ROOT/gato-*`;
+	# foreach my $lm (@lightmodules) {
+	# 	`cp -R $gatodir/$lm $tomcatdir/webapps/ROOT/$lm`;
+	# }
+	
 }
 
 # assumes `sass` is available on your system
