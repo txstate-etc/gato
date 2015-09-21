@@ -71,6 +71,7 @@ public class GalleryModel<RD extends RenderableDefinition> extends RenderingMode
   }
 
   private void addAssetsForItemKey(String itemKey, List<GalleryImage> list) {
+    log.debug("addAssetsForItemKey: {}", itemKey);
     if (addSingleAsset(itemKey, list)) {
       return;
     }
@@ -81,7 +82,8 @@ public class GalleryModel<RD extends RenderableDefinition> extends RenderingMode
   private boolean addSingleAsset(String itemKey, List<GalleryImage> list) {
     Asset asset = damTemplatingFunctions.getAsset(itemKey);
     if (isValid(asset)) {
-        list.add(new GalleryImage(asset));
+      log.debug("addSingleAsset: {} - {}", itemKey, asset.getName());
+      list.add(new GalleryImage(asset));
     }
 
     return asset != null;
@@ -92,27 +94,29 @@ public class GalleryModel<RD extends RenderableDefinition> extends RenderingMode
     if (folder == null) {
       return false;
     }
+    
+    log.debug("addFolderAssets: {} - {}", itemKey, folder.getName());
 
-    AssetQuery query = new AssetQuery.Builder()
-      .fromFolder(folder)
-      .withMediaType(supportedMediaTypes.toArray(new MediaType[]{}))
-      .build();
-
-    Iterator<Item> items = Collections.emptyIterator();
-    try {
-      items = folder.getAssetProvider().list(query);
-    } catch (Exception e) {
-      log.warn("Exception occurred for the following query '{}'", query.toString(), e);
-    }
-
-    while (items.hasNext()){
-      Item item = items.next();
-      if (item.isAsset()) {
-        list.add(new GalleryImage((Asset)item));
-      }
-    }
+    addFolderChildren(folder, list);
 
     return true;
+  }
+
+  private void addFolderChildren(Folder folder, List<GalleryImage> list) {
+    Iterator<Item> items = folder.getChildren();
+    while (items.hasNext()) {
+      Item item = items.next();
+      if (item.isAsset()) {
+        Asset asset = (Asset)item;
+        if (isValid(asset)) {
+          log.debug("    adding item: {}", asset.getFileName());
+          list.add(new GalleryImage(asset));
+        }
+      } else {
+        log.debug("    adding folder: {}", item.getName());
+        addFolderChildren((Folder)item, list);
+      }
+    }
   }
 
   private boolean isValid(Asset asset) {
