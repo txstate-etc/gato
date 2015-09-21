@@ -28,21 +28,6 @@
       <version>${magnoliaVersion}</version>
     </dependency>
     <dependency>
-      <groupId>info.magnolia.templating</groupId>
-      <artifactId>magnolia-templating-essentials-imaging</artifactId>
-      <version>0.7-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>info.magnolia</groupId>
-      <artifactId>magnolia-module-imaging</artifactId>
-      <version>3.2.2</version>
-    </dependency>
-    <dependency>
-      <groupId>info.magnolia.site</groupId>
-      <artifactId>magnolia-site</artifactId>
-      <version>1.0.2</version>
-    </dependency>
-    <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>servlet-api</artifactId>
       <version>2.5</version>

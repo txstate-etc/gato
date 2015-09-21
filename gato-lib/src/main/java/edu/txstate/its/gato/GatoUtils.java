@@ -20,7 +20,6 @@ import info.magnolia.rendering.context.RenderingContext;
 import info.magnolia.rendering.engine.RenderingEngine;
 import info.magnolia.repository.RepositoryConstants;
 import info.magnolia.templating.functions.TemplatingFunctions;
-import info.magnolia.templating.imaging.variation.SimpleResizeVariation;
 
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
@@ -204,15 +203,16 @@ public final class GatoUtils {
     try {
       String resizeClass = MgnlContext.getJCRSession(RepositoryConstants.CONFIG)
         .getNode("/modules/gato-lib/imaging/resize").getProperty("class").getString();
-      SimpleResizeVariation srv = (SimpleResizeVariation) Class.forName(resizeClass).newInstance();
+      GatoResizer srv = (GatoResizer) Class.forName(resizeClass).newInstance();
       srv.setHeight(0);
+      srv.setUpscale(true);
     
       Property binaryProperty = n.getProperty(propertyName);
     
       StringBuffer ret = new StringBuffer();
       long[] widths = {100,200,400,800,1200,1600,2400};
       for (long width : widths) {
-        srv.setWidth(100);
+        srv.setWidth(width);
         ret.append(srv.createLink(binaryProperty)+" "+width+"w");
         if (width != widths[widths.length-1]) ret.append(", ");
       }

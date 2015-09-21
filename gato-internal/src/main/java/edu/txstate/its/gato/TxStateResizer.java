@@ -1,39 +1,28 @@
 package edu.txstate.its.gato;
 
-import edu.txstate.its.gato.GatoUtils;
-
 import info.magnolia.cms.beans.runtime.FileProperties;
 import info.magnolia.context.MgnlContext;
 import info.magnolia.jcr.util.PropertyUtil;
-import info.magnolia.module.site.SiteManager;
-import info.magnolia.templating.imaging.variation.SimpleResizeVariation;
 
 import java.net.URI;
-import java.net.URISyntaxException;
-
 import javax.inject.Inject;
+
 import javax.jcr.Node;
 import javax.jcr.Property;
-import javax.jcr.RepositoryException;
 
 import org.apache.commons.lang3.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
- * Gato version of SimpleResizeVariation that creates a link to our image-handler server
- * instead of the magnolia imaging module.
+ * Class for constructing links that send images through a resize process.
+ *
+ * This one is for the Texas State imagehandler server.
  */
-public class GatoResizeVariation extends SimpleResizeVariation {
-  protected final GatoUtils gf;
-  private static final Logger log = LoggerFactory.getLogger(GatoResizeVariation.class);
-  
+public class TxStateResizer extends GatoResizer {
   @Inject
-  public GatoResizeVariation(SiteManager siteManager, GatoUtils gf) {
-    super(siteManager);
-    this.gf = gf;
+  public TxStateResizer(GatoUtils gf) {
+    super(gf);
   }
-    
+
   @Override
   public String createLink(Property binaryProperty) {
     String fileName = null;
@@ -43,8 +32,6 @@ public class GatoResizeVariation extends SimpleResizeVariation {
       final Node parent = binaryProperty.getParent();
       final String path = parent.getPath();
       final String extension = PropertyUtil.getString(parent, FileProperties.EXTENSION);
-      final long width = getWidth();
-      final long height = getHeight();
 
       fileName = PropertyUtil.getString(parent, FileProperties.PROPERTY_FILENAME);
 
@@ -54,17 +41,21 @@ public class GatoResizeVariation extends SimpleResizeVariation {
       fileName = new URI(null, null, fileName, null).toASCIIString();
 
       String mgnlpath = gf.absoluteUrl(MgnlContext.getContextPath() + "/" + workspaceName + path + "/" + fileName).replaceAll("^\\w{3,15}://", "");
-          
-      String returl = gf.getImageHandlerBase()+gf.getCacheStr(parent)+"/imagehandler/scaler/"+mgnlpath+"?mode=fit";
+      String mode = "fit";
+      if (zoom) mode = "crop";
+      
+      String returl = gf.getImageHandlerBase()+gf.getCacheStr(parent)+"/imagehandler/scaler/"+mgnlpath+"?mode="+(zoom ? "crop" : "fit");
       if (width > 0) returl += "&amp;width="+width;
       if (height > 0) returl += "&amp;height="+height;
+      if (croptop > 0) returl += "&amp;croptop="+croptop;
+      if (cropbottom > 0) returl += "&amp;cropbottom="+cropbottom;
+      if (cropleft > 0) returl += "&amp;cropleft="+cropleft;
+      if (cropright > 0) returl += "&amp;cropright="+cropright;
+      if (!upscale) returl += "&amp;nogrow=1";
       return returl;
-    } catch (RepositoryException e) {
-      log.warn("Could not create link for property [{}].", binaryProperty, e);
-    } catch (URISyntaxException e) {
-      log.warn("Could not create link for image due to illegal property file name [{}].", fileName, e);
+    } catch (Exception e) {
+      e.printStackTrace();
+      return "";
     }
-
-    return null;
   }
 }
