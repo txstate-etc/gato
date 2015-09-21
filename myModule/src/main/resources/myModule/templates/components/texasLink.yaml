@@ -1,5 +1,0 @@
-templateScript: /myModule/templates/components/texasLink.ftl
-renderType: freemarker
-dialog: myModule:components/texasLink
-description: Make a link that points to another page within the site or to an external URL.
-title: Link
