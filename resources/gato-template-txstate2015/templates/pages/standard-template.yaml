@@ -80,6 +80,8 @@ areas:
         id: gato-component-gallery:components/gallerym
       sitemap:
         id: gato-template:components/sitemap
+      documents:
+        id: gato-template:components/documents
   navBlocks:
     title: Sidebar
     renderType: freemarker

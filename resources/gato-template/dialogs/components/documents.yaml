@@ -1,0 +1,19 @@
+form:
+  tabs:
+    - name: tabDocuments
+      label: ""
+      fields:
+        - name: link
+          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+          label: Folder/File
+          appName: assets
+          targetWorkspace: dam
+          description: "Select a file to display it, or a folder to list all of its contents."
+          contentPreviewDefinition:
+            contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
+        - name: extension
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: File Type
+          description: "To display only files of a particular type, select a folder above and enter the file type extensions you'd like here. (E.g. \"DOC\", \"PDF\", \"TXT\".)"
+actions: !include /gato-template/dialogs/common/actions-block.yaml
+label: Documents
