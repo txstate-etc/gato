@@ -14,6 +14,10 @@
 			<implementation>edu.txstate.its.gato.GatoUtils</implementation>
 			<scope>singleton</scope>
 		</component>
+		<component>
+			<type>edu.txstate.its.gato.ImagingModuleResizer</type>
+			<implementation>edu.txstate.its.gato.ImagingModuleResizer</implementation>
+		</component>
 	</components>
   <dependencies>
     <dependency>

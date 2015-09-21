@@ -7,11 +7,11 @@ package edu.txstate.its.gato;
 
 import info.magnolia.cms.core.MgnlNodeType;
 import info.magnolia.context.MgnlContext;
-import info.magnolia.dam.jcr.AssetNodeTypes;
-import info.magnolia.dam.jcr.DamConstants;
+import info.magnolia.dam.templating.functions.DamTemplatingFunctions;
+import info.magnolia.dam.api.Asset;
 import info.magnolia.init.MagnoliaConfigurationProperties;
 import info.magnolia.jcr.util.ContentMap;
-import info.magnolia.jcr.util.MetaDataUtil;
+import info.magnolia.jcr.util.NodeTypes;
 import info.magnolia.jcr.util.NodeUtil;
 import info.magnolia.jcr.util.PropertyUtil;
 import info.magnolia.link.LinkUtil;
@@ -52,11 +52,13 @@ import org.apache.jackrabbit.JcrConstants;
 
 public final class GatoUtils {
   private final TemplatingFunctions tf;
+  private final DamTemplatingFunctions damfn;
   private final SimpleDateFormat timeformat;
   
   @Inject
-  public GatoUtils(TemplatingFunctions templatingFunctions) {
+  public GatoUtils(TemplatingFunctions templatingFunctions, DamTemplatingFunctions damTemplatingFunctions) {
     tf = templatingFunctions;
+    damfn = damTemplatingFunctions;
     timeformat = new SimpleDateFormat("HH:mm");
   }
   
@@ -185,14 +187,9 @@ public final class GatoUtils {
   }
   
   public String getSrcSet(String damuuid) {
-    try {
-      Node assetNode = MgnlContext.getJCRSession(DamConstants.WORKSPACE).getNodeByIdentifier(damuuid);
-      final Node resourceNode = AssetNodeTypes.AssetResource.getResourceNodeFromAsset(assetNode);
-      return getSrcSet(resourceNode, JcrConstants.JCR_DATA);
-    } catch (Exception e) {
-      e.printStackTrace();
-      return "";
-    }
+    // let's see if the string we were given is already an ItemKey
+    if (!damuuid.matches("^.+:")) damuuid = "jcr:"+damuuid;
+    return getSrcSet(damfn.getAsset(damuuid));
   }
   
   public String getSrcSet(ContentMap c, String propertyName) {
@@ -201,19 +198,26 @@ public final class GatoUtils {
   
   public String getSrcSet(Node n, String propertyName) {
     try {
+      return getSrcSet(n.getProperty(propertyName).getString());
+    } catch (Exception e) {
+      e.printStackTrace();
+      return "";
+    }
+  }
+  
+  public String getSrcSet(Asset asset) {
+    try {
       String resizeClass = MgnlContext.getJCRSession(RepositoryConstants.CONFIG)
         .getNode("/modules/gato-lib/imaging/resize").getProperty("class").getString();
-      GatoResizer srv = (GatoResizer) Class.forName(resizeClass).newInstance();
+      GatoResizer srv = (GatoResizer) Components.getComponent(Class.forName(resizeClass));
       srv.setHeight(0);
       srv.setUpscale(true);
-    
-      Property binaryProperty = n.getProperty(propertyName);
-    
+        
       StringBuffer ret = new StringBuffer();
       long[] widths = {100,200,400,800,1200,1600,2400};
       for (long width : widths) {
         srv.setWidth(width);
-        ret.append(srv.createLink(binaryProperty)+" "+width+"w");
+        ret.append(srv.createLink(asset)+" "+width+"w");
         if (width != widths[widths.length-1]) ret.append(", ");
       }
       return ret.toString();
@@ -223,13 +227,21 @@ public final class GatoUtils {
     }
   }
 
-  public String getCacheStr(Node n) {
+  public String getCacheStr(Calendar lastMod) {
     // we don't need to do anything if we're not in the production environment
     // since our only goal here is to add a string to the URL that represents
     // the last-modified date (for caching purposes)
     if (!isCacheEnvironment()) return "";
     try {
-      return "/cache"+md5(MetaDataUtil.getMetaData(n).getModificationDate().getTime().toString());
+      return "/cache"+md5(lastMod.getTime().toString());
+    } catch (Exception e) {
+      return "";
+    }
+  }
+  
+  public String getCacheStr(Node n) {
+    try {
+      return getCacheStr(NodeTypes.LastModified.getLastModified(n));
     } catch (Exception e) {
       return "";
     }
@@ -241,6 +253,10 @@ public final class GatoUtils {
     } catch (Exception e) {
       return "";
     }
+  }
+  
+  public String getCacheStr(Asset a) {
+    return getCacheStr(a.getLastModified());
   }
   
   public String md5(String str) {
@@ -402,22 +418,26 @@ public final class GatoUtils {
   }
 
   public Calendar getCreationDate(ContentMap content) {
-    return MetaDataUtil.getMetaData(content.getJCRNode()).getCreationDate();
+    try {
+      return NodeTypes.Created.getCreated(content.getJCRNode());
+    } catch (Exception e) {
+      return null;
+    }
   }
 
   public Calendar getLastActionDate(ContentMap content) {
     try {
-      return MetaDataUtil.getMetaData(content.getJCRNode()).getLastActionDate();
+      return NodeTypes.Activatable.getLastActivated(content.getJCRNode());
     } catch (Exception e) {
-      return MetaDataUtil.getMetaData(content.getJCRNode()).getCreationDate();
+      return getCreationDate(content);
     }
   }
 
   public Calendar getModificationDate(ContentMap content) {
     try {
-      return MetaDataUtil.getMetaData(content.getJCRNode()).getModificationDate();
+      return NodeTypes.LastModified.getLastModified(content.getJCRNode());
     } catch (Exception e) {
-      return MetaDataUtil.getMetaData(content.getJCRNode()).getCreationDate();
+      return getCreationDate(content);
     }
   }
   

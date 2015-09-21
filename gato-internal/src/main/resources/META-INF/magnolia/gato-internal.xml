@@ -7,6 +7,13 @@
   <class>edu.txstate.its.gato.GatoInternal</class>
   <versionHandler>edu.txstate.its.gato.setup.GatoInternalVersionHandler</versionHandler>
   <version>${project.version}</version>
+	<components>
+		<id>main</id>
+		<component>
+			<type>edu.txstate.its.gato.TxStateResizer</type>
+			<implementation>edu.txstate.its.gato.TxStateResizer</implementation>
+		</component>
+	</components>
   <dependencies>
     <dependency>
       <name>core</name>

@@ -9,6 +9,7 @@
 
   <properties>
     <magnoliaVersion>5.4.1</magnoliaVersion>
+    <damVersion>2.1.1</damVersion>
     <javaVersion>1.8</javaVersion>
   </properties>
 

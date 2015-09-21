@@ -1,7 +1,6 @@
 package edu.txstate.its.gato;
 
-import javax.jcr.Node;
-import javax.jcr.Property;
+import info.magnolia.dam.api.Asset;
 
 import javax.inject.Inject;
 
@@ -26,8 +25,14 @@ public abstract class GatoResizer {
     this.gf = gf;
   }
   
-  public String createLink(Property binaryProperty) {
-    return "";
+  public String createLink(Asset asset) {
+    try {
+      // default, don't resize, just send back a straight link
+      return asset.getLink();
+    } catch (Exception e) {
+      e.printStackTrace();
+      return "";
+    }
   }
   
   public void setCrop(long left, long right, long top, long bottom) {
