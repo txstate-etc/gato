@@ -29,9 +29,7 @@ if ($ARGV[0] eq '--module') {
   tomcat_restart();
 } elsif ($ARGV[0] eq '--resources') {
 	if (setmagnoliaresourcespath()) {
-  	tomcat_restart(sub {
-	  	symlinkheavyresources();
-	  });
+	  symlinkheavyresources();
 	}
 } elsif ($ARGV[0] eq '--sass') {
   symlinkheavyresources();
