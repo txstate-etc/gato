@@ -1,28 +1,28 @@
 /* Gato Style Sheet txstate-2015 */
+//sass variables
+@import "gato-template/css/variables";
+@import "gato-template-txstate2015/css/variables";
 
-//sass variables and mixins
-@import "variables-txstate2015";
+@import "gato-template/css/includes";
 
 /* General Styles */
-@import "mixins-txstate2015";
-@import "general-txstate2015";
+@import "gato-template-txstate2015/css/mixins";
+@import "gato-template-txstate2015/css/general";
 
 /* Header Area (super user, logo, search, header image) */
-@import "header-txstate2015";
+@import "gato-template-txstate2015/css/header";
 
 /* Menu Bar */
-@import "menu-txstate2015";
+@import "gato-template-txstate2015/css/menu";
 
 /* Main Content Area */
-@import "maincontent-txstate2015";
+@import "gato-template-txstate2015/css/maincontent";
 
 /* Sidebar */
-@import "sidebar-txstate2015";
+@import "gato-template-txstate2015/css/sidebar";
 
 /* Footer */
-@import "footer-txstate2015";
-
-/* Paragraphs */
+@import "gato-template-txstate2015/css/footer";
 
 /* Mobile */
-@import "mobile-txstate2015";
+@import "gato-template-txstate2015/css/mobile";

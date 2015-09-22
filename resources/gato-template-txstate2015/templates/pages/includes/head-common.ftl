@@ -1,7 +1,6 @@
-<link rel="stylesheet" href="${ctx.contextPath}/.resources/gato-template-txstate2015/resources/css/normalize.min.css" type="text/css">
-<link rel="stylesheet" href="${ctx.contextPath}/.resources/gato-template-txstate2015/resources/css/boilerplate.min.css" type="text/css">
+<link rel="stylesheet" href="${gf.resourcePath()}/gato-template-txstate2015/css/boilerplate.min.css" type="text/css">
 <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="${ctx.contextPath}/.resources/gato-template-txstate2015/resources/css/gato.css" type="text/css">
+<link rel="stylesheet" href="${gf.resourcePath()}/gato-template-txstate2015/css/txstate2015.css" type="text/css">
 
 <script type="text/javascript" src="//code.jquery.com/jquery-latest.min.js"></script>
 

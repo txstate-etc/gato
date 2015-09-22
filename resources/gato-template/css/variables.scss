@@ -1,0 +1,4 @@
+/* should be first, to set up variables for other scss files to use */
+@import "gato-lib/css/variables";
+/* should be second, to override variables from gato-lib */
+@import "gato-internal/css/variables";

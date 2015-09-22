@@ -1,5 +1,3 @@
-/* should be first, to set up variables for other scss files to use */
-/* should be second, to override variables from gato-lib */
 /* import basic stylesheets, typically libraries like normalizer, etc */
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 /**
@@ -974,6 +972,23 @@ a.ddmenu-menubaritem:hover {
     float: left; }
   .gato-textimage .gato-textimage-imageblock.right {
     float: right; }
+
+.gato-custom-column {
+  width: 800px;
+  float: left;
+  background-color: #ffffff;
+  padding: 20px;
+  font-size: 12px; }
+  .gato-custom-column .gato-custom-block {
+    padding: 10px 0px 10px 0px;
+    margin-bottom: 10px;
+    overflow: hidden; }
+  .gato-custom-column .gato-custom-block p {
+    font-size: 14px; }
+  .gato-custom-column .inherited {
+    background-color: blue;
+    color: white;
+    padding: 2px; }
 
 /* should be last, to override component styles */
 .tsus-topbanner-bg {

@@ -202,12 +202,12 @@ public final class GatoUtils {
     return srv;
   }
   
-  public String getSrcSet(String damuuid) {
+  public String getSrcSet(String damuuid) throws Exception {
     // let's see if the string we were given is already an ItemKey
     return getSrcSet(damfn.getAsset(ensureItemKey(damuuid)));
   }
   
-  public String getSrcSet(ContentMap c, String propertyName) {
+  public String getSrcSet(ContentMap c, String propertyName) throws Exception {
     return getSrcSet(c.getJCRNode(), propertyName);
   }
   

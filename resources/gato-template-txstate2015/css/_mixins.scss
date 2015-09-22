@@ -88,7 +88,7 @@
   @else{
     color: $button-text;
   }
-  background: url('images/pencils.jpg') no-repeat; 
+  background: url('../images/pencils.jpg') no-repeat; 
   padding: 0px;  //padding is set in the span so the image is covered
   background-position: 100% 50%; 
   background-size: cover;
