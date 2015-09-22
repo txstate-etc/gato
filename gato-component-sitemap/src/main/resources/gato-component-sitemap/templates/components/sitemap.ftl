@@ -1,10 +1,6 @@
 [#include "/gato-template/templates/includes/component.ftl"]
 [#assign cmsUtil = JspTaglibs["cmsUtilTaglib"]]
 
-[#macro addPageToList node levelsToGo]
-  [#assign nameList = nameList + [node.title]]
-[/#macro]
-
 [@templatecomponent]
   [#if (content.title!"")?length > 0]
     <h2>${content.title}</h2>
