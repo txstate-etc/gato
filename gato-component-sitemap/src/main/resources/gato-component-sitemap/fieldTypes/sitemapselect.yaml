@@ -1,0 +1,3 @@
+name: siteMapSelectField
+definitionClass: edu.txstate.its.gato.SiteMapSelectFieldDefinition
+factoryClass: edu.txstate.its.gato.SiteMapSelectFieldFactory

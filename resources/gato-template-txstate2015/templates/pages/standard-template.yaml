@@ -79,7 +79,7 @@ areas:
       gallerym:
         id: gato-component-gallery:components/gallerym
       sitemap:
-        id: gato-template:components/sitemap
+        id: gato-component-sitemap:components/sitemap
       documents:
         id: gato-template:components/documents
   navBlocks:

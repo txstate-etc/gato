@@ -125,5 +125,6 @@
     <module>gato-component-cssjs</module>
     <module>gato-component-dept-directory</module>
     <module>gato-component-gallery</module>
+    <module>gato-component-sitemap</module>
   </modules>
 </project>

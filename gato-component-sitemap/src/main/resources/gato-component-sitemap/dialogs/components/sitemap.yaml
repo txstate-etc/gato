@@ -8,16 +8,16 @@ form:
           label: Title
           description: "If you'd like a title for your Site Map, enter it here. (It's optional.)"
           rows: 3
-        - name: startLevel
+        - name: startPage
+          class: edu.txstate.its.gato.SiteMapSelectFieldDefinition
+          label: Starting Page
+          description: "What page would you like to use as the root of the site map?"
+          styleName: startPageSelect
+          sortOptions: false
+        - name: depth
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-          label: Start Level
-          description: "At what level would you like to start the site map? 1 is the site's menus, 2 the pages under each menu, etc."
-          rows: 1
-          type: Long
-        - name: endLevel
-          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-          label: End Level
-          description: "At what level would you like to end the site map? If you want only one level, use the same number as Start Level"
+          label: Depth
+          description: "How many levels deep should the site map go?"
           rows: 1
           type: Long
         - name: alphabetical

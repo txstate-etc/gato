@@ -1,0 +1,6 @@
+templateScript: /gato-component-sitemap/templates/components/sitemap.ftl
+renderType: freemarker
+dialog: gato-component-sitemap:components/sitemap
+modelClass: edu.txstate.its.gato.SiteMapModel
+description: Lists pages in a hierarchical or alphabetical list.
+title: Site Map
