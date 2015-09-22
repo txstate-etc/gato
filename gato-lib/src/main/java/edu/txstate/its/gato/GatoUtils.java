@@ -127,6 +127,10 @@ public final class GatoUtils {
       serverpath += ":"+request.getServerPort();
     return serverpath+relUrl;
   }
+  
+  public String resourcePath() {
+    return MgnlContext.getContextPath()+"/.resources";
+  }
 
   public String filterLinkTitle(String title, String url) {
     if (!StringUtils.isEmpty(title)) return title;
@@ -186,30 +190,34 @@ public final class GatoUtils {
     return mcp.getProperty("gato.imagehandlerbaseurl"+propSuffix);
   }
   
+  protected String ensureItemKey(String damuuid) {
+    if (!damuuid.matches("^.+:")) damuuid = "jcr:"+damuuid;
+    return damuuid;
+  }
+  
+  protected GatoResizer getResizer() throws Exception {
+    String resizeClass = MgnlContext.getJCRSession(RepositoryConstants.CONFIG)
+      .getNode("/modules/gato-lib/imaging/resize").getProperty("class").getString();
+    GatoResizer srv = (GatoResizer) Components.getComponent(Class.forName(resizeClass));
+    return srv;
+  }
+  
   public String getSrcSet(String damuuid) {
     // let's see if the string we were given is already an ItemKey
-    if (!damuuid.matches("^.+:")) damuuid = "jcr:"+damuuid;
-    return getSrcSet(damfn.getAsset(damuuid));
+    return getSrcSet(damfn.getAsset(ensureItemKey(damuuid)));
   }
   
   public String getSrcSet(ContentMap c, String propertyName) {
     return getSrcSet(c.getJCRNode(), propertyName);
   }
   
-  public String getSrcSet(Node n, String propertyName) {
-    try {
-      return getSrcSet(n.getProperty(propertyName).getString());
-    } catch (Exception e) {
-      e.printStackTrace();
-      return "";
-    }
+  public String getSrcSet(Node n, String propertyName) throws Exception {
+    return getSrcSet(n.getProperty(propertyName).getString());
   }
   
   public String getSrcSet(Asset asset) {
     try {
-      String resizeClass = MgnlContext.getJCRSession(RepositoryConstants.CONFIG)
-        .getNode("/modules/gato-lib/imaging/resize").getProperty("class").getString();
-      GatoResizer srv = (GatoResizer) Components.getComponent(Class.forName(resizeClass));
+      GatoResizer srv = getResizer();
       srv.setHeight(0);
       srv.setUpscale(true);
         
@@ -221,6 +229,23 @@ public final class GatoUtils {
         if (width != widths[widths.length-1]) ret.append(", ");
       }
       return ret.toString();
+    } catch (Exception e) {
+      e.printStackTrace();
+      return "";
+    }
+  }
+  
+  public String getImgDefault(String damuuid) {
+    return getImgDefault(damfn.getAsset(ensureItemKey(damuuid)));
+  }
+  
+  public String getImgDefault(Asset asset) {
+    try {
+      GatoResizer srv = getResizer();
+      srv.setHeight(0);
+      srv.setWidth(800);
+      srv.setUpscale(false);
+      return srv.createLink(asset);
     } catch (Exception e) {
       e.printStackTrace();
       return "";
@@ -239,20 +264,12 @@ public final class GatoUtils {
     }
   }
   
-  public String getCacheStr(Node n) {
-    try {
-      return getCacheStr(NodeTypes.LastModified.getLastModified(n));
-    } catch (Exception e) {
-      return "";
-    }
+  public String getCacheStr(Node n) throws Exception {
+    return getCacheStr(NodeTypes.LastModified.getLastModified(n));
   }
   
-  public String getCacheStr(Property p) {
-    try {
-      return getCacheStr(p.getParent());
-    } catch (Exception e) {
-      return "";
-    }
+  public String getCacheStr(Property p) throws Exception {
+    return getCacheStr(p.getParent());
   }
   
   public String getCacheStr(Asset a) {

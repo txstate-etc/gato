@@ -1,0 +1,13 @@
+/* should be first, to set up variables for other scss files to use */
+@import "gato-lib/css/variables";
+/* should be second, to override variables from gato-lib */
+@import "gato-internal/css/variables";
+/* import basic stylesheets, typically libraries like normalizer, etc */
+@import "gato-lib/css/includes";
+
+/* import component stylesheets */
+@import "gato-template/css/main-menus";
+@import "gato-template/css/textimage";
+
+/* should be last, to override component styles */
+@import "gato-internal/css/includes";

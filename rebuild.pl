@@ -5,7 +5,9 @@ use Cwd;
 our $gatodir = cwd();
 our $tomcatdir = $gatodir."/tomcat";
 our @lightmodules = ('gato-template', 'gato-template-tsus', 'gato-template-txstate2015');
-our @sassfiles = ('gato-lib/src/main/resources/gato-lib/css/grid.scss');
+our @heavymodules = ('gato-lib', 'gato-internal', 'gato-component-cssjs', 'gato-component-dept-directory', 
+	'gato-component-faq', 'gato-component-gallery');
+our @sassfiles = ('resources/gato-template-tsus/css/tsus-home.scss');
 our $module = "";
 if ($ARGV[0] eq '--module') {
 	$module = $ARGV[1];
@@ -82,10 +84,20 @@ sub copy_light {
 # assumes `sass` is available on your system
 sub sass {
 	print "Compiling SASS files...\n";
+	my @loadpaths = ($gatodir.'/resources');
+	foreach my $hm (@heavymodules) {
+		push @loadpaths, $gatodir.'/'.$hm.'/src/main/resources';
+	}
+	
+	my $loadpaths = '';
+	foreach my $lp (@loadpaths) {
+		$loadpaths .= ' --load-path "'.$lp.'"';
+	}
+	
 	foreach my $file (@sassfiles) {
 		my $input = "$gatodir/$file";
 		my $output = $input;
 		$output =~ s/.scss$/.css/i;
-		`sass "$file" "$output"`;
+		`sass $loadpaths "$file" "$output"`;
 	}
 }

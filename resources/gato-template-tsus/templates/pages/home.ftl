@@ -5,14 +5,7 @@
 		[@templatejs scripts=[
 			'gato-template-tsus/js/stretch-institutions.js'
 		]/]
-		[@templatecss files=[
-			'gato-template-tsus/css/tsus-master.css',
-			'gato-template-tsus/css/tsus-styledcontent.css',
-			'gato-template-tsus/css/tsus-banner.css',
-			'gato-template-tsus/css/tsus-ddmenu.css',
-			'gato-template-tsus/css/tsus-print.css',
-			'gato-template-tsus/css/tsus-home.css'
-		]/]
+    <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-tsus/css/tsus-home.css"/>
 		[@templatehead publisher="Texas State University System"/]
 	</head>
 	

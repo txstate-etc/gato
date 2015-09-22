@@ -1,0 +1,7 @@
+.gato-textimage {
+	position: relative;
+	.gato-textimage-imageblock {
+		&.left { float: left; }
+		&.right { float: right; }
+	}
+}
