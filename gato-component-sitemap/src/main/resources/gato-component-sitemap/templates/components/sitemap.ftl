@@ -1,5 +1,20 @@
 [#include "/gato-template/templates/includes/component.ftl"]
-[#assign cmsUtil = JspTaglibs["cmsUtilTaglib"]]
+
+[#macro processPage node depth]
+  [#if !(node.hideInNav!false)]
+    [#local children = cmsfn.children(node, "mgnl:page")]
+    <li class="sitemap-item">
+      <a href="${cmsfn.link(node)}">${node.title}</a>
+      [#if children?size > 0 && depth > 0]
+        <ul>
+        [#list children as child]
+          [@processPage child depth-1 /]
+        [/#list]
+        </ul>
+      [/#if]
+    </li>
+  [/#if]
+[/#macro]
 
 [@templatecomponent]
   [#if (content.title!"")?length > 0]
@@ -13,7 +28,13 @@
     [/#list]
     </ul>
   [#else]
-    [@cmsUtil.simpleNavigation expandAll="show" startLevel=content.startPage?number endLevel=content.startPage?number+content.depth?number /]
+    [#assign startingNode = cmsfn.ancestors(content, "mgnl:page")[content.startPage?number-1]]
+
+    <ul class="sitemap-list">
+      [#list cmsfn.children(startingNode, "mgnl:page") as child]
+        [@processPage child content.depth?number-1 /]
+      [/#list]
+    </ul>
   [/#if]
 
 [/@templatecomponent]
