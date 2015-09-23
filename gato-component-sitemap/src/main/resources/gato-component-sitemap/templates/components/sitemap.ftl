@@ -23,8 +23,9 @@
 
   [#if content.alphabetical!false]
     <ul>
-    [#list model.sortedTitles as title]
-      <li><a href="${model.getUrl(title)}">${title}</a></li>
+    [#list model.sortedNodes as node]
+      [#assign nodeContentMap = cmsfn.asContentMap(node)]
+      <li><a href="${cmsfn.link(node)}">${nodeContentMap.title!nodeContentMap.name}</a></li>
     [/#list]
     </ul>
   [#else]

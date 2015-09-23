@@ -21,8 +21,7 @@ import org.apache.jackrabbit.commons.predicate.NodeTypePredicate;
 
 public class SiteMapModel<RD extends ConfiguredTemplateDefinition> extends RenderingModelImpl<ConfiguredTemplateDefinition> {
   
-  private List<String> sortedTitles = new ArrayList<String>();
-  private Map<String, String> urlMap = new HashMap<String, String>();
+  private List<Node> sortedNodes = new ArrayList<Node>();
 
   public SiteMapModel(Node content, ConfiguredTemplateDefinition definition, RenderingModel<?> parent) throws PathNotFoundException, RepositoryException {
     super(content, definition, parent);
@@ -42,29 +41,24 @@ public class SiteMapModel<RD extends ConfiguredTemplateDefinition> extends Rende
 
     if (ancestor == null) { return; }
 
-    NodeUtil.visit(ancestor, this::addNodeToTitles, new NodeTypePredicate("mgnl:page", true, startPage + 1, startPage + depth));
+    NodeUtil.visit(ancestor, n -> sortedNodes.add(n), new NodeTypePredicate("mgnl:page", true, startPage + 1, startPage + depth));
 
     // Magnolia doesn't check the root node against the predicate in NodeUtil.visit, so the title ends up
     // in the sorted title list even though we don't want it to.
-    sortedTitles.remove(getNodeTitle(ancestor));
-    sortedTitles.sort(Collator.getInstance());
+    sortedNodes.remove(ancestor);
+    sortedNodes.sort((a, b) -> getTitle(a).compareTo(getTitle(b)));
   }
 
-  private void addNodeToTitles(Node node) throws RepositoryException {
-    String nodeTitle = getNodeTitle(node);
-    sortedTitles.add(nodeTitle);
-    urlMap.put(nodeTitle, LinkUtil.createLink(node));
+  private String getTitle(Node node) {
+    try {
+      return PropertyUtil.getString(node, "title", node.getName());
+    } catch (RepositoryException e) {
+      e.printStackTrace();
+      return "";
+    }
   }
 
-  private String getNodeTitle(Node node) throws RepositoryException {
-    return PropertyUtil.getString(node, "title", node.getName());
-  }
-
-  public List<String> getSortedTitles() {
-    return sortedTitles;
-  }
-
-  public String getUrl(String title) {
-    return urlMap.get(title);
+  public List<Node> getSortedNodes() {
+    return sortedNodes;
   }
 }
