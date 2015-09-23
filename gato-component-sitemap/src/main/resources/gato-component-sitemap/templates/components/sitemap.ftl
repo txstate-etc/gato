@@ -4,7 +4,7 @@
   [#if !(node.hideInNav!false)]
     [#local children = cmsfn.children(node, "mgnl:page")]
     <li class="sitemap-item">
-      <a href="${cmsfn.link(node)}">${node.title}</a>
+      <a href="${cmsfn.link(node)}">${gf.nodeTitle(node)}</a>
       [#if children?size > 0 && depth > 0]
         <ul>
         [#list children as child]
@@ -25,7 +25,7 @@
     <ul>
     [#list model.sortedNodes as node]
       [#assign nodeContentMap = cmsfn.asContentMap(node)]
-      <li><a href="${cmsfn.link(node)}">${nodeContentMap.title!nodeContentMap.name}</a></li>
+      <li><a href="${cmsfn.link(node)}">${gf.nodeTitle(node)}</a></li>
     [/#list]
     </ul>
   [#else]
