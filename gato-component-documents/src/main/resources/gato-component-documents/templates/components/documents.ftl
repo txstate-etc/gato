@@ -6,7 +6,7 @@
     [#list documents as doc]
        <div class="txst-filedownload">
             <!-- send this through filterurl -->
-            <a href="${gf.filterUrl(doc.path)}">
+            <a href="${gf.filterUrl(doc.path)}" class="txst-filedownload-link">
                 <i class="fa ${doc.iconClass}"></i>
                 ${doc.title}
                 [#if doc.subject?has_content]

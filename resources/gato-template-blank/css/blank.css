@@ -1004,6 +1004,21 @@ a.ddmenu-menubaritem:hover {
     color: white;
     padding: 2px; }
 
+.txst-filedownload {
+  margin-bottom: 18px; }
+  .txst-filedownload .txst-filedownload-link {
+    text-decoration: none; }
+
+.txst-filedownload-details {
+  color: #6A5638;
+  font-size: .8em;
+  margin-left: 10px; }
+
+.txst-filedownload-description {
+  margin-left: 25px;
+  margin-bottom: 20px;
+  font-size: .8em; }
+
 /* should be last, to override component styles */
 
 /*# sourceMappingURL=blank.css.map */

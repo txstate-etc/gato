@@ -9,7 +9,7 @@
     background-color: $content-background;
     max-width: 1000px;
     .row {margin-bottom: 1.5rem;}
-    a:not(.button){
+    a{
         padding: 1px 3px; 
         margin: -1px -3px; 
         color: $content-link-text; 

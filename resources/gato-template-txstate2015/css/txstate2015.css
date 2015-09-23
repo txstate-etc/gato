@@ -1007,6 +1007,21 @@ a.ddmenu-menubaritem:hover {
     color: white;
     padding: 2px; }
 
+.txst-filedownload {
+  margin-bottom: 18px; }
+  .txst-filedownload .txst-filedownload-link {
+    text-decoration: none; }
+
+.txst-filedownload-details {
+  color: #6A5638;
+  font-size: .8em;
+  margin-left: 10px; }
+
+.txst-filedownload-description {
+  margin-left: 25px;
+  margin-bottom: 20px;
+  font-size: .8em; }
+
 /* should be last, to override component styles */
 /* General Styles */
 /* _default.scss */
@@ -1438,12 +1453,12 @@ a.ddmenu-menubaritem {
   max-width: 1000px; }
   .page_content .row {
     margin-bottom: 1.5rem; }
-  .page_content a:not(.button) {
+  .page_content a {
     padding: 1px 3px;
     margin: -1px -3px;
     color: #005481;
     text-decoration: underline; }
-    .page_content a:not(.button):hover {
+    .page_content a:hover {
       background: #E8E3DB; }
 
 .column {
