@@ -1,5 +1,0 @@
-templateScript: /gato-template/templates/components/documents.ftl
-renderType: freemarker
-dialog: gato-template:components/documents
-description: Displays files from the Digital Asset Management System (DAM)
-title: Documents

@@ -9,7 +9,10 @@
 
   <properties>
     <magnoliaVersion>5.4.1</magnoliaVersion>
+
     <damVersion>2.1.1</damVersion>
+   
+
     <javaVersion>1.8</javaVersion>
   </properties>
 
@@ -126,5 +129,6 @@
     <module>gato-component-dept-directory</module>
     <module>gato-component-gallery</module>
     <module>gato-component-sitemap</module>
+    <module>gato-component-documents</module>
   </modules>
 </project>

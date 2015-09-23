@@ -1,0 +1,6 @@
+templateScript: /gato-component-documents/templates/components/documents.ftl
+renderType: freemarker
+dialog: gato-component-documents:components/documents
+description: Displays files from the Digital Asset Management System (DAM)
+modelClass: edu.txstate.its.gato.DocumentsModel
+title: Documents
