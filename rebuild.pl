@@ -89,7 +89,8 @@ sub setmagnoliaresourcespath() {
   `mkdir -p $magnoliapropertiespath`;
   open(my $fh, '>', "$magnoliapropertiespath/magnolia.properties") or warn $!;
   if (-w $fh) {
-    print $fh "magnolia.resources.dir=$gatodir/resources";
+    print $fh "magnolia.resources.dir=$gatodir/resources\n";
+    print $fh "magnolia.develop=true\n";
     $success = 1;
   } else {
     print "Need write permission, try sudo.\n";
