@@ -12,6 +12,7 @@ our @lightmodules = ('gato-template', 'gato-template-tsus', 'gato-template-txsta
 our @heavymodules = ('gato-lib', 'gato-internal', 'gato-component-cssjs', 'gato-component-dept-directory', 
 	'gato-component-faq', 'gato-component-gallery');
 our @sassfiles = ('resources/gato-template-tsus/css/tsus-home.scss', 
+									'resources/gato-template-blank/css/blank.scss',
 									'resources/gato-template-txstate2015/css/txstate2015.scss');
 our $module = "";
 

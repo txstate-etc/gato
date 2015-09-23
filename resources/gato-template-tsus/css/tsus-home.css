@@ -969,9 +969,11 @@ a.ddmenu-menubaritem:hover {
 .gato-textimage {
   position: relative; }
   .gato-textimage .gato-textimage-imageblock.left {
-    float: left; }
+    float: left;
+    margin-right: 10px; }
   .gato-textimage .gato-textimage-imageblock.right {
-    float: right; }
+    float: right;
+    margin-left: 10px; }
 
 .gato-custom-column {
   width: 800px;
