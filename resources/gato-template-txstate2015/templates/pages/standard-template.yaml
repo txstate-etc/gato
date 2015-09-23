@@ -42,7 +42,7 @@ areas:
     # "The 'content' parameter was passed but not or wrongly specified."
     # when content=component like in the documentation.
     type: list
-    maxComponents: 1 
+    maxComponents: 1
     title: Contact Information
     inheritance:
       enabled: true
@@ -64,24 +64,7 @@ areas:
       link:
         id: gato-template:components/link
   contentParagraph:
-    title: Main Content Area
-    availableComponents:
-      richeditor:
-        id: gato-template:components/richeditor
-      textimage:
-        id: gato-template:components/textimage
-      faqhierarchy:
-        id: gato-component-faq:components/faq-hierarchy
-      departmentdirectory:
-        id: gato-component-dept-directory:components/departmentdirectory
-      gallery:
-        id: gato-component-gallery:components/gallery
-      gallerym:
-        id: gato-component-gallery:components/gallerym
-      sitemap:
-        id: gato-component-sitemap:components/sitemap
-      documents:
-        id: gato-component-documents:components/documents
+    !include /gato-template/templates/includes/contentParagraph.yaml
   navBlocks:
     title: Sidebar
     renderType: freemarker

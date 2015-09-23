@@ -1,0 +1,18 @@
+title: Main Content Area
+availableComponents:
+  richeditor:
+    id: gato-template:components/richeditor
+  textimage:
+    id: gato-template:components/textimage
+  faqhierarchy:
+    id: gato-component-faq:components/faq-hierarchy
+  departmentdirectory:
+    id: gato-component-dept-directory:components/departmentdirectory
+  gallery:
+    id: gato-component-gallery:components/gallery
+  gallerym:
+    id: gato-component-gallery:components/gallerym
+  sitemap:
+    id: gato-component-sitemap:components/sitemap
+  documents:
+    id: gato-template:components/documents

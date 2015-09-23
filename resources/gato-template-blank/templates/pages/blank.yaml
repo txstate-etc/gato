@@ -1,0 +1,8 @@
+templateScript: /gato-template-blank/templates/pages/blank.ftl
+renderType: freemarker
+visible: true
+title: Blank Template
+dialog: gato-templates:pages/page-properties
+areas:
+  contentParagraph:
+    !include /gato-template/templates/includes/contentParagraph.yaml
