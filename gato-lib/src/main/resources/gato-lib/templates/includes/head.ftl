@@ -14,7 +14,7 @@
 [/#macro]
 
 [#macro css files]
-  [#list ['gato-lib/css/grid.css', 'gato-component-faq/css/faqitem.css', 'gato-component-dept-directory/css/departmentDirectory.css'] + files as file]
+  [#list ['gato-lib/css/grid.css', 'gato-component-dept-directory/css/departmentDirectory.css'] + files as file]
     <link rel="stylesheet" type="text/css" href="${ctx.contextPath}/.resources/${file}"/>
   [/#list]
 [/#macro]

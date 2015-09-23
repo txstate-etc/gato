@@ -19,7 +19,8 @@
 		'gato-template/css/common.css',
 		'gato-template/css/main-menus.css',
 		'gato-component-cssjs/css/custom.css',
-		'gato-component-sitemap/css/sitemap.css'
+		'gato-component-sitemap/css/sitemap.css',
+		'gato-component-faq/css/faqitem.css'
 	]+files /]
 [/#macro]
 
