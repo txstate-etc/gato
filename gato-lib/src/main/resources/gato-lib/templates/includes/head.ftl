@@ -1,4 +1,4 @@
-[#macro javascript scripts]
+[#macro javascript scripts=[]]
   <script type="text/javascript" src="${ctx.contextPath}/.resources/gato-lib/js/jquery.js"></script>
   <script type="text/javascript">jQuery.noConflict();</script>
   [#list ['gato-lib/js/prototype.js', 

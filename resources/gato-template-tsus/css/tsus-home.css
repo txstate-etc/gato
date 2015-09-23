@@ -1,3 +1,7 @@
+/* should be first, to set up variables for other scss files to use */
+/* NAMES FOR COLORS */
+/* COLORS ACCORDING TO USAGE */
+/* should be second, to override variables from gato-lib */
 /* import basic stylesheets, typically libraries like normalizer, etc */
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 /**
@@ -974,6 +978,14 @@ a.ddmenu-menubaritem:hover {
   .gato-textimage .gato-textimage-imageblock.right {
     float: right;
     margin-left: 10px; }
+  .gato-textimage .gato-textimage-imageblock img {
+    display: block;
+    width: 100%; }
+  .gato-textimage .gato-textimage-caption {
+    text-align: center;
+    padding: 2px;
+    background-color: #501214;
+    color: white; }
 
 .gato-custom-column {
   width: 800px;

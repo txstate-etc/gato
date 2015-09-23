@@ -5,4 +5,10 @@
 		&.right { float: right; margin-left: 10px; }
 		img { display: block; width: 100%; }
 	}
+	.gato-textimage-caption {
+		text-align: center;
+		padding: 2px;
+		background-color: $primarybg;
+		color: $primarytext;
+	}
 }
