@@ -1,14 +1,12 @@
-[#assign imagePath = damfn.getAssetLink(content.image)]
+[#assign asset = damfn.getAsset(content.image)]
+[#assign assetMap = damfn.getAssetMap(content.image)]
 
+[#assign imagePath = asset.link]
 [#assign imageThumb = imagePath]
 [#assign imageLarge = imagePath]
+[#assign imageSize = "${assetMap.metadata.mgnl.width?c}x${assetMap.metadata.mgnl.height?c}"]
 
-[#if !cmsfn.isEditMode()]
-  [#assign node = cmsfn.parent(cmsfn.asJCRNode(content), "mgnl:component")]
-  [#assign rel = "lightbox[${node.name}]"]
-[/#if]
-
-<a href="${imageLarge}" title="${content.caption!''}" rel="${rel!''}">
+<a href="${imageLarge}" title="${content.caption!''}" data-size="${imageSize}">
   <img src="${imageThumb}" 
        class="txst-multiresolution-image" 
        alt="${content.imageAlt}" 

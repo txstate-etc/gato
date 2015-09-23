@@ -7,7 +7,7 @@
           'gato-lib/js/gato-lib.js', 
           'gato-lib/js/modal.js', 
           'gato-lib/js/element-queries/ElementQueries.js',
-          'gato-lib/js/element-queries/ResizeSensor.js'          
+          'gato-lib/js/element-queries/ResizeSensor.js'
           ] + scripts as script]
     <script type="text/javascript" src="${ctx.contextPath}/.resources/${script}"></script>
   [/#list]

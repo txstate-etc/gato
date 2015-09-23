@@ -1,6 +1,7 @@
 package edu.txstate.its.gato;
 
 import info.magnolia.dam.api.Asset;
+import info.magnolia.dam.api.metadata.MagnoliaAssetMetadata;
 
 public class GalleryImage {
   private Asset asset;
@@ -29,8 +30,9 @@ public class GalleryImage {
     return asset.getTitle();
   }
 
-  public String getRel() {
-    return "";
+  public String getSizeAttr() {
+    MagnoliaAssetMetadata metadata = (MagnoliaAssetMetadata)asset.getMetadata(MagnoliaAssetMetadata.class);
+    return "" + metadata.getWidth() + "x" + metadata.getHeight();
   }
 
 }

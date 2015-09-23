@@ -1,7 +1,7 @@
-<div class="txst-photogallery" data-path="${cmsfn.asJCRNode(cmsfn.parent(content, 'mgnl:component')).path}">
+<ul class="txst-gallery" >
   [#list components as component ]
-    <div class="txst-photogallery-image">
+    <li class="txst-gallery-image">
       [@cms.component content=component /]
-    </div>
+    </li>
   [/#list]
-</div>
+</ul>

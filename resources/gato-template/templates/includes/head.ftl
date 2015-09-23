@@ -9,7 +9,11 @@
 		'gato-template/js/outgoing-clicks.js',
 		'gato-template/js/post-load.js',
 		'gato-faq-hierarchy/js/frontend.js',
-		'gato-event-calendar/js/frontend.js'
+		'gato-event-calendar/js/frontend.js',
+		'gato-lib/js/photoswipe/photoswipe.js',
+		'gato-lib/js/photoswipe/photoswipe-ui-default.js',
+		'gato-lib/js/photoswipe-util.js',
+		'gato-component-gallery/js/gallery.js'
 	]+scripts /]
 [/#macro]
 
@@ -20,7 +24,9 @@
 		'gato-template/css/main-menus.css',
 		'gato-component-cssjs/css/custom.css',
 		'gato-component-sitemap/css/sitemap.css',
-		'gato-component-faq/css/faqitem.css'
+		'gato-component-faq/css/faqitem.css', 
+		'gato-lib/js/photoswipe/photoswipe.css',
+		'gato-lib/js/photoswipe/default-skin/default-skin.css'
 	]+files /]
 [/#macro]
 

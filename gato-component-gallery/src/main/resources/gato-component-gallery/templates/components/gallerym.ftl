@@ -5,10 +5,10 @@
     <h2>${content.title}</h2>
   [/#if]
   
-  <div class="txst-photogallery" data-path="${cmsfn.asJCRNode(content).path}">
+  <ul class="txst-gallery" >
     [#list model.images as image ]
-      <div class="txst-photogallery-image">
-        <a href="${image.largeUrl}" title="${image.caption!''}" rel="${image.rel!''}">
+      <li class="txst-gallery-image">
+        <a href="${image.largeUrl}" title="${image.caption!''}" data-size="${image.sizeAttr}">
           <img src="${image.thumbUrl}" 
                class="txst-multiresolution-image" 
                alt="${image.alt}" 
@@ -16,8 +16,10 @@
                style="width: 100px; height: 100px;"
           />
         </a>
-      </div>
+      </li>
     [/#list]
-  </div>
-
+  </ul>
+  
+  [#include "/gato-lib/templates/includes/pswpmodal.ftl"]
+  
 [/@templatecomponent]
