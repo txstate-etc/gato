@@ -18,7 +18,8 @@
 		'gato-template/css/yahoo-ui-reset.css',
 		'gato-template/css/common.css',
 		'gato-template/css/main-menus.css',
-		'gato-component-cssjs/css/custom.css'
+		'gato-component-cssjs/css/custom.css',
+		'gato-component-sitemap/css/sitemap.css'
 	]+files /]
 [/#macro]
 
