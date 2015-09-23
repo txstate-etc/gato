@@ -32,7 +32,7 @@
     <div class="header_bg"></div>
     <div class="dept_name">
         [@cms.area name="parentOrganization" content=gf.getOrCreateArea(homepage, 'parentOrganization') editable=isHomePage  /]
-        <h1 class="office_name"><a href="${homeLink}">${homePageContent.title}</a></h1>
+        <h1 class="office_name"><a href="${homeLink}">${gf.nodeTitle(homePageContent)}</a></h1>
     </div>
 </div>
 

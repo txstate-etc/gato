@@ -1,7 +1,7 @@
 [#include "/gato-template/templates/includes/component.ftl"]
 
 <h3 class="contact_us">
-	<a href="${cmsfn.link(homepage)}">${homepage.title}</a>
+	<a href="${cmsfn.link(homepage)}">${gf.nodeTitle(homepage)}</a>
 </h3>
 <div class="office_contact_2 dept_info">
 	[#list components as component ]
