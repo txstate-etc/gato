@@ -49,6 +49,21 @@ if ($ARGV[0] eq '--module') {
 	  installwar($edgewarpath);
 	});
 	triggerbootstrap();
+} elsif ($ARGV[0] eq '--dry1') {
+	tomcat_restart(sub {
+		resetdata();
+		cleanwebapp();
+		installwar($lastwarpath);
+	});
+	triggerbootstrap();
+} elsif ($ARGV[0] eq '--dry2') {
+	buildedge();
+	waitforbootstrap();
+	tomcat_restart(sub {
+	  cleanwebapp();
+	  installwar($edgewarpath);
+	});
+	triggerbootstrap();
 } else {
   buildedge();
   tomcat_restart(sub {
@@ -108,8 +123,8 @@ sub symlinkheavyresources {
 
 sub resetdata {
 	print "resetting all data...\n";
-	`mysql -u root -e "DROP DATABASE IF EXISTS magnolia; CREATE DATABASE magnolia`;
-	`rm /var/mag_repositories/magnolia`;
+	`mysql -u root -e "DROP DATABASE IF EXISTS magnolia; CREATE DATABASE magnolia"`;
+	`rm -rf /var/mag_repositories/magnolia`;
 }
 
 sub cleanwebapp {
@@ -146,14 +161,15 @@ sub replacemodule {
 }
 
 sub triggerbootstrap() {
-	print "Initiating upgrade tasks...\n";
+	print "initiating upgrade tasks...\n";
 	sleep(10);
 	`curl $urlbase/.magnolia/installer > /dev/null`;
 	`curl $urlbase/.magnolia/installer/start > /dev/null`;	
 }
 
 sub waitforbootstrap() {
-  sleep(120);
+	print "waiting for bootstrap process to finish...\n";
+  sleep(80);
 }
 
 # assumes `sass` is available on your system
