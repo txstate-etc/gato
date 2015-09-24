@@ -1,8 +1,10 @@
+[#include "/gato-template/templates/includes/component.ftl"]
+[#assign homePageContent = cmsfn.contentByPath(homepage)]
 [#macro menuBar isMobile]
 	[#assign mobileClass = isMobile?string('mobile_', '')]
 	<ul class="${mobileClass}primary_nav">
 		[#-- for each child page of the home page, build a primary menu item --]
-    	[#list cmsfn.children(ctx.getAttribute('homePageContent'), 'mgnl:page') as childPage]
+    	[#list cmsfn.children(homePageContent, 'mgnl:page') as childPage]
     		[#assign hidePage = childPage.hideInNav!false] [#-- These assignments are not necessary if there is a default value for hideInNav --]
     		[#if !hidePage]
     			[#-- does this child page have children? --]

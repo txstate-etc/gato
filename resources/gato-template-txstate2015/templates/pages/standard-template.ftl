@@ -1,8 +1,6 @@
 [#include "/gato-template/templates/includes/head.ftl"]
 
 <!DOCTYPE HTML>
-[#-- important variables set in here --]
-[#include "includes/init.ftl"]
 <html lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		
@@ -33,7 +31,7 @@
 					[@breadcrumbs/]
 				</div>
 				<h3 class="contact_us mobile_dept"><a href="#nowhere">${gf.nodeTitle(content)}</a></h3>
-				[#import "includes/main-menu.ftl" as menu]
+				[#import "includes/mobile-menu.ftl" as menu]
 				[@menu.menuBar isMobile=true/]
 			</div>
 			<!-- does social media need to go here -->
