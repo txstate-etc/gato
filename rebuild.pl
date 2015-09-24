@@ -58,7 +58,6 @@ if ($ARGV[0] eq '--module') {
 	triggerbootstrap();
 } elsif ($ARGV[0] eq '--dry2') {
 	buildedge();
-	waitforbootstrap();
 	tomcat_restart(sub {
 	  cleanwebapp();
 	  installwar($edgewarpath);
