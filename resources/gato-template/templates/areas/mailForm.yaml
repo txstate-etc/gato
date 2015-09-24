@@ -1,0 +1,4 @@
+renderType: freemarker
+templateScript: /gato-template/templates/areas/mailForm.ftl
+type: single
+title: Mail Form Content

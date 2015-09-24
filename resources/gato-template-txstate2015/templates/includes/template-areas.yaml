@@ -1,0 +1,70 @@
+customcss:
+  !include /gato-component-cssjs/templates/areas/customcss.yaml
+customjs:
+  !include /gato-component-cssjs/templates/areas/customjs.yaml
+headerImage:
+  renderType: freemarker
+  type: single
+  title: Header Image
+  availableComponents:
+    headerImg:
+      id: gato-template-txstate2015:components/header-image
+parentOrganization:
+  renderType: freemarker
+  type: single
+  title: Parent Organization
+  inheritance:
+    enabled: true
+    components: all
+  availableComponents:
+    parentOrg:
+      id: gato-template-txstate2015:components/parent-organization
+superUser:
+  renderType: freemarker
+  type: list
+  inheritance:
+    enabled: true
+    components: all
+  title: Top Menu
+  templateScript: /gato-template-txstate2015/templates/pages/areas/super-user.ftl
+  availableComponents:
+    link:
+      id: gato-template:components/link
+siteinfo:
+  renderType: freemarker
+  # type "single" was not working with an area script.  It gave the error:
+  # "The 'content' parameter was passed but not or wrongly specified."
+  # when content=component like in the documentation.
+  type: list
+  maxComponents: 1
+  title: Contact Information
+  inheritance:
+    enabled: true
+    components: all
+  availableComponents:
+    miscText:
+      id: gato-template:components/misctext
+  templateScript: /gato-template-txstate2015/templates/pages/areas/contact-information.ftl
+  #dialog: gato-template-txstate2015:pages/areas/contact-information
+footerLinks:
+  renderType: freemarker
+  type: list
+  inheritance:
+    enabled: true
+    components: all
+  title: Footer Links
+  templateScript: /gato-template-txstate2015/templates/pages/areas/footer-links.ftl
+  availableComponents:
+    link:
+      id: gato-template:components/link
+contentParagraph:
+  !include /gato-template/templates/includes/contentParagraph.yaml
+mail:
+  !include /gato-template/templates/areas/mailForm.yaml
+navBlocks:
+  title: Sidebar
+  renderType: freemarker
+  type: list
+  availableComponents:
+    navigationBlock:
+      id: gato-template-txstate2015:components/navigationBlock

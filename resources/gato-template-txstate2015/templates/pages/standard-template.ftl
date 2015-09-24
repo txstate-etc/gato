@@ -73,7 +73,11 @@
 					[#assign mainContentClass = hideSidebar?string('col-xs-1','col-xs-3-4')]
 					<div class="column ${mainContentClass}">
 						[#include "includes/headline.ftl"]
-						[@cms.area name="contentParagraph" /]
+						[#if def.parameters.isMailTemplate!false]
+							[@cms.area name="mail" /]
+						[#else]
+							[@cms.area name="contentParagraph" /]
+						[/#if]
 					</div>
 					[#if hideSidebar == false]
 					<div class="column col-xs-1-4 sidebar">
