@@ -17,12 +17,12 @@
                 <span style="font-weight: bold; color: #FF0000">[broken link]</span>
             [/#if]
             <span class="txst-filedownload-details">
-                (
                 [#if doc.extension?has_content]
-                    ${doc.extension},
+                    (${doc.extension},${doc.fileSize})
+                [#else]
+                    (${doc.fileSize})
                 [/#if]
-                ${doc.fileSize}
-                )
+                
             </span>
             [#if doc.description?has_content]
                 <div class="txst-filedownload-description">${ doc.description}</div>

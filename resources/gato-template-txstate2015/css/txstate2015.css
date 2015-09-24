@@ -1020,7 +1020,7 @@ a.ddmenu-menubaritem:hover {
 
 .txst-filedownload-description {
   margin-left: 25px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-size: .8em; }
 
 /* should be last, to override component styles */
