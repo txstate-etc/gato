@@ -110,40 +110,36 @@ public class DocumentsModel<RD extends ConfiguredTemplateDefinition> extends Ren
                 else if(linkNode.isNodeType("mgnl:asset")){
                         expressions.add("jcr:path like '" + link + "'");
                 }
-                // search on file type
-                if( StringUtils.isNotEmpty(extension) && isFolder ) {
-                    String extensionSearchTerm = extension.replaceAll( "\\WOR\\W|\\W+", " OR " );
-                    expressions.add( "CONTAINS ( extension, '" + extensionSearchTerm + "')" );
-                }
 
                 String where = StringUtils.join(expressions.iterator(), " and ");
                 String queryStr= "SELECT * FROM nt:base WHERE " + where;
-
+                
                 NodeIterator nodeIterator = QueryUtil.search("dam",
                                             queryStr,
                                             javax.jcr.query.Query.SQL);
                 
-
                 while(nodeIterator.hasNext()){
                     Node node = nodeIterator.nextNode();
-        
+            
                     //ignore folders
                     if(node.isNodeType("mgnl:asset")){
                         Asset asset = damfn.getAssetForAbsolutePath("jcr", node.getPath());
                         Document doc = new Document();
                         String path = damfn.getAssetLink(asset.getItemKey().asString());
                         String fileExtension = FilenameUtils.getExtension(asset.getFileName()).toUpperCase();
-                        doc.setIconClass(getIconClass(fileExtension));
-                        doc.setTitle(buildDisplayTitle(asset));
-                        doc.setExtension(fileExtension);
-                        doc.setFileSize(FileUtils.byteCountToDisplaySize(asset.getFileSize()));
-                        doc.setPath(path);
-                        doc.setSubject(asset.getSubject());
-                        doc.setDescription(asset.getDescription());
-                        foundDocuments.add(doc);
+
+                        if(StringUtils.isEmpty(extension) || extension.toUpperCase().contains(fileExtension.toUpperCase())){
+                            doc.setIconClass(getIconClass(fileExtension));
+                            doc.setTitle(buildDisplayTitle(asset));
+                            doc.setExtension(fileExtension);
+                            doc.setFileSize(FileUtils.byteCountToDisplaySize(asset.getFileSize()));
+                            doc.setPath(path);
+                            doc.setSubject(asset.getSubject());
+                            doc.setDescription(asset.getDescription());
+                            foundDocuments.add(doc);
+                        }
                     }    
                 }
-               
             } catch (Exception e) {
                 Document doc = new Document();
                 doc.setIconClass("fa-question");
