@@ -1023,6 +1023,10 @@ a.ddmenu-menubaritem:hover {
   margin-bottom: 10px;
   font-size: .8em; }
 
+.doc-icon {
+  color: #363534;
+  margin-right: 5px; }
+
 /* should be last, to override component styles */
 /* General Styles */
 /* _default.scss */
