@@ -12,12 +12,7 @@
 		]/]
 		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.2/fastclick.min.js"></script>
 		
-		[@templatecss files=[
-
-			'gato-template-txstate2015/css/txstate2015.css',
-			'gato-template-txstate2015/css/_customjs-modal.css'
-
-		]/]
+		<link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-txstate2015/css/txstate2015.css"/>
 		<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css"/>
 		[@templatehead/]
 		
