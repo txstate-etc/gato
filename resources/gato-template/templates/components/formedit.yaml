@@ -1,0 +1,5 @@
+templateScript: /gato-template/templates/components/formedit.ftl
+renderType: freemarker
+dialog: gato-template:components/formedit
+description: "A text input box. Can be either a single line field or a multi-line text area, and can be set to accept a specified data type"
+title: Text Field

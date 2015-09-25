@@ -1,4 +1,7 @@
 renderType: freemarker
 templateScript: /gato-template/templates/areas/mailForm.ftl
-type: single
+type: list
 title: Mail Form Content
+availableComponents:
+  formedit:
+    id: gato-template:components/formedit

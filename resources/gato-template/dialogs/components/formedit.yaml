@@ -1,0 +1,112 @@
+form:
+  tabs:
+    - name: tabInput
+      label: Input Field
+      fields:
+        - name: title
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Field Title
+        - name: mandatory
+          class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+          label: Mandatory
+          buttonLabel: Field is mandatory
+        - name: dataType
+          class: info.magnolia.ui.form.field.definition.SwitchableFieldDefinition
+          transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+          label: Data Type
+          description: Ensure that your user only enters data matching this type.
+          selectionType: select
+          options:
+            - name: none
+              label: -- None --
+              value: none
+            - name: date
+              label: Date
+              value: date
+            - name: anumber
+              label: Student ID (A0...)
+              value: anumber
+            - name: keystring
+              label: Alphanumeric (no spaces)
+              value: keystring
+            - name: email
+              label: E-Mail Address
+              value: email
+            - name: txemail
+              label: Texas State E-Mail Address
+              value: txemail
+            - name: integer
+              label: Integer
+              value: integer
+            - name: decimal
+              label: Decimal
+              value: decimal
+            - name: zip
+              label: 5-digit Zip Code
+              value: zip
+            - name: phone
+              label: Phone Number (with area code)
+              value: phone
+            - name: regex
+              label: Regular Expression
+              value: regex
+          fields:
+            - name: date
+              class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
+              label: Date Range
+              fields:
+                - name: from
+                  class: info.magnolia.ui.form.field.definition.DateFieldDefinition
+                  label: From
+                - name: to
+                  class: info.magnolia.ui.form.field.definition.DateFieldDefinition
+                  label: To
+            - name: regex
+              class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
+              layout: vertical
+              label: Regular Expression
+              fields:
+                - name: regex
+                  class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                  label: Regular Expression
+                - name: error
+                  class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                  label: Error Message
+        - name: lines
+          class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
+          label: Lines
+          multiselect: false
+          type: String
+          sortOptions: false
+          options:
+            - name: single
+              label: Single Line Text Input
+              selected: true
+              value: single
+            - name: small
+              label: Small Text Area
+              value: small
+            - name: large
+              label: Large Text Area
+              value: large
+        - name: fieldType
+          class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
+          label: Field Type
+          multiselect: false
+          description: "If you include fields for the submitter's name and email address, the emails you receive will have the FROM address set appropriately. Note: @txstate.edu email addresses will use the submitter's full name as recorded with the university, not the name entered."
+          type: String
+          sortOptions: false
+          options:
+            - name: normal
+              label: Normal Field
+              selected: true
+              value: normal
+            - name: name
+              label: This field is the form submitter's name
+              value: name
+            - name: email
+              label: This field is the form submitter's email address
+              value: email
+
+actions: !include /gato-template/dialogs/common/actions-block.yaml
+label: Text Field
