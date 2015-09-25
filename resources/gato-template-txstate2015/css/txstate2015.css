@@ -1620,7 +1620,9 @@ a.image_link:hover {
 
 .foot_linkage {
   text-align: center;
-  margin-bottom: 2rem; }
+  margin-bottom: 2rem;
+  list-style: none;
+  padding-left: 0px; }
 
 .apply_now {
   display: block;
@@ -1682,6 +1684,10 @@ a.image_link:hover {
   max-width: 5rem; }
   .btt i {
     font-size: 130%; }
+
+.footer_content[min-width~="40rem"] > .footer_column {
+  width: 33.33%;
+  float: left; }
 
 @media screen and (min-width: 40rem) {
   .footer_column_1 {
