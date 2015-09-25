@@ -5,8 +5,9 @@ use Cwd;
 our $gatodir = cwd();
 our $tomcatdir = $gatodir."/tomcat";
 our $urlbase = "http://localhost:8080";
-our $lastwarpath = "$gatodir/../magnolia-empty-webapp*war";
+our $backupdir = "$gatodir/../gatobackup";
 our $edgewarpath = "$gatodir/gato-webapp/target/gato-webapp*war";
+our $magrepopath = "/var/mag_repositories";
 our $magnoliapropertiespath = "/etc/magnolia/config";
 our @lightmodules = ('gato-template', 'gato-template-tsus', 'gato-template-txstate2015');
 our @heavymodules = ('gato-lib', 'gato-internal', 'gato-component-cssjs', 'gato-component-dept-directory', 
@@ -35,30 +36,16 @@ if ($ARGV[0] eq '--module') {
 } elsif ($ARGV[0] eq '--sass') {
   symlinkheavyresources();
 	sass();
+} elsif ($ARGV[0] eq '--reset') {
+	resetdata();
+} elsif ($ARGV[0] eq '--backup') {
+	backupmagrepositories();
+	backupmysql();
 } elsif ($ARGV[0] eq '--dry') {
-	tomcat_restart(sub {
-		resetdata();
-		cleanwebapp();
-		installwar($lastwarpath);
-	});
-	triggerbootstrap();
-	buildedge();
-	waitforbootstrap();
-	tomcat_restart(sub {
-	  cleanwebapp();
-	  installwar($edgewarpath);
-	});
-	triggerbootstrap();
-} elsif ($ARGV[0] eq '--dry1') {
-	tomcat_restart(sub {
-		resetdata();
-		cleanwebapp();
-		installwar($lastwarpath);
-	});
-	triggerbootstrap();
-} elsif ($ARGV[0] eq '--dry2') {
 	buildedge();
 	tomcat_restart(sub {
+		restoremagrepositories();
+		restoremysql();
 	  cleanwebapp();
 	  installwar($edgewarpath);
 	});
@@ -169,6 +156,27 @@ sub triggerbootstrap() {
 sub waitforbootstrap() {
 	print "waiting for bootstrap process to finish...\n";
   sleep(80);
+}
+
+sub backupmagrepositories {
+	print "copying current mag_repositories folder to $backupdir...\n";
+	`rm -rf $backupdir/magnolia`;
+	`cp -R $magrepopath/magnolia $backupdir/magnolia`;
+}
+
+sub backupmysql {
+	print "archiving mysql database 'magnolia'...\n";
+	`mysqldump -u root --add-drop-table --extended-insert magnolia > $backupdir/magnolia.sql`
+}
+
+sub restoremagrepositories {
+	print "copying backed up mag_repositories folder into place...\n";
+	`cp -R $backupdir/magnolia $magrepopath/magnolia`;
+}
+
+sub restoremysql {
+	print "restoring mysql data...\n";
+	`mysql -u root magnolia < $backupdir/magnolia.sql`;
 }
 
 # assumes `sass` is available on your system
