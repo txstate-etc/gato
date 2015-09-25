@@ -1,5 +1,6 @@
 renderType: freemarker
 templateScript: /gato-template/templates/areas/mailForm.ftl
+dialog: gato-template:areas/mailForm
 type: list
 title: Mail Form Content
 availableComponents:

@@ -1,0 +1,28 @@
+form:
+  tabs:
+    - name: tabform
+      label: Mail Form Properties
+      fields:
+        - name: to
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          rows: 4
+          label: Send Mail To
+          description: Enter the addresses you would like the information entered on this form to go to. Put each email on its own line.
+        - name: copySender
+          class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+          label: Copy Sender
+          buttonLabel: Send Copy to Submitter
+          description: "Would you like a copy of email sent to the form submitter? Note: for this to work, you must designate one of the fields in the form as the Sender's Email."
+        - name: subject
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Subject
+          description: What would you like the subject of the E-Mail to be?
+        - name: redirect
+          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+          targetWorkspace: website
+          appName: pages
+          label: Page to Display After Submission
+          description: "Once the form has been submitted successfully, where should the site visitor end up?"
+
+actions: !include /gato-template/dialogs/common/actions-block.yaml
+label: Mail Form Properties
