@@ -1,0 +1,5 @@
+templateScript: /gato-template/templates/components/imagelink.ftl
+renderType: freemarker
+title: Institution Logo
+description: Logo for one of the TSUS Institutions
+dialog: gato-template:components/imagelink

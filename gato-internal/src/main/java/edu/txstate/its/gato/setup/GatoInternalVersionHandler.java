@@ -48,6 +48,8 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       "gato:components/texasState/texasLink", "gato-template:components/link"));
     tasks.add(new FindAndChangeTemplateIdTask(RepositoryConstants.WEBSITE, 
       "gato:components/texasState/texas-misc-text", "gato-template:components/misctext"));
+    tasks.add(new FindAndChangeTemplateIdTask(RepositoryConstants.WEBSITE, 
+      "gato:components/tsus/tsus-institution-logo", "gato-template:components/imagelink"));
     
     // change page templateIds
     tasks.add(new FindAndChangeTemplateIdTask(RepositoryConstants.WEBSITE, 

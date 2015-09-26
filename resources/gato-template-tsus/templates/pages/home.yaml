@@ -11,7 +11,7 @@ areas:
   menulinks:
     type: list
     renderType: freemarker
-    templateScript: /gato-template-tsus/templates/areas/menulinks.ftl
+    templateScript: /gato-template/templates/areas/listitems.ftl
     availableComponents:
       link:
         id: gato-template:components/link
@@ -37,6 +37,8 @@ areas:
         id: gato-template:components/textimage
   tsuslogos:
     type: list
+    renderType: freemarker
+    templateScript: /gato-template/templates/areas/listitems.ftl
     availableComponents:
       logo:
-        id: gato-template-tsus:components/institutionlogo
+        id: gato-template:components/imagelink
