@@ -157,7 +157,7 @@ modal.prototype.addToMainbar = function(title) {
 			var modalbar = $(document.createElement('div'));
 			modalbar.writeAttribute({ 'aria-label': 'Modal activation buttons' });
 			modalbar.id = 'modalbar';
-			modalbar.setStyle({ position: 'absolute', top: '0px', left: '0px' });
+			modalbar.setStyle({ position: 'absolute', top: '0px', left: '0px', overflow: 'hidden', zIndex: 70000 });
 			$(document.body).appendChild(modalbar);
 		}
 		var btn = $(document.createElement('button'));
