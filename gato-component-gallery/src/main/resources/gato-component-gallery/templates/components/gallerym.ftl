@@ -5,16 +5,11 @@
     <h2>${content.title}</h2>
   [/#if]
   
-  <ul class="txst-gallery" >
+  <ul class="txst-gallery eq-parent">
     [#list model.images as image ]
-      <li class="txst-gallery-image">
+      <li class="txst-gallery-image eq-mn-1-1 eq-sm-1-2 eq-md-1-3">
         <a href="${image.largeUrl}" title="${image.caption!''}" data-size="${image.sizeAttr}">
-          <img src="${image.thumbUrl}" 
-               class="txst-multiresolution-image" 
-               alt="${image.alt}" 
-               border="0" 
-               style="width: 100px; height: 100px;"
-          />
+          <img src="${image.thumbUrl}" alt="${image.alt}" />
         </a>
       </li>
     [/#list]

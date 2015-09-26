@@ -26,7 +26,8 @@
 		'gato-component-sitemap/css/sitemap.css',
 		'gato-component-faq/css/faqitem.css', 
 		'gato-lib/js/photoswipe/photoswipe.css',
-		'gato-lib/js/photoswipe/default-skin/default-skin.css'
+		'gato-lib/js/photoswipe/default-skin/default-skin.css',
+		'gato-component-gallery/css/gallery.css'
 	]+files /]
 [/#macro]
 

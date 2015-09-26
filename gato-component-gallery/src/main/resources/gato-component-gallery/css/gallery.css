@@ -1,0 +1,25 @@
+.txst-gallery {
+  list-style: none inside;
+  font-size: 0px;
+}
+
+.txst-gallery-image a {
+  display: block; 
+}
+
+.txst-gallery-image img {
+  display: block; 
+  width: 100%;
+}
+
+.txst-gallery, .txst-gallery .txst-gallery-image a {
+  padding: 0px;
+}
+
+.txst-gallery[min-width~="400px"], .txst-gallery[min-width~="400px"] .txst-gallery-image a {
+  padding: 6px;
+}
+
+.txst-gallery[min-width~="800px"], .txst-gallery[min-width~="800px"] .txst-gallery-image a {
+  padding: 15px;
+}

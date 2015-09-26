@@ -30,9 +30,9 @@ public class TxStateResizer extends GatoResizer {
 
       String mgnlpath = gf.absoluteUrl(asset.getLink()).replaceAll("^\\w{3,15}://", "");
       String mode = "fit";
-      if (zoom) mode = "crop";
+      if (zoom) mode = "clip";
       
-      String returl = gf.getImageHandlerBase()+gf.getCacheStr(asset)+"/imagehandler/scaler/"+mgnlpath+"?mode="+(zoom ? "crop" : "fit");
+      String returl = gf.getImageHandlerBase()+gf.getCacheStr(asset)+"/imagehandler/scaler/"+mgnlpath+"?mode="+mode;
       if (width > 0) returl += "&amp;width="+width;
       if (height > 0) returl += "&amp;height="+height;
       if (croptop > 0) returl += "&amp;croptop="+croptop;

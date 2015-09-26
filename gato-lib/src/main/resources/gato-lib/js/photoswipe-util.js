@@ -12,7 +12,18 @@ var initPhotoSwipe = (function($) {
       return $(el).children().map(function() {
         link = $(this).find('a')[0];
         thumb = $(this).find('img')[0];
-        size = $(link).attr('data-size').split('x');
+        if (!(link && thumb)) {
+          return;
+        }
+
+        size = $(link).attr('data-size');
+        if (size) {
+          size = size.split('x');
+        }
+
+        if (!size) {
+          return;
+        }
 
         // create slide object
         item = {
@@ -22,9 +33,9 @@ var initPhotoSwipe = (function($) {
           h: parseInt(size[1], 10)
         };
 
-        if(thumb) {
-          item.msrc = $(thumb).attr('src');
-        }
+        // if(thumb) {
+        //   item.msrc = $(thumb).attr('src');
+        // }
 
         item.el = this; // save link to element for getThumbBoundsFn
         
@@ -54,15 +65,19 @@ var initPhotoSwipe = (function($) {
         // define gallery index (for URL)
         galleryUID: $(pswp).attr('data-pswp-uid'),
 
-        getThumbBoundsFn: function(index) {
-          // See Options -> getThumbBoundsFn section of documentation for more info
-          var thumb = $(items[index].el).find('img')[0];
+        // getThumbBoundsFn: function(index) {
+        //   // See Options -> getThumbBoundsFn section of documentation for more info
+        //   var thumb = $(items[index].el).find('img')[0];
 
-          pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
-          rect = thumb.getBoundingClientRect(); 
+        //   pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
+        //   rect = thumb.getBoundingClientRect(); 
 
-          return {x:rect.left, y:rect.top + pageYScroll, w:rect.width};
-        }
+        //   return {x:rect.left, y:rect.top + pageYScroll, w:rect.width};
+        // }
+        
+        getThumbBoundsFn:false,
+
+        showHideOpacity: true
 
       };
 

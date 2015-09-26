@@ -29,14 +29,16 @@ import org.slf4j.LoggerFactory;
 public class GalleryModel<RD extends RenderableDefinition> extends RenderingModelImpl<RD> {
   private static final Logger log = LoggerFactory.getLogger(GalleryModel.class);
 
+  private final GatoUtils gf;
   private final DamTemplatingFunctions damTemplatingFunctions;
   private final List<MediaType> supportedMediaTypes;
   private final List<GalleryImage> images;
 
   @Inject
-  public GalleryModel(Node content, RD definition, RenderingModel<?> parent, DamTemplatingFunctions damTemplatingFunctions) {
+  public GalleryModel(Node content, RD definition, RenderingModel<?> parent, GatoUtils gf, DamTemplatingFunctions damTemplatingFunctions) {
     super(content, definition, parent);
 
+    this.gf = gf;
     this.damTemplatingFunctions = damTemplatingFunctions;
     this.supportedMediaTypes = new ArrayList<MediaType>();
     supportedMediaTypes.add(MediaType.parse("image/*"));
@@ -83,7 +85,7 @@ public class GalleryModel<RD extends RenderableDefinition> extends RenderingMode
     Asset asset = damTemplatingFunctions.getAsset(itemKey);
     if (isValid(asset)) {
       log.debug("addSingleAsset: {} - {}", itemKey, asset.getName());
-      list.add(new GalleryImage(asset));
+      addAssetToList(asset, list);
     }
 
     return asset != null;
@@ -110,13 +112,17 @@ public class GalleryModel<RD extends RenderableDefinition> extends RenderingMode
         Asset asset = (Asset)item;
         if (isValid(asset)) {
           log.debug("    adding item: {}", asset.getFileName());
-          list.add(new GalleryImage(asset));
+          addAssetToList(asset, list);
         }
       } else {
         log.debug("    adding folder: {}", item.getName());
         addFolderChildren((Folder)item, list);
       }
     }
+  }
+
+  private void addAssetToList(Asset asset, List<GalleryImage> list) {
+    list.add(new GalleryImage(asset, gf));
   }
 
   private boolean isValid(Asset asset) {

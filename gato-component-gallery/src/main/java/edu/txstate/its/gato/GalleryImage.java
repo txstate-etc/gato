@@ -4,10 +4,12 @@ import info.magnolia.dam.api.Asset;
 import info.magnolia.dam.api.metadata.MagnoliaAssetMetadata;
 
 public class GalleryImage {
-  private Asset asset;
+  private final Asset asset;
+  private final GatoUtils gf;
 
-  public GalleryImage(Asset asset) {
+  public GalleryImage(Asset asset, GatoUtils gf) {
     this.asset = asset;
+    this.gf = gf;
   }
 
   public String getUrl() {
@@ -15,11 +17,11 @@ public class GalleryImage {
   }
 
   public String getLargeUrl() {
-    return asset.getLink();
+    return gf.getImgDefault(asset);
   }
 
   public String getThumbUrl() {
-    return asset.getLink();
+    return gf.getImgSquare(asset);
   }
 
   public String getCaption() {

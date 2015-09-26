@@ -191,7 +191,7 @@ public final class GatoUtils {
   }
   
   protected String ensureItemKey(String damuuid) {
-    if (!damuuid.matches("^.+:")) damuuid = "jcr:"+damuuid;
+    if (!damuuid.matches("^[^:]+:.+")) damuuid = "jcr:"+damuuid;
     return damuuid;
   }
   
@@ -244,6 +244,24 @@ public final class GatoUtils {
       GatoResizer srv = getResizer();
       srv.setHeight(0);
       srv.setWidth(800);
+      srv.setUpscale(false);
+      return srv.createLink(asset);
+    } catch (Exception e) {
+      e.printStackTrace();
+      return "";
+    }
+  }
+
+  public String getImgSquare(String damuuid) {
+    return getImgSquare(damfn.getAsset(ensureItemKey(damuuid)));
+  }
+  
+  public String getImgSquare(Asset asset) {
+    try {
+      GatoResizer srv = getResizer();
+      srv.setHeight(800);
+      srv.setWidth(800);
+      srv.setZoom(true);
       srv.setUpscale(false);
       return srv.createLink(asset);
     } catch (Exception e) {
