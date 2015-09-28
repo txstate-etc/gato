@@ -33,7 +33,7 @@ public abstract class GatoBaseUpgradeTask extends info.magnolia.module.delta.Abs
 			createQuery("SELECT * FROM [nt:base] WHERE [mgnl:template] = '"+componentId+"'", "JCR-SQL2").
 			execute().getNodes();
 		while (nodes.hasNext()) {
-			Node node = nodes.nextNode().getParent();
+			Node node = nodes.nextNode();
 			visitor.visit(node);
 			node.save();
 		}

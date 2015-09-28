@@ -41,6 +41,9 @@ if ($ARGV[0] eq '--module') {
 } elsif ($ARGV[0] eq '--backup') {
 	backupmagrepositories();
 	backupmysql();
+} elsif ($ARGV[0] eq '--restore') {
+	restoremagrepositories();
+	restoremysql();
 } elsif ($ARGV[0] eq '--dry') {
 	buildedge();
 	tomcat_restart(sub {

@@ -1,6 +1,6 @@
 package edu.txstate.its.gato.setup;
 
-import info.magnolia.dam.app.setup.migration.MoveContentToDamMigrationTask;
+import info.magnolia.dam.app.setup.migration.MoveFileContentToDamMigrationTask;
 
 import info.magnolia.module.DefaultModuleVersionHandler;
 import info.magnolia.module.delta.BootstrapSingleResource;
@@ -29,8 +29,13 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
   @Override
   protected List<Task> getExtraInstallTasks(InstallContext installContext) {
     List<Task> tasks = new ArrayList<Task>(super.getExtraInstallTasks(installContext));
-    tasks.add(new Gato5MigrationTask("Gato Migrate to 5 task", "Generic update task for all the things we need to do to upgrade to Magnolia 5."));
     
+    // move binary data from the website tree to the DAM
+    tasks.add(new MoveFileContentToDamMigrationTask("Website DAM Migration", "Move binary files from the website tree to the DAM.", RepositoryConstants.WEBSITE,
+      Arrays.asList("/tsus"), "", "image"));
+
+    tasks.add(new Gato5MigrationTask("Gato Migrate to 5 task", "Generic update task for all the things we need to do to upgrade to Magnolia 5."));
+     
     // change component templateIds
     tasks.add(new FindAndChangeTemplateIdTask(RepositoryConstants.WEBSITE, 
       "gato:components/texasState/customCssBlock", "gato-component-cssjs:components/customcss"));
@@ -58,13 +63,13 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       "gato:pages/tsus-2012/tsus-2012-mail", "gato-template-tsus:pages/mail"));
     tasks.add(new FindAndChangeTemplateIdTask(RepositoryConstants.WEBSITE, 
       "gato:pages/tsus-2012/tsus-2012-standard", "gato-template-tsus:pages/standard"));
-      
-    // move binary data from the website tree to the DAM
-    tasks.add(new MoveContentToDamMigrationTask("Website DAM Migration", "Move binary files from the website tree to the DAM.", RepositoryConstants.WEBSITE,
-      Arrays.asList("/tsus"), "/tsus", "image"));
-      
+ 
     // remove a deprecated servlet filter that was disrupting loading of resources
     tasks.add(new RemoveNodeTask("Remove ClasspathSpool filter", "/server/filters/servlets/ClasspathSpoolServlet"));
+    // remove the config node for our defunct gato module
+    tasks.add(new RemoveNodeTask("Remove old Gato module config", "/modules/gato"));
+    // remove the config node for the old 4.5 migration module
+    tasks.add(new RemoveNodeTask("Remove old 4.5 migration config", "/modules/magnolia-4-5-migration"));
     return tasks;
   }
 
