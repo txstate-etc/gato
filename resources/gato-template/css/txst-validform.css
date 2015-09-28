@@ -1,0 +1,46 @@
+.txst-form-validicon {
+	display: inline-block;
+	color: red;
+	line-height: 12px;
+	min-height: 12px;
+	font-size: 11px;
+	padding: 3px 0px 3px 20px;
+	margin-left: 2px;
+	width: 250px;
+	white-space: normal;
+	vertical-align: middle;
+}
+
+.valid-icon-cont {
+    display: inline-block;
+}
+
+.txst-form-pass {
+	color: black;
+	background: url(../images/validpass.png) no-repeat center left;
+}
+
+.txst-form-fail {
+	background: url(../images/validfail.png) no-repeat center left;
+}
+
+.txst-form-prog {
+}
+
+.txst-form-calendar {
+	margin-left: 3px;
+	padding: 3px 7px;
+	line-height: 16px;
+	font-size: 11px;
+	cursor: pointer;
+	background: url(../images/calendar.png) no-repeat top left;
+}
+
+.txst-form-spinner {
+	float: left;
+	display: inline-block;
+	margin-left: 12px;
+	margin-right: -12px;
+	margin-top: 8px;
+	width: 0px;
+}

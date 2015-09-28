@@ -23,6 +23,9 @@ form:
             - name: date
               label: Date
               value: date
+            - name: netid
+              label: Net ID
+              value: netid
             - name: anumber
               label: Student ID (A0...)
               value: anumber
