@@ -1,4 +1,3 @@
-[#include "/gato-template/templates/includes/formMacros.ftl"]
 [#include "/gato-template/templates/includes/component.ftl"]
 
 [#assign title = gf.cleanFormElementTitle(content.title!"")]
