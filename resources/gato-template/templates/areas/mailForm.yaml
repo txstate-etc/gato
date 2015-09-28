@@ -6,3 +6,5 @@ title: Mail Form Content
 availableComponents:
   formedit:
     id: gato-template:components/formedit
+  formsubmit:
+    id: gato-template:components/formsubmit
