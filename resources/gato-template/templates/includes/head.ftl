@@ -9,8 +9,6 @@
 		'gato-template/js/outgoing-clicks.js',
 		'gato-template/js/post-load.js',
 		'gato-template/js/mailForm.js',
-		'gato-faq-hierarchy/js/frontend.js',
-		'gato-event-calendar/js/frontend.js',
 		'gato-lib/js/photoswipe/photoswipe.js',
 		'gato-lib/js/photoswipe/photoswipe-ui-default.js',
 		'gato-lib/js/photoswipe-util.js',
