@@ -27,7 +27,7 @@
 			</div>
 		</div>
 		<ul class="tsus-institution-logos">
-			[@cms.area name="tsuslogos" /]
+			[@cms.area name="tsuslogos" contextAttributes={"maxwidth": "1.0"} /]
 		</ul>
 		[#include "includes/footer.ftl"]
 		
