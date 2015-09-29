@@ -44,3 +44,41 @@
 	margin-top: 8px;
 	width: 0px;
 }
+
+.txst-form-text-label {
+    font-weight: bold;
+    display: block;
+}
+
+.txst-form-text-subtitle {
+    font-size: 0.9em;
+    font-style: italic;
+    display: block;
+    line-height: 1.6em;
+    white-space: normal;
+}
+
+.txst-form-selection-label {
+    margin-left: 0.5em;
+}
+
+.txst-form-selection-label:hover {
+    text-decoration: underline;
+}
+
+.txst-form-selection-item {
+  display: block;
+}
+
+.txst-form fieldset {
+  background-color:#f3f0e3;
+  padding: 15px;
+  margin-bottom: 1em;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+}
+
+.txst-form fieldset input.text, .txst-form fieldset textarea {
+  background-color: white;
+}
