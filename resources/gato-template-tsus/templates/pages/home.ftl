@@ -9,8 +9,6 @@
 	
 	<body>
 		[#include "includes/topbanner.ftl"]
-		<h1 id="maincontent" tabindex="-1" class="visuallyhidden">[@pagetitle page /]</h1>
-
 		<div class="slideshow-bg">
 			[@cms.area name="slideshow" /]
 		</div>
