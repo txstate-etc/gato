@@ -987,6 +987,75 @@ a.ddmenu-menubaritem:hover {
     background-color: #501214;
     color: white; }
 
+.txst-form-validicon {
+  display: inline-block;
+  color: red;
+  line-height: 12px;
+  min-height: 12px;
+  font-size: 11px;
+  padding: 3px 0px 3px 20px;
+  margin-left: 2px;
+  width: 250px;
+  white-space: normal;
+  vertical-align: middle; }
+
+.valid-icon-cont {
+  display: inline-block; }
+
+.txst-form-pass {
+  color: black;
+  background: url(../../gato-template/images/validpass.png) no-repeat center left; }
+
+.txst-form-fail {
+  background: url(../../gato-template/images/validfail.png) no-repeat center left; }
+
+.txst-form-calendar {
+  margin-left: 3px;
+  padding: 3px 7px;
+  line-height: 16px;
+  font-size: 11px;
+  cursor: pointer;
+  background: url(../../gato-template/images/calendar.png) no-repeat top left; }
+
+.txst-form-spinner {
+  float: left;
+  display: inline-block;
+  margin-left: 12px;
+  margin-right: -12px;
+  margin-top: 8px;
+  width: 0px; }
+
+.txst-form-text-label {
+  font-weight: bold;
+  display: block; }
+
+.txst-form-text-subtitle {
+  font-size: 0.9em;
+  font-style: italic;
+  display: block;
+  line-height: 1.6em;
+  white-space: normal; }
+
+.txst-form-selection-label {
+  margin-left: 0.5em; }
+
+.txst-form-selection-label:hover {
+  text-decoration: underline; }
+
+.txst-form-selection-item {
+  display: block; }
+
+.txst-form fieldset {
+  background-color: #f3f0e3;
+  padding: 15px;
+  margin-bottom: 1em;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px; }
+
+.txst-form fieldset input.text, .txst-form fieldset textarea {
+  background-color: white; }
+
 .gato-custom-column {
   width: 800px;
   float: left;
