@@ -3,11 +3,12 @@
 .page_content {
     font-size: 100%;
     margin-top: 0.5rem;
-    padding: 1rem 0; 
+    padding-bottom: 1rem;
     overflow: hidden; 
     min-height: 32rem; 
     background-color: $content-background;
     max-width: 1000px;
+    position: relative;
     .row {margin-bottom: 1.5rem;}
     a{
         padding: 1px 3px; 
@@ -18,11 +19,28 @@
     }
 }
 
-.column {padding: 0 1rem 1rem 1rem;}
+.page_content > .gato-component{
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
 
-.trail {display: none;}
+.trail {
+    display: none;
+    margin: auto;
+    max-width: 1000px;
+    padding: 1rem 0;
+}
+
+.headline{
+    margin: auto;
+    max-width: 1000px;
+    font-size: 95%;
+    padding: 1rem;
+}
 
 #breadcrumbs {
+    padding-left: 1rem;
+    padding-right: 1rem;
     a {
         font-weight: 400; 
         font-size: 65%;
@@ -51,8 +69,9 @@
 }
 
 @media (min-width: $sm-breakpoint){
-    .column {padding: 0 1rem;}
     .page_content {
+        padding-bottom: 1rem;
+
         margin: auto;
         .row {margin-bottom: 1.5rem;}
 
@@ -61,5 +80,6 @@
 }
 
 @media (min-width: $xl-breakpoint) {
-    .page_content {max-width: 1200px;}
+    .page_content, .trail, .headline {max-width: 1200px;}
+
 }

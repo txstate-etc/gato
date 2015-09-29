@@ -55,29 +55,27 @@
 			<div class="top_nav">
 				[@mainmenu textmenu=true /]
 			</div>
-			<div class="page_content">
-				<div class="row trail clearfix eq-parent">
-					<div class="eq-mn-2-3 float_right">
-						[@breadcrumbs/]
-					</div>
-				</div> <!-- end breadcrumbs -->
-				<div class="row clearfix">
-					[#assign hideSidebar = content.hideSidebar!false]
-					[#assign mainContentClass = hideSidebar?string('col-xs-1','col-xs-3-4')]
-					<div class="column ${mainContentClass}">
-						[#include "includes/headline.ftl"]
-						[#if def.parameters.isMailTemplate!false]
-							[@cms.area name="mail" /]
-						[#else]
-							[@cms.area name="contentParagraph" /]
-						[/#if]
-					</div>
-					[#if hideSidebar == false]
-					<div class="column col-xs-1-4 sidebar">
-						[@cms.area name="navBlocks" /]
-					</div>
-					[/#if]
+			<div class="trail eq-parent">
+				<div class="eq-mn-off-1-3">
+					[@breadcrumbs/]
 				</div>
+			</div>
+			[#if isHomePage]
+				[#include "includes/headline.ftl"]
+			[/#if]
+			<div class="page_content eq-parent">
+				[#assign hideSidebar = content.hideSidebar!false]
+				[#if def.parameters.isMailTemplate!false]
+					[@cms.area name="mail" /]
+				[#else]
+					[@cms.area name="contentParagraph" contextAttributes={"hideSidebar":hideSidebar} /]
+				[/#if]
+
+				[#if hideSidebar == false]
+				<div class="eq-lg-1-4 sidebar">
+					[@cms.area name="navBlocks" /]
+				</div>
+				[/#if]
 			</div> <!-- end of page_content -->
 			[#include "includes/footer.ftl"]
 		</div> <!-- end of the container -->

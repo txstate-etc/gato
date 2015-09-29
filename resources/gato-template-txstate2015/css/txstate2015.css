@@ -1536,11 +1536,12 @@ a.ddmenu-menubaritem {
 .page_content {
   font-size: 100%;
   margin-top: 0.5rem;
-  padding: 1rem 0;
+  padding-bottom: 1rem;
   overflow: hidden;
   min-height: 32rem;
   background-color: #FFFFFF;
-  max-width: 1000px; }
+  max-width: 1000px;
+  position: relative; }
   .page_content .row {
     margin-bottom: 1.5rem; }
   .page_content a {
@@ -1551,23 +1552,36 @@ a.ddmenu-menubaritem {
     .page_content a:hover {
       background: #E8E3DB; }
 
-.column {
-  padding: 0 1rem 1rem 1rem; }
+.page_content > .gato-component {
+  padding-left: 1rem;
+  padding-right: 1rem; }
 
 .trail {
-  display: none; }
+  display: none;
+  margin: auto;
+  max-width: 1000px;
+  padding: 1rem 0; }
 
-#breadcrumbs a {
-  font-weight: 400;
-  font-size: 65%;
-  margin: -5px auto 0 auto;
-  color: #005481;
-  text-decoration: none; }
-  #breadcrumbs a:hover {
-    text-decoration: underline;
-    background: transparent; }
-#breadcrumbs .separator {
-  margin: auto 5px auto 7px; }
+.headline {
+  margin: auto;
+  max-width: 1000px;
+  font-size: 95%;
+  padding: 1rem; }
+
+#breadcrumbs {
+  padding-left: 1rem;
+  padding-right: 1rem; }
+  #breadcrumbs a {
+    font-weight: 400;
+    font-size: 65%;
+    margin: -5px auto 0 auto;
+    color: #005481;
+    text-decoration: none; }
+    #breadcrumbs a:hover {
+      text-decoration: underline;
+      background: transparent; }
+  #breadcrumbs .separator {
+    margin: auto 5px auto 7px; }
 
 @media (min-width: 40rem) {
   .page_content {
@@ -1584,10 +1598,8 @@ a.ddmenu-menubaritem {
       margin: 0 auto;
       line-height: 18px; } }
 @media (min-width: 48rem) {
-  .column {
-    padding: 0 1rem; }
-
   .page_content {
+    padding-bottom: 1rem;
     margin: auto; }
     .page_content .row {
       margin-bottom: 1.5rem; }
@@ -1595,11 +1607,14 @@ a.ddmenu-menubaritem {
   .trail {
     display: block; } }
 @media (min-width: 90rem) {
-  .page_content {
+  .page_content, .trail, .headline {
     max-width: 1200px; } }
 /* Sidebar */
 .sidebar {
-  padding: 0; }
+  padding: 0;
+  position: absolute;
+  top: 0px;
+  right: 0px; }
 
 .sidebar_active {
   padding-left: 0; }
@@ -1638,6 +1653,10 @@ a.ddmenu-menubaritem {
   line-height: 1.5rem;
   padding: .2rem 1rem;
   font-size: 95%; }
+
+.eq-parent[max-width="800px"] .sidebar {
+  position: inherit;
+  top: 0px; }
 
 @media screen and (min-width: 40rem) {
   .sidebar {

@@ -1,4 +1,5 @@
 title: Main Content Area
+templateScript: /gato-template/templates/areas/main-content.ftl
 availableComponents:
   richeditor:
     id: gato-template:components/richeditor

@@ -1,4 +1,9 @@
-.sidebar {padding: 0;}
+.sidebar {
+    padding: 0;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
 .sidebar_active {padding-left: 0;}
 .sidebar_active_reverse {padding-right: 1rem;}
 
@@ -35,6 +40,11 @@
     line-height: 1.5rem; 
     padding: .2rem 1rem;
     font-size: 95%;
+}
+
+.eq-parent[max-width="800px"] .sidebar {
+    position: inherit;
+    top: 0px;
 }
 
 @media screen and (min-width: $xs-breakpoint){
