@@ -7,7 +7,7 @@ form:
           class: info.magnolia.ui.form.field.definition.MultiValueFieldDefinition
           label: Send Mail To
           buttonSelectAddLabel: Add Email Address
-          description: Enter the addresses you would like the information entered on this form to go to. Put each email on its own line.
+          description: Enter the addresses you would like the information entered on this form to go to.
           field:
             name: textField
             class: info.magnolia.ui.form.field.definition.TextFieldDefinition

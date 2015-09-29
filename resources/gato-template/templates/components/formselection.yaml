@@ -1,0 +1,5 @@
+templateScript: /gato-template/templates/components/formselection.ftl
+renderType: freemarker
+dialog: gato-template:components/formselection
+description: "Lets a user select from options you define. Displays as a checkbox, a set of radio buttons, or a select box"
+title: Selection

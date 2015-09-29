@@ -1,0 +1,39 @@
+form:
+  tabs:
+    - name: tabInput
+      label: Input Field
+      fields:
+        - name: title
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Field Title
+        - name: mandatory
+          class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+          label: Mandatory
+          buttonLabel: Field is mandatory
+        - name: type
+          class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
+          label: Input Type
+          multiselect: false
+          type: String
+          sortOptions: false
+          options:
+            - name: radio
+              label: Radio Buttons
+              selected: true
+              value: radio
+            - name: select
+              label: Select Box
+              value: select
+            - name: checkbox
+              label: Checkboxes
+              value: checkbox
+        - name: options
+          class: info.magnolia.ui.form.field.definition.MultiValueFieldDefinition
+          label: Options
+          buttonSelectAddLabel: Add Option
+          description: List the options available to the site visitor.
+          field:
+            name: textField
+            class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+actions: !include /gato-template/dialogs/common/actions-block.yaml
+label: Submit Button
