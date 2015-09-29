@@ -60,7 +60,7 @@
 					[@breadcrumbs/]
 				</div>
 			</div>
-			[#if isHomePage]
+			[#if !isHomePage]
 				[#include "includes/headline.ftl"]
 			[/#if]
 			<div class="page_content eq-parent">
