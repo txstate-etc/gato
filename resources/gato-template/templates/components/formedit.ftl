@@ -1,5 +1,3 @@
-[#include "/gato-template/templates/includes/component.ftl"]
-
 [#assign title = gf.cleanFormElementTitle(content.title!"")]
 
 [#assign formHasSenderEmail = ctx.request.getAttribute("formHasSenderEmail")!false]
@@ -17,7 +15,6 @@
   ${ctx.request.setAttribute("formHasSenderName", true)}
 [/#if]
 
-[@templatecomponent]
 <div class="formelement">
 [#if (content.title!"")?has_content]
   <label for="${title}" class="txst-form-text-label">
@@ -81,4 +78,3 @@
   <textarea name=${title} id=${title} rows="10" cols="60"></textarea>
 [/#if]
 </div>
-[/@templatecomponent]

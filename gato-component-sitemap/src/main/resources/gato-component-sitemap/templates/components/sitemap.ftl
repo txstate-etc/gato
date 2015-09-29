@@ -1,5 +1,3 @@
-[#include "/gato-template/templates/includes/component.ftl"]
-
 [#macro processPage node depth]
   [#if !(node.hideInNav!false)]
     [#local children = cmsfn.children(node, "mgnl:page")]
@@ -16,26 +14,24 @@
   [/#if]
 [/#macro]
 
-[@templatecomponent]
-  [#if (content.title!"")?length > 0]
-    <h2>${content.title}</h2>
-  [/#if]
+[#if (content.title!"")?length > 0]
+  <h2>${content.title}</h2>
+[/#if]
 
-  [#if content.alphabetical!false]
-    <ul>
-    [#list model.sortedNodes as node]
-      [#assign nodeContentMap = cmsfn.asContentMap(node)]
-      <li><a href="${cmsfn.link(node)}">${gf.nodeTitle(node)}</a></li>
+[#if content.alphabetical!false]
+  <ul>
+  [#list model.sortedNodes as node]
+    [#assign nodeContentMap = cmsfn.asContentMap(node)]
+    <li><a href="${cmsfn.link(node)}">${gf.nodeTitle(node)}</a></li>
+  [/#list]
+  </ul>
+[#else]
+  [#assign startingNode = cmsfn.ancestors(content, "mgnl:page")[content.startPage?number-1]]
+
+  <ul class="sitemap-list">
+    [#list cmsfn.children(startingNode, "mgnl:page") as child]
+      [@processPage child content.depth?number-1 /]
     [/#list]
-    </ul>
-  [#else]
-    [#assign startingNode = cmsfn.ancestors(content, "mgnl:page")[content.startPage?number-1]]
+  </ul>
+[/#if]
 
-    <ul class="sitemap-list">
-      [#list cmsfn.children(startingNode, "mgnl:page") as child]
-        [@processPage child content.depth?number-1 /]
-      [/#list]
-    </ul>
-  [/#if]
-
-[/@templatecomponent]

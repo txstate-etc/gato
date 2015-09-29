@@ -1,5 +1,3 @@
-[#include "/gato-template/templates/includes/component.ftl"]
-
 [#macro faqItem node depth]
   <div class="txst-faqitem" style="margin-left:${20*depth}px">
     <h2 class="txst-faqitem-question"><a href="#">${node.question}</a></h2>
@@ -24,15 +22,13 @@
   [/#if]
 [/#macro]
 
-[@templatecomponent]
-  [#if !faqButtonsAdded!false]
-    <a href="#" id="txst-expand-all-faqs">Expand</a>
-    or
-    <a href="#" id="txst-collapse-all-faqs">Collapse</a>
-    all.
-    [#global "faqButtonsAdded" = true]
-  [/#if]
-  [#list model.nodes as node]
-    [@faqNode node 0 /]
-  [/#list]
-[/@templatecomponent]
+[#if !faqButtonsAdded!false]
+  <a href="#" id="txst-expand-all-faqs">Expand</a>
+  or
+  <a href="#" id="txst-collapse-all-faqs">Collapse</a>
+  all.
+  [#global "faqButtonsAdded" = true]
+[/#if]
+[#list model.nodes as node]
+  [@faqNode node 0 /]
+[/#list]

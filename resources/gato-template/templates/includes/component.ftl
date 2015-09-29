@@ -1,9 +1,3 @@
-[#macro templatecomponent]
-	<div class="gato-component">
-		[#nested]
-	</div>
-[/#macro]
-
 [#assign cacheEnvironment = (ctx.request.getHeader("via")!'')?contains("Proxy-HistoryCache")]
 [#assign globaldata = cmsfn.contentByPath('/global-data')]
 [#assign page = cmsfn.page(content)]
