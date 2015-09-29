@@ -571,4 +571,9 @@ public final class GatoUtils {
     title = title.replaceAll("^([0-9])", "num-$1" ); // must start with a letter
     return title.toLowerCase();
   }
+
+  public String getConfigProperty(String propertyName) {
+    MagnoliaConfigurationProperties mcp = Components.getComponent(MagnoliaConfigurationProperties.class);
+    return mcp.getProperty(propertyName);
+  }
 }

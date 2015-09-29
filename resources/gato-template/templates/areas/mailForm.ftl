@@ -1,5 +1,4 @@
-
-<form class="txst-form" name="samplesForm" action="formemailerServer/formemailer/formemailer.pl" method="post" enctype="multipart/form-data"
+<form class="txst-form" name="samplesForm" action="${gf.getConfigProperty('gato.formemailer.server')}/formemailer/formemailer.pl" method="post" enctype="multipart/form-data"
   onsubmit="return (checkMandatories(this.name,'Please complete all of the required fields (marked with an asterisk).'));">
   <div class="txst-form-body">
   [#if cmsfn.isEditMode()]
