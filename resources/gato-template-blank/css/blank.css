@@ -944,19 +944,15 @@ a.ddmenu-menubaritem:hover {
   text-decoration: none; }
 
 .ddmenu-menu {
-  position: relative;
+  margin: 0px;
+  padding: 0px;
+  position: absolute;
+  top: 35px;
   z-index: 1;
-  padding: 2px 0px; }
+  visibility: hidden; }
 
 .ddmenu-visible .ddmenu-menu {
   visibility: visible; }
-
-.ddmenu-visible {
-  margin-left: 0px; }
-
-.ddmenu-visible a.ddmenu-menubaritem img {
-  visibility: hidden;
-  margin-left: 0px; }
 
 .ddmenu-menu a {
   display: block;
@@ -969,6 +965,15 @@ a.ddmenu-menubaritem:hover {
 
 .ddmenu-menu img {
   display: block; }
+
+.gato-imagelink img {
+  display: block; }
+  .gato-imagelink img.rollover {
+    display: none; }
+.gato-imagelink:hover img {
+  display: none; }
+  .gato-imagelink:hover img.rollover {
+    display: block; }
 
 .gato-textimage {
   position: relative; }
@@ -1055,6 +1060,17 @@ a.ddmenu-menubaritem:hover {
 
 .txst-form fieldset input.text, .txst-form fieldset textarea {
   background-color: white; }
+
+.gato-flex-container {
+  position: relative;
+  width: 100%;
+  padding: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; }
+
+li.gato-flex-item {
+  list-style: none; }
 
 .gato-custom-column {
   width: 800px;

@@ -1,6 +1,10 @@
 @import "gato-template-tsus/css/variables";
 @import "gato-template-tsus/css/includes";
 
+li {
+	list-style: none;
+}
+
 .slideshow-bg {
 	background: url(../images/bluepattern.jpg);
 }
@@ -95,19 +99,9 @@
 	width: 958px;
 	margin: 0px auto;
 }
-.tsus-institution-logos ul {
-	position: relative;
-}
 .tsus-institution-logos li {
-	position: relative;
-	float: left;
-	padding: 0px 5px;
+	width: 60px;
 	height: 96px;
-	max-width: 110px;
-	display: table;
-}
-.tsus-institution-logos li:last-child {
-padding-right: 0px !important;
 }
 
 .tsusred {

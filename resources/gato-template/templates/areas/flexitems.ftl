@@ -1,9 +1,12 @@
-[#assign maxwidth = def.parameters.maxitemwidth!"100vw")]
+[#assign maxwidth = def.parameters.maxitemwidth!"100vw"]
 
-<div class="gato-flex-container">
+<ul class="gato-flex-container">
   [#list components as component]
-    <div class="gato-flex-item">
+    <li class="gato-flex-item">
       [@cms.component content=component contextAttributes={"maxwidth":maxwidth} /]
-    </div>
+    </li>
   [/#list]
+  [#if (def.maxComponents!100) > components?size && (def.type == "list" || (def.type="single" && components?size == 0)) && cmsfn.isEditMode()]
+  	<li class="gato-flex-item" cms:add="bar"></li>
+  [/#if]
 </div>

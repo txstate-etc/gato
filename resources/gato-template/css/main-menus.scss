@@ -19,20 +19,16 @@ a.ddmenu-menubaritem:hover {
 }
 
 .ddmenu-menu {
-	position: relative;
+	margin: 0px;
+	padding: 0px;
+	position: absolute;
+	top: 35px;
 	z-index: 1;
-	padding: 2px 0px;
+	visibility: hidden;
 }
 
 .ddmenu-visible .ddmenu-menu {
 	visibility: visible;
-}
-.ddmenu-visible {
-	margin-left: 0px;
-}
-.ddmenu-visible a.ddmenu-menubaritem img {
-	visibility: hidden;
-	margin-left: 0px;
 }
 
 .ddmenu-menu a {

@@ -3,43 +3,21 @@
 }
 
 .ddmenu-menubar {
-	position: relative;
 	width: 958px;
 	margin: 0px auto;
-	z-index: 88;
-}
-
-div.ddmenu-menubaritem {
 }
 
 a.ddmenu-menubaritem {
 	color: #FFFFFF;
 	font-size: 13px;
 	text-transform: uppercase;
-	padding-left: 15px;
-	padding-right: 15px;
+	text-decoration: none;
 }
 
 a.ddmenu-menubaritem:visited {
 	color: #FFFFFF;
 }
-a.ddmenu-menubaritem:hover {
-}
 
-.ddmenu-menu-wrap .dropshadow {
-	display: none;
-}
-
-.ddmenu-menu-wrap .png-bg {
-	background-color: #c2b6ac;
-}
-
-.ddmenu-menu {
-	padding: 0px;
-}
-
-.ddmenu-visible .ddmenu-menu-wrap {
-}
 .ddmenu-visible {
 	background-color: #c2b6ac;
 }
@@ -49,10 +27,12 @@ a.ddmenu-menubaritem:hover {
 .ddmenu-visible a.ddmenu-menubaritem:visited {
 	color: #383640;
 }
-.ddmenu-visible a.ddmenu-menubaritem img {
-}
 
+.ddmenu-menu {
+	background-color: #c2b6ac;
+}
 .ddmenu-menu a {
+	text-decoration: none;
 	color: #383640;
 	font-size: 13px;
 	border-top: 1px solid #998e84;
@@ -64,6 +44,4 @@ a.ddmenu-menubaritem:hover {
 .ddmenu-menu a:hover {
 	background-color: #8f847a;
 	color: #FFFFFF;
-}
-.ddmenu-menu img {
 }

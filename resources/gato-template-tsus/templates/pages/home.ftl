@@ -2,9 +2,7 @@
 
 <!DOCTYPE HTML>
 	<head>
-		[@templatejs scripts=[
-			'gato-template-tsus/js/stretch-institutions.js'
-		]/]
+		[@templatejs scripts=[]/]
     <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-tsus/css/tsus-home.css"/>
 		[@templatehead publisher="Texas State University System"/]
 	</head>
@@ -26,9 +24,9 @@
 				</div>
 			</div>
 		</div>
-		<ul class="tsus-institution-logos">
+		<div class="tsus-institution-logos">
 			[@cms.area name="tsuslogos" /]
-		</ul>
+		</div>
 		[#include "includes/footer.ftl"]
 		
 		[@cssjsmodals /]

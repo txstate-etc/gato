@@ -9,7 +9,7 @@ form:
           targetWorkspace: dam
           label: Image
           identifierToPathConverter:
-            class: info.magnolia.ui.form.field.converter.BaseIdentifierToPathConverter
+            class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
           contentPreviewDefinition:
             contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
           description: "Choose an image from Assets. You may also upload an image to Assets from here."
@@ -19,7 +19,7 @@ form:
           targetWorkspace: dam
           label: Rollover Image
           identifierToPathConverter:
-            class: info.magnolia.ui.form.field.converter.BaseIdentifierToPathConverter
+            class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
           contentPreviewDefinition:
             contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
           description: "Optionally choose an image to appear when the mouse hovers over the link."

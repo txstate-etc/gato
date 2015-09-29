@@ -1,0 +1,16 @@
+.gato-imagelink {
+	img {
+		display: block;
+		&.rollover {
+			display: none;
+		}
+	}
+	&:hover {
+		img {
+			display: none;
+			&.rollover {
+				display: block;
+			}
+		}
+	}
+}

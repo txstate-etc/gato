@@ -40,7 +40,7 @@ areas:
     renderType: freemarker
     templateScript: /gato-template/templates/areas/flexitems.ftl
     parameters:
-      maxitemwidth: 110px
+      maxitemwidth: 60px
     availableComponents:
       logo:
         id: gato-template:components/imagelink

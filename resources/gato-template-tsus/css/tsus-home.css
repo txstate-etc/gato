@@ -944,19 +944,15 @@ a.ddmenu-menubaritem:hover {
   text-decoration: none; }
 
 .ddmenu-menu {
-  position: relative;
+  margin: 0px;
+  padding: 0px;
+  position: absolute;
+  top: 35px;
   z-index: 1;
-  padding: 2px 0px; }
+  visibility: hidden; }
 
 .ddmenu-visible .ddmenu-menu {
   visibility: visible; }
-
-.ddmenu-visible {
-  margin-left: 0px; }
-
-.ddmenu-visible a.ddmenu-menubaritem img {
-  visibility: hidden;
-  margin-left: 0px; }
 
 .ddmenu-menu a {
   display: block;
@@ -969,6 +965,15 @@ a.ddmenu-menubaritem:hover {
 
 .ddmenu-menu img {
   display: block; }
+
+.gato-imagelink img {
+  display: block; }
+  .gato-imagelink img.rollover {
+    display: none; }
+.gato-imagelink:hover img {
+  display: none; }
+  .gato-imagelink:hover img.rollover {
+    display: block; }
 
 .gato-textimage {
   position: relative; }
@@ -1055,6 +1060,17 @@ a.ddmenu-menubaritem:hover {
 
 .txst-form fieldset input.text, .txst-form fieldset textarea {
   background-color: white; }
+
+.gato-flex-container {
+  position: relative;
+  width: 100%;
+  padding: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; }
+
+li.gato-flex-item {
+  list-style: none; }
 
 .gato-custom-column {
   width: 800px;
@@ -1223,29 +1239,17 @@ ul.social-media-container {
   background-color: #8f847a; }
 
 .ddmenu-menubar {
-  position: relative;
   width: 958px;
-  margin: 0px auto;
-  z-index: 88; }
+  margin: 0px auto; }
 
 a.ddmenu-menubaritem {
   color: #FFFFFF;
   font-size: 13px;
   text-transform: uppercase;
-  padding-left: 15px;
-  padding-right: 15px; }
+  text-decoration: none; }
 
 a.ddmenu-menubaritem:visited {
   color: #FFFFFF; }
-
-.ddmenu-menu-wrap .dropshadow {
-  display: none; }
-
-.ddmenu-menu-wrap .png-bg {
-  background-color: #c2b6ac; }
-
-.ddmenu-menu {
-  padding: 0px; }
 
 .ddmenu-visible {
   background-color: #c2b6ac; }
@@ -1256,7 +1260,11 @@ a.ddmenu-menubaritem:visited {
 .ddmenu-visible a.ddmenu-menubaritem:visited {
   color: #383640; }
 
+.ddmenu-menu {
+  background-color: #c2b6ac; }
+
 .ddmenu-menu a {
+  text-decoration: none;
   color: #383640;
   font-size: 13px;
   border-top: 1px solid #998e84;
@@ -1344,6 +1352,9 @@ a.ddmenu-menubaritem:visited {
 
 .tsus-rightcolumn .txst-filedownload {
   margin-bottom: 5px; }
+
+li {
+  list-style: none; }
 
 .slideshow-bg {
   background: url(../images/bluepattern.jpg); }
@@ -1434,19 +1445,9 @@ a.ddmenu-menubaritem:visited {
   width: 958px;
   margin: 0px auto; }
 
-.tsus-institution-logos ul {
-  position: relative; }
-
 .tsus-institution-logos li {
-  position: relative;
-  float: left;
-  padding: 0px 5px;
-  height: 96px;
-  max-width: 110px;
-  display: table; }
-
-.tsus-institution-logos li:last-child {
-  padding-right: 0px !important; }
+  width: 60px;
+  height: 96px; }
 
 .tsusred {
   color: #B92C26; }
