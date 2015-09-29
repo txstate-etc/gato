@@ -11,10 +11,10 @@ our $magrepopath = "/var/mag_repositories";
 our $magnoliapropertiespath = "/etc/magnolia/config";
 our @lightmodules = ('gato-template', 'gato-template-tsus', 'gato-template-txstate2015');
 our @heavymodules = ('gato-lib', 'gato-internal', 'gato-component-cssjs', 'gato-component-dept-directory', 
-	'gato-component-faq', 'gato-component-gallery', 'gato-component-documents');
+  'gato-component-faq', 'gato-component-gallery', 'gato-component-documents');
 our @sassfiles = ('resources/gato-template-tsus/css/tsus-home.scss', 
-									'resources/gato-template-blank/css/blank.scss',
-									'resources/gato-template-txstate2015/css/txstate2015.scss');
+                  'resources/gato-template-blank/css/blank.scss',
+                  'resources/gato-template-txstate2015/css/txstate2015.scss');
 our $module = "";
 
 # place your local overrides in the root gato directory in a file named "rebuild_vars.pl"
@@ -22,37 +22,35 @@ our $module = "";
 if (-e "$gatodir/rebuild_vars.pl") { require("$gatodir/rebuild_vars.pl"); }
 
 if ($ARGV[0] eq '--module') {
-	$module = $ARGV[1];
+  $module = $ARGV[1];
   buildmodule($module);
-	tomcat_restart(sub {
-	  replacemodule($module);
-	});
+  tomcat_restart(sub {
+    replacemodule($module);
+  });
 } elsif ($ARGV[0] eq '--restart') {
   tomcat_restart();
 } elsif ($ARGV[0] eq '--resources') {
-	if (setmagnoliaresourcespath()) {
-	  symlinkheavyresources();
-	}
+  if (setmagnoliaresourcespath()) {
+    symlinkheavyresources();
+  }
 } elsif ($ARGV[0] eq '--sass') {
   symlinkheavyresources();
-	sass();
+  sass();
 } elsif ($ARGV[0] eq '--reset') {
-	resetdata();
+  resetdata();
 } elsif ($ARGV[0] eq '--backup') {
-	backupmagrepositories();
-	backupmysql();
+  backupmagrepositories();
+  backupmysql();
 } elsif ($ARGV[0] eq '--restore') {
-	restoremagrepositories();
-	restoremysql();
+    restoredata();
 } elsif ($ARGV[0] eq '--dry') {
-	buildedge();
-	tomcat_restart(sub {
-		restoremagrepositories();
-		restoremysql();
-	  cleanwebapp();
-	  installwar($edgewarpath);
-	});
-	triggerbootstrap();
+  buildedge();
+  tomcat_restart(sub {
+    restoredata();
+    cleanwebapp();
+    installwar($edgewarpath);
+  });
+  triggerbootstrap();
 } else {
   buildedge();
   tomcat_restart(sub {
@@ -66,25 +64,25 @@ print "Done.\n";
 
 
 sub tomcat_restart {
-	my $nested = shift;
-	
-	print "stopping tomcat...\n";
-	my $pid = `pgrep -f $tomcatdir`;
-	`kill $pid` if $pid > 0;
+  my $nested = shift;
+  
+  print "stopping tomcat...\n";
+  my $pid = `pgrep -f $tomcatdir`;
+  `kill $pid` if $pid > 0;
 
-	my $matchstr = quotemeta($tomcatdir);
-	while (`ps ax` =~ m/$matchstr/) {
-		print "waiting for tomcat to go away...\n";
-		sleep(1);
-	}
-	
-	print "wiping out the cache directory so our CSS/JS gets reloaded...\n";
-	`rm -rf $tomcatdir/webapps/ROOT/cache`;
-	
-	$nested->() if $nested;
-	
-	print "starting tomcat...\n";
-	`$tomcatdir/bin/startup.sh`;
+  my $matchstr = quotemeta($tomcatdir);
+  while (`ps ax` =~ m/$matchstr/) {
+    print "waiting for tomcat to go away...\n";
+    sleep(1);
+  }
+  
+  print "wiping out the cache directory so our CSS/JS gets reloaded...\n";
+  `rm -rf $tomcatdir/webapps/ROOT/cache`;
+  
+  $nested->() if $nested;
+  
+  print "starting tomcat...\n";
+  `$tomcatdir/bin/startup.sh`;
 }
 
 sub setmagnoliaresourcespath() {
@@ -111,14 +109,20 @@ sub symlinkheavyresources {
 }
 
 sub resetdata {
-	print "resetting all data...\n";
-	`mysql -u root -e "DROP DATABASE IF EXISTS magnolia; CREATE DATABASE magnolia"`;
-	`rm -rf /var/mag_repositories/magnolia`;
+  print "resetting all data...\n";
+  `mysql -u root -e "DROP DATABASE IF EXISTS magnolia; CREATE DATABASE magnolia"`;
+  `rm -rf $magrepopath/magnolia`;
+}
+
+sub restoredata {
+  resetdata();
+  restoremagrepositories();
+  restoremysql();
 }
 
 sub cleanwebapp {
-	print "removing old webapp...\n";
-	`rm -rf $tomcatdir/webapps/ROOT*`;
+  print "removing old webapp...\n";
+  `rm -rf $tomcatdir/webapps/ROOT*`;
 }
 
 sub buildedge {
@@ -129,16 +133,16 @@ sub buildedge {
 }
 
 sub installwar {
-	my $warpath = shift;
+  my $warpath = shift;
   print "copying war...\n";
   `cp $warpath $tomcatdir/webapps/ROOT.war`;
 }
 
 sub buildmodule {
   my $module = shift;
-	print "building individual module $module...\n";
-	chdir($gatodir.'/'.$module);
-	`mvn install package`;
+  print "building individual module $module...\n";
+  chdir($gatodir.'/'.$module);
+  `mvn install package`;
 }
 
 sub replacemodule {
@@ -150,48 +154,48 @@ sub replacemodule {
 }
 
 sub triggerbootstrap() {
-	print "initiating upgrade tasks...\n";
-	sleep(10);
-	`curl $urlbase/.magnolia/installer > /dev/null`;
-	`curl $urlbase/.magnolia/installer/start > /dev/null`;	
+  print "initiating upgrade tasks...\n";
+  sleep(10);
+  `curl $urlbase/.magnolia/installer > /dev/null`;
+  `curl $urlbase/.magnolia/installer/start > /dev/null`;  
 }
 
 sub waitforbootstrap() {
-	print "waiting for bootstrap process to finish...\n";
+  print "waiting for bootstrap process to finish...\n";
   sleep(80);
 }
 
 sub backupmagrepositories {
-	print "copying current mag_repositories folder to $backupdir...\n";
-	`rm -rf $backupdir/magnolia`;
-	`cp -R $magrepopath/magnolia $backupdir/magnolia`;
+  print "copying current mag_repositories folder to $backupdir...\n";
+  `rm -rf $backupdir/magnolia`;
+  `cp -R $magrepopath/magnolia $backupdir/magnolia`;
 }
 
 sub backupmysql {
-	print "archiving mysql database 'magnolia'...\n";
-	`mysqldump -u root --add-drop-table --extended-insert magnolia > $backupdir/magnolia.sql`
+  print "archiving mysql database 'magnolia'...\n";
+  `mysqldump -u root --add-drop-table --extended-insert magnolia > $backupdir/magnolia.sql`
 }
 
 sub restoremagrepositories {
-	print "copying backed up mag_repositories folder into place...\n";
-	`cp -R $backupdir/magnolia $magrepopath/magnolia`;
+  print "copying backed up mag_repositories folder into place...\n";
+  `cp -R $backupdir/magnolia $magrepopath/magnolia`;
 }
 
 sub restoremysql {
-	print "restoring mysql data...\n";
-	`mysql -u root magnolia < $backupdir/magnolia.sql`;
+  print "restoring mysql data...\n";
+  `mysql -u root magnolia < $backupdir/magnolia.sql`;
 }
 
 # assumes `sass` is available on your system
 sub sass {
-	print "Compiling SASS files...\n";	
-	my $loadpaths = '--load-path '.$gatodir.'/resources';
-	
-	foreach my $file (@sassfiles) {
-		my $input = "$gatodir/$file";
-		my $output = $input;
-		$output =~ s/.scss$/.css/i;
-		`sass $loadpaths "$file" "$output"`;
-		`rm $output.map`;
-	}
+  print "Compiling SASS files...\n";  
+  my $loadpaths = '--load-path '.$gatodir.'/resources';
+  
+  foreach my $file (@sassfiles) {
+    my $input = "$gatodir/$file";
+    my $output = $input;
+    $output =~ s/.scss$/.css/i;
+    `sass $loadpaths "$file" "$output"`;
+    `rm $output.map`;
+  }
 }

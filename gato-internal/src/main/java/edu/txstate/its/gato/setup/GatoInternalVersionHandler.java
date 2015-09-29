@@ -31,8 +31,10 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
     List<Task> tasks = new ArrayList<Task>(super.getExtraInstallTasks(installContext));
     
     // move binary data from the website tree to the DAM
-    tasks.add(new MoveFileContentToDamMigrationTask("Website DAM Migration", "Move binary files from the website tree to the DAM.", RepositoryConstants.WEBSITE,
+    tasks.add(new MoveFileContentToDamMigrationTask("Website DAM Migration - Image", "Move binary files from the website tree to the DAM.", RepositoryConstants.WEBSITE,
       Arrays.asList("/tsus"), "", "image"));
+    tasks.add(new MoveFileContentToDamMigrationTask("Website DAM Migration - Rollover", "Move binary files from the website tree to the DAM.", RepositoryConstants.WEBSITE,
+      Arrays.asList("/tsus"), "", "rollover"));
 
     tasks.add(new Gato5MigrationTask("Gato Migrate to 5 task", "Generic update task for all the things we need to do to upgrade to Magnolia 5."));
      
