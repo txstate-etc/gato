@@ -38,7 +38,9 @@ areas:
   tsuslogos:
     type: list
     renderType: freemarker
-    templateScript: /gato-template/templates/areas/listitems.ftl
+    templateScript: /gato-template/templates/areas/flexitems.ftl
+    parameters:
+      maxitemwidth: 110px
     availableComponents:
       logo:
         id: gato-template:components/imagelink
