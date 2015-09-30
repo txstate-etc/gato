@@ -44,6 +44,10 @@ public abstract class GatoBaseUpgradeTask extends info.magnolia.module.delta.Abs
 	}
 	
 	protected void visitPages(Session ws, NodeVisitor visitor) throws RepositoryException, InvalidQueryException, ItemNotFoundException, AccessDeniedException {
-		NodeUtil.visit(ws.getRootNode(), visitor, new NodeTypePredicate("mgnl:page", true));
+		// apparently NodeUtil.visit visits the given node even if it does not match the predicate
+		// so we have to find the pages beneath the root node and call visit on each of them
+		for (Node p : NodeUtil.getNodes(ws.getRootNode(), new NodeTypePredicate("mgnl:page", true))) {
+			NodeUtil.visit(p, visitor, new NodeTypePredicate("mgnl:page", true));
+		}
 	}
 }

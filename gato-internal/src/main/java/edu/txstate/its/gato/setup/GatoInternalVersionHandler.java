@@ -36,8 +36,6 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
     tasks.add(new MoveFileContentToDamMigrationTask("Website DAM Migration - Rollover", "Move binary files from the website tree to the DAM.", RepositoryConstants.WEBSITE,
       Arrays.asList("/tsus"), "", "rollover"));
 
-    tasks.add(new Gato5MigrationTask("Gato Migrate to 5 task", "Generic update task for all the things we need to do to upgrade to Magnolia 5."));
-     
     // change component templateIds
     tasks.add(new FindAndChangeTemplateIdTask(RepositoryConstants.WEBSITE, 
       "gato:components/texasState/customCssBlock", "gato-component-cssjs:components/customcss"));
@@ -65,7 +63,10 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       "gato:pages/tsus-2012/tsus-2012-mail", "gato-template-tsus:pages/mail"));
     tasks.add(new FindAndChangeTemplateIdTask(RepositoryConstants.WEBSITE, 
       "gato:pages/tsus-2012/tsus-2012-standard", "gato-template-tsus:pages/standard"));
- 
+      
+    // additional tasks in our catch all migration to 5 task
+    tasks.add(new Gato5MigrationTask("Gato Migrate to 5 task", "Generic update task for all the things we need to do to upgrade to Magnolia 5."));
+     
     // remove a deprecated servlet filter that was disrupting loading of resources
     tasks.add(new RemoveNodeTask("Remove ClasspathSpool filter", "/server/filters/servlets/ClasspathSpoolServlet"));
     // remove the config node for our defunct gato module

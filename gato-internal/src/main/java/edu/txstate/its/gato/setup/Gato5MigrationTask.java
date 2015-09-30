@@ -6,6 +6,7 @@ import info.magnolia.module.InstallContext;
 import info.magnolia.jcr.util.NodeUtil;
 import info.magnolia.jcr.util.PropertyUtil;
 import info.magnolia.jcr.util.NodeVisitor;
+import info.magnolia.jcr.util.NodeTypes;
 
 import javax.jcr.Session;
 import javax.jcr.Node;
@@ -34,10 +35,14 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
   
   protected void doExecute(InstallContext ctx) throws RepositoryException, PathNotFoundException, TaskExecutionException, LoginException {
     Session hm=ctx.getJCRSession(RepositoryConstants.WEBSITE);
+    hm.save();
     
     visitPages(hm, new NodeVisitor() {
       public void visit(Node n) throws RepositoryException {
-
+        if (NodeTypes.Renderable.getTemplate(n).equals("gato-template-tsus:pages/home")) {
+          log.info(n.getPath());
+          if (n.hasNode("tsusmenulinks")) NodeUtil.renameNode(n.getNode("tsusmenulinks"), "menulinks");
+        }
       }
     });
   }  
