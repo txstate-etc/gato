@@ -10,6 +10,7 @@ import info.magnolia.jcr.util.NodeTypes;
 
 import javax.jcr.Session;
 import javax.jcr.Node;
+import javax.jcr.Property;
 
 import javax.jcr.RepositoryException;
 import javax.jcr.PathNotFoundException;
@@ -35,7 +36,6 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
   
   protected void doExecute(InstallContext ctx) throws RepositoryException, PathNotFoundException, TaskExecutionException, LoginException {
     Session hm=ctx.getJCRSession(RepositoryConstants.WEBSITE);
-    hm.save();
     
     visitPages(hm, new NodeVisitor() {
       public void visit(Node n) throws RepositoryException {
@@ -49,5 +49,34 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
         }
       }
     });
-  }  
+
+    visitByTemplate(hm, "gato:components/texasState/siteMap", this::updateSiteMapComponents);
+    visitByTemplate(hm, "gato:components/texasState/subPages", this::updateSubPagesComponents);
+  }
+
+  private void updateSiteMapComponents(Node n) throws RepositoryException {
+    Long startLevel = PropertyUtil.getLong(n, "startLevel", 1L);
+    Long endLevel = PropertyUtil.getLong(n, "endLevel", 999L);
+    if (startLevel < 1) { startLevel = 1L; }
+    if (endLevel < 1) { endLevel = 1L; }
+
+    Property startLevelProp = PropertyUtil.getPropertyOrNull(n, "startLevel");
+    Property endLevelProp = PropertyUtil.getPropertyOrNull(n, "endLevel");
+    if (startLevelProp != null) { startLevelProp.remove(); }
+    if (endLevelProp != null) { endLevelProp.remove(); }
+
+    n.setProperty("startPage", startLevel);
+    n.setProperty("depth", endLevel - startLevel + 1);
+  }
+
+  private void updateSubPagesComponents(Node n) throws RepositoryException {
+    Long levels = PropertyUtil.getLong(n, "levels", 1L);
+    if (levels < 1) { levels = 1L; }
+
+    Property levelsProp = PropertyUtil.getPropertyOrNull(n, "levels");
+    if (levelsProp != null) { levelsProp.remove(); }
+
+    n.setProperty("startPage", NodeUtil.getNearestAncestorOfType(n, "mgnl:page").getDepth());
+    n.setProperty("depth", levels);
+  }
 }
