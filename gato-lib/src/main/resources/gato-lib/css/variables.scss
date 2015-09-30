@@ -1,3 +1,7 @@
+@import "gato-lib/css/fontawesome/variables";
+$resource-root:       "../..";
+$fa-font-path:        $resource-root+"/gato-lib/css/fontawesome/fonts";
+
 /* NAMES FOR COLORS */
 $maroon:              #501214; // (106,86,56)
 $gold:                #6A5638; // (80, 18, 20)
