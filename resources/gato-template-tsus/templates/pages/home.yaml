@@ -19,6 +19,11 @@ areas:
     type: single
   socialmedia:
     type: list
+    renderType: freemarker
+    templateScript: /gato-template/templates/areas/listitems.ftl
+    availableComponents:
+      sociallink:
+        id: gato-template:components/sociallink
   slideshow:
     type: single
   tsushomeleft:

@@ -1,5 +1,5 @@
 templateScript: /gato-template/templates/components/imagelink.ftl
 renderType: freemarker
-title: Institution Logo
-description: Logo for one of the TSUS Institutions
+title: Link with Image
+description: Link with image and optional rollover image.
 dialog: gato-template:components/imagelink

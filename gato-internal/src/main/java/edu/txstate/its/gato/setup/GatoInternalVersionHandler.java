@@ -35,6 +35,8 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       Arrays.asList("/tsus"), "", "image"));
     tasks.add(new MoveFileContentToDamMigrationTask("Website DAM Migration - Rollover", "Move binary files from the website tree to the DAM.", RepositoryConstants.WEBSITE,
       Arrays.asList("/tsus"), "", "rollover"));
+    tasks.add(new MoveFileContentToDamMigrationTask("Website DAM Migration - Icon", "Move binary files from the website tree to the DAM.", RepositoryConstants.WEBSITE,
+      Arrays.asList("/tsus"), "", "icon"));
 
     // change component templateIds
     tasks.add(new FindAndChangeTemplateIdTask(RepositoryConstants.WEBSITE, 
@@ -53,6 +55,10 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       "gato:components/texasState/texasLink", "gato-template:components/link"));
     tasks.add(new FindAndChangeTemplateIdTask(RepositoryConstants.WEBSITE, 
       "gato:components/texasState/texas-misc-text", "gato-template:components/misctext"));
+    tasks.add(new FindAndChangeTemplateIdTask(RepositoryConstants.WEBSITE, 
+      "gato:components/texasState/social-media-link", "gato-template:components/sociallink"));
+    tasks.add(new FindAndChangeTemplateIdTask(RepositoryConstants.WEBSITE, 
+      "gato:components/texasState/image-link", "gato-template:components/imagelink"));
     tasks.add(new FindAndChangeTemplateIdTask(RepositoryConstants.WEBSITE, 
       "gato:components/tsus/tsus-institution-logo", "gato-template:components/imagelink"));
     

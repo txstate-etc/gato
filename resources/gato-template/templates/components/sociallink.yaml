@@ -1,0 +1,5 @@
+templateScript: /gato-template/templates/components/sociallink.ftl
+renderType: freemarker
+title: Social Media Link
+description: Link to a social media site.
+dialog: gato-template:components/sociallink

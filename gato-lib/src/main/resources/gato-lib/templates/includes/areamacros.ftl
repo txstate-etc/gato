@@ -1,0 +1,5 @@
+[#macro ifneedsnewbar components def]
+  [#if (def.maxComponents!100) > components?size && (def.type == "list" || (def.type="single" && components?size == 0)) && cmsfn.isEditMode()]
+    [#nested /]
+  [/#if]
+[/#macro]

@@ -1,0 +1,26 @@
+form:
+  tabs:
+    - name: tabMain
+      label: Social Link
+      fields:
+        - name: link
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Link
+          appName: pages
+          description: "Enter the link to your social media presence."
+          required: true
+        - name: title
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Title
+          description: "The title for the link.  If left empty, it will be automatically titled with the name of the service, e.g. \"Facebook\"."
+        - name: icon
+          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+          appName: assets
+          targetWorkspace: dam
+          label: Image
+          identifierToPathConverter:
+            class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
+          contentPreviewDefinition:
+            contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
+          description: "We have pre-loaded icons for many popular social media sites.  If you want something different, or no icon appears, you can choose an image from Assets. It should be at least 32x32."
+actions: !include /gato-template/dialogs/common/actions-block.yaml
