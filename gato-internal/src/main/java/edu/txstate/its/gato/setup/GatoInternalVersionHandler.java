@@ -38,37 +38,35 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
     tasks.add(new MoveFileContentToDamMigrationTask("Website DAM Migration - Icon", "Move binary files from the website tree to the DAM.", RepositoryConstants.WEBSITE,
       Arrays.asList("/tsus"), "", "icon"));
 
-    // change component templateIds
-    tasks.add(new FindAndChangeTemplateIdTask(RepositoryConstants.WEBSITE, 
-      "gato:components/texasState/customCssBlock", "gato-component-cssjs:components/customcss"));
-    tasks.add(new FindAndChangeTemplateIdTask(RepositoryConstants.WEBSITE, 
-      "gato:components/texasState/customjsBlock", "gato-component-cssjs:components/customjs"));
-    tasks.add(new FindAndChangeTemplateIdTask(RepositoryConstants.WEBSITE, 
-      "gato:components/texasState/department-directory", "gato-component-dept-directory:components/departmentdirectory"));
-    tasks.add(new FindAndChangeTemplateIdTask(RepositoryConstants.WEBSITE, 
-      "gato:components/texasState/texas-faq-hierarchy", "gato-component-faq:components/faq-hierarchy"));
-    tasks.add(new FindAndChangeTemplateIdTask(RepositoryConstants.WEBSITE, 
-      "gato:components/texasState/texasEditor", "gato-template:components/richeditor"));
-    tasks.add(new FindAndChangeTemplateIdTask(RepositoryConstants.WEBSITE, 
-      "gato:components/texasState/texasTextImage", "gato-template:components/textimage"));
-    tasks.add(new FindAndChangeTemplateIdTask(RepositoryConstants.WEBSITE, 
-      "gato:components/texasState/texasLink", "gato-template:components/link"));
-    tasks.add(new FindAndChangeTemplateIdTask(RepositoryConstants.WEBSITE, 
-      "gato:components/texasState/texas-misc-text", "gato-template:components/misctext"));
-    tasks.add(new FindAndChangeTemplateIdTask(RepositoryConstants.WEBSITE, 
-      "gato:components/texasState/social-media-link", "gato-template:components/sociallink"));
-    tasks.add(new FindAndChangeTemplateIdTask(RepositoryConstants.WEBSITE, 
-      "gato:components/texasState/image-link", "gato-template:components/imagelink"));
-    tasks.add(new FindAndChangeTemplateIdTask(RepositoryConstants.WEBSITE, 
-      "gato:components/tsus/tsus-institution-logo", "gato-template:components/imagelink"));
-    
-    // change page templateIds
-    tasks.add(new FindAndChangeTemplateIdTask(RepositoryConstants.WEBSITE, 
-      "gato:pages/tsus-2012/tsus-2012-home", "gato-template-tsus:pages/home"));
-    tasks.add(new FindAndChangeTemplateIdTask(RepositoryConstants.WEBSITE, 
-      "gato:pages/tsus-2012/tsus-2012-mail", "gato-template-tsus:pages/mail"));
-    tasks.add(new FindAndChangeTemplateIdTask(RepositoryConstants.WEBSITE, 
-      "gato:pages/tsus-2012/tsus-2012-standard", "gato-template-tsus:pages/standard"));
+    // list of templateIds that need to be changed {"oldtemplateid, newtemplateid"}
+    String[][] templateNamePairs = {
+      //component templateIds
+      {"gato:components/texasState/customCssBlock",         "gato-component-cssjs:components/customcss"},
+      {"gato:components/texasState/customjsBlock",          "gato-component-cssjs:components/customjs"},
+      {"gato:components/texasState/department-directory",   "gato-component-dept-directory:components/departmentdirectory"},
+      {"gato:components/texasState/texas-faq-hierarchy",    "gato-component-faq:components/faq-hierarchy"},
+      {"gato:components/texasState/siteMap",                "gato-component-sitemap:components/sitemap"},
+      {"gato:components/texasState/subPages",               "gato-component-sitemap:components/sitemap"},
+      {"gato:components/texasState/texasEditor",            "gato-template:components/richeditor"},
+      {"gato:components/texasState/texasTextImage",         "gato-template:components/textimage"},
+      {"gato:components/texasState/texasLink",              "gato-template:components/link"},
+      {"gato:components/texasState/texas-misc-text",        "gato-template:components/misctext"},
+      {"gato:components/texasState/social-media-link",      "gato-template:components/sociallink"},
+      {"gato:components/texasState/image-link",             "gato-template:components/imagelink"},
+      {"gato:components/texasState/texas-form-edit",        "gato-template:components/formedit"},
+      {"gato:components/texasState/texas-form-selection",   "gato-template:components/formselection"},
+      {"gato:components/texasState/texas-form-submit",      "gato-template:components/formsubmit"},
+      {"gato:components/tsus/tsus-institution-logo",        "gato-template:components/imagelink"},
+
+      // page templateIds
+      {"gato:pages/tsus-2012/tsus-2012-home",               "gato-template-tsus:pages/home"},
+      {"gato:pages/tsus-2012/tsus-2012-mail",               "gato-template-tsus:pages/mail"},
+      {"gato:pages/tsus-2012/tsus-2012-standard",           "gato-template-tsus:pages/standard"}
+    };
+
+    for (String[] namePair : templateNamePairs) {
+      tasks.add(new FindAndChangeTemplateIdTask(RepositoryConstants.WEBSITE, namePair[0], namePair[1]));
+    }
       
     // additional tasks in our catch all migration to 5 task
     tasks.add(new Gato5MigrationTask("Gato Migrate to 5 task", "Generic update task for all the things we need to do to upgrade to Magnolia 5."));
