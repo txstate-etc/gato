@@ -2992,6 +2992,8 @@ a.ddmenu-menubaritem:hover {
 
 .gato-sociallink .fa {
   color: black; }
+.gato-sociallink img, .gato-sociallink .fa {
+  width: 100%; }
 
 .gato-textimage {
   position: relative; }

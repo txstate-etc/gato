@@ -2992,6 +2992,8 @@ a.ddmenu-menubaritem:hover {
 
 .gato-sociallink .fa {
   color: black; }
+.gato-sociallink img, .gato-sociallink .fa {
+  width: 100%; }
 
 .gato-textimage {
   position: relative; }
@@ -3567,31 +3569,15 @@ ul.social-media-container {
   height: 100%;
   overflow-y: auto;
   max-width: 170px; }
-
-#social-media-container .social-media-link {
-  float: left;
-  padding: 0px 4px 0px 0px;
-  height: 30px; }
-
-#social-media-container .social-media-link a .social-media-icon {
-  width: 30px;
-  height: 30px;
-  position: relative;
-  top: 0px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px; }
-
-#social-media-container .social-media-link a .social-media-icon img {
-  width: 30px;
-  height: 30px; }
-
-/* admin rules */
-#social-media-container .mgnlEditorBar.component {
-  float: left !important; }
-
-.social-media-icons > .mgnlEditor + ul {
-  margin-top: 24px; }
+  .social-media-icons li {
+    float: left;
+    padding: 0px 4px 0px 0px;
+    height: 30px; }
+  .social-media-icons a.gato-sociallink {
+    display: block;
+    width: 30px;
+    height: 30px;
+    position: relative; }
 
 .ddmenu-bg {
   background-color: #8f847a; }

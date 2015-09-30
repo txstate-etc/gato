@@ -42,7 +42,7 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
         if (NodeTypes.Renderable.getTemplate(n).equals("gato-template-tsus:pages/home")) {
           if (n.hasNode("tsusmenulinks")) NodeUtil.renameNode(n.getNode("tsusmenulinks"), "menulinks");
           if (n.hasNode("socialmedia")) {
-          	for (Node sm : NodeUtil.getNodes(n)) {
+          	for (Node sm : NodeUtil.getNodes(n.getNode("socialmedia"))) {
           		PropertyUtil.setProperty(sm, "icononly", true);
           	}
           }

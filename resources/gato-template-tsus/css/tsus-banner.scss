@@ -111,32 +111,15 @@ ul.social-media-container {
 	height: 100%;
 	overflow-y: auto;
 	max-width: 170px;
-}
-
-#social-media-container .social-media-link {
-	float: left;
-	padding: 0px 4px 0px 0px;
-	height: 30px;
-}
-#social-media-container .social-media-link a .social-media-icon {
-	width: 30px;
-	height: 30px;
-	position: relative;
-	top: 0px;
-	bottom: 0px;
-	left: 0px;
-	right: 0px;
-}
-#social-media-container .social-media-link a .social-media-icon img {
-	width: 30px;
-	height: 30px;
-}
-
-/* admin rules */
-#social-media-container .mgnlEditorBar.component {
-	float: left !important;
-}
-
-.social-media-icons > .mgnlEditor + ul {
-	margin-top: 24px;
+	li {
+		float: left;
+		padding: 0px 4px 0px 0px;
+		height: 30px;
+	}
+	a.gato-sociallink {
+		display: block;
+		width: 30px;
+		height: 30px;
+		position: relative;
+	}
 }
