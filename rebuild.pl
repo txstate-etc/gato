@@ -126,6 +126,8 @@ sub cleanwebapp {
 }
 
 sub buildedge {
+  symlinkheavyresources();
+  sass();
   print "building full war...\n";
   chdir($gatodir);
   my $output = `mvn clean package`;
@@ -194,7 +196,7 @@ sub sass {
   foreach my $file (@sassfiles) {
     my $input = "$gatodir/$file";
     my $output = $input;
-    $output =~ s/.scss$/.css/i;
+    $output =~ s/.scss$/.compiled.css/i;
     `sass $loadpaths "$file" "$output"`;
     `rm $output.map`;
   }

@@ -4,9 +4,7 @@
   <head>
     [@templatejs scripts=[
     ]/]
-    [@templatecss files=[
-      'gato-template-blank/css/blank.css'
-    ]/]
+    <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-blank/css/blank.compiled.css"/>
     [@templatehead/]
   </head>
   

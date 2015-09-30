@@ -1,6 +1,8 @@
 .txst-gallery {
   list-style: none inside;
   font-size: 0px;
+  margin: 0px;
+  padding: 0px;
 }
 
 .txst-gallery-image a {
@@ -16,10 +18,14 @@
   padding: 0px;
 }
 
-.txst-gallery[min-width~="400px"], .txst-gallery[min-width~="400px"] .txst-gallery-image a {
-  padding: 6px;
+.txst-gallery[min-width~="400px"] {
+	&, .txst-gallery-image a {
+  	padding: 3px;
+  }
 }
 
-.txst-gallery[min-width~="800px"], .txst-gallery[min-width~="800px"] .txst-gallery-image a {
-  padding: 15px;
+.txst-gallery[min-width~="800px"] {
+	&, .txst-gallery-image a {
+  	padding: 5px;
+  }
 }

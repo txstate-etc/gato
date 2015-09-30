@@ -3,7 +3,7 @@
 <!DOCTYPE HTML>
 	<head>
 		[@templatejs scripts=[]/]
-    <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-tsus/css/tsus-home.css"/>
+    <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-tsus/css/tsus-home.compiled.css"/>
 		[@templatehead publisher="Texas State University System"/]
 	</head>
 	

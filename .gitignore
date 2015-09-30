@@ -30,9 +30,10 @@ tomcat
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
-# sass cache files
+# sass cache and result files
 *.sass-cache
 *.css.map
+*.compiled.css
 
 # ignore non-directories (and symlinks) under resources/
 resources/*
