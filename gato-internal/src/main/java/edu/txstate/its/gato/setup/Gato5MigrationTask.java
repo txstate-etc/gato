@@ -56,6 +56,7 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
     visitByTemplate(hm, "gato:components/texasState/siteMap", this::updateSiteMapComponent);
     visitByTemplate(hm, "gato:components/texasState/subPages", this::updateSubPagesComponent);
     visitByTemplate(hm, "gato:components/texasState/texas-form-selection", this::updateSelectionComponent);
+    visitByTemplate(hm, "gato:pages/main-2009/khan-mail", this::renameMailArea);
   }
 
   private void updateSiteMapComponent(Node n) throws RepositoryException {
@@ -90,6 +91,12 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
     valuesProp.remove();
 
     n.setProperty("options", convertToMultiValue(values, "\\R"));
+  }
+
+  private void renameMailArea(Node n) throws RepositoryException {
+    if (n.hasNode("contentParagraph")) {
+      NodeUtil.renameNode(n.getNode("contentParagraph"), "mail");
+    }
   }
 
   /**
