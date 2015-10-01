@@ -20,6 +20,8 @@ import info.magnolia.module.delta.TaskExecutionException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
+
 /**
  *
  * Task to upgrade Gato from Magnolia 4.5 to Magnolia 5.4.
@@ -51,11 +53,12 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
       }
     });
 
-    visitByTemplate(hm, "gato:components/texasState/siteMap", this::updateSiteMapComponents);
-    visitByTemplate(hm, "gato:components/texasState/subPages", this::updateSubPagesComponents);
+    visitByTemplate(hm, "gato:components/texasState/siteMap", this::updateSiteMapComponent);
+    visitByTemplate(hm, "gato:components/texasState/subPages", this::updateSubPagesComponent);
+    visitByTemplate(hm, "gato:components/texasState/texas-form-selection", this::updateSelectionComponent);
   }
 
-  private void updateSiteMapComponents(Node n) throws RepositoryException {
+  private void updateSiteMapComponent(Node n) throws RepositoryException {
     Long startLevel = PropertyUtil.getLong(n, "startLevel", 1L);
     Long endLevel = PropertyUtil.getLong(n, "endLevel", 999L);
     if (startLevel < 1) { startLevel = 1L; }
@@ -70,7 +73,7 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
     n.setProperty("depth", endLevel - startLevel + 1);
   }
 
-  private void updateSubPagesComponents(Node n) throws RepositoryException {
+  private void updateSubPagesComponent(Node n) throws RepositoryException {
     Long levels = PropertyUtil.getLong(n, "levels", 1L);
     if (levels < 1) { levels = 1L; }
 
@@ -79,5 +82,30 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
 
     n.setProperty("startPage", NodeUtil.getNearestAncestorOfType(n, "mgnl:page").getDepth());
     n.setProperty("depth", levels);
+  }
+
+  private void updateSelectionComponent(Node n) throws RepositoryException {
+    String values = PropertyUtil.getString(n, "values", "");
+    Property valuesProp = PropertyUtil.getPropertyOrNull(n, "values");
+    valuesProp.remove();
+
+    n.setProperty("options", convertToMultiValue(values, "\\R"));
+  }
+
+  /**
+   * Converts a list represented as a string with a separator to a String array
+   * suitable for use in a multi-value JCR property. Empty strings and strings 
+   * that only contain whitespace will be removed from the list.
+   */
+  private String[] convertToMultiValue(String list, String separator) {
+    String[] values = list.split(separator);
+
+    ArrayList<String> newValues = new ArrayList<String>();
+    for (String value : values) {
+      value = value.trim();
+      if (!"".equals(value)) { newValues.add(value); }
+    }
+
+    return newValues.toArray(new String[0]);
   }
 }
