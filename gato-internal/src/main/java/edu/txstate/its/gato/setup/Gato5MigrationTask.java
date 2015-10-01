@@ -56,7 +56,7 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
     visitByTemplate(hm, "gato:components/texasState/siteMap", this::updateSiteMapComponent);
     visitByTemplate(hm, "gato:components/texasState/subPages", this::updateSubPagesComponent);
     visitByTemplate(hm, "gato:components/texasState/texas-form-selection", this::updateSelectionComponent);
-    visitByTemplate(hm, "gato:pages/main-2009/khan-mail", this::renameMailArea);
+    visitByTemplate(hm, "gato:pages/main-2009/khan-mail", this::updateMailArea);
   }
 
   private void updateSiteMapComponent(Node n) throws RepositoryException {
@@ -65,10 +65,8 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
     if (startLevel < 1) { startLevel = 1L; }
     if (endLevel < 1) { endLevel = 1L; }
 
-    Property startLevelProp = PropertyUtil.getPropertyOrNull(n, "startLevel");
-    Property endLevelProp = PropertyUtil.getPropertyOrNull(n, "endLevel");
-    if (startLevelProp != null) { startLevelProp.remove(); }
-    if (endLevelProp != null) { endLevelProp.remove(); }
+    if (n.hasProperty("startLevel")) { n.getProperty("startLevel").remove(); }
+    if (n.hasProperty("endLevel")) { n.getProperty("endLevel").remove(); }
 
     n.setProperty("startPage", startLevel);
     n.setProperty("depth", endLevel - startLevel + 1);
@@ -78,8 +76,7 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
     Long levels = PropertyUtil.getLong(n, "levels", 1L);
     if (levels < 1) { levels = 1L; }
 
-    Property levelsProp = PropertyUtil.getPropertyOrNull(n, "levels");
-    if (levelsProp != null) { levelsProp.remove(); }
+    if (n.hasProperty("levels")) { n.getProperty("levels").remove(); }
 
     n.setProperty("startPage", NodeUtil.getNearestAncestorOfType(n, "mgnl:page").getDepth());
     n.setProperty("depth", levels);
@@ -87,15 +84,36 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
 
   private void updateSelectionComponent(Node n) throws RepositoryException {
     String values = PropertyUtil.getString(n, "values", "");
-    Property valuesProp = PropertyUtil.getPropertyOrNull(n, "values");
-    valuesProp.remove();
+    if (n.hasProperty("values")) { n.getProperty("values").remove(); }
 
     n.setProperty("options", convertToMultiValue(values, "\\R"));
   }
 
-  private void renameMailArea(Node n) throws RepositoryException {
-    if (n.hasNode("contentParagraph")) {
-      NodeUtil.renameNode(n.getNode("contentParagraph"), "mail");
+  private void updateMailArea(Node n) throws RepositoryException {
+    if (!n.hasNode("contentParagraph")) { return; }
+
+    Node mail = n.getNode("contentParagraph");
+
+    // Move properties on the template to the area since they're now configured with an area dialog
+    moveProperty("copySender", n, mail);
+    moveProperty("subject", n, mail);
+    moveProperty("redirect", n, mail);
+
+    if (n.hasProperty("to")) {
+      Property to = n.getProperty("to");
+      String addresses = to.getString();
+      mail.setProperty("to", convertToMultiValue(addresses, "\\R"));
+      to.remove();
+    }
+
+    NodeUtil.renameNode(mail, "mail");
+  }
+
+  private void moveProperty(String propertyName, Node from, Node to) throws RepositoryException {
+    if (from.hasProperty(propertyName)) {
+      Property fromProp = from.getProperty(propertyName);
+      to.setProperty(propertyName, fromProp.getValue());
+      fromProp.remove();
     }
   }
 
