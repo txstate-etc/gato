@@ -9,6 +9,7 @@
 		'gato-template/js/outgoing-clicks.js',
 		'gato-template/js/post-load.js',
 		'gato-template/js/mailForm.js',
+		'gato-template/js/easter-egg.js',
 		'gato-lib/js/photoswipe/photoswipe.js',
 		'gato-lib/js/photoswipe/photoswipe-ui-default.js',
 		'gato-lib/js/photoswipe-util.js',
@@ -37,6 +38,7 @@
 	[@customJS page ancestorstopdown /]
 	[@title publisher /]
 	[@googleanalytics /]
+	[@javascriptvariables /]
 	[@cms.page /]
 [/#macro]
 
@@ -46,6 +48,13 @@
 		[#if !isHomePage]: [@pagetitle homepage /][/#if]
 		[#if rootorg == "Texas State University"]: ${rootorg}[/#if]
 	</title>
+[/#macro]
+
+[#macro javascriptvariables]
+	<script type="text/javascript">
+		var serverDateTime = new Date(${.now?long});
+		var magnolia_assets_url = "${gf.resourcePath()}";
+	</script>
 [/#macro]
 
 [#macro meta publisher="Texas State University"]
