@@ -11,6 +11,7 @@ import info.magnolia.jcr.util.NodeTypes;
 import javax.jcr.Session;
 import javax.jcr.Node;
 import javax.jcr.Property;
+import javax.jcr.PropertyType;
 
 import javax.jcr.RepositoryException;
 import javax.jcr.PathNotFoundException;
@@ -53,6 +54,7 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
       }
     });
 
+    //convert collegeLink to parentOrganization
     visitPages(hm, new NodeVisitor() {
       public void visit(Node n) throws RepositoryException {
         String parentName = "", parentUrl = "";
@@ -78,6 +80,25 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
           //remove the collegeLink node
           collegeLinkNode.remove();
         }
+      }
+    });
+
+    //make sure all hideInNav types are boolean, not string
+    visitPages(hm, new NodeVisitor() {
+      public void visit(Node n) throws RepositoryException {
+        Property propHideInNav = PropertyUtil.getPropertyOrNull(n, "hideInNav");
+        //if the page has a hideInNav property
+        if(propHideInNav != null){
+          //check if the property has type String
+          if(propHideInNav.getType() == PropertyType.STRING){
+            boolean hideInNav = Boolean.parseBoolean(propHideInNav.getString());
+            //remove the String property
+            propHideInNav.remove();
+            //add the property back with a boolean
+            PropertyUtil.setProperty(n, "hideInNav", hideInNav);
+          }
+        }
+
       }
     });
 
