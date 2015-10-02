@@ -1,0 +1,13 @@
+templateScript: /gato-template-tsus/templates/components/slideshow.ftl
+renderType: freemarker
+title: Slideshow
+description: Slideshow for the TSUS home pages.
+dialog: gato-template-tsus:components/slideshow
+areas:
+  slides:
+    type: list
+    renderType: freemarker
+    templateScript: /gato-template-tsus/templates/areas/slideshow.ftl
+    availableComponents:
+      slide:
+        id: gato-template-tsus:components/slide

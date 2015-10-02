@@ -298,6 +298,10 @@ public final class GatoUtils {
     return DigestUtils.md5Hex(str);
   }
   
+  public String uniqueId(ContentMap c) throws Exception {
+    return md5(c.getJCRNode().getIdentifier());
+  }
+  
 /* TODO update this to send rich editor images to image handler   
  * and maybe figure out what else it's trying to do 
   public static final Pattern IMAGE_TAG_PATTERN = Pattern.compile(

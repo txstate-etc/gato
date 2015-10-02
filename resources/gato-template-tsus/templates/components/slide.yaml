@@ -1,0 +1,5 @@
+templateScript: /gato-template-tsus/templates/components/slide.ftl
+renderType: freemarker
+title: Slide
+description: Slide for the TSUS slideshow.
+dialog: gato-template-tsus:components/slide

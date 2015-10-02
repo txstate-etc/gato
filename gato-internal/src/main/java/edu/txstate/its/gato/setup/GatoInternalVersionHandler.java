@@ -37,6 +37,8 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       Arrays.asList("/tsus"), "", "rollover"));
     tasks.add(new MoveFileContentToDamMigrationTask("Website DAM Migration - Icon", "Move binary files from the website tree to the DAM.", RepositoryConstants.WEBSITE,
       Arrays.asList("/tsus"), "", "icon"));
+    tasks.add(new MoveFileContentToDamMigrationTask("Website DAM Migration - BGImage", "Move binary files from the website tree to the DAM.", RepositoryConstants.WEBSITE,
+      Arrays.asList("/tsus"), "", "bgimage"));
 
     // list of templateIds that need to be changed {"oldtemplateid, newtemplateid"}
     String[][] templateNamePairs = {
@@ -56,6 +58,8 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       {"gato:components/texasState/texas-form-edit",        "gato-template:components/formedit"},
       {"gato:components/texasState/texas-form-selection",   "gato-template:components/formselection"},
       {"gato:components/texasState/texas-form-submit",      "gato-template:components/formsubmit"},
+      {"gato:components/texasState/texas-slideshow",        "gato-template-tsus:components/slideshow"},
+      {"gato:components/texasState/texas-slideshow-slide",  "gato-template-tsus:components/slide"},
       {"gato:components/tsus/tsus-institution-logo",        "gato-template:components/imagelink"},
 
       // page templateIds
