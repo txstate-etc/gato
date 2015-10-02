@@ -53,6 +53,34 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
       }
     });
 
+    visitPages(hm, new NodeVisitor() {
+      public void visit(Node n) throws RepositoryException {
+        String parentName = "", parentUrl = "";
+        Node componentNode;
+        //if there is a collegeLink node
+        if(n.hasNode("collegeLink")){
+          Node collegeLinkNode = n.getNode("collegeLink");
+          //get the parent name and url
+          if(collegeLinkNode.hasProperty("name")) parentName = collegeLinkNode.getProperty("name").getString();
+          if(collegeLinkNode.hasProperty("url")) parentUrl = collegeLinkNode.getProperty("url").getString();
+          //create a parentOrganization area node
+          Node parentOrgNode = n.addNode("parentOrganization", "mgnl:area");
+          //don't want to add a component if it has no content
+          if(parentName.length() + parentUrl.length() > 0){
+            //add a component node to the parentOrganization
+            componentNode = parentOrgNode.addNode("0", "mgnl:component");
+            //set the template for the component node
+            NodeTypes.Renderable.set(componentNode, "gato-template-txstate2015:components/parent-organization");
+            //add parent_name and url properties if necessary
+            if(collegeLinkNode.hasProperty("name")) PropertyUtil.setProperty(componentNode, "parent_name", parentName);
+            if(collegeLinkNode.hasProperty("url")) PropertyUtil.setProperty(componentNode, "url", parentUrl);
+          }
+          //remove the collegeLink node
+          collegeLinkNode.remove();
+        }
+      }
+    });
+
     visitByTemplate(hm, "gato:components/texasState/siteMap", this::updateSiteMapComponent);
     visitByTemplate(hm, "gato:components/texasState/subPages", this::updateSubPagesComponent);
     visitByTemplate(hm, "gato:components/texasState/texas-form-selection", this::updateSelectionComponent);
