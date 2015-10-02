@@ -17,14 +17,14 @@
     			[/#list]
     		[/#if]
     		<li>
-    			<a href="${cmsfn.link(childPage)}">${childPage.title}</a>
+    			<a href="${cmsfn.link(childPage)}">${gf.nodeTitle(childPage)}</a>
     			[#-- if the child page has its own children, build secondary menu items for them --]
     			[#if hasChildren]
 	    			<ul class="${mobileClass}secondary_nav">
 	    				[#list cmsfn.children(childPage, 'mgnl:page') as subpage]
 	    					[#assign hideSubPage = subpage.hideInNav!false]
 		    				[#if !hideSubPage]
-		    					<li><a href="${cmsfn.link(subpage)}">${subpage.title}</a></li>
+		    					<li><a href="${cmsfn.link(subpage)}">${gf.nodeTitle(subpage)}</a></li>
 		    				[/#if]
 	    				[/#list]
 					</ul>
