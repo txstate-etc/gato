@@ -45,6 +45,9 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
         if (NodeTypes.Renderable.getTemplate(n).equals("gato-template-tsus:pages/home")) {
           if (n.hasNode("tsusmenulinks")) NodeUtil.renameNode(n.getNode("tsusmenulinks"), "menulinks");
           if (n.hasNode("tsusnewsletter")) NodeUtil.renameNode(n.getNode("tsusnewsletter"), "newsletter");
+          if (n.hasNode("tsusfooterlinks1")) NodeUtil.renameNode(n.getNode("tsusfooterlinks1"), "footerlinks1");
+          if (n.hasNode("tsusfooterlinks2")) NodeUtil.renameNode(n.getNode("tsusfooterlinks2"), "footerlinks2");
+          if (n.hasNode("footer")) convertComponentToArea(n.getNode("footer"));
           if (n.hasNode("socialmedia")) {
             for (Node sm : NodeUtil.getNodes(n.getNode("socialmedia"))) {
               PropertyUtil.setProperty(sm, "icononly", true);
@@ -173,6 +176,16 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
       to.setProperty(propertyName, fromProp.getValue());
       fromProp.remove();
     }
+  }
+
+  private void convertComponentToArea(Node n) throws RepositoryException {
+    convertComponentToArea(n, n.getName());
+  }
+
+  private void convertComponentToArea(Node n, String name) throws RepositoryException {
+    Node area = n.getParent().addNode("tempconversionnode", "mgnl:area");
+    NodeUtil.moveNode(n, area);
+    NodeUtil.renameNode(area, name);
   }
 
   /**

@@ -236,30 +236,26 @@ h3 { color: #383640 }
 
 .tsus-footer-bg {
 	background: url(../images/footer-bg.png) repeat-x bottom left;
+  .tsus-footer {
+    position: relative;
+    width: 603px;
+    margin: 0px auto;
+    clear: both;
+    font-size: 11px;
+    line-height: 20px;
+    color: #CCCCCC;
+    background: #585560 url(../images/footer-bottom.jpg) no-repeat top left;
+    padding: 24px 0px 24px 355px;
+    height: 84px;
+    a {
+      color: #EEEEEE;
+      text-decoration: underline;
+      &:visited { color: #EEEEEE; }
+      &:hover { text-decoration: none; }
+    }
+  }
 }
 
-.txst-footer {
-	position: relative;
-	width: 603px;
-	margin: 0px auto;
-	clear: both;
-	font-size: 11px;
-	line-height: 20px;
-	color: #CCCCCC;
-	background: #585560 url(../images/footer-bottom.jpg) no-repeat top left;
-	padding: 24px 0px 24px 355px;
-	height: 84px;
-}
-.txst-footer a {
-	color: #EEEEEE;
-	text-decoration: underline;
-}
-.txst-footer a:visited {
-	color: #EEEEEE;
-}
-.txst-footer a:hover {
-	text-decoration: none;
-}
 
 /* alert notices for editing mode */
 .txst-khan-alert {
@@ -295,7 +291,7 @@ h3 { color: #383640 }
 .txst-contentarea table.data {
 	border-collapse: collapse;
 }
-	
+
 .txst-contentarea table.data th {
 	background-color: #383640;
 	color: #FFFFFF;
