@@ -101,13 +101,22 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
 
       }
     });
-
+		
+		visitByTemplate(hm, "gato:components/texasState/customCssBlock", this::convertInheritToBool);
+		visitByTemplate(hm, "gato:components/texasState/customjsBlock", this::convertInheritToBool);
     visitByTemplate(hm, "gato:components/texasState/siteMap", this::updateSiteMapComponent);
     visitByTemplate(hm, "gato:components/texasState/subPages", this::updateSubPagesComponent);
     visitByTemplate(hm, "gato:components/texasState/texas-form-selection", this::updateSelectionComponent);
     visitByTemplate(hm, "gato:pages/main-2009/khan-mail", this::updateMailArea);
   }
 
+  private void convertInheritToBool(Node n) throws RepositoryException {
+  	if (n.hasProperty("inherit")) {
+  		String val = PropertyUtil.getString(n, "inherit", "0");
+  		PropertyUtil.setProperty(n, "inherit", "1".equals(val) || "true".equals(val));
+  	}
+  }
+  
   private void updateSiteMapComponent(Node n) throws RepositoryException {
     Long startLevel = PropertyUtil.getLong(n, "startLevel", 1L);
     Long endLevel = PropertyUtil.getLong(n, "endLevel", 999L);

@@ -1,0 +1,13 @@
+.mgnlEditor {
+  &.mgnlEditorBar {
+    &.area {
+      display: none;
+    }
+    &.component {
+      display: block !important;
+    }
+  } 
+  &.mgnlPlaceholder {
+    display: block !important;
+  }
+}

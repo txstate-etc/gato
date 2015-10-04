@@ -1,6 +1,6 @@
 [#macro pageCustomJS page isAncestor]
-	[#if page.customJS?has_content]
-		[#list cmsfn.children(page.customJS) as entry]
+	[#if page.customjs?has_content]
+		[#list cmsfn.children(page.customjs) as entry]
 			[#local code = cmsfn.decode(entry).customJS]
 			[#if entry.inherit || !isAncestor]
 				[#if entry.framework == "prototype"]
@@ -28,8 +28,8 @@
 [/#macro]
 
 [#macro pageCustomCSS page isAncestor]
-	[#if page.customCSS?has_content]
-		[#list cmsfn.children(page.customCSS) as entry]
+	[#if page.customcss?has_content]
+		[#list cmsfn.children(page.customcss) as entry]
 			[#if entry.inherit || !isAncestor]
 				${cmsfn.decode(entry).customCSS}
 			[/#if]

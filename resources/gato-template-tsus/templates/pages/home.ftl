@@ -2,7 +2,7 @@
 
 <!DOCTYPE HTML>
 	<head>
-		[@templatejs scripts=[]/]
+		[@templatejs scripts=['gato-template-tsus/js/tsus-slideshow.js']/]
     <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-tsus/css/tsus-home.compiled.css"/>
 		[@templatehead publisher="Texas State University System"/]
 	</head>

@@ -1,0 +1,106 @@
+.slideshow-bg {
+  background: url(#{$resource-root}/gato-template-tsus/images/bluepattern.jpg);
+}
+.gato-slideshow {
+  position: relative;
+  margin: 0px auto;
+  width: 958px;
+  height: 342px;
+  .slides-admin {
+    width: 300px;
+    height: 0px;
+    overflow: visible;
+    z-index: 3;
+  }
+  .pages {
+    position: absolute;
+    right: auto;
+    left: 55%;
+    bottom: 20px;
+    margin: 0px;
+    padding: 0px;
+    z-index: 2;
+    li {
+      position: relative;
+      float: left;
+      padding: 0px 3px;
+      a {
+        display: block;
+        background-color: #666666;
+        color: #FFFFFF;
+        font-weight: bold;
+        font-size: 14px;
+        border-radius: 4px;
+        padding: 5px 8px;
+        box-shadow: inset 0px 0px 5px #333333;
+        text-decoration: none;
+      }
+      &.active a {
+        background-color: #b82c26;
+      }
+      &.prev a {
+        background: url(#{$resource-root}/gato-template-tsus/images/leftArrow.gif) no-repeat center center;
+      }
+      &.next a {
+        background: url(#{$resource-root}/gato-template-tsus/images/rightArrow.gif) no-repeat center center;
+      }
+    }
+  }
+  .tooltip {
+    display: none;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 3;
+    padding-bottom: 5px;
+    background: url(#{$resource-root}/gato-template-tsus/images/slideshow-tip.png) no-repeat 8px bottom;
+    span {
+      display: block;
+      background-color: #666666;
+      color: #FFFFFF;
+      padding: 5px;
+      border-radius: 3px;
+      font-size: 13px;
+    }
+  }
+  .slides {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: none;
+      &.active {
+        display: block;
+      }
+      .slidecontent {
+        position: absolute;
+        top: 121px;
+        left: 510px;
+        width: 408px;
+        height: 170px;
+        font-size: 13px;
+        line-height: 20px;
+        overflow: hidden;
+        .caption {
+          font-size: 10px;
+          font-style: italic;
+          display: block;
+          padding-top: 10px;
+        }
+        .slidelink {
+          display: block;
+          padding-top: 10px;  
+        }
+      }
+    }
+  }
+}
+
+// h4 text is burned into images for tsus but we want screen
+// readers to see it
+.slidecontent h4 {
+  @include sr-only();
+}
