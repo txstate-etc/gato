@@ -32,23 +32,23 @@ import java.util.ArrayList;
  */
 public class Gato5MigrationTask extends GatoBaseUpgradeTask {
   private static final Logger log = LoggerFactory.getLogger(Gato5MigrationTask.class);
-  
+
   public Gato5MigrationTask(String name, String description) {
     super(name, description);
   }
-  
+
   protected void doExecute(InstallContext ctx) throws RepositoryException, PathNotFoundException, TaskExecutionException, LoginException {
     Session hm=ctx.getJCRSession(RepositoryConstants.WEBSITE);
-    
+
     visitPages(hm, new NodeVisitor() {
       public void visit(Node n) throws RepositoryException {
         if (NodeTypes.Renderable.getTemplate(n).equals("gato-template-tsus:pages/home")) {
           if (n.hasNode("tsusmenulinks")) NodeUtil.renameNode(n.getNode("tsusmenulinks"), "menulinks");
           if (n.hasNode("tsusnewsletter")) NodeUtil.renameNode(n.getNode("tsusnewsletter"), "newsletter");
           if (n.hasNode("socialmedia")) {
-          	for (Node sm : NodeUtil.getNodes(n.getNode("socialmedia"))) {
-          		PropertyUtil.setProperty(sm, "icononly", true);
-          	}
+            for (Node sm : NodeUtil.getNodes(n.getNode("socialmedia"))) {
+              PropertyUtil.setProperty(sm, "icononly", true);
+            }
           }
         }
       }
@@ -101,9 +101,9 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
 
       }
     });
-		
-		visitByTemplate(hm, "gato:components/texasState/customCssBlock", this::convertInheritToBool);
-		visitByTemplate(hm, "gato:components/texasState/customjsBlock", this::convertInheritToBool);
+
+    visitByTemplate(hm, "gato:components/texasState/customCssBlock", this::convertInheritToBool);
+    visitByTemplate(hm, "gato:components/texasState/customjsBlock", this::convertInheritToBool);
     visitByTemplate(hm, "gato:components/texasState/siteMap", this::updateSiteMapComponent);
     visitByTemplate(hm, "gato:components/texasState/subPages", this::updateSubPagesComponent);
     visitByTemplate(hm, "gato:components/texasState/texas-form-selection", this::updateSelectionComponent);
@@ -111,12 +111,12 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
   }
 
   private void convertInheritToBool(Node n) throws RepositoryException {
-  	if (n.hasProperty("inherit")) {
-  		String val = PropertyUtil.getString(n, "inherit", "0");
-  		PropertyUtil.setProperty(n, "inherit", "1".equals(val) || "true".equals(val));
-  	}
+    if (n.hasProperty("inherit")) {
+      String val = PropertyUtil.getString(n, "inherit", "0");
+      PropertyUtil.setProperty(n, "inherit", "1".equals(val) || "true".equals(val));
+    }
   }
-  
+
   private void updateSiteMapComponent(Node n) throws RepositoryException {
     Long startLevel = PropertyUtil.getLong(n, "startLevel", 1L);
     Long endLevel = PropertyUtil.getLong(n, "endLevel", 999L);
@@ -177,7 +177,7 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
 
   /**
    * Converts a list represented as a string with a separator to a String array
-   * suitable for use in a multi-value JCR property. Empty strings and strings 
+   * suitable for use in a multi-value JCR property. Empty strings and strings
    * that only contain whitespace will be removed from the list.
    */
   private String[] convertToMultiValue(String list, String separator) {
