@@ -66,6 +66,7 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       {"gato:components/texasState/social-media-link",      "gato-template:components/sociallink"},
       {"gato:components/texasState/image-link",             "gato-template:components/imagelink"},
       {"gato:components/texasState/texas-form-edit",        "gato-template:components/formedit"},
+      {"gato:components/texasState/texas-form-file",        "gato-template:components/formfile"},
       {"gato:components/texasState/texas-form-selection",   "gato-template:components/formselection"},
       {"gato:components/texasState/texas-form-submit",      "gato-template:components/formsubmit"},
       {"gato:components/texasState/texas-slideshow",        "gato-template-tsus:components/slideshow"},
@@ -77,7 +78,8 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       {"gato:pages/tsus-2012/tsus-2012-home",               "gato-template-tsus:pages/home"},
       {"gato:pages/tsus-2012/tsus-2012-mail",               "gato-template-tsus:pages/mail"},
       {"gato:pages/tsus-2012/tsus-2012-standard",           "gato-template-tsus:pages/standard"},
-      {"gato:pages/main-2009/khan-standard",               	"gato-template-txstate2015:pages/standard-template"}
+      {"gato:pages/main-2009/khan-standard",                "gato-template-txstate2015:pages/standard-template"},
+      {"gato:pages/main-2009/khan-mail",                    "gato-template-txstate2015:pages/mail-template"}
     };
 
     for (String[] namePair : templateNamePairs) {

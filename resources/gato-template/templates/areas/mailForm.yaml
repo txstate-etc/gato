@@ -10,3 +10,5 @@ availableComponents:
     id: gato-template:components/formselection
   formsubmit:
     id: gato-template:components/formsubmit
+  formfile:
+    id: gato-template:components/formfile

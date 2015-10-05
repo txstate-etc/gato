@@ -110,6 +110,7 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
     visitByTemplate(hm, "gato:components/texasState/imageGallery", this::updateImageGallery);
     visitByTemplate(hm, "gato:components/texasState/siteMap", this::updateSiteMapComponent);
     visitByTemplate(hm, "gato:components/texasState/subPages", this::updateSubPagesComponent);
+    visitByTemplate(hm, "gato:components/texasState/texas-form-edit", this::updateFormEditComponent);
     visitByTemplate(hm, "gato:components/texasState/texas-form-selection", this::updateSelectionComponent);
     visitByTemplate(hm, "gato:pages/main-2009/khan-mail", this::updateMailArea);
   }
@@ -153,6 +154,25 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
     if (n.hasProperty("values")) { n.getProperty("values").remove(); }
 
     n.setProperty("options", convertToMultiValue(values, "\\R"));
+  }
+
+  private void updateFormEditComponent(Node n) throws RepositoryException {
+    if (n.hasProperty("rows")) { 
+      Property rowsProp = n.getProperty("rows");
+      long rows = rowsProp.getLong();
+
+      String lines = "single";
+      if (rows == 4) { lines = "small"; }
+      if (rows == 10) { lines = "large"; }
+
+      n.setProperty("lines", lines);
+      rowsProp.remove();
+    }
+
+
+    if (n.hasProperty("valid_type")) { PropertyUtil.renameProperty(n.getProperty("valid_type"), "dataType"); }
+
+
   }
 
   private void updateMailArea(Node n) throws RepositoryException {

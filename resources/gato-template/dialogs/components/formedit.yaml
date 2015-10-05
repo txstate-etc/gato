@@ -92,7 +92,7 @@ form:
             - name: large
               label: Large Text Area
               value: large
-        - name: fieldType
+        - name: senderInfo
           class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
           label: Field Type
           multiselect: false

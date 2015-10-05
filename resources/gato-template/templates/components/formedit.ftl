@@ -4,13 +4,13 @@
 [#assign formHasSenderName = ctx.request.getAttribute("formHasSenderName")!false]
 [#assign inputType = "text"]
 
-[#if (content.fieldType!"") == "email" && !formHasSenderEmail]
+[#if (content.senderInfo!"") == "email" && !formHasSenderEmail]
   [#assign title = "SenderEmail"]
   [#assign inputType = "email"]
   ${ctx.request.setAttribute("formHasSenderEmail", true)}
 [/#if]
 
-[#if (content.fieldType!"") == "name" && !formHasSenderName]
+[#if (content.senderInfo!"") == "name" && !formHasSenderName]
   [#assign title = "SenderName"]
   ${ctx.request.setAttribute("formHasSenderName", true)}
 [/#if]

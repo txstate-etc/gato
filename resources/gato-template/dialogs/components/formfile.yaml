@@ -1,0 +1,20 @@
+form:
+  tabs:
+    - name: tabFile
+      label: File Field
+      fields:
+        - name: title
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Field Title
+        - name: mandatory
+          class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+          label: Mandatory
+          buttonLabel: Field is mandatory
+        - name: extension
+          class: info.magnolia.ui.form.field.definition.MultiValueFieldDefinition
+          label: Allowed File Types
+          buttonSelectAddLabel: Add File Type
+          description: To limit uploads to files of a particular type, enter the file type extensions you'd like to permit. (E.g. "DOC, PDF, TXT".)
+          field:
+            name: textField
+            class: info.magnolia.ui.form.field.definition.TextFieldDefinition
