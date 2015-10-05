@@ -40,6 +40,8 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       Arrays.asList("/tsus", "/testing-site-destroyer"), "", "icon"));
     tasks.add(new MoveFileContentToDamMigrationTask("Website DAM Migration - BGImage", "Move binary files from the website tree to the DAM.", RepositoryConstants.WEBSITE,
       Arrays.asList("/tsus"), "", "bgimage"));
+    tasks.add(new MoveFileContentToDamMigrationTask("Website DAM Migration- Document", "Move binary files from the website tree to the DAM.", RepositoryConstants.WEBSITE,
+      Arrays.asList("/testing-site-destroyer"), "", "document"));
 
     //migrate testing-site documents from dms to dam
     tasks.add(new MoveDataWorkspaceToDamMigrationTask("Migrate DMS content to DAM", "Migrate DMS to DAM", Arrays.asList("/testing-site"), null, "dms" ));
