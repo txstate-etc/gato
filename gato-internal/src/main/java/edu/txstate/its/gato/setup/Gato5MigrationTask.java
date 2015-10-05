@@ -107,6 +107,7 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
 
     visitByTemplate(hm, "gato:components/texasState/customCssBlock", this::convertInheritToBool);
     visitByTemplate(hm, "gato:components/texasState/customjsBlock", this::convertInheritToBool);
+    visitByTemplate(hm, "gato:components/texasState/imageGallery", this::updateImageGallery);
     visitByTemplate(hm, "gato:components/texasState/siteMap", this::updateSiteMapComponent);
     visitByTemplate(hm, "gato:components/texasState/subPages", this::updateSubPagesComponent);
     visitByTemplate(hm, "gato:components/texasState/texas-form-selection", this::updateSelectionComponent);
@@ -118,6 +119,10 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
       String val = PropertyUtil.getString(n, "inherit", "0");
       PropertyUtil.setProperty(n, "inherit", "1".equals(val) || "true".equals(val));
     }
+  }
+  
+  private void updateImageGallery(Node n) throws RepositoryException {
+    if (n.hasNode("subPar")) NodeUtil.renameNode(n.getNode("subPar"), "images");
   }
 
   private void updateSiteMapComponent(Node n) throws RepositoryException {

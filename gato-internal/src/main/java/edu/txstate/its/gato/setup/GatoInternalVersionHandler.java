@@ -32,11 +32,11 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
 
     // move binary data from the website tree to the DAM
     tasks.add(new MoveFileContentToDamMigrationTask("Website DAM Migration - Image", "Move binary files from the website tree to the DAM.", RepositoryConstants.WEBSITE,
-      Arrays.asList("/tsus"), "", "image"));
+      Arrays.asList("/tsus", "/testing-site-destroyer"), "", "image"));
     tasks.add(new MoveFileContentToDamMigrationTask("Website DAM Migration - Rollover", "Move binary files from the website tree to the DAM.", RepositoryConstants.WEBSITE,
       Arrays.asList("/tsus"), "", "rollover"));
     tasks.add(new MoveFileContentToDamMigrationTask("Website DAM Migration - Icon", "Move binary files from the website tree to the DAM.", RepositoryConstants.WEBSITE,
-      Arrays.asList("/tsus"), "", "icon"));
+      Arrays.asList("/tsus", "/testing-site-destroyer"), "", "icon"));
     tasks.add(new MoveFileContentToDamMigrationTask("Website DAM Migration - BGImage", "Move binary files from the website tree to the DAM.", RepositoryConstants.WEBSITE,
       Arrays.asList("/tsus"), "", "bgimage"));
 
@@ -49,6 +49,8 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       {"gato:components/texasState/texas-faq-hierarchy",    "gato-component-faq:components/faq-hierarchy"},
       {"gato:components/texasState/siteMap",                "gato-component-sitemap:components/sitemap"},
       {"gato:components/texasState/subPages",               "gato-component-sitemap:components/sitemap"},
+      {"gato:components/texasState/imageGallery",           "gato-component-gallery:components/gallery"},
+      {"gato:components/texasState/imageGalleryCell",       "gato-component-gallery:components/image"},
       {"gato:components/texasState/texasEditor",            "gato-template:components/richeditor"},
       {"gato:components/texasState/texasTextImage",         "gato-template:components/textimage"},
       {"gato:components/texasState/texasLink",              "gato-template:components/link"},
