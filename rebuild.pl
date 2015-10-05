@@ -14,7 +14,8 @@ our @heavymodules = ('gato-lib', 'gato-internal', 'gato-component-cssjs', 'gato-
   'gato-component-faq', 'gato-component-gallery', 'gato-component-documents');
 our @sassfiles = ('resources/gato-template-tsus/css/tsus-home.scss', 
                   'resources/gato-template-blank/css/blank.scss',
-                  'resources/gato-template-txstate2015/css/txstate2015.scss');
+                  'resources/gato-template-txstate2015/css/txstate2015.scss',
+                  'resources/gato-template-txstate2009/css/standard.scss');
 our $module = "";
 
 # place your local overrides in the root gato directory in a file named "rebuild_vars.pl"

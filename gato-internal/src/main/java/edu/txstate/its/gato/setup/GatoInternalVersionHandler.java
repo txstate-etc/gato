@@ -29,7 +29,7 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
   @Override
   protected List<Task> getExtraInstallTasks(InstallContext installContext) {
     List<Task> tasks = new ArrayList<Task>(super.getExtraInstallTasks(installContext));
-    
+
     // move binary data from the website tree to the DAM
     tasks.add(new MoveFileContentToDamMigrationTask("Website DAM Migration - Image", "Move binary files from the website tree to the DAM.", RepositoryConstants.WEBSITE,
       Arrays.asList("/tsus"), "", "image"));
@@ -66,16 +66,16 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       {"gato:pages/tsus-2012/tsus-2012-home",               "gato-template-tsus:pages/home"},
       {"gato:pages/tsus-2012/tsus-2012-mail",               "gato-template-tsus:pages/mail"},
       {"gato:pages/tsus-2012/tsus-2012-standard",           "gato-template-tsus:pages/standard"},
-      {"gato:pages/main-2009/khan-standard",               "gato-template-txstate2015:pages/standard-template"}
+      {"gato:pages/main-2009/khan-standard",               	"gato-template-txstate2015:pages/standard-template"}
     };
 
     for (String[] namePair : templateNamePairs) {
       tasks.add(new FindAndChangeTemplateIdTask(RepositoryConstants.WEBSITE, namePair[0], namePair[1]));
     }
-      
+
     // additional tasks in our catch all migration to 5 task
     tasks.add(new Gato5MigrationTask("Gato Migrate to 5 task", "Generic update task for all the things we need to do to upgrade to Magnolia 5."));
-     
+
     // remove a deprecated servlet filter that was disrupting loading of resources
     tasks.add(new RemoveNodeTask("Remove ClasspathSpool filter", "/server/filters/servlets/ClasspathSpoolServlet"));
     // remove the config node for our defunct gato module
