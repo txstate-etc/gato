@@ -1,6 +1,7 @@
 package edu.txstate.its.gato.setup;
 
 import info.magnolia.dam.app.setup.migration.MoveFileContentToDamMigrationTask;
+import info.magnolia.dam.app.setup.migration.MoveDataWorkspaceToDamMigrationTask;
 
 import info.magnolia.module.DefaultModuleVersionHandler;
 import info.magnolia.module.delta.BootstrapSingleResource;
@@ -40,6 +41,9 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
     tasks.add(new MoveFileContentToDamMigrationTask("Website DAM Migration - BGImage", "Move binary files from the website tree to the DAM.", RepositoryConstants.WEBSITE,
       Arrays.asList("/tsus"), "", "bgimage"));
 
+    //migrate testing-site documents from dms to dam
+    tasks.add(new MoveDataWorkspaceToDamMigrationTask("Migrate DMS content to DAM", "Migrate DMS to DAM", Arrays.asList("/testing-site"), null, "dms" ));
+
     // list of templateIds that need to be changed {"oldtemplateid, newtemplateid"}
     String[][] templateNamePairs = {
       //component templateIds
@@ -49,8 +53,13 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       {"gato:components/texasState/texas-faq-hierarchy",    "gato-component-faq:components/faq-hierarchy"},
       {"gato:components/texasState/siteMap",                "gato-component-sitemap:components/sitemap"},
       {"gato:components/texasState/subPages",               "gato-component-sitemap:components/sitemap"},
+<<<<<<< Updated upstream
       {"gato:components/texasState/imageGallery",           "gato-component-gallery:components/gallery"},
       {"gato:components/texasState/imageGalleryCell",       "gato-component-gallery:components/image"},
+=======
+      {"gato:components/texasState/texas-dms",              "gato-component-documents:components/documents"},
+      {"gato:components/texasState/texasDownload",          "gato-component-documents:components/documents"},
+>>>>>>> Stashed changes
       {"gato:components/texasState/texasEditor",            "gato-template:components/richeditor"},
       {"gato:components/texasState/texasTextImage",         "gato-template:components/textimage"},
       {"gato:components/texasState/texasLink",              "gato-template:components/link"},
