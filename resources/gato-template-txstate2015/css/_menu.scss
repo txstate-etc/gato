@@ -60,10 +60,12 @@ a.ddmenu-menubaritem{
   position: absolute;
   background-color: $secondary-nav-background;
   width: 11rem;
+  list-style-type: none;
 
   li{
     border-bottom: 1px solid $secondary-nav-border-bottom;
     border-top: 1px solid $secondary-nav-border-top;
+    list-style-type: none;
 
     &:first-child{
       border-top: none;
