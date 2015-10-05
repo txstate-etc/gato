@@ -1,0 +1,39 @@
+.gato-navcolumn {
+  position: relative;
+  float: left;
+  width: 205px;
+  color: $maroon;
+  font-size: 12px;
+  text-align: right;
+  border-right: 1px solid #a5a5a5;
+  padding: 25px 15px 0px 0px;
+  overflow: visible;
+  margin-bottom: 40px;
+  h3 {
+    font-weight: bold;
+    padding: 0px 0px 6px 0px;
+    overflow: hidden;
+  }
+  ul {
+    margin-bottom: 25px;
+    padding: 0px;
+    overflow: hidden;
+    .nav-collapsed { margin-bottom: 0px; }
+    li {
+      padding: 1px 0px;
+    }
+    a {
+      color: $maroon;
+    }
+  }
+}
+
+.txst-khan-nav-bg {
+  position: absolute;
+  right: -1px;
+  bottom: -40px;
+  width: 1px;
+  height: 192px;
+  z-index: 2;
+  background: url(../images/sidenav-border.gif) no-repeat;
+}

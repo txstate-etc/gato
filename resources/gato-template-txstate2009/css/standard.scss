@@ -4,6 +4,8 @@
 body {
 	font-family: "Nimbus Sans L", Arial, Helvetica, sans-serif;
 	min-width: 990px;
+	font-size: 16px;
+	background-color: white;
 }
 
 .txst-khan-frame {
@@ -17,6 +19,7 @@ body {
 .txst-khan-contentarea {
 	position: relative;
 	width: 100%;
+	clear: both;
 }
 
 .txst-khan-contentcolumn {

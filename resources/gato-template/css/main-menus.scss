@@ -24,11 +24,12 @@ a.ddmenu-menubaritem:hover {
 	position: absolute;
 	top: 35px;
 	z-index: 70000;
-	visibility: hidden;
+	display: none;
+	list-style: none;
 }
 
 .ddmenu-visible .ddmenu-menu {
-	visibility: visible;
+	display: block;
 }
 
 .ddmenu-menu a {

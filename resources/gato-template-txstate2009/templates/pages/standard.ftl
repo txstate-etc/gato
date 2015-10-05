@@ -14,7 +14,7 @@
 		<div class="txst-banner-content">
 			<a href="http://www.txstate.edu/"
 				class="txst-banner-homelink" title="Texas State Home Page">
-				<img src="${gf.resourcePath()}/txstate/images/destroyer-logo.jpg" alt="Texas State University Logo"/>
+				<img src="${gf.resourcePath()}/gato-template-txstate2009/images/destroyer-logo.jpg" alt="Texas State University Logo"/>
 			</a>
 			[@cms.area name="webtools" /]
       <div class="txst-mainsite-banner-links">

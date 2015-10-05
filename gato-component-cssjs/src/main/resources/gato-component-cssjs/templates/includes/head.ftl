@@ -31,7 +31,7 @@
 	[#if page.customcss?has_content]
 		[#list cmsfn.children(page.customcss) as entry]
 			[#if entry.inherit || !isAncestor]
-				${cmsfn.decode(entry).customCSS}
+				${cmsfn.decode(entry).customCSS!}
 			[/#if]
 		[/#list]
 	[/#if]

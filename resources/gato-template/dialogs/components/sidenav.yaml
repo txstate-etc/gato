@@ -1,6 +1,6 @@
 form:
-  label: Navigation Block
-  description: Block of Links for Right Sidebar
+  label: Navigation Link Group
+  description: A group of links for the side navigation area.
   tabs:
     - name: tabText
       label: ""
