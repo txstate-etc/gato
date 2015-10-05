@@ -100,10 +100,10 @@ form:
           type: String
           sortOptions: false
           options:
-            - name: normal
+            - name: none
               label: Normal Field
               selected: true
-              value: normal
+              value: none
             - name: name
               label: This field is the form submitter's name
               value: name
