@@ -67,4 +67,4 @@ navBlocks:
   type: list
   availableComponents:
     navigationBlock:
-      id: gato-template-txstate2015:components/navigationBlock
+      id: gato-template:components/sidenav

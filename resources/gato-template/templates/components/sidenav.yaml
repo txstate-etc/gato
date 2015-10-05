@@ -1,0 +1,13 @@
+templateScript: /gato-template/templates/components/sidenav.ftl
+renderType: freemarker
+dialog: gato-template:components/sidenav
+description: A group of links for the side navigation area.
+title: Navigation Link Group
+areas:
+  links:
+    type: list
+    templateScript: /gato-template/templates/areas/listitems.ftl
+    title: Links
+    availableComponents:
+      link:
+        id: gato-template:components/link

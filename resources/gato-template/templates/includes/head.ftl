@@ -25,7 +25,7 @@
 		'gato-template/css/mailForm.css',
 		'gato-component-cssjs/css/custom.css',
 		'gato-component-sitemap/css/sitemap.css',
-		'gato-component-faq/css/faqitem.css', 
+		'gato-component-faq/css/faqitem.css',
 		'gato-lib/js/photoswipe/photoswipe.css',
 		'gato-lib/js/photoswipe/default-skin/default-skin.css',
 		'gato-component-gallery/css/gallery.css'
@@ -84,7 +84,7 @@
 
 [#macro sidebarmodal skipsocial=false]
 	[#if cmsfn.isEditMode()]
-	
+
 	[/#if]
 [/#macro]
 
@@ -134,9 +134,9 @@
 				<a href="${parentOrg.url!cmsfn.link(page)}">${parentOrg.parent_name}</a>
 				<span class="separator">&gt;</span>
 			[/#if]
-		[/#if] 
+		[/#if]
 		[#list ancestorstopdown as ancestor]
-			<a href="${cmsfn.link(ancestor)}">${ancestor.title}</a>
+			<a href="${cmsfn.link(ancestor)}">${gf.nodeTitle(ancestor)}</a>
 			<span class="separator">&gt;</span>
 		[/#list]
 		<a href="${cmsfn.link(page)}" class="active">${gf.nodeTitle(page)}</a>

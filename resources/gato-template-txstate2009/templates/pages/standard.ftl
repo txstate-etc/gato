@@ -18,10 +18,10 @@
 			</a>
 			[@cms.area name="webtools" /]
       <div class="txst-mainsite-banner-links">
-        <a href="http://www.txstate.edu/about.html" class="txst-mainsite-banner-link-left">About Texas State</a>
+        <a href="http://www.txstate.edu/about.html">About Texas State</a>
         <a href="http://www.txstate.edu/library.html">Library</a>
         <a href="http://www.txstate.edu/maps.html">Maps</a>
-        <a href="http://www.txstate.edu/round-rock.html" class="txst-mainsite-banner-link-right">Round Rock Campus</a>
+        <a href="http://www.txstate.edu/round-rock.html">Round Rock Campus</a>
       </div>
 		</div>
 	</header>

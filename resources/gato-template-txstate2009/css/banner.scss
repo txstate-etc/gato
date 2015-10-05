@@ -1,0 +1,199 @@
+.txst-topbanner {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 82px;
+	background: url(../images/destroyer-banner.jpg) repeat-x;
+	z-index: 92;
+	min-width: 990px;
+}
+
+.txst-banner {
+	position: relative;
+	z-index: 90;
+}
+
+.txst-banner-shadow {
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
+	height: 16px;
+	width: 100%;
+	overflow: hidden;
+	background: url(../images/destroyer-banner-shadow.png) repeat-x;
+}
+
+.txst-banner-content {
+	position: relative;
+	margin: 0px auto;
+	width: 959px;
+	padding-left: 3px;
+}
+
+/* webtools adjustments destroyer-only */
+.txst-banner-toolsandsearch {
+	top: 15px !important;
+}
+.txst-banner-webtools-menuheader a {
+	background: url(../images/webtools-destroyer-button.png) no-repeat !important;
+}
+.txst-banner-webtools-searchbg {
+	background: url(../images/webtools-destroyer-submit.png) no-repeat !important;
+}
+/* end webtools adjustments */
+
+/* bannerlinks adjustments */
+.txst-mainsite-banner-links {
+	top: 46px !important;
+}
+.txst-mainsite-banner-links a {
+	color: #3e1818;
+	border-left: 1px solid #3e1818;
+}
+/* end bannerlinks adjustments */
+
+.txst-banner-homelink {
+	display: block;
+	width: 166px;
+	height: 66px;
+}
+
+.txst-banner-homelink img {
+	display: block;
+	width: 166px;
+	height: 66px;
+}
+
+.txst-banner-links {
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
+}
+
+.txst-khanbanner {
+	position: relative;
+	background-color: #491d1d;
+	background: url(../images/destroyer-banner-bg.jpg) no-repeat;
+	padding: 0px 206px;
+	height: 190px;
+}
+
+/* Styles for the banner-free pages */
+.txst-khanbanner-hideimage {
+	background: url(../images/destroyer-banner-bg-small.jpg) no-repeat !important;
+	height: 60px !important;
+}
+
+.txst-khanbanner-hideimage {
+  .txst-khanbanner-image, .txst-khanbanner-siteinfo, .txst-khanbanner-parenttitle {
+	  display: none;
+	}
+  .txst-khanbanner-entityidentity {
+    top: 0px;
+    left: 20px;
+    padding: 0px;
+    text-align: left;
+    width: 922px;
+    height: 30px;
+    a {
+      float: left;
+      padding: 5px 8px 4px 0px;
+      margin-top: 2px;
+      font-weight: normal;
+      white-space: nowrap;
+    }
+  }
+}
+
+#gato-banner {
+	left: 206px;
+	padding-top: 14px;
+	height: 146px;
+	width: 550px;
+}
+
+.gato-banner-settings {
+	top: 14px;
+	right: 206px;
+}
+
+/* end of banner-free styles */
+
+.txst-khanbanner-entityidentity {
+	position: absolute;
+	display: table;
+	top: 8px;
+	left: 15px;
+	width: 176px;
+	height: 142px;
+	text-align: right;
+	overflow: hidden;
+}
+
+.txst-khanbanner-parenttitle a {
+	display: block;
+	color: #d0c7b0;
+	font-size: 14px;
+	line-height: 18px;
+	font-weight: normal;
+	text-decoration: none;
+}
+
+.txst-khanbanner-departmenttitle a {
+	display: block;
+	color: white;
+	font-size: 16px;
+	line-height: 20px;
+	font-weight: bold;
+	text-decoration: none;
+	margin-top: 10px;
+}
+
+.txst-khanbanner-siteinfo {
+	position: absolute;
+	top: 0px;
+	right: 15px;
+	width: 176px;
+	height: 160px;
+	color: #d0c7b0;
+	font-size: 12px;
+	font-weight: normal;
+	line-height: 16px;
+	overflow: hidden;
+	display: table;
+}
+
+.txst-khanbanner-siteinfo a {
+	color: #d0c7b0;
+}
+
+.library-footer {
+	clear: both;
+	background: #4b0f15 url(library-2012/images/footertile.jpg) repeat-x;
+	height: 32px;
+	padding: 28px 20px;
+}
+.library-footer a {
+	display: block;
+	float: left;
+	border-radius: 10px;
+	background-color: #dfded4;
+	border: 1px solid #6c6d69;
+	line-height: 30px;
+	width: 144px;
+	text-align: center;
+	color: #323332;
+	text-decoration: none;
+	margin-right: 7px;
+  white-space: nowrap;
+  font-size: 13px;
+}
+.more-footer .txst-footer {
+	background: none;
+	margin: 0;
+	text-align: center;
+	color: #AAA;
+	font-size: 14px;
+	padding: 8px 0px;
+}

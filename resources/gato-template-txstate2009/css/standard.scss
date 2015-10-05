@@ -1,152 +1,128 @@
 @import "gato-template-txstate2009/css/variables";
 @import "gato-template-txstate2009/css/includes";
 
-li {
-	list-style: none;
+body {
+	font-family: "Nimbus Sans L", Arial, Helvetica, sans-serif;
+	min-width: 990px;
 }
 
-.tsus-home-content-bg {
-	background: url(../images/home-content-bg.png) repeat-x bottom left;
-}
-.tsus-home-content {
-	width: 958px;
+.txst-khan-frame {
+	position: relative;
 	margin: 0px auto;
-	height: 270px;
+	padding-top: 66px;
+	width: 962px;
+	text-align: left;
 }
 
-.tsus-home-contentbox {
+.txst-khan-contentarea {
+	position: relative;
+	width: 100%;
+}
+
+.txst-khan-contentcolumn {
+	width: 692px;
+	padding: 45px 22px 0px 23px;
 	position: relative;
 	float: left;
-	margin-top: 27px;
-	width: 290px;
-	height: 160px;
-	padding: 0px 20px;
-	font-size: 14px;
-	line-height: 20px;
 }
-
-.tsus-home-contentbox.left {
-  width: 684px;
-  height: 200px;
-  padding-right: 0px;
-  overflow: hidden;
-  position: relative;
-  border: 1px solid #d5d5d5;
-  border-radius: 4px;
-  padding-left: 15px;
-}
-.tsus-home-contentbox.left .bg {
-  float: right;
-  margin-left: 10px;
-}
-.tsus-home-contentbox.left h4 {
-  color: #272530;
-  font-size: 24px;
-  padding-top: 10px;
-}
-.tsus-home-contentbox.left .dashboard-button {
-  position: absolute;
-  left: 15px;
-  bottom: 10px;
-}
-
-.tsus-home-contentbox.right {
-	border: 1px solid #d5d5d5;
-	border-radius: 4px;
-	width: 205px;
-	height: 190px;
-	padding: 5px 15px;
-	margin-left: 20px;
-}
-.tsus-home-contentbox.right .follow-us {
-	display: block;
-	text-align: right;
-	font-size: 11px;
-	line-height: 13px;
-}
-
-.tsus-institution-logos {
+.txst-khan-contentcolumn h1 {
 	clear: both;
-	position: relative;
-	width: 958px;
-	margin: 0px auto;
 }
-.tsus-institution-logos li {
-	width: 60px;
-	height: 96px;
+/* no-sidebar style changes */
+.txst-khan-fullwidth .txst-khan-contentcolumn {
+	width: auto !important;
+	padding: 0px !important;
+	padding-top: 25px !important;
+	float: none !important;
 }
+.txst-khan-fullwidth div#txst-breadcrumbs {
+	position: relative !important;
+	text-align: left !important;
+	margin-top: -19px !important;
+	width: 700px !important;
+	float: none !important;
+}
+.txst-khan-fullwidth .txst-footer {
+	background: url(txstate-sites/images/content-bg-full.gif) no-repeat !important;
+	margin: 30px -2px 10px -2px !important;
+}
+/* end no-sidebar style changes */
 
-.tsusred {
-	color: #B92C26;
-}
-
-.tsus-home-contentbox h4 {
-	color: #b92c26;
-	font-family: georgia, serif;
-	font-weight: normal;
-  margin-top: 0px;
-	margin-bottom: 8px;
-	font-size: 18px;
-}
-
-.tsus-home-contentbox p {
-	margin: 0px;
-}
-
-.gato-twitter-feed {
-	display: table;
-	width: 205px;
-	padding-left: 0px;
-	padding-top: 5px;
-	border-top: 1px solid #d5d5d5;
-}
-.gato-twitter-feed .center-me {
-	display: block;
-}
-
-.gato-twitter-feed .tweet {
-	width: 199px;
-	padding-left: 3px;
-	padding-right: 3px;
-	border-bottom: 1px solid #d5d5d5;
-}
-.gato-twitter-feed .tweet-logo-link {
-	display: none;
-}
-.gato-twitter-feed .tweet div {
-  margin-left: 0px;
-  margin-bottom: 2px;
-}
-.gato-twitter-feed .tweet .text {
-	display: inline;
-	width: 205px;
-	color: #383640;
-}
-.gato-twitter-feed .tweet .text a {
-	color: #383640;
-}
-.gato-twitter-feed .tweet .text a:visited {
-	color: #383640;
-}
-.gato-twitter-feed .tweet .screen-name {
-	display: inline;
-	margin-right: 5px;
-}
-.gato-twitter-feed .tweet .screen-name a {
-	color: #b92c26;
-	font-weight: normal;
+.txst-khan-contentcolumn div#txst-faq-buttons {
+	font-size: .8em;
 	font-style: italic;
-}
-.gato-twitter-feed .tweet .created_at {
-	display: inline;
-	color: #293e6b;
-	margin-left: 5px;
+	margin-bottom: 10px;
 }
 
-.gato-navcolumn {
-	padding-right: 20px;
+.txst-khan-contentcolumn div#txst-fontsize {
+	width: 150px;
+	position: absolute;
+	top: 5px;
+	right: 5px;
 }
 
-.mgnlEditorPlaceholder.component .mgnlEditorPlaceholderElements {
-	display: none;
+.txst-khan-contentcolumn div#txst-breadcrumbs {
+	position: relative;
+	float: right;
+	margin-top: -23px;
+	margin-right: -18px;
+	margin-bottom: 6px;
+	text-align: right;
+	font-family: arial, helvetica, sans-serif;
+	font-size: .8em;
+	line-height: 1.1em;
+	color: #b1b1b1;
+	width: 600px;
+}
+
+#txst-breadcrumbs a {
+	white-space: nowrap;
+}
+
+.txst-khan-contentcolumn div#txst-breadcrumbs a {
+	color: #b1b1b1;
+}
+
+.khan-content-footer {
+	position: relative;
+	clear: both;
+	height: 1px;
+}
+
+.txst-footer {
+	position: relative;
+	clear: both;
+	margin: 30px 25px 10px 241px;
+	font-size: 10px;
+	color: #AAAAAA;
+	text-align: center;
+	background: url(txstate-sites/images/content-bg.gif) no-repeat;
+	padding-top: 25px;
+}
+.txst-footer a {
+	text-decoration: none;
+	color: #AAAAAA;
+}
+.txst-footer a:hover {
+	text-decoration: underline;
+}
+
+.txst-admin-notice {
+	font-size: 200%;
+	text-align: center;
+	border: 3px solid black;
+	margin-top: 20%;
+	width: 50%;
+	margin: auto;
+	margin-top: 10%;
+	padding: 10px;
+}
+
+.full-site-link {
+	text-align: center;
+	padding-top: 2px;
+	padding-bottom: 15px;
+}
+.full-site-link a {
+	font-size: 13px;
 }
