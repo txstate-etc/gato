@@ -53,13 +53,10 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       {"gato:components/texasState/texas-faq-hierarchy",    "gato-component-faq:components/faq-hierarchy"},
       {"gato:components/texasState/siteMap",                "gato-component-sitemap:components/sitemap"},
       {"gato:components/texasState/subPages",               "gato-component-sitemap:components/sitemap"},
-<<<<<<< Updated upstream
       {"gato:components/texasState/imageGallery",           "gato-component-gallery:components/gallery"},
       {"gato:components/texasState/imageGalleryCell",       "gato-component-gallery:components/image"},
-=======
       {"gato:components/texasState/texas-dms",              "gato-component-documents:components/documents"},
       {"gato:components/texasState/texasDownload",          "gato-component-documents:components/documents"},
->>>>>>> Stashed changes
       {"gato:components/texasState/texasEditor",            "gato-template:components/richeditor"},
       {"gato:components/texasState/texasTextImage",         "gato-template:components/textimage"},
       {"gato:components/texasState/texasLink",              "gato-template:components/link"},
