@@ -6,6 +6,8 @@ import info.magnolia.rendering.template.configured.ConfiguredTemplateDefinition;
 import info.magnolia.templating.functions.TemplatingFunctions;
 import info.magnolia.dam.templating.functions.DamTemplatingFunctions;
 import info.magnolia.dam.api.Asset;
+import info.magnolia.dam.jcr.AssetNodeTypes;
+import info.magnolia.jcr.util.PropertyUtil;
 import info.magnolia.context.MgnlContext;
 
 import info.magnolia.cms.util.QueryUtil;
@@ -102,7 +104,7 @@ public class DocumentsModel<RD extends ConfiguredTemplateDefinition> extends Ren
             try {
             
                 Node linkNode = MgnlContext.getJCRSession("dam").getNode(link);
-                Boolean isFolder = linkNode.isNodeType("mgnl:folder");
+                boolean isFolder = linkNode.isNodeType("mgnl:folder");
                 if( isFolder ){
                     expressions.add("jcr:path like '" + link + "/%'");
                 }
@@ -120,14 +122,14 @@ public class DocumentsModel<RD extends ConfiguredTemplateDefinition> extends Ren
                 
                 while(nodeIterator.hasNext()){
                     Node node = nodeIterator.nextNode();
-            
+                    
                     //ignore folders
                     if(node.isNodeType("mgnl:asset")){
                         Asset asset = damfn.getAssetForAbsolutePath("jcr", node.getPath());
                         Document doc = new Document();
                         String path = damfn.getAssetLink(asset.getItemKey().asString());
-                        String fileExtension = FilenameUtils.getExtension(asset.getFileName()).toUpperCase();
-
+                        String fileExtension = PropertyUtil.getString(AssetNodeTypes.AssetResource.getResourceNodeFromAsset(node), AssetNodeTypes.AssetResource.EXTENSION, "").toUpperCase();
+                        
                         if(StringUtils.isEmpty(extension) || extension.toUpperCase().contains(fileExtension.toUpperCase())){
                             doc.setIconClass(getIconClass(fileExtension));
                             doc.setTitle(buildDisplayTitle(asset));
