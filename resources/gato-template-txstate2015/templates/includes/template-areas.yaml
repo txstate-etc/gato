@@ -63,8 +63,15 @@ mail:
   !include /gato-template/templates/areas/mailForm.yaml
 navBlocks:
   title: Sidebar
-  renderType: freemarker
   type: list
   availableComponents:
     navigationBlock:
       id: gato-template:components/sidenav
+webtools:
+  title: Web Tools
+  type: list
+  renderType: freemarker
+  templateScript: /gato-template/templates/areas/webtools.ftl
+  availableComponents:
+    link:
+      id: gato-template:components/link

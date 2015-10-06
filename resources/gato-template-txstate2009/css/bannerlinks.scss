@@ -8,10 +8,10 @@
     width: auto;
     font-size: 11px;
     text-decoration: none;
-    color: #777777;
+    color: $darkest-maroon;
     text-align: center;
     padding: 0px 14px;
-    border-left: 1px solid #e0d1b1;
+    border-left: 1px solid $darkest-maroon;
     &:hover { text-decoration: underline; }
     &:first-child { border-left: 0px !important; }
 	  &:last-child { padding-right: 0px !important; }

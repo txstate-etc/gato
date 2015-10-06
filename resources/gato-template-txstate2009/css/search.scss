@@ -1,0 +1,26 @@
+.gato-search {
+  position: absolute;
+  top: 15px;
+  right: 0px;
+  width: 194px;
+  height: 24px;
+  z-index: 2;
+  background: url(../images/webtools-submit.png) right no-repeat;
+  .gato-search-query {
+    border: 0px;
+    width: 149px;
+    height: 14px;
+    padding: 5px 2px;
+    line-height: 14px;
+    font-size: 11px;
+    background: url(../images/webtools-repeat.png) repeat-x;
+  }
+  .gato-search-submit {
+    position: absolute;
+    top: 1px;
+    right: 5px;
+    width: 15px;
+    height: 15px;
+    padding: 4px;
+  }
+}

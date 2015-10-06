@@ -17,6 +17,7 @@
 				<img src="${gf.resourcePath()}/gato-template-txstate2009/images/destroyer-logo.jpg" alt="Texas State University Logo"/>
 			</a>
 			[@cms.area name="webtools" /]
+    	[#include "/gato-template/templates/includes/search.ftl"]
       <div class="txst-mainsite-banner-links">
         <a href="http://www.txstate.edu/about.html">About Texas State</a>
         <a href="http://www.txstate.edu/library.html">Library</a>
