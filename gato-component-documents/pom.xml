@@ -4,76 +4,41 @@
   <parent>
     <artifactId>gato-base</artifactId>
     <groupId>edu.txstate.its.gato</groupId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
+    <relativePath>../pom.xml</relativePath>
   </parent>
   <groupId>edu.txstate.its.gato</groupId>
   <artifactId>gato-component-documents</artifactId>
-  <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
   <name>Gato Documents Component</name>
   <!--
   <description>Please uncomment and fill in ...</description>
   -->
-  <properties>
-    <magnoliaVersion>5.4.1</magnoliaVersion>
-    <javaVersion>1.8</javaVersion>
-  </properties>
 
   <dependencies>
     <dependency>
       <groupId>info.magnolia</groupId>
       <artifactId>magnolia-core</artifactId>
-      <version>${magnoliaVersion}</version>
     </dependency>
     <dependency>
       <groupId>info.magnolia</groupId>
       <artifactId>magnolia-rendering</artifactId>
-      <version>${magnoliaVersion}</version>
     </dependency>
     <dependency>
       <groupId>info.magnolia</groupId>
       <artifactId>magnolia-templating</artifactId>
-      <version>${magnoliaVersion}</version>
     </dependency>
     <dependency>
       <groupId>info.magnolia.dam</groupId>
       <artifactId>magnolia-dam-templating</artifactId>
-      <version>${damVersion}</version>
     </dependency>
     <dependency>
       <groupId>info.magnolia.dam</groupId>
       <artifactId>magnolia-dam-api</artifactId>
-      <version>${damVersion}</version>
-    </dependency>
-    <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>servlet-api</artifactId>
-      <version>2.5</version>
-      <scope>provided</scope>
-    </dependency>
-
-    <!-- TEST -->
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.11</version>
-      <scope>test</scope>
     </dependency>
   </dependencies>
 
   <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>2.3.2</version>
-        <configuration>
-          <source>${javaVersion}</source>
-          <target>${javaVersion}</target>
-        </configuration>
-      </plugin>
-    </plugins>
-
     <!-- default resources configuration which will filter the module descriptor -->
     <resources>
       <resource>

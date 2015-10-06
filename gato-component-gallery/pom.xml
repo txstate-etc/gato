@@ -4,12 +4,11 @@
   <parent>
     <groupId>edu.txstate.its.gato</groupId>
     <artifactId>gato-base</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
   <groupId>edu.txstate.its.gato</groupId>
   <artifactId>gato-component-gallery</artifactId>
-  <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
   <name>Gato Image Gallery Component</name>
   
@@ -17,13 +16,10 @@
     <dependency>
       <groupId>info.magnolia</groupId>
       <artifactId>magnolia-core</artifactId>
-      <version>${magnoliaVersion}</version>
     </dependency>
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>servlet-api</artifactId>
-      <version>2.5</version>
-      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>info.magnolia.dam</groupId>
@@ -40,15 +36,7 @@
     <dependency>
       <groupId>edu.txstate.its.gato</groupId>
       <artifactId>gato-lib</artifactId>
-      <version>1.0-SNAPSHOT</version>
-    </dependency>
-
-    <!-- TEST -->
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.11</version>
-      <scope>test</scope>
+      <version>${gatoVersion}</version>
     </dependency>
   </dependencies>
 

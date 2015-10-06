@@ -4,7 +4,7 @@
   <parent>
     <groupId>edu.txstate.its.gato</groupId>
     <artifactId>gato-base</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
   <groupId>edu.txstate.its.gato</groupId>
@@ -35,7 +35,6 @@
     <dependency>
       <groupId>info.magnolia.dam</groupId>
       <artifactId>magnolia-dam-imaging</artifactId>
-      <version>2.1</version>
     </dependency>
     <dependency>
       <groupId>info.magnolia</groupId>
@@ -90,52 +89,51 @@
     <dependency>
       <groupId>edu.txstate.its.gato</groupId>
       <artifactId>gato-internal</artifactId>
-      <version>1.0.1</version>
+      <version>${gatoVersion}</version>
     </dependency>
     <dependency>
       <groupId>edu.txstate.its.gato</groupId>
       <artifactId>gato-lib</artifactId>
-      <version>1.0-SNAPSHOT</version>
+      <version>${gatoVersion}</version>
     </dependency>
     <dependency>
       <groupId>edu.txstate.its.gato</groupId>
       <artifactId>gato-component-cssjs</artifactId>
-      <version>1.0-SNAPSHOT</version>
+      <version>${gatoVersion}</version>
     </dependency>
     <dependency>
       <groupId>edu.txstate.its.gato</groupId>
       <artifactId>gato-component-faq</artifactId>
-      <version>1.0-SNAPSHOT</version>
+      <version>${gatoVersion}</version>
     </dependency>
     <dependency>
       <groupId>xmlrpc</groupId>
       <artifactId>xmlrpc</artifactId>
-      <version>1.2-b1</version>
     </dependency>
     <dependency>
       <groupId>edu.txstate.its.gato</groupId>
       <artifactId>gato-component-dept-directory</artifactId>
-      <version>1.0-SNAPSHOT</version>
+      <version>${gatoVersion}</version>
     </dependency>
     <dependency>
       <groupId>edu.txstate.its.gato</groupId>
       <artifactId>gato-component-gallery</artifactId>
-      <version>1.0-SNAPSHOT</version>
+      <version>${gatoVersion}</version>
     </dependency>
     <dependency>
       <groupId>edu.txstate.its.gato</groupId>
       <artifactId>gato-component-sitemap</artifactId>
-      <version>1.0-SNAPSHOT</version>
+      <version>${gatoVersion}</version>
     </dependency>
     <dependency>
       <groupId>edu.txstate.its.gato</groupId>
       <artifactId>gato-component-documents</artifactId>
-      <version>1.0-SNAPSHOT</version>
+      <version>${gatoVersion}</version>
     </dependency>
     <dependency>
       <groupId>edu.txstate.its.gato</groupId>
       <artifactId>gato-component-table</artifactId>
-      <version>1.0-SNAPSHOT</version>
+      <version>${gatoVersion}</version>
     </dependency>
   </dependencies>
   <build>

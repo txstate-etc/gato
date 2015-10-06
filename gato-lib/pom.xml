@@ -4,12 +4,11 @@
   <parent>
     <groupId>edu.txstate.its.gato</groupId>
     <artifactId>gato-base</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
   <groupId>edu.txstate.its.gato</groupId>
   <artifactId>gato-lib</artifactId>
-  <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
   <name>gato-lib Magnolia Module</name>
   <!--
@@ -20,17 +19,14 @@
     <dependency>
       <groupId>info.magnolia</groupId>
       <artifactId>magnolia-core</artifactId>
-      <version>${magnoliaVersion}</version>
     </dependency>
     <dependency>
       <groupId>info.magnolia</groupId>
       <artifactId>magnolia-rendering</artifactId>
-      <version>${magnoliaVersion}</version>
     </dependency>
     <dependency>
       <groupId>info.magnolia</groupId>
       <artifactId>magnolia-templating</artifactId>
-      <version>${magnoliaVersion}</version>
     </dependency>
     <dependency>
       <groupId>info.magnolia.templating</groupId>
@@ -43,29 +39,16 @@
       <version>3.2.2</version>
     </dependency>
     <dependency>
-      <groupId>info.magnolia.dam</groupId>
-      <artifactId>magnolia-dam-templating</artifactId>
-      <version>${damVersion}</version>
-    </dependency>
-    <dependency>
-      <groupId>info.magnolia.dam</groupId>
-      <artifactId>magnolia-dam-api</artifactId>
-      <version>${damVersion}</version>
-    </dependency>
-    <dependency>
       <groupId>info.magnolia.ui</groupId>
       <artifactId>magnolia-ui-form</artifactId>
     </dependency>
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>servlet-api</artifactId>
-      <version>2.5</version>
-      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>xmlrpc</groupId>
       <artifactId>xmlrpc</artifactId>
-      <version>1.2-b1</version>
     </dependency>
     <dependency>
       <groupId>com.vaadin</groupId>
@@ -78,8 +61,6 @@
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
-      <version>1.16.6</version>
-      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>info.magnolia.dam</groupId>

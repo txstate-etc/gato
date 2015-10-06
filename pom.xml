@@ -4,15 +4,13 @@
   <groupId>edu.txstate.its.gato</groupId>
   <artifactId>gato-base</artifactId>
   <name>Gato Base</name>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0</version>
   <packaging>pom</packaging>
 
   <properties>
+    <gatoVersion>1.0</gatoVersion>
     <magnoliaVersion>5.4.1</magnoliaVersion>
-
     <damVersion>2.1.1</damVersion>
-   
-
     <javaVersion>1.8</javaVersion>
   </properties>
 
@@ -51,6 +49,24 @@
         <artifactId>junit</artifactId>
         <version>4.11</version>
         <scope>test</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>servlet-api</artifactId>
+        <version>2.5</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>xmlrpc</groupId>
+        <artifactId>xmlrpc</artifactId>
+        <version>1.2-b1</version>
+      </dependency>
+      <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <version>1.16.6</version>
+        <scope>provided</scope>
       </dependency>
     </dependencies>
   </dependencyManagement>
