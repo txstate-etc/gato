@@ -21,10 +21,7 @@ import info.magnolia.module.delta.TaskExecutionException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 
 /**
  *
@@ -116,6 +113,17 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
     visitByTemplate(hm, "gato:components/texasState/texas-form-edit", this::updateFormEditComponent);
     visitByTemplate(hm, "gato:components/texasState/texas-form-selection", this::updateSelectionComponent);
     visitByTemplate(hm, "gato:pages/main-2009/khan-mail", this::updateMailArea);
+    visitByTemplate(hm, "gato:components/texasState/texasDownload", this::updateDownloadComponent);
+  }
+
+  private void updateDownloadComponent(Node n) throws RepositoryException{
+    if(n.hasProperty("document")){
+      String itemKey = PropertyUtil.getString(n, "document");
+      PropertyUtil.renameProperty(n.getProperty("document"), "link");
+      String id = itemKey.replace("jcr:", "");
+      Node documentNode = NodeUtil.getNodeByIdentifier("dam", id);
+      PropertyUtil.setProperty(n, "link", documentNode.getPath());
+    }
   }
 
   private void convertInheritToBool(Node n) throws RepositoryException {
@@ -172,12 +180,10 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
       rowsProp.remove();
     }
 
-    if (n.hasProperty("valid_fromDate")) { convertStringToDate(n.getProperty("valid_fromDate"), "datefrom"); }
-    if (n.hasProperty("valid_toDate")) { convertStringToDate(n.getProperty("valid_toDate"), "dateto"); }
 
     if (n.hasProperty("valid_type")) { PropertyUtil.renameProperty(n.getProperty("valid_type"), "dataType"); }
-    if (n.hasProperty("valid_regex")) { PropertyUtil.renameProperty(n.getProperty("valid_regex"), "regexregex"); }
-    if (n.hasProperty("valid_msg")) { PropertyUtil.renameProperty(n.getProperty("valid_msg"), "regexerror"); }
+
+
   }
 
   private void updateMailArea(Node n) throws RepositoryException {
@@ -216,21 +222,6 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
     Node area = n.getParent().addNode("tempconversionnode", "mgnl:area");
     NodeUtil.moveNode(n, area);
     NodeUtil.renameNode(area, name);
-  }
-
-  private void convertStringToDate(Property p, String newName) throws RepositoryException {
-    SimpleDateFormat isoLocalDate = new SimpleDateFormat("yyy-MM-dd");
-    Calendar cal = Calendar.getInstance();
-
-    try {
-      cal.setTime(isoLocalDate.parse(p.getString()));
-      Node n = p.getParent();
-      p.remove();
-      n.setProperty(newName, cal);
-    } catch (ParseException e) {
-      // Property wasn't a date string. Keep the property since removing it would result in loss of data.
-      log.warn("Failed to parse property as yyyy-MM-dd date: " + p.getPath());
-    }
   }
 
   /**
