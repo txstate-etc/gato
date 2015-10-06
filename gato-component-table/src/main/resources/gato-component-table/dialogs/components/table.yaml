@@ -12,29 +12,36 @@ form:
           class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
           label: Options
           buttonLabel: First row is table header
+          defaultValue: false
         - name: tableSortable
           class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
           label: ""
           buttonLabel: Sortable
+          defaultValue: false
         - name: tableAltBg
           class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
           label: ""
           buttonLabel: Alternating background color
+          defaultValue: false
         - name: tableLinesHorizontal
           class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
           label: ""
           buttonLabel: Horizontal lines
+          defaultValue: false
         - name: tableLinesVertical
           class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
           label: ""
           buttonLabel: Vertical lines
+          defaultValue: false
         - name: tableFontSmall
           class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
           label: ""
           buttonLabel: Small font
+          defaultValue: false
         - name: tableAlignment
           class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
           label: ""
           buttonLabel: Cells alignment right
+          defaultValue: false
 actions: !include /gato-template/dialogs/common/actions-block.yaml
 label: Table
