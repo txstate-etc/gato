@@ -11,9 +11,6 @@
   <artifactId>gato-component-documents</artifactId>
   <packaging>jar</packaging>
   <name>Gato Documents Component</name>
-  <!--
-  <description>Please uncomment and fill in ...</description>
-  -->
 
   <dependencies>
     <dependency>
@@ -37,47 +34,5 @@
       <artifactId>magnolia-dam-api</artifactId>
     </dependency>
   </dependencies>
-
-  <build>
-    <!-- default resources configuration which will filter the module descriptor -->
-    <resources>
-      <resource>
-        <directory>src/main/resources</directory>
-        <includes>
-          <include>**/*</include>
-        </includes>
-      </resource>
-      <resource>
-        <filtering>true</filtering>
-        <directory>src/main/resources</directory>
-        <includes>
-          <include>META-INF/magnolia/*</include>
-        </includes>
-      </resource>
-    </resources>
-  </build>
-
-  <repositories>
-    <repository>
-      <id>magnolia.public</id>
-      <url>https://nexus.magnolia-cms.com/content/groups/public</url>
-      <snapshots>
-      </snapshots>
-    </repository>
-    <!-- IF YOU NEED MODULES FROM THE ENTERPRISE VERSION, UNCOMMENT THE FOLLOWING REPOSITORY -->
-    <!--
-    <repository>
-      <id>magnolia.enterprise.releases</id>
-      <url>https://nexus.magnolia-cms.com/content/repositories/magnolia.enterprise.releases</url>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-    </repository>
-    -->
-    <repository>
-      <id>vaadin-addons</id>
-      <url>https://maven.vaadin.com/vaadin-addons</url>
-    </repository>
-  </repositories>
 
 </project>
