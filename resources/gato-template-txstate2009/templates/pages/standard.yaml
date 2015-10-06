@@ -3,4 +3,45 @@ renderType: freemarker
 visible: true
 title: 2009 Standard Template
 dialog: gato-template:pages/page-properties
-areas: !include /gato-template-txstate2015/templates/includes/template-areas.yaml
+areas:
+  customcss:
+    !include /gato-component-cssjs/templates/areas/customcss.yaml
+  customjs:
+    !include /gato-component-cssjs/templates/areas/customjs.yaml
+  headerImage:
+    renderType: freemarker
+    type: single
+    title: Header Image
+    availableComponents:
+      headerImg:
+        id: gato-template-txstate2015:components/header-image
+  parentOrganization:
+    renderType: freemarker
+    type: single
+    title: Parent Organization
+    inheritance:
+      enabled: true
+      components: all
+    availableComponents:
+      parentOrg:
+        id: gato-template-txstate2015:components/parent-organization
+  siteinfo:
+    type: single
+    title: Site Info
+    availableComponents:
+      miscText:
+        id: gato-template:components/misctext
+  contentParagraph:
+    !include /gato-template/templates/areas/contentParagraph.yaml
+  mail:
+    !include /gato-template/templates/areas/mailForm.yaml
+  navBlocks:
+    !include /gato-template/templates/areas/navBlocks.yaml
+  webtools:
+    title: Web Tools
+    type: list
+    renderType: freemarker
+    templateScript: /gato-template/templates/areas/webtools.ftl
+    availableComponents:
+      link:
+        id: gato-template:components/link

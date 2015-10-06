@@ -1,0 +1,5 @@
+title: Sidebar
+type: list
+availableComponents:
+  navigationBlock:
+    id: gato-template:components/sidenav

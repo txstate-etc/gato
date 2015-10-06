@@ -57,7 +57,7 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
             }
           }
         }
-        if (n.hasNode("siteinfo")) convertNodeToAreaAndComponent(n.getNode("siteinfo"));
+        if (n.hasNode("siteinfo")) convertNodeToAreaAndComponent(n.getNode("siteinfo"), "gato-template:components/misctext");
       }
     });
 
@@ -230,14 +230,16 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
     NodeUtil.renameNode(area, name);
   }
 
-  private void convertNodeToAreaAndComponent(Node n) throws RepositoryException {
-    convertNodeToAreaAndComponent(n, n.getName());
+  private void convertNodeToAreaAndComponent(Node n, String type) throws RepositoryException {
+    convertNodeToAreaAndComponent(n, type, n.getName());
   }
 
-  private void convertNodeToAreaAndComponent(Node n, String name) throws RepositoryException {
+  private void convertNodeToAreaAndComponent(Node n, String type, String name) throws RepositoryException {
     Node area = n.getParent().addNode("tempconversionnode", "mgnl:area");
     NodeUtil.moveNode(n, area);
     NodeUtil.renameNode(area, name);
+    n.setPrimaryType(NodeTypes.Component.NAME);
+    NodeTypes.Renderable.set(n, type);
   }
 
   private void convertStringToDate(Property p, String newName) throws RepositoryException {

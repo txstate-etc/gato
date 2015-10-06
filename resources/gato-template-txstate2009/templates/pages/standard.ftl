@@ -8,24 +8,24 @@
   <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-txstate2009/css/standard.compiled.css"/>
   [@templatehead/]
 </head>
-<body>
-	<header class="txst-topbanner">
-		<div class="txst-banner-shadow"></div>
-		<div class="txst-banner-content">
-			<a href="http://www.txstate.edu/"
-				class="txst-banner-homelink" title="Texas State Home Page">
-				<img src="${gf.resourcePath()}/gato-template-txstate2009/images/destroyer-logo.jpg" alt="Texas State University Logo"/>
-			</a>
-			[@cms.area name="webtools" /]
-    	[#include "/gato-template/templates/includes/search.ftl"]
+<body class="${cmsfn.isEditMode()?string('admin','')} ${isHomePage?string('homepage','')}">
+  <header class="txst-topbanner">
+    <div class="txst-banner-shadow"></div>
+    <div class="txst-banner-content">
+      <a href="http://www.txstate.edu/"
+        class="txst-banner-homelink" title="Texas State Home Page">
+        <img src="${gf.resourcePath()}/gato-template-txstate2009/images/destroyer-logo.jpg" alt="Texas State University Logo"/>
+      </a>
+      [@cms.area name="webtools" editable=false /]
+      [#include "/gato-template/templates/includes/search.ftl"]
       <div class="txst-mainsite-banner-links">
         <a href="http://www.txstate.edu/about.html">About Texas State</a>
         <a href="http://www.txstate.edu/library.html">Library</a>
         <a href="http://www.txstate.edu/maps.html">Maps</a>
         <a href="http://www.txstate.edu/round-rock.html">Round Rock Campus</a>
       </div>
-		</div>
-	</header>
+    </div>
+  </header>
   <div class="txst-khan-frame">
     <header class="txst-banner">
       [#include "/gato-template-txstate2009/templates/includes/gato-banner-settings.ftl"]
@@ -72,6 +72,6 @@
   <div class="full-site-link" style="display: none">
     <a href="javascript: createCookie('gatoforcedesktop', 'no'); location.reload(true);">View Mobile Site</a>
   </div>
-	[@cssjsmodals /]
+  [@cssjsmodals /]
 </body>
 </html>

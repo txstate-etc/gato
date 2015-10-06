@@ -58,15 +58,11 @@ footerLinks:
     link:
       id: gato-template:components/link
 contentParagraph:
-  !include /gato-template/templates/includes/contentParagraph.yaml
+  !include /gato-template/templates/areas/contentParagraph.yaml
 mail:
   !include /gato-template/templates/areas/mailForm.yaml
 navBlocks:
-  title: Sidebar
-  type: list
-  availableComponents:
-    navigationBlock:
-      id: gato-template:components/sidenav
+  !include /gato-template/templates/areas/navBlocks.yaml
 webtools:
   title: Web Tools
   type: list

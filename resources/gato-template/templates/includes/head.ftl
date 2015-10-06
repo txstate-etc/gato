@@ -10,6 +10,7 @@
 		'gato-template/js/post-load.js',
 		'gato-template/js/mailForm.js',
 		'gato-template/js/easter-egg.js',
+		'gato-template/js/webtools.js',
 		'gato-lib/js/photoswipe/photoswipe.js',
 		'gato-lib/js/photoswipe/photoswipe-ui-default.js',
 		'gato-lib/js/photoswipe-util.js',

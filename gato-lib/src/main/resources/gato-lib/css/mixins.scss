@@ -8,11 +8,3 @@
   position: absolute;
   width: 1px;
 }
-
-@mixin vertical-align($pos: relative) {
-  position: $pos;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}

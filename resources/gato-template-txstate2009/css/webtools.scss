@@ -1,43 +1,43 @@
 .gato-webtools {
-	position: absolute;
-	top: 15px;
-	right: 194px;
-	z-index: 70001;
-	font-family: Arial;
-	height: 24px;
-	width: 106px;
-	overflow: visible;
-	&:hover .gato-webtools-items {
-	  display: block;
-	}
+  position: absolute;
+  top: 15px;
+  right: 194px;
+  z-index: 70001;
+  font-family: Arial;
+  height: 24px;
+  width: 106px;
+  overflow: visible;
+  .mgnlEditorBar.area {
+    display: none;
+  }
 }
 
 .gato-webtools-dropdown {
-	display: block;
-	height: 12px;
-	padding: 6px 0px 6px 13px;
-	font-size: 11px;
-	font-weight: bold;
-	color: white;
-	text-decoration: none;
-	line-height: 12px;
-	background: url(../images/webtools-button.png) no-repeat;
-	&:hover { text-decoration: none; }
+  display: block;
+  height: 12px;
+  padding: 6px 0px 6px 13px;
+  font-size: 11px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  line-height: 12px;
+  background: url(../images/webtools-button.png) no-repeat;
+  &:hover, &:focus { text-decoration: none; }
 }
 
 .gato-webtools-items {
-  width: 175px;
-	margin-left: 3px;
-	overflow: hidden;
-	display: none;
-	background: url(../images/webtools-home-menubg.png) no-repeat;
-	padding: 12px 0px 4px 0px;
+  width: 150px;
+  margin-left: 3px;
+  overflow: hidden;
+  display: none;
+  background: url(../images/webtools-home-menubg.png) no-repeat;
+  padding: 12px 0px 4px 0px;
 }
 
 .gato-webtools-item {
-	font-weight: bold;
-	font-size: 12px;
-	overflow: hidden;
+  font-weight: bold;
+  font-size: 12px;
+  overflow: hidden;
   a {
     position: relative;
     display: block;
@@ -45,7 +45,7 @@
     line-height: 16px;
     padding: 3px 9px;
     text-decoration: none;
-    &:hover {
+    &:hover, &:focus {
       text-decoration: none;
       background-color: #4a4333;
     }
