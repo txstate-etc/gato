@@ -2,7 +2,7 @@
 	position: absolute;
 	top: 15px;
 	right: 194px;
-	z-index: 1;
+	z-index: 70001;
 	font-family: Arial;
 	height: 24px;
 	width: 106px;
@@ -14,7 +14,6 @@
 
 .gato-webtools-dropdown {
 	display: block;
-	width: 106px;
 	height: 12px;
 	padding: 6px 0px 6px 13px;
 	font-size: 11px;
@@ -27,8 +26,8 @@
 }
 
 .gato-webtools-items {
+  width: 175px;
 	margin-left: 3px;
-	width: 106px;
 	overflow: hidden;
 	display: none;
 	background: url(../images/webtools-home-menubg.png) no-repeat;
@@ -38,7 +37,6 @@
 .gato-webtools-item {
 	font-weight: bold;
 	font-size: 12px;
-	width: 100%;
 	overflow: hidden;
   a {
     position: relative;
