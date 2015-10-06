@@ -6,7 +6,7 @@
             <!-- send this through filterurl -->
             <a href="${gf.filterUrl(doc.path)}" class="txst-filedownload-link">
                 <span class="doc-icon"><i class="fa ${doc.iconClass}"></i></span>
-                ${doc.title}
+                ${content.text!doc.title}
             </a>
             [#if doc.subject?has_content]
             : ${doc.subject}
