@@ -132,6 +132,11 @@
       <artifactId>gato-component-documents</artifactId>
       <version>1.0-SNAPSHOT</version>
     </dependency>
+    <dependency>
+      <groupId>edu.txstate.its.gato</groupId>
+      <artifactId>gato-component-table</artifactId>
+      <version>1.0-SNAPSHOT</version>
+    </dependency>
   </dependencies>
   <build>
     <plugins>

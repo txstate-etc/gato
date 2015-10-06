@@ -1,0 +1,40 @@
+form:
+  tabs:
+    - name: tabGeneral
+      label: ""
+      fields:
+        - name: tableData
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Table Data
+          description: "Paste table data e.g. from Excel or Word"
+          rows: 12
+        - name: tableHeader
+          class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+          label: Options
+          buttonLabel: First row is table header
+        - name: tableSortable
+          class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+          label: ""
+          buttonLabel: Sortable
+        - name: tableAltBg
+          class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+          label: ""
+          buttonLabel: Alternating background color
+        - name: tableLinesHorizontal
+          class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+          label: ""
+          buttonLabel: Horizontal lines
+        - name: tableLinesVertical
+          class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+          label: ""
+          buttonLabel: Vertical lines
+        - name: tableFontSmall
+          class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+          label: ""
+          buttonLabel: Small font
+        - name: tableAlignment
+          class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+          label: ""
+          buttonLabel: Cells alignment right
+actions: !include /gato-template/dialogs/common/actions-block.yaml
+label: Table

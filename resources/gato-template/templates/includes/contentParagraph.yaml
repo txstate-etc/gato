@@ -17,3 +17,5 @@ availableComponents:
     id: gato-component-sitemap:components/sitemap
   documents:
     id: gato-component-documents:components/documents
+  table:
+    id: gato-component-table:components/table
