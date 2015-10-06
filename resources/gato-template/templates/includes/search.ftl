@@ -3,13 +3,7 @@
   <input type="hidden" name="client" value="txstate" />
   <input type="hidden" name="output" value="xml_no_dtd" />
   <input type="hidden" name="proxystylesheet" value="txstate" />
-  [#if !isHomePage]
-    <input id="gato-sitesearch" type="hidden" name="sitesearch" value="" />
-    <script type="text/javascript">
-      var site = window.location.host + "${cmsfn.link(homepage)}/";
-      $('gato-sitesearch').value = site.slice(0,-1).replace( /\/+$/g, "" );
-    </script>
-  [/#if]
+  <input id="gato-sitesearch" type="hidden" name="sitesearch" value="${ctx.request.serverName}" />
 
   <input type="text" class="gato-search-query" name="q" id="q" size="15" placeholder="Search web/people" aria-label="Search" />
   <input type="image" src="${gf.resourcePath()}/gato-template-txstate2009/images/webtools-magnify.png"
