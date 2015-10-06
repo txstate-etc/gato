@@ -58,6 +58,13 @@
   [/#switch]
   <input type="${inputType}" id="${title}" name="${title}" class="text" size="${inputSize}" />
 
+  [#if (content.dataType!"") == "date"]
+    <script type="text/javascript">
+      $('${title}').valid_fromDate = '${content.datefrom}';
+      $('${title}').valid_toDate = '${content.dateto}';
+    </script>
+  [/#if]
+
   [#if (content.dataType!"") == "regex"]
     [#assign regex = (content.regexregex!"")?replace("\\", "\\\\")]
     [#assign regex = regex?replace("'", "\\\'")]

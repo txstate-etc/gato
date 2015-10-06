@@ -7,7 +7,9 @@ function txstValidate(type, elem, icon) {
   this.elem = elem;
   this.icon = icon;
   this.fromDate = this.parse(elem.valid_fromDate);
+  this.fromDate.set({millisecond: 0, second: 0, minute: 0, hour: 0});
   this.toDate = this.parse(elem.valid_toDate);
+  this.toDate.set({millisecond: 0, second: 0, minute: 0, hour: 0});
   this.isSpinning = false;
 
   var spinnerOptions = {
@@ -409,23 +411,21 @@ Event.observe(document, 'dom:loaded', function() {
       if (txstValidate.isDateSupported()) {
         ipt.type = "date";
       } else {
-        var rangeLow = "19000101";
-        var rangeHigh = "21000101";
+        var rangeLow = [1900,0,1];
+        var rangeHigh = [2100,0,1];
         if (vld.fromDate) {
-          rangeLow = vld.fromDate.toString('yyyyMMdd');
+          rangeLow = [vld.fromDate.getFullYear(),vld.fromDate.getMonth(),vld.fromDate.getDate()];
         }
         if (vld.toDate) {
-          rangeHigh = vld.toDate.toString('yyyyMMdd');
+          rangeHigh = [vld.toDate.getFullYear(),vld.toDate.getMonth(),vld.toDate.getDate()];
         }
         var dateOpts = {
-          formElements: {},
-          rangeLow: rangeLow,
-          rangeHigh: rangeHigh,
-          fillGrid: true,
-          constrainSelection: false
+          format: "yyyy-mm-dd",
+          min: rangeLow,
+          max: rangeHigh,
+          onClose: function() { vld.registerChange(); }
         };
-        dateOpts.formElements[ipt.id] = "%Y-%m-%d";
-        datePickerController.createDatePicker(dateOpts);
+        jQuery(ipt).pickadate(dateOpts);
       }
     }
     itm.up('.formelement').setStyle({

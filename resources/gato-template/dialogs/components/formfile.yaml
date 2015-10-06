@@ -18,3 +18,5 @@ form:
           field:
             name: textField
             class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+actions: !include /gato-template/dialogs/common/actions-block.yaml
+label: File Field
