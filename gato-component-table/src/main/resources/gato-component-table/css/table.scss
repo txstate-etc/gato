@@ -1,0 +1,48 @@
+//change these color names later
+
+.gato-table{
+   
+        border: 1px solid $gold;
+        width: 100%;
+        text-align: left;
+        td{
+            padding: 3px;
+        }
+
+        th{
+            padding: 3px;
+            background-color: $maroon;
+            color: #FFFFFF;
+
+            a { 
+                color: #FFFFFF
+            }
+        }
+
+
+    &.table-linesh{
+        td{
+            border-top: 1px solid $gold;
+            border-bottom: 1px solid $gold;
+        }
+    }
+
+    &.table-linesv{
+        td{
+            border-left: 1px solid $gold;
+            border-right: 1px solid $gold;
+        }
+    }
+
+    &.table-alt tr.odd td {
+        background-color: $sandstone;
+    }
+
+    &.table-fontsm td {
+        font-size: .8em;
+    }
+
+    &.table-align-right td, &.table-align-right th {
+        text-align: right;
+    }
+}

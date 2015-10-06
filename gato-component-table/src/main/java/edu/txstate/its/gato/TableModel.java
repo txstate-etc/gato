@@ -22,7 +22,7 @@ public class TableModel<RD extends ConfiguredTemplateDefinition> extends Renderi
         String tableData = PropertyUtil.getString(content, "tableData", "");
         boolean hasHeader = PropertyUtil.getBoolean(content, "tableHeader", false);
 
-        tableHTML += "<table cellspacing=\"0\" class=\"" + cssClasses + "\">";
+        tableHTML += "<table cellspacing=\"0\" class=\"gato-table " + cssClasses + "\">";
 
         String[] rows = tableData.split("\n");
         int startingRow = 0;
