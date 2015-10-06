@@ -54,6 +54,7 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
             }
           }
         }
+        if (n.hasNode("siteinfo")) convertNodeToAreaAndComponent(n.getNode("siteinfo"));
       }
     });
 
@@ -132,7 +133,7 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
       PropertyUtil.setProperty(n, "inherit", "1".equals(val) || "true".equals(val));
     }
   }
-  
+
   private void updateImageGallery(Node n) throws RepositoryException {
     if (n.hasNode("subPar")) NodeUtil.renameNode(n.getNode("subPar"), "images");
   }
@@ -168,7 +169,7 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
   }
 
   private void updateFormEditComponent(Node n) throws RepositoryException {
-    if (n.hasProperty("rows")) { 
+    if (n.hasProperty("rows")) {
       Property rowsProp = n.getProperty("rows");
       long rows = rowsProp.getLong();
 
@@ -222,6 +223,31 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
     Node area = n.getParent().addNode("tempconversionnode", "mgnl:area");
     NodeUtil.moveNode(n, area);
     NodeUtil.renameNode(area, name);
+  }
+
+  private void convertNodeToAreaAndComponent(Node n) throws RepositoryException {
+    convertNodeToAreaAndComponent(n, n.getName());
+  }
+
+  private void convertNodeToAreaAndComponent(Node n, String name) throws RepositoryException {
+    Node area = n.getParent().addNode("tempconversionnode", "mgnl:area");
+    NodeUtil.moveNode(n, area);
+    NodeUtil.renameNode(area, name);
+  }
+
+  private void convertStringToDate(Property p, String newName) throws RepositoryException {
+    SimpleDateFormat isoLocalDate = new SimpleDateFormat("yyy-MM-dd");
+    Calendar cal = Calendar.getInstance();
+
+    try {
+      cal.setTime(isoLocalDate.parse(p.getString()));
+      Node n = p.getParent();
+      p.remove();
+      n.setProperty(newName, cal);
+    } catch (ParseException e) {
+      // Property wasn't a date string. Keep the property since removing it would result in loss of data.
+      log.warn("Failed to parse property as yyyy-MM-dd date: " + p.getPath());
+    }
   }
 
   /**

@@ -31,7 +31,7 @@
       [#include "/gato-template-txstate2009/templates/includes/gato-banner-settings.ftl"]
       <div class="txst-khanbanner ${showBannerArea?string('', 'txst-khanbanner-hideimage')}">
         <div class="txst-khanbanner-entityidentity">
-          [@cms.area name="collegeLink" /]
+          [@cms.area name="parentOrganization" content=gf.getOrCreateArea(homepage, 'parentOrganization') editable=isHomePage /]
           <h1 class="txst-khanbanner-departmenttitle">
             <a href="${cmsfn.link(homepage)}">${gf.nodeTitle(homepage)}</a>
           </h1>
@@ -39,7 +39,9 @@
         [@cms.area name="gato-banners"/]
         [@mainmenu textmenu=true /]
         <div class="txst-khanbanner-siteinfo">
-          [@cms.area name="siteinfo" content=gf.getOrCreateArea(homepage, 'siteinfo') editable=isHomePage/]
+          <div class="vcenter">
+            [@cms.area name="siteinfo" content=gf.getOrCreateArea(homepage, 'siteinfo') editable=isHomePage/]
+          </div>
         </div>
       </div>
     </header>
