@@ -45,11 +45,6 @@
       <artifactId>magnolia-templating-essentials-models</artifactId>
     </dependency>
     <dependency>
-      <groupId>info.magnolia.site</groupId>
-      <artifactId>magnolia-site</artifactId>
-      <version>1.0.2-SNAPSHOT</version>
-    </dependency>
-    <dependency>
       <groupId>info.magnolia.templating</groupId>
       <artifactId>magnolia-templating-essentials-imaging</artifactId>
     </dependency>
@@ -69,17 +64,14 @@
     <dependency>
       <groupId>info.magnolia.rest</groupId>
       <artifactId>magnolia-rest-services</artifactId>
-      <version>1.0.2</version>
     </dependency>
     <dependency>
       <groupId>info.magnolia.rest</groupId>
       <artifactId>magnolia-rest-integration</artifactId>
-      <version>1.0.2</version>
     </dependency>
     <dependency>
       <groupId>info.magnolia.rest</groupId>
       <artifactId>magnolia-rest-tools</artifactId>
-      <version>1.0.2</version>
     </dependency>
     <dependency>
     <groupId>mysql</groupId>

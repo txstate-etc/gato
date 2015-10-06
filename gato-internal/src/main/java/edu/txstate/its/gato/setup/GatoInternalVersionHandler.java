@@ -23,7 +23,7 @@ import java.util.List;
  */
 public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
   public GatoInternalVersionHandler() {
-    register(DeltaBuilder.update("1.0.1", "")
+    register(DeltaBuilder.update("1.0", "")
       .addTask(new BootstrapSingleResource("Bootstrap", "Bootstrap class definition for doing image resizing on Texas State imagehandlers server", "/mgnl-bootstrap/gato-internal/config.modules.gato-lib.imaging.resize.xml"))
     );
   }
