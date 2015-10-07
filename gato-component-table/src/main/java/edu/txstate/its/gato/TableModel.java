@@ -8,6 +8,7 @@ import javax.jcr.PathNotFoundException;
 import javax.jcr.RepositoryException;
 import info.magnolia.jcr.util.PropertyUtil;
 import org.apache.commons.lang3.StringUtils;
+import java.util.ArrayList;
 
 
 
@@ -21,6 +22,7 @@ public class TableModel<RD extends ConfiguredTemplateDefinition> extends Renderi
         String tableHTML="";
         String tableData = PropertyUtil.getString(content, "tableData", "");
         boolean hasHeader = PropertyUtil.getBoolean(content, "tableHeader", false);
+        ArrayList headers = new ArrayList();
 
         tableHTML += "<table cellspacing=\"0\" class=\"gato-table " + cssClasses + "\">";
 
@@ -34,6 +36,7 @@ public class TableModel<RD extends ConfiguredTemplateDefinition> extends Renderi
             tableHTML += "<tr>\n";
             String[] cols = StringUtils.splitPreserveAllTokens(rows[0], "\t");
             for (int col = 0; col < cols.length; col++) {
+                headers.add(cols[col]);
                 tableHTML += "<th>";
                 tableHTML += cols[col];
                 tableHTML += "</th>\n";
@@ -51,7 +54,14 @@ public class TableModel<RD extends ConfiguredTemplateDefinition> extends Renderi
                 tableHTML += "\">\n";
                 String[] cols = StringUtils.splitPreserveAllTokens(rows[row], "\t");
                 for(int col=0; col < cols.length; col++){
-                    tableHTML += "<td>";
+                    if(hasHeader){
+                        tableHTML += "<td data-label=\"";
+                        tableHTML += headers.get(col);
+                        tableHTML += ":\">";
+                    }
+                    else{
+                        tableHTML += "<td>";
+                    }
                     tableHTML += cols[col];
                     tableHTML += "</td>\n";
                 }

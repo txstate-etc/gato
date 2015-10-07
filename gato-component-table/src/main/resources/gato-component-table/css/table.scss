@@ -46,3 +46,56 @@
         text-align: right;
     }
 }
+
+.tableScroll {
+  min-height: .01%;
+  overflow-x: auto;
+}
+@media screen and (max-width: 800px){
+//.eq-parent[max-width="800px"] .carded{
+    .gato-table.carded{
+        border: 0px;
+        thead {
+            display: none;  //not accessible?
+        }
+        tr {
+            margin-bottom: 10px;
+            display: block;
+            border-bottom: 2px solid $gold;
+        }
+        td {
+            display: block;
+            text-align: right;
+            border: 0px;
+            border-bottom: 1px dotted $gold;
+        }
+        td:last-child{
+            border-bottom: 0;
+        }
+
+        td:before{
+            content: attr(data-label);
+            float: left;
+            font-weight: 400;
+        }
+    }
+
+    .tableScroll {
+        width: 100%;
+        margin-bottom: 15px;
+        overflow-y: hidden;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+        border: 1px solid #ddd;
+    }
+    .tableScroll > .gato-table {
+        margin-bottom: 0;
+    }
+    .tableScroll > .gato-table > thead > tr > th,
+    .tableScroll > .gato-table > tbody > tr > th,
+    .tableScroll > .gato-table > tfoot > tr > th,
+    .tableScroll > .gato-table > thead > tr > td,
+    .tableScroll > .gato-table > tbody > tr > td,
+    .tableScroll > .gato-table > tfoot > tr > td {
+        white-space: nowrap;
+    }
+}

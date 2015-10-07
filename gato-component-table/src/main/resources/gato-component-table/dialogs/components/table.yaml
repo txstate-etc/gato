@@ -12,7 +12,13 @@ form:
           class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
           label: Options
           buttonLabel: First row is table header
+          defaultValue: true
+        - name: tableResponsive
+          class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+          label: ""
+          buttonLabel: Use carded layout in small spaces
           defaultValue: false
+          description: Use a vertical layout instead of horizontal scrolling when table is confined to a small space.
         - name: tableSortable
           class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
           label: ""
