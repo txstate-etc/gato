@@ -58,7 +58,9 @@
         [@breadcrumbs/]
         [@cms.area name="contentParagraph" /]
       </main>
-      [@cms.area name="footer" content=gf.getOrCreateArea(homepage, 'footer') editable=isHomePage /]
+      <div class="txst-footer">
+        [@cms.area name="footer" content=gf.getOrCreateArea(homepage, 'footer') editable=isHomePage /]
+      </div>
     </div>
     [#if content['library-footer']?has_content]
       <div class="library-footer">

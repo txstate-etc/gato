@@ -2,32 +2,32 @@
 @import "gato-template-txstate2009/css/includes";
 
 body {
-	font-family: "Nimbus Sans L", Arial, Helvetica, sans-serif;
-	min-width: 990px;
-	font-size: 16px;
-	background-color: white;
+  font-family: "Nimbus Sans L", Arial, Helvetica, sans-serif;
+  min-width: 990px;
+  font-size: 16px;
+  background-color: white;
 }
 
 .txst-khan-frame {
-	position: relative;
-	margin: 0px auto;
-	padding-top: 66px;
-	width: 962px;
-	text-align: left;
+  position: relative;
+  margin: 0px auto;
+  padding-top: 66px;
+  width: 962px;
+  text-align: left;
 }
 
 .txst-khan-contentarea {
-	position: relative;
-	width: 100%;
-	clear: both;
-	overflow: hidden;
+  position: relative;
+  width: 100%;
+  clear: both;
+  overflow: hidden;
 }
 
 .txst-khan-contentcolumn {
-	width: 692px;
-	padding: 45px 22px 0px 23px;
-	position: relative;
-	float: left;
+  width: 692px;
+  padding: 45px 22px 0px 23px;
+  position: relative;
+  float: left;
   h1 {
     clear: both;
   }
@@ -44,7 +44,7 @@ body {
     width: 600px;
     a {
       white-space: nowrap;
-    	color: #b1b1b1;
+      color: #b1b1b1;
     }
   }
 }
@@ -70,45 +70,43 @@ body {
 }
 
 .khan-content-footer {
-	position: relative;
-	clear: both;
-	height: 1px;
+  position: relative;
+  clear: both;
+  height: 1px;
 }
 
 .txst-footer {
-	position: relative;
-	clear: both;
-	margin: 30px 25px 10px 241px;
-	font-size: 10px;
-	color: #AAAAAA;
-	text-align: center;
-	background: url(txstate-sites/images/content-bg.gif) no-repeat;
-	padding-top: 25px;
-}
-.txst-footer a {
-	text-decoration: none;
-	color: #AAAAAA;
-}
-.txst-footer a:hover {
-	text-decoration: underline;
+  position: relative;
+  clear: both;
+  margin: 30px 25px 10px 241px;
+  font-size: 10px;
+  color: #AAAAAA;
+  text-align: center;
+  background: url(../images/content-bg.gif) no-repeat;
+  padding-top: 25px;
+  a {
+    text-decoration: none;
+    color: #AAAAAA;
+    &:hover { text-decoration: underline; }
+  }
 }
 
 .txst-admin-notice {
-	font-size: 200%;
-	text-align: center;
-	border: 3px solid black;
-	margin-top: 20%;
-	width: 50%;
-	margin: auto;
-	margin-top: 10%;
-	padding: 10px;
+  font-size: 200%;
+  text-align: center;
+  border: 3px solid black;
+  margin-top: 20%;
+  width: 50%;
+  margin: auto;
+  margin-top: 10%;
+  padding: 10px;
 }
 
 .full-site-link {
-	text-align: center;
-	padding-top: 2px;
-	padding-bottom: 15px;
+  text-align: center;
+  padding-top: 2px;
+  padding-bottom: 15px;
 }
 .full-site-link a {
-	font-size: 13px;
+  font-size: 13px;
 }

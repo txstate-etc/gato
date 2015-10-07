@@ -50,13 +50,13 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
           if (n.hasNode("tsusnewsletter")) NodeUtil.renameNode(n.getNode("tsusnewsletter"), "newsletter");
           if (n.hasNode("tsusfooterlinks1")) NodeUtil.renameNode(n.getNode("tsusfooterlinks1"), "footerlinks1");
           if (n.hasNode("tsusfooterlinks2")) NodeUtil.renameNode(n.getNode("tsusfooterlinks2"), "footerlinks2");
-          if (n.hasNode("footer")) convertComponentToArea(n.getNode("footer"));
           if (n.hasNode("socialmedia")) {
             for (Node sm : NodeUtil.getNodes(n.getNode("socialmedia"))) {
               PropertyUtil.setProperty(sm, "icononly", true);
             }
           }
         }
+        if (n.hasNode("footer")) convertNodeToAreaAndComponent(n.getNode("footer"), "gato-template:components/misctext");
         if (n.hasNode("siteinfo")) convertNodeToAreaAndComponent(n.getNode("siteinfo"), "gato-template:components/misctext");
       }
     });

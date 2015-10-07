@@ -45,3 +45,9 @@ areas:
     availableComponents:
       link:
         id: gato-template:components/link
+  footer:
+    title: Footer
+    type: single
+    availableComponents:
+      misctext:
+        id: gato-template:components/misctext
