@@ -51,12 +51,12 @@
   min-height: .01%;
   overflow-x: auto;
 }
-@media screen and (max-width: 800px){
-//.eq-parent[max-width="800px"] .carded{
+
+.table-wrapper[max-width="600px"] {
     .gato-table.carded{
         border: 0px;
         thead {
-            display: none;  //not accessible?
+            display: none; 
         }
         tr {
             margin-bottom: 10px;
@@ -80,22 +80,23 @@
         }
     }
 
-    .tableScroll {
+    //from Bootstrap's table-responsive
+    &.tableScroll {
         width: 100%;
         margin-bottom: 15px;
         overflow-y: hidden;
         -ms-overflow-style: -ms-autohiding-scrollbar;
         border: 1px solid #ddd;
     }
-    .tableScroll > .gato-table {
+    &.tableScroll > .gato-table {
         margin-bottom: 0;
     }
-    .tableScroll > .gato-table > thead > tr > th,
-    .tableScroll > .gato-table > tbody > tr > th,
-    .tableScroll > .gato-table > tfoot > tr > th,
-    .tableScroll > .gato-table > thead > tr > td,
-    .tableScroll > .gato-table > tbody > tr > td,
-    .tableScroll > .gato-table > tfoot > tr > td {
+    &.tableScroll > .gato-table > thead > tr > th,
+    &.tableScroll > .gato-table > tbody > tr > th,
+    &.tableScroll > .gato-table > tfoot > tr > th,
+    &.tableScroll > .gato-table > thead > tr > td,
+    &.tableScroll > .gato-table > tbody > tr > td,
+    &.tableScroll > .gato-table > tfoot > tr > td {
         white-space: nowrap;
     }
 }

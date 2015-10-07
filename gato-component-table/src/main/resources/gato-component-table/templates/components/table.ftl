@@ -8,6 +8,6 @@
 
 [#assign hScroll = content.tableResponsive?string("", "tableScroll")]
 
-<div class="eq-parent ${hScroll}">
+<div class="table-wrapper ${hScroll}">
     ${model.parseTableData(cssClasses)}
 </div>
