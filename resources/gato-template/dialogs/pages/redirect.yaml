@@ -1,0 +1,20 @@
+form:
+  tabs:
+    - name: tabGeneral
+      label: ""
+      fields:
+        - name: title
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Title
+        - name: hideInNav
+          class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+          buttonLabel: Do not show this page in the navigation.
+          label: "" #without this, Magnolia makes its own messy label
+        - name: link
+          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+          label: Destination
+          appName: pages
+          description: "Enter a full URL to an external site (http://www.google.com/) or use the \"Internal Link\" button to link to another page in this site."
+          buttonSelectNewLabel: "Internal Link..."
+actions: !include /gato-template/dialogs/common/actions-block.yaml
+label: Redirect

@@ -79,7 +79,8 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       {"gato:pages/tsus-2012/tsus-2012-mail",               "gato-template-tsus:pages/mail"},
       {"gato:pages/tsus-2012/tsus-2012-standard",           "gato-template-tsus:pages/standard"},
       {"gato:pages/main-2009/khan-standard",                "gato-template-txstate2015:pages/standard-template"},
-      {"gato:pages/main-2009/khan-mail",                    "gato-template-txstate2015:pages/mail-template"}
+      {"gato:pages/main-2009/khan-mail",                    "gato-template-txstate2015:pages/mail-template"},
+      {"gato:pages/redirect",                               "gato-template:pages/redirect"}
     };
 
     for (String[] namePair : templateNamePairs) {

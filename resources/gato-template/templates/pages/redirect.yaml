@@ -1,0 +1,5 @@
+templateScript: /gato-template/templates/pages/redirect.ftl
+renderType: freemarker
+title: Page Redirect
+visible: true
+dialog: gato-template:pages/redirect
