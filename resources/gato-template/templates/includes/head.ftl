@@ -55,13 +55,6 @@
 	</title>
 [/#macro]
 
-[#macro javascriptvariables]
-	<script type="text/javascript">
-		var serverDateTime = new Date(${.now?long});
-		var magnolia_assets_url = "${gf.resourcePath()}";
-	</script>
-[/#macro]
-
 [#macro meta publisher="Texas State University"]
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">

@@ -2,6 +2,9 @@ var initPhotoSwipe = (function($) {
   var pswpCount = 0;
 
   return function(pswpSelector) {
+    if (isEditMode) {
+      return;
+    }
 
     var buildItemList = function(el) {
       var link,

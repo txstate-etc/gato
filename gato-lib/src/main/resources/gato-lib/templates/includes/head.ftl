@@ -19,6 +19,15 @@
   [/#list]
 [/#macro]
 
+[#macro javascriptvariables]
+  <script type="text/javascript">
+    var serverDateTime = new Date(${.now?long});
+    var magnolia_assets_url = "${gf.resourcePath()}";
+    var isEditMode = ${cmsfn.isEditMode()?string};
+    [#nested]
+  </script>
+[/#macro]
+
 [#macro inheritLoop page ancestors]
   [#list ancestors as anc]
     [#nested anc, true /]
