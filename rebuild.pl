@@ -37,6 +37,9 @@ if ($ARGV[0] eq '--module') {
 } elsif ($ARGV[0] eq '--sass') {
   symlinkheavyresources();
   sass();
+} elsif ($ARGV[0] eq '--sasswatch') {
+  symlinkheavyresources();
+  sass(1);
 } elsif ($ARGV[0] eq '--reset') {
   resetdata();
 } elsif ($ARGV[0] eq '--backup') {
@@ -191,14 +194,15 @@ sub restoremysql {
 
 # assumes `sass` is available on your system
 sub sass {
+  my $watch = shift;
   print "Compiling SASS files...\n";  
   my $loadpaths = '--load-path '.$gatodir.'/resources';
-  
+  my $cmd = "sass --sourcemap=none $loadpaths ".($watch ? '--watch ':'');
   foreach my $file (@sassfiles) {
     my $input = "$gatodir/$file";
     my $output = $input;
     $output =~ s/.scss$/.compiled.css/i;
-    `sass $loadpaths "$file" "$output"`;
-    `rm $output.map`;
+    $cmd .= "\"$input\":\"$output\" ";
   }
+  `$cmd`;
 }
