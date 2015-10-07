@@ -1,0 +1,106 @@
+/*
+ *
+ * Any element that will contain content that you want to have some basic styles applied to,
+ * such as p and hN tags, can be classed with txst-styledcontent to restore some of those
+ * elements.  This file should only contain standard html/xhtml tags.
+ *
+ */
+
+.gato-styledcontent {
+	font-family: arial, helvetica, sans-serif;
+	font-size: .8em;
+	line-height: 1.4em;
+  input, textarea, select, option {
+    font-family: 'Lucida Grande', arial, helvetica, sans-serif;
+    font-size: 1em;
+    @media screen and (min-resolution: 2dppx), screen and (-webkit-min-device-pixel-ratio: 2) {
+      font-family: 'Helvetica Neue', arial, helvetica, sans-serif;
+    }
+  }
+  p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  h1 {
+    font-size: 2em;
+    line-height: 1.2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: $maroon;
+  }
+  h2 {
+    font-size: 1.5em;
+    line-height: 1.2em;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: $maroon;
+  }
+  h3 {
+    font-size: 1.2em;
+    line-height: 1.2em;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: $maroon;
+  }
+  h4, h5, h6 {
+    font-size: 1em;
+    line-height: 1.2em;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: $maroon;
+  }
+  hr {
+    height: 1px;
+    background-color: #000000;
+    color: #000000;
+    border: 0px;
+  }
+  a {
+    color: #836c31;
+    &.mailto {
+      text-decoration: none !important;
+      background: url(content/images/mail-arrow.png) no-repeat top left;
+      padding-left: 16px;
+      height: 16px;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+  ul {
+    list-style-type: disc;
+    list-style-position: inside;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+  ol {
+    list-style-type: decimal;
+    list-style-position: inside;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+  blockquote {
+    margin-left: 20px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+  th, td {
+    padding: 3px;
+  }
+  img {
+    border-color: #A28F61;
+    border-style: solid;
+  }
+  dl {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  dt {
+    font-weight: bold;
+    border-bottom: 1px dotted #a28f61;
+    margin-bottom: 5px;
+  }
+  dd {
+    margin-left: 20px;
+  }
+}

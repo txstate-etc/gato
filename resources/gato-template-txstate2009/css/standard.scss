@@ -20,6 +20,7 @@ body {
 	position: relative;
 	width: 100%;
 	clear: both;
+	overflow: hidden;
 }
 
 .txst-khan-contentcolumn {
@@ -27,63 +28,45 @@ body {
 	padding: 45px 22px 0px 23px;
 	position: relative;
 	float: left;
-}
-.txst-khan-contentcolumn h1 {
-	clear: both;
-}
-/* no-sidebar style changes */
-.txst-khan-fullwidth .txst-khan-contentcolumn {
-	width: auto !important;
-	padding: 0px !important;
-	padding-top: 25px !important;
-	float: none !important;
-}
-.txst-khan-fullwidth div#txst-breadcrumbs {
-	position: relative !important;
-	text-align: left !important;
-	margin-top: -19px !important;
-	width: 700px !important;
-	float: none !important;
-}
-.txst-khan-fullwidth .txst-footer {
-	background: url(txstate-sites/images/content-bg-full.gif) no-repeat !important;
-	margin: 30px -2px 10px -2px !important;
-}
-/* end no-sidebar style changes */
-
-.txst-khan-contentcolumn div#txst-faq-buttons {
-	font-size: .8em;
-	font-style: italic;
-	margin-bottom: 10px;
+  h1 {
+    clear: both;
+  }
+  #breadcrumbs {
+    position: relative;
+    float: right;
+    margin-top: -32px;
+    margin-right: -18px;
+    text-align: right;
+    font-family: arial, helvetica, sans-serif;
+    font-size: .8em;
+    line-height: 16px;
+    color: #b1b1b1;
+    width: 600px;
+    a {
+      white-space: nowrap;
+    	color: #b1b1b1;
+    }
+  }
 }
 
-.txst-khan-contentcolumn div#txst-fontsize {
-	width: 150px;
-	position: absolute;
-	top: 5px;
-	right: 5px;
-}
-
-.txst-khan-contentcolumn div#txst-breadcrumbs {
-	position: relative;
-	float: right;
-	margin-top: -23px;
-	margin-right: -18px;
-	margin-bottom: 6px;
-	text-align: right;
-	font-family: arial, helvetica, sans-serif;
-	font-size: .8em;
-	line-height: 1.1em;
-	color: #b1b1b1;
-	width: 600px;
-}
-
-#txst-breadcrumbs a {
-	white-space: nowrap;
-}
-
-.txst-khan-contentcolumn div#txst-breadcrumbs a {
-	color: #b1b1b1;
+.txst-khan-fullwidth { /* no-sidebar: style changes */
+  .txst-khan-contentcolumn {
+    width: auto !important;
+    padding: 0px !important;
+    padding-top: 25px !important;
+    float: none !important;
+  }
+  #breadcrumbs {
+    position: relative !important;
+    text-align: left !important;
+    margin-top: -19px !important;
+    width: 700px !important;
+    float: none !important;
+  }
+  .txst-footer {
+    background: url(../images/content-bg-full.gif) no-repeat !important;
+    margin: 30px -2px 10px -2px !important;
+  }
 }
 
 .khan-content-footer {

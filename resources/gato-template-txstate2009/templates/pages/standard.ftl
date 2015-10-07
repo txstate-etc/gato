@@ -54,7 +54,7 @@
           [@cms.area name="socialmedia" /]
         </div>
       [/#if]
-      <main class="txst-khan-contentcolumn txst-styledcontent">
+      <main class="txst-khan-contentcolumn gato-styledcontent">
         [@breadcrumbs/]
         [@cms.area name="contentParagraph" /]
       </main>

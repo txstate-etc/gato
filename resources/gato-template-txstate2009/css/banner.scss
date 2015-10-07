@@ -122,35 +122,38 @@
 
 .txst-khanbanner-entityidentity {
   position: absolute;
-  display: table;
   top: 8px;
   left: 15px;
   width: 176px;
   height: 142px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: right;
   overflow: hidden;
   h1 {
     margin: 0px;
   }
-}
-
-.txst-khanbanner-parenttitle a {
-  display: block;
-  color: #d0c7b0;
-  font-size: 14px;
-  line-height: 18px;
-  font-weight: normal;
-  text-decoration: none;
-}
-
-.txst-khanbanner-departmenttitle a {
-  display: block;
-  color: white;
-  font-size: 16px;
-  line-height: 20px;
-  font-weight: bold;
-  text-decoration: none;
-  margin-top: 10px;
+  p {
+    margin: 0px;
+  }
+  .parent_org a {
+    display: block;
+    color: #d0c7b0;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: normal;
+    text-decoration: none;
+  }
+  .txst-khanbanner-departmenttitle a {
+    display: block;
+    color: white;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 10px;
+  }
 }
 
 .txst-khanbanner-siteinfo {
@@ -169,7 +172,7 @@
   overflow: hidden;
   a { color: #d0c7b0; }
   h3 { margin: 0px; }
-  body.admin & { 
+  body.admin & {
     display: block;
     overflow: scroll;
     top: 6px;
@@ -184,22 +187,23 @@
   background: #4b0f15 url(library-2012/images/footertile.jpg) repeat-x;
   height: 32px;
   padding: 28px 20px;
+  a {
+    display: block;
+    float: left;
+    border-radius: 10px;
+    background-color: #dfded4;
+    border: 1px solid #6c6d69;
+    line-height: 30px;
+    width: 144px;
+    text-align: center;
+    color: #323332;
+    text-decoration: none;
+    margin-right: 7px;
+    white-space: nowrap;
+    font-size: 13px;
+  }
 }
-.library-footer a {
-  display: block;
-  float: left;
-  border-radius: 10px;
-  background-color: #dfded4;
-  border: 1px solid #6c6d69;
-  line-height: 30px;
-  width: 144px;
-  text-align: center;
-  color: #323332;
-  text-decoration: none;
-  margin-right: 7px;
-  white-space: nowrap;
-  font-size: 13px;
-}
+
 .more-footer .txst-footer {
   background: none;
   margin: 0;
