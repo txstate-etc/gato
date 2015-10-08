@@ -1,6 +1,0 @@
-templateScript: /gato-component-table/templates/components/table.ftl
-renderType: freemarker
-dialog: gato-component-table:components/table
-description: Create and configure a table by copying and pasting tabular information from Excel or Word.
-title: Table
-modelClass: edu.txstate.its.gato.TableModel

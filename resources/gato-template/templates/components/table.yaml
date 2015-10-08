@@ -1,0 +1,5 @@
+templateScript: /gato-template/templates/components/table.ftl
+renderType: freemarker
+dialog: gato-template:components/table
+description: Create and configure a table by copying and pasting tabular information from Excel or Word.
+title: Table

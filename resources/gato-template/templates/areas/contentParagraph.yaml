@@ -18,4 +18,4 @@ availableComponents:
   documents:
     id: gato-component-documents:components/documents
   table:
-    id: gato-component-table:components/table
+    id: gato-template:components/table

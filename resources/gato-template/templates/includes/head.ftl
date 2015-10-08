@@ -17,7 +17,7 @@
 		'gato-lib/js/photoswipe/photoswipe-ui-default.js',
 		'gato-lib/js/photoswipe-util.js',
 		'gato-component-gallery/js/gallery.js',
-		'gato-component-table/js/standardista-table-sorting.js',
+		'gato-template/js/standardista-table-sorting.js',
 		'gato-area-mail/js/mailForm.js'
 	]+scripts /]
 [/#macro]
