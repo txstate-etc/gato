@@ -9,7 +9,6 @@ our $backupdir = "$gatodir/../gatobackup";
 our $edgewarpath = "$gatodir/gato-webapp/target/gato-webapp*war";
 our $magrepopath = "/var/mag_repositories";
 our $magnoliapropertiespath = "/etc/magnolia/config";
-our @lightmodules = ('gato-template', 'gato-template-tsus', 'gato-template-txstate2015');
 our @heavymodules = ('gato-lib', 'gato-internal', 'gato-component-cssjs', 'gato-component-dept-directory', 
   'gato-component-faq', 'gato-component-gallery', 'gato-component-documents', 'gato-area-mail');
 our @sassfiles = ('resources/gato-template-tsus/css/tsus-home.scss', 
@@ -195,7 +194,11 @@ sub restoremysql {
 # assumes `sass` is available on your system
 sub sass {
   my $watch = shift;
-  print "Compiling SASS files...\n";  
+  if ($watch) {
+    print "Now watching for SASS changes...\n";
+  } else {
+    print "Compiling SASS files...\n";
+  }
   my $loadpaths = '--load-path '.$gatodir.'/resources';
   my $cmd = "sass --sourcemap=none $loadpaths ".($watch ? '--watch ':'');
   foreach my $file (@sassfiles) {
