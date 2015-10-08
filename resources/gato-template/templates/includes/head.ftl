@@ -8,7 +8,6 @@
 		'gato-template/js/main-menus.js',
 		'gato-template/js/outgoing-clicks.js',
 		'gato-template/js/post-load.js',
-		'gato-template/js/mailForm.js',
 		'gato-template/js/easter-egg.js',
 		'gato-template/js/webtools.js',
 		'gato-lib/js/date.js',
@@ -18,7 +17,8 @@
 		'gato-lib/js/photoswipe/photoswipe-ui-default.js',
 		'gato-lib/js/photoswipe-util.js',
 		'gato-component-gallery/js/gallery.js',
-		'gato-component-table/js/standardista-table-sorting.js'
+		'gato-component-table/js/standardista-table-sorting.js',
+		'gato-area-mail/js/mailForm.js'
 	]+scripts /]
 [/#macro]
 

@@ -1,5 +1,5 @@
-templateScript: /gato-template/templates/components/formfile.ftl
+templateScript: /gato-area-mail/templates/components/formfile.ftl
 renderType: freemarker
-dialog: gato-template:components/formfile
+dialog: gato-area-mail:components/formfile
 description: Allows form submitters to attach a file from their computer.
 title: File Field

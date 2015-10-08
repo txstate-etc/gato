@@ -147,5 +147,6 @@
     <module>gato-component-sitemap</module>
     <module>gato-component-documents</module>
     <module>gato-component-table</module>
+    <module>gato-area-mail</module>
   </modules>
 </project>

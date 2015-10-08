@@ -60,7 +60,7 @@ footerLinks:
 contentParagraph:
   !include /gato-template/templates/areas/contentParagraph.yaml
 mail:
-  !include /gato-template/templates/areas/mailForm.yaml
+  !include /gato-area-mail/templates/areas/mailForm.yaml
 navBlocks:
   !include /gato-template/templates/areas/navBlocks.yaml
 webtools:

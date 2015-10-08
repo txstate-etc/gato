@@ -6,13 +6,13 @@
 @import "gato-template/css/imagelink";
 @import "gato-template/css/sociallink";
 @import "gato-template/css/textimage";
-@import "gato-template/css/mailform";
 @import "gato-template/css/flexitems";
 /* @import "gato-template/css/magnolia-tweaks"; */
 @import "gato-component-cssjs/css/custom";
 @import "gato-component-documents/css/documents";
 @import "gato-component-gallery/css/gallery";
 @import "gato-component-table/css/table";
+@import "gato-area-mail/css/mailform";
 
 /* should be last, to override component styles */
 @import "gato-internal/css/includes";

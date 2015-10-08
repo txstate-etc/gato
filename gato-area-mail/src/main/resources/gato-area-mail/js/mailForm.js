@@ -7,9 +7,14 @@ function txstValidate(type, elem, icon) {
   this.elem = elem;
   this.icon = icon;
   this.fromDate = this.parse(elem.valid_fromDate);
-  this.fromDate.set({millisecond: 0, second: 0, minute: 0, hour: 0});
+
+  if (this.fromDate) {
+    this.fromDate.set({millisecond: 0, second: 0, minute: 0, hour: 0});
+  }
   this.toDate = this.parse(elem.valid_toDate);
-  this.toDate.set({millisecond: 0, second: 0, minute: 0, hour: 0});
+  if (this.toDate) {
+    this.toDate.set({millisecond: 0, second: 0, minute: 0, hour: 0});
+  }
   this.isSpinning = false;
 
   var spinnerOptions = {

@@ -1,0 +1,5 @@
+templateScript: /gato-area-mail/templates/components/formsubmit.ftl
+renderType: freemarker
+dialog: gato-area-mail:components/formsubmit
+description: A button to submit your form. Every form needs one!
+title: Submit Button

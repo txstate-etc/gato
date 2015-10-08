@@ -127,6 +127,11 @@
       <artifactId>gato-component-table</artifactId>
       <version>${gatoVersion}</version>
     </dependency>
+    <dependency>
+      <groupId>edu.txstate.its.gato</groupId>
+      <artifactId>gato-area-mail</artifactId>
+      <version>${gatoVersion}</version>
+    </dependency>
   </dependencies>
   <build>
     <plugins>
