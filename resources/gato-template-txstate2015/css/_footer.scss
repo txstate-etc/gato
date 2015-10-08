@@ -97,6 +97,10 @@ a.image_link:hover{background: transparent; opacity: 1;}
     i {
         font-size: 130%;
     }
+    &:hover{
+        color: #fff !important; 
+        background: transparent !important;
+    }
 }
 
 .footer_content[min-width~="#{$xs-breakpoint}"] > .footer_column{
