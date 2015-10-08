@@ -19,7 +19,7 @@
             <thead>
                 <tr>
                     [#list headers as col]
-                        <th>${col}</th>
+                        <th>${(col?has_content)?string(col, "&nbsp;")}</th>
                     [/#list]
                 </tr>
             </thead>
@@ -34,7 +34,7 @@
                         [#else]
                         <td>
                         [/#if]
-                            ${col}
+                            ${(col?has_content)?string(col, "&nbsp;")}
                         </td>
                     [/#list]
                     </tr>
