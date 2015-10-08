@@ -18,6 +18,7 @@ import javax.jcr.LoginException;
 import info.magnolia.module.delta.TaskExecutionException;
 
 import java.util.Arrays;
+import org.apache.commons.lang3.StringUtils;
 
 class MoveFileToDamTask extends MoveFileContentToDamMigrationTask {
   protected String folderName;
@@ -63,11 +64,16 @@ class MoveFileToDamTask extends MoveFileContentToDamMigrationTask {
   }
 
   protected void updateResourceProperty(Node assetNodeResource, Node dataNodeResource) throws RepositoryException {
+    String extension = "";
     if (dataNodeResource.hasProperty(AssetNodeTypes.AssetResource.EXTENSION)) {
-      assetNodeResource.setProperty(AssetNodeTypes.AssetResource.EXTENSION, dataNodeResource.getProperty(AssetNodeTypes.AssetResource.EXTENSION).getString());
+      extension = dataNodeResource.getProperty(AssetNodeTypes.AssetResource.EXTENSION).getString().toLowerCase();
+      if (extension.equals("jpeg")) extension = "jpg";
+      assetNodeResource.setProperty(AssetNodeTypes.AssetResource.EXTENSION, extension);
     }
     if (dataNodeResource.hasProperty(AssetNodeTypes.AssetResource.FILENAME)) {
-      assetNodeResource.setProperty(AssetNodeTypes.AssetResource.FILENAME, dataNodeResource.getProperty(AssetNodeTypes.AssetResource.FILENAME).getString());
+      assetNodeResource.setProperty(AssetNodeTypes.AssetResource.FILENAME,
+        dataNodeResource.getProperty(AssetNodeTypes.AssetResource.FILENAME).getString()+
+        (!StringUtils.isBlank(extension) ? "."+extension : ""));
     }
     if (dataNodeResource.hasProperty(AssetNodeTypes.AssetResource.HEIGHT)) {
       assetNodeResource.setProperty(AssetNodeTypes.AssetResource.HEIGHT, Long.parseLong(dataNodeResource.getProperty(AssetNodeTypes.AssetResource.HEIGHT).getString()));
