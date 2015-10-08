@@ -32,16 +32,11 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
     List<Task> tasks = new ArrayList<Task>(super.getExtraInstallTasks(installContext));
 
     // move binary data from the website tree to the DAM
-    tasks.add(new MoveFileContentToDamMigrationTask("Website DAM Migration - Image", "Move binary files from the website tree to the DAM.", RepositoryConstants.WEBSITE,
-      Arrays.asList("/tsus", "/testing-site-destroyer"), "", "image"));
-    tasks.add(new MoveFileContentToDamMigrationTask("Website DAM Migration - Rollover", "Move binary files from the website tree to the DAM.", RepositoryConstants.WEBSITE,
-      Arrays.asList("/tsus"), "", "rollover"));
-    tasks.add(new MoveFileContentToDamMigrationTask("Website DAM Migration - Icon", "Move binary files from the website tree to the DAM.", RepositoryConstants.WEBSITE,
-      Arrays.asList("/tsus", "/testing-site-destroyer"), "", "icon"));
-    tasks.add(new MoveFileContentToDamMigrationTask("Website DAM Migration - BGImage", "Move binary files from the website tree to the DAM.", RepositoryConstants.WEBSITE,
-      Arrays.asList("/tsus"), "", "bgimage"));
-    tasks.add(new MoveFileContentToDamMigrationTask("Website DAM Migration- Document", "Move binary files from the website tree to the DAM.", RepositoryConstants.WEBSITE,
-      Arrays.asList("/testing-site-destroyer"), "", "document"));
+    tasks.add(new MoveFileToDamTask("image", "images"));
+    tasks.add(new MoveFileToDamTask("rollover", "images"));
+    tasks.add(new MoveFileToDamTask("bgimage", "images"));
+    tasks.add(new MoveFileToDamTask("icon", "images"));
+    tasks.add(new MoveFileToDamTask("document", "documents"));
 
     //migrate testing-site documents from dms to dam
     tasks.add(new MoveDataWorkspaceToDamMigrationTask("Migrate DMS content to DAM", "Migrate DMS to DAM", Arrays.asList("/testing-site"), null, "dms" ));
