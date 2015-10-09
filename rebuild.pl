@@ -70,11 +70,11 @@ sub tomcat_restart {
   my $nested = shift;
   
   print "stopping tomcat...\n";
-  my $pid = `pgrep -f $tomcatdir`;
+  my $pid = `pgrep -f /java.*$tomcatdir`;
   `kill $pid` if $pid > 0;
 
   my $matchstr = quotemeta($tomcatdir);
-  while (`ps ax` =~ m/$matchstr/) {
+  while (`ps ax` =~ m/\/java.*$matchstr/) {
     print "waiting for tomcat to go away...\n";
     sleep(1);
   }

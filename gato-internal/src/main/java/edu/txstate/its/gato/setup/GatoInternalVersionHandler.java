@@ -8,6 +8,7 @@ import info.magnolia.module.delta.BootstrapSingleResource;
 import info.magnolia.module.delta.DeltaBuilder;
 import info.magnolia.module.delta.FindAndChangeTemplateIdTask;
 import info.magnolia.module.delta.RemoveNodeTask;
+import info.magnolia.module.delta.SetPropertyTask;
 import info.magnolia.module.delta.Task;
 import info.magnolia.module.InstallContext;
 import info.magnolia.repository.RepositoryConstants;
@@ -83,6 +84,9 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       tasks.add(new FindAndChangeTemplateIdTask(RepositoryConstants.WEBSITE, namePair[0], namePair[1]));
     }
 
+    // change various config properties
+    tasks.add(new SetPropertyTask(RepositoryConstants.CONFIG, "/server/filters/activation", "class", "info.magnolia.module.activation.ReceiveFilter"));
+
     // additional tasks in our catch all migration to 5 task
     tasks.add(new Gato5MigrationTask("Gato Migrate to 5 task", "Generic update task for all the things we need to do to upgrade to Magnolia 5."));
 
@@ -92,6 +96,8 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
     tasks.add(new RemoveNodeTask("Remove old Gato module config", "/modules/gato"));
     // remove the config node for the old 4.5 migration module
     tasks.add(new RemoveNodeTask("Remove old 4.5 migration config", "/modules/magnolia-4-5-migration"));
+    // remove the config node for the old 4.5 cas filter
+    tasks.add(new RemoveNodeTask("Remove old 4.5 cas filter", "/server/filters/casRedirect"));
     return tasks;
   }
 

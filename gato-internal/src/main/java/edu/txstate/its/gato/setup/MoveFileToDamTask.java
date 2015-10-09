@@ -19,8 +19,11 @@ import info.magnolia.module.delta.TaskExecutionException;
 
 import java.util.Arrays;
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 class MoveFileToDamTask extends MoveFileContentToDamMigrationTask {
+  private static final Logger log = LoggerFactory.getLogger(MoveFileToDamTask.class);
   protected String folderName;
   public MoveFileToDamTask(String propertyName, String folderName) {
     super("DAM Migration - "+propertyName, "Move binary files from the website tree to the DAM.",
@@ -36,8 +39,13 @@ class MoveFileToDamTask extends MoveFileContentToDamMigrationTask {
   @Override
   protected String copyToDam(Node dataNodeResource) throws RepositoryException {
     // figure out where to put our asset
-    String[] path = dataNodeResource.getPath().split("/");
-    String damPath = "/"+path[1]+"/migrated_files/"+this.folderName;
+    Node page = dataNodeResource;
+    while (!page.getPrimaryNodeType().isNodeType(NodeTypes.Page.NAME)) {
+      page = page.getParent();
+    }
+    if (dataNodeResource.getPath().contains("/gato-banners/")) this.folderName = "banners";
+    String[] path = page.getPath().split("/", 3);
+    String damPath = "/"+path[1]+"/migrated_files/"+this.folderName+"/"+(path.length > 2 ? path[2] : "");
     Node damParent = NodeUtil.createPath(this.damSession.getRootNode(), damPath, NodeTypes.Folder.NAME);
 
     // find the filename we will use and ensure it's unique in our parent folder
