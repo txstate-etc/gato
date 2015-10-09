@@ -25,7 +25,7 @@ public class GatoMIMEMapping {
   protected HashMap<String, HashSet<String>> mimeToExt = new HashMap<String, HashSet<String>>();
   protected HashMap<String, String> extToMime = new HashMap<String, String>();
 
-  protected boolean needsReload = false;
+  protected boolean needsReload = true;
 
   public GatoMIMEMapping() {
     loadMimeConfig();
@@ -40,6 +40,7 @@ public class GatoMIMEMapping {
       Node mime = MgnlContext.getJCRSession("config").getNode(MIME_CONFIG_PATH);
       NodeUtil.visit(mime, this::addNodeToMap, new NodeTypePredicate(NodeTypes.ContentNode.NAME, true));
       log.info("Successfully loaded mime types");
+      needsReload = false;
     } catch (RepositoryException e) {
       log.warn("Failed to load mime config from " + MIME_CONFIG_PATH);
       e.printStackTrace();
