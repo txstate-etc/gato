@@ -580,4 +580,9 @@ public final class GatoUtils {
     MagnoliaConfigurationProperties mcp = Components.getComponent(MagnoliaConfigurationProperties.class);
     return mcp.getProperty(propertyName);
   }
+
+  public List<String> getEquivalentExtensions(String ext) {
+    GatoMIMEMapping mimeMapping = Components.getComponent(GatoMIMEMapping.class);
+    return mimeMapping.getEquivalents(ext);
+  }
 }
