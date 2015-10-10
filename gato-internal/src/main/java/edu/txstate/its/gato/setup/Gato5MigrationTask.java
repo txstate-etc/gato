@@ -93,19 +93,8 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
     //make sure all hideInNav types are boolean, not string
     visitPages(hm, new NodeVisitor() {
       public void visit(Node n) throws RepositoryException {
-        Property propHideInNav = PropertyUtil.getPropertyOrNull(n, "hideInNav");
-        //if the page has a hideInNav property
-        if(propHideInNav != null){
-          //check if the property has type String
-          if(propHideInNav.getType() == PropertyType.STRING){
-            boolean hideInNav = Boolean.parseBoolean(propHideInNav.getString());
-            //remove the String property
-            propHideInNav.remove();
-            //add the property back with a boolean
-            PropertyUtil.setProperty(n, "hideInNav", hideInNav);
-          }
-        }
-
+        convertPropertyToBool(n, "hideInNav");
+        convertPropertyToBool(n, "hideSidebar");
       }
     });
 
@@ -120,7 +109,14 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
     visitByTemplate(hm, "gato:components/texasState/texasDownload", this::updateDownloadComponent);
   }
 
-  private void updateDownloadComponent(Node n) throws RepositoryException{
+  private void convertPropertyToBool(Node n, String propName) throws RepositoryException {
+    if (n.hasProperty(propName)) {
+      String val = PropertyUtil.getString(n, propName, "0");
+      PropertyUtil.setProperty(n, propName, "1".equals(val) || "true".equals(val));
+    }
+  }
+
+  private void updateDownloadComponent(Node n) throws RepositoryException {
     if(n.hasProperty("document")){
       String itemKey = PropertyUtil.getString(n, "document");
       PropertyUtil.renameProperty(n.getProperty("document"), "link");
@@ -131,10 +127,7 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
   }
 
   private void convertInheritToBool(Node n) throws RepositoryException {
-    if (n.hasProperty("inherit")) {
-      String val = PropertyUtil.getString(n, "inherit", "0");
-      PropertyUtil.setProperty(n, "inherit", "1".equals(val) || "true".equals(val));
-    }
+    convertPropertyToBool(n, "inherit");
   }
 
   private void updateImageGallery(Node n) throws RepositoryException {
