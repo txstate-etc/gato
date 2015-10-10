@@ -1,0 +1,5 @@
+templateScript: /gato-template/templates/components/html.ftl
+renderType: freemarker
+dialog: gato-template:components/misctext
+description: HTML 5 that will be reproduced without alteration
+title: Raw HTML

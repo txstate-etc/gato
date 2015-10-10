@@ -1,0 +1,12 @@
+form:
+  tabs:
+    - name: tabTexts
+      label: Raw HTML
+      fields:
+        - name: text
+          class: info.magnolia.ui.form.field.definition.CodeFieldDefinition
+          language: html
+          rows: 20
+          label: HTML
+          description: "HTML5 code to be placed on the page unaltered."
+actions: !include /gato-template/dialogs/common/actions-block.yaml

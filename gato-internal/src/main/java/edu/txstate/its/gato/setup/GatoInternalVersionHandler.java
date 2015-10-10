@@ -60,6 +60,7 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       {"gato:components/texasState/texasTable",             "gato-template:components/table"},
       {"gato:components/texasState/texasEditor",            "gato-template:components/richeditor"},
       {"gato:components/texasState/texasTextImage",         "gato-template:components/textimage"},
+      {"gato:components/texasState/texas-raw",              "gato-template:components/html"},
       {"gato:components/texasState/texasLink",              "gato-template:components/link"},
       {"gato:components/texasState/texas-misc-text",        "gato-template:components/misctext"},
       {"gato:components/texasState/social-media-link",      "gato-template:components/sociallink"},
