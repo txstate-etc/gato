@@ -175,7 +175,7 @@ class MoveRichEditorToDamTask extends MoveFCKEditorContentToDamMigrationTask {
     }
   }
 
-  private void changeLinkInTextContent(Property property, String damAssetIdentifier, String originalFileNodeIdentifier, String damAssetPath, String originalFileNodePath) throws RepositoryException {
+  protected void changeLinkInTextContent(Property property, String damAssetIdentifier, String originalFileNodeIdentifier, String damAssetPath, String originalFileNodePath) throws RepositoryException {
     String text = property.getString();
     String fromIdentifier = ":{uuid:{" + originalFileNodeIdentifier + "},repository:{website},";
     String toIdentifier = ":{uuid:{" + damAssetIdentifier + "},repository:{dam},";
