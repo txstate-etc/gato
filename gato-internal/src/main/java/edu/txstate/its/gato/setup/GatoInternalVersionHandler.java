@@ -33,6 +33,8 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
     List<Task> tasks = new ArrayList<Task>(super.getExtraInstallTasks(installContext));
 
     // move binary data from the website tree to the DAM
+    tasks.add(new MoveRichEditorToDamTask("gato:components/texasState/texasEditor", "content"));
+    tasks.add(new MoveRichEditorToDamTask("gato:components/texasState/texasTextImage", "text"));
     tasks.add(new MoveFileToDamTask("image", "images"));
     tasks.add(new MoveFileToDamTask("rollover", "images"));
     tasks.add(new MoveFileToDamTask("bgimage", "images"));

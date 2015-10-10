@@ -5,4 +5,4 @@ title: Blank Template
 dialog: gato-templates:pages/page-properties
 areas:
   contentParagraph:
-    !include /gato-template/templates/includes/contentParagraph.yaml
+    !include /gato-template/templates/areas/contentParagraph.yaml

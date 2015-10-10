@@ -64,13 +64,14 @@ class MoveFileToDamTask extends MoveFileContentToDamMigrationTask {
   }
 
   // I don't understand why these methods were private
-  // I haven't changed them
   protected void updateAssetProperty(Node assetNode, Node dataNodeResource) throws RepositoryException {
     if (dataNodeResource.hasProperty(AssetNodeTypes.AssetResource.EXTENSION)) {
       assetNode.setProperty(AssetNodeTypes.Asset.TYPE, dataNodeResource.getProperty(AssetNodeTypes.AssetResource.EXTENSION).getString());
     }
   }
 
+  // Updated this method to normalize file extensions a bit - also it was a little broken
+  // since the DAM expects the filename property to include the extension
   protected void updateResourceProperty(Node assetNodeResource, Node dataNodeResource) throws RepositoryException {
     String extension = "";
     if (dataNodeResource.hasProperty(AssetNodeTypes.AssetResource.EXTENSION)) {
