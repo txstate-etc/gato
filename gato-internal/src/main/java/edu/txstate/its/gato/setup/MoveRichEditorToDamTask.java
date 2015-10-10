@@ -27,6 +27,9 @@ import info.magnolia.module.delta.TaskExecutionException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
+
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,11 +37,13 @@ import org.slf4j.LoggerFactory;
 class MoveRichEditorToDamTask extends MoveFCKEditorContentToDamMigrationTask {
   private static final Logger log = LoggerFactory.getLogger(MoveRichEditorToDamTask.class);
   protected String templateId;
+  protected Map<String, String> copyHistory;
 
   public MoveRichEditorToDamTask(String templateId, String propertyName) {
     super("DAM Rich Editor Migration", "Move binary files from rich editor properties in the website tree to the DAM.",
       RepositoryConstants.WEBSITE, Arrays.asList("/"), "", propertyName);
     this.templateId = templateId;
+    this.copyHistory = new HashMap<String, String>();
   }
 
   // the property name query they were using didn't work at all so I'm overriding
@@ -132,33 +137,41 @@ class MoveRichEditorToDamTask extends MoveFCKEditorContentToDamMigrationTask {
     }
   }
 
-  private void moveResourceNodeAndHandleLink(Node node, Property property, Link link) throws RepositoryException {
-    Node fileNode = node.getSession().getNodeByIdentifier(link.getUUID());
-    log.info("grabbed linked node: "+fileNode.getPath());
-    if (StringUtils.isBlank(link.getPropertyName()) || !fileNode.hasNode(link.getPropertyName())) {
-      log.debug("{} is not a bynary link. Nothing will be done.", link.getPath());
-      return;
-    }
-    Node resourceNode = fileNode.getNode(link.getPropertyName());
-
-    if (NodeUtil.isNodeType(resourceNode, NodeTypes.Resource.NAME)) {
-      // Move resource Node to DAM
-      String damAssetIdentifier = copyToDam(resourceNode);
-      String originalFileNodePath = fileNode.getPath();
-      String originalFileNodeIdentifier = fileNode.getIdentifier();
-      if (damAssetIdentifier != null) {
-        fileNode.remove();
-        String damAssetPath = damSession.getNodeByIdentifier(damAssetIdentifier).getPath();
-        // FIXME MAGNOLIA-5381 Remove the following commented line of code.
-        // damAssetIdentifier = DamIdParser.createCompositeId(PathAwareAssetProvider.PROVIDER_ID, damAssetIdentifier);
-        log.info("'{}' resource was moved to DAM repository to the following path '{}' and identifier: '{}'", Arrays.asList(originalFileNodePath, damAssetPath, damAssetIdentifier).toArray());
-        // Change Link into contentText
-        changeLinkInTextContent(property, damAssetIdentifier, originalFileNodeIdentifier, damAssetPath, originalFileNodePath);
-      } else {
-        log.warn("Could not copy following uploaded data into dam repository: '{}'", node.getPath());
-      }
+  // updated this method to handle the case where two rich editors point at the
+  // same file, e.g. after a page copy.
+  protected void moveResourceNodeAndHandleLink(Node node, Property property, Link link) throws RepositoryException {
+    if (this.copyHistory.containsKey(link.getUUID())) {
+      String damAssetIdentifier = this.copyHistory.get(link.getUUID());
+      String damAssetPath = damSession.getNodeByIdentifier(damAssetIdentifier).getPath();
+      changeLinkInTextContent(property, damAssetIdentifier, link.getUUID(), damAssetPath, link.getPath());
     } else {
-      log.warn("The following file node '{}' has no resource node. No migration performed ", NodeUtil.getPathIfPossible(fileNode));
+      Node fileNode = node.getSession().getNodeByIdentifier(link.getUUID());
+      if (StringUtils.isBlank(link.getPropertyName()) || !fileNode.hasNode(link.getPropertyName())) {
+        log.debug("{} is not a bynary link. Nothing will be done.", link.getPath());
+        return;
+      }
+      Node resourceNode = fileNode.getNode(link.getPropertyName());
+
+      if (NodeUtil.isNodeType(resourceNode, NodeTypes.Resource.NAME)) {
+        // Move resource Node to DAM
+        String damAssetIdentifier = copyToDam(resourceNode);
+        this.copyHistory.put(link.getUUID(), damAssetIdentifier);
+        String originalFileNodePath = fileNode.getPath();
+        String originalFileNodeIdentifier = fileNode.getIdentifier();
+        if (damAssetIdentifier != null) {
+          fileNode.remove();
+          String damAssetPath = damSession.getNodeByIdentifier(damAssetIdentifier).getPath();
+          // FIXME MAGNOLIA-5381 Remove the following commented line of code.
+          // damAssetIdentifier = DamIdParser.createCompositeId(PathAwareAssetProvider.PROVIDER_ID, damAssetIdentifier);
+          log.info("'{}' resource was moved to DAM repository to the following path '{}' and identifier: '{}'", Arrays.asList(originalFileNodePath, damAssetPath, damAssetIdentifier).toArray());
+          // Change Link into contentText
+          changeLinkInTextContent(property, damAssetIdentifier, originalFileNodeIdentifier, damAssetPath, originalFileNodePath);
+        } else {
+          log.warn("Could not copy following uploaded data into dam repository: '{}'", node.getPath());
+        }
+      } else {
+        log.warn("The following file node '{}' has no resource node. No migration performed ", NodeUtil.getPathIfPossible(fileNode));
+      }
     }
   }
 
