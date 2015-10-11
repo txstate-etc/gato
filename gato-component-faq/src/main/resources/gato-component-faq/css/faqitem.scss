@@ -1,0 +1,37 @@
+.gato-faq-expand-collapse {
+  margin-bottom: 10px;
+}
+
+.txst-faqitem {
+  .txst-faqitem-question {
+    margin: 0;
+    padding: 0;
+    a {
+      display: block;
+      margin: 0;
+      padding: 14px 25px 12px 25px;
+      font-size: 18px;
+      font-weight: normal;
+      text-decoration: none;
+      line-height: 20px;
+      border-bottom: 1px solid $lightdarker;
+      border-top: 1px solid $lightlighter;
+      background-color: $lightbg;
+      color: $lighttext;
+      &:hover, &.active {
+        background-color: $mediumbg;
+        color: $mediumtext;
+      }
+    }
+  }
+
+  .txst-faqitem-answer {
+    overflow: hidden;
+    padding: 18px 40px;
+    border-left: 1px solid $lightbg;
+    border-right: 1px solid $lightbg;
+    p, ul, ol {
+      overflow: hidden;
+    }
+  }
+}

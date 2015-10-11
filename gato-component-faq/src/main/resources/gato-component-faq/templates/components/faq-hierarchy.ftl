@@ -23,10 +23,10 @@
 [/#macro]
 
 [#if !faqButtonsAdded!false]
-  <a href="#" id="txst-expand-all-faqs">Expand</a>
-  or
-  <a href="#" id="txst-collapse-all-faqs">Collapse</a>
-  all.
+  <div class="gato-faq-expand-collapse">
+    <a href="#" id="txst-expand-all-faqs">Expand</a> or
+    <a href="#" id="txst-collapse-all-faqs">Collapse</a> all.
+  </div>
   [#global "faqButtonsAdded" = true]
 [/#if]
 [#list model.nodes as node]
