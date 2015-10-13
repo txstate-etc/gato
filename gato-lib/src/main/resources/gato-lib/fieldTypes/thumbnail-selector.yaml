@@ -1,0 +1,3 @@
+name: thumbnailSelectorField
+definitionClass: edu.txstate.its.gato.vaadin.ThumbnailSelectorFieldDefinition
+factoryClass: edu.txstate.its.gato.vaadin.ThumbnailSelectorFieldFactory

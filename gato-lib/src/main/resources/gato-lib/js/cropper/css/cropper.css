@@ -1,0 +1,76 @@
+/* Cropper styles */
+#divText {
+	padding:		5px 10px 5px 10px;
+	width:			390px;
+}
+#divCropImageBorder {
+	border:			1px solid #000;
+}
+#cropImageContainer {
+	position:		relative;
+	left:			0;
+	top:			0;
+	z-index:		1;
+	cursor:			crosshair;
+}
+#cropImage {
+	display:		block;
+	position:		relative;
+	left:			0;
+	top:			0;
+	z-index:		3;
+	cursor:			crosshair;
+}
+.divSelectionHor {
+	position:		absolute;
+	left:			0;
+	top:			0;
+	width:			1px;
+	height:			1px;
+	font:			1px/1px verdana, sans-serif;
+	background:		transparent url(../media/selection_horizontal_static.gif) repeat-x;
+	z-index:		10;
+	cursor:			crosshair;
+	visibility:		hidden;
+}
+.divSelectionVer {
+	position:		absolute;
+	left:			0;
+	top:			0;
+	width:			1px;
+	height:			1px;
+	font:			1px/1px verdana, sans-serif;
+	background:		transparent url(../media/selection_vertical_static.gif) repeat-y;
+	z-index:		10;
+	cursor:			crosshair;
+	visibility:		hidden;
+}
+#imageCropSelection {
+	position:		absolute;
+	left:			0px;
+	top:			0px;
+	display:		block;
+	overflow:		hidden;
+	z-index:		9;
+	visibility:		hidden;
+}
+#divShield {
+	position:		absolute;
+	left:			0;
+	top:			0;
+	background:		#000;
+	z-index:		4;
+	cursor:			default;
+	visibility:		hidden;
+	filter:			alpha(opacity=80);
+	opacity:		0.8;
+	-moz-opacity:	0.8;
+}
+#cropMaximize {
+	color: blue;
+}
+#clearSelection {
+	color: blue;
+	margin-left: 155px;
+}
+/* end */

@@ -38,20 +38,14 @@ form:
     - name: tabThumbnail
       label: Adjust Thumbnail
       fields:
-        - name: imagecroptop
-          class: info.magnolia.ui.form.field.definition.HiddenFieldDefinition
-          defaultValue: 0
-          type: String
-        - name: imagecropleft
-          class: info.magnolia.ui.form.field.definition.HiddenFieldDefinition
-          defaultValue: 0
-          type: String
-        - name: imagecropright
-          class: info.magnolia.ui.form.field.definition.HiddenFieldDefinition
-          defaultValue: 0
-          type: String
-        - name: imagecropbottom
-          class: info.magnolia.ui.form.field.definition.HiddenFieldDefinition
-          defaultValue: 0
-          type: String
+        - name: thumbnail
+          class: edu.txstate.its.gato.vaadin.ThumbnailSelectorFieldDefinition
+          label: Image
+        - name: script
+          class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
+          initFunction: initThumbnailSelector
+          scripts: [gato-lib/js/cropper/js/Toolkit.Events.js, gato-lib/js/cropper/js/Cropper.js, gato-lib/js/thumbnail-selector.js]
+          styles: [gato-lib/js/cropper/css/cropper.css]
+          loadScriptsInOrder: true
+          label: ''
 actions: !include /gato-template/dialogs/common/actions-block.yaml

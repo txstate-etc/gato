@@ -21,7 +21,7 @@ public class GalleryImage {
   }
 
   public String getThumbUrl() {
-    return gf.getImgSquare(asset);
+    return gf.getImgSquare(asset, 0f, 0f, 0f, 0f); //FIXME: need crop values.
   }
 
   public String getCaption() {

@@ -1,0 +1,61 @@
+<!--==================================================================================\\
+//        module : Cropper                                                            \\
+//       version : 1.3                                                                \\
+//          date : 2005-08-12                                                         \\
+//        author : Michael van Ouwerkerk - www.speedingrhino.com                      \\
+//     copyright : Copyright (c) 2005 Michael van Ouwerkerk                           \\
+//     licensing : GNU General Public License (version 2)                             \\
+//   description : A graphical user interface for cropping images.                    \\
+//====================================================================================\\
+//    2005-08-12 : version 1.3 - Michael van Ouwerkerk                                \\
+//               : Now officially distributed under the GNU General Public License.   \\
+//===================================================================================-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Cropper: A DHTML Image Cropping Interface</title>
+<meta http-equiv="imagetoolbar" content="no">
+
+<link rel="stylesheet" type="text/css" href="css/cropper.css">
+<script type="text/javascript" src="js/Toolkit.Events.js"></script>
+<script type="text/javascript" src="js/Cropper.js"></script>
+
+</head>
+<body>
+
+<div id="divText">
+<h1>Cropper: A DHTML Image Cropping Interface (v1.3)</h1>
+<p>Click and drag to create your crop selection.</p>
+<ul>
+	<li>ALT: move selection while creating it</li>
+	<li>SHIFT: force square selection</li>
+	<li>CTRL: turn off edge snapping</li>
+</ul>
+</div>
+
+<form id="cropForm" action="/" method="post">
+<table cellpadding="0" cellspacing="5" border="0">
+<tr>
+	<td><div id="divCropImageBorder"><div id="cropImageContainer"><img id="cropImage" src="media/watertaxi.jpg" width="400" height="300" alt=""></div>
+	</div></td>
+	<td align="left" valign="top">
+		<table cellpadding="0" cellspacing="5" border="0">
+		<tr><td colspan="2"><strong>Image</strong></td></tr>
+		<tr><td><nobr>W :</nobr></td><td><input type="text" name="imageW" id="imageW" onchange="Cropper.formResetImgW();"></td></tr>
+		<tr><td><nobr>H :</nobr></td><td><input type="text" name="imageH" id="imageH" onchange="Cropper.formResetImgH();"></td></tr>
+		<tr><td colspan="2"><br><strong>Selection</strong></td></tr>
+		<tr><td><nobr>X :</nobr></td><td><input type="text" name="cropX" id="cropX" onchange="Cropper.formSetX(this.value);"></td></tr>
+		<tr><td><nobr>Y :</nobr></td><td><input type="text" name="cropY" id="cropY" onchange="Cropper.formSetY(this.value);"></td></tr>
+		<tr><td><nobr>W :</nobr></td><td><input type="text" name="cropW" id="cropW" onchange="Cropper.formSetW(this.value);"></td></tr>
+		<tr><td><nobr>H :</nobr></td><td><input type="text" name="cropH" id="cropH" onchange="Cropper.formSetH(this.value);"></td></tr>
+		<tr><td colspan="2"><br><button type="button" onclick="Cropper.reset();">Clear</button></td></tr>
+		</table>
+	</td>
+</tr>
+</table>
+</form>
+
+</body>
+</html>

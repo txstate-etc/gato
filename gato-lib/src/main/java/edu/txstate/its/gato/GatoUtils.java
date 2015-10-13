@@ -252,17 +252,37 @@ public final class GatoUtils {
     }
   }
 
-  public String getImgSquare(String damuuid) {
-    return getImgSquare(damfn.getAsset(ensureItemKey(damuuid)));
+  public String getImgSquare(String damuuid, float left, float right, float top, float bottom) {
+    return getImgSquare(damfn.getAsset(ensureItemKey(damuuid)), left, right, top, bottom);
   }
   
-  public String getImgSquare(Asset asset) {
+  public String getImgSquare(Asset asset, float left, float right, float top, float bottom) {
     try {
       GatoResizer srv = getResizer();
       srv.setHeight(800);
       srv.setWidth(800);
       srv.setZoom(true);
       srv.setUpscale(false);
+      srv.setCrop(left, right, top, bottom);
+      return srv.createLink(asset);
+    } catch (Exception e) {
+      e.printStackTrace();
+      return "";
+    }
+  }
+
+  public String getImg(String damuuid, int width, int height, boolean zoom, boolean upscale, float left, float right, float top, float bottom) {
+    return getImg(damfn.getAsset(ensureItemKey(damuuid)), width, height, zoom, upscale, left, right, top, bottom);
+  }
+
+  public String getImg(Asset asset, int width, int height, boolean zoom, boolean upscale, float left, float right, float top, float bottom) {
+    try {
+      GatoResizer srv = getResizer();
+      srv.setHeight(height);
+      srv.setWidth(width);
+      srv.setZoom(zoom);
+      srv.setUpscale(upscale);
+      srv.setCrop(left, right, top, bottom);
       return srv.createLink(asset);
     } catch (Exception e) {
       e.printStackTrace();

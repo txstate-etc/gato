@@ -13,10 +13,10 @@ public abstract class GatoResizer {
   protected final GatoUtils gf;
   protected long width = 0;
   protected long height = 0;
-  protected long cropleft = 0;
-  protected long cropright = 0;
-  protected long croptop = 0;
-  protected long cropbottom = 0;
+  protected float cropleft = 0;
+  protected float cropright = 0;
+  protected float croptop = 0;
+  protected float cropbottom = 0;
   protected boolean upscale = false;
   protected boolean zoom = false;
     
@@ -35,7 +35,7 @@ public abstract class GatoResizer {
     }
   }
   
-  public void setCrop(long left, long right, long top, long bottom) {
+  public void setCrop(float left, float right, float top, float bottom) {
   	this.cropleft = left;
   	this.cropright = right;
   	this.croptop = top;
