@@ -1,4 +1,4 @@
-//Styles for the top of the page.  This includes the 'super user' menu, 
+//Styles for the top of the page.  This includes the 'super user' menu,
 //the banner area with the Texas State logo and search bar, the header
 //image, the parent organization, and the title
 
@@ -18,34 +18,32 @@
 }
 
 .super_list {
-    font-size: 0px;
     margin: 0px auto;
     padding: 0px;
     text-align: right;
+    font-size: 0;
 
-    li{
-        display: inline-block;
-        font-size: 1rem;
-    }
+    li {
+      display: inline-block;
+      a{
+          border-right: 1px solid $super-user-border;
+          color: $super-user-text;
+          text-transform: uppercase;
+          font-size: 1.0rem;
+          font-weight: 400;
+          letter-spacing: 1px;
+          display: block;
+          padding: 1.3rem;
 
-    a{
-        border-right: 1px solid $super-user-border;
-        color: $super-user-text;
-        text-transform: uppercase;
-        font-size: 55%;
-        font-weight: 400;
-        letter-spacing: 1px;
-        display: block;
-        padding: 4px 12px 3px;
-
-        &:hover {background: $super-user-hover;}
+          &:hover {background: $super-user-hover;}
+      }
     }
 }
 
 .banner {
     @include vertical-gradient($banner-top, $banner-bottom);
     border-bottom: 2px solid $banner-bottom-border;
-    padding: 0 1rem; width: 100% !important; 
+    padding: 0 1rem; width: 100% !important;
     height: 60px;
 }
 .banner_content {margin: auto;}
@@ -67,25 +65,29 @@
         width: 250px;
         background: transparent none repeat scroll 0% 0%;
         border: medium none;
-        font-size: 0.8rem;
+        font-size: 0.8em;
         border-radius: 0px;
-        color: $search-text;
+        color: $charcoal;
         position: absolute;
         right: 0px;
         height: 30px;
-    }   
+        &::-webkit-input-placeholder { color: $gold; opacity: 1; }
+        &:-moz-placeholder { color: $gold; opacity: 1; }
+        &::-moz-placeholder { color: $gold; opacity: 1; }
+        &:-ms-input-placeholder { color: $gold; opacity: 1; }
+    }
     .icon{
         background: transparent;
-        -webkit-border-top-right-radius: $default-border-radius; 
-        -webkit-border-bottom-right-radius: $default-border-radius; 
-        -moz-border-radius-topright: $default-border-radius; 
-        -moz-border-radius-bottomright: $default-border-radius; 
-        border-top-right-radius: $default-border-radius; 
-        border-bottom-right-radius: $default-border-radius; 
-        border: none; 
-        height: 32px; 
-        width: 38px; 
-        font-size: .9rem; 
+        -webkit-border-top-right-radius: $default-border-radius;
+        -webkit-border-bottom-right-radius: $default-border-radius;
+        -moz-border-radius-topright: $default-border-radius;
+        -moz-border-radius-bottomright: $default-border-radius;
+        border-top-right-radius: $default-border-radius;
+        border-bottom-right-radius: $default-border-radius;
+        border: none;
+        height: 32px;
+        width: 38px;
+        font-size: .9rem;
         position: absolute;
         right: -10px;
         color: $search-icon;
@@ -103,27 +105,27 @@ header, .header_with_image_secondary, .header_with_image, .header_no_image {
 }
 
 .bg_container {
-    background: $header-background; 
-    position: absolute; 
-    z-index: 0; 
-    width: 100%; 
+    background: $header-background;
+    position: absolute;
+    z-index: 0;
+    width: 100%;
     height: 100%;
 }
 .bg_image{
-    opacity: 0; 
-    position: absolute; 
-    margin-top: -70px; 
-    height: 150%; 
-    width: 100%; 
-    background: $header-background  no-repeat 50% 65%; 
+    opacity: 0;
+    position: absolute;
+    margin-top: -70px;
+    height: 150%;
+    width: 100%;
+    background: $header-background  no-repeat 50% 65%;
     background-size: cover;
 }
 
 .bg_image_secondary{
     opacity: 1;
-    position: absolute; 
-    margin-top: -70px; 
-    height: 150%; 
+    position: absolute;
+    margin-top: -70px;
+    height: 150%;
     width: 100%;
     background-color: $header-background;
     background-position: 50% 50%;
@@ -143,21 +145,24 @@ header, .header_with_image_secondary, .header_with_image, .header_no_image {
 .bg_overlay {background: $header-background; position: absolute; width: 100%; height: 100%; opacity: 0;}
 
 .title {
-    min-height: 70px; 
-    width: 100%; 
-    bottom: 0; 
+    min-height: 70px;
+    width: 100%;
+    bottom: 0;
     margin: auto;
 }
-.dept_name {left: 0; bottom: 0; right: 0;}
+.dept_name {
+  left: 0; bottom: 0; right: 0;
+  h1 a { color: $white }
+}
 
 
 .office_name {
-    font-family: 'Adobe Garamond W01', Garamond, 'Goudy Old Style', 'Times New Roman', serif; 
-    font-weight: 400; 
+    font-family: 'Adobe Garamond W01', Garamond, 'Goudy Old Style', 'Times New Roman', serif;
+    font-weight: 400;
     letter-spacing: 1px;
     margin: auto;
     color: $header-text;
-    min-height: 60px; 
+    min-height: 60px;
     background: $header-background;
     background: rgba($header-background, .98);
 }
@@ -166,13 +171,13 @@ header, .header_with_image_secondary, .header_with_image, .header_no_image {
     margin: auto;
     a {
         bottom: -.7rem;
-        position: relative; 
-        font-size: 65%; 
-        letter-spacing: 1px; 
-        color: $header-text; 
-        background: $header-background; 
-        background: rgba($header-background, .98); 
-        padding: 0.4rem 1rem; 
+        position: relative;
+        font-size: 65%;
+        letter-spacing: 1px;
+        color: $header-text;
+        background: $header-background;
+        background: rgba($header-background, .98);
+        padding: 0.4rem 1rem;
         line-height: 20px;}
 }
 

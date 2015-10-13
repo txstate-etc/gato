@@ -6,7 +6,7 @@
   position: relative;
   margin: auto;
   max-width: 1000px;
-  font-size: .9rem;
+  font-size: 1.4rem;
   display: none;
   @include vertical-gradient($primary-nav-gradient-top, $primary-nav-gradient-bottom);
   border-bottom: 1px solid $primary-nav-bottom-border;
@@ -21,7 +21,7 @@
 
 .scroll-to-fixed-fixed .ddmenu-menubar{
   box-shadow: none;
-  border: 0 solid $primary-nav-bottom-border; 
+  border: 0 solid $primary-nav-bottom-border;
 }
 
 div.ddmenu-menubaritem{
@@ -36,7 +36,7 @@ div.ddmenu-menubaritem{
 
 a.ddmenu-menubaritem{
   color: $primary-nav-item-text;
-  font-size: 80%;
+  font-size: 1.3rem;
   font-weight: 400;
   padding-left: 0.6rem;
   padding-right: 0.6rem;
@@ -74,7 +74,7 @@ a.ddmenu-menubaritem{
 
   a {
     color: $secondary-nav-item-text;
-    font-size: 80%;
+    font-size: 1.3rem;
     font-weight: 400;
     line-height: 1.2rem;
     padding-left: 0.5rem;
@@ -96,10 +96,10 @@ a.ddmenu-menubaritem{
  }
 
 .scroll-to-fixed-fixed .ddmenu-menu {
-  border: 2px solid $secondary-nav-fixed-border; 
+  border: 2px solid $secondary-nav-fixed-border;
 }
 .scroll-to-fixed-fixed .secondary_nav a {
-    padding-left: .45rem; 
+    padding-left: .45rem;
 }
 
 

@@ -1,19 +1,18 @@
 .container {background-color: $white;}
 
 .page_content {
-    font-size: 100%;
     margin-top: 0.5rem;
     padding-bottom: 1rem;
-    overflow: hidden; 
-    min-height: 32rem; 
+    overflow: hidden;
+    min-height: 32rem;
     background-color: $content-background;
     max-width: 1000px;
     position: relative;
     .row {margin-bottom: 1.5rem;}
     a{
-        padding: 1px 3px; 
-        margin: -1px -3px; 
-        color: $content-link-text; 
+        padding: 1px 3px;
+        margin: -1px -3px;
+        color: $content-link-text;
         text-decoration: underline;
         &:hover {background: $content-link-hover;}
     }
@@ -34,7 +33,7 @@
 .headline{
     margin: auto;
     max-width: 1000px;
-    font-size: 95%;
+    font-size: 1.5rem;
     padding: 1rem;
 }
 
@@ -42,13 +41,13 @@
     padding-left: 1rem;
     padding-right: 1rem;
     a {
-        font-weight: 400; 
-        font-size: 65%;
+        font-weight: 400;
+        font-size: 1.0rem;
         margin: -5px auto 0 auto;
-        color: $breadcrumbs-text; 
+        color: $breadcrumbs-text;
         text-decoration: none;
         &:hover{
-            text-decoration: underline; 
+            text-decoration: underline;
             background: transparent;
         }
     }
@@ -56,12 +55,11 @@
 }
 
 @media (min-width: 40rem) {
-    .page_content {font-size: 95%;}
     .column {float: left; padding: 0 1rem 2rem 1rem;}
     #breadcrumbs {
-        text-align: right; 
+        text-align: right;
         a{
-            font-size: 12px; 
+            font-size: 1.2rem;
             margin: 0 auto;
             line-height: 18px;
         }

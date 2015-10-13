@@ -27,11 +27,11 @@ form:
           options:
             - name: onepage
               label: This Page Only
-              value: 0
+              value: false
               selected: true
             - name: allchildren
               label: This page and all subpages
-              value: 1
+              value: true
               selected: false
         - name: position
           class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition

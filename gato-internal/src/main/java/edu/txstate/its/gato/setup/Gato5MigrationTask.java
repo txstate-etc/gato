@@ -58,41 +58,12 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
         }
         if (n.hasNode("footer")) convertNodeToAreaAndComponent(n.getNode("footer"), "gato-template:components/misctext");
         if (n.hasNode("siteinfo")) convertNodeToAreaAndComponent(n.getNode("siteinfo"), "gato-template:components/misctext");
-      }
-    });
-
-    //convert collegeLink to parentOrganization
-    visitPages(hm, new NodeVisitor() {
-      public void visit(Node n) throws RepositoryException {
-        String parentName = "", parentUrl = "";
-        Node componentNode;
-        //if there is a collegeLink node
-        if(n.hasNode("collegeLink")){
-          Node collegeLinkNode = n.getNode("collegeLink");
-          //get the parent name and url
-          if(collegeLinkNode.hasProperty("name")) parentName = collegeLinkNode.getProperty("name").getString();
-          if(collegeLinkNode.hasProperty("url")) parentUrl = collegeLinkNode.getProperty("url").getString();
-          //create a parentOrganization area node
-          Node parentOrgNode = n.addNode("parentOrganization", "mgnl:area");
-          //don't want to add a component if it has no content
-          if(parentName.length() + parentUrl.length() > 0){
-            //add a component node to the parentOrganization
-            componentNode = parentOrgNode.addNode("0", "mgnl:component");
-            //set the template for the component node
-            NodeTypes.Renderable.set(componentNode, "gato-template-txstate2015:components/parent-organization");
-            //add parent_name and url properties if necessary
-            if(collegeLinkNode.hasProperty("name")) PropertyUtil.setProperty(componentNode, "parent_name", parentName);
-            if(collegeLinkNode.hasProperty("url")) PropertyUtil.setProperty(componentNode, "url", parentUrl);
-          }
-          //remove the collegeLink node
-          collegeLinkNode.remove();
+        if (n.hasNode("collegeLink")) {
+          Node cl = n.getNode("collegeLink");
+          if (cl.hasProperty("name")) PropertyUtil.renameProperty(cl.getProperty("name"), "parent_name");
+          NodeUtil.renameNode(cl, "parentOrganization");
+          convertNodeToAreaAndComponent(cl, "gato-template-txstate2015:components/parent-organization");
         }
-      }
-    });
-
-    //make sure all hideInNav types are boolean, not string
-    visitPages(hm, new NodeVisitor() {
-      public void visit(Node n) throws RepositoryException {
         convertPropertyToBool(n, "hideInNav");
         convertPropertyToBool(n, "hideSidebar");
       }
@@ -100,6 +71,7 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
 
     visitByTemplate(hm, "gato:components/texasState/customCssBlock", this::convertInheritToBool);
     visitByTemplate(hm, "gato:components/texasState/customjsBlock", this::convertInheritToBool);
+    visitByTemplate(hm, "gato:components/texasState/navBlock", this::updateNavBlock);
     visitByTemplate(hm, "gato:components/texasState/imageGallery", this::updateImageGallery);
     visitByTemplate(hm, "gato:components/texasState/siteMap", this::updateSiteMapComponent);
     visitByTemplate(hm, "gato:components/texasState/subPages", this::updateSubPagesComponent);
@@ -184,6 +156,15 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
     if (n.hasProperty("valid_regex")) { PropertyUtil.renameProperty(n.getProperty("valid_regex"), "regexregex"); }
     if (n.hasProperty("valid_msg")) { PropertyUtil.renameProperty(n.getProperty("valid_msg"), "regexerror"); }
   }
+  
+  private void updateNavBlock(Node n) throws RepositoryException {
+    convertInheritToBool(n);
+    if (n.hasProperty("sort")) {
+      PropertyUtil.renameProperty(n.getProperty("sort"), "position");
+      if (PropertyUtil.getString(n, "position", "").equals("bot"))
+        PropertyUtil.setProperty(n, "position", "bottom");
+    }
+  }
 
   private void updateMailArea(Node n) throws RepositoryException {
     if (!n.hasNode("contentParagraph")) { return; }
@@ -239,7 +220,7 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
       log.warn("Failed to parse property as yyyy-MM-dd date: " + p.getPath());
     }
   }
-
+  
   /**
    * Converts a list represented as a string with a separator to a String array
    * suitable for use in a multi-value JCR property. Empty strings and strings

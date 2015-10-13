@@ -28,7 +28,7 @@ class MoveDmsToDamTask extends MoveDataWorkspaceToDamMigrationTask {
 
   @Override
   protected void copyNodesFromDataRepositoryToDam(String dataPath, String targetSubPath) throws TaskExecutionException {
-    log.info("copyNodesFromDataRepositoryToDam");
+    log.info("copyNodesFromDataRepositoryToDam("+dataPath+", "+targetSubPath+")");
     try {
       Session dam = (Session) grabPrivateVar("damSession");
       Session data = (Session) grabPrivateVar("dataSession");

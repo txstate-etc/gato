@@ -8,36 +8,36 @@
 .sidebar_active_reverse {padding-right: 1rem;}
 
 .side_nav {
-    background-color: $side-nav-background; 
-    padding: .5rem 0 1rem 0; 
-    border-bottom: 1px solid $side-nav-border-bottom; 
+    background-color: $side-nav-background;
+    padding: .5rem 0 1rem 0;
+    border-bottom: 1px solid $side-nav-border-bottom;
     border-top: 1px solid $side-nav-border-top;
 }
 .side_nav_list {
-    list-style-type: none; 
-    padding-left: 0; 
+    list-style-type: none;
+    padding-left: 0;
     margin: 0;
     a {
-        display: block; 
-        padding: 0.3rem 0.7rem; 
+        display: block;
+        padding: 0.3rem 0.7rem;
         color: $side-nav-link-text !important;
-        margin: 0 !important; 
+        margin: 0 !important;
         padding: .2rem 1rem !important; //Is it necessary to have the padding twice?
-        text-decoration: underline !important; 
+        text-decoration: underline !important;
         line-height: 22px;
         font-size: 85%;
     }
     i{
-        margin-right: 10px; 
-        font-size: 120%; 
+        margin-right: 10px;
+        font-size: 120%;
         vertical-align: middle;
     }
 }
 .side_nav_header {
-    color: $side-nav-header-text; 
-    margin: 0; 
-    font-weight: 700; 
-    line-height: 1.5rem; 
+    color: $side-nav-header-text;
+    margin: 0;
+    font-weight: 700;
+    line-height: 1.5rem;
     padding: .2rem 1rem;
     font-size: 95%;
 }
