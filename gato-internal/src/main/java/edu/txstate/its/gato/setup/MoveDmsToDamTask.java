@@ -1,10 +1,8 @@
 package edu.txstate.its.gato.setup;
 
 import info.magnolia.dam.app.setup.migration.MoveDataWorkspaceToDamMigrationTask;
-import info.magnolia.dam.jcr.DamConstants;
 import info.magnolia.jcr.util.NodeTypes;
 import info.magnolia.jcr.util.NodeUtil;
-import info.magnolia.repository.RepositoryConstants;
 
 import java.lang.reflect.Field;
 import java.util.Arrays;
@@ -27,10 +25,10 @@ class MoveDmsToDamTask extends MoveDataWorkspaceToDamMigrationTask {
     super("DAM Migration - DMS", "Move binary files from the DMS tree to the DAM.",
       Arrays.asList("/"), "", "dms");
   }
-  
+
   @Override
   protected void copyNodesFromDataRepositoryToDam(String dataPath, String targetSubPath) throws TaskExecutionException {
-    log.info("copyNodesFromDataRepositoryToDam");    
+    log.info("copyNodesFromDataRepositoryToDam");
     try {
       Session dam = (Session) grabPrivateVar("damSession");
       Session data = (Session) grabPrivateVar("dataSession");
@@ -45,7 +43,7 @@ class MoveDmsToDamTask extends MoveDataWorkspaceToDamMigrationTask {
       throw new TaskExecutionException("Could not copy nodes from dms to DAM workspace. ", e);
     }
   }
-  
+
   protected Object grabPrivateVar(String name) throws TaskExecutionException{
     try {
       Class<?> clazz = getClass().getSuperclass();
