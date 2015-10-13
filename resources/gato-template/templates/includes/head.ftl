@@ -138,6 +138,6 @@
 			<a href="${cmsfn.link(ancestor)}">${gf.nodeTitle(ancestor)}</a>
 			<span class="separator">&gt;</span>
 		[/#list]
-		<a href="${cmsfn.link(page)}" class="active">${gf.nodeTitle(page)}</a>
+		${gf.nodeTitle(page)}
 	</div>
 [/#macro]

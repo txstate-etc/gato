@@ -1,8 +1,22 @@
-.inheritedalert {
-  font-size: 1.0rem;
-  background-color: $inheritance-blue;
-  color: white;
-  padding: 0.5rem;
-  margin: 1rem;
-  text-transform: uppercase;
+.side_nav {
+  .inheritedalert {
+    font-size: 1.0rem;
+    background-color: $inheritance-blue;
+    color: white;
+    padding: 0.5rem;
+    margin: 1rem;
+    text-transform: uppercase;
+  }
+  .side_nav_header {
+    margin: 0;
+  }
+  .side_nav_list {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+    a {
+      display: block;
+      margin: 0;
+    }
+  }
 }

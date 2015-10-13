@@ -34,7 +34,9 @@
           letter-spacing: 1px;
           display: block;
           padding: 1.3rem;
-
+          &:first-child {
+            border-left: 1px solid $super-user-border;
+          }
           &:hover {background: $super-user-hover;}
       }
     }
