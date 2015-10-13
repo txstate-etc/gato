@@ -43,6 +43,9 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
     tasks.add(new MoveFileToDamTask("document", "documents"));
 
     tasks.add(new ResolveUploadVsDmsTask("gato:components/texasState/texasTextImage", "image", "imageDMS"));
+    tasks.add(new ResolveUploadVsDmsTask("gato:components/texasState/gato-banner", "image", "imageDMS"));
+    tasks.add(new ResolveUploadVsDmsTask("gato:components/widgets/feature/feature-slide", "image", "imageDMS"));
+    tasks.add(new ResolveUploadVsDmsTask("gato:components/tsus/tsus-banner", "image", "imageDMS"));
 
     // list of templateIds that need to be changed {"oldtemplateid, newtemplateid"}
     String[][] templateNamePairs = {
