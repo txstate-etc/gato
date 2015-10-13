@@ -1,8 +1,5 @@
 package edu.txstate.its.gato.setup;
 
-import info.magnolia.dam.app.setup.migration.MoveFileContentToDamMigrationTask;
-import info.magnolia.dam.app.setup.migration.MoveDataWorkspaceToDamMigrationTask;
-
 import info.magnolia.module.DefaultModuleVersionHandler;
 import info.magnolia.module.delta.BootstrapSingleResource;
 import info.magnolia.module.delta.DeltaBuilder;
@@ -32,6 +29,9 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
   protected List<Task> getExtraInstallTasks(InstallContext installContext) {
     List<Task> tasks = new ArrayList<Task>(super.getExtraInstallTasks(installContext));
 
+    //migrate testing-site documents from dms to dam
+    tasks.add(new MoveDmsToDamTask());
+
     // move binary data from the website tree to the DAM
     tasks.add(new MoveRichEditorToDamTask("gato:components/texasState/texasEditor", "content"));
     tasks.add(new MoveRichEditorToDamTask("gato:components/texasState/texasTextImage", "text"));
@@ -41,9 +41,6 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
     tasks.add(new MoveFileToDamTask("bgimage", "images"));
     tasks.add(new MoveFileToDamTask("icon", "images"));
     tasks.add(new MoveFileToDamTask("document", "documents"));
-
-    //migrate testing-site documents from dms to dam
-    tasks.add(new MoveDataWorkspaceToDamMigrationTask("Migrate DMS content to DAM", "Migrate DMS to DAM", Arrays.asList("/testing-site"), null, "dms" ));
 
     // list of templateIds that need to be changed {"oldtemplateid, newtemplateid"}
     String[][] templateNamePairs = {

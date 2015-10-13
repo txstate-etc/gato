@@ -29,6 +29,10 @@ if ($ARGV[0] eq '--module') {
   });
 } elsif ($ARGV[0] eq '--restart') {
   tomcat_restart();
+} elsif ($ARGV[0] eq '--stop') {
+  tomcat_stop();
+} elsif ($ARGV[0] eq '--start') {
+  tomcat_start();
 } elsif ($ARGV[0] eq '--resources') {
   if (setmagnoliaresourcespath()) {
     symlinkheavyresources();
@@ -65,10 +69,7 @@ if ($ARGV[0] eq '--module') {
 
 print "Done.\n";
 
-
-sub tomcat_restart {
-  my $nested = shift;
-  
+sub tomcat_stop {
   print "stopping tomcat...\n";
   my $pid = `pgrep -f /java.*$tomcatdir`;
   `kill $pid` if $pid > 0;
@@ -81,11 +82,18 @@ sub tomcat_restart {
   
   print "wiping out the cache directory so our CSS/JS gets reloaded...\n";
   `rm -rf $tomcatdir/webapps/ROOT/cache`;
-  
-  $nested->() if $nested;
-  
+}
+
+sub tomcat_start {
   print "starting tomcat...\n";
   `$tomcatdir/bin/startup.sh`;
+}
+
+sub tomcat_restart {
+  my $nested = shift;
+  tomcat_stop();
+  $nested->() if $nested;
+  tomcat_start();
 }
 
 sub setmagnoliaresourcespath() {
