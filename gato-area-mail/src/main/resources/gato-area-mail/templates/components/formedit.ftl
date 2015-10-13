@@ -1,4 +1,4 @@
-[#assign title = gf.cleanFormElementTitle(content.title!"")]
+[#assign title = ctx.request.getAttribute("safeTitle")]
 
 [#assign formHasSenderEmail = ctx.request.getAttribute("formHasSenderEmail")!false]
 [#assign formHasSenderName = ctx.request.getAttribute("formHasSenderName")!false]

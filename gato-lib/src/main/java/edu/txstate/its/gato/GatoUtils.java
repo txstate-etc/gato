@@ -564,18 +564,6 @@ public final class GatoUtils {
     return child;
   }
 
-  public String cleanFormElementTitle(String title) {
-    if (StringUtils.isEmpty(title)) {
-      return "unnamed";
-    }
-
-    title = title.replaceAll("<([A-Za-z0-9=:/ \"]*)>", "" );
-    title = title.replaceAll(" ", "-" );
-    title = title.replaceAll("^-|-$|[^A-Za-z0-9-]", "");
-    title = title.replaceAll("^([0-9])", "num-$1" ); // must start with a letter
-    return title.toLowerCase();
-  }
-
   public String getConfigProperty(String propertyName) {
     MagnoliaConfigurationProperties mcp = Components.getComponent(MagnoliaConfigurationProperties.class);
     return mcp.getProperty(propertyName);

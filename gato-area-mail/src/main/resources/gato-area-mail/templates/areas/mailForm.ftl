@@ -25,6 +25,7 @@
     <input type="hidden" id="thankyoupage" name="thankyoupage" value="${gf.absoluteUrl(content.redirect)}" />
   </div>
   [#list components as component]
+    ${ctx.request.setAttribute("safeTitle", model.getSafeTitle(cmsfn.asJCRNode(component).identifier))}
     [@cms.component content=component /]
   [/#list]
   <div class="txst-khan-privacypolicylink"><a href="http://www.tr.txstate.edu/privacy-statement.html" target="_blank">Privacy Policy</a></div>

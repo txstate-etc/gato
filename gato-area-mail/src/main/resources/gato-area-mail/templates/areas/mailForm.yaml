@@ -3,6 +3,7 @@ templateScript: /gato-area-mail/templates/areas/mailForm.ftl
 dialog: gato-area-mail:areas/mailForm
 type: list
 title: Mail Form Content
+modelClass: edu.txstate.its.gato.MailModel
 availableComponents:
   formedit:
     id: gato-area-mail:components/formedit

@@ -1,4 +1,4 @@
-[#assign title = gf.cleanFormElementTitle(content.title!"")]
+[#assign title = ctx.request.getAttribute("safeTitle")]
 
 <div class="formelement">
 [#if (content.title!"")?has_content]
