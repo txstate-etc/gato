@@ -1,5 +1,6 @@
+@import "button-colors";
 /* styles for buttons */
-.button{
+a.button{
     display: inline-block;
     padding: 1.4rem 0.75rem;
     background: $default-button-background;
@@ -115,10 +116,11 @@
 
 
     &.rollover{
-        background: url('images/pencils.jpg') no-repeat; 
+        //background: url('images/pencils.jpg') no-repeat; 
         background-position: 100% 50%; 
         background-size: cover; 
         border-radius: $default-border-radius;
+        margin: 0px;
         display:table;
         
         &.gold{

@@ -10,7 +10,7 @@ our $edgewarpath = "$gatodir/gato-webapp/target/gato-webapp*war";
 our $magrepopath = "/var/mag_repositories";
 our $magnoliapropertiespath = "/etc/magnolia/config";
 our @heavymodules = ('gato-lib', 'gato-internal', 'gato-component-cssjs', 'gato-component-dept-directory', 
-  'gato-component-faq', 'gato-component-gallery', 'gato-component-documents', 'gato-area-mail');
+  'gato-component-faq', 'gato-component-gallery', 'gato-component-documents', 'gato-area-mail', 'gato-component-button');
 our @sassfiles = ('resources/gato-template-tsus/css/tsus-home.scss', 
                   'resources/gato-template-tsus/css/standard.scss',
                   'resources/gato-template-blank/css/blank.scss',

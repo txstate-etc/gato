@@ -1,0 +1,5 @@
+templateScript: /gato-component-button/templates/components/button.ftl
+renderType: freemarker
+dialog: gato-component-button:components/button
+description: Build a Button
+title: Button

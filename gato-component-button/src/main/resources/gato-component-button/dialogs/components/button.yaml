@@ -1,0 +1,168 @@
+form:
+  tabs:
+    - name: tabGeneral
+      label: ""
+      fields:
+        - name: buttonType
+          label: Button Type
+          layout: vertical
+          class: info.magnolia.ui.form.field.definition.SwitchableFieldDefinition
+          transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+          styleName: gato-button-type
+          options:
+            - name: gradient
+              label: Gradient
+              selected: true
+              value: gradient
+            - name: rollover
+              label: Rollover
+              value: rollover
+            - name: reverse
+              label: Reverse
+              value: reverse
+            - name: three-d
+              label: 3D
+              value: three-d
+          fields:
+            - name: gradient
+              class: info.magnolia.ui.form.field.definition.SelectFieldDefinition
+              transformerClass: edu.txstate.its.gato.ButtonTypeTransformer
+              sortOptions: false
+              label: Color
+              options:
+                - name: gold
+                  value: gold
+                  selected: true
+                  label: Gold
+                - name: maroon
+                  value: maroon
+                  label: Maroon
+                - name: blue
+                  value: blue
+                  label: Blue
+                - name: charcoal
+                  value: charcoal
+                  label: Charcoal
+                - name: river
+                  value: river
+                  label: River
+                - name: sandstone
+                  value: sandstone
+                  label: Sandstone
+                - name: oldgold
+                  value: oldgold
+                  selected: true
+                  label: Old Gold
+            - name: rollover
+              class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
+              transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+              layout: vertical
+              label: ""
+              fields:
+                - name: color
+                  class: info.magnolia.ui.form.field.definition.SelectFieldDefinition
+                  transformerClass: edu.txstate.its.gato.ButtonTypeTransformer
+                  sortOptions: false
+                  label: Color
+                  options:
+                    - name: gold
+                      value: gold
+                      selected: true
+                      label: Gold
+                    - name: maroon
+                      value: maroon
+                      label: Maroon
+                    - name: blue
+                      value: blue
+                      label: Blue
+                    - name: charcoal
+                      value: charcoal
+                      label: Charcoal
+                    - name: oldgold
+                      value: oldgold
+                      label: Old Gold
+                - name: image
+                  class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+                  label: Image
+                  appName: assets
+                  targetWorkspace: dam
+                  identifierToPathConverter:
+                    class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
+            - name: reverse
+              class: info.magnolia.ui.form.field.definition.SelectFieldDefinition
+              transformerClass: edu.txstate.its.gato.ButtonTypeTransformer
+              sortOptions: false
+              label: Color
+              options:
+                - name: gold
+                  value: gold
+                  selected: true
+                  label: Gold
+                - name: maroon
+                  value: maroon
+                  label: Maroon
+                - name: blue
+                  value: blue
+                  label: Blue
+                - name: charcoal
+                  value: charcoal
+                  label: Charcoal
+            - name: three-d
+              class: info.magnolia.ui.form.field.definition.SelectFieldDefinition
+              transformerClass: edu.txstate.its.gato.ButtonTypeTransformer
+              sortOptions: false
+              label: Color
+              options:
+                - name: gold
+                  value: gold
+                  selected: true
+                  label: Gold
+                - name: maroon
+                  value: maroon
+                  label: Maroon
+                - name: blue
+                  value: blue
+                  label: Blue
+                - name: charcoal
+                  value: charcoal
+                  label: Charcoal
+                - name: river
+                  value: river
+                  label: River
+                - name: sandstone
+                  value: sandstone
+                  label: Sandstone
+                - name: oldgold
+                  value: oldgold
+                  label: Old Gold
+        - name: size
+          class: info.magnolia.ui.form.field.definition.SelectFieldDefinition
+          label: Size
+          sortOptions: false
+          options:
+            - name: small
+              value: small
+              label: Small
+            - name: medium
+              value: medium
+              label: Medium
+              selected: true
+            - name: large
+              value: large
+              label: Large
+            - name: block
+              value: block
+              label: Full Width
+        - name: text
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Button Text
+          styleName: gato-button-text
+        - name: url
+          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition 
+          label: Link
+          appName: pages
+          targetWorkspace: website
+          description: "Enter a full URL to an external site (http://www.google.com/) or use the \"Internal Link\" button to link to another page in this site."
+          buttonSelectNewLabel: "Internal Link..."
+actions: !include /gato-template/dialogs/common/actions-block.yaml
+label: Create Button

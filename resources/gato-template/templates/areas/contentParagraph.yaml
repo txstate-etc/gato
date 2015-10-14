@@ -19,3 +19,5 @@ availableComponents:
     id: gato-component-documents:components/documents
   table:
     id: gato-template:components/table
+  button:
+    id: gato-component-button:components/button
