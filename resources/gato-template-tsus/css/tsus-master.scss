@@ -6,6 +6,10 @@ body {
 	background-color: white;
 }
 
+li {
+	list-style: none;
+}
+
 a {	text-decoration: none; color: #293e6b; }
 a:hover { text-decoration: underline; }
 a:visited { color: #293e6b; }

@@ -8,19 +8,19 @@
       [/#list]
     </ul>
     <ul class="tsus-footer-block tsus-footer-menulinks">
-      [@cms.area name="menulinks" editable=false /]
+      [@cms.area name="menulinks" content=gf.getOrCreateArea(homepage, 'menulinks') editable=false /]
     </ul>
     <ul class="tsus-footer-block">
-      [@cms.area name="footerlinks1" /]
+      [@cms.area name="footerlinks1" content=gf.getOrCreateArea(homepage, 'footerlinks1') editable=isHomePage /]
     </ul>
     <ul class="tsus-footer-block">
-      [@cms.area name="footerlinks2" /]
+      [@cms.area name="footerlinks2" content=gf.getOrCreateArea(homepage, 'footerlinks2') editable=isHomePage /]
     </ul>
   </div>
 </div>
 
 <div class="tsus-footer-bg">
   <div class="tsus-footer">
-    [@cms.area name="footer" /]
+    [@cms.area name="footer" content=gf.getOrCreateArea(homepage, 'footer') editable=isHomePage /]
   </div>
 </div>

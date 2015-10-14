@@ -1,12 +1,13 @@
 [#include "/gato-template/templates/includes/head.ftl"]
 
 <!DOCTYPE HTML>
+<html>
 	<head>
 		[@templatejs scripts=['gato-template-tsus/js/tsus-slideshow.js']/]
     <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-tsus/css/tsus-home.compiled.css"/>
 		[@templatehead publisher="Texas State University System"/]
 	</head>
-	
+
 	<body>
 		[#include "includes/topbanner.ftl"]
 		<div class="slideshow-bg">
@@ -26,7 +27,7 @@
 			[@cms.area name="tsuslogos" /]
 		</div>
 		[#include "includes/footer.ftl"]
-		
+
 		[@cssjsmodals /]
 		[@sidebarmodal skipsocial=true /]
 
