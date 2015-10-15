@@ -1,0 +1,67 @@
+$font-path: $resource-root+"/gato-private/css/fonts/files";
+@font-face{
+font-family:"Univers W01_n1";
+src:url("#{$font-path}/a91ff084-fc8b-43f4-b0ea-111254b68524.eot?#iefix") format("eot")
+}
+@font-face{
+font-family:"Univers W01";
+src:url("#{$font-path}/a91ff084-fc8b-43f4-b0ea-111254b68524.eot?#iefix");
+src:url("#{$font-path}/a91ff084-fc8b-43f4-b0ea-111254b68524.eot?#iefix") format("eot"),url("#{$font-path}/9fa24f1f-00d8-4d28-910f-78e925eaead6.woff2") format("woff2"),url("#{$font-path}/d64e7bbc-e9ea-46ad-982c-6195ae4a3c61.woff") format("woff"),url("#{$font-path}/d270a34d-b6b8-4c07-8454-03a6a3db7603.ttf") format("truetype"),url("#{$font-path}/b2ea19ff-0237-4d94-a107-eaa12af161ef.svg#b2ea19ff-0237-4d94-a107-eaa12af161ef") format("svg");
+font-weight: 400;
+font-style: normal;
+}
+@font-face{
+font-family:"Univers W01_o1";
+src:url("#{$font-path}/2f2779cd-9c70-4724-b9b0-c88961257db4.eot?#iefix") format("eot")
+}
+@font-face{
+font-family:"Univers W01";
+src:url("#{$font-path}/2f2779cd-9c70-4724-b9b0-c88961257db4.eot?#iefix");
+src:url("#{$font-path}/2f2779cd-9c70-4724-b9b0-c88961257db4.eot?#iefix") format("eot"),url("#{$font-path}/aeb5cbb5-2077-4a57-88d8-1cc1e9c804e8.woff2") format("woff2"),url("#{$font-path}/26832c6c-7609-41a6-b856-151be500486b.woff") format("woff"),url("#{$font-path}/c78521a7-2342-410a-a275-e6d35b853313.ttf") format("truetype"),url("#{$font-path}/71e4ab52-329c-40d2-89e8-d5cf99d699a5.svg#71e4ab52-329c-40d2-89e8-d5cf99d699a5") format("svg");
+font-weight: 400;
+font-style: oblique;
+}
+@font-face{
+font-family:"Univers W01_n5";
+src:url("#{$font-path}/6510377f-160a-4f66-aec0-2b71f05e9736.eot?#iefix") format("eot")
+}
+@font-face{
+font-family:"Univers W01";
+src:url("#{$font-path}/6510377f-160a-4f66-aec0-2b71f05e9736.eot?#iefix");
+src:url("#{$font-path}/6510377f-160a-4f66-aec0-2b71f05e9736.eot?#iefix") format("eot"),url("#{$font-path}/5c8d59c2-9c85-4a22-88e3-bf3fba01dcd8.woff2") format("woff2"),url("#{$font-path}/fc51d03b-0d7d-45df-9415-3c6270c80749.woff") format("woff"),url("#{$font-path}/74bdff6d-c5de-42e8-a4d8-11ea14eddb22.ttf") format("truetype"),url("#{$font-path}/bd04ae3d-23dc-4975-9967-e21c43e5b59f.svg#bd04ae3d-23dc-4975-9967-e21c43e5b59f") format("svg");
+font-weight: 500;
+font-style: normal;
+}
+@font-face{
+font-family:"Univers W01_o5";
+src:url("#{$font-path}/541dccf9-50f5-47bd-9ba9-a01fd9a3792b.eot?#iefix") format("eot")
+}
+@font-face{
+font-family:"Univers W01";
+src:url("#{$font-path}/541dccf9-50f5-47bd-9ba9-a01fd9a3792b.eot?#iefix");
+src:url("#{$font-path}/541dccf9-50f5-47bd-9ba9-a01fd9a3792b.eot?#iefix") format("eot"),url("#{$font-path}/5bfff3ac-e569-450d-918b-d564434e5e24.woff2") format("woff2"),url("#{$font-path}/05d2bfe7-45b3-4cf8-b313-290651409c59.woff") format("woff"),url("#{$font-path}/33db2509-f09f-4704-bb16-a90dd82687f7.ttf") format("truetype"),url("#{$font-path}/32161123-fa52-4fcf-ad65-f0958c91e0c9.svg#32161123-fa52-4fcf-ad65-f0958c91e0c9") format("svg");
+font-weight: 500;
+font-style: oblique;
+}
+@font-face{
+font-family:"Univers W01_n7";
+src:url("#{$font-path}/38dc895e-c366-4a3e-b212-a84a2d07a329.eot?#iefix") format("eot")
+}
+@font-face{
+font-family:"Univers W01";
+src:url("#{$font-path}/38dc895e-c366-4a3e-b212-a84a2d07a329.eot?#iefix");
+src:url("#{$font-path}/38dc895e-c366-4a3e-b212-a84a2d07a329.eot?#iefix") format("eot"),url("#{$font-path}/8a711a0d-3f17-4bfe-887b-6229858332b3.woff2") format("woff2"),url("#{$font-path}/05a79c4b-9e9d-46e4-9d4b-610be05371c4.woff") format("woff"),url("#{$font-path}/4e00405b-a96d-4972-bdff-2d55e1066c45.ttf") format("truetype"),url("#{$font-path}/1e2c0a36-e8bb-4e3b-a4ca-dec00221c06e.svg#1e2c0a36-e8bb-4e3b-a4ca-dec00221c06e") format("svg");
+font-weight: 700;
+font-style: normal;
+}
+@font-face{
+font-family:"Univers W01_o7";
+src:url("#{$font-path}/dca67ca5-170f-48b1-91ac-98def05d62bf.eot?#iefix") format("eot")
+}
+@font-face{
+font-family:"Univers W01";
+src:url("#{$font-path}/dca67ca5-170f-48b1-91ac-98def05d62bf.eot?#iefix");
+src:url("#{$font-path}/dca67ca5-170f-48b1-91ac-98def05d62bf.eot?#iefix") format("eot"),url("#{$font-path}/cc843e1a-cf1f-47e9-a03f-ef03d2b85d9a.woff2") format("woff2"),url("#{$font-path}/653a9f79-b3ad-444c-a6c4-6bf7f1112e6e.woff") format("woff"),url("#{$font-path}/59d447a0-a4b6-478d-b071-2c949371dca6.ttf") format("truetype"),url("#{$font-path}/87ad650a-2d30-4c47-a78c-fbdac7b87a16.svg#87ad650a-2d30-4c47-a78c-fbdac7b87a16") format("svg");
+font-weight: 700;
+font-style: oblique;
+}

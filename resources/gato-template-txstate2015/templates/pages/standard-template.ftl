@@ -3,13 +3,16 @@
 <!DOCTYPE HTML>
 <html lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-
-		[@templatejs scripts=[
+		[#assign jsscripts = [
 			'gato-template-txstate2015/js/jquery-scrolltofixed-min.js',
 			'gato-template-txstate2015/js/respond.min.js',
 			'gato-template-txstate2015/js/slideout.js',
 			'gato-template-txstate2015/js/common.js'
-		]/]
+		]]
+		[#if gf.isCacheEnvironment()]
+			[#assign jsscripts = jsscripts + ['gato-template-txstate2015/js/fontsdotcom.js']]
+		[/#if]
+		[@templatejs scripts=jsscripts /]
 		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.2/fastclick.min.js"></script>
 
 		<link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-txstate2015/css/txstate2015.compiled.css"/>
