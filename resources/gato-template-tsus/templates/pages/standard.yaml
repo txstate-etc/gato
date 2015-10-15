@@ -24,6 +24,8 @@ areas:
     availableComponents:
       sociallink:
         id: gato-template:components/sociallink
+  navBlocks:
+    !include /gato-template/templates/areas/navBlocks.yaml
   contentParagraph:
     !include /gato-template/templates/areas/contentParagraph.yaml
   rightbar:

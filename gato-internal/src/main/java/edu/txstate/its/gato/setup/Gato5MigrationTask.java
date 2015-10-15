@@ -45,13 +45,13 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
 
     visitPages(hm, new NodeVisitor() {
       public void visit(Node n) throws RepositoryException {
-        if (NodeTypes.Renderable.getTemplate(n).equals("gato-template-tsus:pages/home")) {
+        if (NodeTypes.Renderable.getTemplate(n).equals("gato:pages/tsus-2012/tsus-2012-home")) {
           if (n.hasNode("tsusmenulinks")) NodeUtil.renameNode(n.getNode("tsusmenulinks"), "menulinks");
           if (n.hasNode("tsusnewsletter")) NodeUtil.renameNode(n.getNode("tsusnewsletter"), "newsletter");
           if (n.hasNode("tsusfooterlinks1")) NodeUtil.renameNode(n.getNode("tsusfooterlinks1"), "footerlinks1");
           if (n.hasNode("tsusfooterlinks2")) NodeUtil.renameNode(n.getNode("tsusfooterlinks2"), "footerlinks2");
           if (n.hasNode("socialmedia")) {
-            for (Node sm : NodeUtil.getNodes(n.getNode("socialmedia"))) {
+            for (Node sm : NodeUtil.getNodes(n.getNode("socialmedia"), NodeTypes.Component.NAME)) {
               PropertyUtil.setProperty(sm, "icononly", true);
             }
           }
