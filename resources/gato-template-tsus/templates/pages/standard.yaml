@@ -26,6 +26,17 @@ areas:
         id: gato-template:components/sociallink
   contentParagraph:
     !include /gato-template/templates/areas/contentParagraph.yaml
+  rightbar:
+    type: list
+    availableComponents:
+      richeditor:
+        id: gato-template:components/richeditor
+      textimage:
+        id: gato-template:components/textimage
+      documents:
+        id: gato-component-documents:components/documents
+      button:
+        id: gato-component-button:components/button
   footerlinks1:
     type: list
     renderType: freemarker
