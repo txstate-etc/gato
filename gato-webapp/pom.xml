@@ -137,6 +137,11 @@
       <artifactId>gato-component-button</artifactId>
       <version>${gatoVersion}</version>
     </dependency>
+    <dependency>
+      <groupId>edu.txstate.its.gato</groupId>
+      <artifactId>gato-component-twitter</artifactId>
+      <version>${gatoVersion}</version>
+    </dependency>
   </dependencies>
   <build>
     <plugins>
