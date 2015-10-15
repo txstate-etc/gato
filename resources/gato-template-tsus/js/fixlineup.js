@@ -1,5 +1,5 @@
 document.observe('dom:loaded', function () {
-	var down = $$('.txst-contentarea')[0];
+	var down = $$('.tsus-contentcolumn .gato-component')[0];
 	while (down && (down = down.down())) {
 		down.setStyle({marginTop: '0px', paddingTop: '0px'});
 	}

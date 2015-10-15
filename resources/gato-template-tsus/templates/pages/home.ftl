@@ -8,7 +8,7 @@
 		[@templatehead publisher="Texas State University System"/]
 	</head>
 
-	<body>
+  <body class="${cmsfn.isEditMode()?string('admin', '')}">
 		[#include "includes/topbanner.ftl"]
 		<div class="slideshow-bg">
 			[@cms.area name="slideshow" /]

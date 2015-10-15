@@ -3,9 +3,13 @@
  */
 
 .txst-styledcontent {
+  line-height: 1.8rem;
+  p {
+    margin: 1rem 0;
+  }
 }
 
-.txst-styledcontent h1, .txst-styledcontent h2, .txst-styledcontent h3, 
+.txst-styledcontent h1, .txst-styledcontent h2, .txst-styledcontent h3,
 .txst-styledcontent h4, .txst-styledcontent h5, .txst-styledcontent h6 {
 	color: #383640;
 	font-weight: normal;

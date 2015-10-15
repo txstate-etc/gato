@@ -3,11 +3,11 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    [@templatejs scripts=[]/]
+    [@templatejs scripts=['gato-template-tsus/js/table-hover.js', 'gato-template-tsus/js/fixlineup.js']/]
     <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-tsus/css/standard.compiled.css"/>
     [@templatehead publisher="Texas State University System"/]
   </head>
-  <body>
+  <body class="${cmsfn.isEditMode()?string('admin', '')}">
     [#include "includes/topbanner.ftl"]
     [@breadcrumbs hidetxstate=true /]
     [#assign showRightBar=!(def.parameters.isMailTemplate!false) && (cmsfn.isEditMode() || (cmsfn.children(content.rightbar, 'mgnl:component')?size > 0))]
@@ -19,6 +19,9 @@
       [/#if]
 
       <main class="tsus-contentcolumn txst-styledcontent">
+				[#if content.title?has_content && !isHomePage]
+					<h1 class="tsus-page-title">${content.title}</h1>
+				[/#if]
         [#if def.parameters.isMailTemplate!false]
           [@cms.area name="mail" /]
         [#else]

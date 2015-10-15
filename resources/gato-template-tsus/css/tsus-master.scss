@@ -1,9 +1,14 @@
+html {
+	font-size: 62.5%;
+}
+
 body {
 	position: relative;
 	font-family: arial, sans-serif;
 	color: #000000;
 	text-align: left;
 	background-color: white;
+	font-size: 1.3rem;
 }
 
 li {
@@ -15,17 +20,13 @@ a:hover { text-decoration: underline; }
 a:visited { color: #293e6b; }
 h3 { color: #383640 }
 
-.tsus-styledcontent ul, .tsus-styledcontent ol {
-	list-style-position: inside;
-}
-
 #breadcrumbs, .breadcrumbs {
 	width: 958px;
 	margin: 0px auto;
 	padding: 6px 0px;
 	&, a {
 		color: #8f847a;
-		font-size: 10px;
+		font-size: 1.0rem;
 	}
 	a {
 		white-space: nowrap;
@@ -38,13 +39,14 @@ h3 { color: #383640 }
 	margin: 0px auto;
 	padding-top: 51px;
 	padding-bottom: 15px;
+	overflow: hidden;
 }
 
 .gato-navcolumn {
 	position: relative;
 	float: left;
 	width: 170px;
-	font-size: 13px;
+	font-size: 1.3rem;
 	color: #2B2B2B;
 	text-align: left;
 	overflow: visible;
@@ -59,7 +61,7 @@ h3 { color: #383640 }
 		overflow: hidden;
 		&.nav-without-title a {
 			text-transform: uppercase;
-			font-size: 15px;
+			font-size: 1.5rem;
 			font-weight: bold;
 		}
 	}
@@ -97,10 +99,10 @@ h3 { color: #383640 }
 	padding-bottom: 190px;
 	width: 180px;
 	border-radius: 3px;
-	font-size: 12px;
-	line-height: 20px;
+	font-size: 1.2rem;
 	background: url(../images/rightbar-logo.png) no-repeat center bottom;
 	&.txst-styledcontent {
+		line-height: 2.0rem;
 		h1, h2, h3, h4, h5, h6 {
 			text-transform: uppercase;
 			color: #b92c26;
@@ -109,12 +111,12 @@ h3 { color: #383640 }
 			font-weight: bold;
 			font-family: arial, sans-serif;
 		}
-		h1 { font-size: 20px; }
-		h2 { font-size: 18px; }
-		h3 { font-size: 15px; }
-		h4 { font-size: 13px; }
-		h5 { font-size: 12px; }
-		h6 { font-size: 11px; }
+		h1 { font-size: 2.0rem; }
+		h2 { font-size: 1.8rem; }
+		h3 { font-size: 1.5rem; }
+		h4 { font-size: 1.3rem; }
+		h5 { font-size: 1.2rem; }
+		h6 { font-size: 1.1rem; }
 		ul {
 			margin: 0;
 			padding: 0;
@@ -155,7 +157,7 @@ h3 { color: #383640 }
 /* end no-sidebar style changes */
 
 .tsus-contentcolumn div#txst-faq-buttons {
-	font-size: .8em;
+	font-size: 1.0rem;
 	font-style: italic;
 	margin-bottom: 10px;
 }
@@ -165,7 +167,7 @@ h3 { color: #383640 }
 	left: 15px;
 	top: -54px;
 	font-family: georgia, serif;
-	font-size: 38px;
+	font-size: 3.8rem;
 	margin: 0px;
 	line-height: 44px;
 	color: #383640;
@@ -184,7 +186,7 @@ h3 { color: #383640 }
 	width: 958px;
 	margin: 0px auto;
 	clear: both;
-	font-size: 11px;
+	font-size: 1.1rem;
 	line-height: 18px;
 	color: #CCCCCC;
 	background: #585560 url(../images/footer-top.jpg) no-repeat top left;
@@ -201,10 +203,14 @@ h3 { color: #383640 }
 .tsus-footer-block {
 	float: left;
 	padding: 0px 15px 0px 15px;
+	margin: 0;
 	height: 100%;
 	background: url(../images/footer-divider.png) no-repeat top left;
-	overflow-y: auto;
-	overflow-x: hidden;
+	overflow: hidden;
+	body.admin & {
+		overflow-y: auto;
+		overflow-x: hidden;
+	}
 	max-width: 280px;
 }
 .tsus-footer-block.tsus-footer-subpages {
@@ -223,7 +229,7 @@ h3 { color: #383640 }
     width: 603px;
     margin: 0px auto;
     clear: both;
-    font-size: 11px;
+    font-size: 1.1rem;
     line-height: 20px;
     color: #CCCCCC;
     background: #585560 url(../images/footer-bottom.jpg) no-repeat top left;
@@ -277,7 +283,7 @@ h3 { color: #383640 }
 .txst-contentarea table.data th {
 	background-color: #383640;
 	color: #FFFFFF;
-	font-size: 15px;
+	font-size: 1.5rem;
 }
 
 .txst-contentarea table.table-linesh td {
@@ -303,7 +309,7 @@ h3 { color: #383640 }
 	padding-top: 10px;
 	background-color: #383640;
 	color: #FFFFFF;
-	font-size: 15px;
+	font-size: 1.5rem;
 }
 .txst-contentarea table.data td, .txst-contentarea table.data th {
 	padding: 5px;
@@ -334,7 +340,7 @@ h3 { color: #383640 }
 
 .tsus-rightcolumn .txst-rss-item h3 {
 	text-transform: none;
-	font-size: 13px;
+	font-size: 1.3rem;
 }
 
 /* admin rules */
