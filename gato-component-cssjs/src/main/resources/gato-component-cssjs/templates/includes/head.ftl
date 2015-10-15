@@ -1,6 +1,6 @@
 [#macro pageCustomJS page isAncestor]
 	[#if page.customjs?has_content]
-		[#list cmsfn.children(page.customjs) as entry]
+		[#list cmsfn.children(page.customjs, 'mgnl:component') as entry]
 			[#local code = cmsfn.decode(entry).customJS]
 			[#if entry.inherit || !isAncestor]
 				[#if entry.framework == "prototype"]
@@ -29,7 +29,7 @@
 
 [#macro pageCustomCSS page isAncestor]
 	[#if page.customcss?has_content]
-		[#list cmsfn.children(page.customcss) as entry]
+		[#list cmsfn.children(page.customcss, 'mgnl:component') as entry]
 			[#if entry.inherit || !isAncestor]
 				${cmsfn.decode(entry).customCSS!}
 			[/#if]

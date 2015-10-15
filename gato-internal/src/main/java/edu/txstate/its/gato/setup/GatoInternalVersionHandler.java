@@ -47,6 +47,9 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
     tasks.add(new ResolveUploadVsDmsTask("gato:components/widgets/feature/feature-slide", "image", "imageDMS"));
     tasks.add(new ResolveUploadVsDmsTask("gato:components/tsus/tsus-banner", "image", "imageDMS"));
 
+    // additional tasks in our catch all migration to 5 task
+    tasks.add(new Gato5MigrationTask("Gato Migrate to 5 task", "Generic update task for all the things we need to do to upgrade to Magnolia 5."));
+
     // list of templateIds that need to be changed {"oldtemplateid, newtemplateid"}
     String[][] templateNamePairs = {
       //component templateIds
@@ -92,9 +95,6 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
 
     // change various config properties
     tasks.add(new SetPropertyTask(RepositoryConstants.CONFIG, "/server/filters/activation", "class", "info.magnolia.module.activation.ReceiveFilter"));
-
-    // additional tasks in our catch all migration to 5 task
-    tasks.add(new Gato5MigrationTask("Gato Migrate to 5 task", "Generic update task for all the things we need to do to upgrade to Magnolia 5."));
 
     // remove a deprecated servlet filter that was disrupting loading of resources
     tasks.add(new RemoveNodeTask("Remove ClasspathSpool filter", "/server/filters/servlets/ClasspathSpoolServlet"));
