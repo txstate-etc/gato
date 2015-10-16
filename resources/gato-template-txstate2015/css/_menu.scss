@@ -2,109 +2,79 @@
 
 /* _menu.scss */
 
+.ddmenu-bg {
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
 .ddmenu-menubar {
   position: relative;
-  margin: auto;
+  margin: 0px auto;
   max-width: 1000px;
-  font-size: 1.4rem;
   display: none;
   @include vertical-gradient($primary-nav-gradient-top, $primary-nav-gradient-bottom);
   border-bottom: 1px solid $primary-nav-bottom-border;
   box-shadow: 1px 0px $primary-nav-box-shadow inset, -1px 0px $primary-nav-box-shadow inset;
-
-}
-
-.top_nav.scroll-to-fixed-fixed {
-    @include vertical-gradient($primary-nav-gradient-top, $primary-nav-gradient-bottom);
-    border-bottom: 2px solid $secondary-nav-fixed-border;
-}
-
-.scroll-to-fixed-fixed .ddmenu-menubar{
-  box-shadow: none;
-  border: 0 solid $primary-nav-bottom-border;
-}
-
-div.ddmenu-menubaritem{
-  &:first-child a{
-      border-left: none;
-   }
-
-   &:hover > a {
-      background: $primary-nav-item-background-hover;
-   }
+  @media screen and (min-width: $sm-breakpoint) {
+    display: block;
+  }
 }
 
 a.ddmenu-menubaritem{
   color: $primary-nav-item-text;
-  font-size: 1.3rem;
-  font-weight: 400;
-  padding-left: 0.6rem;
-  padding-right: 0.6rem;
-  height: 100%;
   border-left: 1px solid $primary-nav-item-left-border;
-  &:visited {
-    color: $primary-nav-item-text;
+  &:visited { color: $primary-nav-item-text; }
+  div.ddmenu-menubaritem:first-child & {
+    border-left: none;
   }
-
-  &:hover{
+  .ddmenu-visible & {
+    background: $primary-nav-item-background-hover;
     color: $primary-nav-item-text-hover;
   }
 }
 
- .ddmenu-menu {
+.ddmenu-menu {
   padding: 0px;
   border-left: 1px solid $secondary-nav-border;
   border-right: 1px solid $secondary-nav-border;
   border-bottom: 1px solid $secondary-nav-border;
-  //visibility: hidden;
-  position: absolute;
   background-color: $secondary-nav-background;
-  width: 11rem;
-  list-style-type: none;
-
-  li{
+  li {
     border-bottom: 1px solid $secondary-nav-border-bottom;
     border-top: 1px solid $secondary-nav-border-top;
     list-style-type: none;
 
-    &:first-child{
+    &:first-child {
       border-top: none;
     }
   }
-
   a {
     color: $secondary-nav-item-text;
     font-size: 1.3rem;
-    font-weight: 400;
-    line-height: 1.2rem;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    padding-top: 0.35rem;
-    padding-bottom: 0.35rem;
-
     &:visited{
       color: $secondary-nav-item-text;
     }
-
-    &:hover{
+    &:hover, &:focus {
       background-color: $secondary-nav-hover-background;
       color: $secondary-nav-item-text;
       text-decoration: underline;
-      width: 100%;
     }
   }
- }
-
-.scroll-to-fixed-fixed .ddmenu-menu {
-  border: 2px solid $secondary-nav-fixed-border;
-}
-.scroll-to-fixed-fixed .secondary_nav a {
-    padding-left: .45rem;
 }
 
-
-@media screen and (min-width: $sm-breakpoint) {
+/* adjustments when using fixed placement */
+.top_nav.scroll-to-fixed-fixed {
+  @include vertical-gradient($primary-nav-gradient-top, $primary-nav-gradient-bottom);
+  border-bottom: 2px solid $secondary-nav-fixed-border;
   .ddmenu-menubar{
-    display: block;
-}
+    box-shadow: none;
+    border: 0 solid $primary-nav-bottom-border;
   }
+  .ddmenu-menu {
+    border: 2px solid $secondary-nav-fixed-border;
+  }
+  .secondary_nav a {
+      padding-left: .45rem;
+  }
+}
+

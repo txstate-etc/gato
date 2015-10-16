@@ -1,17 +1,20 @@
+/* it's important to set your desired font size on ddmenu-bg */
+/* instead of a.ddmenu-menubaritem */
 .ddmenu-menubar {
 	position: relative;
-	height: 35px;
+	height: 2.7em;
 }
 
 div.ddmenu-menubaritem {
 	position: relative;
 	float: left;
+	height: 100%;
 }
 
 a.ddmenu-menubaritem {
 	display: block;
-	padding: 10px 8px;
-	line-height: 15px;
+	padding: 0px 8px;
+	line-height: 2.7em;
 }
 
 a.ddmenu-menubaritem:hover {
@@ -22,7 +25,7 @@ a.ddmenu-menubaritem:hover {
 	margin: 0px;
 	padding: 0px;
 	position: absolute;
-	top: 35px;
+	top: 2.7em;
 	z-index: 70000;
 	display: none;
 	list-style: none;
@@ -34,9 +37,8 @@ a.ddmenu-menubaritem:hover {
 
 .ddmenu-menu a {
 	display: block;
-	line-height: 16px;
 	padding: 6px 10px;
-	width: 200px;
+	width: 20rem;
 }
 .ddmenu-menu a:hover {
 	text-decoration: none;
