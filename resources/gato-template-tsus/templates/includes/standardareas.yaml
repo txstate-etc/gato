@@ -1,0 +1,33 @@
+customcss:
+  !include /gato-component-cssjs/templates/areas/customcss.yaml
+customjs:
+  !include /gato-component-cssjs/templates/areas/customjs.yaml
+menulinks:
+  !include /gato-template/templates/areas/linklist.yaml
+newsletter:
+  type: single
+socialmedia:
+  !include /gato-template/templates/areas/sociallist.yaml
+navBlocks:
+  !include /gato-template/templates/areas/navBlocks.yaml
+contentParagraph:
+  !include /gato-template/templates/areas/contentParagraph.yaml
+mail:
+  !include /gato-area-mail/templates/areas/mailForm.yaml
+rightbar:
+  type: list
+  availableComponents:
+    richeditor:
+      id: gato-template:components/richeditor
+    textimage:
+      id: gato-template:components/textimage
+    documents:
+      id: gato-component-documents:components/documents
+    button:
+      id: gato-component-button:components/button
+footerlinks1:
+  !include /gato-template/templates/areas/linklist.yaml
+footerlinks2:
+  !include /gato-template/templates/areas/linklist.yaml
+footer:
+  !include /gato-template/templates/areas/misctext.yaml

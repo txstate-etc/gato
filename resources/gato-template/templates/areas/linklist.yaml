@@ -1,0 +1,6 @@
+type: list
+renderType: freemarker
+templateScript: /gato-template/templates/areas/listitems.ftl
+availableComponents:
+  link:
+    id: gato-template:components/link

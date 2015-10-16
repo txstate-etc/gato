@@ -3,5 +3,7 @@ renderType: freemarker
 visible: true
 title: TSUS Standard Template
 dialog: gato-templates:pages/page-properties
+parameters:
+  isMailTemplate: true
 areas:
   !include /gato-template-tsus/templates/includes/standardareas.yaml

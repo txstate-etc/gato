@@ -1,0 +1,4 @@
+type: single
+availableComponents:
+  misctext:
+    id: gato-template:components/misctext
