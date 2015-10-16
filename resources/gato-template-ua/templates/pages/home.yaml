@@ -1,0 +1,48 @@
+templateScript: /gato-template-ua/templates/pages/home.ftl
+renderType: freemarker
+visible: true
+title: Univ. Adv. Homepage Template
+dialog: gato-templates:pages/page-properties
+areas:
+  customcss:
+    !include /gato-component-cssjs/templates/areas/customcss.yaml
+  customjs:
+    !include /gato-component-cssjs/templates/areas/customjs.yaml
+  navBlocks:
+    !include /gato-template/templates/areas/navBlocks.yaml
+  socialmedia:
+    type: list
+    renderType: freemarker
+    templateScript: /gato-template/templates/areas/listitems.ftl
+    availableComponents:
+      sociallink:
+        id: gato-template:components/sociallink
+  accordion:
+    type: single
+    availableComponents:
+      accordion:
+        id: gato-template-ua:components/accordion
+  contentBoxes:
+    type: list
+    availableComponents:
+      richeditor:
+        id: gato-template:components/richeditor
+      textimage:
+        id: gato-template:components/textimage
+  news:
+    type: list
+    availableComponents:
+      richeditor:
+        id: gato-template:components/richeditor
+      textimage:
+        id: gato-template:components/textimage
+  video:
+    type: single
+    availableComponents:
+      accordion:
+        id: gato-template:components/video
+  footer:
+    type: single
+    availableComponents:
+      link:
+        id: gato-template:components/misctext

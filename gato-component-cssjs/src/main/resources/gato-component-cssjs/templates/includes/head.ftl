@@ -7,7 +7,7 @@
 					$(document).observe('dom:loaded', function () {
 						${code}
 					});
-				[#elseif content.framework == "jquery"]
+				[#elseif entry.framework == "jquery"]
 					jQuery(document).ready(function ($) {
 						${code}
 					});

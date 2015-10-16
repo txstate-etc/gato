@@ -8,24 +8,20 @@ areas:
     !include /gato-component-cssjs/templates/areas/customcss.yaml
   customjs:
     !include /gato-component-cssjs/templates/areas/customjs.yaml
-  navBlocks:
-    !include /gato-template/templates/areas/navBlocks.yaml
   menulinks:
-    type: list
-    renderType: freemarker
-    templateScript: /gato-template/templates/areas/listitems.ftl
-    availableComponents:
-      link:
-        id: gato-template:components/link
+    !include /gato-template/templates/areas/linklist.yaml
   newsletter:
     type: single
   socialmedia:
-    type: list
-    renderType: freemarker
-    templateScript: /gato-template/templates/areas/listitems.ftl
-    availableComponents:
-      sociallink:
-        id: gato-template:components/sociallink
+    !include /gato-template/templates/areas/sociallist.yaml
+  navBlocks:
+    !include /gato-template/templates/areas/navBlocks.yaml
+  footerlinks1:
+    !include /gato-template/templates/areas/linklist.yaml
+  footerlinks2:
+    !include /gato-template/templates/areas/linklist.yaml
+  footer:
+    !include /gato-template/templates/areas/misctext.yaml
   slideshow:
     type: single
   tsushomeleft:
@@ -51,22 +47,3 @@ areas:
     availableComponents:
       logo:
         id: gato-template:components/imagelink
-  footerlinks1:
-    type: list
-    renderType: freemarker
-    templateScript: /gato-template/templates/areas/listitems.ftl
-    availableComponents:
-      link:
-        id: gato-template:components/link
-  footerlinks2:
-    type: list
-    renderType: freemarker
-    templateScript: /gato-template/templates/areas/listitems.ftl
-    availableComponents:
-      link:
-        id: gato-template:components/link
-  footer:
-    type: single
-    availableComponents:
-      link:
-        id: gato-template:components/misctext

@@ -1,0 +1,16 @@
+.ddmenu-bg {
+  font-size: 1.2rem;
+  font-family: Arial, sans-serif;
+}
+
+.ddmenu-menubar {
+  a {
+    color: white;
+    &:hover {
+      color: #efc500;
+    }
+  }
+  a.ddmenu-menubaritem {
+    text-transform: uppercase;
+  }
+}

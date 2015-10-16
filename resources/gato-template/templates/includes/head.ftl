@@ -87,6 +87,12 @@
 	[/#if]
 [/#macro]
 
+[#macro bannermodal]
+	[#if cmsfn.isEditMode()]
+
+	[/#if]
+[/#macro]
+
 [#macro navloop items]
 	[#list items as item]
 		[#if !(item.hideInNav!false)]

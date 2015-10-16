@@ -1,7 +1,7 @@
 templateScript: /gato-template-tsus/templates/pages/standard.ftl
 renderType: freemarker
 visible: true
-title: TSUS Standard Template
+title: TSUS Mail Template
 dialog: gato-templates:pages/page-properties
 parameters:
   isMailTemplate: true
