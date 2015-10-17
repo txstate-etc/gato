@@ -1,0 +1,30 @@
+customcss:
+  !include /gato-component-cssjs/templates/areas/customcss.yaml
+customjs:
+  !include /gato-component-cssjs/templates/areas/customjs.yaml
+headerImage:
+  renderType: freemarker
+  type: single
+  title: Header Image
+  availableComponents:
+    headerImg:
+      id: gato-template-txstate2015:components/header-image
+parentOrganization:
+  renderType: freemarker
+  type: single
+  title: Parent Organization
+  availableComponents:
+    parentOrg:
+      id: gato-template-txstate2015:components/parent-organization
+siteinfo:
+  !include /gato-template/templates/areas/misctext.yaml
+contentParagraph:
+  !include /gato-template/templates/areas/contentParagraph.yaml
+mail:
+  !include /gato-area-mail/templates/areas/mailForm.yaml
+navBlocks:
+  !include /gato-template/templates/areas/navBlocks.yaml
+webtools:
+  !include /gato-template/templates/areas/linklist.yaml
+footer:
+  !include /gato-template/templates/areas/misctext.yaml

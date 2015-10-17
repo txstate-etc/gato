@@ -56,7 +56,11 @@
       [/#if]
       <main class="txst-khan-contentcolumn gato-styledcontent">
         [@breadcrumbs/]
-        [@cms.area name="contentParagraph" /]
+        [#if def.parameters.isMailTemplate!false]
+          [@cms.area name="mail" /]
+        [#else]
+          [@cms.area name="contentParagraph" /]
+        [/#if]
       </main>
       <div class="txst-footer">
         [@cms.area name="footer" content=gf.getOrCreateArea(homepage, 'footer') editable=isHomePage /]
