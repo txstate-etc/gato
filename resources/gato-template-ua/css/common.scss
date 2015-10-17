@@ -12,7 +12,7 @@ a:hover { color: #836C31; }
 	position: relative;
 	text-align: left;
 	border-bottom: 8px solid #4e1e26;
-	background: #f2f0eb url(ua/images/oldmainbg.jpg) no-repeat bottom right;
+	background: #f2f0eb url(../images/oldmainbg.jpg) no-repeat bottom right;
 	width: 100%;
 }
 
@@ -66,51 +66,9 @@ div.skip-nav a {
 	text-decoration: none;
 }
 
-.ua-pride-goal {
-	position: absolute;
-	top: 70px;
-	left: 0px;
-	width: 329px;
-	background: url(ua/images/donation-bg.jpg) repeat-x;
-	border: 3px solid #e1e0e0;
-	font-size: 16px;
-}
-.ua-pride-fill {
-	background: url(ua/images/donation-fill.jpg) repeat-x;
-	height: 24px;
-}
-.ua-pride-collected, .ua-pride-goalamount {
-	position: absolute;
-	top: 0px;
-	height: 24px;
-	line-height: 22px;
-	font-family: Georgia, serif;
-	font-weight: bold;
-	color: white;
-}
-.ua-pride-collected {
-	left: 4px;
-	text-shadow: black 2px 2px 2px;
-}
-.ua-pride-goalamount {
-	right: 4px;
-	text-shadow: black 2px 2px 2px;
-}
-
-.ua-pride-date {
-	position: absolute;
-	bottom: 21px;
-	right: 0px;
-	color: #aeacab;
-	font-family: Georgia, serif;
-	font-style: italic;
-	font-size: 11px;
-}
-
 .ua-banner {
 	position: relative;
-	background: url(ua/images/yellowstripes.jpg);
-	margin-top: -14px;
+	background: url(../images/yellowstripes.jpg);
 	padding: 8px 0px;
 }
 
@@ -123,58 +81,6 @@ div.skip-nav a {
 .ua-banner-footer {
 	height: 10px;
 	background: #d5d1c5;
-}
-
-.ua-menu-container {
-	position: relative;
-	height: 56px;
-	z-index: 88;
-}
-.ua-menu-bg {
-	background: url(ua/images/menu-bg.png) repeat-x;
-	position: absolute;
-	top: 0px;
-	left: 0px;
-	height: 56px;
-	width: 100%;
-	overflow: hidden;
-}
-.ua-menu-inner {
-	position: relative;
-	margin: 0px auto;
-	width: 962px;
-}
-
-.ua-search {
-	position: absolute;
-	top: 10px;
-	right: 1px;
-	background-color: #4c4945;
-	padding: 1px;
-}
-.txst-banner-search {
-	float: left;
-}
-.txst-banner-search input {
-	background: transparent;
-	border: 0px;
-	color: #ffffff;
-	padding: 3px;
-	height: 14px;
-	font-size: 11px;
-	font-family: Arial, sans-serif;
-	width: 110px;
-}
-.txst-banner-webtools-searchbg {
-	float: left;
-	padding: 2px 2px 2px 2px;
-}
-.txst-banner-webtools-searchbg .txst-banner-toolssearchbutton {
-	position: relative;
-	width: 19px;
-	height: 16px;
-	overflow: hidden;
-	background: url(ua/images/searchbutton.gif) no-repeat;
 }
 
 /*** SIDENAV ***/
@@ -297,7 +203,7 @@ div.skip-nav a {
 	top: 0px;
 	width: 320px;
 	height: 100%;
-	background: url(ua/images/socialbg.png);
+	background: url(../images/socialbg.png);
 	z-index: -1;
 }
 .ua-socialbar-editbars {
@@ -371,8 +277,3 @@ div.skip-nav a {
 	margin-top: 10%;
 	padding: 10px;
 }
-
-.ua-socialbar .mgnlEditorPlaceholder.component .mgnlEditorPlaceholderElements {
-	display: none;
-}
-

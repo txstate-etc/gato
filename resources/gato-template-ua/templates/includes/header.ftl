@@ -5,12 +5,6 @@
     [@cms.area name="uapride" /]
   </div>
 </div>
-<div class="ua-menu-container">
-  <div class="ua-menu-bg"></div>
-  <div class="ua-menu-inner">
-    [@mainmenu /]
-    <div class="ua-search">
-      [#include "/gato-template/templates/includes/search.ftl"]
-    </div>
-  </div>
-</div>
+[@mainmenu]
+  [@search image='gato-template-ua/images/searchbutton.gif'/]
+[/@mainmenu]

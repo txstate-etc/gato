@@ -1,16 +1,52 @@
 .ddmenu-bg {
+  position: relative;
   font-size: 1.2rem;
   font-family: Arial, sans-serif;
+  @include vertical-gradient(#221a1c, #474344);
+  box-shadow: 0px 3px 3px rgba(0,0,0,0.5);
+  z-index: 70001;
 }
-
 .ddmenu-menubar {
+	margin: 0px auto;
+	width: 962px;
+	height: 3.0em;
   a {
     color: white;
-    &:hover {
+    text-decoration: none;
+    &:hover, &:focus {
       color: #efc500;
     }
   }
   a.ddmenu-menubaritem {
     text-transform: uppercase;
+    line-height: 3.0em;
+  }
+  .ddmenu-menu {
+    top: 3.0em;
+    background-color: #474344;
+    box-shadow: 0px 3px 3px rgba(0,0,0,0.5);
+  }
+}
+
+.gato-search {
+  position: absolute;
+  top: 0.4em;
+  right: 0px;
+  line-height: 2.2em;
+  background-color: #4c4945;
+  padding: 0px 0.3em;
+  .gato-search-query {
+    background: transparent;
+    border: 0px;
+    color: #ffffff;
+    line-height: 2.2em;
+    font-size: 1.1rem;
+    font-family: Arial, sans-serif;
+    width: 12rem;
+    padding: 0;
+  }
+  .gato-search-submit {
+    vertical-align: middle;
+    height: 1.6em;
   }
 }

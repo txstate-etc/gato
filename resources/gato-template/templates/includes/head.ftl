@@ -122,6 +122,7 @@
 					[/#if]
 				</div>
 			[/@navloop]
+      [#nested]
 		</div>
 	</nav>
 [/#macro]
@@ -146,4 +147,17 @@
 		[/#list]
 		${gf.nodeTitle(page)}
 	</div>
+[/#macro]
+
+[#macro search image='gato-template/images/x.gif' ]
+  <form action="http://search.txstate.edu/search" class="gato-search">
+    <input type="hidden" name="site" value="txstate_no_users" />
+    <input type="hidden" name="client" value="txstate" />
+    <input type="hidden" name="output" value="xml_no_dtd" />
+    <input type="hidden" name="proxystylesheet" value="txstate" />
+    <input type="hidden" name="sitesearch" value="${ctx.request.serverName}" />
+    [#nested]
+    <input type="text" class="gato-search-query" name="q" size="15" placeholder="Search this site" aria-label="Search" />
+    <input type="image" src="${gf.resourcePath()}/${image}" class="gato-search-submit" alt="Start Search"/>
+  </form>
 [/#macro]
