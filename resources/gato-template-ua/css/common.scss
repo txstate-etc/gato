@@ -38,32 +38,19 @@ div.skip-nav a {
 	position: absolute;
 	top: 24px;
 	left: 10px;
-}
-
-.ua-topbanner .pia-logo {
-	position: absolute;
-	top: 11px;
-	left: 280px;
-}
-.ua-topbanner .pia-logo img {
-	width: 267px;
-	height: 100px;
+	img {
+	  width:212px;
+	  height:85px
+	}
 }
 
 .ua-pride {
 	position: absolute;
-	top: 0px;
+	top: 20px;
 	right: 0px;
-	width: 335px;
-	height: 113px;
-	padding-top: 25px;
-}
-
-.ua-pride-link {
-	display: block;
-	width: 335px;
-	height: 100px;
-	text-decoration: none;
+	a {
+    display: block;
+	}
 }
 
 .ua-banner {
