@@ -23,12 +23,12 @@
           [@cms.area name="contentBoxes" /]
         </div>
         <div class="ua-news">
-          <h3 class="ua-news-header">Latest News</h3>
+          <h3 class="ua-news-header">A Note of Celebration</h3>
           <a class="ua-news-viewmore" href="news-all.html">view more</a>
           [@cms.area name="news" /]
         </div>
         <div class="ua-video">
-          <h3 class="ua-video-header">Video Feature</h3>
+          <h3 class="ua-video-header">Impact of Giving</h3>
           [@cms.area name="video" /]
         </div>
       </div>

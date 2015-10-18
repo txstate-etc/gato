@@ -35,6 +35,8 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
     // move binary data from the website tree to the DAM
     tasks.add(new MoveRichEditorToDamTask("gato:components/texasState/texasEditor", "content"));
     tasks.add(new MoveRichEditorToDamTask("gato:components/texasState/texasTextImage", "text"));
+    tasks.add(new MoveRichEditorToDamTask("gato:components/texasState/texas-slideshow-slide", "content"));
+    tasks.add(new MoveRichEditorToDamTask("gato:components/widgets/accordion", "content"));
     tasks.add(new MoveFaqToDamTask());
     tasks.add(new MoveFileToDamTask("image", "images"));
     tasks.add(new MoveFileToDamTask("rollover", "images"));
@@ -79,6 +81,7 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       {"gato:components/texasState/texas-slideshow-slide",  "gato-template-tsus:components/slide"},
       {"gato:components/texasState/navBlock",								"gato-template:components/sidenav"},
       {"gato:components/tsus/tsus-institution-logo",        "gato-template:components/imagelink"},
+      {"gato:components/widgets/accordion",                 "gato-template-ua:components/accordionslide"},
 
       // page templateIds
       {"gato:pages/tsus-2012/tsus-2012-home",               "gato-template-tsus:pages/home"},

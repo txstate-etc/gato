@@ -1,2 +1,150 @@
 @import "gato-template-ua/css/variables";
 @import "gato-template-ua/css/includes";
+@import "gato-template-ua/css/accordion";
+
+.ua-banner-footer {
+	margin-bottom: 10px;
+}
+
+.ua-contentboxes {
+	position: relative;
+	background-color: #e3e2d5;
+	border-right: 1px solid #cbcab6;
+	width: 960px;
+	overflow: hidden;
+}
+
+.ua-contentboxes-footer {
+	clear: both;
+}
+
+.ua-contentbox {
+	position: relative;
+	width: 319px;
+	overflow: hidden;
+	float: left;
+	margin-right: 0px;
+	border: 1px solid #cbcab6;
+	border-width: 0px 0px 6px 1px;
+}
+
+.ua-contentbox .mgnlControlBarSmall {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+.ua-contentbox-image {
+	padding: 8px 8px 0px 8px;
+	border-bottom: 8px solid #8a7548;
+}
+
+.ua-contentbox-title {
+	padding: 8px 16px;
+	font-family: Georgia, serif;
+	font-style: italic;
+	font-size: 18px;
+}
+
+.ua-contentbox-text {
+	padding: 0px 16px;
+	margin-bottom: 6px;
+	font-size: 12px;
+	line-height: 16px;
+	height: 48px;
+	overflow: hidden;
+}
+
+.ua-contentbox-link {
+	margin-left: 16px;
+	margin-bottom: 8px;
+	font-size: 12px;
+}
+
+.ua-news {
+	position: relative;
+	float: left;
+	width: 632px;
+	margin-top: 20px;
+	font-size: 12px;
+	font-style: italic;
+	line-height: 20px;
+}
+
+.ua-news-header {
+	text-transform: uppercase;
+	font-family: Georgia, serif;
+	font-size: 18px;
+	line-height: 18px;
+	height: 18px;
+	color: #444444;
+}
+
+.ua-news-viewmore {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	display: block;
+	font-size: 12px;
+	color: #444444;
+}
+
+.ua-news-container {
+	border-top: 8px solid #8a7548;
+	border-bottom: 6px solid #cbcab6;
+	background-color: #e2e1d4;
+	margin-top: 8px;
+	padding: 0px 16px 12px 16px;
+}
+
+.ua-news .txst-rss-item {
+	padding: 16px 0px 10px 0px;
+	border-bottom: 1px dotted #acaca2;
+}
+
+.ua-news .txst-rss-item h3 a {
+	text-decoration: none;
+	font-size: 16px;
+	font-family: Georgia, serif;
+	color: #333333;
+}
+
+.ua-news .gato-rss-published {
+	font-size: 11px;
+	color: #666666;
+}
+
+.ua-news .txst-rss-itemdescription {
+	padding: 6px 0px;
+	color: #444444;
+}
+
+.ua-video {
+	position: relative;
+	float: left;
+	width: 319px;
+	padding: 20px 0px 0px 10px;
+	font-size: 11px;
+	line-height: 12px;
+}
+
+.ua-video-header {
+	text-transform: uppercase;
+	font-family: Georgia, serif;
+	font-size: 18px;
+	line-height: 18px;
+	height: 18px;
+	color: #444444;
+}
+
+.ua-video-container {
+	border-top: 8px solid #4e1e26;
+	border-bottom: 6px solid #cbcab6;
+	background-color: #e2e1d4;
+	margin-top: 8px;
+	padding: 7px;
+}
+
+#gato-banner {
+	width: 400px;
+}

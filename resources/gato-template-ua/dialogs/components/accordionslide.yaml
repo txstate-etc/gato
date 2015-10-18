@@ -1,0 +1,26 @@
+form:
+  tabs:
+    - name: tabMain
+      label: Slide
+      fields:
+        - name: bgimage
+          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+          appName: assets
+          targetWorkspace: dam
+          label: Background Image
+          identifierToPathConverter:
+            class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
+          contentPreviewDefinition:
+            contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
+          description: "Background image behind this panel.  Should be 315 high and at least 700 wide.  Will be right-justified."
+        - name: title
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Title
+          description: "Title for this panel."
+        - name: content
+          class: info.magnolia.ui.form.field.definition.CodeFieldDefinition
+          language: html
+          height: 400
+          label: Content
+          description: "A bit of text/html to place over the background image."
+actions: !include /gato-template/dialogs/common/actions-block.yaml

@@ -7,11 +7,11 @@ var accordion = function (params) {
 	if (!params.contentclass) params.contentclass = 'accordion_content';
 	if (!params.realcontent) params.realcontent = 'accordion_realcontent';
 	if (!params.speed) params.speed = 0.5;
-	
+
 	// let's do some math to find out the width we're working with
 	params.fullwidth = $(params.containerid).getContentWidth();
 	params.togglewidth = 0;
-	
+
 	var lastitm = 0;
 	var count = 0;
 	$(params.containerid).select('.'+params.toggleclass).each(function(itm) {
@@ -31,22 +31,18 @@ var accordion = function (params) {
 	});
 	params.contentwidth = params.fullwidth - params.togglewidth - 1;
 	this.params = params;
-	
+
 	acc.headers.each(function(header) {
 		var real = header.next('.'+params.contentclass).down('.'+params.realcontent);
 		real.setStyle({width: params.contentwidth-(real.getWidth()-real.getContentWidth())+'px'});
 	});
 
-	gatoedit.ready(function() {
-		acc.initeditbars();
-	});
-	
 	acc.expand(acc.headers[count-1], true);
 };
 
 accordion.prototype.collapse = function(header, skipanim) {
 	if (!header.hasClassName(this.params.activeclass)) return;
-	
+
 	var content = header.next('.'+this.params.contentclass);
 	header.removeClassName(this.params.activeclass);
 	if (skipanim) {
@@ -93,35 +89,4 @@ accordion.prototype.executeparallel = function () {
 	if (this.parallels.length) {
 		new Effect.Parallel(this.parallels, { duration: this.params.speed, queue: 'end' });
 	}
-};
-
-accordion.prototype.initeditbars = function () {
-	var container = $(this.params.containerid);
-	var top = 0;
-	var zindex = 1;
-	var width = 'auto';
-
-	container.select('.mgnlEditor.mgnlEditorBar.component').each(function(itm) {
-		itm.setStyle({top: top+'px'});
-		itm.down('.mgnlEditorBarLabel').innerHTML = itm.next('h2').down('img').getAttribute('alt');
-		top += itm.getHeight();
-
-		zindex = itm.getStyle('z-index');
-		width = itm.getStyle('width');
-	});
-
-	var newBar = container.next('.mgnlEditorPlaceholder.component');
-	top += container.measure('border-top') + container.measure('margin-top');
-	var right = container.measure('border-right') + container.measure('margin-right');
-	
-	newBar.setStyle({
-		'position': 'absolute',
-		'z-index': zindex,
-		'top': top+'px',
-		'right': right+'px'
-	});
-	// FIXME: setStyle() ignores !important ???
-	var style = newBar.readAttribute('style');
-	newBar.writeAttribute('style', style + ' width: ' + width + ' !important;');
-	newBar.down('.mgnlEditorPlaceholderElements').setStyle({display: 'none'});
 };

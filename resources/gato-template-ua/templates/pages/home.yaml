@@ -18,10 +18,17 @@ areas:
       sociallink:
         id: gato-template:components/sociallink
   accordion:
-    type: single
+    type: list
+    renderType: freemarker
+    templateScript: /gato-template-ua/templates/areas/accordion.ftl
+    parameters:
+      fgactive: ffffff
+      fginactive: 501214
+      shactive: 000000
+      shinactive: ffffff
     availableComponents:
-      accordion:
-        id: gato-template-ua:components/accordion
+      slide:
+        id: gato-template-ua:components/slide
   contentBoxes:
     type: list
     availableComponents:
