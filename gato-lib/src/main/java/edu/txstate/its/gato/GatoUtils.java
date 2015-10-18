@@ -54,14 +54,16 @@ public final class GatoUtils {
   private final TemplatingFunctions tf;
   private final DamTemplatingFunctions damfn;
   private final SimpleDateFormat timeformat;
-  
+  private final MagnoliaConfigurationProperties mcp;
+
   @Inject
-  public GatoUtils(TemplatingFunctions templatingFunctions, DamTemplatingFunctions damTemplatingFunctions) {
+  public GatoUtils(TemplatingFunctions templatingFunctions, DamTemplatingFunctions damTemplatingFunctions, MagnoliaConfigurationProperties magConfigProps) {
     tf = templatingFunctions;
     damfn = damTemplatingFunctions;
+    mcp = magConfigProps;
     timeformat = new SimpleDateFormat("HH:mm");
   }
-  
+
   public String filterUrl(String url) {
     if (StringUtils.isEmpty(url)) return "";
     if (LinkUtil.isExternalLinkOrAnchor(url)) return url;
@@ -76,7 +78,7 @@ public final class GatoUtils {
     } catch (Exception e) {
       // failed attempt, no biggie
     }
-  
+
     if (wasInWebsite && cont != null) {
       try {
         return cpath+cont.getPath();
@@ -85,37 +87,37 @@ public final class GatoUtils {
       }
     }
     if (!StringUtils.isEmpty(cpath) && url.startsWith(cpath)) return url;
-    
+
     if ( StringUtils.strip(url).matches("[^/]+\\.(com|edu|org|net|gov|us|ca|uk)(/.*?)?") ) return "http://"+StringUtils.strip(url);
-    
+
     if (LinkUtil.isInternalRelativeLink(url)) {
         //If the url is internal and relative, we need to get the content node for the current
         //page and prepend its handle to the url.
         try {
             Node n = MgnlContext.getAggregationState().getCurrentContent().getJCRNode();
-            
+
             while (!n.isNodeType(MgnlNodeType.NT_PAGE)) {
                 n = n.getParent();
               }
-            
+
             int firstSlash = url.indexOf('/');
-            
+
             //Check if the page name is at the start of the url and if it is chop it off.
             if (firstSlash != -1 && url.substring(0, firstSlash).equals(n.getName())) {
                 url = url.substring(firstSlash);
             }
-            
+
             url = n.getPath() + url;
         }
         catch (Exception e) {
             e.printStackTrace();
         }
     }
-    
+
     if (!url.startsWith("/")) return url;
     return cpath+url;
   }
-  
+
   public String absoluteUrl(String url) {
     String relUrl = filterUrl(url);
     if (relUrl.matches("^\\w{3,15}://.*")) return relUrl;
@@ -127,7 +129,7 @@ public final class GatoUtils {
       serverpath += ":"+request.getServerPort();
     return serverpath+relUrl;
   }
-  
+
   public String resourcePath() {
     return MgnlContext.getContextPath()+"/.resources";
   }
@@ -147,7 +149,7 @@ public final class GatoUtils {
     }
     return url;
   }
-  
+
   public String nodeTitle(Object obj) {
     Node n = toNode(obj);
     if (n == null) return "";
@@ -169,7 +171,7 @@ public final class GatoUtils {
       return "";
     }
   }
-  
+
   public boolean isCacheEnvironment() {
     boolean cacheEnvironment = false;
     String viaHeader = MgnlContext.getWebContext().getRequest().getHeader("via");
@@ -178,49 +180,50 @@ public final class GatoUtils {
     }
     return cacheEnvironment;
   }
-  
+
   public String getImageHandlerBase() {
     String propSuffix = "";
     if (isCacheEnvironment()) propSuffix = ".cache";
-    MagnoliaConfigurationProperties mcp = Components.getComponent(MagnoliaConfigurationProperties.class);
-  
+
     // now we need a centralized variable for the base URL of the image handler scripts
     // this allows us to switch between cache environments based on what type of installation
     // this is - production, testing, or development
     return mcp.getProperty("gato.imagehandlerbaseurl"+propSuffix);
   }
-  
+
   protected String ensureItemKey(String damuuid) {
     if (!damuuid.matches("^[^:]+:.+")) damuuid = "jcr:"+damuuid;
     return damuuid;
   }
-  
+
   protected GatoResizer getResizer() throws Exception {
     String resizeClass = MgnlContext.getJCRSession(RepositoryConstants.CONFIG)
       .getNode("/modules/gato-lib/imaging/resize").getProperty("class").getString();
+    if (mcp.getProperty("gato.gato-lib.noresize").equals("true"))
+      resizeClass = "edu.txstate.its.gato.NullResizer";
     GatoResizer srv = (GatoResizer) Components.getComponent(Class.forName(resizeClass));
     return srv;
   }
-  
+
   public String getSrcSet(String damuuid) throws Exception {
     // let's see if the string we were given is already an ItemKey
     return getSrcSet(damfn.getAsset(ensureItemKey(damuuid)));
   }
-  
+
   public String getSrcSet(ContentMap c, String propertyName) throws Exception {
     return getSrcSet(c.getJCRNode(), propertyName);
   }
-  
+
   public String getSrcSet(Node n, String propertyName) throws Exception {
     return getSrcSet(n.getProperty(propertyName).getString());
   }
-  
+
   public String getSrcSet(Asset asset) {
     try {
       GatoResizer srv = getResizer();
       srv.setHeight(0);
       srv.setUpscale(true);
-        
+
       StringBuffer ret = new StringBuffer();
       long[] widths = {100,200,400,800,1200,1600,2400};
       for (long width : widths) {
@@ -234,11 +237,11 @@ public final class GatoUtils {
       return "";
     }
   }
-  
+
   public String getImgDefault(String damuuid) {
     return getImgDefault(damfn.getAsset(ensureItemKey(damuuid)));
   }
-  
+
   public String getImgDefault(Asset asset) {
     try {
       GatoResizer srv = getResizer();
@@ -255,7 +258,7 @@ public final class GatoUtils {
   public String getImgSquare(String damuuid, float left, float right, float top, float bottom) {
     return getImgSquare(damfn.getAsset(ensureItemKey(damuuid)), left, right, top, bottom);
   }
-  
+
   public String getImgSquare(Asset asset, float left, float right, float top, float bottom) {
     try {
       GatoResizer srv = getResizer();
@@ -301,31 +304,31 @@ public final class GatoUtils {
       return "";
     }
   }
-  
+
   public String getCacheStr(Node n) throws Exception {
     return getCacheStr(NodeTypes.LastModified.getLastModified(n));
   }
-  
+
   public String getCacheStr(Property p) throws Exception {
     return getCacheStr(p.getParent());
   }
-  
+
   public String getCacheStr(Asset a) {
     return getCacheStr(a.getLastModified());
   }
-  
+
   public String md5(String str) {
     return DigestUtils.md5Hex(str);
   }
-  
+
   public String uniqueId(ContentMap c) throws Exception {
     return md5(c.getJCRNode().getIdentifier());
   }
-  
-/* TODO update this to send rich editor images to image handler   
- * and maybe figure out what else it's trying to do 
+
+/* TODO update this to send rich editor images to image handler
+ * and maybe figure out what else it's trying to do
   public static final Pattern IMAGE_TAG_PATTERN = Pattern.compile(
-      "(<img[^>]*src[ ]*=[ ]*\")([^\"]*)(\"[^>]*>)");   
+      "(<img[^>]*src[ ]*=[ ]*\")([^\"]*)(\"[^>]*>)");
   public static final Pattern WIDTH_ATTR_PATTERN = Pattern.compile("(width[ ]*=[ ]*\")([0-9]+)([^\"]*\")");
   public static final Pattern HEIGHT_ATTR_PATTERN = Pattern.compile("(height[ ]*=[ ]*\")([0-9]+)([^\"]*\")");
   public static String convertImageTags(String str) {
@@ -334,7 +337,7 @@ public final class GatoUtils {
     while (matcher.find()) {
       String rawUrl = matcher.group(2);
       String src = filterUrl(rawUrl);
-      
+
       Matcher widthMatcher = WIDTH_ATTR_PATTERN.matcher(matcher.group());
       if (!widthMatcher.find()) {
         matcher.appendReplacement(result, matcher.group());
@@ -342,7 +345,7 @@ public final class GatoUtils {
       }
 
       int width = Integer.parseInt(widthMatcher.group(2));
-      
+
       Matcher heightMatcher = HEIGHT_ATTR_PATTERN.matcher(matcher.group());
       if (!heightMatcher.find()) {
         matcher.appendReplacement(result, matcher.group());
@@ -350,15 +353,15 @@ public final class GatoUtils {
       }
 
       int height = Integer.parseInt(heightMatcher.group(2));
-      
+
       //Check to see if the image actually needs to be resized
       String srcMinusContext = rawUrl.substring(MgnlContext.getContextPath().length());
       srcMinusContext = srcMinusContext.substring(0, srcMinusContext.lastIndexOf('/'));
-      
+
       NodeData imageData = null;
       boolean doResize = false;
       String cacheStr = "";
-      
+
       try {
         imageData = MgnlContext.getHierarchyManager("website").getNodeData(srcMinusContext);
         try {
@@ -366,38 +369,38 @@ public final class GatoUtils {
           // so we need to take it back one further just to be on the safe side
           Content p = imageData.getParent();
           Content gp = p.getParent();
-          
+
           if (gp.getMetaData().getModificationDate().after(p.getMetaData().getModificationDate()))
             cacheStr = getCacheStr(gp);
           else
-            cacheStr = getCacheStr(p);              
+            cacheStr = getCacheStr(p);
         } catch (Exception e) {
           // maybe the image didn't have a grandparent
-          cacheStr = getCacheStr(imageData.getParent());              
+          cacheStr = getCacheStr(imageData.getParent());
         }
       } catch (Exception e) {}
-      
+
       try {
         if (imageData == null) {
           srcMinusContext = srcMinusContext.substring("/dms".length());
           imageData = MgnlContext.getHierarchyManager("dms").getContent(srcMinusContext).getNodeData("document");
           cacheStr = getCacheStr(imageData.getParent());
         }
-      
+
         if (imageData != null) {
           int origWidth = Integer.parseInt(imageData.getAttribute("width"));
-      
+
           if (origWidth != width) {
             doResize = true;
           }
         }
       } catch (Exception e) {}
-      
+
       String newSrc = src;
-      
+
       if (doResize) {
         newSrc = imageHandlerCache(src, width, height, "fit", "false", 0, 0, 0, 0, cacheStr);
-      
+
         newSrc = StringUtils.replace(newSrc, "\\", "\\\\");
         newSrc = StringUtils.replace(newSrc, "$", "\\$");
       }
@@ -407,7 +410,7 @@ public final class GatoUtils {
     return result.toString();
   }
 */
-  
+
   // dump an object to string
   public String dump(Object o, int callCount) {
     callCount++;
@@ -499,14 +502,14 @@ public final class GatoUtils {
       return getCreationDate(content);
     }
   }
-  
+
   public Date incrementDate(Date d) {
     Calendar c = Calendar.getInstance();
     c.setTime(d);
     c.add(Calendar.DAY_OF_MONTH, 1);
     return c.getTime();
   }
-  
+
   public Date setTime(Date d, String tstr) {
     Calendar o = Calendar.getInstance();
     o.setTime(d);
@@ -521,7 +524,7 @@ public final class GatoUtils {
     c.set(o.get(Calendar.YEAR), o.get(Calendar.MONTH), o.get(Calendar.DAY_OF_MONTH));
     return c.getTime();
   }
-  
+
   public Node toNode(Object obj) {
     Node n = null;
     try {
@@ -532,7 +535,7 @@ public final class GatoUtils {
       e.printStackTrace();
     }
     return n;
-  } 
+  }
 
   public Collection<String> propertyValues(Object obj) {
     Node n = toNode(obj);
@@ -549,7 +552,7 @@ public final class GatoUtils {
     }
     return ret;
   }
-  
+
   public Collection<String> propertyKeys(Object obj) {
     Node n = toNode(obj);
     List ret = new ArrayList<String>();
@@ -564,11 +567,11 @@ public final class GatoUtils {
     }
     return ret;
   }
-  
+
   public ContentMap getOrCreateArea(Object parent, String childName) {
     return getOrCreateNode(parent, childName, "mgnl:area");
   }
-  
+
   public ContentMap getOrCreateNode(Object parent, String childName, String type) {
     Node n = toNode(parent);
     ContentMap child = null;

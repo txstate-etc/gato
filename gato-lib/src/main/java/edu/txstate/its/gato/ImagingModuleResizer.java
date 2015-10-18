@@ -1,6 +1,5 @@
 package edu.txstate.its.gato;
 
-import info.magnolia.cms.beans.runtime.FileProperties;
 import info.magnolia.context.MgnlContext;
 import info.magnolia.dam.api.Asset;
 import info.magnolia.jcr.util.PropertyUtil;
@@ -16,7 +15,7 @@ import org.apache.commons.lang3.StringUtils;
 /**
  * Class for constructing links that send images through a resize process.
  *
- * This one is for the Texas State imagehandler server.
+ * This one is for the magnolia imaging module.
  */
 public class ImagingModuleResizer extends GatoResizer {
   @Inject
