@@ -13,6 +13,8 @@ availableComponents:
     id: gato-component-gallery:components/gallery
   gallerym:
     id: gato-component-gallery:components/gallerym
+  feature:
+    id: gato-component-feature:components/feature
   sitemap:
     id: gato-component-sitemap:components/sitemap
   documents:

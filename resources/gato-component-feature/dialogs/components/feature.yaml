@@ -1,0 +1,14 @@
+form:
+  tabs:
+    - name: tabMain
+      label: Feature
+      fields:
+        - name: defaultTimer
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Rotation Timer
+          description: "Number of seconds between slide rotations. 10 seconds if left blank."
+        - name: carousel
+          class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+          buttonLabel: Use the carousel style whenever possible.
+          label: ""
+actions: !include /gato-template/dialogs/common/actions-block.yaml
