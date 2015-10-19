@@ -3,3 +3,5 @@ renderType: freemarker
 dialog: gato-component-button:components/button
 description: Build a Button
 title: Button
+parameters:
+  icon: /gato-component-button/images/button.png

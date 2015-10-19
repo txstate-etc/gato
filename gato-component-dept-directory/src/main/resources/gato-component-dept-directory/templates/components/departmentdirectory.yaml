@@ -4,3 +4,5 @@ dialog: gato-component-dept-directory:components/departmentdirectory
 description: Displays a Directory Based on the Information in People Search
 title: Department Directory
 modelClass: edu.txstate.its.gato.DepartmentDirectoryModel
+parameters:
+  icon: /gato-component-dept-directory/images/dep_directory.png
