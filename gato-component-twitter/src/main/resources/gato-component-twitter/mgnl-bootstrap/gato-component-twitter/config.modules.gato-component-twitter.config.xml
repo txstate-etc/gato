@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sv:node sv:name="config" xmlns:sv="http://www.jcp.org/jcr/sv/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <sv:property sv:name="jcr:primaryType" sv:type="Name">
+    <sv:value>mgnl:content</sv:value>
+  </sv:property>
+  <sv:property sv:name="jcr:mixinTypes" sv:type="Name" sv:multiple="true">
+    <sv:value>mix:lockable</sv:value>
+  </sv:property>
+  <sv:property sv:name="jcr:uuid" sv:type="String">
+    <sv:value>28181131-5e16-4735-a628-2e64a031ab89</sv:value>
+  </sv:property>
+  <sv:property sv:name="jcr:createdBy" sv:type="String">
+    <sv:value>admin</sv:value>
+  </sv:property>
+  <sv:property sv:name="mgnl:created" sv:type="Date">
+    <sv:value>2013-07-08T15:09:04.397-05:00</sv:value>
+  </sv:property>
+  <sv:property sv:name="mgnl:lastModified" sv:type="Date">
+    <sv:value>2013-07-08T15:09:10.922-05:00</sv:value>
+  </sv:property>
+  <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
+    <sv:value>cj32</sv:value>
+  </sv:property>
+  <sv:node sv:name="tweetStreamerConfiguration">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>mgnl:contentNode</sv:value>
+    </sv:property>
+    <sv:property sv:name="jcr:mixinTypes" sv:type="Name" sv:multiple="true">
+      <sv:value>mix:lockable</sv:value>
+    </sv:property>
+    <sv:property sv:name="jcr:uuid" sv:type="String">
+      <sv:value>9a35daa2-aa4b-4829-a4e4-62a47af90b50</sv:value>
+    </sv:property>
+    <sv:property sv:name="OAuthAccessToken" sv:type="String">
+      <sv:value/>
+    </sv:property>
+    <sv:property sv:name="OAuthAccessTokenSecret" sv:type="String">
+      <sv:value/>
+    </sv:property>
+    <sv:property sv:name="OAuthConsumerKey" sv:type="String">
+      <sv:value/>
+    </sv:property>
+    <sv:property sv:name="OAuthConsumerSecret" sv:type="String">
+      <sv:value/>
+    </sv:property>
+    <sv:property sv:name="active" sv:type="String">
+      <sv:value>false</sv:value>
+    </sv:property>
+    <sv:property sv:name="jcr:createdBy" sv:type="String">
+      <sv:value>admin</sv:value>
+    </sv:property>
+    <sv:property sv:name="mgnl:created" sv:type="Date">
+      <sv:value>2013-07-08T15:12:30.990-05:00</sv:value>
+    </sv:property>
+    <sv:property sv:name="mgnl:lastModified" sv:type="Date">
+      <sv:value>2015-10-19T14:10:44.048-05:00</sv:value>
+    </sv:property>
+    <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
+      <sv:value>cj32</sv:value>
+    </sv:property>
+  </sv:node>
+</sv:node>

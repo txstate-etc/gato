@@ -4,6 +4,7 @@ import info.magnolia.module.DefaultModuleVersionHandler;
 import info.magnolia.module.delta.BootstrapSingleResource;
 import info.magnolia.module.delta.DeltaBuilder;
 import info.magnolia.module.delta.FindAndChangeTemplateIdTask;
+import info.magnolia.module.delta.MoveNodeTask;
 import info.magnolia.module.delta.RemoveNodeTask;
 import info.magnolia.module.delta.SetPropertyTask;
 import info.magnolia.module.delta.Task;
@@ -79,7 +80,8 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       {"gato:components/texasState/texas-form-submit",      "gato-area-mail:components/formsubmit"},
       {"gato:components/texasState/texas-slideshow",        "gato-template-tsus:components/slideshow"},
       {"gato:components/texasState/texas-slideshow-slide",  "gato-template-tsus:components/slide"},
-      {"gato:components/texasState/navBlock",								"gato-template:components/sidenav"},
+      {"gato:components/texasState/texas-twitter",          "gato-template-tsus:components/twitter"},
+      {"gato:components/texasState/navBlock",               "gato-template:components/sidenav"},
       {"gato:components/tsus/tsus-institution-logo",        "gato-template:components/imagelink"},
       {"gato:components/widgets/accordion",                 "gato-template-ua:components/accordionslide"},
 
@@ -102,6 +104,9 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
 
     // change various config properties
     tasks.add(new SetPropertyTask(RepositoryConstants.CONFIG, "/server/filters/activation", "class", "info.magnolia.module.activation.ReceiveFilter"));
+
+    // move tweetStreamer config into the twitter module
+    tasks.add(new MoveNodeTask("Move Twitter config", "/modules/gato/config", "/modules/gato-component-twitter/config", true));
 
     // remove a deprecated servlet filter that was disrupting loading of resources
     tasks.add(new RemoveNodeTask("Remove ClasspathSpool filter", "/server/filters/servlets/ClasspathSpoolServlet"));
