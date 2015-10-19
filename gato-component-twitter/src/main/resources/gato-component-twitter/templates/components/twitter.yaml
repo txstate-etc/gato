@@ -1,0 +1,6 @@
+templateScript: /gato-component-twitter/templates/components/twitter.ftl
+renderType: freemarker
+title: Twitter 
+description: Displays content pulled from social networking site Twitter.
+dialog: gato-component-twitter:components/twitter
+modelClass: edu.txstate.its.gato.TwitterModel

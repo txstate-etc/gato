@@ -23,3 +23,5 @@ availableComponents:
     id: gato-template:components/table
   button:
     id: gato-component-button:components/button
+  twitter:
+    id: gato-component-twitter:components/twitter

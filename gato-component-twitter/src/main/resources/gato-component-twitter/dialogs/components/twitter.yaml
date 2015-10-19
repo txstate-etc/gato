@@ -1,0 +1,36 @@
+form:
+  tabs:
+    - name: tabTwitter
+      label: Twitter
+      fields:
+        - name: title
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: 'Title (optional)'
+        - name: query
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Search Query
+          description: 'Comma separated list of user names and/or hashtags  e.g., <code>@txst, @txstatebobcats, #EatEmUp</code>'
+          defaultValue: '@txst'
+        - name: count
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Count
+          description: Number of tweets to display.
+          defaultValue: 2
+          maxLength: 2
+        - name: ignoreReplies
+          class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+          label: Exclude Replies
+          buttonLabel: Don't display tweets that are replies to other tweeters.
+        - name: align
+          class: info.magnolia.ui.form.field.definition.SelectFieldDefinition
+          label: Alignment
+          description: Align the twitter paragraph on the left or right.
+          options:
+            - name: left
+              value: left
+              label: Left
+            - name: right
+              value: right
+              selected: true
+              label: Right
+actions: !include /gato-template/dialogs/common/actions-block.yaml
