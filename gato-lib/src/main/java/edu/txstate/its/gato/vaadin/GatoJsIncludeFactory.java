@@ -8,7 +8,6 @@ import javax.inject.Inject;
 
 import info.magnolia.objectfactory.ComponentProvider;
 import info.magnolia.ui.api.i18n.I18NAuthoringSupport;
-import info.magnolia.ui.form.field.definition.FieldDefinition;
 import info.magnolia.ui.form.field.factory.FieldFactoryFactory;
 import info.magnolia.ui.form.field.factory.CompositeFieldFactory;
 

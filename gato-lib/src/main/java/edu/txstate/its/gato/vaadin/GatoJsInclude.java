@@ -1,11 +1,7 @@
 package edu.txstate.its.gato.vaadin;
 
 import com.vaadin.data.Item;
-import com.vaadin.server.ClientConnector.AttachEvent;
-import com.vaadin.shared.ui.label.ContentMode;
 import com.vaadin.ui.Component;
-import com.vaadin.ui.CustomField;
-import com.vaadin.ui.Label;
 
 import info.magnolia.objectfactory.ComponentProvider;
 import info.magnolia.ui.api.i18n.I18NAuthoringSupport;

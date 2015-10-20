@@ -10,7 +10,6 @@ public class HiddenField extends AbstractField<String> {
   private ValueChangeServerRpc changeRpc = v -> setValue(v, true);
 
   public HiddenField() {
-    super();
     registerRpc(changeRpc);
   }
 
