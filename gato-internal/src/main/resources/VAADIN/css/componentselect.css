@@ -1,6 +1,7 @@
 .gato-grid-component{
     height: 100%;
     border: 2px solid white;
+    text-align: center;
 }
 
 .component-row{

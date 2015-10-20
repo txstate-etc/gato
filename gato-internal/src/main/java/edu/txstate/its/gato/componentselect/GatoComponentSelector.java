@@ -82,6 +82,7 @@ public class GatoComponentSelector extends CustomField<String>{
             ExternalResource resource = new ExternalResource(template.getIconPath());
             //null means the image has no caption
             Image icon = new Image(null,resource);
+            icon.addStyleName("component-icon");
             tile.addComponent(icon);
         }
         Label titleLabel = new Label(template.getTitle());
