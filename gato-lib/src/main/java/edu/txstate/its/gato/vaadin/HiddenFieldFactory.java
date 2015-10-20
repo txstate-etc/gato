@@ -1,4 +1,4 @@
-package edu.txstate.its.gato.vaadin.server;
+package edu.txstate.its.gato.vaadin;
 
 import com.vaadin.data.Item;
 import com.vaadin.ui.Field;

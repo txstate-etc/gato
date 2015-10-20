@@ -1,20 +1,34 @@
 package edu.txstate.its.gato.vaadin;
 
 import com.vaadin.data.Item;
+import com.vaadin.data.util.PropertysetItem;
 import com.vaadin.ui.Field;
 
+import javax.inject.Inject;
+
+import info.magnolia.objectfactory.ComponentProvider;
+import info.magnolia.ui.api.i18n.I18NAuthoringSupport;
 import info.magnolia.ui.form.field.definition.FieldDefinition;
-import info.magnolia.ui.form.field.factory.AbstractFieldFactory;
+import info.magnolia.ui.form.field.factory.FieldFactoryFactory;
+import info.magnolia.ui.form.field.factory.CompositeFieldFactory;
 
-public class GatoJsIncludeFactory<D extends FieldDefinition> extends AbstractFieldFactory<GatoJsIncludeDefinition, Object> {
+public class GatoJsIncludeFactory<D extends GatoJsIncludeDefinition> extends CompositeFieldFactory<GatoJsIncludeDefinition> {
 
-    public GatoJsIncludeFactory(GatoJsIncludeDefinition definition, Item relatedFieldItem) {
-        super(definition, relatedFieldItem);
-    }
+  private FieldFactoryFactory fieldFactoryFactory;
+  private ComponentProvider componentProvider;
+  private final I18NAuthoringSupport i18nAuthoringSupport;
 
-    @Override
-    protected Field<Object> createFieldComponent() {
-        GatoJsInclude field = new GatoJsInclude(definition, item);
-        return field;
-    }
+  @Inject
+  public GatoJsIncludeFactory(D definition, Item relatedFieldItem, FieldFactoryFactory fieldFactoryFactory, ComponentProvider componentProvider, I18NAuthoringSupport i18nAuthoringSupport) {
+    super(definition, relatedFieldItem, fieldFactoryFactory, componentProvider, i18nAuthoringSupport);
+    this.fieldFactoryFactory = fieldFactoryFactory;
+    this.componentProvider = componentProvider;
+    this.i18nAuthoringSupport = i18nAuthoringSupport;
+  }
+
+  @Override
+  protected Field<PropertysetItem> createFieldComponent() {
+      GatoJsInclude field = new GatoJsInclude(definition, fieldFactoryFactory, componentProvider, item, i18nAuthoringSupport);
+      return field;
+  }
 }

@@ -1,6 +1,6 @@
 package edu.txstate.its.gato.vaadin;
 
-import info.magnolia.ui.form.field.definition.ConfiguredFieldDefinition;
+import info.magnolia.ui.form.field.definition.CompositeFieldDefinition;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -41,18 +41,30 @@ import java.util.List;
  * }
  *
  */
-public class GatoJsIncludeDefinition extends ConfiguredFieldDefinition {
+public class GatoJsIncludeDefinition extends CompositeFieldDefinition {
 
-    // Function to be called after script is loaded. Should be of the form init(def, node, el).
-    @Getter @Setter private String initFunction;
+  public GatoJsIncludeDefinition() {
+    super();
+  }
 
-    // An array of javascript files to be loaded. Paths of scripts should be relative to magnolia resources root.
-    @Getter @Setter private List<String> scripts = new ArrayList<String>();
+  public GatoJsIncludeDefinition(GatoJsIncludeDefinition def) {
+    setTransformerClass(null);
+    setInitFunction(def.getInitFunction());
+    setScripts(def.getScripts());
+    setStyles(def.getStyles());
+    setLoadScriptsInOrder(def.isLoadScriptsInOrder());
+  }
 
-    // An array of css files to be loaded. Paths of files should be relative to magnolia resources root.
-    @Getter @Setter private List<String> styles = new ArrayList<String>();
+  // Function to be called after script is loaded. Should be of the form init(def, node, el).
+  @Getter @Setter private String initFunction;
 
-    // If set to true, scripts will be guaranteed to load in the order they're specified in the array.
-    // Note, with either option, all scripts will be loaded before the init function is called.
-    @Getter @Setter private boolean loadScriptsInOrder = false;
+  // An array of javascript files to be loaded. Paths of scripts should be relative to magnolia resources root.
+  @Getter @Setter private List<String> scripts = new ArrayList<String>();
+
+  // An array of css files to be loaded. Paths of files should be relative to magnolia resources root.
+  @Getter @Setter private List<String> styles = new ArrayList<String>();
+
+  // If set to true, scripts will be guaranteed to load in the order they're specified in the array.
+  // Note, with either option, all scripts will be loaded before the init function is called.
+  @Getter @Setter private boolean loadScriptsInOrder = false;
 }
