@@ -26,8 +26,16 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       .addTask(new BootstrapSingleResource("Bootstrap", "Bootstrap class definition for doing image resizing on Texas State imagehandlers server", "/mgnl-bootstrap/gato-internal/config.modules.gato-lib.imaging.resize.xml"))
       .addTask(new BootstrapSingleResource("Bootstrap", "Bootstrap componentSelect field type", "/mgnl-bootstrap/gato-internal/config.modules.pages.fieldTypes.componentSelect.xml"))
       .addTask(new BootstrapSingleResource("Bootstrap", "Bootstrap select component dialog to use visual selection instead of simple drop down", "/mgnl-bootstrap/gato-internal/config.modules.pages.dialogs.newComponent.form.tabs.components.fields.template.xml"))
+      .addTasks(installOrUpdateTasks())
     );
   }
+
+  protected List<Task> installOrUpdateTasks() {
+    List<Task> tasks = new ArrayList<Task>();
+    tasks.add( new SetSystemUserPasswordsTask("System User Passwords", "System user passwords should be set from a secure properties file."));
+    return tasks;
+  }
+
   @Override
   protected List<Task> getExtraInstallTasks(InstallContext installContext) {
     List<Task> tasks = new ArrayList<Task>(super.getExtraInstallTasks(installContext));
@@ -119,6 +127,9 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
     tasks.add(new RemoveNodeTask("Remove old 4.5 migration config", "/modules/magnolia-4-5-migration"));
     // remove the config node for the old 4.5 cas filter
     tasks.add(new RemoveNodeTask("Remove old 4.5 cas filter", "/server/filters/casRedirect"));
+
+    // tasks for every update
+    tasks.addAll(installOrUpdateTasks());
     return tasks;
   }
 
