@@ -143,6 +143,17 @@ sub buildedge {
   sass();
   print "building full war...\n";
   chdir($gatodir);
+  buildany();
+}
+
+sub buildmodule {
+  my $module = shift;
+  print "building individual module $module...\n";
+  chdir($gatodir.'/'.$module);
+  buildany();
+}
+
+sub buildany {
   my $output = `mvn clean install`;
   if ($output =~ m/FAILURE|ERROR/) { print $output."\n"; exit; }
 }
@@ -151,13 +162,6 @@ sub installwar {
   my $warpath = shift;
   print "copying war...\n";
   `cp $warpath $tomcatdir/webapps/ROOT.war`;
-}
-
-sub buildmodule {
-  my $module = shift;
-  print "building individual module $module...\n";
-  chdir($gatodir.'/'.$module);
-  `mvn clean install`;
 }
 
 sub replacemodule {
