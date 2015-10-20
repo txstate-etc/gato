@@ -1,0 +1,30 @@
+.gato-grid-component{
+    height: 100%;
+    border: 2px solid white;
+}
+
+.component-row{
+    margin-bottom: 5px;
+}
+
+.component-title{
+    font-weight: bold;
+    padding-bottom: 3px;
+    text-align: center;
+}
+
+.component-description{
+    font-size: 90%;
+    text-align: center;
+}
+
+.component-icon{
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    
+}
+
+.gato-grid-component.selected-component{
+    border: 2px solid #6A9600;
+}

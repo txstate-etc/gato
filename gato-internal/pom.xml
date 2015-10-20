@@ -34,6 +34,10 @@
       <groupId>info.magnolia.dam</groupId>
       <artifactId>magnolia-dam-api</artifactId>
     </dependency>
+    <dependency>
+      <groupId>info.magnolia.pages</groupId>
+      <artifactId>magnolia-pages-app</artifactId>
+    </dependency>
   </dependencies>
 
 </project>
