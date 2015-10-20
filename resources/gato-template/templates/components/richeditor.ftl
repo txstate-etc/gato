@@ -1,1 +1,1 @@
-${cmsfn.decode(content).content}
+${gf.processRichText(cmsfn.decode(content).content)}

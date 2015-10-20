@@ -14,5 +14,5 @@
       [/#if]
     </div>
   [/#if]
-  ${decodedContent.text!}
+  ${gf.processRichText(decodedContent.text)}
 </div>

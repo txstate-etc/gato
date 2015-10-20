@@ -7,8 +7,9 @@ package edu.txstate.its.gato;
 
 import info.magnolia.cms.core.MgnlNodeType;
 import info.magnolia.context.MgnlContext;
-import info.magnolia.dam.templating.functions.DamTemplatingFunctions;
 import info.magnolia.dam.api.Asset;
+import info.magnolia.dam.jcr.DamConstants;
+import info.magnolia.dam.templating.functions.DamTemplatingFunctions;
 import info.magnolia.init.MagnoliaConfigurationProperties;
 import info.magnolia.jcr.util.ContentMap;
 import info.magnolia.jcr.util.NodeTypes;
@@ -326,90 +327,44 @@ public final class GatoUtils {
   }
 
 /* TODO update this to send rich editor images to image handler
- * and maybe figure out what else it's trying to do
-  public static final Pattern IMAGE_TAG_PATTERN = Pattern.compile(
-      "(<img[^>]*src[ ]*=[ ]*\")([^\"]*)(\"[^>]*>)");
-  public static final Pattern WIDTH_ATTR_PATTERN = Pattern.compile("(width[ ]*=[ ]*\")([0-9]+)([^\"]*\")");
-  public static final Pattern HEIGHT_ATTR_PATTERN = Pattern.compile("(height[ ]*=[ ]*\")([0-9]+)([^\"]*\")");
-  public static String convertImageTags(String str) {
+ * and maybe figure out what else it's trying to do */
+  protected String captureMatch(String s, Pattern p) {
+    Matcher m = p.matcher(s);
+    if (m.find()) {
+      return m.group(1);
+    } else {
+      return "";
+    }
+  }
+  public final Pattern IMAGE_TAG_PATTERN = Pattern.compile("(<img[^>]*src[ ]*=[ ]*\")([^\"]*)(\"[^>]*>)");
+  public final Pattern WIDTH_ATTR_PATTERN = Pattern.compile("width[ ]*=[ ]*\"([0-9]+)[^\"]*\"");
+  public final Pattern SRCSET_ATTR_PATTERN = Pattern.compile("srcset[ ]*=[ ]*\"(\\w+)[^\"]*\"");
+  public final Pattern ASSET_KEY_PATTERN = Pattern.compile("/([a-z]+:[a-f0-9\\-]+)/");
+  public String processRichText(String str) {
+    if (StringUtils.isBlank(str)) return "";
     StringBuffer result = new StringBuffer();
     Matcher matcher = IMAGE_TAG_PATTERN.matcher(str);
     while (matcher.find()) {
-      String rawUrl = matcher.group(2);
-      String src = filterUrl(rawUrl);
+      String imageTag = matcher.group();
+      String existingSrc = matcher.group(2);
+      String existingSrcSet = captureMatch(imageTag, SRCSET_ATTR_PATTERN);
+      String newSrc = existingSrc;
+      if (StringUtils.isBlank(existingSrcSet)) {
+        String assetKey = captureMatch(imageTag, ASSET_KEY_PATTERN);
+        int width = Integer.parseInt(captureMatch(imageTag, WIDTH_ATTR_PATTERN));
 
-      Matcher widthMatcher = WIDTH_ATTR_PATTERN.matcher(matcher.group());
-      if (!widthMatcher.find()) {
-        matcher.appendReplacement(result, matcher.group());
-        continue;
-      }
-
-      int width = Integer.parseInt(widthMatcher.group(2));
-
-      Matcher heightMatcher = HEIGHT_ATTR_PATTERN.matcher(matcher.group());
-      if (!heightMatcher.find()) {
-        matcher.appendReplacement(result, matcher.group());
-        continue;
-      }
-
-      int height = Integer.parseInt(heightMatcher.group(2));
-
-      //Check to see if the image actually needs to be resized
-      String srcMinusContext = rawUrl.substring(MgnlContext.getContextPath().length());
-      srcMinusContext = srcMinusContext.substring(0, srcMinusContext.lastIndexOf('/'));
-
-      NodeData imageData = null;
-      boolean doResize = false;
-      String cacheStr = "";
-
-      try {
-        imageData = MgnlContext.getHierarchyManager("website").getNodeData(srcMinusContext);
-        try {
-          // rich editor file storage does not get its modification date updated,
-          // so we need to take it back one further just to be on the safe side
-          Content p = imageData.getParent();
-          Content gp = p.getParent();
-
-          if (gp.getMetaData().getModificationDate().after(p.getMetaData().getModificationDate()))
-            cacheStr = getCacheStr(gp);
-          else
-            cacheStr = getCacheStr(p);
-        } catch (Exception e) {
-          // maybe the image didn't have a grandparent
-          cacheStr = getCacheStr(imageData.getParent());
+        Asset image = damfn.getAsset(assetKey);
+        if (image != null) {
+          newSrc = getImgDefault(image);
+          newSrc += "\" srcset=\""+getSrcSet(image);
+          newSrc += "\" sizes=\""+width+"px";
         }
-      } catch (Exception e) {}
-
-      try {
-        if (imageData == null) {
-          srcMinusContext = srcMinusContext.substring("/dms".length());
-          imageData = MgnlContext.getHierarchyManager("dms").getContent(srcMinusContext).getNodeData("document");
-          cacheStr = getCacheStr(imageData.getParent());
-        }
-
-        if (imageData != null) {
-          int origWidth = Integer.parseInt(imageData.getAttribute("width"));
-
-          if (origWidth != width) {
-            doResize = true;
-          }
-        }
-      } catch (Exception e) {}
-
-      String newSrc = src;
-
-      if (doResize) {
-        newSrc = imageHandlerCache(src, width, height, "fit", "false", 0, 0, 0, 0, cacheStr);
-
-        newSrc = StringUtils.replace(newSrc, "\\", "\\\\");
-        newSrc = StringUtils.replace(newSrc, "$", "\\$");
       }
       matcher.appendReplacement(result, "$1" + newSrc + "$3");
     }
     matcher.appendTail(result);
     return result.toString();
   }
-*/
 
   // dump an object to string
   public String dump(Object o, int callCount) {
