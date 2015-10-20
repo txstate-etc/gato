@@ -10,6 +10,7 @@
   <properties>
     <gatoVersion>1.0</gatoVersion>
     <magnoliaVersion>5.4.2</magnoliaVersion>
+    <vaadinVersion>7.4.7</vaadinVersion>
     <damVersion>2.1.1</damVersion>
     <javaVersion>1.8</javaVersion>
   </properties>
@@ -149,5 +150,6 @@
     <module>gato-area-mail</module>
     <module>gato-component-button</module>
     <module>gato-component-twitter</module>
+    <module>gato-vaadin</module>
   </modules>
 </project>

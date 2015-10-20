@@ -57,6 +57,11 @@
       <groupId>info.magnolia.dam</groupId>
       <artifactId>magnolia-dam-templating</artifactId>
     </dependency>
+    <dependency>
+      <groupId>edu.txstate.its.gato</groupId>
+      <artifactId>gato-vaadin</artifactId>
+      <version>${gatoVersion}</version>
+    </dependency>
   </dependencies>
 
 </project>

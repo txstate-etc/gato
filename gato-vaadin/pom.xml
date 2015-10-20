@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>gato-base</artifactId>
+    <groupId>edu.txstate.its.gato</groupId>
+    <version>1.0</version>
+  </parent>
+  <groupId>edu.txstate.its.gato</groupId>
+  <artifactId>gato-vaadin</artifactId>
+  <name>gato-vaadin</name>
+
+  <dependencies>
+    <dependency>
+      <groupId>info.magnolia.widgetset</groupId>
+      <artifactId>magnolia-vaadin-widgetset</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.vaadin</groupId>
+      <artifactId>vaadin-client</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.vaadin</groupId>
+      <artifactId>vaadin-client-compiler</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.vaadin</groupId>
+      <artifactId>vaadin-server</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.vaadin</groupId>
+      <artifactId>vaadin-shared</artifactId>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>com.vaadin</groupId>
+        <artifactId>vaadin-maven-plugin</artifactId>
+        <version>${vaadinVersion}</version>
+        <configuration>
+          <extraJvmArgs>-Xmx1024M -Xss1024k</extraJvmArgs>
+          <module>edu.txstate.its.gato.GatoWidgetSet</module>
+          <webappDirectory>${basedir}/target/classes/VAADIN/widgetsets</webappDirectory>
+          <draftCompile>false</draftCompile>
+          <compileReport>false</compileReport>
+          <disableCastChecking>false</disableCastChecking>
+          <enableClosureCompiler>false</enableClosureCompiler>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>resources</goal>
+              <goal>update-widgetset</goal>
+              <goal>compile</goal>
+              <!-- disabled by default to use on-the-fly theme compilation -->
+              <!-- <goal>compile-theme</goal> -->
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-jar-plugin</artifactId>
+        <configuration>
+          <excludes>
+            <exclude>**/VAADIN/gwt-unitCache/**</exclude>
+            <exclude>**/VAADIN/widgetsets/WEB-INF/**</exclude>
+          </excludes>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

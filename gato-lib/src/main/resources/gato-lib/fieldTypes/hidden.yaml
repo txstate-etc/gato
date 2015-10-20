@@ -1,0 +1,3 @@
+name: hiddenField
+definitionClass: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+factoryClass: edu.txstate.its.gato.vaadin.HiddenFieldFactory
