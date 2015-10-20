@@ -326,8 +326,8 @@ public final class GatoUtils {
     return md5(c.getJCRNode().getIdentifier());
   }
 
-/* TODO update this to send rich editor images to image handler
- * and maybe figure out what else it's trying to do */
+  // processRichText is a method for finding img tags in html and converting
+  // them to responsive images with srcset and sizes attributes
   protected String captureMatch(String s, Pattern p) {
     Matcher m = p.matcher(s);
     if (m.find()) {
