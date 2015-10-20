@@ -8,6 +8,7 @@ package edu.txstate.its.gato;
 import info.magnolia.cms.core.MgnlNodeType;
 import info.magnolia.context.MgnlContext;
 import info.magnolia.dam.api.Asset;
+import info.magnolia.dam.api.metadata.MagnoliaAssetMetadata;
 import info.magnolia.dam.jcr.DamConstants;
 import info.magnolia.dam.templating.functions.DamTemplatingFunctions;
 import info.magnolia.init.MagnoliaConfigurationProperties;
@@ -200,7 +201,7 @@ public final class GatoUtils {
   protected GatoResizer getResizer() throws Exception {
     String resizeClass = MgnlContext.getJCRSession(RepositoryConstants.CONFIG)
       .getNode("/modules/gato-lib/imaging/resize").getProperty("class").getString();
-    if (mcp.getProperty("gato.gato-lib.noresize").equals("true"))
+    if (mcp.hasProperty("gato.gato-lib.noresize"))
       resizeClass = "edu.txstate.its.gato.NullResizer";
     GatoResizer srv = (GatoResizer) Components.getComponent(Class.forName(resizeClass));
     return srv;
@@ -225,12 +226,19 @@ public final class GatoUtils {
       srv.setHeight(0);
       srv.setUpscale(true);
 
+      long width = asset.getMetadata(MagnoliaAssetMetadata.class).getWidth();
+      ArrayList<Long> widths = new ArrayList<Long>();
+      do {
+        widths.add(new Long(width));
+        width = width / 2;
+      } while (width > 100);
       StringBuffer ret = new StringBuffer();
-      long[] widths = {100,200,400,800,1200,1600,2400};
-      for (long width : widths) {
-        srv.setWidth(width);
-        ret.append(srv.createLink(asset)+" "+width+"w");
-        if (width != widths[widths.length-1]) ret.append(", ");
+      int i = 1;
+      for (Long wLong : widths) {
+        long w = wLong.longValue();
+        srv.setWidth(w);
+        ret.append(srv.createLink(asset)+" "+w+"w");
+        if (i++ <= widths.size()) ret.append(", ");
       }
       return ret.toString();
     } catch (Exception e) {
@@ -245,10 +253,15 @@ public final class GatoUtils {
 
   public String getImgDefault(Asset asset) {
     try {
+      long width = asset.getMetadata(MagnoliaAssetMetadata.class).getWidth();
+      while (width > 1200) {
+        width = width / 2;
+      };
+
       GatoResizer srv = getResizer();
       srv.setHeight(0);
-      srv.setWidth(800);
-      srv.setUpscale(false);
+      srv.setWidth(width);
+      srv.setUpscale(true);
       return srv.createLink(asset);
     } catch (Exception e) {
       e.printStackTrace();
