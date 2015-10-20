@@ -143,7 +143,7 @@ sub buildedge {
   sass();
   print "building full war...\n";
   chdir($gatodir);
-  my $output = `mvn clean package`;
+  my $output = `mvn clean install`;
   if ($output =~ m/FAILURE|ERROR/) { print $output."\n"; exit; }
 }
 
@@ -157,7 +157,7 @@ sub buildmodule {
   my $module = shift;
   print "building individual module $module...\n";
   chdir($gatodir.'/'.$module);
-  `mvn install package`;
+  `mvn clean install`;
 }
 
 sub replacemodule {
