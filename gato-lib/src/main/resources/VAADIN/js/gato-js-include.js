@@ -5,10 +5,11 @@ edu_txstate_its_gato_vaadin_GatoJsComponent = function() {
   var definition = this.getState().definition;
   var node = this.getState().nodePath;
   var el = this.getElement();
+  var template = this.getState().pageTemplate;
 
   var callInit = function() {
     if (definition.initFunction) {
-      window[definition.initFunction](definition, node, el);
+      window[definition.initFunction](definition, node, el, template);
     }
   }
 

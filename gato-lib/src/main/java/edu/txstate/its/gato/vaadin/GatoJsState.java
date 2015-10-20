@@ -7,4 +7,5 @@ public class GatoJsState extends JavaScriptComponentState {
     public GatoJsIncludeDefinition definition;
     public String initFunction;
     public String nodePath;
+    public String pageTemplate;
 }
