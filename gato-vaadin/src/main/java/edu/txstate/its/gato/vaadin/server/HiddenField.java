@@ -14,6 +14,14 @@ public class HiddenField extends AbstractField<String> {
   }
 
   @Override
+  public String getCaption() {
+    return null;
+  }
+
+  @Override
+  public void setCaption(String caption) {}
+
+  @Override
   protected HiddenFieldState getState() {
     return (HiddenFieldState) super.getState();
   }
