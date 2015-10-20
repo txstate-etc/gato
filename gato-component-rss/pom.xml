@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>edu.txstate.its.gato</groupId>
+    <artifactId>gato-base</artifactId>
+    <version>1.0</version>
+    <relativePath>../pom.xml</relativePath>
+  </parent>
+  <groupId>edu.txstate.its.gato</groupId>
+  <artifactId>gato-component-rss</artifactId>
+  <packaging>jar</packaging>
+  <name>Gato RSS Module</name>
+  
+  <dependencies>
+    <dependency>
+      <groupId>info.magnolia</groupId>
+      <artifactId>magnolia-core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>info.magnolia</groupId>
+      <artifactId>magnolia-rendering</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>rome</groupId>
+      <artifactId>rome</artifactId>
+      <version>0.9</version>
+    </dependency>
+    <dependency>
+      <groupId>rome</groupId>
+      <artifactId>rome-fetcher</artifactId>
+      <version>0.9</version>
+    </dependency>
+    <!-- <dependency>
+      <groupId>edu.txstate.its.gato</groupId>
+      <artifactId>gato-lib</artifactId>
+      <version>${gatoVersion}</version>
+    </dependency> -->
+  </dependencies>
+
+</project>

@@ -25,3 +25,5 @@ availableComponents:
     id: gato-component-button:components/button
   twitter:
     id: gato-component-twitter:components/twitter
+  rss:
+    id: gato-component-rss:components/rss

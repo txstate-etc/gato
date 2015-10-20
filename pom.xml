@@ -151,5 +151,6 @@
     <module>gato-component-button</module>
     <module>gato-component-twitter</module>
     <module>gato-vaadin</module>
+    <module>gato-component-rss</module>
   </modules>
 </project>

@@ -28,6 +28,20 @@ Event.observe(window, "load", function() {
     });
   });
 
+  $$('.txst-rss-item.collapsible h3 a').each( function( item ) {
+    var parent = item.ancestors()[0];
+    var descElement = parent.next();
+    Event.observe( item, "click", function( event ) { 
+      item.blur();
+      var myduration = descElement.getHeight() / 400;
+      if (myduration > 1) myduration = 1;
+      if (myduration < .5) myduration = .5;
+      parent.toggleClassName('collapsed');
+      Effect.toggle( descElement, 'blind', { duration: myduration } );
+      Event.stop( event );
+    });
+  });
+
   if ( $('txst-expand-all-faqs') ) {
     Event.observe( 'txst-expand-all-faqs', "click", function(event) {
       $$('.txst-faq-group').each(function(item) {
@@ -70,4 +84,15 @@ Event.observe(window, "load", function() {
       Event.stop(event);
     });
   }
+});
+
+Event.observe(document,"dom:loaded",function() {
+    $$('.txst-rss-item-content').each(function(item){
+        if (item.previous().hasClassName('collapsed')) {
+            item.setStyle({
+                display: 'none',
+                overflow: 'hidden'
+            });
+        }
+    });
 });
