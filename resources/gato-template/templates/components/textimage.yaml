@@ -3,3 +3,5 @@ renderType: freemarker
 title: Text and Image
 description: A basic paragraph that includes a Title, an image, and body text.
 dialog: gato-template:components/textimage
+parameters:
+  icon: /gato-template/images/text_image.png

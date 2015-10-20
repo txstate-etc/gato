@@ -4,3 +4,5 @@ dialog: gato-component-faq:components/faq-hierarchy
 modelClass: edu.txstate.its.gato.FaqHierarchyModel
 title: FAQ Hierarchy
 description: Used to organize a large number of FAQs.
+parameters:
+  icon: /gato-component-faq/images/faq.png
