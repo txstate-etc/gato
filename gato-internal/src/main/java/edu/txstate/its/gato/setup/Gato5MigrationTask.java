@@ -79,6 +79,7 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
     visitByTemplate(hm, "gato:components/texasState/texas-form-selection", this::updateSelectionComponent);
     visitByTemplate(hm, "gato:pages/main-2009/khan-mail", this::updateMailArea);
     visitByTemplate(hm, "gato:components/texasState/texasDownload", this::updateDownloadComponent);
+    visitByTemplate(hm, "gato:components/texasState/texasLink", this::convertNewWindowToBool);
   }
 
   private void convertPropertyToBool(Node n, String propName) throws RepositoryException {
@@ -100,6 +101,10 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
 
   private void convertInheritToBool(Node n) throws RepositoryException {
     convertPropertyToBool(n, "inherit");
+  }
+
+  private void convertNewWindowToBool(Node n) throws RepositoryException{
+    convertPropertyToBool(n, "newWindow");
   }
 
   private void updateImageGallery(Node n) throws RepositoryException {
