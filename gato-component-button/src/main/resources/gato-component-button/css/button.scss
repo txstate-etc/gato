@@ -20,6 +20,7 @@
     font-size: 85%;
     display: table-cell;
     vertical-align: middle;
+    margin: 0px;
     @include vendor-prefix(border-radius, $default-border-radius);
     @include box-shadow(0px 1px 1px 0px rgba(0,0,0,0.2));
     &:hover{background: $default-button-background-hover;}
