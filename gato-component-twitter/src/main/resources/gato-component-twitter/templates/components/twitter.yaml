@@ -4,3 +4,5 @@ title: Twitter
 description: Displays content pulled from social networking site Twitter.
 dialog: gato-component-twitter:components/twitter
 modelClass: edu.txstate.its.gato.TwitterModel
+parameters:
+  icon: /gato-component-twitter/images/twitter.png
