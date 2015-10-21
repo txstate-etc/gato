@@ -4,3 +4,5 @@ dialog: gato-component-sitemap:components/sitemap
 modelClass: edu.txstate.its.gato.SiteMapModel
 description: Lists pages in a hierarchical or alphabetical list.
 title: Site Map
+parameters:
+  icon: /gato-component-sitemap/images/sitemap.png

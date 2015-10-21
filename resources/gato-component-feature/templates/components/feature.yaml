@@ -11,3 +11,5 @@ areas:
     availableComponents:
       slide:
         id: gato-component-feature:components/slide
+parameters:
+  icon: /gato-component-feature/images/feature.png
