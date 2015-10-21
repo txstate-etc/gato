@@ -6,8 +6,9 @@
 [#if buttonType == "rollover" && content.image?has_content]
     [#assign buttonBG = "style=\"background: url('" + gf.getImgDefault(content.image) + "') no-repeat; \"" ]
 [/#if]
-
-<a href="${buttonLink}" class="button ${buttonType} ${buttonColor} ${buttonSize}" ${buttonBG!}>
-    <span>${buttonText}</span>
-</a>
+<div class="button-wrapper">
+    <a href="${buttonLink}" class="button ${buttonType} ${buttonColor} ${buttonSize}" ${buttonBG!}>
+        <span>${buttonText}</span>
+    </a>
+</div>
 

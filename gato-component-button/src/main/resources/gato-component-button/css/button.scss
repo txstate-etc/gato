@@ -1,0 +1,28 @@
+@import "button-mixins";
+
+//button colors
+ $default-button-background:        $maroon;
+ $default-button-border:            $darkest-maroon;
+ $default-button-background-hover:  $lightest-maroon;
+ $button-text:                      $white;
+ $button-reverse-text:              $almost-black;
+ $button-reverse-text-weight:       400;
+
+
+.button-wrapper > a.button{
+    display: inline-block;
+    padding: 1.4rem 0.75rem;
+    background: $default-button-background;
+    border: 1px solid $default-button-border;
+    color: $button-text; 
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 85%;
+    display: table-cell;
+    vertical-align: middle;
+    @include vendor-prefix(border-radius, $default-border-radius);
+    @include box-shadow(0px 1px 1px 0px rgba(0,0,0,0.2));
+    &:hover{background: $default-button-background-hover;}
+    &:active {position: relative; top: 2px;} //make it move to be more button-like
+    text-decoration:none;
+}

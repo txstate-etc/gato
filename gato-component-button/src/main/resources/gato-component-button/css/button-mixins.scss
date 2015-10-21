@@ -1,23 +1,6 @@
-//mixins
-
-
-//this should be done with an autoprefixer
-@mixin vendor-prefix($name, $argument...) {
-  -webkit-#{$name}: #{$argument};
-  -ms-#{$name}: #{$argument};
-  -moz-#{$name}: #{$argument};
-  -o-#{$name}: #{$argument};
-  #{$name}: #{$argument};
-}
-
-//different from the other vendor prefixes.  might not be necessary if all browsers
-//we need support box shadows
-@mixin box-shadow($shadows...) {
-  -moz-box-shadow: $shadows;
-  -webkit-box-shadow: $shadows;
-          box-shadow: $shadows;
-}
-
+//Build a gradient button.  The button has a border color and 2 different
+//vertical gradients: one for normal state and one for when the user
+//hovers over the button.
 @mixin gradient-button($border-color, $grad-top, $grad-bottom, $hover-grad-top, $hover-grad-bottom, $reverse-text){
 
   background: $grad-top;
@@ -38,6 +21,10 @@
 
 }
 
+//build a "reverse" button.  The color passed in is used for the
+//border and text color on a white button.  When the user hovers over
+//the button, the button turns the color passed in and the text 
+//becomes white
 @mixin reverse-button($color){
     color: $color;
     background: $reverse-btn-background;
@@ -50,6 +37,7 @@
     }
 }
 
+//build a button that appears 3 dimensional.
 @mixin three-d-button($background, $hover-background, $shadow, $reverse-text){
   border: 0px;
     @if $reverse-text == true{
@@ -69,7 +57,8 @@
     }
 
 }
-
+//build a button that shows an image on rollover.  The background
+//image is chosen by the user in the dialog.
 @mixin image-rollover-button($background, $rollover-background, $reverse-text){
   @if $reverse-text == true{
     color: $button-reverse-text;
