@@ -95,6 +95,8 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       {"gato:components/tsus/tsus-institution-logo",        "gato-template:components/imagelink"},
       {"gato:components/ua/ua-contentbox",                  "gato-template-ua:components/contentbox"},
       {"gato:components/widgets/accordion",                 "gato-template-ua:components/accordionslide"},
+      {"gato:components/widgets/feature/feature",           "gato-component-feature:components/feature"},
+      {"gato:components/widgets/feature/feature-slide",     "gato-component-feature:components/slide"},
 
       // page templateIds
       {"gato:pages/tsus-2012/tsus-2012-home",               "gato-template-tsus:pages/home"},
