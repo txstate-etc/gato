@@ -32,7 +32,6 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
 
   protected List<Task> installOrUpdateTasks() {
     List<Task> tasks = new ArrayList<Task>();
-    tasks.add( new SetSystemUserPasswordsTask("System User Passwords", "System user passwords should be set from a secure properties file."));
     return tasks;
   }
 
