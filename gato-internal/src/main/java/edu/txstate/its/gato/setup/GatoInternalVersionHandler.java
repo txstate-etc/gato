@@ -94,6 +94,7 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       {"gato:components/texasState/texas-slideshow-slide",  "gato-template-tsus:components/slide"},
       {"gato:components/texasState/navBlock",               "gato-template:components/sidenav"},
       {"gato:components/tsus/tsus-institution-logo",        "gato-template:components/imagelink"},
+      {"gato:components/ua/ua-contentbox",                  "gato-template-ua:components/contentbox"},
       {"gato:components/widgets/accordion",                 "gato-template-ua:components/accordionslide"},
 
       // page templateIds

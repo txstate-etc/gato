@@ -28,7 +28,7 @@
 	border-width: 0px 0px 6px 1px;
 }
 
-.ua-contentbox .mgnlControlBarSmall {
+.ua-contentbox .mgnlEditor.component {
 	position: absolute;
 	top: 0px;
 	left: 0px;
@@ -37,13 +37,20 @@
 .ua-contentbox-image {
 	padding: 8px 8px 0px 8px;
 	border-bottom: 8px solid #8a7548;
+	overflow: hidden;
+	img {
+	  width: 302px;
+	  height: 92px;
+	}
 }
 
 .ua-contentbox-title {
+  margin: 0;
 	padding: 8px 16px;
 	font-family: Georgia, serif;
 	font-style: italic;
 	font-size: 18px;
+	font-weight: normal;
 }
 
 .ua-contentbox-text {
@@ -53,12 +60,7 @@
 	line-height: 16px;
 	height: 48px;
 	overflow: hidden;
-}
-
-.ua-contentbox-link {
-	margin-left: 16px;
-	margin-bottom: 8px;
-	font-size: 12px;
+	p { margin-top: 0px; }
 }
 
 .ua-news {

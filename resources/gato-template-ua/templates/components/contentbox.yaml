@@ -1,0 +1,5 @@
+templateScript: /gato-template-ua/templates/components/contentbox.ftl
+renderType: freemarker
+title: Content Box
+description: Content box on the UA homepage.
+dialog: gato-template-ua:components/contentbox
