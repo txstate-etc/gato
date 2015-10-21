@@ -24,8 +24,9 @@
         </div>
         <div class="ua-news">
           <h3 class="ua-news-header">A Note of Celebration</h3>
-          <a class="ua-news-viewmore" href="news-all.html">view more</a>
-          [@cms.area name="news" /]
+          <div class="ua-news-container">
+            [@cms.area name="news" /]
+          </div>
         </div>
         <div class="ua-video">
           <h3 class="ua-video-header">Impact of Giving</h3>
