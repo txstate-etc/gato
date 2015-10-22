@@ -2,8 +2,8 @@
 orientationChangeEventName = ( "onorientationchange" in window ) ? "orientationchange" : "resize";
 
 // this is a very important fix for IE8, which triggers window.resize every time ANY
-// object on the page is resized or even repositioned.  This obviously leads to nasty 
-// infinite loops if you observe window.resize and alter any elements.  This code acts 
+// object on the page is resized or even repositioned.  This obviously leads to nasty
+// infinite loops if you observe window.resize and alter any elements.  This code acts
 // as an insurance policy against those infinite loops.
 function preventResizeBug(e) {
 	if (!preventResizeBug.funcArray) preventResizeBug.funcArray = [];
@@ -17,7 +17,7 @@ function preventResizeBug(e) {
 	// next we'll check if prototype has recorded any listeners
 	var handlerArray = Element.getStorage(window).get('prototype_event_registry').get('resize');
 	for (var i = 0; i < handlerArray.length; i++) {
-		// prototype stores an object describing the listener, the 'handler' property is the 
+		// prototype stores an object describing the listener, the 'handler' property is the
 		// actual function that needs called
 		if (handlerArray[i].handler != preventResizeBug) {
 			// yes, I did check that the conditional above evaluates as expected
@@ -25,15 +25,15 @@ function preventResizeBug(e) {
 			Element.stopObserving(window,'resize', handlerArray[i].handler);
 		}
 	}
-	/* now we know there are no other listeners, except possibly 
+	/* now we know there are no other listeners, except possibly
 		 some that were given directly to the browser via attachEvent()
 	 */
-	
+
 	// now we'll check if the window has actually changed size
 	var viewport = document.viewport.getDimensions();
-	if (viewport.height == preventResizeBug.savedHeight && viewport.width == preventResizeBug.savedWidth) { 
+	if (viewport.height == preventResizeBug.savedHeight && viewport.width == preventResizeBug.savedWidth) {
 		// no change in size, we're done here
-		e.stop(); 
+		e.stop();
 	} else {
 		// actually did change size, let's save the new size and trigger all the other listeners
 		// important to go in that order, otherwise we re-introduce the infinite loop
@@ -53,18 +53,18 @@ var destroyerSitePageTracker;
 function record_video_analytics (videourl) {
 
 	if (destroyerGlobalPageTracker) {
-		ga(destroyerGlobalPageTracker.name + '.send', { 
-			'hitType': 'event', 
-			'eventCategory': 'Videos', 
+		ga(destroyerGlobalPageTracker.name + '.send', {
+			'hitType': 'event',
+			'eventCategory': 'Videos',
 			'eventAction': document.title+' <'+window.location+'>',
 			'transport': 'beacon'
 		});
 	}
 
 	if (destroyerSitePageTracker) {
-		ga(destroyerSitePageTracker.name + '.send', { 
-			'hitType': 'event', 
-			'eventCategory': 'Videos', 
+		ga(destroyerSitePageTracker.name + '.send', {
+			'hitType': 'event',
+			'eventCategory': 'Videos',
 			'eventAction': document.title+' <'+window.location+'>',
 			'transport': 'beacon'
 		});
@@ -223,12 +223,12 @@ function finish_video_load(lnk, options, captUrl, showcaptions) {
 		var timer;
 		capt.innerHTML = 'CC';
 		capt.setStyle({
-			position: 'absolute', 
+			position: 'absolute',
 			display: 'block',
-			zIndex: 100, 
-			color: '#FF0000', 
+			zIndex: 100,
+			color: '#FF0000',
 			border: '2px solid #777777',
-			textDecoration: 'none', 
+			textDecoration: 'none',
 			padding: '0px 2px',
 			fontWeight: 'bold',
 			fontSize: '12px',
@@ -364,16 +364,16 @@ function video_load(lnk, opts) {
 				}
 			},
 			// This line is extremely important - without it you CANNOT dynamically
-			// update a video's splash screen.  
+			// update a video's splash screen.
 			//
-			// Flowplayer loads the splash content when we first call flowplayer() on it, 
-			// and then every time unload() is called on the player, it resets the splash 
+			// Flowplayer loads the splash content when we first call flowplayer() on it,
+			// and then every time unload() is called on the player, it resets the splash
 			// screen to what it was originally.
 			//
-			// Since it calls unload on ALL players just before playing any video (including 
-			// the one in question), you can never get new content into the splash cache.  
-			// However, if you tell it to never unload an already-unloaded player (what we're 
-			// doing here), then it's able to get the new splash content saved before playing 
+			// Since it calls unload on ALL players just before playing any video (including
+			// the one in question), you can never get new content into the splash cache.
+			// However, if you tell it to never unload an already-unloaded player (what we're
+			// doing here), then it's able to get the new splash content saved before playing
 			// the video.
 			onBeforeUnload: function () { return this.isLoaded(); },
 			autoPlayMe: (opts.autoplay ? true : false)
@@ -424,7 +424,7 @@ if (Prototype.Browser.IE) {
 				if (value[1]) return parseFloat(value[1]) / 100;
 			return 1.0;
 		} else if (!value && element.currentStyle) value = element.currentStyle[style];
-	
+
 		if (value == 'auto') {
 			if ((style == 'width' || style == 'height') && (element.getStyle('display') != 'none'))
 				return element['offset' + style.capitalize()] + 'px';
@@ -542,7 +542,7 @@ function ensureReady(closure) {
 
 // Shrinks the font-size of the given element until
 // it fits inside its parent.
-var fitText = function(item) {  
+var fitText = function(item) {
 	item = $(item);
 	item.origFontSize = parseFloat(item.getStyle('fontSize'));
 
@@ -572,3 +572,13 @@ var fitText = function(item) {
 		doFit();
 	});
 };
+
+function resizeTimeout(callback) {
+	var to;
+	var myfunc = function () {
+		clearTimeout(to);
+		to = setTimeout(callback, 100);
+	};
+	myfunc();
+	jQuery(window).resize(myfunc);
+}
