@@ -1,7 +1,8 @@
 .sidebar {
     padding: 0;
-    position: relative;
-    float: left;
+    position: absolute;
+    top: 0px;
+    right: 0px;
 }
 .sidebar_active {padding-left: 0;}
 .sidebar_active_reverse {padding-right: 1rem;}
