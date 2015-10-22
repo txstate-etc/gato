@@ -63,13 +63,15 @@
 	line-height: 20px;
 }
 
-.ua-news-header {
+.ua-news-header, .ua-video-header {
 	text-transform: uppercase;
 	font-family: Georgia, serif;
+	font-weight: normal;
 	font-size: 18px;
 	line-height: 18px;
 	height: 18px;
 	color: #444444;
+	margin: 0;
 }
 
 .ua-news-viewmore {
@@ -118,15 +120,6 @@
 	padding: 20px 0px 0px 10px;
 	font-size: 11px;
 	line-height: 12px;
-}
-
-.ua-video-header {
-	text-transform: uppercase;
-	font-family: Georgia, serif;
-	font-size: 18px;
-	line-height: 18px;
-	height: 18px;
-	color: #444444;
 }
 
 .ua-video-container {
