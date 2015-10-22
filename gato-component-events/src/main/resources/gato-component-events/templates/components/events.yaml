@@ -1,0 +1,6 @@
+templateScript: /gato-component-events/templates/components/events.ftl
+renderType: freemarker
+title: Calendar Events
+description: Displays events pulled from the Texas State Event Calendar.
+dialog: gato-component-events:components/events
+modelClass: edu.txstate.its.gato.EventsModel

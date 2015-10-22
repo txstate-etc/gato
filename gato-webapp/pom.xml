@@ -152,6 +152,11 @@
       <artifactId>gato-component-rss</artifactId>
       <version>${gatoVersion}</version>
     </dependency>
+    <dependency>
+      <groupId>edu.txstate.its.gato</groupId>
+      <artifactId>gato-component-events</artifactId>
+      <version>${gatoVersion}</version>
+    </dependency>
   </dependencies>
   <build>
     <plugins>

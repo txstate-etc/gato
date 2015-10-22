@@ -1,0 +1,3 @@
+name: calSelectField
+definitionClass: edu.txstate.its.gato.GatoCalendarSelectFieldDefinition
+factoryClass: edu.txstate.its.gato.GatoCalendarSelectFieldFactory

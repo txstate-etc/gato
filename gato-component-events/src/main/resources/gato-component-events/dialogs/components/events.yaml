@@ -1,0 +1,52 @@
+form:
+  tabs:
+    - name: tabEvents
+      label: Calendar Events Settings
+      fields:
+        - name: title
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Title
+        - name: calendarId
+          class: edu.txstate.its.gato.GatoCalendarSelectFieldDefinition
+          label: Calendar
+        - name: range_type
+          class: info.magnolia.ui.form.field.definition.SwitchableFieldDefinition
+          label: Days
+          description: Limit event list to a number of days in the future or an exact date range.
+          transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+          options:
+            - name: days
+              value: days
+              label: Number of days
+            - name: range
+              value: range
+              label: Date Range
+              selected: true
+          fields:
+            - name: days
+              class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+              label: ''
+            - name: range
+              class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
+              label: ''
+              transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+              fields:
+                - name: range_from
+                  class: info.magnolia.ui.form.field.definition.DateFieldDefinition
+                  label: From
+                - name: range_to
+                  class: info.magnolia.ui.form.field.definition.DateFieldDefinition
+                  label: To
+        - name: displayStyle
+          class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
+          label: Display Style
+          description: 'How should the calendar events be displayed?'
+          options:
+            - name: expandedlist
+              value: expandedlist
+              selected: true
+              label: Expanded list
+            - name: collapsedlist
+              value: collapsedlist
+              label: Collapsed list
+actions: !include /gato-template/dialogs/common/actions-block.yaml
