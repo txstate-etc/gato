@@ -14,6 +14,8 @@ contentParagraph:
   !include /gato-template/templates/areas/contentParagraph.yaml
 mail:
   !include /gato-area-mail/templates/areas/mailForm.yaml
+banners:
+  type: list
 rightbar:
   type: list
   availableComponents:

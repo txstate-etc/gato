@@ -1,0 +1,9 @@
+templateScript: /gato-template-ua/templates/pages/standard.ftl
+renderType: freemarker
+visible: true
+title: Univ. Adv. Mail
+dialog: gato-template:pages/page-properties
+parameters:
+  isMailTemplate: true
+areas:
+  !include /gato-template-ua/templates/includes/standardareas.yaml

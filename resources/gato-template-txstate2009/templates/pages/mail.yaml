@@ -2,7 +2,7 @@ templateScript: /gato-template-txstate2009/templates/pages/standard.ftl
 renderType: freemarker
 visible: true
 title: 2009 Mail Template
-dialog: gato-templates:pages/page-properties
+dialog: gato-template:pages/page-properties
 parameters:
   isMailTemplate: true
 areas:

@@ -6,7 +6,6 @@
         <img src="${gf.resourcePath()}/gato-template-ua/images/givenow.jpg" alt="Pride In Action - The Campaign for Texas State University">
       </a>
     </div>
-    [@cms.area name="uapride" /]
   </div>
 </div>
 [@mainmenu]

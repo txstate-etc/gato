@@ -1,8 +1,8 @@
 templateScript: /gato-template-ua/templates/pages/home.ftl
 renderType: freemarker
 visible: true
-title: Univ. Adv. Homepage Template
-dialog: gato-templates:pages/page-properties
+title: Univ. Adv. Homepage
+dialog: gato-template:pages/page-properties
 areas:
   customcss:
     !include /gato-component-cssjs/templates/areas/customcss.yaml

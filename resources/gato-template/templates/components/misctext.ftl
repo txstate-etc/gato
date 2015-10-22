@@ -1,1 +1,1 @@
-${ cmsfn.decode(content).text?replace("\n", "<br/>")}
+${(cmsfn.decode(content).text!'')?replace("\n", "<br/>")}
