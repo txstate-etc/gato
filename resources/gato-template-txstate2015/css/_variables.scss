@@ -9,7 +9,7 @@
  $banner-bottom:                    $darkest-sandstone;
  $banner-bottom-border:             $gold;
  $hamburger-button:                 $very-dark;
- $hamburger-menu-color:             $light-gray; 
+ $hamburger-menu-color:             $light-gray;
  $hamburger-menu-text:              $white;
 
  $mobile-nav-background:            $charcoal;
@@ -54,7 +54,7 @@
  $secondary-nav-fixed-border:       $gold;
 
  $side-nav-background:              $light-sandstone;
- $side-nav-border-bottom:           $dark-sandstone; 
+ $side-nav-border-bottom:           $dark-sandstone;
  $side-nav-border-top:              $white;
  $side-nav-header-text:             $charcoal;
  $side-nav-link-text:               $maroon;
@@ -76,14 +76,11 @@
  $footer-text:                      $white;
  $footer-link-hover-background:     $maroon;
 
- 
+
 //media query breakpoints
 $xs-breakpoint: 40rem; //~640px
 $sm-breakpoint: 48rem; //~768px
 $md-breakpoint: 64rem; //~1024px
 $lg-breakpoint: 80rem; //~1280px
 $xl-breakpoint: 90rem; //~1440px
-
- //Other variables
- $default-border-radius:    3px;
 
