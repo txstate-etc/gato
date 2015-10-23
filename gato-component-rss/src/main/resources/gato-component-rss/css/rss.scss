@@ -5,11 +5,9 @@
 .gato-rss-item.gato-accordion {
   .gato-accordion-header {
     box-shadow: 0px 0px 0px 1px $lightest-gold;
-    a { 
-      background: $gold;
-      &:hover, &:active {
-        background: $light-gold;
-      }
+    background: $gold;
+    &:hover, &:active, &.selected {
+      background: $light-gold;
     }
   }
 }

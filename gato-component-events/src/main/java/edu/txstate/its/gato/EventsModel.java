@@ -51,6 +51,10 @@ public class EventsModel<RD extends RenderableDefinition> extends RenderingModel
   public Exception getError() { return error; }
   public List<EventsItem> getItems() { return items; }
 
+  public boolean isCollapsed() {
+    return "collapsedlist".equalsIgnoreCase(PropertyUtil.getString(content, "displayStyle", ""));
+  }
+
   private static List<EventsItem> initList(Node content) throws UnsupportedEncodingException {
     final List<EventsItem> items = new ArrayList<EventsItem>();
 

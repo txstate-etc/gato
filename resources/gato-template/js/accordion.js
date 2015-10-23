@@ -4,20 +4,24 @@
   $(function() {
     $('.gato-accordion[data-start-collapsed=true] .gato-accordion-content').hide();
 
-    $('.gato-accordion h3 a').on('click', function(e) {
+    $('.gato-accordion-header').on('click', function(e) {
       e.preventDefault();
-      var content = $(this).parent().next('.gato-accordion-content');
-      $(content).slideToggle(accordion_dur);
+      $(this).toggleClass('selected');
+      $(this).next('.gato-accordion-content').slideToggle(accordion_dur);
     });
 
     $('#gato-accordion-expand-all').on('click', function(e) {
       e.preventDefault();
-      $('.gato-accordion-content').slideDown(accordion_dur);
+      var $accordions = $('.gato-accordion');
+      $accordions.find('.gato-accordion-content').slideDown(accordion_dur);
+      $accordions.find('.gato-accordion-header').addClass('selected');
     });
 
     $('#gato-accordion-collapse-all').on('click', function(e) {
       e.preventDefault();
-      $('.gato-accordion-content').slideUp(accordion_dur);
+      var $accordions = $('.gato-accordion');
+      $accordions.find('.gato-accordion-content').slideUp(accordion_dur);
+      $accordions.find('.gato-accordion-header').removeClass('selected');
     });
 
   });

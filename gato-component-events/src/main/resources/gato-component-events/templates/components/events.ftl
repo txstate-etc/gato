@@ -1,10 +1,4 @@
-[#if !faqButtonsAdded!false]
-  <div class="gato-faq-expand-collapse">
-    <a href="#" id="txst-expand-all-faqs">Expand</a> or
-    <a href="#" id="txst-collapse-all-faqs">Collapse</a> all.
-  </div>
-  [#global "faqButtonsAdded" = true]
-[/#if]
+[#include "/gato-lib/templates/includes/accordion.ftl"]
 
 [#if content.title?has_content]
   <h2>${content.title}</h2>
@@ -16,52 +10,36 @@
     There was an error retrieving the event feed.
   </div>
 
-[#else]
+[#elseif model.items?has_content]
 
-  [#if model.items?has_content]
-    [#assign displayStyleClass="txst-eventdetail-${content.displayStyle?lower_case}style"]
-    
-    [#list model.items as item]
-      [#assign eventClass=item.cancelled?string('txst-eventdetail-cancelled','vevent')]
-    
-      <div class="txst-eventdetail ${eventClass} ${displayStyleClass}">
+  [#list model.items as item]
+    [#assign eventClass=item.cancelled?string('txst-eventdetail-cancelled','vevent')]
+  
+    <div class="txst-eventdetail gato-accordion ${eventClass}" 
+        data-start-collapsed="${model.collapsed?string('true', 'false')}">
 
-        <div class="txst-eventdetail-mainbox">
-          <h3 class="txst-eventdetail-title">
-            ${item.cancelled?string('CANCELLED - ','')}
-            <span class="summary">
-              ${item.title}
-            </span>
-          </h3>
-          <div class="txst-eventdetail-dates">
-            <abbr class="dtstart" title="${item.machineStartDate}">
-              ${item.humanStartDate}
+      <div class="gato-accordion-header">
+        <h3 class="txst-eventdetail-title">
+          ${item.cancelled?string('CANCELLED - ','')}
+          <span class="summary">
+            ${item.title}
+          </span>
+        </h3>
+        <div class="txst-eventdetail-dates">
+          <abbr class="dtstart" title="${item.machineStartDate}">
+            ${item.humanStartDate}
+          </abbr>
+          [#if item.showEndDate]
+            &ndash;
+            <abbr class="dtend" title="${item.machineEndDate}">
+              ${item.humanEndDate}
             </abbr>
-            [#if item.showEndDate]
-              &ndash;
-              <abbr class="dtend" title="${item.machineEndDate}">
-                ${item.humanEndDate}
-              </abbr>
-            [/#if]
-          </div>
-          [#if item.description?has_content]
-            <div class="txst-eventdetail-description description">
-              [#if item.image?has_content]
-                <img class="txst-eventdetail-thumbnail" 
-                  alt="${item.title}"
-                  src="${item.image}" />
-              [/#if]
-              ${item.description}
-              [#if item.link?has_content]
-                <br/><br/>
-                <a href="${item.link}" class="url">
-                  Click here for more information
-                </a>
-              [/#if]
-            </div>
           [/#if]
         </div>
-        
+      </div>
+
+      <div class="gato-accordion-content">
+
         <div class="txst-eventdetail-detailsbox">
           [#if item.facility?has_content]
             <div class="txst-eventdetail-detailsboxheader">Location:</div>
@@ -76,25 +54,40 @@
 
           <div class="txst-eventdetail-detailsboxheader">Contact:</div>
           <div class="txst-eventdetail-detailsboxdata">${item.contact}</div>
-
-          <div class="txst-eventdetail-extra1"></div>
-          
-          <a title="add ${item.title} to your calendar"
-            href="${item.calendarUrl}"
-            class="txst-eventdetail-addtocalendar">
-            [add to your calendar]
-          </a>
         </div>
-        
-        <div class="txst-eventdetail-extra2"></div>
-        <div class="txst-eventdetail-togglebutton"></div>
-        <div class="txst-eventdetail-footer"></div>
+
+        <a title="add ${item.title} to your calendar"
+          href="${item.calendarUrl}"
+          class="txst-eventdetail-addtocalendar">
+          [add to your calendar]
+        </a>
+
+        [#if item.image?has_content]
+          <img class="txst-eventdetail-thumbnail" 
+            alt="${item.title}"
+            src="${item.image}" />
+        [/#if]
+      
+        [#if item.description?has_content]
+          <div class="txst-eventdetail-description description">
+            ${item.description}
+            [#if item.link?has_content]
+              <br/><br/>
+              <a href="${item.link}" class="url">
+                Click here for more information
+              </a>
+            [/#if]
+          </div>
+        [/#if]
+              
       </div>
-    [/#list]
-  [#else]
-    <div class="txst-events-empty">
-      No results.
     </div>
-  [/#if]
+  [/#list]
+
+[#else]
+
+  <div class="txst-events-empty">
+    No results.
+  </div>
 
 [/#if]
