@@ -1,0 +1,11 @@
+form:
+  tabs:
+    - name: tabStreaming
+      label: Streaming Media Settings
+      fields:
+        - name: url
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Video Url
+
+actions: !include /gato-template/dialogs/common/actions-block.yaml
+label: Streaming Media

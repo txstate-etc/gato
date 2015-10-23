@@ -1,0 +1,7 @@
+templateScript: /gato-component-streaming/templates/components/streaming.ftl
+renderType: freemarker
+dialog: gato-component-streaming:components/streaming
+description: "Add streaming media from a variety of sources, including the TxState Streaming Server, Vimeo, and YouTube."
+title: Streaming Media
+parameters:
+  icon: /gato-component-sitemap/images/sitemap.png
