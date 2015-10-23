@@ -582,3 +582,30 @@ function resizeTimeout(callback) {
 	myfunc();
 	jQuery(window).resize(myfunc);
 }
+
+// this is for creating animation queues so that you can run animations in parallel
+// without allowing them to double up
+// it automatically limits the queue to 3 and will call your 'fail' callback
+// the trick to using this function is that your 'callback' needs to return
+// a jQuery.Deferred() object so that we can call done
+// luckily jQuery.animate() returns a Deferred() object so just put 'return'
+// in front of your longest duration animation.
+function animQueue(qname, callback) {
+	if (typeof(animQueue.q) == 'undefined') animQueue.q = {};
+	if (typeof(animQueue.q[qname]) == 'undefined') animQueue.q[qname] = [];
+	var q = animQueue.q[qname];
+	var deferred = new jQuery.Deferred();
+	deferred.queuecb = callback;
+	if (q.length > 2) {
+		setTimeout(function () { deferred.reject(); }, 0);
+	} else {
+		q.push(deferred);
+		var finish = function() {
+			var qdefer = q.shift();
+			qdefer.resolve();
+			if (q.length > 0) q[0].queuecb().done(finish);
+		};
+		if (q.length == 1) q[0].queuecb().done(finish);
+	}
+	return deferred;
+}

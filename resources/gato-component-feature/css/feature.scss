@@ -1,33 +1,72 @@
 .gato-feature {
   position: relative;
-  padding-bottom: 56.25%;
   overflow: hidden;
   .slide {
-    position: absolute;
-    top: 0px;
-    left: 0px;
+    position: relative;
+    float: left;
+    margin-left: -9999px;
     width: 100%;
-    padding-bottom: 56.25%;
     overflow: hidden;
-    img.bg {
-      position: absolute;
-      top: 0px;
-      left: 0px;
-      width: 100%;
+    &.active {
+      margin-left: 0px;
+    }
+    div.image {
+      position: relative;
+      padding-bottom: 56.25%;
+      overflow: hidden;
+      img.bg {
+        position: absolute;
+        top: -9999px;
+        bottom: -9999px;
+        left: -9999px;
+        right: -9999px;
+        margin: auto;
+        width: 100%;
+      }
     }
     .caption {
       position: absolute;
       bottom: 0px;
       left: 0px;
       width: 100%;
+      box-sizing: border-box;
       background-color: rgba(255,0,0,0.6);
+      padding: 20px;
+      &[max-width~="400px"] {
+        position: relative;
+        background-color: rgba(255,0,0,1);
+      }
+      &[max-width$="800px"] {
+        padding: 10px;
+      }
+      &[max-width$="400px"] {
+        padding: 6px;
+        font-size: 0.8em;
+      }
+      &[max-width$="200px"] {
+        padding: 4px;
+        font-size: 0.7em;
+      }
+      h3 {
+        margin: 0px 0px 10px 0px;
+        &[max-width$="400px"] {
+          margin: 0px 0px 6px 0px;
+        }
+        &[max-width$="200px"] {
+          margin: 0px 0px 4px 0px;
+        }
+      }
+      p {
+        margin: 0px;
+      }
     }
   }
   .navleft, .navright {
     position: absolute;
     top: 0px;
-    height: 0px;
-    padding: 28.125% 10px;
+    height: 32px;
+    padding: 28% 10px;
+    padding: calc(28.125% - 16px) 10px;
     font-size: 32px;
     color: rgba(255,255,255,0.5);
     &:hover { color: rgba(255,255,255,0.9); }
