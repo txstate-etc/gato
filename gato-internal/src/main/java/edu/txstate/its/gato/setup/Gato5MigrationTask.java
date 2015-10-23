@@ -76,6 +76,7 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
     visitByTemplate(hm, "gato:components/texasState/siteMap", this::updateSiteMapComponent);
     visitByTemplate(hm, "gato:components/texasState/subPages", this::updateSubPagesComponent);
     visitByTemplate(hm, "gato:components/texasState/texas-form-edit", this::updateFormEditComponent);
+    visitByTemplate(hm, "gato:components/texasState/texas-form-file", this::updateFormFileComponent);
     visitByTemplate(hm, "gato:components/texasState/texas-form-selection", this::updateSelectionComponent);
     visitByTemplate(hm, "gato:pages/main-2009/khan-mail", this::updateMailArea);
     visitByTemplate(hm, "gato:components/texasState/texasDownload", this::updateDownloadComponent);
@@ -139,6 +140,13 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
     if (n.hasProperty("values")) { n.getProperty("values").remove(); }
 
     n.setProperty("options", convertToMultiValue(values, "\\R"));
+  }
+
+  private void updateFormFileComponent(Node n) throws RepositoryException {
+    String fileTypes = PropertyUtil.getString(n, "extension", "");
+    if (n.hasProperty("extension")) { n.getProperty("extension").remove(); }
+
+    n.setProperty("extension", convertToMultiValue(fileTypes, ","));
   }
 
   private void updateFormEditComponent(Node n) throws RepositoryException {
