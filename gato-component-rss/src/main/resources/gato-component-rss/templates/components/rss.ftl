@@ -1,28 +1,29 @@
-[#if !faqButtonsAdded!false]
-  <div class="gato-faq-expand-collapse">
-    <a href="#" id="txst-expand-all-faqs">Expand</a> or
-    <a href="#" id="txst-collapse-all-faqs">Collapse</a> all.
+[#if !ctx.request.getAttribute('accordionloaded')!false]
+  ${ctx.request.setAttribute('accordionloaded', true)}
+
+  <div class="gato-accordion-expand-collapse">
+    <a href="#" id="gato-accordion-expand-all">Expand</a> or
+    <a href="#" id="gato-accordion-collapse-all">Collapse</a> all.
   </div>
-  [#global "faqButtonsAdded" = true]
 [/#if]
 
 [#if model.error?has_content]
 
-  <div class="txst-rss-error">
+  <div class="gato-rss-error">
     There was an error retrieving the news feed.
   </div>
 
 [#else]
 
   [#if !(content.hideFeedInformation!false)]
-    <div class="txst-rss-feedinformation">
+    <div class="gato-rss-feedinformation">
       [#if model.feed.image?has_content]
         [#if model.feed.link?has_content]
-          <a href="${model.feed.link}" class="txst-rss-feedimage">
+          <a href="${model.feed.link}" class="gato-rss-feedimage">
             <img src="${model.feed.image.url}" />
           </a>
         [#else]
-          <img src="${model.feed.image.url}" class="txst-rss-feedimage" />
+          <img src="${model.feed.image.url}" class="gato-rss-feedimage" />
         [/#if]
       [/#if]
       [#if model.feed.title?has_content]
@@ -38,11 +39,12 @@
   [/#if]
 
   [#list model.items as entry]
-    <div class="txst-rss-item ${model.collapsible?string('collapsible', '')}">
-      <h3 class="${model.collapsed?string('collapsed', '')}">
+    <div class="gato-rss-item ${model.collapsible?string('gato-accordion', '')}"
+      data-start-collapsed="${model.collapsed?string('true', 'false')}">
+      <h3 class="gato-accordion-header">
         <a href="${entry.link}">${entry.title}</a>
       </h3>
-      <div class="txst-rss-item-content">
+      <div class="gato-accordion-content">
         <div class="gato-rss-published">
           [#if entry.publishedDate?has_content && content.showDates!false]
             <span class="gato-rss-date">
@@ -54,11 +56,11 @@
           [/#if]
         </div>
         [#if !model.hideArticleText]
-          <div class="txst-rss-itemdescription">
-            <div class="txst-rss-itemdescription-content">
+          <div class="gato-rss-itemdescription">
+            <div class="gato-rss-itemdescription-content">
               ${model.fmtItemText(entry)}
             </div>
-            <div class="txst-rss-more-link">
+            <div class="gato-rss-more-link">
               <a href="${entry.link}">Read more</a>
             </div>
           </div>

@@ -8,6 +8,7 @@
 		'gato-template/js/main-menus.js',
 		'gato-template/js/outgoing-clicks.js',
 		'gato-template/js/post-load.js',
+		'gato-template/js/accordion.js',
 		'gato-template/js/easter-egg.js',
 		'gato-template/js/webtools.js',
 		'gato-lib/js/date.js',

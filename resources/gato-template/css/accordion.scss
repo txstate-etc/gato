@@ -1,0 +1,29 @@
+.gato-accordion-expand-collapse {
+    margin-bottom: 1rem;
+}
+
+.gato-accordion {
+  box-shadow: inset 0px 0px 2px 1px $lightbg;
+
+  .gato-accordion-header {
+    margin: 1px 0;
+    box-shadow: 0px 0px 0px 1px $lightest-maroon;
+    a { 
+      display: block;
+      margin: 0;
+      padding: 2rem;
+      background: $primarybg;
+      &:hover, &:active {
+        background: $light-maroon;
+      }
+      color: $primarytext;
+      text-decoration: none;
+      font-weight: normal;
+    }
+
+  }
+
+  .gato-accordion-content {
+    padding: 2rem 4rem;
+  }
+}

@@ -2,6 +2,7 @@
 @import "gato-lib/css/includes";
 
 /* import component stylesheets */
+@import "gato-template/css/accordion";
 @import "gato-template/css/main-menus";
 @import "gato-template/css/imagelink";
 @import "gato-template/css/sociallink";
@@ -17,3 +18,4 @@
 @import "gato-component-feature/css/feature";
 @import "gato-area-mail/css/mailform";
 @import "gato-component-button/css/button";
+@import "gato-component-rss/css/rss";
