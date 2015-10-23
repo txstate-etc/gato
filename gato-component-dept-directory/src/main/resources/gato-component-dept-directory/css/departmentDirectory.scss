@@ -1,13 +1,11 @@
 .txst-departmentdirectory-name {
     font-weight: 700;
     font-size: 90%;
-    float: left;
     overflow: hidden;
     color: #501214;  /*should get this from SASS variable $maroon */
 }
 
 .txst-departmentdirectory-email {
-    float: left;
     overflow: hidden;
     font-size: 85%;
     color: #005481;  /* $blue  */
@@ -17,22 +15,23 @@
     color: black;
 }
 
+.directory-row{
+  margin-bottom: 2rem;
+}
+
 .txst-departmentdirectory-title {
-    float: left;
     overflow: hidden;
     color: #6A5638; /* $gold */
     font-size: 80%;
 }
 
 .txst-departmentdirectory-address {
-    float: left;
     overflow: hidden;
     color: #6A5638; /* $gold */
     font-size: 80%;
 }
 
 .txst-departmentdirectory-phone {
-    float: left;
     overflow: hidden;
     font-size: 85%;
 }
