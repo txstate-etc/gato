@@ -29,3 +29,5 @@ availableComponents:
     id: gato-component-rss:components/rss
   events:
     id: gato-component-events:components/events
+  iframe:
+    id: gato-template:components/iframe
