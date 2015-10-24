@@ -33,30 +33,35 @@ gatofeature.prototype.activate = function(activateindex, isprev) {
   var next = ftr.slide(idx);
   var saveactive = ftr.activeidx;
   animQueue('feature', function(qnext) {
+    // if the prev() method triggered this activate, we want to slide in from the
+    // left, so a little logic is required here
+    var nextleftstart = next.width();
+    var currleftend = -1*curr.width();
+    if (isprev) {
+      nextleftstart *= -1;
+      currleftend *= -1;
+    }
+
+    // instant CSS changes to set up for the animation
     ftr.parent.css('height', ftr.parent.height()+'px');
     curr.css({'margin': '0px', 'position': 'absolute', 'top': '0px', 'left': '0px'});
-    if (isprev) {
-      var nextleftstart = -1*next.width();
-      var currleftend = curr.width();
-    } else {
-      var nextleftstart = next.width();
-      var currleftend = -1*curr.width();
-    }
     next.css({'margin': '0px', 'position': 'absolute', 'top': '0px', 'left': nextleftstart+'px'});
+
+    // start the animation and return a jQuery.Deferred() to animQueue
     return jQuery.when(
       next.velocity({'left': '0px'}, 250),
       curr.velocity({'left': currleftend+'px'}, 250)
     );
+  }, function() { // successfully added to queue
+    ftr.activeidx = idx;
   }).done(function () {
+    // tear down the animation after it has completed
     next.css({'margin': '', 'position': '', 'top': '', 'left': ''});
     curr.css({'margin': '', 'position': '', 'top': '', 'left': ''});
     curr.removeClass('active');
     next.addClass('active');
     ftr.parent.css('height', '');
-  }).fail(function() {
-    ftr.activeidx = saveactive;
   });
-  ftr.activeidx = idx;
 }
 
 jQuery(document).ready(function ($) {

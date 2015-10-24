@@ -573,24 +573,42 @@ var fitText = function(item) {
 	});
 };
 
+// hooking an observer to window.resize can be dangerous for performance
+// depending on browser your function could be called for every pixel between
+// the old and new sizes
+// this adds a small setTimeout so that your function runs when the resize
+// event has settled down
+// it also calls your function immediately, because isn't page load really the
+// first resize event?
 function resizeTimeout(callback) {
 	var to;
 	var myfunc = function () {
 		clearTimeout(to);
 		to = setTimeout(callback, 100);
 	};
-	myfunc();
+	jQuery(document).ready(myfunc);
 	jQuery(window).resize(myfunc);
 }
 
-// this is for creating animation queues so that you can run animations in parallel
-// without allowing them to double up
-// it automatically limits the queue to 3 and will call your 'fail' callback
-// the trick to using this function is that your 'callback' needs to return
-// a jQuery.Deferred() object so that we can call done
-// luckily jQuery.animate() returns a Deferred() object so just put 'return'
-// in front of your longest duration animation.
-function animQueue(qname, callback) {
+// jQuery already has an 'fx' queue for each jquery object, but it permits
+// a lot of bad situations, like event-based animations writing over one another.
+//
+// This function should make it a bit easier to keep things in order and to queue up
+// complex animations involving multiple DOM elements.
+//
+// qname: a unique string, probably a module name so your widget gets a private queue
+// callback: the function that initiates your animation, including any setup
+//   must return a promise, probably a jQuery.Deferred object obtained from jQuery.when()
+// successcb: optional function to be called on successful addition to the queue
+//   queue is limited to 3 so that the user won't be left waiting
+//   use this function to update your widget's internal state, this way it remains unchanged
+//   when your queue is full and the animation is not actually going to happen
+//
+// returns a jQuery.Deferred() object so that you can chain commands
+// like .done(), .always(), and .fail(), as is typical in jQuery
+//
+// see gato-component-feature/js/feature.js for example usage
+function animQueue(qname, callback, successcb) {
 	if (typeof(animQueue.q) == 'undefined') animQueue.q = {};
 	if (typeof(animQueue.q[qname]) == 'undefined') animQueue.q[qname] = [];
 	var q = animQueue.q[qname];
@@ -600,6 +618,7 @@ function animQueue(qname, callback) {
 		setTimeout(function () { deferred.reject(); }, 0);
 	} else {
 		q.push(deferred);
+		if (typeof(successcb)=='function') successcb();
 		var finish = function() {
 			var qdefer = q.shift();
 			qdefer.resolve();
