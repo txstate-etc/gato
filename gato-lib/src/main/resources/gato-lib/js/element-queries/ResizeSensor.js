@@ -115,25 +115,26 @@
                 }
             };
 
-            addEvent(expand, 'scroll', function() {
-                if (element.offsetWidth > lastWidth || element.offsetHeight > lastHeight) {
-                    changed();
-                }
-                reset();
-            });
+            var onScroll = function() {
+              if (element.offsetWidth != lastWidth || element.offsetHeight != lastHeight) {
+                  changed();
+              }
+              reset();
+            }
 
-            addEvent(shrink, 'scroll',function() {
-                if (element.offsetWidth < lastWidth || element.offsetHeight < lastHeight) {
-                    changed();
-                }
-                reset();
-            });
+            addEvent(expand, 'scroll', onScroll);
+            addEvent(shrink, 'scroll', onScroll);
         }
 
-        if ("[object Array]" === Object.prototype.toString.call(element)
+        var elementType = Object.prototype.toString.call(element);
+        var isCollectionTyped = ('[object Array]' === elementType
+            || ('[object NodeList]' === elementType)
+            || ('[object HTMLCollection]' === elementType)
             || ('undefined' !== typeof jQuery && element instanceof jQuery) //jquery
             || ('undefined' !== typeof Elements && element instanceof Elements) //mootools
-            ) {
+        );
+
+        if (isCollectionTyped) {
             var i = 0, j = element.length;
             for (; i < j; i++) {
                 attachResizeEvent(element[i], callback);
@@ -143,7 +144,14 @@
         }
 
         this.detach = function() {
-            ResizeSensor.detach(element);
+            if (isCollectionTyped) {
+                var i = 0, j = element.length;
+                for (; i < j; i++) {
+                    ResizeSensor.detach(element[i]);
+                }
+            } else {
+                ResizeSensor.detach(element);
+            }
         };
     };
 
