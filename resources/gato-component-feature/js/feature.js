@@ -44,8 +44,8 @@ gatofeature.prototype.activate = function(activateindex, isprev) {
     }
     next.css({'margin': '0px', 'position': 'absolute', 'top': '0px', 'left': nextleftstart+'px'});
     return jQuery.when(
-      next.animate({'left': '0px'}, 250).promise(),
-      curr.animate({'left': currleftend+'px'}, 250).promise()
+      next.velocity({'left': '0px'}, 250),
+      curr.velocity({'left': currleftend+'px'}, 250)
     );
   }).done(function () {
     next.css({'margin': '', 'position': '', 'top': '', 'left': ''});
