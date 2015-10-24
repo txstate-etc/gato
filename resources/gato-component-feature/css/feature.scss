@@ -32,32 +32,74 @@
       box-sizing: border-box;
       background-color: rgba(255,0,0,0.6);
       padding: 20px;
+      font-size: 1.3em;
+      &[max-width~="1200px"] {
+        padding: 15px;
+        font-size: 1.1em;
+      }
+      &[max-width~="800px"] {
+        padding: 10px;
+        font-size: 1em;
+      }
       &[max-width~="400px"] {
         position: relative;
         background-color: rgba(255,0,0,1);
-      }
-      &[max-width$="800px"] {
-        padding: 10px;
-      }
-      &[max-width$="400px"] {
         padding: 6px;
-        font-size: 0.8em;
+        font-size: 0.9em;
+        h3 { margin: 0px 0px 6px 0px; }
       }
-      &[max-width$="200px"] {
+      &[max-width~="200px"] {
         padding: 4px;
-        font-size: 0.7em;
+        font-size: 0.8em;
+        h3 { margin: 0px 0px 4px 0px; }
       }
       h3 {
         margin: 0px 0px 10px 0px;
-        &[max-width$="400px"] {
-          margin: 0px 0px 6px 0px;
-        }
-        &[max-width$="200px"] {
-          margin: 0px 0px 4px 0px;
-        }
       }
       p {
         margin: 0px;
+      }
+    }
+    &.color1 {
+      .caption {
+        background-color: $mc1-bg;
+        &[max-width~="400px"] { background-color: rgba($mc1-bg, 0.6); }
+      }
+    }
+    &.color2 {
+      .caption {
+        background-color: $mc2-bg;
+        &[max-width~="400px"] { background-color: rgba($mc2-bg, 0.6); }
+      }
+    }
+    &.color3 {
+      .caption {
+        background-color: $mc3-bg;
+        &[max-width~="400px"] { background-color: rgba($mc3-bg, 0.6); }
+      }
+    }
+    &.color4 {
+      .caption {
+        background-color: $mc4-bg;
+        &[max-width~="400px"] { background-color: rgba($mc4-bg, 0.6); }
+      }
+    }
+    &.color5 {
+      .caption {
+        background-color: $mc5-bg;
+        &[max-width~="400px"] { background-color: rgba($mc5-bg, 0.6); }
+      }
+    }
+    &.color6 {
+      .caption {
+        background-color: $mc6-bg;
+        &[max-width~="400px"] { background-color: rgba($mc6-bg, 0.6); }
+      }
+    }
+    &.color7 {
+      .caption {
+        background-color: $mc7-bg;
+        &[max-width~="400px"] { background-color: rgba($mc7-bg, 0.6); }
       }
     }
   }
