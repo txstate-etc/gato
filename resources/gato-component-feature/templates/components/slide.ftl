@@ -1,5 +1,5 @@
 [#if !(ctx.barsonly!false)]
-  <div data-feature-link="${gf.filterUrl(content.link!'#')}" class="slide ${ctx.slideactive!''}">
+  <div data-feature-link="${gf.filterUrl(content.link!'#')}" class="slide ${ctx.slideactive!''} ${ctx.colorClass!}">
     <div class="image">
       <img src="${gf.getImgDefault(content.image)}" srcset="${gf.getSrcSet(content.image)}" class="bg" alt="${content.alttext!}">
     </div>

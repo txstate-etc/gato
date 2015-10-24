@@ -628,3 +628,17 @@ function animQueue(qname, callback, successcb) {
 	}
 	return deferred;
 }
+
+// provide an accessible jQuery event for clicking a link and then
+// calling blur(), we do this a lot to avoid ugly CSS :focus issues,
+// but if someone is keyboard navigating we should not blur() as they
+// will lose their place in the document
+jQuery.fn.blurclick = function (callback) {
+  this.on('keydown click', function (e) {
+    if (e.type=='click') this.blur();
+    if (e.keyCode == 13 || e.type=='click') {
+      e.preventDefault();
+      return callback.apply(this,e);
+    }
+  });
+}

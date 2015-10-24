@@ -1,14 +1,14 @@
 .gato-feature {
   position: relative;
   overflow: hidden;
+  cursor: pointer;
   .slide {
     position: relative;
-    float: left;
-    margin-left: -9999px;
+    display: none;
     width: 100%;
     overflow: hidden;
     &.active {
-      margin-left: 0px;
+      display: block;
     }
     div.image {
       position: relative;
@@ -30,29 +30,8 @@
       left: 0px;
       width: 100%;
       box-sizing: border-box;
-      background-color: rgba(255,0,0,0.6);
-      padding: 20px;
+      padding: 20px 20px 25px 20px;
       font-size: 1.3em;
-      &[max-width~="1200px"] {
-        padding: 15px;
-        font-size: 1.1em;
-      }
-      &[max-width~="800px"] {
-        padding: 10px;
-        font-size: 1em;
-      }
-      &[max-width~="400px"] {
-        position: relative;
-        background-color: rgba(255,0,0,1);
-        padding: 6px;
-        font-size: 0.9em;
-        h3 { margin: 0px 0px 6px 0px; }
-      }
-      &[max-width~="200px"] {
-        padding: 4px;
-        font-size: 0.8em;
-        h3 { margin: 0px 0px 4px 0px; }
-      }
       h3 {
         margin: 0px 0px 10px 0px;
       }
@@ -60,63 +39,102 @@
         margin: 0px;
       }
     }
-    &.color1 {
-      .caption {
-        background-color: $mc1-bg;
-        &[max-width~="400px"] { background-color: rgba($mc1-bg, 0.6); }
-      }
-    }
-    &.color2 {
-      .caption {
-        background-color: $mc2-bg;
-        &[max-width~="400px"] { background-color: rgba($mc2-bg, 0.6); }
-      }
-    }
-    &.color3 {
-      .caption {
-        background-color: $mc3-bg;
-        &[max-width~="400px"] { background-color: rgba($mc3-bg, 0.6); }
-      }
-    }
-    &.color4 {
-      .caption {
-        background-color: $mc4-bg;
-        &[max-width~="400px"] { background-color: rgba($mc4-bg, 0.6); }
-      }
-    }
-    &.color5 {
-      .caption {
-        background-color: $mc5-bg;
-        &[max-width~="400px"] { background-color: rgba($mc5-bg, 0.6); }
-      }
-    }
-    &.color6 {
-      .caption {
-        background-color: $mc6-bg;
-        &[max-width~="400px"] { background-color: rgba($mc6-bg, 0.6); }
-      }
-    }
-    &.color7 {
-      .caption {
-        background-color: $mc7-bg;
-        &[max-width~="400px"] { background-color: rgba($mc7-bg, 0.6); }
-      }
-    }
+    &.color1 .caption { background-color: rgba($mc1-bg, 0.7); color: $mc1-text; }
+    &.color2 .caption { background-color: rgba($mc2-bg, 0.7); color: $mc2-text; }
+    &.color3 .caption { background-color: rgba($mc3-bg, 0.7); color: $mc3-text; }
+    &.color4 .caption { background-color: rgba($mc4-bg, 0.7); color: $mc4-text; }
+    &.color5 .caption { background-color: rgba($mc5-bg, 0.7); color: $mc5-text; }
+    &.color6 .caption { background-color: rgba($mc6-bg, 0.7); color: $mc6-text; }
+    &.color7 .caption { background-color: rgba($mc7-bg, 0.7); color: $mc7-text; }
   }
   .navleft, .navright {
     position: absolute;
     top: 0px;
-    height: 32px;
-    padding: 28% 10px;
-    padding: calc(28.125% - 16px) 10px;
-    font-size: 32px;
+    text-decoration: none;
+    padding: 27.5% 10px;
+    padding: calc(28.125% - 20px) 10px;
+    font-size: 40px;
     color: rgba(255,255,255,0.5);
-    &:hover { color: rgba(255,255,255,0.9); }
+    &:hover, &:focus { color: rgba(255,255,255,0.9); }
   }
   .navleft {
     left: 0px;
   }
   .navright {
     right: 0px;
+  }
+  .pages {
+    margin: 49% 0 0 0;
+    margin: calc(56.25% - 22px) 0 0 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    list-style: none;
+    li {
+      display: inline-block;
+      padding: 0px 2px;
+      a {
+        display: block;
+        width: 12px;
+        height: 12px;
+        border-radius: 12px;
+        border-width: 2px;
+        border-style: solid;
+        border-color: rgba(255,255,255,0.6);
+        &:hover, &:focus { border-color: rgba(255,255,255,0.9); }
+      }
+      &.active a {
+        background-color: rgba(255,255,255,0.9);
+      }
+    }
+  }
+  &[max-width~="1200px"] {
+    .slide {
+      .caption {
+        padding: 15px 15px 25px 15px;
+        font-size: 1.1em;
+      }
+    }
+    .navleft, .navright { font-size: 36px; padding: calc(28.125% - 18px) 10px; }
+  }
+  &[max-width~="800px"] {
+    .slide {
+      .caption {
+        padding: 10px 10px 25px 10px;
+        font-size: 1em;
+      }
+    }
+    .navleft, .navright { font-size: 32px; padding: calc(28.125% - 16px) 10px; }
+  }
+  &[max-width~="400px"] {
+    .slide {
+      .caption {
+        position: relative;
+        padding: 6px;
+        font-size: 0.9em;
+        h3 { margin: 0px 0px 6px 0px; }
+      }
+      &.color1 .caption { background-color: $mc1-bg; }
+      &.color2 .caption { background-color: $mc2-bg; }
+      &.color3 .caption { background-color: $mc3-bg; }
+      &.color4 .caption { background-color: $mc4-bg; }
+      &.color5 .caption { background-color: $mc5-bg; }
+      &.color6 .caption { background-color: $mc6-bg; }
+      &.color7 .caption { background-color: $mc7-bg; }
+    }
+    .navleft, .navright { font-size: 28px; padding: calc(28.125% - 14px) 10px; }
+  }
+  &[max-width~="200px"] {
+    .slide {
+      .caption {
+        padding: 4px;
+        font-size: 0.8em;
+        h3 { margin: 0px 0px 4px 0px; }
+      }
+    }
+    .navleft, .navright { font-size: 24px; padding: calc(28.125% - 12px) 10px; }
   }
 }
