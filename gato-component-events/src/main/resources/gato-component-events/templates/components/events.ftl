@@ -40,46 +40,50 @@
 
       <div class="gato-accordion-content">
 
-        <div class="txst-eventdetail-detailsbox">
-          [#if item.facility?has_content]
-            <div class="txst-eventdetail-detailsboxheader">Location:</div>
-            <div class="txst-eventdetail-detailsboxdata location">${item.facility}</div>
-          [/#if]
-          
-          <div class="txst-eventdetail-detailsboxheader">Cost:</div>
-          <div class="txst-eventdetail-detailsboxdata">${item.cost}</div>
-
-          <div class="txst-eventdetail-detailsboxheader">Campus Sponsor:</div>
-          <div class="txst-eventdetail-detailsboxdata">${item.sponsor}</div>
-
-          <div class="txst-eventdetail-detailsboxheader">Contact:</div>
-          <div class="txst-eventdetail-detailsboxdata">${item.contact}</div>
-        </div>
-
-        <a title="add ${item.title} to your calendar"
-          href="${item.calendarUrl}"
-          class="txst-eventdetail-addtocalendar">
-          [add to your calendar]
-        </a>
-
         [#if item.image?has_content]
           <img class="txst-eventdetail-thumbnail" 
             alt="${item.title}"
             src="${item.image}" />
         [/#if]
+
+        <a title="add ${item.title} to calendar"
+          href="${item.calendarUrl}"
+          class="txst-eventdetail-addtocalendar">
+          <i class="fa fa-calendar" aria-hidden="true"></i>
+          <span class="linktext">add to calendar</span>
+        </a>
+
+        <dl class="txst-eventdetail-detailsbox">
+          [#if item.facility?has_content]
+            <dt>Location:</dt>
+            <dd>${item.facility}</dd>
+          [/#if]
+          
+          <dt>Cost:</dt>
+          <dd>${item.cost}</dd>
+
+          <dt>Contact:</dt>
+          <dd>${item.contact}</dd>
+
+          <dt>Campus Sponsor:</dt>
+          <dd>${item.sponsor}</dd>
+        </dl>
       
         [#if item.description?has_content]
-          <div class="txst-eventdetail-description description">
+          <div class="txst-eventdetail-description">
             ${item.description}
             [#if item.link?has_content]
-              <br/><br/>
               <a href="${item.link}" class="url">
                 Click here for more information
               </a>
             [/#if]
           </div>
         [/#if]
-              
+           
+        <a class="txst-eventdetail-morelink" href="${item.url}">
+          <span class="linktext">more about event</span>
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+        </a>   
       </div>
     </div>
   [/#list]

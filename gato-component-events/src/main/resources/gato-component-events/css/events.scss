@@ -1,0 +1,145 @@
+
+.txst-eventdetail-dates abbr {
+  border: none;
+  font-style: italic;
+}
+
+.txst-eventdetail.gato-accordion {
+  .gato-accordion-header {
+    h3 {
+      margin: 0 0 0.5rem;
+    }
+  }
+}
+
+/*** 199px ***/
+
+.txst-eventdetail-thumbnail, 
+.txst-eventdetail-detailsbox, 
+.txst-eventdetail-description, 
+.txst-eventdetail-morelink {
+  display: none;
+}
+div.txst-eventdetail {
+  .gato-accordion-content {
+    padding: 0 1rem 1rem;
+    background: $primarybg;
+  }
+
+  a.txst-eventdetail-addtocalendar {
+    color: $primarytext;
+    text-decoration: underline;
+    display: table;
+    min-height: 5rem;
+    width: 100%;
+    margin: 0;
+    i.fa, span.linktext {
+      display: table-cell;
+      padding-right: 1rem;
+      vertical-align: middle;
+    }
+    
+    i.fa {
+      font-size: 3.2rem;
+    }
+  }
+}
+
+.eq-parent[max-width~="199px"] {
+  .txst-eventdetail.gato-accordion {
+    .gato-accordion-header {
+      margin: 0;
+      padding: 1rem;
+    }
+  }
+}
+
+/*** 199px ***/
+
+.eq-parent[min-width~="200px"] {
+  div.txst-eventdetail {
+    .gato-accordion-content {
+      padding: 0 0 2rem;
+      background: inherit;
+    }
+
+    img.txst-eventdetail-thumbnail {
+      display: block;
+      width: 100%;
+    }
+
+    .txst-eventdetail-detailsbox {
+      display: block;
+    }
+
+    a { 
+      color: $maroon; 
+      text-decoration: none;
+      &.txst-eventdetail-addtocalendar {
+        padding: 0;
+        margin: 0.5rem 1rem;
+      }
+      &.txst-eventdetail-morelink {
+        text-align: right;
+        display: block;
+        padding-right: 1.5rem;
+        color: $darker-oldgold;
+        text-decoration: underline;
+        i.fa {
+          padding-left: 0.75rem;
+        }
+      }    
+    }
+    
+    dt {
+      font-weight: bold;
+      margin: 0 1rem;
+    }
+    
+    dd {
+      margin: 0.25rem 1rem 1rem;
+    }
+  }
+}
+
+.eq-parent[min-width~="400px"] {
+  div.txst-eventdetail {
+    a.txst-eventdetail-addtocalendar, dl.txst-eventdetail-detailsbox {
+      width: auto;
+      margin: 1rem 2rem;
+    }
+
+    dl.txst-eventdetail-detailsbox {
+      dt, dd {
+        margin: 0 0 0.5rem 0;
+        padding: 0;
+        overflow: hidden;
+      }
+      dt {
+        float: left;
+        clear: both;
+        margin-right: 1rem;
+      }
+    }
+
+    &.txst-eventdetail-morelink {
+      padding-right: 3rem;
+    }
+  }
+}
+
+.eq-parent[min-width~="800px"] {
+  dl.txst-eventdetail-detailsbox {
+    background: $dark-sandstone;
+    padding: 1rem;
+    border-radius: $default-border-radius;
+  }
+
+  .txst-eventdetail-description {
+    display: block;
+  }
+
+  .txst-eventdetail-morelink {
+    display: none;
+  }
+}

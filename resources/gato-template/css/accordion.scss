@@ -20,7 +20,7 @@
       text-decoration: none;
       &:hover { background: inherit; }
     }
-    font-weight: normal;
+    &, h3 { font-weight: normal; }
 
   }
 

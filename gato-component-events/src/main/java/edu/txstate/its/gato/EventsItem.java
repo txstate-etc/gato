@@ -24,6 +24,7 @@ public class EventsItem {
   private String sponsor;
   private String contact;
   private String calendarUrl;
+  private String url;
   private Date startDate;
   private String machineStartDate;
   private String humanStartDate;
@@ -67,7 +68,7 @@ public class EventsItem {
       image = "";
       Element attachment = DomUtils.getChildNode(elem, "image");
       if (attachment != null) {
-        image = DomUtils.getTextValue(elem, "url");
+        image = DomUtils.getTextValue(attachment, "url");
       }
     }
     return image;
@@ -80,7 +81,7 @@ public class EventsItem {
     return link;
   }
 
-  private String getFacility() {
+  public String getFacility() {
     if (facility != null) {
       return facility;
     }
@@ -102,7 +103,7 @@ public class EventsItem {
     }
     String room = DomUtils.getTextValue(elem, "sublocation");
     if (!StringUtils.isEmpty(room)) {
-      facility = facility + "; " + room;
+      facility += "; " + room;
     }
     
     return facility;
@@ -144,9 +145,16 @@ public class EventsItem {
     return contact;
   }
 
+  public String getUrl() {
+    if (url == null) {
+      url = EventsModel.CALENDAR_URL + "/recurrences/" + DomUtils.getTextValue(elem, "id");
+    }
+    return url;
+  }
+
   public String getCalendarUrl() {
     if (calendarUrl == null) {
-      calendarUrl = EventsModel.CALENDAR_URL + "/recurrences/" + DomUtils.getTextValue(elem, "id") + ".ics";
+      calendarUrl = getUrl() + ".ics";
     }
     return calendarUrl;
   }
