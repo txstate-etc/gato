@@ -11,3 +11,5 @@ areas:
     availableComponents:
       image:
         id: gato-component-gallery:components/image
+parameters:
+  icon: /gato-component-gallery/images/image_gallery.png
