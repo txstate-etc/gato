@@ -1,0 +1,13 @@
+@import "../admincentral/styles";
+
+#main-launcher {
+  div:first-child {
+    position: absolute;
+    top: 7px;
+    left: 17px;
+    width: 117px;
+    height: 31px;
+    background-image: url(images/gato-logo.gif);
+    img { display: none; }
+  }
+}

@@ -155,7 +155,7 @@ sub buildmodule {
 }
 
 sub buildany {
-  my $output = `mvn clean install`;
+  my $output = `mvn clean install 2>&1`;
   if ($output =~ m/FAILURE|ERROR/) { print $output."\n"; exit; }
 }
 
