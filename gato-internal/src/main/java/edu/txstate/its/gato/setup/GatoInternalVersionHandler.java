@@ -127,6 +127,8 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
     tasks.add(new RemoveNodeTask("Remove old Gato module config", "/modules/gato"));
     // remove the config node for the old 4.5 migration module
     tasks.add(new RemoveNodeTask("Remove old 4.5 migration config", "/modules/magnolia-4-5-migration"));
+    // remove old config node for adminCentral
+    tasks.add(new RemoveNodeTask("Remove old 4.5 adminCentral config", "/modules/adminInterface"));
     // remove the config node for the old 4.5 cas filter
     tasks.add(new RemoveNodeTask("Remove old 4.5 cas filter", "/server/filters/casRedirect"));
 
