@@ -25,7 +25,7 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
     register(DeltaBuilder.update("1.0", "")
       .addTask(new BootstrapSingleResource("Bootstrap", "Bootstrap class definition for doing image resizing on Texas State imagehandlers server", "/mgnl-bootstrap/gato-internal/config.modules.gato-lib.imaging.resize.xml"))
       .addTask(new BootstrapSingleResource("Bootstrap", "Bootstrap componentSelect field type", "/mgnl-bootstrap/gato-internal/config.modules.pages.fieldTypes.componentSelect.xml"))
-      .addTask(new BootstrapSingleResource("Bootstrap", "Bootstrap select component dialog to use visual selection instead of simple drop down", "/mgnl-bootstrap/gato-internal/config.modules.pages.dialogs.newComponent.form.tabs.components.fields.template.xml"))
+      .addTask(new BootstrapSingleResource("Bootstrap", "Bootstrap select component dialog to use visual selection instead of simple drop down", "/mgnl-bootstrap/gato-internal/config.modules.pages.dialogs.newComponent.xml"))
       .addTasks(installOrUpdateTasks())
     );
   }

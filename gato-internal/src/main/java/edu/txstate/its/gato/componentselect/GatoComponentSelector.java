@@ -46,6 +46,7 @@ public class GatoComponentSelector extends CustomField<String>{
         int numRows = (numTemplates + (numColumns -1)) / numColumns;
         int templateIndex = 0;
 
+        //TODO: need to handle incomplete rows better.
         for(int i=0; i<numRows; i++){
             HorizontalLayout hl = new HorizontalLayout();
             hl.setSpacing(true);
