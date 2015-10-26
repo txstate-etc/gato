@@ -1,33 +1,33 @@
 title: Main Content Area
 templateScript: /gato-template/templates/areas/main-content.ftl
 availableComponents:
-  richeditor:
-    id: gato-template:components/richeditor
-  textimage:
-    id: gato-template:components/textimage
-  faqhierarchy:
-    id: gato-component-faq:components/faq-hierarchy
+  iframe:
+    id: gato-template:components/iframe
+  button:
+    id: gato-component-button:components/button
+  events:
+    id: gato-component-events:components/events
   departmentdirectory:
     id: gato-component-dept-directory:components/departmentdirectory
+  rss:
+    id: gato-component-rss:components/rss
+  documents:
+    id: gato-component-documents:components/documents
+  faqhierarchy:
+    id: gato-component-faq:components/faq-hierarchy
+  feature:
+    id: gato-component-feature:components/feature
   gallery:
     id: gato-component-gallery:components/gallery
   # gallerym:
   #   id: gato-component-gallery:components/gallerym
-  feature:
-    id: gato-component-feature:components/feature
+  richeditor:
+    id: gato-template:components/richeditor
   sitemap:
     id: gato-component-sitemap:components/sitemap
-  documents:
-    id: gato-component-documents:components/documents
   table:
     id: gato-template:components/table
-  button:
-    id: gato-component-button:components/button
+  textimage:
+    id: gato-template:components/textimage
   twitter:
     id: gato-component-twitter:components/twitter
-  rss:
-    id: gato-component-rss:components/rss
-  events:
-    id: gato-component-events:components/events
-  iframe:
-    id: gato-template:components/iframe
