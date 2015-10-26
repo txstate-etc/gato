@@ -259,23 +259,30 @@ var Cropper = {
 	},
 
 	setForm : function(selectionX, selectionY, selectionW, selectionH){
-		document.getElementById( controlName + "cropleft" ).value = selectionX / this.imgW;
-		document.getElementById( controlName + "croptop" ).value = selectionY / this.imgH;
+		document.querySelector( "." + controlName + "cropleft" ).value = selectionX / this.imgW;
+		document.querySelector( "." + controlName + "croptop" ).value = selectionY / this.imgH;
 		if(arguments.length > 2){
-			document.getElementById( controlName + "cropright" ).value = ( selectionX + selectionW ) / this.imgW;
-			document.getElementById( controlName + "cropbottom" ).value = ( selectionY + selectionH ) / this.imgH;
+			document.querySelector( "." + controlName + "cropright" ).value = ( selectionX + selectionW ) / this.imgW;
+			document.querySelector( "." + controlName + "cropbottom" ).value = ( selectionY + selectionH ) / this.imgH;
 		}
+
+		// cj32 2015-10-26: Need to fire change event on each input so vaadin will see it.
+		// Too lazy to figure out how to fire change event in pure js; using jQuery instead. 
+		jQuery("." + controlName + "cropleft").change();
+		jQuery("." + controlName + "croptop").change();
+		jQuery("." + controlName + "cropright").change();
+		jQuery("." + controlName + "cropbottom").change();
 	},
 		
-	formGetX : function () { return Math.round(document.getElementById( controlName + "cropleft" ).value * this.imgW); },
-	formGetY : function () { return Math.round(document.getElementById( controlName + "croptop" ).value * this.imgH); },
+	formGetX : function () { return Math.round(document.querySelector( "." + controlName + "cropleft" ).value * this.imgW); },
+	formGetY : function () { return Math.round(document.querySelector( "." + controlName + "croptop" ).value * this.imgH); },
 	formGetW : function () { 
-		var cr = document.getElementById( controlName + "cropright" ).value;
+		var cr = document.querySelector( "." + controlName + "cropright" ).value;
 		if (cr <= 0) cr = 1;
 		return this.imgW * cr - this.formGetX(); 
 	},
 	formGetH : function () { 
-		var cb = document.getElementById( controlName + "cropbottom" ).value;
+		var cb = document.querySelector( "." + controlName + "cropbottom" ).value;
 		if (cb <= 0) cb = 1;
 		return this.imgH * cb - this.formGetY(); 
 	},

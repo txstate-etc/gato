@@ -43,6 +43,16 @@ form:
           label: Image
         - name: script
           class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
+          fields:
+            - name: imagecropleft
+              class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+            - name: imagecropright
+              class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+            - name: imagecroptop
+              class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+            - name: imagecropbottom
+              class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+          transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
           initFunction: initThumbnailSelector
           scripts: [gato-lib/js/cropper/js/Toolkit.Events.js, gato-lib/js/cropper/js/Cropper.js, gato-lib/js/thumbnail-selector.js]
           styles: [gato-lib/js/cropper/css/cropper.css]
