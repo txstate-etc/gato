@@ -31,7 +31,6 @@ div.txst-eventdetail {
     text-decoration: underline;
     display: table;
     min-height: 5rem;
-    width: 100%;
     margin: 0;
     i.fa, span.linktext {
       display: table-cell;
@@ -45,101 +44,102 @@ div.txst-eventdetail {
   }
 }
 
-.eq-parent[max-width~="199px"] {
-  .txst-eventdetail.gato-accordion {
-    .gato-accordion-header {
-      margin: 0;
-      padding: 1rem;
-    }
+.txst-eventdetail[max-width~="199px"] {
+  .gato-accordion-header {
+    margin: 0;
+    padding: 1rem;
   }
 }
 
 /*** 199px ***/
 
-.eq-parent[min-width~="200px"] {
-  div.txst-eventdetail {
-    .gato-accordion-content {
-      padding: 0 0 2rem;
-      background: inherit;
-    }
-
-    img.txst-eventdetail-thumbnail {
-      display: block;
-      width: 100%;
-    }
-
-    .txst-eventdetail-detailsbox {
-      display: block;
-    }
-
-    a { 
-      color: $maroon; 
-      text-decoration: none;
-      &.txst-eventdetail-addtocalendar {
-        padding: 0;
-        margin: 0.5rem 1rem;
-      }
-      &.txst-eventdetail-morelink {
-        text-align: right;
-        display: block;
-        padding-right: 1.5rem;
-        color: $darker-oldgold;
-        text-decoration: underline;
-        i.fa {
-          padding-left: 0.75rem;
-        }
-      }    
-    }
-    
-    dt {
-      font-weight: bold;
-      margin: 0 1rem;
-    }
-    
-    dd {
-      margin: 0.25rem 1rem 1rem;
-    }
+div.txst-eventdetail[min-width~="200px"] {
+  .gato-accordion-content {
+    padding: 0 0 2rem;
+    background: inherit;
   }
-}
 
-.eq-parent[min-width~="400px"] {
-  div.txst-eventdetail {
-    a.txst-eventdetail-addtocalendar, dl.txst-eventdetail-detailsbox {
-      width: auto;
-      margin: 1rem 2rem;
+  div.txst-eventdetail-thumbnail {
+    display: block;
+    img { width: 100%; }
+  }
+
+  .txst-eventdetail-detailsbox {
+    display: block;
+  }
+
+  a { 
+    color: $maroon; 
+    text-decoration: none;
+    &.txst-eventdetail-addtocalendar {
+      padding: 0;
+      margin: 0.5rem 1rem;
     }
-
-    dl.txst-eventdetail-detailsbox {
-      dt, dd {
-        margin: 0 0 0.5rem 0;
-        padding: 0;
-        overflow: hidden;
-      }
-      dt {
-        float: left;
-        clear: both;
-        margin-right: 1rem;
-      }
-    }
-
     &.txst-eventdetail-morelink {
-      padding-right: 3rem;
-    }
+      text-align: right;
+      display: block;
+      padding-right: 1.5rem;
+      color: $darker-oldgold;
+      text-decoration: underline;
+      i.fa {
+        padding-left: 0.75rem;
+        padding-right: 1.5rem;
+      }
+    }    
+  }
+  
+  dt {
+    font-weight: bold;
+    margin: 0 1rem;
+  }
+  
+  dd {
+    margin: 0.25rem 1rem 1rem;
   }
 }
 
-.eq-parent[min-width~="800px"] {
+div.txst-eventdetail[min-width~="400px"] {
+  a.txst-eventdetail-addtocalendar, 
+  dl.txst-eventdetail-detailsbox {
+    margin: 1rem 2rem;
+  }
+
+  dl.txst-eventdetail-detailsbox {
+    dt, dd {
+      margin: 0 0 0.5rem 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    dt {
+      float: left;
+      clear: both;
+      margin-right: 1rem;
+    }
+  }
+
+  &.txst-eventdetail-morelink {
+    padding-right: 3rem;
+  }
+}
+
+div.txst-eventdetail[min-width~="800px"] {
+  div.txst-eventdetail-thumbnail {
+    margin: 1rem 2rem;
+  }
+
   dl.txst-eventdetail-detailsbox {
     background: $dark-sandstone;
     padding: 1rem;
     border-radius: $default-border-radius;
+    max-width: 70rem;
   }
 
   .txst-eventdetail-description {
     display: block;
+    margin: 1rem 2rem;
   }
 
-  .txst-eventdetail-morelink {
+  a.txst-eventdetail-morelink {
     display: none;
   }
 }

@@ -38,49 +38,55 @@
         </div>
       </div>
 
-      <div class="gato-accordion-content">
+      <div class="gato-accordion-content eq-parent">
 
-        [#if item.image?has_content]
-          <img class="txst-eventdetail-thumbnail" 
-            alt="${item.title}"
-            src="${item.image}" />
-        [/#if]
-
-        <a title="add ${item.title} to calendar"
-          href="${item.calendarUrl}"
-          class="txst-eventdetail-addtocalendar">
-          <i class="fa fa-calendar" aria-hidden="true"></i>
-          <span class="linktext">add to calendar</span>
-        </a>
-
-        <dl class="txst-eventdetail-detailsbox">
-          [#if item.facility?has_content]
-            <dt>Location:</dt>
-            <dd>${item.facility}</dd>
+        <div class="eq-mn-1-1 eq-lg-3-12 eq-xl-2-12">
+          [#if item.image?has_content]
+            <div class="txst-eventdetail-thumbnail">
+              <img alt="${item.title}" src="${item.image}" />
+            </div>
           [/#if]
-          
-          <dt>Cost:</dt>
-          <dd>${item.cost}</dd>
 
-          <dt>Contact:</dt>
-          <dd>${item.contact}</dd>
+          <a title="add ${item.title} to calendar"
+            href="${item.calendarUrl}"
+            class="txst-eventdetail-addtocalendar">
+            <i class="fa fa-calendar" aria-hidden="true"></i>
+            <span class="linktext">add to calendar</span>
+          </a>
+        </div>
+        
+        <div class="eq-sm-1-1 eq-lg-8-12 eq-xl-9-12">
+          <dl class="txst-eventdetail-detailsbox">
+            [#if item.facility?has_content]
+              <dt>Location:</dt>
+              <dd>${item.facility}</dd>
+            [/#if]
+            
+            <dt>Cost:</dt>
+            <dd>${item.cost}</dd>
 
-          <dt>Campus Sponsor:</dt>
-          <dd>${item.sponsor}</dd>
-        </dl>
+            <dt>Contact:</dt>
+            <dd>${item.contact}</dd>
+
+            <dt>Campus Sponsor:</dt>
+            <dd>${item.sponsor}</dd>
+          </dl>
+        </div>
       
         [#if item.description?has_content]
-          <div class="txst-eventdetail-description">
-            ${item.description}
-            [#if item.link?has_content]
-              <a href="${item.link}" class="url">
-                Click here for more information
-              </a>
-            [/#if]
+          <div class="eq-lg-1-1">
+            <div class="txst-eventdetail-description">
+              ${item.description}
+              [#if item.link?has_content]
+                <a href="${item.link}" class="url">
+                  Click here for more information
+                </a>
+              [/#if]
+            </div>
           </div>
         [/#if]
            
-        <a class="txst-eventdetail-morelink" href="${item.url}">
+        <a class="txst-eventdetail-morelink eq-sm-1-1" href="${item.url}">
           <span class="linktext">more about event</span>
           <i class="fa fa-angle-right" aria-hidden="true"></i>
         </a>   
