@@ -81,6 +81,7 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
     visitByTemplate(hm, "gato:pages/main-2009/khan-mail", this::updateMailArea);
     visitByTemplate(hm, "gato:components/texasState/texasDownload", this::updateDownloadComponent);
     visitByTemplate(hm, "gato:components/texasState/texasLink", this::convertNewWindowToBool);
+    visitByTemplate(hm, "gato:components/texasState/texasEditor", this::deleteContentFiles);
   }
 
   private void convertPropertyToBool(Node n, String propName) throws RepositoryException {
@@ -169,7 +170,7 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
     if (n.hasProperty("valid_regex")) { PropertyUtil.renameProperty(n.getProperty("valid_regex"), "regexregex"); }
     if (n.hasProperty("valid_msg")) { PropertyUtil.renameProperty(n.getProperty("valid_msg"), "regexerror"); }
   }
-  
+
   private void updateNavBlock(Node n) throws RepositoryException {
     convertInheritToBool(n);
     if (n.hasProperty("sort")) {
@@ -233,7 +234,11 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
       log.warn("Failed to parse property as yyyy-MM-dd date: " + p.getPath());
     }
   }
-  
+
+  protected void deleteContentFiles(Node n) throws RepositoryException {
+    if (n.hasNode("content_files")) n.getNode("content_files").remove();
+  }
+
   /**
    * Converts a list represented as a string with a separator to a String array
    * suitable for use in a multi-value JCR property. Empty strings and strings
