@@ -5,6 +5,7 @@ import info.magnolia.module.delta.BootstrapSingleResource;
 import info.magnolia.module.delta.DeltaBuilder;
 import info.magnolia.module.delta.FindAndChangeTemplateIdTask;
 import info.magnolia.module.delta.MoveNodeTask;
+import info.magnolia.module.delta.NodeExistsDelegateTask;
 import info.magnolia.module.delta.RemoveNodeTask;
 import info.magnolia.module.delta.SetPropertyTask;
 import info.magnolia.module.delta.Task;
@@ -119,7 +120,8 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
     tasks.add(new SetPropertyTask(RepositoryConstants.CONFIG, "/server/filters/activation", "class", "info.magnolia.module.activation.ReceiveFilter"));
 
     // move tweetStreamer config into the twitter module
-    tasks.add(new MoveNodeTask("Move Twitter config", "/modules/gato/config", "/modules/gato-component-twitter/config", true));
+    tasks.add(new NodeExistsDelegateTask("Move Twitter config if exists", "/modules/gato/config", 
+      new MoveNodeTask("Move Twitter config", "/modules/gato/config", "/modules/gato-component-twitter/config", true)));
 
     // remove a deprecated servlet filter that was disrupting loading of resources
     tasks.add(new RemoveNodeTask("Remove ClasspathSpool filter", "/server/filters/servlets/ClasspathSpoolServlet"));
