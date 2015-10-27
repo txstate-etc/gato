@@ -23,6 +23,8 @@ import com.vaadin.event.LayoutEvents.LayoutClickListener;
 @StyleSheet("vaadin://css/componentselect.css")
 public class GatoComponentSelector extends CustomField<String>{
 
+    private static final String ICON_HEIGHT = "108px";
+
     private List<GatoComponentSelectOption> templates;
 
     private VerticalLayout rootLayout = new VerticalLayout();
@@ -86,15 +88,26 @@ public class GatoComponentSelector extends CustomField<String>{
             icon.addStyleName("component-icon");
             tile.addComponent(icon);
         }
-        Label titleLabel = new Label(template.getTitle());
-        titleLabel.addStyleName("component-title");
-        titleLabel.setSizeFull();
-        tile.addComponent(titleLabel);
+        else{
+            //insert an empty image
+            Image blank = new Image();
+            blank.setHeight(ICON_HEIGHT);
+            blank.addStyleName("component-icon");
+            tile.addComponent(blank);
+        }
 
-        Label descriptionLabel = new Label(template.getDescription()+ "\n");
-        descriptionLabel.addStyleName("component-description");
-        descriptionLabel.setSizeFull();
-        tile.addComponent(descriptionLabel);
+        String titleHtml = "<div class=\"component-title\">" + template.getTitle() + "</div>";
+        String descriptionHtml = "<div class=\"component-description\">" + template.getDescription() + "</div>";
+        String textHtml = "<div class=\"component-text\">" + titleHtml + descriptionHtml + "</div>";
+        Label textContent = new Label(textHtml, Label.CONTENT_XHTML);
+        //titleLabel.addStyleName("component-title");
+        textContent.setSizeFull();
+        tile.addComponent(textContent);
+
+        // Label descriptionLabel = new Label(template.getDescription()+ "\n");
+        // descriptionLabel.addStyleName("component-description");
+        // descriptionLabel.setSizeFull();
+        // tile.addComponent(descriptionLabel);
         
         tile.addLayoutClickListener(new LayoutClickListener() {
             public void layoutClick(final LayoutClickEvent event) {
