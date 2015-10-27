@@ -23,6 +23,8 @@ availableComponents:
   #   id: gato-component-gallery:components/gallerym
   richeditor:
     id: gato-template:components/richeditor
+  html:
+    id: gato-template:components/html
   sitemap:
     id: gato-component-sitemap:components/sitemap
   table:
