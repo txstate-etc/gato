@@ -4,6 +4,7 @@ var gatofeature = function(featureparent) {
   ftr.slides = ftr.parent.find('.slide').map(function(i,ele) { return jQuery(ele); }).get();
   ftr.left = ftr.parent.find('.navleft');
   ftr.right = ftr.parent.find('.navright');
+  ftr.pagecontainer = ftr.parent.find('.pages');
   ftr.pages = ftr.parent.find('.pages li').map(function(i,ele) { return jQuery(ele); }).get();
   ftr.activeidx = 0;
   ftr.slidecount = ftr.slides.size();
@@ -50,6 +51,8 @@ gatofeature.prototype.activate = function(activateindex, isprev) {
   var next = ftr.slide(idx);
   var currpi = ftr.page(ftr.activeidx);
   var nextpi = ftr.page(idx);
+  var currpia = currpi.children('a');
+  var nextpia = nextpi.children('a');
   var saveactive = ftr.activeidx;
   animQueue('feature', function(qnext) {
     // if the prev() method triggered this activate, we want to slide in from the
@@ -62,25 +65,34 @@ gatofeature.prototype.activate = function(activateindex, isprev) {
     }
 
     // instant CSS changes to set up for the animation
-    ftr.parent.css('padding-top', Math.max(curr.height(), next.height())+'px');
-    curr.css({'margin': '0px', 'position': 'absolute', 'top': '0px', 'left': '0px'});
     next.css({'margin': '0px', 'position': 'absolute', 'top': '0px', 'left': nextleftstart+'px', 'display': 'block'});
+    var currheight = curr.get(0).getBoundingClientRect().height;
+    var nextheight = next.get(0).getBoundingClientRect().height;
+    ftr.parent.css('padding-top', currheight+'px');
+    curr.css({'margin': '0px', 'position': 'absolute', 'top': '0px', 'left': '0px'});
 
     // start the animation and return a jQuery.Deferred() to animQueue
+    if (nextheight >= currheight) next.css({'height': currheight+'px'});
+    var duration = 250;
     return jQuery.when(
-      next.velocity({'left': '0px'}, 250),
-      curr.velocity({'left': currleftend+'px'}, 250)
+      next.velocity({'left': '0px', 'height':nextheight+'px'}, duration),
+      curr.velocity({'left': currleftend+'px', 'height':nextheight+'px'}, duration),
+      ftr.parent.velocity({'padding-top': nextheight+'px'}, duration),
+      nextpia.velocity({'width':'12px', 'height':'12px', 'border-radius':'6px'}, duration),
+      currpia.velocity({'width':'8px', 'height':'8px', 'border-radius':'4px'}, duration)
     );
   }, function() { // successfully added to queue
     ftr.activeidx = idx;
   }).done(function () {
     // tear down the animation after it has completed
-    next.css({'margin': '', 'position': '', 'top': '', 'left': '', 'display':''});
-    curr.css({'margin': '', 'position': '', 'top': '', 'left': ''});
+    next.css({'margin': '', 'position': '', 'top': '', 'left': '', 'display':'', 'height':''});
+    curr.css({'margin': '', 'position': '', 'top': '', 'left': '', 'height':''});
     curr.removeClass('active');
     next.addClass('active');
     currpi.removeClass('active');
+    currpia.css({'width':'','height':'','border-radius':''});
     nextpi.addClass('active');
+    nextpia.css({'width':'','height':'','border-radius':''});
     ftr.parent.css('padding-top', '');
   });
 }

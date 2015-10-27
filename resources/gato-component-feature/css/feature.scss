@@ -1,6 +1,5 @@
 .gato-feature {
   position: relative;
-  overflow: hidden;
   cursor: pointer;
   .slide {
     position: relative;
@@ -39,13 +38,13 @@
         margin: 0px;
       }
     }
-    &.color1 .caption { background-color: rgba($mc1-bg, 0.7); color: $mc1-text; }
-    &.color2 .caption { background-color: rgba($mc2-bg, 0.7); color: $mc2-text; }
-    &.color3 .caption { background-color: rgba($mc3-bg, 0.7); color: $mc3-text; }
-    &.color4 .caption { background-color: rgba($mc4-bg, 0.7); color: $mc4-text; }
-    &.color5 .caption { background-color: rgba($mc5-bg, 0.7); color: $mc5-text; }
-    &.color6 .caption { background-color: rgba($mc6-bg, 0.7); color: $mc6-text; }
-    &.color7 .caption { background-color: rgba($mc7-bg, 0.7); color: $mc7-text; }
+    &.color1 .caption { background-color: rgba($mc1-bg, 0.9); color: $mc1-text; }
+    &.color2 .caption { background-color: rgba($mc2-bg, 0.9); color: $mc2-text; }
+    &.color3 .caption { background-color: rgba($mc3-bg, 0.9); color: $mc3-text; }
+    &.color4 .caption { background-color: rgba($mc4-bg, 0.9); color: $mc4-text; }
+    &.color5 .caption { background-color: rgba($mc5-bg, 0.9); color: $mc5-text; }
+    &.color6 .caption { background-color: rgba($mc6-bg, 0.9); color: $mc6-text; }
+    &.color7 .caption { background-color: rgba($mc7-bg, 0.9); color: $mc7-text; }
   }
   .navleft, .navright {
     position: absolute;
@@ -64,30 +63,29 @@
     right: 0px;
   }
   .pages {
-    margin: 49% 0 0 0;
-    margin: calc(56.25% - 22px) 0 0 0;
-    padding: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+    margin: 0;
+    padding: 8px 0px;
     text-align: center;
     list-style: none;
     li {
       display: inline-block;
+      vertical-align: middle;
+      width: 14px;
       padding: 0px 2px;
       a {
+        margin: 0px auto;
         display: block;
-        width: 12px;
-        height: 12px;
-        border-radius: 12px;
-        border-width: 2px;
-        border-style: solid;
-        border-color: rgba(255,255,255,0.6);
-        &:hover, &:focus { border-color: rgba(255,255,255,0.9); }
+        width: 8px;
+        height: 8px;
+        border-radius: 4px;
+        background-color: $page-indicator-inactive;
+        &:hover, &:focus { background-color: $page-indicator-hover; }
       }
       &.active a {
-        background-color: rgba(255,255,255,0.9);
+        width: 12px;
+        height: 12px;
+        border-radius: 6px;
+        background-color: $page-indicator-active;
       }
     }
   }
@@ -109,12 +107,10 @@
     }
     .navleft, .navright { font-size: 32px; padding: calc(28.125% - 16px) 10px; }
   }
-  &[max-width~="400px"] {
+  &[max-width~="600px"] {
     .slide {
       .caption {
         position: relative;
-        padding: 6px;
-        font-size: 0.9em;
         h3 { margin: 0px 0px 6px 0px; }
       }
       &.color1 .caption { background-color: $mc1-bg; }
@@ -124,6 +120,14 @@
       &.color5 .caption { background-color: $mc5-bg; }
       &.color6 .caption { background-color: $mc6-bg; }
       &.color7 .caption { background-color: $mc7-bg; }
+    }
+  }
+  &[max-width~="400px"] {
+    .slide {
+      .caption {
+        padding: 6px;
+        font-size: 0.9em;
+      }
     }
     .navleft, .navright { font-size: 28px; padding: calc(28.125% - 14px) 10px; }
   }
