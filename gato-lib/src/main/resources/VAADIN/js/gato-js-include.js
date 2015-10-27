@@ -57,7 +57,7 @@ function loadGatoJsScript(scriptName, callback) {
  * Load scripts and call a function after all scripts have
  * finished loading.
  */
-function loadDeps(scripts, callback) {
+function loadScripts(scripts, callback) {
   var count = scripts.length;
   if (count == 0) {
     callback();

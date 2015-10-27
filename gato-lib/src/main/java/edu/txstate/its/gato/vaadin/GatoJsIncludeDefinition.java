@@ -5,6 +5,7 @@ import info.magnolia.ui.form.field.definition.CompositeFieldDefinition;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -63,6 +64,10 @@ public class GatoJsIncludeDefinition extends CompositeFieldDefinition {
 
   // An array of css files to be loaded. Paths of files should be relative to magnolia resources root.
   @Getter @Setter private List<String> styles = new ArrayList<String>();
+
+  public void setScriptsStr(String scripts) {
+    this.scripts = Arrays.asList(scripts.split(","));
+  }
 
   // If set to true, scripts will be guaranteed to load in the order they're specified in the array.
   // Note, with either option, all scripts will be loaded before the init function is called.
