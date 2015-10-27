@@ -7,7 +7,11 @@
   </div>
 [/#if]
 [#list components as slide]
-  [@cms.component content=slide contextAttributes={"slideactive": (slide_index == 0)?string("active", ""), "colorClass": "color"+(slide_index+1)} editable=false /]
+  [#assign colorClass = ctx.colorClass /]
+  [#if !colorClass?matches("color[1-7]")]
+    [#assign colorClass = "color${slide_index+1}" /]
+  [/#if]
+  [@cms.component content=slide contextAttributes={"slideactive": (slide_index == 0)?string("active", ""), "colorClass": colorClass} editable=false /]
 [/#list]
 <a href="#" class="fa fa-chevron-circle-left navleft" aria-label="Previous Slide"></a>
 <a href="#" class="fa fa-chevron-circle-right navright" aria-label="Next Slide"></a>

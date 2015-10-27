@@ -3,6 +3,17 @@ form:
     - name: tabMain
       label: Feature
       fields:
+        - name: script
+          class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
+          fields:
+            - name: color
+              class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+          transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+          initFunction: initColorPicker
+          scripts: [gato-lib/js/color-picker.js]
+          styles: [gato-lib/css/color-picker.compiled.css]
+          loadScriptsInOrder: true
+          label: Background Color
         - name: defaultTimer
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Rotation Timer

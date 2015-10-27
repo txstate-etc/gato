@@ -1,0 +1,61 @@
+@import "gato-lib/css/variables";
+
+label.colorsel {
+  input[type=radio] {
+    border: 0; 
+    clip: rect(0 0 0 0); 
+    height: 1px; margin: -1px; 
+    overflow: hidden; 
+    padding: 0; 
+    position: absolute; 
+    width: 1px;
+    
+    & + span {
+      display: inline-block;
+      font-weight: bold;
+      padding: 1rem;
+      margin: 0.25rem; 
+      width: 15%;
+      text-align: center;
+      border: 1px solid $main-border;
+    }
+    
+    &:checked + span {
+      outline: 5px solid $mgnl-outline;
+    }
+  }
+}
+
+label.alternating > span {
+  color: white;
+  text-shadow: 1px 1px 0 $almost-black, 1px -1px 0 $almost-black, -1px 1px 0 $almost-black, -1px -1px 0 $almost-black;
+
+  background-image:  
+    linear-gradient(to right, $maroon, $maroon),
+    linear-gradient(to right, $gold, $gold),
+    linear-gradient(to right, $charcoal, $charcoal),
+    linear-gradient(to right, $blue, $blue),
+    linear-gradient(to right, $river, $river),
+    linear-gradient(to right, $sandstone, $sandstone),
+    linear-gradient(to right, $oldgold, $oldgold);
+           
+  background-repeat:no-repeat;
+  background-position: 
+    0 0,
+    17% 0,
+    33% 0,
+    50% 0,
+    67% 0,
+    84% 0,
+    100% 0;
+  
+  background-size:
+    15% 100%,
+    15% 100%,
+    15% 100%,
+    15% 100%,
+    15% 100%,
+    15% 100%,
+    15% 100%;
+}
+
