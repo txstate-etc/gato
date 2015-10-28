@@ -82,6 +82,7 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
     visitByTemplate(hm, "gato:components/texasState/texasDownload", this::updateDownloadComponent);
     visitByTemplate(hm, "gato:components/texasState/texasLink", this::convertNewWindowToBool);
     visitByTemplate(hm, "gato:components/texasState/texasEditor", this::deleteContentFiles);
+    visitByTemplate(hm, "gato:components/texasState/texasTextImage", this::deleteTextFiles);
   }
 
   private void convertPropertyToBool(Node n, String propName) throws RepositoryException {
@@ -237,6 +238,9 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
 
   protected void deleteContentFiles(Node n) throws RepositoryException {
     if (n.hasNode("content_files")) n.getNode("content_files").remove();
+  }
+  protected void deleteTextFiles(Node n) throws RepositoryException {
+    if (n.hasNode("text_files")) n.getNode("text_files").remove();
   }
 
   /**

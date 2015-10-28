@@ -143,11 +143,11 @@ class MoveRichEditorToDamTask extends MoveFCKEditorContentToDamMigrationTask {
   // updated this method to handle the case where two rich editors point at the
   // same file, e.g. after a page copy.
   protected void moveResourceNodeAndHandleLink(Node node, Property property, Link link) throws RepositoryException {
-    if (this.copyHistory.containsKey(link.getUUID())) {
+    if (this.copyHistory.containsKey(link.getUUID()+":"+link.getPropertyName())) {
       String damAssetIdentifier = this.copyHistory.get(link.getUUID());
       String damAssetPath = damSession.getNodeByIdentifier(damAssetIdentifier).getPath();
       changeLinkInTextContent(property, damAssetIdentifier, link.getUUID(), link.getPath());
-    } else if (this.copyHistory.containsKey(link.getWorkspace()+":"+link.getPath())) {
+    } else if (this.copyHistory.containsKey(link.getWorkspace()+":"+link.getPath()+":"+link.getPropertyName())) {
       String damAssetIdentifier = this.copyHistory.get(link.getPath());
       String damAssetPath = damSession.getNodeByIdentifier(damAssetIdentifier).getPath();
       changeLinkInTextContent(property, damAssetIdentifier, link.getUUID(), link.getPath());
@@ -167,10 +167,9 @@ class MoveRichEditorToDamTask extends MoveFCKEditorContentToDamMigrationTask {
         String damAssetIdentifier = copyToDam(resourceNode);
         String fileNodeIdentifier = fileNode.getIdentifier();
         String fileNodePath = fileNode.getPath();
-        this.copyHistory.put(fileNodeIdentifier, damAssetIdentifier);
-        this.copyHistory.put(link.getWorkspace()+":"+fileNodePath, damAssetIdentifier);
+        this.copyHistory.put(fileNodeIdentifier+":"+link.getPropertyName(), damAssetIdentifier);
+        this.copyHistory.put(link.getWorkspace()+":"+fileNodePath+":"+link.getPropertyName(), damAssetIdentifier);
         if (damAssetIdentifier != null) {
-          fileNode.remove();
           String damAssetPath = damSession.getNodeByIdentifier(damAssetIdentifier).getPath();
           log.info("'{}' resource was moved to DAM repository to the following path '{}' and identifier: '{}'", Arrays.asList(fileNodePath, damAssetPath, damAssetIdentifier).toArray());
           // Change Link into contentText
