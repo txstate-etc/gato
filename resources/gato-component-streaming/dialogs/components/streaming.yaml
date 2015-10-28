@@ -1,0 +1,21 @@
+form:
+  tabs:
+    - name: tabStreaming
+      label: Streaming Media Settings
+      fields:
+        - name: url
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Video Url
+          styleName: videoUrl
+        - name: preview
+          class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
+          fields:
+            - name: verifiedUrl
+              class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+          initFunction: loadStreamingDialog
+          scripts: [gato-lib/js/spin.min.js,gato-component-streaming/js/streaming.js]
+          styles: [gato-component-streaming/css/streaming.css]
+          label: Preview
+
+actions: !include /gato-template/dialogs/common/actions-block.yaml
+label: Streaming Media

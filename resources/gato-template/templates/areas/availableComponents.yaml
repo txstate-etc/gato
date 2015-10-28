@@ -24,6 +24,8 @@ html:
   id: gato-template:components/html
 sitemap:
   id: gato-component-sitemap:components/sitemap
+streaming:
+    id: gato-component-streaming:components/streaming
 table:
   id: gato-template:components/table
 textimage:
