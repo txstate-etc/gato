@@ -153,6 +153,7 @@ class MoveRichEditorToDamTask extends MoveFCKEditorContentToDamMigrationTask {
       changeLinkInTextContent(property, damAssetIdentifier, link.getUUID(), link.getPath());
     } else if (link.getWorkspace().equals("dms")) {
       String damAssetIdentifier = link.getUUID();
+      log.info(property.getPath()+" had a link to DMS object with uuid '"+damAssetIdentifier+"', updated link to reflect move to DAM.");
       changeLinkInTextContent(property, damAssetIdentifier, damAssetIdentifier, link.getPath());
     } else {
       Node fileNode = node.getSession().getNodeByIdentifier(link.getUUID());
