@@ -120,7 +120,7 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
     tasks.add(new SetPropertyTask(RepositoryConstants.CONFIG, "/server/filters/activation", "class", "info.magnolia.module.activation.ReceiveFilter"));
 
     // move tweetStreamer config into the twitter module
-    tasks.add(new NodeExistsDelegateTask("Move Twitter config if exists", "/modules/gato/config", 
+    tasks.add(new NodeExistsDelegateTask("Move Twitter config if exists", "/modules/gato/config",
       new MoveNodeTask("Move Twitter config", "/modules/gato/config", "/modules/gato-component-twitter/config", true)));
 
     // remove a deprecated servlet filter that was disrupting loading of resources
@@ -129,8 +129,6 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
     tasks.add(new RemoveNodeTask("Remove old Gato module config", "/modules/gato"));
     // remove the config node for the old 4.5 migration module
     tasks.add(new RemoveNodeTask("Remove old 4.5 migration config", "/modules/magnolia-4-5-migration"));
-    // remove old config node for adminCentral
-    tasks.add(new RemoveNodeTask("Remove old 4.5 adminCentral config", "/modules/adminInterface"));
     // remove the config node for the old 4.5 cas filter
     tasks.add(new RemoveNodeTask("Remove old 4.5 cas filter", "/server/filters/casRedirect"));
 
