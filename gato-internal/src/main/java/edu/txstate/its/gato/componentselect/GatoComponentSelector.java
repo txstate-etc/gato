@@ -48,7 +48,6 @@ public class GatoComponentSelector extends CustomField<String>{
         int numRows = (numTemplates + (numColumns -1)) / numColumns;
         int templateIndex = 0;
 
-        //TODO: need to handle incomplete rows better.
         for(int i=0; i<numRows; i++){
             HorizontalLayout hl = new HorizontalLayout();
             hl.setSpacing(true);
@@ -57,6 +56,13 @@ public class GatoComponentSelector extends CustomField<String>{
             for(int j=0; j<numColumns && templateIndex < numTemplates; j++){
                 hl.addComponent(buildGridComponent(templates.get(templateIndex)));
                 templateIndex++;
+            }
+            //add empty labels to make sure last row elements are not extra wide
+            if(i == numRows-1){
+                int emptySpaces = numColumns - (numTemplates % numColumns);
+                for(int k=0; k<emptySpaces; k++){
+                    hl.addComponent(new Label("&nbsp;", Label.CONTENT_XHTML));
+                }
             }
             rootLayout.addComponent(hl);
         }
@@ -89,7 +95,7 @@ public class GatoComponentSelector extends CustomField<String>{
             tile.addComponent(icon);
         }
         else{
-            //insert an empty image
+            //insert an empty image.  A default component icon would look better.
             Image blank = new Image();
             blank.setHeight(ICON_HEIGHT);
             blank.addStyleName("component-icon");
@@ -132,8 +138,12 @@ public class GatoComponentSelector extends CustomField<String>{
                 HorizontalLayout h = (HorizontalLayout) c;
                 Iterator<Component> rowIterator = h.iterator();
                 while(rowIterator.hasNext()){
-                    VerticalLayout v = (VerticalLayout) rowIterator.next();
-                    v.removeStyleName("selected-component");
+                    Component rc = rowIterator.next();
+                    if(rc instanceof VerticalLayout){
+                        VerticalLayout v = (VerticalLayout) rc;
+                        v.removeStyleName("selected-component");
+                    }
+                    
                 }
             }
         }
