@@ -3,14 +3,14 @@
 
 [#assign thumb]
   ${gf.getImgSquare(
-    content.image, 
-    content.imagecropleft?number, 
-    content.imagecropright?number, 
-    content.imagecroptop?number, 
-    content.imagecropbottom?number
+    content.image,
+    (content.imagecropleft!0)?number,
+    (content.imagecropright!0)?number!0,
+    (content.imagecroptop!0)?number!0,
+    (content.imagecropbottom!0)?number!0
     )
   }
-[/#assign] 
+[/#assign]
 
 <a href="${gf.getImgDefault(content.image)}" title="${content.caption!''}" data-size="${imageSize}">
   <img src="${thumb}" alt="${content.imageAlt!''}" />
