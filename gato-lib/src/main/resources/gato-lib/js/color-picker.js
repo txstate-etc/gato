@@ -1,83 +1,33 @@
 
 function initColorPicker(def, node, el, tmpl) {
-  //console.log("color-picker: template name is " + tmpl);
-
-  var createFields = function(el, colors) {
-    $(el).append(createInput("alternating", '<span>Alternating</span>'));
-    
-    $(el).append($.map(colors, createField).join(''));
-    $('input[type=radio][name=colorsel]').change(function() {
-      $('input[type=hidden].color').val($(this).val()).change();
-    });
-  };
-
-  var createField = function(color) {
-    var inner = '<span style="background: '+color.bg+'; color: '+color.text+';">'+color.name+'</span>';
-    return createInput(color.id, inner);
-  };
-
-  var createInput = function(id, inner) {
+  var createInput = function(id, text) {
     return '<label for="'+id+'" class="colorsel '+id+'">'+
       '<input type="radio" name="colorsel" class="colorsel" value="'+id+'" id="'+id+'"/>'+
-      inner +
+      '<span>' + (text ? text : '') + '</span>'+
     '</label>'; 
   };
-
-  var colors = [
-    {
-      "id": "color1",
-      "name": "Maroon",
-      "bg": "#501214",
-      "text": "#FFFFFF"
-    },
-    {
-      "id": "color2",
-      "name": "Gold",
-      "bg": "#6A5638",
-      "text": "#FFFFFF"
-    },
-    {
-      "id": "color3",
-      "name": "Charcoal",
-      "bg": "#363534",
-      "text": "#FFFFFF"
-    },
-    {
-      "id": "color4",
-      "name": "Blue",
-      "bg": "#005481",
-      "text": "#FFFFFF"
-    },
-    {
-      "id": "color5",
-      "name": "River",
-      "bg": "#8BAEA1",
-      "text": "#222"
-    },
-    {
-      "id": "color6",
-      "name": "Sandstone",
-      "bg": "#E8E3DB",
-      "text": "#222"
-    },
-    {
-      "id": "color7",
-      "name": "Old Gold",
-      "bg": "#DEB407",
-      "text": "#222"
-    }
-  ];
-
-
-  createFields(el, colors);
   
-  // get current selected value and select the associated radio button.
+  // Create field to select 'Alternating' colors, unless this component only supports a single color.
+  if (!$('.single-color').length) {
+    $(el).append(createInput("alternating", 'Alternating'));
+  }
+
+  // Create fields for the 7 colors defined in the template's css.
+  var html = '';
+  for (var i = 0; i < 7; i++) {
+    html += createInput('color'+(i+1));
+  };
+  $(el).append(html);
+  
+  // Register the change event on the radio buttons to update the hidden field,
+  // which will ultimately update the JCR.
+  $('input[type=radio][name=colorsel]').change(function() {
+    $('input[type=hidden].color').val($(this).val()).change();
+  });
+  
+  // Get the initial value out of the hidden field and check the associated radio button.
   var val = $('input[type=hidden].color').val();
   if (val) {
     $('input[type=radio][name=colorsel][value='+val+']').prop('checked', true);
   }
-
 }
-
-
-

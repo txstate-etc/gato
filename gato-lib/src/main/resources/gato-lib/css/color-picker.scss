@@ -1,6 +1,14 @@
 @import "gato-lib/css/variables";
 
 label.colorsel {
+  &.color1 > span { background-color: $mc1-bg; color: $mc1-text; &:before { content: $mc1-name; } }
+  &.color2 > span { background-color: $mc2-bg; color: $mc2-text; &:before { content: $mc2-name; } }
+  &.color3 > span { background-color: $mc3-bg; color: $mc3-text; &:before { content: $mc3-name; } }
+  &.color4 > span { background-color: $mc4-bg; color: $mc4-text; &:before { content: $mc4-name; } }
+  &.color5 > span { background-color: $mc5-bg; color: $mc5-text; &:before { content: $mc5-name; } }
+  &.color6 > span { background-color: $mc6-bg; color: $mc6-text; &:before { content: $mc6-name; } }
+  &.color7 > span { background-color: $mc7-bg; color: $mc7-text; &:before { content: $mc7-name; } }
+  
   input[type=radio] {
     border: 0; 
     clip: rect(0 0 0 0); 
@@ -17,45 +25,45 @@ label.colorsel {
       margin: 0.25rem; 
       width: 15%;
       text-align: center;
-      border: 1px solid $main-border;
+      border: 1px solid $mgnl-fld-border;
     }
     
     &:checked + span {
       outline: 5px solid $mgnl-outline;
     }
   }
+
+  &.alternating > span {
+    color: white;
+    text-shadow: 1px 1px 0 $almost-black, 1px -1px 0 $almost-black, -1px 1px 0 $almost-black, -1px -1px 0 $almost-black;
+
+    background-image:  
+      linear-gradient(to right, $mc1-bg, $mc1-bg),
+      linear-gradient(to right, $mc2-bg, $mc2-bg),
+      linear-gradient(to right, $mc3-bg, $mc3-bg),
+      linear-gradient(to right, $mc4-bg, $mc4-bg),
+      linear-gradient(to right, $mc5-bg, $mc5-bg),
+      linear-gradient(to right, $mc6-bg, $mc6-bg),
+      linear-gradient(to right, $mc7-bg, $mc7-bg);
+             
+    background-repeat:no-repeat;
+    background-position: 
+      0 0,
+      17% 0,
+      33% 0,
+      50% 0,
+      67% 0,
+      84% 0,
+      100% 0;
+    
+    background-size:
+      15% 100%,
+      15% 100%,
+      15% 100%,
+      15% 100%,
+      15% 100%,
+      15% 100%,
+      15% 100%;
+  }
+
 }
-
-label.alternating > span {
-  color: white;
-  text-shadow: 1px 1px 0 $almost-black, 1px -1px 0 $almost-black, -1px 1px 0 $almost-black, -1px -1px 0 $almost-black;
-
-  background-image:  
-    linear-gradient(to right, $maroon, $maroon),
-    linear-gradient(to right, $gold, $gold),
-    linear-gradient(to right, $charcoal, $charcoal),
-    linear-gradient(to right, $blue, $blue),
-    linear-gradient(to right, $river, $river),
-    linear-gradient(to right, $sandstone, $sandstone),
-    linear-gradient(to right, $oldgold, $oldgold);
-           
-  background-repeat:no-repeat;
-  background-position: 
-    0 0,
-    17% 0,
-    33% 0,
-    50% 0,
-    67% 0,
-    84% 0,
-    100% 0;
-  
-  background-size:
-    15% 100%,
-    15% 100%,
-    15% 100%,
-    15% 100%,
-    15% 100%,
-    15% 100%,
-    15% 100%;
-}
-
