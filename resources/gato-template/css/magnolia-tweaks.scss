@@ -11,3 +11,15 @@
     display: block !important;
   }
 }
+
+
+// These two rules remove the status indicator from the bars
+.status-indicator{
+  display: none;
+}
+
+body div.mgnlEditorBar.area.mgnlEditorBarStatusIndicator, 
+body div.mgnlEditorBar.component.mgnlEditorBarStatusIndicator {
+    margin-left: inherit !important;
+}
+
