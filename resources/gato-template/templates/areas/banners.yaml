@@ -1,0 +1,6 @@
+title: Banner Images
+type: list
+maxComponents: 1
+availableComponents:
+  banners:
+    id: gato-template:components/banners

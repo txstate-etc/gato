@@ -36,7 +36,7 @@
             <a href="${cmsfn.link(homepage)}">${gf.nodeTitle(homepage)}</a>
           </h1>
         </div>
-        [@cms.area name="gato-banners"/]
+        [@cms.area name="banners"/]
         [@mainmenu textmenu=true /]
         <div class="txst-khanbanner-siteinfo">
           <div class="vcenter">

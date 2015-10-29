@@ -1,0 +1,5 @@
+templateScript: /gato-template/templates/components/banners.ftl
+renderType: freemarker
+title: Banners
+description: Displays a random image at the top of a page.
+dialog: gato-template:components/banners

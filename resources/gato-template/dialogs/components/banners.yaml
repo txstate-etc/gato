@@ -1,0 +1,44 @@
+form:
+  tabs:
+    - name: mainTab
+      label: Banner Settings
+      fields:
+        - name: visible
+          class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
+          label: Show Banners
+          sortOptions: false
+          options:
+            - label: Show banner images only if parent page is showing banner images (default).
+              value: inherit
+              selected: true
+            - label: Show banner images.
+              value: shown
+            - label: Do not show banner images.
+              value: hidden
+        - name: reset
+          class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
+          label: Inheritance
+          description: Either way, you can still add banners here.  Inherited banners will simply be added to the random rotation.
+          sortOptions: false
+          options:
+            - label: Inherit banners from parent pages. (default)
+              value: false
+              selected: true
+            - label: Do not inherit any banners.
+              value: true
+        - name: images
+          class: info.magnolia.ui.form.field.definition.MultiValueFieldDefinition
+          label: Images
+          description: >
+            Select a folder or a single image from the chooser. Click Add to add more folders or images.
+          field:
+            name: image
+            class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+            appName: assets
+            targetWorkspace: dam
+            label: Image
+            identifierToPathConverter:
+              class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
+            contentPreviewDefinition:
+              contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
+actions: !include /gato-template/dialogs/common/actions-block.yaml

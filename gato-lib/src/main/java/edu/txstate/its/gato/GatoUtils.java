@@ -238,7 +238,7 @@ public final class GatoUtils {
         long w = wLong.longValue();
         srv.setWidth(w);
         ret.append(srv.createLink(asset)+" "+w+"w");
-        if (i++ <= widths.size()) ret.append(", ");
+        if (i++ < widths.size()) ret.append(", ");
       }
       return ret.toString();
     } catch (Exception e) {
@@ -563,5 +563,16 @@ public final class GatoUtils {
   public List<String> getEquivalentExtensions(String ext) {
     GatoMIMEMapping mimeMapping = Components.getComponent(GatoMIMEMapping.class);
     return mimeMapping.getEquivalents(ext);
+  }
+
+  public ContentMap singleComponent(Object page, String areaName) throws Exception {
+    Node p = toNode(page);
+    if (p.hasNode(areaName)) {
+      Node area = p.getNode(areaName);
+      for (Node comp : NodeUtil.getNodes(area, NodeTypes.Component.NAME)) {
+        return tf.asContentMap(comp);
+      }
+    }
+    return null;
   }
 }
