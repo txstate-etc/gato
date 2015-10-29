@@ -43,8 +43,8 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
   protected void doExecute(InstallContext ctx) throws RepositoryException, PathNotFoundException, TaskExecutionException, LoginException {
     Session hm=ctx.getJCRSession(RepositoryConstants.WEBSITE);
 
+    log.info("starting page level changes");
     visitPages(hm, new NodeVisitor() {
-      log.info("starting page level changes");
       public void visit(Node n) throws RepositoryException {
         if (NodeTypes.Renderable.getTemplate(n).equals("gato:pages/tsus-2012/tsus-2012-home")) {
           if (n.hasNode("tsusmenulinks")) NodeUtil.renameNode(n.getNode("tsusmenulinks"), "menulinks");
