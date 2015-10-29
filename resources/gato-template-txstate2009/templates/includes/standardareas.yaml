@@ -16,7 +16,7 @@ parentOrganization:
   availableComponents:
     parentOrg:
       id: gato-template-txstate2015:components/parent-organization
-banners:
+gato-banners:
   !include /gato-template/templates/areas/banners.yaml
 siteinfo:
   !include /gato-template/templates/areas/misctext.yaml
@@ -27,6 +27,6 @@ mail:
 navBlocks:
   !include /gato-template/templates/areas/navBlocks.yaml
 webtools:
-  !include /gato-template/templates/areas/linklist.yaml
+  !include /gato-template/templates/areas/webtools.yaml
 footer:
   !include /gato-template/templates/areas/misctext.yaml

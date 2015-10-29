@@ -1,21 +1,23 @@
-[#macro printimages banner]
-  [#list banner.images as img]
-    { src: "${gf.getImgDefault(img)}", srcset: "${gf.getSrcSet(img)}" }
+[#macro addimages banner]
+  [#list cmsfn.children(banner.banners, 'mgnl:component') as img]
+    [#if img.inherit && damfn.getAssetLink(img.image)?has_content]
+      [#assign banners = banners + [img]]
+    [/#if]
   [/#list]
 [/#macro]
 
-<script type="text/javascript">
-  var banners = [
-    [#if content.reset != 'true']
-      [#list ancestorsbottomup! as ancestor]
-        [#assign banner = gf.singleComponent(ancestor, 'banners')!]
-        [@printimages banner /]
-        [#if banner.reset == 'true'][#break][/#if]
-      [/#list]
-    [/#if]
-    [@printimages content /]
-  ];
-</script>
+[#assign banners = []]
+[@addimages content /]
+[#if !content.reset]
+  [#list ancestorsbottomup! as ancestor]
+    [#assign banner = gf.singleComponent(ancestor, 'gato-banners')!]
+    [@addimages banner /]
+    [#if banner.reset!false][#break][/#if]
+  [/#list]
+[/#if]
+[#assign image = banners[gf.random(0, banners?size-1)]]
 <div class="gato-banner-image">
-  <img src="${gf.getImgDefault(content.images[0])}">
+  <a href="${gf.filterUrl(image.imageLink)}">
+    <img src="${gf.getImgDefault(image.image)}" srcset="${gf.getSrcSet(image.image)}" alt="${image.imageAlt}">
+  </a>
 </div>

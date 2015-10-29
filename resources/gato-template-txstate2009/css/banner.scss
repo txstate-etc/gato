@@ -79,6 +79,14 @@
   height: 190px;
 }
 
+.gato-banner-image {
+  position: relative;
+  img {
+    display: block;
+    width: 100%;
+  }
+}
+
 /* Styles for the banner-free pages */
 .txst-khanbanner-hideimage {
   background: url(../images/destroyer-banner-bg-small.jpg) no-repeat !important;

@@ -44,6 +44,7 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
     Session hm=ctx.getJCRSession(RepositoryConstants.WEBSITE);
 
     visitPages(hm, new NodeVisitor() {
+      log.info("starting page level changes");
       public void visit(Node n) throws RepositoryException {
         if (NodeTypes.Renderable.getTemplate(n).equals("gato:pages/tsus-2012/tsus-2012-home")) {
           if (n.hasNode("tsusmenulinks")) NodeUtil.renameNode(n.getNode("tsusmenulinks"), "menulinks");
@@ -66,22 +67,33 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
         }
         convertPropertyToBool(n, "hideInNav");
         convertPropertyToBool(n, "hideSidebar");
+        moveBanners(n);
       }
     });
+    log.info("finished page level changes");
 
+    log.info("custom css and js changes");
     visitByTemplate(hm, "gato:components/texasState/customCssBlock", this::convertInheritToBool);
     visitByTemplate(hm, "gato:components/texasState/customjsBlock", this::convertInheritToBool);
+    log.info("sidebar navigation changes");
     visitByTemplate(hm, "gato:components/texasState/navBlock", this::updateNavBlock);
+    log.info("image gallery changes");
     visitByTemplate(hm, "gato:components/texasState/imageGallery", this::updateImageGallery);
+    log.info("site map paragraph changes");
     visitByTemplate(hm, "gato:components/texasState/siteMap", this::updateSiteMapComponent);
+    log.info("sub pages paragraph changes");
     visitByTemplate(hm, "gato:components/texasState/subPages", this::updateSubPagesComponent);
+    log.info("mail template paragraph changes");
     visitByTemplate(hm, "gato:components/texasState/texas-form-edit", this::updateFormEditComponent);
     visitByTemplate(hm, "gato:components/texasState/texas-form-file", this::updateFormFileComponent);
     visitByTemplate(hm, "gato:components/texasState/texas-form-selection", this::updateSelectionComponent);
     visitByTemplate(hm, "gato:pages/main-2009/khan-mail", this::updateMailArea);
+    log.info("download paragraph changes");
     visitByTemplate(hm, "gato:components/texasState/texasDownload", this::updateDownloadComponent);
     visitByTemplate(hm, "gato:components/texasState/texasLink", this::convertNewWindowToBool);
+    log.info("delete old files uploaded to rich editor paragraphs");
     visitByTemplate(hm, "gato:components/texasState/texasEditor", this::deleteContentFiles);
+    log.info("delete old files uploaded to text and image paragraphs");
     visitByTemplate(hm, "gato:components/texasState/texasTextImage", this::deleteTextFiles);
   }
 
@@ -258,5 +270,25 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
     }
 
     return newValues.toArray(new String[0]);
+  }
+
+  protected void moveBanners(Node n) throws RepositoryException {
+    if (n.hasNode("gato-banners")) {
+      Node gbanners = n.getNode("gato-banners");
+      Iterable<Node> images = NodeUtil.getNodes(gbanners, "mgnl:component");
+      Node newcomponent = gbanners.addNode("imported", "mgnl:component");
+      NodeTypes.Renderable.set(newcomponent, "gato-template:components/banners");
+      Node imagesparent = newcomponent.addNode("banners", "mgnl:area");
+      for (Node image : images) {
+        NodeUtil.moveNode(image, imagesparent);
+        convertPropertyToBool(image, "inherit");
+      }
+      if (n.hasNode("gato-banner-settings")) {
+        Node gbsettings = n.getNode("gato-banner-settings");
+        PropertyUtil.setProperty(newcomponent, "visible", gbsettings.getProperty("visible").getString());
+        PropertyUtil.setProperty(newcomponent, "reset", gbsettings.getProperty("reset").getBoolean());
+        gbsettings.remove();
+      }
+    }
   }
 }

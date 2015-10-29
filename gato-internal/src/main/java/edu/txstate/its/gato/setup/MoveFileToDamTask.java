@@ -43,9 +43,10 @@ class MoveFileToDamTask extends MoveFileContentToDamMigrationTask {
     while (!page.getPrimaryNodeType().isNodeType(NodeTypes.Page.NAME)) {
       page = page.getParent();
     }
-    if (dataNodeResource.getPath().contains("/gato-banners/")) this.folderName = "banners";
     String[] path = page.getPath().split("/", 3);
     String damPath = "/"+path[1]+"/migrated_files/"+this.folderName+"/"+(path.length > 2 ? path[2] : "");
+    if (dataNodeResource.getPath().contains("/gato-banners/"))
+      damPath = "/banners/"+path[1];
     Node damParent = NodeUtil.createPath(this.damSession.getRootNode(), damPath, NodeTypes.Folder.NAME);
 
     // find the filename we will use and ensure it's unique in our parent folder

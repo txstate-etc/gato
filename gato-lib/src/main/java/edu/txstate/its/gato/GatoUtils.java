@@ -34,6 +34,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
 import java.text.SimpleDateFormat;
@@ -574,5 +575,10 @@ public final class GatoUtils {
       }
     }
     return null;
+  }
+
+  protected final Random rand = new Random();
+  public int random(int min, int max) {
+    return rand.nextInt((max - min) + 1) + min;
   }
 }
