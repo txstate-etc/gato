@@ -65,6 +65,15 @@ class MoveRichEditorToDamTask extends MoveFCKEditorContentToDamMigrationTask {
   }
 
   @Override
+  protected void handleUploadReferenceForNode(Node node) throws RepositoryException {
+    try {
+      handleTextProperty(node, node.getProperty(getPropertyValue()));
+    } catch (Exception e) {
+      log.warn("Not able to handle the following node '{}'", NodeUtil.getName(node), e);
+    }
+  }
+
+  @Override
   protected String copyToDam(Node dataNodeResource) throws RepositoryException {
     // figure out where to put our asset
     Node page = dataNodeResource;
