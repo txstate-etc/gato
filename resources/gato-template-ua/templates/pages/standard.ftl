@@ -13,7 +13,7 @@
     [#include "../includes/header.ftl"]
     <div class="ua-banner">
       <div class="ua-banner-content">
-        [@cms.area name="banners" /]
+        [@cms.area name="gato-banners" /]
       </div>
     </div>
 		<div class="ua-breadcrumbs-wide">

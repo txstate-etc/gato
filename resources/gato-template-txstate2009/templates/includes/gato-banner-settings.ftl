@@ -4,12 +4,9 @@
 [#assign showBannerVal=gbsettings.visible!'inherit']
 
 [#list ancestorstopdown as ancestor]
-  [#if ancestor['banners']?has_content]
-    [#assign agbsettings=gf.singleComponent(ancestor, 'gato-banners')!]
-    [#if showBannerVal=='inherit']
-      [#assign showBannerVal=agbsettings.visible!'inherit']
-    [/#if]
-	[/#if]
+  [#assign agbsettings=gf.singleComponent(ancestor, 'gato-banners')!]
+  [#if agbsettings?? && showBannerVal=='inherit']
+    [#assign showBannerVal=agbsettings.visible!'inherit']
+  [/#if]
 [/#list]
-
 [#assign showBannerArea=(showBannerVal=='shown')]

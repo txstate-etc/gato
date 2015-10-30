@@ -1,6 +1,7 @@
 title: Banner Images
-type: list
-maxComponents: 1
+type: single
+renderType: freemarker
+templateScript: gato-template/templates/areas/banners.ftl
 availableComponents:
   banners:
     id: gato-template:components/banners

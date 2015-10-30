@@ -275,19 +275,21 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
   protected void moveBanners(Node n) throws RepositoryException {
     if (n.hasNode("gato-banners")) {
       Node gbanners = n.getNode("gato-banners");
-      Iterable<Node> images = NodeUtil.getNodes(gbanners, "mgnl:component");
-      Node newcomponent = gbanners.addNode("imported", "mgnl:component");
-      NodeTypes.Renderable.set(newcomponent, "gato-template:components/banners");
-      Node imagesparent = newcomponent.addNode("banners", "mgnl:area");
-      for (Node image : images) {
-        NodeUtil.moveNode(image, imagesparent);
-        convertPropertyToBool(image, "inherit");
-      }
-      if (n.hasNode("gato-banner-settings")) {
-        Node gbsettings = n.getNode("gato-banner-settings");
-        PropertyUtil.setProperty(newcomponent, "visible", gbsettings.getProperty("visible").getString());
-        PropertyUtil.setProperty(newcomponent, "reset", gbsettings.getProperty("reset").getBoolean());
-        gbsettings.remove();
+      if (gbanners.hasNodes()) {
+        Iterable<Node> images = NodeUtil.getNodes(gbanners, "mgnl:component");
+        Node newcomponent = gbanners.addNode("imported", "mgnl:component");
+        NodeTypes.Renderable.set(newcomponent, "gato-template:components/banners");
+        Node imagesparent = newcomponent.addNode("banners", "mgnl:area");
+        for (Node image : images) {
+          NodeUtil.moveNode(image, imagesparent);
+          convertPropertyToBool(image, "inherit");
+        }
+        if (n.hasNode("gato-banner-settings")) {
+          Node gbsettings = n.getNode("gato-banner-settings");
+          PropertyUtil.setProperty(newcomponent, "visible", gbsettings.getProperty("visible").getString());
+          PropertyUtil.setProperty(newcomponent, "reset", gbsettings.getProperty("reset").getBoolean());
+          gbsettings.remove();
+        }
       }
     }
   }

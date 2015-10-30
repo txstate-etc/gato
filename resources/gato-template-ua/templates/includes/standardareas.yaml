@@ -11,6 +11,8 @@ socialmedia:
   availableComponents:
     sociallink:
       id: gato-template:components/sociallink
+gato-banners:
+  !include /gato-template/templates/areas/banners.yaml
 contentParagraph:
   !include /gato-template/templates/areas/contentParagraph.yaml
 mail:
