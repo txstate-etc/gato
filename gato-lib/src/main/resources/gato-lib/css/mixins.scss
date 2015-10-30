@@ -32,3 +32,8 @@
   -webkit-box-shadow: $shadows;
           box-shadow: $shadows;
 }
+
+@mixin fa($icon) {
+    @extend .fa;
+    @extend .fa-#{$icon};
+}

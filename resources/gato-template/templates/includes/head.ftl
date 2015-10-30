@@ -19,27 +19,13 @@
 		'gato-lib/js/photoswipe/photoswipe-ui-default.js',
 		'gato-lib/js/photoswipe-util.js',
 		'gato-lib/js/spin.min.js',
+		'gato-lib/js/slick/slick.min.js',
 		'gato-component-gallery/js/gallery.js',
 		'gato-component-feature/js/feature.js',
 		'gato-template/js/standardista-table-sorting.js',
 		'gato-area-mail/js/mailForm.js',
 		'gato-component-streaming/js/streaming.js'
 	]+scripts /]
-[/#macro]
-
-[#macro templatecss files]
-	[@css files = [
-		'gato-template/css/yahoo-ui-reset.css',
-		'gato-template/css/common.css',
-		'gato-template/css/main-menus.css',
-		'gato-template/css/mailForm.css',
-		'gato-component-cssjs/css/custom.css',
-		'gato-component-sitemap/css/sitemap.css',
-		'gato-component-faq/css/faqitem.css',
-		'gato-lib/js/photoswipe/photoswipe.css',
-		'gato-lib/js/photoswipe/default-skin/default-skin.css',
-		'gato-component-gallery/css/gallery.css'
-	]+files /]
 [/#macro]
 
 [#macro templatehead publisher="Texas State University"]

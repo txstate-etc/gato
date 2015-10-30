@@ -1,14 +1,10 @@
 .gato-feature {
   position: relative;
   cursor: pointer;
+  margin-bottom: 30px;
   .slide {
     position: relative;
-    display: none;
-    width: 100%;
     overflow: hidden;
-    &.active {
-      display: block;
-    }
     div.image {
       position: relative;
       padding-bottom: 56.25%;
@@ -46,47 +42,84 @@
     &.color6 .caption { background-color: rgba($mc6-bg, 0.9); color: $mc6-text; }
     &.color7 .caption { background-color: rgba($mc7-bg, 0.9); color: $mc7-text; }
   }
-  .navleft, .navright {
+  .slick-prev, .slick-next {
     position: absolute;
+    z-index: 1;
     top: 0px;
     text-decoration: none;
     padding: 27.5% 10px;
     padding: calc(28.125% - 20px) 10px;
-    font-size: 40px;
+    font-size: 0px;
+    &:before { font-size: 40px; }
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: transparent;
     color: rgba(255,255,255,0.5);
     &:hover, &:focus { color: rgba(255,255,255,0.9); }
+    &:active, .no-touch &:hover { background-color: $sandstone; }
   }
-  .navleft {
+  .slick-prev {
     left: 0px;
+     @include fa(chevron-circle-left);
   }
-  .navright {
+  .slick-next {
     right: 0px;
+     @include fa(chevron-circle-right);
   }
-  .pages {
-    margin: 0;
-    padding: 8px 0px;
-    text-align: center;
+  .slick-dots {
+    position: absolute;
+    bottom: -45px;
     list-style: none;
+    display: block;
+    text-align: center;
+    padding: 0;
+    width: 100%;
     li {
-      display: inline-block;
-      vertical-align: middle;
-      width: 14px;
-      padding: 0px 2px;
-      a {
-        margin: 0px auto;
-        display: block;
-        width: 8px;
-        height: 8px;
-        border-radius: 4px;
-        background-color: $page-indicator-inactive;
-        &:hover, &:focus { background-color: $page-indicator-hover; }
-      }
-      &.active a {
-        width: 12px;
-        height: 12px;
-        border-radius: 6px;
-        background-color: $page-indicator-active;
-      }
+        position: relative;
+        display: inline-block;
+        height: 20px;
+        width: 20px;
+        margin: 0 5px;
+        padding: 0;
+        cursor: pointer;
+        button {
+            border: 0;
+            background: transparent;
+            display: block;
+            height: 20px;
+            width: 20px;
+            outline: none;
+            line-height: 0px;
+            font-size: 0px;
+            color: transparent;
+            padding: 5px;
+            cursor: pointer;
+            &:hover, &:focus {
+                outline: none;
+                &:before {
+                    opacity: 1;
+                }
+            }
+            &:before {
+                position: absolute;
+                top: 0;
+                left: 0;
+                content: "•";
+                width: 20px;
+                height: 20px;
+                font-size: 24px;
+                line-height: 20px;
+                text-align: center;
+                color: $page-indicator-inactive;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+        }
+        &.slick-active button:before {
+            color: $page-indicator-active;
+            font-size: 32px;
+        }
     }
   }
   &[max-width~="1200px"] {
@@ -96,7 +129,7 @@
         font-size: 1.1em;
       }
     }
-    .navleft, .navright { font-size: 36px; padding: calc(28.125% - 18px) 10px; }
+    .slick-prev, .slick-next { &:before { font-size: 36px; } padding: calc(28.125% - 18px) 10px; }
   }
   &[max-width~="800px"] {
     .slide {
@@ -105,7 +138,7 @@
         font-size: 1em;
       }
     }
-    .navleft, .navright { font-size: 32px; padding: calc(28.125% - 16px) 10px; }
+    .slick-prev, .slick-next { &:before { font-size: 32px; } padding: calc(28.125% - 16px) 10px; }
   }
   &[max-width~="600px"] {
     .slide {
@@ -129,7 +162,7 @@
         font-size: 0.9em;
       }
     }
-    .navleft, .navright { font-size: 28px; padding: calc(28.125% - 14px) 10px; }
+    .slick-prev, .slick-next { &:before { font-size: 28px; } padding: calc(28.125% - 14px) 10px; }
   }
   &[max-width~="200px"] {
     .slide {
@@ -139,6 +172,6 @@
         h3 { margin: 0px 0px 4px 0px; }
       }
     }
-    .navleft, .navright { font-size: 24px; padding: calc(28.125% - 12px) 10px; }
+    .slick-prev, .slick-next { &:before { font-size: 24px; } padding: calc(28.125% - 12px) 10px; }
   }
 }

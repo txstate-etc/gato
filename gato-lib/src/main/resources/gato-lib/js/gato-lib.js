@@ -1,6 +1,12 @@
 // determine what event we should look for to detect orientation changes
 orientationChangeEventName = ( "onorientationchange" in window ) ? "orientationchange" : "resize";
 
+// add css class to html element for touch screen devices
+// NB: This is not 100% reliable, so don't use it on mission critical stuff
+// http://www.stucox.com/blog/you-cant-detect-a-touchscreen/
+isTouchScreen = "ontouchstart" in window;
+document.documentElement.className += isTouchScreen ? " touch" : " no-touch";
+
 // this is a very important fix for IE8, which triggers window.resize every time ANY
 // object on the page is resized or even repositioned.  This obviously leads to nasty
 // infinite loops if you observe window.resize and alter any elements.  This code acts
@@ -88,8 +94,9 @@ function detect_apple() {
 }
 
 // detect devices with touch screen interfaces
+// see caveat above
 function detect_touch() {
-	return navigator.userAgent.match(/(iPhone|iPod|iPad|android)/i);
+	return isTouchScreen;
 }
 
 // detect android
