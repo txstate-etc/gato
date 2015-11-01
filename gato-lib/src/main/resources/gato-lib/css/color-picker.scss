@@ -1,6 +1,11 @@
 @import "gato-lib/css/variables";
 
 label.colorsel {
+  display: inline-block;
+  padding: 0 1rem;
+  margin: 0.25rem; 
+  width: 15%;
+
   &.color1 > span { background-color: $mc1-bg; color: $mc1-text; &:before { content: $mc1-name; } }
   &.color2 > span { background-color: $mc2-bg; color: $mc2-text; &:before { content: $mc2-name; } }
   &.color3 > span { background-color: $mc3-bg; color: $mc3-text; &:before { content: $mc3-name; } }
@@ -22,8 +27,7 @@ label.colorsel {
       display: inline-block;
       font-weight: bold;
       padding: 1rem;
-      margin: 0.25rem; 
-      width: 15%;
+      width: 100%;
       text-align: center;
       border: 1px solid $mgnl-fld-border;
     }
