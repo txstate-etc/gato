@@ -1,162 +1,31 @@
-@import "button-colors";
 /* styles for buttons */
 a.button{
-    &.gradient{
-        &.maroon{
-            @include gradient-button($grad-btn-border-maroon,
-                                     $grad-btn-top-maroon,
-                                     $grad-btn-bot-maroon,
-                                     $grad-btn-top-maroon-hover,
-                                     $grad-btn-bot-maroon-hover,
-                                     false);
-        }
-        &.gold{
-            @include gradient-button($grad-btn-border-gold,
-                                     $grad-btn-top-gold,
-                                     $grad-btn-bot-gold,
-                                     $grad-btn-top-gold-hover,
-                                     $grad-btn-bot-gold-hover,
-                                     false);
-        }
-        &.blue{
-            @include gradient-button($grad-btn-border-blue,
-                                     $grad-btn-top-blue,
-                                     $grad-btn-bot-blue,
-                                     $grad-btn-top-blue-hover,
-                                     $grad-btn-bot-blue-hover,
-                                     false);
-        }
-        &.charcoal{
-            @include gradient-button($grad-btn-border-charcoal,
-                                     $grad-btn-top-charcoal,
-                                     $grad-btn-bot-charcoal,
-                                     $grad-btn-top-charcoal-hover,
-                                     $grad-btn-bot-charcoal-hover,
-                                     false);
-        }
-        &.river{
-            @include gradient-button($grad-btn-border-river,
-                                     $grad-btn-top-river,
-                                     $grad-btn-bot-river,
-                                     $grad-btn-top-river-hover,
-                                     $grad-btn-bot-river-hover,
-                                     true);
-        }
-        &.sandstone{
-            @include gradient-button($grad-btn-border-sandstone,
-                                     $grad-btn-top-sandstone,
-                                     $grad-btn-bot-sandstone,
-                                     $grad-btn-top-sandstone-hover,
-                                     $grad-btn-bot-sandstone-hover,
-                                     true);
-        }
-        &.oldgold{
-            @include gradient-button($grad-btn-border-oldgold,
-                                     $grad-btn-top-oldgold,
-                                     $grad-btn-bot-oldgold,
-                                     $grad-btn-top-oldgold-hover,
-                                     $grad-btn-bot-oldgold-hover,
-                                     true);
-        }
-    }
+  &.small{
+    padding: 0.6rem 1rem;
+    font-size: 60%; //also a starting point
+    font-weight: 400;
+  }
 
-    &.reverse{
-        &.gold{
-            @include reverse-button($gold);
-        }
-        &.maroon{
-            @include reverse-button($maroon);
-        }
-        &.blue{
-            @include reverse-button($blue);
-        }
-        &.charcoal{
-            @include reverse-button($charcoal);
-        }
-    }
+  &.rollover.small{
+    padding:0px;
+    span{padding: 0.6rem 1rem;}
+  }
 
-    &.three-d{
-        &.gold{
-            @include three-d-button($gold, $three-d-btn-hover-background-gold, $three-d-btn-box-shdw-gold, false);
-        }
-        &.maroon{
-            @include three-d-button($maroon, $three-d-btn-hover-background-maroon, $three-d-btn-box-shdw-maroon, false);
-        }
-        &.blue{
-            @include three-d-button($blue, $three-d-btn-hover-background-blue, $three-d-btn-box-shdw-blue, false);
-        }
-        &.charcoal{
-            @include three-d-button($charcoal, $three-d-btn-hover-background-charcoal, $three-d-btn-box-shdw-charcoal, false);
-        }
-        &.river{
-            @include three-d-button($river, $three-d-btn-hover-background-river, $three-d-btn-box-shdw-river, true);
-        }
-        &.sandstone{
-            @include three-d-button($sandstone, $three-d-btn-hover-background-sandstone, $three-d-btn-box-shdw-sandstone, true);
-        }
-        &.oldgold{
-            @include three-d-button($oldgold, $three-d-btn-hover-background-oldgold, $three-d-btn-box-shdw-oldgold, true);
-        }
-    }
+  &.large{
+    padding: 2rem 3rem;
+    font-size: 110%; //also a starting point
+    font-weight: 700;
+  }
 
+  &.rollover.large{
+    padding:0px;
+    span{padding: 2rem 3rem;} 
+  }
 
-    &.rollover{
-        //background: url('images/pencils.jpg') no-repeat; 
-        background-position: 100% 50%; 
-        background-size: cover; 
-        border-radius: $default-border-radius;
-        margin: 0px;
-        display:table;
-        
-        &.gold{
-            @include image-rollover-button($image-btn-background-gold, $image-btn-background-hover-gold,false);
-        }
-        &.maroon{
-            @include image-rollover-button($image-btn-background-maroon, $image-btn-background-hover-maroon,false);
-        }
-        &.blue{
-            @include image-rollover-button($image-btn-background-blue, $image-btn-background-hover-blue,false);
-        }
-        &.charcoal{
-            @include image-rollover-button($image-btn-background-charcoal, $image-btn-background-hover-charcoal,false);
-        }
-        &.river{
-            @include image-rollover-button($image-btn-background-river, $image-btn-background-hover-river,true);
-        }
-        &.sandstone{
-            @include image-rollover-button($image-btn-background-sandstone, $image-btn-background-hover-sandstone,true);
-        }
-        &.oldgold{
-            @include image-rollover-button($image-btn-background-oldgold, $image-btn-background-hover-oldgold,true);
-        }
-    }
-
-    &.small{
-        padding: 0.6rem 1rem;
-        font-size: 60%; //also a starting point
-        font-weight: 400;
-    }
-
-    &.rollover.small{
-        padding:0px;
-        span{padding: 0.6rem 1rem;}
-    }
-
-    &.large{
-        padding: 2rem 3rem;
-        font-size: 110%; //also a starting point
-        font-weight: 700;
-    }
-
-    &.rollover.large{
-        padding:0px;
-        span{padding: 2rem 3rem;} 
-    }
-
-    &.block {
-      display: block;
-      width: 100%;
-    }
+  &.block {
+    display: block;
+    width: 100%;
+  }
 }
 
 

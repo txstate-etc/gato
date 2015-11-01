@@ -1,20 +1,16 @@
 @import "button-mixins";
 
 //button colors
- $default-button-background:        $maroon;
- $default-button-border:            $darkest-maroon;
- $default-button-background-hover:  $lightest-maroon;
- $button-text:                      $white;
- $button-reverse-text:              $almost-black;
- $button-reverse-text-weight:       400;
+$button-reverse-background:        $white;
+$button-reverse-text-weight:       400;
 
 
-.button-wrapper > a.button{
+.button-wrapper {
+  margin: 0.5rem;
+
+  & > a.button {
     display: inline-block;
     padding: 1.4rem 0.75rem;
-    background: $default-button-background;
-    border: 1px solid $default-button-border;
-    color: $button-text; 
     text-align: center;
     text-transform: uppercase;
     font-size: 85%;
@@ -23,7 +19,183 @@
     margin: 0px;
     @include vendor-prefix(border-radius, $default-border-radius);
     @include box-shadow(0px 1px 1px 0px rgba(0,0,0,0.2));
-    &:hover{background: $default-button-background-hover;}
     &:active {position: relative; top: 2px;} //make it move to be more button-like
     text-decoration:none;
+
+    &.gradient{
+      &.color1 {
+        @include gradient-button($mc1-border,
+                                 $mc1-grad-top,
+                                 $mc1-grad-bottom,
+                                 $mc1-comp-grad-top,
+                                 $mc1-comp-grad-bottom,
+                                 $mc1-text);
+      }
+      &.color2 {
+        @include gradient-button($mc2-border,
+                                 $mc2-grad-top,
+                                 $mc2-grad-bottom,
+                                 $mc2-comp-grad-top,
+                                 $mc2-comp-grad-bottom,
+                                 $mc2-text);
+      }
+      &.color3 {
+        @include gradient-button($mc3-border,
+                                 $mc3-grad-top,
+                                 $mc3-grad-bottom,
+                                 $mc3-comp-grad-top,
+                                 $mc3-comp-grad-bottom,
+                                 $mc3-text);
+      }
+      &.color4 {
+        @include gradient-button($mc4-border,
+                                 $mc4-grad-top,
+                                 $mc4-grad-bottom,
+                                 $mc4-comp-grad-top,
+                                 $mc4-comp-grad-bottom,
+                                 $mc4-text);
+      }
+      &.color5 {
+        @include gradient-button($mc5-border,
+                                 $mc5-grad-top,
+                                 $mc5-grad-bottom,
+                                 $mc5-comp-grad-top,
+                                 $mc5-comp-grad-bottom,
+                                 $mc5-text);
+      }
+      &.color6 {
+        @include gradient-button($mc6-border,
+                                 $mc6-grad-top,
+                                 $mc6-grad-bottom,
+                                 $mc6-comp-grad-top,
+                                 $mc6-comp-grad-bottom,
+                                 $mc6-text);
+      }
+      &.color7 {
+        @include gradient-button($mc7-border,
+                                 $mc7-grad-top,
+                                 $mc7-grad-bottom,
+                                 $mc7-comp-grad-top,
+                                 $mc7-comp-grad-bottom,
+                                 $mc7-text);
+      }
+    }
+
+    &.reverse{
+        &.color1 {
+            @include reverse-button($mc1-bg);
+        }
+        &.color2 {
+            @include reverse-button($mc2-bg);
+        }
+        &.color3 {
+            @include reverse-button($mc3-bg);
+        }
+       &.color4 {
+            @include reverse-button($mc4-bg);
+        }
+    }
+
+    &.three-d{
+      &.color1 {
+        @include three-d-button(
+          $mc1-bg, 
+          $mc1-comp-bg, 
+          $mc1-shadow, 
+          $mc1-text);
+      }
+      &.color2 {
+        @include three-d-button(
+          $mc2-bg, 
+          $mc2-comp-bg, 
+          $mc2-shadow, 
+          $mc2-text);
+      }
+      &.color3 {
+        @include three-d-button(
+          $mc3-bg, 
+          $mc3-comp-bg, 
+          $mc3-shadow, 
+          $mc3-text);
+      }
+      &.color4 {
+        @include three-d-button(
+          $mc4-bg, 
+          $mc4-comp-bg, 
+          $mc4-shadow, 
+          $mc4-text);
+      }
+      &.color5 {
+        @include three-d-button(
+          $mc5-bg, 
+          $mc5-comp-bg, 
+          $mc5-shadow, 
+          $mc5-text);
+      }
+      &.color6 {
+        @include three-d-button(
+          $mc6-bg, 
+          $mc6-comp-bg, 
+          $mc6-shadow, 
+          $mc6-text);
+      }
+      &.color7 {
+        @include three-d-button(
+          $mc7-bg, 
+          $mc7-comp-bg, 
+          $mc7-shadow, 
+          $mc7-text);
+      }
+    }
+
+
+    &.rollover{
+      border-radius: $default-border-radius;
+      margin: 0px;
+      display:table;
+        
+      &.color1 {
+        @include image-rollover-button(
+          $mc1-bg, 
+          $mc1-comp-bg,
+          $mc1-text);
+      }
+      &.color2 {
+        @include image-rollover-button(
+          $mc2-bg, 
+          $mc2-comp-bg,
+          $mc2-text);
+      }
+      &.color3 {
+        @include image-rollover-button(
+          $mc3-bg, 
+          $mc3-comp-bg,
+          $mc3-text);
+      }
+      &.color4 {
+        @include image-rollover-button(
+          $mc4-bg, 
+          $mc4-comp-bg,
+          $mc4-text);
+      }
+      &.color5 {
+        @include image-rollover-button(
+          $mc5-bg, 
+          $mc5-comp-bg,
+          $mc5-text);
+      }
+      &.color6 {
+        @include image-rollover-button(
+          $mc6-bg, 
+          $mc6-comp-bg,
+          $mc6-text);
+      }
+      &.color7 {
+        @include image-rollover-button(
+          $mc7-bg, 
+          $mc7-comp-bg,
+          $mc7-text);
+      }
+    }
+  }
 }

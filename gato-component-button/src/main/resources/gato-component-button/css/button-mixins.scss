@@ -1,16 +1,13 @@
 //Build a gradient button.  The button has a border color and 2 different
 //vertical gradients: one for normal state and one for when the user
 //hovers over the button.
-@mixin gradient-button($border-color, $grad-top, $grad-bottom, $hover-grad-top, $hover-grad-bottom, $reverse-text){
+@mixin gradient-button($border-color, $grad-top, $grad-bottom, $hover-grad-top, $hover-grad-bottom, $text-color){
 
   background: $grad-top;
   border: $border-color;
-  @if $reverse-text == true{
-    color: $button-reverse-text;
+  color: $text-color;
+  @if $text-color != $white {
     font-weight: $button-reverse-text-weight;
-  }
-  @else{
-    color: $button-text;
   }
 
   @include vertical-gradient($grad-top,$grad-bottom);
@@ -18,7 +15,6 @@
     background: $hover-grad-top;
     @include vertical-gradient($hover-grad-top,$hover-grad-bottom);
   }
-
 }
 
 //build a "reverse" button.  The color passed in is used for the
@@ -26,59 +22,49 @@
 //the button, the button turns the color passed in and the text 
 //becomes white
 @mixin reverse-button($color){
-    color: $color;
-    background: $reverse-btn-background;
-    text-decoration: none;
-    font-weight: 700;
-    border: 3px solid $color;
-    &:hover{
-      background: $color;
-      color: $reverse-btn-background;
-    }
+  color: $color;
+  background: $button-reverse-background;
+  text-decoration: none;
+  font-weight: 700;
+  border: 3px solid $color;
+  &:hover{
+    background: $color;
+    color: $button-reverse-background;
+  }
 }
 
 //build a button that appears 3 dimensional.
-@mixin three-d-button($background, $hover-background, $shadow, $reverse-text){
+@mixin three-d-button($background, $hover-background, $shadow, $text-color){
   border: 0px;
-    @if $reverse-text == true{
-      color: $button-reverse-text;
-    }
-    @else{
-      color: $button-text;
-    }
-    background: $background;
-    @include vendor-prefix(transition, background .2s ease-in-out, box-shadow 0s !important);
-    @include box-shadow(0 4px $shadow);
-    &:hover{
-      background: $hover-background;
-    }
-    &:active{
-       @include box-shadow(0 0 $shadow);
-    }
-
+  color: $text-color;
+  background: $background;
+  @include vendor-prefix(transition, background .2s ease-in-out, box-shadow 0s !important);
+  @include box-shadow(0 4px $shadow);
+  &:hover{
+    background: $hover-background;
+  }
+  &:active{
+    @include box-shadow(0 0 $shadow);
+  }
 }
 //build a button that shows an image on rollover.  The background
 //image is chosen by the user in the dialog.
-@mixin image-rollover-button($background, $rollover-background, $reverse-text){
-  @if $reverse-text == true{
-    color: $button-reverse-text;
-  }
-  @else{
-    color: $button-text;
-  }
-  background: url('../images/pencils.jpg') no-repeat;
+@mixin image-rollover-button($background, $rollover-background, $text-color){
+  color: $text-color;
+  background-image: url('../images/pencils.jpg');
+  background-repeat: no-repeat;
   padding: 0px;  //padding is set in the span so the image is covered
   background-position: 100% 50%;
   background-size: cover;
   border: 0px;
   span{
-      display:block;
-      padding: 1.4rem 0.75rem;
-      vertical-align: middle;
-      font-weight:400;
-      background-color: $background;
-      border-radius: $default-border-radius;
-      &:hover {background-color: $rollover-background; background: rgba($background, 0.85);}
-      &:active {background-color: $rollover-background; background: rgba($background, 0.95);}
+    display:block;
+    padding: 1.4rem 0.75rem;
+    vertical-align: middle;
+    font-weight:400;
+    background-color: $background;
+    border-radius: $default-border-radius;
+    &:hover {background-color: $rollover-background; background: rgba($background, 0.85);}
+    &:active {background-color: $rollover-background; background: rgba($background, 0.95);}
   }
 }

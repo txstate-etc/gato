@@ -71,6 +71,7 @@ $mc1-grad-top:              $light-maroon;
 $mc1-grad-bottom:           $dark-maroon;
 $mc1-comp-grad-top:         $lightest-maroon;
 $mc1-comp-grad-bottom:      $maroon;
+$mc1-shadow:                $maroon-shadow;
 
 $mc2-name:                  'Gold'; 
 $mc2-bg:                    $gold; 
@@ -86,9 +87,10 @@ $mc2-comp-border:           $mc2-border;
 $mc2-hilite-bg:             $light-gold;
 $mc2-hilite-text:           $white;
 $mc2-grad-top:              $light-gold;
-$mc-2-grad-bottom:          $dark-gold;
-$mc-2-comp-grad-top:        $lightest-gold;
-$mc-2-comp-grad-bottom:     $mc2-bg;
+$mc2-grad-bottom:           $dark-gold;
+$mc2-comp-grad-top:         $lightest-gold;
+$mc2-comp-grad-bottom:      $mc2-bg;
+$mc2-shadow:                $light-gold;
 
 
 $mc3-name:                  'Charcoal'; 
@@ -108,6 +110,7 @@ $mc3-grad-top:              $light-charcoal;
 $mc3-grad-bottom:           $dark-charcoal;
 $mc3-comp-grad-top:         $lightest-charcoal;
 $mc3-comp-grad-bottom:      $mc3-bg;
+$mc3-shadow:                $darkest-charcoal;
 
 $mc4-name:                  'Blue'; 
 $mc4-bg:                    $blue; 
@@ -126,7 +129,7 @@ $mc4-grad-top:              $light-blue;
 $mc4-grad-bottom:           $dark-blue;
 $mc4-comp-grad-top:         $lightest-blue;
 $mc4-comp-grad-bottom:      $mc4-bg;
-
+$mc4-shadow:                $blue-shadow;
 
 $mc5-name:                  'River'; 
 $mc5-bg:                    $river; 
@@ -145,6 +148,7 @@ $mc5-grad-top:              $light-river;
 $mc5-grad-bottom:           $dark-river;
 $mc5-comp-grad-top:         $lightest-river; 
 $mc5-comp-grad-bottom:      $mc5-bg;
+$mc5-shadow:                $river-shadow;
 
 $mc6-name:                  'Sandstone'; 
 $mc6-bg:                    $sandstone; 
@@ -163,6 +167,7 @@ $mc6-grad-top:              $light-sandstone;
 $mc6-grad-bottom:           $dark-sandstone;
 $mc6-comp-grad-top:         $mc6-bg;
 $mc6-comp-grad-bottom:      $khaki;
+$mc6-shadow:                $darkest-sandstone;
 
 $mc7-name:                  'Old Gold'; 
 $mc7-bg:                    $oldgold; 
@@ -181,5 +186,6 @@ $mc7-grad-top:              $light-oldgold;
 $mc7-grad-bottom:           $dark-oldgold;
 $mc7-comp-grad-top:         $lightest-oldgold;
 $mc7-comp-grad-bottom:      $mc7-bg;
+$mc7-shadow:                $oldgold-shadow;
 
 

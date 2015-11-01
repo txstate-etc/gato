@@ -1,10 +1,10 @@
 [#assign buttonType = content.buttonType!"gradient"]
-[#assign buttonColor = content.color!]
+[#assign buttonColor = content.color!"color1"]
 [#assign buttonSize = content.size!]
 [#assign buttonText = content.text!]
 [#assign buttonLink = content.url!"#"]
 [#if buttonType == "rollover" && content.image?has_content]
-    [#assign buttonBG = "style=\"background: url('" + gf.getImgDefault(content.image) + "') no-repeat; \"" ]
+    [#assign buttonBG = "style=\"background-image: url('" + gf.getImgDefault(content.image) + "'); \"" ]
 [/#if]
 <div class="button-wrapper">
     <a href="${buttonLink}" class="button ${buttonType} ${buttonColor} ${buttonSize}" ${buttonBG!}>

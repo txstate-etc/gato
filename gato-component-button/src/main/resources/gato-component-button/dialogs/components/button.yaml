@@ -25,62 +25,33 @@ form:
               value: three-d
           fields:
             - name: gradient
-              class: info.magnolia.ui.form.field.definition.SelectFieldDefinition
-              transformerClass: edu.txstate.its.gato.ButtonTypeTransformer
-              sortOptions: false
+              transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
               label: Color
-              options:
-                - name: gold
-                  value: gold
-                  selected: true
-                  label: Gold
-                - name: maroon
-                  value: maroon
-                  label: Maroon
-                - name: blue
-                  value: blue
-                  label: Blue
-                - name: charcoal
-                  value: charcoal
-                  label: Charcoal
-                - name: river
-                  value: river
-                  label: River
-                - name: sandstone
-                  value: sandstone
-                  label: Sandstone
-                - name: oldgold
-                  value: oldgold
-                  selected: true
-                  label: Old Gold
+              class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
+              fields:
+                - name: color
+                  class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+              initFunction: initColorPicker
+              scripts: [gato-lib/js/color-picker.js]
+              styles: [gato-lib/css/color-picker.compiled.css]
+              styleName: single-color
             - name: rollover
               class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
               transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
               layout: vertical
               label: ""
               fields:
-                - name: color
-                  class: info.magnolia.ui.form.field.definition.SelectFieldDefinition
-                  transformerClass: edu.txstate.its.gato.ButtonTypeTransformer
-                  sortOptions: false
+                - name: colorScript
+                  transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
                   label: Color
-                  options:
-                    - name: gold
-                      value: gold
-                      selected: true
-                      label: Gold
-                    - name: maroon
-                      value: maroon
-                      label: Maroon
-                    - name: blue
-                      value: blue
-                      label: Blue
-                    - name: charcoal
-                      value: charcoal
-                      label: Charcoal
-                    - name: oldgold
-                      value: oldgold
-                      label: Old Gold
+                  class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
+                  fields:
+                    - name: color
+                      class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+                  initFunction: initColorPicker
+                  scripts: [gato-lib/js/color-picker.js]
+                  styles: [gato-lib/css/color-picker.compiled.css]
+                  styleName: single-color color1 color2 color3 color4 color7
                 - name: image
                   class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
                   label: Image
@@ -89,52 +60,27 @@ form:
                   identifierToPathConverter:
                     class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
             - name: reverse
-              class: info.magnolia.ui.form.field.definition.SelectFieldDefinition
-              transformerClass: edu.txstate.its.gato.ButtonTypeTransformer
-              sortOptions: false
+              transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
               label: Color
-              options:
-                - name: gold
-                  value: gold
-                  selected: true
-                  label: Gold
-                - name: maroon
-                  value: maroon
-                  label: Maroon
-                - name: blue
-                  value: blue
-                  label: Blue
-                - name: charcoal
-                  value: charcoal
-                  label: Charcoal
+              class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
+              fields:
+                - name: color
+                  class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+              initFunction: initColorPicker
+              scripts: [gato-lib/js/color-picker.js]
+              styles: [gato-lib/css/color-picker.compiled.css]
+              styleName: single-color color1 color2 color3 color4
             - name: three-d
-              class: info.magnolia.ui.form.field.definition.SelectFieldDefinition
-              transformerClass: edu.txstate.its.gato.ButtonTypeTransformer
-              sortOptions: false
+              transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
               label: Color
-              options:
-                - name: gold
-                  value: gold
-                  selected: true
-                  label: Gold
-                - name: maroon
-                  value: maroon
-                  label: Maroon
-                - name: blue
-                  value: blue
-                  label: Blue
-                - name: charcoal
-                  value: charcoal
-                  label: Charcoal
-                - name: river
-                  value: river
-                  label: River
-                - name: sandstone
-                  value: sandstone
-                  label: Sandstone
-                - name: oldgold
-                  value: oldgold
-                  label: Old Gold
+              class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
+              fields:
+                - name: color
+                  class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+              initFunction: initColorPicker
+              scripts: [gato-lib/js/color-picker.js]
+              styles: [gato-lib/css/color-picker.compiled.css]
+              styleName: single-color
         - name: size
           class: info.magnolia.ui.form.field.definition.SelectFieldDefinition
           label: Size

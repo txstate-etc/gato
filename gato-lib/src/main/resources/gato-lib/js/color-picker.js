@@ -1,5 +1,7 @@
 
 function initColorPicker(def, node, el, tmpl) {
+  var COLOR_COUNT = 7;
+
   var createInput = function(id, text) {
     return '<label for="'+id+'" class="colorsel '+id+'">'+
       '<input type="radio" name="colorsel" class="colorsel" value="'+id+'" id="'+id+'"/>'+
@@ -11,11 +13,23 @@ function initColorPicker(def, node, el, tmpl) {
   if (!$('.single-color').length) {
     $(el).append(createInput("alternating", 'Alternating'));
   }
+  
+  var $root = $(el).closest('.v-customcomponent');
+  var classes = [];
+  for (var i = 1; i <= COLOR_COUNT; i++) {
+    classes.push(".color"+i);
+  }
+
+  // if no color classes are set, show all of them
+  var showAll = !$root.is(classes.join(", "));
 
   // Create fields for the 7 colors defined in the template's css.
   var html = '';
-  for (var i = 0; i < 7; i++) {
-    html += createInput('color'+(i+1));
+  for (var i = 1; i <= COLOR_COUNT; i++) {
+    var id = 'color'+(i);
+    if (showAll || $root.is('.'+id)) {
+      html += createInput(id);
+    }
   };
   $(el).append(html);
   
