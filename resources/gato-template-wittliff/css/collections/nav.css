@@ -1,0 +1,118 @@
+/* 
+Wittliff Collection CSS
+
+Section page
+
+Navigation Styles
+
+*/
+
+A,A:visited {
+
+}
+
+A:Active,A:hover 
+	{
+
+}
+
+
+/*main nav styles*/
+
+#mainnav{
+font-family:Helvetica, arial, san-serif;
+font-size:10px;
+letter-spacing:.2em;
+position: relative;
+}
+
+#mainnav ul{
+
+margin:0px;
+padding:0px;
+}
+
+#mainnav li{
+display:inline;
+z-index:5;
+}
+
+.submenu li{
+list-style-type:none;
+margin:10px 0 0 0;
+}
+
+
+#mainnav .submenu ul{
+padding:15px 0 0 15px;
+}
+
+#mainnav .submenu{
+float:left;
+position:absolute;
+}
+
+#mainnav .submenu .item{
+display:block;
+}
+
+#mainnav .submenu div.dropdownbackground{
+position:absolute;
+z-index: -1;
+}
+
+#mainnav .submenu ul:hover div.dropdownbackground{
+z-index:6;
+}
+
+#mainnav a{
+color:#92704D;
+text-decoration:none;
+}
+
+#mainnav a:hover{
+color:#ffffff;
+}
+
+/*the main nav link widths (and drop-down styles) 
+need to be manually set for each  section that has 
+a different main nav so that the drop-down menus look 
+right */
+
+
+
+#footer a, a:visited, a:hover, a:active {
+	color:#CCCC99;
+	font-weight:normal;
+	text-decoration: underline;
+}
+
+div#right a, a:visited, a:hover, a:active {
+	color:#CCCC99;
+	font-weight:normal;
+	text-decoration: none;
+}
+
+div#right a:hover {
+	color:#CCCC99;
+	font-weight:normal;
+	text-decoration: underline;
+}
+
+div#contentmiddle a, a:visited, a:active {
+	color:#663300;
+	font-weight:normal;
+	text-decoration: none;
+}
+
+div#contentmiddle a:hover {
+	color:#663300;
+	font-weight:normal;
+	text-decoration: underline;
+}
+
+
+#mainnav .submenu .top{
+	text-transform: uppercase;
+}
+

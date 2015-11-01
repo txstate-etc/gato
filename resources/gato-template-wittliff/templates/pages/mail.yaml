@@ -1,0 +1,9 @@
+templateScript: /gato-template-txstate2009/templates/pages/standard.ftl
+renderType: freemarker
+visible: true
+title: 2009 Mail Template
+dialog: gato-template:pages/page-properties
+parameters:
+  isMailTemplate: true
+areas:
+  !include /gato-template-tsus/templates/includes/standardareas.yaml

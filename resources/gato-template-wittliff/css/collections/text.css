@@ -1,0 +1,131 @@
+	/* 
+Wittliff Collection CSS
+
+Section page
+
+Text Styles
+*/
+
+/* Image Gallery */
+@import url(../../../paragraphs/css/txst-photogallery.css);
+
+/* For Skip Nav links */
+@import url("../../../common/css/hidden.css");
+
+h1 {
+	font-family:Georgia;
+	color:#666600;
+	font-size: 20px;
+	line-height:20px;
+	font-weight:normal;
+	letter-spacing: 2px;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 10px 0px;
+	text-transform: uppercase;
+}
+
+
+h2 {
+	font-family:Helvetica;
+	font-size: 11px;
+	font-weight:normal;
+	letter-spacing: 1.5px;
+	margin: 0px 0px 0px 0px;
+	padding: 7px 0px 7px 0px;
+}
+
+#right h2 {
+	border-bottom:1px solid #CCBE99;
+}
+
+#left h2 {
+	font-family:Georgia;
+	color:#660000;
+	font-size: 15px;
+	line-height:15px;
+	font-weight:normal;
+	letter-spacing: 2px;
+	margin: 0px 0px 0px 0px;
+	padding: 10px 0px 0px 0px;
+	text-transform: uppercase;
+}
+
+h3	{
+
+}
+
+h4	{
+
+}
+
+h5 {
+
+}
+
+h6 {
+
+}
+
+
+/* The following was added for Gato */
+
+div#logo a {
+		font-family:Georgia;
+		color: #eeeebb;
+		font-size: 11px;
+		line-height:14px;
+		font-weight:normal;
+		letter-spacing: 4px;
+		margin: 0px 0px 0px 0px;
+		padding: 0px 0px 10px 0px;
+		text-decoration: none;
+		text-transform: uppercase;
+}
+
+div#sectiontitle {
+	text-align: center;
+	padding-top: 14px;
+}
+
+div#sectiontitle a {
+	color: #ffffff;
+	text-decoration: none;
+	font-size: 19px;
+	text-transform: uppercase;
+	letter-spacing: 7px;
+	font-family: Georgia, serif;
+}
+
+hr {
+	background-image: url(/magnoliaAssets/wittliff/images/bg-section-sectionhead660000.png);
+	background-repeat: no-repeat;
+	background-position: 0px 8px;
+	border: 0;
+	height: 15px;
+	background-color: transparent;
+}
+
+.txst-textimage-imageblock img {
+	border-color: #555555;
+	border-style: solid;
+}
+
+a img {
+	border: 0px;
+}
+
+.txst-contentarea ul, .txst-contentarea ol {
+	list-style-position: inside;
+}
+
+div.skip-nav {
+  position: absolute;
+  z-index: 99;
+  left: 10px;
+  top: 10px;
+}
+
+div.skip-nav a {
+  color: white;
+  font-size: 16px;
+}

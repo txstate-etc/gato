@@ -97,12 +97,12 @@
 	<nav class="ddmenu-bg">
 		<div class="ddmenu-menubar">
 			[@navloop cmsfn.children(homepage, 'mgnl:page') ; page]
-				<div class="ddmenu-menubaritem ${haschildren?string('haschildren', '')}">
-					<a href="${cmsfn.link(page)}" class="ddmenu-menubaritem">[@pagetitle page /]</a>
+				<div class="ddmenu-menubaritem ${gf.hasNavChildren(page)?string('haschildren', '')}">
+					<a href="${cmsfn.link(page)}" class="ddmenu-menubaritem">${gf.nodeTitle(page)}</a>
 					[#if gf.hasNavChildren(page)]
 						<ul class="ddmenu-menu">
 							[@navloop cmsfn.children(page, 'mgnl:page') ; subpage]
-								<li><a href="${cmsfn.link(subpage)}">[@pagetitle subpage /]</a></li>
+								<li><a href="${cmsfn.link(subpage)}">${gf.nodeTitle(subpage)}</a></li>
 							[/@navloop]
 						</ul>
 					[/#if]
