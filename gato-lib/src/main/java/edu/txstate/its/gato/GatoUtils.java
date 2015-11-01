@@ -581,4 +581,14 @@ public final class GatoUtils {
   public int random(int min, int max) {
     return rand.nextInt((max - min) + 1) + min;
   }
+
+  public boolean hasNavChildren(Object page) throws Exception {
+    Node n = toNode(page);
+    boolean haschildren = false;
+    for (Node sp : NodeUtil.getNodes(n, NodeTypes.Page.NAME)) {
+      if (!PropertyUtil.getBoolean(sp, "hideInNav", false))
+        haschildren = true;
+    }
+    return haschildren;
+  }
 }

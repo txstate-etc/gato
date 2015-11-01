@@ -1,0 +1,202 @@
+@import "gato-template-txstate2009/css/variables";
+@import "gato-template-txstate2009/css/includes";
+
+body {
+	font-family: sans-serif;
+	margin:0px;
+	padding:0px;
+	width: 100%;
+	height: 100%;
+	position: relative;
+	min-width: 0px;
+}
+
+#iphone-banner-container {
+  .gato-banner-image {
+    height: auto;
+    img {
+      height: auto;
+    }
+  }
+}
+
+#iphone-banner {
+	position: relative;
+	height: 62px;
+	background-image:url('../images/gold-bar.png');
+	background-repeat:repeat-x;
+	overflow:hidden;
+	width:100%;
+	z-index:1;
+	margin-bottom: -7px;
+}
+
+#iphone-banner-logo{
+	float:right;
+	border:0px;
+	margin-right:9px;
+	margin-top:11px;
+	margin-left:9px;
+}
+
+#iphone-banner-logo a img {
+	border:0px;
+}
+
+#iphone-banner-title {
+	margin:0px;
+	padding-left:5px;
+	font-size: 18px;
+	color: #501214;
+	vertical-align:middle;
+	height: 55px;
+	display:table-cell;
+}
+
+#iphone-banner-title a {
+	color: #501214;
+}
+
+#iphone-back {
+	min-height: 31px;
+	background-color: #501214;
+	background-image:url('../images/red-bar.png');
+	background-repeat:repeat-x;
+	width:100%;
+}
+
+#iphone-back a {
+	display: block;
+	color: #ffffff;
+	text-decoration: none;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	padding-right: 5px;
+	font-size: 12px;
+	text-align: right;
+}
+
+#iphone-contentarea {
+	margin:8px;
+}
+
+.iphone-contentarea-paragraph {
+	overflow-x: auto;
+}
+
+.iphone-navigation {
+	list-style:none;
+	margin:0px;
+	padding: 0;
+}
+
+.iphone-navigation li a {
+	border-top: 1px solid #999999;
+	display: block;
+	font-weight: bold;
+	margin-bottom: -1px;
+	padding: 12px 10px;
+	text-decoration: none;
+	color: #886417;
+	background-image: url('../images/arrow.png');
+	background-repeat: no-repeat;
+	background-position: 96% 50%;
+	-webkit-background-size: 16px 22px;
+	background-size: 16px 22px;
+	padding-right: 10%;
+}
+
+img.txst-khanbanner-image {
+	width: 100%;
+}
+
+#iphone-contentarea h1 {
+	font-size: 20px;
+}
+
+/* department directory tweaks */
+
+.txst-departmentdirectory li {
+	width: 100%;
+}
+
+.txst-departmentdirectory-name, .txst-departmentdirectory-email, .txst-departmentdirectory-phone, .txst-departmentdirectory-title, .txst-departmentdirectory-address, .txst-departmentdirectory-category  {
+	width: 130px;
+	padding-right: 20px;
+}
+
+.txst-departmentdirectory-extra2 {
+	display: none;
+}
+
+/* event calendar paragraph tweaks */
+
+.txst-eventdetail {
+	width: 100%;
+}
+
+.txst-eventdetail-mainbox {
+	width: 100%;
+}
+
+.txst-eventdetail-detailsbox {
+	float: left;
+	margin-top: 7px;
+	border-top: 1px solid #A28F61;
+	border-left: 0px;
+	margin-left: 10px;
+	padding-left: 7px;
+	padding-right: 7px;
+	padding-bottom: 7px;
+	background-color: #EFEAD7;
+	width: 90%;
+}
+
+ a.txst-eventdetail-addtocalendar {
+	display: none;
+}
+
+div.iPhoneContentArea {
+	clear: both;
+}
+
+.txst-eventdetail-cancelled .txst-eventdetail-extra2 {
+	left: 60px;
+}
+
+/* form stuff */
+form.txst-form .txst-contentarea-paragraph {
+	margin-bottom: 0;
+	overflow-x: auto;
+}
+form.txst-form fieldset {
+	min-width: 0;
+	padding: 2px;
+}
+form.txst-form input, form.txst-form textarea, form.txst-form select {
+	font-size: 14px;
+	max-width: 296px;
+}
+.txst-form-validicon {
+	display: block;
+}
+.valid-icon-cont {
+	display: block;
+	margin-top: 3px;
+}
+
+/* image gallery tweak */
+.txst-photogallery-image {
+	margin-right: 1px !important;
+	margin-bottom: 1px !important;
+	border: 0px !important;
+}
+
+.full-site-link {
+  text-align: center;
+  padding-top: 2px;
+  padding-bottom: 15px;
+}
+.full-site-link a {
+  font-size: 13px;
+}

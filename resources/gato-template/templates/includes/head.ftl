@@ -97,13 +97,9 @@
 	<nav class="ddmenu-bg">
 		<div class="ddmenu-menubar">
 			[@navloop cmsfn.children(homepage, 'mgnl:page') ; page]
-				[#local haschildren = false]
-				[@navloop cmsfn.children(page, 'mgnl:page') ; subpage]
-					[#local haschildren = true]
-				[/@navloop]
 				<div class="ddmenu-menubaritem ${haschildren?string('haschildren', '')}">
 					<a href="${cmsfn.link(page)}" class="ddmenu-menubaritem">[@pagetitle page /]</a>
-					[#if haschildren]
+					[#if gf.hasNavChildren(page)]
 						<ul class="ddmenu-menu">
 							[@navloop cmsfn.children(page, 'mgnl:page') ; subpage]
 								<li><a href="${cmsfn.link(subpage)}">[@pagetitle subpage /]</a></li>
@@ -115,6 +111,18 @@
       [#nested]
 		</div>
 	</nav>
+[/#macro]
+
+[#macro mobilemenu page]
+  [#if gf.hasNavChildren(page)]
+    <nav id="iphone-navigationarea">
+      <ul class="iphone-navigation">
+        [@navloop cmsfn.children(page, 'mgnl:page') ; subpage]
+          <li><a href="${cmsfn.link(subpage)}">${gf.nodeTitle(subpage)}</a></li>
+        [/@navloop]
+      </ul>
+    </nav>
+  [/#if]
 [/#macro]
 
 [#macro breadcrumbs hidetxstate=false]
