@@ -66,14 +66,6 @@
         [@cms.area name="footer" content=gf.getOrCreateArea(homepage, 'footer') editable=isHomePage /]
       </div>
     </div>
-    [#if content['library-footer']?has_content]
-      <div class="library-footer">
-        [@cms.area name="library-footer" content=(homepage['library-footer']) editable=false /]
-      </div>
-      <div class="more-footer">
-        [@cms.area name="footer" content=gf.getOrCreateArea(homepage, 'footer') contextAttributes={"forceFooter": true} editable=false /]
-      </div>
-    [/#if]
   </div>
   <div class="full-site-link" style="display: none">
     <a href="javascript: createCookie('gatoforcedesktop', 'no'); location.reload(true);">View Mobile Site</a>
