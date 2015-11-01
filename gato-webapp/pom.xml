@@ -79,7 +79,12 @@
       <artifactId>magnolia-rest-tools</artifactId>
     </dependency>
     <dependency>
-    <groupId>mysql</groupId>
+      <groupId>info.magnolia.devdect</groupId>
+      <artifactId>magnolia-module-device-detection</artifactId>
+      <version>1.1</version>
+    </dependency>
+    <dependency>
+      <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
       <version>5.1.36</version>
     </dependency>

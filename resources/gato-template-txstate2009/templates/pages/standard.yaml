@@ -5,3 +5,6 @@ title: 2009 Standard Template
 dialog: gato-template:pages/page-properties
 areas:
   !include /gato-template-txstate2009/templates/includes/standardareas.yaml
+variations:
+  smartphone:
+    templateScript: /gato-template-txstate2009/templates/pages/mobile.ftl
