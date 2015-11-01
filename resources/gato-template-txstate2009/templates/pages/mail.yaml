@@ -6,4 +6,4 @@ dialog: gato-template:pages/page-properties
 parameters:
   isMailTemplate: true
 areas:
-  !include /gato-template-tsus/templates/includes/standardareas.yaml
+  !include /gato-template-txstate2009/templates/includes/standardareas.yaml

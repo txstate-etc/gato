@@ -1,9 +1,7 @@
-templateScript: /gato-template-wittliff/templates/pages/standard.ftl
+templateScript: /gato-template-wittliff/templates/pages/sidebar.ftl
 renderType: freemarker
 visible: true
-title: Wittliff Mail Template
+title: Wittliff Sidebar
 dialog: gato-template:pages/page-properties
-parameters:
-  isMailTemplate: true
 areas:
   !include /gato-template-wittliff/templates/includes/standardareas.yaml
