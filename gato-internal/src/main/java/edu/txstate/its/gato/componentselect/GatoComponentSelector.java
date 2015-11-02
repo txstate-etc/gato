@@ -58,7 +58,7 @@ public class GatoComponentSelector extends CustomField<String>{
                 templateIndex++;
             }
             //add empty labels to make sure last row elements are not extra wide
-            if(i == numRows-1){
+            if(i == numRows-1 && numTemplates % numColumns > 0){
                 int emptySpaces = numColumns - (numTemplates % numColumns);
                 for(int k=0; k<emptySpaces; k++){
                     hl.addComponent(new Label("&nbsp;", Label.CONTENT_XHTML));
