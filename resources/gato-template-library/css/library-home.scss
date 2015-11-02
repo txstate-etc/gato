@@ -189,39 +189,38 @@ body.admin .all-hours, body.admin .hours-links {
 	float: left;
 	width: 316px;
 	margin-left: 18px;
-}
+	a{
+		display: block;
+		font-size: 12px;
+		line-height: 18px;
+	}
+	.header{
+		background-color: #4b0f15;
+		padding: 10px 15px;
+		font-size: 16px;
+		color: white;
+		margin-left: -10px;
+		min-height: inherit;
+	}
 
-.quick-links a {
-	display: block;
-	font-size: 12px;
-	line-height: 18px;
-}
-.quick-links .header {
-	background-color: #4b0f15;
-	padding: 10px 15px;
-	font-size: 16px;
-	color: white;
-	margin-left: -10px;
-}
+	.left, .right{
+		width: 148px;
+		float: left;
+		padding-left: 10px;
+		padding-bottom: 15px;
+	}
 
-.quick-links .left, .quick-links .right {
-	width: 148px;
-	float: left;
-	padding-left: 10px;
-	padding-bottom: 15px;
-}
-.quick-links .left {
-}
-.quick-links .left .header {
-	border-top-left-radius: 12px;
-}
+	.left .header{
+		border-top-left-radius: 12px;
+	}
 
-.quick-links .right {
-	background: url(#{$resource-root}/gato-template-library/images/border-dot.png) repeat-y top left;
-}	
-.quick-links .right .header {
-	border-top-right-radius: 12px;
-	border-left: 1px solid white;
+	.right{
+		background: url(#{$resource-root}/gato-template-library/images/border-dot.png) repeat-y top left;
+		.header{
+			border-top-right-radius: 12px;
+			border-left: 1px solid white;
+		}
+	}
 }
 
 .search-box, .quick-links {
@@ -483,5 +482,19 @@ ul.social-media-container {
 	color: #AAA;
 	font-size: 14px;
 	padding: 8px 0px;
+}
+
+/* For image replacement */
+.ir { border: 0; font: 0/0 a; text-shadow: none; color: transparent; background-color: transparent; }
+
+/* Hide only visually, but have it available for screenreaders: h5bp.com/v */
+.visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+
+/* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: h5bp.com/p */
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
+
+//hide the hamburger that is used in the 2015 template
+.hamburger{
+	display: none;
 }
 

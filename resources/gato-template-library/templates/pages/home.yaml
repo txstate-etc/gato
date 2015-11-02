@@ -9,6 +9,18 @@ areas:
     !include /gato-component-cssjs/templates/areas/customcss.yaml
   customjs:
     !include /gato-component-cssjs/templates/areas/customjs.yaml
+  superUser:
+    renderType: freemarker
+    type: list
+    editable: false
+    inheritance:
+      enabled: true
+      components: all
+    title: Top Menu
+    templateScript: /gato-template-txstate2015/templates/pages/areas/super-user.ftl
+    availableComponents:
+      link:
+        id: gato-template:components/link
   parentOrganization:
     renderType: freemarker
     type: single

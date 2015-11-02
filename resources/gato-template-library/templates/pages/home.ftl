@@ -9,7 +9,17 @@
   [@templatehead /]
 </head>
 <body id="library-2012" class="${cmsfn.isEditMode()?string('admin', '')}">
-    <!-- either the banners or the header will go here.  menus too... -->
+    
+    <!--"super user" menu bar -->
+    [@cms.area name="superUser" content=globaldata.webTools contextAttributes={"isMobile":false}/]
+    <!-- banner with logo and search bar -->
+    [#include "../../../gato-template-txstate2015/templates/pages/includes/top-banner.ftl"]
+    <!--header image, parent organization, department name -->
+    [#include "../../../gato-template-txstate2015/templates/pages/includes/header.ftl"]
+    <!-- main menu -->
+    <div class="top_nav">
+        [@mainmenu textmenu=true /]
+    </div>
     <div class="txst-khan-frame">
         <h1 class="visuallyhidden" id="maincontent" tabindex="-1">${content.title}</h1>
         <div class="slideshow-bg">
@@ -30,7 +40,6 @@
             </div>
         </div>
         [@cms.area name="emergency-general"/]
-        
         [#import "/gato-template-library/templates/includes/searchbox.ftl" as searchbox]
         [@searchbox.searchBox isMobile=false/]
         <div class="quick-links">
