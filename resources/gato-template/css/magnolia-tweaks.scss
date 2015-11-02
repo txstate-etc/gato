@@ -12,6 +12,10 @@
   }
 }
 
+.plus-component{
+  font-size:120%;
+  font-weight: 500;
+}
 
 // These two rules remove the status indicator from the bars
 .status-indicator{
@@ -21,5 +25,193 @@
 body div.mgnlEditorBar.area.mgnlEditorBarStatusIndicator, 
 body div.mgnlEditorBar.component.mgnlEditorBarStatusIndicator {
     margin-left: inherit !important;
+}
+
+// .layout-row.edit-row{
+//   border: 2px dashed #FFA500;
+//   border-top: none;
+// }
+
+.layout-column.edit-column{
+  border: 1px solid #DFDFDF;
+}
+
+$focus: #6A9000;
+$focus-text: #fff;
+$focus-related: #e1E8CC;
+$focus-related-text: #6A9000;
+$no-focus: #EFEFEF;
+
+body {
+  
+  //this one turns the bar with focus the focus color
+  //when I click on a component bar, this style is applied
+  div.mgnlEditorBar.area.childFocus ~ * div.mgnlEditorBar.component.focus, 
+  div.mgnlEditorBar.area.childFocus ~ div.mgnlEditorBar.component.focus, 
+  div.mgnlEditorBar.area.focus, div.mgnlEditorBar.component.focus {
+    background-color: $focus !important;
+    color: $focus-text !important;
+
+    & + div.layout-row{
+      border: 2px dashed #FFA500;
+      border-top: none;
+    }
+  }
+ 
+  //this is the color of the main area bars (Main Content Area)
+  //when nothing is clicked.  Only applies to area bars so we don't 
+  //need it.
+
+  // div.mgnlEditorBar.area.init {
+  //   background-color: orange !important;
+  //   color: black !important;
+  // }
+
+
+  //when I click on a component in an area (direct child), the area bar
+  //uses this style.  If I click on a component in a column in a container
+  //in an area, the column uses this style and the main area uses 
+  // div.mgnlEditorBar.area.  Also only applies to area bars.
+
+  // div.mgnlEditorBar.area.childFocus {
+  //   background-color: yellow !important;
+  //   color: black !important;
+  // }
+
+  //when I click the row, the edit bars turn this color
+  //when I click an item in a column, the siblings turn this color
+  div.mgnlEditorBar.area.childFocus ~ div.mgnlEditorBar.component, 
+  div.mgnlEditorBar.area.childFocus ~ * div.mgnlEditorBar.component{
+    background-color: teal !important;
+    color: white !important;
+  }
+
+  //this selects only the add content bars.  when their area has focus
+  div.mgnlEditorBar.area.childFocus ~ * div.mgnlPlaceholder div.mgnlEditorBar.component,
+  div.mgnlEditorBar.area.childFocus ~  div.mgnlPlaceholder div.mgnlEditorBar.component{
+    background-color: yellow !important;
+    color: black !important;
+  }
+
+  //this is the style for the add component bars initially when nothing has been clicked.
+  div.mgnlEditorBar.area.init ~ * div.mgnlPlaceholder div.mgnlEditorBar.component, 
+  div.mgnlEditorBar.area.init ~ div.mgnlPlaceholder div.mgnlEditorBar.component {
+    background-color: palevioletred !important;
+    color: white !important;
+  }
+
+  div.mgnlEditorBar.area.childFocus ~ div.mgnlEditorBar.component.moveTarget, div.mgnlEditorBar.area.childFocus ~ * div.mgnlEditorBar.component.moveTarget {
+    border: 1px solid #6a9000 !important;
+  }
+
+  div.mgnlEditorBar.area.childFocus ~ div.mgnlEditorBar.component.moveTarget div.mgnlEditorBarLabel, div.mgnlEditorBar.area.childFocus ~ * div.mgnlEditorBar.component.moveTarget div.mgnlEditorBarLabel {
+    padding-top: 4px !important;
+    padding-left: 15px !important;
+  }
+
+  div.mgnlEditorBar.area.childFocus ~ div.mgnlEditorBar.component.moveTarget div.mgnlEditorBarButtons, div.mgnlEditorBar.area.childFocus ~ * div.mgnlEditorBar.component.moveTarget div.mgnlEditorBarButtons {
+    height: 23px !important;
+    line-height: 23px !important;
+    padding-right: 7px !important;
+  }
+
+  //when moving a component, this style is used for the target component on hover
+  div.mgnlEditorBar.area.childFocus ~ div.mgnlEditorBar.component.moveOver, div.mgnlEditorBar.area.childFocus ~ * div.mgnlEditorBar.component.moveOver {
+    background-color: blue !important;
+  }
+
+  div.mgnlEditorBar.area.childFocus ~ div.mgnlPlaceholder div.mgnlPlaceholderBox, div.mgnlEditorBar.area.childFocus ~ * div.mgnlPlaceholder div.mgnlPlaceholderBox, div.mgnlEditorBar.area.init ~ * div.mgnlPlaceholder div.mgnlPlaceholderBox, div.mgnlEditorBar.area.init ~ div.mgnlPlaceholder div.mgnlPlaceholderBox {
+    border: 2px dotted #e1e8cc !important;
+    border-top: none !important;
+  }
+
+  //the add component bars use this style when I click on them.  They change to this style
+  //as the dialog is loading and stay that way if the dialog is dismissed.
+  //when an area bar has focus, all the component bars in that area have this style
+  
+  div.mgnlEditorBar.area.focus ~ div.mgnlEditorBar.component, 
+  div.mgnlEditorBar.area.focus ~ * div.mgnlEditorBar.component {
+    background-color: purple !important;
+    color: #fff !important;
+  }
+
+  div.mgnlEditorBar.area.focus ~ * div.mgnlPlaceholder div.mgnlPlaceholderBox, div.mgnlEditorBar.area.focus ~ div.mgnlPlaceholder div.mgnlPlaceholderBox {
+    border: 2px dotted #a5bc66 !important;
+    border-top: none !important;
+  }
+
+  //If I click inside a component, and the component has focus, all areas bars
+  //WITHIN that area use this style.  Only used for area bars.
+
+  // div.mgnlEditorBar.component.focus ~ * div.mgnlEditorBar.area, div.mgnlEditorBar.component.focus ~ div.mgnlEditorBar.area {
+  //   background-color: hotpink !important;
+  //   color: #fff !important;
+  // }
+
+  //when an area bar is clicked, the area bars within that area have this style
+  //only used for area bars
+
+  // div.mgnlEditorBar.area {
+  //   background-color: skyblue !important;
+  //   color: black !important;
+  //   clear: both !important;
+  //   border-radius: 5px 5px 0 0 !important;
+  // }
+
+  //this is the style for the component bars when they are inactive.
+  //this is NOT the style for the "add content" bars when the area is focused
+  //if I have component 1 and component 2 in a column and I click on
+  //component 1, the container uses this style.
+  div.mgnlEditorBar.component {
+    background-color: violet !important;
+    color: black !important;
+  }
+
+  div.mgnlPlaceholder {
+    margin: 0 0 2px 0 !important;
+    clear: both !important;
+  }
+
+  //style for add content bars when their area does not have
+  //focus
+  div.mgnlPlaceholder div.mgnlEditorBar {
+    margin: 0 !important;
+    background-color: red !important;
+    color: yellow !important;
+    font-weight: 500;
+  }
+
+  div.mgnlPlaceholder div.mgnlPlaceholderBox {
+    border: 2px dotted #efefef !important;
+    border-top: none !important;
+    height: 20px !important;
+    background-color: white !important;
+  }
+
+  div.mgnlEditorBarButtons {
+    float: right !important;
+    height: 25px !important;
+    line-height: 25px !important;
+    overflow: hidden !important;
+    padding: 0 8px 0 0 !important;
+  }
+
+  div.editorIcon {
+    -webkit-backface-visibility: hidden;
+    line-height: inherit;
+    padding: 0 0 0 11px !important;
+    cursor: pointer !important;
+    font-size: 18px !important;
+    float: right !important;
+  }
+
+  div.mgnlEditorBarLabel {
+    overflow: hidden !important;
+    padding: 5px 0 0 16px !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+    line-height: 18px !important;
+  }
 }
 
