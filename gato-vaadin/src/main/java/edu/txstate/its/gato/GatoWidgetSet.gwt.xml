@@ -24,6 +24,7 @@
     <source path="vaadin/client" />
     <source path="vaadin/shared" />
 
+    <entry-point class="edu.txstate.its.gato.vaadin.client.GatoWidgetSet" />
 
     <inherits name="org.vaadin.openesignforms.ckeditor.widgetset.VaadinCKEditorWidgetset" />
 
