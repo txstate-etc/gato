@@ -1,5 +1,5 @@
 jQuery(document).ready(function ($) {
-  $('.gato-feature').slick({
+  $('.gato-feature-slides').slick({
     dots: true,
     adaptiveHeight: true
   });
