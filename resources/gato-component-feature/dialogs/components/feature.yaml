@@ -11,7 +11,6 @@ form:
           transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
           initFunction: initColorPicker
           scripts: [gato-lib/js/color-picker.js]
-          styles: [gato-lib/css/color-picker.compiled.css]
           loadScriptsInOrder: true
           label: Background Color
         - name: defaultTimer

@@ -9,6 +9,11 @@ function initColorPicker(def, node, el, tmpl) {
     '</label>'; 
   };
   
+  // Pull in the template's colors.css file if it exists
+  tmpl = tmpl.replace(/:.+/, '');
+  var cssfile = "./../.resources/"+tmpl+"/css/color-picker.compiled.css";
+  $('head').append('<link rel="stylesheet" type="text/css" href="'+cssfile+'">');
+
   // Create field to select 'Alternating' colors, unless this component only supports a single color.
   if (!$('.single-color').length) {
     $(el).append(createInput("alternating", 'Alternating'));

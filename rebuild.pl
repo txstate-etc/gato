@@ -11,14 +11,16 @@ our $magrepopath = "/var/mag_repositories";
 our $magnoliapropertiespath = "/etc/magnolia/config";
 our @heavymodules = ('gato-lib', 'gato-internal', 'gato-component-cssjs', 'gato-component-dept-directory', 
   'gato-component-faq', 'gato-component-gallery', 'gato-component-documents', 'gato-area-mail', 'gato-component-button', 'gato-component-twitter', 'gato-component-rss', 'gato-component-events');
-our @sassfiles = ('resources/gato-lib/css/color-picker.scss', 
-                  'resources/gato-template-tsus/css/tsus-home.scss', 
+our @sassfiles = ('resources/gato-template-tsus/css/tsus-home.scss', 
                   'resources/gato-template-tsus/css/standard.scss',
+                  'resources/gato-template-tsus/css/color-picker.scss',
                   'resources/gato-template-blank/css/blank.scss',
                   'resources/gato-template-ua/css/home.scss',
                   'resources/gato-template-ua/css/standard.scss',
+                  'resources/gato-template-ua/css/color-picker.scss',
                   'resources/gato-template-wittliff/css/standard.scss',
                   'resources/gato-template-txstate2015/css/txstate2015.scss',
+                  'resources/gato-template-txstate2015/css/color-picker.scss',
                   'resources/gato-template-txstate2009/css/mobile.scss',
                   'resources/gato-template-txstate2009/css/standard.scss');
 our $module = "";
