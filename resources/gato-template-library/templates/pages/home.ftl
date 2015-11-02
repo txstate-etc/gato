@@ -29,15 +29,8 @@
                 </div>
             </div>
         </div>
-        [#if cmsfn.isEditMode() || (content.emergency.general.content)?has_content]
-            <h3 class="general_emergency">
-                <!-- HOW TO DO EDIT BUTTON HERE? no more cmsUtilTaglib-->
-                [#if (content.emergency.hours)?has_content]
-                    ${cmsfn.decode(content.emergency.general).content}
-                [/#if]
-            </h3>
-        [/#if]
-
+        [@cms.area name="emergency-general"/]
+        
         [#import "/gato-template-library/templates/includes/searchbox.ftl" as searchbox]
         [@searchbox.searchBox isMobile=false/]
         <div class="quick-links">

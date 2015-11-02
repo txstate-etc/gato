@@ -33,6 +33,14 @@ areas:
     availableComponents:
       richeditor:
         id: gato-template:components/richeditor
+  emergency-general:
+    renderType: freemarker
+    type: single
+    title: General Emergency Information
+    templateScript: /gato-template-library/templates/areas/emergency-general-area.ftl
+    availableComponents:
+      richeditor:
+        id: gato-template:components/richeditor
   library-allhours:
     renderType: freemarker
     type: list
