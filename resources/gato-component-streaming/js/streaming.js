@@ -3,6 +3,8 @@ function URLParser(){"use strict";this.plugins={}}function cloneObject(a){"use s
 
 var youtubeApiLoaded = false;
 
+var flowPlayerFormats = ['mp4', 'webm', 'ogv', 'm3u8', '.flv'];
+
 function getVideoInfo(url) {
   var vInfo = {};
   vInfo.url = url;
@@ -11,6 +13,10 @@ function getVideoInfo(url) {
   if (urlInfo) {
     vInfo.playerType = urlInfo.provider;
     vInfo.videoId = urlInfo.id;
+  } else if (url.startsWith("<iframe")) {
+    vInfo.playerType = "embed";
+  } else if (jQuery.inArray(getFileExtension(url), flowPlayerFormats) != -1) {
+    vInfo.playerType = "flow"
   } else {
     vInfo.playerType = "unknown";
   }
@@ -18,8 +24,25 @@ function getVideoInfo(url) {
   return vInfo;
 }
 
-function buildFlowPlayer(el, videoId) {
+function getFileExtension(url) {
+  var dot = url.lastIndexOf('.');
+  if (dot == -1) { return ''; }
 
+  return url.substr(dot + 1);
+}
+
+function buildFlowPlayer(el, url) {
+  var container = jQuery("<div></div>");
+  jQuery(el).append(container);
+  flowplayer(container, {
+    clip: {
+      sources: [{ type: "video/mp4", src: url}]
+    }
+  });
+}
+
+function buildEmbed(el, embedCode) {
+  jQuery(el).append(embedCode);
 }
 
 function buildUstreamPlayer(el, videoId) {
@@ -49,6 +72,12 @@ function buildPlayer(el, videoInfo) {
       break;
     case "ustream":
       buildUstreamPlayer(el, videoInfo.videoId);
+      break;
+    case "embed":
+      buildEmbed(el, videoInfo.url);
+      break;
+    case "flow":
+      buildFlowPlayer(el, videoInfo.url);
       break;
     case "unknown":
       el.innerHTML = "Sorry, we're unable to play this video.";

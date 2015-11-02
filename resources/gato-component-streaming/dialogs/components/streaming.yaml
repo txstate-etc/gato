@@ -13,7 +13,7 @@ form:
             - name: verifiedUrl
               class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
           initFunction: loadStreamingDialog
-          scripts: [gato-lib/js/spin.min.js,gato-component-streaming/js/streaming.js]
+          scripts: [gato-lib/js/flowplayer/flowplayer.min.js,gato-lib/js/spin.min.js,gato-component-streaming/js/streaming.js]
           styles: [gato-component-streaming/css/streaming.css]
           label: Preview
 
