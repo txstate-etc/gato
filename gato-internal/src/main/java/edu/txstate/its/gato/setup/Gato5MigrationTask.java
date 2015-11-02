@@ -46,7 +46,8 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
     log.info("starting page level changes");
     visitPages(hm, new NodeVisitor() {
       public void visit(Node n) throws RepositoryException {
-        if (NodeTypes.Renderable.getTemplate(n).equals("gato:pages/tsus-2012/tsus-2012-home")) {
+        String templateId = NodeTypes.Renderable.getTemplate(n);
+        if (templateId.equals("gato:pages/tsus-2012/tsus-2012-home")) {
           if (n.hasNode("tsusmenulinks")) NodeUtil.renameNode(n.getNode("tsusmenulinks"), "menulinks");
           if (n.hasNode("tsusnewsletter")) NodeUtil.renameNode(n.getNode("tsusnewsletter"), "newsletter");
           if (n.hasNode("tsusfooterlinks1")) NodeUtil.renameNode(n.getNode("tsusfooterlinks1"), "footerlinks1");
@@ -56,6 +57,11 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
               PropertyUtil.setProperty(sm, "icononly", true);
             }
           }
+        }
+        if (n.hasProperty("background-image")) {
+          String bgimage = n.getProperty("background-image").getString();
+          String newbgimage = bgimage.replace("/wittliff/images/", "");
+          PropertyUtil.setProperty(n, "background-image", newbgimage);
         }
         if (n.hasNode("footer")) convertNodeToAreaAndComponent(n.getNode("footer"), "gato-template:components/misctext");
         if (n.hasNode("siteinfo")) convertNodeToAreaAndComponent(n.getNode("siteinfo"), "gato-template:components/misctext");

@@ -1,4 +1,4 @@
-templateScript: /gato-template-wittliff/templates/pages/standard.ftl
+templateScript: /gato-template-wittliff/templates/pages/sidebar.ftl
 renderType: freemarker
 visible: true
 title: Wittliff Mail Template
