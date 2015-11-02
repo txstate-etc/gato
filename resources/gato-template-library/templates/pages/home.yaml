@@ -1,0 +1,95 @@
+templateScript: /gato-template-library/templates/pages/home.ftl
+renderType: freemarker
+visible: true
+title: Library Home Page (2012)
+dialog: gato-template:pages/page-properties
+modelClass: edu.txstate.its.gato.LibraryTemplateModel
+areas:
+  customcss:
+    !include /gato-component-cssjs/templates/areas/customcss.yaml
+  customjs:
+    !include /gato-component-cssjs/templates/areas/customjs.yaml
+  parentOrganization:
+    renderType: freemarker
+    type: single
+    title: Parent Organization
+    availableComponents:
+      parentOrg:
+        id: gato-template-txstate2015:components/parent-organization
+  gato-banners:
+    !include /gato-template/templates/areas/banners.yaml
+  slideshow:
+    renderType: freemarker
+    type: single
+    title: Slideshow
+    availableComponents:
+      slideshow:
+        id: gato-template-library:components/slideshow
+  library-allhours:
+    renderType: freemarker
+    type: list
+    title: All Hours Link
+    availableComponents:
+      imageLink:
+        id: gato-template:components/imagelink
+  library-hourslinks:
+    renderType: freemarker
+    type: list
+    title: Hours Link
+    templateScript: /gato-template-library/templates/areas/library-hourslinks.ftl
+    availableComponents:
+      link:
+        id: gato-template:components/link
+  library-quicklinks:
+    renderType: freemarker
+    type: list
+    title: Quick Link
+    availableComponents:
+      link:
+        id: gato-template:components/link
+  library-services:
+    renderType: freemarker
+    type: list
+    title: Quick Link
+    availableComponents:
+      link:
+        id: gato-template:components/link
+  socialmedia:
+    #
+  support-button:
+    renderType: freemarker
+    type: list
+    title: Support Button
+    availableComponents:
+      link:
+        id: gato-template:components/link
+  contentboxleft:
+    renderType: freemarker
+    type: list
+    title: Content
+    availableComponents:
+      richeditor:
+        id: gato-template:components/richeditor
+      rss:
+        id: gato-component-rss:components/rss
+  contentboxmiddle:
+    renderType: freemarker
+    type: list
+    title: Event
+  contentboxright:
+    renderType: freemarker
+    type: list
+    title: Your Library Content
+    availableComponents:
+      richeditor:
+        id: gato-template:components/richeditor
+  webtools:
+    !include /gato-template/templates/areas/linklist.yaml
+  library-footer:
+    renderType: freemarker
+    type: list
+    title: Library Footer
+    #inheritance?
+    availableComponents:
+      link:
+        id: gato-template:components/link

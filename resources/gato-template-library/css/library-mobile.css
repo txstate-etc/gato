@@ -1,0 +1,231 @@
+﻿body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1, .icon-link h3 {
+  font-size: 1.3em;
+  font-weight: 600;
+  line-height: 1.3em;
+  color: #451919;
+  text-shadow: 0.01em 0.03em #fff;
+}
+
+a {
+  color: inherit;
+}
+
+/* Give every top-level div the same left/right padding to be a gutter. */
+#banner, #banner-bar, #search, #quick-links, #nav, #news, #socialmedia, #footer {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* Set the top and bottom padding of the top-level divs consistently */
+#banner {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#banner-bar, #quick-links {
+  padding: 5px 0;
+  white-space: nowrap;
+}
+
+#banner-bar span, #quick-links span {
+  padding: 0 10px;
+  line-height: 25px;
+}
+
+#search, #nav {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#news, #socialmedia, #footer {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#banner {
+  position: relative; 
+  background-image: linear-gradient(bottom, rgb(216,209,183) 21%, rgb(176,165,141) 61%, rgb(176,165,141) 81%);
+  background-image: -o-linear-gradient(bottom, rgb(216,209,183) 21%, rgb(176,165,141) 61%, rgb(176,165,141) 81%);
+  background-image: -moz-linear-gradient(bottom, rgb(216,209,183) 21%, rgb(176,165,141) 61%, rgb(176,165,141) 81%);
+  background-image: -webkit-linear-gradient(bottom, rgb(216,209,183) 21%, rgb(176,165,141) 61%, rgb(176,165,141) 81%);
+  background-image: -ms-linear-gradient(bottom, rgb(216,209,183) 21%, rgb(176,165,141) 61%, rgb(176,165,141) 81%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.21, rgb(216,209,183)), color-stop(0.61, rgb(176,165,141)), color-stop(0.81, rgb(176,165,141)));
+}
+
+#banner-logo {
+  position: absolute;
+  right: 10px;
+  top: 12px;
+}
+
+#banner-logo img {
+  width: 60px; 
+  height: 34px;
+}
+
+#banner-title {
+  font-size: 1.75em; 
+  font-weight: 400;
+}
+
+#banner-bar {
+  background-color: #451919;
+  color: #fff;
+  text-align: right;
+}
+
+#banner-bar .hours {
+  text-transform: lowercase;
+}
+
+#banner-bar a {
+  text-decoration: underline;
+}
+
+#search {
+  background-color: #e7e1cf;
+  position: relative;
+  padding-bottom: 48px;
+}
+
+#search h1 {
+  margin-bottom: 10px;
+}
+
+#search-text-box {
+  position: relative;
+  height: 40px;
+  border: 1px solid #999;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+#search-text {
+  font-size: 0.9em;
+  color: #333;
+  border-width: 0;
+  background: transparent;
+  width: 90%;
+  padding: 11px 0 12px 1em;
+  outline: none;
+}
+
+#search-button {
+  position: absolute;
+  top: -1px;
+  right: 0;
+  height: 42px;
+  width: 50px;
+  font-size: 0.75em;
+  color: #fff;
+  text-align: center;
+  line-height: 42px;
+  border-width: 0;
+  background-color: #451919;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0px 5px 5px 0px;
+  -moz-border-radius: 0px 5px 5px 0px;
+  border-radius: 0px 5px 5px 0px;
+  cursor: pointer;
+}
+
+#search .search-type-fields {
+  position: absolute;
+  bottom: 15px;
+  right: 10px;
+}
+
+#search .search-type-fields label {
+  margin-right: 2px;
+  font-size: 0.8em;
+  color: #451919;
+}
+
+#quick-links {
+  text-align: right;
+  color: #fff;
+  background-color: #797878;
+  font-size: 0.9em;
+}
+
+#nav {
+  background-color: #f6f4ec;
+}
+
+#nav div.icon-link {
+  position: relative; 
+  padding-left: 60px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+#nav div.icon-link div.icon-link-icon {
+  position: absolute; 
+  top: 15px; 
+  left: 0; 
+}
+
+.icon-link-icon img, #socialmedia img {
+  width: 51px;
+  height: 51px;
+  border-radius: 25px;
+  background: #451919;
+}
+
+#nav p {
+  color: #6c5521; 
+}
+
+#news, #socialmedia {
+  border-bottom: 1px solid #AAA;
+}
+
+#news > h1 {
+  padding-bottom: 10px;
+}
+
+#news .txst-rss-item h3 {
+  padding: 5px 0;
+  font-size: 1em;
+}
+
+#news .txst-rss-item a:after {
+   content: "\a0 »";
+}
+
+#news a {
+  color: #836c31;
+}
+
+#more-news {
+  display: block;
+  text-align: right;
+  color: #836c31;
+}
+
+#socialmedia img {
+  margin-top: 10px;
+}
+
+#social-media-container .social-media-link {
+  display: inline;
+  padding-right: 10px;
+}
+
+.social-media-link .social-media-icon {
+  display: inline;
+  position: inherit;
+}
+
+#footer p {
+  font-size: .8em; 
+  color: #6c5521; 
+  margin-bottom: 10px; 
+}

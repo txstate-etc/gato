@@ -1,0 +1,11 @@
+@media print {
+
+	body {
+		background: none;
+	}
+	
+	.mgnlMainbarPreview {
+		display: none;
+	}
+
+}
