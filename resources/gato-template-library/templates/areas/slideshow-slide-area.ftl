@@ -1,6 +1,7 @@
 <div class="slides">
     [#list components as slide]
-        [@cms.component content=slide contextAttributes={"index": slide_index} /]
+        [#assign slideactive=(slide_index == 0)?string("active", "")]
+        [@cms.component content=slide contextAttributes={"index": slide_index, "slideactive": slideactive } /]
     [/#list]
 </div>
 
