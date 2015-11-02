@@ -109,3 +109,45 @@ areas:
     availableComponents:
       link:
         id: gato-template:components/link
+  start-description:
+    renderType: freemarker
+    type: single
+    title: Description
+    availableComponents:
+      richeditor:
+        id: gato-template:components/richeditor
+  articles-description:
+    renderType: freemarker
+    type: single
+    title: Description
+    availableComponents:
+      richeditor:
+        id: gato-template:components/richeditor
+  books-description:
+    renderType: freemarker
+    type: single
+    title: Description
+    availableComponents:
+      richeditor:
+        id: gato-template:components/richeditor
+  periodicals-description:
+    renderType: freemarker
+    type: single
+    title: Description
+    availableComponents:
+      richeditor:
+        id: gato-template:components/richeditor
+  reserves-description:
+    renderType: freemarker
+    type: single
+    title: Description
+    availableComponents:
+      richeditor:
+        id: gato-template:components/richeditor
+  guides-description:
+    renderType: freemarker
+    type: single
+    title: Description
+    availableComponents:
+      richeditor:
+        id: gato-template:components/richeditor

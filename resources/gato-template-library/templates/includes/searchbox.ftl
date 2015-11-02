@@ -60,10 +60,7 @@
                         <input type="checkbox" name="fulltext_checkbox" id="fulltext_checkbox_all" onClick="limittoFullText(this.form)"/> <label for="fulltext_checkbox_all">Full-Text  (Online)</label>
                     </div>
                     <div class="shortdesc">
-                        [#-- another edit button--]
-                        [#--
-                        <cmsUtilTaglib:editButton contentNodeCollectionName="searchbox-data" contentNodeName="start" dialog="texas-editor" label="Edit Description"/>
-                        ${cmsfn.decode(content['searchbox-data'].start).content} --]
+                        [@cms.area name="start-description" /]
                     </div>
                 [/#if]
             </form>
@@ -115,10 +112,7 @@
                         <input type="checkbox" name="scholarly_checkbox" id="scholarly_checkbox_articles" onclick="limittoScholarly(this.form)"/> <label for="scholarly_checkbox_articles">Scholarly/Peer-Reviewed</label>
                     </div>
                     <div class="shortdesc">
-                    [#--
-                        <cmsUtilTaglib:editButton contentNodeCollectionName="searchbox-data" contentNodeName="articles" dialog="texas-editor" label="Edit Description"/>
-                        ${cmsfn.decode(content['searchbox-data'].articles).content}
-                        --]
+                    [[@cms.area name="articles-description" /]
                     </div>
                 </form>
             </div>
@@ -145,10 +139,7 @@
                         <input type="hidden" name="SORT" value="DX" />
                     </div>
                     <div class="shortdesc">
-                    [#--
-                        <cmsUtilTaglib:editButton contentNodeCollectionName="searchbox-data" contentNodeName="books" dialog="texas-editor" label="Edit Description"/>
-                        ${cmsfn.decode(content['searchbox-data'].books).content}
-                        --]
+                    [@cms.area name="books-description" /]
                     </div>
                 </form>
             </div>
@@ -178,10 +169,7 @@
                     </div>
             
                     <div class="shortdesc">
-                    [#--
-                        <cmsUtilTaglib:editButton contentNodeCollectionName="searchbox-data" contentNodeName="journals" dialog="texas-editor" label="Edit Description"/>
-                        ${cmsfn.decode(content['searchbox-data'].journals).content}
-                        --]
+                        [@cms.area name="periodicals-description" /]
                     </div>
                 </form>
             </div>
@@ -202,10 +190,7 @@
                         &nbsp;&nbsp; <input type="radio" name="reservetype" id="reservetypeelectronic" value="electronic"/> <label for="reservetypeelectronic">E-Reserve</label>
                     </div>
                     <div class="shortdesc">
-                    [#--
-                        <cmsUtilTaglib:editButton contentNodeCollectionName="searchbox-data" contentNodeName="reserve" dialog="texas-editor" label="Edit Description"/>
-                        ${cmsfn.decode(content['searchbox-data'].reserve).content}
-                        --]
+                    [@cms.area name="reserves-description" /]
                     </div>
                 </form>
             </div>
@@ -221,10 +206,7 @@
                         <jsp:text/>
                     </div>
                     <div class="shortdesc">
-                    [#--
-                        <cmsUtilTaglib:editButton contentNodeCollectionName="searchbox-data" contentNodeName="libguides" dialog="texas-editor" label="Edit Description"/>
-                        ${cmsfn.decode(content['searchbox-data'].libguides).content}
-                        --]
+                    [@cms.area name="guides-description" /]
                     </div>
                 </form>
             </div>
