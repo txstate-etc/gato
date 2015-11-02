@@ -25,6 +25,14 @@ areas:
     availableComponents:
       slideshow:
         id: gato-template-library:components/slideshow
+  emergency-hours:
+    renderType: freemarker
+    type: single
+    title: Emergency Hours
+    templateScript: /gato-template-library/templates/areas/emergency-hours-area.ftl
+    availableComponents:
+      richeditor:
+        id: gato-template:components/richeditor
   library-allhours:
     renderType: freemarker
     type: list

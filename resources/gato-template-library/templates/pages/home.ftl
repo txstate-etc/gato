@@ -15,14 +15,7 @@
         <div class="slideshow-bg">
             [@cms.area name="slideshow"/]
             <div class="library-hours">
-                [#if cmsfn.isEditMode() || (content.emergency.hours.content)?has_content]
-                    <h3 class="hours_emergency">
-                        <!-- HOW TO DO EDIT BUTTON HERE? no more cmsUtilTaglib-->
-                        [#if (content.emergency.hours)?has_content]
-                            ${cmsfn.decode(content.emergency.hours).content}
-                        [/#if]
-                    </h3>
-                [/#if]
+                [@cms.area name="emergency-hours"/]
                 <h3>Library Hours Today</h3>
                 ${model.getEvents(false)}
                 <div class="hours">
