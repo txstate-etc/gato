@@ -4,7 +4,7 @@
 @mixin gradient-button($border-color, $grad-top, $grad-bottom, $hover-grad-top, $hover-grad-bottom, $text-color){
 
   background: $grad-top;
-  border: $border-color;
+  border: 1px solid $border-color;
   color: $text-color;
   @if $text-color != $white {
     font-weight: $button-reverse-text-weight;
