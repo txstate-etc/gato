@@ -1,8 +1,46 @@
 body {
-	font-family: "Nimbus Sans L", Arial, Helvetica, sans-serif;
+	//font-family: "Nimbus Sans L", Arial, Helvetica, sans-serif;  //changed for 2015
+	font-family: 'Univers W01',Helvetica,Calibri,Arial,sans-serif;
 }
 a {
 	text-decoration: none;
+}
+
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+fieldset,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+	margin:0;
+	padding:0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-size:100%;
+	font-weight:normal;
 }
 
 .search-box a, .quick-links a {
@@ -16,8 +54,10 @@ a {
 .txst-khan-frame {
 	position: relative;
 	margin: 0px auto;
-	padding-top: 66px;
-	width: 962px;
+	//padding-top: 66px; //changed for 2015
+	padding-top: 30px;
+	//width: 962px;  //changed for 2015
+	max-width: 1000px;
 	text-align: left;
 }
 
@@ -145,7 +185,8 @@ a {
 	right: 0px;
 	height: 315px;
 	width: 155px;
-	background-color: #dfded4;
+	//background-color: #dfded4;  //2012 color
+	background-color: $sandstone;
 	padding: 15px 30px;
 }
 body.public .library-hours .hours-links {
@@ -156,6 +197,7 @@ body.public .library-hours .hours-links {
 .library-hours .hours-links {
 	color: #6c5521;
 	font-size: 11px;
+	clear: both;
 }
 .library-hours .hours-links a {
 	color: #6c5521;
@@ -178,6 +220,10 @@ body.public .library-hours .hours-links {
 }
 .library-hours .hours .all-hours {
 	padding-top: 2px;
+	img{
+	  max-width: 48px;
+	  float: left;
+	}
 }
 body.admin .all-hours, body.admin .hours-links {
 	overflow-y: auto;
