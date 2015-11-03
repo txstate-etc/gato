@@ -121,6 +121,13 @@ areas:
     availableComponents:
       link:
         id: gato-template:components/link
+  footer:
+    renderType: freemarker
+    type: list
+    title: More Footer
+    availableComponents:
+      text:
+        id: gato-template:components/misctext
   start-description:
     renderType: freemarker
     type: single

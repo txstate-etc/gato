@@ -80,7 +80,9 @@
             [@cms.area name="library-footer"/]
         </div>
         <div class="more-footer">
-            [@cms.area name="footer" content=gf.getOrCreateArea(homepage, 'footer') contextAttributes={"forceFooter": true} editable=false /]
+            <div class="txst-footer">
+                [@cms.area name="footer"/]
+            </div>
         </div>
     </div>
     [@cssjsmodals /]
