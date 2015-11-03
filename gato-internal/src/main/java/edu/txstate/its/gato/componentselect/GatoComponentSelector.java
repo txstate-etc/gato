@@ -40,7 +40,7 @@ public class GatoComponentSelector extends CustomField<String>{
     //component because the GridLayout sometimes overlaps the components.
     @Override
     protected Component initContent() {
-        int numColumns = 2;
+        int numColumns = 3;
         // grid.setColumns(2);  
         // grid.setSpacing(true);
         // grid.setSizeFull();
@@ -54,7 +54,13 @@ public class GatoComponentSelector extends CustomField<String>{
             hl.setSizeFull();
             hl.addStyleName("component-row");
             for(int j=0; j<numColumns && templateIndex < numTemplates; j++){
-                hl.addComponent(buildGridComponent(templates.get(templateIndex)));
+                VerticalLayout tile = buildGridComponent(templates.get(templateIndex));
+                //if there is only one component, select it
+                if(numTemplates == 1){
+                    hidden.setValue(templates.get(templateIndex).getComponentId());
+                    tile.addStyleName("selected-component");
+                }
+                hl.addComponent(tile);
                 templateIndex++;
             }
             //add empty labels to make sure last row elements are not extra wide
@@ -66,6 +72,7 @@ public class GatoComponentSelector extends CustomField<String>{
             }
             rootLayout.addComponent(hl);
         }
+
         //keeping this just in case the gridlayout, although broken, is better
         // for (GatoComponentSelectOption template : templates) {
         //     grid.addComponent(buildGridComponent(template));
@@ -78,8 +85,8 @@ public class GatoComponentSelector extends CustomField<String>{
         return rootLayout;
     }
 
-    //build an individual "cell."  Each cell has a title, description,
-    //and icon.  If there is no icon, then just the title and description are displayed.
+    //build an individual "cell."  Each cell has a title
+    //and icon.  If there is no icon, then just the title is displayed.
     private VerticalLayout buildGridComponent(GatoComponentSelectOption template){
         //set up the outer layout
         VerticalLayout tile = new VerticalLayout();
@@ -104,7 +111,7 @@ public class GatoComponentSelector extends CustomField<String>{
 
         String titleHtml = "<div class=\"component-title\">" + template.getTitle() + "</div>";
         String descriptionHtml = "<div class=\"component-description\">" + template.getDescription() + "</div>";
-        String textHtml = "<div class=\"component-text\">" + titleHtml + descriptionHtml + "</div>";
+        String textHtml = "<div class=\"component-text\">" + titleHtml + "</div>";
         Label textContent = new Label(textHtml, Label.CONTENT_XHTML);
         //titleLabel.addStyleName("component-title");
         textContent.setSizeFull();
