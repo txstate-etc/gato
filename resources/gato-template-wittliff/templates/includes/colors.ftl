@@ -10,7 +10,7 @@
     background-image: url(${gf.resourcePath()}/gato-template-wittliff/images/${ inheritedContent['background-image'] });
   }
 
-  input.research {
+  input.gato-search-query, #mainnav .submenu.active ul, #mainnav .submenu.active {
     background-color: ${ inheritedContent['background-color'] };
   }
 
@@ -19,11 +19,11 @@
   }
 
   [#if inheritedContent['sectionhead-color']?has_content]
-    h1 { color: ${inheritedContent['sectionhead-color']}; }
+    #sectionhead h1 { color: ${inheritedContent['sectionhead-color']}; }
+    hr {
+      background-image: url(${gf.resourcePath()}/gato-template-wittliff/images/bg-section-sectionhead${ inheritedContent['sectionhead-color']?replace('#','') }.png);
+    }
   [/#if]
-  hr {
-    background-image: url(${gf.resourcePath()}/gato-template-wittliff/images/bg-section-sectionhead${ inheritedContent['sectionhead-color']?replace('#','') }.png);
-  }
 
   [#if inheritedContent['mainnav-color']?has_content]
     #mainnav a { color: ${ inheritedContent['mainnav-color'] }; }

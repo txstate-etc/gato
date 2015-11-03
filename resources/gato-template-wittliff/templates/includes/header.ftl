@@ -11,15 +11,14 @@
     <ul>
       [@navloop cmsfn.children(sectionHomePage, 'mgnl:page') ; page]
         <li class="submenu">
-          <div class="dropdownbackground"></div>
-          <ul>
-            <li class="top">
-              <a href="${cmsfn.link(page)}">${gf.nodeTitle(page)}</a>
-            </li>
-            [@navloop cmsfn.children(page, 'mgnl:page') ; subpage]
-              <li class="item"><a href="${cmsfn.link(subpage)}">${gf.nodeTitle(subpage)}</a></li>
-            [/@navloop]
-          </ul>
+          <a href="${cmsfn.link(page)}" class="top">${gf.nodeTitle(page)}</a>
+          [#if gf.hasNavChildren(page)]
+            <ul>
+              [@navloop cmsfn.children(page, 'mgnl:page') ; subpage]
+                <li class="item"><a href="${cmsfn.link(subpage)}">${gf.nodeTitle(subpage)}</a></li>
+              [/@navloop]
+            </ul>
+          [/#if]
         </li>
       [/@navloop]
     </ul>

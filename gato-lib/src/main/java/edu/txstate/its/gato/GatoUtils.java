@@ -365,13 +365,18 @@ public final class GatoUtils {
       String newSrc = existingSrc;
       if (StringUtils.isBlank(existingSrcSet)) {
         String assetKey = captureMatch(imageTag, ASSET_KEY_PATTERN);
-        int width = Integer.parseInt(captureMatch(imageTag, WIDTH_ATTR_PATTERN));
+        int width = 0;
+        try {
+          width = Integer.parseInt(captureMatch(imageTag, WIDTH_ATTR_PATTERN));
+        } catch (Exception e) {
+          // no width found, oh well
+        }
 
         Asset image = damfn.getAsset(assetKey);
         if (image != null) {
           newSrc = getImgDefault(image);
           newSrc += "\" srcset=\""+getSrcSet(image);
-          newSrc += "\" sizes=\""+width+"px";
+          if (width > 0) newSrc += "\" sizes=\""+width+"px";
         }
       }
       matcher.appendReplacement(result, "$1" + newSrc + "$3");

@@ -1,6 +1,25 @@
 @import "gato-template-wittliff/css/variables";
 @import "gato-template-wittliff/css/includes";
-@import "gato-template-wittliff/css/forms";
-@import "gato-template-wittliff/css/layout";
-@import "gato-template-wittliff/css/nav";
-@import "gato-template-wittliff/css/text";
+
+body {
+	color:#222222;
+	font-size:10px;
+}
+
+#mainnav a {
+  color:#8c6243;
+}
+
+#mainnav a:hover {
+  color:#cccc99;
+}
+
+#bodycontent {
+	margin: 0px auto 0px auto;
+	padding:0px 0px 0px 0px;
+	color: #FFFFFF;
+}
+
+#footer {
+	color:#C2A481;
+}
