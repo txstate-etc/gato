@@ -64,10 +64,4 @@ mail:
 navBlocks:
   !include /gato-template/templates/areas/navBlocks.yaml
 webtools:
-  title: Web Tools
-  type: list
-  renderType: freemarker
-  templateScript: /gato-template/templates/areas/webtools.ftl
-  availableComponents:
-    link:
-      id: gato-template:components/link
+  !include /gato-template/templates/areas/webtools.yaml

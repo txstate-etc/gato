@@ -6,6 +6,7 @@ form:
         - name: image
           class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
           targetWorkspace: dam
+          targetTreeRootPath: /banners
           appName: assets
           label: Header Image
           contentPreviewDefinition:
