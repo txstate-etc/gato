@@ -1,14 +1,27 @@
 form:
   tabs:
     - name: tabText
-      label: Header Image
+      label: Banner Image
       fields:
+        - name: visible
+          class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
+          label: Show Banner Image
+          sortOptions: false
+          options:
+            - label: Show banner image only if parent page is showing banner image (default).
+              value: inherit
+              selected: true
+            - label: Show banner image.
+              value: shown
+            - label: Do not show banner image.
+              value: hidden
         - name: image
           class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
           targetWorkspace: dam
           targetTreeRootPath: /banners
           appName: assets
-          label: Header Image
+          label: Banner Image
+          description: Optional. If not provided, will inherit an image from the nearest ancestor page.
           contentPreviewDefinition:
             contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
 actions: !include /gato-template/dialogs/common/actions-block.yaml

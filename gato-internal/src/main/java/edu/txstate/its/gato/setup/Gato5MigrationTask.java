@@ -25,6 +25,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.Deque;
 
 /**
  *
@@ -282,11 +285,13 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
     if (n.hasNode("gato-banners")) {
       Node gbanners = n.getNode("gato-banners");
       if (gbanners.hasNodes()) {
-        Iterable<Node> images = NodeUtil.getNodes(gbanners, "mgnl:component");
-        Node newcomponent = gbanners.addNode("imported", "mgnl:component");
+        Iterable<Node> images = NodeUtil.getNodes(gbanners, NodeTypes.Component.NAME);
+        Node newcomponent = gbanners.addNode("imported", NodeTypes.Component.NAME);
         NodeTypes.Renderable.set(newcomponent, "gato-template:components/banners");
-        Node imagesparent = newcomponent.addNode("banners", "mgnl:area");
+        Node imagesparent = newcomponent.addNode("banners", NodeTypes.Area.NAME);
+        Node savefirstimage = null;
         for (Node image : images) {
+          if (savefirstimage == null) savefirstimage = image;
           NodeUtil.moveNode(image, imagesparent);
           convertPropertyToBool(image, "inherit");
         }
@@ -295,6 +300,15 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
           PropertyUtil.setProperty(newcomponent, "visible", gbsettings.getProperty("visible").getString());
           PropertyUtil.setProperty(newcomponent, "reset", gbsettings.getProperty("reset").getBoolean());
           gbsettings.remove();
+
+          // import one banner to the headerImage area for the 2015 template
+          if (savefirstimage != null) {
+            Node headerImage = n.addNode("headerImage", NodeTypes.Area.NAME);
+            Node hicomp = headerImage.addNode("imported", NodeTypes.Component.NAME);
+            NodeTypes.Renderable.set(hicomp, "gato-template:components/header-image");
+            PropertyUtil.setProperty(hicomp, "visible", PropertyUtil.getString(gbsettings, "visible", "inherit"));
+            PropertyUtil.setProperty(hicomp, "image", savefirstimage.getProperty("image").getString());
+          }
         }
       }
     }
