@@ -112,7 +112,7 @@
                         <input type="checkbox" name="scholarly_checkbox" id="scholarly_checkbox_articles" onclick="limittoScholarly(this.form)"/> <label for="scholarly_checkbox_articles">Scholarly/Peer-Reviewed</label>
                     </div>
                     <div class="shortdesc">
-                    [[@cms.area name="articles-description" /]
+                    [@cms.area name="articles-description" /]
                     </div>
                 </form>
             </div>
