@@ -34,6 +34,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.jackrabbit.core.NodeImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -90,7 +91,7 @@ class MoveRichEditorToDamTask extends MoveFCKEditorContentToDamMigrationTask {
     fileName = Path.getUniqueLabel(damParent, fileName);
 
     // Create an AssetNode
-    Node assetNode = damParent.addNode(fileName, AssetNodeTypes.Asset.NAME);
+    Node assetNode = ((NodeImpl)NodeUtil.unwrap(damParent)).addNodeWithUuid(fileName, AssetNodeTypes.Asset.NAME, dataNodeResource.getIdentifier());
     updateAssetProperty(assetNode, dataNodeResource);
     Node assetNodeResource = assetNode.addNode(AssetNodeTypes.AssetResource.RESOURCE_NAME, AssetNodeTypes.AssetResource.NAME);
     updateResourceProperty(assetNodeResource, dataNodeResource);
@@ -153,11 +154,11 @@ class MoveRichEditorToDamTask extends MoveFCKEditorContentToDamMigrationTask {
   // same file, e.g. after a page copy.
   protected void moveResourceNodeAndHandleLink(Node node, Property property, Link link) throws RepositoryException {
     if (this.copyHistory.containsKey(link.getUUID()+":"+link.getPropertyName())) {
-      String damAssetIdentifier = this.copyHistory.get(link.getUUID());
+      String damAssetIdentifier = this.copyHistory.get(link.getUUID()+":"+link.getPropertyName());
       String damAssetPath = damSession.getNodeByIdentifier(damAssetIdentifier).getPath();
       changeLinkInTextContent(property, damAssetIdentifier, link.getUUID(), link.getPath());
     } else if (this.copyHistory.containsKey(link.getWorkspace()+":"+link.getPath()+":"+link.getPropertyName())) {
-      String damAssetIdentifier = this.copyHistory.get(link.getPath());
+      String damAssetIdentifier = this.copyHistory.get(link.getWorkspace()+":"+link.getPath()+":"+link.getPropertyName());
       String damAssetPath = damSession.getNodeByIdentifier(damAssetIdentifier).getPath();
       changeLinkInTextContent(property, damAssetIdentifier, link.getUUID(), link.getPath());
     } else if (link.getWorkspace().equals("dms")) {

@@ -100,6 +100,7 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
     log.info("download paragraph changes");
     visitByTemplate(hm, "gato:components/texasState/texasDownload", this::updateDownloadComponent);
     visitByTemplate(hm, "gato:components/texasState/texasLink", this::convertNewWindowToBool);
+    hm.save();
     log.info("delete old files uploaded to rich editor paragraphs");
     visitByTemplate(hm, "gato:components/texasState/texasEditor", this::deleteContentFiles);
     log.info("delete old files uploaded to text and image paragraphs");
@@ -299,7 +300,6 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
           Node gbsettings = n.getNode("gato-banner-settings");
           PropertyUtil.setProperty(newcomponent, "visible", gbsettings.getProperty("visible").getString());
           PropertyUtil.setProperty(newcomponent, "reset", gbsettings.getProperty("reset").getBoolean());
-          gbsettings.remove();
 
           // import one banner to the headerImage area for the 2015 template
           if (savefirstimage != null) {
@@ -309,6 +309,8 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
             PropertyUtil.setProperty(hicomp, "visible", PropertyUtil.getString(gbsettings, "visible", "inherit"));
             PropertyUtil.setProperty(hicomp, "image", savefirstimage.getProperty("image").getString());
           }
+
+          gbsettings.remove();
         }
       }
     }

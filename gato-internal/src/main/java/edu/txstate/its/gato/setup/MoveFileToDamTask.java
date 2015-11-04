@@ -9,7 +9,6 @@ import info.magnolia.module.InstallContext;
 import info.magnolia.jcr.util.NodeUtil;
 import info.magnolia.jcr.util.NodeTypes;
 import info.magnolia.jcr.util.PropertyUtil;
-
 import javax.jcr.Node;
 
 import javax.jcr.RepositoryException;
@@ -19,6 +18,7 @@ import info.magnolia.module.delta.TaskExecutionException;
 
 import java.util.Arrays;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.jackrabbit.core.NodeImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -55,11 +55,16 @@ class MoveFileToDamTask extends MoveFileContentToDamMigrationTask {
     fileName = Path.getUniqueLabel(damParent, fileName);
 
     // Create an AssetNode
-    Node assetNode = damParent.addNode(fileName, AssetNodeTypes.Asset.NAME);
-    updateAssetProperty(assetNode, dataNodeResource);
-    Node assetNodeResource = assetNode.addNode(AssetNodeTypes.AssetResource.RESOURCE_NAME, AssetNodeTypes.AssetResource.NAME);
-    updateResourceProperty(assetNodeResource, dataNodeResource);
-    this.damSession.save();
+    Node assetNode;
+    try {
+      assetNode = damSession.getNodeByIdentifier(dataNodeResource.getIdentifier());
+    } catch (Exception e) {
+      assetNode = ((NodeImpl)NodeUtil.unwrap(damParent)).addNodeWithUuid(fileName, AssetNodeTypes.Asset.NAME, dataNodeResource.getIdentifier());
+      updateAssetProperty(assetNode, dataNodeResource);
+      Node assetNodeResource = assetNode.addNode(AssetNodeTypes.AssetResource.RESOURCE_NAME, AssetNodeTypes.AssetResource.NAME);
+      updateResourceProperty(assetNodeResource, dataNodeResource);
+      this.damSession.save();
+    }
 
     return assetNode.getIdentifier();
   }
