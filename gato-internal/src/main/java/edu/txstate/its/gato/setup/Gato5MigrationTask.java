@@ -305,7 +305,7 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
           if (savefirstimage != null) {
             Node headerImage = n.addNode("headerImage", NodeTypes.Area.NAME);
             Node hicomp = headerImage.addNode("imported", NodeTypes.Component.NAME);
-            NodeTypes.Renderable.set(hicomp, "gato-template:components/header-image");
+            NodeTypes.Renderable.set(hicomp, "gato-template-txstate2015:components/header-image");
             PropertyUtil.setProperty(hicomp, "visible", PropertyUtil.getString(gbsettings, "visible", "inherit"));
             PropertyUtil.setProperty(hicomp, "image", savefirstimage.getProperty("image").getString());
           }
