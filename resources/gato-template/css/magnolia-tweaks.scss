@@ -1,10 +1,7 @@
 $magnolia-green: #6a9000;
 
-$test-color: #247187;
-$focus-color: #6b2487;
-
-$bar-focus:   #6b2487;//    $magnolia-green;
-$bar-focus-text:  #fff;
+$bar-color: #00BEA8;
+$bar-text: #000000;
 
 .mgnlEditor {
   &.mgnlEditorBar {
@@ -50,8 +47,8 @@ body {
   div.mgnlEditorBar.area.childFocus ~ * div.mgnlEditorBar.component.focus, 
   div.mgnlEditorBar.area.childFocus ~ div.mgnlEditorBar.component.focus, 
    div.mgnlEditorBar.component.focus {
-    background-color: $bar-focus !important;
-    color: $bar-focus-text !important;
+    background-color: $bar-color !important;
+    color: $bar-text !important;
     display: block !important;
   }
  
@@ -59,9 +56,10 @@ body {
   //when I click an item in a column, the siblings turn this color
   div.mgnlEditorBar.area.childFocus ~ div.mgnlEditorBar.component, 
   div.mgnlEditorBar.area.childFocus ~ * div.mgnlEditorBar.component{
-    background-color: $test-color/*teal*/ !important;
-    color: white !important;
+    background-color: white/*teal*/ !important;
+    color: $bar-text !important;
     display: block !important;
+    border: 2px solid $bar-color;
   }
 
   //this selects only the add content bars.  when their area has focus
@@ -69,9 +67,9 @@ body {
   div.mgnlEditorBar.area.childFocus ~  div.mgnlPlaceholder div.mgnlEditorBar.component{
     //background-color: yellow !important;
     //color: black !important;
-    border: 2px dotted $test-color;
+    border: 2px dotted $bar-color;
     background: white !important;;
-    color: $test-color !important;
+    color: $bar-text !important;
     height: 50px !important;
     display: block !important;
   }
@@ -81,9 +79,9 @@ body {
   div.mgnlEditorBar.area.init ~ div.mgnlPlaceholder div.mgnlEditorBar.component {
     //background-color: palevioletred !important;
     //color: white !important;
-    border: 2px dotted $test-color; 
-    background: white !important;;
-    color: $test-color !important;
+    border: 2px dotted $bar-color; 
+    background: white !important;
+    color: $bar-text !important;
     height: 50px !important;
     display: block !important;
     margin-bottom: 30px !important;
@@ -109,8 +107,9 @@ body {
   //when an area bar has focus, all the component bars in that area have this style
   div.mgnlEditorBar.area.focus ~ div.mgnlEditorBar.component, 
   div.mgnlEditorBar.area.focus ~ * div.mgnlEditorBar.component {
-     background-color: $test-color/*purple*/ !important;
-     color: #fff !important;
+     background-color: white/*purple*/ !important;
+     border: 2px solid $bar-color;
+     color: $bar-text !important;
   }
 
   //Style for the add component bars when they 1)Are clicked on 2)The user clicks on them
@@ -120,8 +119,8 @@ body {
      // background-color: hotpink !important;
      // color: #fff !important;
      background-color: white !important;
-     color: $test-color !important;
-     border: 2px dotted $test-color !important;
+     color: $bar-text !important;
+     border: 2px dotted $bar-color !important;
   }
 
 
@@ -136,8 +135,9 @@ body {
   //if I have component 1 and component 2 in a column and I click on
   //component 1, the container uses this style.
   div.mgnlEditorBar.component {
-    background-color: #BCBCBC/*violet*/ !important;
-    color: black !important;
+    background-color: white/*violet*/ !important;
+    border: 2px solid $bar-color;
+    color: $bar-text !important;
     display: none !important;
   }
 
@@ -153,9 +153,9 @@ body {
     //background-color: red !important;
     //color: yellow !important;
     font-weight: 500;
-    border: 2px dotted $test-color;
+    border: 2px dotted $bar-color;
     background: white !important;;
-    color: $test-color !important;
+    color: $bar-text !important;
     height: 50px !important;
     margin-bottom: 30px !important;
   }
