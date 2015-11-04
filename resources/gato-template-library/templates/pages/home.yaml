@@ -83,7 +83,13 @@ areas:
       link:
         id: gato-template:components/link
   socialmedia:
-    #
+    renderType: freemarker
+    type: list
+    title: Social Media
+    templateScript: /gato-template-library/templates/areas/socialmedia.ftl
+    availableComponents:
+      sociallink:
+        id: gato-template:components/sociallink
   support-button:
     renderType: freemarker
     type: single

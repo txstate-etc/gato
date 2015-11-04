@@ -43,6 +43,10 @@ h6 {
 	font-weight:normal;
 }
 
+ul{
+	list-style:none;
+}
+
 .search-box a, .quick-links a {
 	color: #6c5521;
 }
@@ -289,7 +293,7 @@ body.admin .all-hours, body.admin .hours-links {
 	float: left;
 	width: 592px; 
 	height: 182px;
-	margin-left: 18px;
+	//margin-left: 18px; //changed for 2015
 }
 .search-box-tabs { 
 	width: 100%;
