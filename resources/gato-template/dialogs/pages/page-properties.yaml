@@ -52,9 +52,17 @@ form:
           label: Enable RSS Feed
           description: Gato will automatically create an RSS feed to make it easy for people to subscribe to this page and to be updated with changes.
         - name: permissions
-          class: info.magnolia.ui.form.field.definition.StaticFieldDefinition
           label: Password Protect Page
-          value: This will probably require a custom field definition.  dialogInclude doesn't seem to be an option anymore?
+          description: "If you enable protection, users must enter their NetID to view the page. Groups can be requested with this form (be sure to mention it's for Gato), and managed in the Online Toolkit."
+          class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
+          transformerClass: info.magnolia.ui.form.field.transformer.composite.NoOpCompositeTransformer
+          initFunction: initprotectedpages
+          scripts: [gato-template/js/protectedpages.js]
+          #styles: [gato-template/css/protectedpages.css]
+          loadScriptsInOrder: true
+          fields:
+            - name: protectedpagegroups
+              class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
         - name: googleanalytics
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           description: Website Domain ID<br/><br/>This account id is assigned by Google Analytics when you create an account or add a new site.  It looks like UA-1234567-1.  Enter that code here to enable Google Analytics for this page and all subpages.<br/><br/>You can learn more about Google Analytics and sign up for a free account at <a href="http://www.google.com/analytics/">http://www.google.com/analytics/</a>
