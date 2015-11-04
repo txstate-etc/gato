@@ -1,7 +1,7 @@
+<h3 class="general_emergency">
 [#if cmsfn.isEditMode() || (component.content)?has_content]
-    <h3 class="general_emergency">
-        [#if component??]
-            [@cms.component content=component/]
-        [/#if]
-    </h3>
+    [#if component??]
+        [@cms.component content=component/]
+    [/#if]
 [/#if]
+</h3>

@@ -1,0 +1,127 @@
+.slideshow-bg {
+    //position: relative;
+    border-bottom: 3px solid black;
+    background: url(#{$resource-root}/gato-template-library/images/slideshow-bg.jpg) repeat-x;
+    margin-bottom: 20px;
+}
+
+.gato-slideshow{
+    position: relative;
+    margin: 0px auto;
+    height: 345px;
+    width: 1000px;//747px;  //changed for 2015
+    .slides-admin {
+        width: 300px;
+        height: 0px;
+        overflow: visible;
+        z-index: 3;
+    }
+
+    .slides{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        .slide{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            //background-position: right center !important;
+            display: none;
+            &.active {
+                display: block;
+            }
+
+            .slidecontent{
+                position: absolute;
+                font-size: 13px;
+                line-height: 20px;
+                left: 0px;
+                top: 0px;
+                //width: 237px;
+                width: 242px; //for 2015
+                height: 100%;
+                color: white;
+
+                h3{
+                    font-family: 'Ubuntu Condensed',Arial, Helvetica, sans-serif;
+                    color: #fbfbfb;
+                    letter-spacing: -1px;
+                    text-align: left;
+                    font-size: 28px;
+                    line-height: 32px;
+                    padding: 12px 5px 5px 10px;
+                }
+
+                h4{
+                    font-family: 'Ubuntu Condensed',Arial, Helvetica, sans-serif;
+                    font-size: 18px;
+                    color: #d2d2d2;
+                    text-align: right;
+                    padding: 5px 20px 5px 10px;
+                    margin: 0;
+                }
+
+                p{
+                    color: #fbfbfb;
+                    font-size: 12px;
+                    padding: 5px 10px 5px 12px;
+                    font-weight: bold;
+                    line-height: 1.5em;
+                    letter-spacing: 1px;
+                }
+
+                a{
+                    color: #fbfbfb;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    .pages{
+        position: absolute;
+        right: auto;
+        z-index: 2;
+        bottom: 2px;
+        left: -15%;
+        max-width: 227px;
+        list-style:none;
+        padding: 0px;
+        li{
+            position: relative;
+            float: left;
+            padding: 0px 2px;
+
+            a{
+                display: block;
+                background-color: none;
+                color: #FFFFFF;
+                font-weight: bold;
+                font-size: 14px;
+                border-radius: 0;
+                padding: 0;
+                box-shadow: none;
+                text-decoration: none;
+                overflow: hidden;
+                width: 14px;
+                text-indent: -100px;
+                text-transform: uppercase;
+                background: url(#{$resource-root}/gato-template-library/images/slideshow-dot.png) no-repeat center center;
+            }
+
+            &.active a{
+                background-color: transparent;
+                background-image: url(#{$resource-root}/gato-template-library/images/slideshow-dot-active.png);
+            }
+
+            &.prev a{
+                background: url(../../gato-template-tsus/images/leftArrow.gif) no-repeat center center; 
+            }
+
+            &.next a{
+                background: url(../../gato-template-tsus/images/rightArrow.gif) no-repeat center center; 
+            }
+        }
+    }
+
+}

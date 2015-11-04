@@ -1,7 +1,15 @@
+<!-- WHAT DOES THIS DO? -->
+<div class="slides-admin">
+  [#list components as slide]
+    [@cms.component content=slide contextAttributes={"index": slide_index, "barsonly": true} /]
+  [/#list]
+  <div cms:add="bar"></div>
+</div>
+<!-- END OF MYSTERY CODE -->
 <div class="slides">
     [#list components as slide]
         [#assign slideactive=(slide_index == 0)?string("active", "")]
-        [@cms.component content=slide contextAttributes={"index": slide_index, "slideactive": slideactive } /]
+        [@cms.component content=slide contextAttributes={"index": slide_index, "slideactive": slideactive } editable=false/]
     [/#list]
 </div>
 

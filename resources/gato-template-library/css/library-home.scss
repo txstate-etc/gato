@@ -69,166 +69,55 @@ ul{
 	background: url(#{$resource-root}/gato-template-library/images/alkek-menu-bg.jpg) no-repeat 3px 0px;
 }
 
-.slideshow-bg {
-	position: relative;
-	border-bottom: 3px solid black;
-	background: url(#{$resource-root}/gato-template-library/images/slideshow-bg.jpg) repeat-x;
-	margin-bottom: 20px;
-	margin-top: -3px;
-}
-
-.gato-slideshow{
-	position: relative;
-
-	.slide{
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		background-position: right center !important;
-		display: none;
-	    &.active {
-	    	display: block;
-	    }
-
-		.slidecontent{
-			position: absolute;
-			font-size: 13px;
-			line-height: 20px;
-			left: 0px;
-			top: 0px;
-			width: 237px;
-			height: 100%;
-			color: white;
-
-			h3{
-				font-family: 'Ubuntu Condensed',Arial, Helvetica, sans-serif;
-				color: #fbfbfb;
-				letter-spacing: -1px;
-				text-align: left;
-			  	font-size: 28px;
-			  	line-height: 32px;
-			  	padding: 12px 5px 5px 10px;
-			}
-
-			h4{
-				font-family: 'Ubuntu Condensed',Arial, Helvetica, sans-serif;
-				font-size: 18px;
-				color: #d2d2d2;
-				text-align: right;
-			  	padding: 5px 20px 5px 10px;
-				margin: 0;
-			}
-
-			p{
-				color: #fbfbfb;
-				font-size: 12px;
-				padding: 5px 10px 5px 12px;
-				font-weight: bold;
-				line-height: 1.5em;
-				letter-spacing: 1px;
-			}
-
-			a{
-				color: #fbfbfb;
-				text-decoration: underline;
-			}
-		}
-	}
-
-	.pages{
-		position: absolute;
-		z-index: 2;
-		bottom: 2px;
-		left: 5px;
-		right: auto;
-		max-width: 227px;
-		list-style:none;
-
-		li{
-			position: relative;
-			float: left;
-			padding: 0px 2px;
-
-			a{
-				display: block;
-				color: #FFFFFF;
-				font-weight: bold;
-				font-size: 14px;
-				background-color: none;
-				border-radius: 0;
-				padding: 0;
-				box-shadow: none;
-				text-decoration: none;
-				overflow: hidden;
-				width: 14px;
-				text-indent: -100px;
-				text-transform: uppercase;
-				background: url(#{$resource-root}/gato-template-library/images/slideshow-dot.png) no-repeat center center;
-			}
-
-			&.active a{
-				background-color: transparent;
-				background-image: url(#{$resource-root}/gato-template-library/images/slideshow-dot-active.png);
-			}
-
-			&.prev a{
-				background: url(../../gato-template-tsus/images/leftArrow.gif) no-repeat center center; 
-			}
-
-			&.next a{
-				background: url(../../gato-template-tsus/images/rightArrow.gif) no-repeat center center; 
-			}
-		}
-	}
-
-}
-
 .library-hours {
 	position: absolute;
-	top: 0px;
+	//top: 0px;
+	top: 30px; //for 2015
 	right: 0px;
 	height: 315px;
-	width: 155px;
+	//width: 155px;
+	width: 208px; //new for 2015
 	//background-color: #dfded4;  //2012 color
 	background-color: $sandstone;
 	padding: 15px 30px;
+	.hours-links{
+		color: #6c5521;
+		font-size: 11px;
+		clear: both;
+		a{
+			color: #6c5521;
+		}
+	}
+	h3{
+		color: #323332;
+	}
+	.hours{
+		padding: 5px 3px 1px 3px;
+		font-size: 12px;
+		line-height: 16px;
+		h5{
+			color: #4b0f15;
+		font-weight: bold;
+		}
+		.times{
+			text-transform: lowercase;
+			color: #323332;
+		}
+		.all-hours{
+			padding-top: 2px;
+			img{
+			  max-width: 48px;
+			  float: left;
+			}
+		}
+	}
 }
 body.public .library-hours .hours-links {
 	position: absolute;
 	left: 30px;
 	bottom: 10px;
 }
-.library-hours .hours-links {
-	color: #6c5521;
-	font-size: 11px;
-	clear: both;
-}
-.library-hours .hours-links a {
-	color: #6c5521;
-}
-.library-hours h3 {
-	color: #323332;
-}
-.library-hours .hours {
-  padding: 5px 3px 1px 3px;
-	font-size: 12px;
-	line-height: 16px;
-}
-.library-hours .hours h5 {
-	color: #4b0f15;
-	font-weight: bold;
-}
-.library-hours .hours .times {
-	text-transform: lowercase;
-	color: #323332;
-}
-.library-hours .hours .all-hours {
-	padding-top: 2px;
-	img{
-	  max-width: 48px;
-	  float: left;
-	}
-}
+
 body.admin .all-hours, body.admin .hours-links {
 	overflow-y: auto;
 	height: 75px;
