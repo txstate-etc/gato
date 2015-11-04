@@ -3,7 +3,14 @@ function URLParser(){"use strict";this.plugins={}}function cloneObject(a){"use s
 
 var youtubeApiLoaded = false;
 
-var flowPlayerFormats = ['mp4', 'webm', 'ogv', 'm3u8', '.flv'];
+var flowPlayerFormats = ['mp4', 'webm', 'ogv', 'm3u8', 'flv'];
+var flowPlayerTypes = {
+  "mp4": "video/mp4",
+  "webm": "video/webm",
+  "ogv": "video/off",
+  "m3u8": "application/x-mpegurl",
+  "flv": "video/flash"
+}
 
 function getVideoInfo(url) {
   var vInfo = {};
@@ -16,7 +23,7 @@ function getVideoInfo(url) {
   } else if (url.startsWith("<iframe")) {
     vInfo.playerType = "embed";
   } else if (jQuery.inArray(getFileExtension(url), flowPlayerFormats) != -1) {
-    vInfo.playerType = "flow"
+    vInfo.playerType = "flow";
   } else {
     vInfo.playerType = "unknown";
   }
@@ -34,9 +41,10 @@ function getFileExtension(url) {
 function buildFlowPlayer(el, url) {
   var container = jQuery("<div></div>");
   jQuery(el).append(container);
+  var ext = getFileExtension(url);
   flowplayer(container, {
     clip: {
-      sources: [{ type: "video/mp4", src: url}]
+      sources: [{ type: flowPlayerTypes[ext], src: url}]
     }
   });
 }
@@ -128,9 +136,9 @@ function loadYoutubeScript() {
 function loadStreamingDialog(def, node, el) {
   loadYoutubeScript();
 
-  var container = $('<div class="gatoEmbedContainer" id="videoPreviewContainer"></div>')[0];
-  $(container).width(530);
-  $(el).append(container);
+  var container = jQuery('<div class="gatoEmbedContainer" id="videoPreviewContainer"></div>')[0];
+  jQuery(container).width(530);
+  jQuery(el).append(container);
 
   var spinnerOptions = {
     lines: 10,
@@ -150,22 +158,22 @@ function loadStreamingDialog(def, node, el) {
 
   function loadPreview() {
     spinner.stop();
-    var url = $('.videoUrl')[0].value;
+    var url = jQuery('.videoUrl')[0].value;
 
     var videoInfo = getVideoInfo(url);
     buildPlayer(container, videoInfo);
   }
 
-  $('.videoUrl').keyup(function() {
+  jQuery('.videoUrl').keyup(function() {
     clearTimeout(el.previewTimeout);
-    $(container).empty();
+    jQuery(container).empty();
     spinner.spin(el);
     el.previewTimeout = setTimeout(loadPreview, 1000);
   });
 
-  $('.videoUrl').change(function() {
+  jQuery('.videoUrl').change(function() {
     clearTimeout(el.previewTimeout);
-    $(container).empty();
+    jQuery(container).empty();
     loadPreview();
   })
 
