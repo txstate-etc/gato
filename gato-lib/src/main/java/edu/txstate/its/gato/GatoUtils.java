@@ -208,6 +208,41 @@ public final class GatoUtils {
     return srv;
   }
 
+  public String lesserwidth(String mw1, String mw2) {
+    if (maxwidthtolong(mw1) >= maxwidthtolong(mw2)) return mw2;
+    return mw1;
+  }
+  public String lesserwidth(String mw1, String mw2, String mw3) {
+    return lesserwidth(mw1, lesserwidth(mw2, mw3));
+  }
+  public long maxwidthtolong(String maxwidth) {
+    try {
+      long num = Long.parseLong(maxwidth.replaceAll("\\D",""));
+      if (maxwidth.toLowerCase().endsWith("vw")) return 30*num;
+      if (num == 0) return 10000;
+      return num;
+    } catch (Exception e) {
+      return 10000;
+    }
+  }
+
+  public long getImgWidth(String damuuid) throws Exception {
+    try {
+      return getImgWidth(damfn.getAsset(ensureItemKey(damuuid)));
+    } catch (Exception e) {
+      return 0;
+    }
+  }
+  public long getImgWidth(ContentMap c, String propertyName) throws Exception {
+    return getImgWidth(c.getJCRNode(), propertyName);
+  }
+  public long getImgWidth(Node n, String propertyName) throws Exception {
+    return getImgWidth(n.getProperty(propertyName).getString());
+  }
+  public long getImgWidth(Asset asset) throws Exception {
+    return asset.getMetadata(MagnoliaAssetMetadata.class).getWidth();
+  }
+
   public String getSrcSet(String damuuid) throws Exception {
     // let's see if the string we were given is already an ItemKey
     return getSrcSet(damfn.getAsset(ensureItemKey(damuuid)));
@@ -222,6 +257,7 @@ public final class GatoUtils {
   }
 
   public String getSrcSet(Asset asset) {
+    if (asset == null) return "";
     try {
       GatoResizer srv = getResizer();
       srv.setHeight(0);
@@ -253,6 +289,7 @@ public final class GatoUtils {
   }
 
   public String getImgDefault(Asset asset) {
+    if (asset == null) return "";
     try {
       long width = asset.getMetadata(MagnoliaAssetMetadata.class).getWidth();
       while (width > 1200) {
