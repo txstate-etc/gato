@@ -1,6 +1,6 @@
 templateScript: /gato-template/templates/components/rows/halves.ftl
 renderType: freemarker
-title: Row With 2 Equal Columns
+title: Section With 2 Equal Columns
 description: This paragraph creates a row containing 2 columns of equal size.
 areas:
   column1:
@@ -11,3 +11,5 @@ areas:
     type: list
     availableComponents:
       !include /gato-template/templates/areas/availableComponents.yaml
+parameters:
+  icon: /gato-template/images/2column.png

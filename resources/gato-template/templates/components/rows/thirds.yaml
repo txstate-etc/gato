@@ -15,3 +15,5 @@ areas:
     type: list
     availableComponents:
       !include /gato-template/templates/areas/availableComponents.yaml
+parameters:
+  icon: /gato-template/images/3column.png
