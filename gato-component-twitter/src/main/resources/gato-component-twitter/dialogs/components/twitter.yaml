@@ -8,12 +8,12 @@ form:
           label: 'Title (optional)'
         - name: query
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-          label: Search Query
+          label: Search Twitter
           description: 'Comma separated list of user names and/or hashtags  e.g., <code>@txst, @txstatebobcats, #EatEmUp</code>'
           defaultValue: '@txst'
         - name: count
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-          label: Count
+          label: Number of Tweets
           description: Number of tweets to display.
           defaultValue: 2
           maxLength: 2
