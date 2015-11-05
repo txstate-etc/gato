@@ -51,10 +51,13 @@ a.image_link:hover{background: transparent; opacity: 1;}
     font-weight: 400;
     border-radius: 3px;
     @include vendor-prefix(transition, all 0.2s ease-in-out);
-    border: 2px solid #FFFFFF;
+    border: 2px solid $footer-button-border; 
     max-width: 100%;
     padding: 1.2rem 0 !important;
     font-size: 1.6rem;
+    &:hover{
+        border-color: $footer-button-hover-border; 
+    }
 }
 
 .contact_us {
