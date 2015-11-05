@@ -1,0 +1,6 @@
+[#list components as content]
+  [#-- why do we want to do this? --]
+  [#if content_index != 0]
+    [@cms.component content=content/]
+  [/#if]
+[/#list]

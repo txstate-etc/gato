@@ -1,0 +1,35 @@
+form:
+  tabs:
+    - name: tabTexts
+      label: Icon Link
+      fields:
+        - name: link
+          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+          label: Link
+          targetWorkspace: website
+          appName: pages
+          required: true
+          description: "Enter a full URL to an external site (http://www.google.com/) or use the \"Internal Link\" button to link to another page in this site."
+          buttonSelectNewLabel: "Internal Link..."
+        - name: title
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Title
+          required: true
+          description: The text for the link
+        - name: subtitle
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Subtitle
+          required: true
+          description: The text to be displayed beneath the link
+        - name: image
+          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+          appName: assets
+          targetWorkspace: dam
+          identifierToPathConverter:
+            class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
+          contentPreviewDefinition:
+            contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
+          required: true
+          label: Icon
+          description: An image that will be displayed to the left of the title.
+actions: !include /gato-template/dialogs/common/actions-block.yaml

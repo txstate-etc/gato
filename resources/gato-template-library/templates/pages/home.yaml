@@ -4,6 +4,9 @@ visible: true
 title: Library Home Page (2012)
 dialog: gato-template:pages/page-properties
 modelClass: edu.txstate.its.gato.LibraryTemplateModel
+variations:
+  smartphone:
+    templateScript: /gato-template-library/templates/pages/mobile.ftl
 areas:
   customcss:
     !include /gato-component-cssjs/templates/areas/customcss.yaml
@@ -36,7 +39,7 @@ areas:
     title: Slideshow
     availableComponents:
       slideshow:
-        id: gato-template-library:components/slideshow
+        id: gato-template-tsus:components/slideshow
   emergency-hours:
     renderType: freemarker
     type: single
@@ -129,7 +132,7 @@ areas:
         id: gato-template:components/link
   footer:
     renderType: freemarker
-    type: list
+    type: single
     title: More Footer
     availableComponents:
       text:
@@ -176,3 +179,10 @@ areas:
     availableComponents:
       richeditor:
         id: gato-template:components/richeditor
+  mobile-title:
+    renderType: freemarker
+    type: single
+    title: Mobile Title
+    availableComponents:
+      text:
+        id: gato-template:components/misctext

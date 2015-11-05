@@ -1,0 +1,5 @@
+templateScript: /gato-template/templates/components/iconlink.ftl
+renderType: freemarker
+dialog: gato-template:components/iconlink
+description: A link with a title, subtitle, and icon
+title: Icon Link
