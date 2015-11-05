@@ -17,6 +17,7 @@ form:
           class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
           label: Sort Order
           description: 'How should the feed items be sorted?'
+          sortOptions: false
           options:
             - name: pubDateDesc
               value: pubDateDesc
@@ -32,6 +33,7 @@ form:
           class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
           label: What to Display
           description: Display a short summary, full contents, or just the items title.
+          sortOptions: false
           options:
             - name: showSummaryOnly
               value: showSummaryOnly
