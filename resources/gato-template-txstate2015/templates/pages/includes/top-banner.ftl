@@ -6,7 +6,7 @@
 			    </a>
 		</div>
 		<div class="hamburger">
-			<a class="toggle-button" href="#nowhere"><i class="fa fa-bars fa-lg"></i></a>
+			<a class="toggle-button" href="#nowhere">Menu</a>
 		</div>
 		[#import "search.ftl" as search]
 		[@search.searchBar false/]

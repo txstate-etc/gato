@@ -2,12 +2,18 @@
     float: right;
     a{
         color: $hamburger-button; 
-        font-size: 22px; 
+        font-size: 13px; 
         position: relative; 
-        padding: 10px 15px; 
+        padding: 6px 10px; 
         display: block; 
-        top: 3px; 
-        right: -15px;
+        top: 12px; 
+        right: -2px;
+        text-transform: uppercase;
+        border: 1px solid $hamburger-button-border;
+        border-radius: 4px;
+        font-weight: 400;
+        background-color: $hamburger-button-background;
+        box-shadow: 0px 2px 1px -2px #6A5638;
     }
 } 
 
