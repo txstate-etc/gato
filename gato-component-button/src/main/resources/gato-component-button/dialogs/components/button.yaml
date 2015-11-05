@@ -15,7 +15,7 @@ form:
               selected: true
               value: gradient
             - name: rollover
-              label: Rollover
+              label: Image Rollover
               value: rollover
             - name: reverse
               label: Reverse
