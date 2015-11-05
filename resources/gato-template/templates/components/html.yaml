@@ -3,3 +3,5 @@ renderType: freemarker
 dialog: gato-template:components/html
 description: HTML 5 that will be reproduced without alteration
 title: Raw HTML
+parameters:
+  icon: /gato-template/images/rawhtml.png
