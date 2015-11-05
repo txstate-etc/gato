@@ -48,5 +48,8 @@ function initColorPicker(def, node, el, tmpl) {
   var val = $('input[type=hidden].color').val();
   if (val) {
     $('input[type=radio][name=colorsel][value='+val+']').prop('checked', true);
+  } else {
+    // auto-select the first choice. 
+    $('input[type=radio][name=colorsel]').first().prop('checked', true);
   }
 }
