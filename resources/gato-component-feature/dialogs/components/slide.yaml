@@ -1,7 +1,7 @@
 form:
   tabs:
     - name: tabMain
-      label: Slide
+      label: Image
       fields:
         - name: image
           class: info.magnolia.ui.form.field.definition.LinkFieldDefinition

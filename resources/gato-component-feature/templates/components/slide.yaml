@@ -1,5 +1,5 @@
 templateScript: /gato-component-feature/templates/components/slide.ftl
 renderType: freemarker
-title: Slide
+title: Image
 description: Slide for the feature slideshow.
 dialog: gato-component-feature:components/slide

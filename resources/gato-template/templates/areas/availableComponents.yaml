@@ -14,8 +14,6 @@ iframe:
   id: gato-template:components/iframe
 faqhierarchy:
   id: gato-component-faq:components/faq-hierarchy
-feature:
-  id: gato-component-feature:components/feature
 gallery:
   id: gato-component-gallery:components/gallery
 # gallerym:
@@ -24,6 +22,8 @@ richeditor:
   id: gato-template:components/richeditor
 html:
   id: gato-template:components/html
+feature:
+  id: gato-component-feature:components/feature
 sitemap:
   id: gato-component-sitemap:components/sitemap
 table:

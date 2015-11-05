@@ -1,10 +1,11 @@
 templateScript: /gato-component-feature/templates/components/feature.ftl
 renderType: freemarker
-title: Feature
+title: Slider
 description: Slideshow for highlighting featured content.
 dialog: gato-component-feature:components/feature
 areas:
   slides:
+    title: Image
     type: list
     renderType: freemarker
     templateScript: /gato-component-feature/templates/areas/feature.ftl
