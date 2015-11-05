@@ -22,7 +22,7 @@ form:
           type: Long
         - name: alphabetical
           class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
-          label: Map Type
+          label: Display Type
           description: "If you would prefer that your site map be a flat, alphabetical list, use this option."
           buttonLabel: Alphabetical
 
