@@ -1,5 +1,7 @@
 var jcrutil = {};
-jcrutil.restfulbase = window.location.pathname.substring(0, window.location.pathname.indexOf("/.magnolia"))+"/.rest/";
+jcrutil.contextpath = window.location.pathname.substring(0, window.location.pathname.indexOf("/.magnolia"));
+jcrutil.restfulbase = jcrutil.contextpath+"/.rest/";
+jcrutil.resourcepath = jcrutil.contextpath+"/.resources/";
 jcrutil.nodebase = jcrutil.restfulbase+"nodes/v1/";
 jcrutil.getnode = function (workspace, path, depth) {
   return jQuery.ajax(jcrutil.nodebase+workspace+path+"?depth="+depth);

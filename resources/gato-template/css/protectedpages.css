@@ -45,7 +45,9 @@
 .protected-remove {
 	display: block;
 	float: right;
+	font-size: 20px;
 	width: 20px;
+	height: 20px;
 	text-decoration: none;
 }
 
@@ -53,4 +55,9 @@
 	display: block;
 	border: 0px;
 	margin: 0px;
+}
+
+.inheritancemsg {
+  font-size: 11px;
+  border: 1px dotted #666666;
 }

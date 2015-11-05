@@ -5,29 +5,11 @@ $.fn.protectedpicker = function(options) {
 	var picker = $(this);
 	var selectedgroups = [];
 	var defaultopts = {
-		assetsurl: 'http://www.txstate.edu/magnoliaAssets',
-		inputname: 'permissions',
+		input: picker.find('input.protectedpagegroups'),
 		prefill: [],
 		database: []
 	};
 	var opts = $.extend(defaultopts, options);
-
-	// ensure we have our libraries
-	var cssfile = opts.assetsurl+"/txstate/css/protectedpicker.css";
-	$('head:not(:has(link[href~="'+cssfile+'"]))').each(function () {
-		$('<link rel="stylesheet" href="'+cssfile+'"/>').appendTo('head');
-	});
-	var jqueryui = opts.assetsurl+"/common/js/jquery-ui/jquery-ui.min.js";
-	$('head:not(:has(script[src~="'+jqueryui+'"]))').each(function () {
-		var s = $(document.createElement("script"))
-			.attr('type', 'text/javascript')
-			.attr('src', jqueryui);
-		$('head').append(s);
-	});
-	var jqueryuicss = opts.assetsurl+"/common/js/jquery-ui/jquery-ui.min.css";
-	$('head:not(:has(link[href~="'+jqueryuicss+'"]))').each(function () {
-		$('<link rel="stylesheet" href="'+jqueryuicss+'"/>').appendTo('head');
-	});
 
 	var addgroup = function(groupinfo) {
 		removegroup(groupinfo);
@@ -51,7 +33,7 @@ $.fn.protectedpicker = function(options) {
 		});
 		$.each(selectedgroups, function(i, g) {
 			var div = $("<div class='protected-group'>"+g.name+"</div>");
-			var a = $("<a class='protected-remove' data-value='"+g.key+"' title='Remove "+g.name+"' href='#'><img src='"+opts.assetsurl+"/common/images/trash.png' alt='Remove "+g.name+"'/></a>");
+			var a = $("<a class='protected-remove icon-trash' data-value='"+g.key+"' title='Remove "+g.name+"' aria-label='Remove "+g.name+"' href='#'></a>");
 			a.click(function(e) {
 				removegroup({
 					key: a.attr("data-value"),
@@ -61,9 +43,7 @@ $.fn.protectedpicker = function(options) {
 				e.preventDefault();
 			});
 			div.append(a);
-			div.append('<input type="hidden" name="'+opts.inputname+'" value="'+g.key+'"/>');
 			content.append(div);
-
 			picker.find('.protected-from input[value="'+g.key+'"]').prop("checked", true);
 		});
 	};
@@ -96,6 +76,7 @@ $.fn.protectedpicker = function(options) {
 			jsonp: false,
 			jsonpCallback: "protectedpickerrequest",
 			success: function (data, status, xhr) {
+			  console.log(data);
 				$.each(data, function (i, obj) {
 					opts.database.push({label: obj.name, value: obj.code});
 				});
@@ -162,6 +143,7 @@ jcrnode.prototype.protectedgroups = function () {
 }
 
 function initprotectedpages(def, path, parentdiv) {
+  parentdiv = jQuery(parentdiv);
 	var mynode = new jcrnode("website", path);
 	var inheritedpage;
 	mynode.fetchInheritanceList(1).done(function (list) {
@@ -173,63 +155,57 @@ function initprotectedpages(def, path, parentdiv) {
 	      break;
 	    }
 	  }
-    if (inheritedpage && mynode.protectedgroups().length == 0)  {
-      parentdiv.innerHTML += '<p>This page is already protected by being a subpage of \
-      '+inheritedpage.nodeTitle()+' &lt;'+inheritedpage.path+'&gt;</p>\
-      <p>If you choose groups here, they will be used instead of the inherited protection.</p>';
+	  var html = '';
+    if (inheritedpage) {
+      html += '<div class="inheritancemsg">';
+      if (mynode.protectedgroups().length == 0)  {
+        html += '<p>This page is already protected by being a subpage of '
+        +inheritedpage.nodeTitle()+' &lt;'+inheritedpage.path+'&gt;</p>'
+        +'<p>If you choose groups here, they will be used instead of the '
+        +'inherited protection.</p>';
+      } else {
+        html += '<p>Currently overriding protection settings from page: '
+        +inheritedpage.nodeTitle()+' &lt;'+inheritedpage.path+'&gt;</p>'
+        +'<p>If you remove all groups here, this page would inherit '
+        +'protection from that page.</p>';
+      }
+      html += '</div>';
     }
-
-    /*
-    <c:if test="${not empty inheritedPage and not empty valdefault}">
-      <div style="background-color: #cccccc">
-      <p>Currently overriding protection settings from page: <a target="_blank" href="${gf:filterUrl(inheritedPage['@path'])}">${ gf:title(inheritedPage) }</a>.</p>
-      <p>If you remove all groups here, this page would inherit protection from that page.</p>
-      </div>
-    </c:if>
-
-    <div class="protected-picker" id="${dialogObject.name}-protected-picker">
-      <div class="protected-from">
-        <div class="protected-anynetid">
-          <input type="checkbox" id="${dialogObject.name}-anynetid" name="ignore" class="" value="txstate.ldap.txstateuser"/>
-          <label for="${dialogObject.name}-anynetid">Any NetID</label>
-        </div>
-        <div class="protected-faculty">
-          <input type="checkbox" id="${dialogObject.name}-faculty" name="ignore" class="" value="txstate.affiliation.faculty"/>
-          <label for="${dialogObject.name}-faculty">Faculty</label>
-        </div>
-        <div class="protected-staff">
-          <input type="checkbox" id="${dialogObject.name}-staff" name="ignore" class="" value="txstate.affiliation.staff"/>
-          <label for="${dialogObject.name}-staff">Staff</label>
-        </div>
-        <div class="protected-students">
-          <input type="checkbox" id="${dialogObject.name}-students" name="ignore" class="" value="txstate.affiliation.student"/>
-          <label for="${dialogObject.name}-students">Students</label>
-        </div>
-      </div>
-      <div class="protected-to">
-        <div class="protected-header mgnlDialogDescription">
-          Access granted to all of the following:
-        </div>
-        <div class="protected-to-content">
-          <jsp:text/>
-        </div>
-        <div class="protected-autofill">
-          <input type="search" class="mgnlDialogControlEdit" id="${dialogObject.name}-autofill" name="${dialogObject.name}-autofill" placeholder="Find/Add Group..."/>
-        </div>
-      </div>
-    </div>
-
-    <script type="text/javascript">
-      jQuery('#${dialogObject.name}-protected-picker').protectedpicker({
-        inputname: "${dialogObject.name}",
-        assetsurl: "${assetsUrl}",
-        prefill: [
-          <c:forEach var="group" items="${gf:propertyValues(valdefault)}" varStatus="loopstatus">
-            "${group}"${not loopstatus.last ? ',' : ''}
-          </c:forEach>
-        ]
-      });
-    </script>
-    */
+    html += '<div class="protected-picker">'+
+            '  <div class="protected-from">'+
+            '    <div class="protected-anynetid">'+
+            '      <input type="checkbox" id="pp-anynetid" name="ignore" class="" value="txstate.ldap.txstateuser"/>'+
+            '      <label for="pp-anynetid">Any NetID</label>'+
+            '    </div>'+
+            '    <div class="protected-faculty">'+
+            '      <input type="checkbox" id="pp-faculty" name="ignore" class="" value="txstate.affiliation.faculty"/>'+
+            '      <label for="pp-faculty">Faculty</label>'+
+            '    </div>'+
+            '    <div class="protected-staff">'+
+            '      <input type="checkbox" id="pp-staff" name="ignore" class="" value="txstate.affiliation.staff"/>'+
+            '      <label for="pp-staff">Staff</label>'+
+            '    </div>'+
+            '    <div class="protected-students">'+
+            '      <input type="checkbox" id="pp-students" name="ignore" class="" value="txstate.affiliation.student"/>'+
+            '      <label for="pp-students">Students</label>'+
+            '    </div>'+
+            '  </div>'+
+            '  <div class="protected-to">'+
+            '    <div class="protected-header">'+
+            '      Access granted to all of the following:'+
+            '    </div>'+
+            '    <div class="protected-to-content">'+
+            '      <jsp:text/>'+
+            '    </div>'+
+            '    <div class="protected-autofill">'+
+            '      <input type="search" class="v-textfield v-widget v-form-field v-textfield-v-form-field v-has-width" id="pp-autofill" name="pp-autofill" placeholder="Find/Add Group..."/>'+
+            '    </div>'+
+            '  </div>'+
+            '</div>';
+    parentdiv.append(html);
+    parentdiv.find('.protected-picker').protectedpicker({
+      input: parentdiv.find('input.protectedpagegroups'),
+      prefill: mynode.protectedgroups()
+    });
   });
 }
