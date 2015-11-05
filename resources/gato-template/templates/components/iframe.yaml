@@ -2,7 +2,7 @@ templateScript: /gato-template/templates/components/iframe.ftl
 renderType: freemarker
 dialog: gato-template:components/iframe
 description: A paragraph that lets you embed the content of another webpage within yours.
-title: Application Porthole
+title: Embed Webpage
 parameters:
   icon: /gato-template/images/app_porthole.png
 

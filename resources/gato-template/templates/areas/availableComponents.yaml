@@ -1,5 +1,3 @@
-iframe:
-  id: gato-template:components/iframe
 button:
   id: gato-component-button:components/button
 events:
@@ -10,6 +8,8 @@ rss:
   id: gato-component-rss:components/rss
 documents:
   id: gato-component-documents:components/documents
+iframe:
+  id: gato-template:components/iframe
 faqhierarchy:
   id: gato-component-faq:components/faq-hierarchy
 feature:
