@@ -3,9 +3,6 @@ form:
     - name: tabFaq
       label: Configure FAQs
       fields:
-        - name: faqTree
-          class: edu.txstate.its.gato.FaqTreeFieldDefinition
-          label: FAQ Tree
         - name: faqTitle
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Title
@@ -18,19 +15,14 @@ form:
           class: info.magnolia.ui.form.field.definition.RichTextFieldDefinition
           label: Answer
           styleName: faqAnswer
+        - name: faqTree
+          transformerClass: edu.txstate.its.gato.FaqTreeTransformer
+          class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
         - name: faqScript
           class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
-          fields:
-            - name: testHidden
-              class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
-            - name: otherHidden
-              class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
-            - name: testText
-              class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-              label: Test
           initFunction: initFaqHierarchy
           scripts: [gato-lib/js/prototype.js, gato-lib/js/scriptaculous/scriptaculous.js, gato-lib/js/scriptaculous/effects.js, gato-lib/js/scriptaculous/dragdrop.js, gato-component-faq/js/faqHierarchy.js]
           styles: [gato-component-faq/css/faqHierarchy.css]
           loadScriptsInOrder: true
-          label: Script
+          label: FAQ Tree
 actions: !include /gato-template/dialogs/common/actions-block.yaml

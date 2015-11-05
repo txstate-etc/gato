@@ -7,7 +7,7 @@ var questionInput;
 var titleInput;
 
 function onLoad() {
-  $$('#faq_tree li').each(function(item) {
+  /*$$('#faq_tree li').each(function(item) {
     if (!item.hasClassName("faq_tree_faq_node") && !item.hasClassName("faq_tree_group_node")) return;
 
     Position.includeScrollOffsets = true;
@@ -33,7 +33,7 @@ function onLoad() {
   //$('mgnlSaveButton').writeAttribute('onclick', 'onSave(); ' + 
   //                                   $('mgnlSaveButton').readAttribute('onclick'));
 
-  waitForCKEditor();
+  waitForCKEditor();*/
 }
 
 function waitForCKEditor() {
