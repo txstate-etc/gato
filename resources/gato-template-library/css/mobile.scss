@@ -47,6 +47,16 @@ a {
   padding-bottom: 10px;
 }
 
+.mobile{
+  .search-box{
+    box-shadow: none;
+    float: none;
+    width: inherit;
+    height: inherit;
+    border-radius: none;
+  }
+}
+
 #news, #socialmedia, #footer {
   padding-top: 20px;
   padding-bottom: 20px;

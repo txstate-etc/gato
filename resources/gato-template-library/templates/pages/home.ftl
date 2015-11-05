@@ -8,7 +8,7 @@
   <link href="http://fonts.googleapis.com/css?family=Ubuntu+Condensed" rel="stylesheet" type="text/css" />
   [@templatehead /]
 </head>
-<body id="library-2012" class="${cmsfn.isEditMode()?string('admin', '')}">
+<body id="library-2012" class="${cmsfn.isEditMode()?string('admin', 'public')}">
     
     <!--"super user" menu bar -->
     [@cms.area name="superUser" content=globaldata.webTools contextAttributes={"isMobile":false}/]
@@ -86,5 +86,14 @@
         </div>
     </div>
     [@cssjsmodals /]
+    [#if cmsfn.isEditMode()]
+        <div id="gato-mobile-edit-modal" class="gato-custom-column">  
+            [#include "mobile.ftl"]   
+            <script type="text/javascript">
+                var cssmodal = new modal($('gato-mobile-edit-modal'));
+                cssmodal.addToMainbar('Edit Mobile Template');
+            </script>
+        </div>
+    [/#if]
 </body>
 </html>
