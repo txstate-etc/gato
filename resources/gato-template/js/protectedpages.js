@@ -149,69 +149,87 @@ $.fn.protectedpicker = function(options) {
 
 })(jQuery);
 
+jcrnode.prototype.protectedgroups = function () {
+  var page = this;
+  var ret = [];
+  if (page.nodehash.protectedpagegroups) {
+    for (var i = 0; i < page.nodehash.protectedpagegroups.propertyarray.length; i++) {
+      var prop = page.nodehash.protectedpagegroups.propertyarray[i];
+      ret.push(prop.values[0]);
+    }
+  }
+  return ret;
+}
+
 function initprotectedpages(def, path, parentdiv) {
-	console.log(arguments);
-	/*
-  <c:if test="${not empty inheritedPage and empty valdefault}">
-    <div style="background-color: #cccccc">
-    <p>This page is already protected by being a subpage of <a target="_blank" href="${gf:filterUrl(inheritedPage['@path'])}">${ gf:title(inheritedPage) }</a>.</p>
-    <p>If you choose groups here, they will be used instead of the inherited protection.</p>
-    </div>
-  </c:if>
-  <c:if test="${not empty inheritedPage and not empty valdefault}">
-    <div style="background-color: #cccccc">
-    <p>Currently overriding protection settings from page: <a target="_blank" href="${gf:filterUrl(inheritedPage['@path'])}">${ gf:title(inheritedPage) }</a>.</p>
-    <p>If you remove all groups here, this page would inherit protection from that page.</p>
-    </div>
-  </c:if>
+	var mynode = new jcrnode("website", path);
+	var inheritedpage;
+	mynode.fetchInheritanceList(1).done(function (list) {
+	  for (var i = 0; i < list.length; i++) {
+	    var page = list[i];
+	    var groups = page.protectedgroups();
+	    if (groups.length > 0 && i > 0) { // inheritedpage should never be == mynode
+	      inheritedpage = page;
+	      break;
+	    }
+	  }
+    if (inheritedpage && mynode.protectedgroups().length == 0)  {
+      parentdiv.innerHTML += '<p>This page is already protected by being a subpage of \
+      '+inheritedpage.nodeTitle()+' &lt;'+inheritedpage.path+'&gt;</p>\
+      <p>If you choose groups here, they will be used instead of the inherited protection.</p>';
+    }
 
-  <c:if test="${not protectedgroupsonce}">
-    <script type="text/javascript" src="${assetsUrl}/txstate/js/protectedpicker.js"><jsp:text/></script>
-    <c:set var="protectedgroupsonce" value="${true}" scope="request"/>
-  </c:if>
+    /*
+    <c:if test="${not empty inheritedPage and not empty valdefault}">
+      <div style="background-color: #cccccc">
+      <p>Currently overriding protection settings from page: <a target="_blank" href="${gf:filterUrl(inheritedPage['@path'])}">${ gf:title(inheritedPage) }</a>.</p>
+      <p>If you remove all groups here, this page would inherit protection from that page.</p>
+      </div>
+    </c:if>
 
-  <div class="protected-picker" id="${dialogObject.name}-protected-picker">
-    <div class="protected-from">
-      <div class="protected-anynetid">
-        <input type="checkbox" id="${dialogObject.name}-anynetid" name="ignore" class="" value="txstate.ldap.txstateuser"/>
-        <label for="${dialogObject.name}-anynetid">Any NetID</label>
+    <div class="protected-picker" id="${dialogObject.name}-protected-picker">
+      <div class="protected-from">
+        <div class="protected-anynetid">
+          <input type="checkbox" id="${dialogObject.name}-anynetid" name="ignore" class="" value="txstate.ldap.txstateuser"/>
+          <label for="${dialogObject.name}-anynetid">Any NetID</label>
+        </div>
+        <div class="protected-faculty">
+          <input type="checkbox" id="${dialogObject.name}-faculty" name="ignore" class="" value="txstate.affiliation.faculty"/>
+          <label for="${dialogObject.name}-faculty">Faculty</label>
+        </div>
+        <div class="protected-staff">
+          <input type="checkbox" id="${dialogObject.name}-staff" name="ignore" class="" value="txstate.affiliation.staff"/>
+          <label for="${dialogObject.name}-staff">Staff</label>
+        </div>
+        <div class="protected-students">
+          <input type="checkbox" id="${dialogObject.name}-students" name="ignore" class="" value="txstate.affiliation.student"/>
+          <label for="${dialogObject.name}-students">Students</label>
+        </div>
       </div>
-      <div class="protected-faculty">
-        <input type="checkbox" id="${dialogObject.name}-faculty" name="ignore" class="" value="txstate.affiliation.faculty"/>
-        <label for="${dialogObject.name}-faculty">Faculty</label>
-      </div>
-      <div class="protected-staff">
-        <input type="checkbox" id="${dialogObject.name}-staff" name="ignore" class="" value="txstate.affiliation.staff"/>
-        <label for="${dialogObject.name}-staff">Staff</label>
-      </div>
-      <div class="protected-students">
-        <input type="checkbox" id="${dialogObject.name}-students" name="ignore" class="" value="txstate.affiliation.student"/>
-        <label for="${dialogObject.name}-students">Students</label>
+      <div class="protected-to">
+        <div class="protected-header mgnlDialogDescription">
+          Access granted to all of the following:
+        </div>
+        <div class="protected-to-content">
+          <jsp:text/>
+        </div>
+        <div class="protected-autofill">
+          <input type="search" class="mgnlDialogControlEdit" id="${dialogObject.name}-autofill" name="${dialogObject.name}-autofill" placeholder="Find/Add Group..."/>
+        </div>
       </div>
     </div>
-    <div class="protected-to">
-      <div class="protected-header mgnlDialogDescription">
-        Access granted to all of the following:
-      </div>
-      <div class="protected-to-content">
-        <jsp:text/>
-      </div>
-      <div class="protected-autofill">
-        <input type="search" class="mgnlDialogControlEdit" id="${dialogObject.name}-autofill" name="${dialogObject.name}-autofill" placeholder="Find/Add Group..."/>
-      </div>
-    </div>
-  </div>
 
-  <script type="text/javascript">
-    jQuery('#${dialogObject.name}-protected-picker').protectedpicker({
-      inputname: "${dialogObject.name}",
-      assetsurl: "${assetsUrl}",
-      prefill: [
-        <c:forEach var="group" items="${gf:propertyValues(valdefault)}" varStatus="loopstatus">
-          "${group}"${not loopstatus.last ? ',' : ''}
-        </c:forEach>
-      ]
-    });
-  </script>
-  */
+    <script type="text/javascript">
+      jQuery('#${dialogObject.name}-protected-picker').protectedpicker({
+        inputname: "${dialogObject.name}",
+        assetsurl: "${assetsUrl}",
+        prefill: [
+          <c:forEach var="group" items="${gf:propertyValues(valdefault)}" varStatus="loopstatus">
+            "${group}"${not loopstatus.last ? ',' : ''}
+          </c:forEach>
+        ]
+      });
+    </script>
+    */
+  });
 }

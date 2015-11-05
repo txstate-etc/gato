@@ -57,8 +57,8 @@ form:
           class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
           transformerClass: info.magnolia.ui.form.field.transformer.composite.NoOpCompositeTransformer
           initFunction: initprotectedpages
-          scripts: [gato-template/js/protectedpages.js]
-          #styles: [gato-template/css/protectedpages.css]
+          scripts: [gato-lib/js/restful.js, gato-template/js/protectedpages.js]
+          styles: [gato-template/css/protectedpages.css]
           loadScriptsInOrder: true
           fields:
             - name: protectedpagegroups

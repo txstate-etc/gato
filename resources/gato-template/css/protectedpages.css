@@ -1,0 +1,56 @@
+.protected-picker {
+	position: relative;
+	overflow: hidden;
+}
+
+.protected-from {
+	float: left;
+	width: 35%;
+}
+
+.protected-to {
+	float: left;
+	width: 65%;
+}
+
+.protected-autofill {
+	width: 100%;
+}
+
+.protected-autofill input {
+	width: 70%;
+}
+
+.protected-autofill button {
+	margin-left: 2px;
+	width: 20%;
+}
+
+.protected-to-content {
+	padding: 3px;
+	border: 1px solid #CCCCCC;
+	margin: 5px 5px 5px 0px;
+}
+
+.protected-group {
+	clear: both;
+	line-height: 21px;
+	border-bottom: 1px dashed #DDDDDD;
+}
+
+.protected-group:last-child {
+	border-bottom: 0px;
+}
+
+.protected-remove {
+	display: block;
+	float: right;
+	width: 20px;
+	text-decoration: none;
+}
+
+.protected-remove img {
+	display: block;
+	border: 0px;
+	margin: 0px;
+}
