@@ -113,6 +113,7 @@ areas:
     renderType: freemarker
     type: list
     title: Event
+    templateScript: /gato-template-library/templates/areas/contentboxmiddle-area.ftl
   contentboxright:
     renderType: freemarker
     type: list
