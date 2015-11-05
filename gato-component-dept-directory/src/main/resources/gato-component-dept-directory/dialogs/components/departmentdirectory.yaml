@@ -5,8 +5,7 @@ form:
       fields:
         - name: title
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-          label: Title
-          description: "If you'd like a title for your department directory, enter it here. (It's optional.)"
+          label: Title (optional)
         - name: department
           class: edu.txstate.its.gato.DepartmentSelectorDefinition
           label: Department
