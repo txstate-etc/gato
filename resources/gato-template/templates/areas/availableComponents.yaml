@@ -8,6 +8,8 @@ rss:
   id: gato-component-rss:components/rss
 documents:
   id: gato-component-documents:components/documents
+streaming:
+    id: gato-component-streaming:components/streaming
 iframe:
   id: gato-template:components/iframe
 faqhierarchy:
@@ -24,8 +26,6 @@ html:
   id: gato-template:components/html
 sitemap:
   id: gato-component-sitemap:components/sitemap
-streaming:
-    id: gato-component-streaming:components/streaming
 table:
   id: gato-template:components/table
 textimage:
