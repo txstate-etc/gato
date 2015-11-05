@@ -49,15 +49,14 @@
 	width: 20px;
 	height: 20px;
 	text-decoration: none;
-}
-
-.protected-remove img {
-	display: block;
-	border: 0px;
-	margin: 0px;
+	color: black;
 }
 
 .inheritancemsg {
   font-size: 11px;
   border: 1px dotted #666666;
+}
+
+.ui-widget.ui-autocomplete {
+  font-size: 12px;
 }
