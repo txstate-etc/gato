@@ -55,7 +55,6 @@ form:
           label: Password Protect Page
           description: 'If you enable protection, users must enter their NetID to view the page. Groups can be requested with <a target="_blank" href="http://www.tr.txstate.edu/forms/security-group-request.html">this form</a> (be sure to mention it is for Gato), and managed in the <a target="_blank" href="https://tim.txstate.edu/onlinetoolkit/Home/RoleManagement.aspx">Online Toolkit</a>.'
           class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
-          transformerClass: info.magnolia.ui.form.field.transformer.composite.NoOpCompositeTransformer
           initFunction: initprotectedpages
           scripts: [gato-lib/js/jquery-ui/jquery-ui.min.js,gato-lib/js/restful.js, gato-template/js/protectedpages.js]
           styles: [gato-lib/js/jquery-ui/jquery-ui.min.css,gato-template/css/protectedpages.css]
@@ -63,6 +62,7 @@ form:
           fields:
             - name: protectedpagegroups
               class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+              transformerClass: edu.txstate.its.gato.vaadin.JsonTransformer
         - name: googleanalytics
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           description: Website Domain ID<br/><br/>This account id is assigned by Google Analytics when you create an account or add a new site.  It looks like UA-1234567-1.  Enter that code here to enable Google Analytics for this page and all subpages.<br/><br/>You can learn more about Google Analytics and sign up for a free account at <a href="http://www.google.com/analytics/">http://www.google.com/analytics/</a>

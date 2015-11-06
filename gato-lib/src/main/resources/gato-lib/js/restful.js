@@ -41,17 +41,15 @@ jcrnode.prototype.load = function (data) {
 
 jcrnode.prototype.cleanup = function() {
   var node = this;
-  // rename 'properties' to 'propertyarray'
-  // and make 'properties' a hash
-  node.propertyarray = node['properties'];
-  node.properties = {};
-  for (var i = 0; i < node.propertyarray.length; i++) {
-    var prop = node.propertyarray[i];
+  // create a 'prophash' for easier access
+  node.prophash = {};
+  for (var i = 0; i < node.properties.length; i++) {
+    var prop = node.properties[i];
     var vals = prop.values;
     if (!prop.multiple) vals = vals[0];
-    node.properties[prop.name] = vals;
+    node.prophash[prop.name] = vals;
   }
-  // create a 'nodehash' for easier node access
+  // create a 'nodehash' for easier access
   // also convert node data to jcrnode objects
   node.nodehash = {};
   for (var i = 0; node.nodes && i < node.nodes.length; i++) {
@@ -140,8 +138,53 @@ jcrnode.prototype.fetchInheritanceList = function (depth) {
 
 jcrnode.prototype.nodeTitle = function () {
   var node = this;
-  if (node.properties.title) return node.properties.title;
-  var words = node.name.split(/\W/);
+  if (node.prophash.title) return node.prophash.title;
+  var words = node.name.split(/\W+/);
   for (var i = 0; i < words.length; i++) words[i] = words[i].charAt(0).toUpperCase()+words[i].slice(1);
   return words.join(" ");
+}
+
+jcrnode.prototype.getPropertyValues = function () {
+  var node = this;
+  var ret = [];
+  for (var i = 0; node.properties && i < node.properties.length; i++) {
+    ret.push(node.properties[i].values[0]);
+  }
+  return ret;
+}
+
+jcrnode.prototype.clearProperties = function () {
+  var node = this;
+  node.properties = [];
+  node.prophash = {};
+}
+
+jcrnode.prototype.setProperty = function(key, vals, type) {
+  var node = this;
+  if (!type) type = 'String';
+  var multiple = false;
+  var ensurearrayvals = vals;
+  if (typeof(ensurearrayvals) != 'ARRAY') ensurearrayvals = [vals];
+  else multiple = true;
+  if (typeof(node.prophash[key]) != 'undefined') {
+    for (var i = 0; i < node.properties.length; i++) {
+      var prop = node.properties[i];
+      if (prop.name == key) prop.val = vals;
+    }
+  } else {
+    node.properties.push({
+      name: key,
+      type: type,
+      values: ensurearrayvals,
+      multiple: multiple
+    });
+  }
+  node.prophash[key] = vals;
+}
+
+jcrnode.prototype.addProperty = function(vals, type) {
+  var node = this;
+  var key = 0;
+  while (typeof(node.prophash[key]) != 'undefined') key++;
+  return node.setProperty(key, vals, type);
 }

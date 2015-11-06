@@ -1,15 +1,10 @@
 // require jQuery and momentjs
 (function ($) {
 
-$.fn.protectedpicker = function(options) {
+$.fn.protectedpicker = function(opts) {
 	var picker = $(this);
 	var selectedgroups = [];
-	var defaultopts = {
-		input: picker.find('input.protectedpagegroups'),
-		prefill: [],
-		database: []
-	};
-	var opts = $.extend(defaultopts, options);
+	opts.database = [];
 
 	var addgroup = function(groupinfo) {
 		removegroup(groupinfo);
@@ -31,6 +26,7 @@ $.fn.protectedpicker = function(options) {
 		selectedgroups.sort(function (a, b) {
 			return (a.name < b.name ? -1 : (a.name > b.name ? 1 : 0));
 		});
+		opts.groupnode.clearProperties();
 		$.each(selectedgroups, function(i, g) {
 			var div = $("<div class='protected-group'>"+g.name+"</div>");
 			var a = $("<a class='protected-remove icon-trash' data-value='"+g.key+"' title='Remove "+g.name+"' aria-label='Remove "+g.name+"' href='#'></a>");
@@ -45,7 +41,9 @@ $.fn.protectedpicker = function(options) {
 			div.append(a);
 			content.append(div);
 			picker.find('.protected-from input[value="'+g.key+'"]').prop("checked", true);
+			opts.groupnode.addProperty(g.key);
 		});
+		opts.input.val(JSON.stringify(opts.groupnode));
 	};
 
 	var initializeform = function () {
@@ -56,7 +54,7 @@ $.fn.protectedpicker = function(options) {
 		});
 
 		// add the prefill into selectedgroups
-		$.each(opts.prefill, function (i, key) {
+		$.each(opts.groupnode.getPropertyValues(), function (i, key) {
 			var cbox = picker.find('.protected-from input[value="'+key+'"]');
 			if (cbox.length) {
 				selectedgroups.push({key: cbox.val(), name: cbox.next('label').text()});
@@ -65,8 +63,6 @@ $.fn.protectedpicker = function(options) {
 				if (name) selectedgroups.push({key: key, name: name});
 			}
 		});
-		picker.append('<input type="hidden" name="mgnlSaveInfo" value="'+opts.inputname+',String,1,0,0"/>');
-
 		drawselectedgroups();
 	}
 
@@ -76,7 +72,6 @@ $.fn.protectedpicker = function(options) {
 			jsonp: false,
 			jsonpCallback: "protectedpickerrequest",
 			success: function (data, status, xhr) {
-			  console.log(data);
 				$.each(data, function (i, obj) {
 					opts.database.push({label: obj.name, value: obj.code});
 				});
@@ -134,28 +129,31 @@ jcrnode.prototype.protectedgroups = function () {
   var page = this;
   var ret = [];
   if (page.nodehash.protectedpagegroups) {
-    for (var i = 0; i < page.nodehash.protectedpagegroups.propertyarray.length; i++) {
-      var prop = page.nodehash.protectedpagegroups.propertyarray[i];
+    for (var i = 0; i < page.nodehash.protectedpagegroups.properties.length; i++) {
+      var prop = page.nodehash.protectedpagegroups.properties[i];
       ret.push(prop.values[0]);
     }
   }
   return ret;
 }
 
-function initprotectedpages(def, path, parentdiv) {
-  parentdiv = jQuery(parentdiv);
-	var mynode = new jcrnode("website", path);
-	var inheritedpage;
+function initprotectedpages(def, path, parentdiv, templateId) {
+  var mynode = new jcrnode("website", path);
 	mynode.fetchInheritanceList(1).done(function (list) {
-	  for (var i = 0; i < list.length; i++) {
-	    var page = list[i];
-	    var groups = page.protectedgroups();
-	    if (groups.length > 0 && i > 0) { // inheritedpage should never be == mynode
-	      inheritedpage = page;
-	      break;
-	    }
-	  }
-	  var html = '';
+    parentdiv = jQuery(parentdiv);
+    var hidden = parentdiv.closest('.v-form-field-container').find('input.protectedpagegroups');
+    var startval = hidden.val();
+    var groupnode = new jcrnode("website", path+'/protectedpagegroups', jQuery.parseJSON(startval));
+    var inheritedpage;
+    for (var i = 0; i < list.length; i++) {
+      var page = list[i];
+      var groups = page.protectedgroups();
+      if (groups.length > 0 && i > 0) { // inheritedpage should never be == mynode
+        inheritedpage = page;
+        break;
+      }
+    }
+    var html = '';
     if (inheritedpage) {
       html += '<div class="inheritancemsg">';
       if (mynode.protectedgroups().length == 0)  {
@@ -204,8 +202,8 @@ function initprotectedpages(def, path, parentdiv) {
             '</div>';
     parentdiv.append(html);
     parentdiv.find('.protected-picker').protectedpicker({
-      input: parentdiv.find('input.protectedpagegroups'),
-      prefill: mynode.protectedgroups()
+      input: hidden,
+      groupnode: groupnode
     });
   });
 }
