@@ -16,7 +16,7 @@ form:
           label: Answer
           styleName: faqAnswer
         - name: faqTree
-          transformerClass: edu.txstate.its.gato.FaqTreeTransformer
+          transformerClass: edu.txstate.its.gato.vaadin.JsonTransformer
           class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
         - name: faqScript
           class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
