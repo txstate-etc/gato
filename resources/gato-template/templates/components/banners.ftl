@@ -12,7 +12,8 @@
   <img src="${gf.getImgDefault(image.image)}" srcset="${gf.getSrcSet(image.image)}" alt="${image.imageAlt}">
 [/#macro]
 
-[#include "/gato-template/templates/includes/banner-settings.ftl"]
+[#include "/gato-template/templates/includes/component.ftl"]
+[@bannerSettings content=content areaname='gato-banners'/]
 [#if showBannerArea]
   [#assign banners = []]
   [@addimages content /]

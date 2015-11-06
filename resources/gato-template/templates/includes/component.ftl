@@ -7,3 +7,17 @@
 [#assign homepage = page]
 [#if !isHomePage][#assign homepage = ancestorstopdown?first][/#if]
 [#assign thisPagePath = cmsfn.asJCRNode(page).path]
+
+[#macro bannerSettings content areaname]
+  [#assign showBannerVal='inherit']
+  [#assign gbsettings=gf.singleComponent(cmsfn.page(content), areaname)!]
+  [#assign showBannerVal=gbsettings.visible!'inherit']
+
+  [#list ancestorsbottomup as ancestor]
+    [#assign agbsettings=gf.singleComponent(ancestor, areaname)!]
+    [#if agbsettings?? && showBannerVal=='inherit']
+      [#assign showBannerVal=agbsettings.visible!'inherit']
+    [/#if]
+  [/#list]
+  [#assign showBannerArea=(showBannerVal=='shown')]
+[/#macro]

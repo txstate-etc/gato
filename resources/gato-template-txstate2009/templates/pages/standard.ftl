@@ -28,7 +28,7 @@
   </header>
   <div class="txst-khan-frame">
     <header class="txst-banner">
-      [#include "/gato-template/templates/includes/banner-settings.ftl"]
+      [@bannerSettings content=content areaname='gato-banners'/]
       <div class="txst-khanbanner ${showBannerArea?string('', 'txst-khanbanner-hideimage')}">
         <div class="txst-khanbanner-entityidentity">
           [@cms.area name="parentOrganization" content=gf.getOrCreateArea(homepage, 'parentOrganization') editable=isHomePage /]
