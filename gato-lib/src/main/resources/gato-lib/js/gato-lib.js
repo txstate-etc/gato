@@ -649,3 +649,25 @@ jQuery.fn.blurclick = function (callback) {
     }
   });
 }
+
+// requires jquery
+function waitforselector(parent, selector, callback) {
+  parent = jQuery(parent);
+  if (parent.find(selector).size() > 0) return callback(parent.find(selector));
+  if (MutationObserver) {
+    console.log("trying mutation observer");
+    var observer = new MutationObserver(function(mutations, observer) {
+      if (parent.find(selector).size() > 0) {
+        observer.disconnect();
+        return callback(parent.find(selector));
+      }
+    });
+    observer.observe(parent.get(0), {childList: true, subtree: true});
+  } else {
+    var observer = function() {
+      if (parent.find(selector).size() > 0) return callback(parent.find(selector));
+      else setTimeout(observer, 100);
+    }
+    setTimeout(observer, 100);
+  }
+}
