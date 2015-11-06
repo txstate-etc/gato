@@ -10,4 +10,4 @@
     [/#if]
   [/#list]
 [/#if]
-<div cms:add="bar"></div>
+[#if cmsfn.isEditMode()]<div class="gato-banners-admin" cms:add="bar"></div>[/#if]

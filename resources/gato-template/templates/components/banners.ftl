@@ -12,6 +12,7 @@
   <img src="${gf.getImgDefault(image.image)}" srcset="${gf.getSrcSet(image.image)}" alt="${image.imageAlt}">
 [/#macro]
 
+[#if cmsfn.isEditMode()]<div class="gato-banners-admin" cms:edit></div>[/#if]
 [#include "/gato-template/templates/includes/component.ftl"]
 [@bannerSettings content=content areaname='gato-banners'/]
 [#if showBannerArea]

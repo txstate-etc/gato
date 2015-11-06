@@ -123,6 +123,13 @@
   width: 550px;
 }
 
+.gato-banners-admin {
+  position: absolute;
+  top: 10px;
+  left: 206px;
+  width: 550px;
+}
+
 /* end of banner-free styles */
 
 .txst-khanbanner-entityidentity {
@@ -184,28 +191,6 @@
     right: 0px;
     height: 154px;
     width: 191px;
-  }
-}
-
-.library-footer {
-  clear: both;
-  background: #4b0f15 url(library-2012/images/footertile.jpg) repeat-x;
-  height: 32px;
-  padding: 28px 20px;
-  a {
-    display: block;
-    float: left;
-    border-radius: 10px;
-    background-color: #dfded4;
-    border: 1px solid #6c6d69;
-    line-height: 30px;
-    width: 144px;
-    text-align: center;
-    color: #323332;
-    text-decoration: none;
-    margin-right: 7px;
-    white-space: nowrap;
-    font-size: 13px;
   }
 }
 
