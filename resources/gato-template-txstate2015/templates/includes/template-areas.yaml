@@ -4,6 +4,7 @@ customjs:
   !include /gato-component-cssjs/templates/areas/customjs.yaml
 headerImage:
   renderType: freemarker
+  templateScript: /gato-template-txstate2015/templates/areas/headerImage.ftl
   type: single
   title: Header Image
   availableComponents:

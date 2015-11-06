@@ -161,3 +161,17 @@
     <input type="image" src="${gf.resourcePath()}/${image}" class="gato-search-submit" alt="Start Search"/>
   </form>
 [/#macro]
+
+[#macro bannerSettings content areaname]
+  [#assign showBannerVal='inherit']
+  [#assign gbsettings=gf.singleComponent(cmsfn.page(content), areaname)!]
+  [#assign showBannerVal=gbsettings.visible!'inherit']
+
+  [#list (cmsfn.ancestors(cmsfn.page(content))![])?reverse as ancestor]
+    [#assign agbsettings=gf.singleComponent(ancestor, areaname)!]
+    [#if agbsettings?? && showBannerVal=='inherit']
+      [#assign showBannerVal=agbsettings.visible!'inherit']
+    [/#if]
+  [/#list]
+  [#assign showBannerArea=(showBannerVal=='shown')]
+[/#macro]
