@@ -9,9 +9,12 @@ import info.magnolia.rendering.template.RenderableDefinition;
 import info.magnolia.repository.RepositoryConstants;
 import info.magnolia.templating.functions.TemplatingFunctions;
 
+import java.text.SimpleDateFormat;
 import java.util.regex.Pattern;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 import javax.inject.Inject;
 import javax.jcr.Node;
@@ -33,7 +36,11 @@ public class TwitterModel<RD extends RenderableDefinition> extends RenderingMode
   private static final Pattern HASHTAG_PATTERN = Pattern.compile("(^|)#(\\w+)");
   private static final String TWEET_QUERY_FORMAT = "//global-data/twitter/tweets//element(*,mgnl:contentNode)[%s] order by @tweet_id descending";
   private static final String USER_QUERY_FORMAT = "//global-data/twitter/user_map/*[%s]";
-  
+
+  private static final SimpleDateFormat PARSER = new SimpleDateFormat("EEE MMM d HH:mm:ss Z yyyy");
+  private static final SimpleDateFormat FORMATTER = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");      
+  static { FORMATTER.setTimeZone(TimeZone.getTimeZone("UTC")); }
+
   private List<Tweet> tweets = new ArrayList<Tweet>();
   private int termCount = 0;
   private int resultCount = 0;
@@ -137,7 +144,7 @@ public class TwitterModel<RD extends RenderableDefinition> extends RenderingMode
         // } else {
           tweet.icon = PropertyUtil.getString(node, "icon", "");
         // }
-        tweet.createdAt = PropertyUtil.getString(node, "created_at", "");
+        tweet.createdAt = formatTimeStamp(PropertyUtil.getString(node, "created_at", ""));
 
         tweets.add(tweet);
 
@@ -163,5 +170,17 @@ public class TwitterModel<RD extends RenderableDefinition> extends RenderingMode
         }
       }
     }
+  }
+
+  private String formatTimeStamp(String timestamp) {
+    try {
+      // Times from Twitter look like this: "Thu Aug 27 09:15:19 CDT 2015"
+      // Let's format them in ISO8601 to make them easier to parse in javascript
+      Date d = PARSER.parse(timestamp);
+      return FORMATTER.format(d);
+    } catch (Exception e) {
+      log.error("Failed to parse Tweet timestamp: '{}'", timestamp, e);
+    }
+    return timestamp;
   }
 }

@@ -1,0 +1,56 @@
+// forcing icons to this size to prevent pixelation from scaling. 
+// If we get better source images, we can remove this restriction.
+$gato-twitter-icon-size: 48px;
+
+.gato-twitter-list {
+
+  .tweet {
+    position: relative;
+    margin-bottom: 2rem;
+  
+    .tweet-logo-link, .tweet-body {
+      display: inline-block;
+    }
+    
+    a.tweet-logo-link {
+      position: absolute;
+      padding: 0;
+      margin: 0;
+      font-size: 0;
+      &:hover { background-color: inherit; }
+
+      img.tweet-logo {
+        width: $gato-twitter-icon-size;
+        height: $gato-twitter-icon-size;
+      }
+    }
+
+    .screen-name a {
+      font-weight: bold;
+    }
+
+    .tweet-body {
+      padding-left: 10px + $gato-twitter-icon-size;
+
+      .text {
+        margin: 1rem 0;
+      }
+
+      a.created_at {
+        display: block;
+        color: $medium-gray;
+        font-size: 1.4rem;
+        text-transform: uppercase;
+        text-decoration: none;
+        &:hover { color: $main-link; background-color: inherit; }
+      }
+
+    }
+  }
+
+  &[max-width~="400px"] {
+    a.tweet-logo-link { display: none; }
+    .tweet-body { padding-left: 0 }
+  }
+
+}

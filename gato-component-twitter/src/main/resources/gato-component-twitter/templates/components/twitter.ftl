@@ -1,20 +1,30 @@
-<div class="gato-twitter-feed ${content.align}">
+<div class="gato-twitter-feed">
   [#if content.title?has_content]
     <h2>${content.title}</h2>
   [/#if]
 
-  <div class="center-me">
-    <div class="center-me-in-ie">
+  <div class="gato-twitter-list">
 
       [#list model.tweets as tweet]
         <div class="tweet" id="tweet-${tweet.id}">
+
           <a class="tweet-logo-link" href="https://twitter.com/${tweet.screenName}" title="@${tweet.screenName}">
             <img class="tweet-logo" alt="Icon for user ${tweet.screenName}" src="${tweet.icon}"/>
           </a>
-          <div class="screen-name">
-            <a href="https://twitter.com/${tweet.screenName}">@${tweet.screenName}</a></div>
-          <div class="text">${tweet.text}</div>
-          <div class="created_at" title="${tweet.createdAt}">${tweet.createdAt}</div>
+
+          <div class="tweet-body">
+            
+            <div class="screen-name">
+              <a href="https://twitter.com/${tweet.screenName}">@${tweet.screenName}</a>
+            </div>
+
+            <div class="text">${tweet.text}</div>
+
+            <a class="created_at" title="Time posted: ${tweet.createdAt}" href="https://twitter.com/${tweet.screenName}/status/${tweet.id}">
+              ${tweet.createdAt}
+            </a>
+
+          </div>
         </div>
       [/#list]
       
@@ -45,6 +55,5 @@
         </div>
       [/#if]
 
-    </div>
   </div>
 </div>
