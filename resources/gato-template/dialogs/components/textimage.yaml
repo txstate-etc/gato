@@ -10,6 +10,7 @@ form:
           class: info.magnolia.ui.form.field.definition.RichTextFieldDefinition
           label: Text
           source: true
+          configJsFile: /.resources/gato-template/js/richeditor/ti-richeditor-config.js
     - name: tabImage
       label: Image
       fields:
