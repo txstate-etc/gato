@@ -6,9 +6,6 @@ form:
         - name: content
           class: info.magnolia.ui.form.field.definition.RichTextFieldDefinition
           label: Title
-          alignment: true
-          source: true
-          tables: true
-          images: true
+          configJsFile: /.resources/gato-template/js/richeditor/config.js  
 actions: !include /gato-template/dialogs/common/actions-block.yaml
 label: Rich Editor
