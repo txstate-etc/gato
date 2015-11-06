@@ -4,13 +4,13 @@
 [#--check if the page has a header image--]
 [#assign hasHeaderImage = false]
 [#list cmsfn.children(gf.getOrCreateArea(page, 'headerImage')) as component]
-	[#if component.image??]
+	[#if component.shown??]
 		[#assign hasHeaderImage = true]
 	[/#if]
 [/#list]
 
 [#if hasHeaderImage]
-	[#if isHomePage ] 
+	[#if isHomePage ]
 		[#-- primary page with header image--]
 		[#assign headerClass = "header_with_image"]
 	[#else]
@@ -39,6 +39,6 @@
 
 
 
-	
+
 </div>
 

@@ -4,8 +4,8 @@
 
 [#assign imgStyle = ""]
 [#assign imgClass = "bg_image_none"]
-[#if content.image??]
-	[#assign imgStyle = "style=\"background-image: url('${damfn.getAssetLink(content.image)!}');\""]
+[#if content.shown??]
+	[#assign imgStyle = "style=\"background-image: url('${damfn.getAssetLink(content.shown)!}');\""]
 
 	[#if isHomePage ]
 		[#-- primary page with header image--]
@@ -16,6 +16,7 @@
 	[/#if]
 [/#if]
 
+<div cms:edit></div>
 <div class="bg_container">
 
 	<div class="${imgClass}" id="headerImage" ${imgStyle}></div>

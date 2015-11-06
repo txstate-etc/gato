@@ -4,24 +4,28 @@ form:
       label: Banner Image
       fields:
         - name: visible
-          class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
+          class: info.magnolia.ui.form.field.definition.SwitchableFieldDefinition
+          transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+          layout: vertical
           label: Show Banner Image
-          sortOptions: false
           options:
-            - label: Show banner image only if parent page is showing banner image (default).
+            - label: Use parent banner image (if available).
               value: inherit
               selected: true
-            - label: Show banner image.
+            - label: Upload a new banner image.
               value: shown
             - label: Do not show banner image.
               value: hidden
-        - name: image
-          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
-          targetWorkspace: dam
-          targetTreeRootPath: /banners
-          appName: assets
-          label: Banner Image
-          description: Optional. If not provided, will inherit an image from the nearest ancestor page.
-          contentPreviewDefinition:
-            contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
+          fields:
+            - name: shown
+              class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+              targetWorkspace: dam
+              targetTreeRootPath: /banners
+              appName: assets
+              label: Banner Image
+              description: Optional. If not provided, will inherit an image from the nearest ancestor page.
+              identifierToPathConverter:
+                class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
+              contentPreviewDefinition:
+                contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
 actions: !include /gato-template/dialogs/common/actions-block.yaml
