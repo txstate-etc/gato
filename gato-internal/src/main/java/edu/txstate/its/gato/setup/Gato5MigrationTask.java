@@ -107,6 +107,16 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
     visitByTemplate(hm, "gato:components/texasState/texasEditor", this::deleteContentFiles);
     log.info("delete old files uploaded to text and image paragraphs");
     visitByTemplate(hm, "gato:components/texasState/texasTextImage", this::deleteTextFiles);
+
+    // config changes
+    Session cfg = ctx.getJCRSession(RepositoryConstants.CONFIG);
+    Node oldredirnode = cfg.getNode("/modules/adminInterface/virtualURIMapping/default");
+    Node newredirnode = cfg.getNode("/modules/ui-admincentral/virtualURIMapping/default");
+    if (PropertyUtil.getString(oldredirnode, "toURI", "").contains("GATO-PUBLIC-DEFAULT")) {
+      PropertyUtil.setProperty(newredirnode, "toURI", "redirect:/GATO-PUBLIC-DEFAULT.html");
+    } else {
+      PropertyUtil.setProperty(newredirnode, "toURI", "redirect:/.magnolia/admincentral#app:pages:;/:treeview:");
+    }
   }
 
   private void convertPropertyToBool(Node n, String propName) throws RepositoryException {

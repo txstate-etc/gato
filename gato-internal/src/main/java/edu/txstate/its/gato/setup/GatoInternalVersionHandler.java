@@ -115,6 +115,7 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       {"gato:pages/main-2009/khan-standard",                "gato-template-txstate2015:pages/standard-template"},
       {"gato:pages/main-2009/khan-mail",                    "gato-template-txstate2015:pages/mail-template"},
       {"gato:pages/redirect",                               "gato-template:pages/redirect"},
+      {"gato:pages/gato-site-index",                        "gato-template:pages/siteindex"},
       {"gato:pages/library-2012/library-2012-home",         "gato-template-library:pages/home"}
     };
 
