@@ -11,7 +11,7 @@
 <body id="library-2012" class="${cmsfn.isEditMode()?string('admin', 'public')}">
     
     <!--"super user" menu bar -->
-    [@cms.area name="superUser" content=globaldata.webTools contextAttributes={"isMobile":false}/]
+    [#include "../../../gato-template-txstate2015/templates/pages/includes/super-user.ftl"]
     <!-- banner with logo and search bar -->
     [#include "../../../gato-template-txstate2015/templates/pages/includes/top-banner.ftl"]
     <!--header image, parent organization, department name -->
