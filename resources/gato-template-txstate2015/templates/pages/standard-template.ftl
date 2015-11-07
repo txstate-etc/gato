@@ -34,13 +34,13 @@
 			</div>
 			<!-- does social media need to go here -->
 			<div class="mobile_super_container">
-				[#assign globalData = cmsfn.asContentMap(cmsfn.nodeByPath('/global-data', 'website'))]
-				[@cms.area name="superUser" content=globalData.webTools editable=false contextAttributes={"isMobile":true}/]
+				[#include "includes/mobile-super-user.ftl"]
 			</div>
 		</nav>
 		<div id="panel" class="container">
 			<!--"super user" menu bar -->
-			[@cms.area name="superUser" content=globalData.webTools contextAttributes={"isMobile":false}/]
+			[#include "includes/super-user.ftl"]
+
 			<!-- banner with logo and search bar -->
 			[#include "includes/top-banner.ftl"]
 			<!--header image, parent organization, department name -->

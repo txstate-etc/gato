@@ -27,7 +27,6 @@ superUser:
     enabled: true
     components: all
   title: Top Menu
-  templateScript: /gato-template-txstate2015/templates/pages/areas/super-user.ftl
   availableComponents:
     link:
       id: gato-template:components/link

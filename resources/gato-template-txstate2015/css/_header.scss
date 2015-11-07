@@ -5,19 +5,20 @@
 /* _header.scss */
 
 
-.bg_overlay, .bg_image, .bg_image_secondary, .bg_image_none, .super_user, .txst_search {
+.bg_overlay, .bg_image, .bg_image_secondary, .bg_image_none, .super-user-menu, .txst_search {
     display: none;
 }
 
-.super_list, .banner_content, .parent_org, h1{
+.super-user-content, .banner_content, .parent_org, h1{
     max-width: 1000px;
+    margin: auto;
 }
 
-.super_user{
+.super-user-menu{
     background: $super-user-background none repeat scroll 0% 0%;
 }
 
-.super_list {
+.super-list {
     margin: 0px auto;
     padding: 0px;
     text-align: right;
@@ -39,6 +40,47 @@
           }
           &:hover {background: $super-user-hover;}
       }
+    }
+}
+
+.super-list-left{
+    margin-left: -1.4rem;
+    text-align: left;
+}
+
+.super-list-right{
+    margin-left: -1.4rem;
+}
+
+.more-tools{
+    position: relative;
+    &:hover .super-list-sub{
+        display: block;
+    }
+    .super-list-sub {
+        display: none; 
+        position: absolute; 
+        width: 100%; 
+        top: 100%; 
+        left: 0; 
+        padding: 0; 
+        margin: 0; 
+        list-style-type: none; 
+        background: $super-user-background;
+        z-index: 9999; 
+        letter-spacing: 0;
+        li{
+            width: 100%;
+        }
+        a{
+            text-transform: none; 
+            display: block; 
+            padding: 0.6rem 1.4rem;
+            &:hover{
+                background: transparent; 
+                text-decoration: underline;
+            }
+        }
     }
 }
 
@@ -204,7 +246,7 @@ header, .header_with_image_secondary, .header_with_image, .header_no_image {
 
 
 @media (min-width: $sm-breakpoint) {
-    .super_user, .txst_search{display: block}
+    .super-user-menu, .txst_search{display: block}
     .banner {height: 70px;}
     .banner_logo {
         width: 225px;
