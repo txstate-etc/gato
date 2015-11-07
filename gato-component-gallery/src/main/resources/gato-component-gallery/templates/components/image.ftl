@@ -1,17 +1,25 @@
 [#assign assetMap = damfn.getAssetMap(content.image)]
 [#assign imageSize = "${assetMap.metadata.mgnl.width?c}x${assetMap.metadata.mgnl.height?c}"]
 
-[#assign thumb]
-  ${gf.getImgSquare(
+[#assign thumb =
+  gf.getImgDefault(
     content.image,
-    (content.imagecropleft!0)?number,
+    (content.imagecropleft!0)?number!0,
     (content.imagecropright!0)?number!0,
     (content.imagecroptop!0)?number!0,
     (content.imagecropbottom!0)?number!0
-    )
-  }
-[/#assign]
+  )
+]
+[#assign thumbsrcset =
+  gf.getSrcSet(
+    content.image,
+    (content.imagecropleft!0)?number!0,
+    (content.imagecropright!0)?number!0,
+    (content.imagecroptop!0)?number!0,
+    (content.imagecropbottom!0)?number!0
+  )
+]
 
 <a href="${gf.getImgDefault(content.image)}" title="${content.caption!''}" data-size="${imageSize}">
-  <img src="${thumb}" alt="${content.imageAlt!''}" />
+  <img src="${thumb}" srcset="${thumbsrcset}" sizes="250px" alt="${content.imageAlt!''}" />
 </a>

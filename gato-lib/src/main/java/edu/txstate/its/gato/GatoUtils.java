@@ -245,7 +245,7 @@ public final class GatoUtils {
 
   public String getSrcSet(String damuuid) throws Exception {
     // let's see if the string we were given is already an ItemKey
-    return getSrcSet(damfn.getAsset(ensureItemKey(damuuid)));
+    return getSrcSet(damuuid, 0f, 0f, 0f, 0f);
   }
 
   public String getSrcSet(ContentMap c, String propertyName) throws Exception {
@@ -257,13 +257,23 @@ public final class GatoUtils {
   }
 
   public String getSrcSet(Asset asset) {
+    return getSrcSet(asset, 0f, 0f, 0f, 0f);
+  }
+
+  public String getSrcSet(String damuuid, float left, float right, float top, float bottom) {
+    return getSrcSet(damfn.getAsset(ensureItemKey(damuuid)), left, right, top, bottom);
+  }
+
+  public String getSrcSet(Asset asset, float left, float right, float top, float bottom) {
     if (asset == null) return "";
     try {
       GatoResizer srv = getResizer();
       srv.setHeight(0);
       srv.setUpscale(true);
+      srv.setCrop(left, right, top, bottom);
 
       long width = asset.getMetadata(MagnoliaAssetMetadata.class).getWidth();
+      width = Math.round(width - width*left - width*right);
       ArrayList<Long> widths = new ArrayList<Long>();
       do {
         widths.add(new Long(width));
@@ -285,13 +295,22 @@ public final class GatoUtils {
   }
 
   public String getImgDefault(String damuuid) {
-    return getImgDefault(damfn.getAsset(ensureItemKey(damuuid)));
+    return getImgDefault(damuuid, 0f, 0f, 0f, 0f);
   }
 
   public String getImgDefault(Asset asset) {
+    return getImgDefault(asset, 0f, 0f, 0f, 0f);
+  }
+
+  public String getImgDefault(String damuuid, float left, float right, float top, float bottom) {
+    return getImgDefault(damfn.getAsset(ensureItemKey(damuuid)), left, right, top, bottom);
+  }
+
+  public String getImgDefault(Asset asset, float left, float right, float top, float bottom) {
     if (asset == null) return "";
     try {
       long width = asset.getMetadata(MagnoliaAssetMetadata.class).getWidth();
+      width = Math.round(width - width*left - width*right);
       while (width > 1200) {
         width = width / 2;
       };
@@ -300,6 +319,7 @@ public final class GatoUtils {
       srv.setHeight(0);
       srv.setWidth(width);
       srv.setUpscale(true);
+      srv.setCrop(left, right, top, bottom);
       return srv.createLink(asset);
     } catch (Exception e) {
       e.printStackTrace();
@@ -312,18 +332,7 @@ public final class GatoUtils {
   }
 
   public String getImgSquare(Asset asset, float left, float right, float top, float bottom) {
-    try {
-      GatoResizer srv = getResizer();
-      srv.setHeight(800);
-      srv.setWidth(800);
-      srv.setZoom(true);
-      srv.setUpscale(false);
-      srv.setCrop(left, right, top, bottom);
-      return srv.createLink(asset);
-    } catch (Exception e) {
-      e.printStackTrace();
-      return "";
-    }
+    return getImgDefault(asset, left, right, top, bottom);
   }
 
   public String getImg(String damuuid, int width, int height, boolean zoom, boolean upscale, float left, float right, float top, float bottom) {
