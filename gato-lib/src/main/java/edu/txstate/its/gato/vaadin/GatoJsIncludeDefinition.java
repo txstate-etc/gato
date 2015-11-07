@@ -1,6 +1,7 @@
 package edu.txstate.its.gato.vaadin;
 
 import info.magnolia.ui.form.field.definition.CompositeFieldDefinition;
+import info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -45,7 +46,7 @@ import java.util.List;
 public class GatoJsIncludeDefinition extends CompositeFieldDefinition {
 
   public GatoJsIncludeDefinition() {
-    super();
+    setTransformerClass(DelegatingCompositeFieldTransformer.class);
   }
 
   public GatoJsIncludeDefinition(GatoJsIncludeDefinition def) {

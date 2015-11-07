@@ -43,7 +43,7 @@ $.fn.protectedpicker = function(opts) {
 			picker.find('.protected-from input[value="'+g.key+'"]').prop("checked", true);
 			opts.groupnode.addProperty(g.key);
 		});
-		opts.input.val(JSON.stringify(opts.groupnode));
+		opts.input.val(JSON.stringify(opts.groupnode)).change();
 	};
 
 	var initializeform = function () {

@@ -35,10 +35,18 @@ public class JsonTransformer implements Transformer<String> {
 
   public String readFromItem() {
     Node parent = ((JcrNodeAdapter)item).getJcrItem();
+    RepositoryNode repoNode;
 
     try {
-      Node node = parent.getNode(definition.getName());
-      RepositoryNode repoNode = marshaller.marshallNode(node, 999, null, false);
+      if (!parent.hasNode(definition.getName())) {
+        repoNode = new RepositoryNode();
+        repoNode.setName(definition.getName());
+        repoNode.setType("mgnl:area");
+        repoNode.setPath(parent.getPath() + "/" + definition.getName());
+      } else {
+        Node node = parent.getNode(definition.getName());
+        repoNode = marshaller.marshallNode(node, 999, null, false);
+      }
       return gson.toJson(repoNode);
     } catch (RepositoryException e) {
       e.printStackTrace();
@@ -58,7 +66,6 @@ public class JsonTransformer implements Transformer<String> {
     } catch (JsonSyntaxException e) {
       // TODO: how to return an error? maybe this is done in save action?
       e.printStackTrace();
-      return;
     }
   }
 
