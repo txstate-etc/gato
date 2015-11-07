@@ -1,12 +1,27 @@
 package edu.txstate.its.gato.setup;
 
-import info.magnolia.repository.RepositoryConstants;
-import info.magnolia.module.InstallContext;
-
+import info.magnolia.cms.security.Permission;
+import info.magnolia.cms.security.Role;
+import info.magnolia.cms.security.RoleManager;
+import info.magnolia.cms.security.SecuritySupport;
+import info.magnolia.cms.security.auth.ACL;
 import info.magnolia.jcr.util.NodeUtil;
 import info.magnolia.jcr.util.PropertyUtil;
 import info.magnolia.jcr.util.NodeVisitor;
 import info.magnolia.jcr.util.NodeTypes;
+import info.magnolia.module.delta.TaskExecutionException;
+import info.magnolia.module.InstallContext;
+import info.magnolia.objectfactory.Components;
+import info.magnolia.repository.RepositoryConstants;
+
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collection;
+import java.util.Deque;
+import java.util.Iterator;
+import java.util.Map;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 import javax.jcr.Session;
 import javax.jcr.Node;
@@ -16,18 +31,9 @@ import javax.jcr.PropertyType;
 import javax.jcr.RepositoryException;
 import javax.jcr.PathNotFoundException;
 import javax.jcr.LoginException;
-import info.magnolia.module.delta.TaskExecutionException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.Deque;
 
 /**
  *
@@ -109,13 +115,32 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
     visitByTemplate(hm, "gato:components/texasState/texasTextImage", this::deleteTextFiles);
 
     // config changes
+    log.info("make changes to the config tree");
     Session cfg = ctx.getJCRSession(RepositoryConstants.CONFIG);
-    Node oldredirnode = cfg.getNode("/modules/adminInterface/virtualURIMapping/default");
     Node newredirnode = cfg.getNode("/modules/ui-admincentral/virtualURIMapping/default");
-    if (PropertyUtil.getString(oldredirnode, "toURI", "").contains("GATO-PUBLIC-DEFAULT")) {
-      PropertyUtil.setProperty(newredirnode, "toURI", "redirect:/GATO-PUBLIC-DEFAULT.html");
-    } else {
-      PropertyUtil.setProperty(newredirnode, "toURI", "redirect:/.magnolia/admincentral#app:pages:;/:treeview:");
+    String newvalue = "redirect:/.magnolia/admincentral#app:pages:;/:treeview:";
+    try {
+      Node oldredirnode = cfg.getNode("/modules/adminInterface/virtualURIMapping/default");
+      if (PropertyUtil.getString(oldredirnode, "toURI", "").contains("GATO-PUBLIC-DEFAULT")) {
+        newvalue = "redirect:/GATO-PUBLIC-DEFAULT.html";
+      }
+    } catch (Exception e) { }
+    PropertyUtil.setProperty(newredirnode, "toURI", "redirect:/.magnolia/admincentral#app:pages:;/:treeview:");
+
+    // permission changes
+    log.info("change all existing roles to convert their DMS permissions to DAM permissions");
+    Session roles = ctx.getJCRSession(RepositoryConstants.USER_ROLES);
+    SecuritySupport ss = Components.getComponent(SecuritySupport.class);
+    RoleManager rm = ss.getRoleManager();
+    for (Node roleNode : NodeUtil.getNodes(roles.getRootNode(), NodeTypes.Role.NAME)) {
+      Role role = rm.getRole(roleNode.getName());
+      Map<String, ACL> acls = rm.getACLs(role.getName());
+      if (acls.containsKey("dms")) {
+        ACL acl = acls.get("dms");
+        for (Permission perm : acl.getList()) {
+          rm.addPermission(role, "dam", perm.getPattern().getPatternString(), perm.getPermissions());
+        }
+      }
     }
   }
 
