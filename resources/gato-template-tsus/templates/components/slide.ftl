@@ -4,7 +4,7 @@
       [#if content.title?has_content]<h4>${content.title}</h4>[/#if]
       <div class="slidetext">${cmsfn.decode(content).content}</div>
       [#if content.link?has_content]
-        <a href="${gf.filterUrl(content.link)}" class="slidelink ${content.linktext?has_content?string('','emptylink')}">${content.linktext}</a>
+        <a href="${gf.filterUrl(content.link)}" class="slidelink ${content.linktext?has_content?string('','emptylink')}">${content.linktext!""}</a>
       [/#if]
     </div>
   </div>
