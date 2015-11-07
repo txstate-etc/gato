@@ -23,6 +23,10 @@
 			<type>edu.txstate.its.gato.ImagingModuleResizer</type>
 			<implementation>edu.txstate.its.gato.ImagingModuleResizer</implementation>
 		</component>
+		<component>
+			<type>edu.txstate.its.gato.GatoResizer</type>
+			<implementation>edu.txstate.its.gato.GatoResizer</implementation>
+		</component>
 	</components>
   <dependencies>
     <dependency>

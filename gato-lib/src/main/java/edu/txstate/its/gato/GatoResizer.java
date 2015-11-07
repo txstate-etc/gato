@@ -9,7 +9,7 @@ import javax.inject.Inject;
  *
  * This one is for the Texas State imagehandler server.
  */
-public abstract class GatoResizer {
+public class GatoResizer {
   protected final GatoUtils gf;
   protected long width = 0;
   protected long height = 0;
@@ -19,12 +19,12 @@ public abstract class GatoResizer {
   protected float cropbottom = 0;
   protected boolean upscale = false;
   protected boolean zoom = false;
-    
+
   @Inject
   public GatoResizer(GatoUtils gf) {
     this.gf = gf;
   }
-  
+
   public String createLink(Asset asset) {
     try {
       // default, don't resize, just send back a straight link
@@ -34,26 +34,26 @@ public abstract class GatoResizer {
       return "";
     }
   }
-  
+
   public void setCrop(float left, float right, float top, float bottom) {
   	this.cropleft = left;
   	this.cropright = right;
   	this.croptop = top;
   	this.cropbottom = bottom;
   }
-  
+
   public void setWidth(long width) {
   	this.width = width;
   }
-  
+
   public void setHeight(long height) {
   	this.height = height;
   }
-  
+
   public void setUpscale(boolean upscale) {
   	this.upscale = upscale;
   }
-  
+
   public void setZoom(boolean zoom) {
   	this.zoom = zoom;
   }
