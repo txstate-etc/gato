@@ -1,5 +1,5 @@
-<div class="icon-link">
-  <div class="icon-link-icon">
+<div class="texas-icon-link">
+  <div class="texas-icon-link-icon">
     <a href="${gf.filterUrl(content.link)}">
       <img src="${gf.getImgDefault(content.image)}" />
     </a>
