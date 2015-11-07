@@ -7,7 +7,7 @@
 [#assign homepage = page]
 [#if !isHomePage][#assign homepage = ancestorstopdown?first][/#if]
 [#assign thisPagePath = cmsfn.asJCRNode(page).path]
-
+[#assign showBannerArea = false]
 [#macro bannerSettings content areaname]
   [#assign showBannerVal='inherit']
   [#assign gbsettings=gf.singleComponent(cmsfn.page(content), areaname)!]
