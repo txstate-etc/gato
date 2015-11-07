@@ -23,6 +23,6 @@ form:
             - name: option2
               label: Display Staff Only
               value: Staff
-          description: "Choose whether to display Faculty, Staff, or everyone in the Department."
+          description: "Choose to display faculty, staff, or everyone in the department. Graduate and undergraduate student workers will not appear in this list."
 actions: !include /gato-template/dialogs/common/actions-block.yaml
 label: Department Directory 
