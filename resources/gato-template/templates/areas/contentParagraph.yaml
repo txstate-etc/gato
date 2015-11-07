@@ -1,4 +1,4 @@
 title: Main Content Area
 templateScript: /gato-template/templates/areas/main-content.ftl
 availableComponents:
-  !include /gato-template/templates/areas/availableComponents.yaml
+  !include /gato-template/templates/areas/layoutComponents.yaml

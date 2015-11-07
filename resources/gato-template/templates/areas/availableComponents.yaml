@@ -32,15 +32,3 @@ textimage:
   id: gato-template:components/textimage
 twitter:
   id: gato-component-twitter:components/twitter
-full:
-  id: gato-template:components/rows/full
-halves:
-  id: gato-template:components/rows/halves
-onethirdtwothirds:
-  id: gato-template:components/rows/onethirdtwothirds
-twothirdsonethird:
-  id: gato-template:components/rows/twothirdsonethird
-thirds:
-  id: gato-template:components/rows/thirds
-quarters:
-  id: gato-template:components/rows/quarters

@@ -61,6 +61,7 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
             }
           }
         }
+        if (n.hasNode("contentParagraph")) moveBodyContentToSingleColumnContainer(n.getNode("contentParagraph"));
         if (n.hasProperty("background-image")) {
           String bgimage = n.getProperty("background-image").getString();
           String newbgimage = bgimage.replace("/wittliff/images/", "");
@@ -79,6 +80,7 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
         moveBanners(n);
       }
     });
+    hm.save();
     log.info("finished page level changes");
 
     log.info("custom css and js changes");
@@ -314,5 +316,13 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
         }
       }
     }
+  }
+
+  protected void moveBodyContentToSingleColumnContainer(Node cp) throws RepositoryException {
+    Iterable<Node> existingComponents = NodeUtil.getNodes(cp, NodeTypes.Component.NAME);
+    Node row = cp.addNode("importrow", NodeTypes.Component.NAME);
+    NodeTypes.Renderable.set(row, "gato-template:components/rows/full");
+    Node rowarea = row.addNode("column1", NodeTypes.Area.NAME);
+    for (Node comp : existingComponents) NodeUtil.moveNode(comp, rowarea);
   }
 }
