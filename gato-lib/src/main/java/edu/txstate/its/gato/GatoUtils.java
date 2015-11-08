@@ -564,7 +564,7 @@ public final class GatoUtils {
       Iterator iter = n.getProperties();
       while (iter.hasNext()) {
         Property p = (Property)iter.next();
-        if (!p.getName().startsWith("jcr:")) ret.add(p.getString());
+        if (!p.getName().startsWith("jcr:") && !p.getName().startsWith("mgnl:")) ret.add(p.getString());
       }
       Collections.sort(ret);
     } catch (Exception e) {
