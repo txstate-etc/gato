@@ -60,7 +60,7 @@
                         <input type="checkbox" name="fulltext_checkbox" id="fulltext_checkbox_all" onClick="limittoFullText(this.form)"/> <label for="fulltext_checkbox_all">Full-Text  (Online)</label>
                     </div>
                     <div class="shortdesc">
-                        [@cms.area name="start-description" /]
+                        [@cms.area name="start-description"/]
                     </div>
                 [/#if]
             </form>
@@ -169,7 +169,7 @@
                     </div>
             
                     <div class="shortdesc">
-                        [@cms.area name="periodicals-description" /]
+                        [@cms.area name="journals-description" /]
                     </div>
                 </form>
             </div>
@@ -190,7 +190,7 @@
                         &nbsp;&nbsp; <input type="radio" name="reservetype" id="reservetypeelectronic" value="electronic"/> <label for="reservetypeelectronic">E-Reserve</label>
                     </div>
                     <div class="shortdesc">
-                    [@cms.area name="reserves-description" /]
+                    [@cms.area name="reserve-description" /]
                     </div>
                 </form>
             </div>
@@ -206,11 +206,12 @@
                         <jsp:text/>
                     </div>
                     <div class="shortdesc">
-                    [@cms.area name="guides-description" /]
+                    [@cms.area name="libguides-description" /]
                     </div>
                 </form>
             </div>
         [/#if]
     </div>
+    <!-- put chatlink here -->
 </div>
 [/#macro]

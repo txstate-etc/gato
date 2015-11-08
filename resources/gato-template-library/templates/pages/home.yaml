@@ -159,21 +159,21 @@ areas:
     availableComponents:
       richeditor:
         id: gato-template:components/richeditor
-  periodicals-description:
+  journals-description:
     renderType: freemarker
     type: single
     title: Description
     availableComponents:
       richeditor:
         id: gato-template:components/richeditor
-  reserves-description:
+  reserve-description:
     renderType: freemarker
     type: single
     title: Description
     availableComponents:
       richeditor:
         id: gato-template:components/richeditor
-  guides-description:
+  libguides-description:
     renderType: freemarker
     type: single
     title: Description

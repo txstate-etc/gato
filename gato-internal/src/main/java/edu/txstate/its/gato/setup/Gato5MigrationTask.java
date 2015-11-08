@@ -67,6 +67,28 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
             }
           }
         }
+
+        if(templateId.equals("gato:pages/library-2012/library-2012-home")){
+          if(n.hasNode("mobile-title")) convertNodeToAreaAndComponent(n.getNode("mobile-title"), "gato-template:components/misctext");
+          if(n.hasNode("mobile-hours-link")) convertNodeToAreaAndComponent(n.getNode("mobile-hours-link"), "gato-template:components/link");
+          if (n.hasNode("socialmedia")) {
+            for (Node sm : NodeUtil.getNodes(n.getNode("socialmedia"), NodeTypes.Component.NAME)) {
+              PropertyUtil.setProperty(sm, "icononly", true);
+            }
+          }
+          if(n.hasNode("searchbox-data")){
+            for(Node desc: NodeUtil.getNodes(n.getNode("searchbox-data"))){
+              //rename node
+              String newName = desc.getName() + "-description";
+              NodeUtil.renameNode(desc, newName);
+              //move node to parent ?
+              NodeUtil.moveNode(desc, n);
+              //make it an area with a component
+              convertNodeToAreaAndComponent(desc, "gato-template:components/richeditor");
+            }
+          }
+        }
+
         if (n.hasNode("contentParagraph")) moveBodyContentToSingleColumnContainer(n.getNode("contentParagraph"));
         if (n.hasProperty("background-image")) {
           String bgimage = n.getProperty("background-image").getString();
