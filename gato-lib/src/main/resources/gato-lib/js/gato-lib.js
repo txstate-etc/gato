@@ -652,22 +652,32 @@ jQuery.fn.blurclick = function (callback) {
 
 // requires jquery
 function waitforselector(parent, selector, callback) {
+  var sanitycount = 0;
   parent = jQuery(parent);
   if (parent.find(selector).size() > 0) return callback(parent.find(selector));
   if (MutationObserver) {
-    console.log("trying mutation observer");
     var observer = new MutationObserver(function(mutations, observer) {
+      sanitycount++;
       if (parent.find(selector).size() > 0) {
         observer.disconnect();
         return callback(parent.find(selector));
+      } else if (sanitycount > 200) {
+        observer.disconnect();
       }
     });
     observer.observe(parent.get(0), {childList: true, subtree: true});
   } else {
     var observer = function() {
+      sanitycount++;
       if (parent.find(selector).size() > 0) return callback(parent.find(selector));
-      else setTimeout(observer, 100);
+      else if (sanitycount < 200) setTimeout(observer, 100);
     }
     setTimeout(observer, 100);
   }
+}
+
+function magnolialabelchange(parentselector, selector, newlabel) {
+  waitforselector(jQuery(parentselector), selector, function (ele) {
+    ele.find('.mgnlEditorBarLabel').html(newlabel).attr('title',newlabel);
+  });
 }

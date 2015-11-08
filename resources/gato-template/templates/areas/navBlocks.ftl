@@ -15,6 +15,6 @@
   [@cms.component content=component /]
 [/#list]
 [#if cmsfn.isEditMode()]
-  <div cms:add="box"></div>
+  <div class="navBlocks_add" cms:add="box"></div>
 [/#if]
 [@listnav position='bottom' /]
