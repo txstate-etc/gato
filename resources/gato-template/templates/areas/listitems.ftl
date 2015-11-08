@@ -3,5 +3,5 @@
   <li>[@cms.component content=component /]</li>
 [/#list]
 [@ifneedsnewbar components def]
-	<li cms:add="bar"></li>
+	<li class="listItems_add" cms:add="bar"></li>
 [/@ifneedsnewbar]
