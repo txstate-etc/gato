@@ -101,8 +101,8 @@
   }
   .txst-khanbanner-entityidentity {
     top: 0px;
-    left: 20px;
-    padding: 0px;
+    left: 0px;
+    padding: 0px 0px 0px 20px;
     text-align: left;
     width: 922px;
     height: 30px;
@@ -166,6 +166,12 @@
     text-decoration: none;
     margin-top: 10px;
   }
+  .mgnlEditor {
+    position: absolute !important;
+    left: 0px;
+    top: 2px;
+    width: 200px !important;
+  }
 }
 
 .txst-khanbanner-siteinfo {
@@ -176,7 +182,7 @@
   top: 0px;
   right: 15px;
   width: 176px;
-  height: 160px;
+  max-height: 160px;
   color: #d0c7b0;
   font-size: 12px;
   font-weight: normal;
@@ -185,11 +191,9 @@
   a { color: #d0c7b0; }
   h3 { margin: 0px; }
   body.admin & {
-    display: block;
-    overflow: scroll;
+    overflow-y: scroll;
     top: 6px;
     right: 0px;
-    height: 154px;
     width: 191px;
   }
 }
