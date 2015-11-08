@@ -10,7 +10,7 @@ form:
         - name: url
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: URL
-          description: What is the address of the web page you’d like to embed in yours?
+          description: What is the address of the web page you’d like to embed?
         - name: height
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Height

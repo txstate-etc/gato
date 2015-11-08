@@ -8,5 +8,5 @@ form:
           language: html
           rows: 20
           label: HTML
-          description: "HTML5 code to be placed on the page unaltered."
+          description: "Expert users can use this area to enter HTML 5 code."
 actions: !include /gato-template/dialogs/common/actions-block.yaml
