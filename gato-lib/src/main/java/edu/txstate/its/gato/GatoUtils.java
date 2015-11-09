@@ -7,6 +7,7 @@ package edu.txstate.its.gato;
 
 import info.magnolia.cms.core.MgnlNodeType;
 import info.magnolia.context.MgnlContext;
+import info.magnolia.context.SystemContext;
 import info.magnolia.dam.api.Asset;
 import info.magnolia.dam.api.metadata.MagnoliaAssetMetadata;
 import info.magnolia.dam.jcr.DamConstants;
@@ -58,12 +59,14 @@ public final class GatoUtils {
   private final DamTemplatingFunctions damfn;
   private final SimpleDateFormat timeformat;
   private final MagnoliaConfigurationProperties mcp;
+  private final SystemContext sc;
 
   @Inject
-  public GatoUtils(TemplatingFunctions templatingFunctions, DamTemplatingFunctions damTemplatingFunctions, MagnoliaConfigurationProperties magConfigProps) {
+  public GatoUtils(TemplatingFunctions templatingFunctions, DamTemplatingFunctions damTemplatingFunctions, MagnoliaConfigurationProperties magConfigProps, SystemContext syscon) {
     tf = templatingFunctions;
     damfn = damTemplatingFunctions;
     mcp = magConfigProps;
+    sc = syscon;
     timeformat = new SimpleDateFormat("HH:mm");
   }
 
@@ -76,7 +79,7 @@ public final class GatoUtils {
     try {
       // let's see if url is actually a UUID to something in the website
       // repository
-      cont = MgnlContext.getJCRSession("website").getNodeByIdentifier(url);
+      cont = sc.getJCRSession("website").getNodeByIdentifier(url);
       if (cont != null) wasInWebsite = true;
     } catch (Exception e) {
       // failed attempt, no biggie
@@ -145,7 +148,7 @@ public final class GatoUtils {
     if (furl.startsWith(cpath)) {
       String path = furl.substring(furl.indexOf(cpath) + cpath.length());
       try {
-        return nodeTitle(MgnlContext.getJCRSession("website").getNode(path));
+        return nodeTitle(sc.getJCRSession("website").getNode(path));
       } catch (Exception e) {
         return path;
       }
@@ -200,7 +203,7 @@ public final class GatoUtils {
   }
 
   protected GatoResizer getResizer() throws Exception {
-    String resizeClass = MgnlContext.getJCRSession(RepositoryConstants.CONFIG)
+    String resizeClass = sc.getJCRSession(RepositoryConstants.CONFIG)
       .getNode("/modules/gato-lib/imaging/resize").getProperty("class").getString();
     if (mcp.hasProperty("gato.gato-lib.noresize"))
       resizeClass = "edu.txstate.its.gato.GatoResizer";
