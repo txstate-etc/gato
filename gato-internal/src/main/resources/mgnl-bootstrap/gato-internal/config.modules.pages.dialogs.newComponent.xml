@@ -9,6 +9,9 @@
   <sv:property sv:name="jcr:uuid" sv:type="String">
     <sv:value>ff60964c-d7c3-4599-a438-53c663179c8f</sv:value>
   </sv:property>
+  <sv:property sv:name="description" sv:type="String">
+    <sv:value>Select the content type.</sv:value>
+  </sv:property>
   <sv:property sv:name="jcr:createdBy" sv:type="String">
     <sv:value>admin</sv:value>
   </sv:property>
@@ -31,7 +34,7 @@
     <sv:value>superuser</sv:value>
   </sv:property>
   <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-    <sv:value>2015-10-26T14:35:22.082-05:00</sv:value>
+    <sv:value>2015-11-09T16:05:41.936-06:00</sv:value>
   </sv:property>
   <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
     <sv:value>a_f269</sv:value>
@@ -174,7 +177,7 @@
         <sv:value>superuser</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-        <sv:value>2015-10-26T14:36:21.573-05:00</sv:value>
+        <sv:value>2015-11-09T16:07:55.948-06:00</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
         <sv:value>a_f269</sv:value>
@@ -193,7 +196,7 @@
           <sv:value>admin</sv:value>
         </sv:property>
         <sv:property sv:name="label" sv:type="String">
-          <sv:value>Pick Your Content</sv:value>
+          <sv:value>Choose One</sv:value>
         </sv:property>
         <sv:property sv:name="mgnl:activationStatus" sv:type="Boolean">
           <sv:value>false</sv:value>
@@ -211,7 +214,7 @@
           <sv:value>superuser</sv:value>
         </sv:property>
         <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-          <sv:value>2015-10-26T14:36:21.572-05:00</sv:value>
+          <sv:value>2015-11-09T16:07:55.948-06:00</sv:value>
         </sv:property>
         <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
           <sv:value>a_f269</sv:value>
