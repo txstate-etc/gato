@@ -135,6 +135,8 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
     visitByTemplate(hm, "gato:components/texasState/texasEditor", this::deleteContentFiles);
     log.info("delete old files uploaded to text and image paragraphs");
     visitByTemplate(hm, "gato:components/texasState/texasTextImage", this::deleteTextFiles);
+    log.info("update node types in faq hierarchy");
+    visitByTemplate(hm, "gato:components/texasState/texas-faq-hierarchy", this::updateFaqNodeTypes);
 
     // config changes
     log.info("make changes to the config tree");
@@ -280,6 +282,25 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
     }
 
     NodeUtil.renameNode(mail, "mail");
+  }
+
+  private void updateFaqNodeTypes(Node node) throws RepositoryException {
+    if (!node.hasNode("faqTree")) { return; }
+
+    Node faqTree = node.getNode("faqTree");
+    for (Node n : NodeUtil.getNodes(faqTree)) {
+      convertComponentNodesToArea(n);
+    }
+  }
+
+  private void convertComponentNodesToArea(Node node) throws RepositoryException {
+    if (node.getPrimaryNodeType().getName().equals(NodeTypes.Component.NAME)) {
+      node.setPrimaryType(NodeTypes.Area.NAME);
+    }
+
+    for (Node n : NodeUtil.getNodes(node)) {
+      convertComponentNodesToArea(n);
+    }
   }
 
   private void moveProperty(String propertyName, Node from, Node to) throws RepositoryException {
