@@ -11,7 +11,7 @@
   <input type="hidden" name="mgnlMandatory" value="${title}" />
 [/#if]
 
-  <input type="file" id="${title}" name="${title}" size="50" />
+  <input type="file" id="${title}" name="${title}" size="50" [#if content.mandatory!false]aria-required="true" required[/#if] aria-invalid="false" aria-describedby="${title}-error"/>
 [#assign exts = []]
 [#list content.extension as extension]
   [#assign exts = exts + gf.getEquivalentExtensions(extension)]
@@ -22,6 +22,6 @@
   </script>
 
   <span class='valid-icon-cont'>
-    <span class="txst-form-validicon txst-form-file">&nbsp;</span>
+    <div class="txst-form-validicon txst-form-file" id="${title}-error" role="alert">&nbsp;</div>
   </span>
 </div>

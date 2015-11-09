@@ -189,6 +189,7 @@ txstValidate.prototype.showPassed = function() {
   } else {
     this.icon.innerHTML = '&nbsp;';
   }
+  this.elem.setAttribute('aria-invalid', 'false');
 
   this.spinner.stop();
   this.isSpinning = false;
@@ -199,6 +200,7 @@ txstValidate.prototype.showFailed = function() {
   this.icon.removeClassName('txst-form-pass');
   this.icon.addClassName('txst-form-fail');
   this.icon.innerHTML = this.getErrorMsg();
+  this.elem.setAttribute('aria-invalid', 'true');
 
   this.spinner.stop();
   this.isSpinning = false;

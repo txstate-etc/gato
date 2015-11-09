@@ -56,7 +56,7 @@
     [#default]
       [#assign validating = false]
   [/#switch]
-  <input type="${inputType}" id="${title}" name="${title}" class="text" size="${inputSize}" />
+  <input type="${inputType}" id="${title}" name="${title}" class="text" size="${inputSize}" [#if content.mandatory!false]aria-required="true" required[/#if] aria-invalid="false" aria-describedby="${title}-error"/>
 
   [#if (content.dataType!"") == "date"]
     <script type="text/javascript">
@@ -76,7 +76,7 @@
   [/#if]
   [#if validating]
     <span class="valid-icon-cont">
-      <span class="txst-form-validicon txst-form-${content.dataType}">&nbsp;</span>
+      <div class="txst-form-validicon txst-form-${content.dataType}" id="${title}-error" role="alert">&nbsp;</div>
     </span>
   [/#if]
 [#elseif content.lines == "small"]
