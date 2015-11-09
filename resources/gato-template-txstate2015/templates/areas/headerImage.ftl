@@ -1,7 +1,7 @@
 [#assign mypage = cmsfn.page(content)]
 [#assign inheritancelist = [mypage]+cmsfn.ancestors(mypage)?reverse]
 [#list inheritancelist as page]
-  [#assign himg = gf.singleComponent(page, 'headerImage')!null]
+  [#assign himg = gf.singleComponent(page, 'headerImage')!]
   [#if himg?has_content && (himg.visible=='hidden' || (himg.visible=='shown' && himg.shown?has_content))]
     [#break]
   [/#if]
