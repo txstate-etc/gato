@@ -344,9 +344,9 @@ function updateDisplay() {
 }
 
 function showFaqNodeData() {
-  questionInput.up('div').show();
+  questionInput.up('.v-form-field-section').show();
   answerInput.up('.v-form-field-section').show();
-  titleInput.up('div').hide();
+  titleInput.up('.v-form-field-section').hide();
   
   var questionTitle = selectedLi.down('[title="question"]');
   questionInput.value = questionTitle.childNodes[0] ? questionTitle.childNodes[0].nodeValue : "";
@@ -357,8 +357,8 @@ function showFaqNodeData() {
 }
 
 function showGroupNodeData() {
-  titleInput.up('div').show();
-  questionInput.up('div').hide();
+  titleInput.up('.v-form-field-section').show();
+  questionInput.up('.v-form-field-section').hide();
   answerInput.up('.v-form-field-section').hide();
   
   var groupTitle = selectedLi.down('[title="group"]');
@@ -379,8 +379,18 @@ function buildFaqTree(rootNode, el) {
     });
   }
 
+  jQuery(el).closest('fieldset').append()
   jQuery(el).append(faqTree);
-  jQuery(el).append('<div><label for="faqTitle">Title</label><input type="text" class="faqText" id="faqTitle"/></div><div><label for="faqQuestion">Question</label><input type="text" class="faqText" id="faqQuestion"/></div>');
+  var titleHtml = '<div class="v-form-field-section">' +
+                    '<div class="v-form-field-label" title="Title">Title</div>' +
+                    '<div class="v-form-field-container"><input type="text" class="faqText" id="faqTitle"/></div>' +
+                  '</div>';
+
+  var questionHtml = '<div class="v-form-field-section">' +
+                       '<div class="v-form-field-label" title="Question">Question</div>' +
+                       '<div class="v-form-field-container"><input type="text" class="faqText" id="faqQuestion"/></div>' +
+                     '</div>';
+  jQuery(el).closest('.v-form-field-section').after(titleHtml).after(questionHtml);
   
   questionInput = jQuery('#faqQuestion')[0];
   titleInput = jQuery('#faqTitle')[0];

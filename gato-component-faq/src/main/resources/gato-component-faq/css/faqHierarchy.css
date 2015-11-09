@@ -6,7 +6,7 @@
   border: 1px solid black;
   background-color: #FAFBF4;
   max-height: 220px;
-  min-width: 530px;
+  min-width: 515px;
   overflow: auto;
 }
 
@@ -158,5 +158,5 @@
 }
 
 .faqText {
-  margin-top: 10px;
+  min-width: 520px;
 }
