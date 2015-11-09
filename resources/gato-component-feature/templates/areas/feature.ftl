@@ -3,7 +3,7 @@
     [#list components as slide]
       [@cms.component content=slide contextAttributes={"barsonly": true} /]
     [/#list]
-    <div cms:add="bar"></div>
+    <div class="feature_add" cms:add="bar"></div>
   </div>
 [/#if]
 <div class="gato-feature-slides">
