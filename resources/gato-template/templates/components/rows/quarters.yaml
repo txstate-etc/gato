@@ -5,18 +5,22 @@ description: This paragraph creates a row containing 4 columns of equal size.
 areas:
   column1:
     type: list
+    templateScript: /gato-template/templates/components/rows/column.ftl
     availableComponents:
       !include /gato-template/templates/areas/availableComponents.yaml
   column2:
     type: list
+    templateScript: /gato-template/templates/components/rows/column.ftl
     availableComponents:
       !include /gato-template/templates/areas/availableComponents.yaml
   column3:
     type: list
+    templateScript: /gato-template/templates/components/rows/column.ftl
     availableComponents:
       !include /gato-template/templates/areas/availableComponents.yaml
   column4:
     type: list
+    templateScript: /gato-template/templates/components/rows/column.ftl
     availableComponents:
       !include /gato-template/templates/areas/availableComponents.yaml
 parameters:

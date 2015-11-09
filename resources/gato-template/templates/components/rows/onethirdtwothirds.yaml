@@ -5,10 +5,12 @@ description: This paragraph creates a two column row with a smaller column on th
 areas:
   column1:
     type: list
+    templateScript: /gato-template/templates/components/rows/column.ftl
     availableComponents:
       !include /gato-template/templates/areas/availableComponents.yaml
   column2:
     type: list
+    templateScript: /gato-template/templates/components/rows/column.ftl
     availableComponents:
       !include /gato-template/templates/areas/availableComponents.yaml
 parameters:
