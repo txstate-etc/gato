@@ -664,7 +664,7 @@ jQuery.fn.blurclick = function (callback) {
 // as a parameter
 function waitforselector(parentselector, selector, callback) {
   var sanitycount = 0;
-  parent = jQuery(parentselector);
+  var parent = jQuery(parentselector);
 
   // parent must exist at the time of the call so that we can
   // use waitforselector on all pages without fear of creating a javascript error
