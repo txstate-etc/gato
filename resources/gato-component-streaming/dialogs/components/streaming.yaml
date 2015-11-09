@@ -19,3 +19,4 @@ form:
 
 actions: !include /gato-template/dialogs/common/actions-block.yaml
 label: Streaming Media
+description: "Insert a video link from services such as YouTube, Vimeo, and Mediaflo.  The video will be 16:9 and take up the entire column width."
