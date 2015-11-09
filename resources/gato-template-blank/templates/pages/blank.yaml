@@ -1,5 +1,5 @@
 templateScript: /gato-template-blank/templates/pages/blank.ftl
-renderType: freemarker
+renderType: site
 visible: true
 title: Blank Template
 dialog: gato-template:pages/page-properties

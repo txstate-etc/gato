@@ -1,8 +1,8 @@
 templateScript: /gato-template-txstate2015/templates/pages/standard-template.ftl
-renderType: freemarker
+renderType: site
 visible: true
 title: Mail Template
 dialog: gato-template:pages/page-properties
 parameters:
   isMailTemplate: true
-areas: !include /gato-template-txstate2015/templates/includes/template-areas.yaml 
+areas: !include /gato-template-txstate2015/templates/includes/template-areas.yaml

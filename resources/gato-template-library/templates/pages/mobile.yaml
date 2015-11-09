@@ -1,5 +1,5 @@
 templateScript: /gato-template-library/templates/pages/mobile.ftl
-renderType: freemarker
+renderType: site
 visible: true
 title: Library Mobile Home Page
 dialog: gato-template:pages/page-properties

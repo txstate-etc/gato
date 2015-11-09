@@ -21,7 +21,7 @@ import edu.txstate.its.gato.GatoUtils;
 public class GatoLibVersionHandler extends DefaultModuleVersionHandler {
   public GatoLibVersionHandler() {
   }
-  
+
   @Override
   protected List<Task> getExtraInstallTasks(InstallContext installContext) {
     List<Task> extraInstallTasks = new ArrayList<Task>(super.getExtraInstallTasks(installContext));
@@ -33,6 +33,7 @@ public class GatoLibVersionHandler extends DefaultModuleVersionHandler {
   private List<Task> getFunctionsInstallerTask() {
     List<Task> tasks = new ArrayList<Task>();
     tasks.add(new InstallRendererContextAttributeTask("rendering", "freemarker", "gf", GatoUtils.class.getName()));
+    tasks.add(new InstallRendererContextAttributeTask("site", "site", "gf", GatoUtils.class.getName()));
     return tasks;
   }
 }

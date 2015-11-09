@@ -1,5 +1,5 @@
 templateScript: /gato-template-ua/templates/pages/home.ftl
-renderType: freemarker
+renderType: site
 visible: true
 title: Univ. Adv. Homepage
 dialog: gato-template:pages/page-properties

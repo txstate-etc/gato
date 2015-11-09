@@ -1,5 +1,5 @@
 templateScript: /gato-template-library/templates/pages/home.ftl
-renderType: freemarker
+renderType: site
 visible: true
 title: Library Home Page (2012)
 dialog: gato-template:pages/page-properties

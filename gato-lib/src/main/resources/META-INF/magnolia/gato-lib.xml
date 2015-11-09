@@ -37,16 +37,9 @@
       <name>rendering</name>
       <version>5.4/*</version>
     </dependency>
-  <!-- Add other dependencies here, e.g the standard-templating-kit, or the multisite module with the enterprise edition. -->
-  <!--
     <dependency>
-      <name>standard-templating-kit</name>
-      <version>2.7/*</version>
+      <name>site</name>
+      <optional>true</optional>
     </dependency>
-    <dependency>
-      <name>multisite</name>
-      <version>1.0/*</version>
-    </dependency>
-  -->
   </dependencies>
 </module>

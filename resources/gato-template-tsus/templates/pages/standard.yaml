@@ -1,5 +1,5 @@
 templateScript: /gato-template-tsus/templates/pages/standard.ftl
-renderType: freemarker
+renderType: site
 visible: true
 title: TSUS Standard Template
 dialog: gato-template:pages/page-properties

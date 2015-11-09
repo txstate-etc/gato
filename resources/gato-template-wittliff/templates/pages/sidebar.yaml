@@ -1,5 +1,5 @@
 templateScript: /gato-template-wittliff/templates/pages/sidebar.ftl
-renderType: freemarker
+renderType: site
 visible: true
 title: Wittliff Sidebar
 dialog: gato-template:pages/page-properties
