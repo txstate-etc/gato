@@ -5,5 +5,8 @@
             [@cms.component content=component /]
         </li>
         [/#list]
+        [#if cmsfn.isEditMode()]
+            <div class="librarySocial_add" cms:add="box"></div>
+        [/#if]
     </ul>
 </div>

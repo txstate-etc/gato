@@ -8,5 +8,6 @@ jQuery( document ).ready(function() {
   magnolialabelchange('.column_add', '.mgnlEditor.mgnlPlaceholder', 'Add Content');
   magnolialabelchange('.genEmergency_add', '.mgnlEditor.mgnlPlaceholder', 'Add Emergency Information');
   magnolialabelchange('.emergencyHours_add', '.mgnlEditor.mgnlPlaceholder', 'Add Emergency Hours');
+  magnolialabelchange('.librarySocial_add', '.mgnlEditor.mgnlPlaceholder', 'Add Social Media Link');
 });
 
