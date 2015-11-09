@@ -5,6 +5,7 @@ form:
       fields:
         - name: title
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          required: true
           label: Field Title
         - name: mandatory
           class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
