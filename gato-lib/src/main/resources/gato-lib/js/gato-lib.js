@@ -651,9 +651,25 @@ jQuery.fn.blurclick = function (callback) {
 }
 
 // requires jquery
-function waitforselector(parent, selector, callback) {
+//
+// provide a function that can wait for an element to appear on the
+// page so that it can be modified
+//
+// parentselector should be something that appears in the raw HTML so
+// that we can watch a smaller area for changes.  Just use the smallest
+// DOM element possible, or all the way up to 'body' if the target element
+// can truly appear anywhere
+//
+// callback will receive a jQuery object containing the target element
+// as a parameter
+function waitforselector(parentselector, selector, callback) {
   var sanitycount = 0;
-  parent = jQuery(parent);
+  parent = jQuery(parentselector);
+
+  // parent must exist at the time of the call so that we can
+  // use waitforselector on all pages without fear of creating a javascript error
+  if (parent.size() == 0) return;
+
   if (parent.find(selector).size() > 0) return callback(parent.find(selector));
   if (MutationObserver) {
     var observer = new MutationObserver(function(mutations, observer) {
@@ -676,8 +692,10 @@ function waitforselector(parent, selector, callback) {
   }
 }
 
+// specialized version of waitforselector especially for changing labels
+// on magnolia edit bars
 function magnolialabelchange(parentselector, selector, newlabel) {
-  waitforselector(jQuery(parentselector), selector, function (ele) {
+  waitforselector(parentselector, selector, function (ele) {
     ele.find('.mgnlEditorBarLabel').html(newlabel).attr('title',newlabel);
   });
 }
