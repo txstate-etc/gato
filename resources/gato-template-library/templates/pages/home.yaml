@@ -75,13 +75,15 @@ areas:
     renderType: freemarker
     type: list
     title: Quick Link
+    templateScript: /gato-template-library/templates/areas/library-linkarea.ftl
     availableComponents:
       link:
         id: gato-template:components/link
   library-services:
     renderType: freemarker
     type: list
-    title: Quick Link
+    title: Service
+    templateScript: /gato-template-library/templates/areas/library-linkarea.ftl
     availableComponents:
       link:
         id: gato-template:components/link
@@ -127,7 +129,7 @@ areas:
     renderType: freemarker
     type: list
     title: Library Footer
-    #inheritance?
+    templateScript: /gato-template-library/templates/areas/library-linkarea.ftl
     availableComponents:
       link:
         id: gato-template:components/link
