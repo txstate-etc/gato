@@ -4,14 +4,7 @@ function txstValidate(type, elem, icon) {
   this.elem = elem;
   this.icon = icon;
   this.fromDate = this.parse(elem.valid_fromDate);
-
-  if (this.fromDate) {
-    this.fromDate.set({millisecond: 0, second: 0, minute: 0, hour: 0});
-  }
   this.toDate = this.parse(elem.valid_toDate);
-  if (this.toDate) {
-    this.toDate.set({millisecond: 0, second: 0, minute: 0, hour: 0});
-  }
   this.isSpinning = false;
 
   var spinnerOptions = {
@@ -121,11 +114,11 @@ txstValidate.prototype.getErrorMsg = function() {
   if (type == 'date') {
     var msg = 'must be a valid date';
     if (this.fromDate && this.toDate) {
-      msg += ' between ' + this.fromDate.toString('MMM d, yyyy') + ' and ' + this.toDate.toString('MMM d, yyyy');
+      msg += ' between ' + this.fromDate.format('MMM D, YYYY') + ' and ' + this.toDate.format('MMM D, YYYY');
     } else if (this.fromDate) {
-      msg += ' on or after ' + this.fromDate.toString('MMM d, yyyy');
+      msg += ' on or after ' + this.fromDate.format('MMM D, YYYY');
     } else if (this.toDate) {
-      msg += ' on or before ' + this.toDate.toString('MMM d, yyyy');
+      msg += ' on or before ' + this.toDate.format('MMM D, YYYY');
     }
     return msg;
   }
@@ -215,7 +208,7 @@ txstValidate.prototype.clean = function() {
   var type = this.type;
   if (type == 'date' && ipt.value) {
     var mydate = this.parse(ipt.value);
-    if (mydate) ipt.value = mydate.toString('yyyy-MM-dd');
+    if (mydate) ipt.value = mydate.format('YYYY-MM-DD');
   }
   if (type == 'phone' && ipt.value) {
     var phone = ipt.value.replace(/\D/g, '');
@@ -297,54 +290,27 @@ txstValidate.prototype.checkDate = function(datestr, dateobj) {
   datestr = datestr.trim();
   if (!dateobj) dateobj = this.parse(datestr);
 
-  if (!this.isDate(datestr, dateobj)) return false;
+  if (!dateobj) return false;
 
   // it is a valid date, but is it in range?
-  if (this.fromDate && this.fromDate > dateobj) {
+  if (this.fromDate && dateobj.isBefore(this.fromDate)) {
     return false;
   }
-  if (this.toDate && this.toDate < dateobj) {
+  if (this.toDate && dateobj.isAfter(this.toDate)) {
     return false;
   }
 
   return true;
 };
 
-txstValidate.prototype.isDate = function(datestr, dateobj) {
-  return (
-    dateobj &&
-    dateobj.getTime() &&
-    dateobj.getFullYear() > 1900 &&
-    dateobj.getFullYear() < (Date.today().getFullYear() + 100) &&
-    !datestr.match(/^\d{1,7}$/) &&
-    !datestr.match(/^[a-z]{1,2}$/i) &&
-    !datestr.match(/\bdays?\b/i) &&
-    !datestr.match(/weeks?/i) &&
-    !datestr.match(/month?s?/i) &&
-    !datestr.match(/years?/i) &&
-    !datestr.match(/^\d+\s*([adnp]|am|pm)\b/i) &&
-    !datestr.match(/from/i) &&
-    !datestr.match(/ago/i) &&
-    !datestr.match(/(\b|\d)+(y|m|t)+(\b|\d)+/i)
-  ) || false;
-};
-
 txstValidate.prototype.parse = function(datestr) {
-  var trythese = ['yyyy-MM-dd', 'MM-dd-yyyy'];
-  var dateobj;
-  try {
-    dateobj = Date.parseExact(datestr, trythese);
-  } catch (e) {
-    dateobj = null;
+  var trythese = ['YYYY-MM-DD', 'MM-DD-YYYY', 'MMM DD YYYY'];
+
+  var dateobj = moment(datestr, trythese);
+  if (dateobj.isValid()) {
+    return dateobj;
   }
 
-  if (!dateobj) try {
-    dateobj = Date.parse(datestr);
-  } catch (e) {
-    dateobj = null;
-  }
-
-  if (dateobj && this.isDate(datestr, dateobj)) return dateobj;
   return null;
 };
 
@@ -398,13 +364,13 @@ Event.observe(document, 'dom:loaded', function() {
     if (ipt.value) vld.registerChange(true);
     if (type == 'date') {
       var subtitle;
-      var fmt = 'MMM&#160;d,&#160;yyyy';
+      var fmt = 'MMM&#160;D,&#160;YYYY';
       if (vld.fromDate && vld.toDate) {
-        subtitle = 'between ' + vld.fromDate.toString(fmt) + ' and ' + vld.toDate.toString(fmt);
+        subtitle = 'between ' + vld.fromDate.format(fmt) + ' and ' + vld.toDate.format(fmt);
       } else if (vld.fromDate) {
-        subtitle = 'on or after ' + vld.fromDate.toString(fmt);
+        subtitle = 'on or after ' + vld.fromDate.format(fmt);
       } else if (vld.toDate) {
-        subtitle = 'on or before ' + vld.toDate.toString(fmt);
+        subtitle = 'on or before ' + vld.toDate.format(fmt);
       }
       if (subtitle) {
         ipt.insert({
@@ -418,10 +384,10 @@ Event.observe(document, 'dom:loaded', function() {
         var rangeLow = [1900,0,1];
         var rangeHigh = [2100,0,1];
         if (vld.fromDate) {
-          rangeLow = [vld.fromDate.getFullYear(),vld.fromDate.getMonth(),vld.fromDate.getDate()];
+          rangeLow = vld.fromDate.toArray();
         }
         if (vld.toDate) {
-          rangeHigh = [vld.toDate.getFullYear(),vld.toDate.getMonth(),vld.toDate.getDate()];
+          rangeHigh = vld.toDate.toArray();
         }
         var dateOpts = {
           format: "yyyy-mm-dd",

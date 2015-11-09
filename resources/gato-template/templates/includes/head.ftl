@@ -12,7 +12,7 @@
 		'gato-template/js/easter-egg.js',
 		'gato-template/js/webtools.js',
 		'gato-template/js/edit-bars.js',
-		'gato-lib/js/date.js',
+		'gato-lib/js/moment.js',
 		'gato-lib/js/jsonp.js',
 		'gato-lib/js/pickadate/picker.js',
 		'gato-lib/js/pickadate/picker.date.js',
