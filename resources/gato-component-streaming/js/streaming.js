@@ -93,15 +93,15 @@ function buildPlayer(el, videoInfo) {
   }
 }
 
-jQuery(document).ready(function($) {
+jQuery(window).load(function($) {
   loadYoutubeScript();
 
   waitForYoutube(function() {
-    $('.gatoEmbedContainer').each(function(i) {
+    jQuery('.gatoEmbedContainer').each(function(i) {
       var container = this;
       container.id = 'gato-player-' + i;
 
-      var videoInfo = getVideoInfo($(container).data("url"));
+      var videoInfo = getVideoInfo(jQuery(container).data("url"));
       buildPlayer(container, videoInfo);
     });
   });
@@ -160,8 +160,10 @@ function loadStreamingDialog(def, node, el) {
     spinner.stop();
     var url = jQuery('.videoUrl')[0].value;
 
-    var videoInfo = getVideoInfo(url);
-    buildPlayer(container, videoInfo);
+    if (url != "") {
+      var videoInfo = getVideoInfo(url);
+      buildPlayer(container, videoInfo);
+    }
   }
 
   jQuery('.videoUrl').keyup(function() {
