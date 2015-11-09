@@ -6,5 +6,7 @@ jQuery( document ).ready(function() {
   magnolialabelchange('.feature_add', '.mgnlEditor.mgnlPlaceholder', 'Add Image');
   magnolialabelchange('.gato-section', '.section-bar>.mgnlEditor.component', 'Section');
   magnolialabelchange('.column_add', '.mgnlEditor.mgnlPlaceholder', 'Add Content');
+  magnolialabelchange('.genEmergency_add', '.mgnlEditor.mgnlPlaceholder', 'Add Emergency Information');
+  magnolialabelchange('.emergencyHours_add', '.mgnlEditor.mgnlPlaceholder', 'Add Emergency Hours');
 });
 

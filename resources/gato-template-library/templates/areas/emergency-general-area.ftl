@@ -4,4 +4,7 @@
         [@cms.component content=component/]
     [/#if]
 [/#if]
+[#if cmsfn.isEditMode()]
+  <div class="genEmergency_add" cms:add="box"></div>
+[/#if]
 </h3>

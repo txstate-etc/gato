@@ -171,13 +171,10 @@ body {
     border: none !important;
   }
 
-  // div.mgnlEditorBarLabel {
-  //   overflow: hidden !important;
-  //   padding: 5px 0 0 16px !important;
-  //   overflow: hidden !important;
-  //   text-overflow: ellipsis !important;
-  //   white-space: nowrap !important;
-  //   line-height: 18px !important;
-  //}
+  //make library emergency info bar smaller so it doesn't cover the hours section
+  .genEmergency_add .mgnlEditor.mgnlPlaceholder{
+    width: 33% !important;;
+  }
+
 }
 
