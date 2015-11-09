@@ -91,6 +91,11 @@ function buildPlayer(el, videoInfo) {
       el.innerHTML = "Sorry, we're unable to play this video.";
       break;
   }
+
+  var iframe = jQuery(el).find('iframe');
+  if (iframe.length && !iframe.attr('title')) {
+    iframe.attr('title', 'Video Player');
+  }
 }
 
 jQuery(window).load(function($) {
