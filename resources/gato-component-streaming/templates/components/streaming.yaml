@@ -4,4 +4,4 @@ dialog: gato-component-streaming:components/streaming
 description: "Add streaming media from a variety of sources, including the TxState Streaming Server, Vimeo, and YouTube."
 title: Embed Video
 parameters:
-  icon: /gato-component-sitemap/images/sitemap.png
+  icon: /gato-component-streaming/images/stream_media.png
