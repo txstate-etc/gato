@@ -1,6 +1,6 @@
 templateScript: /gato-template/templates/components/rows/quarters.ftl
 renderType: freemarker
-title: Row With 4 Equal Columns
+title: Four Columns
 description: This paragraph creates a row containing 4 columns of equal size.
 areas:
   column1:

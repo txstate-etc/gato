@@ -1,6 +1,6 @@
 templateScript: /gato-template/templates/components/rows/thirds.ftl
 renderType: freemarker
-title: Row With 3 Equal Columns
+title: Three Columns
 description: This paragraph creates a row containing 3 columns of equal size.
 areas:
   column1:

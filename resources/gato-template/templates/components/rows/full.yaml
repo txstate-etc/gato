@@ -1,6 +1,6 @@
 templateScript: /gato-template/templates/components/rows/full.ftl
 renderType: freemarker
-title: Row With 1 Column
+title: One Column
 description: This paragraph creates a row containing 1 column that takes up the full content area.
 areas:
   column1:
