@@ -3,26 +3,19 @@ form:
     - name: tabFaq
       label: Configure FAQs
       fields:
-        - name: faqTitle
-          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-          label: Title
-          styleName: faqTitle
-        - name: faqQuestion
-          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-          label: Question
-          styleName: faqQuestion
+        - name: faqScript
+          class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
+          initFunction: initFaqHierarchy
+          scripts: [gato-lib/js/prototype.js, gato-lib/js/scriptaculous/scriptaculous.js, gato-lib/js/scriptaculous/effects.js, gato-lib/js/scriptaculous/dragdrop.js, gato-lib/js/restful.js, gato-component-faq/js/faqHierarchy.js]
+          styles: [gato-component-faq/css/faqHierarchy.css]
+          loadScriptsInOrder: true
+          fields:
+          - name: faqTree
+            transformerClass: edu.txstate.its.gato.vaadin.JsonTransformer
+            class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+          label: FAQ Tree
         - name: faqAnswer
           class: info.magnolia.ui.form.field.definition.RichTextFieldDefinition
           label: Answer
           styleName: faqAnswer
-        - name: faqTree
-          transformerClass: edu.txstate.its.gato.vaadin.JsonTransformer
-          class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
-        - name: faqScript
-          class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
-          initFunction: initFaqHierarchy
-          scripts: [gato-lib/js/prototype.js, gato-lib/js/scriptaculous/scriptaculous.js, gato-lib/js/scriptaculous/effects.js, gato-lib/js/scriptaculous/dragdrop.js, gato-component-faq/js/faqHierarchy.js]
-          styles: [gato-component-faq/css/faqHierarchy.css]
-          loadScriptsInOrder: true
-          label: FAQ Tree
 actions: !include /gato-template/dialogs/common/actions-block.yaml

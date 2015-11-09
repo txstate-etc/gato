@@ -5,9 +5,11 @@ var emptyNodeTitle = "--No Text Entered--";
 var answerInput;
 var questionInput;
 var titleInput;
+var faqNode;
+var faqHidden;
 
 function onLoad() {
-  /*$$('#faq_tree li').each(function(item) {
+  $$('#faq_tree li').each(function(item) {
     if (!item.hasClassName("faq_tree_faq_node") && !item.hasClassName("faq_tree_group_node")) return;
 
     Position.includeScrollOffsets = true;
@@ -23,22 +25,15 @@ function onLoad() {
     }
   });
 
-  answerInput = $$('.faqAnswer')[0];
-  questionInput = $$('.faqQuestion')[0];
-  titleInput = $$('.faqTitle')[0];
-  
   questionInput.observe('change', updateData);
   titleInput.observe('change', updateData);
-  
-  //$('mgnlSaveButton').writeAttribute('onclick', 'onSave(); ' + 
-  //                                   $('mgnlSaveButton').readAttribute('onclick'));
-
-  waitForCKEditor();*/
+  waitForCKEditor();
 }
 
 function waitForCKEditor() {
   if (typeof(CKEDITOR) != 'undefined') {
     CKEDITOR.on('instanceReady', function(e) {
+      answerInput = $$('.faqAnswer')[0];
       e.editor.on('selectionChanged', updateData)
       editor = e.editor;
       updateDisplay();
@@ -59,38 +54,52 @@ function getDisplayTitle(title) {
 }
 
 function onSave() {
-  updateData();
+  faqNode.nodes = [];
 
   //Convert the faq tree to a json that will be sent to the server.
-  json_data = {children: []};
-  $('faq_tree').childElements().each(function(item) { processLi(item, json_data); });
-  $('json_data').value = JSON.stringify(json_data);
+  $('faq_tree').childElements().each(function(item) { processLi(item, faqNode); });
+  faqHidden.val(JSON.stringify(faqNode)).change();
 }
 
 function processLi(li, json_data) {
-  var node_object = {id: li.id};
+  var node_object = {
+    name: li.id,
+    type: 'mgnl:area',
+    path: json_data.path + '/' + li.id,
+    nodes: [],
+    properties: []
+  };
 
   if (li == selectedLi) {
-    node_object.selected = true;
+    node_object.properties.push(createProperty("selected", true, "Boolean"));
   }
 
   if (li.hasClassName('faq_tree_group_node')) {
-    node_object.nodetype = 'group';
-    node_object.title = li.down('[title="group"]').innerHTML;
-    node_object.children = [];
-    node_object.isOpen = li.hasClassName('faq_tree_open');
+    node_object.properties.push(createProperty('nodetype', 'group', 'String'));
+    node_object.properties.push(createProperty('title', li.down('[title="group"]').innerHTML, 'String'));
+    //node_object.children = [];
+    node_object.properties.push(createProperty('isOpen', li.hasClassName('faq_tree_open'), 'Boolean'));
     
     if (li.down('ul')) {
       li.down('ul').childElements().each(function(item) { processLi(item, node_object); });
     }
   }
   else {
-    node_object.nodetype = 'faq';
-    node_object.question = li.down('[title="question"]').innerHTML;
-    node_object.answer = $('answer-' + li.id).value;
+    node_object.properties.push(createProperty('nodetype', 'faq', 'String'));
+    node_object.properties.push(createProperty('question', li.down('[title="question"]').innerHTML, 'String'));
+    node_object.properties.push(createProperty('answer', $('answer-' + li.id).value, 'String'));
   }
   
-  json_data.children.push(node_object);
+  json_data.nodes.push(node_object);
+}
+
+function createProperty(key, val, type) {
+  return {
+    name: key,
+    type: type,
+    multiple: false,
+    values: [val]
+  }
 }
 
 function attachEventHandlers(nodeLi) {
@@ -160,7 +169,7 @@ function onExpandCollapse(event) {
 }
 
 function newFaqHtml(li_id) {
-  return '<li class="faq_tree_faq_node" id="' + li_id + '">' +
+  return '<li class="faq_tree_faq_node selected_node" id="' + li_id + '">' +
            '<div class="node_drop_div" id="drop-' + li_id + '"></div>' +
            '<dl id="dl-' + li_id + '">' +
              '<span class="expander"></span>' +
@@ -319,6 +328,8 @@ function updateData() {
  
   selectedLi.down('dt').innerHTML = "";
   selectedLi.down('dt').appendChild(document.createTextNode(getDisplayTitle(nodeTitle)));
+
+  onSave();
 }
 
 function updateDisplay() {
@@ -333,9 +344,9 @@ function updateDisplay() {
 }
 
 function showFaqNodeData() {
-  questionInput.up('.v-form-field-section').show();
+  questionInput.up('div').show();
   answerInput.up('.v-form-field-section').show();
-  titleInput.up('.v-form-field-section').hide();
+  titleInput.up('div').hide();
   
   var questionTitle = selectedLi.down('[title="question"]');
   questionInput.value = questionTitle.childNodes[0] ? questionTitle.childNodes[0].nodeValue : "";
@@ -346,8 +357,8 @@ function showFaqNodeData() {
 }
 
 function showGroupNodeData() {
-  titleInput.up('.v-form-field-section').show();
-  questionInput.up('.v-form-field-section').hide();
+  titleInput.up('div').show();
+  questionInput.up('div').hide();
   answerInput.up('.v-form-field-section').hide();
   
   var groupTitle = selectedLi.down('[title="group"]');
@@ -355,7 +366,112 @@ function showGroupNodeData() {
   titleInput.focus();
 }
 
+function buildFaqTree(rootNode, el) {
+  var isNew = !rootNode.nodes || rootNode.nodes.length == 0;
+
+  var faqTree = jQuery('<ul id="faq_tree"></ul>');
+  if (isNew) {
+    var html = newFaqHtml('node0');
+    faqTree.append(html);
+  } else {
+    rootNode.nodes.forEach(function(node) {
+      faqTree.append(buildTreeHtml(node));
+    });
+  }
+
+  jQuery(el).append(faqTree);
+  jQuery(el).append('<div><label for="faqTitle">Title</label><input type="text" class="faqText" id="faqTitle"/></div><div><label for="faqQuestion">Question</label><input type="text" class="faqText" id="faqQuestion"/></div>');
+  
+  questionInput = jQuery('#faqQuestion')[0];
+  titleInput = jQuery('#faqTitle')[0];
+}
+
+function buildTreeHtml(node) {
+  node.cleanup();
+  var nodeEl;
+  if (node.prophash['nodetype'] == 'group') {
+    nodeEl = buildGroupHtml(node);
+  } else {
+    nodeEl = buildItemHtml(node);
+  }
+
+  if (node.nodes) {
+    var ul = jQuery('<ul></ul>');
+    node.nodes.forEach(function(n) {
+      ul.append(buildTreeHtml(n));
+    })
+    nodeEl.append(ul);
+  }
+  return nodeEl;
+}
+
+function buildGroupHtml(groupNode) {
+  var id = groupNode.name;
+  var title = groupNode.prophash['title'];
+  var isOpen = groupNode.prophash['isOpen'];
+  var expandClass = isOpen ? 'faq_tree_open' : 'faq_tree_closed';
+
+  if (groupNode.prophash['selected']) {
+    expandClass += ' selected_node';
+  }
+
+  var html = '<li class="faq_tree_group_node ' + expandClass + '" id="' + id + '">' +
+             '<div class="node_drop_div" id="drop-' + id + '">&#160;</div>' +
+             '<dl id="dl-' + id + '">' +
+             '<span class="expander">&#160;</span>' +
+             '<span class="node_icon">&#160;</span>' +
+             '<dt>' + title + '</dt>' +
+             '<dd class="node_data">' +
+             '<span title="group">' + title + '</span>' +
+             '</dd>' +
+             '<dd class="node_actions">' +
+             '<span class="delete_node_action" title="Delete">&#160;</span>' +
+             '<span class="add_group_action" title="Add Group">&#160;</span>' +
+             '<span class="add_faq_action" title="Add Faq">&#160;</span>' +
+             '</dd>' +
+             '</dl>';
+  return jQuery(html);
+}
+
+function buildItemHtml(itemNode, parentEl) {
+  var id = itemNode.name;
+  var question = itemNode.prophash["question"];
+  var answer = itemNode.prophash["answer"];
+
+  var nodeClass = '';
+  if (itemNode.prophash['selected']) {
+    nodeClass = ' selected_node';
+  }
+
+  var answerInput = jQuery('<input type="hidden" id="answer-' + id + '" />');
+  answerInput.val(answer); 
+
+  var html = '<li class="faq_tree_faq_node' + nodeClass + '" id="' + id + '">' +
+             '<div class="node_drop_div" id="drop-' + id + '">&#160;</div>' +
+             '<dl id="dl-' + id + '">' +
+             '<span class="expander">&#160;</span>' +
+             '<span class="node_icon">&#160;</span>' +
+             '<dt>' + question + '</dt>' +
+             '<dd class="node_data">' +
+             '<span title="question">' + question + '</span>' +
+             '<span title="answer"></span>' +
+             '</dd>' +
+             '<dd class="node_actions">' +
+             '<span class="delete_node_action" title="Delete">&#160;</span>' +
+             '<span class="add_group_action" title="Add Group">&#160;</span>' +
+             '<span class="add_faq_action" title="Add Faq">&#160;</span>' +
+             '</dd>' +
+             '</dl>' +
+             '</li>';
+  html = jQuery(html);
+  html.find('span[title="answer"]').append(answerInput);
+  return html;
+}
+
 function initFaqHierarchy(def, node, el) {
-  $(el).up('.v-form-field-section').hide();
+  path = node;
+  faqHidden = jQuery(el).closest('.v-form-field-container').find('input.faqTree');
+  faqNode = new jcrnode("website", node + '/faqTree', JSON.parse(faqHidden.val()));
+  buildFaqTree(faqNode, el);
   onLoad();
 }
