@@ -2,7 +2,7 @@
   [#list components as slide]
     [@cms.component content=slide contextAttributes={"index": slide_index, "barsonly": true} /]
   [/#list]
-  <div cms:add="bar"></div>
+  <div class="slide_add" cms:add="bar"></div>
 </div>
 <div class="slides">
   [#list components as slide]

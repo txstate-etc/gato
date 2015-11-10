@@ -87,6 +87,7 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
               convertNodeToAreaAndComponent(desc, "gato-template:components/richeditor");
             }
           }
+          if(n.hasNode("searchbox-chatlink")) convertNodeToAreaAndComponent(n.getNode("searchbox-chatlink"), "gato-template:components/richeditor");
         }
 
         if (n.hasNode("contentParagraph")) moveBodyContentToSingleColumnContainer(n.getNode("contentParagraph"));

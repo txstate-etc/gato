@@ -9,6 +9,11 @@ jQuery( document ).ready(function() {
   magnolialabelchange('.genEmergency_add', '.mgnlEditor.mgnlPlaceholder', 'Add Emergency Information');
   magnolialabelchange('.emergencyHours_add', '.mgnlEditor.mgnlPlaceholder', 'Add Emergency Hours');
   magnolialabelchange('.librarySocial_add', '.mgnlEditor.mgnlPlaceholder', 'Add Social Media Link');
-  magnolialabelchange('.libraryLink_add', '.mgnlEditor.mgnlPlaceholder', 'Add Link');
+  magnolialabelchange('.link_add', '.mgnlEditor.mgnlPlaceholder', 'Add Link');
+  magnolialabelchange('.contactInfo_add', '.mgnlEditor.mgnlPlaceholder', 'Add Contact Information');
+  magnolialabelchange('.headerImage_admin', '.mgnlEditor.mgnlPlaceholder', 'Add Banner Image');
+  magnolialabelchange('.slide_add', '.mgnlEditor.mgnlPlaceholder', 'Add Slide');
+  magnolialabelchange('.content_add', '.mgnlEditor.mgnlPlaceholder', 'Add Content');
+  magnolialabelchange('.imageLink_add', '.mgnlEditor.mgnlPlaceholder', 'Add Image Link');
 });
 

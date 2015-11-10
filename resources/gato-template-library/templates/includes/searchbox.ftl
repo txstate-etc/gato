@@ -212,6 +212,10 @@
             </div>
         [/#if]
     </div>
-    <!-- put chatlink here -->
+    [#if !isMobile]
+        <div class="chatlink">
+            [@cms.area name="searchbox-chatlink"/]
+        </div>
+    [/#if]
 </div>
 [/#macro]

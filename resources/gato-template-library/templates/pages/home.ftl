@@ -3,7 +3,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-  [@templatejs scripts=['gato-template-library/js/searchbox.js', 'gato-template-tsus/js/tsus-slideshow.js']/]
+  [@templatejs scripts=['gato-template-library/js/searchbox.js']/]
   <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-library/css/library.compiled.css"/>
   <link href="http://fonts.googleapis.com/css?family=Ubuntu+Condensed" rel="stylesheet" type="text/css" />
   [@templatehead /]
@@ -31,7 +31,7 @@
                 <div class="hours">
                     <h5>All Hours</h5>
                     <div class="all-hours">
-                        [@cms.area name="library-allhours" /]
+                        [@cms.area name="library-allhours" contextAttributes={"bar_class":"imageLink_add"}/]
                     </div>
                 </div>
                 <div class="hours-links">
@@ -47,13 +47,13 @@
                 <div class="header">
                     Quick Links
                 </div>
-                [@cms.area name="library-quicklinks" /]
+                [@cms.area name="library-quicklinks" contextAttributes={"bar_class":"link_add"}/]
             </div>
             <div class="right">
                 <div class="header">
                     Services For
                 </div>
-                [@cms.area name="library-services" /]
+                [@cms.area name="library-services" contextAttributes={"bar_class":"link_add"} /]
             </div>
         </div>
         <div class="social">
@@ -65,7 +65,7 @@
         <div class="content-boxes">
             <div class="content-box left">
                 <h3 class="button">News</h3>
-                [@cms.area name="contentboxleft" /]
+                [@cms.area name="contentboxleft" contextAttributes={"bar_class":"content_add"} /]
             </div>
             <div class="content-box middle">
                 <h3 class="button">Events</h3>
@@ -73,11 +73,11 @@
             </div>
             <div class="content-box right">
                 <h3 class="button">Your Library</h3>
-                [@cms.area name="contentboxright" /]
+                [@cms.area name="contentboxright"  contextAttributes={"bar_class":"content_add"}/]
             </div>
         </div>
         <div class="library-footer">
-            [@cms.area name="library-footer"/]
+            [@cms.area name="library-footer" contextAttributes={"bar_class":"link_add"}/]
         </div>
         <div class="more-footer">
             <div class="txst-footer">
