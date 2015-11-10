@@ -7,9 +7,14 @@
      */
     CKEDITOR.editorConfig = function( config ) {
 
-        //TODO: NEED TO LOAD IMAGE2 AND MAXIMIZE PLUGINS.  THE SUGGESTION ABOVE IS NOT HELPFUL.
+        //load image2 plugin and all of its dependencies
+        CKEDITOR.plugins.addExternal("dialogui", CKEDITOR.vaadinDirUrl + "js/richeditorplugins/dialogui/", 'plugin.js');
+        CKEDITOR.plugins.addExternal("dialog", CKEDITOR.vaadinDirUrl + "js/richeditorplugins/dialog/", 'plugin.js');
+        CKEDITOR.plugins.addExternal("clipboard", CKEDITOR.vaadinDirUrl + "js/richeditorplugins/clipboard/", 'plugin.js');
+        CKEDITOR.plugins.addExternal("lineutils", CKEDITOR.vaadinDirUrl + "js/richeditorplugins/lineutils/", 'plugin.js');
+        CKEDITOR.plugins.addExternal("widget", CKEDITOR.vaadinDirUrl + "js/richeditorplugins/widget/", 'plugin.js');
+        CKEDITOR.plugins.addExternal("image2", CKEDITOR.vaadinDirUrl + "js/richeditorplugins/image2/", 'plugin.js');
 
-         // MIRROR info.magnolia.ui.form.field.definition.RichTextFieldDefinition
          definition = {
                    alignment: true,
                    images: true,
@@ -69,7 +74,7 @@
            removePlugins.push("elementspath");
            removePlugins.push("filebrowser");
            config.removePlugins = removePlugins.join(",");
-           config.extraPlugins = "magnolialink,magnoliaFileBrowser";
+           config.extraPlugins = "magnolialink,magnoliaFileBrowser,dialogui,dialog,clipboard,lineutils,widget,image2";
    
            config.width = 660;
            config.allowedContent = true;
