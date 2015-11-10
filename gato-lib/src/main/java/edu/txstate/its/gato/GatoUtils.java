@@ -128,11 +128,11 @@ public final class GatoUtils {
     String relUrl = filterUrl(url);
     if (relUrl.matches("^\\w{3,15}://.*")) return relUrl;
     HttpServletRequest request = MgnlContext.getWebContext().getRequest();
-    String serverpath = request.getScheme()+"://"+request.getServerName();
-    if ((request.getScheme().equals("http") && request.getServerPort() != 80) ||
-        (request.getScheme().equals("https") && request.getServerPort() != 443) ||
+    String serverpath = request.getScheme()+"://"+request.getRemoteHost();
+    if ((request.getScheme().equals("http") && request.getRemotePort() != 80) ||
+        (request.getScheme().equals("https") && request.getRemotePort() != 443) ||
          !request.getScheme().contains("http"))
-      serverpath += ":"+request.getServerPort();
+      serverpath += ":"+request.getRemotePort();
     return serverpath+relUrl;
   }
 
