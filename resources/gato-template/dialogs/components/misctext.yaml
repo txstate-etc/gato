@@ -4,7 +4,8 @@ form:
       label: Miscellaneous Text
       fields:
         - name: text
-          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          class: info.magnolia.ui.form.field.definition.CodeFieldDefinition
+          language: html
           label: Text
           rows: 10
 actions: !include /gato-template/dialogs/common/actions-block.yaml

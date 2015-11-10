@@ -1,21 +1,13 @@
-[#--
-
-[#assign homeLink = cmsfn.link(ctx.getAttribute("homePageContent"))]
-[#assign paramEditable = true]
-[#if cmsfn.link(content) == homeLink ]
-  [#assign paramEditable = true]
-[#else]
-  [#assign paramEditable = false]
-[/#if]
- --]
-
 <div class="footer row">
 	<div class="footer_content">
-		<div class="footer_btt">
-			<a href="#nowhere" class="btt"><i class="fa fa-chevron-up"></i><br>Top</a>
-		</div>
+		<a href="#nowhere" class="btt"><i class="fa fa-chevron-up"></i><br>Top</a>
 		<div class="footer_column footer_column_1">
-			[@cms.area name="siteinfo" content=gf.getOrCreateArea(homepage, 'siteinfo') editable=isHomePage/]
+      <h3 class="contact_us">
+        <a href="${cmsfn.link(homepage)}">${gf.nodeTitle(homepage)}</a>
+      </h3>
+      <div class="dept_info">
+        [@cms.area name="siteinfo" content=gf.getOrCreateArea(homepage, 'siteinfo') editable=isHomePage/]
+      </div>
 		</div>
 		<div class="footer_column footer_column_2" >
 			<div class="txst_logo">
@@ -27,5 +19,5 @@
 			[@cms.area name="footerLinks" content=globalData.footerLinks/]
 			<a class="apply_now" href="https://www.applytexas.org">Apply Now</a>
 		</div>
-	</div> <!-- footer_content -->	
+	</div> <!-- footer_content -->
 </div> <!-- footer -->

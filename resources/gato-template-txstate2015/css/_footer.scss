@@ -1,71 +1,117 @@
 .footer {
-    background: $footer-background;
-    width: 100%;
-    color: $footer-text;
-    position: relative;
-    a {
-        padding: 5px;
-        margin: -5px;
-        &:hover {background: $footer-link-hover-background;}
-    }
-    h3 a:hover {background: transparent; opacity: 1;}
+  background: $footer-background;
+  width: 100%;
+  color: $footer-text;
+  position: relative;
+  font-size: 1.2rem;
+  line-height: 2.4rem;
+  @media (min-width: $xs-breakpoint) { font-size: 1.1rem; line-height: 1.9rem; }
+  a {
+    padding: 5px;
+    margin: -5px;
+    &:hover {background: $footer-link-hover-background;}
+  }
+  h3.contact_us a, .image_link {
+    &:hover {background: transparent; opacity: 1;}
+  }
 }
-
-a.image_link:hover{background: transparent; opacity: 1;}
 
 .footer_content {
-    margin: auto;
-    text-align: left;
-    padding: 1.75rem 0;
-    letter-spacing: 1px;
-    position: relative;
-    overflow: hidden;
-    max-width: 1000px;
-    a {
-        text-decoration: none;
-        color: $footer-text;
-        &:hover {text-decoration: none;}
+  margin: auto;
+  text-align: left;
+  padding: 2.8rem 0;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+  max-width: 1000px;
+  a {
+    text-decoration: none;
+    color: $footer-text;
+    &:hover {text-decoration: none;}
+  }
+  a.btt {
+    display: block;
+    position: absolute;
+    top: 13px;
+    left: 50%;
+    margin-left: -2.5rem;
+    padding: 0px;
+    width: 5rem;
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: normal;
+    color: $white;
+    text-transform: uppercase;
+    text-decoration: none;
+    @include vendor-prefix(transition, all 0.2s ease-in-out);
+    i {
+      font-size: 1.5rem;
     }
+    &:hover{
+      color: #fff !important;
+      background: transparent !important;
+    }
+    @media (min-width: $xs-breakpoint) {
+      font-size: 1.2rem;
+    }
+  }
 }
 
-.dept_info {position: relative; line-height: 1.2rem; margin-left: 0; padding-left: 0;}
 
-.footer_column {padding: 0 1rem;}
+.footer_column {
+  padding: 0 18px;
+  @media (min-width: $xs-breakpoint) {
+    width: 33.33%;
+    float: left;
+  }
+}
+
 .footer_column_1 {
-    margin-top: 3rem;
+    margin-top: 48px;
     text-align: center;
 }
 .foot_linkage {
-    text-align: center;
-    margin-bottom: 2rem;
-    list-style: none;
-    padding-left: 0px;
+  text-align: center;
+  margin-bottom: 32px;
+  list-style: none;
+  padding-left: 0px;
+  line-height: 2.4rem;
+  @media (min-width: $xs-breakpoint) { text-align: right; }
 }
 .apply_now {
     display: block;
     text-align: center;
-    margin: 3rem 0 1rem 0 !important;
     background: transparent;
     text-decoration: none !important;
     text-transform: uppercase;
-    font-weight: 400;
+    font-weight: 500;
     border-radius: 3px;
     @include vendor-prefix(transition, all 0.2s ease-in-out);
-    border: 2px solid $footer-button-border; 
-    max-width: 100%;
-    padding: 1.2rem 0 !important;
+    border: 2px solid $footer-button-border;
+    padding: 1.8rem 0 !important;
     font-size: 1.6rem;
     &:hover{
-        border-color: $footer-button-hover-border; 
+        border-color: $footer-button-hover-border;
+    }
+    @media (min-width: $xs-breakpoint) {
+      max-width: 200px;
+      float: right;
+      padding: 12px 40px !important;
+      font-size: 1.3rem;
     }
 }
 
-.contact_us {
-    font-size: 2.0rem;
-    margin: .5rem auto 0 auto;
-    font-family: 'Adobe Garamond W01', Garamond, 'Goudy Old Style', 'Times New Roman', serif;
-    font-weight: 500;
-    line-height: 1.6rem;
+h3.contact_us {
+  margin: 0 0 18px 0;
+  font-family: 'Adobe Garamond W01', Garamond, 'Goudy Old Style', 'Times New Roman', serif;
+  font-size: 2.4rem;
+  font-weight: normal;
+  a {
+    padding: 0px;
+  }
+  @media (min-width: $xs-breakpoint) {
+    font-size: 2.3rem;
+  }
 }
 
 .txst_logo {
@@ -74,52 +120,8 @@ a.image_link:hover{background: transparent; opacity: 1;}
 }
 .txst_logo img {width: 100%; height: auto;}
 
-
-.office_contact, .foot_linkage, .office_contact_2 p {font-size: 1.4rem; line-height: 1.5rem;}
-
-.footer_content {max-width: 1000px;}
-
-.footer_btt {
-    height: 0px;
-}
-
-.btt {
-    text-align: center;
-    display: block;
-    color: #FFF !important;
-    text-transform: uppercase;
-    font-weight: 400;
-    font-size: 1.3rem;
-    padding: 0px !important;
-    margin: 0px auto !important;
-    text-decoration: none !important;
-    position: relative;
-    top: -15px;
-    transition: all 0.2s ease-in-out 0s;
-    max-width: 5rem;
-    i {
-        font-size: 1.6rem;
-    }
-    &:hover{
-        color: #fff !important;
-        background: transparent !important;
-    }
-}
-
-.footer_content[min-width~="#{$xs-breakpoint}"] > .footer_column{
-    width: 33.33%;
-    float: left;
-}
-
-
 @media screen and (min-width: $xs-breakpoint) {
     .footer_column_1 {margin-top: auto; text-align: left;}
-    //.dept_info {margin-left: 1.2rem; padding-left: 0.6rem;}
-    .foot_linkage {text-align: right; margin-bottom: 0.7rem;;}
-    .contact_us {font-size: 1.8rem; margin: .5rem auto 1rem auto;}
-    .office_contact, .foot_linkage {font-size: 1.0rem; line-height: 1.4rem;}
-    .office_contact p {font-size: 1.0rem; line-height: 1.1rem;}
-    .apply_now {display: inline; max-width: 200px; float: right; padding: 0.7rem 2.4rem !important; font-size: 1.1rem; margin: 1rem 0 !important;}
 }
 
 @media screen and (min-width: $xl-breakpoint) {
