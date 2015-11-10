@@ -94,8 +94,7 @@
                    { name: "paragraph",     items: [ "JustifyLeft", "JustifyCenter", "JustifyRight", "JustifyBlock", "NumberedList", "BulletedList","Indent", "Outdent"] },
                    { name: "templates",     items: [ "Templates" ]},
                    { name: "styles",        items: [ "Styles"]},
-                   { name: "colors",        items: [ "TextColor" ] },
-                   { name: "maximize",      items: [ "Maximize" ] }
+                   { name: "colors",        items: [ "TextColor" ] }
            ];
            config.removeDialogTabs = 'image:advanced;link:advanced';
    };
