@@ -16,9 +16,9 @@
 [/#if]
 
 <div class="formelement">
-[#if (content.title!"")?has_content]
+[#if (content.title!"")?has_content || content.mandatory!false]
   <label for="${title}" class="txst-form-text-label">
-    ${cmsfn.decode(content).title}
+    ${cmsfn.decode(content).title!}
     [#if content.mandatory!false]*[/#if]
   </label>
 [/#if]
@@ -56,7 +56,7 @@
     [#default]
       [#assign validating = false]
   [/#switch]
-  <input type="${inputType}" id="${title}" name="${title}" class="text" size="${inputSize}" [#if content.mandatory!false]aria-required="true" required[/#if] aria-invalid="false" aria-describedby="${title}-error"/>
+  <input type="${inputType}" id="${title}" name="${title}" class="text" size="${inputSize}" [#if content.mandatory!false]aria-required="true"[/#if] aria-invalid="false" aria-describedby="${title}-error"/>
 
   [#if (content.dataType!"") == "date"]
     <script type="text/javascript">
