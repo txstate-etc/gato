@@ -90,7 +90,8 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
           if(n.hasNode("searchbox-chatlink")) convertNodeToAreaAndComponent(n.getNode("searchbox-chatlink"), "gato-template:components/richeditor");
         }
 
-        if (n.hasNode("contentParagraph")) moveBodyContentToSingleColumnContainer(n.getNode("contentParagraph"));
+        boolean isMailTemplate = templateId.endsWith("mail") || templateId.endsWith("mail-template");
+        if (n.hasNode("contentParagraph") && !isMailTemplate) moveBodyContentToSingleColumnContainer(n.getNode("contentParagraph"));
         if (n.hasProperty("background-image")) {
           String bgimage = n.getProperty("background-image").getString();
           String newbgimage = bgimage.replace("/wittliff/images/", "");
@@ -128,6 +129,9 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
     visitByTemplate(hm, "gato:components/texasState/texas-form-file", this::updateFormFileComponent);
     visitByTemplate(hm, "gato:components/texasState/texas-form-selection", this::updateSelectionComponent);
     visitByTemplate(hm, "gato:pages/main-2009/khan-mail", this::updateMailArea);
+    visitByTemplate(hm, "gato:pages/ua-2011/ua-2011-mail", this::updateMailArea);
+    visitByTemplate(hm, "gato:pages/wittliff/wittliff-mail", this::updateMailArea);
+    visitByTemplate(hm, "gato:pages/tsus-2012/tsus-2012-mail", this::updateMailArea);
     log.info("download paragraph changes");
     visitByTemplate(hm, "gato:components/texasState/texasDownload", this::updateDownloadComponent);
     visitByTemplate(hm, "gato:components/texasState/texasLink", this::convertNewWindowToBool);
