@@ -1,9 +1,10 @@
 /**
+     * Gato CKEditor Custom Config File
+     *
      * External plugins added through the server-side FieldFactory are automatically registered.
      * Other external plugins (e.g. client-only) may still be registered here (and subsequently added via config.extraPlugins).
      *
-     * e.g. if your plugin resides in src/main/resources/VAADIN/js:
-     * CKEDITOR.plugins.addExternal("abbr", CKEDITOR.vaadinDirUrl + "js/abbr/");
+     * Based on the config file provided by Magnolia
      */
     CKEDITOR.editorConfig = function( config ) {
 
@@ -55,8 +56,8 @@
            }
 
            //get templates
-           //TODO: IT IS IGNORING THIS FILE OR CAN'T FIND IT AND GIVES NO ERROR.
-           config.template_files = ['/.resources/gato-template/js/richeditor/templates.js'];
+           config.templates = 'gato_templates';
+           config.templates_files = [CKEDITOR.vaadinDirUrl + 'js/gato_templates.js'];
 
            //set allowed styles.  by default, there are many more styles to choose from
            config.stylesSet = [];

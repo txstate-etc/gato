@@ -1,9 +1,9 @@
 // Register a template definition set named "default".
-CKEDITOR.addTemplates( 'default',
+CKEDITOR.addTemplates( 'gato_templates',
 {
     // The name of the subfolder that contains the preview images of the templates.
     //imagesPath : '../../images/editor-templates/',
-    imagesPath : '/.resources/gato-template/images/editor-templates/',
+    imagesPath : CKEDITOR.vaadinDirUrl + 'js/richeditorimages/',
  
     // Template definitions.
     templates :
