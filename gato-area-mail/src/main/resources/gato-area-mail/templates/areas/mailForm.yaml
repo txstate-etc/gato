@@ -13,3 +13,7 @@ availableComponents:
     id: gato-area-mail:components/formsubmit
   formfile:
     id: gato-area-mail:components/formfile
+  html:
+    id: gato-template:components/html
+  textimage:
+    id: gato-template:components/textimage
