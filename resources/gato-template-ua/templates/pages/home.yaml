@@ -31,6 +31,7 @@ areas:
         id: gato-template-ua:components/slide
   contentBoxes:
     type: list
+    templateScript: /gato-template/templates/areas/default-area.ftl
     availableComponents:
       richeditor:
         id: gato-template:components/richeditor
@@ -38,6 +39,7 @@ areas:
         id: gato-template:components/textimage
   news:
     type: list
+    templateScript: /gato-template/templates/areas/default-area.ftl
     availableComponents:
       richeditor:
         id: gato-template:components/richeditor

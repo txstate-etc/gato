@@ -20,12 +20,12 @@
     <div class="gato-columnparent gato-fullwidth">
       <div class="gato-contentcolumn gato-styledcontent">
         <div class="ua-contentboxes">
-          [@cms.area name="contentBoxes" /]
+          [@cms.area name="contentBoxes" contextAttributes={"bar_class":"content_add"} /]
         </div>
         <div class="ua-news">
           <h3 class="ua-news-header">A Note of Celebration</h3>
           <div class="ua-news-container">
-            [@cms.area name="news" /]
+            [@cms.area name="news" contextAttributes={"bar_class":"content_add"}/]
           </div>
         </div>
         <div class="ua-video">
