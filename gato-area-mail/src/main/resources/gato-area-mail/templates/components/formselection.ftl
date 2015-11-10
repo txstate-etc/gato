@@ -23,7 +23,7 @@
   </select>
 [#else]
   <div class="txst-form-selectiongroup" id="${title}">
-  <input name="${title}" id="${title}-dummy-item" type="${content.type}" style="display:none" value="" checked="checked" [#if content.mandatory!false]aria-required="true" required[/#if]/>
+  <input name="${title}" id="${title}-dummy-item" type="${content.type}" style="display:none" aria-hidden="true" value="" checked="checked" [#if content.mandatory!false]aria-required="true" required[/#if]/>
   [#assign i = 0]
   [#list content.options as option]
     <div class="txst-form-selection-item">
