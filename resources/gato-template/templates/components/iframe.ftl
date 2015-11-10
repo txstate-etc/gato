@@ -4,11 +4,12 @@
     <h2>${content.title}</h2>
   [/#if]
 
-  <iframe class="txst-iframe" 
-    frameborder="0" 
-    style="height: ${content.height!800}px" 
-    src="${content.url}" 
+  <iframe class="txst-iframe"
+    frameborder="0"
+    style="height: ${content.height!800}px"
+    src="${gf.filterUrl(content.url)}"
     scrolling="auto">
+    <a href="${gf.filterUrl(content.url)}">${content.title!content.url}</a>
   </iframe>
-  
+
 </div>
