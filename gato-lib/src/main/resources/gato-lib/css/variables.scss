@@ -1,6 +1,7 @@
 @import "gato-lib/css/fontawesome/variables";
-$resource-root:       "../..";
-$fa-font-path:        $resource-root+"/gato-lib/css/fontawesome/fonts";
+$resource-root:         "../..";
+$fa-font-path:          $resource-root+"/gato-lib/css/fontawesome/fonts";
+$fa-snapchat-font-path: $resource-root+"/gato-lib/css/fa-snapchat/fonts";
 
 /* NAMES FOR COLORS */
 $maroon:              #501214; // (106,86,56)
