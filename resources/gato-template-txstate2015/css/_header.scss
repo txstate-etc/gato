@@ -54,30 +54,27 @@
 
 .more-tools{
     position: relative;
-    &:hover .super-list-sub{
-        display: block;
-    }
     .super-list-sub {
-        display: none; 
-        position: absolute; 
-        width: 100%; 
-        top: 100%; 
-        left: 0; 
-        padding: 0; 
-        margin: 0; 
-        list-style-type: none; 
+        display: none;
+        position: absolute;
+        width: 100%;
+        top: 100%;
+        left: 0;
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
         background: $super-user-background;
-        z-index: 9999; 
+        z-index: 9999;
         letter-spacing: 0;
         li{
             width: 100%;
         }
         a{
-            text-transform: none; 
-            display: block; 
+            text-transform: none;
+            display: block;
             padding: 0.6rem 1.4rem;
             &:hover{
-                background: transparent; 
+                background: transparent;
                 text-decoration: underline;
             }
         }

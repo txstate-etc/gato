@@ -699,3 +699,41 @@ function magnolialabelchange(parentselector, selector, newlabel) {
     ele.find('.mgnlEditorBarLabel').html(newlabel).attr('title',newlabel);
   });
 }
+
+// jQuery plugin method for creating an accessible
+// hover menu
+// usage: $('a.linktohoverover').hovermenu('.thingtohideandshow');
+// first element MUST be a link so that it is eligible for tabs
+// during keyboard control
+jQuery.fn.hovermenu = function (submenu) {
+  var parent = this;
+  var items = jQuery(submenu);
+  console.log(parent, items);
+  var timeout;
+  var show = function () {
+    clearTimeout(timeout);
+    items.show();
+  };
+  var hide = function () {
+    clearTimeout(timeout);
+    timeout = setTimeout(function () { items.hide(); }, 200);
+  };
+  parent.mouseover(function (e) {
+    show();
+  }).mouseout(function (e) {
+    hide();
+  }).focus(function (e) {
+    show();
+  }).blur(function (e) {
+    hide();
+  });
+  items.find('a').mouseover(function (e) {
+    show();
+  }).mouseout(function (e) {
+    hide();
+  }).focus(function (e) {
+    show();
+  }).blur(function (e) {
+    hide();
+  });
+}

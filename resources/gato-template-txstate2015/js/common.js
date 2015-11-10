@@ -4,7 +4,7 @@ window.addEventListener('load', function() {
 	FastClick.attach(document.body);
 }, false);
 
-// Background image delay and fade 
+// Background image delay and fade
 
 jQuery(window).load(function() {
     jQuery(".bg_image").delay(200).animate({
@@ -29,19 +29,19 @@ function parallax() {
     jQuery(".bg_image, .bg_image_secondary").css("top", (scrolled * .6) + "px");
 }
 
-jQuery(document).ready(function() {
+jQuery(document).ready(function($) {
 
 	// Fixed desktop navigation
     jQuery('.top_nav').scrollToFixed();
-    
+
  // Back to top
     jQuery('.btt').on("click", function() {
         jQuery('html,body').animate({
             scrollTop: 0
         }, 500)
     });
-    
-    
+
+
     // Mobile navigation
 
     var slideout = new Slideout({
@@ -53,10 +53,12 @@ jQuery(document).ready(function() {
     	'duration': 300,
     	'touch': false
     });
-    
+
     jQuery('.toggle-button').on("click", function(){
     	slideout.toggle();
     });
-    
+
+  $('.more-tools > a').hovermenu('.super-list-sub');
 });
+
 
