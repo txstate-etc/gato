@@ -1,4 +1,5 @@
 .gato-textimage {
+  overflow: hidden;
 	position: relative;
 	.gato-textimage-imageblock {
 		&.left { float: left; margin-right: 10px; }
