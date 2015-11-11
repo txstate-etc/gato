@@ -1,7 +1,7 @@
 templateScript: /gato-template-tsus/templates/pages/home.ftl
 renderType: site
 visible: true
-title: TSUS Homepage Template
+title: TSUS Homepage
 dialog: gato-template:pages/page-properties
 areas:
   customcss:

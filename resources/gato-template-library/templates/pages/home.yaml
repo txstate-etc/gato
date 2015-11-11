@@ -1,7 +1,7 @@
 templateScript: /gato-template-library/templates/pages/home.ftl
 renderType: site
 visible: true
-title: Library Home Page (2012)
+title: Library Homepage
 dialog: gato-template:pages/page-properties
 modelClass: edu.txstate.its.gato.LibraryTemplateModel
 variations:

@@ -1,7 +1,7 @@
 templateScript: /gato-template-wittliff/templates/pages/standard.ftl
 renderType: site
 visible: true
-title: Wittliff Template
+title: Wittliff Standard
 dialog: gato-template:pages/page-properties
 areas:
   !include /gato-template-wittliff/templates/includes/standardareas.yaml

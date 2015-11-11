@@ -1,7 +1,7 @@
 templateScript: /gato-template-tsus/templates/pages/standard.ftl
 renderType: site
 visible: true
-title: TSUS Standard Template
+title: TSUS Standard
 dialog: gato-template:pages/page-properties
 areas:
   !include /gato-template-tsus/templates/includes/standardareas.yaml

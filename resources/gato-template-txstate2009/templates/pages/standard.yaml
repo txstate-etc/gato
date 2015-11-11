@@ -1,7 +1,7 @@
 templateScript: /gato-template-txstate2009/templates/pages/standard.ftl
 renderType: freemarker
 visible: true
-title: 2009 Standard Template
+title: 2009 TxSt Standard
 dialog: gato-template:pages/page-properties
 areas:
   !include /gato-template-txstate2009/templates/includes/standardareas.yaml
