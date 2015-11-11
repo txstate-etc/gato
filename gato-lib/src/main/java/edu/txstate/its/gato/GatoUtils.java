@@ -128,11 +128,11 @@ public final class GatoUtils {
     String relUrl = filterUrl(url);
     if (relUrl.matches("^\\w{3,15}://.*")) return relUrl;
     HttpServletRequest request = MgnlContext.getWebContext().getRequest();
-    String serverpath = request.getScheme()+"://"+request.getRemoteHost();
-    if ((request.getScheme().equals("http") && request.getRemotePort() != 80) ||
-        (request.getScheme().equals("https") && request.getRemotePort() != 443) ||
+    String serverpath = request.getScheme()+"://"+request.getServerName();
+    if ((request.getScheme().equals("http") && request.getServerPort() != 80) ||
+        (request.getScheme().equals("https") && request.getServerPort() != 443) ||
          !request.getScheme().contains("http"))
-      serverpath += ":"+request.getRemotePort();
+      serverpath += ":"+request.getServerPort();
     return serverpath+relUrl;
   }
 
@@ -361,7 +361,7 @@ public final class GatoUtils {
     // we don't need to do anything if we're not in the production environment
     // since our only goal here is to add a string to the URL that represents
     // the last-modified date (for caching purposes)
-    if (!isCacheEnvironment()) return "";
+    if (!isCacheEnvironment() || lastMod == null) return "";
     try {
       return "/cache"+md5(lastMod.getTime().toString());
     } catch (Exception e) {
