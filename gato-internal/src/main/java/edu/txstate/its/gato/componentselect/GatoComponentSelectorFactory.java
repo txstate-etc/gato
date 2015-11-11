@@ -24,7 +24,7 @@ import javax.inject.Inject;
 
 public class GatoComponentSelectorFactory<D extends FieldDefinition> extends AbstractFieldFactory<GatoComponentSelectorDefinition, String>{
     
-    private static final Logger log = LoggerFactory.getLogger(GatoComponentSelectorxFactory.class);
+    private static final Logger log = LoggerFactory.getLogger(GatoComponentSelectorFactory.class);
     
     private final TemplateDefinitionRegistry templateRegistry;
     private final PageEditorPresenter pageEditorPresenter;
