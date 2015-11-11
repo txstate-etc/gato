@@ -3,7 +3,7 @@
     <div class="inheritedalert">Inherited from ${gf.nodeTitle(ctx.inheritedfrom)}</div>
   [/#if]
 	[#if content.title?has_content]
-		<h3 class="side_nav_header">${content.title}</h3>
+		<h3 class="side_nav_header">${cmsfn.decode(content).title}</h3>
 	[/#if]
 	<ul class="side_nav_list">
 		[#-- loop through all the components and display them --]
