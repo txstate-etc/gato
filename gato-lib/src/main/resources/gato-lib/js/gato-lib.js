@@ -708,7 +708,6 @@ function magnolialabelchange(parentselector, selector, newlabel) {
 jQuery.fn.hovermenu = function (submenu) {
   var parent = this;
   var items = jQuery(submenu);
-  console.log(parent, items);
   var timeout;
   var show = function () {
     clearTimeout(timeout);
