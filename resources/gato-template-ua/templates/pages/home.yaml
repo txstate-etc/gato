@@ -28,7 +28,7 @@ areas:
       shinactive: ffffff
     availableComponents:
       slide:
-        id: gato-template-ua:components/slide
+        id: gato-template-ua:components/accordionslide
   contentBoxes:
     type: list
     templateScript: /gato-template/templates/areas/default-area.ftl
