@@ -62,3 +62,10 @@ $collist : 2 3 4 5 6 8 12;
 .eq-parent[min-width~="1200px"] > * {
   @include eq-cols('xl');
 }
+
+.eq-parent {
+  letter-spacing: -1rem;
+}
+.eq-parent > * {
+  letter-spacing: normal;
+}
