@@ -33,18 +33,12 @@ td {
 	padding:0;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	font-size:100%;
-	font-weight:normal;
-}
-
 ul{
 	list-style:none;
+}
+
+.banner{
+	padding: 0px;
 }
 
 .search-box a, .quick-links a {
@@ -350,6 +344,7 @@ body.admin .all-hours, body.admin .hours-links {
 .social .button {
 	margin-top: 6px;
 	font-size: 14px;
+	float: left;
 }
 ul.social-media-container {
 	list-style-type: none;
@@ -363,6 +358,11 @@ ul.social-media-container {
 	padding: 0px 4px 0px 4px;
 	height: auto;
 }
+
+body.admin li.social-media-link{
+	max-width: 45px;
+}
+
 .social-media-link a {
 	display: block !important;
 }
