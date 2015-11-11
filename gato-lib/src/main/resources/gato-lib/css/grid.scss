@@ -33,39 +33,44 @@ $collist : 2 3 4 5 6 8 12;
   }
 }
 
+$eq-breakpoints: (xs: 100px, sm: 200px, md: 401px, lg: 800px, xl: 1200px);
+@mixin eq-min-width($name) {
+  @if not map_has_key($eq-breakpoints, $name) {
+    @error "#{$name} is not a valid eq-breakpoint name";
+  }
+  .eq-parent[min-width~="#{map_get($eq-breakpoints, $name)}"] > * {
+    @content;
+  }
+}
+
+@mixin eq-max-width($name) {
+  @if not map_has_key($eq-breakpoints, $name) {
+    @error "#{$name} is not a valid eq-breakpoint name";
+  }
+  .eq-parent[max-width~="#{map_get($eq-breakpoints, $name)}"] > * {
+    @content;
+  }
+}
+
+@mixin eq-mn {
+  .eq-parent > * {
+    @content;
+  }
+}
+
 @include eq-base('mn');
-.eq-parent > * {
+@include eq-mn {
   @include eq-cols('mn');
 }
 
-@include eq-base('xs');
-.eq-parent[min-width~="100px"] > * {
-  @include eq-cols('xs');
-}
-
-@include eq-base('sm');
-.eq-parent[min-width~="200px"] > * {
-  @include eq-cols('sm');
-}
-
-@include eq-base('md');
-.eq-parent[min-width~="401px"] > * {
-  @include eq-cols('md');
-}
-
-@include eq-base('lg');
-.eq-parent[min-width~="800px"] > * {
-  @include eq-cols('lg');
-}
-
-@include eq-base('xl');
-.eq-parent[min-width~="1200px"] > * {
-  @include eq-cols('xl');
+@each $name in map_keys($eq-breakpoints) {
+  @include eq-base($name);
+  @include eq-min-width($name) {
+    @include eq-cols($name);
+  }
 }
 
 .eq-parent {
   letter-spacing: -1rem;
-}
-.eq-parent > * {
-  letter-spacing: normal;
+  & > * { letter-spacing: normal; }
 }
