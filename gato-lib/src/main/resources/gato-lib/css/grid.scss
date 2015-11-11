@@ -33,7 +33,7 @@ $collist : 2 3 4 5 6 8 12;
   }
 }
 
-$eq-breakpoints: (xs: 100px, sm: 200px, md: 401px, lg: 800px, xl: 1200px);
+$eq-breakpoints: (xs: 100px, sm: 200px, md: 401px, ml: 600px, lg: 800px, xl: 1200px);
 @mixin eq-min-width($name) {
   @if not map_has_key($eq-breakpoints, $name) {
     @error "#{$name} is not a valid eq-breakpoint name";
@@ -68,9 +68,4 @@ $eq-breakpoints: (xs: 100px, sm: 200px, md: 401px, lg: 800px, xl: 1200px);
   @include eq-min-width($name) {
     @include eq-cols($name);
   }
-}
-
-.eq-parent {
-  letter-spacing: -1rem;
-  & > * { letter-spacing: normal; }
 }
