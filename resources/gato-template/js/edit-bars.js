@@ -17,5 +17,6 @@ jQuery( document ).ready(function() {
   magnolialabelchange('.imageLink_add', '.mgnlEditor.mgnlPlaceholder', 'Add Image Link');
   magnolialabelchange('#sidebar-paragraphs', '.mgnlEditor.mgnlPlaceholder', 'Add Content');
   magnolialabelchange('.tsus-rightcolumn', '.mgnlEditor.mgnlPlaceholder', 'Add Content');
+  magnolialabelchange('.mail_add', '.mgnlEditor.mgnlPlaceholder', 'Add Form Content');
 });
 

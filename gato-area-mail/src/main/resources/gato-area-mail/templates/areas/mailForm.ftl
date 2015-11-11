@@ -28,5 +28,8 @@
     ${ctx.request.setAttribute("safeTitle", model.getSafeTitle(cmsfn.asJCRNode(component).identifier))}
     [@cms.component content=component /]
   [/#list]
+  [#if cmsfn.isEditMode()]
+    <div class="mail_add" cms:add="box"></div>
+  [/#if]
   <div class="txst-khan-privacypolicylink"><a href="http://www.tr.txstate.edu/privacy-statement.html" target="_blank">Privacy Policy</a></div>
 </form>
