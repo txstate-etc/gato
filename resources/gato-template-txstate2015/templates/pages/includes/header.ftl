@@ -15,10 +15,9 @@
 <div class="${headerClass}">
 	[@cms.area name="headerImage" /]
 	<div class="title">
-    <div class="header_bg"></div>
     <div class="dept_name">
-        [@cms.area name="parentOrganization" content=gf.getOrCreateArea(homepage, 'parentOrganization') editable=isHomePage  /]
-        <h1 class="office_name"><a href="${cmsfn.link(homepage)}">${gf.nodeTitle(homepage)}</a></h1>
+      [@cms.area name="parentOrganization" content=gf.getOrCreateArea(homepage, 'parentOrganization') editable=isHomePage  /]
+      <h1 class="office_name"><a href="${cmsfn.link(homepage)}">${gf.nodeTitle(homepage)}</a></h1>
     </div>
   </div>
 </div>
