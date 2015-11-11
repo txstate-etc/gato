@@ -3,3 +3,5 @@ renderType: freemarker
 title: Link with Image
 description: Link with image and optional rollover image.
 dialog: gato-template:components/imagelink
+parameters:
+  icon: /gato-template/images/imagelink.png

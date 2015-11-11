@@ -3,3 +3,5 @@ renderType: freemarker
 title: Social Media Link
 description: Link to a social media site.
 dialog: gato-template:components/sociallink
+parameters:
+  icon: /gato-template/images/socialmedia.png

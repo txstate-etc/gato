@@ -3,3 +3,5 @@ renderType: freemarker
 dialog: gato-template:components/iconlink
 description: A link with a title, subtitle, and icon
 title: Icon Link
+parameters:
+  icon: /gato-template/images/imagelink.png

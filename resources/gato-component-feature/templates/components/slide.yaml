@@ -3,3 +3,5 @@ renderType: freemarker
 title: Image
 description: Slide for the feature slideshow.
 dialog: gato-component-feature:components/slide
+parameters:
+  icon: /gato-component-feature/images/image.png

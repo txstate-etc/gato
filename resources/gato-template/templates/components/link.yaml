@@ -3,3 +3,5 @@ renderType: freemarker
 dialog: gato-template:components/link
 description: Enter a full URL to an external site (http://www.google.com/) or browse for another page in this site.
 title: Link
+parameters:
+  icon: /gato-template/images/link.png
