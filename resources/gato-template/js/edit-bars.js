@@ -15,5 +15,7 @@ jQuery( document ).ready(function() {
   magnolialabelchange('.slide_add', '.mgnlEditor.mgnlPlaceholder', 'Add Slide');
   magnolialabelchange('.content_add', '.mgnlEditor.mgnlPlaceholder', 'Add Content');
   magnolialabelchange('.imageLink_add', '.mgnlEditor.mgnlPlaceholder', 'Add Image Link');
+  magnolialabelchange('#sidebar-paragraphs', '.mgnlEditor.mgnlPlaceholder', 'Add Content');
+  magnolialabelchange('.tsus-rightcolumn', '.mgnlEditor.mgnlPlaceholder', 'Add Content');
 });
 
