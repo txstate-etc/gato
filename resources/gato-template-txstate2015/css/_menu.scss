@@ -18,6 +18,9 @@
   @media screen and (min-width: $sm-breakpoint) {
     display: block;
   }
+  @media screen and (min-width: $xl-breakpoint) {
+    max-width: 1200px;
+  }
 }
 
 a.ddmenu-menubaritem{
