@@ -7,10 +7,7 @@ Event.observe(window, "load", function() {
     answerElement.setStyle({display: 'none'});
     Event.observe( item, "click", function( event ) { 
       item.blur();
-      var myduration = answerElement.getHeight() / 400;
-      if (myduration > 2) myduration = 2;
-      if (myduration < .12) myduration = .12;
-      Effect.toggle( answerElement, 'blind', { duration: myduration } );
+      answerElement.toggle();
       Event.stop( event );
     });
   });
@@ -20,10 +17,7 @@ Event.observe(window, "load", function() {
 
     Event.observe(item, 'click', function(event) {
       item.blur();
-      var myduration = groupElement.getHeight() / 400;
-      if (myduration > 2) myduration = 2;
-      if (myduration < .12) myduration = .12;
-      Effect.toggle(groupElement, 'blind', { duration: myduration });
+      groupElement.toggle();
       Event.stop(event);
     });
   });
@@ -31,10 +25,10 @@ Event.observe(window, "load", function() {
   if ( $('txst-expand-all-faqs') ) {
     Event.observe( 'txst-expand-all-faqs', "click", function(event) {
       $$('.txst-faq-group').each(function(item) {
-        if (!item.visible()) Effect.BlindDown(item, {duration: 0.4 });
+        item.show();
       });
       $$('.txst-faqitem-answer').each( function( item ) {
-        if ( !item.visible() ) Effect.BlindDown( item, { duration: 0.4 } );
+        item.show();
       });
       Event.stop(event);
     });
@@ -43,7 +37,7 @@ Event.observe(window, "load", function() {
   if ( $('txst-collapse-all-faqs') ) {
     Event.observe( 'txst-collapse-all-faqs', "click", function(event) {
       $$('.txst-faqitem-answer').each( function( item ) {
-        if ( item.visible() ) Effect.BlindUp( item, { duration: 0.4 } );
+        item.hide();
       });
       Event.stop(event);
     });
