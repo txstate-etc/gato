@@ -427,7 +427,8 @@ CKEDITOR.dialog.add( 'image2', function( editor ) {
 						},
 						commit: function( widget ) {
 							widget.setData( 'alt', this.getValue() );
-						}
+						},
+						validate: CKEDITOR.dialog.validate.notEmpty( 'Please enter alternative text for this image.' )
 					},
 					{
 						type: 'hbox',
