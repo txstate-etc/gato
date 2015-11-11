@@ -3,7 +3,9 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-  [@templatejs scripts=['gato-template-library/js/searchbox.js']/]
+  [@templatejs scripts=['gato-template-library/js/searchbox.js',
+                        'gato-template-library/js/library.js',
+                        'gato-template-tsus/js/tsus-slideshow.js']/]
   <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-library/css/library.compiled.css"/>
   <link href="http://fonts.googleapis.com/css?family=Ubuntu+Condensed" rel="stylesheet" type="text/css" />
   [@templatehead /]
