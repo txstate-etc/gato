@@ -3,3 +3,5 @@ renderType: freemarker
 title: Banners
 description: Displays a random image at the top of a page.
 dialog: gato-template:components/banners
+parameters:
+  icon: /gato-template/images/banner.png

@@ -3,3 +3,5 @@ renderType: freemarker
 dialog: gato-template-txstate2015:components/parent-organization
 description: The Parent Organization for a Page
 title: Parent Organization
+parameters:
+  icon: /gato-template-txstate2015/images/parentorg.png

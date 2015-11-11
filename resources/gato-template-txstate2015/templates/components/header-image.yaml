@@ -3,3 +3,5 @@ renderType: freemarker
 dialog: gato-template-txstate2015:components/header-image
 description: The header image for a page.
 title: Banner Image
+parameters:
+  icon: /gato-template/images/banner.png
