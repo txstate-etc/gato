@@ -17,9 +17,14 @@ import info.magnolia.ui.vaadin.gwt.client.shared.AreaElement;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import javax.inject.Inject;
 
 public class GatoComponentSelectorFactory<D extends FieldDefinition> extends AbstractFieldFactory<GatoComponentSelectorDefinition, String>{
+    
+    private static final Logger log = LoggerFactory.getLogger(GatoComponentSelectorxFactory.class);
     
     private final TemplateDefinitionRegistry templateRegistry;
     private final PageEditorPresenter pageEditorPresenter;
@@ -45,8 +50,7 @@ public class GatoComponentSelectorFactory<D extends FieldDefinition> extends Abs
         //make sure we are actually working with an area before trying to get the
         //components from the area
         if (!(pageEditorPresenter.getSelectedElement() instanceof AreaElement)) {
-            //Magnolia uses a logger class.  Maybe change it back to that.
-            System.out.println("Warning: Selected element is not an area!");
+            log.warn("Cannot get available components, selected element {} is not an area.", pageEditorPresenter.getSelectedElement());
             return templates;
         }
 
@@ -74,8 +78,7 @@ public class GatoComponentSelectorFactory<D extends FieldDefinition> extends Abs
                 option.setIconPath(imgSrc);
                 templates.add(option);
             } catch (RegistrationException e) {
-                //log.error("Could not get TemplateDefinition for id '{}'.", token, e);
-                System.out.println("REGISTRATION EXCEPTION IN GatoComponentSelectorFactory");
+                log.error("Could not get TemplateDefinition for id '{}'.", token, e);
             }
         }
         return templates;
