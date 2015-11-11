@@ -1,15 +1,14 @@
 div#legal-footer {
   background: $legalfooter-background;
   color: $legalfooter-text;
-  padding: 6rem 0 4rem 0;
-  font-size: 1.2rem;
+  padding: 4rem 0 3rem 0;
+  font-size: 1.1rem;
   
   p { margin: 0; }
   a { color: inherit; }
-  #quick-links { a { color: white; } }
+  #quick-links { a { color: $quicklinks-text; } }
 
   .legal-footer-content {
-    max-width: 1200px;
     padding: 0 2rem;
     margin: auto;
   }
@@ -17,12 +16,52 @@ div#legal-footer {
   .legal-links {
     padding: 0 2rem;
   }
+  #quick-links { padding-left: 0; }
 
   .member-statement {
     max-width: 32rem;
-    margin: 5rem auto 0 auto;
+    margin: 4rem auto 1rem auto;
     a {
       display: block;
+    }
+  }
+
+  @media (min-width: $sm-breakpoint){
+    & {
+      padding: 6rem 0 4rem 0;
+    }
+    .member-statement {
+      margin: 5rem auto 0 auto;
+    }
+  }
+
+  @media (min-width: $md-breakpoint){
+    .legal-footer-content {
+      max-width: 1000px;
+      padding: 0;
+    }
+  }
+
+  @media (min-width: $lg-breakpoint){
+    .legal-footer-content {
+      max-width: 1200px;
+    }
+  }
+  
+  @include eq-max-width('lg') {
+    text-align: center;
+    .legal-links {
+      padding: 0;
+    }
+    p {
+      display: inline;
+      &:after { content: " - ";}
+      &:last-child:after {content: none;}
+    }
+    #quick-links {
+      padding: 0 2rem;
+      margin-bottom: 3rem;
+      p:after { color: $quicklinks-text; }
     }
   }
 }

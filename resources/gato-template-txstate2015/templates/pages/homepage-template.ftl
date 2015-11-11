@@ -54,7 +54,7 @@
         <div class="legal-footer-content"> 
           <div class="eq-parent">
 
-            <div class="eq-mn-1-1 eq-md-1-4">
+            <div class="eq-mn-1-1 eq-lg-1-4">
               <div id="quick-links" class="legal-links">
                 <p><a href="#nowhere">Bobcat Shuttle</a></p>
                 <p><a href="#nowhere">Campus Plans</a></p>
@@ -67,7 +67,7 @@
               </div>
             </div>
           
-            <div class="eq-mn-1-1 eq-md-1-4">
+            <div class="eq-mn-1-1 eq-lg-1-4">
               <div id="legal-links-1" class="legal-links">
                 <p><a href="#nowhere">Accessibility Coordinator</a></p>
                 <p><a href="#nowhere">Clery Act</a></p>
@@ -80,7 +80,7 @@
               </div>
             </div>
         
-            <div class="eq-mn-1-1 eq-md-1-4">
+            <div class="eq-mn-1-1 eq-lg-1-4">
               <div id="legal-links-2" class="legal-links">
                 <p><a href="#nowhere">Disability Services Policy</a></p>
                 <p><a href="#nowhere">Freeman Ranch Drinking Water Report</a></p>
@@ -93,7 +93,7 @@
               </div>
             </div>
           
-            <div class="eq-mn-1-1 eq-md-1-4">
+            <div class="eq-mn-1-1 eq-lg-1-4">
               <div id="legal-links-3" class="legal-links">
                 <p><a href="#nowhere">State Fraud Hotline</a></p>
                 <p><a href="#nowhere">State of Texas</a></p>
