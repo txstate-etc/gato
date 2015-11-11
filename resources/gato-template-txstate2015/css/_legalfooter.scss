@@ -1,0 +1,28 @@
+div#legal-footer {
+  background: $legalfooter-background;
+  color: $legalfooter-text;
+  padding: 6rem 0 4rem 0;
+  font-size: 1.2rem;
+  
+  p { margin: 0; }
+  a { color: inherit; }
+  #quick-links { a { color: white; } }
+
+  .legal-footer-content {
+    max-width: 1200px;
+    padding: 0 2rem;
+    margin: auto;
+  }
+
+  .legal-links {
+    padding: 0 2rem;
+  }
+
+  .member-statement {
+    max-width: 32rem;
+    margin: 5rem auto 0 auto;
+    a {
+      display: block;
+    }
+  }
+}
