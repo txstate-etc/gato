@@ -394,11 +394,10 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
             PropertyUtil.setProperty(hicomp, "visible", PropertyUtil.getString(gbsettings, "visible", "inherit"));
             PropertyUtil.setProperty(hicomp, "shown", savefirstimage.getProperty("image").getString());
           }
-
-          gbsettings.remove();
         }
       }
     }
+    if (n.hasNode("gato-banner-settings")) n.getNode("gato-banner-settings").remove();
   }
 
   protected void moveBodyContentToSingleColumnContainer(Node cp) throws RepositoryException {
