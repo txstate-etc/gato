@@ -4,23 +4,22 @@
 .ua-banner {
 	background-position: 0px -160px;
 	padding: 10px;
-}
-.ua-banner-content {
-	width: 952px;
-	height: 166px;
-}
-.ua-banner-content #gato-banner {
-	border: 5px solid white;
-	width: 952px;
-	height: 156px;
+  .ua-banner-content {
+    width: 952px;
+    height: 166px;
+    .gato-banner-image {
+      border: 5px solid white;
+      width: 952px;
+      height: 156px;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
 }
 .gato-banner-hidden .ua-banner-content {
 	height: 0px;
-}
-
-#gato-banner img {
-	width: 952px;
-	height: 156px;
 }
 
 .ua-breadcrumbs-wide {
