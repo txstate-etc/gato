@@ -1,12 +1,12 @@
 form:
   tabs:
     - name: tabInput
-      label: Input Field
+      label: Add Field
       fields:
         - name: title
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           required: true
-          label: Field Title
+          label: Title
         - name: mandatory
           class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
           label: Mandatory
