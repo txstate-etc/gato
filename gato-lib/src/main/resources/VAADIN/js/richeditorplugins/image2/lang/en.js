@@ -3,7 +3,7 @@ Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.plugins.setLang( 'image2', 'en', {
-	alt: 'Alternative Text',
+	alt: 'Alternative Text *',
 	btnUpload: 'Send it to the Server',
 	captioned: 'Captioned image',
 	infoTab: 'Image Info',
