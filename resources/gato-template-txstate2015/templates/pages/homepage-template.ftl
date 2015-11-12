@@ -53,58 +53,30 @@
             
         <div class="legal-footer-content"> 
           <div class="eq-parent">
+            [#assign quickLinks = cmsfn.asContentMap(cmsfn.nodeByPath('/homepage-data/legal-links/quick-links', 'website'))]
 
             <div class="eq-mn-1-1 eq-lg-1-4">
               <div id="quick-links" class="legal-links">
-                <p><a href="#nowhere">Bobcat Shuttle</a></p>
-                <p><a href="#nowhere">Campus Plans</a></p>
-                <p><a href="#nowhere">Campus Carry</a></p>
-                <p><a href="#nowhere">EEO Statement</a></p>
-                <p><a href="#nowhere">History and Traditions</a></p>
-                <p><a href="#nowhere">Mission and Goals</a></p>
-                <p><a href="#nowhere">Research and Commercialization</a></p>
-                <p><a href="#nowhere">University Data Sets</a></p>
+                [#list cmsfn.children(quickLinks, "mgnl:component")?sort_by("text") as component]
+                  <p><a href="${gf.filterUrl(component.link)}">${gf.filterLinkTitle(component.text, component.link)}</a></p>
+                [/#list]
               </div>
             </div>
-          
-            <div class="eq-mn-1-1 eq-lg-1-4">
-              <div id="legal-links-1" class="legal-links">
-                <p><a href="#nowhere">Accessibility Coordinator</a></p>
-                <p><a href="#nowhere">Clery Act</a></p>
-                <p><a href="#nowhere">College Portrait</a></p>
-                <p><a href="#nowhere">Committee on People with Disabilities</a></p>
-                <p><a href="#nowhere">Compact with Texans</a></p>
-                <p><a href="#nowhere">Consumer Information</a></p>
-                <p><a href="#nowhere">Copyright Infringement</a></p>
-                <p><a href="#nowhere">Course Info and Faculty CV (HB 2504)</a></p>
+            
+            [#assign requiredLinks = cmsfn.asContentMap(cmsfn.nodeByPath('/homepage-data/legal-links/required-links', 'website'))]
+            [#assign requiredLinks = cmsfn.children(requiredLinks, "mgnl:component")]
+            [#assign collen = (requiredLinks?size / 3)?ceiling]
+            
+            [#list requiredLinks?sort_by("text")?chunk(collen) as column]
+              <div class="eq-mn-1-1 eq-lg-1-4">
+                <div class="legal-links">
+                  [#list column as component]
+                    <p><a href="${gf.filterUrl(component.link)}">${gf.filterLinkTitle(component.text, component.link)}</a></p>
+                  [/#list]
+                </div>
               </div>
-            </div>
-        
-            <div class="eq-mn-1-1 eq-lg-1-4">
-              <div id="legal-links-2" class="legal-links">
-                <p><a href="#nowhere">Disability Services Policy</a></p>
-                <p><a href="#nowhere">Freeman Ranch Drinking Water Report</a></p>
-                <p><a href="#nowhere">Institutional Resumes</a></p>
-                <p><a href="#nowhere">Link Policy</a></p>
-                <p><a href="#nowhere">Office of Disability Services</a></p>
-                <p><a href="#nowhere">Open Records</a></p>
-                <p><a href="#nowhere">Privacy Statement</a></p>
-                <p><a href="#nowhere">State Accessibility Standards</a></p>
-              </div>
-            </div>
-          
-            <div class="eq-mn-1-1 eq-lg-1-4">
-              <div id="legal-links-3" class="legal-links">
-                <p><a href="#nowhere">State Fraud Hotline</a></p>
-                <p><a href="#nowhere">State of Texas</a></p>
-                <p><a href="#nowhere">Statewide Search</a></p>
-                <p><a href="#nowhere">Texas CREWS</a></p>
-                <p><a href="#nowhere">Texas Homeland Security</a></p>
-                <p><a href="#nowhere">Texas State Drinking Water Report</a></p>
-                <p><a href="#nowhere">Texas Veterans Portal</a></p>
-                <p><a href="#nowhere">TSUS Compliance and Ethics</a></p>
-              </div>
-            </div>
+            [/#list]
+
           </div>
 
           <div class="member-statement">

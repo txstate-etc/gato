@@ -5,7 +5,10 @@ div#legal-footer {
   font-size: 1.1rem;
   
   p { margin: 0; }
-  a { color: inherit; }
+  a { 
+    color: inherit; 
+    &:hover { text-decoration: underline; }
+  }
   #quick-links { a { color: $quicklinks-text; } }
 
   .legal-footer-content {
@@ -55,7 +58,7 @@ div#legal-footer {
     }
     p {
       display: inline;
-      &:after { content: " - ";}
+      &:after { content: "\a0\2013";} // nbsp + en-dash
       &:last-child:after {content: none;}
     }
     #quick-links {
@@ -64,4 +67,10 @@ div#legal-footer {
       p:after { color: $quicklinks-text; }
     }
   }
+
+  .eq-parent {
+    letter-spacing: -1rem;
+    & > * { letter-spacing: normal; }
+  }
+
 }
