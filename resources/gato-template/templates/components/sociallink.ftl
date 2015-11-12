@@ -12,10 +12,18 @@
     [#assign iconclass="fa-instagram"]
     [#assign alttext="Instagram"]
   [/#if]
-  [#assign alttext = content.title!alttext!'Social Media Presence']
+  [#assign alttext = alttext!'Social Media Presence']
+  [#assign title = alttext]
+  [#if content.title?has_content]
+    [#if content.icononly!false]
+      [#assign title = content.title]
+    [#elseif content.title?lower_case?contains(alttext?lower_case)]
+      [#assign title = '']
+    [/#if]
+  [/#if]
   <a href="${content.link}" class="gato-sociallink">
     [#if content.icon?has_content]
-      <img src="${damfn.getAssetLink(content.icon)}" alt="${alttext}" title="${alttext}" />
+      <img src="${damfn.getAssetLink(content.icon)}" alt="${alttext}" title="${title}"/>
     [#else]
       <i class="fa ${iconclass!''}" aria-label="${alttext}"></i>
     [/#if]
