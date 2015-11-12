@@ -17,6 +17,7 @@ form:
         - name: depth
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Depth
+          required: true
           description: "How many levels deep should the site map go?"
           rows: 1
           type: Long
