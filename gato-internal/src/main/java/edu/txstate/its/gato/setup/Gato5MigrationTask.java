@@ -58,6 +58,37 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
   protected void doExecute(InstallContext ctx) throws RepositoryException, PathNotFoundException, TaskExecutionException, LoginException {
     Session hm=ctx.getJCRSession(RepositoryConstants.WEBSITE);
 
+    log.info("custom css and js changes");
+    visitByTemplate(hm, "gato:components/texasState/customCssBlock", this::convertInheritToBool);
+    visitByTemplate(hm, "gato:components/texasState/customjsBlock", this::convertInheritToBool);
+    log.info("sidebar navigation changes");
+    visitByTemplate(hm, "gato:components/texasState/navBlock", this::updateNavBlock);
+    log.info("image gallery changes");
+    visitByTemplate(hm, "gato:components/texasState/imageGallery", this::updateImageGallery);
+    log.info("site map paragraph changes");
+    visitByTemplate(hm, "gato:components/texasState/siteMap", this::updateSiteMapComponent);
+    log.info("sub pages paragraph changes");
+    visitByTemplate(hm, "gato:components/texasState/subPages", this::updateSubPagesComponent);
+    log.info("mail template paragraph changes");
+    visitByTemplate(hm, "gato:components/texasState/texas-form-edit", this::updateFormEditComponent);
+    visitByTemplate(hm, "gato:components/texasState/texas-form-file", this::updateFormFileComponent);
+    visitByTemplate(hm, "gato:components/texasState/texas-form-selection", this::updateSelectionComponent);
+    visitByTemplate(hm, "gato:pages/main-2009/khan-mail", this::updateMailArea);
+    visitByTemplate(hm, "gato:pages/ua-2011/ua-2011-mail", this::updateMailArea);
+    visitByTemplate(hm, "gato:pages/wittliff/wittliff-mail", this::updateMailArea);
+    visitByTemplate(hm, "gato:pages/tsus-2012/tsus-2012-mail", this::updateMailArea);
+    log.info("download paragraph changes");
+    visitByTemplate(hm, "gato:components/texasState/texasDownload", this::updateDownloadComponent);
+    visitByTemplate(hm, "gato:components/texasState/texasLink", this::convertNewWindowToBool);
+    visitByTemplate(hm, "gato:components/texasState/texasEditor", this::migrateToTopAndBottom);
+    hm.save();
+    log.info("delete old files uploaded to rich editor paragraphs");
+    visitByTemplate(hm, "gato:components/texasState/texasEditor", this::deleteContentFiles);
+    log.info("delete old files uploaded to text and image paragraphs");
+    visitByTemplate(hm, "gato:components/texasState/texasTextImage", this::deleteTextFiles);
+    log.info("update node types in faq hierarchy");
+    visitByTemplate(hm, "gato:components/texasState/texas-faq-hierarchy", this::updateFaqNodeTypes);
+
     log.info("starting page level changes");
     visitPages(hm, new NodeVisitor() {
       public void visit(Node n) throws RepositoryException {
@@ -95,6 +126,21 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
           }
           if(n.hasNode("searchbox-chatlink")) convertNodeToAreaAndComponent(n.getNode("searchbox-chatlink"), "gato-template:components/richeditor");
         }
+        String p = n.getPath();
+        if (p.startsWith("/alkek-library")
+          || p.startsWith("/rrhec-library")
+          || p.startsWith("/division-of-information-technology")
+          || p.startsWith("/instructional-technologies-support")
+          || p.startsWith("/gato/")
+          || p.equals("/gato")
+          || p.startsWith("/tracsfacts")
+          || p.startsWith("/testing-site-destroyer")) {
+          if (templateId.equals("gato:pages/main-2009/khan-standard")) {
+            NodeTypes.Renderable.set(n, "gato-template-txstate2015:pages/standard-template");
+          } else if (templateId.equals("gato:pages/main-2009/khan-mail")) {
+            NodeTypes.Renderable.set(n, "gato-template-txstate2015:pages/mail-template");
+          }
+        }
 
         boolean isMailTemplate = templateId.endsWith("mail") || templateId.endsWith("mail-template");
         if (n.hasNode("contentParagraph") && !isMailTemplate) moveBodyContentToSingleColumnContainer(n.getNode("contentParagraph"));
@@ -118,37 +164,6 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
     });
     hm.save();
     log.info("finished page level changes");
-
-    log.info("custom css and js changes");
-    visitByTemplate(hm, "gato:components/texasState/customCssBlock", this::convertInheritToBool);
-    visitByTemplate(hm, "gato:components/texasState/customjsBlock", this::convertInheritToBool);
-    log.info("sidebar navigation changes");
-    visitByTemplate(hm, "gato:components/texasState/navBlock", this::updateNavBlock);
-    log.info("image gallery changes");
-    visitByTemplate(hm, "gato:components/texasState/imageGallery", this::updateImageGallery);
-    log.info("site map paragraph changes");
-    visitByTemplate(hm, "gato:components/texasState/siteMap", this::updateSiteMapComponent);
-    log.info("sub pages paragraph changes");
-    visitByTemplate(hm, "gato:components/texasState/subPages", this::updateSubPagesComponent);
-    log.info("mail template paragraph changes");
-    visitByTemplate(hm, "gato:components/texasState/texas-form-edit", this::updateFormEditComponent);
-    visitByTemplate(hm, "gato:components/texasState/texas-form-file", this::updateFormFileComponent);
-    visitByTemplate(hm, "gato:components/texasState/texas-form-selection", this::updateSelectionComponent);
-    visitByTemplate(hm, "gato:pages/main-2009/khan-mail", this::updateMailArea);
-    visitByTemplate(hm, "gato:pages/ua-2011/ua-2011-mail", this::updateMailArea);
-    visitByTemplate(hm, "gato:pages/wittliff/wittliff-mail", this::updateMailArea);
-    visitByTemplate(hm, "gato:pages/tsus-2012/tsus-2012-mail", this::updateMailArea);
-    log.info("download paragraph changes");
-    visitByTemplate(hm, "gato:components/texasState/texasDownload", this::updateDownloadComponent);
-    visitByTemplate(hm, "gato:components/texasState/texasLink", this::convertNewWindowToBool);
-    visitByTemplate(hm, "gato:components/texasState/texasEditor", this::migrateToTopAndBottom);
-    hm.save();
-    log.info("delete old files uploaded to rich editor paragraphs");
-    visitByTemplate(hm, "gato:components/texasState/texasEditor", this::deleteContentFiles);
-    log.info("delete old files uploaded to text and image paragraphs");
-    visitByTemplate(hm, "gato:components/texasState/texasTextImage", this::deleteTextFiles);
-    log.info("update node types in faq hierarchy");
-    visitByTemplate(hm, "gato:components/texasState/texas-faq-hierarchy", this::updateFaqNodeTypes);
 
     // config changes
     log.info("make changes to the config tree");
