@@ -18,5 +18,7 @@ jQuery( document ).ready(function() {
   magnolialabelchange('#sidebar-paragraphs', '.mgnlEditor.mgnlPlaceholder', 'Add Content');
   magnolialabelchange('.tsus-rightcolumn', '.mgnlEditor.mgnlPlaceholder', 'Add Content');
   magnolialabelchange('.mail_add', '.mgnlEditor.mgnlPlaceholder', 'Add Form Content');
+  magnolialabelchange('#gato-customjs-modal', '.mgnlEditor.mgnlPlaceholder', 'Add Custom Javascript');
+  magnolialabelchange('#gato-customcss-modal', '.mgnlEditor.mgnlPlaceholder', 'Add Custom CSS');
 });
 
