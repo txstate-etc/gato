@@ -426,15 +426,6 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
           Node gbsettings = n.getNode("gato-banner-settings");
           PropertyUtil.setProperty(newcomponent, "visible", gbsettings.getProperty("visible").getString());
           PropertyUtil.setProperty(newcomponent, "reset", gbsettings.getProperty("reset").getBoolean());
-
-          // import one banner to the headerImage area for the 2015 template
-          if (savefirstimage != null) {
-            Node headerImage = n.addNode("headerImage", NodeTypes.Area.NAME);
-            Node hicomp = headerImage.addNode("imported", NodeTypes.Component.NAME);
-            NodeTypes.Renderable.set(hicomp, "gato-template-txstate2015:components/header-image");
-            PropertyUtil.setProperty(hicomp, "visible", PropertyUtil.getString(gbsettings, "visible", "inherit"));
-            PropertyUtil.setProperty(hicomp, "shown", savefirstimage.getProperty("image").getString());
-          }
         }
       }
     }
