@@ -51,7 +51,7 @@
         <div class="eq-parent">
             [#list row as person]
                 [@compress single_line=true]
-                <div class="directory-row eq-lg-1-2">
+                <div class="directory-row eq-ml-1-2">
                     [@directoryEntry person /]
                 </div>
                 [/@compress]
