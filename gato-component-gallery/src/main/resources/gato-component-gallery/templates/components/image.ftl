@@ -22,6 +22,6 @@
   )
 ]
 
-<a href="${gf.getImgDefault(content.image)}" title="${content.caption!''}" data-size="${imageSize}">
+<a href="${gf.getImgDefault(content.image)}" title="${content.caption!''}" data-size="${imageSize}" data-srcset="${gf.getSrcSet(content.image)}">
   <img src="${thumb}" srcset="${thumbsrcset}" sizes="250px" alt="${content.imageAlt!''}" />
 </a>

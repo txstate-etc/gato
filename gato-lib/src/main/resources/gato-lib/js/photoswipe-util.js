@@ -27,13 +27,35 @@ var initPhotoSwipe = (function($) {
         if (!size) {
           return;
         }
+        var aspectratio = parseFloat(size[0]) / parseFloat(size[1])
+
+        // get screen size
+        var vpwidth = window.screen.width * (window.devicePixelRatio || 1.0);
+        var vpheight = window.screen.height * (window.devicePixelRatio || 1.0);
+
+        // browse through the srcset data we were given
+        // and find the optimal one to use
+        var widths = $(link).attr('data-srcset').split(/,/);
+        var href = $(link).attr('href');
+        var finalwidth = parseInt(size[0], 10);
+        var finalheight = finalwidth/aspectratio;
+        for (i = 0; i < widths.length; i++) {
+          var info = widths[i].trim().split(/\s+/);
+          var width = parseInt(info[1], 10);
+          if (width > finalwidth) {
+            href = info[0];
+            finalwidth = width;
+            finalheight = finalwidth/aspectratio;
+          }
+          if (finalwidth > vpwidth || finalheight > vpheight) break;
+        }
 
         // create slide object
         item = {
-          src: $(link).attr('href'),
+          src: href,
           title: $(link).attr('title'),
-          w: parseInt(size[0], 10),
-          h: parseInt(size[1], 10)
+          w: finalwidth,
+          h: finalheight
         };
 
         // if(thumb) {
@@ -41,9 +63,9 @@ var initPhotoSwipe = (function($) {
         // }
 
         item.el = this; // save link to element for getThumbBoundsFn
-        
+
         return item;
-      });      
+      });
     };
 
     // triggers when user clicks on thumbnail
@@ -54,9 +76,9 @@ var initPhotoSwipe = (function($) {
       if(index < 0) {
         return;
       }
-      
+
       e.preventDefault();
-      openPhotoSwipe(index, this);      
+      openPhotoSwipe(index, this);
     };
 
     var openPhotoSwipe = function(index, pswp, disableAnimation, fromURL) {
@@ -73,11 +95,11 @@ var initPhotoSwipe = (function($) {
         //   var thumb = $(items[index].el).find('img')[0];
 
         //   pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
-        //   rect = thumb.getBoundingClientRect(); 
+        //   rect = thumb.getBoundingClientRect();
 
         //   return {x:rect.left, y:rect.top + pageYScroll, w:rect.width};
         // }
-        
+
         getThumbBoundsFn:false,
 
         showHideOpacity: true
@@ -87,7 +109,7 @@ var initPhotoSwipe = (function($) {
       // PhotoSwipe opened from URL
       if(fromURL) {
         if(options.galleryPIDs) {
-          // parse real index when custom PIDs are used 
+          // parse real index when custom PIDs are used
           // http://photoswipe.com/documentation/faq.html#custom-pid-in-url
           for(var j = 0; j < items.length; j++) {
             if(items[j].pid == index) {
@@ -130,10 +152,10 @@ var initPhotoSwipe = (function($) {
         if(!vars[i]) {
           continue;
         }
-        var pair = vars[i].split('=');  
+        var pair = vars[i].split('=');
         if(pair.length < 2) {
           continue;
-        }           
+        }
         params[pair[0]] = pair[1];
       }
 
@@ -143,7 +165,7 @@ var initPhotoSwipe = (function($) {
 
       return params;
     };
-    
+
     $(pswpSelector).click(onThumbClick);
 
     $(pswpSelector).each(function() {
