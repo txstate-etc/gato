@@ -37,3 +37,10 @@
     @extend .fa;
     @extend .fa-#{$icon};
 }
+
+@mixin hover-bg($bg) {
+  &:hover {
+    background: $bg;
+    @include vendor-prefix(transition, all 0.2s cubic-bezier(0, 0.5, 0.25, 1));
+  }
+}

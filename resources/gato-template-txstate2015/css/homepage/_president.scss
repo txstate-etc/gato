@@ -1,0 +1,99 @@
+div#president {
+  background: $sandstone;
+  padding-top: 3rem;
+
+  .content-row-content {
+
+    .pres-photo {
+      a {
+        @extend .hover-blur;
+        display: block;
+      }
+      img { display: block; }
+    }
+
+    .pres-message p {
+      margin: 0;
+    }
+
+    .pres-photo, .pres-message, .pres-updates {
+      padding: 0;
+      margin: 1rem 0;
+    }
+    .pres-message, .pres-updates {
+      line-height: 2.2rem;
+      a { 
+        text-decoration: underline; 
+        &:hover { text-decoration: none; }
+      }
+    }
+
+    @include eq-min-width('ml') {
+      .pres-photo, .pres-message, .pres-updates {
+        margin: 0;
+      }
+      .pres-photo, .pres-message {
+        padding-right: 1rem;
+      }
+      .pres-message, .pres-updates {
+        padding-left: 1rem;
+      }
+    }
+
+    .pres-updates {
+      .pres-updates-content {
+        background: $khaki;
+        padding: 0.5rem 0.5rem 0.5rem 2rem;
+        ul { 
+          padding: 0 1.7rem; 
+          font-size: 1.2rem;
+          li {
+            margin-bottom: 0.5rem;
+          }
+        }
+      }
+    }
+    
+    .solo-bailout {
+      text-align: center;
+      
+      a {
+        display: block;
+        padding: 2rem 0;
+        border-radius: $default-border-radius;
+        text-transform: uppercase;
+        font-weight: bold;
+        background: $maroon;
+        color: $white;
+        @include hover-bg($light-maroon);
+
+        i { 
+          margin-left: 1.6rem; 
+          position: relative;
+        }
+        &:hover i {
+          animation: chevron 1.2s ease-in-out infinite alternate;
+          @keyframes chevron { from {right: 0;} to {right: .5rem;} }
+        }
+      }
+    }
+
+    @include eq-min-width('ml') {
+      .solo-bailout {
+        text-align: right;
+        padding-top: 2.6rem;
+        
+        a {
+          display: inline;
+          background: inherit;
+          color: $maroon;
+          padding: 3px 5px;
+          margin: -3px -5px;
+          &:hover { 
+            background: $khaki; 
+          }
+        }
+      }
+    }
+  }
+}

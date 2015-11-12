@@ -1,0 +1,54 @@
+@import "gato-template-txstate2015/css/homepage/president";
+@import "gato-template-txstate2015/css/homepage/legalfooter";
+
+div#legal-footer, div#president {
+  .eq-parent {
+    letter-spacing: -1rem;
+    & > * { letter-spacing: normal; }
+  }
+}
+
+div.main-content {
+  font-size: 1.4rem;
+  
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    margin-top: 0.1rem;
+    font-weight: 500;
+  }
+  h3 {
+    font-size: 1.4rem;
+  }
+
+  @media (min-width: $sm-breakpoint){
+    h2 {
+      font-size: 2.4rem;
+      margin-bottom: 3rem;
+    }
+  }
+}
+
+div.content-row {
+  padding: 4rem 0 3rem 0;
+  
+  .content-row-content {
+    padding: 0 2rem;
+    margin: auto;
+    max-width: 1000px;
+
+    @media (min-width: $lg-breakpoint){
+      & {
+        padding: 0;
+      }
+    }
+
+  }
+
+  @media (min-width: $sm-breakpoint){
+    & {
+      padding: 6rem 0 4rem 0;
+    }
+  }
+
+}
