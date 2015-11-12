@@ -37,6 +37,17 @@ ul{
 	list-style:none;
 }
 
+h1 {
+  font-size: 2.9rem;
+  padding: 0.5em;
+  @media (min-width: $xs-breakpoint) {
+    font-size: 3.8rem;
+  }
+  @media (min-width: $md-breakpoint) {
+    font-size: 4.2rem;
+  }
+}
+
 .banner{
 	padding: 0px;
 }
