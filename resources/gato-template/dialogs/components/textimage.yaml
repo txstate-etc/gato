@@ -26,14 +26,16 @@ form:
           description: "You may upload an image, or choose one from the Digital Asset Manager. If you upload an image, the DAM image will be ignored."
         - name: imageWidth
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-          label: Width (px)
-          description: "If you want the image to be resized, enter the desired width here. The aspect ratio of the image will be preserved."
+          type: Long
+          label: Maximum Width (px)
+          description: "If you want the image to be scaled down from its natural size, enter a maximum width here. The aspect ratio of the image will be preserved. As screen sizes change, the image may be displayed at slightly different sizes for aesthetic purposes."
         - name: imageAlt
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Alt. Text
         - name: imageFloat
           class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
           label: Alignment
+          sortOptions: false
           options:
              - name: left
                label: Image left of text
@@ -42,6 +44,12 @@ form:
              - name: right
                label: Image right of text
                value: right
+             - name: top
+               label: Image above text
+               value: top
+             - name: bottom
+               label: Image below text
+               value: bottom
         - name: imageCaption
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Image Caption

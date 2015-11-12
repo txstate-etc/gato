@@ -218,6 +218,9 @@ public final class GatoUtils {
   public String lesserwidth(String mw1, String mw2, String mw3) {
     return lesserwidth(mw1, lesserwidth(mw2, mw3));
   }
+  public String lesserwidth(String mw1, String mw2, String mw3, String mw4) {
+    return lesserwidth(mw1, lesserwidth(mw2, mw3, mw4));
+  }
   public long maxwidthtolong(String maxwidth) {
     try {
       long num = Long.parseLong(maxwidth.replaceAll("\\D",""));

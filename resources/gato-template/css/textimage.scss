@@ -2,10 +2,14 @@
   overflow: hidden;
 	position: relative;
 	.gato-textimage-imageblock {
-		&.left { float: left; margin-right: 10px; }
-		&.right { float: right; margin-left: 10px; }
+		&.left { float: left; margin: 0px 10px 10px 0px; }
+		&.right { float: right; margin: 0px 0px 10px 10px; }
+		&.top { display: block; margin: 0px auto 10px auto; }
+		&.bottom { display: block; margin: 10px auto 10px auto; }
+    &.hascaption { min-width: 100px; }
 		img { display: block; width: 100%; }
 	}
+	&[max-width~="400px"] .gato-textimage-imageblock { min-width: 100%; }
 	.gato-textimage-caption {
 		text-align: center;
 		padding: 2px;

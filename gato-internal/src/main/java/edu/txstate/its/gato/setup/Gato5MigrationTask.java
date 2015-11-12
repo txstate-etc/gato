@@ -5,6 +5,10 @@ import info.magnolia.cms.security.Role;
 import info.magnolia.cms.security.RoleManager;
 import info.magnolia.cms.security.SecuritySupport;
 import info.magnolia.cms.security.auth.ACL;
+import info.magnolia.dam.api.Asset;
+import info.magnolia.dam.api.metadata.MagnoliaAssetMetadata;
+import info.magnolia.dam.jcr.DamConstants;
+import info.magnolia.dam.templating.functions.DamTemplatingFunctions;
 import info.magnolia.jcr.util.NodeUtil;
 import info.magnolia.jcr.util.PropertyUtil;
 import info.magnolia.jcr.util.NodeVisitor;
@@ -44,9 +48,11 @@ import org.slf4j.LoggerFactory;
  */
 public class Gato5MigrationTask extends GatoBaseUpgradeTask {
   private static final Logger log = LoggerFactory.getLogger(Gato5MigrationTask.class);
+  protected final DamTemplatingFunctions damfn;
 
   public Gato5MigrationTask(String name, String description) {
     super(name, description);
+    damfn = Components.getSingleton(DamTemplatingFunctions.class);
   }
 
   protected void doExecute(InstallContext ctx) throws RepositoryException, PathNotFoundException, TaskExecutionException, LoginException {
@@ -135,6 +141,7 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
     log.info("download paragraph changes");
     visitByTemplate(hm, "gato:components/texasState/texasDownload", this::updateDownloadComponent);
     visitByTemplate(hm, "gato:components/texasState/texasLink", this::convertNewWindowToBool);
+    visitByTemplate(hm, "gato:components/texasState/texasEditor", this::migrateToTopAndBottom);
     hm.save();
     log.info("delete old files uploaded to rich editor paragraphs");
     visitByTemplate(hm, "gato:components/texasState/texasEditor", this::deleteContentFiles);
@@ -348,6 +355,25 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
   }
   protected void deleteTextFiles(Node n) throws RepositoryException {
     if (n.hasNode("text_files")) n.getNode("text_files").remove();
+  }
+
+  protected void migrateToTopAndBottom(Node n) throws RepositoryException {
+    String damkey = PropertyUtil.getString(n, "image", "");
+    if (!"".equals(damkey)) {
+      try {
+        Asset img = damfn.getAsset(damkey);
+        long width = img.getMetadata(MagnoliaAssetMetadata.class).getWidth();
+        long statedwidth = PropertyUtil.getLong(n, "imageWidth", Long.valueOf(0));
+        if (statedwidth < width && statedwidth > 0) width = statedwidth;
+        if (width > 600) {
+          log.info("changing textimage at "+n.getPath()+" to imageFloat=top");
+          PropertyUtil.setProperty(n, "imageFloat", "top");
+        }
+      } catch (Exception e) {
+        log.error("migrateToTopAndBottom: could not get textimage asset");
+        e.printStackTrace();
+      }
+    }
   }
 
   /**
