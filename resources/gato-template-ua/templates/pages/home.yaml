@@ -1,7 +1,7 @@
 templateScript: /gato-template-ua/templates/pages/home.ftl
 renderType: site
 visible: true
-title: Univ. Adv. Homepage
+title: Univ. Adv. Home
 dialog: gato-template:pages/page-properties
 areas:
   customcss:

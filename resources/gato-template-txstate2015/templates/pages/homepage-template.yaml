@@ -1,6 +1,6 @@
 templateScript: /gato-template-txstate2015/templates/pages/homepage-template.ftl
 renderType: site
 visible: true
-title: 2015 TxSt Home
+title: 2015 TXST Home
 dialog: gato-template:pages/page-properties
 areas: !include /gato-template-txstate2015/templates/includes/template-areas.yaml
