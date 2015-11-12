@@ -21,6 +21,11 @@ $bar-text: #000000;
   }
 }
 
+//make the bar for adding rows smaller so it isn't right up against the sidebar
+.mainContent_add {
+    width: 70% !important;
+}
+
 .plus-component{
   font-size:120%;
   font-weight: 500;
