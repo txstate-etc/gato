@@ -218,6 +218,7 @@ areas:
     renderType: freemarker
     type: list
     title: Mobile Nav Link
+    templateScript: /gato-template/templates/areas/default-area.ftl
     availableComponents:
       library-nav-links:
         id: gato-template:components/iconlink
@@ -225,6 +226,7 @@ areas:
     renderType: freemarker
     type: list
     title: Mobile News Feed
+    templateScript: /gato-template/templates/areas/default-area.ftl
     availableComponents:
       rss:
         id: gato-component-rss:components/rss
@@ -234,6 +236,7 @@ areas:
     renderType: freemarker
     type: list
     title: Social Media Link
+    templateScript: /gato-template/templates/areas/default-area.ftl
     availableComponents:
       sociallink:
         id: gato-template:components/sociallink
@@ -241,6 +244,7 @@ areas:
     renderType: freemarker
     type: list
     title: Mobile Footer
+    templateScript: /gato-template/templates/areas/default-area.ftl
     availableComponents:
       editor:
         id: gato-template:components/richeditor

@@ -36,18 +36,18 @@
             </span>
         </div>
         <div id="nav">
-            [@cms.area name="mobile-nav" /]
+            [@cms.area name="mobile-nav" contextAttributes={"bar_class":"link_add"}/]
         </div>
         <div id="news">
             <h1>News</h1>
-            [@cms.area name="mobile-news" /]
+            [@cms.area name="mobile-news" contextAttributes={"bar_class":"content_add"}/]
         </div>
         <div id="socialmedia">
             <h1>Find us on</h1>
-            [@cms.area name="mobile-socialmedia" /]
+            [@cms.area name="mobile-socialmedia" contextAttributes={"bar_class":"librarySocial_add"}/]
         </div>
         <div id="footer">
-            [@cms.area name="mobile-footer" /]
+            [@cms.area name="mobile-footer" contextAttributes={"bar_class":"content_add"}/]
         </div>
         <div class="full-site-link txst-styledcontent">
             <a href="javascript: createCookie('gatoforcedesktop', 'yes'); location.reload(true);">View Full Site</a>
