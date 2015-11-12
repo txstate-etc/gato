@@ -4,7 +4,7 @@ jQuery(document).ready(function ($) {
   // prevent sidebar from flowing behind the footer,
   // since it is position: absolute
   resizeTimeout(function() {
-    $('.page_content').css('min-height', sidebar.height()+'px');
+    $('.page_content').css('min-height', (sidebar.height()+15)+'px');
   });
 
   // find the first gato-component paragraph whose top is

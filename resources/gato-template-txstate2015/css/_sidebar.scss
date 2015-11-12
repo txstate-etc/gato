@@ -27,10 +27,17 @@
       text-decoration: underline;
       font-size: 0.80em;
     }
-    i {
+    i, img {
+      display: inline-block;
       margin-right: 10px;
-      font-size: 120%;
-      vertical-align: middle;
+      font-size: 1.4em;
+      float: none;
+    }
+    img {
+      height: 0.9em;
+    }
+    .gato-sociallink {
+      line-height: 1.4em;
     }
   }
 }

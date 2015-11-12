@@ -28,5 +28,7 @@ navBlocks:
   !include /gato-template/templates/areas/navBlocks.yaml
 webtools:
   !include /gato-template/templates/areas/webtools.yaml
+socialmedia:
+  !include /gato-template/templates/areas/sociallist.yaml
 footer:
   !include /gato-template/templates/areas/misctext.yaml

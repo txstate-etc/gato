@@ -50,8 +50,7 @@
         <div class="gato-navcolumn">
           <div class="txst-khan-nav-bg"></div>
           [@cms.area name="navBlocks" /]
-          <h3>Join the Conversation</h3>
-          [@cms.area name="socialmedia" /]
+					[#include "/gato-template/templates/includes/socialsidenav.ftl"]
         </div>
       [/#if]
       <main class="txst-khan-contentcolumn gato-styledcontent">

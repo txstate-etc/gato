@@ -69,6 +69,7 @@
 				[#if hideSidebar == false]
 				<div class="eq-lg-1-4 sidebar">
 					[@cms.area name="navBlocks" /]
+					[#include "/gato-template/templates/includes/socialsidenav.ftl"]
 				</div>
 				[/#if]
 			</div> <!-- end of page_content -->

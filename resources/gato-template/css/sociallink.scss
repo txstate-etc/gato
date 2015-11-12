@@ -1,8 +1,36 @@
 .gato-sociallink {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  line-height: 1.7em;
 	.fa {
 		color: black;
+		font-size: 1.7em;
+	}
+	img {
+	  height: 1.6em;
 	}
 	img, .fa {
-		width: 100%;
+	  margin-left: 6px;
+	  display: block;
+	  float: right;
+    vertical-align: middle;
+	}
+	.fa-facebook-square { color: #3b5998; }
+	.fa-twitter-square { color: #55acee; }
+	.fa-youtube-square { color: #cd201f; }
+	.fa-vimeo-square { color: #1ab7ea; }
+	.fa-pinterest-square { color: #cc2127; }
+	.fa-tumblr-square { color: #35465c; }
+	.fa-linkedin-square { color: #0077b5; }
+	.fa-instagram { color: #3f729b; }
+	.fa-spotify { color: #2ebd59; }
+	.fa-rss-square { color: #f57d00; }
+	&.icononly {
+	  img, .fa {
+	    margin: 0;
+	    float: none;
+		  width: 100%;
+		}
 	}
 }
