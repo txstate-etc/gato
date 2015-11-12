@@ -7,7 +7,8 @@
     (content.imagecropleft!0)?number!0,
     (content.imagecropright!0)?number!0,
     (content.imagecroptop!0)?number!0,
-    (content.imagecropbottom!0)?number!0
+    (content.imagecropbottom!0)?number!0,
+    true
   )
 ]
 [#assign thumbsrcset =
@@ -16,7 +17,8 @@
     (content.imagecropleft!0)?number!0,
     (content.imagecropright!0)?number!0,
     (content.imagecroptop!0)?number!0,
-    (content.imagecropbottom!0)?number!0
+    (content.imagecropbottom!0)?number!0,
+    true
   )
 ]
 
