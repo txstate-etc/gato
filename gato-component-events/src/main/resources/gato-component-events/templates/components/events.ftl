@@ -49,7 +49,7 @@
 
           <a title="add ${item.title} to calendar"
             href="${item.calendarUrl}"
-            class="txst-eventdetail-addtocalendar">
+            class="txst-eventdetail-addtocalendar ${item.image?has_content?string("", "no-image")}">
             <i class="fa fa-calendar" aria-hidden="true"></i>
             <span class="linktext">add to calendar</span>
           </a>
@@ -86,10 +86,12 @@
           </div>
         [/#if]
            
-        <a class="txst-eventdetail-morelink eq-sm-1-1" href="${item.url}">
-          <span class="linktext">more about event</span>
-          <i class="fa fa-angle-right" aria-hidden="true"></i>
-        </a>   
+        <div class="eq-sm-1-1">
+          <a class="txst-eventdetail-morelink" href="${item.url}">
+            <span class="linktext">more about event</span>
+            <i class="fa fa-angle-right" aria-hidden="true"></i>
+          </a>   
+        </div>
       </div>
     </div>
   [/#list]

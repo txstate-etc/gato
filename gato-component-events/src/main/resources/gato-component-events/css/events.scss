@@ -81,6 +81,7 @@ div.txst-eventdetail {
       &.txst-eventdetail-morelink {
         text-align: right;
         display: block;
+        margin: 0 0 3rem;
         padding-right: 1.5rem;
         color: $darker-oldgold;
         text-decoration: underline;
@@ -107,7 +108,7 @@ div.txst-eventdetail {
     }
   
     a.txst-eventdetail-addtocalendar {
-      margin: 0 2rem;
+      margin: 1rem 2rem;
     }
 
     dl.txst-eventdetail-detailsbox {
@@ -125,7 +126,7 @@ div.txst-eventdetail {
       }
     }
 
-    &.txst-eventdetail-morelink {
+    a.txst-eventdetail-morelink {
       padding-right: 3rem;
     }
   }
@@ -139,6 +140,7 @@ div.txst-eventdetail {
     }
     a.txst-eventdetail-addtocalendar {
       margin-left: 3rem;
+      &.no-image { margin-top: 3rem; }
     }
 
     dl.txst-eventdetail-detailsbox {
