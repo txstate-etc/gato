@@ -1,0 +1,122 @@
+.ie6 .search-box, 
+.ie7 .search-box, 
+.ie8 .search-box, 
+{
+    border-left: 1px solid #dfded4;
+    border-right: 2px solid #dfded4;
+    border-bottom: 2px solid #dfded4;
+}
+
+.search-box{
+    border-radius: 12px;
+    box-shadow: 3px 3px 3px 2px rgba(0,0,0,0.5);
+    position: relative;
+    float: left;
+    width: 592px; 
+    height: 182px;
+    //margin-left: 18px; //changed for 2015
+    a {
+        color: #6c5521;
+        &:hover{
+            color: #4b0f15;
+        }
+    }
+
+}
+
+.search-box-tabs { 
+    width: 100%;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    background-color: #4b0f15;
+    overflow: hidden;
+    margin: 0px;
+    padding: 0px;
+    li{
+        list-style: none; 
+        float: left; 
+        text-align: center; 
+        overflow: hidden;
+        padding-left: 9px;
+        a{
+            display: block;
+            color: white;
+            font-size: 12px;
+            line-height: 13px;
+            text-decoration: none;
+            white-space: nowrap;
+            padding: 12px 3px;
+            &:hover{
+                color: #cecaaf;
+            }
+        }
+        &.selected{
+            a{
+                background-color: #DDDCD2;
+                color: black;
+                border-radius: 4px;
+                padding: 5px 3px;
+                margin-top: 6px;
+                &:hover{
+                    color: black;
+                }
+            }
+        }
+    }
+}
+
+
+.search-box-content {
+    float: left;
+    width: 360px;
+    padding: 15px;
+    font-size: 0.9em;
+}
+.search-box-content > div {
+    display: none;
+}
+.search-box-content > div.selected {
+    display: block;
+}
+.search-box-content form {
+}
+.search-box-content .extra-options { 
+    padding: 5px 10px; 
+    font-size: 11px; 
+}
+.search-box-content .extra-options label { 
+    padding-left: 5px; 
+}
+.search-box-content .shortdesc { 
+    padding: 2px 2px 0 11px; 
+    font-size: 12px; 
+    line-height: 14px; 
+}
+.search-box-content form input { 
+    vertical-align: middle; 
+}
+.search-box-content input.query { 
+    width: 200px;
+    color: #CCCCCC;
+    padding-left: 5px;
+}
+.search-box-content input.focused {
+    color: #000000;
+}
+.search-box-content .searchimg {
+    margin-left: 7px;
+}
+.search-box-content .query_label {
+    font-size: 12px;
+}
+
+.search-box-content .search-type-fields label {
+    display: none;
+}
+
+.chatlink {
+    float: left;
+    width: 202px;
+}
+
+
