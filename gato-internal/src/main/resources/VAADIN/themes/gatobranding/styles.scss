@@ -5,9 +5,16 @@
     position: absolute;
     top: 7px;
     left: 17px;
-    width: 117px;
-    height: 31px;
-    background-image: url(images/gato-logo.gif);
+    width: 140px;
+    height: 40px;
+    background-image: url(images/gato-logo1.svg);
+    background-size: 140px 40px;
     img { display: none; }
+  }
+  .btn-shell {
+    font-family: FontAwesome !important;
+    &#btn-appslauncher:before { content: "\f141"; }
+    &#btn-pulse:before { content: "\f0e0"; }
+    &#btn-favorites:before { content: "\f005"; }
   }
 }
