@@ -131,6 +131,8 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
           || p.startsWith("/rrhec-library")
           || p.startsWith("/division-of-information-technology")
           || p.startsWith("/instructional-technologies-support")
+          || p.startsWith("/main2012")
+          || p.startsWith("/main2009")
           || p.startsWith("/gato/")
           || p.equals("/gato")
           || p.startsWith("/tracsfacts")
