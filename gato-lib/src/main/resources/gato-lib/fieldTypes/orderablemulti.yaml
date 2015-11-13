@@ -1,0 +1,3 @@
+name: orderableMultiField
+definitionClass: edu.txstate.its.gato.vaadin.OrderableMultiFieldDefinition
+factoryClass: edu.txstate.its.gato.vaadin.OrderableMultiFieldFactory

@@ -29,7 +29,7 @@ form:
               label: Checkboxes
               value: checkbox
         - name: options
-          class: info.magnolia.ui.form.field.definition.MultiValueFieldDefinition
+          class: edu.txstate.its.gato.vaadin.OrderableMultiFieldDefinition
           label: Options
           buttonSelectAddLabel: Add Option
           description: List the options available to the site visitor.
