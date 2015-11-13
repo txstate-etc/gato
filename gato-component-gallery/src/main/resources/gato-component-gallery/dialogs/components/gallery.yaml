@@ -5,8 +5,7 @@ form:
       fields:
         - name: title
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-          label: Title
-          description: If you'd like a title for your image gallery, enter it here. (It's optional.)
+          label: Title (optional)
           rows: 3
         - name: help
           class: info.magnolia.ui.form.field.definition.StaticFieldDefinition
