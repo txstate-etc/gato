@@ -12,6 +12,8 @@ areas:
     !include /gato-component-cssjs/templates/areas/customcss.yaml
   customjs:
     !include /gato-component-cssjs/templates/areas/customjs.yaml
+  navBlocks:
+    !include /gato-template/templates/areas/navBlocks.yaml
   superUser:
     renderType: freemarker
     type: list

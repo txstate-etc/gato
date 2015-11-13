@@ -88,6 +88,7 @@
         </div>
     </div>
     [@cssjsmodals /]
+    [@sidebarmodal /]
     [#if cmsfn.isEditMode()]
         <div id="gato-mobile-edit-modal" class="gato-custom-column">  
             [#include "mobile.ftl"]   

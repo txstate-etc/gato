@@ -76,7 +76,17 @@
 
 [#macro sidebarmodal skipsocial=false]
 	[#if cmsfn.isEditMode()]
-
+		<div id="gato-navcolumn" class="gato-navcolumn">
+  			[@cms.area name="navBlocks"/]
+			<!-- social media links -->
+			[#if !skipsocial]
+				[@cms.area name="socialmedia" /]
+			[/#if]
+  		</div>
+		<script type="text/javascript">
+		  	var navmodal = new modal($('gato-navcolumn'));
+		    navmodal.addToMainbar('Sidenav');
+		</script>
 	[/#if]
 [/#macro]
 
