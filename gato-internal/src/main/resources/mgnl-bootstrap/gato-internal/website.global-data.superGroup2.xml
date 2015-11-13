@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sv:node sv:name="superGroup2">
+	<sv:property sv:name="jcr:primaryType" sv:type="Name">
+		<sv:value>mgnl:contentNode</sv:value>
+	</sv:property>
+	<sv:property sv:name="jcr:uuid" sv:type="String">
+		<sv:value>98b5ff5e-bbd9-4fed-b613-3e754e05b9b5</sv:value>
+	</sv:property>
+	<sv:property sv:name="jcr:createdBy" sv:type="String">
+		<sv:value>admin</sv:value>
+	</sv:property>
+	<sv:property sv:name="mgnl:created" sv:type="Date">
+		<sv:value>2015-11-06T12:39:48.861-06:00</sv:value>
+	</sv:property>
+	<sv:property sv:name="mgnl:createdBy" sv:type="String">
+		<sv:value>a_f269</sv:value>
+	</sv:property>
+	<sv:property sv:name="mgnl:lastModified" sv:type="Date">
+		<sv:value>2015-11-06T12:39:48.861-06:00</sv:value>
+	</sv:property>
+	<sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
+		<sv:value>a_f269</sv:value>
+	</sv:property>
+	<sv:node sv:name="0">
+		<sv:property sv:name="jcr:primaryType" sv:type="Name">
+			<sv:value>mgnl:component</sv:value>
+		</sv:property>
+		<sv:property sv:name="jcr:uuid" sv:type="String">
+			<sv:value>69877061-312f-41ab-b19c-61885ecfe9d6</sv:value>
+		</sv:property>
+		<sv:property sv:name="jcr:createdBy" sv:type="String">
+			<sv:value>admin</sv:value>
+		</sv:property>
+		<sv:property sv:name="link" sv:type="String">
+			<sv:value>http://bobcatmail.txstate.edu</sv:value>
+		</sv:property>
+		<sv:property sv:name="mgnl:activationStatus" sv:type="Boolean">
+			<sv:value>false</sv:value>
+		</sv:property>
+		<sv:property sv:name="mgnl:created" sv:type="Date">
+			<sv:value>2015-11-06T12:46:36.995-06:00</sv:value>
+		</sv:property>
+		<sv:property sv:name="mgnl:createdBy" sv:type="String">
+			<sv:value>a_f269</sv:value>
+		</sv:property>
+		<sv:property sv:name="mgnl:lastActivated" sv:type="Date">
+			<sv:value>2015-11-06T12:46:36.995-06:00</sv:value>
+		</sv:property>
+		<sv:property sv:name="mgnl:lastActivatedBy" sv:type="String">
+			<sv:value>a_f269</sv:value>
+		</sv:property>
+		<sv:property sv:name="mgnl:lastModified" sv:type="Date">
+			<sv:value>2015-11-06T12:46:36.995-06:00</sv:value>
+		</sv:property>
+		<sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
+			<sv:value>a_f269</sv:value>
+		</sv:property>
+		<sv:property sv:name="mgnl:template" sv:type="String">
+			<sv:value>gato-template:components/link</sv:value>
+		</sv:property>
+		<sv:property sv:name="text" sv:type="String">
+			<sv:value>Bobcat Mail</sv:value>
+		</sv:property>
+	</sv:node>
+	<sv:node sv:name="00">
+		<sv:property sv:name="jcr:primaryType" sv:type="Name">
+			<sv:value>mgnl:component</sv:value>
+		</sv:property>
+		<sv:property sv:name="jcr:uuid" sv:type="String">
+			<sv:value>9be99f97-e2a8-4772-8df9-ebb337c0eb45</sv:value>
+		</sv:property>
+		<sv:property sv:name="jcr:createdBy" sv:type="String">
+			<sv:value>admin</sv:value>
+		</sv:property>
+		<sv:property sv:name="link" sv:type="String">
+			<sv:value>http://catsweb.txstate.edu/catsweb/index.htm</sv:value>
+		</sv:property>
+		<sv:property sv:name="mgnl:activationStatus" sv:type="Boolean">
+			<sv:value>false</sv:value>
+		</sv:property>
+		<sv:property sv:name="mgnl:created" sv:type="Date">
+			<sv:value>2015-11-06T12:46:48.636-06:00</sv:value>
+		</sv:property>
+		<sv:property sv:name="mgnl:createdBy" sv:type="String">
+			<sv:value>a_f269</sv:value>
+		</sv:property>
+		<sv:property sv:name="mgnl:lastActivated" sv:type="Date">
+			<sv:value>2015-11-06T12:46:48.636-06:00</sv:value>
+		</sv:property>
+		<sv:property sv:name="mgnl:lastActivatedBy" sv:type="String">
+			<sv:value>a_f269</sv:value>
+		</sv:property>
+		<sv:property sv:name="mgnl:lastModified" sv:type="Date">
+			<sv:value>2015-11-06T12:46:48.636-06:00</sv:value>
+		</sv:property>
+		<sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
+			<sv:value>a_f269</sv:value>
+		</sv:property>
+		<sv:property sv:name="mgnl:template" sv:type="String">
+			<sv:value>gato-template:components/link</sv:value>
+		</sv:property>
+		<sv:property sv:name="text" sv:type="String">
+			<sv:value>catsweb</sv:value>
+		</sv:property>
+	</sv:node>
+	<sv:node sv:name="01">
+		<sv:property sv:name="jcr:primaryType" sv:type="Name">
+			<sv:value>mgnl:component</sv:value>
+		</sv:property>
+		<sv:property sv:name="jcr:uuid" sv:type="String">
+			<sv:value>b4882304-3f99-44dd-b4ed-053dfebecc15</sv:value>
+		</sv:property>
+		<sv:property sv:name="jcr:createdBy" sv:type="String">
+			<sv:value>admin</sv:value>
+		</sv:property>
+		<sv:property sv:name="link" sv:type="String">
+			<sv:value>https://tracs.txstate.edu/portal/login</sv:value>
+		</sv:property>
+		<sv:property sv:name="mgnl:activationStatus" sv:type="Boolean">
+			<sv:value>false</sv:value>
+		</sv:property>
+		<sv:property sv:name="mgnl:created" sv:type="Date">
+			<sv:value>2015-11-06T12:48:01.858-06:00</sv:value>
+		</sv:property>
+		<sv:property sv:name="mgnl:createdBy" sv:type="String">
+			<sv:value>a_f269</sv:value>
+		</sv:property>
+		<sv:property sv:name="mgnl:lastActivated" sv:type="Date">
+			<sv:value>2015-11-06T12:48:01.858-06:00</sv:value>
+		</sv:property>
+		<sv:property sv:name="mgnl:lastActivatedBy" sv:type="String">
+			<sv:value>a_f269</sv:value>
+		</sv:property>
+		<sv:property sv:name="mgnl:lastModified" sv:type="Date">
+			<sv:value>2015-11-06T12:48:01.858-06:00</sv:value>
+		</sv:property>
+		<sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
+			<sv:value>a_f269</sv:value>
+		</sv:property>
+		<sv:property sv:name="mgnl:template" sv:type="String">
+			<sv:value>gato-template:components/link</sv:value>
+		</sv:property>
+		<sv:property sv:name="text" sv:type="String">
+			<sv:value>tracs</sv:value>
+		</sv:property>
+	</sv:node>
+</sv:node>
