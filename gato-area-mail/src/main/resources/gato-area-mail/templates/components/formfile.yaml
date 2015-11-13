@@ -3,3 +3,5 @@ renderType: freemarker
 dialog: gato-area-mail:components/formfile
 description: Allows form submitters to attach a file from their computer.
 title: File Field
+parameters:
+  icon: /gato-area-mail/images/file_field.png

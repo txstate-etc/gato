@@ -3,3 +3,5 @@ renderType: freemarker
 dialog: gato-component-cssjs:components/customcss
 description: Add a custom block of Cascading Style Sheet (CSS) code to your site.
 title: Custom CSS
+parameters:
+  icon: /gato-component-cssjs/images/css.png

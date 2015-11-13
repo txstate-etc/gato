@@ -11,3 +11,5 @@ areas:
     availableComponents:
       link:
         id: gato-template:components/link
+parameters:
+  icon: /gato-template/images/navlink_icon.png

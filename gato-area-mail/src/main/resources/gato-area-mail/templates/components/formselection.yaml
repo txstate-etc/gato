@@ -3,3 +3,5 @@ renderType: freemarker
 dialog: gato-area-mail:components/formselection
 description: "Lets a user select from options you define. Displays as a checkbox, a set of radio buttons, or a select box"
 title: Selection
+parameters:
+  icon: /gato-area-mail/images/selection_icon.png

@@ -3,3 +3,5 @@ renderType: freemarker
 dialog: gato-component-cssjs:components/customjs
 description: Add a custom block of Javascript (JS) code to your site.
 title: Custom JS
+parameters:
+  icon: /gato-component-cssjs/images/js.png
