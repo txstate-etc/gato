@@ -5,7 +5,7 @@ form:
       fields:
         - name: title
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-          label: Title
+          label: Title (optional)
         - name: calendarId
           class: edu.txstate.its.gato.GatoCalendarSelectFieldDefinition
           label: Calendar
