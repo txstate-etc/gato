@@ -7,51 +7,6 @@ orientationChangeEventName = ( "onorientationchange" in window ) ? "orientationc
 isTouchScreen = "ontouchstart" in window;
 document.documentElement.className += isTouchScreen ? " touch" : " no-touch";
 
-// this is a very important fix for IE8, which triggers window.resize every time ANY
-// object on the page is resized or even repositioned.  This obviously leads to nasty
-// infinite loops if you observe window.resize and alter any elements.  This code acts
-// as an insurance policy against those infinite loops.
-function preventResizeBug(e) {
-	if (!preventResizeBug.funcArray) preventResizeBug.funcArray = [];
-
-	/* let's make sure we're the only game in town */
-	// first the onresize variable could have something in it
-	if (typeof window.onresize == 'function') {
-		preventResizeBug.funcArray.push(window.onresize);
-		window.onresize = null;
-	}
-	// next we'll check if prototype has recorded any listeners
-	var handlerArray = Element.getStorage(window).get('prototype_event_registry').get('resize');
-	for (var i = 0; i < handlerArray.length; i++) {
-		// prototype stores an object describing the listener, the 'handler' property is the
-		// actual function that needs called
-		if (handlerArray[i].handler != preventResizeBug) {
-			// yes, I did check that the conditional above evaluates as expected
-			preventResizeBug.funcArray.push(handlerArray[i].handler);
-			Element.stopObserving(window,'resize', handlerArray[i].handler);
-		}
-	}
-	/* now we know there are no other listeners, except possibly
-		 some that were given directly to the browser via attachEvent()
-	 */
-
-	// now we'll check if the window has actually changed size
-	var viewport = document.viewport.getDimensions();
-	if (viewport.height == preventResizeBug.savedHeight && viewport.width == preventResizeBug.savedWidth) {
-		// no change in size, we're done here
-		e.stop();
-	} else {
-		// actually did change size, let's save the new size and trigger all the other listeners
-		// important to go in that order, otherwise we re-introduce the infinite loop
-		preventResizeBug.savedHeight = viewport.height;
-		preventResizeBug.savedWidth = viewport.width;
-		// we have to bind the window object to each function before we call it, because that's what
-		// prototype does - we want to have as close to zero impact as possible
-		for (var i = 0; i < preventResizeBug.funcArray.length; i++) preventResizeBug.funcArray[i].bind(window)(e);
-	}
-}
-Event.observe(window, 'resize', preventResizeBug);
-
 // google analytics stuff for videos
 var ga; // google analytics object
 var destroyerGlobalPageTracker;
@@ -590,8 +545,14 @@ var fitText = function(item) {
 function resizeTimeout(callback) {
 	var to;
 	var myfunc = function () {
-		clearTimeout(to);
-		to = setTimeout(callback, 100);
+    var vpw = $(document).width();
+    var vph = $(document).height();
+    if (vph != resizeTimeout.savedHeight || vpw != resizeTimeout.savedWidth) {
+      clearTimeout(to);
+		  to = setTimeout(callback, 100);
+		  resizeTimeout.savedWidth = vpw;
+		  resizeTimeout.savedHeight = vph;
+		}
 	};
 	jQuery(document).ready(myfunc);
 	jQuery(window).resize(myfunc);
