@@ -24,6 +24,7 @@ form:
           label: Appear on subpages?
           multiselect: false
           sortOptions: false
+          type: Boolean
           options:
             - name: onepage
               label: This Page Only
