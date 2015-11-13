@@ -14,14 +14,14 @@
   <div class="content-row-content"> 
     <div class="eq-parent">
 
-      <div class="eq-mn-1-1 eq-lg-1-4">
+      <div class="eq-mn-1-1 eq-ml-1-4">
         <div id="quick-links" class="legal-links">
           [@linklist quickLinks /]
         </div>
       </div>
       
       [#list requiredLinks?chunk(collen) as column]
-        <div class="eq-mn-1-1 eq-lg-1-4">
+        <div class="eq-mn-1-1 eq-ml-1-4">
           <div class="legal-links">
             [@linklist column /]
           </div>

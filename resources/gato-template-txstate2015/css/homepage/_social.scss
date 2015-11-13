@@ -1,0 +1,138 @@
+div#social {
+
+  .content-row-content {
+    padding: 0;
+    figure { margin: 0; }
+    
+    .col-left, .col-middle, .col-right {
+      padding: 0 2rem;
+    }
+
+    .social-upper {
+      margin-bottom: 2rem;
+
+      p { 
+        margin: 0; 
+        &:not(:last-child) { margin-bottom: 1rem; }
+      }
+      
+      .image > a {
+        @extend .hover-blur;
+        &, img {
+          display: block;
+          margin: 0;
+          padding: 0;
+        }
+      }
+    }
+    .social-lower {
+      position: relative;
+      border: none;   
+      color: $medium-gray;   
+      text-transform: uppercase;
+      font-size: 1.2rem;      
+      p { margin: 0; }      
+      span.social-area-icon {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        font-size: 2.6rem;
+        a { 
+          color: $gold; 
+          &:hover { background: none; }
+        }
+      }
+    }
+
+    .instagram {
+      .image {
+        position: relative;
+        overflow: hidden;
+        &:hover {
+          .caption {
+            bottom: 0;
+            opacity: 1;
+          }
+        }
+      }
+      
+      .caption {
+        padding: 1rem 2rem;
+        position: absolute;
+        bottom: -30%;
+        opacity: 0;
+        width: 100%;
+        @include vendor-prefix(transition, all 0.3s ease);
+        background: $gold;
+        background: rgba(106,86,56,0.9);
+        color: $white;
+        font-size: 1.2rem;
+        a { 
+          color: inherit;
+          text-decoration: underline;
+          &:hover { background: none; text-decoration: none; }
+        }
+      }
+
+      .social-area-icon a:hover { color: $instagram; }
+    }
+    .twitter {
+      .social-upper { text-align: center; }
+
+      .twitter-handle {
+        font-size: 2.8rem;
+        font-weight: bold;
+        padding-top: 2.8rem;
+        margin: 0;
+        a {
+          text-decoration: none;
+          padding: 0.1rem 0.5rem 0.1rem 0;
+        }
+      }
+      .twitter-name {
+        font-size: 1.1rem;
+        color: $medium-gray;
+        text-transform: uppercase;
+        margin-top: -0.2rem;
+      }
+
+      .tweet {
+        font-size: 1.9rem;
+        line-height: 3rem;
+        margin-top: 3.5rem;
+      }
+
+      .twitter-timestamp { display: none; }
+
+      .social-area-icon a:hover { color: $twitter; }
+    }
+    .facebook {
+      .fb-content {
+        padding: 2rem 0;
+      }
+
+      .social-area-icon a:hover { color: $facebook; }
+    }
+
+    @include eq-max-width('ml') {
+      .twitter {
+        background: $sandstone;
+        padding: 2rem;
+        .twitter-slide { min-height: 28rem; }
+        .tweet { padding: 0 2rem; }
+        a { color: $maroon; }
+      }
+    }
+
+    @include eq-min-width('ml') {
+      .social-upper { height: 32rem; }
+      .social-lower { border-bottom: 3px solid $gold; }
+
+      .facebook {
+        .fb-content {
+          padding: 1rem 1rem 0;
+        }
+      }
+    }
+  }
+}

@@ -45,6 +45,7 @@
       
       <div class="main-content">
   
+        [#include "includes/homepage/social.ftl"]
         [#include "includes/homepage/president.ftl"]
 
       </div> <!-- end of page_content -->

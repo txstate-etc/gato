@@ -1,4 +1,4 @@
-<div id="president" class="content-row">
+<div id="president" class="content-row comp">
     <div class="content-row-content">
     
       <div class="solo-title">
@@ -8,7 +8,7 @@
       <div class="eq-parent">
     
         <div class="eq-mn-1-1 eq-ml-1-3">
-          <div class="pres-photo">
+          <div class="pres-photo col-left">
             <a href="http://www.president.txstate.edu" class="image-link-2">
               <img alt="demo" src="http://edelstone.github.io/gato-homepage/images/trauth-1.jpg">
             </a>
@@ -16,7 +16,7 @@
         </div>
       
         <div class="eq-mn-1-1 eq-ml-1-3">
-          <div class="pres-message">
+          <div class="pres-message col-middle">
             <p class="pres-bio">
               <a href="http://www.president.txstate.edu">Dr. Denise M. Trauth</a> is the 9th President of Texas State University, having served in the role since 2002. Under her leadership, the university has been designated one of the state's Emerging Research Universities as well as a federal Hispanic-Serving Institution.
             </p>
@@ -24,7 +24,7 @@
         </div>
     
         <div class="eq-mn-1-1 eq-ml-1-3">
-          <div class="pres-updates">
+          <div class="pres-updates col-right">
             <div class="pres-updates-content">
               <h3>Updates</h3>
               <ul>
@@ -36,9 +36,9 @@
         </div>
       
         <div class="eq-mn-1-1 eq-ml-1-1">
-          <div class="solo-bailout eq-mn-1-1 eq-ml-1-1">
+          <div class="solo-bailout">
             <p>
-              <a class="hover-fx-2 hover-fx-6" href="http://www.president.txstate.edu/questions/ask-a-question.html">
+              <a href="http://www.president.txstate.edu/questions/ask-a-question.html">
                 Ask A Question<i class="button-chevron fa fa-chevron-right"></i>
               </a>
             </p>

@@ -10,11 +10,6 @@ div#legal-footer {
   }
   #quick-links { a { color: $quicklinks-text; } }
 
-  .legal-links {
-    padding: 0 2rem;
-  }
-  #quick-links { padding-left: 0; }
-
   .member-statement {
     max-width: 32rem;
     margin: 4rem auto 1rem auto;
@@ -29,18 +24,15 @@ div#legal-footer {
     }
   }
   
-  @include eq-max-width('lg') {
+  @include eq-max-width('ml') {
     text-align: center;
-    .legal-links {
-      padding: 0;
-    }
+
     p {
       display: inline;
       &:after { content: "\a0\2013";} // nbsp + en-dash
       &:last-child:after {content: none;}
     }
     #quick-links {
-      padding: 0 2rem;
       margin-bottom: 3rem;
       p:after { color: $quicklinks-text; }
     }
