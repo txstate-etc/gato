@@ -545,8 +545,8 @@ var fitText = function(item) {
 function resizeTimeout(callback) {
 	var to;
 	var myfunc = function () {
-    var vpw = $(document).width();
-    var vph = $(document).height();
+    var vpw = window.innerWidth;
+    var vph = window.innerHeight;
     if (vph != resizeTimeout.savedHeight || vpw != resizeTimeout.savedWidth) {
       clearTimeout(to);
 		  to = setTimeout(callback, 100);
