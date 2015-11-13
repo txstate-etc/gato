@@ -30,7 +30,7 @@
 
   <ul class="sitemap-list">
     [#list cmsfn.children(startingNode, "mgnl:page") as child]
-      [@processPage child (content.depth!"1")?number-1 /]
+      [@processPage child content.depth!"1"?number-1 /]
     [/#list]
   </ul>
 [/#if]
