@@ -89,6 +89,11 @@
             var lastWidth, lastHeight;
 
             var reset = function() {
+                // cj32 - 2015-11-13 - Make work with display:none elements.
+                // See: https://github.com/marcj/css-element-queries/issues/46
+                // And: https://projects.its.txstate.edu/t/etc/ticket/6878
+                var saveDisplay = element.style.display;
+                element.style.display = 'block';
                 expandChild.style.width = expand.offsetWidth + 10 + 'px';
                 expandChild.style.height = expand.offsetHeight + 10 + 'px';
                 expand.scrollLeft = expand.scrollWidth;
@@ -97,6 +102,7 @@
                 shrink.scrollTop = shrink.scrollHeight;
                 lastWidth = element.offsetWidth;
                 lastHeight = element.offsetHeight;
+                element.style.display = saveDisplay;
             };
 
             reset();
