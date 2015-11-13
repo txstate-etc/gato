@@ -10,6 +10,8 @@ areas:
     !include /gato-component-cssjs/templates/areas/customjs.yaml
   navBlocks:
     !include /gato-template/templates/areas/navBlocks.yaml
+  gato-banners:
+    !include /gato-template/templates/areas/banners.yaml
   socialmedia:
     type: list
     renderType: freemarker

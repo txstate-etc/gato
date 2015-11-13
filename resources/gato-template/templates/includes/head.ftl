@@ -92,7 +92,13 @@
 
 [#macro bannermodal]
 	[#if cmsfn.isEditMode()]
-
+		<div id="gato-banner-modal">
+			[@cms.area name="gato-banners"/]
+		</div>
+		<script type="text/javascript">
+			var bannmodal = new modal($('gato-banner-modal'));
+			bannmodal.addToMainbar('Banners');
+		</script>
 	[/#if]
 [/#macro]
 
