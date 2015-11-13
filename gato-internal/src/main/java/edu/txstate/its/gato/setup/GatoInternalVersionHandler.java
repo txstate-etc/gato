@@ -1,12 +1,16 @@
 package edu.txstate.its.gato.setup;
 
+import info.magnolia.jcr.util.NodeTypes;
 import info.magnolia.module.DefaultModuleVersionHandler;
 import info.magnolia.module.delta.BootstrapSingleResource;
+import info.magnolia.module.delta.ChangeNodeTypeTask;
+import info.magnolia.module.delta.CreateNodeTask;
 import info.magnolia.module.delta.DeltaBuilder;
 import info.magnolia.module.delta.FindAndChangeTemplateIdTask;
 import info.magnolia.module.delta.MoveNodeTask;
 import info.magnolia.module.delta.NodeExistsDelegateTask;
 import info.magnolia.module.delta.RemoveNodeTask;
+import info.magnolia.module.delta.RenameNodeTask;
 import info.magnolia.module.delta.SetPropertyTask;
 import info.magnolia.module.delta.Task;
 import info.magnolia.module.InstallContext;
@@ -24,9 +28,6 @@ import java.util.List;
 public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
   public GatoInternalVersionHandler() {
     register(DeltaBuilder.update("1.0", "")
-      .addTask(new BootstrapSingleResource("Bootstrap", "Bootstrap class definition for doing image resizing on Texas State imagehandlers server", "/mgnl-bootstrap/gato-internal/config.modules.gato-lib.imaging.resize.xml"))
-      .addTask(new BootstrapSingleResource("Bootstrap", "Bootstrap componentSelect field type", "/mgnl-bootstrap/gato-internal/config.modules.pages.fieldTypes.componentSelect.xml"))
-      .addTask(new BootstrapSingleResource("Bootstrap", "Bootstrap select component dialog to use visual selection instead of simple drop down", "/mgnl-bootstrap/gato-internal/config.modules.pages.dialogs.newComponent.xml"))
       .addTasks(installOrUpdateTasks())
     );
   }
@@ -124,6 +125,42 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
     for (String[] namePair : templateNamePairs) {
       tasks.add(new FindAndChangeTemplateIdTask(RepositoryConstants.WEBSITE, namePair[0], namePair[1]));
     }
+
+    // install global-data nodes if they don't exist
+    tasks.add(new NodeExistsDelegateTask("Global Data", "Create global-data node if it does not exist yet.", RepositoryConstants.WEBSITE, "/global-data", null,
+        new CreateNodeTask("","",RepositoryConstants.WEBSITE,"/","global-data",NodeTypes.Component.NAME)
+    ));
+    tasks.add(new NodeExistsDelegateTask("Global Data footerLinks", "Create global-data footerLinks node if it does not exist yet.", RepositoryConstants.WEBSITE, "/global-data/footerLinks", null,
+      new CreateNodeTask("","",RepositoryConstants.WEBSITE,"/global-data","footerLinks",NodeTypes.Area.NAME)
+    ));
+    tasks.add(new NodeExistsDelegateTask("Global Data webTools", "Create global-data footerLinks node if it does not exist yet.", RepositoryConstants.WEBSITE, "/global-data/webTools", null,
+      new CreateNodeTask("","",RepositoryConstants.WEBSITE,"/global-data","webTools",NodeTypes.Area.NAME)
+    ));
+    tasks.add(new NodeExistsDelegateTask("Global Data superGroup1", "Create global-data superGroup1 node if it does not exist yet.", RepositoryConstants.WEBSITE, "/global-data/superGroup1", null,
+      new CreateNodeTask("","",RepositoryConstants.WEBSITE,"/global-data","superGroup1",NodeTypes.Area.NAME)
+    ));
+    tasks.add(new NodeExistsDelegateTask("Global Data superGroup2", "Create global-data superGroup2 node if it does not exist yet.", RepositoryConstants.WEBSITE, "/global-data/superGroup2", null,
+      new CreateNodeTask("","",RepositoryConstants.WEBSITE,"/global-data","superGroup2",NodeTypes.Area.NAME)
+    ));
+    tasks.add(new NodeExistsDelegateTask("Global Data superGroup3", "Create global-data superGroup3 node if it does not exist yet.", RepositoryConstants.WEBSITE, "/global-data/superGroup3", null,
+      new CreateNodeTask("","",RepositoryConstants.WEBSITE,"/global-data","superGroup3",NodeTypes.Area.NAME)
+    ));
+    tasks.add(new NodeExistsDelegateTask("Global Data analytics", "Create global-data analytics node if it does not exist yet.", RepositoryConstants.WEBSITE, "/global-data/analytics", null,
+      new CreateNodeTask("","",RepositoryConstants.WEBSITE,"/global-data","analytics",NodeTypes.Component.NAME)
+    ));
+
+    tasks.add(new CreateNodeTask("Homepage Data","Node to contain data for the various homepage content apps",RepositoryConstants.WEBSITE,"/","homepage-data",NodeTypes.Folder.NAME));
+    tasks.add(new CreateNodeTask("Homepage Data Legal Links","",RepositoryConstants.WEBSITE,"/homepage-data","legal-links",NodeTypes.Content.NAME));
+    tasks.add(new NodeExistsDelegateTask("Copy Quick Links from main2012", "", RepositoryConstants.WEBSITE, "/main2012/helpfulLinks",
+      new MoveNodeTask("","",RepositoryConstants.WEBSITE,"/main2012/helpfulLinks","/homepage-data/legal-links/quick-links",true),
+      new CreateNodeTask("", "", RepositoryConstants.WEBSITE,"/homepage-data/legal-links","quick-links",NodeTypes.Content.NAME)
+    ));
+    tasks.add(new NodeExistsDelegateTask("Copy Required Links from main2012", "", RepositoryConstants.WEBSITE, "/main2012/requiredLinks",
+      new MoveNodeTask("","",RepositoryConstants.WEBSITE,"/main2012/requiredLinks","/homepage-data/legal-links/required-links",true),
+      new CreateNodeTask("", "", RepositoryConstants.WEBSITE,"/homepage-data/legal-links","required-links",NodeTypes.Content.NAME)
+    ));
+    tasks.add(new ChangeNodeTypeTask("/homepage-data/legal-links/quick-links",RepositoryConstants.WEBSITE,NodeTypes.Content.NAME));
+    tasks.add(new ChangeNodeTypeTask("/homepage-data/legal-links/required-links",RepositoryConstants.WEBSITE,NodeTypes.Content.NAME));
 
     // change various config properties
     tasks.add(new SetPropertyTask(RepositoryConstants.CONFIG, "/server/filters/activation", "class", "info.magnolia.module.activation.ReceiveFilter"));
