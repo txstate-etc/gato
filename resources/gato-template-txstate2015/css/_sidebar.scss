@@ -3,12 +3,12 @@
     position: absolute;
     top: 0px;
     right: 0px;
+  background-color: $side-nav-background;
 }
 .sidebar_active {padding-left: 0;}
 .sidebar_active_reverse {padding-right: 1rem;}
 
 .side_nav {
-  background-color: $side-nav-background;
   padding: .5rem 0 1rem 0;
   border-bottom: 1px solid $lightdarker;
   border-top: 1px solid $white;
