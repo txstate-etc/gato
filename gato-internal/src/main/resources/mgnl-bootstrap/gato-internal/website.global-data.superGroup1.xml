@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sv:node sv:name="superGroup1">
+<sv:node sv:name="superGroup1" xmlns:sv="http://www.jcp.org/jcr/sv/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<sv:property sv:name="jcr:primaryType" sv:type="Name">
 		<sv:value>mgnl:contentNode</sv:value>
 	</sv:property>

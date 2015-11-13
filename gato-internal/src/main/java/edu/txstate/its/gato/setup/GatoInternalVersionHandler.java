@@ -130,23 +130,8 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
     tasks.add(new NodeExistsDelegateTask("Global Data", "Create global-data node if it does not exist yet.", RepositoryConstants.WEBSITE, "/global-data", null,
         new CreateNodeTask("","",RepositoryConstants.WEBSITE,"/","global-data",NodeTypes.Component.NAME)
     ));
-    tasks.add(new NodeExistsDelegateTask("Global Data footerLinks", "Create global-data footerLinks node if it does not exist yet.", RepositoryConstants.WEBSITE, "/global-data/footerLinks", null,
-      new CreateNodeTask("","",RepositoryConstants.WEBSITE,"/global-data","footerLinks",NodeTypes.Area.NAME)
-    ));
     tasks.add(new NodeExistsDelegateTask("Global Data webTools", "Create global-data footerLinks node if it does not exist yet.", RepositoryConstants.WEBSITE, "/global-data/webTools", null,
       new CreateNodeTask("","",RepositoryConstants.WEBSITE,"/global-data","webTools",NodeTypes.Area.NAME)
-    ));
-    tasks.add(new NodeExistsDelegateTask("Global Data superGroup1", "Create global-data superGroup1 node if it does not exist yet.", RepositoryConstants.WEBSITE, "/global-data/superGroup1", null,
-      new CreateNodeTask("","",RepositoryConstants.WEBSITE,"/global-data","superGroup1",NodeTypes.Area.NAME)
-    ));
-    tasks.add(new NodeExistsDelegateTask("Global Data superGroup2", "Create global-data superGroup2 node if it does not exist yet.", RepositoryConstants.WEBSITE, "/global-data/superGroup2", null,
-      new CreateNodeTask("","",RepositoryConstants.WEBSITE,"/global-data","superGroup2",NodeTypes.Area.NAME)
-    ));
-    tasks.add(new NodeExistsDelegateTask("Global Data superGroup3", "Create global-data superGroup3 node if it does not exist yet.", RepositoryConstants.WEBSITE, "/global-data/superGroup3", null,
-      new CreateNodeTask("","",RepositoryConstants.WEBSITE,"/global-data","superGroup3",NodeTypes.Area.NAME)
-    ));
-    tasks.add(new NodeExistsDelegateTask("Global Data analytics", "Create global-data analytics node if it does not exist yet.", RepositoryConstants.WEBSITE, "/global-data/analytics", null,
-      new CreateNodeTask("","",RepositoryConstants.WEBSITE,"/global-data","analytics",NodeTypes.Component.NAME)
     ));
 
     tasks.add(new CreateNodeTask("Homepage Data","Node to contain data for the various homepage content apps",RepositoryConstants.WEBSITE,"/","homepage-data",NodeTypes.Folder.NAME));
