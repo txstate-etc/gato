@@ -2,7 +2,7 @@
 	[#if page.customjs?has_content]
 		[#list cmsfn.children(page.customjs, 'mgnl:component') as entry]
 			[#local code = cmsfn.decode(entry).customJS]
-			[#if entry.inherit!false || !isAncestor]
+			[#if (entry.inherit!false) || !isAncestor]
 				[#if entry.framework == "prototype"]
 					$(document).observe('dom:loaded', function () {
 						${code}
@@ -30,7 +30,7 @@
 [#macro pageCustomCSS page isAncestor]
 	[#if page.customcss?has_content]
 		[#list cmsfn.children(page.customcss, 'mgnl:component') as entry]
-			[#if entry.inherit!false || !isAncestor]
+			[#if (entry.inherit!false) || !isAncestor]
 				${cmsfn.decode(entry).customCSS!}
 			[/#if]
 		[/#list]
