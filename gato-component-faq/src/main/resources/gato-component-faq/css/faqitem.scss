@@ -14,13 +14,13 @@
       font-weight: normal;
       text-decoration: none;
       line-height: 20px;
-      border-bottom: 1px solid $lightdarker;
-      border-top: 1px solid $lightlighter;
-      background-color: $lightbg;
-      color: $lighttext;
+      border-bottom: 1px solid $gemini-border;
+      border-top: 1px solid $lightlighter; //need to define this for each color group?
+      background-color: $gemini-bg;
+      color: $gemini-text;
       &:hover, &.active {
-        background-color: $mediumbg;
-        color: $mediumtext;
+        background-color: $gemini-comp-bg;
+        color: $gemini-comp-text;
       }
     }
   }
@@ -28,10 +28,20 @@
   .txst-faqitem-answer {
     overflow: hidden;
     padding: 18px 40px;
-    border-left: 1px solid $lightbg;
-    border-right: 1px solid $lightbg;
+    border-left: 1px solid $gemini-bg;
+    border-right: 1px solid $gemini-bg;
     p, ul, ol {
       overflow: hidden;
     }
+  }
+}
+
+
+body .txst-faq-group-title a {
+  color:$gemini-text;
+  text-decoration: none;
+  font-size: 2rem;
+  &:hover{
+    background: inherit;
   }
 }
