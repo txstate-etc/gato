@@ -13,6 +13,7 @@
 
   <input type="file" id="${title}" name="${title}" size="50" [#if content.mandatory!false]aria-required="true"[/#if] aria-invalid="false" aria-describedby="${title}-error"/>
 [#assign exts = []]
+[#if content.extension?has_content]
 [#list content.extension as extension]
   [#assign exts = exts + gf.getEquivalentExtensions(extension)]
 [/#list]
@@ -20,6 +21,11 @@
   <script type="text/javascript">
     $('${title}').allowableFileExts = ['${exts?join("','")}'];
   </script>
+[#else]
+  <script type="text/javascript">
+    $('${title}').allowableFileExts = [];
+  </script>
+[/#if]
 
   <span class='valid-icon-cont'>
     <div class="txst-form-validicon txst-form-file" id="${title}-error" role="alert">&nbsp;</div>
