@@ -8,7 +8,7 @@
   [@templatehead publisher="The Wittliff Collections"/]
 	[#include "/gato-template-wittliff/templates/includes/colors.ftl"]
 </head>
-<body class="fullpage">
+<body class="fullpage ${cmsfn.isEditMode()?string('admin','public')}">
 
   <div id="outercontainer">
     [#include "/gato-template-wittliff/templates/includes/header.ftl"]
