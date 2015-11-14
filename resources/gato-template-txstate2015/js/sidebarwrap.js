@@ -1,10 +1,11 @@
 jQuery(document).ready(function ($) {
   var sidebar = $('.page_content .sidebar');
-
+  var pagecontent = $('.page_content');
+  var footer = $('.footer');
   // prevent sidebar from flowing behind the footer,
   // since it is position: absolute
   resizeTimeout(function() {
-    $('.page_content').css('min-height', (sidebar.height()+15)+'px');
+    pagecontent.css('min-height', Math.max($(window).height()-pagecontent.offset().top-footer.height(), sidebar.height()+75)+'px');
   });
 
   // find the first gato-component paragraph whose top is

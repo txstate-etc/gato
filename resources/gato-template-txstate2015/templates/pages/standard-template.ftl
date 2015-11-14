@@ -1,7 +1,7 @@
 [#include "/gato-template/templates/includes/head.ftl"]
 
 <!DOCTYPE HTML>
-<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
+<html>
 	<head>
 		[#assign jsscripts = [
 			'gato-template-txstate2015/js/jquery-scrolltofixed-min.js',
@@ -55,10 +55,10 @@
 					[@breadcrumbs/]
 				</div>
 			</div>
-			[#if !isHomePage]
-				[#include "includes/headline.ftl"]
-			[/#if]
 			<div class="page_content eq-parent">
+        [#if !isHomePage]
+          [#include "includes/headline.ftl"]
+        [/#if]
 				[#assign hideSidebar = content.hideSidebar!false]
 				[#if def.parameters.isMailTemplate!false]
 					[@cms.area name="mail" /]

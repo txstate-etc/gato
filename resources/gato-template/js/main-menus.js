@@ -34,7 +34,7 @@ function ddmenu_over(bar) {
 
 function ddmenu_out(bar) {
 	if (bar && bar.dd_timer) clearTimeout(bar.dd_timer);
-	if (bar && bar.dd_shown) bar.dd_timer = setTimeout("hidemenu($('"+bar.id+"'))", 500);
+	if (bar && bar.dd_shown) bar.dd_timer = setTimeout("hidemenu($('"+bar.id+"'))", 250);
 }
 
 Event.observe(document, 'dom:loaded', function (event) {
@@ -42,7 +42,7 @@ Event.observe(document, 'dom:loaded', function (event) {
 	$$('div.ddmenu-menubaritem').each( function (item) {
 		item.id = 'ddmenu-'+count;
 		count++;
-		
+
 		var menuwrap = item.down('.ddmenu-menu');
 		item.observe('touchstart', function (event) {
 			if (!item.dd_shown && menuwrap) {

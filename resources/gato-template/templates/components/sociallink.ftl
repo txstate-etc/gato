@@ -42,7 +42,6 @@
     --][#else][#--
       --]<i class="fa ${iconclass!'fa-rss-square'}" aria-label="${alttext}"></i>[#--
     --][/#if][#--
-    --]${content.title!}[#--
     --][#if !(content.icononly!false)][#--
       --]${content.title!alttext}[#--
     --][/#if][#--

@@ -2,7 +2,7 @@
 
 .page_content {
     margin-top: 0.5rem;
-    padding-bottom: 1rem;
+    padding: 2.9rem 0 1rem 0;
     overflow: hidden;
     min-height: 32rem;
     background-color: $content-background;
@@ -23,14 +23,18 @@
 }
 
 .layout-column{
-  padding: 0px 1rem;
+  padding: 0px 20px;
+}
+
+.column_paragraph {
+  padding: 0px 0px 3rem 0px;
 }
 
 .trail {
     display: none;
     margin: auto;
     max-width: 1000px;
-    padding: 1rem 0;
+    padding: 1.8rem 0 0 0;
 }
 
 .headline{
@@ -42,17 +46,18 @@
 
 #breadcrumbs {
   text-align: right;
-  padding-right: 10px;
+  padding-right: 20px;
   font-size: 1.2rem;
-  font-weight: 400;
+  font-weight: 500;
   a {
     margin: 0 auto;
     text-decoration: none;
+    color: $blue;
     &:hover{
       text-decoration: underline;
     }
   }
-  .separator {margin: auto 5px auto 7px;}
+  .separator {margin: auto 2px auto 4px;}
 }
 
 @media (min-width: 40rem) {

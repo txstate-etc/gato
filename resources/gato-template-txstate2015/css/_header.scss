@@ -21,19 +21,25 @@
 
     li {
       display: inline-block;
+      &:hover {background: $super-user-hover;}
       a{
           border-right: 1px solid $super-user-border;
           color: $super-user-text;
           text-transform: uppercase;
-          font-size: 1.0rem;
-          font-weight: 400;
+          font-size: 1.1rem;
+          font-weight: 500;
           letter-spacing: 1px;
           display: block;
           padding: 1.3rem;
           &:first-child {
             border-left: 1px solid $super-user-border;
           }
-          &:hover {background: $super-user-hover;}
+          i {
+            font-size: 1.5rem;
+            line-height: 0;
+            margin-left: 0.6rem;
+            vertical-align: middle;
+          }
       }
     }
 }
@@ -66,16 +72,20 @@
         z-index: 9999;
         letter-spacing: 0;
         li{
-            width: 100%;
+          width: 100%;
+          &:first-child a { padding-top: 1.4rem; }
+          &:last-child a { padding-bottom: 1.4rem; }
+          &:hover{
+            background: transparent;
+          }
         }
         a{
-            text-transform: none;
-            display: block;
-            padding: 0.6rem 1.4rem;
-            &:hover{
-                background: transparent;
-                text-decoration: underline;
-            }
+          text-align: left;
+          font-weight: normal;
+          text-transform: none;
+          display: block;
+          padding: 0.6rem 1.4rem;
+          &:hover { text-decoration: underline; }
         }
     }
 }
@@ -111,10 +121,10 @@
         position: absolute;
         right: 0px;
         height: 30px;
-        &::-webkit-input-placeholder { color: $gold; opacity: 1; }
-        &:-moz-placeholder { color: $gold; opacity: 1; }
-        &::-moz-placeholder { color: $gold; opacity: 1; }
-        &:-ms-input-placeholder { color: $gold; opacity: 1; }
+        &::-webkit-input-placeholder { color: $gold; opacity: 1; font-weight: normal; }
+        &:-moz-placeholder { color: $gold; opacity: 1; font-weight: normal; }
+        &::-moz-placeholder { color: $gold; opacity: 1; font-weight: normal; }
+        &:-ms-input-placeholder { color: $gold; opacity: 1; font-weight: normal; }
     }
     .icon{
         background: transparent;
@@ -219,12 +229,19 @@ header, .header_with_image_secondary, .header_with_image, .header_no_image {
       margin: 0;
       padding: 14px 16px 8px 16px;
       font-family: 'Adobe Garamond W01', Garamond, 'Goudy Old Style', 'Times New Roman', serif;
-      font-weight: 400;
+      font-size: 2.9rem;
+      font-weight: normal;
       letter-spacing: 1px;
       color: $header-text;
       min-height: 60px;
       background: $header-background;
       background: rgba($header-background, .98);
+      @media (min-width: $xs-breakpoint) {
+        font-size: 3.8rem;
+      }
+      @media (min-width: $md-breakpoint) {
+        font-size: 4.2rem;
+      }
     }
   }
 }
@@ -250,7 +267,9 @@ header, .header_with_image_secondary, .header_with_image, .header_no_image {
         img {max-width: 100%; margin-top: 15px;}
     }
     .search_bar {
-        .search {padding-left: 0; font-weight: 400; box-shadow: inset 0 -2px $gold;}
+        .search {
+          padding-left: 0; font-weight: 500; box-shadow: inset 0 -2px $gold;
+        }
         .icon {right: -10px; color: $search-icon;}
     }
     .header_no_image {min-height: 120px; padding: 0;}

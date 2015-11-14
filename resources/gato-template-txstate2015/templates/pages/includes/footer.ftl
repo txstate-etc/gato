@@ -1,6 +1,6 @@
 <div class="footer row">
 	<div class="footer_content">
-		<a href="#nowhere" class="btt"><i class="fa fa-chevron-up"></i><br>Top</a>
+		<a href="#nowhere" class="btt"><i class="fa fa-chevron-up"></i>Top</a>
 		<div class="footer_column footer_column_1">
       <h3 class="contact_us">
         <a href="${cmsfn.link(homepage)}">${gf.nodeTitle(homepage)}</a>

@@ -1,8 +1,15 @@
 //General Styles that apply to the whole page
 /* _default.scss */
+html {
+  font-size: 54.5%;
+  @media (min-width: $md-breakpoint) { font-size: 58.5%; }
+  @media (min-width: $xl-breakpoint) { font-size: 62.5%; }
+}
+
+
 body {
     font-family: 'Univers W01',Helvetica,Calibri,Arial,sans-serif;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     text-rendering: optimizelegibility;
     background-color: $gold;
 }
@@ -26,12 +33,6 @@ button{
 h1 {
   font-size: 2.9rem;
   padding: 0.5em;
-  @media (min-width: $xs-breakpoint) {
-    font-size: 3.8rem;
-  }
-  @media (min-width: $md-breakpoint) {
-    font-size: 4.2rem;
-  }
 }
 h2 {
     margin: 0 auto .5em auto;
@@ -53,13 +54,3 @@ img {max-width: 100%;}
 .clearfix:before, .clearfix:after {content: " "; display: table;}
 .clearfix:after {clear: both;}
 .clearfix {*zoom: 1;}
-
-
-@media (min-width: $xs-breakpoint) {
-    body {font-size: 1.7rem;}
-}
-
-@media (min-width: $md-breakpoint) {
-    body {font-size: 1.8rem;}
-}
-

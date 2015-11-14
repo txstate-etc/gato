@@ -1,0 +1,9 @@
+.page_content {
+  line-height: 2.4rem;
+  @media (min-width: $xs-breakpoint) { line-height: 2.6rem; }
+  @media (min-width: $md-breakpoint) { line-height: 2.8rem; }
+  a {
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+}

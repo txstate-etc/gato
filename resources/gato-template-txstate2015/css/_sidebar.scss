@@ -1,9 +1,9 @@
 .sidebar {
-    padding: 0;
+    padding: 0 20px;
     position: absolute;
-    top: 0px;
+    top: 2.9rem;
     right: 0px;
-  background-color: $side-nav-background;
+    margin-bottom: -1rem;
 }
 .sidebar_active {padding-left: 0;}
 .sidebar_active_reverse {padding-right: 1rem;}
@@ -12,6 +12,7 @@
   padding: .5rem 0 1rem 0;
   border-bottom: 1px solid $lightdarker;
   border-top: 1px solid $white;
+  background-color: $side-nav-background;
   .side_nav_header {
     color: $side-nav-header-text;
     font-weight: 700;
@@ -22,7 +23,7 @@
   .side_nav_list {
     a {
       line-height: 1.5em;
-      padding: 0.4rem 2rem;
+      padding: 4px 20px;
       color: $side-nav-link-text;
       text-decoration: underline;
       font-size: 0.80em;
@@ -45,6 +46,7 @@
 .eq-parent[max-width="800px"] .sidebar {
     position: inherit;
     top: 0px;
+    padding: 0;
 }
 
 @media screen and (min-width: $xs-breakpoint){
