@@ -47,7 +47,7 @@ $eq-breakpoints: (xs: 100px, sm: 200px, md: 401px, ml: 600px, lg: 800px, xl: 120
   @if not map_has_key($eq-breakpoints, $name) {
     @error "#{$name} is not a valid eq-breakpoint name";
   }
-  .eq-parent[max-width~="#{map_get($eq-breakpoints, $name)}"] > * {
+  .eq-parent[max-width~="#{map_get($eq-breakpoints, $name) - 1px}"] > * {
     @content;
   }
 }
