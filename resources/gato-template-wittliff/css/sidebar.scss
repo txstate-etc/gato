@@ -29,14 +29,14 @@ h2 {
 }
 
 #left {
-	width:750px;
+	width:690px;
 	height: inherit;
 	float:left;
 	font-size:11px;
 	line-height:13px;
 	text-align:left;
 	margin:0px 0px 0px 0px;
-	padding:0px 0px 0px 0px;
+	padding:0px 0px 0px 60px;
 	border:0px solid blue;
   h2 {
     font-family:Georgia;
@@ -102,12 +102,11 @@ div.rightComponent {
 }
 
 #contenttop {
-	float:left;
 	width:670px;
 	height:89px;
 	background: url(../images/bg-section-content-top.png) top no-repeat;
-	margin: 0px auto 0px 60px;
-	padding: 0px 0px 0px 0px;
+	margin: 0px;
+	padding: 0px;
 	border:0px solid blue;
 }
 
@@ -130,7 +129,6 @@ div.rightComponent {
 }
 
 #contentmiddle {
-	float:left;
 	width:590px;
 	height:auto;
 	background: url(../images/bg-section-content-middle.png) repeat-y;
@@ -138,7 +136,7 @@ div.rightComponent {
 	font-size:13px;
 	line-height:19px;
 	font-family:Georgia;
-	margin: 0px auto 0px 60px;
+	margin: 0px;
 	padding: 15px 40px 15px 40px;
 	border:0px solid black;
   a, a:hover, a:visited, a:active {
@@ -150,16 +148,16 @@ div.rightComponent {
 }
 
 #contentbottom {
-	float:left;
 	width:670px;
 	height:69px;
 	background: url(../images/bg-section-content-bottom.png) top no-repeat;
-	margin: 0px auto 0px 60px;
-	padding: 0px 0px 0px 0px;
+	margin: 0px;
+	padding: 0px;
 	border:0px solid blue;
 }
 
 #footer {
+  clear: both;
 	color:#CCCC99;
 	background: url(../images/footerbar.png) top no-repeat;
 }
