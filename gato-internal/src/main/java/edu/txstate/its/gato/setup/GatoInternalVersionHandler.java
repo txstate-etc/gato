@@ -51,6 +51,7 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
     tasks.add(new MoveRichEditorToDamTask("gato:components/widgets/accordion", "content"));
     tasks.add(new MoveFaqToDamTask());
     tasks.add(new MoveFileToDamTask("image", "images"));
+    tasks.add(new MoveFileToDamTask("splash", "images"));
     tasks.add(new MoveFileToDamTask("rollover", "images"));
     tasks.add(new MoveFileToDamTask("bgimage", "images"));
     tasks.add(new MoveFileToDamTask("icon", "images"));
