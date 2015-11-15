@@ -45,6 +45,7 @@
       
       <div class="main-content">
   
+        [#include "includes/homepage/spotlight.ftl"]
         [#include "includes/homepage/social.ftl"]
         [#include "includes/homepage/president.ftl"]
 

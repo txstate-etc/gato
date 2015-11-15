@@ -63,8 +63,7 @@ div#social {
         opacity: 0;
         width: 100%;
         @include vendor-prefix(transition, all 0.3s ease);
-        background: $gold;
-        background: rgba(106,86,56,0.9);
+        background: fade-out($gold, 0.1);
         color: $white;
         font-size: 1.2rem;
         a { 
