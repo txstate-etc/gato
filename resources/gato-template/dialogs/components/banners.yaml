@@ -44,7 +44,7 @@ form:
                 label: ""
                 appName: assets
                 targetWorkspace: dam
-                targetTreeRootPath: /banners
+                targetTreeRootPath: /banner-images
                 identifierToPathConverter:
                   class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
                 contentPreviewDefinition:

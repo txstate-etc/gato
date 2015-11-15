@@ -194,6 +194,15 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
           rm.addPermission(role, "dam", perm.getPattern().getPatternString(), perm.getPermissions());
         }
       }
+      if (acls.containsKey("website")) {
+        ACL acl = acls.get("website");
+        for (Permission perm : acl.getList()) {
+          String pattern = perm.getPattern().getPatternString();
+          if (!pattern.startsWith("/global-data") && !pattern.startsWith("/homepage-data")) {
+            rm.addPermission(role, "dam", "/banner-images"+perm.getPattern().getPatternString(), perm.getPermissions());
+          }
+        }
+      }
     }
   }
 

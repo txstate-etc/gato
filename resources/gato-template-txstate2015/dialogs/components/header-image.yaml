@@ -20,7 +20,7 @@ form:
             - name: shown
               class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
               targetWorkspace: dam
-              targetTreeRootPath: /banners
+              targetTreeRootPath: /banner-images
               appName: assets
               label: Banner Image
               description: Optional. If not provided, will inherit an image from the nearest ancestor page.
