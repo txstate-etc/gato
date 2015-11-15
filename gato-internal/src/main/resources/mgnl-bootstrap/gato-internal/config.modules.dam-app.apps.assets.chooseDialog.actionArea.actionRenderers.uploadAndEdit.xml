@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sv:node sv:name="uploadAndEdit" xmlns:sv="http://www.jcp.org/jcr/sv/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <sv:property sv:name="jcr:primaryType" sv:type="Name">
+    <sv:value>mgnl:contentNode</sv:value>
+  </sv:property>
+  <sv:property sv:name="jcr:uuid" sv:type="String">
+    <sv:value>e2407fb0-4037-4134-a11c-ce8329023419</sv:value>
+  </sv:property>
+  <sv:property sv:name="jcr:createdBy" sv:type="String">
+    <sv:value>admin</sv:value>
+  </sv:property>
+  <sv:property sv:name="mgnl:created" sv:type="Date">
+    <sv:value>2014-10-08T22:54:57.523+02:00</sv:value>
+  </sv:property>
+  <sv:property sv:name="mgnl:createdBy" sv:type="String">
+    <sv:value>superuser</sv:value>
+  </sv:property>
+  <sv:property sv:name="mgnl:lastModified" sv:type="Date">
+    <sv:value>2015-11-14T18:04:33.438-06:00</sv:value>
+  </sv:property>
+  <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
+    <sv:value>nw13</sv:value>
+  </sv:property>
+  <sv:property sv:name="rendererClass" sv:type="String">
+    <sv:value>info.magnolia.dam.app.assets.field.PermissionedUploadAndEditActionRenderer</sv:value>
+  </sv:property>
+</sv:node>
