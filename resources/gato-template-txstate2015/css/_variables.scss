@@ -87,6 +87,10 @@
 
 @import "gato-template-txstate2015/css/colors";
 
+//fonts
+$univers: 'Univers W01', Helvetica, Calibri, Arial, sans-serif;
+$garamond: 'Adobe Garamond W01', Garamond, 'Goudy Old Style', 'Times New Roman', serif;
+
 //media query breakpoints
 $xs-breakpoint: 40rem; //~640px
 $sm-breakpoint: 48rem; //~768px
