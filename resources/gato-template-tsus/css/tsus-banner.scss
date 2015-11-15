@@ -119,8 +119,10 @@ ul.social-media-container {
 	}
 	a.gato-sociallink {
 		display: block;
-		width: 30px;
-		height: 30px;
 		position: relative;
+		img {
+      width: 30px;
+      height: 30px;
+		}
 	}
 }

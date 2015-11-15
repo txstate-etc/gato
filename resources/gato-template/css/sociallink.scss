@@ -19,6 +19,8 @@
 	.fa-facebook-square { color: #3b5998; }
 	.fa-twitter-square { color: #55acee; }
 	.fa-youtube-square { color: #cd201f; }
+	.fa-github { color: #333333; }
+	.fa-flickr { color: #0063dc; }
 	.fa-vimeo-square { color: #1ab7ea; }
 	.fa-pinterest-square { color: #cc2127; }
 	.fa-tumblr-square { color: #35465c; }
@@ -26,11 +28,11 @@
 	.fa-instagram { color: #3f729b; }
 	.fa-spotify { color: #2ebd59; }
 	.fa-rss-square { color: #f57d00; }
+  .fa-share-alt-square { color: #6a5638; }
 	&.icononly {
 	  img, .fa {
 	    margin: 0;
 	    float: none;
-		  width: 100%;
 		}
 	}
 }

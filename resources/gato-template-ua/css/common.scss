@@ -213,10 +213,12 @@ div.skip-nav a {
 .ua-socialbar-buttons a {
 	position: relative;
 	display: block;
-	width: 24px;
-	height: 24px;
 	float: left;
 	margin-left: 6px;
+	img {
+	  width: 24px;
+    height: 24px;
+  }
 }
 .ua-socialbar-buttons.admin a {
 	float: none;
