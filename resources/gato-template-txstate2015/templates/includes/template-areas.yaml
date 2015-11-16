@@ -12,6 +12,7 @@ headerImage:
       id: gato-template-txstate2015:components/header-image
 parentOrganization:
   renderType: freemarker
+  templateScript: /gato-template-txstate2015/templates/areas/parentOrg.ftl 
   type: single
   title: Parent Organization
   inheritance:
