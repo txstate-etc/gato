@@ -26,3 +26,19 @@
 .icon-down:before {
   content: "\e05f";
 }
+body{
+  .icon-pulse{
+    font-family: FontAwesome !important;
+    &:before{
+      content: "\f0e0";
+    }
+  }
+
+  .icon-favorites{
+    font-family: FontAwesome !important;
+    &:before {
+      content: "\f005";
+    }
+  }
+}
+
