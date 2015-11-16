@@ -360,11 +360,13 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
   }
 
   private void convertNodeToAreaAndComponent(Node n, String type, String name) throws RepositoryException {
-    Node area = n.getParent().addNode("tempconversionnode", "mgnl:area");
-    NodeUtil.moveNode(n, area);
-    NodeUtil.renameNode(area, name);
-    n.setPrimaryType(NodeTypes.Component.NAME);
-    NodeTypes.Renderable.set(n, type);
+    if (!NodeUtil.isNodeType(n, NodeTypes.Area.NAME)) {
+      Node area = n.getParent().addNode("tempconversionnode", "mgnl:area");
+      NodeUtil.moveNode(n, area);
+      NodeUtil.renameNode(area, name);
+      n.setPrimaryType(NodeTypes.Component.NAME);
+      NodeTypes.Renderable.set(n, type);
+    }
   }
 
   private void convertStringToDate(Property p, String newName) throws RepositoryException {
