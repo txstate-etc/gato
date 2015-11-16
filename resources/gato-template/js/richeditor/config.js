@@ -85,7 +85,7 @@
            config.toolbar = "Magnolia";
            config.disableNativeSpellChecker = false;
            config.toolbar_Magnolia = [
-                   { name: "basicstyles",   items: [ "Bold", "Italic", "Underline", "HorizontalRule", "Blockquote", "RemoveFormat", "SpecialChar" ] },
+                   { name: "basicstyles",   items: [ "Bold", "Italic", "HorizontalRule", "Blockquote", "RemoveFormat", "SpecialChar" ] },
                    { name: "links",         items: [ "Link", "Unlink", "Anchor" ] },
                    { name: "clipboard",     items: [ "Copy", "Paste", "PasteText", "PasteFromWord" ] },
                    { name: "tables",        items: [ "Table" ] },
