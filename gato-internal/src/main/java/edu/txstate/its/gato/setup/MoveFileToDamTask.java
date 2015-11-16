@@ -74,6 +74,7 @@ class MoveFileToDamTask extends MoveFileContentToDamMigrationTask {
     if (dataNodeResource.hasProperty(AssetNodeTypes.AssetResource.EXTENSION)) {
       assetNode.setProperty(AssetNodeTypes.Asset.TYPE, dataNodeResource.getProperty(AssetNodeTypes.AssetResource.EXTENSION).getString());
     }
+    NodeTypes.LastModified.update(assetNode);
   }
 
   // Updated this method to normalize file extensions a bit - also it was a little broken

@@ -199,7 +199,13 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
         for (Permission perm : acl.getList()) {
           String pattern = perm.getPattern().getPatternString();
           if (!pattern.startsWith("/global-data") && !pattern.startsWith("/homepage-data")) {
-            rm.addPermission(role, "dam", "/banner-images"+perm.getPattern().getPatternString(), perm.getPermissions());
+            rm.addPermission(role, "dam", perm.getPattern().getPatternString(), perm.getPermissions());
+            if (pattern.matches("^/[^/]+(/\\*)?$")) {
+              // people get access to banner-images based on their access to the site root
+              // even subtree editors will have read permission on the site root so that
+              // it shows up in their list
+              rm.addPermission(role, "dam", "/banner-images"+perm.getPattern().getPatternString(), perm.getPermissions());
+            }
           }
         }
       }

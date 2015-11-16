@@ -1,5 +1,6 @@
 package edu.txstate.its.gato.setup;
 
+import info.magnolia.dam.jcr.DamConstants;
 import info.magnolia.jcr.util.NodeTypes;
 import info.magnolia.module.DefaultModuleVersionHandler;
 import info.magnolia.module.delta.BootstrapSingleResource;
@@ -147,6 +148,12 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
     ));
     tasks.add(new ChangeNodeTypeTask("/homepage-data/legal-links/quick-links",RepositoryConstants.WEBSITE,NodeTypes.Content.NAME));
     tasks.add(new ChangeNodeTypeTask("/homepage-data/legal-links/required-links",RepositoryConstants.WEBSITE,NodeTypes.Content.NAME));
+
+    // when we bootstrapped the official-texas-state-images dam sites, the parent
+    // nodes were created as mgnl:content instead of mgnl:folder
+    tasks.add(new ChangeNodeTypeTask("/banner-images",DamConstants.WORKSPACE,NodeTypes.Folder.NAME));
+    tasks.add(new ChangeNodeTypeTask("/banner-images/official-texas-state-images",DamConstants.WORKSPACE,NodeTypes.Folder.NAME));
+    tasks.add(new ChangeNodeTypeTask("/official-texas-state-images",DamConstants.WORKSPACE,NodeTypes.Folder.NAME));
 
     // change various config properties
     tasks.add(new SetPropertyTask(RepositoryConstants.CONFIG, "/server/filters/activation", "class", "info.magnolia.module.activation.ReceiveFilter"));
