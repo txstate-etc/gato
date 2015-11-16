@@ -7,6 +7,7 @@
       'gato-template-txstate2015/js/jquery-scrolltofixed-min.js',
       'gato-template-txstate2015/js/respond.min.js',
       'gato-template-txstate2015/js/slideout.js',
+      'gato-template-txstate2015/js/tabs.js',
       'gato-template-txstate2015/js/common.js'
     ]]
     [#if gf.isCacheEnvironment()]
@@ -19,7 +20,7 @@
     [@templatehead/]
 
   </head>
-  <body class="${cmsfn.isEditMode()?string('admin','')}">
+  <body class="homepage ${cmsfn.isEditMode()?string('admin','')}">
     <nav id="menu" class="mobile_nav">
       [#import "includes/search.ftl" as search]
       [@search.searchBar true/]
@@ -45,6 +46,7 @@
       
       <div class="main-content">
   
+        [#include "includes/homepage/news.ftl"]
         [#include "includes/homepage/spotlight.ftl"]
         [#include "includes/homepage/social.ftl"]
         [#include "includes/homepage/president.ftl"]

@@ -1,11 +1,13 @@
-<div id="social" class="content-row main">
+<div id="social" class="content-row main three-col">
   <div class="content-row-content">
-        
-    <div class="solo-title">
-      <h2>Connect with Us</h2>
-    </div>
-  
+
     <div class="eq-parent">
+
+        <div class="eq-mn-1-1 eq-ml-1-1">
+          <div class="solo-title">
+            <h2>Connect with Us</h2>
+          </div>
+        </div>
 
         <div class="eq-mn-1-1 eq-ml-1-3">
           <div class="instagram col-left">
@@ -33,7 +35,7 @@
           </div>
         </div> <!-- Instagram -->
         
-        <div class="eq-mn-1-1 eq-ml-1-3">
+        <div class="eq-mn-1-1 eq-ml-1-3 twitter-wrap">
           <div class="twitter col-middle">
             <div class="social-upper">        
               <div class="slides">
@@ -93,7 +95,7 @@
         <div class="eq-mn-1-1 eq-ml-1-1">
           <div class="solo-bailout">
             <p>
-              <a href="http://www.txstate.edu/social">
+              <a href="http://www.txstate.edu/social" class="solo-bailout-button">
                 Social Media Directory<i class="button-chevron fa fa-chevron-right"></i>
               </a>
             </p>

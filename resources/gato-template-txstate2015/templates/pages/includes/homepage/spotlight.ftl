@@ -1,4 +1,4 @@
-<div id="spotlight" class="content-row comp">
+<div id="spotlight" class="content-row comp two-col">
     <div class="content-row-content">
     
       <div class="eq-parent">
@@ -8,11 +8,11 @@
           <div class="col-left research">
             <h2>Research</h2>
           
-            <figure class="research-slider">
+            <figure class="feature research-slider">
               <img alt="demo" src="http://edelstone.github.io/gato-homepage/images/research-4.jpg">
               <figcaption>
-                <p class="research-headline"><a href="#nowhere">New Paths in Space Exploration</a></p>
-                <p class="research-text">When Jacobs secured its $1.9 billion dollar primary contract with NASA's Johnson Space Center, it turned to Texas State.</p>
+                <p class="feature-headline"><a href="#nowhere">New Paths in Space Exploration</a></p>
+                <p class="feature-text">When Jacobs secured its $1.9 billion dollar primary contract with NASA's Johnson Space Center, it turned to Texas State.</p>
               </figcaption>
             </figure>
             <!-- <div class="slider-overlay-right" style="opacity: 1;">

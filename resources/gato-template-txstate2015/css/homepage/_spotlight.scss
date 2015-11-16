@@ -1,33 +1,17 @@
 div#spotlight {
-  .research {
-    figure {
-      margin: 0;
-      img { display: block; }
-      figcaption {
-        padding: 2rem;
-        background: $khaki;
-        a { 
-          text-decoration: underline; 
-          &:hover { text-decoration: none; }
-        }
-        p { margin: 0; }
-        .research-headline {
-          font-size: 2rem;
-          font-weight: bold;
-          line-height: 2.6rem;
-          margin-bottom: 1rem;
-        }
-        .research-text {
-          font-size: 1.6rem;
-        }
-      }
+  padding-bottom: 1rem;
+
+  @include eq-min-width('ml') {
+    .research {
+      figure { margin-bottom: 3rem; }
     }
   }
 
   .pride {
+    padding-bottom: 0;
     figure {
       position: relative;
-      margin: 3rem 0;
+      margin: 0 0 3rem;
       img { display: block; }
       figcaption {
         position: absolute;
@@ -39,7 +23,7 @@ div#spotlight {
           background: fade-out($gold, 0.15);
           &:hover { background: fade-out($gold, 0.4); }
           @include vendor-prefix(transition, all 0.8s ease);
-          font-size: 4rem;
+          font-size: 3.6rem;
           font-family: $garamond;
           text-align: center;
           display: block;

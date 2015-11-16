@@ -1,139 +1,187 @@
-div.content-row-content {
-  .eq-parent {
-    letter-spacing: -1rem;
-    & > * { letter-spacing: normal; }
-  }
-}
+body.homepage {
+  img { max-width: 100%; }
 
-div.main-content {
-  font-size: 1.4rem;
-  line-height: 1.8rem;
-
-  h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    margin-top: 0.1rem;
-    font-weight: 500;
-  }
-  h3 {
-    font-size: 1.4rem;
+  div.content-row-content {
+    .eq-parent {
+      letter-spacing: -1rem;
+      & > * { letter-spacing: normal; }
+    }
   }
 
-  @media (min-width: $sm-breakpoint){
+  div.main-content {
+
     h2 {
       font-size: 2.4rem;
-      margin-bottom: 3rem;
+      margin-bottom: 2.5rem;
+      margin-top: 0.1rem;
+      font-weight: 500;
+    }
+    h3 {
+      font-size: 1.6rem;
+    }
+
+    @media (min-width: $sm-breakpoint){
+      h2 {
+        font-size: 2.8rem;
+        margin-bottom: 4rem;
+      }
     }
   }
-}
 
-div.content-row {
-  padding: 4rem 0 3rem 0;
-  
-  .content-row-content {
-    // padding: 0 2rem;
-    margin: auto;
-    max-width: 1000px;
-
-    .solo-title {
-      padding: 0 2rem;
+  div.content-row {
+    padding: 4rem 0;
+    @media (min-width: $sm-breakpoint){
+      padding-top: 6rem;
     }
 
-    @include eq-mn {
-      & > * {
-        padding: 0 2rem;
-        margin: 1rem 0;
+    .content-row-content {
+      margin: auto;
+      max-width: 1000px;
+
+      @media (min-width: $xl-breakpoint){
+        max-width: 1200px;
+      }
+
+      .solo-bailout {
+        text-align: right;
+        padding-top: 2.6rem;
+        font-size: 1.6rem;
+        
+        p { margin: 0; }
+        
+        a {
+          text-transform: uppercase;
+          text-decoration: none;
+          font-weight: bold;
+          padding: 3px 5px;
+          margin: -3px -5px;
+
+          @extend .slidey-icon;
+        }
+      }
+
+      @include eq-max-width('ml') {
+        .solo-bailout {
+          text-align: center;
+          padding-top: 0rem;
+          
+          a.solo-bailout-button {
+            display: block;
+            padding: 2rem 0;
+            margin: 0;
+            border-radius: $default-border-radius;
+            color: $white;
+            background: $gold; 
+            @include hover-bg($light-gold);
+          }
+        }
+      } 
+    } 
+
+    .col-left, .col-middle, .col-right, .solo-title, .solo-bailout {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+    @include eq-max-width('ml') {
+      .col-left, .col-middle, .col-right {
+        padding-bottom: 4rem;
       }
     }
     @include eq-min-width('ml') {
-      .col-left, .col-middle, .col-right {
-        margin: 0;
+      .col-middle { padding-left: 0; padding-right: 0; }
+    }
+    @include eq-min-width('lg') {
+      .col-left {
+        padding-right: 2.5rem;
       }
-      .col-left, .col-middle {
-        padding-right: 1rem;
-      }
-      .col-middle, .col-right {
-        padding-left: 1rem;
+      .col-right {
+        padding-left: 2.5rem;
       }
     }
-
-    @media (min-width: $lg-breakpoint){
-      & {
-        padding: 0;
+    .eq-parent[min-width~="1000px"] > * {
+      .col-left, .col-middle, .col-right, .solo-title, .solo-bailout {
+        padding-left: 0;
+        padding-right: 0;
       }
     }
-    
-    .solo-bailout {
-      text-align: right;
-      padding-top: 2.6rem;
-      
-      a {
-        text-transform: uppercase;
-        text-decoration: none;
-        font-weight: bold;
-        padding: 3px 5px;
-        margin: -3px -5px;
-
-        i { 
-          margin-left: 1.6rem; 
-          position: relative;
+    &.two-col {
+      @include eq-min-width('lg') {
+        .col-left {
+          padding-right: 4rem;
         }
-        &:hover i {
-          animation: chevron 1.2s ease-in-out infinite alternate;
-          @keyframes chevron { from {right: 0;} to {right: .5rem;} }
+        .col-right {
+          padding-left: 4rem;
+        }
+      }
+      @include eq-min-width('xl') {
+        .col-left {
+          padding-right: 6rem;
+        }
+        .col-right {
+          padding-left: 6rem;
         }
       }
     }
 
-    @include eq-max-width('ml') {
-      .solo-bailout {
-        text-align: center;
-        padding-top: 0.6rem;
-        
-        a {
-          display: block;
-          padding: 2rem 0;
-          border-radius: $default-border-radius;
-          color: $white;
-          background: $gold; 
-          @include hover-bg($light-gold);
+    figure.feature {
+      margin: 0;
+      a { margin: 0; padding: 0; }
+      img { display: block; }
+      figcaption {
+        padding: 2rem;
+        background: $sandstone;
+        a { 
+          color: $maroon;
+          text-decoration: underline; 
+          &:hover { text-decoration: none; background: none; }
+        }
+        p { margin: 0; }
+        .feature-headline {
+          font-size: 2rem;
+          font-weight: bold;
+          line-height: 2.6rem;
+          margin-bottom: 1rem;
+        }
+        .feature-date {
+          font-size: 1.4rem;
+          font-style: italic;
+          padding-bottom: 1.2rem;
+        }
+        .feature-text {
+          font-size: 1.6rem;
         }
       }
-    }  
-  }
-
-  @media (min-width: $sm-breakpoint){
-    & {
-      padding: 6rem 0 4rem 0;
     }
-  }
 
-  &.main {
-    a{
-      padding: 1px 3px;
-      margin: -1px -3px;
-      color: $content-link-text;
-      text-decoration: underline;
-      &:hover {background: $content-link-hover;}
-    }
-  }
-  &.comp {
-    background: $sandstone;
-    .solo-bailout a {
-      color: $maroon;
-      &:hover { 
-        background: $khaki; 
+    &.main {
+      a{
+        padding: 1px 3px;
+        margin: -1px -3px;
+        color: $content-link-text;
+        text-decoration: underline;
+        &:hover {background: $content-link-hover;}
       }
     }
-    @include eq-max-width('ml') {
+    &.comp {
+      background: $sandstone;
+      .feature figcaption { background: $khaki; }
       .solo-bailout a {
-        background: $maroon; 
-        @include hover-bg($light-maroon);
+        color: $maroon;
+        &:hover { 
+          background: $khaki; 
+        }
+      }
+      @include eq-max-width('ml') {
+        .solo-bailout a.solo-bailout-button {
+          background: $maroon; 
+          @include hover-bg($light-maroon);
+        }
       }
     }
   }
 }
 
+@import "gato-template-txstate2015/css/homepage/news";
 @import "gato-template-txstate2015/css/homepage/spotlight";
 @import "gato-template-txstate2015/css/homepage/social";
 @import "gato-template-txstate2015/css/homepage/president";

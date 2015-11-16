@@ -4,6 +4,8 @@ div#president {
   .content-row-content {
 
     .pres-photo {
+      padding-bottom: 2.5rem;
+      
       a {
         @extend .hover-blur;
         display: block;
@@ -13,10 +15,13 @@ div#president {
 
     .pres-message p {
       margin: 0;
+      font-size: 1.6rem;
+      line-height: 2.4rem;
     }
 
     .pres-message, .pres-updates {
-      line-height: 2.2rem;
+      padding-bottom: 2.5rem;
+      
       a { 
         text-decoration: underline; 
         &:hover { text-decoration: none; }
@@ -27,11 +32,12 @@ div#president {
       .pres-updates-content {
         background: $khaki;
         padding: 0.5rem 0.5rem 0.5rem 2rem;
+        line-height: 2.2rem;
         ul { 
-          padding: 0 1.7rem; 
-          font-size: 1.2rem;
+          padding: 0 1.8rem; 
+          font-size: 1.4rem;
           li {
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
           }
         }
       }

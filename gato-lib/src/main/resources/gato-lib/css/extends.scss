@@ -9,3 +9,15 @@
   
   @include vendor-prefix(transition, opacity 0.8s ease);
 }
+
+// make a font-awesome icon slide back and forth when hovering over its parent.
+.slidey-icon {
+  .fa { 
+    margin-left: 1.8rem; 
+    position: relative;
+  }
+  &:hover .fa {
+    animation: slidey 1.2s ease-in-out infinite alternate;
+    @keyframes slidey { from {right: 0;} to {right: .5rem;} }
+  }
+}
