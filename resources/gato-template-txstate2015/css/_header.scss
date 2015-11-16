@@ -159,6 +159,16 @@ input[type="search"]:focus {outline: none;}
   width: 60%;
 }
 
+.parentOrg_add{
+  width: 50%;
+}
+
+body.admin .header_no_image {
+  .title{
+    position: relative;
+  }
+}
+
 .bg_container {
   background: $header-background;
   position: absolute;
