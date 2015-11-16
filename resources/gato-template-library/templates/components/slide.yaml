@@ -1,5 +1,0 @@
-templateScript: /gato-template-library/templates/components/slide.ftl
-renderType: freemarker
-title: Slide
-description: Slide for the Library slideshow.
-dialog: gato-template-library:components/slide
