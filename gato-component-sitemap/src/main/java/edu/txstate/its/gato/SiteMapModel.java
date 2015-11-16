@@ -46,7 +46,7 @@ public class SiteMapModel<RD extends ConfiguredTemplateDefinition> extends Rende
     // Magnolia doesn't check the root node against the predicate in NodeUtil.visit, so the title ends up
     // in the sorted title list even though we don't want it to.
     sortedNodes.remove(ancestor);
-    sortedNodes.sort((a, b) -> getTitle(a).compareTo(getTitle(b)));
+    sortedNodes.sort((a, b) -> getTitle(a).compareToIgnoreCase(getTitle(b)));
   }
 
   private String getTitle(Node node) {
