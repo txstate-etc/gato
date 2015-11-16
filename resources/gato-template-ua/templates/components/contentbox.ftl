@@ -1,7 +1,7 @@
 <div class="ua-contentbox">
   [#if content.image?has_content]
     <div class="ua-contentbox-image">
-      <img src="${gf.getImgDefault(content.image)}" srcset="${gf.getSrcSet(content.image)}" sizes="302px" alt="${content.imagealt!}">
+      <img src="${gf.getImgDefault(content.image, '302px')}" srcset="${gf.getSrcSet(content.image)}" sizes="302px" alt="${content.imagealt!}">
     </div>
   [/#if]
   [#if content.title?has_content]
