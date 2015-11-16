@@ -544,14 +544,16 @@ var fitText = function(item) {
 // first resize event?
 function resizeTimeout(callback) {
 	var to;
+	var savedWidth = 0;
+	var savedHeight = 0;
 	var myfunc = function () {
     var vpw = window.innerWidth;
     var vph = window.innerHeight;
-    if (vph != resizeTimeout.savedHeight || vpw != resizeTimeout.savedWidth) {
+    if (vph != savedHeight || vpw != savedWidth) {
       clearTimeout(to);
 		  to = setTimeout(callback, 100);
-		  resizeTimeout.savedWidth = vpw;
-		  resizeTimeout.savedHeight = vph;
+		  savedWidth = vpw;
+		  savedHeight = vph;
 		}
 	};
 	jQuery(document).ready(myfunc);
@@ -697,3 +699,26 @@ jQuery.fn.hovermenu = function (submenu) {
     hide();
   });
 }
+
+jQuery.fn.afterload = function (callback) {
+  if (this.prop('complete')) callback();
+  else this.load(callback);
+}
+
+var animationframe = window.requestAnimationFrame ||
+                     window.webkitRequestAnimationFrame ||
+                     window.mozRequestAnimationFrame ||
+                     window.msRequestAnimationFrame ||
+                     window.oRequestAnimationFrame ||
+                     function(callback){ window.setTimeout(callback, 1000/20) };
+var cssTransform = (function(){
+    var prefixes = 'transform webkitTransform mozTransform oTransform msTransform'.split(' ')
+      , el = document.createElement('div')
+      , cssTransform
+      , i = 0
+    while( cssTransform === undefined ){
+        cssTransform = document.createElement('div').style[prefixes[i]] != undefined ? prefixes[i] : undefined
+        i++
+     }
+     return cssTransform
+ })();

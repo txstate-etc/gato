@@ -42,8 +42,6 @@ h2 {
 
 hr {margin-bottom: 2em;}
 
-img {max-width: 100%;}
-
 *, *:before, *:after {
     @include vendor-prefix(box-sizing, border-box);
 }

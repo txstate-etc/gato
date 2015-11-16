@@ -7,10 +7,9 @@
   [/#if]
 [/#list]
 
-[#assign imgStyle = ""]
+[#assign defaultSrc = gf.getImgDefault(himg.shown)]
 [#assign imgClass = "bg_image_none"]
-[#if himg?has_content && himg.visible == 'shown' && himg.shown??]
-	[#assign imgStyle = "style=\"background-image: url('${damfn.getAssetLink(himg.shown)!}');\""]
+[#if himg?has_content && himg.visible == 'shown' && defaultSrc?has_content]
 	[#if cmsfn.ancestors(mypage)?has_content ]
 		[#-- secondary page with header image--]
 		[#assign imgClass = "bg_image_secondary"]
@@ -27,7 +26,10 @@
     [/#if]
   </div>
 [/#if]
-<div class="bg_container">
-	<div class="${imgClass}" id="headerImage" ${imgStyle}></div>
-	<div class="overlay"><div class="bg_overlay"></div></div>
-</div>
+[#if defaultSrc?has_content]
+  <div class="bg_container">
+    <div class="${imgClass}" id="headerImage">
+      <img src="${defaultSrc}" srcset="${gf.getSrcSet(himg.shown)}" sizes="(min-width: 80rem) 1200px, 100vw" alt="">
+    </div>
+  </div>
+[/#if]
