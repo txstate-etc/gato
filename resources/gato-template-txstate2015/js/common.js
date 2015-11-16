@@ -7,7 +7,6 @@ window.addEventListener('load', function() {
 jQuery(document).ready(function($) {
   var jqwindow = jQuery(window);
   var headerimage = $(".bg_image, .bg_image_secondary");
-  var himg = headerimage.find('img');
   if (headerimage.size() > 0) {
     // Parallax scrolling effect
     var headerbg = headerimage.get(0);
@@ -34,6 +33,7 @@ jQuery(document).ready(function($) {
 
 
     // Background image delay and fade
+    var himg = headerimage.find('img');
     himg.afterload(function() {
       // Background image ensure big enough
       var imgh = himg.height();
@@ -49,7 +49,7 @@ jQuery(document).ready(function($) {
         himg.css('width', neww+'px');
         himg.css('height', newh+'px');
       });
-      headerimage.velocity({opacity: "1"}, 500);
+      headerimage.delay(100).velocity({opacity: "1"}, 500);
     });
   }
 });

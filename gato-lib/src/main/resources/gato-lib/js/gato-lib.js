@@ -700,11 +700,17 @@ jQuery.fn.hovermenu = function (submenu) {
   });
 }
 
+// to be used on a jQuery object containing a single image
+// if image is already loaded (cached, usually), then callback executed immediately
+// otherwise executed on jquery load event
+// if you just use the load event cached images will never trigger your code
 jQuery.fn.afterload = function (callback) {
   if (this.prop('complete')) callback();
   else this.load(callback);
 }
 
+// these are cross-browser resolving variables that can be used for
+// high performing animations
 var animationframe = window.requestAnimationFrame ||
                      window.webkitRequestAnimationFrame ||
                      window.mozRequestAnimationFrame ||
@@ -717,7 +723,7 @@ var cssTransform = (function(){
       , cssTransform
       , i = 0
     while( cssTransform === undefined ){
-        cssTransform = document.createElement('div').style[prefixes[i]] != undefined ? prefixes[i] : undefined
+        cssTransform = el.style[prefixes[i]] != undefined ? prefixes[i] : undefined
         i++
      }
      return cssTransform
