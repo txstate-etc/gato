@@ -5,6 +5,8 @@
  * elements.  This file should only contain standard html/xhtml tags.
  *
  */
+a {	text-decoration: none; }
+a:hover { text-decoration: underline; }
 
 .gato-styledcontent {
 	font-family: arial, helvetica, sans-serif;

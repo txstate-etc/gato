@@ -53,7 +53,7 @@
 					[#include "/gato-template/templates/includes/socialsidenav.ftl"]
         </div>
       [/#if]
-      <main class="txst-khan-contentcolumn gato-styledcontent">
+      <main class="txst-khan-contentcolumn txst-styledcontent gato-styledcontent">
         [@breadcrumbs/]
         [#if def.parameters.isMailTemplate!false]
           [@cms.area name="mail" /]

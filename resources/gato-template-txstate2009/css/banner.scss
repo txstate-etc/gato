@@ -106,12 +106,14 @@
     text-align: left;
     width: 922px;
     height: 30px;
-    a {
-      float: left;
-      padding: 5px 8px 4px 0px;
-      margin-top: 2px;
-      font-weight: normal;
-      white-space: nowrap;
+    .parent_org, .txst-khanbanner-departmenttitle {
+      a {
+        float: left;
+        padding: 5px 8px 4px 0px;
+        margin-top: 2px;
+        font-weight: normal;
+        white-space: nowrap;
+      }
     }
   }
 }
