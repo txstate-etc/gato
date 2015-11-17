@@ -46,6 +46,7 @@
       
       <div class="main-content">
   
+        [#include "includes/homepage/top-links.ftl"]
         [#include "includes/homepage/news.ftl"]
         [#include "includes/homepage/spotlight.ftl"]
         [#include "includes/homepage/social.ftl"]

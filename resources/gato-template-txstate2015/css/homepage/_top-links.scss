@@ -1,0 +1,32 @@
+div#top-links {
+  background: $charcoal;
+  padding: 0;
+  
+  a {
+    position: relative;
+    display: block;
+    color: $white;
+    &:hover { background: $darkest-charcoal; }
+    font-size: 1.8rem;
+    line-height: 1.8rem;
+    font-weight: 500;
+    padding: 1.5rem 2rem;
+    border-top: 1px solid #4a4948;
+    border-bottom: 1px solid #262524;
+    i {
+      position: absolute;
+      right: 2rem;
+    }
+  }
+  @include eq-min-width('ml') {
+    text-align: center;
+    a {
+      font-size: 2rem;
+      line-height: inherit;
+      font-weight: bold;
+      padding: 1.5rem 2rem;
+      border: none;
+      i { display: none; }
+    }
+  }
+}
