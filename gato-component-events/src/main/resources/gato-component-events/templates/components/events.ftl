@@ -1,4 +1,6 @@
-[#include "/gato-lib/templates/includes/accordion.ftl"]
+[#if !model.error?has_content && model.items?has_content]
+  [#include "/gato-lib/templates/includes/accordion.ftl"]
+[/#if]
 
 [#if content.title?has_content]
   <h2>${content.title}</h2>
