@@ -54,6 +54,7 @@ function buildEmbed(el, embedCode) {
 }
 
 function buildMediaflo(el, url) {
+  jQuery(el).addClass('mediafloEmbedContainer');
   jQuery(el).append('<iframe class="mediaflo-frame" src="' + url + '"></iframe>');
 }
 
