@@ -29,6 +29,7 @@ div#social {
         bottom: 0;
         font-size: 3rem;
         a { 
+          display: block;
           color: $gold; 
           &:hover { background: none; }
         }

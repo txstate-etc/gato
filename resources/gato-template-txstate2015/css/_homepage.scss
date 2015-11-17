@@ -82,6 +82,12 @@ body.homepage {
       padding-left: 2rem;
       padding-right: 2rem;
     }
+    .eq-parent[min-width~="1000px"] > * {
+      .col-left, .col-middle, .col-right, .solo-title, .solo-bailout {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
     @include eq-max-width('ml') {
       .col-left, .col-middle, .col-right {
         padding-bottom: 4rem;
@@ -96,12 +102,6 @@ body.homepage {
       }
       .col-right {
         padding-left: 2.5rem;
-      }
-    }
-    .eq-parent[min-width~="1000px"] > * {
-      .col-left, .col-middle, .col-right, .solo-title, .solo-bailout {
-        padding-left: 0;
-        padding-right: 0;
       }
     }
     &.two-col {

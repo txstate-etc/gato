@@ -89,7 +89,8 @@ div#news {
         width: 8rem;
         background: $light-maroon;
         text-align: center;
-
+        a { display: block; }
+        
         .month {
           display: block;
           text-transform: uppercase;

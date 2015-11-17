@@ -33,9 +33,9 @@
               </p>
             </div>
           </div>
-        </div> <!-- Instagram -->
+        </div><!-- Instagram -->[#--
         
-        <div class="eq-mn-1-1 eq-ml-1-3 twitter-wrap">
+        --]<div class="eq-mn-1-1 eq-ml-1-3 twitter-wrap">
           <div class="twitter col-middle">
             <div class="social-upper">        
               <div class="slides">
@@ -61,9 +61,9 @@
               </p>
             </div>
           </div>
-        </div> <!-- Twitter -->
+        </div>[#--
       
-        <div class="eq-mn-1-1 eq-ml-1-3">        
+        --]<div class="eq-mn-1-1 eq-ml-1-3">        
           <div class="facebook col-right">
           
             <div class="social-upper">
@@ -90,9 +90,9 @@
               </p>
             </div>
           </div>
-        </div> <!-- Facebook -->
+        </div>[#--
         
-        <div class="eq-mn-1-1 eq-ml-1-1">
+        --]<div class="eq-mn-1-1 eq-ml-1-1">
           <div class="solo-bailout">
             <p>
               <a href="http://www.txstate.edu/social" class="solo-bailout-button">
