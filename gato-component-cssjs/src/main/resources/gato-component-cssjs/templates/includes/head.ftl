@@ -1,7 +1,7 @@
 [#macro pageCustomJS page isAncestor]
 	[#if page.customjs?has_content]
 		[#list cmsfn.children(page.customjs, 'mgnl:component') as entry]
-			[#local code = cmsfn.decode(entry).customJS]
+			[#local code = cmsfn.decode(entry).customJS?replace("<script.*?>", "", "r")?replace("</script>", "", "r")]
 			[#if (entry.inherit!false) || !isAncestor]
 				[#if entry.framework == "prototype"]
 					$(document).observe('dom:loaded', function () {
