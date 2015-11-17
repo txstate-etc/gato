@@ -18,7 +18,9 @@ function getVideoInfo(url) {
   if (urlInfo) {
     vInfo.playerType = urlInfo.provider;
     vInfo.videoId = urlInfo.id;
-  } else if (url.startsWith("<iframe")) {
+  } else if (url.match(/^https:\/\/mediaflo\.txstate\.edu/)) {
+    vInfo.playerType = "mediaflo";
+  } else if (url.startsWith("<iframe") || url.startsWith("<div")) {
     vInfo.playerType = "embed";
   } else if (jQuery.inArray(getFileExtension(url), flowPlayerFormats) != -1) {
     vInfo.playerType = "flow";
@@ -49,6 +51,10 @@ function buildFlowPlayer(el, url) {
 
 function buildEmbed(el, embedCode) {
   jQuery(el).append(embedCode);
+}
+
+function buildMediaflo(el, url) {
+  jQuery(el).append('<iframe id="mediaflo-frame" src="' + url + '"></iframe>');
 }
 
 function buildUstreamPlayer(el, videoId) {
@@ -84,6 +90,9 @@ function buildPlayer(el, videoInfo) {
       break;
     case "flow":
       buildFlowPlayer(el, videoInfo.url);
+      break;
+    case "mediaflo":
+      buildMediaflo(el, videoInfo.url);
       break;
     case "unknown":
       el.innerHTML = "Sorry, we're unable to play this video.";
