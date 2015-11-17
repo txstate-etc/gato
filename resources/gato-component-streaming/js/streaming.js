@@ -54,7 +54,7 @@ function buildEmbed(el, embedCode) {
 }
 
 function buildMediaflo(el, url) {
-  jQuery(el).append('<iframe id="mediaflo-frame" src="' + url + '"></iframe>');
+  jQuery(el).append('<iframe class="mediaflo-frame" src="' + url + '"></iframe>');
 }
 
 function buildUstreamPlayer(el, videoId) {
