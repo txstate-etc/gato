@@ -36,8 +36,6 @@ import javax.jcr.RepositoryException;
 import javax.jcr.PathNotFoundException;
 import javax.jcr.LoginException;
 
-import org.apache.commons.io.output.ByteArrayOutputStream;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -362,14 +360,6 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
   }
 
   private void convertNodeToAreaAndComponent(Node n, String type, String name) throws RepositoryException {
-    log.info("convert node "+n.getPath()+" to area and component with type "+type);
-    ByteArrayOutputStream byteOs = new ByteArrayOutputStream();
-    try {
-      n.getSession().exportSystemView(n.getPath(), byteOs, true, false);
-      log.info(byteOs.toString());
-    } catch (Exception e) {
-      log.warn("Exception on exportSystemView", e);
-    }
     Node area = n.getParent().addNode("tempconversionnode", "mgnl:area");
     NodeUtil.moveNode(n, area);
     NodeUtil.renameNode(area, name);
