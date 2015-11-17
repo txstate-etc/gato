@@ -321,6 +321,56 @@ body.admin {
 	color: #983222;
 }
 
+.txst-eventsbox-content {
+	overflow: hidden;
+	width: 270px;
+	height: 202px;
+	margin: 20px 15px;
+	position: relative;
+}
+
+.txst-eventsbox-entry {
+	position: relative;
+	height: 80px;
+	margin-top: 14px;
+	margin-bottom: 14px;
+	overflow: hidden;
+}
+
+.txst-eventsbox-headline {
+	display: block;
+	color: #000;
+	text-decoration: none;
+	font-size: 11px;
+	font-weight: bold;
+	line-height: 15px;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.txst-eventsbox-headline .summary {
+	font-size: 12px;
+}
+.txst-eventsbox-headline abbr {
+	border: 0px;
+}
+
+a.txst-eventsbox-image {
+	float: left;
+	margin-right: 10px;
+}
+.txst-eventsbox-image img {
+	width: 64px;
+	height: 64px;
+}
+
+.txst-eventsbox-tease {
+	padding-top: 5px;
+	font-size: 10px;
+	line-height: 14px;
+	height: 42px;
+	overflow: hidden;
+}
+
 .library-footer {
 	clear: both;
 	background: #4b0f15 url(#{$resource-root}/gato-template-library/images/footertile.jpg) repeat-x;

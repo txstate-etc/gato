@@ -1,0 +1,53 @@
+form:
+  tabs:
+    - name: tabMain
+      label: Event Information
+      fields:
+        - name: title
+          required: true
+          description: The Name of the Event
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Event Title
+        - name: startDate
+          required: true
+          class: info.magnolia.ui.form.field.definition.DateFieldDefinition
+          time: true
+          label: Start Date
+          timeFormat: "EEE, MMMM d"
+          type: Date
+        - name: endDate
+          required: true
+          class: info.magnolia.ui.form.field.definition.DateFieldDefinition
+          time: true
+          label: End Date
+          timeFormat: "EEE, MMMM d"
+          type: Date
+        - name: allDay
+          class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+          buttonLabel: All Day Event
+          description: If checked, the times to start and end will be ignored, and only the date will be used.
+          label: ""
+        - name: text
+          description: Short Description of the Event
+          label: Description
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          rows: 3
+        - name: link
+          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+          appName: pages
+          targetWorkspace: website
+          description: "Enter a full URL to an external site (http://www.google.com/) or use the \"Internal Link\" button to link to another page in this site."
+          label: Link
+          buttonSelectNewLabel: "Internal Link..."
+        - name: image
+          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+          label: Thumbnail Image
+          description: 75x75 Image to Use With Event
+          appName: assets
+          targetWorkspace: dam
+          identifierToPathConverter:
+            class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
+          contentPreviewDefinition:
+            contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
+actions: !include /gato-template/dialogs/common/actions-block.yaml
+label: Add Event

@@ -7,6 +7,8 @@ modelClass: edu.txstate.its.gato.LibraryTemplateModel
 variations:
   smartphone:
     templateScript: /gato-template-library/templates/pages/mobile.ftl
+parameters:
+  sortOrder: 425
 areas:
   customcss:
     !include /gato-component-cssjs/templates/areas/customcss.yaml
@@ -120,6 +122,10 @@ areas:
     type: list
     title: Event
     templateScript: /gato-template-library/templates/areas/contentboxmiddle-area.ftl
+    modelClass: edu.txstate.its.gato.LibraryTemplateModel
+    availableComponents:
+      event:
+        id: gato-template-library:components/libraryevent
   contentboxright:
     renderType: freemarker
     type: list

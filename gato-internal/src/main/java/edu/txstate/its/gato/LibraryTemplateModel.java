@@ -280,4 +280,8 @@ public class LibraryTemplateModel<RD extends RenderableDefinition> extends Rende
         }
     }
 
+    public boolean showEvent(Calendar endDate){
+        return (endDate.getTimeInMillis() > Calendar.getInstance().getTimeInMillis());
+    }
+
 }
