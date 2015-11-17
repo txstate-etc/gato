@@ -1,0 +1,7 @@
+templateScript: /gato-template-data/templates/components/video.ftl
+renderType: freemarker
+title: Video
+description: Video for mobile app.
+dialog: gato-template-data:components/video
+parameters:
+  icon: /gato-template/images/imagelink.png

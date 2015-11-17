@@ -1,0 +1,32 @@
+form:
+  tabs:
+    - name: tabMain
+      label: Video
+      fields:
+        - name: thumbnail
+          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+          appName: assets
+          targetWorkspace: dam
+          label: Thumbnail
+          identifierToPathConverter:
+            class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
+          contentPreviewDefinition:
+            contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
+          description: "Choose an image from Assets. You may also upload an image to Assets from here."
+        - name: section
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Section
+          description: "A keyword to categorize the video, supported values are risingstar, bobcattube, and beabobcat."
+        - name: thumbnailAlt
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Alternate Text
+          description: "Alt text for the thumbnail, used for voiceover mode on mobile."
+        - name: title
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Description
+          description: "A sentence or two describing the purpose/content of the video."
+        - name: videoUrl
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Video URL
+          description: "URL to the mp4 file. Youtube/Vimeo links currently not supported."
+actions: !include /gato-template/dialogs/common/actions-block.yaml

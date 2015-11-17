@@ -55,8 +55,10 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
     tasks.add(new MoveFileToDamTask("splash", "images"));
     tasks.add(new MoveFileToDamTask("rollover", "images"));
     tasks.add(new MoveFileToDamTask("bgimage", "images"));
+    tasks.add(new MoveFileToDamTask("thumbnail", "images"));
     tasks.add(new MoveFileToDamTask("icon", "images"));
     tasks.add(new MoveFileToDamTask("document", "documents"));
+    tasks.add(new MoveFileToDamTask("file", "documents"));
 
     tasks.add(new ResolveUploadVsDmsTask("gato:components/texasState/texasTextImage", "image", "imageDMS"));
     tasks.add(new ResolveUploadVsDmsTask("gato:components/texasState/gato-banner", "image", "imageDMS"));
@@ -99,6 +101,8 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       {"gato:components/texasState/texas-slideshow-slide",  "gato-template-tsus:components/slide"},
       {"gato:components/texasState/navBlock",               "gato-template:components/sidenav"},
       {"gato:components/texasState/icon-link",              "gato-template:components/iconlink"},
+      {"gato:components/mobile/mobile-audio",               "gato-template-data:components/audio"},
+      {"gato:components/mobile/mobile-video",               "gato-template-data:components/video"},
       {"gato:components/tsus/tsus-institution-logo",        "gato-template:components/imagelink"},
       {"gato:components/ua/ua-contentbox",                  "gato-template-ua:components/contentbox"},
       {"gato:components/widgets/accordion",                 "gato-template-ua:components/accordionslide"},
@@ -120,6 +124,9 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       {"gato:pages/main-2009/khan-standard",                "gato-template-txstate2009:pages/standard"},
       {"gato:pages/main-2009/khan-mail",                    "gato-template-txstate2009:pages/mail"},
       {"gato:pages/redirect",                               "gato-template:pages/redirect"},
+      {"gato:pages/mobile-audio",                           "gato-template-data:pages/audio"},
+      {"gato:pages/mobile-video",                           "gato-template-data:pages/video"},
+      {"gato:pages/mobile-photos",                          "gato-template-data:pages/photos"},
       {"gato:pages/gato-site-index",                        "gato-template:pages/siteindex"},
       {"gato:pages/library-2012/library-2012-home",         "gato-template-library:pages/home"}
     };

@@ -1,0 +1,15 @@
+templateScript: /gato-template-blank/templates/pages/blank.ftl
+renderType: site
+visible: true
+title: Mobile Video Data
+areas:
+  contentParagraph:
+    title: Main Content Area
+    type: list
+    availableComponents:
+      photo:
+        id: gato-template-video:components/video
+variations:
+  json:
+    templateScript: /gato-template-data/templates/pages/video.ftl
+
