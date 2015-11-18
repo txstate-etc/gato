@@ -9,6 +9,8 @@ form:
           appName: assets
           targetWorkspace: dam
           description: "Select a file to display it, or a folder to list all of its contents."
+          identifierToPathConverter:
+            class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
           contentPreviewDefinition:
             contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
         - name: extension
