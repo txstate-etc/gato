@@ -1,0 +1,133 @@
+div#top-feature {
+  figure {
+    position: relative;
+    overflow: hidden;
+    background: $charcoal;
+    margin: 0;
+    p { margin: 0; }
+
+    img { 
+      display: block; 
+      max-width: none;
+      max-height: 500px;
+      margin: auto;
+    }
+    
+    figcaption {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      max-width: 1200px;
+      padding: 0 2rem;
+      margin: 0 auto;
+      
+      .caption-wrap {
+        position: absolute;
+        bottom: 3.5rem;
+        width: 50%;
+      
+        .feature-headline {
+          a {
+            display: block;
+            background: $maroon;
+            color: $white;
+            @include hover-bg($light-maroon);
+            font-weight: 500;
+            font-size: 3.2rem;
+            line-height: 4.2rem;
+            padding: 1.6rem 3rem 1.4rem 2rem;
+          }
+        }
+
+        .feature-play-button {
+          position: absolute;
+          top: 0;
+          a {
+            @include vendor-prefix(border-radius, 50%);
+            border-radius: 8rem;
+            background: $maroon;
+            position: absolute;
+            width: 6.5rem;
+            height: 6.5rem;
+            margin-top: -7.5rem;
+            &:after {
+              left: 0;
+              right: 0;
+              margin: 0 auto;
+              position: absolute;
+              border: solid rgba(0, 0, 0, 0);
+              border-left-color: $white;
+              border-width: 1rem 0 1rem 1.6rem;
+              content: "";
+              height: 0;
+              width: 0;
+              position: absolute;
+              top: 50%;
+              margin-top: -1rem;
+              left: .4rem;
+            }
+            &:hover {
+              @include vendor-prefix(transform, scale(1.15));
+              background: $light-maroon;
+            }
+            @include vendor-prefix(transition, all 0.2s cubic-bezier(0, 0.5, 0.25, 1));
+          }
+        }
+      }
+    }    
+  }
+
+  @include eq-max-width('xl') {
+   figure {
+      img { max-height: 415px; }
+  
+      figcaption {
+        max-width: 1000px;
+        
+        .feature-headline a {
+          font-size: 2.8rem;
+          line-height: 3.8rem;
+          padding-bottom: 1.8rem;
+        }
+        .feature-play-button {
+          a {
+            width: 5.5rem;
+            height: 5.5rem;
+            margin-top: -6rem;
+          }
+        }
+      }
+    }
+  }
+
+  @include eq-max-width('lg') {
+    figure {
+      img { max-height: 300px; }
+    }
+  }
+
+  @include eq-max-width('ml') {
+    figure {
+      img { max-height: 250px; }
+      figcaption {
+        padding: 0;
+        .caption-wrap {
+          width: 100%;
+          position: inherit;
+          .feature-play-button {
+            left: 2rem;
+            a {
+              margin-top: -7rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include eq-max-width('md') {
+    figure {
+      img { max-height: 185px; }
+    }
+  }
+}
