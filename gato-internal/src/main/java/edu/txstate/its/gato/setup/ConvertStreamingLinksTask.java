@@ -30,11 +30,14 @@ public class ConvertStreamingLinksTask extends GatoBaseUpgradeTask {
 
   private static final Logger log = LoggerFactory.getLogger(Gato5MigrationTask.class);
 
-  protected HashMap<String, String> urlMap = new HashMap<String, String>();
-
   public ConvertStreamingLinksTask(String name, String description) {
     super(name, description);
+  }
 
+  protected void doExecute(InstallContext ctx) throws RepositoryException, PathNotFoundException, TaskExecutionException, LoginException {
+    Session hm=ctx.getJCRSession(RepositoryConstants.WEBSITE);
+
+    HashMap<String, String> urlMap = new HashMap<String, String>();
     // TODO: Find a place to put this file
     MagnoliaConfigurationProperties mcp = Components.getComponent(MagnoliaConfigurationProperties.class);
     String fileName = mcp.getProperty("gato.streamcsvfile");
@@ -46,19 +49,16 @@ public class ConvertStreamingLinksTask extends GatoBaseUpgradeTask {
       for (CSVRecord record : parser) {
         urlMap.put(record.get("oldUrl"), record.get("newUrl"));
       }
+
+      visitByTemplate(hm, "gato:components/texasState/texas-streaming", n -> {
+        String oldUrl = PropertyUtil.getString(n, "videourl", "");
+        if (urlMap.containsKey(oldUrl)) {
+          n.getProperty("videourl").setValue(urlMap.get(oldUrl));
+        }
+      });
     } catch(IOException e) {
+      e.printStackTrace();
       log.warn("Couldn't load csv file with url mapping from " + fileName);
     }
-  }
-
-  protected void doExecute(InstallContext ctx) throws RepositoryException, PathNotFoundException, TaskExecutionException, LoginException {
-    Session hm=ctx.getJCRSession(RepositoryConstants.WEBSITE);
-
-    visitByTemplate(hm, "gato:components/texasState/texas-streaming", n -> {
-      String oldUrl = PropertyUtil.getString(n, "videourl", "");
-      if (urlMap.containsKey(oldUrl)) {
-        n.getProperty("videourl").setValue(urlMap.get(oldUrl));
-      }
-    });
   }
 }
