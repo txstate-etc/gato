@@ -2,9 +2,9 @@
 [#assign float = content.imageFloat!'left']
 <div class="gato-textimage eq-parent">
   [#-- if there is a title, put it here --]
-  [#if (content.title)?has_content]
+  [#if (decodedContent.title)?has_content]
     <h2 class="gato-textimage-title">
-      ${content.title}
+      ${decodedContent.title}
     </h2>
   [#else]
     [#assign float = 'top']
