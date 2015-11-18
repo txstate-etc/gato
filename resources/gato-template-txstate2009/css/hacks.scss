@@ -1,0 +1,54 @@
+body {
+  .gato-accordion, .gato-rss-item.gato-accordion {
+    box-shadow: none;
+
+    .gato-accordion-header {
+      box-shadow: none;
+      padding: 1rem 2rem;
+      background: transparent;
+      &:hover, &:active, &.selected {
+        background: transparent;
+      }
+      color: $maroon;
+      font-weight: bold;
+      .txst-eventdetail-dates {
+        color: $almost-black;
+      }
+
+      &:before {
+        @include fa('chevron-down');
+        position: absolute;
+        left: 0;
+      }
+      &.selected:before {
+        @include fa('chevron-up');
+      }
+    }
+    .txst-eventdetail-detailsbox dt {
+      border: none;
+    }
+  }
+
+  .txst-faqitem {
+    .txst-faqitem-question a {
+      border: none;
+      background-color: transparent;
+      &:hover, &:active, &.selected {
+        background: transparent;
+        text-decoration: underline;
+      }
+      color: $maroon;
+      font-weight: bold;
+    }
+    .txst-faqitem-answer {
+      border: none;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+  .txst-faq-group-title a {
+    color: $gold;
+    &:hover { text-decoration: underline; }
+  }
+
+}
