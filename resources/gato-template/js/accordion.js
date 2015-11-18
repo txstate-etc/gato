@@ -3,6 +3,8 @@
 
   $(function() {
     $('.gato-accordion[data-start-collapsed=true] .gato-accordion-content').hide();
+    $('.gato-accordion[data-start-collapsed=true] .gato-accordion-header').removeClass('selected');
+    $('.gato-accordion[data-start-collapsed=false] .gato-accordion-header').addClass('selected');
 
     $('.gato-accordion-header').on('click', function(e) {
       e.preventDefault();
