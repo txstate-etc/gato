@@ -13,9 +13,9 @@ form:
           buttonLabel: Field is mandatory
         - name: extension
           class: info.magnolia.ui.form.field.definition.MultiValueFieldDefinition
-          label: Allowed File Types
+          label: Allow specific file types
           buttonSelectAddLabel: Add File Type
-          description: To limit uploads to files of a particular type, enter the file type extensions you'd like to permit. (E.g. "DOC, PDF, TXT".)
+          description: To limit uploads to files of a particular type, enter the file type extensions you'd like to permit (e.g. DOC, TXT, PDF). If you want to allow all file types, don't add anything here.
           field:
             name: textField
             class: info.magnolia.ui.form.field.definition.TextFieldDefinition
