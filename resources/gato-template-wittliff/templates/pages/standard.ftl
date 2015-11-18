@@ -12,7 +12,7 @@
 
   <div id="outercontainer">
     [#include "/gato-template-wittliff/templates/includes/header.ftl"]
-    <main id="bodycontent">
+    <main id="bodycontent" class="txst-contentarea">
       [#if def.parameters.isMailTemplate!false]
         [@cms.area name="mail" /]
       [#else]
