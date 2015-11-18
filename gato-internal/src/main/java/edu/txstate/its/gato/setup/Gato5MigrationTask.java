@@ -255,7 +255,7 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
     if (n.hasProperty("endLevel")) { n.getProperty("endLevel").remove(); }
 
     n.setProperty("startPage", startLevel);
-    n.setProperty("depth", endLevel - startLevel + 1);
+    n.setProperty("depth", endLevel - startLevel);
   }
 
   private void updateSubPagesComponent(Node n) throws RepositoryException {
