@@ -186,6 +186,10 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
     SecuritySupport ss = Components.getComponent(SecuritySupport.class);
     RoleManager rm = ss.getRoleManager();
     for (Node roleNode : NodeUtil.getNodes(roles.getRootNode(), NodeTypes.Role.NAME)) {
+
+      // don't touch superuser, editor, or anonymous roles
+      if (roleNode.getName().equals("superuser") || roleNode.getName().equals("editor") || roleNode.getName().equals("anonymous")) continue;
+
       Role role = rm.getRole(roleNode.getName());
       Map<String, ACL> acls = rm.getACLs(role.getName());
       if (acls.containsKey("dms")) {
