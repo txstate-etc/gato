@@ -3,3 +3,5 @@ renderType: site
 title: Page Redirect
 visible: true
 dialog: gato-template:pages/redirect
+parameters:
+  sortOrder: 525

@@ -12,4 +12,5 @@ areas:
 variations:
   json:
     templateScript: /gato-template-data/templates/pages/video.ftl
-
+parameters:
+  sortOrder: 775

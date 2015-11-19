@@ -12,4 +12,6 @@ areas:
 variations:
   json:
     templateScript: /gato-template-data/templates/pages/photos.ftl
+parameters:
+  sortOrder: 750
 

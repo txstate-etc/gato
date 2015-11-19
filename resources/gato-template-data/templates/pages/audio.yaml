@@ -12,4 +12,6 @@ areas:
 variations:
   json:
     templateScript: /gato-template-data/templates/pages/audio.ftl
+parameters:
+  sortOrder: 725
 

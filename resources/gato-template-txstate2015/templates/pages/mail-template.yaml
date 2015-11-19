@@ -5,4 +5,5 @@ title: 2015 TXST Mail
 dialog: gato-template:pages/page-properties
 parameters:
   isMailTemplate: true
+  sortOrder: 50
 areas: !include /gato-template-txstate2015/templates/includes/template-areas.yaml

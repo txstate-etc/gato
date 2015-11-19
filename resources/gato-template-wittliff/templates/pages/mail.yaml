@@ -5,5 +5,6 @@ title: Wittliff Mail
 dialog: gato-template:pages/page-properties
 parameters:
   isMailTemplate: true
+  sortOrder: 250
 areas:
   !include /gato-template-wittliff/templates/includes/standardareas.yaml

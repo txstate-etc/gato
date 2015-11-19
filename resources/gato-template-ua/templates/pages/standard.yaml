@@ -5,3 +5,5 @@ title: Univ. Adv. Standard
 dialog: gato-template:pages/page-properties
 areas:
   !include /gato-template-ua/templates/includes/standardareas.yaml
+parameters:
+  sortOrder: 325

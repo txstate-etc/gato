@@ -57,3 +57,5 @@ areas:
     availableComponents:
       link:
         id: gato-template:components/misctext
+parameters:
+  sortOrder: 375

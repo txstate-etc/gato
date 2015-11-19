@@ -6,3 +6,5 @@ dialog: gato-template:pages/page-properties
 areas:
   contentParagraph:
     !include /gato-template/templates/areas/contentParagraph.yaml
+parameters:
+  sortOrder: 625

@@ -4,3 +4,5 @@ visible: true
 title: 2015 TXST Home
 dialog: gato-template:pages/page-properties
 areas: !include /gato-template-txstate2015/templates/includes/template-areas.yaml
+parameters:
+  sortOrder: 75

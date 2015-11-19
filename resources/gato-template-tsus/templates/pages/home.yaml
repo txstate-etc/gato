@@ -47,3 +47,5 @@ areas:
     availableComponents:
       logo:
         id: gato-template:components/imagelink
+parameters:
+  sortOrder: 175
