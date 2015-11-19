@@ -65,6 +65,8 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
     tasks.add(new ResolveUploadVsDmsTask("gato:components/widgets/feature/feature-slide", "image", "imageDMS"));
     tasks.add(new ResolveUploadVsDmsTask("gato:components/tsus/tsus-banner", "image", "imageDMS"));
 
+    tasks.add(new ConvertStreamingLinksTask("convert streaming links", "migrate old ITS streaming server links to mediaflo links"));
+
     // additional tasks in our catch all migration to 5 task
     tasks.add(new Gato5MigrationTask("Gato Migrate to 5 task", "Generic update task for all the things we need to do to upgrade to Magnolia 5."));
 

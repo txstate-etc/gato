@@ -38,27 +38,33 @@ public class ConvertStreamingLinksTask extends GatoBaseUpgradeTask {
     Session hm=ctx.getJCRSession(RepositoryConstants.WEBSITE);
 
     HashMap<String, String> urlMap = new HashMap<String, String>();
-    // TODO: Find a place to put this file
+
     MagnoliaConfigurationProperties mcp = Components.getComponent(MagnoliaConfigurationProperties.class);
     String fileName = mcp.getProperty("gato.streamcsvfile");
+    if (fileName == null) {
+      log.warn("Couldn't find gato.streamcsvfile property, skipping task...");
+      return;
+    }
     File csvFile = new File(fileName);
 
+    CSVParser parser;
     try {
-      CSVParser parser = CSVParser.parse(csvFile, StandardCharsets.UTF_8, CSVFormat.DEFAULT.withHeader("oldUrl", "newUrl"));
-
-      for (CSVRecord record : parser) {
-        urlMap.put(record.get("oldUrl"), record.get("newUrl"));
-      }
-
-      visitByTemplate(hm, "gato:components/texasState/texas-streaming", n -> {
-        String oldUrl = PropertyUtil.getString(n, "videourl", "");
-        if (urlMap.containsKey(oldUrl)) {
-          n.getProperty("videourl").setValue(urlMap.get(oldUrl));
-        }
-      });
+      parser = CSVParser.parse(csvFile, StandardCharsets.UTF_8, CSVFormat.DEFAULT.withHeader("oldUrl", "newUrl"));
     } catch(IOException e) {
       e.printStackTrace();
-      log.warn("Couldn't load csv file with url mapping from " + fileName);
+      log.warn("Couldn't load csv file with url mapping from " + fileName + ". Skipping task...");
+      return;
     }
+      
+    for (CSVRecord record : parser) {
+      urlMap.put(record.get("oldUrl"), record.get("newUrl"));
+    }
+
+    visitByTemplate(hm, "gato:components/texasState/texas-streaming", n -> {
+      String oldUrl = PropertyUtil.getString(n, "videourl", "");
+      if (urlMap.containsKey(oldUrl)) {
+        n.getProperty("videourl").setValue(urlMap.get(oldUrl));
+      }
+    });
   }
 }
