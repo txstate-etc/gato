@@ -10,7 +10,6 @@
 		'gato-template/js/post-load.js',
 		'gato-template/js/accordion.js',
 		'gato-template/js/easter-egg.js',
-		'gato-template/js/webtools.js',
 		'gato-template/js/edit-bars.js',
 		'gato-lib/js/moment.js',
 		'gato-lib/js/jsonp.js',

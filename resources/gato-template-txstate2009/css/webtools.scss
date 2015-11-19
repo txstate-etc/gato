@@ -1,53 +1,125 @@
-.gato-webtools {
-  position: absolute;
-  top: 15px;
-  right: 194px;
-  z-index: 70001;
-  font-family: Arial;
-  height: 24px;
-  width: 106px;
-  overflow: visible;
-  .mgnlEditorBar.area {
-    display: none;
-  }
+.txst-mainsite-banner {
+	position: relative;
+	z-index: 50;
 }
 
-.gato-webtools-dropdown {
-  display: block;
-  height: 12px;
-  padding: 6px 0px 6px 13px;
-  font-size: 11px;
-  font-weight: bold;
-  color: white;
-  text-decoration: none;
-  line-height: 12px;
-  background: url(../images/webtools-button.png) no-repeat;
-  &:hover, &:focus { text-decoration: none; }
+.txst-banner-toolsandsearch {
+	position: absolute;
+	top: 33px;
+	right: 0px;
+	z-index: 1;
+	font-family: Arial;
+	height: 24px;
+	width: 300px;
+	overflow: visible;
 }
 
-.gato-webtools-items {
-  width: 150px;
-  margin-left: 3px;
-  overflow: hidden;
-  display: none;
-  background: url(../images/webtools-home-menubg.png) no-repeat;
-  padding: 12px 0px 4px 0px;
+.txst-banner-webtools-searchbg {
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	background: url(../images/webtools-home-submit.png) right no-repeat;
+	width: 41px;
+	height: 24px;
+	z-index: 3;
 }
 
-.gato-webtools-item {
-  font-weight: bold;
-  font-size: 12px;
-  overflow: hidden;
-  a {
-    position: relative;
-    display: block;
-    color: white;
-    line-height: 16px;
-    padding: 3px 9px;
-    text-decoration: none;
-    &:hover, &:focus {
-      text-decoration: none;
-      background-color: #4a4333;
-    }
-  }
+.txst-banner-webtools-menuheader {
+	width: 106px;
+	height: 24px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 3;
+}
+
+.txst-banner-webtools-menuheader a {
+	display: block;
+	padding: 6px 0px 6px 13px;
+	height: 12px;
+	font-size: 11px;
+	line-height: 12px;
+	font-weight: bold;
+	color: white;
+	text-decoration: none;
+	cursor: pointer;
+	background: url(../images/webtools-home-button.png) no-repeat;
+}
+
+.txst-banner-webtools-menuheader a:hover {
+	text-decoration: none !important;
+}
+
+.txst-banner-webtools-menuitems {
+	position: absolute;
+	top: 21px;
+	left: 4px;
+	z-index: 1;
+	width: 106px;
+	overflow: visible;
+	display: none;
+}
+
+.txst-banner-webtools-menuitems .png-bg {
+	width: 106px;
+	padding: 12px 0px 4px 0px;
+	background: url(../images/webtools-home-menubg.png) no-repeat;
+}
+
+.clearboth {
+	clear: both;
+}
+
+.txst-banner-webtools-menuitem {
+	float: left;
+	font-weight: bold;
+	font-size: 12px;
+	width: 100%;
+	overflow: hidden;
+}
+
+.txst-banner-webtools-menuitem a {
+	position: relative;
+	display: block;
+	color: white;
+	padding: 3px 9px;
+	text-decoration: none;
+}
+
+.txst-banner-webtools-menuitem a:hover {
+	text-decoration: none;
+	background-color: #4a4333;
+}
+
+.txst-banner-webtools-menuitem img {
+	border: 0px;
+}
+
+.txst-banner-search {
+	position: absolute;
+	left: 106px;
+	top: 0px;
+	width: 186px;
+	height: 24px;
+	padding-left: 4px;
+	z-index: 2;
+	background: url(../images/webtools-home-bg-noalpha.png) repeat-x;
+}
+
+.txst-banner-search input {
+	border: 0px;
+	width: 150px;
+	height: 14px;
+	margin-top: 4px;
+	line-height: 14px;
+}
+
+.txst-banner-webtools-searchbg .txst-banner-toolssearchbutton {
+	position: relative;
+	width: 15px;
+	height: 15px;
+	overflow: hidden;
+	float: right;
+	margin: 5px 8px 0px 0px;
+	background: url(../images/webtools-magnify.png) no-repeat;
 }

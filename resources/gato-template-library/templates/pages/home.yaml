@@ -134,8 +134,6 @@ areas:
     availableComponents:
       richeditor:
         id: gato-template:components/richeditor
-  webtools:
-    !include /gato-template/templates/areas/linklist.yaml
   library-footer:
     renderType: freemarker
     type: list

@@ -27,7 +27,7 @@ mail:
 navBlocks:
   !include /gato-template/templates/areas/navBlocks.yaml
 webtools:
-  !include /gato-template/templates/areas/webtools.yaml
+  !include /gato-template-txstate2009/templates/areas/webtools.yaml
 socialmedia:
   !include /gato-template/templates/areas/sociallist.yaml
 footer:

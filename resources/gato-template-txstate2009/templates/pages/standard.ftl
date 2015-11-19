@@ -5,11 +5,11 @@
 <head>
 	[@javascript scripts = [
 		'gato-template-txstate2009/js/main-menus.js',
+		'gato-template-txstate2009/js/webtools.js',
 		'gato-template/js/outgoing-clicks.js',
 		'gato-template/js/post-load.js',
 		'gato-template/js/accordion.js',
 		'gato-template/js/easter-egg.js',
-		'gato-template/js/webtools.js',
 		'gato-template/js/edit-bars.js',
 		'gato-lib/js/moment.js',
 		'gato-lib/js/jsonp.js',
@@ -40,7 +40,6 @@
         <img src="${gf.resourcePath()}/gato-template-txstate2009/images/destroyer-logo.jpg" alt="Texas State University Logo"/>
       </a>
       [@cms.area name="webtools" editable=false /]
-      [#include "/gato-template/templates/includes/search.ftl"]
       <div class="txst-mainsite-banner-links">
         <a href="http://www.txstate.edu/about.html">About Texas State</a>
         <a href="http://www.txstate.edu/library.html">Library</a>
@@ -75,7 +74,7 @@
                   [#assign activeURL = gf.getImageHandlerBase()+cacheStr+'/imagehandler/khanmenuactiveempty/'+imageName+'.gif']
                   [#assign inactiveURL = gf.getImageHandlerBase()+cacheStr+'/imagehandler/khanmenuempty/'+imageName+'.gif']
                 [/#if]
-                <a href="${cmsfn.link(page)}" class="ddmenu-menubaritem" style="background: url(${activeURL}?text=${(page.title!'')?url})">
+                <a href="${cmsfn.link(page)}" class="ddmenu-menubaritem" style="background: url(${activeURL}?text=${(page.title!'')?url?replace('(','%28')?replace(')','%29')})">
                   <img src="${inactiveURL}?text=${(page.title!'')?url}" alt="${(page.title!'')?html}"/>
                 </a>
                 [#if hasChildren]

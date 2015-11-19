@@ -1,6 +1,6 @@
 type: list
 renderType: freemarker
-templateScript: /gato-template/templates/areas/webtools.ftl
+templateScript: /gato-template-txstate2009/templates/areas/webtools.ftl
 availableComponents:
   link:
     id: gato-template:components/link

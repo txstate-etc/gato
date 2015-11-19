@@ -1,74 +1,10 @@
-/* from magnoliaAssets/main-menus/css/main-menus.css */
-.ddmenu-menubar {
-	position: relative;
-	height: 35px;
-}
-
-div.ddmenu-menubaritem {
-	position: relative;
-	float: left;
-}
-
-a.ddmenu-menubaritem {
-	display: block;
-	padding: 10px 8px;
-	line-height: 15px;
-}
-
-a.ddmenu-menubaritem:hover {
-	text-decoration: none;
-}
-
-.ddmenu-menu-wrap {
-	position: absolute;
-	top: 35px;
-	left: 0px;
-	visibility: hidden;
-}
-
-.ddmenu-menu-wrap .png-bg {
-	float: left;
-	z-index: -1;
-}
-
-.ddmenu-menu {
-	position: relative;
-	z-index: 1;
-	padding: 2px 0px;
-}
-
-.ddmenu-visible .ddmenu-menu-wrap {
-	visibility: visible;
-}
-.ddmenu-visible {
-	margin-left: 0px;
-}
-.ddmenu-visible a.ddmenu-menubaritem img {
-	visibility: hidden;
-	margin-left: 0px;
-}
-
-.ddmenu-menu a {
-	display: block;
-	line-height: 16px;
-	padding: 6px 10px;
-	width: 200px;
-}
-.ddmenu-menu a:hover {
-	text-decoration: none;
-}
-.ddmenu-menu img {
-	display: block;
-}
-
-/* from /txstate-sites/css/khan-ddmenu.css */
 .txst-khanbanner-ddmenu {
 	position: absolute;
 	left: -3px;
 	bottom: 0px;
 	height: 30px;
 	width: 968px;
-	background: url(txstate-sites/images/destroyer-menu-bg.jpg) no-repeat;
+	background: url(../images/destroyer-menu-bg.jpg) no-repeat;
 	padding: 0px 10px 0px 0px;
 	z-index: 100;
 }
@@ -109,7 +45,7 @@ a.ddmenu-menubaritem {
 .ddmenu-menu-wrap .png-bg {
 	float: left;
 	z-index: -1;
-	background: url(txstate/images/webtools-home-menubg.png) no-repeat;
+	background: url(../images/webtools-home-menubg.png) no-repeat;
 }
 
 .ddmenu-menu {
