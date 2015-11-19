@@ -10,12 +10,7 @@ headerImage:
     headerImg:
       id: gato-template-txstate2015:components/header-image
 parentOrganization:
-  renderType: freemarker
-  type: single
-  title: Parent Organization
-  availableComponents:
-    parentOrg:
-      id: gato-template-txstate2015:components/parent-organization
+  !include /gato-template-txstate2009/templates/areas/parentorganization.yaml
 gato-banners:
   !include /gato-template/templates/areas/banners.yaml
 siteinfo:

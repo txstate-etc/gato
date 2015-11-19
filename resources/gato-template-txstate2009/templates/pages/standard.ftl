@@ -32,7 +32,7 @@
   [@templatehead/]
 </head>
 <body class="${cmsfn.isEditMode()?string('admin','')} ${isHomePage?string('homepage','')}">
-  <header class="txst-topbanner">
+  <div class="txst-topbanner">
     <div class="txst-banner-shadow"></div>
     <div class="txst-banner-content">
       <a href="http://www.txstate.edu/"
@@ -47,16 +47,20 @@
         <a href="http://www.txstate.edu/round-rock.html">Round Rock Campus</a>
       </div>
     </div>
-  </header>
+  </div>
   <div class="txst-khan-frame">
-    <header class="txst-banner">
+    <div class="txst-banner">
       [@bannerSettings content=content areaname='gato-banners'/]
       <div class="txst-khanbanner ${showBannerArea?string('', 'txst-khanbanner-hideimage')}">
         <div class="txst-khanbanner-entityidentity">
-          [@cms.area name="parentOrganization" content=gf.getOrCreateArea(homepage, 'parentOrganization') editable=isHomePage /]
-          <h1 class="txst-khanbanner-departmenttitle">
-            <a href="${cmsfn.link(homepage)}">${gf.nodeTitle(homepage)}</a>
-          </h1>
+          <div class="center-me">
+            <div class="center-me-in-ie">
+              [@cms.area name="parentOrganization" content=gf.getOrCreateArea(homepage, 'parentOrganization') editable=isHomePage /]
+              <h1 class="txst-khanbanner-departmenttitle">
+                <a href="${cmsfn.link(homepage)}">${gf.nodeTitle(homepage)}</a>
+              </h1>
+            </div>
+          </div>
         </div>
         [@cms.area name="gato-banners"/]
         <!-- MAIN MENUS -->
@@ -99,7 +103,7 @@
           </div>
         </div>
       </div>
-    </header>
+    </div>
     <div class="txst-khan-contentarea ${(content.hideSidebar!false)?string('txst-khan-fullwidth', '')}">
       [#if !(content.hideSidebar!false)]
         <div class="gato-navcolumn">
