@@ -94,16 +94,16 @@ public class DocumentsModel<RD extends ConfiguredTemplateDefinition> extends Ren
         }
    }
 
-    public List<Document> getFiles(String link, String extension){
+    public List<Document> getFiles(String itemKey, String extension){
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm" );
         List<Document> foundDocuments = new ArrayList<Document>();
         ArrayList expressions = new ArrayList();
-
-        // if a link is defined (folder or document)
-        if(StringUtils.isNotEmpty(link)){
+        
+        // if an item key is defined (folder or document)
+        if(StringUtils.isNotEmpty(itemKey)){
             try {
-            
-                Node linkNode = MgnlContext.getJCRSession("dam").getNode(link);
+                Node linkNode = MgnlContext.getJCRSession("dam").getNodeByIdentifier(itemKey.replace("jcr:",""));
+                String link = linkNode.getPath();
                 boolean isFolder = linkNode.isNodeType("mgnl:folder");
                 if( isFolder ){
                     expressions.add("jcr:path like '" + link + "/%'");
@@ -143,6 +143,7 @@ public class DocumentsModel<RD extends ConfiguredTemplateDefinition> extends Ren
                     }    
                 }
             } catch (Exception e) {
+                e.printStackTrace();
                 Document doc = new Document();
                 doc.setIconClass("fa-question");
                 doc.setTitle("Error - Document Missing");

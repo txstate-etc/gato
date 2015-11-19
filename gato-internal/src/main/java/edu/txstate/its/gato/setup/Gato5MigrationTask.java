@@ -49,6 +49,7 @@ import org.slf4j.LoggerFactory;
 public class Gato5MigrationTask extends GatoBaseUpgradeTask {
   private static final Logger log = LoggerFactory.getLogger(Gato5MigrationTask.class);
   protected final DamTemplatingFunctions damfn;
+  protected Session damSession;
 
   public Gato5MigrationTask(String name, String description) {
     super(name, description);
@@ -57,6 +58,7 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
 
   protected void doExecute(InstallContext ctx) throws RepositoryException, PathNotFoundException, TaskExecutionException, LoginException {
     Session hm=ctx.getJCRSession(RepositoryConstants.WEBSITE);
+    damSession = ctx.getJCRSession(DamConstants.WORKSPACE);
 
     log.info("custom css and js changes");
     visitByTemplate(hm, "gato:components/texasState/customCssBlock", this::convertInheritToBool);
@@ -79,6 +81,8 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
     visitByTemplate(hm, "gato:pages/tsus-2012/tsus-2012-mail", this::updateMailArea);
     log.info("download paragraph changes");
     visitByTemplate(hm, "gato:components/texasState/texasDownload", this::updateDownloadComponent);
+    log.info("documents paragraph changes");
+    visitByTemplate(hm, "gato:components/texasState/texas-dms", this::updateDocumentsComponent);
     visitByTemplate(hm, "gato:components/texasState/texasLink", this::convertNewWindowToBool);
     visitByTemplate(hm, "gato:components/texasState/texasEditor", this::migrateToTopAndBottom);
     hm.save();
@@ -225,11 +229,22 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
 
   private void updateDownloadComponent(Node n) throws RepositoryException {
     if(n.hasProperty("document")){
-      String itemKey = PropertyUtil.getString(n, "document");
       PropertyUtil.renameProperty(n.getProperty("document"), "link");
-      String id = itemKey.replace("jcr:", "");
-      Node documentNode = NodeUtil.getNodeByIdentifier("dam", id);
-      PropertyUtil.setProperty(n, "link", documentNode.getPath());
+    }
+  }
+
+  private void updateDocumentsComponent(Node n) throws RepositoryException{
+    if(n.hasProperty("link")){
+      String documentPath = PropertyUtil.getString(n, "link");
+      try{
+        Node documentNode = damSession.getNode(documentPath);
+        String id = documentNode.getIdentifier();
+        n.setProperty("link", "jcr:" + id);
+      }
+      catch(Exception e){
+        log.warn("Invalid Path: " + documentPath); 
+        e.printStackTrace();
+      }
     }
   }
 
