@@ -6,6 +6,7 @@
 	[@javascript scripts = [
 		'gato-template-txstate2009/js/main-menus.js',
 		'gato-template-txstate2009/js/webtools.js',
+		'gato-template-txstate2009/js/viewfullsite.js',
 		'gato-template/js/outgoing-clicks.js',
 		'gato-template/js/post-load.js',
 		'gato-template/js/accordion.js',
@@ -116,14 +117,16 @@
 					[#include "/gato-template/templates/includes/socialsidenav.ftl"]
         </div>
       [/#if]
-      <main class="txst-khan-contentcolumn txst-styledcontent gato-styledcontent">
-        [@breadcrumbs/]
-        [#if def.parameters.isMailTemplate!false]
-          [@cms.area name="mail" /]
-        [#else]
-          [@cms.area name="contentParagraph" /]
-        [/#if]
-      </main>
+      <div class="txst-khan-contentcolumn txst-styledcontent gato-styledcontent">
+        <div class="txst-contentarea">
+          [@breadcrumbs/]
+          [#if def.parameters.isMailTemplate!false]
+            [@cms.area name="mail" /]
+          [#else]
+            [@cms.area name="contentParagraph" /]
+          [/#if]
+        </div>
+      </div>
       <div class="txst-footer">
         [@cms.area name="footer" content=gf.getOrCreateArea(homepage, 'footer') editable=isHomePage /]
       </div>
