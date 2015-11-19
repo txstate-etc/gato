@@ -160,6 +160,13 @@ Number of occurrences: %o%n
     <appender-ref ref="log-form" />
   </category>
 
+  <category name="edu">
+    <priority value="WARN" />
+  </category>
+  <category name="twitter4j">
+    <priority value="INFO" />
+  </category>
+
   <!-- External libraries -->
   <category name="org">
     <priority value="WARN" />
