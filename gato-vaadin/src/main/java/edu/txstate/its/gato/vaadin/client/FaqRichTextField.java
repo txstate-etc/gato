@@ -31,7 +31,6 @@ public class FaqRichTextField extends VMagnoliaRichTextField {
 
   @Override
   public void onChange() {
-    log("onChange fired...");
   }
 
   private native void callUpdateData() /*-{
