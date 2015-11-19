@@ -1,3 +1,4 @@
+[#assign serverUrl = ctx.request.getHeader("host")]
 [
 [#list cmsfn.children(gf.singleComponent(content, 'contentParagraph').column1, 'mgnl:component') as section]
   {
@@ -7,8 +8,9 @@
         [#assign asset = damfn.getAsset(photo.image)]
         {
           "name": "${ asset.fileName }",
-          "modified": "${gf.getLastModified(photo)?string("EEE', 'dd' 'MMM' 'yyyy' 'HH:mm:ss' 'Z")}",
-          "image": "${gf.absoluteUrl(damfn.getAssetLink(photo.image))}",
+          "modified": "${gf.getModificationDate(photo)?string("EEE', 'dd' 'MMM' 'yyyy' 'HH:mm:ss' 'Z")}",
+          [#-- "image": "${gf.absoluteUrl(damfn.getAssetLink(photo.image))}", --]
+           "image": "${serverUrl}${gf.filterUrl(damfn.getAssetLink(photo.image))}",
           "imagecroptop": "${ photo.imagecroptop }",
           "imagecropleft": "${ photo.imagecropleft }",
           "imagecropright": "${ photo.imagecropright }",

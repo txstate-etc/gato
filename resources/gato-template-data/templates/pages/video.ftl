@@ -9,7 +9,7 @@
       "videoUrl": "${gf.absoluteUrl(video.videoUrl)}",
       "thumbnailAlt": "${ (cmsfn.decode(video).thumbnailAlt!'')?json_string }",
       "title": "${ (cmsfn.decode(video).title!'')?json_string }",
-      "modified": "${gf.getLastModified(video)?string("EEE', 'dd' 'MMM' 'yyyy' 'HH:mm:ss' 'Z")}",
+      "modified": "${gf.getModificationDate(video)?string("EEE', 'dd' 'MMM' 'yyyy' 'HH:mm:ss' 'Z")}",
       [#if video.thumbnail?has_content]
         "thumbnail": {
           [#-- Stupid mobile app assumes a relative path. "path": "${gf.absoluteUrl(damfn.getAssetLink(video.thumbnail))}" --]
