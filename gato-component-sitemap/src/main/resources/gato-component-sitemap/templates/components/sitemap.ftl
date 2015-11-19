@@ -1,10 +1,10 @@
 [#macro processPage node depth]
   [#if !(node.hideInNav!false)]
     [#local children = cmsfn.children(node, "mgnl:page")]
-    <li class="sitemap-item">
+    <li class="sitemap-item ${(children?size > 0)?string('open','leaf')}">
       <a href="${cmsfn.link(node)}">${gf.nodeTitle(node)}</a>
       [#if children?size > 0 && depth > 0]
-        <ul>
+        <ul class="level${depth+1}">
         [#list children as child]
           [@processPage child depth-1 /]
         [/#list]
@@ -28,7 +28,7 @@
 [#else]
   [#assign startingNode = cmsfn.ancestors(content, "mgnl:page")[content.startPage?number-1]]
 
-  <ul class="sitemap-list">
+  <ul class="sitemap-list level1">
     [#list cmsfn.children(startingNode, "mgnl:page") as child]
       [@processPage child content.depth!"1"?number-1 /]
     [/#list]
