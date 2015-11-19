@@ -5,6 +5,10 @@
 .ddmenu-bg {
   font-size: 1.3rem;
   font-weight: 500;
+  display: none;
+  @media screen and (min-width: $sm-breakpoint) {
+    display: block;
+  }
 }
 
 .ddmenu-menubar {
