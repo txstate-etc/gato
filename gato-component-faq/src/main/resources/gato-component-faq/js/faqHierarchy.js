@@ -328,9 +328,6 @@ function updateData() {
  
   selectedLi.down('dt').innerHTML = "";
   selectedLi.down('dt').appendChild(document.createTextNode(getDisplayTitle(nodeTitle)));
-
-  // TODO: Make sure this gets processed before user initiates save action
-  if (!queuedSave) { queuedSave = setTimeout(onSave, 500); }
 }
 
 function updateDisplay() {
@@ -485,5 +482,6 @@ function initFaqHierarchy(def, node, el) {
   faqHidden = jQuery(el).closest('.v-form-field-container').find('input.faqTree');
   faqNode = new jcrnode("website", node + '/faqTree', JSON.parse(faqHidden.val()));
   buildFaqTree(faqNode, el);
+  jQuery('.commit').focus(onSave);
   onLoad();
 }
