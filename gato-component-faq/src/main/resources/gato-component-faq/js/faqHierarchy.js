@@ -7,7 +7,6 @@ var questionInput;
 var titleInput;
 var faqNode;
 var faqHidden;
-var queuedSave;
 
 function onLoad() {
   $$('#faq_tree li').each(function(item) {
@@ -38,6 +37,9 @@ function onFaqCkEditorReady(editorId) {
     }
   }
 
+  // Make sure faq data is saved when user clicks save button
+  jQuery('.commit').focus(onSave);
+  
   answerInput = editor.element.$;
   editor.once("dataReady", updateDisplay);
 }
@@ -53,7 +55,7 @@ function getDisplayTitle(title) {
 }
 
 function onSave() {
-  queuedSave = "";
+  updateData();
   faqNode.nodes = [];
 
   //Convert the faq tree to a json that will be sent to the server.
@@ -482,6 +484,13 @@ function initFaqHierarchy(def, node, el) {
   faqHidden = jQuery(el).closest('.v-form-field-container').find('input.faqTree');
   faqNode = new jcrnode("website", node + '/faqTree', JSON.parse(faqHidden.val()));
   buildFaqTree(faqNode, el);
-  jQuery('.commit').focus(onSave);
+
+  // Save faq data when keyboard shortcut for save happens (Enter is pressed or <access key>+s is pressed)
+  // See https://documentation.magnolia-cms.com/display/DOCS/Keyboard+shortcuts
+  jQuery(el).closest('.v-panel-content').keydown(function(e) {
+    if (e.keyCode == 13 || (e.keyCode == 83 && (e.altKey || e.shiftKey || e.ctrlKey || e.metaKey))) {
+      onSave();
+    }
+  });
   onLoad();
 }

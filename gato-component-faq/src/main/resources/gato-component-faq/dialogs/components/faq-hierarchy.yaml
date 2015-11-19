@@ -16,6 +16,7 @@ form:
           label: FAQ Tree
         - name: faqAnswer
           class: edu.txstate.its.gato.FaqTextFieldDefinition
+          configJsFile: /.resources/gato-template/js/richeditor/config.js
           label: Answer
           styleName: faqAnswer
 actions: !include /gato-template/dialogs/common/actions-block.yaml

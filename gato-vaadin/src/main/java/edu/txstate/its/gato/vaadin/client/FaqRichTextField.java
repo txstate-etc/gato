@@ -8,6 +8,7 @@ import info.magnolia.ui.vaadin.gwt.client.richtext.VMagnoliaRichTextField;
 public class FaqRichTextField extends VMagnoliaRichTextField {
 
   protected CKEditor editor;
+  protected boolean instanceReady = false;
 
   @Override
   protected CKEditor loadEditor(String inPageConfig) {
@@ -26,47 +27,48 @@ public class FaqRichTextField extends VMagnoliaRichTextField {
     if (editor != null && !dataBefore.equals(editor.getData())) {
       editor.setData(dataBefore);
     }
-
-    log("updateFromUIDL called...");
   }
 
   @Override
   public void onChange() {
     log("onChange fired...");
-    callUpdateData();
   }
 
   private native void callUpdateData() /*-{
     $wnd.updateData();
   }-*/;
 
-  private native void log(String msg) /*-{
-    $wnd.console.log(msg);
+  private native void callUpdateDisplay() /*-{
+    $wnd.updateDisplay();
   }-*/;
 
   @Override
   public void onBlur() {
-    log("onBlur fired...");
+    if (instanceReady) { callUpdateData(); }
   }
 
   @Override
   public void onFocus() {
-    log("onFocus fired...");
   }
 
   @Override
   public void onModeChange(String mode) {
-    log("onModeChange fired...");
+  }
+
+  @Override public void doResize() {
+    if (instanceReady) { callUpdateData(); }
+    super.doResize();
+    if (instanceReady) { callUpdateDisplay(); }
   }
 
   @Override
   public void onInstanceReady() {
     super.onInstanceReady();
     faqInstanceReady(editor.getId());
+    instanceReady = true;
   }
 
   private native void faqInstanceReady(String id) /*-{
-    $wnd.console.log("Calling ckeditor ready...");
     $wnd.onFaqCkEditorReady(id);
   }-*/;
 }

@@ -75,7 +75,7 @@
            removePlugins.push("elementspath");
            removePlugins.push("filebrowser");
            config.removePlugins = removePlugins.join(",");
-           config.extraPlugins = "magnolialink,magnoliaFileBrowser,dialogui,dialog,clipboard,lineutils,widget,image2";
+           config.extraPlugins = "magnolialink,filebrowser,dialogui,dialog,clipboard,lineutils,widget,image2";
    
            config.width = 660;
            config.allowedContent = true;
