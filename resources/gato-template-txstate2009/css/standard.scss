@@ -33,7 +33,7 @@ img { vertical-align: middle; }
   h1 {
     clear: both;
   }
-  #breadcrumbs {
+  .breadcrumbs {
     position: relative;
     float: right;
     margin-top: -32px;
@@ -48,6 +48,7 @@ img { vertical-align: middle; }
       white-space: nowrap;
       color: #b1b1b1;
     }
+    .separator { padding: 0px 1px; }
   }
 }
 
@@ -58,7 +59,7 @@ img { vertical-align: middle; }
     padding-top: 25px !important;
     float: none !important;
   }
-  #breadcrumbs {
+  .breadcrumbs {
     position: relative !important;
     text-align: left !important;
     margin-top: -19px !important;

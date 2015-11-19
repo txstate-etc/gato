@@ -1,12 +1,12 @@
 .hamburger{
     float: right;
     a{
-        color: $hamburger-button; 
-        font-size: 13px; 
-        position: relative; 
-        padding: 6px 10px; 
-        display: block; 
-        top: 12px; 
+        color: $hamburger-button;
+        font-size: 13px;
+        position: relative;
+        padding: 6px 10px;
+        display: block;
+        top: 12px;
         right: -2px;
         text-transform: uppercase;
         border: 1px solid $hamburger-button-border;
@@ -15,18 +15,18 @@
         background-color: $hamburger-button-background;
         box-shadow: 0px 2px 1px -2px #6A5638;
     }
-} 
+}
 
 .slideout-menu {
-    position: fixed; 
-    left: auto; 
-    top: 0; 
-    bottom: 0; 
-    right: 0; 
-    z-index: 0; 
-    width: 300px; 
-    overflow-y: auto; 
-    -webkit-overflow-scrolling: touch; 
+    position: fixed;
+    left: auto;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 0;
+    width: 300px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     display: none;
 }
 .slideout-panel {position:relative; z-index: 1;}
@@ -39,21 +39,21 @@
 .mobile_nav_container {padding: 1rem; letter-spacing: 1px;}
 .txst_mobile_search {height: 60px; width: 300px;}
 .search.mobile_search {
-    width: 100%; 
-    border-radius: 0; 
-    border: 10px solid $mobile-search-border; 
-    background: $mobile-search-background; 
-    box-sizing: border-box; 
-    height: 60px; 
+    width: 100%;
+    border-radius: 0;
+    border: 10px solid $mobile-search-border;
+    background: $mobile-search-background;
+    box-sizing: border-box;
+    height: 60px;
     font-size: 90%;
 }
 .search_bar.mobile_search_bar {width: 100%; height: 60px;}
 .icon.mobile_icon, .icon.mobile_icon:hover  {
-    border-radius: 0; 
-    background: $mobile-search-icon; 
-    color: $hamburger-menu-color; 
-    height: 60px; 
-    font-size: 1rem; 
+    border-radius: 0;
+    background: $mobile-search-icon;
+    color: $hamburger-menu-color;
+    height: 60px;
+    font-size: 1rem;
     right: 10px;
 }
 
@@ -68,13 +68,13 @@
 .contact_us.mobile_dept a {color: $hamburger-menu-color; line-height: 1.8rem;}
 .mobile_primary_nav {
     a{
-        text-transform: uppercase; 
-        font-weight: 400; 
-        color: $hamburger-menu-color; 
-        display: block; 
-        font-size: 100%; 
-        border-bottom: 1px solid $dark-charcoal; 
-        margin: 1.5rem -1rem 0 -1rem; 
+        text-transform: uppercase;
+        font-weight: 400;
+        color: $hamburger-menu-color;
+        display: block;
+        font-size: 100%;
+        border-bottom: 1px solid $dark-charcoal;
+        margin: 1.5rem -1rem 0 -1rem;
         padding: 0.7rem 1rem .5rem 1rem;
 
         &:hover{color: $white; background: $dark-charcoal;}
@@ -82,13 +82,13 @@
 }
 
 .side_nav_mobile {
-    text-transform: uppercase; 
-    font-weight: 400; 
-    color: $hamburger-menu-color; 
-    display: block; 
-    font-size: 100%; 
-    border-bottom: 1px solid $dark-charcoal; 
-    margin: 1.5rem -1rem 0 -1rem; 
+    text-transform: uppercase;
+    font-weight: 400;
+    color: $hamburger-menu-color;
+    display: block;
+    font-size: 100%;
+    border-bottom: 1px solid $dark-charcoal;
+    margin: 1.5rem -1rem 0 -1rem;
     padding: 0.7rem 1rem .5rem 1rem;
 }
 .mobile_secondary_nav {
@@ -101,10 +101,10 @@
 .mobile-super-list {
     li {display: block;}
     a, .gato-accordion a {
-        color: $hamburger-menu-color; 
-        padding: .5rem 1rem; 
-        font-size: 75%; 
-        border: none; 
+        color: $hamburger-menu-color;
+        padding: .5rem 1rem;
+        font-size: 75%;
+        border: none;
         margin: 0 -1rem;
         text-transform: uppercase;
         /*&:hover {background: transparent; color: $hamburger-menu-text; background: $mobile-nav-background;}*/
@@ -133,8 +133,8 @@
 
 .solo_nav {border-bottom: none !important; }
 
-.mobile_trail div#breadcrumbs{
-    margin-bottom: 1.5rem; 
+.mobile_trail .breadcrumbs{
+    margin-bottom: 1.5rem;
     text-align: left;
     color: $hamburger-menu-color;
     a, .separator {color: $hamburger-menu-color !important;}
