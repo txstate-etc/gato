@@ -349,16 +349,21 @@ public final class GatoUtils {
     }
   }
 
-  public String getCacheStr(Calendar lastMod) {
+  public String getCacheStr(String cacheidentifier) {
     // we don't need to do anything if we're not in the production environment
     // since our only goal here is to add a string to the URL that represents
     // the last-modified date (for caching purposes)
-    if (!isCacheEnvironment() || lastMod == null) return "";
+    if (!isCacheEnvironment() || StringUtils.isBlank(cacheidentifier)) return "";
     try {
-      return "/cache"+md5(lastMod.getTime().toString());
+      return "/cache"+md5(cacheidentifier);
     } catch (Exception e) {
       return "";
     }
+  }
+
+  public String getCacheStr(Calendar lastMod) {
+    if (lastMod == null) return "";
+    return getCacheStr(lastMod.getTime().toString());
   }
 
   public String getCacheStr(Node n) throws Exception {
