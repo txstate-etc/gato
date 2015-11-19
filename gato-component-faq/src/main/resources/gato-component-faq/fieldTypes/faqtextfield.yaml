@@ -1,0 +1,3 @@
+name: faqTextField
+definitionClass: edu.txstate.its.gato.FaqTextFieldDefinition
+factoryClass: edu.txstate.its.gato.FaqTextFieldFactory

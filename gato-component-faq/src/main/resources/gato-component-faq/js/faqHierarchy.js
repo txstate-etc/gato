@@ -7,6 +7,7 @@ var questionInput;
 var titleInput;
 var faqNode;
 var faqHidden;
+var queuedSave;
 
 function onLoad() {
   $$('#faq_tree li').each(function(item) {
@@ -27,20 +28,18 @@ function onLoad() {
 
   questionInput.observe('change', updateData);
   titleInput.observe('change', updateData);
-  waitForCKEditor();
 }
 
-function waitForCKEditor() {
-  if (typeof(CKEDITOR) != 'undefined') {
-    CKEDITOR.on('instanceReady', function(e) {
-      answerInput = $$('.faqAnswer')[0];
-      e.editor.on('selectionChanged', updateData)
-      editor = e.editor;
-      updateDisplay();
-    });
-  } else {
-    setTimeout(waitForCKEditor, 100);
+function onFaqCkEditorReady(editorId) {
+  for (var name in CKEDITOR.instances) {
+    if (CKEDITOR.instances[name].id == editorId) {
+      editor = CKEDITOR.instances[name];
+      break;
+    }
   }
+
+  answerInput = editor.element.$;
+  editor.once("dataReady", updateDisplay);
 }
 
 function getDisplayTitle(title) {
@@ -54,6 +53,7 @@ function getDisplayTitle(title) {
 }
 
 function onSave() {
+  queuedSave = "";
   faqNode.nodes = [];
 
   //Convert the faq tree to a json that will be sent to the server.
@@ -329,7 +329,8 @@ function updateData() {
   selectedLi.down('dt').innerHTML = "";
   selectedLi.down('dt').appendChild(document.createTextNode(getDisplayTitle(nodeTitle)));
 
-  onSave();
+  // TODO: Make sure this gets processed before user initiates save action
+  if (!queuedSave) { queuedSave = setTimeout(onSave, 500); }
 }
 
 function updateDisplay() {
@@ -390,6 +391,7 @@ function buildFaqTree(rootNode, el) {
                        '<div class="v-form-field-label" title="Question">Question</div>' +
                        '<div class="v-form-field-container"><input type="text" class="faqText" id="faqQuestion"/></div>' +
                      '</div>';
+
   jQuery(el).closest('.v-form-field-section').after(titleHtml).after(questionHtml);
   
   questionInput = jQuery('#faqQuestion')[0];

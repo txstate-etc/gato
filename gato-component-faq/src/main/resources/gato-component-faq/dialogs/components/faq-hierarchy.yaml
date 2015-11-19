@@ -15,7 +15,7 @@ form:
             class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
           label: FAQ Tree
         - name: faqAnswer
-          class: info.magnolia.ui.form.field.definition.RichTextFieldDefinition
+          class: edu.txstate.its.gato.FaqTextFieldDefinition
           label: Answer
           styleName: faqAnswer
 actions: !include /gato-template/dialogs/common/actions-block.yaml
