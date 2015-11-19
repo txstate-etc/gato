@@ -140,9 +140,6 @@
   left: 15px;
   width: 176px;
   height: 142px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   text-align: right;
   overflow: hidden;
   h1 {
@@ -207,4 +204,19 @@
   color: #AAA;
   font-size: 14px;
   padding: 8px 0px;
+}
+
+.center-me {
+	display: table-cell;
+	vertical-align: middle;
+	width: 100%;
+	#position: absolute;
+	#left: 0px;
+	#top: 50%;
+}
+
+.center-me-in-ie {
+	width: 100%;
+	#position: relative;
+	#top: -50%;
 }
