@@ -1,17 +1,23 @@
-[
+{
+"categories": [
+  {"key":"bobcattube", "title":"Bobcat Tube"}
+],
+"bobcattube": [
 [#list cmsfn.children(gf.singleComponent(content, 'contentParagraph').column1, 'mgnl:component') as video]
   [#if video.videoUrl?has_content]
     {
       "videoUrl": "${gf.absoluteUrl(video.videoUrl)}",
-      "thumbnailAlt": "${ (video.thumbnailAlt!'')?json_string }",
-      "title": "${ (video.title!'')?json_string }",
+      "thumbnailAlt": "${ (cmsfn.decode(video).thumbnailAlt!'')?json_string }",
+      "title": "${ (cmsfn.decode(video).title!'')?json_string }",
       "modified": "${gf.getLastModified(video)?string("EEE', 'dd' 'MMM' 'yyyy' 'HH:mm:ss' 'Z")}",
       [#if video.thumbnail?has_content]
         "thumbnail": {
-          "path": "${gf.absoluteUrl(damfn.getAssetLink(video.thumbnail))}"
+          [#-- Stupid mobile app assumes a relative path. "path": "${gf.absoluteUrl(damfn.getAssetLink(video.thumbnail))}" --]
+          "path": "${damfn.getAssetLink(video.thumbnail)}"
         }
       [/#if]
     }[#if video_has_next],[/#if]
   [/#if]
 [/#list]
 ]
+}
