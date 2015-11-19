@@ -3,9 +3,9 @@ function modal(content) {
 	mymodal.opacity = 0.85;
 	mymodal.content = content;
 	mymodal.contentparent = content.parentNode;
-	
+
 	// let's make sure the modal content isn't shown when we're not modal
-	
+
 	ensureReady(function () {
 		mymodal.content.setStyle({display: 'none'});
 		mymodal.init()
@@ -17,8 +17,8 @@ modal.prototype.init = function() {
 		// OUTER DIV
 		modal.outerdiv = $(document.createElement('div'));
 		modal.outerdiv.id = 'modal_outer';
-		modal.outerdiv.setStyle({ 
-			display: 'none', 
+		modal.outerdiv.setStyle({
+			display: 'none',
 			position: 'absolute',
 			width: '100%',
 			height: '100%',
@@ -26,14 +26,14 @@ modal.prototype.init = function() {
 			padding: 0,
 			top: 0,
 			left: 0,
-			zIndex: 65536 
+			zIndex: 65536
 		});
 		document.body.appendChild(modal.outerdiv);
 
 		// BACKGROUND DIV
 		modal.bgdiv = $(document.createElement('div'));
 		modal.bgdiv.setStyle({
-			opacity: this.opacity, 
+			opacity: this.opacity,
 			backgroundColor: '#000000',
 			position: 'absolute',
 			zIndex: -1,
@@ -62,11 +62,11 @@ modal.prototype.init = function() {
 		modal.innerdiv.style['webkitBoxShadow'] = '0px 0px 50px black';
 		modal.innerdiv.style['MozBoxShadow'] = '0px 0px 50px black';
 		modal.innerdiv.style['boxShadow'] = '0px 0px 50px black';
-		
+
 		this.content.setStyle({cssFloat: 'none'});
-		
+
 		modal.outerdiv.appendChild(modal.innerdiv);
-		
+
 		// when the window is resized we're going to have to make sure the document body
 		// is tall enough to accomodate our content.  Otherwise it will get cut off.
 		Event.observe(window, 'resize', function (e) {
@@ -78,7 +78,7 @@ modal.prototype.init = function() {
 
 modal.prototype.show = function() {
 	if (modal.currentmodal) modal.currentmodal.hide(true);
-	
+
 	// set aria-disabled="true" on everything in the page that is not
 	// inside our modal
 	$(document.body).childElements().each( function (itm) {
@@ -88,7 +88,7 @@ modal.prototype.show = function() {
 			itm.writeAttribute('aria-disabled', 'true');
 		}
 	});
-	
+
 	modal.outerdiv.setStyle({display: 'block'});
 	this.content.setStyle({display: 'block', cssFloat: 'none'});
 	modal.innerdiv.appendChild(this.content);
@@ -103,7 +103,7 @@ modal.prototype.hide = function(cleanup) {
 	if (!cleanup) {
 		modal.outerdiv.setStyle({display: 'none'});
 		document.body.setStyle({height: 'auto'});
-		
+
 		// undo what we did to aria-disabled on show()
 		$(document.body).childElements().each( function (itm) {
 			if (itm != modal.outerdiv) {

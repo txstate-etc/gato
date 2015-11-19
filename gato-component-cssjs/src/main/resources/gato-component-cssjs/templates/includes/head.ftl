@@ -47,7 +47,11 @@
 
 [#macro cssjsmodals]
 	[#if cmsfn.isEditMode()]
-		[@cms.area name="customjs" /]
-		[@cms.area name="customcss" /]
+    <div id="gato-customjs-modal" class="gato-custom-column">
+      [@cms.area name="customjs" /]
+		</div>
+    <div id="gato-customcss-modal" class="gato-custom-column">
+      [@cms.area name="customcss" /]
+		</div>
 	[/#if]
 [/#macro]
