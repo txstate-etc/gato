@@ -1,6 +1,6 @@
 [#macro addimages banner]
-  [#if banner.banners??]
-    [#list cmsfn.children(banner.banners, 'mgnl:component') as img]
+  [#if gf.hasChildren(banner.banners)]
+    [#list cmsfn.children(banner.banners) as img]
       [#if img.inherit && damfn.getAssetLink(img.image)?has_content]
         [#assign banners = banners + [img]]
       [/#if]

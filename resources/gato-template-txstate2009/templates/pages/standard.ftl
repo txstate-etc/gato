@@ -62,7 +62,9 @@
             </div>
           </div>
         </div>
-        [@cms.area name="gato-banners"/]
+        <div id="gato-banner" class="${showBannerArea?string('','gato-banner-hidden')}">
+          [@cms.area name="gato-banners"/]
+        </div>
         <!-- MAIN MENUS -->
         <div class="txst-khanbanner-ddmenu" id="ddmenu-parent">
           <div class="ddmenu-menubar">
@@ -98,8 +100,10 @@
         </div>
         <!-- END MAIN MENUS -->
         <div class="txst-khanbanner-siteinfo">
-          <div class="vcenter">
-            [@cms.area name="siteinfo" content=gf.getOrCreateArea(homepage, 'siteinfo') editable=isHomePage/]
+          <div class="center-me">
+            <div class="center-me-in-ie">
+              [@cms.area name="siteinfo" content=gf.getOrCreateArea(homepage, 'siteinfo') editable=isHomePage/]
+            </div>
           </div>
         </div>
       </div>

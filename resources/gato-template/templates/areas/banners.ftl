@@ -1,4 +1,4 @@
-[#if component??]
+[#if component?has_content]
   [@cms.component content=component/]
 [#else]
   [#list cmsfn.ancestors(cmsfn.page(content))! as ancestor]

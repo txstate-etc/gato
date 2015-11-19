@@ -79,9 +79,23 @@
   height: 190px;
 }
 
+#gato-banner {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 1;
+}
+
+#gato-banner.gato-banner-hidden {
+	display: none;
+}
+
 .gato-banner-image {
-  position: relative;
-  height: 157px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: -1;
+	overflow: hidden;
   img {
     display: block;
     width: 100%;
@@ -128,7 +142,7 @@
 .gato-banners-admin {
   position: absolute;
   top: 10px;
-  left: 206px;
+  left: 0px;
   width: 550px;
 }
 
@@ -136,6 +150,7 @@
 
 .txst-khanbanner-entityidentity {
   position: absolute;
+  display: table;
   top: 8px;
   left: 15px;
   width: 176px;
@@ -169,19 +184,17 @@
     position: absolute !important;
     left: 0px;
     top: 2px;
-    width: 200px !important;
+    width: 100% !important;
   }
 }
 
 .txst-khanbanner-siteinfo {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   position: absolute;
+  display: table;
   top: 0px;
   right: 15px;
   width: 176px;
-  max-height: 160px;
+  height: 160px;
   color: #d0c7b0;
   font-size: 12px;
   font-weight: normal;
@@ -194,6 +207,12 @@
     top: 6px;
     right: 0px;
     width: 191px;
+  }
+  .mgnlEditor {
+    position: absolute !important;
+    left: 0px;
+    top: 2px;
+    width: 100% !important;
   }
 }
 

@@ -243,7 +243,11 @@ public final class GatoUtils {
   }
 
   public long getImgWidth(Object assetOrId) throws Exception {
-    return toAsset(assetOrId).getMetadata(MagnoliaAssetMetadata.class).getWidth();
+    try {
+      return toAsset(assetOrId).getMetadata(MagnoliaAssetMetadata.class).getWidth();
+    } catch (Exception e) {
+      return 0;
+    }
   }
 
   public String getSrcSet(Object assetOrId) {
@@ -655,6 +659,13 @@ public final class GatoUtils {
   public boolean hasComponents(Object area) throws Exception {
     Node n = toNode(area);
     for (Node sp : NodeUtil.getNodes(n, NodeTypes.Component.NAME)) {
+        return true;
+    }
+    return false;
+  }
+  public boolean hasChildren(Object node) throws Exception {
+    Node n = toNode(node);
+    for (Node sp : NodeUtil.getNodes(n)) {
         return true;
     }
     return false;

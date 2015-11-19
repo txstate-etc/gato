@@ -9,7 +9,7 @@
     [#if content.link?has_content]
       <a href="${gf.filterUrl(content.link)}" class="accordion_link"></a>
     [/#if]
-    <div class="accordion_realcontent txst-styledcontent" style="background: url(${damfn.getAssetLink(content.bgimage)}) no-repeat top right">${cmsfn.decode(content).content!}</div>
+    <div class="accordion_realcontent txst-styledcontent" style="background: url(${damfn.getAssetLink(content.bgimage)!}) no-repeat top right">${cmsfn.decode(content).content!}</div>
     <div class="extraoverlay"></div>
   </div>
 [/#if]
