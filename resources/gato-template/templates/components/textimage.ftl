@@ -6,7 +6,8 @@
     <h2 class="gato-textimage-title">
       ${decodedContent.title}
     </h2>
-  [#else]
+  [/#if]
+  [#if !decodedContent.text?has_content]
     [#assign float = 'top']
   [/#if]
   [#if float == 'bottom']${gf.processRichText(decodedContent.text)}[/#if]
