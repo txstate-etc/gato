@@ -36,6 +36,8 @@ import javax.jcr.RepositoryException;
 import javax.jcr.PathNotFoundException;
 import javax.jcr.LoginException;
 
+import org.apache.commons.lang3.StringUtils;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -374,8 +376,8 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
     }
   }
 
-  private void convertNodeToAreaAndComponent(Node n, String type) throws RepositoryException {
-    convertNodeToAreaAndComponent(n, type, n.getName());
+  private void convertNodeToAreaAndComponent(Node n, String type, String propName) throws RepositoryException {
+    convertNodeToAreaAndComponent(n, type, n.getName(), propName);
   }
 
   private void convertNodeToAreaAndComponent(Node n, String type, String name, String propName) throws RepositoryException {
