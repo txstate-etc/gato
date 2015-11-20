@@ -2,20 +2,19 @@
 /* instead of a.ddmenu-menubaritem */
 .ddmenu-menubar {
 	position: relative;
-	height: 2.7em;
-	display: flex !important;
+	display: flex;
 }
 
 div.ddmenu-menubaritem {
+  display: inline-block;
+  display: flex;
 	position: relative;
-	float: left;
-	height: 100%;
 }
 
 a.ddmenu-menubaritem {
 	display: block;
 	padding: 0px 8px;
-	line-height: 2.7em;
+	line-height: 2.4em;
 }
 
 a.ddmenu-menubaritem:hover {
@@ -26,7 +25,8 @@ a.ddmenu-menubaritem:hover {
 	margin: 0px;
 	padding: 0px;
 	position: absolute;
-	top: 2.7em;
+	left: 0px;
+	top: 100%;
 	z-index: 70000;
 	display: none;
 	list-style: none;
