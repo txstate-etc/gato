@@ -1,6 +1,5 @@
 package edu.txstate.its.gato.setup;
 
-import info.magnolia.cms.core.Path;
 import info.magnolia.dam.app.setup.migration.MoveFCKEditorContentToDamMigrationTask;
 import info.magnolia.dam.jcr.AssetNodeTypes;
 import info.magnolia.link.Link;
@@ -8,6 +7,8 @@ import info.magnolia.link.LinkUtil;
 import info.magnolia.link.LinkException;
 import info.magnolia.repository.RepositoryConstants;
 import info.magnolia.module.InstallContext;
+import info.magnolia.objectfactory.Components;
+import info.magnolia.templating.functions.TemplatingFunctions;
 
 import info.magnolia.jcr.util.NodeUtil;
 import info.magnolia.jcr.util.NodeTypes;
@@ -24,6 +25,9 @@ import javax.jcr.RepositoryException;
 import javax.jcr.PathNotFoundException;
 import javax.jcr.LoginException;
 import info.magnolia.module.delta.TaskExecutionException;
+
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -42,12 +46,14 @@ class MoveRichEditorToDamTask extends MoveFCKEditorContentToDamMigrationTask {
   private static final Logger log = LoggerFactory.getLogger(MoveRichEditorToDamTask.class);
   protected String templateId;
   protected Map<String, String> copyHistory;
+  protected TemplatingFunctions cmsfn;
 
   public MoveRichEditorToDamTask(String templateId, String propertyName) {
     super("DAM Rich Editor Migration", "Move binary files from rich editor properties in the website tree to the DAM.",
       RepositoryConstants.WEBSITE, Arrays.asList("/"), "", propertyName);
     this.templateId = templateId;
     this.copyHistory = new HashMap<String, String>();
+    this.cmsfn = Components.getComponent(TemplatingFunctions.class);
   }
 
   // the property name query they were using didn't work at all so I'm overriding
@@ -77,18 +83,15 @@ class MoveRichEditorToDamTask extends MoveFCKEditorContentToDamMigrationTask {
   @Override
   protected String copyToDam(Node dataNodeResource) throws RepositoryException {
     // figure out where to put our asset
-    Node page = dataNodeResource;
-    while (!page.getPrimaryNodeType().isNodeType(NodeTypes.Page.NAME)) {
-      page = page.getParent();
-    }
+    Node page = cmsfn.page(dataNodeResource);
     String[] path = page.getPath().split("/", 3);
     String damPath = "/"+path[1]+"/migrated_files/richeditor_uploads/"+(path.length > 2 ? path[2] : "");
     Node damParent = NodeUtil.createPath(this.damSession.getRootNode(), damPath, NodeTypes.Folder.NAME);
 
     // find the filename we will use and ensure it's unique in our parent folder
     String fileName = PropertyUtil.getString(dataNodeResource, AssetNodeTypes.AssetResource.FILENAME);
-    fileName = Path.getValidatedLabel(fileName);
-    fileName = Path.getUniqueLabel(damParent, fileName);
+    fileName = info.magnolia.cms.core.Path.getValidatedLabel(fileName);
+    fileName = info.magnolia.cms.core.Path.getUniqueLabel(damParent, fileName);
 
     // Create an AssetNode
     Node assetNode = ((NodeImpl)NodeUtil.unwrap(damParent)).addNodeWithUuid(fileName, AssetNodeTypes.Asset.NAME, dataNodeResource.getIdentifier());
@@ -101,8 +104,13 @@ class MoveRichEditorToDamTask extends MoveFCKEditorContentToDamMigrationTask {
   }
 
   // in magnolia's task this crashed the upgrade when it encountered a broken link
+  public final Pattern HREF_PATTERN = Pattern.compile("(href[ ]*=[ ]*['\"])(\\w+)[^'\"]*['\"]");
+  public final Pattern SRC_PATTERN = Pattern.compile("(href[ ]*=[ ]*['\"])(\\w+)[^'\"]*['\"]");
+  public final Pattern URL_PATTERN = Pattern.compile("(url\\()(\\w+)([^\\)]*\\))");
   protected void handleTextProperty(Node node, Property property) throws LinkException, RepositoryException {
-    List<Link> links = collectLinks(property.getString());
+    String propString = property.getString();
+    if (StringUtils.isBlank(propString)) return;
+    List<Link> links = collectLinks(propString);
     for (Link link : links) {
       try {
         moveResourceNodeAndHandleLink(node, property, link);
@@ -110,6 +118,47 @@ class MoveRichEditorToDamTask extends MoveFCKEditorContentToDamMigrationTask {
         log.warn(e.toString(), e);
       }
     }
+
+    //now look for relative links that never got converted to magnolia's {{}} style
+    List<Pattern> patterns = Arrays.asList(HREF_PATTERN, SRC_PATTERN, URL_PATTERN);
+    for (Pattern p : patterns) {
+      StringBuffer result = new StringBuffer();
+      Matcher matcher = p.matcher(propString);
+      while (matcher.find()) {
+        String fullmatch = matcher.group();
+        String path = matcher.group(2);
+
+        // let's see if we have a path to an image
+        if (LinkUtil.isInternalRelativeLink(path)) {
+          Node page = cmsfn.page(node);
+          if (page != null) {
+            Path filepath = Paths.get(path);
+            Path pagepath = Paths.get(page.getPath());
+            Path jcrpath = Paths.get(pagepath.getParent().toString() + filepath.getParent().toString());
+            String damuuid = "";
+            try {
+              String historykey = "website:"+jcrpath.getParent().toString()+":"+jcrpath.getFileName().toString();
+              if (this.copyHistory.containsKey(historykey)) {
+                damuuid = this.copyHistory.get(historykey);
+              } else {
+                Node dataResourceNode = node.getSession().getNode(jcrpath.toString());
+                if (dataResourceNode.hasProperty(AssetNodeTypes.AssetResource.EXTENSION)) {
+                  damuuid = copyToDam(dataResourceNode);
+                }
+              }
+              path = "{{uuid:{"+damuuid+"},handle:{"+damSession.getNodeByIdentifier(damuuid).getPath()+"}}}";
+            } catch (Exception e) {
+              // didn't work, we tried
+            }
+          }
+        }
+
+        matcher.appendReplacement(result, "$1" + path + "$3");
+      }
+      matcher.appendTail(result);
+      propString = result.toString();
+    }
+    property.setValue(propString);
   }
 
   // Updated this method to normalize file extensions a bit - also it was a little broken
