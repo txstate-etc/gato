@@ -15,6 +15,7 @@
         CKEDITOR.plugins.addExternal("lineutils", CKEDITOR.vaadinDirUrl + "js/richeditorplugins/lineutils/", 'plugin.js');
         CKEDITOR.plugins.addExternal("widget", CKEDITOR.vaadinDirUrl + "js/richeditorplugins/widget/", 'plugin.js');
         CKEDITOR.plugins.addExternal("image2", CKEDITOR.vaadinDirUrl + "js/richeditorplugins/image2/", 'plugin.js');
+        CKEDITOR.plugins.addExternal("magnoliaFileBrowser", CKEDITOR.vaadinDirUrl + "js/filebrowser/", 'plugin.js');
 
          definition = {
                    alignment: true,
@@ -75,7 +76,7 @@
            removePlugins.push("elementspath");
            removePlugins.push("filebrowser");
            config.removePlugins = removePlugins.join(",");
-           config.extraPlugins = "magnolialink,filebrowser,dialogui,dialog,clipboard,lineutils,widget,image2";
+           config.extraPlugins = "magnolialink,magnoliaFileBrowser,dialogui,dialog,clipboard,lineutils,widget,image2";
    
            config.width = 660;
            config.allowedContent = true;
