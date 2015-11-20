@@ -73,8 +73,9 @@ class MoveRichEditorToDamTask extends MoveFCKEditorContentToDamMigrationTask {
 
   @Override
   protected void handleUploadReferenceForNode(Node node) throws RepositoryException {
+    log.info("handleUploadReferenceForNode: "+node.getPath());
     try {
-      handleTextProperty(node, node.getProperty(getPropertyValue()));
+      if (node.hasProperty(getPropertyValue())) handleTextProperty(node, node.getProperty(getPropertyValue()));
     } catch (Exception e) {
       log.warn("Not able to handle the following node '{}'", NodeUtil.getName(node), e);
     }
@@ -82,6 +83,7 @@ class MoveRichEditorToDamTask extends MoveFCKEditorContentToDamMigrationTask {
 
   @Override
   protected String copyToDam(Node dataNodeResource) throws RepositoryException {
+    log.info("copyToDam: "+dataNodeResource.getPath());
     // figure out where to put our asset
     Node page = cmsfn.page(dataNodeResource);
     String[] path = page.getPath().split("/", 3);
@@ -108,6 +110,7 @@ class MoveRichEditorToDamTask extends MoveFCKEditorContentToDamMigrationTask {
   public final Pattern SRC_PATTERN = Pattern.compile("(href[ ]*=[ ]*['\"])(\\w+)[^'\"]*['\"]");
   public final Pattern URL_PATTERN = Pattern.compile("(url\\()(\\w+)([^\\)]*\\))");
   protected void handleTextProperty(Node node, Property property) throws LinkException, RepositoryException {
+    log.info("handleTextProperty: "+node.getPath());
     String propString = property.getString();
     if (StringUtils.isBlank(propString)) return;
     List<Link> links = collectLinks(propString);
@@ -224,6 +227,9 @@ class MoveRichEditorToDamTask extends MoveFCKEditorContentToDamMigrationTask {
   // updated this method to handle the case where two rich editors point at the
   // same file, e.g. after a page copy.
   protected void moveResourceNodeAndHandleLink(Node node, Property property, Link link) throws RepositoryException {
+    log.info("moveResourceNodeAndHandleLink: "+node.getPath());
+    if (link == null || link.getWorkspace() == null) return;
+    log.info("link.getWorkspace() was not null");
     if (this.copyHistory.containsKey(link.getUUID()+":"+link.getPropertyName())) {
       String damAssetIdentifier = this.copyHistory.get(link.getUUID()+":"+link.getPropertyName());
       String damAssetPath = damSession.getNodeByIdentifier(damAssetIdentifier).getPath();
@@ -269,8 +275,11 @@ class MoveRichEditorToDamTask extends MoveFCKEditorContentToDamMigrationTask {
     String text = property.getString();
     Link newLink = new Link(damSession.getNodeByIdentifier(damAssetIdentifier));
     String newLinkText = Matcher.quoteReplacement(LinkUtil.toPattern(newLink));
-    text = text.replaceAll(Pattern.quote("${link:{")+"([^\\}]\\}|\\}[^\\}]|[^\\}])*?"+Pattern.quote("uuid:{"+originalFileUUID)+"},nodeData:{"+nodeData+"}.*?"+Pattern.quote("}}"), newLinkText);
-    text = text.replaceAll(Pattern.quote("${link:{")+"([^\\}]\\}|\\}[^\\}]|[^\\}])*?"+Pattern.quote("handle:{"+originalFileNodePath)+"},nodeData:{"+nodeData+"}.*?"+Pattern.quote("}}"), newLinkText);
+    log.info("original uuid: "+originalFileUUID+", original path: "+originalFileNodePath+", original nodedata: "+nodeData);
+    log.info(text);
+    text = text.replaceAll(Pattern.quote("${link:{")+"([^\\}]\\}|\\}[^\\}]|[^\\}])*?"+Pattern.quote("uuid:{"+originalFileUUID+"}")+"([^\\}]\\}|\\}[^\\}]|[^\\}])*?"+Pattern.quote("nodeData:{"+nodeData+"}")+".*?"+Pattern.quote("}}"), newLinkText);
+    text = text.replaceAll(Pattern.quote("${link:{")+"([^\\}]\\}|\\}[^\\}]|[^\\}])*?"+Pattern.quote("handle:{"+originalFileNodePath+"}")+"([^\\}]\\}|\\}[^\\}]|[^\\}])*?"+Pattern.quote("nodeData:{"+nodeData+"}")+".*?"+Pattern.quote("}}"), newLinkText);
+    log.info(text);
     property.setValue(text);
   }
 
