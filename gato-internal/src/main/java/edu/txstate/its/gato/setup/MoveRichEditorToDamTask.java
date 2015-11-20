@@ -146,10 +146,32 @@ class MoveRichEditorToDamTask extends MoveFCKEditorContentToDamMigrationTask {
                   damuuid = copyToDam(dataResourceNode);
                 }
               }
-              path = "{{uuid:{"+damuuid+"},handle:{"+damSession.getNodeByIdentifier(damuuid).getPath()+"}}}";
+              path = getDamLink(damSession.getNodeByIdentifier(damuuid));
             } catch (Exception e) {
               // didn't work, we tried
             }
+          }
+        }
+
+        // let's see if we have a DMS link
+        if (path.startsWith("/dms/")) {
+          try {
+            Path dmspath = Paths.get(path.substring(4));
+            Node damItem = damSession.getNode(dmspath.getParent().toString());
+            path = getDamLink(damItem);
+          } catch (Exception e) {
+            // no match, we tried
+          }
+        }
+
+        // let's see if we have a gato-docs link
+        if (path.startsWith("http://gato-docs.its.txstate.edu/")) {
+          try {
+            Path dmspath = Paths.get(path.substring(32));
+            Node damItem = damSession.getNode(dmspath.getParent().toString());
+            path = getDamLink(damItem);
+          } catch (Exception e) {
+            // no match, we tried
           }
         }
 
@@ -250,5 +272,10 @@ class MoveRichEditorToDamTask extends MoveFCKEditorContentToDamMigrationTask {
     text = text.replaceAll(Pattern.quote("${link:{")+"([^\\}]\\}|\\}[^\\}]|[^\\}])*?"+Pattern.quote("uuid:{"+originalFileUUID)+"}.*?"+Pattern.quote("}}"), newLinkText);
     text = text.replaceAll(Pattern.quote("${link:{")+"([^\\}]\\}|\\}[^\\}]|[^\\}])*?"+Pattern.quote("handle:{"+originalFileNodePath)+"}.*?"+Pattern.quote("}}"), newLinkText);
     property.setValue(text);
+  }
+
+  protected String getDamLink(Node damNode) throws RepositoryException {
+    return "${link:{uuid:{"+damNode.getIdentifier()+"},repository:{dam},handle:{"+damNode.getPath()+"},nodeData:{},extension:{html}}}";
+
   }
 }
