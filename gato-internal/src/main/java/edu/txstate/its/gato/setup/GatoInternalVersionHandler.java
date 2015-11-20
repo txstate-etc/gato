@@ -146,7 +146,7 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       new CreateNodeTask("","",RepositoryConstants.WEBSITE,"/global-data","webTools",NodeTypes.Area.NAME)
     ));
 
-    tasks.add(new CreateNodeTask("Homepage Data","Node to contain data for the various homepage content apps",RepositoryConstants.WEBSITE,"/","homepage-data",NodeTypes.Folder.NAME));
+    tasks.add(new CreateNodeTask("Homepage Data","Node to contain data for the various homepage content apps",RepositoryConstants.WEBSITE,"/","homepage-data",NodeTypes.Content.NAME));
     tasks.add(new CreateNodeTask("Homepage Data Legal Links","",RepositoryConstants.WEBSITE,"/homepage-data","legal-links",NodeTypes.Content.NAME));
     tasks.add(new NodeExistsDelegateTask("Copy Quick Links from main2012", "", RepositoryConstants.WEBSITE, "/main2012/helpfulLinks",
       new MoveNodeTask("","",RepositoryConstants.WEBSITE,"/main2012/helpfulLinks","/homepage-data/legal-links/quick-links",true),
@@ -157,7 +157,9 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       new CreateNodeTask("", "", RepositoryConstants.WEBSITE,"/homepage-data/legal-links","required-links",NodeTypes.Content.NAME)
     ));
     tasks.add(new ChangeNodeTypeTask("/homepage-data/legal-links/quick-links",RepositoryConstants.WEBSITE,NodeTypes.Content.NAME));
+    tasks.add(new SetPropertyTask(RepositoryConstants.WEBSITE, "/homepage-data/legal-links/quick-links", "text", "Quick Links"));
     tasks.add(new ChangeNodeTypeTask("/homepage-data/legal-links/required-links",RepositoryConstants.WEBSITE,NodeTypes.Content.NAME));
+    tasks.add(new SetPropertyTask(RepositoryConstants.WEBSITE, "/homepage-data/legal-links/required-links", "text", "Required Links"));
 
     // when we bootstrapped the official-texas-state-images dam sites, the parent
     // nodes were created as mgnl:content instead of mgnl:folder
