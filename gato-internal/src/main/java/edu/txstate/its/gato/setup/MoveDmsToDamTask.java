@@ -157,6 +157,7 @@ class MoveDmsToDamTask extends AbstractRepositoryTask {
             if (nodeDocument.hasProperty(AssetNodeTypes.AssetResource.EXTENSION)) {
               extension = nodeDocument.getProperty(AssetNodeTypes.AssetResource.EXTENSION).getString().toLowerCase();
               if (extension.equals("jpeg")) extension = "jpg";
+              extension = extension.replaceAll("\\W", "");
               nodeDocument.setProperty(AssetNodeTypes.AssetResource.EXTENSION, extension);
             }
             if (nodeDocument.hasProperty(AssetNodeTypes.AssetResource.FILENAME)) {
