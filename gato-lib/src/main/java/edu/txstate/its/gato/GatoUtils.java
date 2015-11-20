@@ -258,7 +258,15 @@ public final class GatoUtils {
     return getSrcSet(assetOrId, left, right, top, bottom, false);
   }
 
+  public String getSrcSet(Object assetOrId, float aspectratio) {
+    return getSrcSet(assetOrId, 0f, 0f, 0f, 0f, aspectratio);
+  }
+
   public String getSrcSet(Object assetOrId, float left, float right, float top, float bottom, boolean square) {
+    return getSrcSet(assetOrId, left, right, top, bottom, (square ? 1f : -1f));
+  }
+
+  public String getSrcSet(Object assetOrId, float left, float right, float top, float bottom, float aspectratio) {
     Asset asset = toAsset(assetOrId);
     if (asset == null) return "";
     try {
@@ -266,7 +274,7 @@ public final class GatoUtils {
       srv.setHeight(0);
       srv.setUpscale(true);
       srv.setCrop(left, right, top, bottom);
-      srv.setZoom(square);
+      srv.setZoom(aspectratio > 0);
 
       long width = getImgWidth(asset);
       width = Math.round(width - width*left - width*right);
@@ -280,7 +288,7 @@ public final class GatoUtils {
       for (Long wLong : widths) {
         long w = wLong.longValue();
         srv.setWidth(w);
-        if (square) srv.setHeight(w);
+        if (aspectratio > 0) srv.setHeight(Math.round(w/aspectratio));
         ret.append(srv.createLink(asset)+" "+w+"w");
         if (i++ < widths.size()) ret.append(", ");
       }
