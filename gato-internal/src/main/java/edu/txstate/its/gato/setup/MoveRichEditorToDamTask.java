@@ -269,7 +269,7 @@ class MoveRichEditorToDamTask extends MoveFCKEditorContentToDamMigrationTask {
     String text = property.getString();
     Link newLink = new Link(damSession.getNodeByIdentifier(damAssetIdentifier));
     String newLinkText = Matcher.quoteReplacement(LinkUtil.toPattern(newLink));
-    text = text.replaceAll(Pattern.quote("${link:{")+"([^\\}]\\}|\\}[^\\}]|[^\\}])*?"+Pattern.quote("uuid:{"+originalFileUUID)+"}.*?"+Pattern.quote("}}"), newLinkText);
+    text = text.replaceAll(Pattern.quote("${link:{")+"([^\\}]\\}|\\}[^\\}]|[^\\}])*?"+Pattern.quote("uuid:{"+originalFileUUID)+"},nodeData:{"+nodeData+"}.*?"+Pattern.quote("}}"), newLinkText);
     text = text.replaceAll(Pattern.quote("${link:{")+"([^\\}]\\}|\\}[^\\}]|[^\\}])*?"+Pattern.quote("handle:{"+originalFileNodePath)+"},nodeData:{"+nodeData+"}.*?"+Pattern.quote("}}"), newLinkText);
     property.setValue(text);
   }
