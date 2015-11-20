@@ -32,7 +32,7 @@
   <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-txstate2009/css/standard.compiled.css"/>
   [@templatehead/]
 </head>
-<body class="${cmsfn.isEditMode()?string('admin','')} ${isHomePage?string('homepage','')}">
+<body class="${cmsfn.isEditMode()?string('admin','')} ${isHomePage?string('homepage','')}" style="font-size: 16px">
   <div class="txst-topbanner">
     <div class="txst-banner-shadow"></div>
     <div class="txst-banner-content">
