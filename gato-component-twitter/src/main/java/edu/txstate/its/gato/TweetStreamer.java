@@ -69,7 +69,7 @@ public class TweetStreamer {
   public static final int MAX_AGE = 30; // Days
   public static final int LOOKUP_FREQ = 30; // Minutes
 
-  private static final String SEARCH_QUERY = "//element(*, mgnl:contentNode)[jcr:contains(MetaData/@mgnl:template,'texas-twitter')]";
+  private static final String SEARCH_QUERY = "//element(*, mgnl:component)[jcr:contains(@mgnl:template,'gato-component-twitter:components/twitter')]";
   private static final String HASHTAG_QUERY = "//global-data/twitter/tweets//element(*,mgnl:contentNode)/@hashtags[@hashtags]";
 
   private TwitterStream twitterStream;
