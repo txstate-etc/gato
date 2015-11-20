@@ -227,15 +227,15 @@ class MoveRichEditorToDamTask extends MoveFCKEditorContentToDamMigrationTask {
     if (this.copyHistory.containsKey(link.getUUID()+":"+link.getPropertyName())) {
       String damAssetIdentifier = this.copyHistory.get(link.getUUID()+":"+link.getPropertyName());
       String damAssetPath = damSession.getNodeByIdentifier(damAssetIdentifier).getPath();
-      changeLinkInTextContent(property, damAssetIdentifier, link.getUUID(), link.getPath());
+      changeLinkInTextContent(property, damAssetIdentifier, link.getUUID(), link.getPath(), link.getPropertyName());
     } else if (this.copyHistory.containsKey(link.getWorkspace()+":"+link.getPath()+":"+link.getPropertyName())) {
       String damAssetIdentifier = this.copyHistory.get(link.getWorkspace()+":"+link.getPath()+":"+link.getPropertyName());
       String damAssetPath = damSession.getNodeByIdentifier(damAssetIdentifier).getPath();
-      changeLinkInTextContent(property, damAssetIdentifier, link.getUUID(), link.getPath());
+      changeLinkInTextContent(property, damAssetIdentifier, link.getUUID(), link.getPath(), link.getPropertyName());
     } else if (link.getWorkspace().equals("dms")) {
       String damAssetIdentifier = link.getUUID();
       log.info(property.getPath()+" had a link to DMS object with uuid '"+damAssetIdentifier+"', updated link to reflect move to DAM.");
-      changeLinkInTextContent(property, damAssetIdentifier, damAssetIdentifier, link.getPath());
+      changeLinkInTextContent(property, damAssetIdentifier, damAssetIdentifier, link.getPath(), link.getPropertyName());
     } else {
       Node fileNode = node.getSession().getNodeByIdentifier(link.getUUID());
       if (StringUtils.isBlank(link.getPropertyName()) || !fileNode.hasNode(link.getPropertyName())) {
@@ -255,7 +255,7 @@ class MoveRichEditorToDamTask extends MoveFCKEditorContentToDamMigrationTask {
           String damAssetPath = damSession.getNodeByIdentifier(damAssetIdentifier).getPath();
           log.info("'{}' resource was moved to DAM repository to the following path '{}' and identifier: '{}'", Arrays.asList(fileNodePath, damAssetPath, damAssetIdentifier).toArray());
           // Change Link into contentText
-          changeLinkInTextContent(property, damAssetIdentifier, fileNodeIdentifier, fileNodePath);
+          changeLinkInTextContent(property, damAssetIdentifier, fileNodeIdentifier, fileNodePath, link.getPropertyName());
         } else {
           log.warn("Could not copy following uploaded data into dam repository: '{}'", fileNodePath);
         }
@@ -265,12 +265,12 @@ class MoveRichEditorToDamTask extends MoveFCKEditorContentToDamMigrationTask {
     }
   }
 
-  protected void changeLinkInTextContent(Property property, String damAssetIdentifier, String originalFileUUID, String originalFileNodePath) throws RepositoryException {
+  protected void changeLinkInTextContent(Property property, String damAssetIdentifier, String originalFileUUID, String originalFileNodePath, String nodeData) throws RepositoryException {
     String text = property.getString();
     Link newLink = new Link(damSession.getNodeByIdentifier(damAssetIdentifier));
     String newLinkText = Matcher.quoteReplacement(LinkUtil.toPattern(newLink));
     text = text.replaceAll(Pattern.quote("${link:{")+"([^\\}]\\}|\\}[^\\}]|[^\\}])*?"+Pattern.quote("uuid:{"+originalFileUUID)+"}.*?"+Pattern.quote("}}"), newLinkText);
-    text = text.replaceAll(Pattern.quote("${link:{")+"([^\\}]\\}|\\}[^\\}]|[^\\}])*?"+Pattern.quote("handle:{"+originalFileNodePath)+"}.*?"+Pattern.quote("}}"), newLinkText);
+    text = text.replaceAll(Pattern.quote("${link:{")+"([^\\}]\\}|\\}[^\\}]|[^\\}])*?"+Pattern.quote("handle:{"+originalFileNodePath)+"},nodeData:{"+nodeData+"}.*?"+Pattern.quote("}}"), newLinkText);
     property.setValue(text);
   }
 
