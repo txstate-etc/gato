@@ -110,8 +110,8 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
         }
 
         if(templateId.equals("gato:pages/library-2012/library-2012-home")){
-          if(n.hasNode("mobile-title")) convertNodeToAreaAndComponent(n.getNode("mobile-title"), "gato-template:components/misctext");
-          if(n.hasNode("mobile-hours-link")) convertNodeToAreaAndComponent(n.getNode("mobile-hours-link"), "gato-template:components/link");
+          if(n.hasNode("mobile-title")) convertNodeToAreaAndComponent(n.getNode("mobile-title"), "gato-template:components/misctext", "text");
+          if(n.hasNode("mobile-hours-link")) convertNodeToAreaAndComponent(n.getNode("mobile-hours-link"), "gato-template:components/link", "link");
           if (n.hasNode("socialmedia")) {
             for (Node sm : NodeUtil.getNodes(n.getNode("socialmedia"), NodeTypes.Component.NAME)) {
               PropertyUtil.setProperty(sm, "icononly", true);
@@ -125,10 +125,10 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
               //move node to parent ?
               NodeUtil.moveNode(desc, n);
               //make it an area with a component
-              convertNodeToAreaAndComponent(desc, "gato-template:components/richeditor");
+              convertNodeToAreaAndComponent(desc, "gato-template:components/richeditor", "content");
             }
           }
-          if(n.hasNode("searchbox-chatlink")) convertNodeToAreaAndComponent(n.getNode("searchbox-chatlink"), "gato-template:components/richeditor");
+          if(n.hasNode("searchbox-chatlink")) convertNodeToAreaAndComponent(n.getNode("searchbox-chatlink"), "gato-template:components/richeditor", "content");
         }
         String p = n.getPath();
         if (p.startsWith("/alkek-library")
@@ -155,13 +155,13 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
           String newbgimage = bgimage.replace("/wittliff/images/", "");
           PropertyUtil.setProperty(n, "background-image", newbgimage);
         }
-        if (n.hasNode("footer")) convertNodeToAreaAndComponent(n.getNode("footer"), "gato-template:components/misctext");
-        if (n.hasNode("siteinfo")) convertNodeToAreaAndComponent(n.getNode("siteinfo"), "gato-template:components/misctext");
+        if (n.hasNode("footer")) convertNodeToAreaAndComponent(n.getNode("footer"), "gato-template:components/misctext", "text");
+        if (n.hasNode("siteinfo")) convertNodeToAreaAndComponent(n.getNode("siteinfo"), "gato-template:components/misctext", "text");
         if (n.hasNode("collegeLink")) {
           Node cl = n.getNode("collegeLink");
           if (cl.hasProperty("name")) PropertyUtil.renameProperty(cl.getProperty("name"), "parent_name");
           NodeUtil.renameNode(cl, "parentOrganization");
-          convertNodeToAreaAndComponent(cl, "gato-template-txstate2015:components/parent-organization");
+          convertNodeToAreaAndComponent(cl, "gato-template-txstate2015:components/parent-organization", "parent_name");
         }
         convertPropertyToBool(n, "hideInNav");
         convertPropertyToBool(n, "hideSidebar");
@@ -242,7 +242,7 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
         n.setProperty("link", "jcr:" + id);
       }
       catch(Exception e){
-        log.warn("Invalid Path: " + documentPath); 
+        log.warn("Invalid Path: " + documentPath);
         e.printStackTrace();
       }
     }
@@ -378,12 +378,15 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
     convertNodeToAreaAndComponent(n, type, n.getName());
   }
 
-  private void convertNodeToAreaAndComponent(Node n, String type, String name) throws RepositoryException {
-    Node area = n.getParent().addNode("tempconversionnode", "mgnl:area");
-    NodeUtil.moveNode(n, area);
-    NodeUtil.renameNode(area, name);
-    n.setPrimaryType(NodeTypes.Component.NAME);
-    NodeTypes.Renderable.set(n, type);
+  private void convertNodeToAreaAndComponent(Node n, String type, String name, String propName) throws RepositoryException {
+    if (StringUtils.isBlank(PropertyUtil.getString(n, propName, ""))) n.remove();
+    else {
+      Node area = n.getParent().addNode("tempconversionnode", "mgnl:area");
+      NodeUtil.moveNode(n, area);
+      NodeUtil.renameNode(area, name);
+      n.setPrimaryType(NodeTypes.Component.NAME);
+      NodeTypes.Renderable.set(n, type);
+    }
   }
 
   private void convertStringToDate(Property p, String newName) throws RepositoryException {
