@@ -59,3 +59,6 @@ areas:
         id: gato-template:components/misctext
 parameters:
   sortOrder: 375
+variations:
+  js:
+    templateScript: /gato-component-cssjs/templates/pages/jsvariation.ftl

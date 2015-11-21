@@ -49,3 +49,6 @@ areas:
         id: gato-template:components/imagelink
 parameters:
   sortOrder: 175
+variations:
+  js:
+    templateScript: /gato-component-cssjs/templates/pages/jsvariation.ftl

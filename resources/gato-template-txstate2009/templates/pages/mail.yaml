@@ -1,5 +1,5 @@
 templateScript: /gato-template-txstate2009/templates/pages/standard.ftl
-renderType: freemarker
+renderType: site
 visible: true
 title: 2009 TXST Mail
 dialog: gato-template:pages/page-properties
@@ -7,3 +7,6 @@ parameters:
   isMailTemplate: true
 areas:
   !include /gato-template-txstate2009/templates/includes/standardareas.yaml
+variations:
+  js:
+    templateScript: /gato-component-cssjs/templates/pages/jsvariation.ftl

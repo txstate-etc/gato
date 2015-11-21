@@ -1,4 +1,4 @@
-name: inheritable
+name: inherit
 class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
 multiselect: false
 label: Include on subpages?

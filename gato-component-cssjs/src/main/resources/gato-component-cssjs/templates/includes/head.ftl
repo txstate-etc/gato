@@ -1,7 +1,7 @@
 [#macro pageCustomJS page isAncestor]
 	[#if page.customjs?has_content]
 		[#list cmsfn.children(page.customjs, 'mgnl:component') as entry]
-			[#local code = cmsfn.decode(entry).customJS?replace("<script.*?>", "", "r")?replace("</script>", "", "r")]
+			[#local code = cmsfn.decode(entry).customJS]
 			[#if (entry.inherit!false) || !isAncestor]
 				[#if entry.framework == "prototype"]
 					$(document).observe('dom:loaded', function () {
@@ -20,11 +20,9 @@
 [/#macro]
 
 [#macro customJS page ancestorstopdown]
-	<script type="text/javascript">
-		[@inheritLoop page ancestorstopdown ; curr, isAncestor]
-			[@pageCustomJS page=curr isAncestor=isAncestor /]
-		[/@inheritLoop]
-	</script>
+  [@inheritLoop page ancestorstopdown ; curr, isAncestor]
+    [@pageCustomJS page=curr isAncestor=isAncestor /]
+  [/@inheritLoop]
 [/#macro]
 
 [#macro pageCustomCSS page isAncestor]

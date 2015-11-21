@@ -33,7 +33,7 @@
 [#macro templatehead publisher="Texas State University"]
 	[@meta publisher /]
 	[@customCSS page ancestorstopdown /]
-	[@customJS page ancestorstopdown /]
+	<script type="text/javascript" src="${cmsfn.link(page)?replace('\\.[^\\.]+$','.js','r')}"></script>
 	[@title publisher /]
 	[@googleanalytics /]
 	[@javascriptvariables /]

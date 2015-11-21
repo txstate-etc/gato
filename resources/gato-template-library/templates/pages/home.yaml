@@ -5,6 +5,8 @@ title: Library Homepage
 dialog: gato-template:pages/page-properties
 modelClass: edu.txstate.its.gato.LibraryTemplateModel
 variations:
+  js:
+    templateScript: /gato-component-cssjs/templates/pages/jsvariation.ftl
   smartphone:
     templateScript: /gato-template-library/templates/pages/mobile.ftl
 parameters:

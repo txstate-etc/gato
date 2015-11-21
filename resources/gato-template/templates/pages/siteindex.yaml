@@ -1,4 +1,4 @@
 templateScript: /gato-template/templates/pages/siteindex.ftl
-renderType: freemarker
+renderType: site
 title: Gato Site Index
 visible: false

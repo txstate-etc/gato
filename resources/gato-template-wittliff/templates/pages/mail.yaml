@@ -8,3 +8,6 @@ parameters:
   sortOrder: 250
 areas:
   !include /gato-template-wittliff/templates/includes/standardareas.yaml
+variations:
+  js:
+    templateScript: /gato-component-cssjs/templates/pages/jsvariation.ftl
