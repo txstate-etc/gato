@@ -111,7 +111,8 @@ div#top-feature {
         padding: 0;
         .caption-wrap {
           max-width: 100%;
-          position: inherit;
+          position: relative;
+          bottom: 0;
           .feature-play-button {
             left: 2rem;
             a {
