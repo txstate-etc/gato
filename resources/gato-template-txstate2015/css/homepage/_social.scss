@@ -66,11 +66,15 @@ div#social {
         }
       }
     }
+    @include eq-min-width('xl') {
+      .social-upper { height: 38rem; }
+    }
 
     .instagram {
       .image {
         position: relative;
         overflow: hidden;
+        max-height: 100%;
         &:hover {
           .caption {
             bottom: 0;
