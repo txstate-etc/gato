@@ -73,7 +73,6 @@ class MoveRichEditorToDamTask extends MoveFCKEditorContentToDamMigrationTask {
 
   @Override
   protected void handleUploadReferenceForNode(Node node) throws RepositoryException {
-    log.warn("handleUploadReferenceForNode: "+node.getPath());
     try {
       if (node.hasProperty(getPropertyValue())) handleTextProperty(node, node.getProperty(getPropertyValue()));
     } catch (Exception e) {
@@ -83,7 +82,6 @@ class MoveRichEditorToDamTask extends MoveFCKEditorContentToDamMigrationTask {
 
   @Override
   protected String copyToDam(Node dataNodeResource) throws RepositoryException {
-    log.warn("copyToDam: "+dataNodeResource.getPath());
     // figure out where to put our asset
     Node page = cmsfn.page(dataNodeResource);
     String[] path = page.getPath().split("/", 3);
@@ -106,12 +104,10 @@ class MoveRichEditorToDamTask extends MoveFCKEditorContentToDamMigrationTask {
   }
 
   // in magnolia's task this crashed the upgrade when it encountered a broken link
-  public final Pattern HREF_PATTERN = Pattern.compile("(href[ ]*=[ ]*['\"])(\\w+)[^'\"]*['\"]");
-  public final Pattern SRC_PATTERN = Pattern.compile("(href[ ]*=[ ]*['\"])(\\w+)[^'\"]*['\"]");
-  public final Pattern URL_PATTERN = Pattern.compile("(url\\()(\\w+)([^\\)]*\\))");
+  public final Pattern HREF_PATTERN = Pattern.compile("(href\\s*=\\s*['\"])([^'\"]+)(['\"])");
+  public final Pattern SRC_PATTERN = Pattern.compile("(src\\s*=\\s*['\"])([^'\"]+)(['\"])");
+  public final Pattern URL_PATTERN = Pattern.compile("(url\\()([^\\)]*)(\\))");
   protected void handleTextProperty(Node node, Property property) throws LinkException, RepositoryException {
-    log.warn("handleTextProperty");
-    log.warn(node.getPath());
     String propString = property.getString();
     if (StringUtils.isBlank(propString)) return;
     List<Link> links = collectLinks(propString);
@@ -131,36 +127,35 @@ class MoveRichEditorToDamTask extends MoveFCKEditorContentToDamMigrationTask {
       Matcher matcher = p.matcher(propString);
       while (matcher.find()) {
         String path = matcher.group(2);
-
-        // let's see if we have a path to an image
-        if (LinkUtil.isInternalRelativeLink(path)) {
+        if (path.startsWith("${")) {
+          // these are not the links you're looking for
+        } else if (LinkUtil.isInternalRelativeLink(path)) {
+          // let's see if we have a path to an image
           Node page = cmsfn.page(node);
           if (page != null) {
             Path filepath = Paths.get(path);
             Path pagepath = Paths.get(page.getPath());
-            log.warn("filepath: "+filepath.toString());
-            log.warn("pagepath: "+pagepath.toString());
-            Path jcrpath = Paths.get(pagepath.getParent().toString() + filepath.getParent().toString());
-            String damuuid = "";
-            try {
-              String historykey = "website:"+jcrpath.getParent().toString()+":"+jcrpath.getFileName().toString();
-              if (this.copyHistory.containsKey(historykey)) {
-                damuuid = this.copyHistory.get(historykey);
-              } else {
-                Node dataResourceNode = node.getSession().getNode(jcrpath.toString());
-                if (dataResourceNode.hasProperty(AssetNodeTypes.AssetResource.EXTENSION)) {
-                  damuuid = copyToDam(dataResourceNode);
-                }
-              }
-              path = getDamLink(damSession.getNodeByIdentifier(damuuid));
-            } catch (Exception e) {
-              // didn't work, we tried
-            }
+
+            // first we'll assume that the filename is also the resource node
+            // this is how things were saved in CKEditor
+            String newLink = convertWebsitePathToDamLink(
+              Paths.get(pagepath.getParent().toString() +"/"+ filepath.toString().replaceAll("\\.[^\\.]+$","")),
+              node
+            );
+            // if that didn't work, we'll assume the filename is just there
+            // for fluff and strip it off, this is how it worked in FCKEditor
+            if (StringUtils.isBlank(newLink))
+              newLink = convertWebsitePathToDamLink(
+                  Paths.get(pagepath.getParent().toString() +"/"+ filepath.getParent().toString()),
+                  node
+                );
+
+            if (!StringUtils.isBlank(newLink))
+              path = newLink;
           }
-        }
 
         // let's see if we have a DMS link
-        if (path.startsWith("/dms/")) {
+        } else if (path.startsWith("/dms/")) {
           try {
             Path dmspath = Paths.get(path.substring(4));
             Node damItem = damSession.getNode(dmspath.getParent().toString());
@@ -168,10 +163,9 @@ class MoveRichEditorToDamTask extends MoveFCKEditorContentToDamMigrationTask {
           } catch (Exception e) {
             // no match, we tried
           }
-        }
 
         // let's see if we have a gato-docs link
-        if (path.startsWith("http://gato-docs.its.txstate.edu/")) {
+        } else if (path.startsWith("http://gato-docs.its.txstate.edu/")) {
           try {
             Path dmspath = Paths.get(path.substring(32));
             Node damItem = damSession.getNode(dmspath.getParent().toString());
@@ -181,12 +175,33 @@ class MoveRichEditorToDamTask extends MoveFCKEditorContentToDamMigrationTask {
           }
         }
 
-        matcher.appendReplacement(result, "$1" + path + "$3");
+        matcher.appendReplacement(result, "$1" + Matcher.quoteReplacement(path) + "$3");
       }
       matcher.appendTail(result);
       propString = result.toString();
     }
     property.setValue(propString);
+  }
+
+  protected String convertWebsitePathToDamLink(Path jcrpath, Node node) {
+    try {
+      String damuuid = "";
+      String historykey = "website:"+jcrpath.getParent().toString()+":"+jcrpath.getFileName().toString();
+      if (this.copyHistory.containsKey(historykey)) {
+        damuuid = this.copyHistory.get(historykey);
+      } else {
+        Node dataResourceNode = node.getSession().getNode(jcrpath.toString());
+        if (dataResourceNode.hasProperty(AssetNodeTypes.AssetResource.EXTENSION)) {
+          damuuid = copyToDam(dataResourceNode);
+          this.copyHistory.put(historykey, damuuid);
+        }
+      }
+      if (StringUtils.isBlank(damuuid)) return "";
+      return getDamLink(damSession.getNodeByIdentifier(damuuid));
+    } catch (Exception e) {
+      // didn't work, we tried
+    }
+    return "";
   }
 
   // Updated this method to normalize file extensions a bit - also it was a little broken
@@ -230,9 +245,7 @@ class MoveRichEditorToDamTask extends MoveFCKEditorContentToDamMigrationTask {
   // updated this method to handle the case where two rich editors point at the
   // same file, e.g. after a page copy.
   protected void moveResourceNodeAndHandleLink(Node node, Property property, Link link) throws RepositoryException {
-    log.warn("moveResourceNodeAndHandleLink: "+node.getPath());
     if (link == null || link.getWorkspace() == null) return;
-    log.warn("link.getWorkspace() was not null");
     if (this.copyHistory.containsKey(link.getUUID()+":"+link.getPropertyName())) {
       String damAssetIdentifier = this.copyHistory.get(link.getUUID()+":"+link.getPropertyName());
       String damAssetPath = damSession.getNodeByIdentifier(damAssetIdentifier).getPath();
@@ -276,18 +289,14 @@ class MoveRichEditorToDamTask extends MoveFCKEditorContentToDamMigrationTask {
 
   protected void changeLinkInTextContent(Property property, String damAssetIdentifier, String originalFileUUID, String originalFileNodePath, String nodeData) throws RepositoryException {
     String text = property.getString();
-    Link newLink = new Link(damSession.getNodeByIdentifier(damAssetIdentifier));
-    String newLinkText = Matcher.quoteReplacement(LinkUtil.toPattern(newLink));
-    log.warn("original uuid: "+originalFileUUID+", original path: "+originalFileNodePath+", original nodedata: "+nodeData);
-    log.warn(text);
+    String newLinkText = Matcher.quoteReplacement(getDamLink(damSession.getNodeByIdentifier(damAssetIdentifier)));
     text = text.replaceAll(Pattern.quote("${link:{")+"([^\\}]\\}|\\}[^\\}]|[^\\}])*?"+Pattern.quote("uuid:{"+originalFileUUID+"}")+"([^\\}]\\}|\\}[^\\}]|[^\\}])*?"+Pattern.quote("nodeData:{"+nodeData+"}")+".*?"+Pattern.quote("}}")+"+", newLinkText);
     text = text.replaceAll(Pattern.quote("${link:{")+"([^\\}]\\}|\\}[^\\}]|[^\\}])*?"+Pattern.quote("handle:{"+originalFileNodePath+"}")+"([^\\}]\\}|\\}[^\\}]|[^\\}])*?"+Pattern.quote("nodeData:{"+nodeData+"}")+".*?"+Pattern.quote("}}")+"+", newLinkText);
-    log.warn(text);
     property.setValue(text);
   }
 
   protected String getDamLink(Node damNode) throws RepositoryException {
-    return "${link:{uuid:{"+damNode.getIdentifier()+"},repository:{dam},handle:{"+damNode.getPath()+"},nodeData:{},extension:{html}}}";
-
+    Link newLink = new Link(damNode);
+    return LinkUtil.toPattern(newLink);
   }
 }
