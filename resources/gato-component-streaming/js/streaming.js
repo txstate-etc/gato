@@ -20,7 +20,7 @@ function getVideoInfo(url) {
     vInfo.videoId = urlInfo.id;
   } else if (url.match(/^https:\/\/mediaflo\.txstate\.edu/)) {
     vInfo.playerType = "mediaflo";
-  } else if (url.startsWith("<iframe") || url.startsWith("<div")) {
+  } else if (url.startsWith("<iframe>") && url.endsWith("</iframe>")) {
     vInfo.playerType = "embed";
   } else if (jQuery.inArray(getFileExtension(url), flowPlayerFormats) != -1) {
     vInfo.playerType = "flow";
@@ -50,7 +50,8 @@ function buildFlowPlayer(el, url) {
 }
 
 function buildEmbed(el, embedCode) {
-  jQuery(el).append(embedCode);
+  var iframe = jQuery(embedCode);
+  jQuery(el).append(embedCode[0]);
 }
 
 function buildMediaflo(el, url) {
