@@ -410,7 +410,7 @@ public final class GatoUtils {
   }
   public final Pattern IMAGE_TAG_PATTERN = Pattern.compile("(<img[^>]*src[ ]*=[ ]*\")([^\"]*)(\"[^>]*>)");
   public final Pattern WIDTH_ATTR_PATTERN = Pattern.compile("width[ ]*=[ ]*\"([0-9]+)[^\"]*\"");
-  public final Pattern SRCSET_ATTR_PATTERN = Pattern.compile("srcset[ ]*=[ ]*\"(\\w+)[^\"]*\"");
+  public final Pattern SRCSET_ATTR_PATTERN = Pattern.compile("srcset[ ]*=[ ]*\"([^\"]*)\"");
   public final Pattern ASSET_KEY_PATTERN = Pattern.compile("/([a-z]+:[a-f0-9\\-]+)/");
   public String processRichText(String str) {
     if (StringUtils.isBlank(str)) return "";
@@ -433,9 +433,9 @@ public final class GatoUtils {
         Asset image = damfn.getAsset(assetKey);
         if (image != null) {
           newSrc = getImgDefault(image);
-          newSrc += "\" srcset=\""+getSrcSet(image);
-          if (width > 0) newSrc += "\" sizes=\""+width+"px";
+          if (StringUtils.isBlank(existingSrcSet)) newSrc += "\" srcset=\""+getSrcSet(image);
         }
+        if (width > 0) newSrc += "\" sizes=\""+width+"px";
       }
       matcher.appendReplacement(result, "$1" + newSrc + "$3");
     }
