@@ -33,46 +33,15 @@ div#top-feature {
             background: $maroon;
             color: $white;
             @include hover-bg($light-maroon);
+            text-decoration: none;
             font-weight: 500;
             font-size: 3.2rem;
             line-height: 4.2rem;
             padding: 1.6rem 3rem 1.4rem 2rem;
           }
         }
-
         .feature-play-button {
-          position: absolute;
-          top: 0;
-          a {
-            @include vendor-prefix(border-radius, 50%);
-            border-radius: 8rem;
-            background: $maroon;
-            position: absolute;
-            width: 6.5rem;
-            height: 6.5rem;
-            margin-top: -7.5rem;
-            &:after {
-              left: 0;
-              right: 0;
-              margin: 0 auto;
-              position: absolute;
-              border: solid transparent;
-              border-left-color: $white;
-              border-width: 1rem 0 1rem 1.6rem;
-              content: "";
-              height: 0;
-              width: 0;
-              position: absolute;
-              top: 50%;
-              margin-top: -1rem;
-              left: .4rem;
-            }
-            &:hover {
-              @include vendor-prefix(transform, scale(1.15));
-              background: $light-maroon;
-            }
-            @include vendor-prefix(transition, all 0.2s cubic-bezier(0, 0.5, 0.25, 1));
-          }
+          top: -7.5rem;
         }
       }
     }    
@@ -84,13 +53,9 @@ div#top-feature {
     right: 4rem;
 
     a {
-      display: inline-block;
-      padding: 1rem 1.5rem;
-      margin-left: 0.3rem;
       background: fade-out($almost-black, 0.3);
-      &:hover { background: $almost-black; }
+      @include hover-bg($almost-black);
       color: $white;
-      font-size: 1.8rem;
     }
   }
 
@@ -104,14 +69,8 @@ div#top-feature {
         .feature-headline a {
           font-size: 2.8rem;
           line-height: 3.8rem;
-          padding-bottom: 1.8rem;
-        }
-        .feature-play-button {
-          a {
-            width: 5.5rem;
-            height: 5.5rem;
-            margin-top: -6rem;
-          }
+          padding-bottom: 1rem;
+          padding-top: 0.8rem;
         }
       }
     }
@@ -124,7 +83,10 @@ div#top-feature {
   }
 
   @include eq-max-width('ml') {
+    &.slide-nav { display: none; }
     figure {
+      height: auto;
+      img { max-height: 250px; }
       figcaption {
         padding: 0;
         .caption-wrap {
@@ -133,9 +95,6 @@ div#top-feature {
           bottom: 0;
           .feature-play-button {
             left: 2rem;
-            a {
-              margin-top: -7rem;
-            }
           }
         }
       }

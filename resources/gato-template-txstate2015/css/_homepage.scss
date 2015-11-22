@@ -123,36 +123,6 @@ body.homepage {
       }
     }
 
-    figure.feature {
-      margin: 0;
-      a { margin: 0; padding: 0; }
-      img { display: block; }
-      figcaption {
-        padding: 2rem;
-        background: $sandstone;
-        a { 
-          color: $maroon;
-          text-decoration: underline; 
-          &:hover { text-decoration: none; background: none; }
-        }
-        p { margin: 0; }
-        .feature-headline {
-          font-size: 2rem;
-          font-weight: bold;
-          line-height: 2.6rem;
-          margin-bottom: 1rem;
-        }
-        .feature-date {
-          font-size: 1.4rem;
-          font-style: italic;
-          padding-bottom: 1.2rem;
-        }
-        .feature-text {
-          font-size: 1.6rem;
-        }
-      }
-    }
-
     &.main {
       a{
         padding: 1px 3px;
@@ -164,7 +134,7 @@ body.homepage {
     }
     &.comp {
       background: $sandstone;
-      .feature figcaption { background: $khaki; }
+      .slides, figure.feature { background: $khaki; }
       .solo-bailout a {
         color: $maroon;
         &:hover { 
@@ -179,6 +149,111 @@ body.homepage {
       }
     }
   }
+
+  figure.feature {
+    background: $sandstone;
+    margin: 0;
+    a.image-link { margin: 0; padding: 0; }
+    img { display: block; }
+    figcaption {
+      padding: 2rem;
+      p { 
+        margin: 0; 
+        &.feature-headline {
+          font-size: 2rem;
+          font-weight: bold;
+          line-height: 2.6rem;
+          margin-bottom: 1rem;
+          a { 
+            color: $maroon;
+            text-decoration: underline; 
+            &:hover { text-decoration: none; background: none; }
+          }
+        }
+        &.feature-date {
+          font-size: 1.4rem;
+          font-style: italic;
+          padding-bottom: 1.2rem;
+        }
+        &.feature-text {
+          font-size: 1.6rem;
+        }
+      }
+    }
+
+    .feature-img-wrap { position: relative; }
+
+    .feature-play-button {
+      position: absolute;
+      top: 0;
+      margin: 0;
+      a {
+        @include vendor-prefix(border-radius, 50%);
+        border-radius: 8rem;
+        background: $maroon;
+        position: absolute;
+        width: 6.5rem;
+        height: 6.5rem;
+        &:after {
+          left: 0;
+          right: 0;
+          margin: 0 auto;
+          position: absolute;
+          border: solid transparent;
+          border-left-color: $white;
+          border-width: 1rem 0 1rem 1.6rem;
+          content: "";
+          height: 0;
+          width: 0;
+          position: absolute;
+          top: 50%;
+          margin-top: -1rem;
+          left: .4rem;
+        }
+        &:hover {
+          @include vendor-prefix(transform, scale(1.15));
+          background: $light-maroon;
+        }
+        @include vendor-prefix(transition, all 0.2s cubic-bezier(0, 0.5, 0.25, 1));
+      }
+    }
+  }
+
+  @include eq-max-width('lg') {
+    .slides {
+      figure.feature {    
+        .feature-play-button {
+          a {
+            width: 5.5rem;
+            height: 5.5rem;
+          }
+        }
+      }
+    }
+  }
+
+  .slide-nav { 
+    a {
+      display: inline-block;
+      padding: 1rem 1.5rem;
+      margin-left: 0.3rem;
+      background: $khaki;
+      color: $charcoal;
+      @include hover-bg($gold, $white);
+      font-size: 1.8rem;
+    }
+  }
+  .slide-nav-dots { 
+    text-align: center;
+    margin: 0.5rem 0;
+    a {
+      color: $khaki;
+      &.active-dot { color: $maroon; }
+      font-size: 1.1rem;
+      margin: 0px 0.3rem;
+    }
+  }
+
 }
 
 @import "gato-template-txstate2015/css/homepage/top-feature";

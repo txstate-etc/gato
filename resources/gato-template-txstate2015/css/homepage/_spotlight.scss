@@ -1,9 +1,36 @@
 div#spotlight {
   padding-bottom: 1rem;
 
+  .research {
+    .research-slider-wrap {
+      position: relative;
+      .slide {
+        min-height: 42rem;
+        .feature-play-button {
+          left: calc(50% - 3.25rem);
+          top: calc(50% - 3.25rem);
+        }
+      }
+      .slide-nav { 
+        position: absolute;
+        bottom: 100%;
+        right: 0;
+      }  
+    }
+  }
+
   @include eq-min-width('ml') {
     .research {
       figure { margin-bottom: 3rem; }
+    }
+  }
+  @include eq-max-width('lg') {
+    .slide {
+      min-height: 37rem;
+      .feature-play-button {
+        left: calc(50% - 2.75rem);
+        top: calc(50% - 2.75rem);
+      }
     }
   }
 

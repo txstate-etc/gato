@@ -8,26 +8,56 @@
           <div class="col-left research">
             <h2>Research</h2>
           
-            <figure class="feature research-slider">
-              <img alt="demo" src="http://edelstone.github.io/gato-homepage/images/research-4.jpg">
-              <figcaption>
-                <p class="feature-headline"><a href="#nowhere">New Paths in Space Exploration</a></p>
-                <p class="feature-text">When Jacobs secured its $1.9 billion dollar primary contract with NASA's Johnson Space Center, it turned to Texas State.</p>
-              </figcaption>
-            </figure>
-            <!-- <div class="slider-overlay-right" style="opacity: 1;">
-              <a class="nav-arrow-left hover-fx-1" href="#nowhere"><i class="fa fa-chevron-left"></i></a>
-              <a class="nav-arrow-right hover-fx-1" href="#nowhere"><i class="fa fa-chevron-right"></i></a>
-            </div> -->
-            <!-- <a href="https://vimeo.com/118918648" data-lightbox-gallery="gallery1" class="primary-link">
-              <div class="play-overlay hover-fx-1 research-play"></div>
-            </a> -->
-            <!-- <p class="nav-dots">
-              <i class="active-dot fa fa-circle"></i>
-              <i class="fa fa-circle"></i>
-              <i class="fa fa-circle"></i>
-            </p> -->
-          
+            <div class="research-slider-wrap">
+              <div class="slides">
+                <div class="slide">
+                  <figure class="feature research-slider">
+                    <div class="feature-img-wrap">
+                      <img alt="demo" src="http://edelstone.github.io/gato-homepage/images/research-4.jpg">
+                      <p class="feature-play-button"><a href="#nowhere" aria-label="Play Video"></a></p>
+                    </div>
+                    <figcaption>
+                      <p class="feature-headline"><a href="#nowhere">New Paths in Space Exploration</a></p>
+                      <p class="feature-text">When Jacobs secured its $1.9 billion dollar primary contract with NASA's Johnson Space Center, it turned to Texas State.</p>
+                    </figcaption>
+                  </figure>
+                </div>
+                <div class="slide" style="display: none;">
+                  <figure class="feature research-slider">
+                    <div class="feature-img-wrap">
+                      <img alt="demo" src="http://edelstone.github.io/gato-homepage/images/research-2.jpg">
+                      <p class="feature-play-button"><a href="#nowhere" aria-label="Play Video"></a></p>
+                    </div>
+                    <figcaption>
+                      <p class="feature-headline"><a href="#nowhere">Photographing Dirt</a></p>
+                      <p class="feature-text">You'll have all the Slurm you can drink when you're partying with Slurms McKenzie!</p>
+                    </figcaption>
+                  </figure>
+                </div>
+                <div class="slide" style="display: none;">
+                  <figure class="feature research-slider">
+                    <div class="feature-img-wrap">
+                      <img alt="demo" src="http://edelstone.github.io/gato-homepage/images/research-3.jpg">
+                      <p class="feature-play-button"><a href="#nowhere" aria-label="Play Video"></a></p>
+                    </div>
+                    <figcaption>
+                      <p class="feature-headline"><a href="#nowhere">Penguins&hellip; in&hellip; Spaaace!</a></p>
+                      <p class="feature-text">Morbo will now introduce tonight's candidates… PUNY HUMAN NUMBER ONE, PUNY HUMAN NUMBER TWO, and Morbo's good friend, Richard Nixon.</p>
+                    </figcaption>
+                  </figure>
+                </div>
+              </div>
+              <div class="slide-nav">
+                <a class="slide-nav-left" href="#nowhere"><i class="fa fa-chevron-left"></i></a>[#--
+                --]<a class="slide-nav-right" href="#nowhere"><i class="fa fa-chevron-right"></i></a>
+              </div>
+              <p class="slide-nav-dots">
+                <a class="active-dot" href="#nowhere"><i class="fa fa-circle"></i></a>
+                <a href="#nowhere"><i class="fa fa-circle"></i></a>
+                <a href="#nowhere"><i class="fa fa-circle"></i></a>
+              </p>
+            
+            </div>
           </div>
           
         </div>
