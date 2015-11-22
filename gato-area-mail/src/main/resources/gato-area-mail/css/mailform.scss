@@ -90,7 +90,7 @@
   display: block;
 }
 
-.txst-form fieldset {
+.txst-form-body {
   background-color:#f3f0e3;
   padding: 15px;
   margin-bottom: 1em;
@@ -99,6 +99,6 @@
   border-radius: 8px;
 }
 
-.txst-form fieldset input.text, .txst-form fieldset textarea {
+.txst-form-body input.text, .txst-form-body textarea {
   background-color: white;
 }

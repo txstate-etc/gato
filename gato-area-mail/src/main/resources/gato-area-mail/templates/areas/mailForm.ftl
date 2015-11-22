@@ -14,22 +14,22 @@
       </p>
       Some form-data-link.jsp thing
     </div>
-  [/#if]
-  [#if content.copySender!false]
-    <input type="hidden" name="options" value="send-to-sender" />
-  [/#if]
-    <input type="hidden" name="destinationemail" value="${addresses}" />
-    <input type="hidden" name="MessageSubject" value="${content.subject!''}" />
+    [/#if]
+    [#if content.copySender!false]
+      <input type="hidden" name="options" value="send-to-sender" />
+    [/#if]
+      <input type="hidden" name="destinationemail" value="${addresses}" />
+      <input type="hidden" name="MessageSubject" value="${content.subject!''}" />
 
-    <input type="hidden" id="formemailersetid" name="formemailersetid" value="${cmsfn.asJCRNode(content).identifier}" />
-    <input type="hidden" id="thankyoupage" name="thankyoupage" value="${gf.absoluteUrl(content.redirect)}" />
+      <input type="hidden" id="formemailersetid" name="formemailersetid" value="${cmsfn.asJCRNode(content).identifier}" />
+      <input type="hidden" id="thankyoupage" name="thankyoupage" value="${gf.absoluteUrl(content.redirect)}" />
+    [#list components as component]
+      ${ctx.request.setAttribute("safeTitle", model.getSafeTitle(cmsfn.asJCRNode(component).identifier))}
+      [@cms.component content=component /]
+    [/#list]
+    [#if cmsfn.isEditMode()]
+      <div class="mail_add" cms:add="box"></div>
+    [/#if]
+    <div class="txst-khan-privacypolicylink"><a href="http://www.tr.txstate.edu/privacy-statement.html" target="_blank">Privacy Policy</a></div>
   </div>
-  [#list components as component]
-    ${ctx.request.setAttribute("safeTitle", model.getSafeTitle(cmsfn.asJCRNode(component).identifier))}
-    [@cms.component content=component /]
-  [/#list]
-  [#if cmsfn.isEditMode()]
-    <div class="mail_add" cms:add="box"></div>
-  [/#if]
-  <div class="txst-khan-privacypolicylink"><a href="http://www.tr.txstate.edu/privacy-statement.html" target="_blank">Privacy Policy</a></div>
 </form>
