@@ -67,6 +67,12 @@ $inheritance-blue:     #000080;
 $mgnl-outline:         #93BBC4;
 $mgnl-fld-border:      #D1D1D1;
 
+// Emergency colors
+$emergency-color: $white;
+$emergency-bg: #B30E1B;
+$emergency-bg-highlight: #8F0B16;
+$emergency-background-gradient: repeating-linear-gradient(-135deg, #6B0810, #6B0810 1.25rem, #8F0B16 1.25rem, #8F0B16 2.5rem);
+
 @import "gato-lib/css/colors";
 
 // Social colors 
