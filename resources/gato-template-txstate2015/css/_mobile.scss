@@ -65,7 +65,11 @@
 }
 
 
-.contact_us.mobile_dept a {color: $hamburger-menu-color; line-height: 1.8rem;}
+.mobile-page-title {
+    color: $hamburger-menu-color; 
+    line-height: 1.8rem;
+    font-family: $garamond;
+}
 .mobile_primary_nav {
     a{
         text-transform: uppercase;
