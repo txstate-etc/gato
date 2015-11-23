@@ -2,29 +2,15 @@
 <form class="txst-form eq-lg-3-4" name="samplesForm" action="${gf.getConfigProperty('gato.formemailer.server')}/formemailer/formemailer.pl" method="post" enctype="multipart/form-data"
   onsubmit="return (checkMandatories(this.name,'Please complete all of the required fields (marked with an asterisk).'));">
   <div class="txst-form-body">
-  [#if cmsfn.isEditMode()]
     <div class="txst-khan-alert txst-khan-notice">
-      <p>
-        This form currently send its results here:
-        <strong>${addresses}[#if !addresses?has_content]NO ADDRESS DEFINED[/#if]</strong>
-      </p>
-      <p>
-        To change the email to which the result are mailed, the subject of the
-        email, or the page that's displayed after the form is submitted click the edit button in the Mail Form Content bar.
-      </p>
+      [@cms.area name="formproperties" /]
+      [#if cmsfn.isEditMode()]
       <p>
         You can also download the data from this form using the <a href="${model.dataToolLink}" target="_blank" onclick="window.open(this.href, '_blank')">form data tool</a>.
       </p>
+      [/#if]
     </div>
-    [/#if]
-    [#if content.copySender!false]
-      <input type="hidden" name="options" value="send-to-sender" />
-    [/#if]
-      <input type="hidden" name="destinationemail" value="${addresses}" />
-      <input type="hidden" name="MessageSubject" value="${content.subject!''}" />
-
-      <input type="hidden" id="formemailersetid" name="formemailersetid" value="${cmsfn.asJCRNode(content).identifier}" />
-      <input type="hidden" id="thankyoupage" name="thankyoupage" value="${gf.absoluteUrl(content.redirect)}" />
+    
     [#list components as component]
       ${ctx.request.setAttribute("safeTitle", model.getSafeTitle(cmsfn.asJCRNode(component).identifier))}
       [@cms.component content=component /]

@@ -4,6 +4,17 @@ dialog: gato-area-mail:areas/mailForm
 type: list
 title: Mail Form Content
 modelClass: edu.txstate.its.gato.MailModel
+areas:
+  formproperties:
+    type: single
+    title: Mail Form Properties
+    autoGeneration:
+      content:
+        formproperties:
+          nodeType: mgnl:component
+          templateId: gato-area-mail:components/formproperties
+          copySender: false
+      generatorClass: info.magnolia.rendering.generator.CopyGenerator
 availableComponents:
   formedit:
     id: gato-area-mail:components/formedit

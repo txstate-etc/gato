@@ -333,16 +333,18 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
     if (!n.hasNode("contentParagraph")) { return; }
 
     Node mail = n.getNode("contentParagraph");
+    Node formProperties = mail.addNode("formproperties", NodeTypes.Area.NAME).addNode("formproperties", NodeTypes.Component.NAME);
+    NodeTypes.Renderable.set(formProperties, "gato-area-mail:components/formproperties");
 
-    // Move properties on the template to the area since they're now configured with an area dialog
-    moveProperty("copySender", n, mail);
-    moveProperty("subject", n, mail);
-    moveProperty("redirect", n, mail);
+    // Move properties on the template to formproperties area since they're now configured as a component
+    moveProperty("copySender", n, formProperties);
+    moveProperty("subject", n, formProperties);
+    moveProperty("redirect", n, formProperties);
 
     if (n.hasProperty("to")) {
       Property to = n.getProperty("to");
       String addresses = to.getString();
-      mail.setProperty("to", convertToMultiValue(addresses, "\\R"));
+      formProperties.setProperty("to", convertToMultiValue(addresses, "\\R"));
       to.remove();
     }
 

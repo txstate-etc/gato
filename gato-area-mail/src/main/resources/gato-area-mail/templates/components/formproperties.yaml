@@ -1,0 +1,5 @@
+templateScript: /gato-area-mail/templates/components/formproperties.ftl
+renderType: freemarker
+dialog: gato-area-mail:components/formproperties
+description: Configure form properties
+title: Form Properties
