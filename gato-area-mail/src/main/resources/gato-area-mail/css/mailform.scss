@@ -102,3 +102,16 @@
 .txst-form-body input.text, .txst-form-body textarea {
   background-color: white;
 }
+
+.txst-khan-alert {
+  position: relative;
+  border: 3px solid black;
+  padding-left: 1em;
+  padding-right: 1em;
+  margin-bottom: 1em;
+}
+
+.txst-khan-notice {
+  margin-top: 5px;
+  background-color: #ffffaa;
+}
