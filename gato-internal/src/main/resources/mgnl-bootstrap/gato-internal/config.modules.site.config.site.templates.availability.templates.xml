@@ -26,7 +26,7 @@
       <sv:value>mgnl:contentNode</sv:value>
     </sv:property>
     <sv:property sv:name="jcr:uuid" sv:type="String">
-      <sv:value>408a5ac8-113d-47e8-9114-2e359d658a67</sv:value>
+      <sv:value>f40c2d00-bf4a-463e-b20d-433998e6a243</sv:value>
     </sv:property>
     <sv:property sv:name="id" sv:type="String">
       <sv:value>gato-template-txstate2009:pages/mail</sv:value>
@@ -38,19 +38,19 @@
       <sv:value>false</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:created" sv:type="Date">
-      <sv:value>2015-11-21T13:16:09.110-06:00</sv:value>
+      <sv:value>2015-11-23T11:24:27.955-06:00</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:createdBy" sv:type="String">
       <sv:value>nw13</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:lastActivated" sv:type="Date">
-      <sv:value>2015-11-21T13:16:09.111-06:00</sv:value>
+      <sv:value>2015-11-23T11:24:27.956-06:00</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:lastActivatedBy" sv:type="String">
       <sv:value>nw13</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-      <sv:value>2015-11-21T13:16:54.496-06:00</sv:value>
+      <sv:value>2015-11-23T11:25:39.564-06:00</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
       <sv:value>nw13</sv:value>
@@ -61,7 +61,7 @@
       <sv:value>mgnl:contentNode</sv:value>
     </sv:property>
     <sv:property sv:name="jcr:uuid" sv:type="String">
-      <sv:value>a3a89fce-4a5b-4fd8-b6e5-3d2c1c423838</sv:value>
+      <sv:value>047b92a8-d5e3-418d-8723-48d65583a4cf</sv:value>
     </sv:property>
     <sv:property sv:name="id" sv:type="String">
       <sv:value>gato-template-txstate2009:pages/standard</sv:value>
@@ -73,19 +73,19 @@
       <sv:value>false</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:created" sv:type="Date">
-      <sv:value>2015-11-21T13:16:59.314-06:00</sv:value>
+      <sv:value>2015-11-23T11:24:30.857-06:00</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:createdBy" sv:type="String">
       <sv:value>nw13</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:lastActivated" sv:type="Date">
-      <sv:value>2015-11-21T13:16:59.315-06:00</sv:value>
+      <sv:value>2015-11-23T11:24:30.858-06:00</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:lastActivatedBy" sv:type="String">
       <sv:value>nw13</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-      <sv:value>2015-11-21T13:17:26.574-06:00</sv:value>
+      <sv:value>2015-11-23T11:25:28.716-06:00</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
       <sv:value>nw13</sv:value>
@@ -888,7 +888,7 @@
       <sv:value>/modules/site/config/site/templates/availability/templates/2015-homepage</sv:value>
     </sv:property>
     <sv:property sv:name="id" sv:type="String">
-      <sv:value>gato-template-data:pages/audio</sv:value>
+      <sv:value>gato-template-data:pages/video</sv:value>
     </sv:property>
     <sv:property sv:name="jcr:createdBy" sv:type="String">
       <sv:value>admin</sv:value>
@@ -909,7 +909,7 @@
       <sv:value>nw13</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-      <sv:value>2015-11-17T14:55:43.611-06:00</sv:value>
+      <sv:value>2015-11-23T11:22:37.677-06:00</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
       <sv:value>nw13</sv:value>
