@@ -22,7 +22,7 @@
     <sv:value>superuser</sv:value>
   </sv:property>
   <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-    <sv:value>2015-11-15T15:39:16.427-06:00</sv:value>
+    <sv:value>2015-11-23T11:35:10.182-06:00</sv:value>
   </sv:property>
   <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
     <sv:value>nw13</sv:value>
@@ -66,7 +66,7 @@
         <sv:value>2008-02-12T11:43:09.473-06:00</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-        <sv:value>2015-11-15T15:39:16.433-06:00</sv:value>
+        <sv:value>2015-11-23T11:35:10.195-06:00</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
         <sv:value>nw13</sv:value>
@@ -96,7 +96,7 @@
       <sv:value>2008-02-12T11:43:09.492-06:00</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-      <sv:value>2015-11-15T15:39:16.457-06:00</sv:value>
+      <sv:value>2015-11-23T11:35:10.234-06:00</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
       <sv:value>nw13</sv:value>
@@ -119,7 +119,7 @@
       <sv:value>2008-02-12T11:43:09.511-06:00</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-      <sv:value>2015-11-15T15:39:16.459-06:00</sv:value>
+      <sv:value>2015-11-23T11:35:10.236-06:00</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
       <sv:value>nw13</sv:value>
@@ -129,19 +129,19 @@
         <sv:value>mgnl:contentNode</sv:value>
       </sv:property>
       <sv:property sv:name="jcr:uuid" sv:type="String">
-        <sv:value>205ec6d8-5efd-4c01-ac66-62d255dfa8e6</sv:value>
+        <sv:value>9913ac17-b6f0-404a-b7d9-0bc1c093527b</sv:value>
       </sv:property>
       <sv:property sv:name="jcr:createdBy" sv:type="String">
         <sv:value>admin</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:created" sv:type="Date">
-        <sv:value>2015-11-15T15:39:16.459-06:00</sv:value>
+        <sv:value>2015-11-23T11:35:10.236-06:00</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:createdBy" sv:type="String">
         <sv:value>nw13</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-        <sv:value>2015-11-15T15:39:16.459-06:00</sv:value>
+        <sv:value>2015-11-23T11:35:10.236-06:00</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
         <sv:value>nw13</sv:value>
@@ -171,7 +171,7 @@
       <sv:value>2008-02-12T11:43:09.529-06:00</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-      <sv:value>2015-11-15T15:39:16.459-06:00</sv:value>
+      <sv:value>2015-11-23T11:35:10.237-06:00</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
       <sv:value>nw13</sv:value>
@@ -194,7 +194,7 @@
       <sv:value>2008-02-12T11:43:09.547-06:00</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-      <sv:value>2015-11-15T15:39:16.460-06:00</sv:value>
+      <sv:value>2015-11-23T11:35:10.241-06:00</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
       <sv:value>nw13</sv:value>
@@ -204,19 +204,19 @@
         <sv:value>mgnl:contentNode</sv:value>
       </sv:property>
       <sv:property sv:name="jcr:uuid" sv:type="String">
-        <sv:value>d6cdcf91-1929-4d07-a3f2-6ab021bb701c</sv:value>
+        <sv:value>267e11eb-9399-4df9-ab6a-4bf45f14a923</sv:value>
       </sv:property>
       <sv:property sv:name="jcr:createdBy" sv:type="String">
         <sv:value>admin</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:created" sv:type="Date">
-        <sv:value>2015-11-15T15:39:16.460-06:00</sv:value>
+        <sv:value>2015-11-23T11:35:10.241-06:00</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:createdBy" sv:type="String">
         <sv:value>nw13</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-        <sv:value>2015-11-15T15:39:16.460-06:00</sv:value>
+        <sv:value>2015-11-23T11:35:10.241-06:00</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
         <sv:value>nw13</sv:value>
@@ -233,19 +233,19 @@
         <sv:value>mgnl:contentNode</sv:value>
       </sv:property>
       <sv:property sv:name="jcr:uuid" sv:type="String">
-        <sv:value>89949644-bab5-448c-bdc7-6e6e4490b32f</sv:value>
+        <sv:value>e5ebadf2-e6a1-4093-960a-f720bb085159</sv:value>
       </sv:property>
       <sv:property sv:name="jcr:createdBy" sv:type="String">
         <sv:value>admin</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:created" sv:type="Date">
-        <sv:value>2015-11-15T15:39:16.461-06:00</sv:value>
+        <sv:value>2015-11-23T11:35:10.241-06:00</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:createdBy" sv:type="String">
         <sv:value>nw13</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-        <sv:value>2015-11-15T15:39:16.461-06:00</sv:value>
+        <sv:value>2015-11-23T11:35:10.241-06:00</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
         <sv:value>nw13</sv:value>
@@ -275,7 +275,7 @@
       <sv:value>2008-02-12T11:43:09.552-06:00</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-      <sv:value>2015-11-15T15:39:16.461-06:00</sv:value>
+      <sv:value>2015-11-23T11:35:10.241-06:00</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
       <sv:value>nw13</sv:value>
@@ -298,7 +298,7 @@
       <sv:value>2008-02-12T11:43:09.562-06:00</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-      <sv:value>2015-11-15T15:39:16.461-06:00</sv:value>
+      <sv:value>2015-11-23T11:35:10.241-06:00</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
       <sv:value>nw13</sv:value>
@@ -321,7 +321,7 @@
       <sv:value>2008-02-12T11:43:09.568-06:00</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-      <sv:value>2015-11-15T15:39:16.461-06:00</sv:value>
+      <sv:value>2015-11-23T11:35:10.242-06:00</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
       <sv:value>nw13</sv:value>
@@ -344,7 +344,7 @@
       <sv:value>2008-02-12T11:43:09.571-06:00</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-      <sv:value>2015-11-15T15:39:16.461-06:00</sv:value>
+      <sv:value>2015-11-23T11:35:10.242-06:00</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
       <sv:value>nw13</sv:value>
@@ -367,7 +367,7 @@
       <sv:value>superuser</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-      <sv:value>2015-11-15T15:39:16.467-06:00</sv:value>
+      <sv:value>2015-11-23T11:35:10.252-06:00</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
       <sv:value>nw13</sv:value>
@@ -377,19 +377,19 @@
         <sv:value>mgnl:contentNode</sv:value>
       </sv:property>
       <sv:property sv:name="jcr:uuid" sv:type="String">
-        <sv:value>b0c744e4-b6b8-4433-87b8-4d93ee55d627</sv:value>
+        <sv:value>72a14e7e-5387-419b-a5c7-9a17d2974a49</sv:value>
       </sv:property>
       <sv:property sv:name="jcr:createdBy" sv:type="String">
         <sv:value>admin</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:created" sv:type="Date">
-        <sv:value>2015-11-15T15:39:16.464-06:00</sv:value>
+        <sv:value>2015-11-23T11:35:10.251-06:00</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:createdBy" sv:type="String">
         <sv:value>nw13</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-        <sv:value>2015-11-15T15:39:16.464-06:00</sv:value>
+        <sv:value>2015-11-23T11:35:10.251-06:00</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
         <sv:value>nw13</sv:value>
@@ -406,19 +406,19 @@
         <sv:value>mgnl:contentNode</sv:value>
       </sv:property>
       <sv:property sv:name="jcr:uuid" sv:type="String">
-        <sv:value>60170da1-1059-464d-af71-bf83fe2706fc</sv:value>
+        <sv:value>a1dbdc04-e580-4323-8f47-b705fcc8f931</sv:value>
       </sv:property>
       <sv:property sv:name="jcr:createdBy" sv:type="String">
         <sv:value>admin</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:created" sv:type="Date">
-        <sv:value>2015-11-15T15:39:16.464-06:00</sv:value>
+        <sv:value>2015-11-23T11:35:10.252-06:00</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:createdBy" sv:type="String">
         <sv:value>nw13</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-        <sv:value>2015-11-15T15:39:16.464-06:00</sv:value>
+        <sv:value>2015-11-23T11:35:10.252-06:00</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
         <sv:value>nw13</sv:value>
@@ -435,19 +435,19 @@
         <sv:value>mgnl:contentNode</sv:value>
       </sv:property>
       <sv:property sv:name="jcr:uuid" sv:type="String">
-        <sv:value>bd86e604-cc2a-4adf-a6e2-dda51ee7fd29</sv:value>
+        <sv:value>eb9fa9b7-ca9b-4dab-983a-d30dbad907a9</sv:value>
       </sv:property>
       <sv:property sv:name="jcr:createdBy" sv:type="String">
         <sv:value>admin</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:created" sv:type="Date">
-        <sv:value>2015-11-15T15:39:16.467-06:00</sv:value>
+        <sv:value>2015-11-23T11:35:10.252-06:00</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:createdBy" sv:type="String">
         <sv:value>nw13</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-        <sv:value>2015-11-15T15:39:16.467-06:00</sv:value>
+        <sv:value>2015-11-23T11:35:10.252-06:00</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
         <sv:value>nw13</sv:value>
@@ -464,25 +464,54 @@
         <sv:value>mgnl:contentNode</sv:value>
       </sv:property>
       <sv:property sv:name="jcr:uuid" sv:type="String">
-        <sv:value>e732c502-e307-4d9c-90ed-a3f9ac96617e</sv:value>
+        <sv:value>d4874d9f-be82-4f81-823e-c703bb06e1e5</sv:value>
       </sv:property>
       <sv:property sv:name="jcr:createdBy" sv:type="String">
         <sv:value>admin</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:created" sv:type="Date">
-        <sv:value>2015-11-15T15:39:16.467-06:00</sv:value>
+        <sv:value>2015-11-23T11:35:10.252-06:00</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:createdBy" sv:type="String">
         <sv:value>nw13</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-        <sv:value>2015-11-15T15:39:16.467-06:00</sv:value>
+        <sv:value>2015-11-23T11:35:10.252-06:00</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
         <sv:value>nw13</sv:value>
       </sv:property>
       <sv:property sv:name="path" sv:type="String">
         <sv:value>/official-texas-state-images/*</sv:value>
+      </sv:property>
+      <sv:property sv:name="permissions" sv:type="Long">
+        <sv:value>8</sv:value>
+      </sv:property>
+    </sv:node>
+    <sv:node sv:name="03">
+      <sv:property sv:name="jcr:primaryType" sv:type="Name">
+        <sv:value>mgnl:contentNode</sv:value>
+      </sv:property>
+      <sv:property sv:name="jcr:uuid" sv:type="String">
+        <sv:value>4d13f4cb-7ad3-4bc9-8454-f2980f3e8c17</sv:value>
+      </sv:property>
+      <sv:property sv:name="jcr:createdBy" sv:type="String">
+        <sv:value>admin</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:created" sv:type="Date">
+        <sv:value>2015-11-23T11:35:10.252-06:00</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:createdBy" sv:type="String">
+        <sv:value>nw13</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:lastModified" sv:type="Date">
+        <sv:value>2015-11-23T11:35:10.252-06:00</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
+        <sv:value>nw13</sv:value>
+      </sv:property>
+      <sv:property sv:name="path" sv:type="String">
+        <sv:value>/banner-images</sv:value>
       </sv:property>
       <sv:property sv:name="permissions" sv:type="Long">
         <sv:value>8</sv:value>
