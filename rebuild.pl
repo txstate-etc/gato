@@ -25,6 +25,7 @@ our @sassfiles = ('resources/gato-template-tsus/css/tsus-home.scss',
                   'resources/gato-template-txstate2015/css/color-picker.scss',
                   'resources/gato-template-txstate2009/css/mobile.scss',
                   'resources/gato-template-txstate2009/css/standard.scss',
+                  'resources/gato-template-txstate2009/css/color-picker.scss',
                   'resources/gato-template-library/css/library.scss',
                   'resources/gato-template-library/css/mobile.scss');
 our $module = "";
