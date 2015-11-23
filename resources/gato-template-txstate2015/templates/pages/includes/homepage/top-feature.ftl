@@ -8,7 +8,7 @@
           <figcaption>
             <div class="caption-wrap">
               <p class="feature-headline"><a href="#nowhere">Texas State vs. ULM - Nov. 19</a></p>
-              <p class="feature-play-button"><a href="#nowhere" aria-label="Play Video"></a></p>
+              <p class="feature-play-button"><a href="https://youtu.be/yWHSv6n5RAI" aria-label="Play Video"></a></p>
             </div>
           </figcaption>
         </figure>
@@ -19,7 +19,7 @@
           <figcaption>
             <div class="caption-wrap">
               <p class="feature-headline"><a href="#nowhere">Welcome to Texas State University</a></p>
-              <p class="feature-play-button"><a href="#nowhere" aria-label="Play Video"></a></p>
+              <p class="feature-play-button"><a href="https://vimeo.com/137877590" aria-label="Play Video"></a></p>
             </div>
           </figcaption>
         </figure>
@@ -30,7 +30,7 @@
           <figcaption>
             <div class="caption-wrap">
               <p class="feature-headline"><a href="#nowhere">Join us for the Common Experience</a></p>
-              <p class="feature-play-button"><a href="#nowhere" aria-label="Play Video"></a></p>
+              <p class="feature-play-button"><a href="https://vimeo.com/137404853" aria-label="Play Video"></a></p>
             </div>
           </figcaption>
         </figure>

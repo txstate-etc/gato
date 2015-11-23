@@ -1,0 +1,44 @@
+div#video-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0,0,0,0.6);
+  padding: 1rem 2rem;
+  z-index: 65535;
+
+  a {
+    color: $light-gray;
+    &:hover { color: $white; }
+  }
+
+  .video-modal-buttons {
+    text-align: right;
+    font-size: 2.5rem;
+  }
+
+  .video-container {
+    margin: auto;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    width: calc(100vw - 20rem);
+    @media (min-width: $lg-breakpoint) {
+      width: 854px;
+    }
+  }
+
+  .video-nav {
+    font-size: 5rem;
+
+    a {
+      position: absolute;
+      top: 50%;
+      &.video-nav-left { left: 2rem; }
+      &.video-nav-right { right: 2rem; }
+    }
+  }
+}

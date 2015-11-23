@@ -107,13 +107,16 @@ function buildPlayer(el, videoInfo) {
   }
 }
 
+function createPlayer(container, url) {
+  var videoInfo = getVideoInfo(url);
+  buildPlayer(container, videoInfo);
+}
+
 jQuery(document).ready(function() {
   jQuery('.gatoEmbedContainer').each(function(i) {
     var container = this;
     container.id = 'gato-player-' + i;
-
-    var videoInfo = getVideoInfo(jQuery(container).data("url"));
-    buildPlayer(container, videoInfo);
+    createPlayer(container, jQuery(container).data("url"));
   });
 });
 
@@ -147,8 +150,7 @@ function loadStreamingDialog(def, node, el) {
     var url = jQuery('.videoUrl')[0].value;
 
     if (url != "") {
-      var videoInfo = getVideoInfo(url);
-      buildPlayer(container, videoInfo);
+      createPlayer(container, url);
     }
   }
 

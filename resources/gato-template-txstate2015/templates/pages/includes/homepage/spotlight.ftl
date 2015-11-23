@@ -14,7 +14,7 @@
                   <figure class="feature research-slider">
                     <div class="feature-img-wrap">
                       <img alt="demo" src="http://edelstone.github.io/gato-homepage/images/research-4.jpg">
-                      <p class="feature-play-button"><a href="#nowhere" aria-label="Play Video"></a></p>
+                      <p class="feature-play-button"><a href="https://vimeo.com/118918648" aria-label="Play Video"></a></p>
                     </div>
                     <figcaption>
                       <p class="feature-headline"><a href="#nowhere">New Paths in Space Exploration</a></p>
@@ -26,7 +26,7 @@
                   <figure class="feature research-slider">
                     <div class="feature-img-wrap">
                       <img alt="demo" src="http://edelstone.github.io/gato-homepage/images/research-2.jpg">
-                      <p class="feature-play-button"><a href="#nowhere" aria-label="Play Video"></a></p>
+                      <p class="feature-play-button"><a href="https://vimeo.com/133605866" aria-label="Play Video"></a></p>
                     </div>
                     <figcaption>
                       <p class="feature-headline"><a href="#nowhere">Photographing Dirt</a></p>
@@ -38,7 +38,7 @@
                   <figure class="feature research-slider">
                     <div class="feature-img-wrap">
                       <img alt="demo" src="http://edelstone.github.io/gato-homepage/images/research-3.jpg">
-                      <p class="feature-play-button"><a href="#nowhere" aria-label="Play Video"></a></p>
+                      <p class="feature-play-button"><a href="https://vimeo.com/123978347" aria-label="Play Video"></a></p>
                     </div>
                     <figcaption>
                       <p class="feature-headline"><a href="#nowhere">Penguins&hellip; in&hellip; Spaaace!</a></p>

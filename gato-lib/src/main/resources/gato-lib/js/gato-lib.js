@@ -608,7 +608,7 @@ jQuery.fn.blurclick = function (callback) {
     if (e.type=='click') this.blur();
     if (e.keyCode == 13 || e.type=='click') {
       e.preventDefault();
-      return callback.apply(this,e);
+      return callback.call(this,e);
     }
   });
 }

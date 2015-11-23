@@ -63,5 +63,6 @@
 
     </div> <!-- end of the container -->
     [@cssjsmodals /]
+    [#include "includes/homepage/video-modal.ftl"]
   </body>
 </html>
