@@ -8,7 +8,6 @@
 		'gato-template-txstate2009/js/webtools.js',
 		'gato-template-txstate2009/js/viewfullsite.js',
 		'gato-template/js/outgoing-clicks.js',
-		'gato-template/js/post-load.js',
 		'gato-template/js/accordion.js',
 		'gato-template/js/easter-egg.js',
 		'gato-template/js/edit-bars.js',
@@ -24,6 +23,7 @@
 		'gato-lib/js/flowplayer/flowplayer.min.js',
 		'gato-component-gallery/js/gallery.js',
 		'gato-component-feature/js/feature.js',
+		'gato-component-faq/js/expand.js',
 		'gato-template/js/standardista-table-sorting.js',
 		'gato-area-mail/js/mailForm.js',
 		'gato-component-streaming/js/streaming.js'
