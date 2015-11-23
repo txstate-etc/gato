@@ -34,11 +34,11 @@ public class FaqRichTextField extends VMagnoliaRichTextField {
   }
 
   private native void callUpdateData() /*-{
-    $wnd.updateData();
+    $wnd.FaqTree.updateData();
   }-*/;
 
   private native void callUpdateDisplay() /*-{
-    $wnd.updateDisplay();
+    $wnd.FaqTree.updateDisplay();
   }-*/;
 
   @Override
@@ -68,6 +68,6 @@ public class FaqRichTextField extends VMagnoliaRichTextField {
   }
 
   private native void faqInstanceReady(String id) /*-{
-    $wnd.onFaqCkEditorReady(id);
+    $wnd.FaqTree.onFaqCkEditorReady(id);
   }-*/;
 }
