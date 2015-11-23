@@ -624,6 +624,10 @@ public final class GatoUtils {
         n.save();
       }
     } catch (Exception e) {
+      try {
+        System.out.println("getOrCreateNode page: "+n.getPath());
+        System.out.println("getOrCreateNode user: "+MgnlContext.getUser().getName());
+      } catch (Exception se) {  }
       e.printStackTrace();
     }
     return child;
