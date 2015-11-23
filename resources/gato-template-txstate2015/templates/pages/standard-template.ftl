@@ -28,7 +28,7 @@
 				<div class="mobile_trail">
 					[@breadcrumbs/]
 				</div>
-				<h3 class="contact_us mobile_dept"><a href="#nowhere">${gf.nodeTitle(content)}</a></h3>
+				<h3 class="contact_us mobile_dept"><a href="#">${gf.nodeTitle(content)}</a></h3>
 				[#import "includes/mobile-menu.ftl" as menu]
 				[@menu.menuBar isMobile=true/]
 			</div>

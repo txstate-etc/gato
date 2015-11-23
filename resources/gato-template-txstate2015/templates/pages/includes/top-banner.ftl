@@ -6,7 +6,7 @@
 			    </a>
 		</div>
 		<div class="hamburger">
-			<a class="toggle-button" href="#nowhere">Menu</a>
+			<a class="toggle-button" href="#">Menu</a>
 		</div>
 		[#import "search.ftl" as search]
 		[@search.searchBar false/]

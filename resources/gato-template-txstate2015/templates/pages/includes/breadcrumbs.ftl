@@ -3,7 +3,7 @@
 [#assign terminalPage = isMobile?string('terminal_page', '')]
 <p class="breadcrumbs ${mobileBreadcrumbs}">
 	[#if !hidetxstate]
-		<a href="#nowhere">Texas State</a>
+		<a href="http://www.txstate.edu">Texas State</a>
 	[/#if]
 	[#-- need to check for missing parent org here --]
 	[#assign parentUrl = (ctx.getAttribute('homePageContent').parentOrganization.url)!]

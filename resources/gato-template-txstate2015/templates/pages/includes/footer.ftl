@@ -1,6 +1,6 @@
 <div class="footer row">
 	<div class="footer_content">
-		<a href="#nowhere" class="btt"><i class="fa fa-chevron-up"></i>Top</a>
+		<a href="#" class="btt"><i class="fa fa-chevron-up"></i>Top</a>
 		<div class="footer_column footer_column_1">
       <h3 class="contact_us">
         <a href="${cmsfn.link(homepage)}">${gf.nodeTitle(homepage)}</a>
@@ -11,7 +11,7 @@
 		</div>
 		<div class="footer_column footer_column_2" >
 			<div class="txst_logo">
-				<a class="image_link" href="#nowhere"><img alt="Texas State University - The Rising Star of Texas" src="${ctx.contextPath}/.resources/gato-template-txstate2015/images/txst_logo.svg"></a>
+				<a class="image_link" href="http://www.txstate.edu"><img alt="Texas State University - The Rising Star of Texas" src="${ctx.contextPath}/.resources/gato-template-txstate2015/images/txst_logo.svg"></a>
 			</div>
 		</div>
 		<div class="footer_column footer_column_3">
