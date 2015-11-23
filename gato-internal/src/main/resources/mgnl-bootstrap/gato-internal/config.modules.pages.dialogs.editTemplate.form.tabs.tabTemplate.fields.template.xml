@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sv:node sv:name="template" xmlns:sv="http://www.jcp.org/jcr/sv/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <sv:property sv:name="jcr:primaryType" sv:type="Name">
+    <sv:value>mgnl:contentNode</sv:value>
+  </sv:property>
+  <sv:property sv:name="jcr:mixinTypes" sv:type="Name" sv:multiple="true">
+    <sv:value>mix:lockable</sv:value>
+  </sv:property>
+  <sv:property sv:name="jcr:uuid" sv:type="String">
+    <sv:value>42f601aa-d4d0-4e8e-aeea-d7d3dde93abe</sv:value>
+  </sv:property>
+  <sv:property sv:name="class" sv:type="String">
+    <sv:value>edu.txstate.its.gato.componentselect.GatoTemplateSelectorDefinition</sv:value>
+  </sv:property>
+  <sv:property sv:name="jcr:createdBy" sv:type="String">
+    <sv:value>admin</sv:value>
+  </sv:property>
+  <sv:property sv:name="mgnl:activationStatus" sv:type="Boolean">
+    <sv:value>false</sv:value>
+  </sv:property>
+  <sv:property sv:name="mgnl:created" sv:type="Date">
+    <sv:value>2012-06-11T13:55:35.862+02:00</sv:value>
+  </sv:property>
+  <sv:property sv:name="mgnl:lastModified" sv:type="Date">
+    <sv:value>2015-11-23T08:50:17.512-06:00</sv:value>
+  </sv:property>
+  <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
+    <sv:value>a_f269</sv:value>
+  </sv:property>
+  <sv:property sv:name="name" sv:type="String">
+    <sv:value>mgnl:template</sv:value>
+  </sv:property>
+  <sv:property sv:name="required" sv:type="String">
+    <sv:value>true</sv:value>
+  </sv:property>
+</sv:node>
