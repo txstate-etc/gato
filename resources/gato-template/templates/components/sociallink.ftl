@@ -32,7 +32,7 @@
   [#elseif content.link?contains("wordpress")]
     [#assign iconclass="fa-rss-square"]
     [#assign alttext="Wordpress"]
-  [#elseif content.link?matches(r".*youtu\.?be.*")]
+  [#elseif content.link?matches(r".*youtu\\.?be.*")]
     [#assign iconclass="fa-youtube-square"]
     [#assign alttext="YouTube"]
   [/#if]
