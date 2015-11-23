@@ -5,7 +5,7 @@ import info.magnolia.context.MgnlContext;
 import info.magnolia.dam.api.Asset;
 import info.magnolia.jcr.util.PropertyUtil;
 
-import java.net.URI;
+import java.net.URLEncoder;
 import javax.inject.Inject;
 
 import javax.jcr.Node;
@@ -28,10 +28,10 @@ public class TxStateResizer extends GatoResizer {
   public String createLink(Asset asset) { // really need to pass an asset
     try {
 
-      String mgnlpath = gf.absoluteUrl(asset.getLink()).replaceAll("^\\w{3,15}://", "");
+      String mgnlpath = gf.absoluteUrl("/dam/"+asset.getItemKey().asString()+"/"+URLEncoder.encode(URLEncoder.encode(asset.getFileName()))).replaceAll("^\\w{3,15}://", "");
       String mode = "fit";
       if (zoom) mode = "clip";
-      
+
       String returl = gf.getImageHandlerBase()+gf.getCacheStr(asset)+"/imagehandler/scaler/"+mgnlpath+"?mode="+mode;
       if (width > 0) returl += "&amp;width="+width;
       if (height > 0) returl += "&amp;height="+height;
