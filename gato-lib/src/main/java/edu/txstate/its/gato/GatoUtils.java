@@ -305,7 +305,11 @@ public final class GatoUtils {
   }
 
   public String getImgDefault(Object assetOrId, String sizes) {
-    return getImgDefault(assetOrId, 0f, 0f, 0f, 0f, sizes);
+    return getImgDefault(assetOrId, 0f, 0f, 0f, 0f, sizes, false);
+  }
+
+  public String getImgDefault(Object assetOrId, float aspectratio) {
+    return getImgDefault(assetOrId, 0f, 0f, 0f, 0f, SIZES_DEFAULT, aspectratio);
   }
 
   public String getImgDefault(Object assetOrId, float left, float right, float top, float bottom) {
@@ -321,6 +325,10 @@ public final class GatoUtils {
   }
 
   public String getImgDefault(Object assetOrId, float left, float right, float top, float bottom, String sizes, boolean square) {
+    return getImgDefault(assetOrId, left, right, top, bottom, sizes, (square ? 1f : -1f));
+  }
+
+  public String getImgDefault(Object assetOrId, float left, float right, float top, float bottom, String sizes, float aspectratio) {
     Asset asset = toAsset(assetOrId);
     if (asset == null) return "";
     try {
@@ -336,8 +344,8 @@ public final class GatoUtils {
       srv.setWidth(width);
       srv.setUpscale(true);
       srv.setCrop(left, right, top, bottom);
-      srv.setZoom(square);
-      if (square) srv.setHeight(width);
+      srv.setZoom(aspectratio > 0);
+      if (aspectratio > 0) srv.setHeight(Math.round(width/aspectratio));
       return srv.createLink(asset);
     } catch (Exception e) {
       e.printStackTrace();

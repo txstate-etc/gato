@@ -5,7 +5,7 @@
     [/#if]
 
     <div class="image">
-      <img src="${gf.getImgDefault(content.image)}" srcset="${gf.getSrcSet(content.image)}" class="bg" alt="${content.alttext!}">
+      <img src="${gf.getImgDefault(content.image, ctx.aspectratio)}" srcset="${gf.getSrcSet(content.image, ctx.aspectratio)}" class="bg" alt="${content.alttext!}">
     </div>
     <div class="caption">
       [#if content.title?has_content]<h3>${content.title}</h3>[/#if]
