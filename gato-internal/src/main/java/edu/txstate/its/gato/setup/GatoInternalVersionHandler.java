@@ -174,6 +174,10 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
     tasks.add(new NodeExistsDelegateTask("Move Twitter config if exists", "/modules/gato/config",
       new MoveNodeTask("Move Twitter config", "/modules/gato/config", "/modules/gato-component-twitter/config", true)));
 
+    // move form data tool secret key into the gato-internal module
+    tasks.add(new NodeExistsDelegateTask("Move Form Data Tool config if exists", "/modules/gato/settings",
+      new MoveNodeTask("Move Form Data Tool config", "/modules/gato/settings", "/modules/gato-internal/settings", true)));
+
     // remove a deprecated servlet filter that was disrupting loading of resources
     tasks.add(new RemoveNodeTask("Remove ClasspathSpool filter", "/server/filters/servlets/ClasspathSpoolServlet"));
     // remove the config node for our defunct gato module

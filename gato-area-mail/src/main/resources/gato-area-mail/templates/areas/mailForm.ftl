@@ -12,7 +12,9 @@
         To change the email to which the result are mailed, the subject of the
         email, or the page that's displayed after the form is submitted click the edit button in the Mail Form Content bar.
       </p>
-      Some form-data-link.jsp thing
+      <p>
+        You can also download the data from this form using the <a href="${model.dataToolLink}" target="_blank" onclick="window.open(this.href, '_blank')">form data tool</a>.
+      </p>
     </div>
     [/#if]
     [#if content.copySender!false]
