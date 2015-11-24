@@ -21,33 +21,36 @@
     </div>
 
     <nav class="homepage-banner-nav">
-      <div class="homepage-banner-nav-logo">
-        <a href="http://www.txstate.edu">
-          <img src="${ctx.contextPath}/.resources/gato-template-txstate2015/images/txst-star.png"/>
-        </a>
-      </div>
-
-      <div class="audience-link-tabs">
-        <ul role="tablist">
-          <li role="presentation">
-              <a href="#tabpanel-future" role="tab" aria-controls="tabpanel-future" aria-selected="true" tabindex="0" id="tab-future">Future Students</a>
-          </li>
-          <li role="presentation">
-              <a href="#tabpanel-current" role="tab" aria-controls="tabpanel-current" aria-selected="false" tabindex="-1" id="tab-current">Current Students</a>
-          </li>
-          <li role="presentation">
-              <a href="#tabpanel-facstaff" role="tab" aria-controls="tabpanel-facstaff" aria-selected="false" tabindex="-1" id="tab-facstaff">Faculty &amp; Staff</a>
-          </li>
-          <li role="presentation">
-              <a href="#tabpanel-visitors" role="tab" aria-controls="tabpanel-visitors" aria-selected="false" tabindex="-1" id="tab-visitors">Alumni, Family &amp; Visitors</a>
-          </li>
-        </ul>
-      </div>
-
-      <div class="audience-links">
+      <div class="homepage-banner-nav-content">
         
+        <div class="homepage-banner-nav-logo">
+          <a href="http://www.txstate.edu">
+            <img src="${ctx.contextPath}/.resources/gato-template-txstate2015/images/txst-secondary.png"/>
+          </a>
+        </div>
+
+        <div class="audience-link-tabs">
+          <ul role="tablist">
+            <li role="presentation">
+                <a href="#tabpanel-future" role="tab" aria-controls="tabpanel-future" aria-selected="true" tabindex="0" id="tab-future">Future Students</a>
+            </li>
+            <li role="presentation">
+                <a href="#tabpanel-current" role="tab" aria-controls="tabpanel-current" aria-selected="false" tabindex="-1" id="tab-current">Current Students</a>
+            </li>
+            <li role="presentation">
+                <a href="#tabpanel-facstaff" role="tab" aria-controls="tabpanel-facstaff" aria-selected="false" tabindex="-1" id="tab-facstaff">Faculty &amp; Staff</a>
+            </li>
+            <li role="presentation">
+                <a href="#tabpanel-visitors" role="tab" aria-controls="tabpanel-visitors" aria-selected="false" tabindex="-1" id="tab-visitors">Alumni, Family &amp; Visitors</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="audience-links">
+          
+        </div>
+      
       </div>
-    
     </nav>
 
   </div>

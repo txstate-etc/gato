@@ -1,20 +1,29 @@
-div#homepage-banner {
+.homepage-banner-background {
   background: $sandstone;
   border-bottom: 1px solid $gold;
   @include vertical-gradient($sandstone, $khaki);
+}
+
+div#homepage-banner {
+  @extend .homepage-banner-background;
 
   .homepage-banner-content {
     letter-spacing: -1rem;
     & > * { letter-spacing: normal; }
-    padding: 2.5rem 0 0;
+    padding: 2.5rem;
+    @media (min-width: $sm-breakpoint) {
+      padding: 2.5rem 0 0;
+    }
   }
 
   .homepage-banner-toprow {
     letter-spacing: -1rem;
     & > * { letter-spacing: normal; }
-    max-width: 1024px;
+    max-width: 1200px;
     margin: auto;
-    padding-bottom: 3rem;
+    @media (min-width: $sm-breakpoint) {
+      padding-bottom: 3rem;
+    }
   }
 
   .homepage-banner-logo, .homepage-banner-searchwrap {
@@ -23,7 +32,9 @@ div#homepage-banner {
   }
   
   .homepage-banner-logo {
-    padding-left: 5rem;
+    @media (min-width: $sm-breakpoint) {
+      padding-left: 5rem;
+    }
     & > a {
       display: block;
       margin: 0;
@@ -37,9 +48,22 @@ div#homepage-banner {
   }
 
   .homepage-banner-searchwrap {
+    display: none;
+    @media (min-width: $sm-breakpoint) {
+      display: inline-block;
+    }
     padding-right: 5rem;
     .txst_search {
       margin-top: 25px;
+    }
+  }
+
+  .hamburger {
+    position: relative;
+    top: 2rem;
+    .toggle-button {
+      background: #d1c7b7;
+      font-weight: 500;
     }
   }
 
@@ -47,66 +71,88 @@ div#homepage-banner {
     letter-spacing: -1rem;
     background: $khaki;
     
-    .homepage-banner-nav-logo {
-      letter-spacing: normal; 
-      position: absolute;
-      display: inline-block;
-      visibility: hidden;
-      opacity: 0;
-      padding: 1rem 0 1rem 2rem;
-      @include vendor-prefix(transition, visibility 0s, opacity .2s linear);
+    .homepage-banner-nav-content {
+      max-width: 1200px; 
+      margin: auto;
 
-      & > a {
-        display: block;
-        margin: 0;
-        padding: 0;
-        img {
+      .homepage-banner-nav-logo {
+        letter-spacing: normal; 
+        position: absolute;
+        display: inline-block;
+        visibility: hidden;
+        opacity: 0;
+        padding: 1rem 0 1rem 2rem;
+        @include vendor-prefix(transition, visibility 0s, opacity .2s linear);
+
+        & > a {
           display: block;
-          width: 3rem;
-        }
-      }
-    }
-
-    .audience-link-tabs {
-      @extend .grid-cell;
-      text-align: center;
-
-      ul {
-        list-style: none;
-        max-width: 1024px;
-        margin: auto;
-        padding: 0;
-        letter-spacing: -1rem;
-        li {
-          display: inline-block;
-          letter-spacing: normal; 
           margin: 0;
-          font-size: 1.8rem;
-          font-weight: bold;
-          @include vendor-prefix(transition, font-size .1s ease);
-          a {
+          padding: 0;
+          img {
             display: block;
-            padding: 1.6rem 3.2rem;  // lower left/right padding at 1024 breakpoint?
+            width: 18rem;
+          }
+          @media (max-width: $lg-breakpoint) {
+            background-image: url('../images/txst-star.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            img { visibility: hidden;}
           }
         }
       }
-    }
+
+      .audience-link-tabs {
+        @extend .grid-cell;
+        text-align: center;
+
+        ul {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          letter-spacing: -1rem;
+          li {
+            display: inline-block;
+            letter-spacing: normal; 
+            margin: 0;
+            font-size: 1.8rem;
+            font-weight: bold;
+            @include vendor-prefix(transition, font-size .1s ease);
+            a {
+              display: block;
+              padding: 1.6rem 2.7rem;  
+              @media (min-width: $md-breakpoint) {
+                padding-left: 3.2rem;  
+                padding-right: 3.2rem;  
+              }
+            }
+          }
+        }
+      }
     
+    }
+
     &.scroll-to-fixed-fixed {
+      @extend .homepage-banner-background;
+    
       .homepage-banner-nav-logo {
-        // display: inline-block;
         visibility: visible;
         opacity: 1;
       }
 
       .audience-link-tabs {
         text-align: right;
-        // width: calc(100% - 8.5rem);
 
-        li {
+        ul li {
           font-size: 1.6rem;
         }
       }
     }
+  
+    display: none;
+    @media (min-width: $sm-breakpoint) {
+      display: block
+    }
   }
+
+
 }
