@@ -38,13 +38,13 @@ function getFileExtension(url) {
   return url.substr(dot + 1);
 }
 
-function buildFlowPlayer(el, url) {
+function buildFlowPlayer(el, videoInfo) {
   var container = jQuery("<div></div>");
   jQuery(el).append(container);
-  var ext = getFileExtension(url);
+  var ext = getFileExtension(videoInfo.url);
   flowplayer(container, {
     clip: {
-      sources: [{ type: flowPlayerTypes[ext], src: url}]
+      sources: [{ type: flowPlayerTypes[ext], src: videoInfo.url}]
     }
   });
 }
@@ -54,47 +54,45 @@ function buildEmbed(el, embedCode) {
   jQuery(el).append(embedCode[0]);
 }
 
-function buildMediaflo(el, url) {
+function buildMediaflo(el, videoInfo) {
   jQuery(el).addClass('mediafloEmbedContainer');
-  jQuery(el).append('<iframe class="mediaflo-frame" src="' + url + '"></iframe>');
+  jQuery(el).append('<iframe class="mediaflo-frame" src="' + videoInfo.url + '"></iframe>');
 }
 
-function buildUstreamPlayer(el, videoId) {
-  var ustreamUrl = "http://www.ustream.tv/embed/" + videoId + "?html5ui=1&autoplay=false";
-  var iframe = '<iframe src="' + ustreamUrl + '" webkitallowfullscreen mozallowfullscreen allowfullscreen frameborder="0"></iframe>';
-  jQuery(el).append(iframe);
-}
-
-function buildVimeoPlayer(el, videoId) {
-  var vimeoUrl = "http://player.vimeo.com/video/" + videoId + "?api=1&player_id=" + el.id + "-vimeo" +"&autoplay=0";
+function buildVimeoPlayer(el, videoInfo) {
+  var autoplay = videoInfo.options.autoplay ? '1' : '0';
+  var vimeoUrl = "http://player.vimeo.com/video/" + videoInfo.videoId + "?api=1&player_id=" + el.id + "-vimeo" +"&autoplay="+autoplay;
   var iframe = '<iframe id="' + el.id + '-vimeo" src="' + vimeoUrl + '" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
   jQuery(el).append(iframe);
 }
 
-function buildYoutubePlayer(el, videoId) {
+function buildYoutubePlayer(el, videoInfo) {
   jQuery(el).append('<div id="' + el.id + '-youtube"></div>');
-  var player = new YT.Player(el.id + '-youtube', { videoId: videoId });
+  var opts = { videoId: videoInfo.videoId, events: {} };
+  if (videoInfo.options.autoplay) {
+    opts.events.onReady = onYTPlayerReady;
+  }
+  var player = new YT.Player(el.id + '-youtube', opts);
 }
 
-function buildPlayer(el, videoInfo) {
+function createPlayer(el, url, options) {
+  var videoInfo = getVideoInfo(url);
+  videoInfo.options = options || {};
   switch(videoInfo.playerType) {
     case "youtube":
-      waitForYoutube().then(function() { buildYoutubePlayer(el, videoInfo.videoId); });
+      waitForYoutube().then(function() { buildYoutubePlayer(el, videoInfo); });
       break;
     case "vimeo":
-      buildVimeoPlayer(el, videoInfo.videoId);
-      break;
-    case "ustream":
-      buildUstreamPlayer(el, videoInfo.videoId);
+      buildVimeoPlayer(el, videoInfo);
       break;
     case "embed":
       buildEmbed(el, videoInfo.url);
       break;
     case "flow":
-      buildFlowPlayer(el, videoInfo.url);
+      buildFlowPlayer(el, videoInfo);
       break;
     case "mediaflo":
-      buildMediaflo(el, videoInfo.url);
+      buildMediaflo(el, videoInfo);
       break;
     case "unknown":
       el.innerHTML = "Sorry, we're unable to play this video.";
@@ -107,11 +105,6 @@ function buildPlayer(el, videoInfo) {
   }
 }
 
-function createPlayer(container, url) {
-  var videoInfo = getVideoInfo(url);
-  buildPlayer(container, videoInfo);
-}
-
 jQuery(document).ready(function() {
   jQuery('.gatoEmbedContainer').each(function(i) {
     var container = this;
@@ -120,7 +113,7 @@ jQuery(document).ready(function() {
   });
 });
 
-function onPlayerReady(event) {
+function onYTPlayerReady(event) {
   event.target.playVideo();
 }
 
