@@ -29,26 +29,26 @@ body {
     }
   }
 
-  .txst-faqitem {
-    .txst-faqitem-question a {
-      border: none;
-      background-color: transparent;
-      &:hover, &:active, &.selected {
-        background: transparent;
-        text-decoration: underline;
-      }
-      color: $maroon;
-      font-weight: bold;
-    }
-    .txst-faqitem-answer {
-      border: none;
-      padding-top: 0;
-      padding-bottom: 0;
-    }
-  }
-  .txst-faq-group-title a {
-    color: $gold;
-    &:hover { text-decoration: underline; }
+  .txst-faqitem-question a {
+    color: #501214;
   }
 
+  .txst-faqitem-answer {
+    overflow: hidden;
+
+    p, ul, ol {
+      overflow: hidden;
+    }
+  }
+
+  h2.txst-faqitem-question {
+    font-size: 1.2em;
+    line-height: 1.2em;
+  }
+
+  .gato-faq-expand-collapse {
+    font-size: .8em;
+    font-style: italic;
+    margin-bottom: 10px;
+  }
 }
