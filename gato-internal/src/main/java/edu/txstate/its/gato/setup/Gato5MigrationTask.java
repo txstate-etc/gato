@@ -290,6 +290,10 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
     if (n.hasProperty("values")) { n.getProperty("values").remove(); }
 
     n.setProperty("options", convertToMultiValue(values, "\\R"));
+    
+    if (n.hasProperty("mandatory") && n.getProperty("mandatory").getType() != PropertyType.BOOLEAN) {
+      convertPropertyToBool(n, "mandatory");
+    }
   }
 
   private void updateFormFileComponent(Node n) throws RepositoryException {
@@ -297,6 +301,10 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
     if (n.hasProperty("extension")) { n.getProperty("extension").remove(); }
 
     n.setProperty("extension", convertToMultiValue(fileTypes, ","));
+
+    if (n.hasProperty("mandatory") && n.getProperty("mandatory").getType() != PropertyType.BOOLEAN) {
+      convertPropertyToBool(n, "mandatory");
+    }
   }
 
   private void updateFormEditComponent(Node n) throws RepositoryException {
@@ -318,6 +326,10 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
     if (n.hasProperty("valid_type")) { PropertyUtil.renameProperty(n.getProperty("valid_type"), "dataType"); }
     if (n.hasProperty("valid_regex")) { PropertyUtil.renameProperty(n.getProperty("valid_regex"), "regexregex"); }
     if (n.hasProperty("valid_msg")) { PropertyUtil.renameProperty(n.getProperty("valid_msg"), "regexerror"); }
+
+    if (n.hasProperty("mandatory") && n.getProperty("mandatory").getType() != PropertyType.BOOLEAN) {
+      convertPropertyToBool(n, "mandatory");
+    }
   }
 
   private void updateNavBlock(Node n) throws RepositoryException {
