@@ -6,7 +6,7 @@
     <div class="feature_add" cms:add="bar"></div>
   </div>
 [/#if]
-<div class="gato-feature-slides">
+<div class="slides">
   [#assign aspectratio = 16.0/9.0]
   [#list components as slide]
     [#assign colorClass = ctx.colorClass /]
