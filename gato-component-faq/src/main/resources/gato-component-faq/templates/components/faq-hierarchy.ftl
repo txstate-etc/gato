@@ -22,12 +22,12 @@
   [/#if]
 [/#macro]
 
-[#if !faqButtonsAdded!false]
+[#if !ctx.request.getAttribute('faqButtonsAdded')!false]
   <div class="gato-faq-expand-collapse">
     <a href="#" id="txst-expand-all-faqs">Expand</a> or
     <a href="#" id="txst-collapse-all-faqs">Collapse</a> all.
   </div>
-  [#global "faqButtonsAdded" = true]
+  ${ctx.request.setAttribute('faqButtonsAdded', true)}
 [/#if]
 [#list model.nodes as node]
   [@faqNode node 0 /]
