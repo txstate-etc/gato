@@ -242,7 +242,7 @@ public final class GatoUtils {
     }
   }
 
-  public long getImgWidth(Object assetOrId) throws Exception {
+  public long getImgWidth(Object assetOrId) {
     try {
       return toAsset(assetOrId).getMetadata(MagnoliaAssetMetadata.class).getWidth();
     } catch (Exception e) {
@@ -431,17 +431,19 @@ public final class GatoUtils {
       String newSrc = existingSrc;
       if (StringUtils.isBlank(existingSrcSet)) {
         String assetKey = captureMatch(imageTag, ASSET_KEY_PATTERN);
-        int width = 0;
-        try {
-          width = Integer.parseInt(captureMatch(imageTag, WIDTH_ATTR_PATTERN));
-        } catch (Exception e) {
-          // no width found, oh well
-        }
 
         Asset image = damfn.getAsset(assetKey);
         if (image != null) {
           newSrc = getImgDefault(image);
           if (StringUtils.isBlank(existingSrcSet)) newSrc += "\" srcset=\""+getSrcSet(image);
+        }
+
+        long width = 0;
+        try {
+          width = Long.parseLong(captureMatch(imageTag, WIDTH_ATTR_PATTERN));
+        } catch (Exception e) {
+          width = getImgWidth(image);
+          if (width > 0) newSrc += "\" width=\""+width;
         }
         if (width > 0) newSrc += "\" sizes=\""+width+"px";
       }
