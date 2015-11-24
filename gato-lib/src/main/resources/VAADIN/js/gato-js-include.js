@@ -1,4 +1,4 @@
-var MGNL_RESOURCES_PATH = './../.resources/'
+var MGNL_RESOURCES_PATH = './../.resources/';
 var loadedGatoJsScripts = new Set();
 
 edu_txstate_its_gato_vaadin_GatoJsComponent = function() {
