@@ -22,7 +22,6 @@ img { vertical-align: middle; }
   position: relative;
   width: 100%;
   clear: both;
-  overflow: hidden;
 }
 
 .txst-khan-contentcolumn {
@@ -49,6 +48,10 @@ img { vertical-align: middle; }
       color: #b1b1b1;
     }
     .separator { padding: 0px 1px; }
+  }
+  .column_paragraph {
+    overflow: visible;
+    clear: both;
   }
 }
 
@@ -106,6 +109,7 @@ img { vertical-align: middle; }
 }
 
 .full-site-link {
+  clear: both;
   text-align: center;
   padding-top: 2px;
   padding-bottom: 15px;
