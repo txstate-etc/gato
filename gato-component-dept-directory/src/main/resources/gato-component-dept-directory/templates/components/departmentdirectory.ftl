@@ -31,6 +31,10 @@
 [#if content.title??]
         <h2>${content.title}</h2>
 [/#if]
+[#assign filter = 'All']
+[#if content.filter??]
+    [#assign filter = content.filter]
+[/#if]
 <div class="txst-departmentdirectory object">
     [#assign filteredPeople = []]
     [#list model.getPeople(content.department) as person]
@@ -38,7 +42,7 @@
         [#if person.category == "Retired"]
             [#assign showRecord = false]
         [#else]
-            [#if content.filter != "All" && content.filter !=person.category]
+            [#if filter != "All" && filter !=person.category]
                 [#assign showRecord = false]
             [/#if]
         [/#if]
