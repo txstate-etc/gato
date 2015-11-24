@@ -12,6 +12,7 @@
     color: $primarytext;
     background: $primarybg;
     cursor: pointer;
+    position: relative;
     &:hover, &:active, &.selected {
       background: $light-maroon;
     }
