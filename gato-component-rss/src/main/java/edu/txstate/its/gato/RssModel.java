@@ -1,5 +1,6 @@
 package edu.txstate.its.gato;
 
+import info.magnolia.jcr.util.NodeUtil;
 import info.magnolia.jcr.util.PropertyUtil;
 import info.magnolia.rendering.model.RenderingModel;
 import info.magnolia.rendering.model.RenderingModelImpl;
@@ -25,6 +26,7 @@ import java.util.Collections;
 
 import javax.inject.Inject;
 import javax.jcr.Node;
+import javax.jcr.RepositoryException;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -47,9 +49,9 @@ public class RssModel<RD extends RenderableDefinition> extends RenderingModelImp
   private final List<SyndEntry> items;
 
   @Inject
-  public RssModel(Node content, RD definition, RenderingModel<?> parent) {    
+  public RssModel(Node content, RD definition, RenderingModel<?> parent) {
     super(content, definition, parent);
-    
+
     displayType = PropertyUtil.getString(content, "displayType", SUMMARY_ONLY);
     startCollapsed = PropertyUtil.getBoolean(content, "startCollapsed", false);
 
@@ -78,7 +80,7 @@ public class RssModel<RD extends RenderableDefinition> extends RenderingModelImp
 
   public String fmtItemText(final SyndEntry item) {
     String itemText = item.getDescription().getValue();
-    
+
     if (SUMMARY_ONLY.equalsIgnoreCase(displayType)) {
       itemText = itemText.replaceAll("\\<[^>]*>", "");
       itemText = StringUtils.abbreviate(itemText, 350);
@@ -92,13 +94,13 @@ public class RssModel<RD extends RenderableDefinition> extends RenderingModelImp
     return itemText;
   }
 
-  private static SyndFeed fetchFeed(final Node content) throws IOException, MalformedURLException, FeedException, FetcherException {
-    final String feedUrl = PropertyUtil.getString(content, "feedUrl", null);
-    
+  private static SyndFeed fetchFeed(final Node content) throws IOException, MalformedURLException, FeedException, FetcherException, RepositoryException {
+    Node unescapednode = NodeUtil.unwrap(content);
+    final String feedUrl = PropertyUtil.getString(unescapednode, "feedUrl", null);
     final FeedFetcherCache cache = HashMapFeedInfoCache.getInstance();
     final FeedFetcher feedFetcher = new HttpURLFeedFetcher(cache);
     feedFetcher.setUserAgent("MagnoliaRSSFeedParagraph/0.1 (Java-ROME 0.9; Magnolia 3.5.4; gato@txstate.edu)");
-    
+
     return feedFetcher.retrieveFeed(new URL(feedUrl));
   }
 
