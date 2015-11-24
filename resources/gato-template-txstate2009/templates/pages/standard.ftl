@@ -82,7 +82,7 @@
                   [#assign inactiveURL = gf.getImageHandlerBase()+cacheStr+'/imagehandler/khanmenuempty/'+imageName+'.gif']
                 [/#if]
                 <a href="${cmsfn.link(page)}" class="ddmenu-menubaritem" style="background: url(${activeURL}?text=${(cmsfn.decode(page).title!'')?url?replace('(','%28')?replace(')','%29')})">
-                  <img src="${inactiveURL}?text=${(page.title!'')?url}" alt="${page.title!}"/>
+                  <img src="${inactiveURL}?text=${(cmsfn.decode(page).title!'')?url}" alt="${page.title!}"/>
                 </a>
                 [#if hasChildren]
                   <div class="ddmenu-menu-wrap">
