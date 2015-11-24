@@ -1,3 +1,5 @@
+/* our components depend on the html element having a 10px font base */
+/* so we will need this rule in all templates */
 .gato-component {
   ul, ol {
     list-style-position: inside;

@@ -1,9 +1,8 @@
 //General Styles that apply to the whole page
 /* _default.scss */
 html {
-  font-size: 54.5%;
-  @media (min-width: $md-breakpoint) { font-size: 58.5%; }
-  @media (min-width: $xl-breakpoint) { font-size: 62.5%; }
+  @media (max-width: $xl-breakpoint) { font-size: 58.5%; }
+  @media (max-width: $md-breakpoint) { font-size: 54.5%; }
 }
 
 
