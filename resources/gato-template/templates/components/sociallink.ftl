@@ -35,7 +35,7 @@
   [#elseif content.link?contains("txstate.edu")]
     [#assign iconclass="fa-star"]
     [#assign alttext="Texas State"]
-  [#elseif content.link?matches(r".*youtu\\.?be.*")]
+  [#elseif content.link?matches(r".*youtu\.?be.*")]
     [#assign iconclass="fa-youtube-square"]
     [#assign alttext="YouTube"]
   [/#if]
