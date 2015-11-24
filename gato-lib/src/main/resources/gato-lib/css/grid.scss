@@ -1,4 +1,15 @@
 /* Simple Grid Using Element Queries */
+.grid-cell {
+  display: inline-block;
+  zoom: 1;
+  letter-spacing: normal;
+  word-spacing: normal;
+  vertical-align: top;
+  text-rendering: auto;
+  width: 100%;
+}
+
+
 $collist : 2 3 4 5 6 8 12;
 @mixin eq-base($name) {
   $ret : '.eq-'+$name+'-1-1';
@@ -9,13 +20,7 @@ $collist : 2 3 4 5 6 8 12;
     }
   }
   #{$ret} {
-    display: inline-block;
-    zoom: 1;
-    letter-spacing: normal;
-    word-spacing: normal;
-    vertical-align: top;
-    text-rendering: auto;
-    width: 100%;
+    @extend .grid-cell;
   }
 }
 

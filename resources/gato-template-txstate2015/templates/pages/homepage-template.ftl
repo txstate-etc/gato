@@ -7,7 +7,7 @@
       'gato-template-txstate2015/js/jquery-scrolltofixed-min.js',
       'gato-template-txstate2015/js/respond.min.js',
       'gato-template-txstate2015/js/slideout.js',
-      'gato-template-txstate2015/js/feature.js',
+      'gato-template-txstate2015/js/homepage.js',
       'gato-template-txstate2015/js/tabs.js',
       'gato-template-txstate2015/js/common.js'
     ]]
@@ -26,7 +26,7 @@
 
     <nav id="menu" class="mobile_nav">
       [#import "includes/search.ftl" as search]
-      [@search.searchBar true/]
+      [@search.searchBar true false/]
       <div class="mobile_nav_container">
         <h3 class="contact_us mobile_dept"><a href="#nowhere">${gf.nodeTitle(content)}</a></h3>
         [#import "includes/mobile-menu.ftl" as menu]
@@ -42,9 +42,9 @@
       [#include "includes/super-user.ftl"]
 
       <!-- main menu -->
-      <div class="top_nav">
+      <div class="homepage-top-nav">
         <!-- banner with logo and search bar -->
-        [#include "includes/top-banner.ftl"]
+        [#include "includes/homepage/top-banner.ftl"]
       </div>
       
       <div class="main-content">

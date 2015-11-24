@@ -1,5 +1,10 @@
 jQuery(function($) {
 
+  // top banner
+  $('.homepage-banner-nav').scrollToFixed();
+  
+
+  // feature paragraphs
   function activate($cur, $next) {
     $cur.fadeOut(100, function(){
         $next.fadeIn(100);
@@ -36,7 +41,7 @@ jQuery(function($) {
     activate($cur, $next);
   });
 
-
+  // videos
   var vmodal = {
     isOpen: false,
     $slides: null,
