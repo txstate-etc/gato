@@ -9,7 +9,7 @@
 [/#macro]
 
 [#macro dispimage image]
-  <img src="${gf.getImgDefault(image.image)}" srcset="${gf.getSrcSet(image.image, ctx.aspectratio!(550.0/160.0))}" alt="${image.imageAlt!}">
+  <img src="${gf.getImgDefault(image.image, ctx.aspectratio!(550.0/160.0))}" srcset="${gf.getSrcSet(image.image, ctx.aspectratio!(550.0/160.0))}" alt="${image.imageAlt!}">
 [/#macro]
 
 [#if cmsfn.isEditMode()]<div class="gato-banners-admin" cms:edit></div>[/#if]
