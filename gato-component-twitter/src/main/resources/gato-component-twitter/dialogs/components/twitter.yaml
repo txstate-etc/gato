@@ -21,16 +21,4 @@ form:
           class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
           label: Exclude Replies
           buttonLabel: Don't display tweets that are replies to other tweeters.
-        - name: align
-          class: info.magnolia.ui.form.field.definition.SelectFieldDefinition
-          label: Alignment
-          description: Align the twitter paragraph on the left or right.
-          options:
-            - name: left
-              value: left
-              label: Left
-            - name: right
-              value: right
-              selected: true
-              label: Right
 actions: !include /gato-template/dialogs/common/actions-block.yaml
