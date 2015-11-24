@@ -45,7 +45,7 @@ jQuery(function($) {
     loadSlide: function($slide) {
       var $container = $('<div class="gatoEmbedContainer"></div>');
       $('#video-modal .video-container').empty().append($container);
-      createPlayer($container, $slide.find('.feature-play-button a').attr('href'));    
+      createPlayer($container, $slide.find('.feature-play-button a').attr('href'), { autoplay: true });    
       this.$cur = $slide;
     },
 
