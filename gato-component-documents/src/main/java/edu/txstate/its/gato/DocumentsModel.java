@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.ArrayList;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 
@@ -32,9 +33,9 @@ public class DocumentsModel<RD extends ConfiguredTemplateDefinition> extends Ren
 
     private final DamTemplatingFunctions damfn;
 
-    public DocumentsModel(Node content, 
-                          ConfiguredTemplateDefinition definition, 
-                          RenderingModel<?> parent, 
+    public DocumentsModel(Node content,
+                          ConfiguredTemplateDefinition definition,
+                          RenderingModel<?> parent,
                           DamTemplatingFunctions damTemplatingFunctions) throws PathNotFoundException, RepositoryException, LoginException {
         super(content, definition, parent);
         this.damfn = damTemplatingFunctions;
@@ -68,7 +69,7 @@ public class DocumentsModel<RD extends ConfiguredTemplateDefinition> extends Ren
                 return "fa-file-text-o";
             case "ZIP" :
                 return "fa-file-archive-o";
-            case "HTML" : 
+            case "HTML" :
                 return "fa-file-code-o";
             case "GIF" :
             case "PNG" :
@@ -98,7 +99,7 @@ public class DocumentsModel<RD extends ConfiguredTemplateDefinition> extends Ren
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm" );
         List<Document> foundDocuments = new ArrayList<Document>();
         ArrayList expressions = new ArrayList();
-        
+
         // if an item key is defined (folder or document)
         if(StringUtils.isNotEmpty(itemKey)){
             try {
@@ -115,21 +116,21 @@ public class DocumentsModel<RD extends ConfiguredTemplateDefinition> extends Ren
 
                 String where = StringUtils.join(expressions.iterator(), " and ");
                 String queryStr= "SELECT * FROM nt:base WHERE " + where;
-                
+
                 NodeIterator nodeIterator = QueryUtil.search("dam",
                                             queryStr,
                                             javax.jcr.query.Query.SQL);
-                
+
                 while(nodeIterator.hasNext()){
                     Node node = nodeIterator.nextNode();
-                    
+
                     //ignore folders
                     if(node.isNodeType("mgnl:asset")){
                         Asset asset = damfn.getAssetForAbsolutePath("jcr", node.getPath());
                         Document doc = new Document();
                         String path = damfn.getAssetLink(asset.getItemKey().asString());
                         String fileExtension = PropertyUtil.getString(AssetNodeTypes.AssetResource.getResourceNodeFromAsset(node), AssetNodeTypes.AssetResource.EXTENSION, "").toUpperCase();
-                        
+
                         if(StringUtils.isEmpty(extension) || extension.toUpperCase().contains(fileExtension.toUpperCase())){
                             doc.setIconClass(getIconClass(fileExtension));
                             doc.setTitle(buildDisplayTitle(asset));
@@ -137,10 +138,10 @@ public class DocumentsModel<RD extends ConfiguredTemplateDefinition> extends Ren
                             doc.setFileSize(FileUtils.byteCountToDisplaySize(asset.getFileSize()));
                             doc.setPath(path);
                             doc.setSubject(asset.getSubject());
-                            doc.setDescription(asset.getDescription());
+                            doc.setDescription(StringEscapeUtils.unescapeHtml4(asset.getDescription()));
                             foundDocuments.add(doc);
                         }
-                    }    
+                    }
                 }
             } catch (Exception e) {
                 e.printStackTrace();
