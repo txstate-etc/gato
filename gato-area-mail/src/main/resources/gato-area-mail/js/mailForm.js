@@ -506,3 +506,40 @@ function checkMandatories(formName, alertText) {
   if (ok) return true;
   else return false;
 }
+
+function form_fixcolumns() {
+  $$('.txst-form-selectiongroup').each(function(selectiongroup){
+    var availableInnerWidth = selectiongroup.getWidth();
+      
+    var maxItemOuterWidth = 0;
+    selectiongroup.select('.txst-form-selection-item').each(function(item){
+      // Setting the element to inline briefly lets me get the width of what is inside, rather than the space it could fill up in the parent
+      item.setStyle({display:'inline', width: 'auto'});
+      var itemOuterWidth = item.getWidth();
+      item.setStyle({display:'block'});
+      if ( maxItemOuterWidth < itemOuterWidth ) {
+        maxItemOuterWidth = itemOuterWidth;
+      }
+    });
+    
+    var numberOfColumns = 1;
+    if ( (maxItemOuterWidth+10)*3 < availableInnerWidth ) {
+      var numberOfColumns = 3;
+    } else if ( (maxItemOuterWidth+10)*2 < availableInnerWidth ) {
+      var numberOfColumns = 2;
+    }
+    
+    selectiongroup.select('.txst-form-selection-item').each(function(item){
+      item.setStyle({
+        width: parseInt((availableInnerWidth-(numberOfColumns*10))/numberOfColumns, 10) + "px",
+        float: 'left',
+        marginTop: '5px'
+      });
+    });
+    
+    selectiongroup.insert({bottom: new Element("div",{style:"clear:both"})});
+  });
+}
+
+Event.observe(document,'dom:loaded', form_fixcolumns);
+Event.observe(window,orientationChangeEventName, form_fixcolumns);
