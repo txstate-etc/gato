@@ -151,8 +151,8 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
           }
         }
 
-        boolean isMailTemplate = templateId.endsWith("mail") || templateId.endsWith("mail-template");
-        if (n.hasNode("contentParagraph") && !isMailTemplate) moveBodyContentToSingleColumnContainer(n.getNode("contentParagraph"));
+        if (n.hasNode("contentParagraph")) moveBodyContentToSingleColumnContainer(n.getNode("contentParagraph"));
+        if (n.hasNode("mail")) createSeparators(n.getNode("mail"));
         if (n.hasProperty("background-image")) {
           String bgimage = n.getProperty("background-image").getString();
           String newbgimage = bgimage.replace("/wittliff/images/", "");
@@ -499,6 +499,22 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
     Node row = cp.addNode("importrow", NodeTypes.Component.NAME);
     NodeTypes.Renderable.set(row, "gato-template:components/rows/full");
     Node rowarea = row.addNode("column1", NodeTypes.Area.NAME);
-    for (Node comp : existingComponents) NodeUtil.moveNode(comp, rowarea);
+
+    for (Node comp : existingComponents) {
+      NodeUtil.moveNode(comp, rowarea);
+      if (PropertyUtil.getBoolean(comp, "lineAbove", false)) insertSeparator(rowarea, comp);
+    }
+  }
+
+  protected void insertSeparator(Node area, Node comp) throws RepositoryException {
+    Node separator = area.addNode(comp.getName() + "-lineAbove", NodeTypes.Component.NAME);
+    NodeTypes.Renderable.set(separator, "gato-template:components/separator");
+    area.orderBefore(separator.getName(), comp.getName());
+  }
+
+  protected void createSeparators(Node area) throws RepositoryException {
+    for (Node comp : NodeUtil.getNodes(area, NodeTypes.Component.NAME)) {
+      if (PropertyUtil.getBoolean(comp, "lineAbove", false)) insertSeparator(area, comp);
+    }
   }
 }

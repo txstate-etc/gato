@@ -59,24 +59,4 @@ form:
           appName: pages
           description: "Enter a full URL to an external site (http://www.google.com/) or use the \"Internal Link\" button to link to another page in this site."
           buttonSelectNewLabel: "Internal Link..."
-    - name: tabProps
-      label: Paragraph Properties
-      fields:
-        - name: lineAbove
-          class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
-          label: Line
-          buttonLabel: Draw a line above this paragraph
-        - name: spacer
-          class: info.magnolia.ui.form.field.definition.SelectFieldDefinition
-          label: Spacer
-          options: 
-             - name: none
-               label: No Spacer
-               value: 0
-             - name: single
-               label: Single Blank Line
-               value: 1
-             - name: double
-               label: Double Blank Line
-               value: 2
 actions: !include /gato-template/dialogs/common/actions-block.yaml

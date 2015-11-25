@@ -1,0 +1,6 @@
+templateScript: /gato-template/templates/components/separator.ftl
+renderType: freemarker
+description: A horizontal line that can be used as a separator between content
+title: Separator
+parameters:
+  icon: /gato-template/images/table.png

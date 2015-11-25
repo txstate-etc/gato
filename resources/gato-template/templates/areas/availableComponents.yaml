@@ -24,6 +24,8 @@ html:
   id: gato-template:components/html
 feature:
   id: gato-component-feature:components/feature
+separator:
+  id: gato-template:components/separator
 sitemap:
   id: gato-component-sitemap:components/sitemap
 table:
