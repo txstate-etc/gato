@@ -25,10 +25,10 @@ Event.observe(window, "load", function() {
   if ( $('txst-expand-all-faqs') ) {
     Event.observe( 'txst-expand-all-faqs', "click", function(event) {
       $$('.txst-faq-group').each(function(item) {
-        item.show();
+        if (!item.visible()) Effect.BlindDown(item, {duration: 0.4 });
       });
       $$('.txst-faqitem-answer').each( function( item ) {
-        item.show();
+        if ( !item.visible() ) Effect.BlindDown( item, { duration: 0.4 } );
       });
       Event.stop(event);
     });
@@ -37,7 +37,7 @@ Event.observe(window, "load", function() {
   if ( $('txst-collapse-all-faqs') ) {
     Event.observe( 'txst-collapse-all-faqs', "click", function(event) {
       $$('.txst-faqitem-answer').each( function( item ) {
-        item.hide();
+        if ( item.visible() ) Effect.BlindUp( item, { duration: 0.4 } );
       });
       Event.stop(event);
     });
