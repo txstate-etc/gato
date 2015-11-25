@@ -3,6 +3,32 @@ jQuery(function($) {
   // top banner
   $('.homepage-banner-nav').scrollToFixed();
   
+  var menutimeout = null;
+  function resetMenuTimeout() {
+    if (menutimeout) {
+      clearTimeout(menutimeout);
+      menutimeout = null;
+    }
+  }
+
+  // FIXME: dropdowns need to be touch screen and keyboard and ARIA friendly
+  $('.audience-link-tabs li a[role=menuitem]').on('mouseover', function(e) {  
+    resetMenuTimeout();
+
+    var $menu = $('#'+$(this).attr('aria-controls'));
+    $menu.fadeIn(150);
+    $menu.siblings(':visible').fadeOut(150);
+  }).on('mouseleave', function(e) {  
+    resetMenuTimeout();
+    menutimeout = setTimeout(function() {
+      $('.audience-link-section[role=menu]:visible').fadeOut(150);
+    }, 150);
+  });
+  $('.audience-link-section[role=menu]').on('mouseenter', resetMenuTimeout)
+  .on('mouseleave', function(e) {  
+    resetMenuTimeout();
+    $(this).fadeOut(150);
+  });
 
   // feature paragraphs
   function activate($cur, $next) {

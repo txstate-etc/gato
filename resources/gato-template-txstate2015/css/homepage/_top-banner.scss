@@ -119,6 +119,7 @@ div#homepage-banner {
             @include vendor-prefix(transition, font-size .1s ease);
             a {
               display: block;
+              &:hover { text-decoration: underline; }
               padding: 1.6rem 2.7rem;  
               @media (min-width: $md-breakpoint) {
                 padding-left: 3.2rem;  
@@ -150,9 +151,180 @@ div#homepage-banner {
   
     display: none;
     @media (min-width: $sm-breakpoint) {
-      display: block
+      display: block;
     }
-  }
 
+    .audience-links {
+      
+      .audience-link-section {
+        display: none;
+        //&:first-child {display:block;}
+        position: absolute;
+        left: 0;
+        width: 100%;
+        padding: 4.5rem 0 3.5rem;
+        @media (min-width: $md-breakpoint) {
+          padding: 6rem 0 5rem;
+        }
+        z-index: 9;
+        background: $gold;
+      
+
+        .audience-link-content {
+          padding: 0 2rem;
+          max-width: 768px;
+          @media (min-width: $md-breakpoint) {
+            max-width: 1000px;
+          }
+          @media (min-width: $lg-breakpoint) {
+            max-width: 1200px;
+          }
+          margin: auto;
+          font-size: 1.4rem;
+          color: $white;
+          a { color: inherit; }
+          
+          ul { 
+            list-style: none; 
+            margin: 0;
+            padding: 0;
+
+            li {
+              margin: 0; 
+              &:not(:last-child) {
+                margin-bottom: 1rem; 
+                @media (min-width: $md-breakpoint) {
+                  margin-bottom: 1.5rem; 
+                }
+              }
+            }
+          }
+
+          & > div {
+            @extend .grid-cell;
+            width: 33%;
+            @media (min-width: $md-breakpoint) {
+              width: 25%;
+            }
+          }
+
+          .image-block {
+            padding-right: 3.5rem;
+
+            & > a {
+              display: block;
+              @extend .hover-blur;
+              img {
+                display: block;
+              }
+            }
+
+            p {
+              font-family: $garamond;
+              font-size: 1.5rem;
+              font-weight: 500;
+              margin: 1.2rem 0 0;
+
+              a {
+                text-decoration: underline;
+                &:hover { text-decoration: none; }
+              }
+            }
+
+            display: none;
+            @media (min-width: $md-breakpoint) {
+              display: inline-block;
+            }
+          }
+
+          .featured-links {
+            padding: 0 2rem;
+            font-weight: 500;
+
+            &.future-students {            
+
+              h3 {
+                margin: 0;
+                font-size: 1.4rem;
+                font-weight: 500;
+                text-transform: uppercase;
+              }
+
+              ul { 
+                margin: 0.5rem 0 1.5rem;
+                &:first-of-type { 
+                  margin-bottom: 3rem; 
+                }
+                @media (min-width: $md-breakpoint) {
+                  margin-top: 1rem; 
+                  &:first-of-type { 
+                    margin-bottom: 4rem; 
+                  }
+                }
+
+                li {
+                  display: inline;
+                  padding: 0;
+                  &:not(:last-child) {
+                    padding-right: 0.7rem;
+                    &:after { 
+                      content: "|"; 
+                      padding-left: 1.1rem;
+                    }
+                  }
+                }
+              }
+            }
+
+            .featured-links-button {
+              display: inline-block;
+              border-radius: $default-border-radius;
+              text-align: center;
+              text-transform: uppercase;
+              
+              margin-top: 2rem;
+              padding: 1rem 2rem;
+              border: 2px solid $lightest-gold;
+              @media (min-width: $md-breakpoint) {
+                margin-top: 3rem;
+                padding: 1.5rem 3rem;
+                border-width: 3px;
+              }
+
+              @include hover-bg($maroon) {
+                border-color: $darkest-sandstone;  
+              }
+
+              i {
+                font-size: 2.5rem;
+                margin-left: 1.5rem;
+                vertical-align: sub;
+              }
+            }
+
+          }
+
+          .links-column {
+            padding-left: 3rem;
+
+            &:nth-child(3) {
+              border-left: 2px solid $lightest-gold;
+            }
+          }
+
+          .featured-links, .links-column {
+            a {
+              display: inline-block;
+              padding: 0.5rem;
+              margin: 0 -0.5rem;
+              @include hover-bg($maroon);
+            }
+          }
+
+        }
+      }
+    }
+
+  }
 
 }
