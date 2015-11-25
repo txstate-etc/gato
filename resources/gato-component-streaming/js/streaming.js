@@ -61,7 +61,7 @@ function buildMediaflo(el, videoInfo) {
 
 function buildVimeoPlayer(el, videoInfo) {
   var autoplay = videoInfo.options.autoplay ? '1' : '0';
-  var vimeoUrl = "http://player.vimeo.com/video/" + videoInfo.videoId + "?api=1&player_id=" + el.id + "-vimeo" +"&autoplay="+autoplay;
+  var vimeoUrl = "//player.vimeo.com/video/" + videoInfo.videoId + "?api=1&player_id=" + el.id + "-vimeo" +"&autoplay="+autoplay;
   var iframe = '<iframe id="' + el.id + '-vimeo" src="' + vimeoUrl + '" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
   jQuery(el).append(iframe);
 }
