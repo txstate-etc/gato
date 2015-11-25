@@ -3,6 +3,9 @@ form:
     - name: tabStreaming
       label: Streaming Media Settings
       fields:
+        - name: title
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Title (optional)
         - name: videourl
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Video Url
