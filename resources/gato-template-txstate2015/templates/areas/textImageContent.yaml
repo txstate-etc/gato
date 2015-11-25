@@ -1,0 +1,7 @@
+renderType: freemarker
+type: single
+title: Text and Image Content
+templateScript: /gato-template-txstate2015/templates/areas/textImageContent.ftl
+availableComponents:
+  textimage:
+    id: gato-template:components/textimage

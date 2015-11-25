@@ -1,4 +1,5 @@
 [#include "/gato-template/templates/includes/head.ftl"]
+[#import "includes/search.ftl" as search]
 
 <!DOCTYPE HTML>
 <html lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
@@ -25,7 +26,6 @@
     [#include "includes/homepage/emergency.ftl"]
 
     <nav id="menu" class="mobile_nav">
-      [#import "includes/search.ftl" as search]
       [@search.searchBar true false/]
       <div class="mobile_nav_container">
         <h3 class="contact_us mobile_dept"><a href="#nowhere">${gf.nodeTitle(content)}</a></h3>

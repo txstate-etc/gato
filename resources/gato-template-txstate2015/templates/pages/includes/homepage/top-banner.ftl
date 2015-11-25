@@ -14,7 +14,6 @@
       </div>
 
       <div class="homepage-banner-searchwrap">
-        [#import "search.ftl" as search]
         [@search.searchBar false false/]
       </div>
 
