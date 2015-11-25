@@ -85,6 +85,7 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
     visitByTemplate(hm, "gato:components/texasState/texasDownload", this::updateDownloadComponent);
     log.info("documents paragraph changes");
     visitByTemplate(hm, "gato:components/texasState/texas-dms", this::updateDocumentsComponent);
+    visitByTemplate(hm, "gato:components/texasState/social-media-link", this::updateSocialLinkComponent);
     visitByTemplate(hm, "gato:components/texasState/texasLink", this::convertNewWindowToBool);
     visitByTemplate(hm, "gato:components/texasState/texasEditor", this::migrateToTopAndBottom);
     hm.save();
@@ -232,6 +233,12 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
   private void updateDownloadComponent(Node n) throws RepositoryException {
     if(n.hasProperty("document")){
       PropertyUtil.renameProperty(n.getProperty("document"), "link");
+    }
+  }
+
+  private void updateSocialLinkComponent(Node n) throws RepositoryException {
+    if(n.hasProperty("linktitle")){
+      PropertyUtil.renameProperty(n.getProperty("linktitle"), "title");
     }
   }
 
