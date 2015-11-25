@@ -3,4 +3,4 @@ renderType: freemarker
 description: A horizontal line that can be used as a separator between content
 title: Separator
 parameters:
-  icon: /gato-template/images/table.png
+  icon: /gato-template/images/line_icon.png
