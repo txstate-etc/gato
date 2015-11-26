@@ -2,20 +2,20 @@
 
 <style type="text/css">
   body {
-    background-color: ${ inheritedContent['background-color'] };
+    background-color: ${ inheritedContent['background-color']!'white' };
   }
 
   div#outercontainer {
-    background-color: ${ inheritedContent['background-color'] };
-    background-image: url(${gf.resourcePath()}/gato-template-wittliff/images/${ inheritedContent['background-image'] });
+    background-color: ${ inheritedContent['background-color']!'white' };
+    background-image: url(${gf.resourcePath()}/gato-template-wittliff/images/${ inheritedContent['background-image']!'bg-homepage.jpg' });
   }
 
   input.gato-search-query, #mainnav .submenu.active ul, #mainnav .submenu.active {
-    background-color: ${ inheritedContent['background-color'] };
+    background-color: ${ inheritedContent['background-color']!'white' };
   }
 
   .txst-photogallery-image {
-    border-color: ${ inheritedContent['background-color'] };
+    border-color: ${ inheritedContent['background-color']!'white' };
   }
 
   [#if inheritedContent['sectionhead-color']?has_content]
@@ -33,4 +33,4 @@
     #mainnav a:hover { color: ${ inheritedContent['mainnav-hover-color'] }; }
   [/#if]
 </style>
-<script type="text/javascript">var wittliffPageBackgroundColor = "${ inheritedContent['background-color']?replace('#','') }";</script>
+<script type="text/javascript">var wittliffPageBackgroundColor = "${ (inheritedContent['background-color']!'white')?replace('#','') }";</script>
