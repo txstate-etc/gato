@@ -1,45 +1,58 @@
+[#assign slides = cmsfn.asContentMap(cmsfn.nodeByPath('/homepage-data/features/top-feature', 'website'))]
+[#assign slides = cmsfn.children(slides, "mgnl:component")]
+[#assign aspectratio = 1750.0/600.0]
+
+
 <div id="top-feature">
   <div class="eq-parent">  
     
     <div class="slides">
-      <div class="slide">
-        <figure class="feature top-slider">
-          <img alt="demo" src="http://edelstone.github.io/gato-homepage/images/slider-9.jpg">
-          <figcaption>
-            <div class="caption-wrap">
-              <p class="feature-headline"><a href="#nowhere">Texas State vs. ULM - Nov. 19</a></p>
-              <p class="feature-play-button"><a href="https://youtu.be/yWHSv6n5RAI" aria-label="Play Video"></a></p>
-            </div>
-          </figcaption>
-        </figure>
-      </div>
-      <div class="slide" style="display: none;">
-        <figure class="feature top-slider">
-          <img alt="demo" src="http://edelstone.github.io/gato-homepage/images/slider-8.jpg">
-          <figcaption>
-            <div class="caption-wrap">
-              <p class="feature-headline"><a href="#nowhere">Welcome to Texas State University</a></p>
-              <p class="feature-play-button"><a href="https://vimeo.com/137877590" aria-label="Play Video"></a></p>
-            </div>
-          </figcaption>
-        </figure>
-      </div>
-      <div class="slide" style="display: none;">
-        <figure class="feature top-slider">
-          <img alt="demo" src="http://edelstone.github.io/gato-homepage/images/slider-600-1.jpg">
-          <figcaption>
-            <div class="caption-wrap">
-              <p class="feature-headline"><a href="#nowhere">Join us for the Common Experience</a></p>
-              <p class="feature-play-button"><a href="https://vimeo.com/137404853" aria-label="Play Video"></a></p>
-            </div>
-          </figcaption>
-        </figure>
-      </div>
+
+      [#-- FIXME: check enabled, starttime, and endtime fields --]
+      [#list slides as component]
+
+        <div class="slide" style="${(component_index == 0)?string('', 'display: none;')}">
+          <figure class="feature top-slider">
+            <img src="${gf.getImgDefault(component.image, aspectratio)}" srcset="${gf.getSrcSet(component.image, aspectratio)}" alt="${component.alttext!}">
+            <figcaption>
+              <div class="caption-wrap">
+
+                [#if component.title?has_content]
+                  <p class="feature-headline">
+
+                    [#assign link = component.link!component.videourl!]
+                    [#if link?has_content]
+                      <a href="${link}">
+                    [/#if]
+                        ${component.title}
+                    [#if link?has_content]
+                      </a>
+                    [/#if]
+                    
+                  </p>
+                [/#if]
+
+                [#if component.videourl?has_content]
+                  <p class="feature-play-button">
+                    <a href="${component.videourl}" aria-label="Play Video"></a>
+                  </p>
+                [/#if]
+
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+
+      [/#list]
+
     </div>
-    <div class="slide-nav">
-      <a class="slide-nav-left" href="#nowhere"><i class="fa fa-chevron-left"></i></a>
-      <a class="slide-nav-right" href="#nowhere"><i class="fa fa-chevron-right"></i></a>
-    </div>
+
+    [#if slides?size > 1]
+      <div class="slide-nav">
+        <a class="slide-nav-left" href="#nowhere"><i class="fa fa-chevron-left"></i></a>
+        <a class="slide-nav-right" href="#nowhere"><i class="fa fa-chevron-right"></i></a>
+      </div>
+    [/#if]
 
   </div>  
   

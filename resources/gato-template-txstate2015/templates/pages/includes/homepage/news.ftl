@@ -1,3 +1,7 @@
+[#assign slides = cmsfn.asContentMap(cmsfn.nodeByPath('/homepage-data/features/news-feature', 'website'))]
+[#assign slides = cmsfn.children(slides, "mgnl:component")]
+[#assign aspectratio = 1080.0/400.0]
+
 <div id="news" class="content-row main two-col">
   <div class="content-row-content">
     <div class="eq-parent">
@@ -7,17 +11,47 @@
           
           <h2>News</h2>
           
-          <figure id="news-feature" class="feature">
-            <a class="image-link" href="#nowhere">
-              <img alt="demo" src="http://edelstone.github.io/gato-homepage/images/news-2.jpg">
-            </a>
-            <figcaption>
-              <p class="feature-date">Sept. 15, 2015</p>
-              <p class="feature-headline">
-                <a href="#nowhere">Filmmaker Robert Rodriguez gives distinguished lecture at Texas State</a>
-              </p>
-            </figcaption>
-          </figure>
+          <div class="news-slider-wrap">
+            <div class="slides">
+  
+              [#-- FIXME: check enabled, starttime, and endtime fields --]
+              [#list slides as component]
+
+                <figure id="news-feature" class="feature">
+                  
+                  [#if component.link?has_content]
+                    <a class="image-link" href="${component.link}">
+                  [/#if]
+                      <img src="${gf.getImgDefault(component.image, aspectratio)}" srcset="${gf.getSrcSet(component.image, aspectratio)}" alt="${component.alttext!}">
+                  [#if component.link?has_content]
+                    </a>
+                  [/#if]
+                  
+                  <figcaption>
+                  
+                    <p class="feature-date">Sept. 15, 2015</p>
+                                        
+                    [#if component.title?has_content]
+                      <p class="feature-headline">
+
+                        [#if component.link?has_content]
+                          <a href="${component.link}">
+                        [/#if]
+                            ${component.title}
+                        [#if component.link?has_content]
+                          </a>
+                        [/#if]
+                        
+                      </p>
+                    [/#if]
+
+                  </figcaption>
+                </figure>
+
+              [/#list]
+              
+            </div>
+          </div>
 
           <div id="news-links">
             <p><a href="#nowhere">School of Music announces schedule of events for September</a></p>
