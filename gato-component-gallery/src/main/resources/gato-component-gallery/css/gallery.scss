@@ -6,16 +6,17 @@
 }
 
 .txst-gallery-image a {
-  display: block; 
+  display: block;
 }
 
 .txst-gallery-image img {
-  display: block; 
+  display: block;
   width: 100%;
 }
 
 .txst-gallery, .txst-gallery .txst-gallery-image a {
   padding: 0px;
+  margin: 0px;
 }
 
 .txst-gallery[min-width~="400px"] {
