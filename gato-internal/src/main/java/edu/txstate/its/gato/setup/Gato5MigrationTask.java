@@ -107,7 +107,7 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
           if (n.hasNode("tsusfooterlinks2")) NodeUtil.renameNode(n.getNode("tsusfooterlinks2"), "footerlinks2");
         }
 
-        if(templateId.equals("gato:pages/library-2012/library-2012-home")){
+        if (templateId.equals("gato:pages/library-2012/library-2012-home")){
           if(n.hasNode("mobile-title")) convertNodeToAreaAndComponent(n.getNode("mobile-title"), "gato-template:components/misctext", "text");
           if(n.hasNode("mobile-hours-link")) convertNodeToAreaAndComponent(n.getNode("mobile-hours-link"), "gato-template:components/link", "link");
           if(n.hasNode("searchbox-data")){
@@ -123,6 +123,13 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
           }
           if(n.hasNode("searchbox-chatlink")) convertNodeToAreaAndComponent(n.getNode("searchbox-chatlink"), "gato-template:components/richeditor", "content");
         }
+
+        if (templateId.startsWith("gato:pages/ua-2011/")) {
+          if (n.hasNode("socialmedia")) n.getNode("socialmedia").remove();
+          if (n.hasNode("uasocial"))
+            NodeUtil.renameNode(n.getNode("uasocial"), "socialmedia");
+        }
+
         String p = n.getPath();
         if (p.startsWith("/alkek-library")
           || p.startsWith("/rrhec-library")
