@@ -266,6 +266,11 @@ public final class GatoUtils {
     return getSrcSet(assetOrId, left, right, top, bottom, (square ? 1f : -1f));
   }
 
+  // note: "right" means distance from left at which to crop, expressed as a
+  // ratio of the total width
+  // same for bottom
+  // for example, left = .25, right = .75 means cut 25% off each side
+  // counterintuitive, may need refactored at some point
   public String getSrcSet(Object assetOrId, float left, float right, float top, float bottom, float aspectratio) {
     Asset asset = toAsset(assetOrId);
     if (asset == null) return "";
@@ -277,7 +282,7 @@ public final class GatoUtils {
       srv.setZoom(aspectratio > 0);
 
       long width = getImgWidth(asset);
-      width = Math.round(width - width*left - width*right);
+      width = Math.round(width*(right - left));
       ArrayList<Long> widths = new ArrayList<Long>();
       do {
         widths.add(new Long(width));
@@ -333,7 +338,7 @@ public final class GatoUtils {
     if (asset == null) return "";
     try {
       long width = asset.getMetadata(MagnoliaAssetMetadata.class).getWidth();
-      width = Math.round(width - width*left - width*right);
+      width = Math.round(width*(right-left));
       long minwidth = sizestolong(sizes);
       while (width/2 > minwidth) {
         width = width / 2;
