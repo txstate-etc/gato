@@ -8,6 +8,7 @@ import org.apache.xmlrpc.XmlRpcClientLite;
 import javax.jcr.Node;
 import javax.jcr.PathNotFoundException;
 import javax.jcr.RepositoryException;
+import org.apache.commons.lang3.StringEscapeUtils;
 
 public class DepartmentDirectoryModel<RD extends ConfiguredTemplateDefinition> extends RenderingModelImpl<ConfiguredTemplateDefinition> {
 
@@ -19,11 +20,10 @@ public class DepartmentDirectoryModel<RD extends ConfiguredTemplateDefinition> e
     //Retrieve Faculty and/or Staff for a particular
     //department.  Used in the department directory component.
     public Vector getPeople(String department){
-
         Vector result = new Vector();
         String method = "getResults";
         Vector params = new Vector();
-        String searchTerm = "department=\"" + department + "\"";
+        String searchTerm = "department=\"" + StringEscapeUtils.unescapeHtml4(department) + "\"";
         params.addElement(searchTerm);
 
         try{
@@ -34,7 +34,6 @@ public class DepartmentDirectoryModel<RD extends ConfiguredTemplateDefinition> e
         catch(Exception e){
             e.printStackTrace();
         }
-
         return result;
     }
 
