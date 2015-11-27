@@ -1,10 +1,11 @@
 @import "gato-template-txstate2009/css/variables";
 @import "gato-template-txstate2009/css/includes";
 
+html { background-color: white; }
+
 body {
   font-family: "Nimbus Sans L", Arial, Helvetica, sans-serif;
   min-width: 990px;
-  background-color: white;
 }
 
 img { vertical-align: middle; }
