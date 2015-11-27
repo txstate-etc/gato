@@ -8,6 +8,7 @@
 		&.top { margin: 0px auto 10px auto; }
 		&.bottom { margin: 10px auto 10px auto; }
     &.hascaption { min-width: 100px; }
+    a { padding: 0; margin: 0; display: block; }
 		img { display: block; width: 100%; }
 	}
 	&[max-width~="400px"] .gato-textimage-imageblock { float: none; margin: 0px auto 10px auto; }
