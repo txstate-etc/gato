@@ -73,7 +73,9 @@ $eq-breakpoints: (xs: 100px, sm: 200px, md: 401px, ml: 600px, lg: 800px, xl: 120
   @include eq-min-width($name) {
     @include eq-cols($name);
   }
-  @media (min-width: $mwidth) {
-    * { @include eq-cols($name); }
+  @if $mwidth > 200px {
+    @media (min-width: $mwidth) {
+      .eq-parent:not([min-width]) > * { @include eq-cols($name); }
+    }
   }
 }
