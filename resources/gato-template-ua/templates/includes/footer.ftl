@@ -4,7 +4,7 @@
 		<div class="ua-socialbar-bg"></div>
 		Follow the Pride
 		<ul class="ua-socialbar-buttons">
-      [@cms.area name="socialmedia" content=gf.getOrCreateArea(homepage, 'socialmedia') editable=isHomePage contextAttributes={'icononly': true}/]
+      [@cms.area name="socialmedia" content=gf.getOrCreateArea(homepage, 'socialmedia') editable=isHomePage contextAttributes={"icononly": true}/]
 		</ul>
 	</div>
 

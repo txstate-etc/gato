@@ -10,7 +10,7 @@
 			[@cms.area name="newsletter" content=gf.getOrCreateArea(homepage, 'newsletter') editable=isHomePage /]
 		</div>
 		<div class="social-media-icons">
-			[@cms.area name="socialmedia" content=gf.getOrCreateArea(homepage, 'socialmedia') editable=isHomePage contextAttributes={icononly: true} /]
+			[@cms.area name="socialmedia" content=gf.getOrCreateArea(homepage, 'socialmedia') editable=isHomePage contextAttributes={"icononly": true} /]
 		</div>
 		<form action="http://search.txstate.edu/search" class="tsus-searchform">
 			<input type="text" name="q" id="q" value="Search" class="research search-default"><jsp:text /></input>

@@ -59,7 +59,7 @@
             </div>
         </div>
         <div class="social">
-            [@cms.area name="socialmedia" contextAttributes={icononly: true}/]
+            [@cms.area name="socialmedia" contextAttributes={"icononly": true}/]
             <div class="button">
                 [@cms.area name="support-button" /]
             </div>
