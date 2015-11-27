@@ -12,7 +12,14 @@
 
 [@listnav position='top' /]
 [#list components as component]
-  [@cms.component content=component /]
+  [#if component.position == 'top']
+    [@cms.component content=component /]
+  [/#if]
+[/#list]
+[#list components as component]
+  [#if component.position == 'bottom']
+    [@cms.component content=component /]
+  [/#if]
 [/#list]
 [#if cmsfn.isEditMode()]
   <div class="navBlocks_add" cms:add="box"></div>
