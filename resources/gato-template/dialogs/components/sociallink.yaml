@@ -13,11 +13,6 @@ form:
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Title
           description: "The title for the link.  If left empty, it will be automatically titled with the name of the service, e.g. \"Facebook\"."
-        - name: icononly
-          class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
-          label: Hide Title
-          buttonLabel: Icon-only mode
-          description: "If you check this box, only the icon will be displayed. The title will appear for screen readers and when moused over. Touch screen users may never see the title."
         - name: icon
           class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
           appName: assets

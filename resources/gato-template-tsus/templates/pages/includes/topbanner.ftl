@@ -1,7 +1,7 @@
 <div class="tsus-topbanner-bg">
 	<div class="tsus-topbanner">
 		<a href="${ctx.contextPath}/${cmsfn.link(homepage)}" class="tsus-homelink" title="Texas State University System">
-			<img src="${ctx.contextPath}/.resources/gato-template-tsus/images/tsus-logo.png" alt="Texas State University System Logo"/> 
+			<img src="${ctx.contextPath}/.resources/gato-template-tsus/images/tsus-logo.png" alt="Texas State University System Logo"/>
 		</a>
 		<ul class="linkmenutop">
       [@cms.area name="menulinks" content=gf.getOrCreateArea(homepage, 'menulinks') editable=isHomePage /]
@@ -10,7 +10,7 @@
 			[@cms.area name="newsletter" content=gf.getOrCreateArea(homepage, 'newsletter') editable=isHomePage /]
 		</div>
 		<div class="social-media-icons">
-			[@cms.area name="socialmedia" content=gf.getOrCreateArea(homepage, 'socialmedia') editable=isHomePage /]
+			[@cms.area name="socialmedia" content=gf.getOrCreateArea(homepage, 'socialmedia') editable=isHomePage contextAttributes={icononly: true} /]
 		</div>
 		<form action="http://search.txstate.edu/search" class="tsus-searchform">
 			<input type="text" name="q" id="q" value="Search" class="research search-default"><jsp:text /></input>

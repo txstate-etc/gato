@@ -46,14 +46,14 @@
   [/#if]
 
   [#assign linktext = content.title!alttext]
-  [#if content.icononly!false][#assign linktext = ''][/#if]
+  [#if ctx.icononly!false][#assign linktext = ''][/#if]
 
   [#assign title = alttext]
   [#if linktext?lower_case?contains(alttext?lower_case)]
     [#assign title = '']
   [/#if]
 
-  <a href="${content.link}" class="gato-sociallink ${(content.icononly!false)?string('icononly','')}">
+  <a href="${content.link}" class="gato-sociallink ${(ctx.icononly!false)?string('icononly','')}">
     [#if content.icon?has_content]
       <img src="${damfn.getAssetLink(content.icon)!}" alt="${title}" title="${title}"/>[#--
     --][#else][#--

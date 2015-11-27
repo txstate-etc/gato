@@ -105,21 +105,11 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
           if (n.hasNode("tsusnewsletter")) NodeUtil.renameNode(n.getNode("tsusnewsletter"), "newsletter");
           if (n.hasNode("tsusfooterlinks1")) NodeUtil.renameNode(n.getNode("tsusfooterlinks1"), "footerlinks1");
           if (n.hasNode("tsusfooterlinks2")) NodeUtil.renameNode(n.getNode("tsusfooterlinks2"), "footerlinks2");
-          if (n.hasNode("socialmedia")) {
-            for (Node sm : NodeUtil.getNodes(n.getNode("socialmedia"), NodeTypes.Component.NAME)) {
-              PropertyUtil.setProperty(sm, "icononly", true);
-            }
-          }
         }
 
         if(templateId.equals("gato:pages/library-2012/library-2012-home")){
           if(n.hasNode("mobile-title")) convertNodeToAreaAndComponent(n.getNode("mobile-title"), "gato-template:components/misctext", "text");
           if(n.hasNode("mobile-hours-link")) convertNodeToAreaAndComponent(n.getNode("mobile-hours-link"), "gato-template:components/link", "link");
-          if (n.hasNode("socialmedia")) {
-            for (Node sm : NodeUtil.getNodes(n.getNode("socialmedia"), NodeTypes.Component.NAME)) {
-              PropertyUtil.setProperty(sm, "icononly", true);
-            }
-          }
           if(n.hasNode("searchbox-data")){
             for(Node desc: NodeUtil.getNodes(n.getNode("searchbox-data"))){
               //rename node
@@ -297,7 +287,7 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
     if (n.hasProperty("values")) { n.getProperty("values").remove(); }
 
     n.setProperty("options", convertToMultiValue(values, "\\R"));
-    
+
     if (n.hasProperty("mandatory") && n.getProperty("mandatory").getType() != PropertyType.BOOLEAN) {
       convertPropertyToBool(n, "mandatory");
     }

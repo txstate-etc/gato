@@ -11,7 +11,7 @@
   [@templatehead /]
 </head>
 <body id="library-2012" class="${cmsfn.isEditMode()?string('admin', 'public')}">
-    
+
     <!--"super user" menu bar -->
     [#include "../../../gato-template-txstate2015/templates/pages/includes/super-user.ftl"]
     <!-- banner with logo and search bar -->
@@ -59,7 +59,7 @@
             </div>
         </div>
         <div class="social">
-            [@cms.area name="socialmedia" /]
+            [@cms.area name="socialmedia" contextAttributes={icononly: true}/]
             <div class="button">
                 [@cms.area name="support-button" /]
             </div>
@@ -90,8 +90,8 @@
     [@cssjsmodals /]
     [@sidebarmodal /]
     [#if cmsfn.isEditMode()]
-        <div id="gato-mobile-edit-modal" class="gato-custom-column">  
-            [#include "mobile.ftl"]   
+        <div id="gato-mobile-edit-modal" class="gato-custom-column">
+            [#include "mobile.ftl"]
             <script type="text/javascript">
                 var cssmodal = new modal($('gato-mobile-edit-modal'));
                 cssmodal.addToMainbar('Edit Mobile Template');
