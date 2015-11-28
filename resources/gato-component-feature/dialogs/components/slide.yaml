@@ -16,19 +16,23 @@ form:
           description: "Background image for this slide. Will be resized to fit the slideshow area."
         - name: alttext
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          required: true
           label: Image Alt Text
           description: "Descriptive text for users who are unable to see the image."
         - name: title
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          required: true
           label: Caption Title
           description: "Title for this slide. Appears in the caption area."
         - name: subtext
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          required: true
           rows: 5
           label: Caption Text
           description: "Text content for the caption area. Appears below the title."
         - name: link
           class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+          required: true
           label: Link
           appName: pages
           description: "Entire slide will be clickable. Enter a full URL (http://www.google.com/) or use the \"Internal Link\" button to link to another page in this site."
