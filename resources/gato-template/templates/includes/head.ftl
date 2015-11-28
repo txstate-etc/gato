@@ -101,14 +101,6 @@
 	[/#if]
 [/#macro]
 
-[#macro navloop items]
-	[#list items as item]
-		[#if !(item.hideInNav!false)]
-			[#nested item]
-		[/#if]
-	[/#list]
-[/#macro]
-
 [#macro pagetitle page]${gf.nodeTitle(page)}[/#macro]
 
 [#macro mainmenu textmenu=false]

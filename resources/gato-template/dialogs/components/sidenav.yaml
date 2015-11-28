@@ -19,6 +19,10 @@ form:
               label: Show Sub-Pages (One Level)
               selected: false
               value: auto
+            - name: automatic2
+              label: Show Sub-Pages (Two Levels)
+              selected: false
+              value: auto2
         - name: inherit
           class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
           label: Appear on subpages?
@@ -50,7 +54,7 @@ form:
               value: bottom
         - name: title
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-          description: A title for this block of links. 
+          description: A title for this block of links.
           label: Block Title (optional)
           #Are the navigation blocks supposed to be collapsible?
        # - name: collapse
