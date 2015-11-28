@@ -20,17 +20,17 @@ form:
           sortOptions: false
           options:
             - name: none
-              value: 0
+              value: none
               label: Don't Auto-rotate
               selected: true
             - name: slow
-              value: 30
+              value: slow
               label: Slow
             - name: medium
-              value: 15
+              value: medium
               label: Medium
             - name: fast
-              value: 5
+              value: fast
               label: Fast
         # - name: carousel
         #   class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
