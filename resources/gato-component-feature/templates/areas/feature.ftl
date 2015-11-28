@@ -11,7 +11,7 @@
   [#list components as slide]
     [#assign colorClass = ctx.colorClass /]
     [#if !colorClass?matches("color[1-7]")]
-      [#assign colorClass = "color${slide_index+1}" /]
+      [#assign colorClass = "color${(slide_index % 7)+1}" /]
     [/#if]
     [@cms.component content=slide contextAttributes={"slideactive": (slide_index == 0)?string("active", ""), "colorClass": colorClass, "aspectratio": aspectratio} editable=false /]
   [/#list]
