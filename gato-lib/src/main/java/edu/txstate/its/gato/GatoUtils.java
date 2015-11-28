@@ -282,7 +282,7 @@ public final class GatoUtils {
       srv.setZoom(aspectratio > 0);
 
       long width = getImgWidth(asset);
-      width = Math.round(width*(right - left));
+      if (right - left > 0.001) width = Math.round(width*(right - left));
       ArrayList<Long> widths = new ArrayList<Long>();
       do {
         widths.add(new Long(width));
@@ -337,8 +337,8 @@ public final class GatoUtils {
     Asset asset = toAsset(assetOrId);
     if (asset == null) return "";
     try {
-      long width = asset.getMetadata(MagnoliaAssetMetadata.class).getWidth();
-      width = Math.round(width*(right-left));
+      long width = getImgWidth(asset);
+      if (right - left > 0.001) width = Math.round(width*(right-left));
       long minwidth = sizestolong(sizes);
       while (width/2 > minwidth) {
         width = width / 2;
