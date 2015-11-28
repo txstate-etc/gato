@@ -183,6 +183,9 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
     tasks.add(new RemoveNodeTask("Remove old 4.5 migration config", "/modules/magnolia-4-5-migration"));
     // remove the config node for the old 4.5 cas filter
     tasks.add(new RemoveNodeTask("Remove old 4.5 cas filter", "/server/filters/casRedirect"));
+    // remove the config node for the old ckeditor module servlet
+    tasks.add(new RemoveNodeTask("Remove old ckeditor module servlet", "/server/filters/servlets/CKEditorSimpleUploadServlet"));
+    tasks.add(new RemoveNodeTask("Remove old fckeditor module servlet", "/server/filters/servlets/FCKEditorSimpleUploadServlet"));
 
     // tasks for every update
     tasks.addAll(installOrUpdateTasks());
