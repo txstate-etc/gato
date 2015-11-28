@@ -188,28 +188,33 @@ subApps:
                 class: info.magnolia.ui.form.field.definition.TextFieldDefinition
                 label: Caption Title
                 description: "Title for this slide. Appears in the caption area."
-              - name: subtext
-                class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-                rows: 5
-                label: Caption Text
-                description: "Text content for the caption area. Appears below the title."
-                # FIXME: add Full Content field for RSS. (Rich Editor?)
               - name: link
                 class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
                 label: Link
                 appName: pages
                 description: "Title will be clickable. Enter a full URL (http://www.google.com/) or use the \"Internal Link\" button to link to another page in this site."
                 buttonSelectNewLabel: "Internal Link..."
+              - name: subtext
+                class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                rows: 5
+                label: Caption Text
+                description: "Text content for the caption area. Appears below the title."
+              - name: rsscontent
+                label: Full Article Text
+                class: info.magnolia.ui.form.field.definition.RichTextFieldDefinition
+                source: true
+                configJsFile: /.resources/gato-template/js/richeditor/ti-richeditor-config.js
+                description: "Will be included in RSS feeds."
               - name: enabled
                 class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
                 label: Enabled
                 buttonLabel: Item will only be displayed if checked.
-              - name: starttime
+              - name: displaystart
                 class: info.magnolia.ui.form.field.definition.DateFieldDefinition
                 label: From
                 time: true
                 description: "Item will not be displayed before this time."
-              - name: endtime
+              - name: displayend
                 class: info.magnolia.ui.form.field.definition.DateFieldDefinition
                 label: To
                 time: true

@@ -1,6 +1,56 @@
 [#assign slides = cmsfn.asContentMap(cmsfn.nodeByPath('/homepage-data/features/news-feature', 'website'))]
 [#assign slides = cmsfn.children(slides, "mgnl:component")]
 [#assign aspectratio = 1080.0/400.0]
+[#assign events = cmsfn.asContentMap(cmsfn.nodeByPath('/homepage-data/events-dates/events', 'website'))]
+[#assign events = cmsfn.children(events, "mgnl:component")]
+[#assign dates = cmsfn.asContentMap(cmsfn.nodeByPath('/homepage-data/events-dates/dates', 'website'))]
+[#assign dates = cmsfn.children(dates, "mgnl:component")]
+
+[#macro eventTime h m a]
+  [#local m = (m?number)!0]
+  [#if m == 0]
+    ${h} ${a}
+  [#else /]
+    ${h}:${m?string['00']} ${a}
+  [/#if]
+[/#macro]
+
+[#macro eventList list showTime]
+    <ul>
+      [#list list as component]
+        <li class="event">
+          <p class="event-title">
+            <a href="${gf.filterUrl(component.link)}">${component.title}</a>
+          </p>
+          <p class="event-date">
+            <a href="${gf.filterUrl(component.link)}">
+              
+            [#if !component.enddate?has_content || '${component.enddate?date}' == '${component.startdate?date}']
+              <span class="month">${component.startdate?string['MMM']}</span>
+              <span class="day">${component.startdate?string['d']}</span>
+            [#else /]  
+              <span class="range-start">${component.startdate?string['MMM. d']}</span>
+              <span class="range-to">to</span>
+              <span class="range-end">${component.enddate?string['MMM. d']}</span>
+            [/#if]
+
+            </a>
+          </p>
+
+          [#if showTime]
+            <p class="event-time">
+              [@eventTime component.starttimehour!'8'
+                component.starttimeminute!'00'
+                component.starttimeampm!'a.m.' /] – 
+              [@eventTime component.endtimehour!'5' 
+                component.endtimeminute!'00' 
+                component.endtimeampm!'p.m.' /]
+            </p>
+          [/#if]
+        </li>
+      [/#list]
+    </ul>
+[/#macro]
 
 <div id="news" class="content-row main two-col">
   <div class="content-row-content">
@@ -102,39 +152,7 @@
             <div class="tab-contents">
 
               <div id="tabpanel-events" aria-labelledby="tab-events" role="tabpanel" aria-hidden="false">
-                <ul>
-                  <li class="event">
-                    <p class="event-title"><a href="#nowhere">Robert Rodriguez Lecture</a></p>
-                    <p class="event-date">
-                      <a href="#nowhere">
-                        <span class="month">Sept</span>
-                        <span class="day">14</span>
-                      </a>
-                    </p>
-                    <p class="event-time">7 p.m. – 9 p.m.</p>
-                  </li>
-                  <li class="event">
-                    <p class="event-title"><a href="#nowhere">Campus Blood Drive</a></p>
-                    <p class="event-date">
-                      <a href="#nowhere">
-                        <span class="range-start">Oct. 18</span>
-                        <span class="range-to">to</span>
-                        <span class="range-end">Nov. 2</span>
-                      </a>
-                    </p>
-                    <p class="event-time">9 a.m. – 5 p.m.</p>
-                  </li>
-                  <li class="event">
-                    <p class="event-title"><a href="#nowhere">Free Movie: Undeclared</a></p>
-                    <p class="event-date">
-                      <a href="#nowhere">
-                        <span class="month">Oct</span>
-                        <span class="day">30</span>
-                      </a>
-                    </p>
-                    <p class="event-time">8 p.m. – 10 p.m.</p>
-                  </li>
-                </ul>
+                [@eventList events true /]
 
                 <a class="more-events" href="http://events.txstate.edu/">
                   More Events<i class="button-chevron fa fa-chevron-right"></i>
@@ -142,35 +160,7 @@
               </div>
                   
               <div id="tabpanel-dates" aria-labelledby="tab-dates" role="tabpanel" aria-hidden="true" style="display:none;">
-                <ul>
-                  <li class="event">
-                    <p class="event-title"><a href="#nowhere">Tuition Due</a></p>
-                    <p class="event-date">
-                      <a href="#nowhere">
-                        <span class="month">Oct</span>
-                        <span class="day">10</span>
-                      </a>
-                    </p>
-                  </li>
-                  <li class="event">
-                    <p class="event-title"><a href="#nowhere">Last Day to Drop Full Term Class</a></p>
-                    <p class="event-date">
-                      <a href="#nowhere">
-                        <span class="month">Oct</span>
-                        <span class="day">25</span>
-                      </a>
-                    </p>
-                  </li>
-                  <li class="event">
-                    <p class="event-title"><a href="#nowhere">Thanksgiving Break Begins</a></p>
-                    <p class="event-date">
-                      <a href="#nowhere">
-                        <span class="month">Nov</span>
-                        <span class="day">25</span>
-                      </a>
-                    </p>
-                  </li>
-                </ul>
+                [@eventList dates false /]
                   
                 <a class="more-events more-imp-dates" 
                   href="http://www.registrar.txstate.edu/persistent-links/academic-calendar">
