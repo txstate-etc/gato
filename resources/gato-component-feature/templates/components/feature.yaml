@@ -12,5 +12,6 @@ areas:
     availableComponents:
       slide:
         id: gato-component-feature:components/slide
+    maxComponents: 10
 parameters:
   icon: /gato-component-feature/images/feature.png

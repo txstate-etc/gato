@@ -3,7 +3,7 @@
     [#list components as slide]
       [@cms.component content=slide contextAttributes={"barsonly": true} /]
     [/#list]
-    <div class="feature_add" cms:add="bar"></div>
+    <div class="${(components?size < 10)?string('feature_add','feature_max')}" cms:add="bar"></div>
   </div>
 [/#if]
 <div class="slides">
