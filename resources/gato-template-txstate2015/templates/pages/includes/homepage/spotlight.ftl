@@ -40,7 +40,7 @@
 
                               [#assign link = component.link!component.videourl!]
                               [#if link?has_content]
-                                <a href="${link}">
+                                <a href="${gf.filterUrl(link)}">
                               [/#if]
                                   ${component.title}
                               [#if link?has_content]

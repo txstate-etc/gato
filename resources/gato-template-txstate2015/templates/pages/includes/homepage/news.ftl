@@ -35,7 +35,7 @@
                       <p class="feature-headline">
 
                         [#if component.link?has_content]
-                          <a href="${component.link}">
+                          <a href="${gf.filterUrl(component.link)}">
                         [/#if]
                             ${component.title}
                         [#if component.link?has_content]

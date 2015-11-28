@@ -1,0 +1,234 @@
+label: Audience Links
+icon: icon-choose-audience
+appClass: info.magnolia.ui.contentapp.ContentApp
+class: info.magnolia.ui.contentapp.ContentAppDescriptor
+subApps:
+  browser:
+    label: Audience Links
+    subAppClass: info.magnolia.ui.contentapp.browser.BrowserSubApp
+    class: info.magnolia.ui.contentapp.browser.BrowserSubAppDescriptor
+    actionbar:
+      defaultAction: editItem
+      sections:
+        # - name: root
+        #   label: Audience Links
+        #   groups:
+        #     - name: addActions
+        #       items:
+        #         - name: addItem
+        #         # - name: addFolder
+        #   availability:
+        #     nodes: false
+        #     root: true
+        # - name: folder
+        #   label: Folder
+        #   groups:
+        #     - name: addActions
+        #       items:
+        #         - name: addItem
+        #         # - name: addFolder
+        #     # - name: editActions
+        #     #   items:
+        #     #     - name: editFolder
+        #     #     - name: deleteFolder
+        #   availability:
+        #     nodeTypes:
+        #       - mgnl:content
+        - name: item
+          label: Link Panel
+          groups:
+            - name: editActions
+              items:
+                - name: editItem
+                # - name: deleteItem
+          availability:
+            nodeTypes:
+              - mgnl:component
+    actions:
+      addItem:
+        subAppId: detail
+        label: Add Item
+        icon: icon-add-item
+        nodeType: mgnl:component
+        appName: audience-links
+        class: info.magnolia.ui.contentapp.detail.action.CreateItemActionDefinition
+        availability:
+          root: true
+      # addFolder:
+      #   icon: icon-add-folder
+      #   class: info.magnolia.ui.framework.action.AddNodeActionDefinition
+      #   availability:
+      #     root: true
+      # editFolder:
+      #   icon: icon-edit
+      #   dialogName: ui-framework:folder
+      #   class: info.magnolia.ui.framework.action.OpenEditDialogActionDefinition
+      # deleteFolder:
+      #   icon: icon-delete
+      #   class: info.magnolia.ui.framework.action.DeleteItemActionDefinition
+      editItem:
+        subAppId: detail
+        label: Edit Item
+        icon: icon-edit
+        appName: audience-links
+        class: info.magnolia.ui.contentapp.detail.action.EditItemActionDefinition
+        availability:
+          nodeTypes:
+            - mgnl:component
+      # deleteItem:
+      #   label: Delete Item
+      #   icon: icon-delete
+      #   class: info.magnolia.ui.framework.action.DeleteItemActionDefinition
+      saveItemProperty:
+        class: info.magnolia.ui.contentapp.browser.action.SaveItemPropertyActionDefinition
+        availability:
+          properties: false
+    workbench:
+      # dropConstraintClass: info.magnolia.ui.workbench.tree.drop.AlwaysTrueDropConstraint
+      # editable: true
+
+      contentViews:
+        - name: tree
+          class: info.magnolia.ui.workbench.tree.TreePresenterDefinition
+          columns: &myColumns
+            - name: name
+              editable: true
+              sortable: true
+              propertyName: jcrName
+              class: info.magnolia.ui.workbench.column.definition.PropertyColumnDefinition
+            # - name: title
+            #   label: Title
+            #   editable: true
+            #   sortable: true
+            #   propertyName: title
+            #   class: info.magnolia.ui.workbench.column.definition.PropertyColumnDefinition
+            - name: status
+              width: 45
+              displayInChooseDialog: false
+              formatterClass: info.magnolia.ui.workbench.column.StatusColumnFormatter
+              class: info.magnolia.ui.workbench.column.definition.StatusColumnDefinition
+            - name: moddate
+              width: 160
+              sortable: true
+              displayInChooseDialog: false
+              formatterClass: info.magnolia.ui.workbench.column.DateColumnFormatter
+              propertyName: mgnl:lastModified
+              class: info.magnolia.ui.workbench.column.definition.MetaDataColumnDefinition
+        # - name: list
+        #   class: info.magnolia.ui.workbench.list.ListPresenterDefinition
+        #   columns: *myColumns
+        # - name: search
+        #   class: info.magnolia.ui.workbench.search.SearchPresenterDefinition
+        #   columns: *myColumns
+
+    contentConnector:
+      includeProperties: false
+      workspace: website
+      rootPath: /homepage-data/audience-links
+      defaultOrder: title
+      nodeTypes:
+        - name: mgnl:component
+          icon: icon-link-page
+  detail:
+    label: Edit Item
+    subAppClass: info.magnolia.ui.contentapp.detail.DetailSubApp
+    class: info.magnolia.ui.contentapp.detail.DetailSubAppDescriptor
+    actions:
+      commit:
+        implementationClass: info.magnolia.ui.form.action.SaveFormAction
+        class: info.magnolia.ui.form.action.SaveFormActionDefinition
+      cancel:
+        class: info.magnolia.ui.form.action.CancelFormActionDefinition
+    editor:
+      actions:
+        - name: commit
+        - name: cancel
+      form:
+        tabs:
+          - name: item
+            label: Link Panel
+            fields:
+              # - name: jcrName
+              #   class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+              #   label: Name
+              - name: image
+                class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+                required: true
+                appName: assets
+                targetWorkspace: dam
+                label: Image
+                identifierToPathConverter:
+                  class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
+                contentPreviewDefinition:
+                  contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
+                description: "Image for the left hand side of the panel."
+              - name: imageLink
+                class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+                label: Image Link
+                appName: pages
+                description: "Link for the image."
+                buttonSelectNewLabel: "Internal Link..."
+              - name: alttext
+                class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                label: Image Alt Text
+                description: "Descriptive text for users who are unable to see the image."
+              - name: caption
+                label: Image Caption
+                class: info.magnolia.ui.form.field.definition.RichTextFieldDefinition
+                source: true
+                configJsFile: /.resources/gato-template/js/richeditor/ti-richeditor-config.js
+                description: "Text that will appear below the image."
+              - name: buttonText
+                class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                label: Button Title
+                description: "Text for the button at bottom of panel."
+              - name: buttonLink
+                class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+                label: Button Link
+                appName: pages
+                description: "Link for the button at bottom of panel."
+                buttonSelectNewLabel: "Internal Link..."
+              - name: featuredLinks
+                class: info.magnolia.ui.form.field.definition.MultiValueFieldDefinition
+                # class: edu.txstate.its.gato.vaadin.OrderableMultiFieldDefinition
+                label: Featured Links
+                description: "Links in the left hand column of the panel."
+                # transformerClass: edu.txstate.its.gato.vaadin.OrderableMultiValueTransformer
+                transformerClass: info.magnolia.ui.form.field.transformer.multi.MultiValueSubChildrenNodePropertiesTransformer
+                field:
+                  name: compositeField
+                  class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
+                  transformerClass: info.magnolia.ui.form.field.transformer.composite.NoOpCompositeTransformer
+                  fields:
+                    - name: text
+                      class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                      label: Text
+                    - name: link
+                      class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+                      label: Link
+                      appName: pages
+                      buttonSelectNewLabel: "Internal Link..."
+              - name: otherLinks
+                class: info.magnolia.ui.form.field.definition.MultiValueFieldDefinition
+                label: Other Links
+                description: "Links in the right hand columns of the panel."
+                transformerClass: info.magnolia.ui.form.field.transformer.multi.MultiValueSubChildrenNodePropertiesTransformer
+                field:
+                  name: compositeField
+                  class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
+                  transformerClass: info.magnolia.ui.form.field.transformer.composite.NoOpCompositeTransformer
+                  fields:
+                    - name: text
+                      class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                      label: Text
+                    - name: link
+                      class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+                      label: Link
+                      appName: pages
+                      buttonSelectNewLabel: "Internal Link..."
+      nodeType:
+        icon: icon-link-page
+        name: mgnl:component
+    contentConnector:
+      workspace: website
+      rootPath: /homepage-data/audience-links
