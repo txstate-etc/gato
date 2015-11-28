@@ -31,7 +31,7 @@
     </div>
 
     <div class="member-statement">
-      <a class="image-link" href="#nowhere">
+      <a class="image-link" href="http://www.tsus.edu">
         <img src="${ctx.contextPath}/.resources/gato-template/images/tsus-member.png"/>
       </a>
     </div>

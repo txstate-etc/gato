@@ -49,8 +49,8 @@
 
     [#if slides?size > 1]
       <div class="slide-nav">
-        <a class="slide-nav-left" href="#nowhere"><i class="fa fa-chevron-left"></i></a>
-        <a class="slide-nav-right" href="#nowhere"><i class="fa fa-chevron-right"></i></a>
+        <a class="slide-nav-left" href="#"><i class="fa fa-chevron-left"></i></a>
+        <a class="slide-nav-right" href="#"><i class="fa fa-chevron-right"></i></a>
       </div>
     [/#if]
 

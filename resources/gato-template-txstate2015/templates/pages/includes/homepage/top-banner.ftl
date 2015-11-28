@@ -12,7 +12,7 @@
       </div>
 
       <div class="hamburger">
-        <a class="toggle-button" href="#nowhere">Menu</a>
+        <a class="toggle-button" href="#">Menu</a>
       </div>
 
       <div class="homepage-banner-searchwrap">
