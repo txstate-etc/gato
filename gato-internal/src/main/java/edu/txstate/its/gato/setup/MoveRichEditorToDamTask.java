@@ -204,13 +204,25 @@ class MoveRichEditorToDamTask extends MoveFCKEditorContentToDamMigrationTask {
     return "";
   }
 
+  protected String getExtension(Node dataNodeResource) {
+    String extension = PropertyUtil.getString(dataNodeResource, AssetNodeTypes.AssetResource.EXTENSION, "").toLowerCase();
+    if (extension.equals("jpeg")) extension = "jpg";
+    return extension;
+  }
+
+  // I don't understand why these methods were private
+  protected void updateAssetProperty(Node assetNode, Node dataNodeResource) throws RepositoryException {
+    if (dataNodeResource.hasProperty(AssetNodeTypes.AssetResource.EXTENSION)) {
+      assetNode.setProperty(AssetNodeTypes.Asset.TYPE, getExtension(dataNodeResource));
+    }
+    NodeTypes.LastModified.update(assetNode);
+  }
+
   // Updated this method to normalize file extensions a bit - also it was a little broken
   // since the DAM expects the filename property to include the extension
   protected void updateResourceProperty(Node assetNodeResource, Node dataNodeResource) throws RepositoryException {
-    String extension = "";
+    String extension = getExtension(dataNodeResource);
     if (dataNodeResource.hasProperty(AssetNodeTypes.AssetResource.EXTENSION)) {
-      extension = dataNodeResource.getProperty(AssetNodeTypes.AssetResource.EXTENSION).getString().toLowerCase();
-      if (extension.equals("jpeg")) extension = "jpg";
       assetNodeResource.setProperty(AssetNodeTypes.AssetResource.EXTENSION, extension);
     }
     if (dataNodeResource.hasProperty(AssetNodeTypes.AssetResource.FILENAME)) {
@@ -218,11 +230,16 @@ class MoveRichEditorToDamTask extends MoveFCKEditorContentToDamMigrationTask {
         dataNodeResource.getProperty(AssetNodeTypes.AssetResource.FILENAME).getString()+
         (!StringUtils.isBlank(extension) ? "."+extension : ""));
     }
+    ImageSize imageSize = null;
     if (dataNodeResource.hasProperty(AssetNodeTypes.AssetResource.HEIGHT)) {
-      assetNodeResource.setProperty(AssetNodeTypes.AssetResource.HEIGHT, Long.parseLong(dataNodeResource.getProperty(AssetNodeTypes.AssetResource.HEIGHT).getString()));
+      imageSize = new ImageSize(dataNodeResource,
+        PropertyUtil.getLong(dataNodeResource, AssetNodeTypes.AssetResource.WIDTH, 0l),
+        PropertyUtil.getLong(dataNodeResource, AssetNodeTypes.AssetResource.HEIGHT, 0l)
+      );
+      assetNodeResource.setProperty(AssetNodeTypes.AssetResource.HEIGHT, imageSize.getHeight());
     }
-    if (dataNodeResource.hasProperty(AssetNodeTypes.AssetResource.WIDTH)) {
-      assetNodeResource.setProperty(AssetNodeTypes.AssetResource.WIDTH, Long.parseLong(dataNodeResource.getProperty(AssetNodeTypes.AssetResource.WIDTH).getString()));
+    if (imageSize != null && dataNodeResource.hasProperty(AssetNodeTypes.AssetResource.WIDTH)) {
+      assetNodeResource.setProperty(AssetNodeTypes.AssetResource.WIDTH, imageSize.getWidth());
     }
     if (dataNodeResource.hasProperty(AssetNodeTypes.AssetResource.SIZE)) {
       assetNodeResource.setProperty(AssetNodeTypes.AssetResource.SIZE, Long.parseLong(dataNodeResource.getProperty(AssetNodeTypes.AssetResource.SIZE).getString()));
@@ -232,13 +249,6 @@ class MoveRichEditorToDamTask extends MoveFCKEditorContentToDamMigrationTask {
     }
     if (dataNodeResource.hasProperty(AssetNodeTypes.AssetResource.MIMETYPE)) {
       assetNodeResource.setProperty(AssetNodeTypes.AssetResource.MIMETYPE, dataNodeResource.getProperty(AssetNodeTypes.AssetResource.MIMETYPE).getString());
-    }
-  }
-
-  // I don't understand why these methods were private
-  protected void updateAssetProperty(Node assetNode, Node dataNodeResource) throws RepositoryException {
-    if (dataNodeResource.hasProperty(AssetNodeTypes.AssetResource.EXTENSION)) {
-      assetNode.setProperty(AssetNodeTypes.Asset.TYPE, dataNodeResource.getProperty(AssetNodeTypes.AssetResource.EXTENSION).getString());
     }
   }
 

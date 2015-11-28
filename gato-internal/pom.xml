@@ -47,27 +47,32 @@
       <artifactId>commons-csv</artifactId>
       <version>1.2</version>
     </dependency>
+    <dependency>
+      <groupId>org.devlib.schmidt</groupId>
+      <artifactId>imageinfo</artifactId>
+      <version>1.9</version>
+    </dependency>
   </dependencies>
   <build>
-		<plugins>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>groovy-maven-plugin</artifactId>
-				<executions>
-					<execution>
-						<phase>process-resources</phase>
-						<goals>
-							<goal>execute</goal>
-						</goals>
-						<configuration>
-							<source>
-								import com.vaadin.sass.SassCompiler
-								SassCompiler.main(["${project.basedir}/src/main/resources/VAADIN/themes/gatobranding/styles.scss", "${project.basedir}/target/classes/VAADIN/themes/gatobranding/styles.css"] as String[])
-							</source>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
-	</build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>groovy-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>process-resources</phase>
+            <goals>
+              <goal>execute</goal>
+            </goals>
+            <configuration>
+              <source>
+                import com.vaadin.sass.SassCompiler
+                SassCompiler.main(["${project.basedir}/src/main/resources/VAADIN/themes/gatobranding/styles.scss", "${project.basedir}/target/classes/VAADIN/themes/gatobranding/styles.css"] as String[])
+              </source>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 </project>
