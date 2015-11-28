@@ -15,7 +15,7 @@
 
   [#list ancestorsbottomup as ancestor]
     [#assign agbsettings=gf.singleComponent(ancestor, areaname)!]
-    [#if agbsettings?? && showBannerVal=='inherit']
+    [#if agbsettings?has_content && showBannerVal=='inherit']
       [#assign showBannerVal=agbsettings.visible!'inherit']
     [/#if]
   [/#list]
