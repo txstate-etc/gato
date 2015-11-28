@@ -264,7 +264,9 @@ class MoveRichEditorToDamTask extends MoveFCKEditorContentToDamMigrationTask {
         log.debug("{} is not a binary link. Nothing will be done.", link.getPath());
         return;
       }
-      Node resourceNode = fileNode.getNode(link.getPropertyName());
+      Node resourceNode;
+      if (StringUtils.isBlank(link.getPropertyName())) resourceNode = fileNode;
+      else resourceNode = fileNode.getNode(link.getPropertyName());
 
       if (NodeUtil.isNodeType(resourceNode, NodeTypes.Resource.NAME)) {
         // Move resource Node to DAM
