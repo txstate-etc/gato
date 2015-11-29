@@ -6,6 +6,24 @@ body {
 	letter-spacing:normal;
 }
 
+#logo {
+  border:0px;
+  width:1024px;
+  height:14px;
+  text-align:center;
+  margin-bottom: 19px;
+  a {
+    font-family:Georgia;
+    color: #eeeebb;
+    font-size: 11px;
+    line-height:14px;
+    font-weight:normal;
+    letter-spacing: 4px;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+}
+
 #sectiontitle {
 	text-align: center;
 	padding-top: 14px;
