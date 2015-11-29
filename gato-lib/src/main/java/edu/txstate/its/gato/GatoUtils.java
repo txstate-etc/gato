@@ -50,6 +50,7 @@ import javax.jcr.Node;
 import javax.jcr.NodeIterator;
 import javax.jcr.Property;
 import javax.jcr.PropertyType;
+import javax.jcr.Session;
 import javax.jcr.RepositoryException;
 import javax.jcr.PathNotFoundException;
 import javax.jcr.ValueFormatException;
@@ -675,7 +676,10 @@ public final class GatoUtils {
     try {
       if (n.hasNode(childName)) child = tf.asContentMap(n.getNode(childName));
       else {
-        child = tf.asContentMap(n.addNode(childName, type));
+        Session scs = sc.getJCRSession(n.getSession().getWorkspace().getName());
+        Node scchild = scs.getNodeByIdentifier(n.getIdentifier()).addNode(childName, type);
+        scs.save();
+        child = tf.asContentMap(n.getNode(childName));
         n.save();
       }
     } catch (Exception e) {
