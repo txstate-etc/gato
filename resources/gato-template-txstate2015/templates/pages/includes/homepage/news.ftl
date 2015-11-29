@@ -17,9 +17,20 @@
   [/#if]
 [/#macro]
 
+[#function isEnabled component]
+  [#if !component.enabled][#return false /][/#if]
+  [#if component.displaystart?has_content && component.displaystart > .now][#return false /][/#if]
+  [#if component.displayend?has_content && component.displayend < .now][#return false /][/#if]
+  [#return true /]
+[/#function]
+
 [#macro eventList list showTime]
-    <ul>
-      [#list list as component]
+  <ul>
+    [#local count = 0]
+    [#list list?sort_by('startdate') as component]
+      [#if count gte 3][#break /][/#if]
+      [#if isEnabled(component) && gf.inFuture(component.startdate, component.enddate)]
+        [#local count = count + 1]
         <li class="event">
           <p class="event-title">
             <a href="${gf.filterUrl(component.link)}">${component.title}</a>
@@ -50,8 +61,9 @@
             </p>
           [/#if]
         </li>
-      [/#list]
-    </ul>
+        [/#if]
+    [/#list]
+  </ul>
 [/#macro]
 
 <div id="news" class="content-row main two-col">

@@ -56,6 +56,7 @@ import javax.jcr.PathNotFoundException;
 import javax.jcr.ValueFormatException;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.time.DateUtils;
 import org.apache.commons.codec.digest.DigestUtils;
 
 import org.apache.jackrabbit.JcrConstants;
@@ -782,5 +783,15 @@ public final class GatoUtils {
 
   public String replaceExtension(String url, String newextension) {
     return url.replaceAll("\\.[^\\.]+$", "."+newextension);
+  }
+
+  public boolean inFuture(Date start, Date end) {
+    Date today = new Date();
+    if (end != null) {
+      return DateUtils.truncatedCompareTo(end, today, Calendar.DAY_OF_MONTH) >= 0;
+    } else if (start != null) {
+      return DateUtils.truncatedCompareTo(start, today, Calendar.DAY_OF_MONTH) >= 0;
+    }
+    return true;
   }
 }
