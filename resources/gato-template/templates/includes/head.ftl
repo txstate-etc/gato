@@ -76,7 +76,7 @@
 [/#macro]
 
 [#macro rssautodiscover]
-  [#if content.enableRSS]
+  [#if content.enableRSS!false]
     <link rel="alternate" type="application/rss+xml" title="RSS"
       href="${gf.replaceExtension(cmsfn.link(content), 'rss')}">
   [/#if]
