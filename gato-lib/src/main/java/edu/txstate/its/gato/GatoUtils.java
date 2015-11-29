@@ -5,6 +5,7 @@
 
 package edu.txstate.its.gato;
 
+import info.magnolia.cms.beans.config.MIMEMapping;
 import info.magnolia.cms.core.MgnlNodeType;
 import info.magnolia.context.MgnlContext;
 import info.magnolia.context.SystemContext;
@@ -16,6 +17,7 @@ import info.magnolia.init.MagnoliaConfigurationProperties;
 import info.magnolia.jcr.util.ContentMap;
 import info.magnolia.jcr.util.NodeTypes;
 import info.magnolia.jcr.util.NodeUtil;
+import info.magnolia.jcr.util.NodeVisitor;
 import info.magnolia.jcr.util.PropertyUtil;
 import info.magnolia.link.LinkUtil;
 import info.magnolia.objectfactory.Components;
@@ -29,10 +31,12 @@ import java.util.regex.Matcher;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
@@ -43,6 +47,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import javax.inject.Inject;
 import javax.jcr.Node;
+import javax.jcr.NodeIterator;
 import javax.jcr.Property;
 import javax.jcr.PropertyType;
 import javax.jcr.RepositoryException;
@@ -126,7 +131,7 @@ public final class GatoUtils {
 
   public String absoluteUrl(String url) {
     String relUrl = filterUrl(url);
-    if (relUrl.matches("^\\w{3,15}://.*")) return relUrl;
+    if (relUrl.matches("^(\\w{3,15}:)?//.*")) return relUrl;
     HttpServletRequest request = MgnlContext.getWebContext().getRequest();
     String serverpath = request.getScheme()+"://"+request.getServerName();
     if ((request.getScheme().equals("http") && request.getServerPort() != 80) ||
@@ -458,6 +463,25 @@ public final class GatoUtils {
     return result.toString();
   }
 
+  public String convertLinksToAbsolute(String str) {
+    if (StringUtils.isBlank(str)) return "";
+    String cpath = MgnlContext.getContextPath();
+    Pattern p = Pattern.compile("=\"(/"+Pattern.quote(cpath)+"[^\"]*)\"");
+    Matcher m = p.matcher(str);
+    StringBuffer result = new StringBuffer();
+    while (m.find()) {
+      m.appendReplacement(result, "=\""+Matcher.quoteReplacement(absoluteUrl(m.group(1)))+"\"");
+    }
+    m.appendTail(result);
+    return result.toString();
+  }
+
+  public String getMimeType(String ext) {
+    String ret = MIMEMapping.getMIMEType(ext);
+    if (StringUtils.isBlank(ret)) ret = "application/octet-stream";
+    return ret;
+  }
+
   // dump an object to string
   public String dump(Object o, int callCount) {
     callCount++;
@@ -547,6 +571,22 @@ public final class GatoUtils {
       return NodeTypes.LastModified.getLastModified(content.getJCRNode());
     } catch (Exception e) {
       return getCreationDate(content);
+    }
+  }
+
+  public String getOriginalAuthor(ContentMap content) {
+    try {
+      return NodeTypes.Created.getCreatedBy(content.getJCRNode());
+    } catch (Exception e) {
+      return "";
+    }
+  }
+
+  public String getLastAuthor(ContentMap content) {
+    try {
+      return NodeTypes.LastModified.getLastModifiedBy(content.getJCRNode());
+    } catch (Exception e) {
+      return getOriginalAuthor(content);
     }
   }
 
@@ -667,6 +707,46 @@ public final class GatoUtils {
       }
     }
     return null;
+  }
+
+  public List<ContentMap> searchComponents(ContentMap parent, List<String> templateIds) throws Exception {
+    return searchComponents(parent, templateIds, "");
+  }
+  public List<ContentMap> searchComponents(ContentMap parent, List<String> templateIds, String orderBy) throws Exception {
+    List<ContentMap> ret = new ArrayList<ContentMap>();
+    String templateQuery = "SELECT node.* FROM [mgnl:component] as node WHERE ";
+    templateQuery += "ISDESCENDANTNODE(node, '"+parent.getJCRNode().getPath()+"') and ";
+    templateQuery += "([mgnl:template]=\""+String.join("\" or [mgnl:template] = \"", templateIds)+"\")";
+    if (!StringUtils.isBlank(orderBy)) templateQuery += " ORDER BY "+orderBy;
+		NodeIterator nodes = MgnlContext.getJCRSession(RepositoryConstants.WEBSITE).getWorkspace().getQueryManager().
+			createQuery(templateQuery, "JCR-SQL2").
+			execute().getNodes();
+		while (nodes.hasNext()) {
+			ret.add(tf.asContentMap(nodes.nextNode()));
+		}
+		return ret;
+  }
+  public void visitComponents(Node parent, NodeVisitor v) throws Exception {
+    for (Node n : NodeUtil.getNodes(parent)) {
+      if (NodeUtil.isNodeType(n,NodeTypes.Component.NAME)) v.visit(n);
+      if (!NodeUtil.isNodeType(n,NodeTypes.Page.NAME)) visitComponents(n, v);
+    }
+  }
+  public List<ContentMap> searchComponentsOnPageOrderByModDate(ContentMap page, List<String> templateIds) throws Exception {
+    List<ContentMap> ret = new ArrayList<ContentMap>();
+    Map<String, Boolean> map = new HashMap<String, Boolean>();
+    for (String tid : templateIds)
+      map.put(tid, Boolean.TRUE);
+    visitComponents(page.getJCRNode(), (n) -> {
+      if (map.containsKey(NodeTypes.Renderable.getTemplate(n)))
+        ret.add(tf.asContentMap(n));
+    });
+    Collections.sort(ret, new Comparator<ContentMap>(){
+      public int compare(ContentMap c1, ContentMap c2){
+        return getModificationDate(c1).compareTo(getModificationDate(c2));
+      }
+    });
+    return ret;
   }
 
   protected final Random rand = new Random();

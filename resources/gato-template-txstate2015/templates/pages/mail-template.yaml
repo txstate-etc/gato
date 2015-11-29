@@ -10,3 +10,5 @@ areas: !include /gato-template-txstate2015/templates/includes/template-areas.yam
 variations:
   js:
     templateScript: /gato-component-cssjs/templates/pages/jsvariation.ftl
+  rss:
+    templateScript: /gato-template-rss/templates/pages/rssvariation.ftl

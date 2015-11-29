@@ -3,7 +3,7 @@ renderType: site
 visible: true
 title: 2015 TXST Home
 dialog: gato-template:pages/page-properties
-areas: 
+areas:
   presPhoto:
     !include /gato-template-txstate2015/templates/areas/textImageContent.yaml
   presMessage:
@@ -15,3 +15,5 @@ parameters:
 variations:
   js:
     templateScript: /gato-component-cssjs/templates/pages/jsvariation.ftl
+  rss:
+    templateScript: /gato-template-rss/templates/pages/rssvariation.ftl

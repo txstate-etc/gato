@@ -1,0 +1,15 @@
+[#macro linkifdefined href=""]
+  [#if href?has_content]
+    <a href="${gf.filterUrl(href)}">[#nested]</a>
+  [#else]
+    [#nested]
+  [/#if]
+[/#macro]
+
+[#macro navloop items]
+	[#list items as item]
+		[#if !(item.hideInNav!false)]
+			[#nested item]
+		[/#if]
+	[/#list]
+[/#macro]

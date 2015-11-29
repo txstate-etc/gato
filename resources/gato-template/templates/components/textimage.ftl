@@ -1,10 +1,4 @@
-[#macro linkifdefined href=""]
-  [#if href?has_content]
-    <a href="${gf.filterUrl(href)}">[#nested]</a>
-  [#else]
-    [#nested]
-  [/#if]
-[/#macro]
+[#include "/gato-template/templates/includes/commonmacros.ftl"]
 
 [#assign decodedContent = cmsfn.decode(content)]
 [#assign float = content.imageFloat!'left']
@@ -24,7 +18,7 @@
     [#assign defaultmaxwidth = fullwidth?string('100vw', '400px')]
     [#assign cols = fullwidth?string('eq-mn-1-1','eq-mn-1-1 eq-md-1-2 eq-lg-1-3')]
 
-    [#assign width = gf.getImgWidth(content.image)+'px']
+    [#assign width = gf.getImgWidth(content.image)?c+'px']
     [#assign sizes = gf.lesserwidth(ctx.maxwidth!'100vw', (content.imageWidth!0)?c+'px', width, defaultmaxwidth)]
     <div class="gato-textimage-imageblock ${float} ${cols} ${content.imageCaption?has_content?string('hascaption', '')}" style="max-width: ${sizes};">
       [@linkifdefined href=content.imageLink]

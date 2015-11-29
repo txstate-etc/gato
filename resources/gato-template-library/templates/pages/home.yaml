@@ -7,6 +7,8 @@ modelClass: edu.txstate.its.gato.LibraryTemplateModel
 variations:
   js:
     templateScript: /gato-component-cssjs/templates/pages/jsvariation.ftl
+  rss:
+    templateScript: /gato-template-rss/templates/pages/rssvariation.ftl
   smartphone:
     templateScript: /gato-template-library/templates/pages/mobile.ftl
 parameters:

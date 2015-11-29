@@ -1,4 +1,5 @@
 [#include "/gato-template/templates/includes/component.ftl"]
+[#include "/gato-template/templates/includes/commonmacros.ftl"]
 <div class="side_nav ${content.title?has_content?string('nav-with-title','nav-without-title')}">
   [#if cmsfn.isEditMode() && ctx.inheritedfrom?has_content]
     <div class="inheritedalert">Inherited from ${gf.nodeTitle(ctx.inheritedfrom)}</div>
