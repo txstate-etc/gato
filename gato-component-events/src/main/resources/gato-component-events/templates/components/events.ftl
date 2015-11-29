@@ -13,11 +13,11 @@
   </div>
 
 [#elseif model.items?has_content]
-
+<div class="gato-events">
   [#list model.items as item]
     [#assign eventClass=item.cancelled?string('txst-eventdetail-cancelled','vevent')]
-  
-    <div class="txst-eventdetail gato-accordion ${eventClass}" 
+
+    <div class="txst-eventdetail gato-accordion ${eventClass}"
         data-start-collapsed="${model.collapsed?string('true', 'false')}">
 
       <div class="gato-accordion-header">
@@ -40,9 +40,9 @@
         </div>
       </div>
 
-      <div class="gato-accordion-content eq-parent">
+      <div class="gato-accordion-content">
 
-        <div class="eq-mn-1-1 eq-ml-3-12 eq-xl-2-12">
+        <div class="eq-ml-3-12 eq-xl-2-12">
           [#if item.image?has_content]
             <div class="txst-eventdetail-thumbnail">
               <img alt="${item.title}" src="${item.image}" />
@@ -56,14 +56,14 @@
             <span class="linktext">add to calendar</span>
           </a>
         </div>
-        
-        <div class="eq-sm-1-1 eq-ml-9-12 eq-xl-10-12">
+
+        <div class="eq-ml-9-12 eq-xl-10-12">
           <dl class="txst-eventdetail-detailsbox">
             [#if item.facility?has_content]
               <dt>Location:</dt>
               <dd>${item.facility}</dd>
             [/#if]
-            
+
             <dt>Cost:</dt>
             <dd>${item.cost}</dd>
 
@@ -74,9 +74,9 @@
             <dd>${item.sponsor}</dd>
           </dl>
         </div>
-      
+
         [#if item.description?has_content]
-          <div class="eq-lg-1-1">
+          <div class="eq-mn-1-1">
             <div class="txst-eventdetail-description">
               ${item.description}
               [#if item.link?has_content]
@@ -87,17 +87,17 @@
             </div>
           </div>
         [/#if]
-           
-        <div class="eq-sm-1-1">
+
+        <div class="eq-mn-1-1">
           <a class="txst-eventdetail-morelink" href="${item.url}">
             <span class="linktext">more about event</span>
             <i class="fa fa-angle-right" aria-hidden="true"></i>
-          </a>   
+          </a>
         </div>
       </div>
     </div>
   [/#list]
-
+</div>
 [#else]
 
   <div class="txst-events-empty">
