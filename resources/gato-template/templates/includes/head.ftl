@@ -34,7 +34,8 @@
 [#macro templatehead publisher="Texas State University"]
 	[@meta publisher /]
 	[@customCSS page ancestorstopdown /]
-	<script type="text/javascript" src="${cmsfn.link(page)?replace('\\.[^\\.]+$','.js','r')}"></script>
+	<script type="text/javascript" src="${gf.replaceExtension(cmsfn.link(page), 'js')}"></script>
+	[@rssautodiscover /]
 	[@title publisher /]
 	[@googleanalytics /]
 	[@javascriptvariables /]
@@ -72,6 +73,13 @@
 		<meta name="contentIsStale" content="true" />
 	[#--[/#if]--]
 	[#--TODO <meta name="staleTimer" content="${inheritedcurrency}"/> --]
+[/#macro]
+
+[#macro rssautodiscover]
+  [#if content.enableRSS]
+    <link rel="alternate" type="application/rss+xml" title="RSS"
+      href="${gf.replaceExtension(cmsfn.link(content), 'rss')}">
+  [/#if]
 [/#macro]
 
 [#macro sidebarmodal skipsocial=false]

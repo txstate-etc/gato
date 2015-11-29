@@ -779,4 +779,8 @@ public final class GatoUtils {
     }
     return false;
   }
+
+  public String replaceExtension(String url, String newextension) {
+    return url.replaceAll("\\.[^\\.]+$", "."+newextension);
+  }
 }

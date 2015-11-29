@@ -7,6 +7,7 @@
   [#assign float = 'top']
 [/#if]
 [@rssitem node=content link=content.imageLink!]
+<div style="min-width: 400px; padding: 10px">
   [#if float == 'bottom']${gf.processRichText(decodedContent.text)}[/#if]
   [#if (content.image)?has_content]
     [#assign fullwidth = (float == 'top' || float == 'bottom')]
@@ -22,11 +23,17 @@
       [#assign style = style+'min-width:100px;']
     [/#if]
     <div style="${style}">
-      <img src="${gf.getImgDefault(content.image, sizes)}" alt="${content.imageAlt!}" srcset="${gf.getSrcSet(content.image)}" />
+      <img src="${gf.getImgDefault(content.image, sizes)}"
+        srcset="${gf.getSrcSet(content.image)}"
+        sizes="${sizes}"
+        alt="${content.imageAlt!}"
+        style="width: 100%"
+      />
       [#if (content.imageCaption)?has_content]
         <div style="background-color:#333333;color:#ffffff;">${decodedContent.imageCaption}</div>
       [/#if]
     </div>
   [/#if]
   [#if float != 'bottom']${gf.processRichText(decodedContent.text)}[/#if]
+</div>
 [/@rssitem]

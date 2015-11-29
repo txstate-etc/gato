@@ -6,7 +6,7 @@ ${ctx.response.setContentType('application/rss+xml;charset=UTF-8')}
 
 <title>${gf.nodeTitle(content)}</title>
 <link>${ gf.absoluteUrl(cmsfn.link(content)) }</link>
-<atom:link href="${ gf.absoluteUrl(cmsfn.link(content))?replace('\\.[^\\.]+$','.rss','r') }" rel="self" type="application/rss+xml" />
+<atom:link href="${ gf.absoluteUrl(gf.replaceExtension(cmsfn.link(content), 'rss')) }" rel="self" type="application/rss+xml" />
 <description>${content.metaDescription!}</description>
 <language>en-us</language>
 <generator>Gato CMS</generator>
