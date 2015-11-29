@@ -1,0 +1,189 @@
+label: News Items
+icon: icon-work-item
+appClass: info.magnolia.ui.contentapp.ContentApp
+class: info.magnolia.ui.contentapp.ContentAppDescriptor
+subApps:
+  browser:
+    label: News Items
+    subAppClass: info.magnolia.ui.contentapp.browser.BrowserSubApp
+    class: info.magnolia.ui.contentapp.browser.BrowserSubAppDescriptor
+    actionbar:
+      defaultAction: editItem
+      sections:
+        - name: root
+          label: News Items
+          groups:
+            - name: addActions
+              items:
+                - name: addItem
+                # - name: addFolder
+          availability:
+            nodes: false
+            root: true
+        # - name: folder
+        #   label: Folder
+        #   groups:
+        #     - name: addActions
+        #       items:
+        #         - name: addItem
+        #         # - name: addFolder
+        #     # - name: editActions
+        #     #   items:
+        #     #     - name: editFolder
+        #     #     - name: deleteFolder
+        #   availability:
+        #     nodeTypes:
+        #       - mgnl:content
+        - name: item
+          label: News Item
+          groups:
+            - name: editActions
+              items:
+                - name: editItem
+                - name: deleteItem
+          availability:
+            nodeTypes:
+              - mgnl:component
+    actions:
+      addItem:
+        subAppId: detail
+        label: Add Item
+        icon: icon-add-item
+        nodeType: mgnl:component
+        appName: news-links
+        class: info.magnolia.ui.contentapp.detail.action.CreateItemActionDefinition
+        availability:
+          root: true
+      # addFolder:
+      #   icon: icon-add-folder
+      #   class: info.magnolia.ui.framework.action.AddNodeActionDefinition
+      #   availability:
+      #     root: true
+      # editFolder:
+      #   icon: icon-edit
+      #   dialogName: ui-framework:folder
+      #   class: info.magnolia.ui.framework.action.OpenEditDialogActionDefinition
+      # deleteFolder:
+      #   icon: icon-delete
+      #   class: info.magnolia.ui.framework.action.DeleteItemActionDefinition
+      editItem:
+        subAppId: detail
+        label: Edit Item
+        icon: icon-edit
+        appName: news-links
+        class: info.magnolia.ui.contentapp.detail.action.EditItemActionDefinition
+        availability:
+          nodeTypes:
+            - mgnl:component
+      # deleteItem:
+      #   label: Delete Item
+      #   icon: icon-delete
+      #   class: info.magnolia.ui.framework.action.DeleteItemActionDefinition
+      saveItemProperty:
+        class: info.magnolia.ui.contentapp.browser.action.SaveItemPropertyActionDefinition
+        availability:
+          properties: false
+    workbench:
+      dropConstraintClass: info.magnolia.ui.workbench.tree.drop.AlwaysTrueDropConstraint
+      # editable: true
+
+      contentViews:
+        - name: tree
+          class: info.magnolia.ui.workbench.tree.TreePresenterDefinition
+          columns: &myColumns
+            # - name: name
+            #   editable: true
+            #   sortable: true
+            #   propertyName: jcrName
+            #   class: info.magnolia.ui.workbench.column.definition.PropertyColumnDefinition
+            - name: title
+              label: Title
+              editable: true
+              sortable: true
+              propertyName: title
+              class: info.magnolia.ui.workbench.column.definition.PropertyColumnDefinition
+            - name: status
+              width: 45
+              displayInChooseDialog: false
+              formatterClass: info.magnolia.ui.workbench.column.StatusColumnFormatter
+              class: info.magnolia.ui.workbench.column.definition.StatusColumnDefinition
+            - name: moddate
+              width: 160
+              sortable: true
+              displayInChooseDialog: false
+              formatterClass: info.magnolia.ui.workbench.column.DateColumnFormatter
+              propertyName: mgnl:lastModified
+              class: info.magnolia.ui.workbench.column.definition.MetaDataColumnDefinition
+        # - name: list
+        #   class: info.magnolia.ui.workbench.list.ListPresenterDefinition
+        #   columns: *myColumns
+        # - name: search
+        #   class: info.magnolia.ui.workbench.search.SearchPresenterDefinition
+        #   columns: *myColumns
+
+    contentConnector:
+      includeProperties: false
+      workspace: website
+      rootPath: /homepage-data/news-links
+      defaultOrder: title
+      nodeTypes:
+        - name: mgnl:component
+          icon: icon-work-item
+  detail:
+    label: Edit Item
+    subAppClass: info.magnolia.ui.contentapp.detail.DetailSubApp
+    class: info.magnolia.ui.contentapp.detail.DetailSubAppDescriptor
+    actions:
+      commit:
+        implementationClass: info.magnolia.ui.form.action.SaveFormAction
+        class: info.magnolia.ui.form.action.SaveFormActionDefinition
+      cancel:
+        class: info.magnolia.ui.form.action.CancelFormActionDefinition
+    editor:
+      actions:
+        - name: commit
+        - name: cancel
+      form:
+        tabs:
+          - name: item
+            label: News Item
+            fields:
+              # - name: jcrName
+              #   class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+              #   label: Name
+              - name: title
+                class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                label: Title
+                description: "Title for this article."
+              - name: link
+                class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+                label: Link
+                appName: pages
+                description: "Title will be clickable. Enter a full URL (http://www.google.com/) or use the \"Internal Link\" button to link to another page in this site."
+                buttonSelectNewLabel: "Internal Link..."
+              - name: rsscontent
+                label: Full Article Content
+                class: info.magnolia.ui.form.field.definition.RichTextFieldDefinition
+                source: true
+                configJsFile: /.resources/gato-template/js/richeditor/ti-richeditor-config.js
+                description: "Will be included in RSS feeds."
+              - name: enabled
+                class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+                label: Enabled
+                buttonLabel: Item will only be displayed if checked.
+              - name: displaystart
+                class: info.magnolia.ui.form.field.definition.DateFieldDefinition
+                label: From
+                time: true
+                description: "Item will not be displayed before this time."
+              - name: displayend
+                class: info.magnolia.ui.form.field.definition.DateFieldDefinition
+                label: To
+                time: true
+                description: "Item will not be displayed after this time."
+      nodeType:
+        icon: icon-work-item
+        name: mgnl:component
+    contentConnector:
+      workspace: website
+      rootPath: /homepage-data/news-links

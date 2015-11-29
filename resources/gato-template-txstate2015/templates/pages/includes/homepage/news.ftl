@@ -1,6 +1,8 @@
 [#assign slides = cmsfn.asContentMap(cmsfn.nodeByPath('/homepage-data/features/news-feature', 'website'))]
 [#assign slides = cmsfn.children(slides, "mgnl:component")]
 [#assign aspectratio = 1080.0/400.0]
+[#assign news = cmsfn.asContentMap(cmsfn.nodeByPath('/homepage-data/news-links', 'website'))]
+[#assign news = cmsfn.children(news, "mgnl:component")]
 [#assign events = cmsfn.asContentMap(cmsfn.nodeByPath('/homepage-data/events-dates/events', 'website'))]
 [#assign events = cmsfn.children(events, "mgnl:component")]
 [#assign dates = cmsfn.asContentMap(cmsfn.nodeByPath('/homepage-data/events-dates/dates', 'website'))]
@@ -104,9 +106,9 @@
           </div>
 
           <div id="news-links">
-            <p><a href="#nowhere">School of Music announces schedule of events for September</a></p>
-            <p><a href="#nowhere">In Brief: Ainslie lecture to cover two decades of work in conflicted cities</a></p>
-            <p><a href="#nowhere">Texas State hosts 2015 Black and Latino Playwrights Conference</a></p>
+            [#list news as component]
+              <p><a href="${gf.filterUrl(component.link)}">${gf.filterLinkTitle(component.title, component.link)}</a></p>
+            [/#list]
           </div>
 
           <div id="news-jump">

@@ -44,7 +44,7 @@
       <sv:value>cj32</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-      <sv:value>2015-11-28T12:39:08.208-06:00</sv:value>
+      <sv:value>2015-11-28T17:33:47.103-06:00</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
       <sv:value>cj32</sv:value>
@@ -154,6 +154,29 @@
       </sv:property>
       <sv:property sv:name="mgnl:lastModified" sv:type="Date">
         <sv:value>2015-11-11T11:40:33.694-06:00</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
+        <sv:value>cj32</sv:value>
+      </sv:property>
+    </sv:node>
+    <sv:node sv:name="news-links">
+      <sv:property sv:name="jcr:primaryType" sv:type="Name">
+        <sv:value>mgnl:contentNode</sv:value>
+      </sv:property>
+      <sv:property sv:name="jcr:uuid" sv:type="String">
+        <sv:value>6b99710b-34e2-49b1-85ee-96e08ef9d9f7</sv:value>
+      </sv:property>
+      <sv:property sv:name="jcr:createdBy" sv:type="String">
+        <sv:value>admin</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:created" sv:type="Date">
+        <sv:value>2015-11-28T17:33:47.104-06:00</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:createdBy" sv:type="String">
+        <sv:value>cj32</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:lastModified" sv:type="Date">
+        <sv:value>2015-11-28T17:34:02.061-06:00</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
         <sv:value>cj32</sv:value>
