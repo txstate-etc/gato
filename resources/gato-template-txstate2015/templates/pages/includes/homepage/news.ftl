@@ -17,13 +17,6 @@
   [/#if]
 [/#macro]
 
-[#function isEnabled component]
-  [#if !component.enabled][#return false /][/#if]
-  [#if component.displaystart?has_content && component.displaystart > .now][#return false /][/#if]
-  [#if component.displayend?has_content && component.displayend < .now][#return false /][/#if]
-  [#return true /]
-[/#function]
-
 [#macro eventList list showTime]
   <ul>
     [#local count = 0]
@@ -78,48 +71,57 @@
           <div class="news-slider-wrap">
             <div class="slides">
   
-              [#-- FIXME: check enabled, starttime, and endtime fields --]
+              [#assign count = 0]
               [#list slides as component]
+                [#if count gte 1][#break /][/#if]
+                [#if isEnabled(component)]
+                  [#assign count = count + 1]
 
-                <figure id="news-feature" class="feature">
-                  
-                  [#if component.link?has_content]
-                    <a class="image-link" href="${component.link}">
-                  [/#if]
-                      <img src="${gf.getImgDefault(component.image, aspectratio)}" srcset="${gf.getSrcSet(component.image, aspectratio)}" alt="${component.alttext!}">
-                  [#if component.link?has_content]
-                    </a>
-                  [/#if]
-                  
-                  <figcaption>
-                  
-                    <p class="feature-date">Sept. 15, 2015</p>
-                                        
-                    [#if component.title?has_content]
-                      <p class="feature-headline">
-
-                        [#if component.link?has_content]
-                          <a href="${gf.filterUrl(component.link)}">
-                        [/#if]
-                            ${component.title}
-                        [#if component.link?has_content]
-                          </a>
-                        [/#if]
-                        
-                      </p>
+                  <figure id="news-feature" class="feature">
+                    
+                    [#if component.link?has_content]
+                      <a class="image-link" href="${component.link}">
                     [/#if]
+                        <img src="${gf.getImgDefault(component.image, aspectratio)}" srcset="${gf.getSrcSet(component.image, aspectratio)}" alt="${component.alttext!}">
+                    [#if component.link?has_content]
+                      </a>
+                    [/#if]
+                    
+                    <figcaption>
+                    
+                      <p class="feature-date">Sept. 15, 2015</p>
+                                          
+                      [#if component.title?has_content]
+                        <p class="feature-headline">
 
-                  </figcaption>
-                </figure>
+                          [#if component.link?has_content]
+                            <a href="${gf.filterUrl(component.link)}">
+                          [/#if]
+                              ${component.title}
+                          [#if component.link?has_content]
+                            </a>
+                          [/#if]
+                          
+                        </p>
+                      [/#if]
 
+                    </figcaption>
+                  </figure>
+
+                [/#if]
               [/#list]
               
             </div>
           </div>
 
           <div id="news-links">
+            [#assign count = 0]
             [#list news as component]
-              <p><a href="${gf.filterUrl(component.link)}">${gf.filterLinkTitle(component.title, component.link)}</a></p>
+              [#if count gte 3][#break /][/#if]
+              [#if isEnabled(component)]
+                [#assign count = count + 1]
+                <p><a href="${gf.filterUrl(component.link)}">${gf.filterLinkTitle(component.title, component.link)}</a></p>
+              [/#if]
             [/#list]
           </div>
 

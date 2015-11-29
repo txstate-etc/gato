@@ -8,41 +8,40 @@
     
     <div class="slides">
 
-      [#-- FIXME: check enabled, starttime, and endtime fields --]
       [#list slides as component]
+        [#if isEnabled(component)]
+          <div class="slide" style="${(component_index == 0)?string('', 'display: none;')}">
+            <figure class="feature top-slider">
+              <img src="${gf.getImgDefault(component.image, aspectratio)}" srcset="${gf.getSrcSet(component.image, aspectratio)}" alt="${component.alttext!}">
+              <figcaption>
+                <div class="caption-wrap">
 
-        <div class="slide" style="${(component_index == 0)?string('', 'display: none;')}">
-          <figure class="feature top-slider">
-            <img src="${gf.getImgDefault(component.image, aspectratio)}" srcset="${gf.getSrcSet(component.image, aspectratio)}" alt="${component.alttext!}">
-            <figcaption>
-              <div class="caption-wrap">
+                  [#if component.title?has_content]
+                    <p class="feature-headline">
 
-                [#if component.title?has_content]
-                  <p class="feature-headline">
+                      [#assign link = component.link!component.videourl!]
+                      [#if link?has_content]
+                        <a href="${gf.filterUrl(link)}">
+                      [/#if]
+                          ${component.title}
+                      [#if link?has_content]
+                        </a>
+                      [/#if]
+                      
+                    </p>
+                  [/#if]
 
-                    [#assign link = component.link!component.videourl!]
-                    [#if link?has_content]
-                      <a href="${gf.filterUrl(link)}">
-                    [/#if]
-                        ${component.title}
-                    [#if link?has_content]
-                      </a>
-                    [/#if]
-                    
-                  </p>
-                [/#if]
+                  [#if component.videourl?has_content]
+                    <p class="feature-play-button">
+                      <a href="${component.videourl}" aria-label="Play Video"></a>
+                    </p>
+                  [/#if]
 
-                [#if component.videourl?has_content]
-                  <p class="feature-play-button">
-                    <a href="${component.videourl}" aria-label="Play Video"></a>
-                  </p>
-                [/#if]
-
-              </div>
-            </figcaption>
-          </figure>
-        </div>
-
+                </div>
+              </figcaption>
+            </figure>
+          </div>
+        [/#if]
       [/#list]
 
     </div>

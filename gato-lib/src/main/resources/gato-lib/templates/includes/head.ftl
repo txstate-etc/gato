@@ -35,3 +35,10 @@
   [/#list]
   [#nested page, false /]
 [/#macro]
+
+[#function isEnabled component]
+  [#if !(component.enabled!false)][#return false /][/#if]
+  [#if component.displaystart?has_content && component.displaystart > .now][#return false /][/#if]
+  [#if component.displayend?has_content && component.displayend < .now][#return false /][/#if]
+  [#return true /]
+[/#function]
