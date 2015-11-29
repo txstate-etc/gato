@@ -59,7 +59,7 @@
 			<sv:value>gato-template:components/link</sv:value>
 		</sv:property>
 		<sv:property sv:name="text" sv:type="String">
-			<sv:value>Bobcat Mail</sv:value>
+			<sv:value>BobcatMail</sv:value>
 		</sv:property>
 	</sv:node>
 	<sv:node sv:name="00">
