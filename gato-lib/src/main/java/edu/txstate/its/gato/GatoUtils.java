@@ -674,14 +674,12 @@ public final class GatoUtils {
     Node n = toNode(parent);
     ContentMap child = null;
     try {
-      if (n.hasNode(childName)) child = tf.asContentMap(n.getNode(childName));
-      else {
+      if (!n.hasNode(childName)) {
         Session scs = sc.getJCRSession(n.getSession().getWorkspace().getName());
         Node scchild = scs.getNodeByIdentifier(n.getIdentifier()).addNode(childName, type);
         scs.save();
-        child = tf.asContentMap(n.getNode(childName));
-        n.save();
       }
+      child = tf.asContentMap(n.getNode(childName));
     } catch (Exception e) {
       try {
         System.out.println("getOrCreateNode page: "+n.getPath());
