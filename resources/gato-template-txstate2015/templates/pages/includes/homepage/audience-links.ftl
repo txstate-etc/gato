@@ -46,7 +46,7 @@
           [#if nested?has_content]
             ${nested}
           [#else /]
-            [@linkList featuredLinks /]
+            [@linkList featuredLinks?sort_by("text") /]
           [/#if]
         [/#if]
 
@@ -58,7 +58,7 @@
       </div>
       
       [#if component.otherLinks?has_content]    
-        [#local otherLinks = cmsfn.children(component.otherLinks, "mgnl:contentNode")]
+        [#local otherLinks = cmsfn.children(component.otherLinks, "mgnl:contentNode")?sort_by("text")]
         [#local collen = (otherLinks?size / 2)?ceiling]
         [#local otherLinks = otherLinks?chunk(collen)]
         [#list otherLinks as column]

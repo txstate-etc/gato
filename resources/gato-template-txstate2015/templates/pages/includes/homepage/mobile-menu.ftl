@@ -48,7 +48,7 @@
       [#if nested?has_content]
         ${nested}
       [#else /]
-        [@linkList featuredLinks false/]
+        [@linkList featuredLinks?sort_by("text") false/]
       [/#if]
       
       <li>
@@ -62,7 +62,7 @@
           <a href="#">More <i class="fa fa-caret-down"></i></a>
         </div>
         <div class="gato-accordion-content">
-          [@linkList cmsfn.children(component.otherLinks, "mgnl:contentNode") /]
+          [@linkList cmsfn.children(component.otherLinks, "mgnl:contentNode")?sort_by("text") /]
         </div>
       </div>      
     </ul>
