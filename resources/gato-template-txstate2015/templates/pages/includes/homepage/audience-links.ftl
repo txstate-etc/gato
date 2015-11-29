@@ -19,9 +19,8 @@
 [/#macro]
 
 
-[#macro audienceLinks name]
-  [#assign component = cmsfn.asContentMap(cmsfn.nodeByPath('/homepage-data/audience-links/${name}', 'website'))]
-  [#assign decodedContent = cmsfn.decode(component)]
+[#macro audienceLinks name component]
+  [#local decodedContent = cmsfn.decode(component)]
 
   <div id="audience-${name}" class="audience-link-section" role="menu" aria-hidden="true">
     <div class="audience-link-content">

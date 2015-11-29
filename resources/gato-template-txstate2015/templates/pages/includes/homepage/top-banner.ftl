@@ -1,4 +1,8 @@
 [#include "audience-links.ftl"]
+[#assign future = cmsfn.asContentMap(cmsfn.nodeByPath('/homepage-data/audience-links/future-students', 'website'))]
+[#assign current = cmsfn.asContentMap(cmsfn.nodeByPath('/homepage-data/audience-links/current-students', 'website'))]
+[#assign facstaff = cmsfn.asContentMap(cmsfn.nodeByPath('/homepage-data/audience-links/faculty-staff', 'website'))]
+[#assign alumni = cmsfn.asContentMap(cmsfn.nodeByPath('/homepage-data/audience-links/alumni-visitors', 'website'))]
 
 <div id="homepage-banner">
   <div class="homepage-banner-content">
@@ -33,27 +37,27 @@
         <div class="audience-link-tabs">
           <ul role="menubar">
             <li role="presentation">
-                <a href="#audience-future-students" role="menuitem" aria-controls="audience-future-students" aria-selected="false" tabindex="0" id="tab-audience-future-students">Future Students</a>
+                <a href="${gf.filterUrl(future.link)}" role="menuitem" aria-controls="audience-future-students" aria-selected="false" tabindex="0" id="tab-audience-future-students">${gf.filterLinkTitle(future.title, future.link)}</a>
             </li>
             <li role="presentation">
-                <a href="#audience-current-students" role="menuitem" aria-controls="audience-current-students" aria-selected="false" tabindex="-1" id="tab-audience-current-students">Current Students</a>
+                <a href="${gf.filterUrl(current.link)}" role="menuitem" aria-controls="audience-current-students" aria-selected="false" tabindex="-1" id="tab-audience-current-students">${gf.filterLinkTitle(current.title, current.link)}</a>
             </li>
             <li role="presentation">
-                <a href="#audience-faculty-staff" role="menuitem" aria-controls="audience-faculty-staff" aria-selected="false" tabindex="-1" id="tab-audience-faculty-staff">Faculty &amp; Staff</a>
+                <a href="${gf.filterUrl(facstaff.link)}" role="menuitem" aria-controls="audience-faculty-staff" aria-selected="false" tabindex="-1" id="tab-audience-faculty-staff">${gf.filterLinkTitle(facstaff.title, facstaff.link)}</a>
             </li>
             <li role="presentation">
-                <a href="#audience-alumni-visitors" role="menuitem" aria-controls="audience-alumni-visitors" aria-selected="false" tabindex="-1" id="tab-audience-alumni-visitors">Alumni, Family &amp; Visitors</a>
+                <a href="${gf.filterUrl(alumni.link)}" role="menuitem" aria-controls="audience-alumni-visitors" aria-selected="false" tabindex="-1" id="tab-audience-alumni-visitors">${gf.filterLinkTitle(alumni.title, alumni.link)}</a>
             </li>
           </ul>
         </div>
 
         <div class="audience-links">
-          [@audienceLinks 'future-students' ; featuredLinks]
+          [@audienceLinks 'future-students' future ; featuredLinks]
             [@featuredLinksFuture featuredLinks /]
           [/@audienceLinks]
-          [@audienceLinks 'current-students' /]
-          [@audienceLinks 'faculty-staff' /]
-          [@audienceLinks 'alumni-visitors' /]
+          [@audienceLinks 'current-students' current /]
+          [@audienceLinks 'faculty-staff' facstaff /]
+          [@audienceLinks 'alumni-visitors' alumni /]
         </div>
       
       </div>

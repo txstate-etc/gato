@@ -151,6 +151,16 @@ subApps:
               # - name: jcrName
               #   class: info.magnolia.ui.form.field.definition.TextFieldDefinition
               #   label: Name
+              - name: title
+                class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                label: Title
+                description: "Title for this link panel."
+              - name: link
+                class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+                label: Link
+                appName: pages
+                description: "Title will be clickable. Enter a full URL (http://www.google.com/) or use the \"Internal Link\" button to link to another page in this site."
+                buttonSelectNewLabel: "Internal Link..."
               - name: image
                 class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
                 required: true

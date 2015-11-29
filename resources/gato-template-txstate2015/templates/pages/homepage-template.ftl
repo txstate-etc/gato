@@ -29,7 +29,7 @@
       [@search.searchBar true false/]
       <div class="mobile_nav_container">
         <h3 class="mobile-page-title">${gf.nodeTitle(content)}</h3>
-        [#import "includes/mobile-menu.ftl" as menu]
+        [#import "includes/homepage/mobile-menu.ftl" as menu]
         [@menu.menuBar isMobile=true/]
       </div>
       <!-- does social media need to go here -->

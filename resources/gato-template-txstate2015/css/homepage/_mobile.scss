@@ -1,0 +1,27 @@
+.mobile_secondary_nav {
+  li a i.fa { margin-left: 1rem; }
+
+  .gato-accordion {
+    box-shadow: none;
+  }
+  .gato-accordion-header {
+    padding: 1rem 0;
+    box-shadow: none;
+    &, &.selected, &:hover { background: transparent; }
+    color: $hamburger-menu-color;
+  }
+  .gato-accordion-content {
+    margin: 0 -1rem;
+    padding: 0;
+    a {
+      display: block;
+      margin: 0;
+      padding: 1rem;
+      border: none;
+      background: $darkest-charcoal;
+      i.fa { margin-left: 0; }
+    }
+  }
+
+  
+}
