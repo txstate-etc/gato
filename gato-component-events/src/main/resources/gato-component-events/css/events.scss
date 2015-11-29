@@ -28,6 +28,7 @@
     .txst-eventdetail-thumbnail {
       overflow: hidden;
       max-height: 24rem;
+      width: 100%;
     }
 
     a.txst-eventdetail-addtocalendar {
@@ -130,8 +131,8 @@
 
   &[min-width~='600px'] div.txst-eventdetail {
     div.txst-eventdetail-thumbnail {
-      margin-left: 3rem;
-      margin-top: 3rem;
+      padding-left: 3rem;
+      padding-top: 3rem;
       max-height: 12rem;
       img { width: inherit; min-width: 100%;  max-width: 150%; }
     }
