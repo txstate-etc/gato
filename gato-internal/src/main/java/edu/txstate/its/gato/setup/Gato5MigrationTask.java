@@ -468,12 +468,17 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
   }
 
   protected void moveBanners(Node n) throws RepositoryException {
-    if (n.hasNode("gato-banners")) {
-      Node gbanners = n.getNode("gato-banners");
+    Node newcomponent = null;
+    Node gbanners = null;
+    if (n.hasNode("gato-banners") || n.hasNode("gato-banner-settings")) {
+      if (n.hasNode("gato-banners")) gbanners = n.getNode("gato-banners");
+      else gbanners = n.addNode("gato-banners", NodeTypes.Area.NAME);
+      newcomponent = gbanners.addNode("imported", NodeTypes.Component.NAME);
+      NodeTypes.Renderable.set(newcomponent, "gato-template:components/banners");
+    }
+    if (gbanners != null) {
       if (gbanners.hasNodes()) {
         Iterable<Node> images = NodeUtil.getNodes(gbanners, NodeTypes.Component.NAME);
-        Node newcomponent = gbanners.addNode("imported", NodeTypes.Component.NAME);
-        NodeTypes.Renderable.set(newcomponent, "gato-template:components/banners");
         Node imagesparent = newcomponent.addNode("banners", NodeTypes.Area.NAME);
         Node savefirstimage = null;
         for (Node image : images) {
@@ -481,14 +486,14 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
           NodeUtil.moveNode(image, imagesparent);
           convertPropertyToBool(image, "inherit");
         }
-        if (n.hasNode("gato-banner-settings")) {
-          Node gbsettings = n.getNode("gato-banner-settings");
-          PropertyUtil.setProperty(newcomponent, "visible", gbsettings.getProperty("visible").getString());
-          PropertyUtil.setProperty(newcomponent, "reset", gbsettings.getProperty("reset").getBoolean());
-        }
       }
     }
-    if (n.hasNode("gato-banner-settings")) n.getNode("gato-banner-settings").remove();
+    if (n.hasNode("gato-banner-settings")) {
+      Node gbsettings = n.getNode("gato-banner-settings");
+      PropertyUtil.setProperty(newcomponent, "visible", gbsettings.getProperty("visible").getString());
+      PropertyUtil.setProperty(newcomponent, "reset", gbsettings.getProperty("reset").getBoolean());
+      gbsettings.remove();
+    }
   }
 
   protected void moveBodyContentToSingleColumnContainer(Node cp) throws RepositoryException {
