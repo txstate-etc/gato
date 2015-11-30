@@ -89,7 +89,7 @@
                     <div class="png-bg">
                       <ul class="ddmenu-menu">
                         [@navloop cmsfn.children(page, 'mgnl:page') ; subpage]
-                          <li><a href="${cmsfn.link(subpage)}">${gf.nodeTitle(subpage)}</a></li>
+                          <li><a href="${cmsfn.link(subpage)}">${subpage.title!}</a></li>
                         [/@navloop]
                       </ul>
                     </div>
