@@ -13,7 +13,7 @@
     [#include "../includes/header.ftl"]
     <div class="ua-banner">
       <div class="ua-banner-content">
-        [@cms.area name="gato-banners" contextAttributes={aspectratio: 952.0/156.0}/]
+        [@cms.area name="gato-banners" contextAttributes={'aspectratio': 952.0/156.0}/]
       </div>
     </div>
 		<div class="ua-breadcrumbs-wide">
