@@ -14,8 +14,8 @@
         <input type="hidden" name="sitesearch" value="${ctx.request.serverName}" />
       [/#if]
       [#nested]
-      <input type="search" class="search ${mobileSearch}" name="q" size="15" placeholder="${placeholder}" aria-label="Search" />
-      <button class="icon ${mobileIcon}"><i class="fa fa-search" aria-label="Start Search"></i></button>
+      <input type="search" class="search ${mobileSearch}" name="q" size="15" placeholder="${placeholder}" aria-label="Search" />[#--
+      --]<button class="icon ${mobileIcon}"><i class="fa fa-search" aria-label="Start Search"></i></button>
     </div>
   </form>
 [/#macro]

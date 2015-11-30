@@ -33,9 +33,7 @@
 				[@menu.menuBar isMobile=true/]
 			</div>
 			<!-- does social media need to go here -->
-			<div class="mobile_super_container">
-				[#include "includes/mobile-super-user.ftl"]
-			</div>
+			[#include "includes/mobile-super-user.ftl"]
 		</nav>
 		<div id="panel" class="container">
 			<!--"super user" menu bar -->

@@ -1,6 +1,5 @@
 [#macro breadcrumbs hidetxstate isMobile]
 [#assign mobileBreadcrumbs = isMobile?string('mobile_breadcrumbs', '')]
-[#assign terminalPage = isMobile?string('terminal_page', '')]
 <p class="breadcrumbs ${mobileBreadcrumbs}">
 	[#if !hidetxstate]
 		<a href="http://www.txstate.edu">Texas State</a>
@@ -18,11 +17,11 @@
 		<span class="separator">
 			<i class="fa fa-angle-right"></i>
 		</span>
-		<a href="${cmsfn.link(ancestor)}">${ancestor.title!}</a>	
+		<a href="${cmsfn.link(ancestor)}">${ancestor.title!}</a>
 	[/#list]
 	<span class="separator">
 		<i class="fa fa-angle-right"></i>
 	</span>
-	<span class="${terminalPage}">${content.title}</span>
+	${content.title}
 </p>
 [/#macro]
