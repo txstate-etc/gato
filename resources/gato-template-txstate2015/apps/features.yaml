@@ -17,6 +17,7 @@ subApps:
               items:
                 - name: addItem
                 - name: import
+                - name: activateRecursive
           availability:
             nodeTypes:
               - mgnl:content
@@ -71,6 +72,17 @@ subApps:
         class: info.magnolia.ui.framework.action.ActivationActionDefinition
         availability:
           writePermissionRequired: true
+      activateRecursive:
+        recursive: true
+        asynchronous: true
+        command: activate
+        icon: icon-publish-incl-sub
+        class: info.magnolia.ui.framework.action.ActivationActionDefinition
+        availability:
+          writePermissionRequired: true
+          rules:
+            - name: IsNotDeletedRule
+              implementationClass: info.magnolia.ui.framework.availability.IsNotDeletedRule
       export:
         command: export
         icon: icon-export
