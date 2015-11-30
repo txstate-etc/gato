@@ -37,11 +37,37 @@
 }
 
 
-body .txst-faq-group-title a {
-  color:$gemini-text;
-  text-decoration: none;
-  font-size: 2rem;
-  &:hover{
-    background: inherit;
+body {
+  .faq-hierarchy > .txst-faqitem{
+    border-bottom: 1px solid #e8e3db;
+  }
+  .faq-hierarchy .txst-faq-group .txst-faqitem {
+    .txst-faqitem-question a{
+      background: none;
+      border-top: none;
+      border-bottom: none;
+      font-weight: bold;
+      font-size: 1.8rem;
+      padding: 5px 0px 5px 5px;
+    }
+    .txst-faqitem-answer{
+      border-left: none;
+      border-right: none;
+      padding: 5px 0px 5px 5px;
+
+    }
+  }
+  .txst-faq-group-title {
+    margin: 0px;
+    a {
+      color:$gemini-text;
+      text-decoration: none;
+      font-size: 2rem;
+      padding: 5px 0px 5px 5px;
+      
+      &:hover{
+        background: inherit;
+      }
+    }
   }
 }

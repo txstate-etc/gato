@@ -1,6 +1,10 @@
 [#macro faqItem node depth]
   <div class="txst-faqitem" style="margin-left:${20*depth}px">
-    <h2 class="txst-faqitem-question"><a href="#">${node.question}</a></h2>
+    <h2 class="txst-faqitem-question">
+      <a href="#">
+        [#if depth > 0]<span class="caret fa fa-caret-right"></span>[/#if]
+        ${node.question}</a>
+    </h2>
     <div class="txst-faqitem-answer">${node.answer}</div>
   </div>
 [/#macro]
@@ -22,6 +26,7 @@
   [/#if]
 [/#macro]
 
+<div class="faq-hierarchy">
 [#if !ctx.request.getAttribute('faqButtonsAdded')!false]
   <div class="gato-faq-expand-collapse">
     <a href="#" id="txst-expand-all-faqs">Expand</a> or
@@ -32,3 +37,4 @@
 [#list model.nodes as node]
   [@faqNode node 0 /]
 [/#list]
+</div>

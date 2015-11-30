@@ -8,6 +8,14 @@ Event.observe(window, "load", function() {
     Event.observe( item, "click", function( event ) { 
       item.blur();
       answerElement.toggle();
+      if(answerElement.visible()){
+        item.down('.caret').removeClassName('fa fa-caret-right');
+        item.down('.caret').addClassName('fa fa-caret-down');
+      }
+      else{
+        item.down('.caret').removeClassName('fa fa-caret-down');
+        item.down('.caret').addClassName('fa fa-caret-right');
+      }
       Event.stop( event );
     });
   });
@@ -30,6 +38,10 @@ Event.observe(window, "load", function() {
       $$('.txst-faqitem-answer').each( function( item ) {
         if ( !item.visible() ) Effect.BlindDown( item, { duration: 0.4 } );
       });
+      $$('.caret').each( function( item ) {
+        item.removeClassName('fa fa-caret-right');
+        item.addClassName('fa fa-caret-down');
+      });
       Event.stop(event);
     });
   }
@@ -38,6 +50,10 @@ Event.observe(window, "load", function() {
     Event.observe( 'txst-collapse-all-faqs', "click", function(event) {
       $$('.txst-faqitem-answer').each( function( item ) {
         if ( item.visible() ) Effect.BlindUp( item, { duration: 0.4 } );
+      });
+      $$('.caret').each( function( item ) {
+        item.removeClassName('fa fa-caret-down');
+        item.addClassName('fa fa-caret-right');
       });
       Event.stop(event);
     });

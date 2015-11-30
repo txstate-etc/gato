@@ -44,6 +44,9 @@ body {
   h2.txst-faqitem-question {
     font-size: 1.2em;
     line-height: 1.2em;
+    a .caret{
+      display: none;
+    }
   }
 
   .gato-faq-expand-collapse, .txst-faq-buttons {
