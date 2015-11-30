@@ -28,7 +28,10 @@ subApps:
               items:
                 - name: editItem
                 - name: deleteItem
+            - name: activationActions
+              items:
                 - name: activate
+                - name: deactivate
             - name: importExportActions
               items:
                 - name: export
@@ -78,6 +81,16 @@ subApps:
         command: activate
         icon: icon-publish-incl-sub
         class: info.magnolia.ui.framework.action.ActivationActionDefinition
+        availability:
+          writePermissionRequired: true
+          rules:
+            - name: IsNotDeletedRule
+              implementationClass: info.magnolia.ui.framework.availability.IsNotDeletedRule
+      deactivate:
+        command: deactivate
+        icon: icon-unpublish
+        catalog: versioned
+        class: info.magnolia.ui.framework.action.DeactivationActionDefinition
         availability:
           writePermissionRequired: true
           rules:
