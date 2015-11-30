@@ -46,10 +46,13 @@ function initColorPicker(def, node, el, tmpl) {
   
   // Get the initial value out of the hidden field and check the associated radio button.
   var val = $('input[type=hidden].color').val();
-  if (val) {
+  //if val has been set and either all colors are available or it is one of the available colors
+  if (val && (showAll || $root.is('.'+ val))) {
     $('input[type=radio][name=colorsel][value='+val+']').prop('checked', true);
   } else {
     // auto-select the first choice. 
     $('input[type=radio][name=colorsel]').first().prop('checked', true);
+    var firstVal = $('input[type=radio][name=colorsel]').first().val();
+    $('input[type=hidden].color').val(firstVal).change();
   }
 }
