@@ -16,24 +16,10 @@ subApps:
             - name: addActions
               items:
                 - name: addItem
-                # - name: addFolder
+                - name: import
           availability:
             nodes: false
             root: true
-        # - name: folder
-        #   label: Folder
-        #   groups:
-        #     - name: addActions
-        #       items:
-        #         - name: addItem
-        #         # - name: addFolder
-        #     # - name: editActions
-        #     #   items:
-        #     #     - name: editFolder
-        #     #     - name: deleteFolder
-        #   availability:
-        #     nodeTypes:
-        #       - mgnl:content
         - name: item
           label: News Item
           groups:
@@ -41,6 +27,15 @@ subApps:
               items:
                 - name: editItem
                 - name: deleteItem
+                - name: activate
+            - name: importExportActions
+              items:
+                - name: export
+                # - name: import
+            - name: versionActions
+              items:
+                - name: showVersions
+                - name: restoreVersion
           availability:
             nodeTypes:
               - mgnl:component
@@ -54,18 +49,6 @@ subApps:
         class: info.magnolia.ui.contentapp.detail.action.CreateItemActionDefinition
         availability:
           root: true
-      # addFolder:
-      #   icon: icon-add-folder
-      #   class: info.magnolia.ui.framework.action.AddNodeActionDefinition
-      #   availability:
-      #     root: true
-      # editFolder:
-      #   icon: icon-edit
-      #   dialogName: ui-framework:folder
-      #   class: info.magnolia.ui.framework.action.OpenEditDialogActionDefinition
-      # deleteFolder:
-      #   icon: icon-delete
-      #   class: info.magnolia.ui.framework.action.DeleteItemActionDefinition
       editItem:
         subAppId: detail
         label: Edit Item
@@ -75,27 +58,63 @@ subApps:
         availability:
           nodeTypes:
             - mgnl:component
-      # deleteItem:
-      #   label: Delete Item
-      #   icon: icon-delete
-      #   class: info.magnolia.ui.framework.action.DeleteItemActionDefinition
+      deleteItem:
+        label: Delete Item
+        icon: icon-delete
+        class: info.magnolia.ui.framework.action.DeleteItemActionDefinition
+      activate:
+        command: activate
+        icon: icon-publish
+        catalog: versioned
+        class: info.magnolia.ui.framework.action.ActivationActionDefinition
+        availability:
+          writePermissionRequired: true
+      export:
+        command: export
+        icon: icon-export
+        class: info.magnolia.ui.framework.action.ExportActionDefinition
+        availability:
+          rules:
+            - name: IsNotDeletedRule
+              implementationClass: info.magnolia.ui.framework.availability.IsNotDeletedRule
+      import:
+        name: import
+        dialogName: ui-admincentral:import
+        icon: icon-import
+        class: info.magnolia.ui.framework.action.OpenCreateDialogActionDefinition
+        availability:
+          writePermissionRequired: true
+          root: true
+          nodes: false
+          rules:
+            - name: IsNotDeletedRule
+              implementationClass: info.magnolia.ui.framework.availability.IsNotDeletedRule
+      showVersions:
+        icon: icon-show-versions
+        class: info.magnolia.ui.contentapp.browser.action.ShowVersionsActionDefinition
+        availability:
+          rules:
+            - name: HasVersionsRule
+              implementationClass: info.magnolia.ui.framework.availability.HasVersionsRule
+      restoreVersion:
+        icon: icon-retrieve-versions
+        class: info.magnolia.ui.contentapp.browser.action.RestoreVersionActionDefinition
+        availability:
+          writePermissionRequired: true
+          rules:
+            - name: HasVersionsRule
+              implementationClass: info.magnolia.ui.framework.availability.HasVersionsRule
       saveItemProperty:
         class: info.magnolia.ui.contentapp.browser.action.SaveItemPropertyActionDefinition
         availability:
           properties: false
     workbench:
       dropConstraintClass: info.magnolia.ui.workbench.tree.drop.AlwaysTrueDropConstraint
-      # editable: true
 
       contentViews:
         - name: tree
           class: info.magnolia.ui.workbench.tree.TreePresenterDefinition
           columns: &myColumns
-            # - name: name
-            #   editable: true
-            #   sortable: true
-            #   propertyName: jcrName
-            #   class: info.magnolia.ui.workbench.column.definition.PropertyColumnDefinition
             - name: title
               label: Title
               editable: true
@@ -114,12 +133,6 @@ subApps:
               formatterClass: info.magnolia.ui.workbench.column.DateColumnFormatter
               propertyName: mgnl:lastModified
               class: info.magnolia.ui.workbench.column.definition.MetaDataColumnDefinition
-        # - name: list
-        #   class: info.magnolia.ui.workbench.list.ListPresenterDefinition
-        #   columns: *myColumns
-        # - name: search
-        #   class: info.magnolia.ui.workbench.search.SearchPresenterDefinition
-        #   columns: *myColumns
 
     contentConnector:
       includeProperties: false
@@ -148,9 +161,6 @@ subApps:
           - name: item
             label: News Item
             fields:
-              # - name: jcrName
-              #   class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-              #   label: Name
               - name: title
                 class: info.magnolia.ui.form.field.definition.TextFieldDefinition
                 label: Title
