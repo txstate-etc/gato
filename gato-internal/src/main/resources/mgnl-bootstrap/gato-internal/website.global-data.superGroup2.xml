@@ -32,7 +32,7 @@
 			<sv:value>admin</sv:value>
 		</sv:property>
 		<sv:property sv:name="link" sv:type="String">
-			<sv:value>http://bobcatmail.txstate.edu</sv:value>
+			<sv:value>https://bobcatmail.txstate.edu</sv:value>
 		</sv:property>
 		<sv:property sv:name="mgnl:activationStatus" sv:type="Boolean">
 			<sv:value>false</sv:value>
