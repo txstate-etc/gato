@@ -51,7 +51,6 @@
 //image is chosen by the user in the dialog.
 @mixin image-rollover-button($background, $rollover-background, $text-color){
   color: $text-color;
-  background-image: url('../images/pencils.jpg');
   background-repeat: no-repeat;
   padding: 0px;  //padding is set in the span so the image is covered
   background-position: 100% 50%;
