@@ -10,8 +10,10 @@
   overflow: hidden;
   padding: 0px 0px 2rem 0px;
 
-  hr {
-    position: absolute;
-    width: 100%;
-  }
+  .gato-separator{
+      hr {
+        position: absolute;
+        width: 100%;
+      }
+    }
 }
