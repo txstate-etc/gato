@@ -35,8 +35,7 @@
 [#if content.filter??]
     [#assign filter = content.filter]
 [/#if]
-<div class="txst-departmentdirectory object">
-    [#assign filteredPeople = []]
+<div class="txst-departmentdirectory object eq-parent">
     [#list model.getPeople(content.department) as person]
         [#assign showRecord = true]
         [#if person.category == "Retired"]
@@ -47,21 +46,12 @@
             [/#if]
         [/#if]
         [#if showRecord]
-            [#assign filteredPeople = filteredPeople + [person]]
+            [@compress single_line=true]
+            <div class="directory-row eq-ml-1-2 eq-lg-1-3">
+                [@directoryEntry person /]
+            </div>
+            [/@compress]
         [/#if] 
     [/#list]
-
-    [#list filteredPeople?chunk(2,"") as row]
-        <div class="eq-parent">
-            [#list row as person]
-                [@compress single_line=true]
-                <div class="directory-row eq-ml-1-2">
-                    [@directoryEntry person /]
-                </div>
-                [/@compress]
-            [/#list]
-        </div>
-    [/#list]
-
 </div>
     
