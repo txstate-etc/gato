@@ -73,22 +73,24 @@
     letter-spacing: 1px;
     .mobile-page-title {
       color: $hamburger-menu-color;
-      line-height: 2.8rem;
       font-family: $garamond;
       font-weight: normal;
-      font-size: 2.4rem;
+      font-size: 2.8rem;
     }
     .mobile_primary_nav {
       margin: 0 -1.8rem;
-      > li { padding-bottom: 2.8rem; }
+      > li {
+        padding-bottom: 2.8rem;
+        a:last-child { border-bottom: 0px; }
+      }
       a {
         text-transform: uppercase;
         font-weight: 500;
         color: $hamburger-menu-color;
         display: block;
-        border-bottom: 1px solid $dark-charcoal;
+        border-bottom: 1px solid $darkest-charcoal;
         padding: 1.5rem 1.8rem;
-        &:hover, &:focus {
+        &:hover {
           color: $white;
           background: $dark-charcoal;
         }
@@ -100,8 +102,11 @@
             text-transform: none;
             font-size: 1.7rem;
             font-weight: normal;
+            border-top: 1px solid $light-charcoal;
+            border-bottom: 1px solid $darkest-charcoal;
           }
         }
+        border-bottom: 1px solid $light-charcoal;
       }
     }
   }
@@ -124,6 +129,9 @@
         color: $hamburger-menu-text;
         background: $mobile-nav-background;
       }
+    }
+    .gato-accordion-header i {
+      margin-left: 6px;
     }
     .gato-accordion-content a {
       padding: 0.7rem 2.4rem;
