@@ -27,7 +27,8 @@
             [/#if]
             [#if rows?size > startingRow]
                 <tbody>
-                    [#list rows[1..] as row]
+                    [#list rows as row]
+                      [#if row?trim?has_content && row_index gte startingRow]
                         <tr class="${(row_index % 2 == 0)?string("even", "odd")}">
                             [#list row?split("\t") as col]
                             [#if content.tableHeader]
@@ -39,6 +40,7 @@
                             </td>
                         [/#list]
                         </tr>
+                      [/#if]
                     [/#list]
                 </tbody>
             [/#if]
