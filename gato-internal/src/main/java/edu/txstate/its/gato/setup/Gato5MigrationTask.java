@@ -62,18 +62,18 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
     Session hm=ctx.getJCRSession(RepositoryConstants.WEBSITE);
     damSession = ctx.getJCRSession(DamConstants.WORKSPACE);
 
-    log.info("custom css and js changes");
+    log.warn("custom css and js changes");
     visitByTemplate(hm, "gato:components/texasState/customCssBlock", this::convertInheritToBool);
     visitByTemplate(hm, "gato:components/texasState/customjsBlock", this::convertInheritToBool);
-    log.info("sidebar navigation changes");
+    log.warn("sidebar navigation changes");
     visitByTemplate(hm, "gato:components/texasState/navBlock", this::updateNavBlock);
-    log.info("image gallery changes");
+    log.warn("image gallery changes");
     visitByTemplate(hm, "gato:components/texasState/imageGallery", this::updateImageGallery);
-    log.info("site map paragraph changes");
+    log.warn("site map paragraph changes");
     visitByTemplate(hm, "gato:components/texasState/siteMap", this::updateSiteMapComponent);
-    log.info("sub pages paragraph changes");
+    log.warn("sub pages paragraph changes");
     visitByTemplate(hm, "gato:components/texasState/subPages", this::updateSubPagesComponent);
-    log.info("mail template paragraph changes");
+    log.warn("mail template paragraph changes");
     visitByTemplate(hm, "gato:components/texasState/texas-form-edit", this::updateFormEditComponent);
     visitByTemplate(hm, "gato:components/texasState/texas-form-file", this::updateFormFileComponent);
     visitByTemplate(hm, "gato:components/texasState/texas-form-selection", this::updateSelectionComponent);
@@ -81,22 +81,22 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
     visitByTemplate(hm, "gato:pages/ua-2011/ua-2011-mail", this::updateMailArea);
     visitByTemplate(hm, "gato:pages/wittliff/wittliff-mail", this::updateMailArea);
     visitByTemplate(hm, "gato:pages/tsus-2012/tsus-2012-mail", this::updateMailArea);
-    log.info("download paragraph changes");
+    log.warn("download paragraph changes");
     visitByTemplate(hm, "gato:components/texasState/texasDownload", this::updateDownloadComponent);
-    log.info("documents paragraph changes");
+    log.warn("documents paragraph changes");
     visitByTemplate(hm, "gato:components/texasState/texas-dms", this::updateDocumentsComponent);
     visitByTemplate(hm, "gato:components/texasState/social-media-link", this::updateSocialLinkComponent);
     visitByTemplate(hm, "gato:components/texasState/texasLink", this::convertNewWindowToBool);
     visitByTemplate(hm, "gato:components/texasState/texasEditor", this::migrateToTopAndBottom);
     hm.save();
-    log.info("delete old files uploaded to rich editor paragraphs");
+    log.warn("delete old files uploaded to rich editor paragraphs");
     visitByTemplate(hm, "gato:components/texasState/texasEditor", this::deleteContentFiles);
-    log.info("delete old files uploaded to text and image paragraphs");
+    log.warn("delete old files uploaded to text and image paragraphs");
     visitByTemplate(hm, "gato:components/texasState/texasTextImage", this::deleteTextFiles);
-    log.info("update node types in faq hierarchy");
+    log.warn("update node types in faq hierarchy");
     visitByTemplate(hm, "gato:components/texasState/texas-faq-hierarchy", this::updateFaqNodeTypes);
 
-    log.info("starting page level changes");
+    log.warn("starting page level changes");
     visitPages(hm, new NodeVisitor() {
       public void visit(Node n) throws RepositoryException {
         String templateId = NodeTypes.Renderable.getTemplate(n);
@@ -169,10 +169,10 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
       }
     });
     hm.save();
-    log.info("finished page level changes");
+    log.warn("finished page level changes");
 
     // config changes
-    log.info("make changes to the config tree");
+    log.warn("make changes to the config tree");
     Session cfg = ctx.getJCRSession(RepositoryConstants.CONFIG);
     Node newredirnode = cfg.getNode("/modules/ui-admincentral/virtualURIMapping/default");
     String newvalue = "redirect:/.magnolia/admincentral#app:pages:;/:treeview:";
@@ -185,7 +185,7 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
     PropertyUtil.setProperty(newredirnode, "toURI", "redirect:/.magnolia/admincentral#app:pages:;/:treeview:");
 
     // permission changes
-    log.info("change all existing roles to convert their DMS permissions to DAM permissions");
+    log.warn("change all existing roles to convert their DMS permissions to DAM permissions");
     Session roles = ctx.getJCRSession(RepositoryConstants.USER_ROLES);
     SecuritySupport ss = Components.getComponent(SecuritySupport.class);
     RoleManager rm = ss.getRoleManager();
@@ -248,8 +248,7 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
         n.setProperty("link", "jcr:" + id);
       }
       catch(Exception e){
-        log.warn("Invalid Path: " + documentPath);
-        e.printStackTrace();
+        log.warn("Documents Paragraph Migration: could find in DMS: " + documentPath + " linked from "+n.getPath());
       }
     }
   }
@@ -468,17 +467,20 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
   }
 
   protected void moveBanners(Node n) throws RepositoryException {
-    Node newcomponent = null;
-    Node gbanners = null;
     if (n.hasNode("gato-banners") || n.hasNode("gato-banner-settings")) {
+
+      // make sure our gato-banners area exists and get the current list of images
+      Node gbanners = null;
       if (n.hasNode("gato-banners")) gbanners = n.getNode("gato-banners");
       else gbanners = n.addNode("gato-banners", NodeTypes.Area.NAME);
-      newcomponent = gbanners.addNode("imported", NodeTypes.Component.NAME);
+      Iterable<Node> images = NodeUtil.getNodes(gbanners, NodeTypes.Component.NAME);
+
+      // create a new banner component to contain both settings and images
+      Node newcomponent = gbanners.addNode("imported", NodeTypes.Component.NAME);
       NodeTypes.Renderable.set(newcomponent, "gato-template:components/banners");
-    }
-    if (gbanners != null) {
-      if (gbanners.hasNodes()) {
-        Iterable<Node> images = NodeUtil.getNodes(gbanners, NodeTypes.Component.NAME);
+
+      // move the images into an area called 'banners' inside the new component
+      if (!images.iterator().hasNext()) {
         Node imagesparent = newcomponent.addNode("banners", NodeTypes.Area.NAME);
         Node savefirstimage = null;
         for (Node image : images) {
@@ -487,12 +489,14 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
           convertPropertyToBool(image, "inherit");
         }
       }
-    }
-    if (n.hasNode("gato-banner-settings")) {
-      Node gbsettings = n.getNode("gato-banner-settings");
-      PropertyUtil.setProperty(newcomponent, "visible", gbsettings.getProperty("visible").getString());
-      PropertyUtil.setProperty(newcomponent, "reset", gbsettings.getProperty("reset").getBoolean());
-      gbsettings.remove();
+
+      // move over the settings, whether or not we had any images
+      if (n.hasNode("gato-banner-settings")) {
+        Node gbsettings = n.getNode("gato-banner-settings");
+        PropertyUtil.setProperty(newcomponent, "visible", gbsettings.getProperty("visible").getString());
+        PropertyUtil.setProperty(newcomponent, "reset", gbsettings.getProperty("reset").getBoolean());
+        gbsettings.remove();
+      }
     }
   }
 
