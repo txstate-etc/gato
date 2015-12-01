@@ -102,7 +102,11 @@ var initPhotoSwipe = (function($) {
 
         getThumbBoundsFn:false,
 
-        showHideOpacity: true
+        showHideOpacity: true,
+
+        closeOnScroll: false,
+
+        bgOpacity: 0.85
 
       };
 

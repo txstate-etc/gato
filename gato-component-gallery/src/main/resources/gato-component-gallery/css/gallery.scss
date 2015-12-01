@@ -3,30 +3,68 @@
   font-size: 0px;
   margin: 0px;
   padding: 0px;
-}
+  width: calc(100% + 6px);
 
-.txst-gallery-image a {
-  display: block;
-}
+  .txst-gallery-image {
+    padding: 3px 6px 3px 0;
+    
+    a {
+      display: block;
+      padding: 0px;
+      margin: 0px;
+      opacity: 0.9; 
+      background: transparent;
+      @include vendor-prefix(transition, opacity 0.3s ease-out);
+      &:hover {
+        background: transparent;
+        opacity: 1;
+      }
 
-.txst-gallery-image img {
-  display: block;
-  width: 100%;
-}
-
-.txst-gallery, .txst-gallery .txst-gallery-image a {
-  padding: 0px;
-  margin: 0px;
+      img {
+        display: block;
+        width: 100%;
+      }
+    }
+  }
 }
 
 .txst-gallery[min-width~="400px"] {
-	&, .txst-gallery-image a {
-  	padding: 3px;
+  width: calc(100% + 10px);
+	.txst-gallery-image {
+  	padding: 5px 10px 5px 0;
   }
 }
 
 .txst-gallery[min-width~="800px"] {
-	&, .txst-gallery-image a {
-  	padding: 5px;
+  width: calc(100% + 16px);
+	.txst-gallery-image {
+  	padding: 8px 16px 8px 0;
   }
+}
+
+/* Photoswipe overrides (Should these go in gato-lib? or gato-template-2015? */
+.pswp__ui {
+  .pswp__caption {background-color: transparent;}
+  .pswp__caption__center {text-align: center; font-size: 1.4rem; color: $white;}
+  .pswp__top-bar {background: $gold; border-bottom: 4px solid $gold-shadow;}
+  .pswp__share-tooltip a {
+    padding: 1rem; margin: 0;
+    &:hover {color: $blue; text-decoration: underline;}
+    &.pswp__share--facebook:hover:before {border-bottom-color: $sandstone;}
+  }
+
+  .pswp__button--arrow--left:before,
+  .pswp__button--arrow--right:before {
+    background: none;
+    background-image: none;
+    font-size: 1.8rem; 
+    color: $white;
+  }
+  .pswp__button--arrow--left:before {
+    @include fa('chevron-left');
+  }
+  .pswp__button--arrow--right:before {
+    @include fa('chevron-right');
+  }
+
 }
