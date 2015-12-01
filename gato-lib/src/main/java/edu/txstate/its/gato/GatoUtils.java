@@ -774,6 +774,7 @@ public final class GatoUtils {
     return false;
   }
   public boolean hasChildren(Object node) throws Exception {
+    if (node == null) return false;
     Node n = toNode(node);
     for (Node sp : NodeUtil.getNodes(n)) {
         return true;

@@ -63,7 +63,7 @@
             </div>
           </div>
         </div>
-        <div id="gato-banner" class="${showBannerArea?string('','gato-banner-hidden')}">
+        <div id="gato-banner" class="${(cmsfn.isEditMode() || showBannerArea)?string('','gato-banner-hidden')}">
           [@cms.area name="gato-banners"/]
         </div>
         <!-- MAIN MENUS -->
