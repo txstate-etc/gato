@@ -4,6 +4,10 @@ visible: true
 title: 2015 TXST Home
 dialog: gato-template:pages/page-properties
 areas:
+  customcss:
+    !include /gato-component-cssjs/templates/areas/customcss.yaml
+  customjs:
+    !include /gato-component-cssjs/templates/areas/customjs.yaml
   presPhoto:
     !include /gato-template-txstate2015/templates/areas/textImageContent.yaml
   presMessage:
