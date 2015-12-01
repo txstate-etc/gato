@@ -87,6 +87,8 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
     visitByTemplate(hm, "gato:components/texasState/texas-dms", this::updateDocumentsComponent);
     visitByTemplate(hm, "gato:components/texasState/social-media-link", this::updateSocialLinkComponent);
     visitByTemplate(hm, "gato:components/texasState/texasLink", this::convertNewWindowToBool);
+    visitByTemplate(hm, "gato:components/texasState/texasLink", this::checkLinkForDMSRef);
+    visitByTemplate(hm, "gato:components/texasState/image-link", this::checkLinkForDMSRef);
     visitByTemplate(hm, "gato:components/texasState/texasEditor", this::migrateToTopAndBottom);
     hm.save();
     log.warn("delete old files uploaded to rich editor paragraphs");
@@ -259,6 +261,15 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
 
   private void convertNewWindowToBool(Node n) throws RepositoryException{
     convertPropertyToBool(n, "newWindow");
+  }
+
+  private void checkLinkForDMSRef(Node n) throws RepositoryException {
+    if (n.hasProperty("link")) {
+      String link = PropertyUtil.getString(n, "link", "");
+      if (link.startsWith("/dms/")) {
+        PropertyUtil.setProperty(n, "link", "/dam/"+link.substring(5));
+      }
+    }
   }
 
   private void updateImageGallery(Node n) throws RepositoryException {
