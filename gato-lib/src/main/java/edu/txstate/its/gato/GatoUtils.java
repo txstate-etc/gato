@@ -367,6 +367,7 @@ public final class GatoUtils {
 
   public String getImg(Object assetOrId, int width, int height, boolean zoom, boolean upscale, float left, float right, float top, float bottom) {
     Asset asset = toAsset(assetOrId);
+    if (asset == null) return "";
     try {
       GatoResizer srv = getResizer();
       srv.setHeight(height);

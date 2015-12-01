@@ -1,7 +1,6 @@
 package edu.txstate.its.gato.vaadin;
 
 import info.magnolia.dam.api.Asset;
-import info.magnolia.dam.templating.functions.DamTemplatingFunctions;
 import info.magnolia.jcr.util.PropertyUtil;
 
 import com.vaadin.ui.Component;
@@ -18,12 +17,10 @@ import org.apache.commons.lang3.StringUtils;
 public class ThumbnailSelectorField extends CustomField<Object> {
 
   private GatoUtils gf;
-  private DamTemplatingFunctions damTemplatingFunctions;
   private Node node;
 
-  public ThumbnailSelectorField(Node node, GatoUtils gf, DamTemplatingFunctions damTemplatingFunctions) {
+  public ThumbnailSelectorField(Node node, GatoUtils gf) {
     this.gf = gf;
-    this.damTemplatingFunctions = damTemplatingFunctions;
     this.node = node;
   }
 
@@ -35,8 +32,7 @@ public class ThumbnailSelectorField extends CustomField<Object> {
     String bottom = PropertyUtil.getString(node, "imagecropbottom", "0");
 
     String itemKey = PropertyUtil.getString(node, "image"); //FIXME: is this name configurable?
-    Asset asset = damTemplatingFunctions.getAsset(itemKey);
-    String link = gf.getImg(asset, 500, 0, false, false, 0f, 0f, 0f, 0f);
+    String link = gf.getImg(itemKey, 500, 0, false, false, 0f, 0f, 0f, 0f);
   
     String imgHtml = "";
     if (StringUtils.isEmpty(link)) {
