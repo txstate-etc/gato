@@ -9,7 +9,7 @@
   <sv:property sv:name="jcr:uuid" sv:type="String">
     <sv:value>4a43a098-036c-40de-9724-7c01bcaaa08c</sv:value>
   </sv:property>
-  <sv:property sv:name="active" sv:type="String">
+  <sv:property sv:name="active" sv:type="Boolean">
     <sv:value>true</sv:value>
   </sv:property>
   <sv:property sv:name="description" sv:type="String">
@@ -17,6 +17,9 @@
   </sv:property>
   <sv:property sv:name="eventTypes" sv:type="String">
     <sv:value>NODE_ADDED</sv:value>
+  </sv:property>
+  <sv:property sv:name="includeSubNodes" sv:type="Boolean">
+    <sv:value>true</sv:value>
   </sv:property>
   <sv:property sv:name="jcr:createdBy" sv:type="String">
     <sv:value>admin</sv:value>
@@ -37,7 +40,7 @@
     <sv:value>nw13</sv:value>
   </sv:property>
   <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-    <sv:value>2015-11-30T22:53:05.670-06:00</sv:value>
+    <sv:value>2015-12-01T13:08:58.008-06:00</sv:value>
   </sv:property>
   <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
     <sv:value>nw13</sv:value>
@@ -80,7 +83,7 @@
       <sv:value>nw13</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-      <sv:value>2015-11-30T22:53:05.670-06:00</sv:value>
+      <sv:value>2015-12-01T13:33:17.079-06:00</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
       <sv:value>nw13</sv:value>
@@ -120,7 +123,7 @@
         <sv:value>nw13</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-        <sv:value>2015-11-30T22:53:05.670-06:00</sv:value>
+        <sv:value>2015-12-01T13:32:54.136-06:00</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
         <sv:value>nw13</sv:value>
