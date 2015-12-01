@@ -7,7 +7,7 @@
     <sv:value>mix:lockable</sv:value>
   </sv:property>
   <sv:property sv:name="jcr:uuid" sv:type="String">
-    <sv:value>e87c4951-a1fc-46f5-8f55-cc7604d30a9b</sv:value>
+    <sv:value>4a43a098-036c-40de-9724-7c01bcaaa08c</sv:value>
   </sv:property>
   <sv:property sv:name="active" sv:type="String">
     <sv:value>true</sv:value>
@@ -25,16 +25,19 @@
     <sv:value>false</sv:value>
   </sv:property>
   <sv:property sv:name="mgnl:created" sv:type="Date">
-    <sv:value>2008-06-17T11:07:48.273+02:00</sv:value>
+    <sv:value>2015-11-30T22:52:49.181-06:00</sv:value>
+  </sv:property>
+  <sv:property sv:name="mgnl:createdBy" sv:type="String">
+    <sv:value>nw13</sv:value>
   </sv:property>
   <sv:property sv:name="mgnl:lastActivated" sv:type="Date">
-    <sv:value>2008-06-25T10:15:50.749+02:00</sv:value>
+    <sv:value>2015-11-30T22:52:49.195-06:00</sv:value>
   </sv:property>
   <sv:property sv:name="mgnl:lastActivatedBy" sv:type="String">
-    <sv:value>superuser</sv:value>
+    <sv:value>nw13</sv:value>
   </sv:property>
   <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-    <sv:value>2015-11-30T19:29:00.740-06:00</sv:value>
+    <sv:value>2015-11-30T22:53:05.670-06:00</sv:value>
   </sv:property>
   <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
     <sv:value>nw13</sv:value>
@@ -53,7 +56,7 @@
       <sv:value>mix:lockable</sv:value>
     </sv:property>
     <sv:property sv:name="jcr:uuid" sv:type="String">
-      <sv:value>58cef4ce-e0a9-4f3a-8a88-585ee32b6326</sv:value>
+      <sv:value>11db6874-bf28-4c2e-819e-d687447c0c35</sv:value>
     </sv:property>
     <sv:property sv:name="class" sv:type="String">
       <sv:value>info.magnolia.module.observation.commands.RestrictToNodeTypeEventListener</sv:value>
@@ -65,16 +68,19 @@
       <sv:value>false</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:created" sv:type="Date">
-      <sv:value>2008-06-19T11:05:58.780+02:00</sv:value>
+      <sv:value>2015-11-30T22:52:49.181-06:00</sv:value>
+    </sv:property>
+    <sv:property sv:name="mgnl:createdBy" sv:type="String">
+      <sv:value>nw13</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:lastActivated" sv:type="Date">
-      <sv:value>2008-06-25T10:15:50.750+02:00</sv:value>
+      <sv:value>2015-11-30T22:52:49.196-06:00</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:lastActivatedBy" sv:type="String">
-      <sv:value>superuser</sv:value>
+      <sv:value>nw13</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-      <sv:value>2015-11-30T19:28:34.770-06:00</sv:value>
+      <sv:value>2015-11-30T22:53:05.670-06:00</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
       <sv:value>nw13</sv:value>
@@ -90,7 +96,7 @@
         <sv:value>mix:lockable</sv:value>
       </sv:property>
       <sv:property sv:name="jcr:uuid" sv:type="String">
-        <sv:value>1e530eca-a1c3-4750-a3cb-ef218f04b4ca</sv:value>
+        <sv:value>196de118-04d0-4c5c-acd8-5a3d037abd2b</sv:value>
       </sv:property>
       <sv:property sv:name="class" sv:type="String">
         <sv:value>info.magnolia.module.activation.commands.ActivationCommand</sv:value>
@@ -102,16 +108,19 @@
         <sv:value>false</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:created" sv:type="Date">
-        <sv:value>2008-06-17T15:49:57.548+02:00</sv:value>
+        <sv:value>2015-11-30T22:52:49.181-06:00</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:createdBy" sv:type="String">
+        <sv:value>nw13</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:lastActivated" sv:type="Date">
-        <sv:value>2008-06-25T10:15:50.751+02:00</sv:value>
+        <sv:value>2015-11-30T22:52:49.199-06:00</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:lastActivatedBy" sv:type="String">
-        <sv:value>superuser</sv:value>
+        <sv:value>nw13</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-        <sv:value>2015-11-30T19:28:34.770-06:00</sv:value>
+        <sv:value>2015-11-30T22:53:05.670-06:00</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
         <sv:value>nw13</sv:value>
@@ -125,19 +134,28 @@
         <sv:value>mix:lockable</sv:value>
       </sv:property>
       <sv:property sv:name="jcr:uuid" sv:type="String">
-        <sv:value>e5add5af-5f2c-47e1-a795-6920816307b5</sv:value>
+        <sv:value>78914ee4-e117-43d8-a5f7-b9861aeecbb2</sv:value>
       </sv:property>
       <sv:property sv:name="jcr:createdBy" sv:type="String">
         <sv:value>admin</sv:value>
       </sv:property>
+      <sv:property sv:name="mgnl:activationStatus" sv:type="Boolean">
+        <sv:value>false</sv:value>
+      </sv:property>
       <sv:property sv:name="mgnl:created" sv:type="Date">
-        <sv:value>2015-11-30T19:09:21.961-06:00</sv:value>
+        <sv:value>2015-11-30T22:52:49.181-06:00</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:createdBy" sv:type="String">
-        <sv:value>superuser</sv:value>
+        <sv:value>nw13</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:lastActivated" sv:type="Date">
+        <sv:value>2015-11-30T22:52:49.199-06:00</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:lastActivatedBy" sv:type="String">
+        <sv:value>nw13</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-        <sv:value>2015-11-30T19:28:34.770-06:00</sv:value>
+        <sv:value>2015-11-30T22:53:05.670-06:00</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
         <sv:value>nw13</sv:value>
