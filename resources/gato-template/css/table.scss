@@ -2,40 +2,53 @@
 
 .gato-table{
    
-        border: 1px solid $gold;
+        border: none;
         width: 100%;
         text-align: left;
         td{
-            padding: 3px;
+            padding: 0.7rem 1rem !important;
+            a{
+                color: $maroon;
+                &:hover{
+                    background: transparent; 
+                    text-decoration: none;
+                }
+            }
         }
 
         th{
-            padding: 3px;
-            background-color: $maroon;
+            padding: 0.7rem 1rem !important;
+            background-color: $gold;
             color: #FFFFFF;
 
             a { 
-                color: #FFFFFF
+                color: #FFFFFF;
+                &:hover{
+                    text-decoration: none; 
+                    background: transparent;
+                }
             }
         }
 
 
     &.table-linesh{
         td{
-            border-top: 1px solid $gold;
-            border-bottom: 1px solid $gold;
+            border-top: 1px solid $khaki;
+            border-bottom: 1px solid $khaki;
         }
     }
 
     &.table-linesv{
+        border-bottom: 1px solid $khaki;
         td{
-            border-left: 1px solid $gold;
-            border-right: 1px solid $gold;
+            border-left: 1px solid $khaki;
+            border-right: 1px solid $khaki;
         }
+        th {border: 1px solid #887860;}
     }
 
-    &.table-alt tr.even td {
-        background-color: $sandstone;
+    &.table-alt tr.odd td {
+        background-color: $light-sandstone;
     }
 
     &.table-fontsm td {
@@ -44,6 +57,13 @@
 
     &.table-align-right td, &.table-align-right th {
         text-align: right;
+    }
+
+    .tableSortArrow{
+        font-size: 1.5rem; 
+        position: relative; 
+        left: 0.8rem; 
+        bottom: 0.1rem;
     }
 }
 
@@ -59,7 +79,7 @@
             display: none; 
         }
         tr {
-            margin-bottom: 10px;
+            margin-bottom: 0px !important;
             display: block;
             border-bottom: 2px solid $gold;
         }
