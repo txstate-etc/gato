@@ -23,10 +23,10 @@
     <div class="gato-textimage-imageblock ${float} ${cols} ${content.imageCaption?has_content?string('hascaption', '')}" style="max-width: ${sizes};">
       [@linkifdefined href=content.imageLink]
         <img src="${gf.getImgDefault(content.image, sizes)}" sizes="${sizes}" alt="${content.imageAlt!}" srcset="${gf.getSrcSet(content.image)}" />
-        [#if (content.imageCaption)?has_content]
-          <div class="gato-textimage-caption">${decodedContent.imageCaption}</div>
-        [/#if]
       [/@linkifdefined]
+      [#if (content.imageCaption)?has_content]
+        <div class="gato-textimage-caption">${decodedContent.imageCaption}</div>
+      [/#if]
     </div>
   [/#if]
   [#if float != 'bottom']${gf.processRichText(decodedContent.text)}[/#if]
