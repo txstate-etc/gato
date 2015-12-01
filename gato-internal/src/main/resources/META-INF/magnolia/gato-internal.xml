@@ -29,6 +29,9 @@
     <dependency>
       <name>observation</name>
     </dependency>
+    <dependency>
+      <name>gato-lib</name>
+    </dependency>
   <!-- Add other dependencies here, e.g the standard-templating-kit, or the multisite module with the enterprise edition. -->
   <!--
     <dependency>
