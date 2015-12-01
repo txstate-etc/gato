@@ -7,7 +7,7 @@
     <sv:value>8dd59b94-b8d7-44ba-b757-aa91bd233d03</sv:value>
   </sv:property>
   <sv:property sv:name="class" sv:type="String">
-    <sv:value>edu.txstate.its.gato.ImagingModuleResizer</sv:value>
+    <sv:value>edu.txstate.its.gato.GatoResizer</sv:value>
   </sv:property>
   <sv:property sv:name="jcr:createdBy" sv:type="String">
     <sv:value>admin</sv:value>
