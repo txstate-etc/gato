@@ -39,7 +39,7 @@
   border: 0px;
   color: $text-color;
   background: $background;
-  @include vendor-prefix(transition, all 0.1s ease-in-out);
+  @include vendor-prefix(transition, background 0.1s ease-in-out);
   @include box-shadow(0 4px $shadow);
   &:hover{
     background: $hover-background;
