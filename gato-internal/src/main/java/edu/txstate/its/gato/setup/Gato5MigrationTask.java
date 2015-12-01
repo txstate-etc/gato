@@ -491,14 +491,13 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
       NodeTypes.Renderable.set(newcomponent, "gato-template:components/banners");
 
       // move the images into an area called 'banners' inside the new component
-      if (!images.iterator().hasNext()) {
-        Node imagesparent = newcomponent.addNode("banners", NodeTypes.Area.NAME);
-        Node savefirstimage = null;
-        for (Node image : images) {
-          if (savefirstimage == null) savefirstimage = image;
-          NodeUtil.moveNode(image, imagesparent);
-          convertPropertyToBool(image, "inherit");
-        }
+      Node imagesparent = null;
+      Node savefirstimage = null;
+      for (Node image : images) {
+        if (imagesparent == null) imagesparent = newcomponent.addNode("banners", NodeTypes.Area.NAME);
+        if (savefirstimage == null) savefirstimage = image;
+        NodeUtil.moveNode(image, imagesparent);
+        convertPropertyToBool(image, "inherit");
       }
 
       // move over the settings, whether or not we had any images
