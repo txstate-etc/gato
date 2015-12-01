@@ -40,6 +40,16 @@
       <groupId>info.magnolia</groupId>
       <artifactId>magnolia-imaging-support</artifactId>
     </dependency>
+		<dependency>
+			<groupId>info.magnolia</groupId>
+			<artifactId>magnolia-module-mail</artifactId>
+			<version>5.3</version>
+		</dependency>
+		<dependency>
+			<groupId>info.magnolia</groupId>
+			<artifactId>magnolia-module-observation</artifactId>
+			<version>2.0.4</version>
+		</dependency>
     <dependency>
       <groupId>info.magnolia.templating</groupId>
       <artifactId>magnolia-templating-essentials-models</artifactId>
