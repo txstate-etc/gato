@@ -113,7 +113,10 @@ var standardistaTableSorting = {
 
 			var spanEl = new Element('span');
 			spanEl.className = 'tableSortArrow';
-			spanEl.innerHTML = '&nbsp;';
+			var iconEl = new Element('i');
+			iconEl.className = 'fa';
+			spanEl.appendChild(iconEl);
+			//spanEl.innerHTML = '&nbsp;';
 			row.cells[i].appendChild(spanEl);
 
 		}
@@ -217,19 +220,23 @@ var standardistaTableSorting = {
 			if (arrowParent != td) {
 				spanEl = new Element('span');
 				spanEl.className = 'tableSortArrow';
-				spanEl.innerHTML = '&nbsp;';
+				//spanEl.innerHTML = '&nbsp;';
 				arrowParent.appendChild(spanEl);
 			}
 		}
 		
 		// now, add back in some feedback 
 		var spanEl = new Element('span');
+		var iconEl = new Element('i');
+		spanEl.appendChild(iconEl);
 		spanEl.className = 'tableSortArrow';
 		if (null == previousSortOrder || '' == previousSortOrder || 'DESC' == previousSortOrder) {
-			spanEl.appendChild(document.createTextNode(' \u2191'));
+			//spanEl.appendChild(document.createTextNode(' \u2191'));
+			iconEl.className = "fa fa-chevron-up";
 			spanEl.setAttribute('sortOrder', 'ASC');
 		} else {
-			spanEl.appendChild(document.createTextNode(' \u2193'));
+			//spanEl.appendChild(document.createTextNode(' \u2193'));
+			iconEl.className = "fa fa-chevron-down";
 			spanEl.setAttribute('sortOrder', 'DESC');
 		}
 		
