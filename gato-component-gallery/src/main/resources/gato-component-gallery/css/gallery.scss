@@ -1,39 +1,39 @@
-.txst-gallery {
-  list-style: none inside;
-  font-size: 0px;
-  margin: 0px;
-  padding: 0px;
-  width: calc(100% + 6px);
+.gato-component {
+  .txst-gallery {
+    list-style: none inside;
+    font-size: 0px;
+    margin: 0px;
+    padding: 0px;
+    width: calc(100% + 6px);
 
-  .txst-gallery-image {
-    padding: 3px 6px 3px 0;
-    
-    a {
-      display: block;
-      padding: 0px;
-      margin: 0px;
-      opacity: 0.9; 
-      background: transparent;
-      @include vendor-prefix(transition, opacity 0.3s ease-out);
-      &:hover {
-        background: transparent;
-        opacity: 1;
-      }
-
-      img {
+    .txst-gallery-image {
+      padding: 3px 6px 3px 0;
+      box-sizing: border-box;
+      a {
         display: block;
-        width: 100%;
+        padding: 0px;
+        margin: 0px;
+        opacity: 0.9;
+        background: transparent;
+        @include vendor-prefix(transition, opacity 0.3s ease-out);
+        &:hover {
+          background: transparent;
+          opacity: 1;
+        }
+
+        img {
+          display: block;
+          width: 100%;
+        }
       }
     }
   }
-}
 
 .txst-gallery[min-width~="400px"] {
   width: calc(100% + 16px);
 	.txst-gallery-image {
   	padding: 8px 16px 8px 0;
   }
-}
 
 .txst-gallery[min-width~="800px"] {
   width: calc(100% + 24px);
