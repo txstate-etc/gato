@@ -106,7 +106,7 @@ class MoveRichEditorToDamTask extends MoveFCKEditorContentToDamMigrationTask {
   // in magnolia's task this crashed the upgrade when it encountered a broken link
   public final Pattern HREF_PATTERN = Pattern.compile("(href\\s*=\\s*['\"])([^'\"]+)(['\"])");
   public final Pattern SRC_PATTERN = Pattern.compile("(src\\s*=\\s*['\"])([^'\"]+)(['\"])");
-  public final Pattern URL_PATTERN = Pattern.compile("(url\\()([^\\)]*)(\\))");
+  public final Pattern URL_PATTERN = Pattern.compile("(url\\(['\"]?)([^\\)]*)(['\"]?\\))");
   protected void handleTextProperty(Node node, Property property) throws LinkException, RepositoryException {
     String propString = property.getString();
     if (StringUtils.isBlank(propString)) return;
