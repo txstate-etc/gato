@@ -3,3 +3,5 @@ renderType: freemarker
 title: Image
 description: Individual photo in a gallery
 dialog: gato-component-gallery:components/image
+parameters:
+  icon: /gato-component-gallery/images/image.png
