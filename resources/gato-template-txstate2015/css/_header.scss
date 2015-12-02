@@ -93,7 +93,7 @@
 .banner {
     @include vertical-gradient($banner-top, $banner-bottom);
     border-bottom: 2px solid $banner-bottom-border;
-    padding: 0 1rem; width: 100% !important;
+    padding: 0 2rem;
     height: 60px;
 }
 .banner_content {margin: auto;}
@@ -220,16 +220,16 @@ body.admin .header_no_image {
       color: $header-text;
       background: $header-background;
       background: rgba($header-background, .98);
-      padding: 7px 16px;
-      line-height: 20px;
+      padding: 0.7rem 2rem;
+      line-height: 2rem;
       float: left;
-      margin-bottom: -18px;
+      margin-bottom: -1.8rem;
       @media (min-width: $xs-breakpoint) { margin-bottom: 10px; }
     }
     .office_name {
       clear: both;
       margin: 0;
-      padding: 14px 16px 8px 16px;
+      padding: 1.4rem 2rem 0.8rem 2rem;
       font-family: $garamond;
       font-size: 2.9rem;
       font-weight: normal;

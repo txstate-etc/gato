@@ -61,18 +61,19 @@
       text-align: center;
     }
   }
-  .mobile_trail .breadcrumbs {
-    font-size: 1.4rem;
-    margin-bottom: 1.8rem;
-    text-align: left;
-    color: $hamburger-menu-color;
-    a { color: $hamburger-menu-color; }
-  }
   .mobile_nav_container {
     padding: 1.8rem;
     letter-spacing: 1px;
-    .mobile-page-title {
+    line-height: 2.4rem;
+    .mobile_trail .breadcrumbs {
+      font-size: 1.4rem;
+      margin-bottom: 1.8rem;
+      text-align: left;
       color: $hamburger-menu-color;
+      a { color: $hamburger-menu-color; }
+    }
+    .mobile-page-title {
+      a { color: $hamburger-menu-color; }
       font-family: $garamond;
       font-weight: normal;
       font-size: 2.8rem;
@@ -100,7 +101,7 @@
           a {
             padding: 0.9rem 1.8rem;
             text-transform: none;
-            font-size: 1.7rem;
+            font-size: 1.6rem;
             font-weight: normal;
             border-top: 1px solid $light-charcoal;
             border-bottom: 1px solid $darkest-charcoal;
@@ -111,7 +112,9 @@
     }
   }
   .mobile-super-list {
+    letter-spacing: 1px;
     padding: 1rem 0;
+    line-height: 2.4rem;
     &.upper {
       background-color: $mobile-super-user;
     }
@@ -134,7 +137,7 @@
       margin-left: 6px;
     }
     .gato-accordion-content a {
-      padding: 0.7rem 2.4rem;
+      padding: 0.7rem 3rem;
       font-size: 1.4rem;
     }
   }

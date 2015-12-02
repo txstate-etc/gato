@@ -25,7 +25,7 @@
         <img src="${gf.getImgDefault(content.image, sizes)}" sizes="${sizes}" alt="${content.imageAlt!}" srcset="${gf.getSrcSet(content.image)}" />
       [/@linkifdefined]
       [#if (content.imageCaption)?has_content]
-        <div class="gato-textimage-caption">${decodedContent.imageCaption}</div>
+        <caption class="gato-textimage-caption">${decodedContent.imageCaption}</caption>
       [/#if]
     </div>
   [/#if]

@@ -1,5 +1,5 @@
 .sidebar {
-    padding: 0 20px;
+    padding: 0 2rem;
     position: absolute;
     top: 2.9rem;
     right: 0px;
@@ -16,26 +16,27 @@
   .side_nav_header {
     color: $side-nav-header-text;
     font-weight: 700;
-    padding: 0.3rem 1.6rem;
-    font-size: 0.9em;
-    a { color: $side-nav-link-text; }
+    padding: 0.3rem 1.8rem;
+    font-size: 1.6rem;
+    a { color: $side-nav-link-text; text-decoration: none; }
   }
   .side_nav_list {
+
     a {
       line-height: 1.5em;
-      padding: 4px 20px;
+      padding: 0.3rem 1.8rem;
       color: $side-nav-link-text;
       text-decoration: underline;
-      font-size: 0.80em;
+      font-size: 1.4rem;
     }
     i, img {
       display: inline-block;
-      margin-right: 10px;
-      font-size: 1.4em;
+      margin-right: 1rem;
+      font-size: 1.8rem;
       float: none;
     }
     img {
-      height: 0.9em;
+      height: 1.5rem;
     }
     .gato-sociallink {
       line-height: 1.4em;

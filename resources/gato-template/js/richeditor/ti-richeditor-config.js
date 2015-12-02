@@ -1,5 +1,5 @@
 /**
-     The rich editor in the text and image paragraph does not need as many tools as the one in 
+     The rich editor in the text and image paragraph does not need as many tools as the one in
      * the rich editor paragraph.
      */
     CKEDITOR.editorConfig = function( config ) {
@@ -11,17 +11,17 @@
                    lists: true,
                    source: true,
                    tables: false,
-   
+
                    colors: null,
                    fonts: null,
                    fontSizes: null
            }
-   
+
            // MIRROR info.magnolia.ui.form.field.factory.RichTextFieldFactory
            removePlugins = [];
-   
+
            // CONFIGURATION FROM DEFINITION
-   
+
            if (definition.fonts != null) {
                    config.font_names = definition.fonts;
            } else {
@@ -48,13 +48,13 @@
                 config.stylesSet.push({ name: "Subscript", element: "sub"});
                 config.stylesSet.push({ name: "Strike Out", element: "s"});
                 config.stylesSet.push({ name: 'Computer Code',  element: 'code' });
-   
+
            // DEFAULT CONFIGURATION FROM FIELD FACTORY
            removePlugins.push("elementspath");
            removePlugins.push("filebrowser");
            config.removePlugins = removePlugins.join(",");
            config.extraPlugins = "magnolialink,magnoliaFileBrowser";
-   
+
            config.width = 660;
            config.allowedContent = true;
            config.bodyClass = "txst-styledcontent txst-contentarea-paragraph";

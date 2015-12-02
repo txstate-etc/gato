@@ -41,7 +41,7 @@
   [/#if]
   [#if !alttext?has_content]
     [#-- unrecognized service, let's see if we can regex out the top two levels of their domain name --]
-    [#assign alttext = content.link?replace('^.*//','','r')?replace('/.*', '', 'r')?replace('^[^\\.]*\\.([^\\.]\\.[^\\.]*)$','$1','r')]
+    [#assign alttext = content.link?replace('^.*//','','r')?replace('/.*', '', 'r')?replace('^[^\\.]*\\.([^\\.]*\\.[^\\.]*)$','$1','r')]
     [#if !alttext?has_content][#assign alttext = "Social Link"][/#if]
   [/#if]
 

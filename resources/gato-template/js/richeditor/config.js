@@ -23,17 +23,17 @@
                    lists: true,
                    source: true,
                    tables: true,
-   
-                   colors: "A78130,000000,666666,5E9201,993333,FFFFFF",
+
+                   colors: "222222,501214,6a5638,363534,b30e1b",
                    fonts: null,
                    fontSizes: null
            }
-   
+
            // MIRROR info.magnolia.ui.form.field.factory.RichTextFieldFactory
            removePlugins = [];
-   
+
            // CONFIGURATION FROM DEFINITION
-   
+
           if (definition.colors != null) {
                    config.colorButton_colors = definition.colors;
                    config.colorButton_enableMore = true;
@@ -71,13 +71,13 @@
                 config.stylesSet.push({ name: "Subscript", element: "sub"});
                 config.stylesSet.push({ name: "Strike Out", element: "s"});
                 config.stylesSet.push({ name: 'Computer Code',  element: 'code' });
-   
+
            // DEFAULT CONFIGURATION FROM FIELD FACTORY
            removePlugins.push("elementspath");
            removePlugins.push("filebrowser");
            config.removePlugins = removePlugins.join(",");
            config.extraPlugins = "magnolialink,magnoliaFileBrowser,dialogui,dialog,clipboard,lineutils,widget,image2";
-   
+
            config.width = 660;
            config.allowedContent = true;
            config.bodyClass = "txst-styledcontent txst-contentarea-paragraph";

@@ -28,7 +28,7 @@
 				<div class="mobile_trail">
 					[@breadcrumbs/]
 				</div>
-				<h3 class="mobile-page-title">${gf.nodeTitle(content)}</h3>
+				<h3 class="mobile-page-title"><a href="${cmsfn.link(homepage)}">${gf.nodeTitle(homepage)}</a></h3>
 				[#import "includes/mobile-menu.ftl" as menu]
 				[@menu.menuBar isMobile=true/]
 			</div>

@@ -5,7 +5,7 @@
   position: relative;
   font-size: 1.5rem;
   line-height: 2.6rem;
-  @media (min-width: $sm-breakpoint) { font-size: 1.2rem; line-height: 2rem; }
+  @media (min-width: $xs-breakpoint) { font-size: 1.2rem; line-height: 2rem; }
   a {
     padding: 5px;
     margin: -5px;
@@ -60,7 +60,7 @@
 
 
 .footer_column {
-  padding: 0 20px;
+  padding: 0 2rem;
   @media (min-width: $xs-breakpoint) {
     width: 33.33%;
     float: left;
