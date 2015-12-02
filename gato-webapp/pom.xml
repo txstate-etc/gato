@@ -89,6 +89,11 @@
       <artifactId>magnolia-rest-tools</artifactId>
     </dependency>
     <dependency>
+      <groupId>info.magnolia.restclient</groupId>
+      <artifactId>magnolia-rest-client-app</artifactId>
+      <version>1.0.6</version>
+    </dependency>
+    <dependency>
       <groupId>info.magnolia.devdect</groupId>
       <artifactId>magnolia-module-device-detection</artifactId>
     </dependency>

@@ -34,6 +34,7 @@ public class GatoLibVersionHandler extends DefaultModuleVersionHandler {
     List<Task> tasks = new ArrayList<Task>();
     tasks.add(new InstallRendererContextAttributeTask("rendering", "freemarker", "gf", GatoUtils.class.getName()));
     tasks.add(new InstallRendererContextAttributeTask("site", "site", "gf", GatoUtils.class.getName()));
+    tasks.add(new InstallRendererContextAttributeTask("site", "site", "restfn", "info.magnolia.resteasy.client.functions.RestTemplatingFunctions"));
     return tasks;
   }
 }
