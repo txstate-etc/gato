@@ -2,6 +2,7 @@ $magnolia-green: #6a9000;
 
 $bar-color: #00BEA8;
 $bar-text: #000000;
+$move-target-bar: #00f2d6;
 
 .mgnlEditor {
   &.mgnlEditorBar {
@@ -97,12 +98,18 @@ body {
   }
 
   div.mgnlEditorBar.area.childFocus ~ div.mgnlEditorBar.component.moveTarget, div.mgnlEditorBar.area.childFocus ~ * div.mgnlEditorBar.component.moveTarget {
-    border: 1px solid #6a9000 !important;
+    border: 1px solid $bar-color !important;
+   
+  }
+
+  div.mgnlEditorBar.mgnlEditor.component.moveTarget.moveOver{
+    background: $move-target-bar !important;
+    border: none !important;
   }
 
   //when moving a component, this style is used for the target component on hover
   div.mgnlEditorBar.area.childFocus ~ div.mgnlEditorBar.component.moveOver, div.mgnlEditorBar.area.childFocus ~ * div.mgnlEditorBar.component.moveOver {
-    background-color: blue !important;
+    background-color: $move-target-bar !important;
   }
 
   div.mgnlEditorBar.area.childFocus ~ div.mgnlPlaceholder div.mgnlPlaceholderBox, div.mgnlEditorBar.area.childFocus ~ * div.mgnlPlaceholder div.mgnlPlaceholderBox, div.mgnlEditorBar.area.init ~ * div.mgnlPlaceholder div.mgnlPlaceholderBox, div.mgnlEditorBar.area.init ~ div.mgnlPlaceholder div.mgnlPlaceholderBox {
