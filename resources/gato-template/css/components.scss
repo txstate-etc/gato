@@ -8,5 +8,11 @@
 
 .column_paragraph {
   clear: both;
-  padding: 0px 0px 2rem 0px;
+  margin: 0px 0px 2rem 0px;
+  &:after {
+    content: " ";
+    display: block;
+    height: 0px;
+    clear: both;
+  }
 }
