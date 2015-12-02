@@ -10,6 +10,10 @@
 	height: 270px;
 }
 
+body.admin .tsus-home-content{
+    height: 325px;
+}
+
 .tsus-home-contentbox {
 	position: relative;
 	float: left;
@@ -95,6 +99,8 @@
 	padding-left: 0px;
 	padding-top: 5px;
 	border-top: 1px solid #d5d5d5;
+    font-size: 1.1rem;
+    line-height: 1.3rem;
 }
 .gato-twitter-feed .center-me {
 	display: block;
@@ -105,6 +111,7 @@
 	padding-left: 3px;
 	padding-right: 3px;
 	border-bottom: 1px solid #d5d5d5;
+    margin-bottom: 0.5rem;
 }
 .gato-twitter-feed .tweet-logo-link {
 	display: none;
@@ -137,6 +144,10 @@
 	display: inline;
 	color: #293e6b;
 	margin-left: 5px;
+}
+
+.gato-twitter-list .tweet .tweet-body a.created_at{
+    font-size: 1.1rem;
 }
 
 .gato-navcolumn {
