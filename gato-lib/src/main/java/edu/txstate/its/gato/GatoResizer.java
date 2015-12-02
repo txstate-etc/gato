@@ -35,6 +35,10 @@ public class GatoResizer {
     }
   }
 
+  public String createLink(String url) {
+    return url;
+  }
+
   public void setCrop(float left, float right, float top, float bottom) {
   	this.cropleft = left;
   	this.cropright = right;

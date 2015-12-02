@@ -29,10 +29,32 @@ public class TxStateResizer extends GatoResizer {
     try {
 
       String mgnlpath = gf.absoluteUrl("/dam/"+asset.getItemKey().asString()+"/"+URLEncoder.encode(URLEncoder.encode(asset.getFileName()))).replaceAll("^\\w{3,15}://", "");
+
+      String returl = gf.getImageHandlerBase()+gf.getCacheStr(asset)+"/imagehandler/scaler/"+mgnlpath;
+      return buildUrl(returl);
+    } catch (Exception e) {
+      e.printStackTrace();
+      return "";
+    }
+  }
+
+  @Override
+  public String createLink(String url) {
+    try {
+
+      String returl = gf.getImageHandlerBase()+gf.getCacheStr(url)+"/imagehandler/scaler/"+url.replaceAll("^\\w{3,15}://", "");
+      return buildUrl(returl);
+    } catch (Exception e) {
+      e.printStackTrace();
+      return "";
+    }
+  }
+
+  protected String buildUrl(String url) {
       String mode = "fit";
       if (zoom) mode = "clip";
 
-      String returl = gf.getImageHandlerBase()+gf.getCacheStr(asset)+"/imagehandler/scaler/"+mgnlpath+"?mode="+mode;
+      String returl = url+"?mode="+mode;
       if (width > 0) returl += "&amp;width="+width;
       if (height > 0) returl += "&amp;height="+height;
       if (croptop > 0) returl += "&amp;croptop="+croptop;
@@ -41,9 +63,6 @@ public class TxStateResizer extends GatoResizer {
       if (cropright > 0) returl += "&amp;cropright="+cropright;
       if (!upscale) returl += "&amp;nogrow=1";
       return returl;
-    } catch (Exception e) {
-      e.printStackTrace();
-      return "";
-    }
   }
+
 }

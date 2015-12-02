@@ -45,7 +45,7 @@
         <div class="eq-ml-3-12 eq-xl-2-12">
           [#if item.image?has_content]
             <div class="txst-eventdetail-thumbnail">
-              <img alt="${item.title}" src="${item.image}" />
+              <img alt="${item.title}" src="${gf.getImg(item.image, 600, 0, false, false, 0, 0, 0, 0)}" />
             </div>
           [/#if]
 

@@ -27,7 +27,7 @@
 
     .txst-eventdetail-thumbnail {
       overflow: hidden;
-      max-height: 24rem;
+      max-height: 32rem;
       width: 100%;
     }
 
@@ -102,7 +102,7 @@
 
   &[min-width~='400px'] div.txst-eventdetail {
     div.txst-eventdetail-thumbnail {
-      max-height: 32rem;
+      max-height: 64rem;
     }
 
     a.txst-eventdetail-addtocalendar {
@@ -133,7 +133,7 @@
     div.txst-eventdetail-thumbnail {
       padding-left: 3rem;
       padding-top: 3rem;
-      max-height: 12rem;
+      max-height: 18rem;
       img { width: inherit; min-width: 100%;  max-width: 150%; }
     }
     a.txst-eventdetail-addtocalendar {
@@ -167,7 +167,7 @@
     }
 
     div.txst-eventdetail-thumbnail {
-      max-height: 16rem;
+      max-height: 24rem;
     }
   }
 

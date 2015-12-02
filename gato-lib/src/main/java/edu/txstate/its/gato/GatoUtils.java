@@ -365,9 +365,15 @@ public final class GatoUtils {
     }
   }
 
-  public String getImg(Object assetOrId, int width, int height, boolean zoom, boolean upscale, float left, float right, float top, float bottom) {
-    Asset asset = toAsset(assetOrId);
-    if (asset == null) return "";
+  public String getImg(Object assetOrIdOrUrl, int width, int height, boolean zoom, boolean upscale, float left, float right, float top, float bottom) {
+    String url = null;
+    Asset asset = null;
+    if (assetOrIdOrUrl instanceof String && ((String)assetOrIdOrUrl).matches("^(\\w{3,15}:)?//.*")) {
+      url = ((String)assetOrIdOrUrl);
+    } else {
+      asset = toAsset(assetOrIdOrUrl);
+    }
+    if (asset == null && url == null) return "";
     try {
       GatoResizer srv = getResizer();
       srv.setHeight(height);
@@ -375,6 +381,9 @@ public final class GatoUtils {
       srv.setZoom(zoom);
       srv.setUpscale(upscale);
       srv.setCrop(left, right, top, bottom);
+      if (url != null) {
+        return srv.createLink(url);
+      }
       return srv.createLink(asset);
     } catch (Exception e) {
       e.printStackTrace();
