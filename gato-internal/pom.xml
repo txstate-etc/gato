@@ -39,6 +39,10 @@
       <artifactId>magnolia-pages-app</artifactId>
     </dependency>
     <dependency>
+      <groupId>info.magnolia.activation</groupId>
+      <artifactId>magnolia-module-activation</artifactId>
+    </dependency>
+    <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>servlet-api</artifactId>
     </dependency>

@@ -38,7 +38,6 @@ public class TxStateResizer extends GatoResizer {
     }
   }
 
-  @Override
   public String createLink(String url) {
     try {
 
