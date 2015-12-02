@@ -84,6 +84,16 @@ jQuery(document).ready(function($) {
     	slideout.toggle();
     });
 
+    $(document).on('click', function(event) {
+      //If they did not click on the menu button or on the mobile menu itself
+      if (!jQuery(event.target).is('.toggle-button') && !jQuery(event.target).closest('#menu').length) {
+        //if the menu is open, close it
+        if(slideout.isOpen()){ 
+          slideout.close();
+        }
+      }
+    });
+
   $('.more-tools > a').hovermenu('.super-list-sub');
 });
 
