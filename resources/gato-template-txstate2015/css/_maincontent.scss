@@ -29,6 +29,8 @@
 
 .column_paragraph {
   margin: 0px 0px 4rem 0px;
+  img { max-width: 100%; }
+  table img { max-width: none; }
 }
 
 .trail {
