@@ -1,2 +1,5 @@
 /* should be first, to set up variables for other scss files to use */
 @import "gato-lib/css/variables";
+
+/* Standard component colors */
+$separator-color: $dark-gray;

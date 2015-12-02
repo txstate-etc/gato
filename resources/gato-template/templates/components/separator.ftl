@@ -1,3 +1,3 @@
 <div class="gato-separator">
-    <hr />
+  <hr>
 </div>
