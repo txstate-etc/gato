@@ -32,7 +32,7 @@
 			<sv:value>admin</sv:value>
 		</sv:property>
 		<sv:property sv:name="link" sv:type="String">
-			<sv:value>#</sv:value>
+			<sv:value>http://www.txstate.edu/about</sv:value>
 		</sv:property>
 		<sv:property sv:name="mgnl:activationStatus" sv:type="Boolean">
 			<sv:value>false</sv:value>
@@ -73,7 +73,7 @@
 			<sv:value>admin</sv:value>
 		</sv:property>
 		<sv:property sv:name="link" sv:type="String">
-			<sv:value>#</sv:value>
+			<sv:value>http://www.txstatebobcats.com/</sv:value>
 		</sv:property>
 		<sv:property sv:name="mgnl:activationStatus" sv:type="Boolean">
 			<sv:value>false</sv:value>
@@ -114,7 +114,7 @@
 			<sv:value>admin</sv:value>
 		</sv:property>
 		<sv:property sv:name="link" sv:type="String">
-			<sv:value>#</sv:value>
+			<sv:value>http://www.ua.txstate.edu/</sv:value>
 		</sv:property>
 		<sv:property sv:name="mgnl:activationStatus" sv:type="Boolean">
 			<sv:value>false</sv:value>
