@@ -8,6 +8,17 @@ areas:
     !include /gato-component-cssjs/templates/areas/customcss.yaml
   customjs:
     !include /gato-component-cssjs/templates/areas/customjs.yaml
+  footerLinks:
+    renderType: freemarker
+    type: list
+    inheritance:
+      enabled: true
+      components: all
+    title: Footer Links
+    templateScript: /gato-template-txstate2015/templates/pages/areas/footer-links.ftl
+    availableComponents:
+      link:
+        id: gato-template:components/link
   presPhoto:
     !include /gato-template-txstate2015/templates/areas/textImageContent.yaml
   presMessage:
