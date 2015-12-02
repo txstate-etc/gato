@@ -166,13 +166,19 @@ class MoveRichEditorToDamTask extends MoveFCKEditorContentToDamMigrationTask {
 
         // let's see if we have a gato-docs link
         } else if (path.startsWith("http://gato-docs.its.txstate.edu/")) {
+          Path dmspath = Paths.get(path.substring(32).replaceAll("\\.[^\\.]+$", ""));
+          Node damItem = null;
           try {
-            Path dmspath = Paths.get(path.substring(32));
-            Node damItem = damSession.getNode(dmspath.getParent().toString());
-            path = getDamLink(damItem);
+            damItem = damSession.getNode(dmspath.toString());
           } catch (Exception e) {
-            // no match, we tried
+            try {
+              damItem = damSession.getNode(dmspath.getParent().toString());
+            } catch (Exception e2) {
+              // no match, give up
+            }
           }
+          if (damItem != null && NodeUtil.isNodeType(damItem, AssetNodeTypes.Asset.NAME))
+            path = getDamLink(damItem);
         }
 
         matcher.appendReplacement(result, "$1" + Matcher.quoteReplacement(path) + "$3");
