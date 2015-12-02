@@ -745,7 +745,7 @@ public final class GatoUtils {
       if (!NodeUtil.isNodeType(n,NodeTypes.Page.NAME)) visitComponents(n, v);
     }
   }
-  public List<ContentMap> searchComponentsOnPageOrderByModDate(ContentMap page, List<String> templateIds) throws Exception {
+  public List<ContentMap> searchComponentsOnPageInJcrOrder(ContentMap page, List<String> templateIds) throws Exception {
     List<ContentMap> ret = new ArrayList<ContentMap>();
     Map<String, Boolean> map = new HashMap<String, Boolean>();
     for (String tid : templateIds)
@@ -754,6 +754,10 @@ public final class GatoUtils {
       if (map.containsKey(NodeTypes.Renderable.getTemplate(n)))
         ret.add(tf.asContentMap(n));
     });
+    return ret;
+  }
+  public List<ContentMap> searchComponentsOnPageOrderByModDate(ContentMap page, List<String> templateIds) throws Exception {
+    List<ContentMap> ret = searchComponentsOnPageInJcrOrder(page, templateIds);
     Collections.sort(ret, new Comparator<ContentMap>(){
       public int compare(ContentMap c1, ContentMap c2){
         return getModificationDate(c1).compareTo(getModificationDate(c2));
