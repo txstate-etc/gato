@@ -13,6 +13,7 @@ jQuery( document ).ready(function($) {
   magnolialabelchange('.link_add', '.mgnlEditor.mgnlPlaceholder', 'Add Link');
   magnolialabelchange('.contactInfo_add', '.mgnlEditor.mgnlPlaceholder', 'Add Contact Information');
   magnolialabelchange('.headerImage_admin', '.mgnlEditor.mgnlPlaceholder', 'Set Banner Image');
+  magnolialabelchange('.gato-banners-admin', '.mgnlEditor.mgnlPlaceholder', 'Set Banner Images');
   magnolialabelchange('.slide_add', '.mgnlEditor.mgnlPlaceholder', 'Add Slide');
   magnolialabelchange('.content_add', '.mgnlEditor.mgnlPlaceholder', 'Add Content');
   magnolialabelchange('.imageLink_add', '.mgnlEditor.mgnlPlaceholder', 'Add Image Link');
