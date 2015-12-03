@@ -19,6 +19,17 @@ areas:
     availableComponents:
       link:
         id: gato-template:components/link
+  siteinfo:
+    renderType: freemarker
+    type: single
+    title: Contact Information
+    inheritance:
+      enabled: true
+      components: all
+    availableComponents:
+      miscText:
+        id: gato-template:components/misctext
+    templateScript: /gato-template-txstate2015/templates/pages/areas/contact-information.ftl
   presPhoto:
     !include /gato-template-txstate2015/templates/areas/textImageContent.yaml
   presMessage:
