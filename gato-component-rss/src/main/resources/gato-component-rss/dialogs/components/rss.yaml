@@ -52,7 +52,7 @@ form:
         - name: hideFeedInformation
           class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
           label: Hide Feed Information
-          buttonLabel: If you do not wish to show information on the feed from which these articles are pulled, check this box.
+          buttonLabel: Do not show information on the feed from which these articles are pulled
         - name: showDates
           class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
           label: Show Created Date
