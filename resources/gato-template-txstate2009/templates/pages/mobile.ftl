@@ -43,7 +43,7 @@
     [#if def.parameters.isMailTemplate!false]
       [@cms.area name="mail" /]
     [#else]
-      [@cms.area name="contentParagraph" /]
+      [@cms.area name="contentParagraph" contextAttributes={"iam2009tmpl": true} /]
     [/#if]
   </div>
   [@mobilemenu page/]
