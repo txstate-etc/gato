@@ -16,16 +16,8 @@
       }
     }
     div.image {
-      position: relative;
-      padding-bottom: 56.25%;
       overflow: hidden;
       img.bg {
-        position: absolute;
-        top: -9999px;
-        bottom: -9999px;
-        left: -9999px;
-        right: -9999px;
-        margin: auto;
         width: 100%;
       }
     }

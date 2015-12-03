@@ -7,7 +7,7 @@
   </div>
 [/#if]
 <div class="slides">
-  [#assign aspectratio = 16.0/9.0]
+  [#assign aspectratio = 3.0/2.0]
   [#list components as slide]
     [#assign colorClass = ctx.colorClass /]
     [#if !colorClass?matches("color[1-7]")]
