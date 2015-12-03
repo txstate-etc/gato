@@ -56,6 +56,8 @@ form:
                 class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
                 label: "Choose Link Target (optional):"
                 appName: pages
+                identifierToPathConverter:
+                  class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
               - name: inherit
                 class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
                 buttonLabel: Allow this image to be used on subpages.

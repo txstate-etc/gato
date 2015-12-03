@@ -182,6 +182,8 @@ subApps:
                 class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
                 label: Link
                 appName: pages
+                identifierToPathConverter:
+                  class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
                 description: "Title will be clickable. Enter a full URL (http://www.google.com/) or use the \"Internal Link\" button to link to another page in this site."
                 buttonSelectNewLabel: "Internal Link..."
               - name: rsscontent

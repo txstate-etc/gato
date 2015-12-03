@@ -8,6 +8,8 @@ form:
           label: Link
           targetWorkspace: website
           appName: pages
+          identifierToPathConverter:
+            class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
           required: true
           description: "Enter a full URL to an external site (http://www.google.com/) or use the \"Internal Link\" button to link to another page in this site."
           buttonSelectNewLabel: "Internal Link..."

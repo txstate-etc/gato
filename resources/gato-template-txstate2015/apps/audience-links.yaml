@@ -165,6 +165,8 @@ subApps:
                 class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
                 label: Link
                 appName: pages
+                identifierToPathConverter:
+                  class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
                 description: "Title will be clickable. Enter a full URL (http://www.google.com/) or use the \"Internal Link\" button to link to another page in this site."
                 buttonSelectNewLabel: "Internal Link..."
               - name: image
@@ -182,6 +184,8 @@ subApps:
                 class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
                 label: Image Link
                 appName: pages
+                identifierToPathConverter:
+                  class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
                 description: "Link for the image."
                 buttonSelectNewLabel: "Internal Link..."
               - name: alttext
@@ -202,6 +206,8 @@ subApps:
                 class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
                 label: Button Link
                 appName: pages
+                identifierToPathConverter:
+                  class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
                 description: "Link for the button at bottom of panel."
                 buttonSelectNewLabel: "Internal Link..."
               - name: featuredLinks
@@ -223,6 +229,8 @@ subApps:
                       class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
                       label: Link
                       appName: pages
+                      identifierToPathConverter:
+                        class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
                       buttonSelectNewLabel: "Internal Link..."
               - name: otherLinks
                 class: info.magnolia.ui.form.field.definition.MultiValueFieldDefinition
@@ -241,6 +249,8 @@ subApps:
                       class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
                       label: Link
                       appName: pages
+                      identifierToPathConverter:
+                        class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
                       buttonSelectNewLabel: "Internal Link..."
       nodeType:
         icon: icon-link-page

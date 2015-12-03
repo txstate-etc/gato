@@ -204,6 +204,8 @@ subApps:
                 label: Link Target
                 class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
                 appName: pages
+                identifierToPathConverter:
+                  class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
       nodeType:
         icon: icon-link-page
         name: mgnl:component
