@@ -8,6 +8,12 @@
       display: block;
       padding: 0;
       margin: 0;
+      text-decoration: none;
+      @include vendor-prefix(transition, opacity 0.3s ease-out);
+      &:hover {
+        background: transparent;
+        opacity: 0.9;
+      }
     }
     div.image {
       position: relative;
@@ -29,14 +35,16 @@
       left: 0px;
       width: 100%;
       box-sizing: border-box;
-      padding: 20px 20px 25px 20px;
+      padding: 2.5rem 2.8rem;
       font-size: 1.3em;
       h3 {
         color: inherit;
-        margin: 0px 0px 10px 0px;
+        margin: 0px 0px 2rem 0px;
+        font-size: 2.2rem;
       }
       p {
         margin: 0px;
+        font-size: 1.8rem;
       }
     }
     &.color1 .caption { background-color: rgba($mc1-bg, 0.9); color: $mc1-text; }
@@ -73,7 +81,7 @@
   }
   .slick-dots {
     position: absolute;
-    bottom: -45px;
+    bottom: -3.5rem;
     list-style: none;
     display: block;
     text-align: center;
@@ -85,7 +93,7 @@
         display: inline-block;
         height: 20px;
         width: 20px;
-        margin: 0 5px;
+        margin: 0 0.25rem;
         padding: 0;
         cursor: pointer;
         button {
@@ -104,6 +112,7 @@
                 outline: none;
                 &:before {
                     opacity: 1;
+                    color: $page-indicator-hover;
                 }
             }
             &:before {
@@ -119,6 +128,7 @@
                 color: $page-indicator-inactive;
                 -webkit-font-smoothing: antialiased;
                 -moz-osx-font-smoothing: grayscale;
+                @include vendor-prefix(transition, all 0.2s ease);
             }
         }
         &.slick-active button:before {
@@ -130,7 +140,6 @@
   &[max-width~="1200px"] {
     .slide {
       .caption {
-        padding: 15px 15px 25px 15px;
         font-size: 1.1em;
       }
     }
@@ -139,7 +148,6 @@
   &[max-width~="800px"] {
     .slide {
       .caption {
-        padding: 10px 10px 25px 10px;
         font-size: 1em;
       }
     }
@@ -163,7 +171,6 @@
   &[max-width~="400px"] {
     .slide {
       .caption {
-        padding: 6px;
         font-size: 0.9em;
       }
     }
@@ -172,7 +179,6 @@
   &[max-width~="200px"] {
     .slide {
       .caption {
-        padding: 4px;
         font-size: 0.8em;
         h3 { margin: 0px 0px 4px 0px; }
       }
