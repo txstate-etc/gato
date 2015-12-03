@@ -17,6 +17,7 @@ form:
           label: Data Type
           description: Ensure that your user only enters data matching this type.
           selectionType: select
+          styleName: dataType
           options:
             - name: none
               label: -- None --
@@ -100,6 +101,7 @@ form:
           description: "If you include fields for the submitter's name and email address, the emails you receive will have the FROM address set appropriately. Note: @txstate.edu email addresses will use the submitter's full name as recorded with the university, not the name entered."
           type: String
           sortOptions: false
+          styleName: senderInfo
           options:
             - name: none
               label: Normal Field
@@ -111,6 +113,10 @@ form:
             - name: email
               label: This field is the form submitter's email address
               value: email
+        - name: script
+          class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
+          initFunction: initFormEdit
+          scripts: [gato-area-mail/js/formedit.js]
 
 actions: !include /gato-template/dialogs/common/actions-block.yaml
 label: Text Field

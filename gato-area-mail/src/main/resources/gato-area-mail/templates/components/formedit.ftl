@@ -3,11 +3,15 @@
 [#assign formHasSenderEmail = ctx.request.getAttribute("formHasSenderEmail")!false]
 [#assign formHasSenderName = ctx.request.getAttribute("formHasSenderName")!false]
 [#assign inputType = "text"]
+[#assign dataType = content.dataType!]
 
-[#if (content.senderInfo!"") == "email" && !formHasSenderEmail]
-  [#assign title = "SenderEmail"]
-  [#assign inputType = "email"]
-  ${ctx.request.setAttribute("formHasSenderEmail", true)}
+[#if (content.senderInfo!"") == "email"]
+  [#assign dataType = "email"]
+  [#if !formHasSenderEmail]
+    [#assign title = "SenderEmail"]
+    [#assign inputType = "email"]
+    ${ctx.request.setAttribute("formHasSenderEmail", true)}
+  [/#if]
 [/#if]
 
 [#if (content.senderInfo!"") == "name" && !formHasSenderName]
@@ -29,7 +33,7 @@
 [#if content.lines == "single"]
   [#assign inputSize = "60"]
   [#assign validating = true]
-  [#switch content.dataType!""]
+  [#switch dataType]
     [#case "netid"]
     [#case "zip"]
       [#assign inputSize = "8"]
