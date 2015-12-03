@@ -17,6 +17,8 @@ ${ctx.response.setContentType('application/rss+xml;charset=UTF-8')}
 
 [#list gf.searchComponentsOnPageOrderByModDate(content, [
     'gato-template:components/textimage'
+    'gato-template:components/richeditor'
+    'gato-template:components/table'
   ]) as content]
   [#include cmsfn.metaData(content,'mgnl:template')?replace('^.*?:', '/gato-template-rss/templates/', 'r')+'.ftl']
 [/#list]
