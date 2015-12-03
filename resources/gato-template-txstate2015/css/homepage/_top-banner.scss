@@ -28,6 +28,7 @@ div#homepage-banner {
 
   .homepage-banner-logo, .homepage-banner-searchwrap {
     @extend .grid-cell;
+    letter-spacing: normal; 
     width: 50%;
   }
   
@@ -103,6 +104,7 @@ div#homepage-banner {
 
       .audience-link-tabs {
         @extend .grid-cell;
+        letter-spacing: normal; 
         text-align: center;
 
         ul {
@@ -202,6 +204,7 @@ div#homepage-banner {
 
           & > div {
             @extend .grid-cell;
+            letter-spacing: normal; 
             width: 33%;
             @media (min-width: $md-breakpoint) {
               width: 25%;
