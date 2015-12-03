@@ -3,10 +3,11 @@
     <h2>${content.title}</h2>
   [/#if]
 
-  <div class="gato-twitter-list">
+  <div class="gato-twitter-list eq-parent">
 
       [#list model.tweets as tweet]
-        <div class="tweet" id="tweet-${tweet.id}">
+        [@compress single_line=true]
+        <div class="tweet eq-md-1-3" id="tweet-${tweet.id}">
 
           <a class="tweet-logo-link" href="https://twitter.com/${tweet.screenName}" title="@${tweet.screenName}">
             <img class="tweet-logo" alt="Icon for user ${tweet.screenName}" src="${tweet.icon}"/>
@@ -26,6 +27,7 @@
 
           </div>
         </div>
+        [/@compress]
       [/#list]
       
       [#if cmsfn.editMode && (model.termCount == 0 || model.resultCount == 0 || !model.messages?has_content)]
