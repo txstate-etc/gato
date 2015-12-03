@@ -1,4 +1,4 @@
-jQuery( document ).ready(function() {
+jQuery( document ).ready(function($) {
   magnolialabelchange('.mainContent_add', '.mgnlEditor.mgnlPlaceholder', 'Add Section');
   magnolialabelchange('.navBlocks_add', '.mgnlEditor.mgnlPlaceholder', 'Add Link Group');
   magnolialabelchange('.listItems_add', '.mgnlEditor.mgnlPlaceholder', 'Add Link');
@@ -23,5 +23,6 @@ jQuery( document ).ready(function() {
   magnolialabelchange('#gato-customcss-modal', '.mgnlEditor.mgnlPlaceholder', 'Add Custom CSS');
   magnolialabelchange('.event_add', '.mgnlEditor.mgnlPlaceholder', 'Add Event');
   magnolialabelchange('.parentOrg_add', '.mgnlEditor.mgnlPlaceholder', 'Add Parent Organization');
+  titledlabelchange('.slider-edit-bar');
 });
 

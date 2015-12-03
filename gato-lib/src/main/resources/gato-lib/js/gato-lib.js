@@ -662,7 +662,15 @@ function magnolialabelchange(parentselector, selector, newlabel) {
     ele.find('.mgnlEditorBarLabel').html(newlabel).attr('title',newlabel);
   });
 }
-
+function titledlabelchange(parentselector, prefix) {
+  prefix = prefix || '';
+  waitforselector(parentselector, '.mgnlEditor.component', function (jqobj) {
+    jqobj.each(function (index, ele) {
+      ele = jQuery(ele);
+      ele.find('.mgnlEditorBarLabel').html(prefix+ele.parents(parentselector).attr('data-title'));
+    });
+  });
+}
 // jQuery plugin method for creating an accessible
 // hover menu
 // usage: $('a.linktohoverover').hovermenu('.thingtohideandshow');

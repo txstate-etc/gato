@@ -8,4 +8,6 @@
       [/#if]
     </div>
   </div>
+[#else]
+  <div class="slider-edit-bar" data-title="${content.title!'Slider Image'}" cms:edit></div>
 [/#if]
