@@ -17,7 +17,7 @@
     Event.observe( window, 'load', function() { hideAddressBar('load'); } );
     Event.observe( window, orientationChangeEventName, hideAddressBar );
   </script>
-  <link rel="apple-touch-icon" href="${gf.resourcePath()}/gato-template-txstate2009/images/txst_iphone_icon.png" />
+  <link rel="apple-touch-icon" href="${gf.resourcePath()}/gato-template-txstate2015/images/txst_iphone_icon.png" />
 </head>
 <body>
   <div id="iphone-banner-container">
