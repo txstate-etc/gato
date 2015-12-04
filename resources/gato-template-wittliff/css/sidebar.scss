@@ -97,17 +97,20 @@ div.rightComponent {
 	width:575px;
 	margin: 0px 0px 0px 40px;
 	padding: 40px 0px 15px 0px;
-	h1 {
-    font-family:Georgia;
-    color:#666600;
-    font-size: 20px;
-    line-height:20px;
-    font-weight:normal;
-    letter-spacing: 2px;
-    margin: 0px 0px 0px 0px;
-    padding: 0px 0px 10px 0px;
-    text-transform: uppercase;
-	}
+  hr {
+    margin: 0;
+  }
+}
+h1 {
+  font-family:Georgia;
+  color:#666600;
+  font-size: 20px;
+  line-height:20px;
+  font-weight:normal;
+  letter-spacing: 2px;
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
 }
 
 #contentmiddle {

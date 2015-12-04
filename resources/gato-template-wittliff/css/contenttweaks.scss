@@ -1,3 +1,34 @@
-.txst-form fieldset {
+.txst-form-body {
+  * { box-sizing: border-box; }
 	background-color: transparent;
+	.formelement {
+	  margin-bottom: 2rem;
+	}
+	input.text, textarea {
+	  border: 2px inset;
+	}
+	input.submit {
+	  box-shadow: none;
+	  background: #DDD;
+	  color: black;
+	  border: 2px outset;
+	  &:hover, &:active {
+	    box-shadow: none;
+	    background: #CCC;
+	  }
+	  &:active {
+	    top: 0px;
+	    border: 2px inset;
+	  }
+	}
+}
+
+.gato-textimage {
+  .gato-textimage-caption {
+    background-color: transparent;
+    color: #666666;
+    font-size: .8em;
+    line-height: 1.1em;
+    word-wrap: break-word;
+  }
 }

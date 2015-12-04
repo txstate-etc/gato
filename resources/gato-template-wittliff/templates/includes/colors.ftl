@@ -19,7 +19,7 @@
   }
 
   [#if inheritedContent['sectionhead-color']?has_content]
-    #sectionhead h1 { color: ${inheritedContent['sectionhead-color']}; }
+    h1 { color: ${inheritedContent['sectionhead-color']}; }
     hr {
       background-image: url(${gf.resourcePath()}/gato-template-wittliff/images/bg-section-sectionhead${ inheritedContent['sectionhead-color']?replace('#','') }.png);
     }

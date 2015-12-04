@@ -449,7 +449,7 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
         long width = img.getMetadata(MagnoliaAssetMetadata.class).getWidth();
         long statedwidth = PropertyUtil.getLong(n, "imageWidth", Long.valueOf(0));
         if (statedwidth < width && statedwidth > 0) width = statedwidth;
-        if (width > 600) {
+        if (width > 575) {
           log.info("changing textimage at "+n.getPath()+" to imageFloat=top");
           PropertyUtil.setProperty(n, "imageFloat", "top");
         }
