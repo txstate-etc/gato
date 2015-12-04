@@ -62,14 +62,14 @@
                   [#assign screen_name = post.path('screen_name').asText() /]
                   [#assign display_name = post.path('display_name').asText() /]
                   [#assign link = post.path('link').asText() /]
-                  [#assign caption = post.path('text').asText() /]
+                  [#assign caption = post.path('html').asText() /]
                   [#assign time = post.path('tweettime').asText() /]          
                   <div class="slide" style="${(post_index == 0)?string('','display:none;')}">
                     <p class="twitter-handle">
                       <a href="https://twitter.com/${screen_name!}">@${screen_name!}</a>
                     </p>
                     <p class="twitter-name">${display_name!}</p>
-                    <p class="tweet">${gf.linkifyTweet(caption)!}</p>
+                    <p class="tweet">${caption!}</p>
                     <p class="twitter-timestamp">[@timestamp time /]</p>
                   </div> 
                 [/#list]
