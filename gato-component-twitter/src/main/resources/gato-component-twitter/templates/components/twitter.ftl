@@ -7,7 +7,7 @@
 
       [#list model.tweets as tweet]
         [@compress single_line=true]
-        <div class="tweet eq-md-1-3" id="tweet-${tweet.id}">
+        <div class="tweet eq-lg-1-3" id="tweet-${tweet.id}">
 
           <a class="tweet-logo-link" href="https://twitter.com/${tweet.screenName}" title="@${tweet.screenName}">
             <img class="tweet-logo" alt="Icon for user ${tweet.screenName}" src="${tweet.icon}"/>
