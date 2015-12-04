@@ -1,8 +1,11 @@
 .gato-events {
   div.txst-eventdetail {
-    .txst-eventdetail-dates abbr {
-      border: none;
-      font-style: italic;
+    .txst-eventdetail-dates{
+      font-size: 1.5rem;
+      abbr {
+        border: none;
+        font-style: italic;
+      }
     }
 
     .gato-accordion-header {
@@ -14,6 +17,15 @@
       padding: 0;
       letter-spacing: -1rem;
       & > * { letter-spacing: normal; }
+      a {
+        text-decoration: underline; 
+        margin: 0; 
+        padding: 0;
+        &:hover{
+          background: transparent; 
+          text-decoration: none !important;
+        }
+      }
     }
 
     /*** 199px ***/
@@ -33,7 +45,7 @@
 
     a.txst-eventdetail-addtocalendar {
       color: $primarytext;
-      text-decoration: underline;
+      text-decoration: none;
       display: table;
       min-height: 5rem;
       margin: 0;
@@ -42,12 +54,31 @@
         padding-right: 1rem;
         vertical-align: middle;
       }
+      span.linktext{
+        text-decoration: underline;
+        line-height: 2rem;
+      }
 
       i.fa {
         font-size: 3.2rem;
       }
+      &:hover{
+        .linktext{
+          text-decoration: none;
+        }
+      }
     }
   }
+  .txst-eventdetail-detailsbox {
+    padding: 1rem 1.8rem !important; 
+    border-radius: 0 !important;
+  }
+  .txst-eventdetail-detailsbox a, 
+  .txst-eventdetail-description a {
+    text-decoration: underline;
+  }
+  .txst-eventdetail-description {margin-bottom: 1rem !important;}
+  a.txst-eventdetail-morelink {color: #501214;}
 
   &[max-width~="199px"] div.txst-eventdetail {
     .gato-accordion-header {
@@ -62,11 +93,16 @@
   &[min-width~='200px'] div.txst-eventdetail {
     div.txst-eventdetail-thumbnail {
       display: block;
-      img { width: 100%; }
+      img { 
+        width: 100%; 
+        border-left: 2px solid $sandstone; 
+        border-right: 2px solid $sandstone;
+      }
     }
 
     .txst-eventdetail-detailsbox {
       display: block;
+      padding: 1rem !important;
     }
 
     a {
@@ -74,7 +110,7 @@
       text-decoration: none;
       &.txst-eventdetail-addtocalendar {
         padding: 0;
-        margin: 0.5rem 1rem;
+        margin: 0.5rem 2rem;
       }
       &.txst-eventdetail-morelink {
         text-align: right;
@@ -106,7 +142,7 @@
     }
 
     a.txst-eventdetail-addtocalendar {
-      margin: 1rem 2rem;
+      margin: 1rem 3rem
     }
 
     dl.txst-eventdetail-detailsbox {
@@ -134,7 +170,13 @@
       padding-left: 3rem;
       padding-top: 3rem;
       max-height: 18rem;
-      img { width: inherit; min-width: 100%;  max-width: 150%; }
+      img { 
+        width: inherit; 
+        min-width: 100%;  
+        max-width: 150%; 
+        border-left: 0px solid $sandstone; 
+        border-right: 0px solid $sandstone;
+      }
     }
     a.txst-eventdetail-addtocalendar {
       margin-left: 3rem;
@@ -143,7 +185,7 @@
 
     dl.txst-eventdetail-detailsbox {
       background: $dark-sandstone;
-      padding: 1rem;
+      padding: 1rem 1.8rem;
       margin: 3rem 3rem 0 2rem;
       border-radius: $default-border-radius;
       max-width: 70rem;
