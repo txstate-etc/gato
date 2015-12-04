@@ -130,7 +130,7 @@ var FaqTree = (function() {
     });
         
     if ($nodeLi.hasClass('faq_tree_group_node')) {
-      $nodeLi.find('.expander').click(onExpandCollapse);
+      $dl.find('.expander').click(onExpandCollapse);
       $dl.droppable({
         accept: '.faq_tree_node',
         drop: function(event, ui) {
@@ -430,7 +430,7 @@ var FaqTree = (function() {
   function buildGroupHtml(groupNode) {
     var id = groupNode.name;
     var title = groupNode.prophash['title'];
-    var isOpen = groupNode.prophash['isOpen'];
+    var isOpen = groupNode.prophash['isOpen'] == 'true';
     var expandClass = isOpen ? 'faq_tree_open' : 'faq_tree_closed';
 
     if (groupNode.prophash['selected']) {
