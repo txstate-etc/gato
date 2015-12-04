@@ -736,3 +736,32 @@ var cssTransform = (function(){
      }
      return cssTransform
  })();
+
+/*
+	cutoffs:
+	a few seconds ago
+	1 - 59 Minutes Ago
+	1 - 6 Hours Ago
+	Today at 9:37 A.M.
+	Yesterday at 11:23 P.M.
+	October 31 
+ */
+function relativeTime(time) {
+	t = moment(time);
+  if (t.isAfter(moment().subtract(360, 'minutes'))) { // < 6h ago
+    return t.fromNow();
+  } else {
+    return t.calendar(null, {
+      sameDay : '[Today at] LT',
+      lastDay : '[Yesterday at] LT',
+      sameElse : 'MMMM D'
+    });
+  }
+}
+
+jQuery(function($) { 
+  $('.timestamp.relative').each(function() {
+    // replace timestamps with relative time 
+    $(this).text(relativeTime($(this).data("timestamp")));
+  });
+});

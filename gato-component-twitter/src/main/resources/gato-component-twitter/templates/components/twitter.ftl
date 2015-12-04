@@ -21,7 +21,7 @@
 
             <div class="text">${tweet.text}</div>
 
-            <a class="created_at" title="Time posted: ${tweet.createdAt}" href="https://twitter.com/${tweet.screenName}/status/${tweet.id}">
+            <a class="created_at timestamp relative" data-timestamp="${tweet.createdAt}" title="Time posted: ${tweet.createdAt}" href="https://twitter.com/${tweet.screenName}/status/${tweet.id}">
               ${tweet.createdAt}
             </a>
 

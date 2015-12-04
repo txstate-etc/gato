@@ -2,12 +2,12 @@
 [#assign response = service.all() /]
 
 [#macro timestamp val]
-  <span class="timestamp" data-timestamp="${val!}">
-    [#if val?has_content]
-      ${val?datetime("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")?string.medium}
-    [/#if]
-  </span>
-  [#-- FIXME: convert timestamp with javascript --]
+  [#if val?has_content]
+    [#local d = gf.parseJsonDate(val)?datetime /]
+    <span class="timestamp relative" data-timestamp="${val!}" title="Time posted: ${d?string.full}">
+      ${d?string.short}
+    </span>
+  [/#if]
 [/#macro]
 
 <div id="social" class="content-row main three-col">
@@ -35,10 +35,8 @@
                     <img src="${gf.getImg(image!, 640, 640, true, false, 0, 0, 0, 0)}">
                   </a>
                   <figcaption class="caption">
-                    [#-- FIXME: replace hashtags with links --]
-                    <p>${caption!}</p>
-                    [#-- FIXME: send account link in json --]
-                    <p><span class="source-link">(<a href="#nowhere">via Instagram</a>)</span></p>
+                    <p>${gf.linkifyInstagram(caption)!}</p>
+                    <p><span class="source-link">(<a href="${link!}">via Instagram</a>)</span></p>
                   </figcaption>
                 </figure>
               </div>
@@ -72,7 +70,7 @@
                       <a href="https://twitter.com/${screen_name!}">@${screen_name!}</a>
                     </p>
                     <p class="twitter-name">${display_name!}</p>
-                    <p class="tweet">${caption!}</p>
+                    <p class="tweet">${gf.linkifyTweet(caption)!}</p>
                     <p class="twitter-timestamp">[@timestamp time /]</p>
                   </div> 
                 </div>
@@ -106,10 +104,8 @@
                     <img src="${gf.getImg(image!, 1080, 0, false, false, 0, 0, 0, 0)}">
                   </a>
                   <figcaption class="fb-content">
-                    [#-- FIXME: replace hashtags with links --]
-                    <p>${caption!}</p>
-                    [#-- FIXME: send account link in json --]
-                    <p><a class="source-link" href="#nowhere">(via Facebook)</a></p>
+                    <p>${gf.linkify(caption)!}</p>
+                    <p><a class="source-link" href="${link!}">(via Facebook)</a></p>
                   </figcaption>
                 </figure>
               </div>

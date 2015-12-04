@@ -33,6 +33,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.TimeZone;
 import java.util.Iterator;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -62,9 +63,14 @@ import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.jackrabbit.JcrConstants;
 
 public final class GatoUtils {
+  private static final Pattern LINK_PATTERN = Pattern.compile("(https?://\\S+)", Pattern.CASE_INSENSITIVE);
+  private static final Pattern USER_PATTERN = Pattern.compile("(^|)@(\\w+)");
+  private static final Pattern HASHTAG_PATTERN = Pattern.compile("(^|)#(\\w+)");
+
   private final TemplatingFunctions tf;
   private final DamTemplatingFunctions damfn;
   private final SimpleDateFormat timeformat;
+  private final SimpleDateFormat jsonDateFormat;
   private final MagnoliaConfigurationProperties mcp;
   private final SystemContext sc;
 
@@ -75,6 +81,8 @@ public final class GatoUtils {
     mcp = magConfigProps;
     sc = syscon;
     timeformat = new SimpleDateFormat("HH:mm");
+    jsonDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+    jsonDateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
   }
 
   public String filterUrl(String url) {
@@ -808,5 +816,40 @@ public final class GatoUtils {
       return DateUtils.truncatedCompareTo(start, today, Calendar.DAY_OF_MONTH) >= 0;
     }
     return true;
+  }
+
+  public String linkifyTweet(String text) {
+    if (text != null) {
+      text = LINK_PATTERN.matcher(text).replaceAll("<a href=\"$1\">$1</a>");
+      text = USER_PATTERN.matcher(text).replaceAll("<a href=\"//twitter.com/$2\">$0</a>");
+      text = HASHTAG_PATTERN.matcher(text).replaceAll("<a href=\"//twitter.com/search?q=%23$2\">$0</a>");
+    }
+    return text;
+  }
+
+  public String linkifyInstagram(String text) {
+    if (text != null) {
+      text = LINK_PATTERN.matcher(text).replaceAll("<a href=\"$1\">$1</a>");
+      text = USER_PATTERN.matcher(text).replaceAll("<a href=\"//instagram.com/$2\">$0</a>");
+      text = HASHTAG_PATTERN.matcher(text).replaceAll("<a href=\"//instagram.com/explore/tags/$2/\">$0</a>");
+    }
+    return text;
+  }
+
+  public String linkify(String text) {
+    if (text != null) {
+      text = LINK_PATTERN.matcher(text).replaceAll("<a href=\"$1\">$1</a>");
+    }
+    return text;
+  }
+
+  // freemarker seems to suck at dates. let's try to parse them in Java
+  public Date parseJsonDate(String datestr) {
+    try {
+      return jsonDateFormat.parse(datestr);
+    } catch (Exception e) {
+      e.printStackTrace();
+      return null;
+    }
   }
 }

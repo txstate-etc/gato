@@ -31,9 +31,6 @@ import org.slf4j.LoggerFactory;
 public class TwitterModel<RD extends RenderableDefinition> extends RenderingModelImpl<RD> {
   private static final Logger log = LoggerFactory.getLogger(TwitterModel.class);
 
-  private static final Pattern LINK_PATTERN = Pattern.compile("(https?://\\S+)", Pattern.CASE_INSENSITIVE);
-  private static final Pattern USER_PATTERN = Pattern.compile("(^|)@(\\w+)");
-  private static final Pattern HASHTAG_PATTERN = Pattern.compile("(^|)#(\\w+)");
   private static final String TWEET_QUERY_FORMAT = "//global-data/twitter/tweets//element(*,mgnl:contentNode)[%s] order by @tweet_id descending";
   private static final String USER_QUERY_FORMAT = "//global-data/twitter/user_map/*[%s]";
 
@@ -47,10 +44,10 @@ public class TwitterModel<RD extends RenderableDefinition> extends RenderingMode
   private List<String> messages = new ArrayList<String>();
 
   @Inject
-  public TwitterModel(Node content, RD definition, RenderingModel<?> parent, TemplatingFunctions tf) {    
+  public TwitterModel(Node content, RD definition, RenderingModel<?> parent, TemplatingFunctions tf, GatoUtils gf) {    
     super(content, definition, parent);
     try {
-      buildTweetList(content, tf);
+      buildTweetList(content, tf, gf);
     } catch (Exception e) {
       log.error("Failed to build Tweet list.", e);
     }
@@ -72,7 +69,7 @@ public class TwitterModel<RD extends RenderableDefinition> extends RenderingMode
     return messages;
   }
 
-  private void buildTweetList(Node content, TemplatingFunctions tf) throws RepositoryException {
+  private void buildTweetList(Node content, TemplatingFunctions tf, GatoUtils gf) throws RepositoryException {
     // String icon = PropertyUtil.getString(content, "image", "");
     // if (StringUtils.isNotBlank(icon) && icon.startsWith("/")) {
     //   icon = (String)request.getAttribute("assetsUrl") + icon;
@@ -131,9 +128,7 @@ public class TwitterModel<RD extends RenderableDefinition> extends RenderingMode
         String text = PropertyUtil.getString(node, "text", "");
 
         //parse urls, hashtags, and twitter names from text and convert to links
-        text = LINK_PATTERN.matcher(text).replaceAll("<a href=\"$1\">$1</a>");
-        text = USER_PATTERN.matcher(text).replaceAll("<a href=\"//twitter.com/$2\">$0</a>");
-        text = HASHTAG_PATTERN.matcher(text).replaceAll("<a href=\"//twitter.com/search?q=%23$2\">$0</a>");
+        text = gf.linkifyTweet(text);
         
         Tweet tweet = new Tweet();
         tweet.id = PropertyUtil.getString(node, "tweet_id", "");
