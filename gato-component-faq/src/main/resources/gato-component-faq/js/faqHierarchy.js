@@ -1,35 +1,36 @@
-
 var faqNode;
-var faqHidden;
+var $faqHidden;
 
 var FaqTree = (function() {
   var selectedLi;
+  var $selectedLi;
   var editor;
   var lastItemId = 0;
   var emptyNodeTitle = "--No Text Entered--";
   var answerInput;
-  var questionInput;
-  var titleInput;
+  var $questionInput;
+  var $titleInput;
 
   function onLoad() {
-    $$('#faq_tree li').each(function(item) {
-      if (!item.hasClassName("faq_tree_faq_node") && !item.hasClassName("faq_tree_group_node")) return;
+    $('#faq_tree li').each(function() {
+      var $item = $(this);
+      if (!$item.hasClass("faq_tree_faq_node") && !$item.hasClass("faq_tree_group_node")) return;
 
-      Position.includeScrollOffsets = true;
-      attachEventHandlers(item);
-      var idNum = item.id.substr(4, item.id.length - 4);  
+      attachEventHandlers($item[0]);
+      var idNum = $item[0].id.substr(4, $item[0].id.length - 4);  
       if (parseInt(idNum) > lastItemId) lastItemId = parseInt(idNum);
 
-      var nodeTitle = item.down('dl').down('dt').innerHTML;
-      item.down('dl').down('dt').innerHTML = getDisplayTitle(nodeTitle);
+      var nodeTitle = $item.find('dl dt')[0].innerHTML;
+      $item.find('dl dt')[0].innerHTML = getDisplayTitle(nodeTitle);
 
-      if (item.hasClassName('selected_node')) {
-        selectedLi = item;
+      if ($item.hasClass('selected_node')) {
+        selectedLi = $item[0];
+        $selectedLi = $(selectedLi);
       }
     });
 
-    questionInput.observe('change', updateData);
-    titleInput.observe('change', updateData);
+    $questionInput.change(updateData);
+    $titleInput.change(updateData);
   }
 
   function onFaqCkEditorReady(editorId) {
@@ -41,7 +42,7 @@ var FaqTree = (function() {
     }
 
     // Make sure faq data is saved when user clicks save button
-    jQuery('.commit').focus(onSave);
+    $('.commit').focus(onSave);
     
     answerInput = editor.element.$;
     editor.once("dataReady", updateDisplay);
@@ -62,8 +63,8 @@ var FaqTree = (function() {
     faqNode.nodes = [];
 
     //Convert the faq tree to a json that will be sent to the server.
-    $('faq_tree').childElements().each(function(item) { processLi(item, faqNode); });
-    faqHidden.val(JSON.stringify(faqNode)).change();
+    $('#faq_tree').children().each(function() { processLi(this, faqNode); });
+    $faqHidden.val(JSON.stringify(faqNode)).change();
   }
 
   function processLi(li, json_data) {
@@ -79,20 +80,21 @@ var FaqTree = (function() {
       node_object.properties.push(createProperty("selected", true, "Boolean"));
     }
 
-    if (li.hasClassName('faq_tree_group_node')) {
+    var $li = $(li);
+    var $dl = $('#dl-' + li.id);
+    if ($li.hasClass('faq_tree_group_node')) {
       node_object.properties.push(createProperty('nodetype', 'group', 'String'));
-      node_object.properties.push(createProperty('title', li.down('[title="group"]').innerHTML, 'String'));
-      //node_object.children = [];
-      node_object.properties.push(createProperty('isOpen', li.hasClassName('faq_tree_open'), 'Boolean'));
+      node_object.properties.push(createProperty('title', $dl.find('[title="group"]')[0].innerHTML, 'String'));
+      node_object.properties.push(createProperty('isOpen', $li.hasClass('faq_tree_open'), 'Boolean'));
       
-      if (li.down('ul')) {
-        li.down('ul').childElements().each(function(item) { processLi(item, node_object); });
+      if ($li.children('ul').length) {
+        $li.children('ul').children().each(function() { processLi(this, node_object); });
       }
     }
     else {
       node_object.properties.push(createProperty('nodetype', 'faq', 'String'));
-      node_object.properties.push(createProperty('question', li.down('[title="question"]').innerHTML, 'String'));
-      node_object.properties.push(createProperty('answer', $('answer-' + li.id).value, 'String'));
+      node_object.properties.push(createProperty('question', $dl.find('[title="question"]')[0].innerHTML, 'String'));
+      node_object.properties.push(createProperty('answer', $('#answer-' + li.id).val(), 'String'));
     }
     
     json_data.nodes.push(node_object);
@@ -108,73 +110,78 @@ var FaqTree = (function() {
   }
 
   function attachEventHandlers(nodeLi) {
-    nodeLi.down('dt').observe('click', onSelectItem);
-    nodeLi.down('.delete_node_action').observe('click', onDelete); 
-    nodeLi.down('.add_group_action').observe('click', onAddGroup);
-    nodeLi.down('.add_faq_action').observe('click', onAddFaq);
+    var $nodeLi = $(nodeLi);
+    var $dl = $('#dl-' + nodeLi.id);
+    $dl.find('dt').click(onSelectItem);
+    $dl.find('.delete_node_action').click(onDelete); 
+    $dl.find('.add_group_action').click(onAddGroup);
+    $dl.find('.add_faq_action').click(onAddFaq);
 
-    Droppables.add('drop-' + nodeLi.id, {
-      accept: ['faq_tree_group_node','faq_tree_faq_node'],
-      onDrop: function(dragged, dropped, event) { dropped.up('li').insert({before: dragged}); setSelectedLi(dragged); dragged.addClassName('just_dropped') },
-      hoverclass: 'node_drop_div_hover'
+    var $drop = $('#drop-' + nodeLi.id);
+    $drop.droppable({
+      accept: '.faq_tree_node',
+      drop: function(event, ui) {
+        $drop.closest('li').before(ui.draggable);
+        ui.draggable.css('top', '0');
+        setSelectedLi(ui.draggable[0]);
+        ui.draggable.addClass('just_dropped');
+      },
+      hoverClass: 'node_drop_div_hover'
     });
-    
-    var group_drop_options = {
-      accept: ['faq_tree_group_node', 'faq_tree_faq_node'],
-      onDrop: function(dragged, dropped, event) {
-                var li = dropped.up('li');
-                if (!li.down('ul')) {
-                  li.insert(new Element('ul'));
-                }
-                li.down('ul').insert(dragged);
-                li.removeClassName('faq_tree_closed');
-                li.addClassName('faq_tree_open');
-                setSelectedLi(dragged);
-                dragged.addClassName('just_dropped');
-              },
-      hoverclass: 'node_drop_hover'
-    }
         
-    if (nodeLi.hasClassName('faq_tree_group_node')) {
-      nodeLi.down('.expander').observe('click', onExpandCollapse);
-      Droppables.add('dl-' + nodeLi.id, group_drop_options); 
+    if ($nodeLi.hasClass('faq_tree_group_node')) {
+      $nodeLi.find('.expander').click(onExpandCollapse);
+      $dl.droppable({
+        accept: '.faq_tree_node',
+        drop: function(event, ui) {
+          var $li = $dl.closest('li');
+          if (!$li.children('ul').length) {
+            $li.append('<ul></ul>');
+          }
+          $li.children('ul').append(ui.draggable);
+          $li.removeClass('faq_tree_closed');
+          $li.addClass('faq_tree_open');
+          ui.draggable.css('top', '0');
+          setSelectedLi(ui.draggable[0]);
+          ui.draggable.addClass('just_dropped');
+        },
+        hoverClass: 'node_drop_hover'
+      });
     }
-    
-    new Draggable(nodeLi.id, {
-      revert: function(element) { 
-                element.setStyle({position: 'relative', width: '', height: '', top: ''}); 
-              }, 
-      constraint: 'vertical',
-      onStart: function(draggable, event) {
-                 if (nodeLi.hasClassName('faq_tree_group_node')) {
-                   Droppables.remove('dl-' + nodeLi.id);
-                 }
-          
-                 answerInput.up('.v-form-field-section').hide();
-               },
-      onEnd: function(draggable, event) {
-               if (nodeLi.hasClassName('faq_tree_group_node')) {
-                 Droppables.add('dl-' + nodeLi.id, group_drop_options);
-               }
-            }
+
+    $nodeLi.draggable({
+      axis: "y",
+      revert: "invalid",
+      start: function(event, ui) {
+        if ($nodeLi.hasClass('faq_tree_group_node')) {
+          $dl.droppable("disable");
+        }
+        $nodeLi.removeClass('just_dropped');
+        $(answerInput).closest('.v-form-field-section').hide();
+      },
+      stop: function(event, ui) {
+        if ($nodeLi.hasClass('faq_tree_group_node')) {
+          $dl.droppable("enable");
+        }
+      }
     });
   }
 
   function onExpandCollapse(event) {
-    var parentLi = event.element().up('li');
+    var $parentLi = $(this).closest('li');
     
-    if (parentLi.hasClassName('faq_tree_open')) {
-      parentLi.removeClassName('faq_tree_open');
-      parentLi.addClassName('faq_tree_closed');
+    if ($parentLi.hasClass('faq_tree_open')) {
+      $parentLi.removeClass('faq_tree_open');
+      $parentLi.addClass('faq_tree_closed');
     }
-    else if (parentLi.hasClassName('faq_tree_closed')) {
-      parentLi.removeClassName('faq_tree_closed');
-      parentLi.addClassName('faq_tree_open');
+    else if ($parentLi.hasClass('faq_tree_closed')) {
+      $parentLi.removeClass('faq_tree_closed');
+      $parentLi.addClass('faq_tree_open');
     }     
   }
 
   function newFaqHtml(li_id) {
-    return '<li class="faq_tree_faq_node selected_node" id="' + li_id + '">' +
+    return '<li class="faq_tree_faq_node faq_tree_node selected_node" id="' + li_id + '">' +
              '<div class="node_drop_div" id="drop-' + li_id + '"></div>' +
              '<dl id="dl-' + li_id + '">' +
                '<span class="expander"></span>' +
@@ -194,7 +201,7 @@ var FaqTree = (function() {
   }
 
   function newGroupHtml(li_id) {
-    return '<li class="faq_tree_group_node faq_tree_closed" id="' + li_id + '">' +
+    return '<li class="faq_tree_group_node faq_tree_closed faq_tree_node" id="' + li_id + '">' +
              '<div class="node_drop_div" id="drop-' + li_id + '"></div>' +
              '<dl id="dl-' + li_id + '">' +
                '<span class="expander"></span>' +
@@ -214,83 +221,83 @@ var FaqTree = (function() {
 
   function onAddFaq(event) {    
     var newId = "node" + (++lastItemId).toString();
-    var element = event.element().up('li');
-    var ul;
+    var $element = $(this).closest('li');
+    var $ul;
 
-    if (element.hasClassName('faq_tree_faq_node')) {
-      ul = element.up('ul');
+    if ($element.hasClass('faq_tree_faq_node')) {
+      $ul = $element.closest('ul');
     }
     else {
-      if (!element.down('ul')) {
-        element.insert(new Element('ul'));
+      if (!$element.children('ul').length) {
+        $element.append('<ul></ul>');
       }
-      ul = element.down('ul');
+      $ul = $element.children('ul');
     
-      element.removeClassName('faq_tree_closed');
-      element.addClassName('faq_tree_open');
+      $element.removeClass('faq_tree_closed');
+      $element.addClass('faq_tree_open');
     }
 
-    ul.insert(newFaqHtml(newId));
+    $ul.append(newFaqHtml(newId));
     
-    attachEventHandlers(ul.down('[id="' + newId + '"]'));  
-    setSelectedLi($(newId));
+    var $newLi = $('#' + newId);
+    attachEventHandlers($newLi[0]);  
+    setSelectedLi($newLi[0]);
   }
 
   function onAddGroup(event) {
     var newId = "node" + (++lastItemId).toString();
-    var element = event.element().up('li');
-    var ul;
+    var $element = $(this).closest('li');
+    var $ul;
     
-    if (element.hasClassName('faq_tree_faq_node')) {
-      ul = element.up('ul');
+    if ($element.hasClass('faq_tree_faq_node')) {
+      $ul = $element.closest('ul');
     }
     else {
-      if (!element.down('ul')) {
-        elemenet.insert(new Element('ul'));
+      if (!$element.children('ul').length) {
+        $element.append('<ul></ul>');
       }
-      ul = element.down('ul');
+      $ul = $element.children('ul');
 
-      element.removeClassName('faq_tree_closed');
-      element.addClassName('faq_tree_open');
+      $element.removeClass('faq_tree_closed');
+      $element.addClass('faq_tree_open');
     }
     
-    ul.insert(newGroupHtml(newId));
+    $ul.append(newGroupHtml(newId));
     
-    attachEventHandlers(ul.down('[id="' + newId + '"]'));
-    setSelectedLi($(newId));
+    var $newLi = $('#' + newId);
+    attachEventHandlers($newLi[0]);
+    setSelectedLi($newLi[0]);
   }
 
   function onDelete(event) {
-    var parentUl = event.element().up('ul');
-    var li = event.element().up('li');
+    var $parentUl = $(this).closest('ul');
+    var $li = $(this).closest('li');
 
     //Check if the node to be deleted is the last one.
-    if (parentUl.id == 'faq_tree' && parentUl.childElements().length == 1) {
+    if ($parentUl[0].id == 'faq_tree' && $parentUl.children().length == 1) {
       alert("Can't delete the only remaining node.");
       return;
     }
 
-    setSelectedLi(li);
-
     if (confirm("Are you sure you want to delete this node?")) {  
-      if (selectedLi == li) {
-        if (li.next('li')) {
-          setSelectedLi(li.next('li'));
+      if (selectedLi == $li[0]) {
+        if ($li.next('li').length) {
+          setSelectedLi($li.next('li')[0]);
         }
-        else if (li.previous('li')) {
-          setSelectedLi(li.previous('li'));
+        else if ($li.prev('li').length) {
+          setSelectedLi($li.prev('li')[0]);
         }
         else {
-          setSelectedLi(parentUl.up('li'));
+          setSelectedLi($parentUl.closest('li')[0]);
         }
       }
-      li.remove();
+      $li.remove();
     }
   }
 
   function setSelectedLi(li) {
     //Firefox fires the onClick event after an item is dropped, so return right away if the item was just dropped.
-    if (li.hasClassName('just_dropped'))
+    if ($(li).hasClass('just_dropped'))
       return;
 
     updateData();
@@ -300,17 +307,18 @@ var FaqTree = (function() {
     }
 
     if (selectedLi) {
-      selectedLi.removeClassName('selected_node');
-      selectedLi.removeClassName('just_dropped');
+      $selectedLi.removeClass('selected_node');
+      $selectedLi.removeClass('just_dropped');
     }
 
     selectedLi = li;
-    selectedLi.addClassName('selected_node');
+    $selectedLi = $(selectedLi);
+    $selectedLi.addClass('selected_node');
     updateDisplay(); 
   }
 
   function onSelectItem(event) {
-    setSelectedLi(event.element().up('li'));
+    setSelectedLi($(this).closest('li')[0]);
   }
 
   function updateData() {
@@ -318,72 +326,72 @@ var FaqTree = (function() {
     
     var nodeTitle = "";
     
-    if (selectedLi.hasClassName('faq_tree_group_node')) {
-      nodeTitle = titleInput.value;
-      selectedLi.down('[title="group"]').innerHTML = "";
-      selectedLi.down('[title="group"]').appendChild(document.createTextNode(nodeTitle));
+    if ($selectedLi.hasClass('faq_tree_group_node')) {
+      nodeTitle = $titleInput.val();
+      $selectedLi.find('[title="group"]')[0].innerHTML = "";
+      $selectedLi.find('[title="group"]')[0].appendChild(document.createTextNode(nodeTitle));
     }
-    else if (selectedLi.hasClassName('faq_tree_faq_node')) {
-      nodeTitle = questionInput.value;
-      selectedLi.down('[title="question"]').innerHTML = "";
-      selectedLi.down('[title="question"]').appendChild(document.createTextNode(nodeTitle));
+    else if ($selectedLi.hasClass('faq_tree_faq_node')) {
+      nodeTitle = $questionInput.val();
+      $selectedLi.find('[title="question"]')[0].innerHTML = "";
+      $selectedLi.find('[title="question"]')[0].appendChild(document.createTextNode(nodeTitle));
       
-      $('answer-' + selectedLi.id).value = editor.getData();
+      $('#answer-' + selectedLi.id).val(editor.getData());
     }
    
-    selectedLi.down('dt').innerHTML = "";
-    selectedLi.down('dt').appendChild(document.createTextNode(getDisplayTitle(nodeTitle)));
+    $selectedLi.find('dt')[0].innerHTML = "";
+    $selectedLi.find('dt')[0].appendChild(document.createTextNode(getDisplayTitle(nodeTitle)));
   }
 
   function updateDisplay() {
     if (!selectedLi) return;
     
-    if (selectedLi.hasClassName('faq_tree_group_node')) {
+    if ($selectedLi.hasClass('faq_tree_group_node')) {
       showGroupNodeData();
     }
-    else if (selectedLi.hasClassName('faq_tree_faq_node')) {
+    else if ($selectedLi.hasClass('faq_tree_faq_node')) {
       showFaqNodeData();
     }
   }
 
   function showFaqNodeData() {
-    questionInput.up('.v-form-field-section').show();
-    answerInput.up('.v-form-field-section').show();
-    titleInput.up('.v-form-field-section').hide();
+    $questionInput.closest('.v-form-field-section').show();
+    $(answerInput).closest('.v-form-field-section').show();
+    $titleInput.closest('.v-form-field-section').hide();
     
-    var questionTitle = selectedLi.down('[title="question"]');
-    questionInput.value = questionTitle.childNodes[0] ? questionTitle.childNodes[0].nodeValue : "";
-    answerInput.value = $('answer-' + selectedLi.id).value;
-    editor.setData($('answer-' + selectedLi.id).value);
+    var questionTitle = $selectedLi.find('[title="question"]')[0];
+    $questionInput.val(questionTitle.childNodes[0] ? questionTitle.childNodes[0].nodeValue : "");
+    answerInput.value = $('#answer-' + selectedLi.id).val();
+    editor.setData($('#answer-' + selectedLi.id).val());
     
-    questionInput.focus();
+    $questionInput.focus();
   }
 
   function showGroupNodeData() {
-    titleInput.up('.v-form-field-section').show();
-    questionInput.up('.v-form-field-section').hide();
-    answerInput.up('.v-form-field-section').hide();
+    $titleInput.closest('.v-form-field-section').show();
+    $questionInput.closest('.v-form-field-section').hide();
+    $(answerInput).closest('.v-form-field-section').hide();
     
-    var groupTitle = selectedLi.down('[title="group"]');
-    titleInput.value = groupTitle.childNodes[0] ? groupTitle.childNodes[0].nodeValue : "";
-    titleInput.focus();
+    var groupTitle = $selectedLi.find('[title="group"]')[0];
+    $titleInput.val(groupTitle.childNodes[0] ? groupTitle.childNodes[0].nodeValue : "");
+    $titleInput.focus();
   }
 
   function buildFaqTree(rootNode, el) {
     var isNew = !rootNode.nodes || rootNode.nodes.length == 0;
 
-    var faqTree = jQuery('<ul id="faq_tree"></ul>');
+    var $faqTree = $('<ul id="faq_tree"></ul>');
     if (isNew) {
       var html = newFaqHtml('node0');
-      faqTree.append(html);
+      $faqTree.append(html);
     } else {
       rootNode.nodes.forEach(function(node) {
-        faqTree.append(buildTreeHtml(node));
+        $faqTree.append(buildTreeHtml(node));
       });
     }
 
-    jQuery(el).closest('fieldset').append()
-    jQuery(el).append(faqTree);
+    $(el).closest('fieldset').append()
+    $(el).append($faqTree);
     var titleHtml = '<div class="v-form-field-section">' +
                       '<div class="v-form-field-label" title="Title">Title</div>' +
                       '<div class="v-form-field-container"><input type="text" class="faqText" id="faqTitle"/></div>' +
@@ -394,29 +402,29 @@ var FaqTree = (function() {
                          '<div class="v-form-field-container"><input type="text" class="faqText" id="faqQuestion"/></div>' +
                        '</div>';
 
-    jQuery(el).closest('.v-form-field-section').after(titleHtml).after(questionHtml);
+    $(el).closest('.v-form-field-section').after(titleHtml).after(questionHtml);
     
-    questionInput = jQuery('#faqQuestion')[0];
-    titleInput = jQuery('#faqTitle')[0];
+    $questionInput = $('#faqQuestion');
+    $titleInput = $('#faqTitle');
   }
 
   function buildTreeHtml(node) {
     node.cleanup();
-    var nodeEl;
+    var $nodeEl;
     if (node.prophash['nodetype'] == 'group') {
-      nodeEl = buildGroupHtml(node);
+      $nodeEl = buildGroupHtml(node);
     } else {
-      nodeEl = buildItemHtml(node);
+      $nodeEl = buildItemHtml(node);
     }
 
     if (node.nodes) {
-      var ul = jQuery('<ul></ul>');
+      var $ul = $('<ul></ul>');
       node.nodes.forEach(function(n) {
-        ul.append(buildTreeHtml(n));
+        $ul.append(buildTreeHtml(n));
       })
-      nodeEl.append(ul);
+      $nodeEl.append($ul);
     }
-    return nodeEl;
+    return $nodeEl;
   }
 
   function buildGroupHtml(groupNode) {
@@ -429,7 +437,7 @@ var FaqTree = (function() {
       expandClass += ' selected_node';
     }
 
-    var html = '<li class="faq_tree_group_node ' + expandClass + '" id="' + id + '">' +
+    var html = '<li class="faq_tree_group_node faq_tree_node ' + expandClass + '" id="' + id + '">' +
                '<div class="node_drop_div" id="drop-' + id + '">&#160;</div>' +
                '<dl id="dl-' + id + '">' +
                '<span class="expander">&#160;</span>' +
@@ -444,7 +452,7 @@ var FaqTree = (function() {
                '<span class="add_faq_action" title="Add Faq">&#160;</span>' +
                '</dd>' +
                '</dl>';
-    return jQuery(html);
+    return $(html);
   }
 
   function buildItemHtml(itemNode, parentEl) {
@@ -457,10 +465,10 @@ var FaqTree = (function() {
       nodeClass = ' selected_node';
     }
 
-    var answerInput = jQuery('<input type="hidden" id="answer-' + id + '" />');
-    answerInput.val(answer); 
+    var $answerInput = $('<input type="hidden" id="answer-' + id + '" />');
+    $answerInput.val(answer); 
 
-    var html = '<li class="faq_tree_faq_node' + nodeClass + '" id="' + id + '">' +
+    var html = '<li class="faq_tree_faq_node faq_tree_node' + nodeClass + '" id="' + id + '">' +
                '<div class="node_drop_div" id="drop-' + id + '">&#160;</div>' +
                '<dl id="dl-' + id + '">' +
                '<span class="expander">&#160;</span>' +
@@ -477,14 +485,15 @@ var FaqTree = (function() {
                '</dd>' +
                '</dl>' +
                '</li>';
-    html = jQuery(html);
-    html.find('span[title="answer"]').append(answerInput);
-    return html;
+    $html = $(html);
+    $html.find('span[title="answer"]').append($answerInput);
+    return $html;
   }
 
   return {
     onLoad: onLoad,
     onFaqCkEditorReady: onFaqCkEditorReady,
+    onSave: onSave,
     updateData: updateData,
     updateDisplay: updateDisplay,
     buildFaqTree: buildFaqTree
@@ -494,13 +503,13 @@ var FaqTree = (function() {
 
 function initFaqHierarchy(def, node, el) {
   path = node;
-  faqHidden = jQuery(el).closest('.v-form-field-container').find('input.faqTree');
-  faqNode = new jcrnode("website", node + '/faqTree', JSON.parse(faqHidden.val()));
+  $faqHidden = $(el).closest('.v-form-field-container').find('input.faqTree');
+  faqNode = new jcrnode("website", node + '/faqTree', JSON.parse($faqHidden.val()));
   FaqTree.buildFaqTree(faqNode, el);
 
   // Save faq data when keyboard shortcut for save happens (Enter is pressed or <access key>+s is pressed)
   // See https://documentation.magnolia-cms.com/display/DOCS/Keyboard+shortcuts
-  jQuery(el).closest('.v-panel-content').keydown(function(e) {
+  $(el).closest('.v-panel-content').keydown(function(e) {
     if (e.keyCode == 13 || (e.keyCode == 83 && (e.altKey || e.shiftKey || e.ctrlKey || e.metaKey))) {
       FaqTree.onSave();
     }

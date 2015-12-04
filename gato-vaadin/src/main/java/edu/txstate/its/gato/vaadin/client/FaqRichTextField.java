@@ -64,6 +64,11 @@ public class FaqRichTextField extends VMagnoliaRichTextField {
   public void onInstanceReady() {
     super.onInstanceReady();
     faqInstanceReady(editor.getId());
+  }
+
+  @Override
+  public void onDataReady() {
+    super.onDataReady();
     instanceReady = true;
   }
 
