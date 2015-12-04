@@ -23,7 +23,7 @@
 
         <div class="eq-mn-1-1 eq-ml-1-3">
           <div class="instagram col-left">
-            [#assign post = response.get("instagram").get(0) /]
+            [#assign post = response.path("instagram").path(0) /]
             [#if post?has_content]
               [#assign link = post.path('link').asText() /]
               [#assign image = post.path('image_proxy').asText() /]
@@ -56,16 +56,15 @@
         
         --]<div class="eq-mn-1-1 eq-ml-1-3 twitter-wrap">
           <div class="twitter col-middle">
-            [#assign post = response.get("twitter").get(0) /]
-            [#if post?has_content]
-              [#assign screen_name = post.path('screen_name').asText() /]
-              [#assign display_name = post.path('display_name').asText() /]
-              [#assign link = post.path('link').asText() /]
-              [#assign caption = post.path('text').asText() /]
-              [#assign time = post.path('tweettime').asText() /]          
-              <div class="social-upper">        
-                <div class="slides">
-                  <div class="twitter-slide">
+            <div class="social-upper">        
+              <div class="slides">
+                [#list response.path("twitter").getElements() as post]
+                  [#assign screen_name = post.path('screen_name').asText() /]
+                  [#assign display_name = post.path('display_name').asText() /]
+                  [#assign link = post.path('link').asText() /]
+                  [#assign caption = post.path('text').asText() /]
+                  [#assign time = post.path('tweettime').asText() /]          
+                  <div class="slide" style="${(post_index == 0)?string('','display:none;')}">
                     <p class="twitter-handle">
                       <a href="https://twitter.com/${screen_name!}">@${screen_name!}</a>
                     </p>
@@ -73,26 +72,26 @@
                     <p class="tweet">${gf.linkifyTweet(caption)!}</p>
                     <p class="twitter-timestamp">[@timestamp time /]</p>
                   </div> 
-                </div>
-              </div> 
-              
-              <div class="social-lower">
-                <p>
-                  [@timestamp time /]
-                  <span class="social-area-icon">
-                    <a href="https://twitter.com/txst">
-                      <i class="fa fa-twitter"></i>
-                    </a>
-                  </span>
-                </p>
+                [/#list]
               </div>
-            [/#if]
+            </div> 
+                  
+            <div class="social-lower">
+              <p>
+                <span class="twitter-timestamp">[@timestamp response.path("twitter").path(0).path('tweettime').asText() /]</span>
+                <span class="social-area-icon">
+                  <a href="https://twitter.com/txst">
+                    <i class="fa fa-twitter"></i>
+                  </a>
+                </span>
+              </p>
+            </div>
           </div>
         </div>[#--
       
         --]<div class="eq-mn-1-1 eq-ml-1-3">        
           <div class="facebook col-right">
-            [#assign post = response.get("facebook").get(0) /]
+            [#assign post = response.path("facebook").path(0) /]
             [#if post?has_content]
               [#assign link = post.path('link').asText() /]
               [#assign image = post.path('image_proxy').asText() /]

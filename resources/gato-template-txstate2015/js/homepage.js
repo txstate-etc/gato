@@ -31,7 +31,7 @@ jQuery(function($) {
   });
 
   // feature paragraphs
-  function activate($cur, $next) {
+  function activateFeature($cur, $next) {
     $cur.fadeOut(100, function(){
         $next.fadeIn(100);
     });
@@ -56,7 +56,7 @@ jQuery(function($) {
       }
     }
 
-    activate($cur, $next);
+    activateFeature($cur, $next);
 
   });
   
@@ -64,8 +64,51 @@ jQuery(function($) {
     var $slides = $(this).parent().siblings('.slides');
     var $cur = $slides.find('.slide:visible');
     var $next = $slides.find('.slide').eq($(this).index());
-    activate($cur, $next);
+    activateFeature($cur, $next);
   });
+
+
+  // twitter
+  function advanceTweet(dur) {
+    var $cur = $('#social .twitter .slide:visible');
+    var $next = $cur.next();
+    if (!$next.length) {
+      $next = $cur.siblings().first();
+    }
+
+    $('#social .twitter .social-lower .twitter-timestamp').fadeOut(dur, function(){
+      $(this).html($next.find('.timestamp').clone()).fadeIn(dur);
+    });
+    $cur.fadeOut(dur, function(){
+        $next.fadeIn(dur);
+    });
+  }
+
+  var tweettimeout = null;
+  function resetTweetTimeout() {
+    if (tweettimeout) {
+      clearTimeout(tweettimeout);
+      tweettimeout = null;
+    }
+  }
+
+  function autoAdvanceTweet() {
+    resetTweetTimeout();
+    tweettimeout = setInterval(function() {
+      advanceTweet(500);
+    }, 5000);
+  }
+
+  // Clicking anywhere on a tweet that's not a link should advence the slides.
+  // FIXME: make this accessible (like Tabs?)
+  $('#social .twitter .social-upper a').click(function(e) {
+    e.stopPropagation();
+  });
+  $('#social .twitter .social-upper').blurclick(function(e) {
+    resetTweetTimeout();
+    advanceTweet(200);
+  }).on('mouseover', resetTweetTimeout).on('mouseleave', autoAdvanceTweet);
+  autoAdvanceTweet();
 
   // videos
   var vmodal = {

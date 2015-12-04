@@ -604,7 +604,7 @@ function animQueue(qname, callback, successcb) {
 // but if someone is keyboard navigating we should not blur() as they
 // will lose their place in the document
 jQuery.fn.blurclick = function (callback) {
-  this.on('keydown click', function (e) {
+  return this.on('keydown click', function (e) {
     if (e.type=='click') this.blur();
     if (e.keyCode == 13 || e.type=='click') {
       e.preventDefault();
