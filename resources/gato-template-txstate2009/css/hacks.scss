@@ -55,6 +55,11 @@ body {
     margin-bottom: 10px;
   }
 
-  .gato-slider .slide .caption { position: relative; }
+  .gato-slider {
+    .slide .caption { position: relative; }
+    .slick-arrow {
+      background-color: rgba(128,128,128,0.05);
+    }
+  }
 
 }
