@@ -6,6 +6,8 @@ dialog: gato-template:pages/page-properties
 parameters:
   isMailTemplate: true
   sortOrder: 50
+  favicon: /gato-template-txstate2015/images/favicon.png
+  touchicon: /gato-template-txstate2015/images/touchicon.png
 areas: !include /gato-template-txstate2015/templates/includes/template-areas.yaml
 variations:
   js:

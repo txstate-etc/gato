@@ -18,7 +18,6 @@
 
 		<link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-txstate2015/css/txstate2015.compiled.css"/>
 		[@templatehead/]
-    <link rel="apple-touch-icon" href="${gf.resourcePath()}/gato-template-txstate2015/images/txst_iphone_icon.png" />
 	</head>
 	<body class="${cmsfn.isEditMode()?string('admin','')}">
 		<nav id="menu" class="mobile_nav">

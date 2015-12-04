@@ -37,6 +37,7 @@
 	[@rssautodiscover /]
 	[@title publisher /]
 	[@googleanalytics /]
+	[@favicons /]
 	[@javascriptvariables /]
 	[@cms.page /]
 [/#macro]
@@ -49,29 +50,38 @@
 	</title>
 [/#macro]
 
+[#macro favicons]
+  [#if def.parameters.favicon?has_content]
+    <link rel="icon" type="image/png" sizes="64x64"  href="${gf.resourcePath()+def.parameters.favicon}">
+  [/#if]
+  [#if def.parameters.touchicon?has_content]
+    <link rel="apple-touch-icon" href="${gf.resourcePath()+def.parameters.touchicon}">
+  [/#if]
+[/#macro]
+
 [#macro meta publisher="Texas State University"]
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	[#if page.metaNoIndex?has_content]
-		<meta name="ROBOTS" content="NOINDEX" />
+		<meta name="ROBOTS" content="NOINDEX">
 	[/#if]
 	[#if page.metaDescription?has_content]
-		<meta name="description" content="${page.metaDescription}" />
-		<meta name="DC.description" content="${page.metaDescription}" />
+		<meta name="description" content="${page.metaDescription}">
+		<meta name="DC.description" content="${page.metaDescription}">
 	[/#if]
 	[#if page.metaKeywords?has_content]
-		<meta name="keywords" content="${page.metaKeywords}" />
-		<meta name="DC.subject" content="${page.metaKeywords}" />
+		<meta name="keywords" content="${page.metaKeywords}">
+		<meta name="DC.subject" content="${page.metaKeywords}">
 	[/#if]
-	<meta name="DC.publisher" content="${publisher}" />
-	<meta name="DC.creator" content="${page}" />
-	<meta name="DC.date" content="${cmsfn.metaData(page, 'mgnl:lastModified')}" />
+	<meta name="DC.publisher" content="${publisher}">
+	<meta name="DC.creator" content="${page}">
+	<meta name="DC.date" content="${cmsfn.metaData(page, 'mgnl:lastModified')}">
 	[#local lastmod = cmsfn.metaData(page, 'mgnl:lastModified')?datetime("yyyy-MM-dd'T'HH:mm:ss.SSSXXX")]
 	[#--TODO[#if contentIsStale]--]
-		<meta name="contentIsStale" content="true" />
+		<meta name="contentIsStale" content="false">
 	[#--[/#if]--]
-	[#--TODO <meta name="staleTimer" content="${inheritedcurrency}"/> --]
+	[#--TODO <meta name="staleTimer" content="${inheritedcurrency}"> --]
 [/#macro]
 
 [#macro rssautodiscover]

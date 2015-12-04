@@ -6,6 +6,8 @@ dialog: gato-template:pages/page-properties
 areas: !include /gato-template-txstate2015/templates/includes/template-areas.yaml
 parameters:
   sortOrder: 25
+  favicon: /gato-template-txstate2015/images/favicon.png
+  touchicon: /gato-template-txstate2015/images/touchicon.png
 variations:
   js:
     templateScript: /gato-component-cssjs/templates/pages/jsvariation.ftl

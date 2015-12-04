@@ -5,6 +5,8 @@ title: 2009 TXST Mail
 dialog: gato-template:pages/page-properties
 parameters:
   isMailTemplate: true
+  favicon: /gato-template-txstate2015/images/favicon.png
+  touchicon: /gato-template-txstate2015/images/touchicon.png
 areas:
   !include /gato-template-txstate2009/templates/includes/standardareas.yaml
 variations:
