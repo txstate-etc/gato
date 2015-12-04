@@ -49,6 +49,7 @@ areas:
         id: gato-template:components/imagelink
 parameters:
   sortOrder: 175
+  favicon: /gato-template-tsus/images/tsus-icon.png
 variations:
   js:
     templateScript: /gato-component-cssjs/templates/pages/jsvariation.ftl
