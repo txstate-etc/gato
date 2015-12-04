@@ -85,6 +85,7 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
     visitByTemplate(hm, "gato:components/texasState/texasDownload", this::updateDownloadComponent);
     log.warn("documents paragraph changes");
     visitByTemplate(hm, "gato:components/texasState/texas-dms", this::updateDocumentsComponent);
+    visitByTemplate(hm, "gato:components/texasState/texasTable", this::updateTableComponent);
     visitByTemplate(hm, "gato:components/texasState/social-media-link", this::updateSocialLinkComponent);
     visitByTemplate(hm, "gato:components/texasState/texasLink", this::convertNewWindowToBool);
     visitByTemplate(hm, "gato:components/texasState/texasLink", this::checkLinkForDMSRef);
@@ -253,6 +254,16 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
         log.warn("Documents Paragraph Migration: could find in DMS: " + documentPath + " linked from "+n.getPath());
       }
     }
+  }
+
+  private void updateTableComponent(Node n) throws RepositoryException{
+    convertPropertyToBool(n, "tableHeader");
+    convertPropertyToBool(n, "tableSortable");
+    convertPropertyToBool(n, "tableAltBg");
+    convertPropertyToBool(n, "tableLinesHorizontal");
+    convertPropertyToBool(n, "tableLinesVertical");
+    convertPropertyToBool(n, "tableFontSmall");
+    convertPropertyToBool(n, "tableAlignment");
   }
 
   private void convertInheritToBool(Node n) throws RepositoryException {
