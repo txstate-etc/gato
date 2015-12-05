@@ -73,4 +73,8 @@ body {
     }
   }
 
+  /* hide layouts from 2009 users */
+  .mainContent_add { display: none; }
+  .section-bar > .mgnlEditor.mgnlEditorBar { display: none !important; }
+
 }
