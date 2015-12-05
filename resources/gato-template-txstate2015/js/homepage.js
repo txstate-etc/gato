@@ -14,10 +14,11 @@ jQuery(function($) {
   // FIXME: dropdowns need to be touch screen and keyboard and ARIA friendly
   $('.audience-link-tabs li a[role=menuitem]').on('mouseover', function(e) {  
     resetMenuTimeout();
-
     var $menu = $('#'+$(this).attr('aria-controls'));
-    $menu.fadeIn(150);
-    $menu.siblings(':visible').fadeOut(150);
+    menutimeout = setTimeout(function() {
+      $menu.fadeIn(150);
+      $menu.siblings(':visible').fadeOut(150);
+    }, 100);
   }).on('mouseleave', function(e) {  
     resetMenuTimeout();
     menutimeout = setTimeout(function() {
