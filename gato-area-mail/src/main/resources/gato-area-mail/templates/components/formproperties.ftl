@@ -15,5 +15,5 @@
 <input type="hidden" name="destinationemail" value="${addresses}" />
 <input type="hidden" name="MessageSubject" value="${content.subject!''}" />
 
-<input type="hidden" id="formemailersetid" name="formemailersetid" value="${cmsfn.asJCRNode(content).identifier}" />
+<input type="hidden" id="formemailersetid" name="formemailersetid" value="${cmsfn.page(content).@id}" />
 <input type="hidden" id="thankyoupage" name="thankyoupage" value="${gf.absoluteUrl(content.redirect)}" />
