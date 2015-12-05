@@ -7,9 +7,16 @@
   </div>
 [/#if]
 <div class="slides">
-  [#assign aspectratio = 3.0/2.0]
-  [#if ctx.iam2009tmpl!false]
+  [#assign ratios = [] /]
+  [#list components as slide]
+    [#assign r = gf.getImgAspectRatio(slide.image) /]
+    [#assign ratios = ratios + [r] /]
+  [/#list]
+
+  [#if ratios?size == 0 || ctx.iam2009tmpl!false]
     [#assign aspectratio = 16.0/9.0]
+  [#else]
+    [#assign aspectratio = (ratios?sort)[ratios?size / 2]]
   [/#if]
 
   [#list components as slide]
