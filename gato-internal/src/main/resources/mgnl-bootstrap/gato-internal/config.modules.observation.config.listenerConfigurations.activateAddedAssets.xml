@@ -102,7 +102,7 @@
         <sv:value>196de118-04d0-4c5c-acd8-5a3d037abd2b</sv:value>
       </sv:property>
       <sv:property sv:name="class" sv:type="String">
-        <sv:value>info.magnolia.module.activation.commands.ActivationCommand</sv:value>
+        <sv:value>edu.txstate.its.gato.ClusterableActivationCommand</sv:value>
       </sv:property>
       <sv:property sv:name="jcr:createdBy" sv:type="String">
         <sv:value>admin</sv:value>
