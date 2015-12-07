@@ -61,10 +61,11 @@ jQuery(document).ready(function($) {
     jQuery('.top_nav').scrollToFixed();
 
  // Back to top
-    jQuery('.btt').on("click", function() {
-        jQuery('html,body').animate({
-            scrollTop: 0
-        }, 500)
+    jQuery('.btt').on("click", function(e) {
+      e.preventDefault();
+      jQuery('html,body').animate({
+        scrollTop: 0
+      }, 500)
     });
 
 
@@ -88,7 +89,7 @@ jQuery(document).ready(function($) {
       //If they did not click on the menu button or on the mobile menu itself
       if (!jQuery(event.target).is('.toggle-button') && !jQuery(event.target).closest('#menu').length) {
         //if the menu is open, close it
-        if(slideout.isOpen()){ 
+        if(slideout.isOpen()){
           slideout.close();
         }
       }
