@@ -73,6 +73,43 @@ body {
     }
   }
 
+//For those users who built tables in the rich editor using styles from the old
+//table paragraph
+table.data {
+  border: 1px solid #A28F61;
+  width: 100%;
+
+  td {
+    padding: 3px;
+  }
+  th {
+    padding: 3px;
+    background-color: #3D0D11;
+    color: #FFFFFF;
+    a{
+      color: #FFFFFF;
+    }
+  }
+  &.table-linesh td{
+    border-top: 1px solid #A28F61;
+    border-bottom: 1px solid #A28F61;
+  }
+  &.table-linesv td{
+    border-left: 1px solid #A28F61;
+    border-right: 1px solid #A28F61;
+  } 
+  &.table-alt tr.odd td{
+    background-color: #d6c99d;
+  }
+  &.table-fontsm td{
+    font-size: .8em;
+  }
+  &.table-alignright td,
+  &.table-alignright th {
+    text-align: right;
+  }
+}
+
   /* hide layouts from 2009 users */
   .mainContent_add { display: none; }
   .section-bar > .mgnlEditor.mgnlEditorBar { display: none !important; }
