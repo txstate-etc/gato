@@ -18,4 +18,17 @@ public abstract class GatoBaseSchedulerCommand extends BaseRepositoryCommand {
     if ("true".equals(SystemProperty.getProperty("gato.skipscheduler"))) return false;
     return true;
   }
+
+  @Override
+  public final boolean execute(info.magnolia.context.Context context) throws Exception {
+    if (shouldExecute()) {
+      return doExecute(context);
+    } else {
+      log.debug("Execute called, but skipscheduler is true. Doing nothing.");
+      return true;
+    }
+  }
+
+  public abstract boolean doExecute(info.magnolia.context.Context context) throws Exception;
+
 }

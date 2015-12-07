@@ -23,7 +23,7 @@ import javax.jcr.UnsupportedRepositoryOperationException;
  */
 public class VersionChangedPagesCommand extends GatoBaseSchedulerCommand {
 
-    public boolean execute(Context context) {
+    public boolean doExecute(Context context) {
         log.info("VersionChangedPagesCommand called. Getting Hierarchy Manager...");
 
         HierarchyManager hm = MgnlContext.getHierarchyManager(this.getRepository());

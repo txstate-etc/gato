@@ -6,7 +6,7 @@ import info.magnolia.module.ModuleRegistry;
 
 public class TweetStreamerCommand extends GatoBaseSchedulerCommand {
 
-  public boolean execute(Context context) {
+  public boolean doExecute(Context context) {
     if (!shouldExecute()) return true;
     log.info("TweetStreamerCommand called.");
 

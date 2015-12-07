@@ -37,7 +37,7 @@ public class SortCommand extends GatoBaseSchedulerCommand {
 
   }
 
-  public boolean execute(Context context) {
+  public boolean doExecute(Context context) {
     log.info("SortCommand called. Getting JCR Session...");
 
     try {
