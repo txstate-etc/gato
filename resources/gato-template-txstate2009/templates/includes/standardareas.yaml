@@ -16,7 +16,16 @@ gato-banners:
 siteinfo:
   !include /gato-template/templates/areas/misctext.yaml
 contentParagraph:
-  !include /gato-template/templates/areas/contentParagraph.yaml
+  title: Main Content Area
+  templateScript: /gato-template/templates/areas/main-content.ftl
+  availableComponents:
+    !include /gato-template/templates/areas/layoutComponents.yaml
+  autoGeneration:
+    content:
+      importrow:
+        nodeType: mgnl:component
+        templateId: gato-template:components/rows/full
+    generatorClass: info.magnolia.rendering.generator.CopyGenerator
 mail:
   !include /gato-area-mail/templates/areas/mailForm.yaml
 navBlocks:
