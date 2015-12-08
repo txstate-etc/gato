@@ -797,6 +797,7 @@ public final class GatoUtils {
     return haschildren;
   }
   public boolean hasComponents(Object area) throws Exception {
+    if (area == null) return false;
     Node n = toNode(area);
     for (Node sp : NodeUtil.getNodes(n, NodeTypes.Component.NAME)) {
         return true;
