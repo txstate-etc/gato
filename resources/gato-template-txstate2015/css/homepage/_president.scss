@@ -1,10 +1,19 @@
 div#president {
-  padding-top: 3rem;
+  // padding-top: 3rem;
 
   .content-row-content {
+    padding-bottom: 5rem;
+    
+    @media (max-width: $sm-breakpoint){
+      padding-bottom: 4rem;
+      .col-left { padding-bottom: 2rem; }
+      .col-middle, .col-right {
+        padding-bottom: 3rem;
+      }
+    }
 
     .pres-photo {
-      padding-bottom: 2.5rem;
+      // padding-bottom: 2.5rem;
       
       a {
         @extend .hover-blur;
@@ -20,7 +29,7 @@ div#president {
     }
 
     .pres-message, .pres-updates {
-      padding-bottom: 2.5rem;
+      // padding-bottom: 2.5rem;
       
       a { 
         text-decoration: underline; 
@@ -31,7 +40,13 @@ div#president {
     .pres-updates {
       .pres-updates-content {
         background: $khaki;
-        padding: 0.5rem 0.5rem 0.5rem 2rem;
+        padding: 2rem 3rem;
+        @media (max-width: $xl-breakpoint){
+          padding: 1.5rem 3rem;
+        }
+        @media (max-width: $md-breakpoint){
+          padding: 0.5rem 0.5rem 0.5rem 2rem;
+        }
         line-height: 2.2rem;
         ul { 
           padding: 0 1.8rem; 

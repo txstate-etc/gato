@@ -1,24 +1,38 @@
 div#legal-footer {
   background: $legalfooter-background;
   color: $legalfooter-text;
-  font-size: 1.1rem;
   
   p { margin: 0; }
   a { 
     color: inherit; 
     &:hover { text-decoration: underline; }
+    font-size: 1.2rem;
   }
 
   .content-row-content {
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding: 6rem 0 4rem 0;
+    @media (max-width: $md-breakpoint){
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+    @media (max-width: $sm-breakpoint){
+      padding: 4rem 2rem 3rem;
+    }
   }
 
   .content-row-column {
     width: 25%;
   }
 
-  #quick-links { a { color: $quicklinks-text; } }
+  .legal-links {
+    padding: 0 2rem;
+  }
+
+  #quick-links { 
+    padding-left: 0;
+    a { color: $quicklinks-text; } 
+  }
+
 
   .member-statement {
     max-width: 32rem;
@@ -44,6 +58,10 @@ div#legal-footer {
     #quick-links {
       margin-bottom: 3rem;
       p:after { color: $quicklinks-text; }
+    }
+
+    .legal-links {
+      padding: 0;
     }
 
     .member-statement {

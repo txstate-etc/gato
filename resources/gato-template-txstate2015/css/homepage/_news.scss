@@ -1,15 +1,18 @@
 div#news {
+  p.feature-headline {
+    margin-bottom: 0;
+  }
 
   #news-links {
-    padding: 1.5rem;
-    @media (max-width: $md-breakpoint){ padding: 0rem; }
+    padding: 2rem;
+    @media (max-width: $md-breakpoint){ padding: 1.5rem; }
     font-size: 1.6rem;
     line-height: 2.4rem;
   }
   #news-jump {
     letter-spacing: -1rem;
     padding: 0 1.5rem;
-    @media (max-width: $md-breakpoint){ padding: 0; }
+    @media (max-width: $sm-breakpoint){ padding: 0; }
     direction: rtl;
 
    .solo-bailout {
@@ -25,6 +28,9 @@ div#news {
       @media (max-width: $md-breakpoint) { 
         width: 100%;
         &:last-child { text-align: right; }
+      }
+      @media (max-width: $sm-breakpoint) { 
+        &:last-child { text-align: center; }
       }
     }
   }
@@ -67,7 +73,8 @@ div#news {
     color: $white;
     a { color: inherit; }
     div[role=tabpanel] {
-      padding: 2.5rem;
+      padding: 4rem;
+      @media (max-width: $md-breakpoint) { padding: 2.5rem; }
     }
 
     li.event {
@@ -150,7 +157,11 @@ div#news {
     .cal-jumps {
       text-align: center;
       font-size: 1.4rem;
-      padding: 0 2.5rem 3rem;
+      padding: 0 2.5rem 4rem;
+      @media (max-width: $md-breakpoint) { 
+        padding-top: 1rem; 
+        padding-bottom: 2.5rem; 
+      }
 
       h3 { 
         display: inline-block;

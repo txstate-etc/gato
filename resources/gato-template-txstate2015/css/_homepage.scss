@@ -34,7 +34,7 @@ body.homepage {
     .content-row-content {
       margin: auto;
       max-width: 1200px;
-      padding: 6rem 0;
+      padding: 5rem 0 6rem;
       @media (max-width: $sm-breakpoint){
         padding-top: 4rem;
       }
@@ -45,7 +45,10 @@ body.homepage {
 
       .solo-bailout {
         text-align: right;
-        padding-top: 2.6rem;
+        padding-top: 4.5rem;
+        @media (max-width: $md-breakpoint){
+          padding-top: 2.5rem;
+        }
         font-size: 1.6rem;
         
         p { margin: 0; }
@@ -79,28 +82,46 @@ body.homepage {
       } 
     } 
 
-    .col-left, .col-middle, .col-right, .solo-title, .solo-bailout {
+    .solo-title, .solo-bailout {
       padding-left: 0;
       padding-right: 0;
     }
     .col-left {
+      padding-left: 0;
       padding-right: 2.5rem;
     }
     .col-right {
       padding-left: 2.5rem;
+      padding-right: 0;
+    }
+    .col-middle {
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
     }
     @media (max-width: $xl-breakpoint){
-      .col-left, .col-right, .solo-title, .solo-bailout {
-        padding-left: 2rem;
-        padding-right: 2rem;
-      }
-    }
-    @media (max-width: $sm-breakpoint){
+      .col-left { padding-right: 2rem; }
+      .col-right { padding-left: 2rem; }
       .col-middle {
         padding-left: 2rem;
         padding-right: 2rem;
       }
+    }
+    @media (max-width: $md-breakpoint){
+      .col-left, .col-right, .solo-title, .solo-bailout {
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
+      .col-left { padding-right: 1.2rem; }
+      .col-right { padding-left: 1.2rem; }
+      .col-middle {
+        padding-left: 1.2rem;
+        padding-right: 1.2rem;
+      }
+    }
+    @media (max-width: $sm-breakpoint){
       .col-left, .col-middle, .col-right {
+        padding-left: 2rem;
+        padding-right: 2rem;
         padding-bottom: 4rem;
       }
     }
@@ -114,20 +135,28 @@ body.homepage {
       .content-row-column {
         width: 100% * 1 / 2;
       }
-      // .col-left {
-      //   padding-right: 6rem;
-      // }
-      // .col-right {
-      //   padding-left: 6rem;
-      // }
-      // @media (max-width: $xl-breakpoint){
-      //   .col-left {
-      //     padding-right: 4rem;
-      //   }
-      //   .col-right {
-      //     padding-left: 4rem;
-      //   }
-      // }
+      .col-left {
+        padding-right: 6rem;
+      }
+      .col-right {
+        padding-left: 6rem;
+      }
+      @media (max-width: $xl-breakpoint){
+        .col-left {
+          padding-right: 4rem;
+        }
+        .col-right {
+          padding-left: 4rem;
+        }
+      }
+      @media (max-width: $md-breakpoint){
+        .col-left {
+          padding-right: 1.5rem;
+        }
+        .col-right {
+          padding-left: 1.5rem;
+        }
+      }
     }
     @media (max-width: $sm-breakpoint){
        &.three-col,  &.two-col {
@@ -171,6 +200,8 @@ body.homepage {
     img { display: block; }
     figcaption {
       padding: 2rem;
+      @media (max-width: $md-breakpoint){ padding: 1.8rem; }
+
       p { 
         margin: 0; 
         &.feature-headline {
@@ -233,7 +264,7 @@ body.homepage {
     }
   }
 
-  @media (max-width: $lg-breakpoint){
+  @media (max-width: $md-breakpoint){
     .slides {
       figure.feature {    
         .feature-play-button {

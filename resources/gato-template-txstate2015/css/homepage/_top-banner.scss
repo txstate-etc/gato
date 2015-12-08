@@ -10,7 +10,7 @@ div#homepage-banner {
   .homepage-banner-content {
     letter-spacing: -1rem;
     & > * { letter-spacing: normal; }
-    padding: 2.5rem 0 0;
+    //padding: 2.5rem 0 0;
     @media (max-width: $sm-breakpoint) {
       padding: 2.5rem;
     }
@@ -21,9 +21,15 @@ div#homepage-banner {
     & > * { letter-spacing: normal; }
     max-width: 1200px;
     margin: auto;
-    padding-bottom: 3rem;
+    padding: 3.5rem 0;
+    @media (max-width: $xl-breakpoint) {
+      max-width: 1000px;
+    }
+    @media (max-width: $md-breakpoint) {
+      padding: 2.5rem 0;
+    }
     @media (max-width: $sm-breakpoint) {
-      padding-bottom: 0;
+      padding: 0;
     }
   }
 
@@ -34,7 +40,10 @@ div#homepage-banner {
   }
   
   .homepage-banner-logo {
-    padding-left: 5rem;
+    padding-left: 0;
+    @media (max-width: $md-breakpoint) {
+      padding-left: 5rem;
+    }
     @media (max-width: $sm-breakpoint) {
       padding-left: 0;
     }
@@ -55,7 +64,10 @@ div#homepage-banner {
     @media (max-width: $sm-breakpoint) {
       display: none;
     }
-    padding-right: 5rem;
+    padding-right: 0;
+    @media (max-width: $md-breakpoint) {
+      padding-right: 5rem;
+    }
     .txst_search {
       margin-top: 25px;
     }
@@ -70,12 +82,22 @@ div#homepage-banner {
     }
   }
 
+  .homepage-banner-nav-wrap {
+    display: block;
+    @media (max-width: $sm-breakpoint) {
+      display: none;
+    }
+  }
+
   .homepage-banner-nav {
     letter-spacing: -1rem;
     background: $khaki;
     
     .homepage-banner-nav-content {
       max-width: 1200px; 
+      @media (max-width: $xl-breakpoint) {
+        max-width: 1000px;
+      }
       margin: auto;
 
       .homepage-banner-nav-logo {
@@ -84,7 +106,13 @@ div#homepage-banner {
         display: inline-block;
         visibility: hidden;
         opacity: 0;
-        padding: 1rem 0 1rem 2rem;
+        padding: 1rem 0;
+        @media (max-width: $md-breakpoint) {
+          padding-left: 2rem;
+        }
+        @media (max-width: $sm-breakpoint) {
+          padding-left: 0;
+        }
         @include vendor-prefix(transition, visibility 0s, opacity .2s linear);
 
         & > a {
@@ -129,6 +157,7 @@ div#homepage-banner {
                 padding-left: 2.7rem;  
                 padding-right: 2.7rem;  
               }
+              &:last-child { padding-right: 0; }
             }
           }
         }
@@ -153,11 +182,6 @@ div#homepage-banner {
       }
     }
   
-    display: block;
-    @media (max-width: $sm-breakpoint) {
-      display: none;
-    }
-
     .audience-links {
       
       .audience-link-section {

@@ -1,8 +1,10 @@
 div#social {
 
   .content-row-content {
+    padding-bottom: 5rem;
+
     figure { margin: 0; }
-    
+
     .social-upper {
       height: 38rem;
 
@@ -121,18 +123,19 @@ div#social {
       }
 
       .fb-content {
-        padding: 1rem 1rem 0;
+        padding: 0 1rem;
       }
 
       .social-area-icon a:hover { color: $facebook; }
     }
 
     @media (max-width: $xl-breakpoint){
-      .social-upper { height: 32rem; }
+      .social-upper { height: 35rem; }
       .facebook .image > a { height: 16rem; }
     }
 
     @media (max-width: $sm-breakpoint){
+      padding-bottom: 4rem;
       .social-upper { height: auto; }
       .social-lower { border: none; }
       .instagram {

@@ -1,8 +1,12 @@
 div#spotlight {
-  padding-bottom: 1rem;
+  // padding-bottom: 1rem;
+  
+  .content-row-content {
+    padding-bottom: 4rem;
+  }
 
   .research {
-    figure { margin-bottom: 3rem; }
+    // figure { margin-bottom: 3rem; }
     .research-slider-wrap {
       position: relative;
       .slide {
@@ -20,12 +24,12 @@ div#spotlight {
     }
   }
 
-  @media (max-width: $sm-breakpoint){
-    .research {
-      figure { margin-bottom: 0; }
-    }
-  }
-  @media (max-width: $lg-breakpoint){
+  // @media (max-width: $sm-breakpoint){
+  //   .research {
+  //     figure { margin-bottom: 0; }
+  //   }
+  // }
+  @media (max-width: $md-breakpoint){
     .slide {
       min-height: 37rem;
       .feature-play-button {
@@ -37,9 +41,10 @@ div#spotlight {
 
   .pride {
     padding-bottom: 0;
+    .bab { margin-bottom: 3rem; }
     figure {
       position: relative;
-      margin: 0 0 3rem;
+      margin: 0;
       img { display: block; }
       figcaption {
         position: absolute;

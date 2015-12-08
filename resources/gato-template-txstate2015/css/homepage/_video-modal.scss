@@ -26,7 +26,7 @@ div#video-modal {
     transform: translate(-50%, -50%);
     
     width: 854px;
-    @media (max-width: $lg-breakpoint) {
+    @media (max-width: $md-breakpoint) {
       width: calc(100vw - 20rem);
     }
   }
