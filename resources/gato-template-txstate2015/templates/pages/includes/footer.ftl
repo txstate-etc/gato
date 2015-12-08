@@ -20,7 +20,7 @@
           <li><a href="${gf.filterUrl(component.link)}">${gf.filterLinkTitle(component.text, component.link)}</a></li>
         [/#list]
       </ul>
-      <a class="apply_now" href="https://www.applytexas.org">Apply Now</a>
+      <a class="apply_now" href="http://www.txstate.edu/admissions#apply">Apply Now</a>
     </div>
   </div> <!-- footer_content -->
 </div> <!-- footer -->
