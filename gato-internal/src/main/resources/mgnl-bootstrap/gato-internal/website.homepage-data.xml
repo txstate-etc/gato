@@ -1268,7 +1268,7 @@
           <sv:value>admin</sv:value>
         </sv:property>
         <sv:property sv:name="link" sv:type="String">
-          <sv:value>https://jobs.hr.txstate.edu/</sv:value>
+          <sv:value>http://www.hr.txstate.edu/employment</sv:value>
         </sv:property>
         <sv:property sv:name="mgnl:activationStatus" sv:type="Boolean">
           <sv:value>false</sv:value>
