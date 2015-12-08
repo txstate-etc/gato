@@ -3,43 +3,30 @@ package edu.txstate.its.gato.setup;
 import info.magnolia.context.MgnlContext;
 import info.magnolia.dam.jcr.AssetNodeTypes;
 import info.magnolia.jcr.util.NodeUtil;
+import info.magnolia.jcr.util.NodeTypes;
+import info.magnolia.jcr.util.PropertyUtil;
+import info.magnolia.templating.functions.TemplatingFunctions;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+import javax.inject.Inject;
 import javax.jcr.Node;
 import javax.jcr.Session;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.jackrabbit.core.NodeImpl;
 
 public class LinkMigrationLogic {
-  public LinkMigrationLogic() throws Exception {
-
+  private final TemplatingFunctions cmsfn;
+  @Inject
+  public LinkMigrationLogic(TemplatingFunctions tFunc) throws Exception {
+    this.cmsfn = tFunc;
   }
 
-  public Node convertPathToDamNode(Path dmspath) {
-    Session damSession = null;
-    try {
-      damSession = MgnlContext.getJCRSession("dam");
-    } catch (Exception e) {
-      return null;
-    }
-
-    Node damItem = null;
-    try {
-      damItem = damSession.getNode(stripExtension(dmspath.toString()));
-    } catch (Exception e) {
-      try {
-        damItem = damSession.getNode(dmspath.getParent().toString());
-      } catch (Exception e2) {
-        // no match, give up
-      }
-    }
-    try {
-      if (!NodeUtil.isNodeType(damItem, AssetNodeTypes.Asset.NAME)) damItem = null;
-    } catch (Exception e) {
-      damItem = null;
-    }
+  public Node convertAnyUrlToDamNode(String url) {
+    Node damItem = convertUrlToDamNode(url);
+    if (damItem == null) damItem = convertWebsiteUrlToDamNode(url);
     return damItem;
   }
 
@@ -58,7 +45,68 @@ public class LinkMigrationLogic {
     return convertPathToDamNode(dmspath);
   }
 
-  public String urlForAssetNode(Node damItem) {
+  public Node convertWebsitePathToDamNode(Path wspath) {
+    Node damItem = checkForMigratedDamNodeWithWsPath(wspath);
+    if (damItem == null) {
+      Node resourceNode = convertWebsitePathToResourceNode(wspath);
+      if (resourceNode != null) {
+        try {
+          damItem = migrateResourceNodeToDam(resourceNode);
+        } catch (Exception e) { }
+      }
+    }
+    return damItem;
+  }
+
+  public Node checkForMigratedDamNodeWithWsPath(Path wspath) {
+    Session map = getMapSession();
+    Node info = convertMapPathToInfoNode(wspath);
+    if (info != null) {
+      try {
+        return getDamSession().getNodeByIdentifier(info.getProperty("damuuid").getString());
+      } catch (Exception e) {
+        return null;
+      }
+    }
+    return null;
+  }
+
+  public Node convertPathToDamNode(Path dmspath) {
+    return getNodeWithFuzzyPath(dmspath, getDamSession(), AssetNodeTypes.Asset.NAME);
+  }
+
+  public Node convertWebsitePathToResourceNode(Path wspath) {
+    return getNodeWithFuzzyPath(wspath, getWsSession(), NodeTypes.Resource.NAME);
+  }
+
+  public Node convertMapPathToInfoNode(Path wspath) {
+    return getNodeWithFuzzyPath(wspath, getMapSession(), NodeTypes.Content.NAME);
+  }
+
+  public Node getNodeWithFuzzyPath(Path p, Session s, String correctNodeType) {
+    Node ret = null;
+    try {
+      ret = s.getNode(stripExtension(p.toString()));
+    } catch (Exception e) {
+      try {
+        ret = s.getNode(p.getParent().toString());
+      } catch (Exception e2) {
+        // no match, give up
+      }
+    }
+    try {
+      if (!NodeUtil.isNodeType(ret, correctNodeType)) ret = null;
+    } catch (Exception e) {
+      ret = null;
+    }
+    return ret;
+  }
+
+  public Node convertWebsiteUrlToDamNode(String url) {
+    return convertWebsitePathToDamNode(Paths.get(url));
+  }
+
+  public String itemKeyForAssetNode(Node damItem) {
     try {
       return "jcr:"+damItem.getIdentifier();
     } catch (Exception e) {
@@ -66,7 +114,113 @@ public class LinkMigrationLogic {
     }
   }
 
+  protected String getExtension(Node dataNodeResource) {
+    String extension = PropertyUtil.getString(dataNodeResource, AssetNodeTypes.AssetResource.EXTENSION, "").toLowerCase();
+    if (extension.equals("jpeg")) extension = "jpg";
+    return extension;
+  }
+
   public String stripExtension(String url) {
     return url.replaceAll("\\.[^\\.]+$", "");
+  }
+
+  public Session getSession(String workspace) {
+    Session s = null;
+    try {
+      s = MgnlContext.getJCRSession(workspace);
+    } catch (Exception e) {
+      return null;
+    }
+    return s;
+  }
+
+  public Session getDamSession() {
+    return getSession("dam");
+  }
+
+  public Session getWsSession() {
+    return getSession("website");
+  }
+
+  public Session getMapSession() {
+    return getSession("gatolegacylinkmap");
+  }
+
+  public Node migrateResourceNodeToDam(Node resourceNode) throws Exception {
+    Session damSession = getDamSession();
+    Session mapSession = getMapSession();
+
+    // figure out how to organize
+    Node component = resourceNode;
+    while (component.getDepth() > 0 && !NodeUtil.isNodeType(component, NodeTypes.Component.NAME))
+      component = component.getParent();
+    String subfolder = "images";
+    if (component.getDepth() > 0) {
+      String t = NodeTypes.Renderable.getTemplate(component);
+      if (t.endsWith("texasEditor") || t.endsWith("richeditor"))
+        subfolder = "richeditor_uploads";
+      else if (resourceNode.getName().equals("document") || resourceNode.getName().equals("file"))
+        subfolder = "documents";
+    }
+
+    // figure out the page path
+    Node page = cmsfn.page(resourceNode);
+    String[] path = page.getPath().split("/", 3);
+
+    // create the final parent path for our file
+    String damPath = "/"+path[1]+"/migrated_files/"+subfolder+"/"+(path.length > 2 ? path[2] : "");
+    Node damParent = NodeUtil.createPath(damSession.getRootNode(), damPath, NodeTypes.Folder.NAME);
+
+    // find the filename we will use and ensure it's unique in our parent folder
+    String fileName = PropertyUtil.getString(resourceNode, AssetNodeTypes.AssetResource.FILENAME);
+    fileName = info.magnolia.cms.core.Path.getValidatedLabel(fileName);
+    fileName = info.magnolia.cms.core.Path.getUniqueLabel(damParent, fileName);
+
+    // Create an AssetNode
+    Node assetNode = ((NodeImpl)NodeUtil.unwrap(damParent)).addNodeWithUuid(fileName, AssetNodeTypes.Asset.NAME, resourceNode.getIdentifier());
+    Node assetNodeResource = assetNode.addNode(AssetNodeTypes.AssetResource.RESOURCE_NAME, AssetNodeTypes.AssetResource.NAME);
+    NodeTypes.LastModified.update(assetNode);
+
+    String extension = getExtension(resourceNode);
+    assetNode.setProperty(AssetNodeTypes.Asset.TYPE, extension);
+    assetNodeResource.setProperty(AssetNodeTypes.AssetResource.EXTENSION, extension);
+
+    if (resourceNode.hasProperty(AssetNodeTypes.AssetResource.FILENAME)) {
+      assetNodeResource.setProperty(AssetNodeTypes.AssetResource.FILENAME,
+        resourceNode.getProperty(AssetNodeTypes.AssetResource.FILENAME).getString()+
+        (!StringUtils.isBlank(extension) ? "."+extension : ""));
+    }
+    ImageSize imageSize = null;
+    if (resourceNode.hasProperty(AssetNodeTypes.AssetResource.HEIGHT)) {
+      imageSize = new ImageSize(resourceNode,
+        PropertyUtil.getLong(resourceNode, AssetNodeTypes.AssetResource.WIDTH, 0l),
+        PropertyUtil.getLong(resourceNode, AssetNodeTypes.AssetResource.HEIGHT, 0l)
+      );
+      assetNodeResource.setProperty(AssetNodeTypes.AssetResource.HEIGHT, imageSize.getHeight());
+    }
+    if (imageSize != null && resourceNode.hasProperty(AssetNodeTypes.AssetResource.WIDTH)) {
+      assetNodeResource.setProperty(AssetNodeTypes.AssetResource.WIDTH, imageSize.getWidth());
+    }
+    if (resourceNode.hasProperty(AssetNodeTypes.AssetResource.SIZE)) {
+      assetNodeResource.setProperty(AssetNodeTypes.AssetResource.SIZE, Long.parseLong(resourceNode.getProperty(AssetNodeTypes.AssetResource.SIZE).getString()));
+    }
+    if (resourceNode.hasProperty(AssetNodeTypes.AssetResource.DATA)) {
+      assetNodeResource.setProperty(AssetNodeTypes.AssetResource.DATA, resourceNode.getProperty(AssetNodeTypes.AssetResource.DATA).getBinary());
+    }
+    if (resourceNode.hasProperty(AssetNodeTypes.AssetResource.MIMETYPE)) {
+      assetNodeResource.setProperty(AssetNodeTypes.AssetResource.MIMETYPE, resourceNode.getProperty(AssetNodeTypes.AssetResource.MIMETYPE).getString());
+    }
+    damSession.save();
+
+    String mapParentPath = Paths.get(resourceNode.getPath()).getParent().toString();
+    Node mapParent = NodeUtil.createPath(mapSession.getRootNode(), mapParentPath, NodeTypes.Folder.NAME);
+    Node mapNode = mapParent.addNode(resourceNode.getName(), NodeTypes.Content.NAME);
+    PropertyUtil.setProperty(mapNode, "damuuid", assetNode.getIdentifier());
+    mapSession.save();
+
+    resourceNode.remove();
+    resourceNode.getSession().save();
+
+    return assetNode;
   }
 }

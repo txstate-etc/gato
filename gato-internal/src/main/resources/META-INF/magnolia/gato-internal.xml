@@ -48,4 +48,12 @@
     </dependency>
   -->
   </dependencies>
+  <repositories>
+    <repository>
+      <name>magnolia</name>
+      <workspaces>
+        <workspace>gatolegacylinkmap</workspace>
+      </workspaces>
+    </repository>
+  </repositories>
 </module>

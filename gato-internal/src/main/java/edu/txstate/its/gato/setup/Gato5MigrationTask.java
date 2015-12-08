@@ -281,7 +281,7 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
       String link = PropertyUtil.getString(n, "link", "");
       Node damItem = lmlogic.convertUrlToDamNode(link);
       if (damItem != null) {
-        PropertyUtil.setProperty(n, "link", lmlogic.urlForAssetNode(damItem));
+        PropertyUtil.setProperty(n, "link", lmlogic.itemKeyForAssetNode(damItem));
       }
     }
   }

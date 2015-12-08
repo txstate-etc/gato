@@ -10,6 +10,7 @@ import info.magnolia.module.delta.DeltaBuilder;
 import info.magnolia.module.delta.FindAndChangeTemplateIdTask;
 import info.magnolia.module.delta.MoveNodeTask;
 import info.magnolia.module.delta.NodeExistsDelegateTask;
+import info.magnolia.module.delta.OrderNodeBeforeTask;
 import info.magnolia.module.delta.RemoveNodeTask;
 import info.magnolia.module.delta.RenameNodeTask;
 import info.magnolia.module.delta.SetPropertyTask;
@@ -166,6 +167,9 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
 
     // change various config properties
     tasks.add(new SetPropertyTask(RepositoryConstants.CONFIG, "/server/filters/activation", "class", "info.magnolia.module.activation.ReceiveFilter"));
+
+    // make sure legacy links filter comes before aggregator, aggregator will terminate chain
+    tasks.add(new OrderNodeBeforeTask("legacylinks", "Put legacy links filter before aggregator filter in the cms chain.", RepositoryConstants.CONFIG, "/server/filters/cms/legacylinks", "aggregator"));
 
     // move tweetStreamer config into the twitter module
     tasks.add(new NodeExistsDelegateTask("Move Twitter config if exists", "/modules/gato/config",

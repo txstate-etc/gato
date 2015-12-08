@@ -32,7 +32,7 @@ public class GatoDamServlet extends DamDownloadServlet {
     String keyStr = pathInfo.split("/")[1];
     if (ItemKey.isValid(keyStr)) return super.getAsset(request);
     Node damItem = lmlogic.convertUrlToDamNode(pathInfo);
-    if (damItem != null) return damfn.getAsset(lmlogic.urlForAssetNode(damItem));
+    if (damItem != null) return damfn.getAsset(lmlogic.itemKeyForAssetNode(damItem));
     return super.getAsset(request);
   }
 
