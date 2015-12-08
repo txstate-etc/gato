@@ -1,4 +1,10 @@
 body {
+  .gato-sociallink {
+    img, .fa {
+      margin-left: 6px;
+    }
+  }
+
   .gato-accordion, .gato-rss-item.gato-accordion {
     box-shadow: none;
 
@@ -97,7 +103,7 @@ table.data {
   &.table-linesv td{
     border-left: 1px solid #A28F61;
     border-right: 1px solid #A28F61;
-  } 
+  }
   &.table-alt tr.odd td{
     background-color: #d6c99d;
   }
