@@ -3,9 +3,12 @@
     [#if content.link?has_content]
       <a href="${gf.filterUrl(content.link!)}">
     [/#if]
-
+    [#assign left = (content.imagecropleft!0.0)?number]
+    [#assign right = (content.imagecropright!0.0)?number]
+    [#assign top = (content.imagecroptop!0.0)?number]
+    [#assign bottom = (content.imagecropbottom!0.0)?number]
     <div class="image">
-      <img src="${gf.getImgDefault(content.image, ctx.aspectratio)}" srcset="${gf.getSrcSet(content.image, ctx.aspectratio)}" class="bg" alt="${content.alttext!}">
+      <img src="${gf.getImgDefault(content.image, left, right, top, bottom, ctx.aspectratio)}" srcset="${gf.getSrcSet(content.image, left, right, top, bottom, ctx.aspectratio)}" class="bg" alt="${content.alttext!}">
     </div>
     <div class="caption">
       [#if content.title?has_content]<h3>${content.title}</h3>[/#if]

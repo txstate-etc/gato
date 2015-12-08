@@ -352,6 +352,10 @@ public final class GatoUtils {
     return getImgDefault(assetOrId, left, right, top, bottom, sizes, (square ? 1f : -1f));
   }
 
+  public String getImgDefault(Object assetOrId, float left, float right, float top, float bottom, float aspectratio) {
+    return getImgDefault(assetOrId, left, right, top, bottom, SIZES_DEFAULT, aspectratio);
+  }
+
   public String getImgDefault(Object assetOrId, float left, float right, float top, float bottom, String sizes, float aspectratio) {
     Asset asset = toAsset(assetOrId);
     if (asset == null) return "";
