@@ -15,6 +15,7 @@
         CKEDITOR.plugins.addExternal("lineutils", CKEDITOR.vaadinDirUrl + "js/richeditorplugins/lineutils/", 'plugin.js');
         CKEDITOR.plugins.addExternal("widget", CKEDITOR.vaadinDirUrl + "js/richeditorplugins/widget/", 'plugin.js');
         CKEDITOR.plugins.addExternal("image2", CKEDITOR.vaadinDirUrl + "js/richeditorplugins/image2/", 'plugin.js');
+        CKEDITOR.plugins.addExternal("magnolialink", CKEDITOR.vaadinDirUrl + "js/magnolialink/", 'plugin.js');
         CKEDITOR.plugins.addExternal("magnoliaFileBrowser", CKEDITOR.vaadinDirUrl + "js/filebrowser/", 'plugin.js');
 
          definition = {
@@ -87,7 +88,7 @@
            config.disableNativeSpellChecker = false;
            config.toolbar_Magnolia = [
                    { name: "basicstyles",   items: [ "Bold", "Italic", "HorizontalRule", "Blockquote", "RemoveFormat", "SpecialChar" ] },
-                   { name: "links",         items: [ "Link", "Unlink", "Anchor" ] },
+                   { name: "links",         items: [ "Link", "InternalLink", "DamLink", "Unlink", "Anchor" ] },
                    { name: "clipboard",     items: [ "Copy", "Paste", "PasteText", "PasteFromWord" ] },
                    { name: "tables",        items: [ "Table" ] },
                    { name: "images",        items: ["Image", "Flash"]},
