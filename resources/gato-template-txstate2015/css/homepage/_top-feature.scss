@@ -60,7 +60,7 @@ div#top-feature {
     }
   }
 
-  @media (max-width: $lg-breakpoint - 1){
+  @media (max-width: $lg-breakpoint){
    figure {
       height: 415px;
   
@@ -77,13 +77,13 @@ div#top-feature {
     }
   }
 
-  @media (max-width: $md-breakpoint - 1){
+  @media (max-width: $md-breakpoint){
     figure {
       height: 375px;
     }
   }
 
-  @media (max-width: $sm-breakpoint - 1){
+  @media (max-width: $sm-breakpoint){
     .slide-nav { display: none; }
     figure {
       height: auto;

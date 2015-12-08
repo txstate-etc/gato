@@ -2,6 +2,7 @@ div#spotlight {
   padding-bottom: 1rem;
 
   .research {
+    figure { margin-bottom: 3rem; }
     .research-slider-wrap {
       position: relative;
       .slide {
@@ -19,12 +20,12 @@ div#spotlight {
     }
   }
 
-  @media (min-width: $sm-breakpoint){
+  @media (max-width: $sm-breakpoint){
     .research {
-      figure { margin-bottom: 3rem; }
+      figure { margin-bottom: 0; }
     }
   }
-  @media (max-width: $lg-breakpoint - 1){
+  @media (max-width: $lg-breakpoint){
     .slide {
       min-height: 37rem;
       .feature-play-button {

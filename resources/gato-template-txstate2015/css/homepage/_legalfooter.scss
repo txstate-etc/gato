@@ -14,26 +14,21 @@ div#legal-footer {
     padding-right: 2rem;
   }
 
+  .content-row-column {
+    width: 25%;
+  }
+
   #quick-links { a { color: $quicklinks-text; } }
 
   .member-statement {
     max-width: 32rem;
-    margin: 4rem auto 1rem auto;
+    margin: 5rem auto 0rem auto;
     a {
       display: block;
     }
   }
 
-  @media (min-width: $sm-breakpoint){
-    .content-row-column {
-      width: 25%;
-    }
-    .member-statement {
-      margin: 5rem auto 0 auto;
-    }
-  }
-  
-  @media (max-width: $sm-breakpoint - 1){
+  @media (max-width: $sm-breakpoint){
     text-align: center;
 
     p {
@@ -41,9 +36,18 @@ div#legal-footer {
       &:after { content: "\a0\2013";} // nbsp + en-dash
       &:last-child:after {content: none;}
     }
+    
+    .content-row-column {
+      width: 100%;
+    }
+    
     #quick-links {
       margin-bottom: 3rem;
       p:after { color: $quicklinks-text; }
+    }
+
+    .member-statement {
+      margin: 4rem auto 1rem auto;
     }
   }
 

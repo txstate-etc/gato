@@ -1,5 +1,6 @@
 div#top-links {
   background: $charcoal;
+  text-align: center;
   
   .content-row-content {
     position: relative;
@@ -11,26 +12,27 @@ div#top-links {
     display: block;
     color: $white;
     &:hover { background: $darkest-charcoal; }
-    font-size: 1.8rem;
-    line-height: 1.8rem;
-    font-weight: 500;
+    font-size: 2rem;
+    line-height: 2rem;
+    font-weight: bold;
     padding: 1.5rem 2rem;
-    border-top: 1px solid $light-charcoal;
-    border-bottom: 1px solid $darkest-charcoal;
     i {
-      position: absolute;
-      right: 2rem;
+      display: none;
     }
   }
-  @media (min-width: $sm-breakpoint) {
-    text-align: center;
+  @media (max-width: $sm-breakpoint) {
+    text-align: left;
     a {
-      font-size: 2rem;
-      line-height: inherit;
-      font-weight: bold;
-      padding: 1.5rem 2rem;
-      border: none;
-      i { display: none; }
+      font-size: 1.8rem;
+      line-height: 1.8rem;
+      font-weight: 500;
+      border-top: 1px solid $light-charcoal;
+      border-bottom: 1px solid $darkest-charcoal;
+      i {
+        display: inline;
+        position: absolute;
+        right: 2rem;
+      }
     }
   }
 }

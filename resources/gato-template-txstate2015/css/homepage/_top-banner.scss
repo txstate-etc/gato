@@ -10,9 +10,9 @@ div#homepage-banner {
   .homepage-banner-content {
     letter-spacing: -1rem;
     & > * { letter-spacing: normal; }
-    padding: 2.5rem;
-    @media (min-width: $sm-breakpoint) {
-      padding: 2.5rem 0 0;
+    padding: 2.5rem 0 0;
+    @media (max-width: $sm-breakpoint) {
+      padding: 2.5rem;
     }
   }
 
@@ -21,8 +21,9 @@ div#homepage-banner {
     & > * { letter-spacing: normal; }
     max-width: 1200px;
     margin: auto;
-    @media (min-width: $sm-breakpoint) {
-      padding-bottom: 3rem;
+    padding-bottom: 3rem;
+    @media (max-width: $sm-breakpoint) {
+      padding-bottom: 0;
     }
   }
 
@@ -33,8 +34,9 @@ div#homepage-banner {
   }
   
   .homepage-banner-logo {
-    @media (min-width: $sm-breakpoint) {
-      padding-left: 5rem;
+    padding-left: 5rem;
+    @media (max-width: $sm-breakpoint) {
+      padding-left: 0;
     }
     & > a {
       display: block;
@@ -49,9 +51,9 @@ div#homepage-banner {
   }
 
   .homepage-banner-searchwrap {
-    display: none;
-    @media (min-width: $sm-breakpoint) {
-      display: inline-block;
+    display: inline-block;
+    @media (max-width: $sm-breakpoint) {
+      display: none;
     }
     padding-right: 5rem;
     .txst_search {
@@ -122,10 +124,10 @@ div#homepage-banner {
             a {
               display: block;
               &:hover { text-decoration: underline; }
-              padding: 1.6rem 2.7rem;  
-              @media (min-width: $md-breakpoint) {
-                padding-left: 3.2rem;  
-                padding-right: 3.2rem;  
+              padding: 1.6rem 3.2rem;  
+              @media (max-width: $md-breakpoint) {
+                padding-left: 2.7rem;  
+                padding-right: 2.7rem;  
               }
             }
           }
@@ -151,9 +153,9 @@ div#homepage-banner {
       }
     }
   
-    display: none;
-    @media (min-width: $sm-breakpoint) {
-      display: block;
+    display: block;
+    @media (max-width: $sm-breakpoint) {
+      display: none;
     }
 
     .audience-links {
@@ -164,9 +166,9 @@ div#homepage-banner {
         position: absolute;
         left: 0;
         width: 100%;
-        padding: 4.5rem 0 3.5rem;
-        @media (min-width: $md-breakpoint) {
-          padding: 6rem 0 5rem;
+        padding: 6rem 0 5rem;
+        @media (max-width: $md-breakpoint) {
+          padding: 4.5rem 0 3.5rem;
         }
         z-index: 9;
         background: $gold;
@@ -174,12 +176,12 @@ div#homepage-banner {
 
         .audience-link-content {
           padding: 0 2rem;
-          max-width: 768px;
-          @media (min-width: $md-breakpoint) {
-            max-width: 1000px;
+          max-width: 1200px;
+          @media (max-width: $md-breakpoint) {
+            max-width: 768px;
           }
-          @media (min-width: $xl-breakpoint) {
-            max-width: 1200px;
+          @media (max-width: $xl-breakpoint) {
+            max-width: 1000px;
           }
           margin: auto;
           font-size: 1.4rem;
@@ -194,9 +196,9 @@ div#homepage-banner {
             li {
               margin: 0; 
               &:not(:last-child) {
-                margin-bottom: 1rem; 
-                @media (min-width: $md-breakpoint) {
-                  margin-bottom: 1.5rem; 
+                margin-bottom: 1.5rem; 
+                @media (max-width: $md-breakpoint) {
+                  margin-bottom: 1rem; 
                 }
               }
             }
@@ -205,9 +207,9 @@ div#homepage-banner {
           & > div {
             @extend .grid-cell;
             letter-spacing: normal; 
-            width: 33%;
-            @media (min-width: $md-breakpoint) {
-              width: 25%;
+            width: 25%;
+            @media (max-width: $md-breakpoint) {
+              width: 33%;
             }
           }
 
@@ -234,9 +236,9 @@ div#homepage-banner {
               }
             }
 
-            display: none;
-            @media (min-width: $md-breakpoint) {
-              display: inline-block;
+            display: inline-block;
+            @media (max-width: $md-breakpoint) {
+              display: none;
             }
           }
 
@@ -254,14 +256,14 @@ div#homepage-banner {
               }
 
               ul { 
-                margin: 0.5rem 0 1.5rem;
+                margin: 1rem 0 1.5rem; 
                 &:first-of-type { 
-                  margin-bottom: 3rem; 
+                  margin-bottom: 4rem; 
                 }
-                @media (min-width: $md-breakpoint) {
-                  margin-top: 1rem; 
+                @media (max-width: $md-breakpoint) {
+                  margin-top: 0.5rem;
                   &:first-of-type { 
-                    margin-bottom: 4rem; 
+                    margin-bottom: 3rem; 
                   }
                 }
 
@@ -285,13 +287,13 @@ div#homepage-banner {
               text-align: center;
               text-transform: uppercase;
               
-              margin-top: 2rem;
-              padding: 1rem 2rem;
-              border: 2px solid $lightest-gold;
-              @media (min-width: $md-breakpoint) {
-                margin-top: 3rem;
-                padding: 1.5rem 3rem;
-                border-width: 3px;
+              margin-top: 3rem;
+              padding: 1.5rem 3rem;
+              border: 3px solid $lightest-gold;
+              @media (max-width: $md-breakpoint) {
+                margin-top: 2rem;
+                padding: 1rem 2rem;
+                border-width: 2px;
               }
 
               @include hover-bg($maroon) {

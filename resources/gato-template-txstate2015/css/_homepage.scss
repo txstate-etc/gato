@@ -12,8 +12,8 @@ body.homepage {
   div.main-content {
 
     h2 {
-      font-size: 2.4rem;
-      margin-bottom: 2.5rem;
+      font-size: 2.8rem;
+      margin-bottom: 4rem;
       margin-top: 0.1rem;
       font-weight: 500;
     }
@@ -21,10 +21,10 @@ body.homepage {
       font-size: 1.6rem;
     }
 
-    @media (min-width: $sm-breakpoint){
+    @media (max-width: $sm-breakpoint){
       h2 {
-        font-size: 2.8rem;
-        margin-bottom: 4rem;
+        font-size: 2.4rem;
+        margin-bottom: 2.5rem;
       }
     }
   }
@@ -33,14 +33,14 @@ body.homepage {
 
     .content-row-content {
       margin: auto;
-      max-width: 1000px;
-      padding: 4rem 0;
-      @media (min-width: $sm-breakpoint){
-        padding-top: 6rem;
+      max-width: 1200px;
+      padding: 6rem 0;
+      @media (max-width: $sm-breakpoint){
+        padding-top: 4rem;
       }
 
-      @media (min-width: $xl-breakpoint){
-        max-width: 1200px;
+      @media (max-width: $xl-breakpoint){
+        max-width: 1000px;
       }
 
       .solo-bailout {
@@ -61,7 +61,7 @@ body.homepage {
         }
       }
 
-      @media (max-width: $sm-breakpoint - 1){
+      @media (max-width: $sm-breakpoint){
         .solo-bailout {
           text-align: center;
           padding-top: 0rem;
@@ -80,58 +80,59 @@ body.homepage {
     } 
 
     .col-left, .col-middle, .col-right, .solo-title, .solo-bailout {
-      padding-left: 2rem;
-      padding-right: 2rem;
+      padding-left: 0;
+      padding-right: 0;
     }
-    @media (min-width: $lg-breakpoint){
-      .col-left, .col-middle, .col-right, .solo-title, .solo-bailout {
-        padding-left: 0;
-        padding-right: 0;
+    .col-left {
+      padding-right: 2.5rem;
+    }
+    .col-right {
+      padding-left: 2.5rem;
+    }
+    @media (max-width: $xl-breakpoint){
+      .col-left, .col-right, .solo-title, .solo-bailout {
+        padding-left: 2rem;
+        padding-right: 2rem;
       }
     }
-    @media (max-width: $sm-breakpoint - 1){
+    @media (max-width: $sm-breakpoint){
+      .col-middle {
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
       .col-left, .col-middle, .col-right {
         padding-bottom: 4rem;
       }
     }
-    @media (min-width: $sm-breakpoint){
-      .col-middle { padding-left: 0; padding-right: 0; }
-    }
-    @media (min-width: $lg-breakpoint){
-      .col-left {
-        padding-right: 2.5rem;
-      }
-      .col-right {
-        padding-left: 2.5rem;
-      }
-    }
+    
     &.three-col {
-      @media (min-width: $sm-breakpoint){
-        .content-row-column {
-          width: 100% * 1 / 3;
-        }
+      .content-row-column {
+        width: 100% * 1 / 3;
       }
     }
     &.two-col {
-      @media (min-width: $sm-breakpoint){
+      .content-row-column {
+        width: 100% * 1 / 2;
+      }
+      // .col-left {
+      //   padding-right: 6rem;
+      // }
+      // .col-right {
+      //   padding-left: 6rem;
+      // }
+      // @media (max-width: $xl-breakpoint){
+      //   .col-left {
+      //     padding-right: 4rem;
+      //   }
+      //   .col-right {
+      //     padding-left: 4rem;
+      //   }
+      // }
+    }
+    @media (max-width: $sm-breakpoint){
+       &.three-col,  &.two-col {
         .content-row-column {
-          width: 100% * 1 / 2;
-        }
-      }
-      @media (min-width: $lg-breakpoint){
-        .col-left {
-          padding-right: 4rem;
-        }
-        .col-right {
-          padding-left: 4rem;
-        }
-      }
-      @media (min-width: $xl-breakpoint){
-        .col-left {
-          padding-right: 6rem;
-        }
-        .col-right {
-          padding-left: 6rem;
+          width: 100%;
         }
       }
     }
@@ -154,7 +155,7 @@ body.homepage {
           background: $khaki; 
         }
       }
-      @media (max-width: $sm-breakpoint - 1){
+      @media (max-width: $sm-breakpoint){
         .solo-bailout a.solo-bailout-button {
           background: $maroon; 
           @include hover-bg($light-maroon);
@@ -232,7 +233,7 @@ body.homepage {
     }
   }
 
-  @media (max-width: $lg-breakpoint - 1){
+  @media (max-width: $lg-breakpoint){
     .slides {
       figure.feature {    
         .feature-play-button {

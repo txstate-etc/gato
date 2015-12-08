@@ -4,7 +4,8 @@ div#social {
     figure { margin: 0; }
     
     .social-upper {
-      
+      height: 38rem;
+
       .image > a {
         @extend .hover-blur;
         &, img {
@@ -17,7 +18,7 @@ div#social {
     }
     .social-lower {
       position: relative;
-      border: none;   
+      border-bottom: 3px solid $gold;
       color: $medium-gray;   
       text-transform: uppercase;
       font-size: 1.3rem;      
@@ -108,7 +109,7 @@ div#social {
       .image > a {
         position: relative;
         overflow: hidden;
-        height: 32rem;
+        height: 19rem;
         
         img {
           position: absolute;
@@ -119,10 +120,21 @@ div#social {
 
       }
 
+      .fb-content {
+        padding: 1rem 1rem 0;
+      }
+
       .social-area-icon a:hover { color: $facebook; }
     }
 
-    @media (max-width: $sm-breakpoint - 1){
+    @media (max-width: $xl-breakpoint){
+      .social-upper { height: 32rem; }
+      .facebook .image > a { height: 16rem; }
+    }
+
+    @media (max-width: $sm-breakpoint){
+      .social-upper { height: auto; }
+      .social-lower { border: none; }
       .instagram {
         .caption {
           font-size: 1.6rem;
@@ -139,24 +151,12 @@ div#social {
         .tweet { padding: 0 2rem; }
       }
       .facebook {
+        .image > a { height: 32rem; }
         padding-top: 3rem;
-      }
-    }
-
-    @media (min-width: $sm-breakpoint){
-      .social-upper { height: 32rem; }
-      .social-lower { border-bottom: 3px solid $gold; }
-
-      .facebook {
-        .image > a { height: 16rem; }
         .fb-content {
-          padding: 1rem 1rem 0;
+          padding: 0;
         }
       }
-    }
-    @media (min-width: $xl-breakpoint){
-      .social-upper { height: 38rem; }
-      .facebook .image > a { height: 19rem; }
     }
 
   }
