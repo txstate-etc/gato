@@ -43,12 +43,14 @@
   <li>
     <a href="${gf.filterUrl(component.link)}">${gf.filterLinkTitle(component.title, component.link)}</a>
     <ul class="${mobileClass}secondary_nav">
-      [#local featuredLinks = cmsfn.children(component.featuredLinks, "mgnl:contentNode")]
-      [#local nested][#nested featuredLinks][/#local]
-      [#if nested?has_content]
-        ${nested}
-      [#else /]
-        [@linkList featuredLinks?sort_by("text") false/]
+      [#if component.featuredLinks?has_content]
+        [#local featuredLinks = cmsfn.children(component.featuredLinks, "mgnl:contentNode")]
+        [#local nested][#nested featuredLinks][/#local]
+        [#if nested?has_content]
+          ${nested}
+        [#else /]
+          [@linkList featuredLinks?sort_by("text") false/]
+        [/#if]
       [/#if]
       
       <li>
@@ -57,14 +59,16 @@
         </a>
       </li>
 
-      <div class="gato-accordion" data-start-collapsed="true">
-        <div class="gato-accordion-header">
-          <a href="#">More <i class="fa fa-caret-down"></i></a>
+      [#if component.otherLinks?has_content]
+        <div class="gato-accordion" data-start-collapsed="true">
+          <div class="gato-accordion-header">
+            <a href="#">More <i class="fa fa-caret-down"></i></a>
+          </div>
+          <div class="gato-accordion-content">
+            [@linkList cmsfn.children(component.otherLinks, "mgnl:contentNode")?sort_by("text") /]
+          </div>
         </div>
-        <div class="gato-accordion-content">
-          [@linkList cmsfn.children(component.otherLinks, "mgnl:contentNode")?sort_by("text") /]
-        </div>
-      </div>      
+      [/#if]
     </ul>
   </li>
 [/#macro]

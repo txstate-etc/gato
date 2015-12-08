@@ -20,13 +20,15 @@
         </div>
       </div>
       
-      [#list requiredLinks?chunk(collen) as column]
-        <div class="eq-mn-1-1 eq-ml-1-4">
-          <div class="legal-links">
-            [@linklist column /]
+      [#if requiredLinks?has_content]
+        [#list requiredLinks?chunk(collen) as column]
+          <div class="eq-mn-1-1 eq-ml-1-4">
+            <div class="legal-links">
+              [@linklist column /]
+            </div>
           </div>
-        </div>
-      [/#list]
+        [/#list]
+      [/#if]
 
     </div>
 
