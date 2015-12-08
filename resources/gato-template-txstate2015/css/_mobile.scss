@@ -40,6 +40,7 @@
       width: 82%;
       border: 10px solid $mobile-search-border;
       border-right: 0px;
+      border-radius: 0px;
       background: $mobile-search-background;
       height: 60px;
       box-sizing: border-box;
@@ -49,6 +50,7 @@
       &:-moz-placeholder {color: $search-placeholder;}
       &::-moz-placeholder {color: $search-placeholder;}
       &:-ms-input-placeholder {color: $search-placeholder;}
+      -webkit-appearance: none;
     }
     .icon {
       width: 18%;
