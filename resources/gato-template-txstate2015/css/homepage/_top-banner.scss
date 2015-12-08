@@ -93,7 +93,7 @@ div#homepage-banner {
             display: block;
             width: 18rem;
           }
-          @media (max-width: $lg-breakpoint) {
+          @media (max-width: $md-breakpoint) {
             background-image: url('../images/txst-star.png');
             background-size: contain;
             background-repeat: no-repeat;
@@ -178,7 +178,7 @@ div#homepage-banner {
           @media (min-width: $md-breakpoint) {
             max-width: 1000px;
           }
-          @media (min-width: $lg-breakpoint) {
+          @media (min-width: $xl-breakpoint) {
             max-width: 1200px;
           }
           margin: auto;

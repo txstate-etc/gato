@@ -166,8 +166,9 @@ div#news {
     }
   }
 
-  @include eq-max-width('ml') {
-    &.events-wrap { background: $maroon; }
+  @media (max-width: $sm-breakpoint - 1) {
+    .content-row-content { padding-bottom: 0; }
+    .events-wrap { background: $maroon; }
 
     .events {
       padding: 4.5rem 2rem;

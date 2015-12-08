@@ -2,9 +2,10 @@ body.homepage {
   img { max-width: 100%; }
 
   div.content-row-content {
-    .eq-parent {
-      letter-spacing: -1rem;
-      & > * { letter-spacing: normal; }
+    letter-spacing: -1rem;
+    .content-row-column, .solo-column {
+      @extend .grid-cell;
+      letter-spacing: normal;
     }
   }
 
@@ -29,14 +30,14 @@ body.homepage {
   }
 
   div.content-row {
-    padding: 4rem 0;
-    @media (min-width: $sm-breakpoint){
-      padding-top: 6rem;
-    }
 
     .content-row-content {
       margin: auto;
       max-width: 1000px;
+      padding: 4rem 0;
+      @media (min-width: $sm-breakpoint){
+        padding-top: 6rem;
+      }
 
       @media (min-width: $xl-breakpoint){
         max-width: 1200px;
@@ -60,7 +61,7 @@ body.homepage {
         }
       }
 
-      @include eq-max-width('ml') {
+      @media (max-width: $sm-breakpoint - 1){
         .solo-bailout {
           text-align: center;
           padding-top: 0rem;
@@ -82,21 +83,21 @@ body.homepage {
       padding-left: 2rem;
       padding-right: 2rem;
     }
-    .eq-parent[min-width~="1000px"] > * {
+    @media (min-width: $lg-breakpoint){
       .col-left, .col-middle, .col-right, .solo-title, .solo-bailout {
         padding-left: 0;
         padding-right: 0;
       }
     }
-    @include eq-max-width('ml') {
+    @media (max-width: $sm-breakpoint - 1){
       .col-left, .col-middle, .col-right {
         padding-bottom: 4rem;
       }
     }
-    @include eq-min-width('ml') {
+    @media (min-width: $sm-breakpoint){
       .col-middle { padding-left: 0; padding-right: 0; }
     }
-    @include eq-min-width('lg') {
+    @media (min-width: $lg-breakpoint){
       .col-left {
         padding-right: 2.5rem;
       }
@@ -104,8 +105,20 @@ body.homepage {
         padding-left: 2.5rem;
       }
     }
+    &.three-col {
+      @media (min-width: $sm-breakpoint){
+        .content-row-column {
+          width: 100% * 1 / 3;
+        }
+      }
+    }
     &.two-col {
-      @include eq-min-width('lg') {
+      @media (min-width: $sm-breakpoint){
+        .content-row-column {
+          width: 100% * 1 / 2;
+        }
+      }
+      @media (min-width: $lg-breakpoint){
         .col-left {
           padding-right: 4rem;
         }
@@ -113,7 +126,7 @@ body.homepage {
           padding-left: 4rem;
         }
       }
-      @include eq-min-width('xl') {
+      @media (min-width: $xl-breakpoint){
         .col-left {
           padding-right: 6rem;
         }
@@ -141,7 +154,7 @@ body.homepage {
           background: $khaki; 
         }
       }
-      @include eq-max-width('ml') {
+      @media (max-width: $sm-breakpoint - 1){
         .solo-bailout a.solo-bailout-button {
           background: $maroon; 
           @include hover-bg($light-maroon);
@@ -219,7 +232,7 @@ body.homepage {
     }
   }
 
-  @include eq-max-width('lg') {
+  @media (max-width: $lg-breakpoint - 1){
     .slides {
       figure.feature {    
         .feature-play-button {

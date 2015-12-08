@@ -4,7 +4,6 @@
 
 
 <div id="top-feature">
-  <div class="eq-parent">  
     
     <div class="slides">
 
@@ -53,6 +52,4 @@
       </div>
     [/#if]
 
-  </div>  
-  
 </div>

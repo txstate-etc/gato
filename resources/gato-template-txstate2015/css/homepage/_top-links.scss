@@ -1,7 +1,11 @@
 div#top-links {
   background: $charcoal;
-  padding: 0;
   
+  .content-row-content {
+    position: relative;
+    padding: 0;
+  }
+
   a {
     position: relative;
     display: block;
@@ -11,14 +15,14 @@ div#top-links {
     line-height: 1.8rem;
     font-weight: 500;
     padding: 1.5rem 2rem;
-    border-top: 1px solid #4a4948;
-    border-bottom: 1px solid #262524;
+    border-top: 1px solid $light-charcoal;
+    border-bottom: 1px solid $darkest-charcoal;
     i {
       position: absolute;
       right: 2rem;
     }
   }
-  @include eq-min-width('ml') {
+  @media (min-width: $sm-breakpoint) {
     text-align: center;
     a {
       font-size: 2rem;

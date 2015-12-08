@@ -1,4 +1,5 @@
 div#top-feature {
+  position: relative;
   background: $darkest-charcoal;
   
   figure {
@@ -59,7 +60,7 @@ div#top-feature {
     }
   }
 
-  @include eq-max-width('xl') {
+  @media (max-width: $lg-breakpoint - 1){
    figure {
       height: 415px;
   
@@ -76,14 +77,14 @@ div#top-feature {
     }
   }
 
-  @include eq-max-width('lg') {
+  @media (max-width: $md-breakpoint - 1){
     figure {
-      height: 300px;
+      height: 375px;
     }
   }
 
-  @include eq-max-width('ml') {
-    &.slide-nav { display: none; }
+  @media (max-width: $sm-breakpoint - 1){
+    .slide-nav { display: none; }
     figure {
       height: auto;
       img { max-height: 250px; }

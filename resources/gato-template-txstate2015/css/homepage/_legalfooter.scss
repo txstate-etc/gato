@@ -8,6 +8,12 @@ div#legal-footer {
     color: inherit; 
     &:hover { text-decoration: underline; }
   }
+
+  .content-row-content {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
   #quick-links { a { color: $quicklinks-text; } }
 
   .member-statement {
@@ -19,12 +25,15 @@ div#legal-footer {
   }
 
   @media (min-width: $sm-breakpoint){
+    .content-row-column {
+      width: 25%;
+    }
     .member-statement {
       margin: 5rem auto 0 auto;
     }
   }
   
-  @include eq-max-width('ml') {
+  @media (max-width: $sm-breakpoint - 1){
     text-align: center;
 
     p {

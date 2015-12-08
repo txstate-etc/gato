@@ -10,33 +10,32 @@
   [/#list]
 [/#macro]
 
-<div id="legal-footer" class="content-row">
+<div id="legal-footer" class="content-row four-col">
   <div class="content-row-content"> 
-    <div class="eq-parent">
 
-      <div class="eq-mn-1-1 eq-ml-1-4">
-        <div id="quick-links" class="legal-links">
-          [@linklist quickLinks /]
-        </div>
+    <div class="content-row-column">
+      <div id="quick-links" class="legal-links">
+        [@linklist quickLinks /]
       </div>
-      
-      [#if requiredLinks?has_content]
-        [#list requiredLinks?chunk(collen) as column]
-          <div class="eq-mn-1-1 eq-ml-1-4">
-            <div class="legal-links">
-              [@linklist column /]
-            </div>
+    </div>
+    
+    [#if requiredLinks?has_content]
+      [#list requiredLinks?chunk(collen) as column]
+        <div class="content-row-column">
+          <div class="legal-links">
+            [@linklist column /]
           </div>
-        [/#list]
-      [/#if]
+        </div>
+      [/#list]
+    [/#if]
 
+    <div class="solo-column">
+      <div class="member-statement">
+        <a class="image-link" href="http://www.tsus.edu">
+          <img src="${ctx.contextPath}/.resources/gato-template/images/tsus-member.png"/>
+        </a>
+      </div>
     </div>
-
-    <div class="member-statement">
-      <a class="image-link" href="http://www.tsus.edu">
-        <img src="${ctx.contextPath}/.resources/gato-template/images/tsus-member.png"/>
-      </a>
-    </div>
-
-  </div>  
+    
+  </div>
 </div> 

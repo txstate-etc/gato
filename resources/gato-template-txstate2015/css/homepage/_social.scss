@@ -1,7 +1,6 @@
 div#social {
 
   .content-row-content {
-    padding: 0;
     figure { margin: 0; }
     
     .social-upper {
@@ -12,6 +11,7 @@ div#social {
           display: block;
           margin: 0;
           padding: 0;
+          width: 100%;
         }
       }
     }
@@ -34,40 +34,6 @@ div#social {
           &:hover { background: none; }
         }
       }
-    }
-    @include eq-max-width('ml') {
-      .instagram {
-        .caption {
-          font-size: 1.6rem;
-        }
-        .social-lower p {
-          margin-top: 3rem;
-        }
-      }
-      &.twitter-wrap { background: $sandstone; }
-      .twitter {
-        padding: 2rem;
-        .twitter-slide { min-height: 32rem; }
-        .tweet { padding: 0 2rem; }
-        a { color: $maroon; }
-      }
-      .facebook {
-        padding-top: 3rem;
-      }
-    }
-
-    @include eq-min-width('ml') {
-      .social-upper { height: 32rem; }
-      .social-lower { border-bottom: 3px solid $gold; }
-
-      .facebook {
-        .fb-content {
-          padding: 1rem 1rem 0;
-        }
-      }
-    }
-    @include eq-min-width('xl') {
-      .social-upper { height: 38rem; }
     }
 
     .instagram {
@@ -139,7 +105,58 @@ div#social {
       font-size: 1.6rem;
       padding-bottom: 2.5rem;
 
+      .image > a {
+        position: relative;
+        overflow: hidden;
+        height: 32rem;
+        
+        img {
+          position: absolute;
+          margin: auto;
+          top: -9999px;
+          bottom: -9999px;
+        }
+
+      }
+
       .social-area-icon a:hover { color: $facebook; }
+    }
+
+    @media (max-width: $sm-breakpoint - 1){
+      .instagram {
+        .caption {
+          font-size: 1.6rem;
+        }
+        .social-lower p {
+          margin-top: 3rem;
+        }
+      }
+      .twitter-wrap { background: $sandstone; }
+      .twitter {
+        padding: 2rem;
+        a { color: $maroon; }
+        .social-upper { min-height: 32rem; }
+        .tweet { padding: 0 2rem; }
+      }
+      .facebook {
+        padding-top: 3rem;
+      }
+    }
+
+    @media (min-width: $sm-breakpoint){
+      .social-upper { height: 32rem; }
+      .social-lower { border-bottom: 3px solid $gold; }
+
+      .facebook {
+        .image > a { height: 16rem; }
+        .fb-content {
+          padding: 1rem 1rem 0;
+        }
+      }
+    }
+    @media (min-width: $xl-breakpoint){
+      .social-upper { height: 38rem; }
+      .facebook .image > a { height: 19rem; }
     }
 
   }

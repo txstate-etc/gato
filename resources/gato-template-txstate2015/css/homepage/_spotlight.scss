@@ -19,12 +19,12 @@ div#spotlight {
     }
   }
 
-  @include eq-min-width('ml') {
+  @media (min-width: $sm-breakpoint){
     .research {
       figure { margin-bottom: 3rem; }
     }
   }
-  @include eq-max-width('lg') {
+  @media (max-width: $lg-breakpoint - 1){
     .slide {
       min-height: 37rem;
       .feature-play-button {
