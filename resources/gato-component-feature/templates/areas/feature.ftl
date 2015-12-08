@@ -16,7 +16,8 @@
   [#if ratios?size == 0 || ctx.iam2009tmpl!false]
     [#assign aspectratio = 16.0/9.0]
   [#else]
-    [#assign aspectratio = (ratios?sort)[ratios?size / 2]]
+    [#--[#assign aspectratio = (ratios?sort)[ratios?size / 2]]--]
+    [#assign aspectratio = 3.0/2.0]
   [/#if]
 
   [#list components as slide]
