@@ -1,5 +1,7 @@
 <div class="ua-footer">
-  [@cms.area name="footer" content=gf.getOrCreateArea(homepage, 'footer') editable=isHomePage /]
+  <div class="txst-footer">
+    [@cms.area name="footer" content=gf.getOrCreateArea(homepage, 'footer') editable=isHomePage /]
+  </div>
   <div class="ua-socialbar">
 		<div class="ua-socialbar-bg"></div>
 		Follow the Pride

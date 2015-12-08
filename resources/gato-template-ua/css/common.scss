@@ -216,6 +216,9 @@ div.skip-nav a {
 	display: block;
 	float: left;
 	margin-left: 6px;
+  text-decoration: none;
+  text-indent: 0px;
+  font-size: 14px;
 	img {
 	  width: 24px;
     height: 24px;
@@ -223,12 +226,6 @@ div.skip-nav a {
 }
 .ua-socialbar-buttons.admin a {
 	float: none;
-}
-.ua-socialbar-buttons a img {
-	visibility: hidden;
-}
-.ua-socialbar-buttons a:hover img {
-	visibility: visible;
 }
 
 /* alert notices for editing mode */

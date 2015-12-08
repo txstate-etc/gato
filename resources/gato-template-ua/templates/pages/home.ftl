@@ -30,7 +30,9 @@
         </div>
         <div class="ua-video">
           <h3 class="ua-video-header">Impact of Giving</h3>
-          [@cms.area name="video" /]
+          <div class="ua-video-container">
+            [@cms.area name="video" /]
+          </div>
         </div>
       </div>
     </div>
