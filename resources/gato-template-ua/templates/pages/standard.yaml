@@ -12,3 +12,5 @@ variations:
     templateScript: /gato-component-cssjs/templates/pages/jsvariation.ftl
   rss:
     templateScript: /gato-template-rss/templates/pages/rssvariation.ftl
+  smartphone:
+    templateScript: /gato-template-txstate2009/templates/pages/mobile.ftl
