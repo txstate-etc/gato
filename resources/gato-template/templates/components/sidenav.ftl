@@ -20,7 +20,7 @@
     [#if content.title?has_content]
       <h3 class="side_nav_header ${haschildren?string('','solo')}">${cmsfn.decode(content).title}</h3>
     [/#if]
-    [#if haschildren]
+    [#if haschildren || cmsfn.isEditMode()]
       <ul class="side_nav_list">
         [#-- loop through all the components and display them --]
         [#if content.type == 'auto']
