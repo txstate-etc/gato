@@ -13,6 +13,7 @@ import java.nio.file.Paths;
 import javax.inject.Inject;
 import javax.jcr.Node;
 import javax.jcr.Session;
+import javax.jcr.RepositoryException;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.jackrabbit.core.NodeImpl;
@@ -146,7 +147,7 @@ public class LinkMigrationLogic {
     return getSession("gatolegacylinkmap");
   }
 
-  public Node migrateResourceNodeToDam(Node resourceNode) throws Exception {
+  public Node migrateResourceNodeToDam(Node resourceNode) throws RepositoryException {
     Session damSession = getDamSession();
     Session mapSession = getMapSession();
 
@@ -155,10 +156,13 @@ public class LinkMigrationLogic {
     while (component.getDepth() > 0 && !NodeUtil.isNodeType(component, NodeTypes.Component.NAME))
       component = component.getParent();
     String subfolder = "images";
+    boolean bannermode = false;
     if (component.getDepth() > 0) {
       String t = NodeTypes.Renderable.getTemplate(component);
       if (t.endsWith("texasEditor") || t.endsWith("richeditor"))
         subfolder = "richeditor_uploads";
+      else if (t.endsWith("banner"))
+        bannermode = true;
       else if (resourceNode.getName().equals("document") || resourceNode.getName().equals("file"))
         subfolder = "documents";
     }
@@ -169,6 +173,7 @@ public class LinkMigrationLogic {
 
     // create the final parent path for our file
     String damPath = "/"+path[1]+"/migrated_files/"+subfolder+"/"+(path.length > 2 ? path[2] : "");
+    if (bannermode) damPath = "/banner-images/"+path[1];
     Node damParent = NodeUtil.createPath(damSession.getRootNode(), damPath, NodeTypes.Folder.NAME);
 
     // find the filename we will use and ensure it's unique in our parent folder
