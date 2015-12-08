@@ -47,6 +47,7 @@ class MoveRichEditorToDamTask extends MoveFCKEditorContentToDamMigrationTask {
   protected String templateId;
   protected Map<String, String> copyHistory;
   protected TemplatingFunctions cmsfn;
+  protected LinkMigrationLogic lmlogic;
 
   public MoveRichEditorToDamTask(String templateId, String propertyName) {
     super("DAM Rich Editor Migration", "Move binary files from rich editor properties in the website tree to the DAM.",
@@ -54,6 +55,7 @@ class MoveRichEditorToDamTask extends MoveFCKEditorContentToDamMigrationTask {
     this.templateId = templateId;
     this.copyHistory = new HashMap<String, String>();
     this.cmsfn = Components.getComponent(TemplatingFunctions.class);
+    this.lmlogic = Components.getComponent(LinkMigrationLogic.class);
   }
 
   // the property name query they were using didn't work at all so I'm overriding
@@ -155,30 +157,9 @@ class MoveRichEditorToDamTask extends MoveFCKEditorContentToDamMigrationTask {
           }
 
         // let's see if we have a DMS link
-        } else if (path.startsWith("/dms/")) {
-          try {
-            Path dmspath = Paths.get(path.substring(4));
-            Node damItem = damSession.getNode(dmspath.getParent().toString());
-            path = getDamLink(damItem);
-          } catch (Exception e) {
-            // no match, we tried
-          }
-
-        // let's see if we have a gato-docs link
-        } else if (path.startsWith("http://gato-docs.its.txstate.edu/")) {
-          Path dmspath = Paths.get(path.substring(32).replaceAll("\\.[^\\.]+$", ""));
-          Node damItem = null;
-          try {
-            damItem = damSession.getNode(dmspath.toString());
-          } catch (Exception e) {
-            try {
-              damItem = damSession.getNode(dmspath.getParent().toString());
-            } catch (Exception e2) {
-              // no match, give up
-            }
-          }
-          if (damItem != null && NodeUtil.isNodeType(damItem, AssetNodeTypes.Asset.NAME))
-            path = getDamLink(damItem);
+        } else {
+          Node damItem = lmlogic.convertUrlToDamNode(path);
+          if (damItem != null) path = getDamLink(damItem);
         }
 
         matcher.appendReplacement(result, "$1" + Matcher.quoteReplacement(path) + "$3");

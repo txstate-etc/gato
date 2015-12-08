@@ -66,6 +66,7 @@ public final class GatoUtils {
   private static final Pattern LINK_PATTERN = Pattern.compile("(https?://\\S+)", Pattern.CASE_INSENSITIVE);
   private static final Pattern USER_PATTERN = Pattern.compile("(^|)@(\\w+)");
   private static final Pattern HASHTAG_PATTERN = Pattern.compile("(^|)#(\\w+)");
+  private static final Pattern ITEMKEY_PATTERN = Pattern.compile("^([a-z]+):([a-f0-9\\-]+)$");
 
   private final TemplatingFunctions tf;
   private final DamTemplatingFunctions damfn;
@@ -89,27 +90,20 @@ public final class GatoUtils {
     if (StringUtils.isEmpty(url)) return "";
     if (LinkUtil.isExternalLinkOrAnchor(url)) return url;
     String cpath = MgnlContext.getContextPath();
-    boolean wasInWebsite = false;
-    Node cont = null;
-    try {
-      // let's see if url is actually a UUID to something in the website
-      // repository
-      cont = sc.getJCRSession("website").getNodeByIdentifier(url);
-      if (cont != null) wasInWebsite = true;
-    } catch (Exception e) {
-      // failed attempt, no biggie
-    }
-
-    if (wasInWebsite && cont != null) {
-      try {
-        return cpath+cont.getPath();
-      } catch (Exception e) {
-        return "";
-      }
-    }
     if (!StringUtils.isEmpty(cpath) && url.startsWith(cpath)) return url;
 
+    // is it a domain without http? let's fix that for them
     if ( StringUtils.strip(url).matches("[^/]+\\.(com|edu|org|net|gov|us|ca|uk)(/.*?)?") ) return "http://"+StringUtils.strip(url);
+
+    // let's see if it's an id for something in the website tree
+    String websiteLink = tf.link(RepositoryConstants.WEBSITE, url);
+    if (!StringUtils.isBlank(websiteLink)) return websiteLink;
+
+    // let's see if it's an item key for something in DAM
+    if (ITEMKEY_PATTERN.matcher(url).matches()) {
+      String assetLink = damfn.getAssetLink(url);
+      if (!StringUtils.isBlank(assetLink)) return assetLink;
+    }
 
     if (LinkUtil.isInternalRelativeLink(url)) {
         //If the url is internal and relative, we need to get the content node for the current
@@ -117,7 +111,7 @@ public final class GatoUtils {
         try {
             Node n = MgnlContext.getAggregationState().getCurrentContent().getJCRNode();
 
-            while (!n.isNodeType(MgnlNodeType.NT_PAGE)) {
+            while (!n.isNodeType(NodeTypes.Page.NAME)) {
                 n = n.getParent();
               }
 

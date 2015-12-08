@@ -13,6 +13,10 @@
 			<type>edu.txstate.its.gato.TxStateResizer</type>
 			<implementation>edu.txstate.its.gato.TxStateResizer</implementation>
 		</component>
+		<component>
+			<type>edu.txstate.its.gato.setup.LinkMigrationLogic</type>
+			<implementation>edu.txstate.its.gato.setup.LinkMigrationLogic</implementation>
+		</component>
 	</components>
   <dependencies>
     <dependency>

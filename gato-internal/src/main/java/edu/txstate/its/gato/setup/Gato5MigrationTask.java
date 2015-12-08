@@ -51,11 +51,13 @@ import org.slf4j.LoggerFactory;
 public class Gato5MigrationTask extends GatoBaseUpgradeTask {
   private static final Logger log = LoggerFactory.getLogger(Gato5MigrationTask.class);
   protected final DamTemplatingFunctions damfn;
+  protected final LinkMigrationLogic lmlogic;
   protected Session damSession;
 
   public Gato5MigrationTask(String name, String description) {
     super(name, description);
     damfn = Components.getSingleton(DamTemplatingFunctions.class);
+    lmlogic = Components.getSingleton(LinkMigrationLogic.class);
   }
 
   protected void doExecute(InstallContext ctx) throws RepositoryException, PathNotFoundException, TaskExecutionException, LoginException {
@@ -277,8 +279,9 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
   private void checkLinkForDMSRef(Node n) throws RepositoryException {
     if (n.hasProperty("link")) {
       String link = PropertyUtil.getString(n, "link", "");
-      if (link.startsWith("/dms/")) {
-        PropertyUtil.setProperty(n, "link", "/dam/"+link.substring(5));
+      Node damItem = lmlogic.convertUrlToDamNode(link);
+      if (damItem != null) {
+        PropertyUtil.setProperty(n, "link", lmlogic.urlForAssetNode(damItem));
       }
     }
   }
