@@ -155,6 +155,7 @@ function loadStreamingDialog(def, node, el) {
   jQuery('.videoUrl').keyup(function() {
     clearTimeout(el.previewTimeout);
     jQuery(container).empty();
+    jQuery(el).addClass('gatoEmbedContainer');
     spinner.spin(el);
     el.previewTimeout = setTimeout(loadPreview, 1000);
   });
