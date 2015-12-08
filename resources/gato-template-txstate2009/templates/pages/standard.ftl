@@ -80,7 +80,7 @@
                   [#assign activeURL = gf.getImageHandlerBase()+cacheStr+'/imagehandler/khanmenuactiveempty/'+imageName+'.gif']
                   [#assign inactiveURL = gf.getImageHandlerBase()+cacheStr+'/imagehandler/khanmenuempty/'+imageName+'.gif']
                 [/#if]
-                <a href="${cmsfn.link(page)}" class="ddmenu-menubaritem" style="background: url(${activeURL}?text=${(cmsfn.decode(page).title!'')?url?replace('(','%28')?replace(')','%29')})">
+                <a href="${cmsfn.link(page)}" class="ddmenu-menubaritem" style="background: url(${activeURL}?text=${(cmsfn.decode(page).title!'')?url?replace('(','%28')?replace(')','%29')?replace("'",'%27')})">
                   <img src="${inactiveURL}?text=${(cmsfn.decode(page).title!'')?url}" alt="${page.title!}"/>
                 </a>
                 [#if hasChildren]
