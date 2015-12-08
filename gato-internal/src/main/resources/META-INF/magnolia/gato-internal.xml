@@ -16,6 +16,7 @@
 		<component>
 			<type>edu.txstate.its.gato.setup.LinkMigrationLogic</type>
 			<implementation>edu.txstate.its.gato.setup.LinkMigrationLogic</implementation>
+      <scope>singleton</scope>
 		</component>
 	</components>
   <dependencies>

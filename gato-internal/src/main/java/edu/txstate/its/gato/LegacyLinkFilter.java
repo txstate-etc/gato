@@ -30,6 +30,7 @@ public class LegacyLinkFilter extends AbstractMgnlFilter {
 
 	public void doFilter(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
 	throws IOException, ServletException {
+	  lmlogic.setMigrationEnabled(false);
 	  Node damItem = lmlogic.convertAnyUrlToDamNode(request.getServletPath());
 	  if (damItem != null) response.sendRedirect(damfn.getAssetLink(lmlogic.itemKeyForAssetNode(damItem)));
 		else chain.doFilter(request, response);

@@ -6,7 +6,6 @@ import info.magnolia.link.Link;
 import info.magnolia.link.LinkUtil;
 import info.magnolia.link.LinkException;
 import info.magnolia.repository.RepositoryConstants;
-import info.magnolia.module.InstallContext;
 import info.magnolia.objectfactory.Components;
 import info.magnolia.templating.functions.TemplatingFunctions;
 
@@ -52,8 +51,9 @@ class MoveRichEditorToDamTask extends MoveFCKEditorContentToDamMigrationTask {
     super("DAM Rich Editor Migration", "Move binary files from rich editor properties in the website tree to the DAM.",
       RepositoryConstants.WEBSITE, Arrays.asList("/"), "", propertyName);
     this.templateId = templateId;
-    this.cmsfn = Components.getComponent(TemplatingFunctions.class);
-    this.lmlogic = Components.getComponent(LinkMigrationLogic.class);
+    this.cmsfn = Components.getSingleton(TemplatingFunctions.class);
+    this.lmlogic = Components.getSingleton(LinkMigrationLogic.class);
+    lmlogic.setMigrationEnabled(true);
   }
 
   // the property name query they were using didn't work at all so I'm overriding

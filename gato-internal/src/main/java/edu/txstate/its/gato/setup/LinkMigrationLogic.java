@@ -5,12 +5,16 @@ import info.magnolia.dam.jcr.AssetNodeTypes;
 import info.magnolia.jcr.util.NodeUtil;
 import info.magnolia.jcr.util.NodeTypes;
 import info.magnolia.jcr.util.PropertyUtil;
+import info.magnolia.module.InstallContext;
 import info.magnolia.templating.functions.TemplatingFunctions;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Map;
+import java.util.HashMap;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 import javax.jcr.Node;
 import javax.jcr.Session;
 import javax.jcr.RepositoryException;
@@ -18,11 +22,19 @@ import javax.jcr.RepositoryException;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.jackrabbit.core.NodeImpl;
 
+@Singleton
 public class LinkMigrationLogic {
   private final TemplatingFunctions cmsfn;
+  protected Map<String, Session> sessMap;
+  protected boolean enableMigration = false;
   @Inject
   public LinkMigrationLogic(TemplatingFunctions tFunc) throws Exception {
     this.cmsfn = tFunc;
+    this.sessMap = new HashMap<String, Session>();
+  }
+
+  public void setMigrationEnabled(boolean enabled) {
+    this.enableMigration = enabled;
   }
 
   public Node convertAnyUrlToDamNode(String url) {
@@ -126,13 +138,14 @@ public class LinkMigrationLogic {
   }
 
   public Session getSession(String workspace) {
-    Session s = null;
     try {
-      s = MgnlContext.getJCRSession(workspace);
+      if (!sessMap.containsKey(workspace)) {
+        sessMap.put(workspace, MgnlContext.getJCRSession(workspace));
+      }
+      return sessMap.get(workspace);
     } catch (Exception e) {
       return null;
     }
-    return s;
   }
 
   public Session getDamSession() {
@@ -148,6 +161,7 @@ public class LinkMigrationLogic {
   }
 
   public Node migrateResourceNodeToDam(Node resourceNode) throws RepositoryException {
+    if (!enableMigration) return null;
     Session damSession = getDamSession();
     Session mapSession = getMapSession();
 

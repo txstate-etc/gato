@@ -23,7 +23,8 @@ class MoveFileToDamTask extends MoveFileContentToDamMigrationTask {
     super("DAM Migration - "+propertyName, "Move binary files from the website tree to the DAM.",
       RepositoryConstants.WEBSITE, Arrays.asList("/"), "", propertyName);
     this.folderName = folderName;
-    this.lmlogic = Components.getComponent(LinkMigrationLogic.class);
+    this.lmlogic = Components.getSingleton(LinkMigrationLogic.class);
+    this.lmlogic.setMigrationEnabled(true);
   }
 
   @Override

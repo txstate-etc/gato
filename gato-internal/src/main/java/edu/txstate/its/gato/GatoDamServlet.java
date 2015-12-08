@@ -28,6 +28,7 @@ public class GatoDamServlet extends DamDownloadServlet {
 
   @Override
   protected Asset getAsset(HttpServletRequest request) {
+    lmlogic.setMigrationEnabled(false);
     String pathInfo = request.getPathInfo();
     String keyStr = pathInfo.split("/")[1];
     if (ItemKey.isValid(keyStr)) return super.getAsset(request);
