@@ -1,7 +1,6 @@
-[#assign globalData = cmsfn.asContentMap(cmsfn.nodeByPath('/global-data', 'website'))]
 <ul class="mobile-super-list upper">
-  [#list cmsfn.children(globalData.superGroup2, "mgnl:component") as component]
-    <li>[@cms.component content=component/]</li>
+  [#list cmsfn.children(globalLinks.superGroup2, "mgnl:component") as component]
+    <li><a href="${gf.filterUrl(component.link)}">${gf.filterLinkTitle(component.text, component.link)}</a></li>
   [/#list]
   <li>
     <div class="gato-accordion" data-start-collapsed="true">
@@ -10,8 +9,8 @@
       </div>
       <div class="gato-accordion-content">
         <ul>
-          [#list cmsfn.children(globalData.superGroup3, "mgnl:component") as component]
-            <li>[@cms.component content=component/]</li>
+          [#list cmsfn.children(globalLinks.superGroup3, "mgnl:component") as component]
+            <li><a href="${gf.filterUrl(component.link)}">${gf.filterLinkTitle(component.text, component.link)}</a></li>
           [/#list]
         </ul>
       </div>
@@ -19,7 +18,7 @@
   </li>
 </ul>
 <ul class="mobile-super-list lower">
-  [#list cmsfn.children(globalData.superGroup1, "mgnl:component") as component]
-    <li>[@cms.component content=component/]</li>
+  [#list cmsfn.children(globalLinks.superGroup1, "mgnl:component") as component]
+    <li><a href="${gf.filterUrl(component.link)}">${gf.filterLinkTitle(component.text, component.link)}</a></li>
   [/#list]
 </ul>

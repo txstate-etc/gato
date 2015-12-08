@@ -22,7 +22,7 @@
       
       [/#if]
       
-      [#if (globaldata.analytics.global_account)?has_content && !(content.googleanalyticsSkipGlobal!false)]
+      [#if (globalData.analytics.global_account)?has_content && !(content.googleanalyticsSkipGlobal!false)]
 
         [#if isHomePage]
           [#local gapath = '${thisPagePath}/']
@@ -31,7 +31,7 @@
         [/#if]
 
         var destroyerGlobalPageTracker = {
-          trackingId: '${globaldata.analytics.global_account}', 
+          trackingId: '${globalData.analytics.global_account}', 
           name: 'destroyerGlobalPageTracker',
           cookieDomain: 'auto'
         };
