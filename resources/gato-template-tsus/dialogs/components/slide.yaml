@@ -24,6 +24,10 @@ form:
           height: 400
           label: Content
           description: "A bit of text/html to place over the image."
+        - name: script
+          class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
+          initFunction: initTurnOffAcePairing
+          scripts: [gato-template/js/turnoffacepairing.js]
         - name: link
           class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
           label: Link

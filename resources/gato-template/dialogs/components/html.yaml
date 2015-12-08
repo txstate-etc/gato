@@ -9,4 +9,8 @@ form:
           rows: 20
           label: HTML
           description: "Expert users can use this area to enter HTML 5 code."
+        - name: script
+          class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
+          initFunction: initTurnOffAcePairing
+          scripts: [gato-template/js/turnoffacepairing.js]
 actions: !include /gato-template/dialogs/common/actions-block.yaml

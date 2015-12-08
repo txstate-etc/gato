@@ -31,4 +31,8 @@ form:
           height: 400
           label: Content
           description: "A bit of text/html to place over the background image."
+        - name: script
+          class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
+          initFunction: initTurnOffAcePairing
+          scripts: [gato-template/js/turnoffacepairing.js]
 actions: !include /gato-template/dialogs/common/actions-block.yaml

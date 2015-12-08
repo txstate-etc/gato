@@ -11,5 +11,9 @@ form:
           language: css
           rows: 8
           description: "You can enter stylesheet definitions here that will be inserted into the HEAD of your page.<br><br>WARNING: For advanced users only. It is possible to make quite a mess of your site with this feature."
+        - name: script
+          class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
+          initFunction: initTurnOffAcePairing
+          scripts: [gato-template/js/turnoffacepairing.js]
 actions: !include /gato-template/dialogs/common/actions-block.yaml
 label: Custom CSS
