@@ -95,7 +95,12 @@ function createPlayer(el, url, options) {
       buildMediaflo(el, videoInfo);
       break;
     case "unknown":
-      el.innerHTML = "Sorry, we're unable to play this video.";
+      if (videoInfo.url.startsWith("http")) {
+        jQuery(el).append('<a href="' + videoInfo.url + '">' + videoInfo.url + '</a>');
+      } else {
+        el.innerHTML = "Sorry, we're unable to play this video.";
+      }
+      jQuery(el).closest('.gatoEmbedContainer').removeClass('gatoEmbedContainer');
       break;
   }
 
