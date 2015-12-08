@@ -1,11 +1,10 @@
 package edu.txstate.its.gato.setup;
 
-import info.magnolia.context.MgnlContext;
+import info.magnolia.context.SystemContext;
 import info.magnolia.dam.jcr.AssetNodeTypes;
 import info.magnolia.jcr.util.NodeUtil;
 import info.magnolia.jcr.util.NodeTypes;
 import info.magnolia.jcr.util.PropertyUtil;
-import info.magnolia.module.InstallContext;
 import info.magnolia.templating.functions.TemplatingFunctions;
 
 import java.nio.file.Path;
@@ -25,12 +24,14 @@ import org.apache.jackrabbit.core.NodeImpl;
 @Singleton
 public class LinkMigrationLogic {
   private final TemplatingFunctions cmsfn;
+  private final SystemContext sc;
   protected Map<String, Session> sessMap;
   protected boolean enableMigration = false;
   @Inject
-  public LinkMigrationLogic(TemplatingFunctions tFunc) throws Exception {
+  public LinkMigrationLogic(TemplatingFunctions tFunc, SystemContext systemContext) throws Exception {
     this.cmsfn = tFunc;
     this.sessMap = new HashMap<String, Session>();
+    this.sc = systemContext;
   }
 
   public void setMigrationEnabled(boolean enabled) {
@@ -140,7 +141,7 @@ public class LinkMigrationLogic {
   public Session getSession(String workspace) {
     try {
       if (!sessMap.containsKey(workspace)) {
-        sessMap.put(workspace, MgnlContext.getJCRSession(workspace));
+        sessMap.put(workspace, sc.getJCRSession(workspace));
       }
       return sessMap.get(workspace);
     } catch (Exception e) {
