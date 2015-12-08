@@ -16,7 +16,7 @@
       [/#if]
     [/@navloop]
   [#else]
-    [#assign haschildren = gf.hasComponents(content) || (content.type=='auto' && gf.hasNavChildren(page))]
+    [#assign haschildren = gf.hasComponents(content.links) || (content.type=='auto' && gf.hasNavChildren(page))]
     [#if content.title?has_content]
       <h3 class="side_nav_header ${haschildren?string('','solo')}">${cmsfn.decode(content).title}</h3>
     [/#if]
