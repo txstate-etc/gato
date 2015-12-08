@@ -155,7 +155,7 @@ public final class GatoUtils {
     String cpath = MgnlContext.getContextPath();
 
     if (furl.startsWith(cpath)) {
-      String path = furl.substring(furl.indexOf(cpath) + cpath.length());
+      String path = stripExtension(furl.substring(furl.indexOf(cpath) + cpath.length()));
       try {
         return nodeTitle(sc.getJCRSession("website").getNode(path));
       } catch (Exception e) {
@@ -814,7 +814,11 @@ public final class GatoUtils {
   }
 
   public String replaceExtension(String url, String newextension) {
-    return url.replaceAll("\\.[^\\.]+$", "."+newextension);
+    return url.replaceAll("\\.[^/\\.]+$", "."+newextension);
+  }
+
+  public String stripExtension(String url) {
+    return url.replaceAll("\\.[^/\\.]+$", "");
   }
 
   public boolean inFuture(Date start, Date end) {
