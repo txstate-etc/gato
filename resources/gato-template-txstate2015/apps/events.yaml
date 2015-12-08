@@ -2,6 +2,11 @@ label: Events
 icon: icon-datepicker
 appClass: info.magnolia.ui.contentapp.ContentApp
 class: info.magnolia.ui.contentapp.ContentAppDescriptor
+permissions:
+  roles:
+    - superuser: superuser
+    - main2012-editor: main2012-editor
+    - main2012-mobile-editor: main2012-mobile-editor
 subApps:
   browser:
     label: Events
