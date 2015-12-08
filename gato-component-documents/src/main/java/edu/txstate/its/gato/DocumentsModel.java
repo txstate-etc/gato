@@ -131,7 +131,7 @@ public class DocumentsModel<RD extends ConfiguredTemplateDefinition> extends Ren
                         String path = damfn.getAssetLink(asset.getItemKey().asString());
                         String fileExtension = PropertyUtil.getString(AssetNodeTypes.AssetResource.getResourceNodeFromAsset(node), AssetNodeTypes.AssetResource.EXTENSION, "").toUpperCase();
 
-                        if(StringUtils.isEmpty(extension) || extension.toUpperCase().contains(fileExtension.toUpperCase())){
+                        if(!isFolder || StringUtils.isEmpty(extension) || extension.toUpperCase().contains(fileExtension.toUpperCase())){
                             doc.setIconClass(getIconClass(fileExtension));
                             doc.setTitle(buildDisplayTitle(asset));
                             doc.setExtension(fileExtension);
