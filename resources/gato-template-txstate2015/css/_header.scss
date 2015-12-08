@@ -251,7 +251,7 @@ body.admin .header_no_image {
   margin-bottom: -18px;
 }
 
-@media (min-width: 40rem){
+@media (min-width: $xs-breakpoint){
     .header {min-height: 350px; padding: 0;}
     .header_with_image_secondary {min-height: 180px; padding: 0;}
     .header_with_image {min-height: 280px; padding: 0;}
