@@ -246,6 +246,13 @@ body.admin .all-hours, body.admin .hours-links {
 	color: #4b0f15;
 }
 
+/* hide rss expand/collapse in left content box */
+.content-box.left{
+	.gato-accordion-expand-collapse{
+		display: none;
+	}
+}
+
 /* social media links */
 .social {
 	clear: both;
@@ -414,4 +421,3 @@ a.txst-eventsbox-image {
 .hamburger{
 	display: none;
 }
-
