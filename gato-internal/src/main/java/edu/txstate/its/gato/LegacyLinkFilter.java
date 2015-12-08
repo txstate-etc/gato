@@ -18,7 +18,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class LegacyLinkFilter extends AbstractMgnlFilter {
-	private static Logger log = LoggerFactory.getLogger(AudienceViewFilter.class);
+	private static Logger log = LoggerFactory.getLogger(LegacyLinkFilter.class);
 	protected final LinkMigrationLogic lmlogic;
 	protected final DamTemplatingFunctions damfn;
 
@@ -32,7 +32,12 @@ public class LegacyLinkFilter extends AbstractMgnlFilter {
 	throws IOException, ServletException {
 	  lmlogic.setMigrationEnabled(false);
 	  Node damItem = lmlogic.convertAnyUrlToDamNode(request.getServletPath());
-	  if (damItem != null) response.sendRedirect(damfn.getAssetLink(lmlogic.itemKeyForAssetNode(damItem)));
+	  if (damItem != null) {
+	    String redirUrl = damfn.getAssetLink(lmlogic.itemKeyForAssetNode(damItem));
+	    log.warn("redirecting request from "+request.getServletPath()+" to "+redirUrl);
+	    log.warn("referer: "+request.getHeader("Referer"));
+	    response.sendRedirect(redirUrl);
+	  }
 		else chain.doFilter(request, response);
 	}
 }

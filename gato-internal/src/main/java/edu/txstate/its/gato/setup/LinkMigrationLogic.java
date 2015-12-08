@@ -140,11 +140,12 @@ public class LinkMigrationLogic {
 
   public Session getSession(String workspace) {
     try {
-      if (!sessMap.containsKey(workspace)) {
+      if (!sessMap.containsKey(workspace) || !sessMap.get(workspace).isLive()) {
         sessMap.put(workspace, sc.getJCRSession(workspace));
       }
       return sessMap.get(workspace);
     } catch (Exception e) {
+      e.printStackTrace();
       return null;
     }
   }
