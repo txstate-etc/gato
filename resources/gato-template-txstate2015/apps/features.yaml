@@ -245,6 +245,17 @@ subApps:
                 rows: 5
                 label: Caption Text
                 description: "Text content for the caption area. Appears below the title."
+              - name: script
+                class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
+                fields:
+                  - name: color
+                    class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+                transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+                initFunction: initColorPicker
+                scripts: [gato-lib/js/color-picker.js]
+                loadScriptsInOrder: true
+                styleName: single-color
+                label: Background Color
               - name: rsscontent
                 label: Full Article Text
                 class: info.magnolia.ui.form.field.definition.RichTextFieldDefinition

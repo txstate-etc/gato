@@ -10,6 +10,9 @@ function initColorPicker(def, node, el, tmpl) {
   };
   
   // Pull in the template's colors.css file if it exists
+  if (!tmpl) {
+    tmpl = 'gato-template-txstate2015';
+  }
   tmpl = tmpl.replace(/:.+/, '');
   var cssfile = "./../.resources/"+tmpl+"/css/color-picker.compiled.css";
   $('head').append('<link rel="stylesheet" type="text/css" href="'+cssfile+'">');
