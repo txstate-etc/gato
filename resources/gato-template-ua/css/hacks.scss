@@ -1,3 +1,14 @@
 .gato-accordion .gato-accordion-header h3 {
   color: $primarytext;
 }
+
+.gato-textimage {
+  .gato-textimage-caption {
+    background-color: transparent;
+    text-align: left;
+    color: #666666;
+    font-size: .8em;
+    line-height: 1.1em;
+    word-wrap: break-word;
+  }
+}
