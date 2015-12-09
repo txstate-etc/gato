@@ -53,7 +53,7 @@
 				</div>
 			</div>
 			<div class="page_content eq-parent">
-        [#if !isHomePage]
+        [#if !isHomePage && !(content.hideTitle!false)]
           [#include "includes/headline.ftl"]
         [/#if]
 				[#assign hideSidebar = content.hideSidebar!false]

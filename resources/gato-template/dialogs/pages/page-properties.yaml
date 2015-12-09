@@ -6,21 +6,25 @@ form:
         - name: title
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Title
+        - name: hideTitle
+          class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+          buttonLabel: Hide the page title at the top of this page's content area.
+          label: "" #without this, Magnolia makes its own messy label
         - name: hideInNav
           class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
           buttonLabel: Do not show this page in the navigation.
-          label: "" #without this, Magnolia makes its own messy label
+          label: Hide in Menu
         - name: hideSidebar
           class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
           buttonLabel: Do not display navigation sidebar.
           defaultValue: false
           type: Boolean
           description: If you need more space for your content, you can turn off the template's sidebar
-          label: Hide Sidebar
+          label: Sidebar
         - name: currency
           class: info.magnolia.ui.form.field.definition.SelectFieldDefinition
           description: Send a note to the site owner when this page's content hasn't been updated for this long.
-          label: "Update Reminder:"
+          label: Update Reminder
           options:
             - name: inherit
               label: Inherit from parent page (default)

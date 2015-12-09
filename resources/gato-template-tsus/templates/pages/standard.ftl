@@ -19,7 +19,7 @@
       [/#if]
 
       <main class="tsus-contentcolumn txst-styledcontent">
-				[#if content.title?has_content && !isHomePage]
+				[#if content.title?has_content && !isHomePage && !(content.hideTitle!false)]
 					<h1 class="tsus-page-title">${content.title}</h1>
 				[/#if]
         [#if def.parameters.isMailTemplate!false]

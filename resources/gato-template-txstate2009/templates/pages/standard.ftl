@@ -119,7 +119,7 @@
       <div class="txst-khan-contentcolumn txst-styledcontent gato-styledcontent">
         <div class="txst-contentarea">
           [@breadcrumbs/]
-          <h1 id="maincontent" tabindex="-1" class="${isHomePage?string('visuallyhidden','')}">${content.title!}</h1>
+          <h1 id="maincontent" tabindex="-1" class="${(isHomePage || (content.hideTitle!false))?string('visuallyhidden','')}">${content.title!}</h1>
           [#if def.parameters.isMailTemplate!false]
             [@cms.area name="mail" /]
           [#else]
