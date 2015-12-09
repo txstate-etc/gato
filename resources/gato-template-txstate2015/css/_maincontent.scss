@@ -18,27 +18,27 @@
         &:hover {background: $content-link-hover;}
     }
     h1, h2{
-      font-size: 2.7rem; 
-      font-weight: 600; 
-      color: $very-dark; 
-      padding: 1.6rem 0; 
-      margin: 0; 
+      font-size: 2.7rem;
+      font-weight: 600;
+      color: $very-dark;
+      padding: 1.6rem 0;
+      margin: 0;
       line-height: 3.5rem;
       a{
-        color: $maroon; 
+        color: $maroon;
       }
     }
     h3{
-      font-size: 2.2rem; 
-      color: $gold; 
+      font-size: 2.2rem;
+      color: $gold;
       line-height: 3.6rem;
       a{
         color: $gold; /*may need to be important */
       }
     }
     h4, h5, h6{
-      font-size: 1.8rem; 
-      color: $charcoal; 
+      font-size: 1.8rem;
+      color: $charcoal;
       margin: 1em 0;
       a{
         color: $charcoal; /*may need to be important */
@@ -71,11 +71,11 @@
     }
   }
   figcaption{
-    margin-top: -0.8rem; 
-    font-size: 1.4rem; 
-    background: $sandstone; 
-    padding: 1.2rem 1.4rem; 
-    line-height: 2.2rem; 
+    margin-top: -0.8rem;
+    font-size: 1.4rem;
+    background: $sandstone;
+    padding: 1.2rem 1.4rem;
+    line-height: 2.2rem;
     text-align: center;
     a{
       color: $maroon; /* may need to be important */
@@ -86,10 +86,10 @@
     }
   }
   a img {
-    transition: all 0.3s ease-out; 
-    -webkit-transition: all 0.3s ease-out; 
-    -moz-transition: all 0.3s ease-out; 
-    -o-transition: all 0.3s ease-out; 
+    transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
     /* This kills weird opacity image hover effects in Webkit browsers */
     -webkit-backface-visibility: hidden;
     &:hover{
@@ -97,43 +97,43 @@
     }
   }
   blockquote{
-    font-family: 'Adobe Garamond W01', Garamond, 'Goudy Old Style', 'Times New Roman'; 
-    font-size: 3.2rem; 
-    line-height: 4rem; 
-    font-weight: 400; 
+    font-family: 'Adobe Garamond W01', Garamond, 'Goudy Old Style', 'Times New Roman';
+    font-size: 3.2rem;
+    line-height: 4rem;
+    font-weight: 400;
     padding: 1rem 2rem;
-    border-top: 4px solid $charcoal; 
-    border-bottom: 4px solid $charcoal; 
+    border-top: 4px solid $charcoal;
+    border-bottom: 4px solid $charcoal;
     margin: 5rem 0;
   }
 
-  
+
 
   hr {
-    position: initial; 
-    margin: 2rem 0; 
-    height: 1px; 
-    border: 0px solid #fff; 
+    position: initial;
+    margin: 2rem 0;
+    height: 1px;
+    border: 0px solid #fff;
     background: $khaki;
   }
   ul, ol {
-    list-style-position: outside; 
-    margin: 2rem 0 2rem 4rem; 
+    list-style-position: inside;
+    margin: 2rem 0 2rem 4rem;
     padding: 0;
   }
   table{
     border-color: $darkest-sandstone; /*may need to be important */
     border-style: solid;
     caption {
-      background: $gold; 
-      font-weight: 500; 
+      background: $gold;
+      font-weight: 500;
       color: $white;
       p {
         margin: 1.2rem;
       }
     }
     td, th{
-      padding: 0.5rem 1rem; 
+      padding: 0.5rem 1rem;
       border-color: $khaki;
     }
     th {background: #f4f1ed;}
