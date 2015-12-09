@@ -3,7 +3,7 @@
 [#assign aspectratio = 1750.0/600.0]
 
 
-<div id="top-feature">
+<div id="top-feature" class="feature">
     
     <div class="slides">
 

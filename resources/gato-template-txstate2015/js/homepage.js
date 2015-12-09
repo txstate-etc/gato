@@ -43,7 +43,7 @@ jQuery(function($) {
   }
 
   $('.slide-nav a').blurclick(function(e) {
-    var $next, $cur = $(this).parent().siblings('.slides').find('.slide:visible');
+    var $next, $cur = $(this).closest('.feature').find('.slides .slide:visible');
 
     if ($(this).hasClass('slide-nav-left')) {
       $next = $cur.prev();

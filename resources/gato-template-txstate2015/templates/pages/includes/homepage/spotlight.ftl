@@ -10,7 +10,7 @@
         <div class="col-left research">
           <h2>Research</h2>
         
-          <div class="research-slider-wrap">
+          <div class="research-slider-wrap feature">
             <div class="slides">
 
               [#list slides as component]
