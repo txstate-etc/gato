@@ -15,24 +15,28 @@
 [#macro featuredLinksFuture links]
   [#local links = links?chunk(3)]
     
-  <div class="gato-accordion" data-start-collapsed="true">
-    <div class="gato-accordion-header">
-      <a href="#">Undergraduate <i class="fa fa-caret-down"></i></a>
-    </div>
-    <div class="gato-accordion-content">
-      [@linkList links[0] /]
-    </div>
-  </div>      
+    <li>
+      <div class="gato-accordion" data-start-collapsed="true">
+        <div class="gato-accordion-header">
+          <a href="#">Undergraduate <i class="fa fa-caret-down"></i></a>
+        </div>
+        <div class="gato-accordion-content">
+          [@linkList links[0] /]
+        </div>
+      </div>      
+    </li>
 
   [#if links?size > 1]
-    <div class="gato-accordion" data-start-collapsed="true">
-      <div class="gato-accordion-header">
-        <a href="#">Graduate <i class="fa fa-caret-down"></i></a>
-      </div>
-      <div class="gato-accordion-content">
-        [@linkList links[1] /]
-      </div>
-    </div>      
+    <li>
+      <div class="gato-accordion" data-start-collapsed="true">
+        <div class="gato-accordion-header">
+          <a href="#">Graduate <i class="fa fa-caret-down"></i></a>
+        </div>
+        <div class="gato-accordion-content">
+          [@linkList links[1] /]
+        </div>
+      </div>      
+    </li>
   [/#if]
 [/#macro]
 
@@ -60,14 +64,16 @@
       </li>
 
       [#if component.otherLinks?has_content]
-        <div class="gato-accordion" data-start-collapsed="true">
-          <div class="gato-accordion-header">
-            <a href="#">More <i class="fa fa-caret-down"></i></a>
+        <li>
+          <div class="gato-accordion" data-start-collapsed="true">
+            <div class="gato-accordion-header">
+              <a href="#">More <i class="fa fa-caret-down"></i></a>
+            </div>
+            <div class="gato-accordion-content">
+              [@linkList cmsfn.children(component.otherLinks, "mgnl:contentNode")?sort_by("text") /]
+            </div>
           </div>
-          <div class="gato-accordion-content">
-            [@linkList cmsfn.children(component.otherLinks, "mgnl:contentNode")?sort_by("text") /]
-          </div>
-        </div>
+        </li>
       [/#if]
     </ul>
   </li>

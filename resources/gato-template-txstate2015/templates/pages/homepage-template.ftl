@@ -26,7 +26,7 @@
     <nav id="menu" class="mobile_nav">
       [@search.searchBar true false/]
       <div class="mobile_nav_container">
-        <h3 class="mobile-page-title">${gf.nodeTitle(content)}</h3>
+        <h3 class="mobile-page-title"><a href="${cmsfn.link(homepage)}">${gf.nodeTitle(homepage)}</a></h3>
         [#import "includes/homepage/mobile-menu.ftl" as menu]
         [@menu.menuBar isMobile=true/]
       </div>
