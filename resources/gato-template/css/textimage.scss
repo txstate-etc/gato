@@ -11,11 +11,24 @@
     a { padding: 0; margin: 0; display: block; }
 		img { display: block; width: 100%; }
 	}
+	.gato-textimage-caption{
+		font-size: 1.4rem; 
+		background: $gemini-bg; 
+		padding: 1.2rem 1.4rem; 
+		line-height: 2.2rem; 
+		color: $gemini-text; 
+		text-align: center;
+		a{
+			color: $gemini-link;
+			&:hover{
+				text-decoration: none;
+			}
+		}
+	}
 	&[max-width~="400px"] .gato-textimage-imageblock { float: none; margin: 0px auto 10px auto; }
 	.gato-textimage-caption {
 		text-align: center;
-		padding: 2px;
-		background-color: $primarybg;
-		color: $primarytext;
+		background-color: $gemini-bg;
+		color: $gemini-text;
 	}
 }
