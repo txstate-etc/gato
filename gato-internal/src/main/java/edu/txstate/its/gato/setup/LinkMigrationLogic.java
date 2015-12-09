@@ -1,10 +1,11 @@
 package edu.txstate.its.gato.setup;
 
-import info.magnolia.context.SystemContext;
+import info.magnolia.context.MgnlContext;
 import info.magnolia.dam.jcr.AssetNodeTypes;
 import info.magnolia.jcr.util.NodeUtil;
 import info.magnolia.jcr.util.NodeTypes;
 import info.magnolia.jcr.util.PropertyUtil;
+import info.magnolia.module.InstallContext;
 import info.magnolia.templating.functions.TemplatingFunctions;
 
 import java.nio.file.Path;
@@ -25,16 +26,15 @@ import org.apache.jackrabbit.core.NodeImpl;
 @Singleton
 public class LinkMigrationLogic {
   private final TemplatingFunctions cmsfn;
-  private final SystemContext sc;
+  private InstallContext ctx;
   protected Map<String, Session> sessMap;
   protected Map<String, String> uuidHistory;
   protected boolean enableMigration = false;
   @Inject
-  public LinkMigrationLogic(TemplatingFunctions tFunc, SystemContext systemContext) throws Exception {
+  public LinkMigrationLogic(TemplatingFunctions tFunc) throws Exception {
     this.cmsfn = tFunc;
     this.sessMap = new HashMap<String, Session>();
     this.uuidHistory = new HashMap<String, String>();
-    this.sc = systemContext;
   }
 
   public void setMigrationEnabled(boolean enabled) {
@@ -92,7 +92,7 @@ public class LinkMigrationLogic {
       if (resourceNode != null) {
         try {
           damItem = migrateResourceNodeToDam(resourceNode);
-        } catch (Exception e) { }
+        } catch (Exception e) { e.printStackTrace(); }
       }
     }
     return damItem;
@@ -164,10 +164,17 @@ public class LinkMigrationLogic {
     return url.replaceAll("\\.[^\\.]+$", "");
   }
 
+  public void setInstallContext(InstallContext context) {
+    this.ctx = context;
+  }
+
   public Session getSession(String workspace) {
     try {
       if (!sessMap.containsKey(workspace) || !sessMap.get(workspace).isLive()) {
-        sessMap.put(workspace, sc.getJCRSession(workspace));
+        Session s;
+        if (this.ctx != null) s = ctx.getJCRSession(workspace);
+        else s = MgnlContext.getJCRSession(workspace);
+        sessMap.put(workspace, s);
       }
       return sessMap.get(workspace);
     } catch (Exception e) {

@@ -5,6 +5,8 @@ import info.magnolia.dam.jcr.AssetNodeTypes;
 import info.magnolia.link.Link;
 import info.magnolia.link.LinkUtil;
 import info.magnolia.link.LinkException;
+import info.magnolia.module.InstallContext;
+import info.magnolia.module.delta.TaskExecutionException;
 import info.magnolia.repository.RepositoryConstants;
 import info.magnolia.objectfactory.Components;
 import info.magnolia.templating.functions.TemplatingFunctions;
@@ -23,7 +25,6 @@ import javax.jcr.query.QueryResult;
 import javax.jcr.RepositoryException;
 import javax.jcr.PathNotFoundException;
 import javax.jcr.LoginException;
-import info.magnolia.module.delta.TaskExecutionException;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -54,6 +55,13 @@ class MoveRichEditorToDamTask extends MoveFCKEditorContentToDamMigrationTask {
     this.cmsfn = Components.getSingleton(TemplatingFunctions.class);
     this.lmlogic = Components.getSingleton(LinkMigrationLogic.class);
     lmlogic.setMigrationEnabled(true);
+  }
+
+  @Override
+  public void doExecute(InstallContext ctx) throws TaskExecutionException {
+    lmlogic.setInstallContext(ctx);
+    super.doExecute(ctx);
+    lmlogic.setInstallContext(null);
   }
 
   // the property name query they were using didn't work at all so I'm overriding

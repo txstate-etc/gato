@@ -3,6 +3,8 @@ package edu.txstate.its.gato.setup;
 import info.magnolia.dam.api.ItemKey;
 import info.magnolia.dam.app.setup.migration.MoveFileContentToDamMigrationTask;
 import info.magnolia.dam.jcr.DamConstants;
+import info.magnolia.module.InstallContext;
+import info.magnolia.module.delta.TaskExecutionException;
 import info.magnolia.objectfactory.Components;
 import info.magnolia.repository.RepositoryConstants;
 
@@ -25,6 +27,13 @@ class MoveFileToDamTask extends MoveFileContentToDamMigrationTask {
     this.folderName = folderName;
     this.lmlogic = Components.getSingleton(LinkMigrationLogic.class);
     this.lmlogic.setMigrationEnabled(true);
+  }
+
+  @Override
+  public void doExecute(InstallContext ctx) throws TaskExecutionException {
+    lmlogic.setInstallContext(ctx);
+    super.doExecute(ctx);
+    lmlogic.setInstallContext(null);
   }
 
   @Override
