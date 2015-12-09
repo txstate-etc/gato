@@ -58,6 +58,7 @@ div#spotlight {
           @include vendor-prefix(transition, all 0.8s ease);
           font-size: 3.6rem;
           font-family: $garamond;
+          font-weight: normal;
           text-align: center;
           display: block;
           height: 100%;
