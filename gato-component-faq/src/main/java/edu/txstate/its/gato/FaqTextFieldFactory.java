@@ -146,41 +146,6 @@ public class FaqTextFieldFactory extends AssetsEnabledRichTextFieldFactory {
     return richTextEditor;
   }
 
-  /*private void chooseAsset() {
-    appController.openChooseDialog("assets", uiContext, null, new ChooseDialogCallback() {
-      @Override
-      public void onItemChosen(String actionName, Object chosenValue) {
-        UI.getCurrent().removeStyleName("ui-overlapping-ck-editor");
-
-        Gson gson = new Gson();
-        String eventJson = "{}";
-        Asset asset;
-
-        try {
-          if (!(chosenValue instanceof JcrNodeItemId)) {
-            return;
-          }
-          asset = assetProviderRegistry.getProviderById(DamConstants.DEFAULT_JCR_PROVIDER_ID).getAsset(new ItemKey(DamConstants.DEFAULT_JCR_PROVIDER_ID, ((JcrNodeItemId) chosenValue).getUuid()));
-          if (asset != null && asset.getMimeType().matches("image.*")) {
-            eventJson = gson.toJson(new FileBrowserUrlDTO(asset.getLink()));
-          } else {
-            eventJson = gson.toJson(new FileBrowserUrlDTO("", "Selected asset is not an image"));
-          }
-        } catch (DamException e) {
-          eventJson = gson.toJson(new FileBrowserUrlDTO("", e.getMessage()));
-        } finally {
-          richTextEditor.firePluginEvent(ASSET_CHOSEN_EVENT_ID, eventJson);
-        }
-      }
-
-
-      @Override
-      public void onCancel() {
-        UI.getCurrent().removeStyleName("ui-overlapping-ck-editor");
-      }
-    });
-  }*/
-
   private String mapWorkSpaceToApp(String workspace) {
         if (workspace.equalsIgnoreCase("dam")) {
             return "assets";
