@@ -91,8 +91,10 @@ div#homepage-banner {
 
   .homepage-banner-nav {
     letter-spacing: -1rem;
-    background: $khaki;
-    
+    @media (max-width: $md-breakpoint) {
+      background: $khaki;
+    }
+
     .homepage-banner-nav-content {
       max-width: 1200px; 
       @media (max-width: $xl-breakpoint) {
@@ -133,11 +135,20 @@ div#homepage-banner {
       }
 
       .audience-link-tabs {
+        position: relative;
         @extend .grid-cell;
         letter-spacing: normal; 
         text-align: center;
 
         ul {
+
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          @media (max-width: $md-breakpoint) {
+            position: static;
+          }
+
           list-style: none;
           margin: 0;
           padding: 0;
@@ -176,8 +187,11 @@ div#homepage-banner {
       .audience-link-tabs {
         text-align: right;
 
-        ul li {
-          font-size: 1.6rem;
+        ul {
+          position: static;
+          li {
+            font-size: 1.6rem;
+          }
         }
       }
     }
