@@ -1,18 +1,5 @@
-[@bannerSettings content=content areaname='headerImage'/]
-[#if showBannerArea]
-	[#if isHomePage ]
-		[#-- primary page with header image--]
-		[#assign headerClass = "header_with_image"]
-	[#else]
-		[#-- secondary page with header image--]
-		[#assign headerClass = "header_with_image_secondary"]
-	[/#if]
-[#else]
-	[#--  page with no header image--]
-	[#assign headerClass = "header_no_image"]
-[/#if]
-
-<div class="${headerClass}">
+[#import "/gato-template-txstate2015/templates/includes/headerImageLogic.ftl" as headerLogic]
+<div class="${headerLogic.headerClass}">
 	[@cms.area name="headerImage" /]
 	<div class="title">
     <div class="dept_name">
