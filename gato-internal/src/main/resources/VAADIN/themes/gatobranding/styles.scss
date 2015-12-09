@@ -35,6 +35,7 @@ body{
   }
 
   .icon-favorites{
+    display: none;
     font-family: FontAwesome !important;
     &:before {
       content: "\f005";
