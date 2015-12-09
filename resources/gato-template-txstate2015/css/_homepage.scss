@@ -298,7 +298,24 @@ body.homepage {
       margin: 0px 0.3rem;
     }
   }
-
+  .footer{
+    .footer_column{
+      padding: 0px;
+    }
+    .apply_now{
+      margin: 0px;
+    }
+  }
+  @media (max-width: $md-breakpoint){
+    .footer{
+      .footer_column{
+        padding: 0 2rem;
+      }
+      .apply_now{
+        margin: -5px;
+      }
+    }
+  }
 }
 
 @import "gato-template-txstate2015/css/homepage/emergency";
