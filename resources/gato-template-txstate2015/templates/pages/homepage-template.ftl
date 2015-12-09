@@ -23,8 +23,6 @@
 
   </head>
   <body class="homepage ${cmsfn.isEditMode()?string('admin','')}">
-    [#include "includes/homepage/emergency.ftl"]
-
     <nav id="menu" class="mobile_nav">
       [@search.searchBar true false/]
       <div class="mobile_nav_container">
@@ -38,6 +36,7 @@
       </div>
     </nav>
     <div id="panel" class="container">
+      [#include "includes/homepage/emergency.ftl"]
       <!--"super user" menu bar -->
       [#include "includes/super-user.ftl"]
 
