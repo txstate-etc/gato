@@ -4,7 +4,7 @@ div#video-modal {
   left: 0;
   bottom: 0;
   right: 0;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.8);
   padding: 1rem 2rem;
   z-index: 65535;
 
@@ -24,11 +24,7 @@ div#video-modal {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    
-    width: 854px;
-    @media (max-width: $md-breakpoint) {
-      width: calc(100vw - 20rem);
-    }
+    width: 70%;    
   }
 
   .video-nav {
