@@ -47,6 +47,25 @@ div#top-feature {
       }
     }    
   }
+  
+  .slide {  
+    &.color1 { .feature-headline a, .feature-play-button a { background-color: rgba($mc1-bg, 0.9); color: $mc1-text; border-left-color: $mc1-text; } }
+    &.color2 { .feature-headline a, .feature-play-button a { background-color: rgba($mc2-bg, 0.9); color: $mc2-text; border-left-color: $mc2-text; } }
+    &.color3 { .feature-headline a, .feature-play-button a { background-color: rgba($mc3-bg, 0.9); color: $mc3-text; border-left-color: $mc3-text; } }
+    &.color4 { .feature-headline a, .feature-play-button a { background-color: rgba($mc4-bg, 0.9); color: $mc4-text; border-left-color: $mc4-text; } }
+    &.color5 { .feature-headline a, .feature-play-button a { background-color: rgba($mc5-bg, 0.9); color: $mc5-text; border-left-color: $mc5-text; } }
+    &.color6 { .feature-headline a, .feature-play-button a { background-color: rgba($mc6-bg, 0.9); color: $mc6-text; border-left-color: $mc6-text; } }
+    &.color7 { .feature-headline a, .feature-play-button a { background-color: rgba($mc7-bg, 0.9); color: $mc7-text; border-left-color: $mc7-text; } }
+
+    &.color1 .feature-play-button a:after { border-left-color: $mc1-text; }
+    &.color2 .feature-play-button a:after { border-left-color: $mc2-text; }
+    &.color3 .feature-play-button a:after { border-left-color: $mc3-text; }
+    &.color4 .feature-play-button a:after { border-left-color: $mc4-text; }
+    &.color5 .feature-play-button a:after { border-left-color: $mc5-text; }
+    &.color6 .feature-play-button a:after { border-left-color: $mc6-text; }
+    &.color7 .feature-play-button a:after { border-left-color: $mc7-text; }
+
+  }
 
   .slide-nav { 
     position: absolute;
