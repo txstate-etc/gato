@@ -2,7 +2,9 @@ div#legal-footer {
   background: $legalfooter-background;
   color: $legalfooter-text;
   
-  p { margin: 0; }
+  p { margin: 0; 
+      line-height: 1.8rem;
+  }
   a { 
     color: inherit; 
     &:hover { text-decoration: underline; }
@@ -26,6 +28,7 @@ div#legal-footer {
 
   .legal-links {
     padding: 0 2rem;
+    color: #bbb;
   }
 
   #quick-links { 
@@ -47,7 +50,7 @@ div#legal-footer {
 
     p {
       display: inline;
-      &:after { content: "\a0\2013";} // nbsp + en-dash
+      &:after { content: "\a0\2010";} // nbsp + en-dash
       &:last-child:after {content: none;}
     }
     
