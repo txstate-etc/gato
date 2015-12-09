@@ -5,7 +5,7 @@ var flowPlayerFormats = ['mp4', 'webm', 'ogv', 'm3u8', 'flv'];
 var flowPlayerTypes = {
   "mp4": "video/mp4",
   "webm": "video/webm",
-  "ogv": "video/off",
+  "ogv": "video/ogg",
   "m3u8": "application/x-mpegurl",
   "flv": "video/flash"
 }
