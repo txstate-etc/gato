@@ -36,7 +36,7 @@
   [#list model.items as entry]
     <div class="gato-rss-item ${model.collapsible?string('gato-accordion', '')}"
       data-start-collapsed="${model.collapsed?string('true', 'false')}">
-      <h3 class="gato-accordion-header">
+      <h3 class="${model.collapsible?string('gato-accordion-header', '')}">
         <a href="${entry.link}">${entry.title}</a>
       </h3>
       <div class="gato-accordion-content">
