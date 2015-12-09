@@ -142,8 +142,8 @@ subApps:
         availability:
           properties: false
     workbench:
-      # dropConstraintClass: info.magnolia.ui.workbench.tree.drop.AlwaysTrueDropConstraint
-
+      dropConstraintClass: edu.txstate.its.gato.GatoDropConstraint
+      
       contentViews:
         - name: tree
           class: info.magnolia.ui.workbench.tree.TreePresenterDefinition
