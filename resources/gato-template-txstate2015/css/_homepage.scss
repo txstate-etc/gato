@@ -196,7 +196,12 @@ body.homepage {
   figure.feature {
     background: $sandstone;
     margin: 0;
-    a.image-link { margin: 0; padding: 0; }
+    a.image-link { 
+      display: block;
+      margin: 0; 
+      padding: 0; 
+      @extend .hover-blur; 
+    }
     img { display: block; }
     figcaption {
       padding: 2rem;
