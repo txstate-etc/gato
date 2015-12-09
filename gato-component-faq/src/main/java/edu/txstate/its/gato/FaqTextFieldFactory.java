@@ -1,9 +1,12 @@
 package edu.txstate.its.gato;
 
 import info.magnolia.ui.form.field.definition.RichTextFieldDefinition;
-import info.magnolia.ui.form.field.factory.RichTextFieldFactory;
+import info.magnolia.dam.app.ui.field.factory.AssetsEnabledRichTextFieldFactory;
+import info.magnolia.dam.api.AssetProviderRegistry;
 
 import info.magnolia.i18nsystem.SimpleTranslator;
+import info.magnolia.link.LinkException;
+import info.magnolia.link.LinkUtil;
 import info.magnolia.repository.RepositoryConstants;
 import info.magnolia.ui.api.app.AppController;
 import info.magnolia.ui.api.app.ChooseDialogCallback;
@@ -14,6 +17,11 @@ import info.magnolia.ui.vaadin.integration.jcr.JcrItemId;
 import info.magnolia.ui.vaadin.integration.jcr.JcrItemUtil;
 
 import javax.jcr.Node;
+import java.lang.ReflectiveOperationException;
+import java.lang.reflect.Method;
+import java.util.Locale;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -22,8 +30,10 @@ import org.slf4j.LoggerFactory;
 import com.google.gson.Gson;
 import com.google.inject.Inject;
 import com.vaadin.data.Item;
+import com.vaadin.data.util.converter.Converter;
 import com.vaadin.server.Sizeable.Unit;
 import com.vaadin.ui.Field;
+import com.vaadin.ui.UI;
 
 import edu.txstate.its.gato.vaadin.server.FaqTextField;
 
@@ -32,13 +42,24 @@ import edu.txstate.its.gato.vaadin.server.FaqTextField;
  *
  * Unfortunately have to copy a lot of methods from RichTextFieldFactory since Magnolia loves private methods.
  */
-public class FaqTextFieldFactory extends RichTextFieldFactory {
+public class FaqTextFieldFactory extends AssetsEnabledRichTextFieldFactory {
+
+  private static final String FILE_BROWSER_PLUGIN_CHOOSE_ASSET_EVENT = "chooseAsset";
+
+  private static final Pattern IMAGE_PATTERN = Pattern.compile(
+          "(<img " + // start <img
+                  "[^>]*" +  // some attributes
+                  "src[ ]*=[ ]*\")" + // start src
+                  "([^\"]*)" + // the link
+                  "(\"" + // ending "
+                  "[^>]*" + // any attributes
+                  ">)"); // end the tag
 
   private static final Logger log = LoggerFactory.getLogger(FaqTextFieldFactory.class);
 
   @Inject
-  public FaqTextFieldFactory(RichTextFieldDefinition definition, Item relatedFieldItem, AppController appController, UiContext uiContext, SimpleTranslator i18n) {
-    super(definition, relatedFieldItem, appController, uiContext, i18n);
+  public FaqTextFieldFactory(RichTextFieldDefinition definition, Item relatedFieldItem, AppController appController, UiContext uiContext, SimpleTranslator i18n, AssetProviderRegistry assetProviderRegistry) {
+    super(definition, relatedFieldItem, appController, uiContext, i18n, assetProviderRegistry);
   }
 
   @Override
@@ -66,8 +87,99 @@ public class FaqTextFieldFactory extends RichTextFieldFactory {
       }
     });
 
+    if (definition.isImages() || StringUtils.isNotBlank(definition.getConfigJsFile())) {
+      // Hook in plugin listener to trigger assets choose dialog
+      richTextEditor.addListener(new MagnoliaRichTextField.PluginListener() {
+        @Override
+        public void onPluginEvent(String eventName, String value) {
+          if (eventName.equals(FILE_BROWSER_PLUGIN_CHOOSE_ASSET_EVENT)) {
+            UI.getCurrent().addStyleName("ui-overlapping-ck-editor");
+
+            try {
+              Method chooseAsset = getClass().getEnclosingClass().getSuperclass().getDeclaredMethod("chooseAsset");
+              chooseAsset.setAccessible(true);
+              chooseAsset.invoke(FaqTextFieldFactory.this);
+            } catch (ReflectiveOperationException e) {
+              e.printStackTrace();
+              log.warn("failed to setup file browser for faq rich editor");
+            }
+          }
+        }
+      });
+
+      richTextEditor.setConverter(new Converter<String, String>() {
+        @Override
+        public String convertToModel(String value, Class<? extends String> targetType, Locale locale) throws ConversionException {
+          return LinkUtil.convertAbsoluteLinksToUUIDs(value);
+        }
+
+        @Override
+        public String convertToPresentation(String value, Class<? extends String> targetType, Locale locale) throws ConversionException {
+          if (value != null) {
+            // transform plain image links (img src attributes) to display images in the editor
+            // but do *not* transform link hrefs — magnolialink plugin currently only supports the uuid pattern to keep them editable
+            try {
+              Matcher matcher = IMAGE_PATTERN.matcher(value);
+              while (matcher.find()) {
+                value = value.replace(matcher.group(), LinkUtil.convertLinksFromUUIDPattern(matcher.group()));
+              }
+              return value;
+            } catch (LinkException e) {
+              return StringUtils.EMPTY;
+            }
+          }
+          return StringUtils.EMPTY;
+        }
+
+        @Override
+        public Class<String> getModelType() {
+          return String.class;
+        }
+
+        @Override
+        public Class<String> getPresentationType() {
+          return String.class;
+        }
+      });
+    }
+
     return richTextEditor;
   }
+
+  /*private void chooseAsset() {
+    appController.openChooseDialog("assets", uiContext, null, new ChooseDialogCallback() {
+      @Override
+      public void onItemChosen(String actionName, Object chosenValue) {
+        UI.getCurrent().removeStyleName("ui-overlapping-ck-editor");
+
+        Gson gson = new Gson();
+        String eventJson = "{}";
+        Asset asset;
+
+        try {
+          if (!(chosenValue instanceof JcrNodeItemId)) {
+            return;
+          }
+          asset = assetProviderRegistry.getProviderById(DamConstants.DEFAULT_JCR_PROVIDER_ID).getAsset(new ItemKey(DamConstants.DEFAULT_JCR_PROVIDER_ID, ((JcrNodeItemId) chosenValue).getUuid()));
+          if (asset != null && asset.getMimeType().matches("image.*")) {
+            eventJson = gson.toJson(new FileBrowserUrlDTO(asset.getLink()));
+          } else {
+            eventJson = gson.toJson(new FileBrowserUrlDTO("", "Selected asset is not an image"));
+          }
+        } catch (DamException e) {
+          eventJson = gson.toJson(new FileBrowserUrlDTO("", e.getMessage()));
+        } finally {
+          richTextEditor.firePluginEvent(ASSET_CHOSEN_EVENT_ID, eventJson);
+        }
+      }
+
+
+      @Override
+      public void onCancel() {
+        UI.getCurrent().removeStyleName("ui-overlapping-ck-editor");
+      }
+    });
+  }*/
 
   private String mapWorkSpaceToApp(String workspace) {
         if (workspace.equalsIgnoreCase("dam")) {

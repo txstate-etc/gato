@@ -3,12 +3,16 @@ package edu.txstate.its.gato.vaadin.client;
 import com.vaadin.client.ApplicationConnection;
 import com.vaadin.client.UIDL;
 import org.vaadin.openesignforms.ckeditor.widgetset.client.ui.CKEditor;
+import info.magnolia.ui.vaadin.gwt.client.richtext.VMagnoliaRichTextEditor;
 import info.magnolia.ui.vaadin.gwt.client.richtext.VMagnoliaRichTextField;
+
+import java.util.Arrays;
 
 public class FaqRichTextField extends VMagnoliaRichTextField {
 
   protected CKEditor editor;
   protected boolean instanceReady = false;
+  protected boolean uidlLoaded = false;
 
   @Override
   protected CKEditor loadEditor(String inPageConfig) {
@@ -18,15 +22,19 @@ public class FaqRichTextField extends VMagnoliaRichTextField {
 
   @Override
   public void updateFromUIDL(UIDL uidl, ApplicationConnection client) {
-    String dataBefore = "";
-
-    if (editor != null) { dataBefore = editor.getData(); }
-
-    super.updateFromUIDL(uidl, client);
-
-    if (editor != null && !dataBefore.equals(editor.getData())) {
-      editor.setData(dataBefore);
+    // Pass any plugin events from server to plugin.
+    if (uidl.hasAttribute(VAR_FIRE_PLUGIN_EVENT) && this.editor != null) {
+      ((VMagnoliaRichTextEditor)editor).fire(
+        uidl.getStringAttribute(VAR_FIRE_PLUGIN_EVENT),
+        uidl.getStringAttribute(VAR_FIRE_PLUGIN_EVENT_VALUE)
+      );
     }
+
+    // Only do super.updateFromUIDL on initial load otherwise weird things start happening
+    // like data being wiped out and the editor changing out from under us.
+    if (uidlLoaded) return;
+    uidlLoaded = true;
+    super.updateFromUIDL(uidl, client);
   }
 
   @Override

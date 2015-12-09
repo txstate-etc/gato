@@ -16,7 +16,6 @@
         CKEDITOR.plugins.addExternal("widget", CKEDITOR.vaadinDirUrl + "js/richeditorplugins/widget/", 'plugin.js');
         CKEDITOR.plugins.addExternal("image2", CKEDITOR.vaadinDirUrl + "js/richeditorplugins/image2/", 'plugin.js');
         CKEDITOR.plugins.addExternal("magnolialink", CKEDITOR.vaadinDirUrl + "js/magnolialink/", 'plugin.js');
-        CKEDITOR.plugins.addExternal("magnoliaFileBrowser", CKEDITOR.vaadinDirUrl + "js/filebrowser/", 'plugin.js');
 
          definition = {
                    alignment: true,
