@@ -3,7 +3,7 @@ renderType: freemarker
 templateScript: /gato-component-cssjs/templates/areas/customjs.ftl
 inheritance:
   enabled: true
-  components: filtered
+  components: all
 availableComponents:
   customjs:
     id: gato-component-cssjs:components/customjs
