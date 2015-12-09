@@ -3,10 +3,10 @@
 	position: relative;
 	.gato-textimage-imageblock {
 	  display: block;
-		&.left { float: left; margin: 0px 10px 10px 0px; }
-		&.right { float: right; margin: 0px 0px 10px 10px; }
-		&.top { margin: 0px auto 10px auto; }
-		&.bottom { margin: 10px auto 10px auto; }
+		&.left { float: left; margin: 0px $text-image-margin $text-image-margin 0px; }
+		&.right { float: right; margin: 0px 0px $text-image-margin $text-image-margin; }
+		&.top { margin: 0px auto $text-image-margin auto; }
+		&.bottom { margin: $text-image-margin auto $text-image-margin auto; }
     &.hascaption { min-width: 100px; }
     a { padding: 0; margin: 0; display: block; }
 		img { display: block; width: 100%; }
@@ -16,5 +16,5 @@
 		color: $gemini-text;
 		a { color: $gemini-link; }
 	}
-	&[max-width~="400px"] .gato-textimage-imageblock { float: none; margin: 0px auto 10px auto; }
+	&[max-width~="400px"] .gato-textimage-imageblock { float: none; margin: 0px auto $text-image-margin auto; }
 }
