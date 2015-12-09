@@ -27,11 +27,13 @@ public class LinkMigrationLogic {
   private final TemplatingFunctions cmsfn;
   private final SystemContext sc;
   protected Map<String, Session> sessMap;
+  protected Map<String, String> uuidHistory;
   protected boolean enableMigration = false;
   @Inject
   public LinkMigrationLogic(TemplatingFunctions tFunc, SystemContext systemContext) throws Exception {
     this.cmsfn = tFunc;
     this.sessMap = new HashMap<String, Session>();
+    this.uuidHistory = new HashMap<String, String>();
     this.sc = systemContext;
   }
 
@@ -53,23 +55,13 @@ public class LinkMigrationLogic {
     Node damItem = retrieveDamNodeByUUID(uuid);
     if (damItem != null) return damItem;
 
-    Session mapSession = getMapSession();
-    Session damSession = getDamSession();
-    String damuuid = "";
-    try {
-      if (StringUtils.isBlank(propertyName)) {
-        // in these cases, the UUID portion of a UUID link points at the resource node itself
-        // which I recorded as the uuid of the map workspace version of the node
-        damuuid = mapSession.getNodeByIdentifier(uuid).getProperty("damuuid").getString();
-      } else {
-        // regular case, the uuid should point at the parent of the resource node, for which
-        // I created a special storage area
-        Node parentMapStorageNode = mapSession.getNodeByIdentifier(uuid);
-        damuuid = PropertyUtil.getString(parentMapStorageNode, propertyName, "");
-      }
-    } catch (Exception e) { }
-    if (StringUtils.isBlank(damuuid)) return null;
-    return damSession.getNodeByIdentifier(damuuid);
+    String historykey = uuid+propertyName;
+    if (!StringUtils.isBlank(propertyName) && uuidHistory.containsKey(historykey)) {
+      // regular uuid link, the uuid should point at the parent of the resource node, for which
+      // I created a special one-time use migration map
+      return getDamSession().getNodeByIdentifier(uuidHistory.get(historykey));
+    }
+    return null;
   }
 
   public Node convertAnyUrlToDamNode(String url) {
@@ -269,18 +261,10 @@ public class LinkMigrationLogic {
 
     String mapParentPath = Paths.get(resourceNode.getPath()).getParent().toString();
     Node mapParent = NodeUtil.createPath(mapSession.getRootNode(), mapParentPath, NodeTypes.Folder.NAME);
-    Node mapNode = ((NodeImpl)NodeUtil.unwrap(mapParent)).addNodeWithUuid(resourceNode.getName(), NodeTypes.Content.NAME, resourceNode.getIdentifier());
+    Node mapNode = mapParent.addNode(resourceNode.getName(), NodeTypes.Content.NAME);
     PropertyUtil.setProperty(mapNode, "damuuid", assetNode.getIdentifier());
 
-    Node parentMapNode = null;
-    try {
-      parentMapNode = mapSession.getNodeByIdentifier(resourceNode.getParent().getIdentifier());
-    } catch (ItemNotFoundException e) {
-      Node uuidMapNodes = NodeUtil.createPath(mapSession.getRootNode(), "/uuidmapnodes", NodeTypes.Folder.NAME);
-      parentMapNode = ((NodeImpl)NodeUtil.unwrap(uuidMapNodes)).addNodeWithUuid(info.magnolia.cms.core.Path.getUniqueLabel(uuidMapNodes, "0"), NodeTypes.Content.NAME, resourceNode.getParent().getIdentifier());
-    }
-    if (parentMapNode != null)
-      PropertyUtil.setProperty(parentMapNode, resourceNode.getName(), assetNode.getIdentifier());
+    uuidHistory.put(resourceNode.getParent().getIdentifier()+resourceNode.getName(), assetNode.getIdentifier());
 
     mapSession.save();
     resourceNode.remove();
