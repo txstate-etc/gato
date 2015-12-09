@@ -65,9 +65,11 @@
                 --]<a class="slide-nav-right" href="#"><i class="fa fa-chevron-right"></i></a>
               </div>
               <p class="slide-nav-dots">
-                <a class="active-dot" href="#"><i class="fa fa-circle"></i></a>
-                <a href="#"><i class="fa fa-circle"></i></a>
-                <a href="#"><i class="fa fa-circle"></i></a>
+                [#list slides as component]
+                  <a class="${(component_index == 0)?string('active-dot', '')}" href="#">
+                    <i class="fa fa-circle"></i>
+                  </a>
+                [/#list]
               </p>
             [/#if]
           
