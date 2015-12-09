@@ -46,9 +46,11 @@
     </div>
 
     [#if slides?size > 1]
-      <div class="slide-nav">
-        <a class="slide-nav-left" href="#"><i class="fa fa-chevron-left"></i></a>
-        <a class="slide-nav-right" href="#"><i class="fa fa-chevron-right"></i></a>
+      <div class="slide-nav-wrap">
+        <div class="slide-nav">
+          <a class="slide-nav-left" href="#"><i class="fa fa-chevron-left"></i></a>
+          <a class="slide-nav-right" href="#"><i class="fa fa-chevron-right"></i></a>
+        </div>
       </div>
     [/#if]
 

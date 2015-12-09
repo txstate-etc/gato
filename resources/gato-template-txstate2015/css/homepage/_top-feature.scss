@@ -1,12 +1,13 @@
 div#top-feature {
   position: relative;
-  background: $darkest-charcoal;
+  background: $maroon;
   
   figure {
     position: relative;
     overflow: hidden;
-    height: 500px;
+    height: 600px;
     margin: 0;
+    background: $maroon;
     p { margin: 0; }
 
     img { 
@@ -66,11 +67,17 @@ div#top-feature {
     &.color7 .feature-play-button a:after { border-left-color: $mc7-text; }
 
   }
+  
+  .slide-nav-wrap {
+    position: relative;
+    width: 1200px;
+    margin: auto;
+  }
 
   .slide-nav { 
     position: absolute;
     bottom: 3.5rem;
-    right: 4rem;
+    right: 0;
 
     a {
       background: fade-out($almost-black, 0.3);
@@ -80,8 +87,8 @@ div#top-feature {
   }
 
   @media (max-width: $xl-breakpoint){
-   figure {
-      height: 415px;
+    figure {
+      height: 500px;
   
       figcaption {
         max-width: 1000px;
@@ -94,19 +101,29 @@ div#top-feature {
         }
       }
     }
+
+    .slide-nav-wrap {
+      width: 1000px;
+    }
   }
 
   @media (max-width: $md-breakpoint){
     figure {
       height: 375px;
     }
+    .slide-nav-wrap {
+      width: 100%;
+      .slide-nav {
+        right: 4rem;
+      }
+    }
   }
 
   @media (max-width: $sm-breakpoint){
-    .slide-nav { display: none; }
+    .slide-nav-wrap { display: none; }
     figure {
       height: auto;
-      img { max-height: 250px; }
+      img { height: 250px; }
       figcaption {
         padding: 0;
         .caption-wrap {
@@ -121,4 +138,9 @@ div#top-feature {
     }
   }
 
+  @media (max-width: $mn-breakpoint){
+    figure {
+      img { height: 185px; }
+    }
+  }
 }
