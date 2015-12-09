@@ -45,7 +45,7 @@ public class JsonTransformer implements Transformer<String> {
         repoNode.setPath(parent.getPath() + "/" + definition.getName());
       } else {
         Node node = parent.getNode(definition.getName());
-        repoNode = marshaller.marshallNode(node, 999, null, false);
+        repoNode = convertJcrNodeToRepoNode(node);
       }
       return gson.toJson(repoNode);
     } catch (RepositoryException e) {
@@ -54,12 +54,16 @@ public class JsonTransformer implements Transformer<String> {
     }
   }
 
+  protected RepositoryNode convertJcrNodeToRepoNode(Node node) throws RepositoryException {
+    return marshaller.marshallNode(node, 999, null, false);
+  }
+
   public void writeToItem(String newValue) {
     JcrNodeAdapter adapter = (JcrNodeAdapter) item;
     Node jcrNode = adapter.getJcrItem();
 
     try {
-      RepositoryNode newNode = gson.fromJson(newValue, RepositoryNode.class);
+      RepositoryNode newNode = convertJsonToRepoNode(newValue);
       if (newNode != null) {
         adapter.addChild(new JsonNodeAdapter(jcrNode, newNode, definition.getName()));
       }
@@ -67,6 +71,10 @@ public class JsonTransformer implements Transformer<String> {
       // TODO: how to return an error? maybe this is done in save action?
       e.printStackTrace();
     }
+  }
+
+  protected RepositoryNode convertJsonToRepoNode(String json) {
+    return gson.fromJson(json, RepositoryNode.class);
   }
 
   public boolean hasI18NSupport() { return false; }

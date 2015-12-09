@@ -11,7 +11,7 @@ form:
           loadScriptsInOrder: true
           fields:
           - name: faqTree
-            transformerClass: edu.txstate.its.gato.vaadin.JsonTransformer
+            transformerClass: edu.txstate.its.gato.vaadin.ConvertLinksJsonTransformer
             class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
           label: FAQ Tree
         - name: faqAnswer
