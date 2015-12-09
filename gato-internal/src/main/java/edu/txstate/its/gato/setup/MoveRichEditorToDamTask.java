@@ -134,15 +134,14 @@ class MoveRichEditorToDamTask extends MoveFCKEditorContentToDamMigrationTask {
   // updated this method to handle the case where two rich editors point at the
   // same file, e.g. after a page copy.
   protected void moveResourceNodeAndHandleLink(Node node, Property property, Link link) throws RepositoryException {
-    if (link == null || link.getWorkspace() == null) return;
+    if (link == null) return;
     Node damItem = null;
 
     damItem = lmlogic.retrieveDamNodeByUUIDAndPropertyName(link.getUUID(), link.getPropertyName());
     if (damItem == null) {
       String path = link.getPath();
       if (!StringUtils.isBlank(link.getPropertyName())) path += "/"+link.getPropertyName();
-      if (link.getWorkspace().equals("dms")) damItem = lmlogic.convertUrlToDamNode(path);
-      else damItem = lmlogic.convertWebsiteUrlToDamNode(path);
+      damItem = lmlogic.convertWebsiteUrlToDamNode(path);
     }
 
     if (damItem != null)

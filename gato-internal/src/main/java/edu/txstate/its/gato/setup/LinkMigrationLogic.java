@@ -39,7 +39,20 @@ public class LinkMigrationLogic {
     this.enableMigration = enabled;
   }
 
+  public Node retrieveDamNodeByUUID(String uuid) {
+    Session damSession = getDamSession();
+    try {
+      return damSession.getNodeByIdentifier(uuid);
+    } catch (Exception e) {
+      return null;
+    }
+  }
+
   public Node retrieveDamNodeByUUIDAndPropertyName(String uuid, String propertyName) throws RepositoryException {
+    // UUID link could have already been pointing at an Asset in DAM
+    Node damItem = retrieveDamNodeByUUID(uuid);
+    if (damItem != null) return damItem;
+
     Session mapSession = getMapSession();
     Session damSession = getDamSession();
     String damuuid = "";
