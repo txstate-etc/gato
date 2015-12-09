@@ -467,7 +467,7 @@ public final class GatoUtils {
       String existingSrc = matcher.group(2);
       String existingSrcSet = captureMatch(imageTag, SRCSET_ATTR_PATTERN);
       String newSrc = existingSrc;
-      if (StringUtils.isBlank(existingSrcSet)) {
+      if (StringUtils.isBlank(existingSrcSet) && !existingSrc.endsWith(".svg")) {
         String assetKey = captureMatch(imageTag, ASSET_KEY_PATTERN);
 
         Asset image = damfn.getAsset(assetKey);
