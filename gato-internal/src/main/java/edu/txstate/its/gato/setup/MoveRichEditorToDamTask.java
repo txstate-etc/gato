@@ -136,10 +136,14 @@ class MoveRichEditorToDamTask extends MoveFCKEditorContentToDamMigrationTask {
   protected void moveResourceNodeAndHandleLink(Node node, Property property, Link link) throws RepositoryException {
     if (link == null || link.getWorkspace() == null) return;
     Node damItem = null;
-    String path = link.getPath();
-    if (!StringUtils.isBlank(link.getPropertyName())) path += "/"+link.getPropertyName();
-    if (link.getWorkspace().equals("dms")) damItem = lmlogic.convertUrlToDamNode(path);
-    else damItem = lmlogic.convertWebsiteUrlToDamNode(path);
+
+    damItem = lmlogic.retrieveDamNodeByUUIDAndPropertyName(link.getUUID(), link.getPropertyName());
+    if (damItem == null) {
+      String path = link.getPath();
+      if (!StringUtils.isBlank(link.getPropertyName())) path += "/"+link.getPropertyName();
+      if (link.getWorkspace().equals("dms")) damItem = lmlogic.convertUrlToDamNode(path);
+      else damItem = lmlogic.convertWebsiteUrlToDamNode(path);
+    }
 
     if (damItem != null)
       changeLinkInTextContent(property, damItem.getIdentifier(), link.getUUID(), link.getPath(), link.getPropertyName());

@@ -16,6 +16,7 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 import javax.jcr.Node;
 import javax.jcr.Session;
+import javax.jcr.ItemNotFoundException;
 import javax.jcr.RepositoryException;
 
 import org.apache.commons.lang3.StringUtils;
@@ -36,6 +37,26 @@ public class LinkMigrationLogic {
 
   public void setMigrationEnabled(boolean enabled) {
     this.enableMigration = enabled;
+  }
+
+  public Node retrieveDamNodeByUUIDAndPropertyName(String uuid, String propertyName) throws RepositoryException {
+    Session mapSession = getMapSession();
+    Session damSession = getDamSession();
+    String damuuid = "";
+    try {
+      if (StringUtils.isBlank(propertyName)) {
+        // in these cases, the UUID portion of a UUID link points at the resource node itself
+        // which I recorded as the uuid of the map workspace version of the node
+        damuuid = mapSession.getNodeByIdentifier(uuid).getProperty("damuuid").getString();
+      } else {
+        // regular case, the uuid should point at the parent of the resource node, for which
+        // I created a special storage area
+        Node parentMapStorageNode = mapSession.getNodeByIdentifier(uuid);
+        damuuid = PropertyUtil.getString(parentMapStorageNode, propertyName, "");
+      }
+    } catch (Exception e) { }
+    if (StringUtils.isBlank(damuuid)) return null;
+    return damSession.getNodeByIdentifier(damuuid);
   }
 
   public Node convertAnyUrlToDamNode(String url) {
@@ -235,10 +256,20 @@ public class LinkMigrationLogic {
 
     String mapParentPath = Paths.get(resourceNode.getPath()).getParent().toString();
     Node mapParent = NodeUtil.createPath(mapSession.getRootNode(), mapParentPath, NodeTypes.Folder.NAME);
-    Node mapNode = mapParent.addNode(resourceNode.getName(), NodeTypes.Content.NAME);
+    Node mapNode = ((NodeImpl)NodeUtil.unwrap(mapParent)).addNodeWithUuid(resourceNode.getName(), NodeTypes.Content.NAME, resourceNode.getIdentifier());
     PropertyUtil.setProperty(mapNode, "damuuid", assetNode.getIdentifier());
-    mapSession.save();
 
+    Node parentMapNode = null;
+    try {
+      parentMapNode = mapSession.getNodeByIdentifier(resourceNode.getParent().getIdentifier());
+    } catch (ItemNotFoundException e) {
+      Node uuidMapNodes = NodeUtil.createPath(mapSession.getRootNode(), "/uuidmapnodes", NodeTypes.Folder.NAME);
+      parentMapNode = ((NodeImpl)NodeUtil.unwrap(uuidMapNodes)).addNodeWithUuid(info.magnolia.cms.core.Path.getUniqueLabel(uuidMapNodes, "0"), NodeTypes.Content.NAME, resourceNode.getParent().getIdentifier());
+    }
+    if (parentMapNode != null)
+      PropertyUtil.setProperty(parentMapNode, resourceNode.getName(), assetNode.getIdentifier());
+
+    mapSession.save();
     resourceNode.remove();
     resourceNode.getSession().save();
 
