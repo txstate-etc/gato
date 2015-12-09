@@ -5,10 +5,13 @@ div#video-modal {
   bottom: 0;
   right: 0;
   background: rgba(0,0,0,0.8);
-  padding: 1rem 2rem;
+  padding: 0;
   z-index: 65535;
 
   a {
+    display: inline-block;
+    min-width: 50px;
+    text-align: center;
     color: $light-gray;
     &:hover { color: $white; }
   }
@@ -33,8 +36,8 @@ div#video-modal {
     a {
       position: absolute;
       top: 50%;
-      &.video-nav-left { left: 2rem; }
-      &.video-nav-right { right: 2rem; }
+      &.video-nav-left { left: 0; }
+      &.video-nav-right { right: 0; }
     }
   }
 }
