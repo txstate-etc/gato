@@ -45,6 +45,6 @@
       color: $fg;
     }
     @content;
-    @include vendor-prefix(transition, all 0.2s cubic-bezier(0, 0.5, 0.25, 1));
   }
+  @include vendor-prefix(transition, all 0.2s cubic-bezier(0, 0.5, 0.25, 1));
 }
