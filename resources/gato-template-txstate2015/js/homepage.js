@@ -127,6 +127,11 @@ jQuery(function($) {
     open: function($slide, $slides) {
       this.isOpen = true;
       this.$slides = $slides;
+      if ($slides.length > 1) {
+        $('.video-nav').show();
+      } else {
+        $('.video-nav').hide();
+      }
       this.loadSlide($slide); 
       $('#video-modal').fadeIn(150);
     },
@@ -140,28 +145,29 @@ jQuery(function($) {
 
   $('.feature-play-button a').blurclick(function(e) {
     var $slide = $(this).closest('.slide');
-    var $slides = $slide.parent();
+    // get list of siblings that have videos
+    var $slides = $slide.parent().find('.feature-play-button').closest('.slide');
     vmodal.open($slide, $slides);
   });
 
   $('.video-nav a').blurclick(function(e) {
     e.stopPropagation();
     
-    var $next, $cur = vmodal.$cur;
+    var idx = vmodal.$slides.index(vmodal.$cur);
 
     if ($(this).hasClass('video-nav-left')) {
-      $next = $cur.prev();
-      if (!$next.length) {
-        $next = $cur.siblings().last();
+      idx--;
+      if (idx < 0) {
+        idx = vmodal.$slides.length - 1;
       }
     } else {
-      $next = $cur.next();
-      if (!$next.length) {
-        $next = $cur.siblings().first();
+      idx++;
+      if (idx > vmodal.$slides.length - 1) {
+        idx = 0;
       }
     }
-
-    vmodal.loadSlide($next);
+    
+    vmodal.loadSlide($(vmodal.$slides[idx]));
   });
 
   $('#video-modal .video-modal-close').blurclick(vmodal.close);
