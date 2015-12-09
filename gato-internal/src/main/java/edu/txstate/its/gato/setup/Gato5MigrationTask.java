@@ -170,6 +170,7 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
         }
         convertPropertyToBool(n, "hideInNav");
         convertPropertyToBool(n, "hideSidebar");
+        convertPropertyToBool(n, "enableRSS");
         moveBanners(n);
       }
     });
