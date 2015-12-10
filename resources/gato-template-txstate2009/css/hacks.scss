@@ -5,18 +5,19 @@ body {
     }
   }
 
+  .gato-events * { box-sizing: border-box; }
   .gato-accordion, .gato-rss-item.gato-accordion {
     box-shadow: none;
-
     .gato-accordion-header {
       box-shadow: none;
-      padding: 1rem 2rem;
+      padding: 1rem 2.2rem;
       background: transparent;
       &:hover, &:active, &.selected {
         background: transparent;
       }
       color: $maroon;
       font-weight: bold;
+      h3 { color: $maroon; }
       .txst-eventdetail-dates {
         color: $almost-black;
       }
