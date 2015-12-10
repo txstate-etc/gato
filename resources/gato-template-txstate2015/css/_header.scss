@@ -223,15 +223,16 @@ body.admin .header_no_image {
       padding: 0.7rem 2rem;
       line-height: 2rem;
       float: left;
-      margin-bottom: -1.8rem;
+      margin: 1rem 0 -1.8rem 0;
       @media (min-width: $xs-breakpoint) { margin-bottom: 10px; }
     }
     .office_name {
       clear: both;
       margin: 0;
-      padding: 1.4rem 2rem 0.8rem 2rem;
+      padding: 2rem 2rem 1.5rem 2rem;
       font-family: $garamond;
       font-size: 2.9rem;
+      line-height: 4rem;
       font-weight: normal;
       letter-spacing: 1px;
       color: $header-text;

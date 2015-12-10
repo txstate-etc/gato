@@ -29,6 +29,7 @@
 a.ddmenu-menubaritem{
   color: $primary-nav-item-text;
   border-left: 1px solid $primary-nav-item-left-border;
+  padding: 0.8rem 1rem;
   &:visited { color: $primary-nav-item-text; }
   div.ddmenu-menubaritem:first-child & {
     border-left: none;
@@ -40,7 +41,7 @@ a.ddmenu-menubaritem{
 }
 
 .ddmenu-menu {
-  left: 1px;
+  left: 0px;
 	top: calc(100% + 1px);
   border-left: 1px solid $secondary-nav-border;
   border-right: 1px solid $secondary-nav-border;
@@ -77,6 +78,7 @@ a.ddmenu-menubaritem{
     border: 0 solid $primary-nav-bottom-border;
   }
   .ddmenu-menu {
+	  top: 100%;
     border: 2px solid $secondary-nav-fixed-border;
   }
   .secondary_nav a {

@@ -9,25 +9,33 @@
 .sidebar_active_reverse {padding-right: 1rem;}
 
 .side_nav {
-  padding: .5rem 0 1rem 0;
+  padding: 1.5rem 0 0 0;
   border-bottom: 1px solid $lightdarker;
   border-top: 1px solid $white;
   background-color: $side-nav-background;
   .side_nav_header {
     color: $side-nav-header-text;
     font-weight: 700;
-    padding: 0.3rem 1.8rem;
+    padding: 0.6rem 1.8rem;
     font-size: 1.6rem;
-    a { color: $side-nav-link-text; text-decoration: none; }
+    line-height: 2.2rem;
+    &.solo { margin-bottom: 2rem; }
+    a {
+      color: $side-nav-link-text;
+      text-decoration: none;
+      margin: -0.6rem -1.8rem;
+      padding: 0.6rem 1.8rem;
+      &:hover { background: $sandstone; }
+    }
   }
   .side_nav_list {
-
+    padding-bottom: 2rem;
     a {
       line-height: 1.5em;
-      padding: 0.3rem 1.8rem;
+      padding: 0.6rem 1.8rem;
       color: $side-nav-link-text;
       text-decoration: underline;
-      font-size: 1.4rem;
+      font-size: 1.5rem;
     }
     i, img {
       display: inline-block;
