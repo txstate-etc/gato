@@ -1,7 +1,10 @@
 // Put TSUS color overrides here
 /* TSUS multicolors */
 
-$mc1-name:                  'Midnight';  //What does TSUS call this color?
+//Midnight, Red, Blue, and Warm Gray come from TSUS'
+//style guide.  The rest are pulled from their page.
+
+$mc1-name:                  'Midnight';  
 $mc1-bg:                    #383640;
 $mc1-text:                  $white;
 $mc1-link:                  $white;
@@ -78,7 +81,7 @@ $mc4-comp-grad-bottom:      $mc4-bg;
 $mc4-shadow:                $very-dark;
 
 $mc5-name:                  'Warm Gray';
-$mc-bg:                    #8F847A;
+$mc5-bg:                    #8F847A;
 $mc5-text:                  $white;
 $mc5-link:                  $white;
 $mc5-header:                $white;
@@ -115,13 +118,23 @@ $mc6-comp-grad-top:         $mc6-bg;
 $mc6-comp-grad-bottom:      #B1A295;
 $mc6-shadow:                #776658;
 
-//I respect Charles' choice of hot pink.  TSUS has so few colors,
-//but there is one more shade of gray we could use: #585556.  Pulled it out of the bottom footer.
-$mc7-name:                  'Hot Pink'; 
-$mc7-bg:                    #FF69B4; 
-$mc7-border:                #cc5490;
-$mc7-comp-bg:               #ffc3e1;
-$mc7-grad-top:              #ff96ca;
-$mc7-grad-bottom:           #e55ea2;
-$mc7-comp-grad-top:         #ffc3e1;
-$mc7-shadow:                #fff0f7;
+//Very similar to Midnight but less blue.  TSUS doesn't have 
+//many colors to work with.
+$mc7-name:                  'Titanium'; 
+$mc7-bg:                    #585556; 
+$mc7-text:                  $white;
+$mc7-link:                  $white;
+$mc7-header:                $white;
+$mc7-border:                #464445;
+$mc7-comp-bg:               #696667;
+$mc7-comp-text:             $white;
+$mc7-comp-link:             $white;
+$mc7-comp-header:           $white;
+$mc7-comp-border:           $mc7-border;
+$mc6-hilite-bg:             $white; 
+$mc6-hilite-text:           $very-dark;
+$mc7-grad-top:              #696667;
+$mc7-grad-bottom:           #4f4d4d;
+$mc7-comp-grad-top:         #797778;
+$mc7-comp-grad-bottom:      $mc7-bg;
+$mc7-shadow:                $almost-black;
