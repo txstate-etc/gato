@@ -100,7 +100,7 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
     visitByTemplate(hm, "gato:components/texasState/texasTextImage", this::deleteTextFiles);
     log.warn("update node types in faq hierarchy");
     visitByTemplate(hm, "gato:components/texasState/texas-faq-hierarchy", this::updateFaqNodeTypes);
-
+    hm.save();
     log.warn("starting page level changes");
     visitPages(hm, new NodeVisitor() {
       public void visit(Node n) throws RepositoryException {

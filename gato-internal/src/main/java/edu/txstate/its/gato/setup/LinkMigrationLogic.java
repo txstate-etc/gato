@@ -228,7 +228,13 @@ public class LinkMigrationLogic {
     // find the filename we will use and ensure it's unique in our parent folder
     String fileName = PropertyUtil.getString(resourceNode, AssetNodeTypes.AssetResource.FILENAME);
     fileName = info.magnolia.cms.core.Path.getValidatedLabel(fileName);
-    fileName = info.magnolia.cms.core.Path.getUniqueLabel(damParent, fileName);
+    try {
+      fileName = info.magnolia.cms.core.Path.getUniqueLabel(damParent, fileName);
+    } catch (NumberFormatException e) {
+      // if fileName has a superlong number at the end it's going to throw
+      // this exception, so we'll add a dash and force it to start at 0
+      fileName = info.magnolia.cms.core.Path.getUniqueLabel(damParent, fileName+"-");
+    }
 
     // Create an AssetNode
     Node assetNode = ((NodeImpl)NodeUtil.unwrap(damParent)).addNodeWithUuid(fileName, AssetNodeTypes.Asset.NAME, resourceNode.getIdentifier());
