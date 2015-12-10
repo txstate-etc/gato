@@ -138,13 +138,17 @@ div#homepage-banner {
         position: relative;
         @extend .grid-cell;
         letter-spacing: normal; 
-        text-align: center;
+        text-align: right;
+        @media (max-width: $md-breakpoint) {
+          text-align: center;
+        }
 
         ul {
 
           position: absolute;
           bottom: 0;
           right: 0;
+          left: 0;
           @media (max-width: $md-breakpoint) {
             position: static;
           }
@@ -168,8 +172,9 @@ div#homepage-banner {
                 padding-left: 2.7rem;  
                 padding-right: 2.7rem;  
               }
-              &:last-child { padding-right: 0; }
             }
+            &:first-child a { padding-left: 0; }
+            &:last-child a { padding-right: 0; }
           }
         }
       }

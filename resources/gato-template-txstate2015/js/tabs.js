@@ -35,7 +35,7 @@ jQuery(function($) {
     e.preventDefault();
     
     var $next, $cur = $('li a[role=tab][aria-selected=true]').closest('li');
-    if (key < 38 ) { // left, up == prev 
+    if (key <= 38 ) { // left, up == prev 
       $next = $cur.prev();
       if (!$next.length) {
         $next = $cur.siblings().last();

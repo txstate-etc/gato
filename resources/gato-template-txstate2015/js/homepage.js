@@ -11,25 +11,90 @@ jQuery(function($) {
     }
   }
 
-  // FIXME: dropdowns need to be touch screen and keyboard and ARIA friendly
+  function showMenu($tab) {
+    // hide all, then show selected
+    hideMenus(true);
+
+    var $content = $('#'+$tab.attr('aria-controls'));
+    $content.fadeIn(150);
+
+    $tab.attr('aria-selected', true).attr('tabindex', 0);
+    $content.attr('aria-hidden', false);
+  }
+
+  function hideMenus(cleartabidx) {
+    $('.audience-link-section[role=menu]:visible').fadeOut(150);
+    $('.audience-link-section[role=menu]').attr('aria-hidden', true);
+    var $tabs = $('li a[role=menuitem]');
+    $tabs.attr('aria-selected', false);
+    if (cleartabidx) {
+      $tabs.attr('tabindex', -1);
+    }
+  }
+
+  function delayHideMenus() {
+    resetMenuTimeout();
+    menutimeout = setTimeout(function() {
+      hideMenus();
+    }, 150);   
+  }
+
   $('.audience-link-tabs li a[role=menuitem]').on('mouseover', function(e) {  
     resetMenuTimeout();
-    var $menu = $('#'+$(this).attr('aria-controls'));
+    var $tab = $(this);
     menutimeout = setTimeout(function() {
-      $menu.fadeIn(150);
-      $menu.siblings(':visible').fadeOut(150);
+      showMenu($tab);
     }, 100);
-  }).on('mouseleave', function(e) {  
-    resetMenuTimeout();
-    menutimeout = setTimeout(function() {
-      $('.audience-link-section[role=menu]:visible').fadeOut(150);
-    }, 150);
+  }).on('mouseleave', delayHideMenus)
+  .on('keydown', function(e) {
+    var key = e.keyCode;
+
+    // return if not an arrow key    
+    if (key < 37 || key > 40) {
+      return true;
+    }
+    
+    e.preventDefault();
+    
+    if (key == 38) { 
+      hideMenus();
+      return false;
+    }
+
+    if (key == 40) { // down => open menu
+      if ($(this).attr('aria-selected') !== 'true') {
+        showMenu($(this));
+      }
+      return false;
+    }
+
+    var $next, $cur = $(this).parent();
+    if (key == 37 ) { // left == prev 
+      $next = $cur.prev();
+      if (!$next.length) {
+        $next = $cur.siblings().last();
+      }
+    } else if (key == 39) { // right == next
+      $next = $cur.next();
+      if (!$next.length) {
+        $next = $cur.siblings().first();
+      }
+    } 
+    
+    $next = $next.find('a[role=menuitem]');
+    $next.attr('tabindex', 0).focus();
+    $(this).attr('tabindex', -1);
+    // if a menu is currently open, open $next as well;
+    if ($(this).attr('aria-selected') === 'true') {
+      showMenu($next);      
+    }
+    return false;
+
   });
-  $('.audience-link-section[role=menu]').on('mouseenter', resetMenuTimeout)
-  .on('mouseleave', function(e) {  
-    resetMenuTimeout();
-    $(this).fadeOut(150);
-  });
+
+  $('.audience-link-section[role=menu]')
+  .on('mouseenter focusin', resetMenuTimeout)
+  .on('mouseleave focusout', delayHideMenus);
 
   // feature paragraphs
   function activateFeature($cur, $next) {
