@@ -7,7 +7,7 @@
 }
 
 
-$collist : 2 3 4 5 6 8 12;
+$collist : 2 3 4 5 6 8;
 @mixin eq-base($name) {
   $ret : '.eq-'+$name+'-1-1';
   @each $i in $collist {

@@ -42,7 +42,7 @@
 
       <div class="gato-accordion-content">
 
-        <div class="eq-ml-3-12 eq-xl-2-12">
+        <div class="eq-ml-1-4 eq-xl-1-6">
           [#if item.image?has_content]
             <div class="txst-eventdetail-thumbnail">
               <img alt="${item.title}" src="${gf.getImg(item.image, 600, 0, false, false, 0, 0, 0, 0)}" />
@@ -57,7 +57,7 @@
           </a>
         </div>
 
-        <div class="eq-ml-9-12 eq-xl-10-12">
+        <div class="eq-ml-3-4 eq-xl-5-6">
           <dl class="txst-eventdetail-detailsbox">
             [#if item.facility?has_content]
               <dt>Location:</dt>
