@@ -11,12 +11,13 @@
           <h2>Research</h2>
         
           <div class="research-slider-wrap feature">
+            <div class="slide-nav"></div>
             <div class="slides">
 
               [#list slides as component]
                 [#if isEnabled(component)]
 
-                  <div class="slide" style="${(component_index == 0)?string('', 'display: none;')}">
+                  <div class="slide" >
                     <figure class="feature research-slider">
                       
                       <div class="feature-img-wrap">
@@ -58,20 +59,6 @@
               [/#list]
             
             </div>
-            
-            [#if slides?size > 1]
-              <div class="slide-nav">
-                <a class="slide-nav-left" href="#"><i class="fa fa-chevron-left"></i></a>[#--
-                --]<a class="slide-nav-right" href="#"><i class="fa fa-chevron-right"></i></a>
-              </div>
-              <p class="slide-nav-dots">
-                [#list slides as component]
-                  <a class="${(component_index == 0)?string('active-dot', '')}" href="#">
-                    <i class="fa fa-circle"></i>
-                  </a>
-                [/#list]
-              </p>
-            [/#if]
           
           </div>
         </div>

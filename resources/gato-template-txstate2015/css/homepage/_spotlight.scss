@@ -1,14 +1,13 @@
 div#spotlight {
   
   .content-row-content {
-    padding-bottom: 4rem;
+    padding-bottom: 7rem;
   }
 
   .research {
     .research-slider-wrap {
       position: relative;
       .slide {
-        min-height: 42rem;
         .feature-play-button {
           left: calc(50% - 3.25rem);
           top: calc(50% - 3.25rem);
@@ -23,11 +22,14 @@ div#spotlight {
   }
 
   @media (max-width: $md-breakpoint){
-    .slide {
-      min-height: 37rem;
-      .feature-play-button {
-        left: calc(50% - 2.75rem);
-        top: calc(50% - 2.75rem);
+    .research {
+      .research-slider-wrap {    
+        .slide {
+          .feature-play-button {
+            left: calc(50% - 2.75rem);
+            top: calc(50% - 2.75rem);
+          }
+        }
       }
     }
   }
@@ -69,4 +71,80 @@ div#spotlight {
     }
   }
 
+  .slick-prev, .slick-next {
+    text-decoration: none;
+    padding: 1.2rem 1.5rem;
+    margin-left: .3rem;
+    font-size: 0px;
+    &:before { font-size: 1.9rem; }
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: $khaki;
+    color: $charcoal;
+    @include hover-bg($gold, $white);
+  }
+  .slick-prev {
+     @include fa(chevron-left);
+  }
+  .slick-next {
+     @include fa(chevron-right);
+  }
+
+  .slick-dots {
+    position: absolute;
+    list-style: none;
+    display: block;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    li {
+        position: relative;
+        display: inline-block;
+        height: 20px;
+        width: 20px;
+        margin: 0 0.25rem;
+        padding: 0;
+        cursor: pointer;
+        button {
+            border: 0;
+            background: transparent;
+            display: block;
+            height: 20px;
+            width: 20px;
+            outline: none;
+            line-height: 0px;
+            font-size: 0px;
+            color: transparent;
+            padding: 5px;
+            cursor: pointer;
+            &:hover, &:focus {
+                outline: none;
+                &:before {
+                    opacity: 1;
+                    color: $page-indicator-hover;
+                }
+            }
+            &:before {
+                position: absolute;
+                top: 0;
+                left: 0;
+                content: "•";
+                width: 20px;
+                height: 20px;
+                font-size: 24px;
+                line-height: 20px;
+                text-align: center;
+                color: $page-indicator-inactive;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                @include vendor-prefix(transition, all 0.2s ease);
+            }
+        }
+        &.slick-active button:before {
+            color: $page-indicator-active;
+        }
+    }
+  }
 }

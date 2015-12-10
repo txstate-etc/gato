@@ -107,7 +107,7 @@ jQuery(function($) {
     $dots.eq($next.index()).addClass('active-dot');
   }
 
-  $('.slide-nav a').blurclick(function(e) {
+  $('#top-feature .slide-nav a').blurclick(function(e) {
     var $next, $cur = $(this).closest('.feature').find('.slides .slide:visible');
 
     if ($(this).hasClass('slide-nav-left')) {
@@ -133,6 +133,13 @@ jQuery(function($) {
     activateFeature($cur, $next);
   });
 
+  $('.research .slides').slick({
+    dots: true,
+    arrows: true,
+    adaptiveHeight: false,
+    autoplay: false,
+    appendArrows: $('.research .slide-nav')
+  });
 
   // twitter
   function advanceTweet(dur) {
