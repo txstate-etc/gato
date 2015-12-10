@@ -634,7 +634,7 @@ function waitforselector(parentselector, selector, callback) {
   if (parent.size() == 0) return;
 
   if (parent.find(selector).size() > 0) return callback(parent.find(selector));
-  if (MutationObserver) {
+  if (typeof(MutationObserver) != "undefined") {
     var observer = new MutationObserver(function(mutations, observer) {
       sanitycount++;
       if (parent.find(selector).size() > 0) {
@@ -744,7 +744,7 @@ var cssTransform = (function(){
 	1 - 6 Hours Ago
 	Today at 9:37 A.M.
 	Yesterday at 11:23 P.M.
-	October 31 
+	October 31
  */
 function relativeTime(time) {
 	t = moment(time);
@@ -759,9 +759,9 @@ function relativeTime(time) {
   }
 }
 
-jQuery(function($) { 
+jQuery(function($) {
   $('.timestamp.relative').each(function() {
-    // replace timestamps with relative time 
+    // replace timestamps with relative time
     $(this).text(relativeTime($(this).data("timestamp")));
   });
 });
