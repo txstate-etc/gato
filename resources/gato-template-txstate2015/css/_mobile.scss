@@ -1,12 +1,13 @@
 .hamburger{
   float: right;
   a {
-    top: 12px;
-    right: -2px;
+    top: 13px;
+    right: 0px;
     display: block;
     position: relative;
     color: $hamburger-button;
     font-size: 13px;
+    font-weight: 500;
     padding: 6px 10px;
     text-transform: uppercase;
     border: 1px solid $hamburger-button-border;
@@ -43,6 +44,7 @@
       border-radius: 0px;
       background: $mobile-search-background;
       height: 60px;
+      font-size: 14px;
       box-sizing: border-box;
       vertical-align: middle;
       padding-left: 8px;
@@ -68,7 +70,8 @@
     letter-spacing: 1px;
     line-height: 2.4rem;
     .mobile_trail .breadcrumbs {
-      font-size: 1.4rem;
+      font-size: 1.2rem;
+      line-height: 1.8rem;
       margin-bottom: 1.8rem;
       text-align: left;
       color: $hamburger-menu-color;
@@ -79,6 +82,8 @@
       font-family: $garamond;
       font-weight: normal;
       font-size: 2.8rem;
+      line-height: 3.2rem;
+      margin-top: 3.2rem;
     }
     .mobile_primary_nav {
       margin: 0 -1.8rem;
