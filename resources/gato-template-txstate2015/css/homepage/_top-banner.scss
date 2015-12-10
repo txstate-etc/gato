@@ -41,36 +41,55 @@ div#homepage-banner {
   
   .homepage-banner-logo {
     padding-left: 0;
-    @media (max-width: $md-breakpoint) {
-      padding-left: 5rem;
-    }
-    @media (max-width: $sm-breakpoint) {
-      padding-left: 0;
-    }
     & > a {
       display: block;
       margin: 0;
       padding: 0;
       max-width: 250px;
       img {
-        max-width: 24rem;
+        max-width: 27rem;
         display: block;
       }
+    }
+    @media (max-width: $xl-breakpoint) {
+      & > a img { max-width: 24rem; }
+    }
+    @media (max-width: $md-breakpoint) {
+      padding-left: 5rem;
+    }
+    @media (max-width: $sm-breakpoint) {
+      padding-left: 0;
+      & > a img { max-width: 23rem; }
     }
   }
 
   .homepage-banner-searchwrap {
     display: inline-block;
+    padding-right: 0;
+
+    .txst_search {
+      margin-top: 9px;
+      input.search {
+        font-size: 1.6rem;
+        width: 30rem;
+      } 
+    }
+
+    @media (max-width: $xl-breakpoint) {
+      .txst_search {
+        margin-top: 3px;
+      }
+    }
+    @media (max-width: $md-breakpoint) {
+      padding-right: 5rem;
+      .txst_search {
+        margin-top: 25px;
+      }
+    }
     @media (max-width: $sm-breakpoint) {
       display: none;
     }
-    padding-right: 0;
-    @media (max-width: $md-breakpoint) {
-      padding-right: 5rem;
-    }
-    .txst_search {
-      margin-top: 25px;
-    }
+
   }
 
   .hamburger {
@@ -91,7 +110,9 @@ div#homepage-banner {
 
   .homepage-banner-nav {
     letter-spacing: -1rem;
+    margin-bottom: -20px;
     @media (max-width: $md-breakpoint) {
+      margin-bottom: 0;
       background: $khaki;
     }
 
@@ -144,9 +165,8 @@ div#homepage-banner {
         }
 
         ul {
-
           position: absolute;
-          bottom: 0;
+          bottom: 10px;
           right: 0;
           left: 0;
           @media (max-width: $md-breakpoint) {
@@ -161,16 +181,24 @@ div#homepage-banner {
             display: inline-block;
             letter-spacing: normal; 
             margin: 0;
-            font-size: 1.8rem;
+            font-size: 2rem;
+            @media (max-width: $xl-breakpoint) {
+              font-size: 1.9rem;
+            }
+            @media (max-width: $md-breakpoint) {
+              font-size: 1.8rem;
+            }
             font-weight: bold;
             @include vendor-prefix(transition, font-size .1s ease);
             a {
               display: block;
               &:hover { text-decoration: underline; }
-              padding: 1.6rem 3.2rem;  
+              padding: 2.3rem;  
+              @media (max-width: $xl-breakpoint) {
+                padding: 2.3rem 1.9rem;  
+              }
               @media (max-width: $md-breakpoint) {
-                padding-left: 2.7rem;  
-                padding-right: 2.7rem;  
+                padding: 1.7rem 2.7rem;  
               }
             }
             &:first-child a { padding-left: 0; }
@@ -196,6 +224,9 @@ div#homepage-banner {
           position: static;
           li {
             font-size: 1.6rem;
+            a {
+              padding: 1.5rem 2.3rem;
+            }
           }
         }
       }
