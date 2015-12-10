@@ -28,23 +28,23 @@ div#top-feature {
         position: absolute;
         bottom: 3.5rem;
         max-width: 50%;
-      
-        .feature-headline {
-          a {
-            display: block;
-            background: $maroon;
-            color: $white;
-            @include hover-bg($light-maroon);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 3.2rem;
-            line-height: 4.2rem;
-            padding: 1.6rem 3rem 1.4rem 2rem;
-          }
+      }
+
+      .feature-headline {
+        a {
+          display: block;
+          background: $maroon;
+          color: $white;
+          @include hover-bg($light-maroon);
+          text-decoration: none;
+          font-weight: 500;
+          font-size: 3.2rem;
+          line-height: 4.2rem;
+          padding: 1.6rem 3rem 1.4rem 2rem;
         }
-        .feature-play-button {
-          top: -7.5rem;
-        }
+      }
+      .feature-play-button {
+        top: -7.5rem;
       }
     }    
   }
@@ -96,8 +96,6 @@ div#top-feature {
         .feature-headline a {
           font-size: 2.8rem;
           line-height: 3.8rem;
-          padding-bottom: 1rem;
-          padding-top: 0.8rem;
         }
       }
     }
@@ -110,6 +108,13 @@ div#top-feature {
   @media (max-width: $md-breakpoint){
     figure {
       height: 375px;
+
+      figcaption {
+        .feature-headline a {
+          font-size: 2.4rem;
+          line-height: 3.2rem;
+        }
+      }
     }
     .slide-nav-wrap {
       width: 100%;
