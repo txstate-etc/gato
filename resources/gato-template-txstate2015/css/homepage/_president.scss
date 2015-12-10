@@ -1,5 +1,4 @@
 div#president {
-  // padding-top: 3rem;
 
   .content-row-content {
     padding-bottom: 5rem;
@@ -13,8 +12,6 @@ div#president {
     }
 
     .pres-photo {
-      // padding-bottom: 2.5rem;
-      
       a {
         @extend .hover-blur;
         display: block;
@@ -25,12 +22,16 @@ div#president {
     .pres-message p {
       margin: 0;
       font-size: 1.6rem;
-      line-height: 2.4rem;
+      line-height: 2.8rem;
+      @media (max-width: $xl-breakpoint){
+        line-height: 2.5rem;
+      }
+      @media (max-width: $md-breakpoint){
+        line-height: 2.4rem;
+      }
     }
 
     .pres-message, .pres-updates {
-      // padding-bottom: 2.5rem;
-      
       a { 
         text-decoration: underline; 
         &:hover { text-decoration: none; }

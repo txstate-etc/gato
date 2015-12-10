@@ -1,12 +1,10 @@
 div#spotlight {
-  // padding-bottom: 1rem;
   
   .content-row-content {
     padding-bottom: 4rem;
   }
 
   .research {
-    // figure { margin-bottom: 3rem; }
     .research-slider-wrap {
       position: relative;
       .slide {
@@ -24,11 +22,6 @@ div#spotlight {
     }
   }
 
-  // @media (max-width: $sm-breakpoint){
-  //   .research {
-  //     figure { margin-bottom: 0; }
-  //   }
-  // }
   @media (max-width: $md-breakpoint){
     .slide {
       min-height: 37rem;
@@ -56,7 +49,10 @@ div#spotlight {
           background: fade-out($gold, 0.15);
           &:hover { background: fade-out($gold, 0.4); }
           @include vendor-prefix(transition, all 0.8s ease);
-          font-size: 3.6rem;
+          font-size: 4.2rem;
+          @media (max-width: $mn-breakpoint){
+            font-size: 3.6rem;
+          }
           font-family: $garamond;
           font-weight: normal;
           text-align: center;
@@ -67,6 +63,7 @@ div#spotlight {
           display: flex;
           align-items: center;
           justify-content: center;
+          text-shadow: 0 0 1.5rem $gold;
         }
       }
     }

@@ -213,13 +213,13 @@ div#homepage-banner {
       
 
         .audience-link-content {
-          padding: 0 2rem;
+          // padding: 0 2rem;
           max-width: 1200px;
-          @media (max-width: $md-breakpoint) {
-            max-width: 768px;
-          }
           @media (max-width: $xl-breakpoint) {
             max-width: 1000px;
+          }
+          @media (max-width: $md-breakpoint) {
+            max-width: 768px;
           }
           margin: auto;
           font-size: 1.4rem;
