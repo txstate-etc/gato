@@ -377,6 +377,8 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
     Node formProperties = mail.addNode("formproperties", NodeTypes.Area.NAME).addNode("formproperties", NodeTypes.Component.NAME);
     NodeTypes.Renderable.set(formProperties, "gato-area-mail:components/formproperties");
 
+    convertPropertyToBool(n, "copySender");
+
     // Move properties on the template to formproperties area since they're now configured as a component
     moveProperty("copySender", n, formProperties);
     moveProperty("subject", n, formProperties);

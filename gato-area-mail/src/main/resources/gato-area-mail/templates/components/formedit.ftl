@@ -80,7 +80,7 @@
   [/#if]
   [#if validating]
     <span class="valid-icon-cont">
-      <div class="txst-form-validicon txst-form-${content.dataType}" id="${title}-error" role="alert">&nbsp;</div>
+      <div class="txst-form-validicon txst-form-${content.dataType!}" id="${title}-error" role="alert">&nbsp;</div>
     </span>
   [/#if]
 [#elseif content.lines == "small"]
