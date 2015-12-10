@@ -72,6 +72,11 @@
       <version>2.4</version>
     </dependency>
     <dependency>
+      <groupId>commons-httpclient</groupId>
+      <artifactId>commons-httpclient</artifactId>
+      <version>3.1</version>
+    </dependency>
+    <dependency>
       <groupId>edu.txstate.its.gato</groupId>
       <artifactId>gato-vaadin</artifactId>
       <version>${gatoVersion}</version>

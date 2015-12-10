@@ -13,8 +13,10 @@ form:
         - name: preview
           class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
           fields:
-            - name: verifiedUrl
+            - name: ustreamChannelId
               class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+              transformerClass: edu.txstate.its.gato.vaadin.UstreamChannelTransformer
+              styleName: ustreamChannelId
           initFunction: loadStreamingDialog
           scripts: [gato-lib/js/flowplayer/flowplayer.min.js,gato-lib/js/spin.min.js,gato-component-streaming/js/streaming.js]
           styles: [gato-component-streaming/css/streaming.css, gato-lib/js/flowplayer/flowplayer.css]
