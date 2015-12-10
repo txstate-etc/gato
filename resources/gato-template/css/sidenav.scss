@@ -1,4 +1,5 @@
 .side_nav {
+  a { display: block; }
   .inheritedalert {
     font-size: 1.0rem;
     background-color: $inheritance-blue;
@@ -15,7 +16,6 @@
     padding-left: 0;
     margin: 0;
     a {
-      display: block;
       margin: 0;
     }
   }
