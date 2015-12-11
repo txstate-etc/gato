@@ -120,7 +120,7 @@ function createPlayer(el, url, options) {
       buildUstreamRecorded(el, videoInfo);
       break;
     case "ustream_channel":
-      videoInfo.channelId = jQuery(el).data('ustream');
+      videoInfo.channelId = jQuery(el).data('videoid');
       buildUstreamChannel(el, videoInfo);
       break;
     case "unknown":

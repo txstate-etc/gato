@@ -13,7 +13,7 @@ form:
         - name: preview
           class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
           fields:
-            - name: ustreamChannelId
+            - name: videoid
               class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
               transformerClass: edu.txstate.its.gato.vaadin.UstreamChannelTransformer
               styleName: ustreamChannelId

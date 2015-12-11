@@ -22,10 +22,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.Deque;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-import java.util.regex.Matcher;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -42,8 +40,6 @@ import org.apache.commons.lang3.StringUtils;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import edu.txstate.its.gato.UstreamUtils;
 
 /**
  *
@@ -97,8 +93,6 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
     visitByTemplate(hm, "gato:components/texasState/texasLink", this::checkLinkForDMSRef);
     visitByTemplate(hm, "gato:components/texasState/image-link", this::checkLinkForDMSRef);
     visitByTemplate(hm, "gato:components/texasState/texasEditor", this::migrateToTopAndBottom);
-    log.warn("streaming paragraph changes");
-    visitByTemplate(hm, "gato:components/texasState/texas-streaming", this::updateUstreamChannels);
     hm.save();
     log.warn("delete old files uploaded to rich editor paragraphs");
     visitByTemplate(hm, "gato:components/texasState/texasEditor", this::deleteContentFiles);
@@ -406,23 +400,6 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
     Node faqTree = node.getNode("faqTree");
     for (Node n : NodeUtil.getNodes(faqTree)) {
       convertComponentNodesToArea(n);
-    }
-  }
-
-  private Map<String, String> ustreamMap = new HashMap<String, String>();
-  private void updateUstreamChannels(Node node) throws RepositoryException {
-    String videoUrl = PropertyUtil.getString(node, "videourl", "");
-
-    Matcher matcher = UstreamUtils.CHANNEL_PATTERN.matcher(videoUrl);
-    if (matcher.find()) {
-      String channelName = matcher.group(1);
-      String channelId = ustreamMap.get(channelName);
-      
-      if (channelId == null) {
-        channelId = UstreamUtils.getChannelId(channelName);
-        ustreamMap.put(channelName, channelId);
-      } 
-      node.setProperty("ustreamChannelId", channelId);
     }
   }
 
