@@ -26,14 +26,16 @@
     <div class="audience-link-content">
 
       <div class="image-block">
-        [#if component.imageLink?has_content]
-          <a href="${gf.filterUrl(component.imageLink)}">
-        [/#if]
-          <img src="${gf.getImgDefault(component.image)}" srcset="${gf.getSrcSet(component.image)}" alt="${component.alttext!}">
-        [#if component.imageLink?has_content]
-          </a>
-        [/#if]
-        
+        <div class="image-block-bg">
+          [#if component.imageLink?has_content]
+            <a href="${gf.filterUrl(component.imageLink)}">
+          [/#if]
+            <img src="${gf.getImgDefault(component.image)}" srcset="${gf.getSrcSet(component.image)}" alt="${component.alttext!}">
+          [#if component.imageLink?has_content]
+            </a>
+          [/#if]
+        </div>
+          
         [#if component.caption?has_content]
           ${gf.processRichText(decodedContent.caption)}
         [/#if]

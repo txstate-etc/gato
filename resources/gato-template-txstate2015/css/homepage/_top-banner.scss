@@ -297,10 +297,13 @@ div#homepage-banner {
 
           .image-block {
             padding-right: 3.5rem;
-
-            & > a {
-              display: block;
-              @extend .hover-blur;
+            
+            .image-block-bg {
+              background: $white;
+              & > a {
+                display: block;
+                @extend .hover-blur;
+              }
               img {
                 display: block;
               }
