@@ -22,9 +22,12 @@ import javax.jcr.RepositoryException;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.jackrabbit.core.NodeImpl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Singleton
 public class LinkMigrationLogic {
+	private static Logger log = LoggerFactory.getLogger(LinkMigrationLogic.class);
   private final TemplatingFunctions cmsfn;
   private InstallContext ctx;
   protected Map<String, Session> sessMap;
@@ -196,7 +199,11 @@ public class LinkMigrationLogic {
   }
 
   public Node migrateResourceNodeToDam(Node resourceNode) throws RepositoryException {
-    if (!enableMigration) return null;
+    if (!enableMigration) {
+      log.warn("File at "+resourceNode.getSession().getWorkspace().getName()+":"+resourceNode.getPath()+" still exists in the website tree and was requested.");
+      return null;
+    }
+    log.warn("Migrating node "+resourceNode.getSession().getWorkspace().getName()+":"+resourceNode.getPath());
     Session damSession = getDamSession();
     Session mapSession = getMapSession();
 
@@ -271,6 +278,7 @@ public class LinkMigrationLogic {
       assetNodeResource.setProperty(AssetNodeTypes.AssetResource.MIMETYPE, resourceNode.getProperty(AssetNodeTypes.AssetResource.MIMETYPE).getString());
     }
     damSession.save();
+    log.warn("Successfully migrated to "+assetNode.getSession().getWorkspace().getName()+":"+assetNode.getPath());
 
     String mapParentPath = Paths.get(resourceNode.getPath()).getParent().toString();
     Node mapParent = NodeUtil.createPath(mapSession.getRootNode(), mapParentPath, NodeTypes.Folder.NAME);
