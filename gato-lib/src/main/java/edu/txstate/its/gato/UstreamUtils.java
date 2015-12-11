@@ -39,12 +39,12 @@ public class UstreamUtils {
       json = new String(method.getResponseBody());
     } catch (IOException e) {
       e.printStackTrace();
-      return "";
+      return null;
     }
 
     if (status != 200) {
       log.warn("received status " + status + " from ustream channel api request");
-      return "";
+      return null;
     }
 
     Gson gson = new Gson();
