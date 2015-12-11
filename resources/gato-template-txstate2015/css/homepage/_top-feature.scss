@@ -28,6 +28,8 @@ div#top-feature {
         position: absolute;
         bottom: 3.5rem;
         max-width: 50%;
+        opacity: 0;
+        left: -3rem;
       }
 
       .feature-headline {
@@ -100,6 +102,8 @@ div#top-feature {
     }
   }
 
+  .slide:first-child img, .slide-nav { opacity: 0; }
+
   @media (max-width: $xl-breakpoint){
     figure {
       height: 500px;
@@ -149,12 +153,15 @@ div#top-feature {
           max-width: 100%;
           position: relative;
           bottom: 0;
+          opacity: 1;
+          left: 0;
           .feature-play-button {
             left: 2rem;
           }
         }
       }
     }
+    .slide:first-child img, .slide-nav { opacity: 1; }
   }
 
   @media (max-width: $mn-breakpoint){

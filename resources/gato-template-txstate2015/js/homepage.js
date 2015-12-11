@@ -96,18 +96,41 @@ jQuery(function($) {
   .on('mouseenter focusin', resetMenuTimeout)
   .on('mouseleave focusout', delayHideMenus);
 
-  // feature paragraphs
-  function activateFeature($cur, $next) {
-    $cur.fadeOut(100, function(){
-        $next.fadeIn(100);
-    });
-    
-    var $dots = $cur.parent().siblings('.slide-nav-dots').find('a');
-    $dots.eq($cur.index()).removeClass('active-dot');
-    $dots.eq($next.index()).addClass('active-dot');
+  // Top Slider
+  var topSliderDesktop = {opacity: "1", left: "2rem"};
+  var topSliderMobile = {opacity: "1", left: "0"};
+  var topSliderFirstCss = {opacity: "1"};
+  var $topSliderFirst = $('#top-feature').find('.slide:first-child figure img, .slide-nav');
+  var $topSlider = $('#top-feature .slides');
+  var $topSlides = $topSlider.find('.slide');
+  function animateTopSlider(idx, delay) {
+    if (!idx) {
+      idx = 0;
+    }
+    var $caption = $topSlides.eq(idx).find('.caption-wrap');
+    if (delay) {
+      $caption = $caption.delay(delay);
+    }
+    $caption.animate(topSliderDesktop, 500);
   }
+  $topSlider.on('beforeChange', function(event, slick, currentSlide, nextSlide){
+    if (slick.getOption('fade') === true) {
+      $topSlides.eq(nextSlide).find('.caption-wrap').css({
+        opacity: "0",
+        left: "-3rem"
+      });
+      animateTopSlider(nextSlide, 500);
 
-  $('#top-feature .slides').slick({
+    }
+  }).on('breakpoint', function(event, slick, breakpoint){
+    var $el = $topSlides.find('.caption-wrap');
+    if (slick.getOption('fade') === true) {
+      $topSliderFirst.css(topSliderFirstCss);
+      $el.css(topSliderDesktop);
+    } else {
+      $el.css(topSliderMobile);
+    }
+  }).slick({
     dots: false,
     adaptiveHeight: false,
     autoplay: false,
@@ -115,6 +138,7 @@ jQuery(function($) {
     arrows: true,
     fade: true,
     swipe: false,
+    speed: 700,
     responsive: [
       {
         breakpoint: 800, // cf. max-width: $sm-breakpoint
@@ -127,7 +151,12 @@ jQuery(function($) {
       }
     ]
   });
+  if ($topSlider.slick('slickGetOption', 'fade') === true) {
+    $topSliderFirst.delay(500).animate(topSliderFirstCss, 700);
+    animateTopSlider(0, 750);
+  }
 
+  // Research Slider
   $('.research .slides').slick({
     dots: true,
     arrows: true,
