@@ -216,7 +216,11 @@ div#homepage-banner {
         visibility: visible;
         opacity: 1;
       }
-
+      
+      .audience-links {
+        margin-top: 0;
+      }
+      
       .audience-link-tabs {
         text-align: right;
 
@@ -233,7 +237,11 @@ div#homepage-banner {
     }
   
     .audience-links {
-      
+      margin-top: -20px;
+      @media (max-width: $md-breakpoint) {
+        margin-top: 0;
+      }
+
       .audience-link-section {
         display: none;
         //&:first-child {display:block;}
