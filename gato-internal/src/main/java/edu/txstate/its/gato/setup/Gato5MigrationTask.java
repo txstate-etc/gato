@@ -430,6 +430,10 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
   }
 
   private void convertNodeToAreaAndComponent(Node n, String type, String name, String propName) throws RepositoryException {
+    // sometimes people name pages the same as we name areas,
+    // we really need to namespace our areas better
+    if (NodeUtil.isNodeType(n, NodeTypes.Page.NAME)) return;
+
     if (StringUtils.isBlank(PropertyUtil.getString(n, propName, ""))) n.remove();
     else {
       Node area = n.getParent().addNode("tempconversionnode", "mgnl:area");
