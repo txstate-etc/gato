@@ -166,7 +166,7 @@ div#homepage-banner {
 
         ul {
           position: absolute;
-          bottom: 10px;
+          bottom: 0;
           right: 0;
           @media (max-width: $md-breakpoint) {
             position: static;
@@ -192,9 +192,9 @@ div#homepage-banner {
             a {
               display: block;
               &:hover { text-decoration: underline; }
-              padding: 2.3rem;  
+              padding: 2.3rem 2.3rem 3.3rem;  
               @media (max-width: $xl-breakpoint) {
-                padding: 2.3rem 1.9rem;  
+                padding: 2.3rem 1.9rem 3.3rem;  
               }
               @media (max-width: $md-breakpoint) {
                 padding: 1.7rem 2.7rem;  
@@ -236,7 +236,7 @@ div#homepage-banner {
     }
   
     .audience-links {
-      margin-top: -20px;
+      margin-top: -24px;
       @media (max-width: $md-breakpoint) {
         margin-top: 0;
       }
