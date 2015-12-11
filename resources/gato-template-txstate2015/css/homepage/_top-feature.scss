@@ -8,28 +8,28 @@ div#top-feature {
     height: 600px;
     margin: 0;
     background: $maroon;
-    p { margin: 0; }
-
-    img { 
-      display: block; 
-      width: 100vw;
+    
+    .img-wrap {
       height: 100%;
-      object-fit: cover;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: 50% 50%;
     }
+
+    p { margin: 0; }
     
     figcaption {
       width: 100%;
       height: 100%;
       max-width: 1200px;
-      padding: 0 2rem;
       margin: 0 auto;
-      
+      padding: 0;
+
       .caption-wrap {
         position: absolute;
         bottom: 3.5rem;
         max-width: 50%;
         opacity: 0;
-        left: -3rem;
       }
 
       .feature-headline {
@@ -102,7 +102,7 @@ div#top-feature {
     }
   }
 
-  .slide:first-child img, .slide-nav { opacity: 0; }
+  .slide:first-child .img-wrap, .slide-nav { opacity: 0; }
 
   @media (max-width: $xl-breakpoint){
     figure {
@@ -128,6 +128,7 @@ div#top-feature {
       height: 375px;
 
       figcaption {
+        padding: 0 2rem;
         .feature-headline a {
           font-size: 2.4rem;
           line-height: 3.2rem;
@@ -146,7 +147,7 @@ div#top-feature {
     .slide-nav-wrap { display: none; }
     figure {
       height: auto;
-      img { height: 250px; }
+      .img-wrap { height: 250px; }
       figcaption {
         padding: 0;
         .caption-wrap {
@@ -161,12 +162,12 @@ div#top-feature {
         }
       }
     }
-    .slide:first-child img, .slide-nav { opacity: 1; }
+    .slide:first-child .img-wrap, .slide-nav { opacity: 1; }
   }
 
   @media (max-width: $mn-breakpoint){
     figure {
-      img { height: 185px; }
+      .img-wrap { height: 185px; }
     }
   }
 }

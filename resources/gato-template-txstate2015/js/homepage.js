@@ -97,28 +97,40 @@ jQuery(function($) {
   .on('mouseleave focusout', delayHideMenus);
 
   // Top Slider
-  var topSliderDesktop = {opacity: "1", left: "2rem"};
+  var topSliderDesktop = {opacity: "1", left: "auto"};
   var topSliderMobile = {opacity: "1", left: "0"};
   var topSliderFirstCss = {opacity: "1"};
-  var $topSliderFirst = $('#top-feature').find('.slide:first-child figure img, .slide-nav');
+  var $topSliderFirst = $('#top-feature').find('.slide:first-child figure .img-wrap, .slide-nav');
   var $topSlider = $('#top-feature .slides');
   var $topSlides = $topSlider.find('.slide');
   function animateTopSlider(idx, delay) {
-    if (!idx) {
-      idx = 0;
-    }
     var $caption = $topSlides.eq(idx).find('.caption-wrap');
-    if (delay) {
-      $caption = $caption.delay(delay);
+    
+    var pos = $caption.position();
+    if (!pos || isNaN(pos.left)) {
+      console.log("Can't get position of caption");
+      $caption.css(topSliderDesktop);
+      return;
     }
-    $caption.animate(topSliderDesktop, 500);
+
+    $caption.css({
+      opacity: "0",
+      left: (pos.left - 30)
+    });
+
+    var style = $.extend({}, topSliderDesktop, {left: pos.left});
+
+    var $anim = $caption;
+    if (delay) {
+      $anim = $caption.delay(delay);
+    }
+    $anim.animate(style, 750, 'swing', function() {
+      $caption.css(topSliderDesktop);
+    });
   }
   $topSlider.on('beforeChange', function(event, slick, currentSlide, nextSlide){
     if (slick.getOption('fade') === true) {
-      $topSlides.eq(nextSlide).find('.caption-wrap').css({
-        opacity: "0",
-        left: "-3rem"
-      });
+      var $el = $topSlides.eq(nextSlide).find('.caption-wrap');
       animateTopSlider(nextSlide, 500);
 
     }
