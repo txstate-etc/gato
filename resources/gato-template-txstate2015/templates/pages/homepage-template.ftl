@@ -19,7 +19,7 @@
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.2/fastclick.min.js"></script>
 
     <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-txstate2015/css/txstate2015.compiled.css"/>
-    [@templatehead/]
+    [@templatehead publisher='Texas State' /]
 
     <link rel="alternate" type="application/rss+xml"
         title="Texas State University News"
