@@ -44,7 +44,7 @@ div#social {
         position: relative;
         overflow: hidden;
         max-height: 100%;
-        &:hover {
+        @at-root html.no-touch &:hover {
           .caption {
             bottom: 0;
             opacity: 1;
