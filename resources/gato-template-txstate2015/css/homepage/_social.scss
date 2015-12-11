@@ -112,14 +112,6 @@ div#social {
       .image > a {
         position: relative;
         overflow: hidden;
-        height: 19rem;
-        
-        img {
-          position: absolute;
-          margin: auto;
-          top: -9999px;
-          bottom: -9999px;
-        }
 
       }
 
@@ -132,7 +124,6 @@ div#social {
 
     @media (max-width: $xl-breakpoint){
       .social-upper { height: 35rem; }
-      .facebook .image > a { height: 16rem; }
     }
 
     @media (max-width: $sm-breakpoint){
@@ -155,7 +146,6 @@ div#social {
         .tweet { padding: 0 2rem; }
       }
       .facebook {
-        .image > a { height: 32rem; }
         padding-top: 3rem;
         .fb-content {
           padding: 0;

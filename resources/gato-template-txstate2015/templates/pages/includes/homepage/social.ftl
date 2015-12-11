@@ -98,7 +98,7 @@
             <div class="social-upper">
               <figure class="image">
                 <a href="${link!}">
-                  <img src="${gf.getImg(image!, 1080, 0, false, false, 0, 0, 0, 0)}">
+                  <img src="${gf.getImg(image!, 1080, 400, true, false, 0, 0, 0, 0)}">
                 </a>
                 <figcaption class="fb-content">
                   <p>${gf.linkify(caption)!}</p>
