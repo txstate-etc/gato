@@ -14,13 +14,9 @@
 .ddmenu-menubar {
   margin: 0px auto;
   max-width: 1000px;
-  display: none;
   @include vertical-gradient($primary-nav-gradient-top, $primary-nav-gradient-bottom);
   border-bottom: 1px solid $primary-nav-bottom-border;
   box-shadow: 1px 0px $primary-nav-box-shadow inset, -1px 0px $primary-nav-box-shadow inset;
-  @media screen and (min-width: $sm-breakpoint) {
-    display: flex;
-  }
   @media screen and (min-width: $xl-breakpoint) {
     max-width: 1200px;
   }
@@ -78,7 +74,7 @@ a.ddmenu-menubaritem{
     border: 0 solid $primary-nav-bottom-border;
   }
   .ddmenu-menu {
-	  top: 100%;
+    top: 100%;
     border: 2px solid $secondary-nav-fixed-border;
   }
   .secondary_nav a {
