@@ -36,20 +36,20 @@
           </div>
 
           <div class="audience-link-tabs">
-            <ul role="menubar">
-              <li role="presentation">
+            <ul role="menubar">[#--  
+              --]<li role="presentation">
                   <a href="${gf.filterUrl(future.link)}" role="menuitem" aria-controls="audience-future-students" aria-selected="false" tabindex="0" id="tab-audience-future-students">${gf.filterLinkTitle(future.title, future.link)}</a>
-              </li>
-              <li role="presentation">
+              </li>[#--  
+              --]<li role="presentation">
                   <a href="${gf.filterUrl(current.link)}" role="menuitem" aria-controls="audience-current-students" aria-selected="false" tabindex="-1" id="tab-audience-current-students">${gf.filterLinkTitle(current.title, current.link)}</a>
-              </li>
-              <li role="presentation">
+              </li>[#--  
+              --]<li role="presentation">
                   <a href="${gf.filterUrl(facstaff.link)}" role="menuitem" aria-controls="audience-faculty-staff" aria-selected="false" tabindex="-1" id="tab-audience-faculty-staff">${gf.filterLinkTitle(facstaff.title, facstaff.link)}</a>
-              </li>
-              <li role="presentation">
+              </li>[#--  
+              --]<li role="presentation">
                   <a href="${gf.filterUrl(alumni.link)}" role="menuitem" aria-controls="audience-alumni-visitors" aria-selected="false" tabindex="-1" id="tab-audience-alumni-visitors">${gf.filterLinkTitle(alumni.title, alumni.link)}</a>
-              </li>
-            </ul>
+              </li>[#--  
+            --]</ul>
           </div>
 
           <div class="audience-links">
