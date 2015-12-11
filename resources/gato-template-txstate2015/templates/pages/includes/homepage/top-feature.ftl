@@ -9,7 +9,7 @@
 
       [#list slides as component]
         [#if isEnabled(component)]
-          <div class="slide ${component.color!''}" style="${(component_index == 0)?string('', 'display: none;')}">
+          <div class="slide ${component.color!''}">
             <figure class="feature top-slider">
               <img src="${gf.getImgDefault(component.image, aspectratio)}" srcset="${gf.getSrcSet(component.image, aspectratio)}" alt="${component.alttext!}">
               <figcaption>
@@ -45,13 +45,8 @@
 
     </div>
 
-    [#if slides?size > 1]
-      <div class="slide-nav-wrap">
-        <div class="slide-nav">
-          <a class="slide-nav-left" href="#"><i class="fa fa-chevron-left"></i></a>
-          <a class="slide-nav-right" href="#"><i class="fa fa-chevron-right"></i></a>
-        </div>
-      </div>
-    [/#if]
+    <div class="slide-nav-wrap">
+      <div class="slide-nav"></div>
+    </div>
 
 </div>

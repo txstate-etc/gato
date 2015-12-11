@@ -1,6 +1,6 @@
 div#top-feature {
   position: relative;
-  background: $maroon;
+  background: $charcoal;
   
   figure {
     position: relative;
@@ -79,10 +79,24 @@ div#top-feature {
     bottom: 3.5rem;
     right: 0;
 
-    a {
+    .slick-prev, .slick-next {
+      text-decoration: none;
+      padding: 1.2rem 1.5rem;
+      margin-left: .3rem;
+      font-size: 0px;
+      &:before { font-size: 1.9rem; }
+      cursor: pointer;
+      border: none;
+      outline: none;
       background: fade-out($almost-black, 0.3);
       @include hover-bg($almost-black);
       color: $white;
+    }
+    .slick-prev {
+       @include fa(chevron-left);
+    }
+    .slick-next {
+       @include fa(chevron-right);
     }
   }
 

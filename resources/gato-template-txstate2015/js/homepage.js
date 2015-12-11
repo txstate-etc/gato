@@ -107,30 +107,25 @@ jQuery(function($) {
     $dots.eq($next.index()).addClass('active-dot');
   }
 
-  $('#top-feature .slide-nav a').blurclick(function(e) {
-    var $next, $cur = $(this).closest('.feature').find('.slides .slide:visible');
-
-    if ($(this).hasClass('slide-nav-left')) {
-      $next = $cur.prev();
-      if (!$next.length) {
-        $next = $cur.siblings().last();
+  $('#top-feature .slides').slick({
+    dots: false,
+    adaptiveHeight: false,
+    autoplay: false,
+    appendArrows: $('#top-feature .slide-nav'),
+    arrows: true,
+    fade: true,
+    swipe: false,
+    responsive: [
+      {
+        breakpoint: 800, // cf. max-width: $sm-breakpoint
+        settings: {
+          adaptiveHeight: true,
+          arrows: false,
+          fade: false,
+          swipe: true,
+        }
       }
-    } else {
-      $next = $cur.next();
-      if (!$next.length) {
-        $next = $cur.siblings().first();
-      }
-    }
-
-    activateFeature($cur, $next);
-
-  });
-  
-  $('.slide-nav-dots a').blurclick(function(e) {
-    var $slides = $(this).parent().siblings('.slides');
-    var $cur = $slides.find('.slide:visible');
-    var $next = $slides.find('.slide').eq($(this).index());
-    activateFeature($cur, $next);
+    ]
   });
 
   $('.research .slides').slick({
