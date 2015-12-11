@@ -197,8 +197,8 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
     RoleManager rm = ss.getRoleManager();
     for (Node roleNode : NodeUtil.getNodes(roles.getRootNode(), NodeTypes.Role.NAME)) {
 
-      // don't touch superuser, editor, or anonymous roles
-      if (roleNode.getName().equals("superuser") || roleNode.getName().equals("editor") || roleNode.getName().equals("anonymous")) continue;
+      // editor role needs no changes, it's getting bootstrapped in
+      if (roleNode.getName().equals("editor")) continue;
 
       Role role = rm.getRole(roleNode.getName());
       Map<String, ACL> acls = rm.getACLs(role.getName());
@@ -208,6 +208,10 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
           rm.addPermission(role, "dam", perm.getPattern().getPatternString(), perm.getPermissions());
         }
       }
+
+      // don't touch superuser or anonymous roles any more
+      if (roleNode.getName().equals("superuser") || roleNode.getName().equals("anonymous")) continue;
+
       if (acls.containsKey("website")) {
         ACL acl = acls.get("website");
         for (Permission perm : acl.getList()) {
