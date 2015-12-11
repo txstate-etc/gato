@@ -306,6 +306,7 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
 
     n.setProperty("startPage", startLevel);
     n.setProperty("depth", endLevel - startLevel);
+    convertPropertyToBool(n, "alphabetical");
   }
 
   private void updateSubPagesComponent(Node n) throws RepositoryException {
