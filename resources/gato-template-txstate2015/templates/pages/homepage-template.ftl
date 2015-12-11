@@ -21,6 +21,10 @@
     <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-txstate2015/css/txstate2015.compiled.css"/>
     [@templatehead/]
 
+    <link rel="alternate" type="application/rss+xml"
+        title="Texas State University News"
+        href="http://feeds.feedburner.com/TexasStateNews" />
+
   </head>
   <body class="homepage ${cmsfn.isEditMode()?string('admin','')}">
     <nav id="menu" class="mobile_nav">
