@@ -514,28 +514,30 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
       Node gbanners = null;
       if (n.hasNode("gato-banners")) gbanners = n.getNode("gato-banners");
       else gbanners = n.addNode("gato-banners", NodeTypes.Area.NAME);
-      Iterable<Node> images = NodeUtil.getNodes(gbanners, NodeTypes.Component.NAME);
+      if (!gbanners.hasNode("imported")) {
+        Iterable<Node> images = NodeUtil.getNodes(gbanners, NodeTypes.Component.NAME);
 
-      // create a new banner component to contain both settings and images
-      Node newcomponent = gbanners.addNode("imported", NodeTypes.Component.NAME);
-      NodeTypes.Renderable.set(newcomponent, "gato-template:components/banners");
+        // create a new banner component to contain both settings and images
+        Node newcomponent = gbanners.addNode("imported", NodeTypes.Component.NAME);
+        NodeTypes.Renderable.set(newcomponent, "gato-template:components/banners");
 
-      // move the images into an area called 'banners' inside the new component
-      Node imagesparent = null;
-      Node savefirstimage = null;
-      for (Node image : images) {
-        if (imagesparent == null) imagesparent = newcomponent.addNode("banners", NodeTypes.Area.NAME);
-        if (savefirstimage == null) savefirstimage = image;
-        NodeUtil.moveNode(image, imagesparent);
-        convertPropertyToBool(image, "inherit");
-      }
+        // move the images into an area called 'banners' inside the new component
+        Node imagesparent = null;
+        Node savefirstimage = null;
+        for (Node image : images) {
+          if (imagesparent == null) imagesparent = newcomponent.addNode("banners", NodeTypes.Area.NAME);
+          if (savefirstimage == null) savefirstimage = image;
+          NodeUtil.moveNode(image, imagesparent);
+          convertPropertyToBool(image, "inherit");
+        }
 
-      // move over the settings, whether or not we had any images
-      if (n.hasNode("gato-banner-settings")) {
-        Node gbsettings = n.getNode("gato-banner-settings");
-        PropertyUtil.setProperty(newcomponent, "visible", gbsettings.getProperty("visible").getString());
-        PropertyUtil.setProperty(newcomponent, "reset", gbsettings.getProperty("reset").getBoolean());
-        gbsettings.remove();
+        // move over the settings, whether or not we had any images
+        if (n.hasNode("gato-banner-settings")) {
+          Node gbsettings = n.getNode("gato-banner-settings");
+          PropertyUtil.setProperty(newcomponent, "visible", gbsettings.getProperty("visible").getString());
+          PropertyUtil.setProperty(newcomponent, "reset", gbsettings.getProperty("reset").getBoolean());
+          gbsettings.remove();
+        }
       }
     }
   }
