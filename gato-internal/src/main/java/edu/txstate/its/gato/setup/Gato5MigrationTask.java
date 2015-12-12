@@ -298,45 +298,52 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
   }
 
   private void updateSiteMapComponent(Node n) throws RepositoryException {
-    Long startLevel = PropertyUtil.getLong(n, "startLevel", 1L);
-    Long endLevel = PropertyUtil.getLong(n, "endLevel", 999L);
-    if (startLevel < 1) { startLevel = 1L; }
-    if (endLevel < 1) { endLevel = 1L; }
+    if (!n.hasProperty("startPage")) {
+      Long startLevel = PropertyUtil.getLong(n, "startLevel", 1L);
+      Long endLevel = PropertyUtil.getLong(n, "endLevel", 999L);
+      if (startLevel < 1) { startLevel = 1L; }
+      if (endLevel < 1) { endLevel = 1L; }
 
-    if (n.hasProperty("startLevel")) { n.getProperty("startLevel").remove(); }
-    if (n.hasProperty("endLevel")) { n.getProperty("endLevel").remove(); }
+      if (n.hasProperty("startLevel")) { n.getProperty("startLevel").remove(); }
+      if (n.hasProperty("endLevel")) { n.getProperty("endLevel").remove(); }
 
-    n.setProperty("startPage", startLevel);
-    n.setProperty("depth", endLevel - startLevel);
+      n.setProperty("startPage", startLevel);
+      n.setProperty("depth", endLevel - startLevel);
+    }
     convertPropertyToBool(n, "alphabetical");
   }
 
   private void updateSubPagesComponent(Node n) throws RepositoryException {
-    Long levels = PropertyUtil.getLong(n, "levels", 1L);
-    if (levels < 1) { levels = 1L; }
+    if (!n.hasProperty("startPage")) {
+      Long levels = PropertyUtil.getLong(n, "levels", 1L);
+      if (levels < 1) { levels = 1L; }
 
-    if (n.hasProperty("levels")) { n.getProperty("levels").remove(); }
+      if (n.hasProperty("levels")) { n.getProperty("levels").remove(); }
 
-    n.setProperty("startPage", NodeUtil.getNearestAncestorOfType(n, "mgnl:page").getDepth());
-    n.setProperty("depth", levels);
+      n.setProperty("startPage", NodeUtil.getNearestAncestorOfType(n, "mgnl:page").getDepth());
+      n.setProperty("depth", levels);
+    }
   }
 
   private void updateSelectionComponent(Node n) throws RepositoryException {
-    String values = PropertyUtil.getString(n, "values", "");
-    if (n.hasProperty("values")) { n.getProperty("values").remove(); }
+    if (!n.hasProperty("options")) {
+      String values = PropertyUtil.getString(n, "values", "");
+      if (n.hasProperty("values")) { n.getProperty("values").remove(); }
 
-    n.setProperty("options", convertToMultiValue(values, "\\R"));
-
+      n.setProperty("options", convertToMultiValue(values, "\\R"));
+    }
     if (n.hasProperty("mandatory") && n.getProperty("mandatory").getType() != PropertyType.BOOLEAN) {
       convertPropertyToBool(n, "mandatory");
     }
   }
 
   private void updateFormFileComponent(Node n) throws RepositoryException {
-    String fileTypes = PropertyUtil.getString(n, "extension", "");
-    if (n.hasProperty("extension")) { n.getProperty("extension").remove(); }
+    if (n.hasProperty("extension") && !n.getProperty("extension").isMultiple()) {
+      String fileTypes = PropertyUtil.getString(n, "extension", "");
+      if (n.hasProperty("extension")) { n.getProperty("extension").remove(); }
 
-    n.setProperty("extension", convertToMultiValue(fileTypes, ","));
+      n.setProperty("extension", convertToMultiValue(fileTypes, ","));
+    }
 
     if (n.hasProperty("mandatory") && n.getProperty("mandatory").getType() != PropertyType.BOOLEAN) {
       convertPropertyToBool(n, "mandatory");
