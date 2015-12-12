@@ -18,11 +18,11 @@
       letter-spacing: -1rem;
       & > * { letter-spacing: normal; }
       a {
-        text-decoration: underline; 
-        margin: 0; 
+        text-decoration: underline;
+        margin: 0;
         padding: 0;
         &:hover{
-          background: transparent; 
+          background: transparent;
           text-decoration: none !important;
         }
       }
@@ -70,10 +70,10 @@
     }
   }
   .txst-eventdetail-detailsbox {
-    padding: 1rem 1.8rem !important; 
+    padding: 1rem 1.8rem !important;
     border-radius: 0 !important;
   }
-  .txst-eventdetail-detailsbox a, 
+  .txst-eventdetail-detailsbox a,
   .txst-eventdetail-description a {
     text-decoration: underline;
   }
@@ -93,9 +93,9 @@
   &[min-width~='200px'] div.txst-eventdetail {
     div.txst-eventdetail-thumbnail {
       display: block;
-      img { 
-        width: 100%; 
-        border-left: 2px solid $sandstone; 
+      img {
+        width: 100%;
+        border-left: 2px solid $sandstone;
         border-right: 2px solid $sandstone;
       }
     }
@@ -170,11 +170,11 @@
       padding-left: 3rem;
       padding-top: 3rem;
       max-height: 18rem;
-      img { 
-        width: inherit; 
-        min-width: 100%;  
-        max-width: 150%; 
-        border-left: 0px solid $sandstone; 
+      img {
+        width: inherit;
+        min-width: 100%;
+        max-width: 150%;
+        border-left: 0px solid $sandstone;
         border-right: 0px solid $sandstone;
       }
     }
@@ -199,8 +199,8 @@
     a.txst-eventdetail-morelink {
       display: none;
     }
-    .eq-ml-3-12 { width: 25%; }
-    .eq-ml-9-12 { width: 75%; }
+    .eq-ml-1-4 { width: 25%; }
+    .eq-ml-3-4 { width: 75%; }
   }
 
   &[min-width~='800px'] div.txst-eventdetail {
@@ -214,8 +214,8 @@
   }
 
   &[min-width~='1200px'] div.txst-eventdetail {
-    .eq-xl-2-12 { width: 16.66667%; }
-    .eq-xl-10-12 { width: 83.33333%; }
+    .eq-xl-1-6 { width: 16.66667%; }
+    .eq-xl-5-6 { width: 83.33333%; }
   }
 
 }
