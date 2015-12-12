@@ -94,10 +94,10 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
     visitByTemplate(hm, "gato:components/texasState/image-link", this::checkLinkForDMSRef);
     visitByTemplate(hm, "gato:components/texasState/texasEditor", this::migrateToTopAndBottom);
     hm.save();
-    log.warn("delete old files uploaded to rich editor paragraphs");
-    visitByTemplate(hm, "gato:components/texasState/texasEditor", this::deleteContentFiles);
-    log.warn("delete old files uploaded to text and image paragraphs");
-    visitByTemplate(hm, "gato:components/texasState/texasTextImage", this::deleteTextFiles);
+    //log.warn("delete old files uploaded to rich editor paragraphs");
+    //visitByTemplate(hm, "gato:components/texasState/texasEditor", this::deleteContentFiles);
+    //log.warn("delete old files uploaded to text and image paragraphs");
+    //visitByTemplate(hm, "gato:components/texasState/texasTextImage", this::deleteTextFiles);
     log.warn("update node types in faq hierarchy");
     visitByTemplate(hm, "gato:components/texasState/texas-faq-hierarchy", this::updateFaqNodeTypes);
     hm.save();
