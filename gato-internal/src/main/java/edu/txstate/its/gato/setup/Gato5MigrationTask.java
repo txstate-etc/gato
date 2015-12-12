@@ -130,9 +130,10 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
         }
 
         if (templateId.startsWith("gato:pages/ua-2011/")) {
-          if (n.hasNode("socialmedia")) n.getNode("socialmedia").remove();
-          if (n.hasNode("uasocial"))
+          if (n.hasNode("uasocial")) {
+            if (n.hasNode("socialmedia")) n.getNode("socialmedia").remove();
             NodeUtil.renameNode(n.getNode("uasocial"), "socialmedia");
+          }
         }
 
         String p = n.getPath();
@@ -540,26 +541,31 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
   }
 
   protected void moveBodyContentToSingleColumnContainer(Node cp) throws RepositoryException {
-    Iterable<Node> existingComponents = NodeUtil.getNodes(cp, NodeTypes.Component.NAME);
-    Node row = cp.addNode("importrow", NodeTypes.Component.NAME);
-    NodeTypes.Renderable.set(row, "gato-template:components/rows/full");
-    Node rowarea = row.addNode("column1", NodeTypes.Area.NAME);
+    if (!cp.hasNode("importrow")) {
+      Iterable<Node> existingComponents = NodeUtil.getNodes(cp, NodeTypes.Component.NAME);
+      Node row = cp.addNode("importrow", NodeTypes.Component.NAME);
+      NodeTypes.Renderable.set(row, "gato-template:components/rows/full");
+      Node rowarea = row.addNode("column1", NodeTypes.Area.NAME);
 
-    for (Node comp : existingComponents) {
-      NodeUtil.moveNode(comp, rowarea);
-      if (PropertyUtil.getBoolean(comp, "lineAbove", false)) insertSeparator(rowarea, comp);
+      for (Node comp : existingComponents) {
+        NodeUtil.moveNode(comp, rowarea);
+        insertSeparator(rowarea, comp);
+      }
     }
   }
 
   protected void insertSeparator(Node area, Node comp) throws RepositoryException {
-    Node separator = area.addNode(comp.getName() + "-lineAbove", NodeTypes.Component.NAME);
-    NodeTypes.Renderable.set(separator, "gato-template:components/separator");
-    area.orderBefore(separator.getName(), comp.getName());
+    if (PropertyUtil.getBoolean(comp, "lineAbove", false)) {
+      Node separator = area.addNode(comp.getName() + "-lineAbove", NodeTypes.Component.NAME);
+      NodeTypes.Renderable.set(separator, "gato-template:components/separator");
+      area.orderBefore(separator.getName(), comp.getName());
+      comp.getProperty("lineAbove").remove();
+    }
   }
 
   protected void createSeparators(Node area) throws RepositoryException {
     for (Node comp : NodeUtil.getNodes(area, NodeTypes.Component.NAME)) {
-      if (PropertyUtil.getBoolean(comp, "lineAbove", false)) insertSeparator(area, comp);
+      insertSeparator(area, comp);
     }
   }
 }
