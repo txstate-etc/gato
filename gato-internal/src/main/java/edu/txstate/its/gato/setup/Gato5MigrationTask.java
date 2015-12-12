@@ -435,6 +435,7 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
     // sometimes people name pages the same as we name areas,
     // we really need to namespace our areas better
     if (NodeUtil.isNodeType(n, NodeTypes.Page.NAME)) return;
+    if (n.hasProperty("gato5migrationconvertnodetoarea")) return;
 
     if (StringUtils.isBlank(PropertyUtil.getString(n, propName, ""))) n.remove();
     else {
@@ -443,6 +444,7 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
       NodeUtil.renameNode(area, name);
       n.setPrimaryType(NodeTypes.Component.NAME);
       NodeTypes.Renderable.set(n, type);
+      PropertyUtil.setProperty(area, "gato5migrationconvertnodetoarea", Boolean.TRUE);
     }
   }
 
