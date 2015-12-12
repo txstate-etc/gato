@@ -28,7 +28,7 @@ public class TxStateResizer extends GatoResizer {
   public String createLink(Asset asset) { // really need to pass an asset
     try {
 
-      String mgnlpath = gf.absoluteUrl("/dam/"+asset.getItemKey().asString()+"/"+URLEncoder.encode(URLEncoder.encode(asset.getFileName()))).replaceAll("^\\w{3,15}://", "");
+      String mgnlpath = gf.damPath().replaceAll("^(\\w{3,15}:)?//", "")+"/"+asset.getItemKey().asString()+"/"+URLEncoder.encode(URLEncoder.encode(asset.getFileName()));
 
       String returl = gf.getImageHandlerBase()+gf.getCacheStr(asset)+"/imagehandler/scaler/"+mgnlpath;
       return buildUrl(returl);

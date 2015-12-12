@@ -67,6 +67,7 @@ public final class GatoUtils {
   private static final Pattern USER_PATTERN = Pattern.compile("(^|)@(\\w+)");
   private static final Pattern HASHTAG_PATTERN = Pattern.compile("(^|)#(\\w+)");
   private static final Pattern ITEMKEY_PATTERN = Pattern.compile("^([a-z]+):([a-f0-9\\-]+)$");
+  private static final Pattern EXTERNAL_LINK_PATTERN = Pattern.compile("^(\\w+:)?//.*$");
 
   private final TemplatingFunctions tf;
   private final DamTemplatingFunctions damfn;
@@ -88,7 +89,7 @@ public final class GatoUtils {
 
   public String filterUrl(String url) {
     if (StringUtils.isEmpty(url)) return "";
-    if (LinkUtil.isExternalLinkOrAnchor(url)) return url;
+    if (EXTERNAL_LINK_PATTERN.matcher(url).matches()) return url;
     String cpath = MgnlContext.getContextPath();
     if (!StringUtils.isEmpty(cpath) && url.startsWith(cpath)) return url;
 
@@ -133,20 +134,38 @@ public final class GatoUtils {
     return cpath+url;
   }
 
+  public String serverNameAndPort() {
+    HttpServletRequest request = MgnlContext.getWebContext().getRequest();
+    String serverbase = request.getServerName();
+    if ((request.getScheme().equals("http") && request.getServerPort() != 80) ||
+        (request.getScheme().equals("https") && request.getServerPort() != 443) ||
+         !request.getScheme().contains("http"))
+      serverbase += ":"+request.getServerPort();
+    return serverbase;
+  }
+
   public String absoluteUrl(String url) {
     String relUrl = filterUrl(url);
     if (relUrl.matches("^(\\w{3,15}:)?//.*")) return relUrl;
     HttpServletRequest request = MgnlContext.getWebContext().getRequest();
-    String serverpath = request.getScheme()+"://"+request.getServerName();
-    if ((request.getScheme().equals("http") && request.getServerPort() != 80) ||
-        (request.getScheme().equals("https") && request.getServerPort() != 443) ||
-         !request.getScheme().contains("http"))
-      serverpath += ":"+request.getServerPort();
+    String serverpath = request.getScheme()+"://"+serverNameAndPort();
     return serverpath+relUrl;
   }
 
   public String resourcePath() {
+    String propKey = "gato.assetsbaseurl";
+    if (isCacheEnvironment()) propKey += ".cache";
+    if (mcp.hasProperty(propKey))
+      return filterUrl(mcp.getProperty(propKey));
     return MgnlContext.getContextPath()+"/.resources";
+  }
+
+  public String damPath() {
+    String propKey = "gato.dmsbaseurl";
+    if (isCacheEnvironment()) propKey += ".cache";
+    if (mcp.hasProperty(propKey))
+      return filterUrl(mcp.getProperty(propKey));
+    return MgnlContext.getContextPath()+"/dam";
   }
 
   public String filterLinkTitle(String title, String url) {
