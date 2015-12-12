@@ -88,7 +88,9 @@
                   
                   <figcaption>
                   
-                    <p class="feature-date">Sept. 15, 2015</p>
+                    [#if component.supertext?has_content]
+                      <p class="feature-date">${component.supertext}</p>
+                    [/#if]
                                         
                     [#if component.title?has_content]
                       <p class="feature-headline">
