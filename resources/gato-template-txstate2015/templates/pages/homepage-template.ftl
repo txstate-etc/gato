@@ -49,9 +49,9 @@
         <!-- banner with logo and search bar -->
         [#include "includes/homepage/top-banner.ftl"]
       </div>
-      
+
       <div class="main-content">
-  
+
         [#include "includes/homepage/top-feature.ftl"]
         [#include "includes/homepage/top-links.ftl"]
         [#include "includes/homepage/news.ftl"]
@@ -60,12 +60,13 @@
         [#include "includes/homepage/president.ftl"]
 
       </div> <!-- end of page_content -->
-      
+
       [#include "includes/footer.ftl"]
       [#include "includes/homepage/legal-footer.ftl"]
 
     </div> <!-- end of the container -->
     [@cssjsmodals /]
     [#include "includes/homepage/video-modal.ftl"]
+    <!--  GENERATED-CONTENT-ENDS-DHTN23TN423HT4D -->
   </body>
 </html>
