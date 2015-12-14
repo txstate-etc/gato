@@ -70,18 +70,18 @@
           
           <div class="bab">
             <figure>
-              <img alt="demo" src="http://edelstone.github.io/gato-homepage/images/bab-1.jpg">
+              <img alt="demo" src="${ctx.contextPath}/.resources/gato-template-txstate2015/images/bab-1.jpg">
               <figcaption>
-                <a href="http://www.txstate.edu/be-a-bobcat">Be a Bobcat</a>
+                <a href="//txstate.edu/beabobcat">Be a Bobcat</a>
               </figcaption>
             </figure>
           </div> 
           
           <div class="rs">
             <figure>
-              <img alt="demo" src="http://edelstone.github.io/gato-homepage/images/rs-1.jpg">
+              <img alt="demo" src="${ctx.contextPath}/.resources/gato-template-txstate2015/images/rs-1.jpg">
               <figcaption>
-                <a href="http://www.txstate.edu/rising-stars">Rising Stars</a>
+                <a href="//txstate.edu/rising-stars">Rising Stars</a>
               </figcaption>
             </figure>
           </div>
