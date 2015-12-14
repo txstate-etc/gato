@@ -1,5 +1,5 @@
 [#macro javascript scripts=[]]
-  <script type="text/javascript" src="${ctx.contextPath}/.resources/gato-lib/js/jquery.js"></script>
+  <script type="text/javascript" src="${gf.resourcePath()}/gato-lib/js/jquery.js"></script>
   <script type="text/javascript">jQuery.noConflict();</script>
   [#list ['gato-lib/js/prototype.js',
           'gato-lib/js/scriptaculous/scriptaculous.js',
@@ -10,13 +10,13 @@
           'gato-lib/js/gato-lib.js',
           'gato-lib/js/modal.js'
           ] + scripts as script]
-    <script type="text/javascript" src="${ctx.contextPath}/.resources/${script}"></script>
+    <script type="text/javascript" src="${gf.resourcePath()}/${script}"></script>
   [/#list]
 [/#macro]
 
 [#macro css files]
   [#list ['gato-lib/css/grid.css', 'gato-component-dept-directory/css/departmentDirectory.css'] + files as file]
-    <link rel="stylesheet" type="text/css" href="${ctx.contextPath}/.resources/${file}"/>
+    <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/${file}"/>
   [/#list]
 [/#macro]
 
