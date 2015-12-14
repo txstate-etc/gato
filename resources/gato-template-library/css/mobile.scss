@@ -1,8 +1,10 @@
-﻿body {
+﻿@import "gato-template-txstate2009/css/mobile";
+
+body {
   font-family: 'Open Sans', sans-serif;
 }
 
-h1, .icon-link h3 {
+h1, .texas-icon-link h3 {
   font-size: 1.3em;
   font-weight: 600;
   line-height: 1.3em;
@@ -188,7 +190,7 @@ a {
   padding-bottom: 10px;
 }
 
-#news .txst-rss-item {
+#news .gato-rss-item {
   h3 {
     padding: 5px 0;
     font-size: 1em;
@@ -202,6 +204,10 @@ a {
   color: #836c31;
 }
 
+.gato-accordion-expand-collapse { 
+  display: none;
+}
+
 #more-news {
   display: block;
   text-align: right;
@@ -209,10 +215,12 @@ a {
 }
 
 #socialmedia img {
-  margin-top: 10px;
+  margin: 10px 0;
+  display: inline;
+  float: none;
 }
 
-#social-media-container .social-media-link {
+#socialmedia .gato-sociallink {
   display: inline;
   padding-right: 10px;
 }

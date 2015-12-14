@@ -4,6 +4,7 @@
 <head>
   [@templatejs scripts=['gato-template-library/js/searchbox.js','gato-template-library/js/mobile.js']/]
   <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-library/css/mobile.compiled.css"/>
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css" />
   [@templatehead/]
 </head>
 <body class="${cmsfn.isEditMode()?string('admin', 'public')}">
@@ -44,7 +45,7 @@
         </div>
         <div id="socialmedia">
             <h1>Find us on</h1>
-            [@cms.area name="mobile-socialmedia" contextAttributes={"bar_class":"librarySocial_add"}/]
+            [@cms.area name="mobile-socialmedia" contextAttributes={"bar_class":"librarySocial_add", "icononly": true}/]
         </div>
         <div id="footer">
             [@cms.area name="mobile-footer" contextAttributes={"bar_class":"content_add"}/]
