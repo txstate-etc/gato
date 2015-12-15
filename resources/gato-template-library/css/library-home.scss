@@ -48,9 +48,9 @@ h1 {
   }
 }
 
-.banner{
-	padding: 0px;
-}
+// .banner{
+// 	padding: 0px;
+// }
 
 .quick-links a {
 	color: #6c5521;
@@ -420,4 +420,53 @@ a.txst-eventsbox-image {
 //hide the hamburger that is used in the 2015 template
 .hamburger{
 	display: none;
+}
+
+	// push hours below slider when smaller than 925px (determined by experimentation)
+@media (max-width: 940px) {
+	body.public .library-hours {
+		position: static;
+		height: auto;
+		width: auto;
+		h3 { padding-top: 15px; }
+		.hours{
+			display: inline-block;
+			padding-top: 15px;
+			padding-right: 30px;
+			padding-left: 0;
+			vertical-align: top;
+			width: 97px;
+		}
+		.hours-links {
+			position: static;
+			padding-top: 15px;
+		}
+	}
+	.search-box{
+		margin-left: 18px;
+		margin-bottom: 18px;
+	}
+	.content-boxes {
+		padding-bottom: 0;
+	}
+	.content-box {
+		margin-bottom: 36px;
+	}
+}
+@media (max-width: 1024px) {
+	.library-footer {
+		height: auto;
+		background: #4b0f15;
+		a {
+			float: none;
+			display: inline-block;
+			margin-bottom: 18px;
+		}
+	}
+}
+
+@media (min-width: $xs-breakpoint){
+	.header_no_image {
+	    min-height: 120px;
+	}
 }
