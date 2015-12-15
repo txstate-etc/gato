@@ -174,6 +174,7 @@ public class Gato5MigrationTask extends GatoBaseUpgradeTask {
         convertPropertyToBool(n, "hideSidebar");
         convertPropertyToBool(n, "enableRSS");
         moveBanners(n);
+        n.getSession().save();
       }
     });
     hm.save();

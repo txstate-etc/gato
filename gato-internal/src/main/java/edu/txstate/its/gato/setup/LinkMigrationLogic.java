@@ -230,6 +230,7 @@ public class LinkMigrationLogic {
     // create the final parent path for our file
     String damPath = "/"+path[1]+"/migrated_files/"+subfolder+"/"+(path.length > 2 ? path[2] : "");
     if (bannermode) damPath = "/banner-images/"+path[1];
+    damPath = damPath.replaceAll("\\[\\d+\\](/|$)", "$1");
     Node damParent = NodeUtil.createPath(damSession.getRootNode(), damPath, NodeTypes.Folder.NAME);
 
     // find the filename we will use and ensure it's unique in our parent folder
@@ -244,49 +245,62 @@ public class LinkMigrationLogic {
     }
 
     // Create an AssetNode
-    Node assetNode = ((NodeImpl)NodeUtil.unwrap(damParent)).addNodeWithUuid(fileName, AssetNodeTypes.Asset.NAME, resourceNode.getIdentifier());
-    Node assetNodeResource = assetNode.addNode(AssetNodeTypes.AssetResource.RESOURCE_NAME, AssetNodeTypes.AssetResource.NAME);
-    NodeTypes.LastModified.update(assetNode);
+    Node assetNode = null;
+    boolean skiprest = false;
+    try {
+      assetNode = ((NodeImpl)NodeUtil.unwrap(damParent)).addNodeWithUuid(fileName, AssetNodeTypes.Asset.NAME, resourceNode.getIdentifier());
+    } catch (javax.jcr.ItemExistsException e) {
+      assetNode = damSession.getNodeByIdentifier(resourceNode.getIdentifier());
+      skiprest = true;
+    }
+    if (!skiprest) {
+      Node assetNodeResource = assetNode.addNode(AssetNodeTypes.AssetResource.RESOURCE_NAME, AssetNodeTypes.AssetResource.NAME);
+      NodeTypes.LastModified.update(assetNode);
 
-    String extension = getExtension(resourceNode);
-    assetNode.setProperty(AssetNodeTypes.Asset.TYPE, extension);
-    assetNodeResource.setProperty(AssetNodeTypes.AssetResource.EXTENSION, extension);
+      String extension = getExtension(resourceNode);
+      assetNode.setProperty(AssetNodeTypes.Asset.TYPE, extension);
+      assetNodeResource.setProperty(AssetNodeTypes.AssetResource.EXTENSION, extension);
 
-    if (resourceNode.hasProperty(AssetNodeTypes.AssetResource.FILENAME)) {
-      assetNodeResource.setProperty(AssetNodeTypes.AssetResource.FILENAME,
-        resourceNode.getProperty(AssetNodeTypes.AssetResource.FILENAME).getString()+
-        (!StringUtils.isBlank(extension) ? "."+extension : ""));
+      if (resourceNode.hasProperty(AssetNodeTypes.AssetResource.FILENAME)) {
+        assetNodeResource.setProperty(AssetNodeTypes.AssetResource.FILENAME,
+          resourceNode.getProperty(AssetNodeTypes.AssetResource.FILENAME).getString()+
+          (!StringUtils.isBlank(extension) ? "."+extension : ""));
+      }
+      ImageSize imageSize = null;
+      if (resourceNode.hasProperty(AssetNodeTypes.AssetResource.HEIGHT)) {
+        imageSize = new ImageSize(resourceNode,
+          PropertyUtil.getLong(resourceNode, AssetNodeTypes.AssetResource.WIDTH, 0l),
+          PropertyUtil.getLong(resourceNode, AssetNodeTypes.AssetResource.HEIGHT, 0l)
+        );
+        assetNodeResource.setProperty(AssetNodeTypes.AssetResource.HEIGHT, imageSize.getHeight());
+      }
+      if (imageSize != null && resourceNode.hasProperty(AssetNodeTypes.AssetResource.WIDTH)) {
+        assetNodeResource.setProperty(AssetNodeTypes.AssetResource.WIDTH, imageSize.getWidth());
+      }
+      if (resourceNode.hasProperty(AssetNodeTypes.AssetResource.SIZE)) {
+        assetNodeResource.setProperty(AssetNodeTypes.AssetResource.SIZE, Long.parseLong(resourceNode.getProperty(AssetNodeTypes.AssetResource.SIZE).getString()));
+      }
+      if (resourceNode.hasProperty(AssetNodeTypes.AssetResource.DATA)) {
+        assetNodeResource.setProperty(AssetNodeTypes.AssetResource.DATA, resourceNode.getProperty(AssetNodeTypes.AssetResource.DATA).getBinary());
+      }
+      if (resourceNode.hasProperty(AssetNodeTypes.AssetResource.MIMETYPE)) {
+        assetNodeResource.setProperty(AssetNodeTypes.AssetResource.MIMETYPE, resourceNode.getProperty(AssetNodeTypes.AssetResource.MIMETYPE).getString());
+      }
+      log.warn("Successfully migrated to "+assetNode.getSession().getWorkspace().getName()+":"+assetNode.getPath());
     }
-    ImageSize imageSize = null;
-    if (resourceNode.hasProperty(AssetNodeTypes.AssetResource.HEIGHT)) {
-      imageSize = new ImageSize(resourceNode,
-        PropertyUtil.getLong(resourceNode, AssetNodeTypes.AssetResource.WIDTH, 0l),
-        PropertyUtil.getLong(resourceNode, AssetNodeTypes.AssetResource.HEIGHT, 0l)
-      );
-      assetNodeResource.setProperty(AssetNodeTypes.AssetResource.HEIGHT, imageSize.getHeight());
-    }
-    if (imageSize != null && resourceNode.hasProperty(AssetNodeTypes.AssetResource.WIDTH)) {
-      assetNodeResource.setProperty(AssetNodeTypes.AssetResource.WIDTH, imageSize.getWidth());
-    }
-    if (resourceNode.hasProperty(AssetNodeTypes.AssetResource.SIZE)) {
-      assetNodeResource.setProperty(AssetNodeTypes.AssetResource.SIZE, Long.parseLong(resourceNode.getProperty(AssetNodeTypes.AssetResource.SIZE).getString()));
-    }
-    if (resourceNode.hasProperty(AssetNodeTypes.AssetResource.DATA)) {
-      assetNodeResource.setProperty(AssetNodeTypes.AssetResource.DATA, resourceNode.getProperty(AssetNodeTypes.AssetResource.DATA).getBinary());
-    }
-    if (resourceNode.hasProperty(AssetNodeTypes.AssetResource.MIMETYPE)) {
-      assetNodeResource.setProperty(AssetNodeTypes.AssetResource.MIMETYPE, resourceNode.getProperty(AssetNodeTypes.AssetResource.MIMETYPE).getString());
-    }
-    damSession.save();
-    log.warn("Successfully migrated to "+assetNode.getSession().getWorkspace().getName()+":"+assetNode.getPath());
 
     String mapParentPath = Paths.get(resourceNode.getPath()).getParent().toString();
+    mapParentPath = mapParentPath.replaceAll("\\[\\d+\\](/|$)", "$1");
     Node mapParent = NodeUtil.createPath(mapSession.getRootNode(), mapParentPath, NodeTypes.Folder.NAME);
-    Node mapNode = mapParent.addNode(resourceNode.getName(), NodeTypes.Content.NAME);
-    PropertyUtil.setProperty(mapNode, "damuuid", assetNode.getIdentifier());
+    if (mapParent.hasNode(resourceNode.getName())) log.warn("failed to record above migration in gatolegacylinkmap due to duplicate file path");
+    else {
+      Node mapNode = mapParent.addNode(resourceNode.getName(), NodeTypes.Content.NAME);
+      PropertyUtil.setProperty(mapNode, "damuuid", assetNode.getIdentifier());
+    }
 
     uuidHistory.put(resourceNode.getParent().getIdentifier()+resourceNode.getName(), assetNode.getIdentifier());
 
+    damSession.save();
     mapSession.save();
     resourceNode.remove();
     resourceNode.getSession().save();

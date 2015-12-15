@@ -137,6 +137,7 @@ class MoveRichEditorToDamTask extends MoveFCKEditorContentToDamMigrationTask {
       propString = result.toString();
     }
     property.setValue(propString);
+    node.getSession().save();
   }
 
   // updated this method to handle the case where two rich editors point at the
