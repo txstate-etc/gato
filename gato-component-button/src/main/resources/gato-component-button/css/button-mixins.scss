@@ -6,9 +6,7 @@
   background: $grad-top;
   border: 1px solid $border-color;
   color: $text-color;
-  @if $text-color != $white {
-    font-weight: $button-reverse-text-weight;
-  }
+
   @include box-shadow(0px 1px 1px 0px rgba(0,0,0,0.2));
   @include vertical-gradient($grad-top,$grad-bottom);
   &:hover{
