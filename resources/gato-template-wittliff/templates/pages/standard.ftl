@@ -4,7 +4,7 @@
 <html>
 <head>
   [@templatejs scripts=['gato-template-wittliff/js/wittliff.js']/]
-  <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-wittliff/css/standard.compiled.css" crossorigin="anonymous"/>
+  <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-wittliff/css/standard.compiled.css" crossorigin="use-credentials"/>
   [@templatehead publisher="The Wittliff Collections"/]
 	[#include "/gato-template-wittliff/templates/includes/colors.ftl"]
 </head>

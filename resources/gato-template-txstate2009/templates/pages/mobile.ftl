@@ -3,7 +3,7 @@
 <html>
 <head>
   [@templatejs scripts=[]/]
-  <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-txstate2009/css/mobile.compiled.css" crossorigin="anonymous"/>
+  <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-txstate2009/css/mobile.compiled.css" crossorigin="use-credentials"/>
   [@templatehead/]
   <script type="text/javascript">
     function hideAddressBar(evt) {
