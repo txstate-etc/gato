@@ -3,7 +3,7 @@
 <html>
 <head>
   [@templatejs scripts=['gato-template-library/js/searchbox.js','gato-template-library/js/mobile.js']/]
-  <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-library/css/mobile.compiled.css"/>
+  <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-library/css/mobile.compiled.css" crossorigin="anonymous"/>
   <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css" />
   [@templatehead/]
 </head>
@@ -14,7 +14,7 @@
                 [@cms.area name="mobile-title"/]
             </h1>
 
-            <div id="banner-logo" > 
+            <div id="banner-logo" >
                 <a href="http://www.txstate.edu">
                     <img src="${gf.resourcePath()}/gato-template-library/images/texas-state-logo-iphone.png" />
                 </a>
@@ -22,7 +22,7 @@
         </div>
         <div id="banner-bar">
             <span id="banner-bar-content">
-                ${model.getEvents(true)} | 
+                ${model.getEvents(true)} |
                 [@cms.area name="mobile-hours-link"/]
             </span>
         </div>

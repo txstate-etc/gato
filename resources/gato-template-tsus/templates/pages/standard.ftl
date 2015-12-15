@@ -4,7 +4,7 @@
 <html>
   <head>
     [@templatejs scripts=['gato-template-tsus/js/table-hover.js', 'gato-template-tsus/js/fixlineup.js']/]
-    <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-tsus/css/standard.compiled.css"/>
+    <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-tsus/css/standard.compiled.css" crossorigin="anonymous"/>
     [@templatehead publisher="Texas State University System"/]
   </head>
   <body class="${cmsfn.isEditMode()?string('admin', '')}">

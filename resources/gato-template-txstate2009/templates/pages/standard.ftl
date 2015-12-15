@@ -28,7 +28,7 @@
 		'gato-area-mail/js/mailForm.js',
 		'gato-component-streaming/js/streaming.js'
 	] /]
-  <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-txstate2009/css/standard.compiled.css"/>
+  <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-txstate2009/css/standard.compiled.css" crossorigin="anonymous"/>
   [@templatehead/]
 </head>
 <body class="${cmsfn.isEditMode()?string('admin','')} ${isHomePage?string('homepage','')}" style="font-size: 16px">
