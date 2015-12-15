@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 import info.magnolia.cms.filters.AbstractMgnlFilter;
+import info.magnolia.context.MgnlContext;
 import info.magnolia.dam.templating.functions.DamTemplatingFunctions;
 
 import javax.jcr.Node;
@@ -21,11 +22,13 @@ public class LegacyLinkFilter extends AbstractMgnlFilter {
 	private static Logger log = LoggerFactory.getLogger(LegacyLinkFilter.class);
 	protected final LinkMigrationLogic lmlogic;
 	protected final DamTemplatingFunctions damfn;
+	protected final GatoUtils gf;
 
 	@Inject
-  public LegacyLinkFilter(LinkMigrationLogic linklogic, DamTemplatingFunctions dtFunc) {
+  public LegacyLinkFilter(LinkMigrationLogic linklogic, DamTemplatingFunctions dtFunc, GatoUtils gatoUtils) {
     this.lmlogic = linklogic;
     this.damfn = dtFunc;
+    this.gf = gatoUtils;
   }
 
 	public void doFilter(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
@@ -33,7 +36,9 @@ public class LegacyLinkFilter extends AbstractMgnlFilter {
 	  lmlogic.setMigrationEnabled(false);
 	  Node damItem = lmlogic.convertAnyUrlToDamNode(request.getServletPath());
 	  if (damItem != null) {
-	    String redirUrl = damfn.getAssetLink(lmlogic.itemKeyForAssetNode(damItem));
+	    String redirUrl = gf.damPath()+damfn.getAssetLink(lmlogic.itemKeyForAssetNode(damItem))
+	                                            .replaceAll("^"+MgnlContext.getContextPath(), "")
+	                                            .replaceAll("^/dam", "");
 	    log.warn("redirecting request from "+request.getServletPath()+" to "+redirUrl);
 	    log.warn("referer: "+request.getHeader("Referer"));
 	    response.sendRedirect(redirUrl);
