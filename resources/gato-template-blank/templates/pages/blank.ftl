@@ -4,7 +4,7 @@
   <head>
     [@templatejs scripts=[
     ]/]
-    <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-blank/css/blank.compiled.css" crossorigin="use-credentials"/>
+    <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-blank/css/blank.compiled.css"/>
     [@templatehead/]
   </head>
 

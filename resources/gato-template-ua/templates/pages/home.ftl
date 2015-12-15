@@ -4,7 +4,7 @@
 <html>
 <head>
   [@templatejs scripts=['gato-template-ua/js/accordion.js']/]
-  <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-ua/css/home.compiled.css" crossorigin="use-credentials"/>
+  <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-ua/css/home.compiled.css"/>
   [@templatehead /]
 </head>
 

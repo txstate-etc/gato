@@ -7,7 +7,7 @@
                         'gato-template-library/js/library.js',
                         'gato-template-tsus/js/tsus-slideshow.js',
                         'gato-template-txstate2015/js/jquery-scrolltofixed-min.js']/]
-  <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-library/css/library.compiled.css" crossorigin="use-credentials"/>
+  <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-library/css/library.compiled.css"/>
   <link href="http://fonts.googleapis.com/css?family=Ubuntu+Condensed" rel="stylesheet" type="text/css" />
   [@templatehead /]
 </head>
