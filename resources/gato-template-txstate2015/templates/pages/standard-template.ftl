@@ -3,7 +3,6 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		[@templatehead/]
 		[#assign jsscripts = [
 			'gato-template-txstate2015/js/jquery-scrolltofixed-min.js',
 			'gato-template-txstate2015/js/respond.min.js',
@@ -18,6 +17,7 @@
 		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.2/fastclick.min.js"></script>
 
 		<link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-txstate2015/css/txstate2015.compiled.css"/>
+		[@templatehead/]
 	</head>
 	<body class="${cmsfn.isEditMode()?string('admin','')}">
 		<nav id="menu" class="mobile_nav">
