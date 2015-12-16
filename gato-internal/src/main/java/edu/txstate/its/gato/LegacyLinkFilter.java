@@ -36,9 +36,7 @@ public class LegacyLinkFilter extends AbstractMgnlFilter {
 	  lmlogic.setMigrationEnabled(false);
 	  Node damItem = lmlogic.convertAnyUrlToDamNode(request.getServletPath());
 	  if (damItem != null) {
-	    String redirUrl = gf.damPath()+damfn.getAssetLink(lmlogic.itemKeyForAssetNode(damItem))
-	                                            .replaceAll("^"+MgnlContext.getContextPath(), "")
-	                                            .replaceAll("^/dam", "");
+	    String redirUrl = gf.absoluteDamUrl(lmlogic.itemKeyForAssetNode(damItem));
 	    log.warn("redirecting request from "+request.getServletPath()+" to "+redirUrl);
 	    log.warn("referer: "+request.getHeader("Referer"));
 	    response.sendRedirect(redirUrl);
