@@ -13,7 +13,8 @@
       [#if video.thumbnail?has_content]
         "thumbnail": {
           [#-- Stupid mobile app assumes a relative path. "path": "${gf.absoluteUrl(damfn.getAssetLink(video.thumbnail))}" --]
-          "path": "${damfn.getAssetLink(video.thumbnail)}"
+
+          "path": "${damfn.getAssetLink(video.thumbnail)?replace(ctx.contextPath, '')?replace('//', '/')}"
         }
       [/#if]
     }[#if video_has_next],[/#if]
