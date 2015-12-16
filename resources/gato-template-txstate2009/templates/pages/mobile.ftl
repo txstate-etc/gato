@@ -37,7 +37,7 @@
     [/#if]
   </div>
 
-  <div id="iphone-contentarea" class="txst-contentarea txst-styledcontent">
+  <div id="iphone-contentarea" class="txst-contentarea txst-styledcontent gato-styledcontent">
     [#if !isHomePage]<h1>${gf.nodeTitle(page)}</h1>[/#if]
     [#if def.parameters.isMailTemplate!false]
       [@cms.area name="mail" /]
@@ -46,7 +46,7 @@
     [/#if]
   </div>
   [@mobilemenu page/]
-  <div class="full-site-link txst-styledcontent">
+  <div class="full-site-link gato-styledcontent">
     <a href="javascript: createCookie('gatoforcedesktop', 'yes'); location.reload(true);">View Full Site</a>
   </div>
 </body>
