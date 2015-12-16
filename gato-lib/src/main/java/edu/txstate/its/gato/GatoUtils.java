@@ -152,6 +152,12 @@ public final class GatoUtils {
     return serverpath+relUrl;
   }
 
+  public String absoluteDamUrl(String itemKey) {
+    return absoluteUrl(damPath())+damfn.getAssetLink(itemKey)
+	                                .replaceAll("^"+MgnlContext.getContextPath(), "")
+	                                .replaceAll("^/dam", "");
+  }
+
   public String resourcePath() {
     String propKey = "gato.assetsbaseurl";
     if (isCacheEnvironment()) propKey += ".cache";
