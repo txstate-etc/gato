@@ -10,7 +10,7 @@
           "name": "${ asset.fileName }",
           "modified": "${gf.getModificationDate(photo)?string("EEE', 'dd' 'MMM' 'yyyy' 'HH:mm:ss' 'Z")}",
           [#-- "image": "${gf.absoluteUrl(damfn.getAssetLink(photo.image))}", --]
-           "image": "${serverUrl}${damfn.getAssetLink(photo.image))?replace(ctx.contextPath, '')?replace('//', '/')}",
+           "image": "${serverUrl}${damfn.getAssetLink(photo.image)?replace(ctx.contextPath, '')?replace('//', '/')}",
           "imagecroptop": "${ photo.imagecroptop }",
           "imagecropleft": "${ photo.imagecropleft }",
           "imagecropright": "${ photo.imagecropright }",
