@@ -3,7 +3,7 @@
   {
     "title": "${ audio.title! }",
     "modified": "${gf.getModificationDate(audio)?string("EEE', 'dd' 'MMM' 'yyyy' 'HH:mm:ss' 'Z")}",
-    "file": "${gf.absoluteUrl(damfn.getAssetLink(audio.file))}",
+    "file": "${gf.absoluteDamUrl(audio.file)}",
     "lyrics": "${cmsfn.decode(audio).lyrics?json_string}"
   }[#if audio_has_next],[/#if]
 [/#list]
