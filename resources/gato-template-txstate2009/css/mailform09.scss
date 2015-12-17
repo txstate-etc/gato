@@ -15,15 +15,21 @@
   display: inline-block;
 }
 
-.txst-form[max-width="600px"] .valid-icon-cont {
-  display: block;
-  margin-top: 5px;
-  margin-bottom: 5px;
-}
+.txst-form-body[max-width="600px"] {
+  .valid-icon-cont {
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
 
-.txst-form[max-width="600px"] input {
-  width: 100%;
-  height: 37px;
+  input {
+    width: 100%;
+    height: 37px;
+  }
+
+  .txst-form-spinner {
+    margin-top: 13px;
+  }
 }
 
 .txst-form-pass {
@@ -53,15 +59,6 @@
   margin-left: 12px;
   margin-right: -12px;
   margin-top: 8px;
-  width: 0px;
-}
-
-.txst-form[max-width="600px"] .txst-form-spinner {
-  float: left;
-  display: inline-block;
-  margin-left: 12px;
-  margin-right: -12px;
-  margin-top: 13px;
   width: 0px;
 }
 
