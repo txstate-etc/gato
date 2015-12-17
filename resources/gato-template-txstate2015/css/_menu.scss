@@ -66,19 +66,22 @@ a.ddmenu-menubaritem{
 }
 
 /* adjustments when using fixed placement */
-.top_nav.scroll-to-fixed-fixed {
-  @include vertical-gradient($primary-nav-gradient-top, $primary-nav-gradient-bottom);
-  border-bottom: 2px solid $secondary-nav-fixed-border;
-  .ddmenu-menubar{
-    box-shadow: none;
-    border: 0 solid $primary-nav-bottom-border;
-  }
-  .ddmenu-menu {
-    top: 100%;
-    border: 2px solid $secondary-nav-fixed-border;
-  }
-  .secondary_nav a {
-      padding-left: .45rem;
+.top_nav {
+  -webkit-transform: translate3d(0,0,0); // iOS9 hack: http://stackoverflow.com/a/32891079
+  &.scroll-to-fixed-fixed {
+    @include vertical-gradient($primary-nav-gradient-top, $primary-nav-gradient-bottom);
+    border-bottom: 2px solid $secondary-nav-fixed-border;
+    .ddmenu-menubar{
+      box-shadow: none;
+      border: 0 solid $primary-nav-bottom-border;
+    }
+    .ddmenu-menu {
+      top: 100%;
+      border: 2px solid $secondary-nav-fixed-border;
+    }
+    .secondary_nav a {
+        padding-left: .45rem;
+    }
   }
 }
 

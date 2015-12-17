@@ -109,6 +109,7 @@ div#homepage-banner {
   }
 
   .homepage-banner-nav {
+    -webkit-transform: translate3d(0,0,0);
     letter-spacing: -1rem;
     margin-bottom: -20px;
     @media (max-width: $md-breakpoint) {
