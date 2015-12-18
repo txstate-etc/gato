@@ -13,7 +13,7 @@
                 [/#list]
                 <li class="more-tools">
                     <a href="#">
-                    More Tools
+                    ${globalLinks.superGroup3.text!'Online Services'}
                     <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="super-list-sub">
