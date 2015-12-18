@@ -39,7 +39,7 @@
 }
 
 @mixin hover-bg($bg, $fg:null) {
-  &:hover {
+  @at-root html.no-touch &:hover, html.touch &:active {
     background: $bg;
     @if $fg {
       color: $fg;
