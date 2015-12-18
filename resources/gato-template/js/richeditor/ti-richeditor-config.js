@@ -69,8 +69,7 @@
                    { name: "undo",          items: [ "Undo", "Redo" ] },
                    { name: "tools",         items: [ "Source" ] },
                    { name: "paragraph",     items: [ "NumberedList", "BulletedList","Indent", "Outdent"] },
-                   { name: "styles",        items: [ "Styles"]},
-                   { name: "maximize",      items: [ "Maximize" ] }
+                   { name: "styles",        items: [ "Styles"]}
            ];
            config.removeDialogTabs = 'image:advanced;link:advanced';
    };
