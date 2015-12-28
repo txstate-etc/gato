@@ -7,37 +7,6 @@ orientationChangeEventName = ( "onorientationchange" in window ) ? "orientationc
 isTouchScreen = "ontouchstart" in window;
 document.documentElement.className += isTouchScreen ? " touch" : " no-touch";
 
-// google analytics stuff for videos
-var ga; // google analytics object
-var destroyerGlobalPageTracker;
-var destroyerSitePageTracker;
-function record_video_analytics (videourl) {
-
-	if (destroyerGlobalPageTracker) {
-		ga(destroyerGlobalPageTracker.name + '.send', {
-			'hitType': 'event',
-			'eventCategory': 'Videos',
-			'eventAction': document.title+' <'+window.location+'>',
-			'transport': 'beacon'
-		});
-	}
-
-	if (destroyerSitePageTracker) {
-		ga(destroyerSitePageTracker.name + '.send', {
-			'hitType': 'event',
-			'eventCategory': 'Videos',
-			'eventAction': document.title+' <'+window.location+'>',
-			'transport': 'beacon'
-		});
-	}
-}
-
-// provide a function to detect IE6
-function detect_ie6() {
-	var version = parseFloat(navigator.appVersion.split('MSIE')[1]);
-	if ((version >= 5.5) && (version < 7) && (document.body.filters)) return true;
-}
-
 // detect iphone or ipod touch
 function detect_iphone() {
 	return navigator.userAgent.match(/(iPhone|iPod)/i);
@@ -64,15 +33,7 @@ function detect_mobile() {
 	return screen && screen.width <= 500;
 }
 
-// function to load a PNG in IE6 after the initial load
-function load_alpha(item) {
-	if (typeof(supersleight) != 'undefined') return supersleight.load_alpha(item);
-}
-// function to unload the alpha channel of a PNG in IE6
-function unload_alpha(item) {
-	if (typeof(supersleight) != 'undefined') return supersleight.unload_alpha(item);
-}
-
+// fire an event on an element in a cross-platform manner
 function fireEvent(obj,evt){
 	if( document.createEvent ) {
 		if (evt == 'click' || evt == 'mouseup' || evt == 'mousedown')
@@ -86,18 +47,33 @@ function fireEvent(obj,evt){
 	}
 }
 
-// add trim function to the String object
-String.prototype.trim = function() {
-	return this.replace(/^\s+|\s+$/g, '');
-};
+// trim polyfill for IE8 and lower
+if (!String.prototype.trim) {
+  (function() {
+    // Make sure we trim BOM and NBSP
+    var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
+    String.prototype.trim = function() {
+      return this.replace(rtrim, '');
+    };
+  })();
+}
 
-Array.prototype.binarySearch = function(v, i){
+// search a sorted array for value v in log(n) time
+// if findNearest is true and v is not found, returns the index at
+//   which v should be inserted
+// otherwise returns -1 when v is not found
+Array.prototype.binarySearch = function(v, findNearest){
 	var o = this;
 	var h = o.length, l = -1, m;
 	while(h - l > 1)
 			if(o[m = h + l >> 1] < v) l = m;
 			else h = m;
-	return o[h] != v ? i ? h : -1 : h;
+	return o[h] != v ? findNearest ? h : -1 : h;
+};
+
+// fast shuffle algorithm
+Array.prototype.shuffle = function(){ //v1.0
+	for(var j, x, i = this.length; i; j = parseInt(Math.random() * i), x = this[--i], this[i] = this[j], this[j] = x);
 };
 
 var hostElements = window.location.hostname.split(".");
@@ -130,270 +106,6 @@ function deleteCookie(name) {
 		domain = "." + hostElements[ hostElements.length - i ] + domain;
 		createCookie(name, '', domain, -1);
 	}
-}
-
-function process_caption_url(captUrl) {
-	if (magnolia_assets_url.substr(0,4) != 'http') { magnolia_assets_url = window.location.protocol+'//'+window.location.host+magnolia_assets_url; }
-	return magnolia_assets_url+'/common/js/flowplayer/caption_fetch.jsp?path='+escape(captUrl);
-}
-
-function toggle_captions(lnk) {
-	var p = $f(lnk);
-	if (!p) return;
-	if (!p.isLoaded()) return;
-	var c = p.getPlugin('captionContent');
-	c.toggle();
-	if (c.display) { // captions were shown
-		createCookie('txst_caption_persist', '1', '', 365);
-		if (showcontrols.controlsAreUp) showcontrols(lnk, 1);
-		else hidecontrols(lnk, 1);
-	} else { // captions were hidden
-		createCookie('txst_caption_persist', '0', '', 365);
-	}
-}
-
-function showcontrols(lnk, speed) {
-	if (!lnk.autoHideMode) { return; }
-	var p = $f(lnk);
-	var c = p.getPlugin('captionContent');
-	var t = p.getPlugin('controls');
-	if (!speed) speed = 400;
-	if (c.display) { c.animate({bottom: t.height}, speed); }
-	showcontrols.controlsAreUp = true;
-}
-
-function hidecontrols(lnk, speed) {
-	if (!lnk.autoHideMode) { return; }
-	var c = $f(lnk).getPlugin('captionContent');
-	if (!speed) speed = 1000;
-	if (c.display) c.animate({bottom: 0}, speed);
-	showcontrols.controlsAreUp = false;
-}
-
-function finish_video_load(lnk, options, captUrl, showcaptions) {
-	if (lnk.loadFinished) { return; }
-	lnk.loadFinished = true;
-	if (captUrl) {
-		var capt = lnk.next('a.videoframe-caption-link');
-		if (!capt) {
-			capt = $(document.createElement('a'));
-			capt.className = 'videoframe-caption-link';
-			lnk.up().appendChild(capt);
-		}
-		capt.href = captUrl;
-
-		var timer;
-		capt.innerHTML = 'CC';
-		capt.setStyle({
-			position: 'absolute',
-			display: 'block',
-			zIndex: 100,
-			color: '#FF0000',
-			border: '2px solid #777777',
-			textDecoration: 'none',
-			padding: '0px 2px',
-			fontWeight: 'bold',
-			fontSize: '12px',
-			backgroundColor: '#444444',
-			opacity: 0
-		});
-		if (lnk.positionedOffset()[0] > 0) {
-			var lwidth = lnk.offsetWidth ? lnk.offsetWidth : link.getStyle('width');
-			capt.setStyle({left: (lnk.positionedOffset()[0] + lwidth - capt.offsetWidth - 5)+'px'});
-		} else {
-			capt.setStyle({right: '5px'});
-		}
-		if (lnk.positionedOffset()[1] > 0) {
-			capt.setStyle({top: (lnk.positionedOffset()[1] + 5)+'px'});
-		} else {
-			capt.setStyle({top: '5px'});
-		}
-		capt.observe('click', function (e) {
-			this.blur();
-			toggle_captions(lnk);
-			e.stop();
-		});
-		capt.observe('mouseover', function (e) {
-			this.mouseisoverme = true;
-			if ($f(lnk).isLoaded()) {
-				this.setStyle({opacity: 0.6});
-			} else {
-				this.setStyle({opacity: 0});
-			}
-			clearTimeout(timer);
-		});
-		capt.observe('mouseout', function (e) {
-			this.mouseisoverme = false;
-		});
-		options.clip.captionUrl = process_caption_url(captUrl);
-		options.plugins.captions = {
-			url: flowplayer_caption_path,
-			captionTarget: "captionContent",
-			button: null
-		};
-		var captbottom = 0;
-		if (options.plugins.controls && (!options.plugins.controls.autoHide || options.plugins.controls.autoHide == 'never')) {
-			captbottom = 24;
-			if (options.plugins.controls.height) captbottom = options.plugins.controls.height;
-			else options.plugins.controls.height = 24;
-		}
-		options.plugins.captionContent = {
-			url: flowplayer_content_path,
-			bottom: captbottom,
-			display: 'none',
-			height: 19,
-			width: '100%',
-			backgroundColor: '#000000',
-			borderRadius: 0,
-			padding: '0px',
-			opacity: .9,
-			border: 0,
-			style: {
-				body: {
-					fontWeight: 'bold',
-					fontSize: '12px',
-					fontFamily: 'Arial',
-					textAlign: 'center',
-					color: '#ffffff'
-				}
-			}
-		};
-		options.onLoad = function () {
-			showcontrols.controlsAreUp = true;
-		}
-		options.clip.onStart = function () {
-			capt.setStyle({opacity: 0.6});
-			timer = setTimeout( function () { capt.setStyle({opacity: 0}); }, 2500 );
-			if (showcaptions || (readCookie('txst_caption_persist') > 0 && showcaptions !== false)) toggle_captions(lnk);
-			record_video_analytics(lnk.href);
-		};
-		options.onUnload = function () {
-			lnk.txst_isLoaded = false;
-			lnk.loadFinished = false;
-			capt.setStyle({opacity: 0});
-			clearTimeout(timer);
-		}
-		options.onMouseOver = function () {
-			capt.setStyle({opacity: 0.6});
-			clearTimeout(timer);
-		};
-		options.onMouseOut = function () {
-			if (!capt.mouseisoverme) { capt.setStyle({opacity: 0}); }
-			clearTimeout(timer);
-		};
-		options.onFullscreen = function() { this.getPlugin('captionContent').css({body: {fontSize: '40px'}, height: 54}); };
-		options.onFullscreenExit = function() { this.getPlugin('captionContent').css({body: {fontSize: '12px'}, height: 19}); };
-
-		if (options.plugins.controls && options.plugins.controls.autoHide && options.plugins.controls.autoHide != 'never') {
-			options.plugins.controls.onAnimStartShow = function() { showcontrols(lnk); };
-			options.plugins.controls.onAnimStartHide = function() { hidecontrols(lnk); };
-			lnk.autoHideMode = true;
-		}
-	} else {
-		options.clip.onStart = function () {
-			record_video_analytics(lnk.href);
-		};
-	}
-	lnk.observe('click', function() { lnk.blur(); });
-	flowplayer(lnk, { src: flowplayer_main_path, wmode: 'opaque'}, options);
-	if (options.autoPlayMe) $f(lnk).play();
-}
-
-var halt_video_load = false;
-function video_load(lnk, opts) {
-	if (halt_video_load) { return; }
-	lnk = $(lnk);
-	if (!opts) opts = {};
-	if (flashembed && flashembed.isSupported([9, 115]) && !lnk.txst_isLoaded && flowplayer) {
-		if (opts.controls && typeof opts.controls != 'object') {
-			opts.controls = { autoHide: 'always', hideDelay: 2000 };
-		}
-		var options = {
-			key: '#$4301ae9f3200c1a71cf',
-			plugins: {
-				controls: (opts.controls ? opts.controls : null)
-			},
-			clip: {
-				autoPlay: true,
-				autoBuffering: true,
-				scaling: 'fit',
-				bufferLength: 1,
-				onFinish: function () {
-				  var p = this;
-				  // there's an issue with Safari 4 for Windows if you
-				  // try to unload immediately, so we set a timeout instead
-				  setTimeout(function () { p.unload(); }, 50);
-				}
-			},
-			// This line is extremely important - without it you CANNOT dynamically
-			// update a video's splash screen.
-			//
-			// Flowplayer loads the splash content when we first call flowplayer() on it,
-			// and then every time unload() is called on the player, it resets the splash
-			// screen to what it was originally.
-			//
-			// Since it calls unload on ALL players just before playing any video (including
-			// the one in question), you can never get new content into the splash cache.
-			// However, if you tell it to never unload an already-unloaded player (what we're
-			// doing here), then it's able to get the new splash content saved before playing
-			// the video.
-			onBeforeUnload: function () { return this.isLoaded(); },
-			autoPlayMe: (opts.autoplay ? true : false)
-		};
-
-		if (opts.captUrl) {
-			finish_video_load(lnk, options, opts.captUrl, opts.captions);
-		} else {
-			var capt = lnk.next('a.videoframe-caption-link');
-			if (capt && capt.readAttribute('href')) {
-				finish_video_load(lnk, options, capt.readAttribute('href'), opts.captions);
-			} else {
-				var tryurl = lnk.href.replace(/\.\w*$/,'.srt');
-				var abortTimer;
-				var areq = new Ajax.Request(process_caption_url(tryurl), {
-					method: 'get',
-					onCreate: function (t) {
-						abortTimer = setTimeout(function () {
-							areq.abort();
-							finish_video_load(lnk, options, '', opts.captions);
-						}, 600);
-					},
-					onSuccess: function (t) {
-						clearTimeout(abortTimer);
-						if (t.responseText.length > 5) {
-							finish_video_load(lnk, options, tryurl, opts.captions);
-						} else {
-							finish_video_load(lnk, options, '', opts.captions);
-						}
-					}
-				});
-			}
-		}
-	}
-	lnk.txst_isLoaded = true;
-}
-
-// This is a fix for Prototype under IE7 and IE8
-// Refer to our case #3027 and Prototype's ticket #737
-if (Prototype.Browser.IE) {
-	Element.addMethods({getStyle: function(element, style) {
-		element = $(element);
-		style = (style == 'float' || style == 'cssFloat') ? 'styleFloat' : style.camelize();
-		var value = element.style[style];
-
-		if (style == 'opacity') {
-			if (value = (element.getStyle('filter') || '').match(/alpha\(opacity=(.*)\)/))
-				if (value[1]) return parseFloat(value[1]) / 100;
-			return 1.0;
-		} else if (!value && element.currentStyle) value = element.currentStyle[style];
-
-		if (value == 'auto') {
-			if ((style == 'width' || style == 'height') && (element.getStyle('display') != 'none'))
-				return element['offset' + style.capitalize()] + 'px';
-			return null;
-		}
-		return value;
-	}});
 }
 
 // Add an abort method to Prototype's Ajax implementation
