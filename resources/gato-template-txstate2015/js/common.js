@@ -58,42 +58,38 @@ jQuery(document).ready(function($) {
 jQuery(document).ready(function($) {
 
 	// Fixed desktop navigation
-    jQuery('.top_nav').scrollToFixed();
+  jQuery('.top_nav').scrollToFixed({zIndex: 71000});
 
- // Back to top
-    jQuery('.btt').on("click", function(e) {
-      e.preventDefault();
-      jQuery('html,body').animate({
-        scrollTop: 0
-      }, 500)
-    });
+  // Back to top
+  jQuery('.btt').on("click", function(e) {
+    e.preventDefault();
+    jQuery('html').velocity('scroll', { duration: 500 });
+  });
 
+  // Mobile navigation
+  var slideout = new Slideout({
+    'panel': document.getElementById('panel'),
+    'menu': document.getElementById('menu'),
+    'padding': 300,
+    'tolerance': 70,
+    'side': 'right',
+    'duration': 300,
+    'touch': false
+  });
 
-    // Mobile navigation
+  jQuery('.toggle-button').on("click", function(){
+    slideout.toggle();
+  });
 
-    var slideout = new Slideout({
-        'panel': document.getElementById('panel'),
-    	'menu': document.getElementById('menu'),
-    	'padding': 300,
-    	'tolerance': 70,
-    	'side': 'right',
-    	'duration': 300,
-    	'touch': false
-    });
-
-    jQuery('.toggle-button').on("click", function(){
-    	slideout.toggle();
-    });
-
-    $(document).on('click', function(event) {
-      //If they did not click on the menu button or on the mobile menu itself
-      if (!jQuery(event.target).is('.toggle-button') && !jQuery(event.target).closest('#menu').length) {
-        //if the menu is open, close it
-        if(slideout.isOpen()){
-          slideout.close();
-        }
+  $(document).on('click', function(event) {
+    //If they did not click on the menu button or on the mobile menu itself
+    if (!jQuery(event.target).is('.toggle-button') && !jQuery(event.target).closest('#menu').length) {
+      //if the menu is open, close it
+      if(slideout.isOpen()){
+        slideout.close();
       }
-    });
+    }
+  });
 
   $('.more-tools > a').hovermenu('.super-list-sub');
 });

@@ -1,0 +1,78 @@
+.super-user-menu{
+  background: $super-user-background;
+  @media screen and (max-width: $sm-breakpoint) { display: none; }
+  .super-user-content {
+    margin: 0 auto;
+    max-width: 1200px;
+    font-size: 0;
+    @media screen and (max-width: $xl-breakpoint) { max-width: 1000px; }
+  }
+}
+
+.super-list {
+  @extend .grid-cell;
+  padding: 0px;
+  width: 50%;
+  &.super-list-left {
+    & > li:first-child { margin-left: -1.4rem; }
+  }
+  &.super-list-right {
+    text-align: right;
+    & > li:last-child { margin-right: -1.4rem; }
+  }
+  li {
+    display: inline-block;
+    &:hover {background: $super-user-hover;}
+    a {
+      border-right: 1px solid $super-user-border;
+      color: $super-user-text;
+      text-transform: uppercase;
+      font-size: 1.1rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      display: block;
+      padding: 1.3rem;
+      &:first-child {
+        border-left: 1px solid $super-user-border;
+      }
+      i {
+        font-size: 1.5rem;
+        line-height: 0;
+        margin-left: 0.6rem;
+        vertical-align: middle;
+      }
+    }
+  }
+  .more-tools{
+    position: relative;
+    .super-list-sub {
+      display: none;
+      position: absolute;
+      width: 100%;
+      top: 100%;
+      left: 0;
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
+      background: $super-user-background;
+      z-index: 9999;
+      letter-spacing: 0;
+      li{
+        width: 100%;
+        &:first-child a { padding-top: 1.4rem; }
+        &:last-child a { padding-bottom: 1.4rem; }
+        &:hover{
+          background: transparent;
+        }
+      }
+      a {
+        text-align: left;
+        font-weight: normal;
+        text-transform: none;
+        display: block;
+        padding: 0.6rem 1.4rem;
+        &:hover { text-decoration: underline; }
+      }
+    }
+  }
+}

@@ -1,25 +1,31 @@
-// forcing icons to this size to prevent pixelation from scaling. 
+// forcing icons to this size to prevent pixelation from scaling.
 // If we get better source images, we can remove this restriction.
 $gato-twitter-icon-size: 48px;
 
-
 .gato-twitter-list {
-
   .tweet {
+    @extend .grid-cell;
     position: relative;
     margin-bottom: 3rem;
-  
-    .tweet-logo-link, .tweet-body {
-      display: inline-block;
+    width: 100% * 1.0/3.0;
+    text-align: center;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    [data-eq~="800px"] & {
+      width: 100%;
+      text-align: left;
+      padding: 0;
     }
-    
+
     a.tweet-logo-link {
-      position: absolute;
+      position: relative;
+      display: block;
       padding: 0;
       margin: 0;
       font-size: 0;
       &:hover { background-color: inherit; }
-
+      [data-eq~="800px"] & { position: absolute; }
+      [data-eq~="400px"] & { display: none; }
       img.tweet-logo {
         width: $gato-twitter-icon-size;
         height: $gato-twitter-icon-size;
@@ -35,8 +41,10 @@ $gato-twitter-icon-size: 48px;
     }
 
     .tweet-body {
-      padding-left: 10px + $gato-twitter-icon-size;
-
+      display: inline-block;
+      padding: 0px;
+      [data-eq~="800px"] & { padding-left: 10px + $gato-twitter-icon-size; }
+      [data-eq~="400px"] & { padding-left: 0; }
       .text {
         margin: 1rem 0 0.6rem;
       }
@@ -47,34 +55,13 @@ $gato-twitter-icon-size: 48px;
         color: $medium-gray;
         text-transform: uppercase;
         text-decoration: underline;
-        &:hover { 
-          color: $medium-gray; 
-          background-color: inherit; 
+        &:hover {
+          color: $medium-gray;
+          background-color: inherit;
           text-decoration: none;
         }
       }
 
-    }
-  }
-
-  &[max-width~="400px"] {
-    a.tweet-logo-link { display: none; }
-    .tweet-body { padding-left: 0 }
-  }
-
-  &[min-width~="800px"]{
-    .tweet{
-      text-align: center;
-      padding-left: 3rem;
-      padding-right: 3rem;
-    }
-    a.tweet-logo-link{
-      width: 100%;
-      position: relative;
-    }
-    .tweet-body{
-      width: 100%;
-      padding: 0px;
     }
   }
 }

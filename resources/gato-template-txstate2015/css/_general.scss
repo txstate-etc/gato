@@ -48,7 +48,3 @@ hr {margin-bottom: 2em;}
 
 .float_left {float: left;}
 .float_right {float: right;}
-
-.clearfix:before, .clearfix:after {content: " "; display: table;}
-.clearfix:after {clear: both;}
-.clearfix {*zoom: 1;}

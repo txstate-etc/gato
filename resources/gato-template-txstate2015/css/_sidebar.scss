@@ -1,13 +1,27 @@
 .sidebar {
-    padding: 0 2rem;
-    position: absolute;
-    top: 2.9rem;
-    right: 0px;
-    margin-bottom: -1rem;
+  padding: 0 2rem;
+  position: absolute;
+  top: 2.9rem;
+  right: 0px;
+  margin-bottom: -1rem;
+  width: 25%;
+  @media screen and (max-width: $sm-breakpoint) {
+    position: inherit;
+    top: 0px;
+    padding: 0;
+    width: 100%;
+  }
 }
-.sidebar_active {padding-left: 0;}
-.sidebar_active_reverse {padding-right: 1rem;}
 
+/* these lay out to the left of the sidebar and need
+   to have constrained width since the sidebar is position
+   absolute */
+.gato-section {
+  width: 75%;
+  @media screen and (max-width: $sm-breakpoint) { width: 100%; }
+}
+
+/* link blocks inside the sidebar */
 .side_nav {
   padding: 1.5rem 0 0 0;
   border-bottom: 1px solid $lightdarker;
@@ -52,17 +66,3 @@
   }
 }
 
-.eq-parent[max-width="800px"] .sidebar {
-    position: inherit;
-    top: 0px;
-    padding: 0;
-}
-
-@media screen and (min-width: $xs-breakpoint){
-    .sidebar_active {padding-left: 2rem;}
-    .sidebar_active_reverse {padding-right: 3rem;}
-}
-
-@media screen and (min-width: $md-breakpoint) {
-    .side_nav {margin-left: 0;}
-}

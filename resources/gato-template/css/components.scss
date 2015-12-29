@@ -1,18 +1,8 @@
-/* our components depend on the html element having a 10px font base */
-/* so we will need this rule in all templates */
-.gato-component {
-  ul, ol {
-    list-style-position: inside;
-  }
-}
-
 .column_paragraph {
   clear: both;
   margin: 0px 0px 2rem 0px;
-  &:after {
-    content: " ";
-    display: block;
-    height: 0px;
-    clear: both;
+  @extend .clearfix;
+  ul, ol {
+    list-style-position: inside;
   }
 }

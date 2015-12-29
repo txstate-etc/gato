@@ -1,196 +1,55 @@
-.container {background-color: $white;}
-
-.page_content {
-    margin-top: 0.5rem;
-    padding: 2.9rem 0 1rem 0;
-    overflow: hidden;
-    min-height: 32rem;
-    background-color: $content-background;
-    max-width: 1000px;
-    position: relative;
-    word-wrap: break-word;
-    .row {margin-bottom: 1.5rem;}
-    a{
-        padding: 1px 3px;
-        margin: -1px -3px;
-        color: $content-link-text;
-        text-decoration: underline;
-        &:hover {background: $content-link-hover;}
-    }
-    h1, h2{
-      font-size: 2.7rem;
-      font-weight: 600;
-      color: $very-dark;
-      padding: 1.6rem 0;
-      margin: 0;
-      line-height: 3.5rem;
-      a{
-        color: $maroon;
-      }
-    }
-    h3{
-      font-size: 2.2rem;
-      color: $gold;
-      line-height: 3.6rem;
-      a{
-        color: $gold; /*may need to be important */
-      }
-    }
-    h4, h5, h6{
-      font-size: 1.8rem;
-      color: $charcoal;
-      margin: 1em 0;
-      a{
-        color: $charcoal; /*may need to be important */
-      }
-    }
-    h1, h2, h3, h4, h5, h6{
-      a:hover{
-        text-decoration: none; /*may need to be important */
-        background: transparent ; /*may need to be important */
-      }
-    }
-}
-
-.layout-column{
-  padding: 0px 2rem;
-}
-
-.column_paragraph {
-  margin: 0px 0px 4rem 0px;
-  img { max-width: 100%; height: auto; }
-  table img { max-width: none; }
-  figure {
-    margin: 0;
-    a{
-      margin: 0;
-      padding: 0;
-      &:hover{
-        background: transparent;  /*may need to be important*/
-      }
-    }
-  }
-  figcaption{
-    margin-top: -0.8rem;
-    font-size: 1.4rem;
-    background: $sandstone;
-    padding: 1.2rem 1.4rem;
-    line-height: 2.2rem;
-    text-align: center;
-    a{
-      color: $maroon; /* may need to be important */
-      &:hover{
-        background: transparent;
-        text-decoration: none;
-      }
-    }
-  }
-  a img {
-    transition: all 0.3s ease-out;
-    -webkit-transition: all 0.3s ease-out;
-    -moz-transition: all 0.3s ease-out;
-    -o-transition: all 0.3s ease-out;
-    /* This kills weird opacity image hover effects in Webkit browsers */
-    -webkit-backface-visibility: hidden;
-    &:hover{
-      opacity: 0.9;
-    }
-  }
-  blockquote{
-    font-family: 'Adobe Garamond W01', Garamond, 'Goudy Old Style', 'Times New Roman';
-    font-size: 3.2rem;
-    line-height: 4rem;
-    font-weight: 400;
-    padding: 1rem 2rem;
-    border-top: 4px solid $charcoal;
-    border-bottom: 4px solid $charcoal;
-    margin: 5rem 0;
-  }
-
-
-
-  hr {
-    position: initial;
-    margin: 2rem 0;
-    height: 1px;
-    border: 0px solid #fff;
-    background: $khaki;
-  }
-  ul, ol {
-    list-style-position: inside;
-    margin: 2rem 0 2rem 3rem;
-    padding: 0;
-  }
-  table{
-    border-color: $darkest-sandstone; /*may need to be important */
-    border-style: solid;
-    caption {
-      background: $gold;
-      font-weight: 500;
-      color: $white;
-      p {
-        margin: 1.2rem;
-      }
-    }
-    td, th{
-      padding: 0.5rem 1rem;
-      border-color: $khaki;
-    }
-    th {background: #f4f1ed;}
-  }
-}
+.slideout-panel {background-color: $content-background;}
 
 .trail {
-    display: none;
-    margin: auto;
-    max-width: 1000px;
-    padding: 1.8rem 0 0 0;
+  margin: auto;
+  padding: 1.8rem 0 0 0;
+  @media screen and (max-width: $sm-breakpoint) { display: none; }
+  .breadcrumbs {
+    margin-left: 100% * 1.0/3.0;
+    text-align: right;
+    padding-right: 2rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    a {
+      margin: 0 auto;
+      text-decoration: none;
+      color: $blue;
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+    .separator {margin: auto 2px auto 4px;}
+  }
 }
 
-.headline{
-    margin: auto;
-    max-width: 1000px;
+.page_content {
+  overflow: hidden;
+  margin: 0 auto;
+  padding: 2.9rem 0 1rem 0;
+  min-height: 32rem;
+  position: relative;
+  .headline {
     font-size: 1.5rem;
     padding: 2rem;
     padding-top: 0px;
-    h2{
+    width: 75%;
+    @media screen and (max-width: $sm-breakpoint) {
+      width: 100%;
+    }
+    h2 {
       padding: 0;
       color: $very-dark;
     }
-}
-
-.breadcrumbs {
-  text-align: right;
-  padding-right: 2rem;
-  font-size: 1.2rem;
-  font-weight: 500;
-  a {
-    margin: 0 auto;
-    text-decoration: none;
-    color: $blue;
-    &:hover{
-      text-decoration: underline;
-    }
   }
-  .separator {margin: auto 2px auto 4px;}
+  .layout-column {
+    padding: 0px 2rem;
+  }
+  .column_paragraph {
+    margin: 0px 0px 4rem 0px;
+  }
 }
 
-@media (min-width: 40rem) {
-    .column {float: left; padding: 0 1rem 2rem 1rem;}
-}
-
-@media (min-width: $sm-breakpoint){
-    .page_content {
-        padding-bottom: 1rem;
-
-        margin: auto;
-        .row {margin-bottom: 1.5rem;}
-
-    }
-    .trail {display: block;}
-}
-
-@media (min-width: $xl-breakpoint) {
-    .page_content, .trail, .headline {max-width: 1200px;}
-
+.page_content, .trail, .headline {max-width: 1200px;}
+@media (max-width: $xl-breakpoint) {
+  .page_content, .trail, .headline {max-width: 1000px;}
 }

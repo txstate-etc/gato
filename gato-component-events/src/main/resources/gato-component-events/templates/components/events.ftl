@@ -42,7 +42,7 @@
 
       <div class="gato-accordion-content">
 
-        <div class="eq-ml-1-4 eq-xl-1-6">
+        <div class="thumb-container">
           [#if item.image?has_content]
             <div class="txst-eventdetail-thumbnail">
               <img alt="${item.title}" src="${gf.getImg(item.image, 600, 0, false, false, 0, 0, 0, 0)}" />
@@ -57,7 +57,7 @@
           </a>
         </div>
 
-        <div class="eq-ml-3-4 eq-xl-5-6">
+        <div class="detail-container">
           <dl class="txst-eventdetail-detailsbox">
             [#if item.facility?has_content]
               <dt>Location:</dt>
@@ -76,24 +76,20 @@
         </div>
 
         [#if item.description?has_content]
-          <div class="eq-mn-1-1">
-            <div class="txst-eventdetail-description">
-              ${item.description}
-              [#if item.link?has_content]
-                <a href="${item.link}" class="url">
-                  Click here for more information
-                </a>
-              [/#if]
-            </div>
+          <div class="txst-eventdetail-description">
+            ${item.description}
+            [#if item.link?has_content]
+              <a href="${item.link}" class="url">
+                Click here for more information
+              </a>
+            [/#if]
           </div>
         [/#if]
 
-        <div class="eq-mn-1-1">
-          <a class="txst-eventdetail-morelink" href="${item.url}">
-            <span class="linktext">more about event</span>
-            <i class="fa fa-angle-right" aria-hidden="true"></i>
-          </a>
-        </div>
+        <a class="txst-eventdetail-morelink" href="${item.url}">
+          <span class="linktext">more about event</span>
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+        </a>
       </div>
     </div>
   [/#list]

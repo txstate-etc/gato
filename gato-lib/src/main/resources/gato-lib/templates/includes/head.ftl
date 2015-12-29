@@ -5,8 +5,7 @@
           'gato-lib/js/scriptaculous/scriptaculous.js',
           'gato-lib/js/scriptaculous/effects.js',
           'gato-lib/js/velocity.js',
-          'gato-lib/js/element-queries/ElementQueries.js',
-          'gato-lib/js/element-queries/ResizeSensor.js',
+          'gato-lib/js/elementqueries.js',
           'gato-lib/js/gato-lib.js',
           'gato-lib/js/modal.js'
           ] + scripts as script]

@@ -1,0 +1,24 @@
+.layout-column {
+  @extend .grid-cell;
+  &.halves {
+    width: 50%;
+    [data-eq~="600px"] & { width: 100%; }
+  }
+  &.thirds {
+    width: 100% * 1.0/3.0;
+    [data-eq~="600px"] & { width: 100%; }
+  }
+  &.quarters {
+    width: 25%;
+    [data-eq~="600px"] & { width: 50%; }
+    [data-eq~="300px"] & { width: 100%; }
+  }
+  &.onethird {
+    width: 100% * 1.0/3.0;
+    [data-eq~="500px"] & { width: 100%; }
+  }
+  &.twothirds {
+    width: 100% * 2.0/3.0;
+    [data-eq~="600px"] & { width: 100%; }
+  }
+}

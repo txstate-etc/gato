@@ -16,11 +16,10 @@
   [#if (content.image)?has_content]
     [#assign fullwidth = (float == 'top' || float == 'bottom')]
     [#assign defaultmaxwidth = fullwidth?string('100vw', '400px')]
-    [#assign cols = fullwidth?string('eq-mn-1-1','eq-mn-1-1 eq-md-1-2 eq-lg-1-3')]
 
     [#assign width = gf.getImgWidth(content.image)?c+'px']
     [#assign sizes = gf.lesserwidth(ctx.maxwidth!'100vw', (content.imageWidth!0)?c+'px', width, defaultmaxwidth)]
-    <div class="gato-textimage-imageblock ${float} ${cols} ${content.imageCaption?has_content?string('hascaption', '')}" style="max-width: ${sizes};">
+    <div class="gato-textimage-imageblock ${float} ${content.imageCaption?has_content?string('hascaption', '')}" style="max-width: ${sizes};">
       [@linkifdefined href=content.imageLink]
         <img src="${gf.getImgDefault(content.image, sizes)}" sizes="${sizes}" alt="${content.imageAlt!}" srcset="${gf.getSrcSet(content.image)}" />
       [/@linkifdefined]

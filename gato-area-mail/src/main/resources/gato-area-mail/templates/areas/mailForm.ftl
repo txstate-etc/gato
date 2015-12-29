@@ -1,5 +1,5 @@
 [#assign addresses = (content.to![])?join(",")]
-<form class="txst-form eq-lg-3-4" name="samplesForm" action="${gf.getConfigProperty('gato.formemailer.server')}/formemailer/formemailer.pl" method="post" enctype="multipart/form-data"
+<form class="txst-form gato-section eq-parent" name="samplesForm" action="${gf.getConfigProperty('gato.formemailer.server')}/formemailer/formemailer.pl" method="post" enctype="multipart/form-data"
   onsubmit="return (checkMandatories(this.name,'Please complete all of the required fields marked with an asterisk *.'));">
   <div class="txst-form-body">
     <div [#if cmsfn.isEditMode()]class="txst-khan-alert txst-khan-notice"[/#if]>
@@ -10,7 +10,7 @@
       </p>
       [/#if]
     </div>
-    
+
     [#list components as component]
       ${ctx.request.setAttribute("safeTitle", model.getSafeTitle(cmsfn.asJCRNode(component).identifier))}
       [@cms.component content=component /]

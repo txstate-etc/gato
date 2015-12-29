@@ -3,6 +3,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
+		<link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-txstate2015/css/txstate2015.compiled.css"/>
 		[#assign jsscripts = [
 			'gato-template-txstate2015/js/jquery-scrolltofixed-min.js',
 			'gato-template-txstate2015/js/respond.min.js',
@@ -15,8 +16,6 @@
 		[/#if]
 		[@templatejs scripts=jsscripts /]
 		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.2/fastclick.min.js"></script>
-
-		<link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-txstate2015/css/txstate2015.compiled.css"/>
 		[@templatehead/]
 	</head>
 	<body class="${cmsfn.isEditMode()?string('admin','')}">
@@ -47,12 +46,10 @@
 			<div class="top_nav">
 				[@mainmenu textmenu=true /]
 			</div>
-			<div class="trail eq-parent">
-				<div class="eq-mn-off-1-3">
-					[@breadcrumbs/]
-				</div>
+			<div class="trail">
+				[@breadcrumbs/]
 			</div>
-			<div class="page_content eq-parent">
+			<div class="page_content">
         [#if !isHomePage && !(content.hideTitle!false)]
           [#include "includes/headline.ftl"]
         [/#if]
@@ -64,7 +61,7 @@
 				[/#if]
 
 				[#if hideSidebar == false]
-				<div class="eq-lg-1-4 sidebar">
+				<div class="sidebar">
 					[@cms.area name="navBlocks" /]
 					[#include "/gato-template/templates/includes/socialsidenav.ftl"]
 				</div>

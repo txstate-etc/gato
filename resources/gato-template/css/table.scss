@@ -2,33 +2,33 @@
 
 .table-wrapper table.gato-table {
 
-        border: none;
-        width: 100%;
-        text-align: left;
-        td{
-            padding: 0.7rem 1rem !important;
-            a{
-                color: $maroon;
-                &:hover{
-                    background: transparent;
-                    text-decoration: none;
-                }
-            }
-        }
+  border: none;
+  width: 100%;
+  text-align: left;
+  td{
+      padding: 0.7rem 1rem !important;
+      a{
+          color: $maroon;
+          &:hover{
+              background: transparent;
+              text-decoration: none;
+          }
+      }
+  }
 
-        th{
-            padding: 0.7rem 1rem !important;
-            background-color: $gold;
-            color: #FFFFFF;
+  th{
+      padding: 0.7rem 1rem !important;
+      background-color: $gold;
+      color: #FFFFFF;
 
-            a {
-                color: #FFFFFF;
-                &:hover{
-                    text-decoration: none;
-                    background: transparent;
-                }
-            }
-        }
+      a {
+          color: #FFFFFF;
+          &:hover{
+              text-decoration: none;
+              background: transparent;
+          }
+      }
+  }
 
 
     &.table-linesh{
@@ -73,51 +73,50 @@
   overflow-x: auto;
 }
 
-.table-wrapper[max-width="600px"] {
-    .gato-table.carded{
-        border: 0px;
-        thead {
-            display: none;
-        }
-        tr {
-            margin-bottom: 0px !important;
-            display: block;
-            border-bottom: 2px solid $gold;
-        }
-        td {
-            display: block;
-            text-align: right;
-            border: 0px;
-            border-bottom: 1px dotted $gold;
-        }
-        td:last-child{
-            border-bottom: 0;
-        }
+[data-eq~="600px"] .table-wrapper {
+  .gato-table.carded {
+    border: 0px;
+    thead {
+      display: none;
+    }
+    tr {
+      margin-bottom: 0px !important;
+      display: block;
+      border-bottom: 2px solid $gold;
+    }
+    td {
+      display: block;
+      text-align: right;
+      border: 0px;
+      border-bottom: 1px dotted $gold;
+    }
+    td:last-child{
+      border-bottom: 0;
+    }
+    td:before{
+      content: attr(data-label);
+      float: left;
+      font-weight: 400;
+    }
+  }
 
-        td:before{
-            content: attr(data-label);
-            float: left;
-            font-weight: 400;
-        }
-    }
-
-    //from Bootstrap's table-responsive
-    &.tableScroll {
-        width: 100%;
-        margin-bottom: 15px;
-        overflow-y: hidden;
-        -ms-overflow-style: -ms-autohiding-scrollbar;
-        border: 1px solid #ddd;
-    }
-    &.tableScroll > .gato-table {
-        margin-bottom: 0;
-    }
-    &.tableScroll > .gato-table > thead > tr > th,
-    &.tableScroll > .gato-table > tbody > tr > th,
-    &.tableScroll > .gato-table > tfoot > tr > th,
-    &.tableScroll > .gato-table > thead > tr > td,
-    &.tableScroll > .gato-table > tbody > tr > td,
-    &.tableScroll > .gato-table > tfoot > tr > td {
-        white-space: nowrap;
-    }
+  /* from Bootstrap's table-responsive */
+  &.tableScroll {
+    width: 100%;
+    margin-bottom: 15px;
+    overflow-y: hidden;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    border: 1px solid #ddd;
+  }
+  &.tableScroll > .gato-table {
+    margin-bottom: 0;
+  }
+  &.tableScroll > .gato-table > thead > tr > th,
+  &.tableScroll > .gato-table > tbody > tr > th,
+  &.tableScroll > .gato-table > tfoot > tr > th,
+  &.tableScroll > .gato-table > thead > tr > td,
+  &.tableScroll > .gato-table > tbody > tr > td,
+  &.tableScroll > .gato-table > tfoot > tr > td {
+    white-space: nowrap;
+  }
 }

@@ -7,23 +7,23 @@ document.observe('dom:loaded', function() {
       var thisPageAddress = window.location;
       var thisPageTitle = document.title;
 
-      if (destroyerGlobalPageTracker) {
-        ga(destroyerGlobalPageTracker.name + '.send', { 
-          'hitType': 'event', 
-          'eventCategory': 'Links', 
+      if (typeof(destroyerGlobalPageTracker) != 'undefined') {
+        ga(destroyerGlobalPageTracker.name + '.send', {
+          'hitType': 'event',
+          'eventCategory': 'Links',
           'eventAction': thisPageTitle + " <" + thisPageAddress + ">",
           'eventLabel': linkName + " <" + linkAddress + ">",
-          'transport': 'beacon' 
+          'transport': 'beacon'
         });
       }
 
-      if (destroyerSitePageTracker) {
-        ga(destroyerSitePageTracker.name + '.send', { 
-          'hitType': 'event', 
-          'eventCategory': 'Links', 
+      if (typeof(destroyerSitePageTracker) != 'undefined') {
+        ga(destroyerSitePageTracker.name + '.send', {
+          'hitType': 'event',
+          'eventCategory': 'Links',
           'eventAction': thisPageTitle + " <" + thisPageAddress + ">",
           'eventLabel': linkName + " <" + linkAddress + ">",
-          'transport': 'beacon' 
+          'transport': 'beacon'
         });
       }
     });

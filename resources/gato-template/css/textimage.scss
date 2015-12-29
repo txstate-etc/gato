@@ -2,9 +2,19 @@
   overflow: hidden;
 	position: relative;
 	.gato-textimage-imageblock {
+	  width: 100%;
 	  display: block;
 		&.left { float: left; margin: 0px $text-image-margin $text-image-margin 0px; }
 		&.right { float: right; margin: 0px 0px $text-image-margin $text-image-margin; }
+		&.left, &.right {
+      width: 100% * (1.0/3.0);
+      [data-eq~="800px"] & { width: 50%; }
+      [data-eq~="400px"] & {
+        width: 100%;
+        float: none;
+        margin: 0px auto $text-image-margin auto;
+      }
+		}
 		&.top { margin: 0px auto $text-image-margin auto; }
 		&.bottom { margin: $text-image-margin auto $text-image-margin auto; }
     &.hascaption { min-width: 100px; }
@@ -16,5 +26,4 @@
 		color: $gemini-text;
 		a { color: $gemini-link; }
 	}
-	&[max-width~="400px"] .gato-textimage-imageblock { float: none; margin: 0px auto $text-image-margin auto; }
 }
