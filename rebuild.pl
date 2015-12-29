@@ -28,6 +28,7 @@ our @sassfiles = ('resources/gato-template-tsus/css/tsus-home.scss',
                   'resources/gato-template-txstate2009/css/color-picker.scss',
                   'resources/gato-template-library/css/library.scss',
                   'resources/gato-template-library/css/mobile.scss');
+our $sasscompressed = 1;
 our $module = "";
 
 # place your local overrides in the root gato directory in a file named "rebuild_vars.pl"
@@ -225,7 +226,7 @@ sub sass {
     print "Compiling SASS files...\n";
   }
   my $loadpaths = '--load-path '.$gatodir.'/resources';
-  my $cmd = "sass --sourcemap=none $loadpaths --style compressed ".($watch ? '--watch ':'--force ');
+  my $cmd = "sass --sourcemap=none $loadpaths ".($sasscompressed ? '--style compressed ': '--line-comments ').($watch ? '--watch ':'--force ');
   foreach my $file (@sassfiles) {
     my $input = "$gatodir/$file";
     my $output = $input;
