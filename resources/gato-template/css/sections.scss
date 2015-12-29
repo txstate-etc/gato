@@ -1,5 +1,8 @@
 .layout-column {
   @extend .grid-cell;
+  &.full {
+    width: 100%;
+  }
   &.halves {
     width: 50%;
     [data-eq~="600px"] & { width: 100%; }
