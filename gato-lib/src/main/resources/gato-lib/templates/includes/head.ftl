@@ -11,17 +11,14 @@
           ] + scripts as script]
     <script type="text/javascript" src="${gf.resourcePath()}/${script}"></script>
   [/#list]
-[/#macro]
 
-[#macro css files]
-  [#list ['gato-lib/css/grid.css', 'gato-component-dept-directory/css/departmentDirectory.css'] + files as file]
-    <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/${file}"/>
-  [/#list]
+  [#-- this should never be concatenated in with other javascript because it changes every
+       second and that will break all manner of cache solutions --]
+  <script type="text/javascript" src="${gf.resourcePath()}/gato-lib/js/serverTime.js"></script>
 [/#macro]
 
 [#macro javascriptvariables]
   <script type="text/javascript">
-    var serverDateTime = new Date(${.now?long});
     var magnolia_assets_url = "${gf.resourcePath()}";
     var isEditMode = ${cmsfn.isEditMode()?string};
     [#nested]
