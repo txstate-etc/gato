@@ -5,6 +5,7 @@ body.homepage {
     letter-spacing: -1rem;
     .content-row-column, .solo-column {
       @extend .grid-cell;
+      width: 100%;
       letter-spacing: normal;
     }
   }

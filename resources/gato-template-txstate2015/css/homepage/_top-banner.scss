@@ -109,7 +109,7 @@ div#homepage-banner {
   }
 
   .homepage-banner-nav {
-    -webkit-transform: translate3d(0,0,0);
+    // -webkit-transform: translate3d(0,0,0);
     letter-spacing: -1rem;
     margin-bottom: -20px;
     @media (max-width: $md-breakpoint) {
@@ -159,6 +159,7 @@ div#homepage-banner {
       .audience-link-tabs {
         position: relative;
         @extend .grid-cell;
+        width: 100%;
         letter-spacing: normal; 
         text-align: right;
         @media (max-width: $md-breakpoint) {
