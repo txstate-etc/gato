@@ -2,8 +2,7 @@
 [@sectionLabel]
   <div class="layout-column halves eq-parent">
     [@cms.area name="column1"/]
-  </div>
-  <div class="layout-column halves eq-parent">
+  </div><div class="layout-column halves eq-parent">
     [@cms.area name="column2"/]
   </div>
 [/@sectionLabel]
