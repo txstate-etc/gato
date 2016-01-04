@@ -14,11 +14,21 @@
   padding: 0px;
   width: 50%;
   &.super-list-left {
-    & > li:first-child { margin-left: -1.4rem; }
+    & > li:first-child {
+      margin-left: -1.4rem;
+      @media screen and (max-width: $lg-breakpoint) {
+        margin-left: 0;
+      }
+    }
   }
   &.super-list-right {
     text-align: right;
-    & > li:last-child { margin-right: -1.4rem; }
+    & > li:last-child {
+      margin-right: -1.4rem;
+      @media screen and (max-width: $lg-breakpoint) {
+        margin-right: 0;
+      }
+    }
   }
   li {
     display: inline-block;
