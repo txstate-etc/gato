@@ -13,6 +13,7 @@
   @extend .grid-cell;
   padding: 0px;
   width: 50%;
+  overflow: hidden;
   &.super-list-left {
     & > li:first-child { margin-left: -1.4rem; }
   }
