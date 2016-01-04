@@ -127,6 +127,7 @@ div#homepage-banner {
       .homepage-banner-nav-logo {
         letter-spacing: normal; 
         position: absolute;
+        z-index: 9;
         display: inline-block;
         visibility: hidden;
         opacity: 0;
@@ -232,6 +233,7 @@ div#homepage-banner {
             a {
               padding: 1.5rem 2.3rem;
             }
+            &:last-child a { padding-right: 2.3rem; }
           }
         }
       }
