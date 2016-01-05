@@ -40,16 +40,16 @@
       <groupId>info.magnolia</groupId>
       <artifactId>magnolia-imaging-support</artifactId>
     </dependency>
-		<dependency>
-			<groupId>info.magnolia</groupId>
-			<artifactId>magnolia-module-mail</artifactId>
-			<version>5.3</version>
-		</dependency>
-		<dependency>
-			<groupId>info.magnolia</groupId>
-			<artifactId>magnolia-module-observation</artifactId>
-			<version>2.0.4</version>
-		</dependency>
+    <dependency>
+      <groupId>info.magnolia</groupId>
+      <artifactId>magnolia-module-mail</artifactId>
+      <version>5.3</version>
+    </dependency>
+    <dependency>
+      <groupId>info.magnolia</groupId>
+      <artifactId>magnolia-module-observation</artifactId>
+      <version>2.0.4</version>
+    </dependency>
     <dependency>
       <groupId>info.magnolia.templating</groupId>
       <artifactId>magnolia-templating-essentials-models</artifactId>
@@ -129,6 +129,11 @@
     <dependency>
       <groupId>xmlrpc</groupId>
       <artifactId>xmlrpc</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>ro.isdc.wro4j</groupId>
+      <artifactId>wro4j-maven-plugin</artifactId>
+      <version>1.7.9</version>
     </dependency>
     <dependency>
       <groupId>edu.txstate.its.gato</groupId>

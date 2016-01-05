@@ -4,17 +4,20 @@
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-txstate2015/css/txstate2015.compiled.css"/>
-		[#assign jsscripts = [
-			'gato-template-txstate2015/js/jquery-scrolltofixed-min.js',
-			'gato-template-txstate2015/js/respond.min.js',
-			'gato-template-txstate2015/js/slideout.js',
-			'gato-template-txstate2015/js/sidebarwrap.js',
-			'gato-template-txstate2015/js/common.js'
-		]]
+		[#if cmsfn.isEditMode()]
+      [@templatejs scripts=[
+        'gato-template-txstate2015/js/jquery-scrolltofixed-min.js',
+        'gato-template-txstate2015/js/respond.min.js',
+        'gato-template-txstate2015/js/slideout.js',
+        'gato-template-txstate2015/js/sidebarwrap.js',
+        'gato-template-txstate2015/js/common.js'
+      ]/]
+		[#else]
+      <script type="text/javascript" src="/wro/gato-template-txstate2015.js"></script>
+    [/#if]
 		[#if gf.isCacheEnvironment()]
-			[#assign jsscripts = jsscripts + ['gato-template-txstate2015/js/fontsdotcom.js']]
+      <script type="text/javascript" src="gato-template-txstate2015/js/fontsdotcom.js"></script>
 		[/#if]
-		[@templatejs scripts=jsscripts /]
 		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.2/fastclick.min.js"></script>
 		[@templatehead/]
 	</head>

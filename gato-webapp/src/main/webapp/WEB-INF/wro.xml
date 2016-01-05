@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<groups xmlns="http://www.isdc.ro/wro"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.isdc.ro/wro wro.xsd">
+  <group name="gato-lib">
+    <js>/.resources/gato-lib/js/jquery.js</js>
+    <js>/.resources/gato-lib/js/jquery-noconflict.js</js>
+    <js>/.resources/gato-lib/js/prototype.js</js>
+    <js>/.resources/gato-lib/js/scriptaculous/scriptaculous.js</js>
+    <js>/.resources/gato-lib/js/scriptaculous/effects.js</js>
+    <js>/.resources/gato-lib/js/velocity.js</js>
+    <js>/.resources/gato-lib/js/elementqueries.js</js>
+    <js>/.resources/gato-lib/js/gato-lib.js</js>
+    <js>/.resources/gato-lib/js/modal.js</js>
+  </group>
+  <group name="gato-webapp">
+    <group-ref>gato-lib</group-ref>
+    <js>/.resources/gato-template/js/main-menus.js</js>
+    <js>/.resources/gato-template/js/outgoing-clicks.js</js>
+    <js>/.resources/gato-template/js/accordion.js</js>
+    <js>/.resources/gato-template/js/easter-egg.js</js>
+    <js>/.resources/gato-template/js/edit-bars.js</js>
+    <js>/.resources/gato-lib/js/moment.js</js>
+    <js>/.resources/gato-lib/js/jsonp.js</js>
+    <js>/.resources/gato-lib/js/pickadate/picker.js</js>
+    <js>/.resources/gato-lib/js/pickadate/picker.date.js</js>
+    <js>/.resources/gato-lib/js/photoswipe/photoswipe.js</js>
+    <js>/.resources/gato-lib/js/photoswipe/photoswipe-ui-default.js</js>
+    <js>/.resources/gato-lib/js/photoswipe-util.js</js>
+    <js>/.resources/gato-lib/js/spin.min.js</js>
+    <js>/.resources/gato-lib/js/slick/slick.min.js</js>
+    <js>/.resources/gato-lib/js/flowplayer/flowplayer.min.js</js>
+    <js>/.resources/gato-component-gallery/js/gallery.js</js>
+    <js>/.resources/gato-component-feature/js/feature.js</js>
+    <js>/.resources/gato-component-faq/js/expand.js</js>
+    <js>/.resources/gato-template/js/standardista-table-sorting.js</js>
+    <js>/.resources/gato-area-mail/js/mailForm.js</js>
+    <js>/.resources/gato-component-streaming/js/streaming.js</js>
+  </group>
+  <group name="gato-template-txstate2015">
+    <group-ref>gato-webapp</group-ref>
+    <js>/.resources/gato-template-txstate2015/js/jquery-scrolltofixed-min.js</js>
+    <js>/.resources/gato-template-txstate2015/js/respond.min.js</js>
+    <js>/.resources/gato-template-txstate2015/js/slideout.js</js>
+    <js>/.resources/gato-template-txstate2015/js/sidebarwrap.js</js>
+    <js>/.resources/gato-template-txstate2015/js/common.js</js>
+  </group>
+</groups>
