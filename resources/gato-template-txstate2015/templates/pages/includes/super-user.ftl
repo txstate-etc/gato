@@ -10,7 +10,7 @@
         <li><a href="${gf.filterUrl(component.link)}">${gf.filterLinkTitle(component.text, component.link)}</a></li>
       [/#list]
       <li class="more-tools">
-        <a href="#">
+        <a href="#" class="needsclick">
           ${globalLinks.superGroup3.text!'Online Services'}
           <i class="fa fa-caret-down"></i>
         </a>
