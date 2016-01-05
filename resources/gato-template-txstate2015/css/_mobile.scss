@@ -1,9 +1,10 @@
 .hamburger{
   float: right;
+  display: none;
   a {
+    display: block;
     top: 13px;
     right: 0px;
-    display: block;
     position: relative;
     color: $hamburger-button;
     font-size: 13px;
@@ -165,6 +166,6 @@
   }
 }
 
-@media screen and (min-width: $sm-breakpoint) {
-    .hamburger, .mobile_nav {display: none;}
+@media screen and (max-width: $sm-breakpoint) {
+    .hamburger, .mobile_nav {display: block;}
 }

@@ -5,20 +5,20 @@
 .ddmenu-bg {
   font-size: 1.3rem;
   font-weight: 500;
-  display: none;
-  @media screen and (min-width: $sm-breakpoint) {
-    display: block;
+  display: block;
+  @media screen and (max-width: $sm-breakpoint) {
+    display: none;
   }
 }
 
 .ddmenu-menubar {
   margin: 0px auto;
-  max-width: 1000px;
+  max-width: 1200px;
   @include vertical-gradient($primary-nav-gradient-top, $primary-nav-gradient-bottom);
   border-bottom: 1px solid $primary-nav-bottom-border;
   box-shadow: 1px 0px $primary-nav-box-shadow inset, -1px 0px $primary-nav-box-shadow inset;
-  @media screen and (min-width: $xl-breakpoint) {
-    max-width: 1200px;
+  @media screen and (max-width: $xl-breakpoint) {
+    max-width: 1000px;
   }
 }
 
@@ -73,6 +73,9 @@ a.ddmenu-menubaritem{
   &.scroll-to-fixed-fixed {
     @include vertical-gradient($primary-nav-gradient-top, $primary-nav-gradient-bottom);
     border-bottom: 2px solid $secondary-nav-fixed-border;
+    @media screen and (max-width: $sm-breakpoint){
+      border-bottom-width: 0px;
+    }
     .ddmenu-menubar{
       box-shadow: none;
       border: 0 solid $primary-nav-bottom-border;

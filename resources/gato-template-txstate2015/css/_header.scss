@@ -3,21 +3,31 @@
 //image, the parent organization, and the title
 
 /* _header.scss */
-.bg_overlay, .bg_image, .bg_image_secondary, .bg_image_none, .txst_search {
-    display: none;
+.bg_overlay, .bg_image, .bg_image_secondary, .bg_image_none {
+    display: block;
+    @media (max-width: $xs-breakpoint){ 
+      display: none;
+    }
 }
 
 .banner {
     @include vertical-gradient($banner-top, $banner-bottom);
     border-bottom: 2px solid $banner-bottom-border;
     padding: 0 2rem;
-    height: 60px;
+    height: 70px;
+    @media (max-width: $sm-breakpoint){
+      height: 60px;
+    }
 }
 .banner_content {margin: auto;}
 .banner_logo {
-    width: 195px;
+    width: 225px;
     float: left;
-    img {max-width: 100%; margin-top: 11px;}
+    img {max-width: 100%; margin-top: 15px;}
+    @media (max-width: $sm-breakpoint){
+      width: 195px;
+      img {margin-top: 11px;}
+    }
 }
 
 
@@ -25,7 +35,14 @@
     float: right;
     margin-top: 18px;
     position: relative;
+    display: block;
+    @media (max-width: $sm-breakpoint){
+      display: none;
+    }
     input.search {
+        padding-left: 0; 
+        font-weight: 500; 
+        box-shadow: inset 0 -2px $gold;
         width: 250px;
         background: transparent none repeat scroll 0% 0%;
         border: medium none;
@@ -62,10 +79,43 @@
 input[type="search"]:focus {outline: none;}
 
 .header_with_image_secondary, .header_with_image, .header_no_image {
-    min-height: 70px; padding: 0;
+    //min-height: 70px; padding: 0;
     position: relative;
     overflow: hidden !important;
     background:$maroon;
+}
+
+.header_no_image{
+  min-height: 120px; padding: 0;
+  @media (max-width: $sm-breakpoint){
+    min-height: 100px; padding: 0;
+  }
+  @media (max-width: $xs-breakpoint){
+    min-height: 70px; padding: 0;
+  }
+}
+
+.header_with_image{
+  min-height: 360px; //above xl breakpoint
+  @media (max-width: $xl-breakpoint) {
+    min-height: 320px; //from md to xl
+  }
+  @media (max-width: $md-breakpoint) {
+    min-height: 280px; padding: 0;
+  }
+  @media (max-width: $xs-breakpoint){
+    min-height: 70px; padding: 0;
+  }
+}
+
+.header_with_image_secondary{
+  min-height: 220px; padding: 0;
+  @media (max-width: $xl-breakpoint){
+    min-height: 180px; padding: 0;
+  }
+  @media (max-width: $xs-breakpoint){
+    min-height: 70px; padding: 0;
+  }
 }
 
 .headerImage_admin {
@@ -119,12 +169,12 @@ body.admin .header_no_image {
 .bg_overlay {background: $header-background; position: absolute; width: 100%; height: 100%; opacity: 0;}
 
 .title {
-  position: relative;
-  @media (min-width: $xs-breakpoint) {
-    position: absolute;
-    left: 0px;
-    bottom: 0px;
-    width: 100%;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  width: 100%;
+  @media (max-width: $xs-breakpoint) {
+    position: relative;
   }
   .dept_name {
     margin: auto;
@@ -140,15 +190,15 @@ body.admin .header_no_image {
       padding: 0.7rem 2rem;
       line-height: 2rem;
       float: left;
-      margin: 1rem 0 -1.8rem 0;
-      @media (min-width: $xs-breakpoint) { margin-bottom: 10px; }
+      margin: 1rem 0 1rem 0;
+      @media (max-width: $xs-breakpoint) { margin-bottom: -1.8rem; }
     }
     .office_name {
       clear: both;
       margin: 0;
       padding: 2rem 2rem 1.5rem 2rem;
       font-family: $garamond;
-      font-size: 2.9rem;
+      font-size: 4.2rem;
       line-height: 4rem;
       font-weight: normal;
       letter-spacing: 1px;
@@ -156,11 +206,11 @@ body.admin .header_no_image {
       min-height: 60px;
       background: $header-background;
       background: rgba($header-background, .98);
-      @media (min-width: $xs-breakpoint) {
+      @media (max-width: $md-breakpoint) {
         font-size: 3.8rem;
       }
-      @media (min-width: $md-breakpoint) {
-        font-size: 4.2rem;
+      @media (max-width: $xs-breakpoint) {
+        font-size: 2.9rem;
       }
     }
   }
@@ -169,46 +219,10 @@ body.admin .header_no_image {
   margin-bottom: -18px;
 }
 
-@media (min-width: $xs-breakpoint){
-    .header {min-height: 350px; padding: 0;}
-    .header_with_image_secondary {min-height: 180px; padding: 0;}
-    .header_with_image {min-height: 280px; padding: 0;}
-    .header_no_image {min-height: 100px; padding: 0;}
-    .bg_overlay, .bg_image, .bg_image_secondary, .bg_image_none {display: block;}
-    .parent_org a {bottom: .7rem;}
-}
-
-
-@media (min-width: $sm-breakpoint) {
-    .txst_search{display: block}
-    .banner {height: 70px;}
-    .banner_logo {
-        width: 225px;
-        img {max-width: 100%; margin-top: 15px;}
-    }
-    .txst_search {
-        input.search {
-          padding-left: 0; font-weight: 500; box-shadow: inset 0 -2px $gold;
-        }
-        .icon {right: -10px; color: $search-icon;}
-    }
-    .header_no_image {min-height: 120px; padding: 0;}
-}
-@media (min-width: $md-breakpoint){
-    .header, .header_with_image {min-height: 320px;}
-
-}
-
-.super-user-content, .banner_content, .dept_name {
-    max-width: 1000px;
+.banner_content, .dept_name {
+    max-width: 1200px;
     margin: auto;
+    @media (max-width: $xl-breakpoint){
+      max-width: 1000px;
+    }
 }
-@media (min-width: $xl-breakpoint) {
-    .banner_content, .dept_name {max-width: 1200px;}
-    .header, .header_with_image {min-height: 360px;}
-    .header_with_image_secondary {min-height: 220px; padding: 0;}
-}
-
-
-
-
