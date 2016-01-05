@@ -392,31 +392,28 @@ jQuery.fn.hovermenu = function (submenu) {
   var parent = this;
   var items = jQuery(submenu);
   var timeout;
+  var shown = false;
   var show = function () {
     clearTimeout(timeout);
     items.show();
+    shown = true;
   };
   var hide = function () {
+    if (!shown) {
+      return;
+    }
     clearTimeout(timeout);
-    timeout = setTimeout(function () { items.hide(); }, 200);
+    timeout = setTimeout(function () { items.hide(); shown = false; }, 200);
   };
-  parent.mouseover(function (e) {
-    show();
-  }).mouseout(function (e) {
-    hide();
-  }).focus(function (e) {
-    show();
-  }).blur(function (e) {
-    hide();
-  });
-  items.find('a').mouseover(function (e) {
-    show();
-  }).mouseout(function (e) {
-    hide();
-  }).focus(function (e) {
-    show();
-  }).blur(function (e) {
-    hide();
+  items.find('a').add(parent).on('mouseover focus', show).on('mouseout blur', hide);
+
+  jQuery(document).on('touchend', function (e) {
+    if (parent.is(e.target)) {
+      e.preventDefault();
+      shown ? hide() : show();
+    } else {
+      hide();
+    }
   });
 }
 
