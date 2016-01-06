@@ -18,6 +18,9 @@
    absolute */
 .gato-section {
   width: 75%;
+  &.full-width{
+    width: 100%;
+  }
   @media screen and (max-width: $sm-breakpoint) { width: 100%; }
 }
 
