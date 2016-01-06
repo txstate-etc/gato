@@ -3,7 +3,7 @@ package edu.txstate.its.gato.setup;
 import info.magnolia.dam.jcr.DamConstants;
 import info.magnolia.jcr.util.NodeTypes;
 import info.magnolia.module.DefaultModuleVersionHandler;
-import info.magnolia.module.delta.BootstrapSingleResource;
+import info.magnolia.module.delta.BootstrapSingleModuleResource;
 import info.magnolia.module.delta.ChangeNodeTypeTask;
 import info.magnolia.module.delta.CreateNodeTask;
 import info.magnolia.module.delta.DeltaBuilder;
@@ -29,7 +29,9 @@ import java.util.List;
  */
 public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
   public GatoInternalVersionHandler() {
-    register(DeltaBuilder.update("1.0", "")
+    register(DeltaBuilder.update("1.0.1", "")
+      .addTask(new BootstrapSingleModuleResource("config.modules.pages.commands.website.activate.xml"))
+      .addTask(new BootstrapSingleModuleResource("config.modules.pages.commands.website.deactivate.xml"))
       .addTasks(installOrUpdateTasks())
     );
   }
