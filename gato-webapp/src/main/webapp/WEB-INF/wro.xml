@@ -43,6 +43,7 @@
     <js>/.resources/gato-template-txstate2015/js/respond.min.js</js>
     <js>/.resources/gato-template-txstate2015/js/slideout.js</js>
     <js>/.resources/gato-template-txstate2015/js/sidebarwrap.js</js>
+    <js>/.resources/gato-lib/js/fastclick.js</js>
     <js>/.resources/gato-template-txstate2015/js/common.js</js>
   </group>
 </groups>

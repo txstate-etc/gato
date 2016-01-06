@@ -10,6 +10,7 @@
         'gato-template-txstate2015/js/respond.min.js',
         'gato-template-txstate2015/js/slideout.js',
         'gato-template-txstate2015/js/sidebarwrap.js',
+      	'gato-lib/js/fastclick.js',
         'gato-template-txstate2015/js/common.js'
       ]/]
 		[#else]
@@ -18,7 +19,6 @@
 		[#if gf.isCacheEnvironment()]
       <script type="text/javascript" src="gato-template-txstate2015/js/fontsdotcom.js"></script>
 		[/#if]
-		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.2/fastclick.min.js"></script>
 		[@templatehead/]
 	</head>
 	<body class="${cmsfn.isEditMode()?string('admin','')}">
