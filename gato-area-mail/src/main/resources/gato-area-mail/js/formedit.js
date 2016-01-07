@@ -30,13 +30,13 @@ function initFormEdit(def, node, el) {
     });
 
     $(senderInfoRadio).change(function() {
-      if (this.value == 'on' && dataTypeInput.value != "E-Mail Address") {
+      if (this.checked && dataTypeInput.value != "E-Mail Address") {
         restoreRadioFocus = true;
         setDataTypeToEmail();
       }
     });
 
-    if (senderInfoRadio.value == 'on' && dataTypeInput.value != "E-Mail Address") {
+    if (senderInfoRadio.checked && dataTypeInput.value != "E-Mail Address") {
       setDataTypeToEmail();  
     }
   }, 500);
