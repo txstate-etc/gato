@@ -7,7 +7,7 @@
     [#assign buttonBG = "style=\"background-image: url('" + gf.getImgDefault(content.image) + "'); \"" ]
 [/#if]
 <div class="button-wrapper">
-    <a href="${buttonLink}" class="button ${buttonType} ${buttonColor} ${buttonSize}" ${buttonBG!}>
+    <a href="${gf.filterUrl(buttonLink)}" class="button ${buttonType} ${buttonColor} ${buttonSize}" ${buttonBG!}>
         <span>${buttonText}</span>
     </a>
 </div>
