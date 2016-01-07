@@ -405,7 +405,7 @@ jQuery.fn.hovermenu = function (submenu) {
     clearTimeout(timeout);
     timeout = setTimeout(function () { items.hide(); shown = false; }, 200);
   };
-  items.find('a').add(parent).on('mouseover focus', show).on('mouseout blur', hide);
+  items.find('a').add(parent).on('mouseenter focus', show).on('mouseleave blur', hide);
 
   jQuery(document).on('touchend', function (e) {
     if (parent.is(e.target)) {

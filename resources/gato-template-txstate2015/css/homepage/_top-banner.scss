@@ -194,7 +194,7 @@ div#homepage-banner {
             @include vendor-prefix(transition, font-size .1s ease);
             a {
               display: block;
-              &:hover { text-decoration: underline; }
+              &[aria-selected=true] { text-decoration: underline; }
               padding: 2.3rem 2.3rem 3.3rem;  
               @media (max-width: $xl-breakpoint) {
                 padding: 2.3rem 1.9rem 3.3rem;  
@@ -247,7 +247,6 @@ div#homepage-banner {
 
       .audience-link-section {
         display: none;
-        //&:first-child {display:block;}
         position: absolute;
         left: 0;
         width: 100%;
@@ -260,7 +259,6 @@ div#homepage-banner {
       
 
         .audience-link-content {
-          // padding: 0 2rem;
           max-width: 1200px;
           @media (max-width: $xl-breakpoint) {
             max-width: 1000px;

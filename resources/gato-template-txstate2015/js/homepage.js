@@ -3,6 +3,7 @@ jQuery(function($) {
   // top banner
   $('.homepage-banner-nav').scrollToFixed();
   
+  var curAudienceLink = false;
   var menutimeout = null;
   function resetMenuTimeout() {
     if (menutimeout) {
@@ -20,9 +21,11 @@ jQuery(function($) {
 
     $tab.attr('aria-selected', true).attr('tabindex', 0);
     $content.attr('aria-hidden', false);
+    curAudienceLink = $tab.get(0);
   }
 
   function hideMenus(cleartabidx) {
+    curAudienceLink = false;
     $('.audience-link-section[role=menu]:visible').fadeOut(150);
     $('.audience-link-section[role=menu]').attr('aria-hidden', true);
     var $tabs = $('li a[role=menuitem]');
@@ -39,7 +42,12 @@ jQuery(function($) {
     }, 150);   
   }
 
-  $('.audience-link-tabs li a[role=menuitem]').on('mouseover', function(e) {  
+  var $audienceLinks = $('.audience-link-tabs li a[role=menuitem]');
+  $audienceLinks.on('mouseenter click', function(e) {
+    if (detect_touch() && e.target != curAudienceLink) {
+      e.preventDefault();
+    }
+    console.log('audience link mouseenter');
     resetMenuTimeout();
     var $tab = $(this);
     menutimeout = setTimeout(function() {
@@ -91,10 +99,16 @@ jQuery(function($) {
     return false;
 
   });
-
-  $('.audience-link-section[role=menu]')
+  
+  var $audienceLinkSections = $('.audience-link-section[role=menu]')
   .on('mouseenter focusin', resetMenuTimeout)
   .on('mouseleave focusout', delayHideMenus);
+
+  $(document).on('touchend', function (e) {
+    if (!$audienceLinks.is(e.target) && !$audienceLinkSections.is(e.target) && !$audienceLinkSections.has(e.target).length) {
+      delayHideMenus();
+    }
+  });
 
   // Top Slider
   var topSliderDesktop = {opacity: "1", left: "auto"};
@@ -216,7 +230,7 @@ jQuery(function($) {
   $('#social .twitter .social-upper').blurclick(function(e) {
     resetTweetTimeout();
     advanceTweet(200);
-  }).on('mouseover', resetTweetTimeout).on('mouseleave', autoAdvanceTweet);
+  }).on('mouseenter', resetTweetTimeout).on('mouseleave', autoAdvanceTweet);
   autoAdvanceTweet();
 
   // videos
