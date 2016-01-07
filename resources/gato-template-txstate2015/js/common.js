@@ -76,6 +76,7 @@ jQuery(document).ready(function($) {
     'duration': 300,
     'touch': false
   });
+  jQuery('#menu').css('display', '');
 
   jQuery('.toggle-button').on("click", function(){
     slideout.toggle();
