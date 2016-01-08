@@ -478,7 +478,7 @@ jQuery(function($) {
 //Setting the role to 'navigation' on the menu bar links enables
 //the links.  They open in the current tab, not in a new tab.
 jQuery(function($) {
-   $('body.admin .ddmenu-menubar a').each(function(){
+   $('body.admin .ddmenu-menubar a, body.admin .office_name a').each(function(){
      $(this).attr('role', 'navigation');
    });
 });
