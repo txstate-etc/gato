@@ -78,7 +78,8 @@ jQuery(document).ready(function($) {
   });
   jQuery('#menu').css('display', '');
 
-  jQuery('.toggle-button').on("click", function(){
+  jQuery('.toggle-button').on("click", function(e){
+    e.preventDefault();
     slideout.toggle();
   });
 
