@@ -24,7 +24,7 @@
     bottom: 0;
     right: 0;
     z-index: 0;
-    width: 300px;
+    width: 275px;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     display: none;
@@ -116,6 +116,39 @@
           }
         }
         border-bottom: 1px solid $light-charcoal;
+      }
+    }
+  }
+  //social media
+  .nav-with-title{
+    background-color: transparent;
+    border-color: transparent;
+    border-width: 0px;
+    padding-bottom: 2.8rem;
+    h3{
+      text-transform: uppercase;
+      font-weight: 500;
+      font-size: 1.8rem;
+      color: $hamburger-menu-color;
+      display: block;
+      border-bottom: 1px solid $darkest-charcoal;
+      padding: 1.5rem 1.8rem;
+    }
+    .social-links{
+      border-bottom: 1px solid $light-charcoal;
+      padding-bottom: 0px;
+    }
+    .gato-sociallink{
+      color: $hamburger-menu-color;
+      border-top: 1px solid $light-charcoal;
+      border-bottom: 1px solid $darkest-charcoal;
+      text-decoration: none;
+      font-size: 1.6rem;
+      font-weight: normal;
+      padding: 0.9rem 1.8rem;
+      &:hover, &:focus {
+        color: $hamburger-menu-text;
+        background: $darkest-charcoal;
       }
     }
   }

@@ -33,7 +33,8 @@
 				[#import "includes/mobile-menu.ftl" as menu]
 				[@menu.menuBar isMobile=true/]
 			</div>
-			<!-- does social media need to go here -->
+			<!-- social media in mobile menu -->
+            [#include "/gato-template/templates/includes/socialsidenav.ftl"]
 			[#include "includes/mobile-super-user.ftl"]
 		</nav>
 		<div id="panel" class="container">
