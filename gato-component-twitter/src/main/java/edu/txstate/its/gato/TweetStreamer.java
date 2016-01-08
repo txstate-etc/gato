@@ -32,11 +32,11 @@ import javax.jcr.query.InvalidQueryException;
 import java.util.Iterator;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.List;  
-import java.util.ArrayList;  
-import java.util.Arrays;  
-import java.util.SortedSet;  
-import java.util.TreeSet;  
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.SortedSet;
+import java.util.TreeSet;
 import java.util.GregorianCalendar;
 import java.util.Calendar;
 import java.util.TimeZone;
@@ -65,8 +65,8 @@ import twitter4j.conf.ConfigurationBuilder;
 public class TweetStreamer {
   private static final Logger log = LoggerFactory.getLogger(TweetStreamer.class);
 
-  public static final int MAX_TWEETS = 10;
-  public static final int MAX_AGE = 30; // Days
+  public static final int MAX_TWEETS = 100;
+  public static final int MAX_AGE = 60; // Days
   public static final int LOOKUP_FREQ = 30; // Minutes
 
   private static final String SEARCH_QUERY = "//element(*, mgnl:component)[jcr:contains(@mgnl:template,'gato-component-twitter:components/twitter')]";
@@ -79,9 +79,9 @@ public class TweetStreamer {
   private Calendar retryTime = null;
 
   public TweetStreamer(
-    String  oAuthConsumerKey, 
-    String  oAuthConsumerSecret, 
-    String  oAuthAccessToken, 
+    String  oAuthConsumerKey,
+    String  oAuthConsumerSecret,
+    String  oAuthAccessToken,
     String  oAuthAccessTokenSecret
   ) {
 
@@ -109,14 +109,14 @@ public class TweetStreamer {
         if (StringUtils.isNotBlank(term) && term.length() > 1) {
           if (term.startsWith("@")) {
             if (follows.size() < 5000) {
-              follows.add(term.substring(1).toLowerCase());  
+              follows.add(term.substring(1).toLowerCase());
             } else {
               log.error("Twitter follow list maxed out. Can't add " + term);
               //FIXME: need some way to notify us about this (preferably before it gets close to this number)
             }
           } else if (term.startsWith("#")) {
             if (tracks.size() < 400) {
-              tracks.add(term.toLowerCase());  
+              tracks.add(term.toLowerCase());
             } else {
               log.error("Twitter track list maxed out. Can't add " + term);
               //FIXME: need some way to notify us about this (preferably before it gets close to this number)
@@ -132,10 +132,10 @@ public class TweetStreamer {
 
   private Long findUserInJCR(Content parent, String name, Calendar lastModified) {
     Long id = null;
-  
+
     if (lastModified != null)
       lastModified.setTimeInMillis(0);
-  
+
     name = name.toLowerCase();
     try {
       if (parent.hasContent(name)) {
@@ -316,7 +316,7 @@ public class TweetStreamer {
     log.debug("Running hashtag lookup query...");
     Collection<Content> nodes = QueryUtil.query(RepositoryConstants.WEBSITE, HASHTAG_QUERY, javax.jcr.query.Query.XPATH);
     log.debug("Found " + nodes.size() + " tweets with hashtags");
-    
+
     for(Content node : nodes) {
       String[] tags = NodeDataUtil.getString(node, "hashtags", "").split("[\\s,]");
       for(int i = 0; i < tags.length; i++) {
@@ -349,13 +349,13 @@ public class TweetStreamer {
     if (dirty) {
       global_data.save();
     }
-  } 
-  
+  }
+
   private void cleanupFollow(Content parent, String username) throws RepositoryException {
     if (parent.hasContent(username)) {
       Content node = parent.getContent(username);
       // if there are more than 10 tweets, delete the oldest ones (smallest id)
-      Collection<Content> children = node.getChildren(new NodeTypeFilter(ItemType.CONTENTNODE), 
+      Collection<Content> children = node.getChildren(new NodeTypeFilter(ItemType.CONTENTNODE),
         new Comparator<Content>(){
           public int compare(Content c1, Content c2) {
             // descending order by ID = oldest first
@@ -420,7 +420,7 @@ public class TweetStreamer {
     if (userMapNode != null) {
       cleanupUserMap(userMapNode, follows);
       userMapNode.save();
-    }    
+    }
   }
 
   private boolean shouldStore(Status tweet) {
@@ -461,7 +461,7 @@ public class TweetStreamer {
     node.setNodeData("text", tweet.getText());
     node.setNodeData("icon", tweet.getUser().getProfileImageURLHttps());
     node.setNodeData("reply", (tweet.getInReplyToStatusId() > 0));
-    
+
     StringBuilder hashtags = new StringBuilder();
     HashtagEntity[] hashtagArray = tweet.getHashtagEntities();
     for(int i = 0; i < hashtagArray.length; i++) {
@@ -539,7 +539,7 @@ public class TweetStreamer {
 
     public void onScrubGeo(long userId, long upToStatusId) {
       log.debug("onScrubGeo received for user: " + userId + " status: " + upToStatusId);
-        // Shouldn't have to do anything here because we don't store geo data.      
+        // Shouldn't have to do anything here because we don't store geo data.
     }
 
     public void onTrackLimitationNotice(int numberOfLimitedStatuses) {
@@ -574,7 +574,7 @@ public class TweetStreamer {
 
   private boolean shouldRestart(long[] follow, String[] track) {
     if (twitterStream == null) return true;
-    
+
     if (this.follow.length != follow.length) return true;
 
     if (this.track.length != track.length) return true;
@@ -657,10 +657,10 @@ public class TweetStreamer {
     } catch (TwitterException te) {
       // We either got a rate limit warning, or twitter is down.
       // Try again later, the next time the scheduler runs.
-      return false;      
+      return false;
     } catch (Exception e) {
       log.error("Failed to get user id list", e);
-      return false;      
+      return false;
     }
 
     if (ids.length == 0) {
@@ -673,10 +673,10 @@ public class TweetStreamer {
     } catch (TwitterException te) {
       // We either got a rate limit warning, or twitter is down.
       // Try again later, the next time the scheduler runs.
-      return false;      
+      return false;
     } catch (Exception e) {
       log.error("Failed to preload hashtag tweets", e);
-      // Keep going, this shouldn't be fatal.      
+      // Keep going, this shouldn't be fatal.
     }
 
     String[] trackArray = new String[tracks.size()];
