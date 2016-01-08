@@ -1,0 +1,251 @@
+label: Research Slider
+icon: icon-file-video
+appClass: info.magnolia.ui.contentapp.ContentApp
+class: info.magnolia.ui.contentapp.ContentAppDescriptor
+permissions:
+  roles:
+    - superuser
+    - main2012-editor
+    - main2012-mobile-editor
+subApps:
+  browser:
+    label: Featured Content
+    subAppClass: info.magnolia.ui.contentapp.browser.BrowserSubApp
+    class: info.magnolia.ui.contentapp.browser.BrowserSubAppDescriptor
+    actionbar:
+      defaultAction: editItem
+      sections:
+        - name: root
+          label: Research Slider
+          groups:
+            - name: addActions
+              items:
+                - name: addItem
+                - name: import
+          availability:
+            nodes: false
+            root: true
+        - name: item
+          label: Feature Item
+          groups:
+            - name: editActions
+              items:
+                - name: editItem
+                - name: deleteItem
+            - name: activationActions
+              items:
+                - name: activate
+                - name: deactivate
+            - name: importExportActions
+              items:
+                - name: export
+                # - name: import
+            - name: versionActions
+              items:
+                - name: showVersions
+                - name: restoreVersion
+          availability:
+            nodeTypes:
+              - mgnl:component
+    actions:
+      addItem:
+        subAppId: detail
+        label: Add Item
+        icon: icon-add-item
+        nodeType: mgnl:component
+        appName: research-slider
+        class: info.magnolia.ui.contentapp.detail.action.CreateItemActionDefinition
+        availability:
+          root: true
+      editItem:
+        subAppId: detail
+        label: Edit Item
+        icon: icon-edit
+        appName: research-slider
+        class: info.magnolia.ui.contentapp.detail.action.EditItemActionDefinition
+        availability:
+          nodeTypes:
+            - mgnl:component
+      deleteItem:
+        label: Delete Item
+        icon: icon-delete
+        class: info.magnolia.ui.framework.action.DeleteItemActionDefinition
+      activate:
+        command: activate
+        icon: icon-publish
+        catalog: versioned
+        class: info.magnolia.ui.framework.action.ActivationActionDefinition
+        availability:
+          writePermissionRequired: true
+      activateRecursive:
+        recursive: true
+        asynchronous: true
+        command: activate
+        icon: icon-publish-incl-sub
+        class: info.magnolia.ui.framework.action.ActivationActionDefinition
+        availability:
+          writePermissionRequired: true
+          rules:
+            - name: IsNotDeletedRule
+              implementationClass: info.magnolia.ui.framework.availability.IsNotDeletedRule
+      deactivate:
+        command: deactivate
+        icon: icon-unpublish
+        catalog: versioned
+        class: info.magnolia.ui.framework.action.DeactivationActionDefinition
+        availability:
+          writePermissionRequired: true
+          rules:
+            - name: IsNotDeletedRule
+              implementationClass: info.magnolia.ui.framework.availability.IsNotDeletedRule
+      export:
+        command: export
+        icon: icon-export
+        class: info.magnolia.ui.framework.action.ExportActionDefinition
+        availability:
+          rules:
+            - name: IsNotDeletedRule
+              implementationClass: info.magnolia.ui.framework.availability.IsNotDeletedRule
+      import:
+        name: import
+        dialogName: ui-admincentral:import
+        icon: icon-import
+        class: info.magnolia.ui.framework.action.OpenCreateDialogActionDefinition
+        availability:
+          writePermissionRequired: true
+          root: true
+          nodeTypes:
+            - mgnl:content
+          rules:
+            - name: IsNotDeletedRule
+              implementationClass: info.magnolia.ui.framework.availability.IsNotDeletedRule
+      showVersions:
+        icon: icon-show-versions
+        class: info.magnolia.ui.contentapp.browser.action.ShowVersionsActionDefinition
+        availability:
+          rules:
+            - name: HasVersionsRule
+              implementationClass: info.magnolia.ui.framework.availability.HasVersionsRule
+      restoreVersion:
+        icon: icon-retrieve-versions
+        class: info.magnolia.ui.contentapp.browser.action.RestoreVersionActionDefinition
+        availability:
+          writePermissionRequired: true
+          rules:
+            - name: HasVersionsRule
+              implementationClass: info.magnolia.ui.framework.availability.HasVersionsRule
+      saveItemProperty:
+        class: info.magnolia.ui.contentapp.browser.action.SaveItemPropertyActionDefinition
+        availability:
+          properties: false
+    workbench:
+      dropConstraintClass: edu.txstate.its.gato.GatoDropConstraint
+
+      contentViews:
+        - name: tree
+          class: info.magnolia.ui.workbench.tree.TreePresenterDefinition
+          columns: &myColumns
+            - name: title
+              label: Title
+              editable: true
+              sortable: true
+              propertyName: title
+              class: info.magnolia.ui.workbench.column.definition.PropertyColumnDefinition
+            - name: status
+              width: 45
+              displayInChooseDialog: false
+              formatterClass: info.magnolia.ui.workbench.column.StatusColumnFormatter
+              class: info.magnolia.ui.workbench.column.definition.StatusColumnDefinition
+            - name: moddate
+              width: 160
+              sortable: true
+              displayInChooseDialog: false
+              formatterClass: info.magnolia.ui.workbench.column.DateColumnFormatter
+              propertyName: mgnl:lastModified
+              class: info.magnolia.ui.workbench.column.definition.MetaDataColumnDefinition
+
+    contentConnector:
+      includeProperties: false
+      workspace: website
+      rootPath: /homepage-data/features/research-feature
+      defaultOrder: title
+      nodeTypes:
+        - name: mgnl:component
+          icon: icon-file-video
+        - name: mgnl:content
+          icon: icon-folder
+  detail:
+    label: Edit Item
+    subAppClass: info.magnolia.ui.contentapp.detail.DetailSubApp
+    class: info.magnolia.ui.contentapp.detail.DetailSubAppDescriptor
+    actions:
+      commit:
+        implementationClass: info.magnolia.ui.form.action.SaveFormAction
+        class: info.magnolia.ui.form.action.SaveFormActionDefinition
+      cancel:
+        class: info.magnolia.ui.form.action.CancelFormActionDefinition
+    editor:
+      actions:
+        - name: commit
+        - name: cancel
+      form:
+        tabs:
+          - name: item
+            label: Feature Item
+            fields:
+              - name: image
+                class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+                required: true
+                appName: assets
+                targetWorkspace: dam
+                label: Image
+                identifierToPathConverter:
+                  class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
+                contentPreviewDefinition:
+                  contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
+                description: "Background image for this slide. Will be resized to fit the slideshow area."
+              - name: videourl
+                class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                label: Video Url
+                styleName: videoUrl
+              - name: alttext
+                class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                label: Image Alt Text
+                description: "Descriptive text for users who are unable to see the image."
+              - name: title
+                class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                label: Caption Title
+                description: "Title for this slide. Appears in the caption area."
+              - name: link
+                class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+                label: Link
+                appName: pages
+                identifierToPathConverter:
+                  class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
+                description: "Title will be clickable. Enter a full URL (http://www.google.com/) or use the \"Internal Link\" button to link to another page in this site."
+                buttonSelectNewLabel: "Internal Link..."
+              - name: subtext
+                class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                rows: 5
+                label: Caption Text
+                description: "Text content for the caption area. Appears below the title."
+              - name: enabled
+                class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+                label: Enabled
+                buttonLabel: Item will only be displayed if checked.
+              - name: displaystart
+                class: info.magnolia.ui.form.field.definition.DateFieldDefinition
+                label: From
+                time: true
+                description: "Item will not be displayed before this time."
+              - name: displayend
+                class: info.magnolia.ui.form.field.definition.DateFieldDefinition
+                label: To
+                time: true
+                description: "Item will not be displayed after this time."
+      nodeType:
+        icon: icon-file-video
+        name: mgnl:component
+    contentConnector:
+      workspace: website
+      rootPath: /homepage-data/features/research-feature

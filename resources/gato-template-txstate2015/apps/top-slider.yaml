@@ -1,5 +1,5 @@
-label: Featured Content
-icon: icon-file-video
+label: Top Slider
+icon: icon-file-image
 appClass: info.magnolia.ui.contentapp.ContentApp
 class: info.magnolia.ui.contentapp.ContentAppDescriptor
 permissions:
@@ -15,17 +15,16 @@ subApps:
     actionbar:
       defaultAction: editItem
       sections:
-        - name: folder
-          label: Folder
+        - name: root
+          label: Top Slider
           groups:
             - name: addActions
               items:
                 - name: addItem
                 - name: import
-                - name: activateRecursive
           availability:
-            nodeTypes:
-              - mgnl:content
+            nodes: false
+            root: true
         - name: item
           label: Feature Item
           groups:
@@ -54,17 +53,15 @@ subApps:
         label: Add Item
         icon: icon-add-item
         nodeType: mgnl:component
-        appName: features
+        appName: top-slider
         class: info.magnolia.ui.contentapp.detail.action.CreateItemActionDefinition
         availability:
-          root: false
-          nodeTypes:
-            - mgnl:content
+          root: true
       editItem:
         subAppId: detail
         label: Edit Item
         icon: icon-edit
-        appName: features
+        appName: top-slider
         class: info.magnolia.ui.contentapp.detail.action.EditItemActionDefinition
         availability:
           nodeTypes:
@@ -170,7 +167,7 @@ subApps:
     contentConnector:
       includeProperties: false
       workspace: website
-      rootPath: /homepage-data/features
+      rootPath: /homepage-data/features/top-feature
       defaultOrder: title
       nodeTypes:
         - name: mgnl:component
@@ -211,23 +208,10 @@ subApps:
                 class: info.magnolia.ui.form.field.definition.TextFieldDefinition
                 label: Video Url
                 styleName: videoUrl
-              - name: preview
-                class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
-                fields:
-                  - name: verifiedUrl
-                    class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
-                initFunction: loadStreamingDialog
-                scripts: [gato-lib/js/flowplayer/flowplayer.min.js,gato-lib/js/spin.min.js,gato-component-streaming/js/streaming.js]
-                styles: [gato-component-streaming/css/streaming.css]
-                label: Preview
               - name: alttext
                 class: info.magnolia.ui.form.field.definition.TextFieldDefinition
                 label: Image Alt Text
                 description: "Descriptive text for users who are unable to see the image."
-              - name: supertext
-                class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-                label: Dateline
-                description: "Article date. Appears above the title."
               - name: title
                 class: info.magnolia.ui.form.field.definition.TextFieldDefinition
                 label: Caption Title
@@ -240,11 +224,6 @@ subApps:
                   class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
                 description: "Title will be clickable. Enter a full URL (http://www.google.com/) or use the \"Internal Link\" button to link to another page in this site."
                 buttonSelectNewLabel: "Internal Link..."
-              - name: subtext
-                class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-                rows: 5
-                label: Caption Text
-                description: "Text content for the caption area. Appears below the title."
               - name: script
                 class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
                 fields:
@@ -256,12 +235,6 @@ subApps:
                 loadScriptsInOrder: true
                 styleName: single-color
                 label: Background Color
-              - name: rsscontent
-                label: Full Article Text
-                class: info.magnolia.ui.form.field.definition.RichTextFieldDefinition
-                source: true
-                configJsFile: /.resources/gato-template/js/richeditor/ti-richeditor-config.js
-                description: "Will be included in RSS feeds."
               - name: enabled
                 class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
                 label: Enabled
@@ -281,4 +254,4 @@ subApps:
         name: mgnl:component
     contentConnector:
       workspace: website
-      rootPath: /homepage-data/features
+      rootPath: /homepage-data/features/top-feature

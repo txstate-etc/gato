@@ -32,6 +32,7 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
     register(DeltaBuilder.update("1.0.1", "")
       .addTask(new BootstrapSingleModuleResource("config.modules.pages.commands.website.activate.xml"))
       .addTask(new BootstrapSingleModuleResource("config.modules.pages.commands.website.deactivate.xml"))
+      .addTask(new BootstrapSingleModuleResource("config.modules.ui-admincentral.config.appLauncherLayout.groups.homepage.xml"))
       .addTasks(installOrUpdateTasks())
     );
   }
