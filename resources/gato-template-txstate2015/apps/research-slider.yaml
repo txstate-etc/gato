@@ -9,7 +9,7 @@ permissions:
     - main2012-mobile-editor
 subApps:
   browser:
-    label: Featured Content
+    label: Research Slider
     subAppClass: info.magnolia.ui.contentapp.browser.BrowserSubApp
     class: info.magnolia.ui.contentapp.browser.BrowserSubAppDescriptor
     actionbar:
@@ -26,7 +26,7 @@ subApps:
             nodes: false
             root: true
         - name: item
-          label: Feature Item
+          label: Slide
           groups:
             - name: editActions
               items:
@@ -70,12 +70,16 @@ subApps:
         label: Delete Item
         icon: icon-delete
         class: info.magnolia.ui.framework.action.DeleteItemActionDefinition
+        availability:
+          multiple: true
+          writePermissionRequired: true
       activate:
         command: activate
         icon: icon-publish
         catalog: versioned
         class: info.magnolia.ui.framework.action.ActivationActionDefinition
         availability:
+          multiple: true
           writePermissionRequired: true
       activateRecursive:
         recursive: true
@@ -84,6 +88,7 @@ subApps:
         icon: icon-publish-incl-sub
         class: info.magnolia.ui.framework.action.ActivationActionDefinition
         availability:
+          multiple: true
           writePermissionRequired: true
           rules:
             - name: IsNotDeletedRule
@@ -94,6 +99,7 @@ subApps:
         catalog: versioned
         class: info.magnolia.ui.framework.action.DeactivationActionDefinition
         availability:
+          multiple: true
           writePermissionRequired: true
           rules:
             - name: IsNotDeletedRule
@@ -191,7 +197,7 @@ subApps:
       form:
         tabs:
           - name: item
-            label: Feature Item
+            label: Slide
             fields:
               - name: image
                 class: info.magnolia.ui.form.field.definition.LinkFieldDefinition

@@ -72,6 +72,7 @@ subApps:
         catalog: versioned
         class: info.magnolia.ui.framework.action.ActivationActionDefinition
         availability:
+          multiple: true
           writePermissionRequired: true
       export:
         command: export

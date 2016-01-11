@@ -73,12 +73,16 @@ subApps:
         label: Delete Item
         icon: icon-delete
         class: info.magnolia.ui.framework.action.DeleteItemActionDefinition
+        availability:
+          multiple: true
+          writePermissionRequired: true
       activate:
         command: activate
         icon: icon-publish
         catalog: versioned
         class: info.magnolia.ui.framework.action.ActivationActionDefinition
         availability:
+          multiple: true
           writePermissionRequired: true
       activateRecursive:
         recursive: true
@@ -87,6 +91,7 @@ subApps:
         icon: icon-publish-incl-sub
         class: info.magnolia.ui.framework.action.ActivationActionDefinition
         availability:
+          multiple: true
           writePermissionRequired: true
           rules:
             - name: IsNotDeletedRule
@@ -97,6 +102,7 @@ subApps:
         catalog: versioned
         class: info.magnolia.ui.framework.action.DeactivationActionDefinition
         availability:
+          multiple: true
           writePermissionRequired: true
           rules:
             - name: IsNotDeletedRule
