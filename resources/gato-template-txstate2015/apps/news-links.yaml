@@ -7,6 +7,7 @@ permissions:
     - superuser
     - main2012-editor
     - main2012-mobile-editor
+    - main2012-news-editor
 subApps:
   browser:
     label: News Items
