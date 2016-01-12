@@ -31,7 +31,7 @@
                       [#if row?trim?has_content && row_index gte startingRow]
                         <tr class="${(row_index % 2 == 0)?string("even", "odd")}">
                             [#list row?split("\t") as col]
-                            [#if content.tableHeader]
+                            [#if content.tableHeader && col_index < headers?size]
                             <td data-label="${headers[col_index]}">
                             [#else]
                             <td>
