@@ -56,6 +56,8 @@ a img {
 	border:0px solid red;
 }
 
+
+
 #header {
   position: relative;
 	margin: 0px;
@@ -75,7 +77,12 @@ a img {
     list-style-type:none;
   }
   > ul {
-    display: flex;
+    display: -webkit-box;      
+    display: -moz-box;         
+    display: -ms-flexbox;      
+    display: -webkit-flex;     
+    display: flex;             
+    -webkit-justify-content: center; 
     justify-content: center;
     li.submenu {
       float: left;
@@ -120,6 +127,9 @@ a img {
 
 #bodycontent {
   overflow: hidden;
+  .txst-contentarea{
+    clear: both;
+  }
 }
 
 #footer {
