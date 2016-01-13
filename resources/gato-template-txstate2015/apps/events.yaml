@@ -152,7 +152,7 @@ subApps:
       
       contentViews:
         - name: tree
-          class: info.magnolia.ui.workbench.tree.TreePresenterDefinition
+          class: edu.txstate.its.gato.GatoTreePresenterDefinition
           sortable: true
           columns: &myColumns
             - name: title
@@ -190,6 +190,7 @@ subApps:
       includeProperties: false
       workspace: website
       rootPath: /homepage-data/events-dates
+      defaultOrder: enddate desc
       nodeTypes:
         - name: mgnl:component
           icon: icon-datepicker
