@@ -153,12 +153,25 @@ subApps:
       contentViews:
         - name: tree
           class: info.magnolia.ui.workbench.tree.TreePresenterDefinition
+          sortable: true
           columns: &myColumns
             - name: title
               label: Title
               editable: true
               sortable: true
               propertyName: title
+              class: info.magnolia.ui.workbench.column.definition.PropertyColumnDefinition
+            - name: startdate
+              label: Start Date
+              editable: true
+              sortable: true
+              propertyName: startdate
+              class: info.magnolia.ui.workbench.column.definition.PropertyColumnDefinition
+            - name: enddate
+              label: End Date
+              editable: true
+              sortable: true
+              propertyName: enddate
               class: info.magnolia.ui.workbench.column.definition.PropertyColumnDefinition
             - name: status
               width: 45
@@ -177,7 +190,6 @@ subApps:
       includeProperties: false
       workspace: website
       rootPath: /homepage-data/events-dates
-      defaultOrder: title
       nodeTypes:
         - name: mgnl:component
           icon: icon-datepicker
