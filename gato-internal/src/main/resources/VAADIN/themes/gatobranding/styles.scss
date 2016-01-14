@@ -41,5 +41,18 @@ body{
       content: "\f005";
     }
   }
+
+  //Use a red square for Not Published.
+  //This is Magnolia's icon-slider-max icon
+  .icon-shape-circle.color-red:before{
+    content: "\e05A" !important;
+  }
+
+  //Use a green triangle for Published pages
+  //This is Magnolia's icon-shape-triangle icon
+  .icon-shape-circle.color-green:before{
+    content: "\e0c6" !important;
+  }
+
 }
 
