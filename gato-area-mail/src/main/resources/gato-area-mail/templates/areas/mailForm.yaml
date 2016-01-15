@@ -28,3 +28,5 @@ availableComponents:
     id: gato-template:components/html
   textimage:
     id: gato-template:components/textimage
+  separator:
+    id: gato-template:components/separator

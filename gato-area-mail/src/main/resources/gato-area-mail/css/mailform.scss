@@ -142,7 +142,8 @@
     color: $white;
     box-shadow: 0 4px $gold-shadow;
     background: $gold;
-    padding: 2rem 3rem;
+    padding: 1.8rem 4rem;
+    margin-top: 1rem;
     text-transform: uppercase;
     border-radius: 3px;
     @include vendor-prefix(transition, background 0.2s ease-in-out);
