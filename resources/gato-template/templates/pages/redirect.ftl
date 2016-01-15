@@ -1,7 +1,8 @@
 [#assign redirectUrl = gf.absoluteUrl(content.link)]
+[#assign decodedUrl = gf.absoluteUrl(cmsfn.decode(content).link)]
 [#if cmsfn.isPublicInstance()]
   [#if content.link?has_content]
-    ${ctx.response.sendRedirect(redirectUrl)}
+    ${ctx.response.sendRedirect(decodedUrl)}
   [/#if]
 [#else]
 <!DOCTYPE HTML>
