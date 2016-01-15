@@ -131,11 +131,6 @@
       <artifactId>xmlrpc</artifactId>
     </dependency>
     <dependency>
-      <groupId>ro.isdc.wro4j</groupId>
-      <artifactId>wro4j-maven-plugin</artifactId>
-      <version>1.7.9</version>
-    </dependency>
-    <dependency>
       <groupId>edu.txstate.its.gato</groupId>
       <artifactId>gato-component-dept-directory</artifactId>
       <version>${gatoVersion}</version>

@@ -4,14 +4,6 @@
   <display-name>magnolia</display-name>
   <distributable />
   <filter>
-    <filter-name>WebResourceOptimizer</filter-name>
-    <filter-class>ro.isdc.wro.http.WroFilter</filter-class>
-  </filter>
-  <filter-mapping>
-    <filter-name>WebResourceOptimizer</filter-name>
-    <url-pattern>/wro/*</url-pattern>
-  </filter-mapping>
-  <filter>
     <display-name>Magnolia global filters</display-name>
     <filter-name>magnoliaFilterChain</filter-name>
     <filter-class>info.magnolia.cms.filters.MgnlMainFilter</filter-class>
