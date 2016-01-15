@@ -6,10 +6,10 @@ $button-reverse-text-weight:       400;
 
 
 .button-wrapper {
-  
+
   & > a.button {
     display: inline-block;
-    padding: 2rem 4rem;
+    padding: 2rem 3rem;
     text-align: center;
     text-transform: uppercase;
     font-size: 2rem;
@@ -98,51 +98,51 @@ $button-reverse-text-weight:       400;
     &.three-d{
       &.color1 {
         @include three-d-button(
-          $mc1-bg, 
-          $mc1-comp-bg, 
-          $mc1-shadow, 
+          $mc1-bg,
+          $mc1-comp-bg,
+          $mc1-shadow,
           $mc1-text);
       }
       &.color2 {
         @include three-d-button(
-          $mc2-bg, 
-          $mc2-comp-bg, 
-          $mc2-shadow, 
+          $mc2-bg,
+          $mc2-comp-bg,
+          $mc2-shadow,
           $mc2-text);
       }
       &.color3 {
         @include three-d-button(
-          $mc3-bg, 
-          $mc3-comp-bg, 
-          $mc3-shadow, 
+          $mc3-bg,
+          $mc3-comp-bg,
+          $mc3-shadow,
           $mc3-text);
       }
       &.color4 {
         @include three-d-button(
-          $mc4-bg, 
-          $mc4-comp-bg, 
-          $mc4-shadow, 
+          $mc4-bg,
+          $mc4-comp-bg,
+          $mc4-shadow,
           $mc4-text);
       }
       &.color5 {
         @include three-d-button(
-          $mc5-bg, 
-          $mc5-comp-bg, 
-          $mc5-shadow, 
+          $mc5-bg,
+          $mc5-comp-bg,
+          $mc5-shadow,
           $mc5-text);
       }
       &.color6 {
         @include three-d-button(
-          $mc6-bg, 
-          $mc6-comp-bg, 
-          $mc6-shadow, 
+          $mc6-bg,
+          $mc6-comp-bg,
+          $mc6-shadow,
           $mc6-text);
       }
       &.color7 {
         @include three-d-button(
-          $mc7-bg, 
-          $mc7-comp-bg, 
-          $mc7-shadow, 
+          $mc7-bg,
+          $mc7-comp-bg,
+          $mc7-shadow,
           $mc7-text);
       }
     }
@@ -152,46 +152,46 @@ $button-reverse-text-weight:       400;
       border-radius: $default-border-radius;
       margin: 0px;
       display:table;
-        
+
       &.color1 {
         @include image-rollover-button(
-          $mc1-bg, 
+          $mc1-bg,
           $mc1-comp-bg,
           $mc1-text);
       }
       &.color2 {
         @include image-rollover-button(
-          $mc2-bg, 
+          $mc2-bg,
           $mc2-comp-bg,
           $mc2-text);
       }
       &.color3 {
         @include image-rollover-button(
-          $mc3-bg, 
+          $mc3-bg,
           $mc3-comp-bg,
           $mc3-text);
       }
       &.color4 {
         @include image-rollover-button(
-          $mc4-bg, 
+          $mc4-bg,
           $mc4-comp-bg,
           $mc4-text);
       }
       &.color5 {
         @include image-rollover-button(
-          $mc5-bg, 
+          $mc5-bg,
           $mc5-comp-bg,
           $mc5-text);
       }
       &.color6 {
         @include image-rollover-button(
-          $mc6-bg, 
+          $mc6-bg,
           $mc6-comp-bg,
           $mc6-text);
       }
       &.color7 {
         @include image-rollover-button(
-          $mc7-bg, 
+          $mc7-bg,
           $mc7-comp-bg,
           $mc7-text);
       }
@@ -237,12 +237,12 @@ $button-reverse-text-weight:       400;
         font-size: 2.8rem ;
         font-weight: 600 ;
         line-height: 3.6rem ;
-      } 
+      }
     }
       &.block{
         span {
-          padding: 2.4rem; 
-          font-size: 2rem; 
+          padding: 2.4rem;
+          font-size: 2rem;
           font-weight: 600;
         }
       }
