@@ -79,6 +79,8 @@
            config.extraPlugins = "magnolialink,magnoliaFileBrowser,dialogui,dialog,clipboard,lineutils,widget,image2";
 
            config.width = 660;
+           config.indentOffset = 4;
+           config.indentUnit = 'rem';
            config.allowedContent = true;
            config.bodyClass = "txst-styledcontent txst-contentarea-paragraph";
            config.baseFloatZIndex = 150;
