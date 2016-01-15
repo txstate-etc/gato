@@ -49,6 +49,7 @@
   img { max-width: 100%; height: auto; }
   table img { max-width: none; }
   figure {
+    display: inline-block;
     margin: 0;
     a{
       margin: 0;
@@ -84,6 +85,14 @@
       opacity: 0.9;
     }
   }
+  a:not([href]), a[href=""] {
+    &, &:hover {
+      color: inherit;
+      background: transparent;
+      text-decoration: none;
+    }
+  }
+
   blockquote{
     font-family: 'Adobe Garamond W01', Garamond, 'Goudy Old Style', 'Times New Roman';
     font-size: 3.2rem;
