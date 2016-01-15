@@ -41,7 +41,7 @@
 [/#macro]
 
 [#macro audienceLinks name]
-  [#assign component = cmsfn.asContentMap(cmsfn.nodeByPath('/homepage-data/audience-links/${name}', 'website'))]
+  [#assign component = cmsfn.asContentMap(cmsfn.nodeByPath('/homepage-data/audience-links/${name}', 'gatoapps'))]
   [#local decodedContent = cmsfn.decode(component)]
 
   <li>

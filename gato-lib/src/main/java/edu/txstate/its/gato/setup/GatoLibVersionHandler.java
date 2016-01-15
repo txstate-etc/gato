@@ -6,6 +6,7 @@ import info.magnolia.module.delta.BootstrapSingleResource;
 import info.magnolia.module.delta.Delta;
 import info.magnolia.module.delta.DeltaBuilder;
 import info.magnolia.module.delta.Task;
+import info.magnolia.module.delta.SetupModuleRepositoriesTask;
 import info.magnolia.rendering.module.setup.InstallRendererContextAttributeTask;
 
 import java.util.ArrayList;
@@ -20,6 +21,10 @@ import edu.txstate.its.gato.GatoUtils;
  */
 public class GatoLibVersionHandler extends DefaultModuleVersionHandler {
   public GatoLibVersionHandler() {
+    register(DeltaBuilder.update("1.0.1", "")
+      .addTask(new SetupModuleRepositoriesTask())
+      .addTask(new WebsiteToGatoAppsWorkspaceTask("/homepage-data"))
+    );
   }
 
   @Override

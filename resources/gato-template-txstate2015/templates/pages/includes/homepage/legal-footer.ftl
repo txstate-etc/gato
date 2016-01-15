@@ -1,6 +1,6 @@
-[#assign quickLinks = cmsfn.asContentMap(cmsfn.nodeByPath('/homepage-data/legal-links/quick-links', 'website'))]
+[#assign quickLinks = cmsfn.asContentMap(cmsfn.nodeByPath('/homepage-data/legal-links/quick-links', 'gatoapps'))]
 [#assign quickLinks = cmsfn.children(quickLinks, "mgnl:component")?sort_by("text")]
-[#assign requiredLinks = cmsfn.asContentMap(cmsfn.nodeByPath('/homepage-data/legal-links/required-links', 'website'))]
+[#assign requiredLinks = cmsfn.asContentMap(cmsfn.nodeByPath('/homepage-data/legal-links/required-links', 'gatoapps'))]
 [#assign requiredLinks = cmsfn.children(requiredLinks, "mgnl:component")?sort_by("text")]
 [#assign collen = (requiredLinks?size / 3)?ceiling]
 

@@ -134,7 +134,7 @@ subApps:
 
     contentConnector:
       includeProperties: false
-      workspace: website
+      workspace: gatoapps
       rootPath: /homepage-data/audience-links
       defaultOrder: title
       nodeTypes:
@@ -262,7 +262,7 @@ subApps:
         icon: icon-link-page
         name: mgnl:component
     contentConnector:
-      workspace: website
+      workspace: gatoapps
       rootPath: /homepage-data/audience-links
       nodeTypes:
         - name: mgnl:component

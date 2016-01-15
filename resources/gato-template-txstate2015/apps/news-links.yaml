@@ -160,7 +160,7 @@ subApps:
 
     contentConnector:
       includeProperties: false
-      workspace: website
+      workspace: gatoapps
       rootPath: /homepage-data/news-links
       defaultOrder: title
       nodeTypes:
@@ -221,5 +221,5 @@ subApps:
         icon: icon-work-item
         name: mgnl:component
     contentConnector:
-      workspace: website
+      workspace: gatoapps
       rootPath: /homepage-data/news-links

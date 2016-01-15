@@ -42,4 +42,13 @@
       <optional>true</optional>
     </dependency>
   </dependencies>
+
+  <repositories>
+    <repository>
+      <name>magnolia</name>
+      <workspaces>
+        <workspace>gatoapps</workspace>
+      </workspaces>
+    </repository>
+  </repositories>
 </module>

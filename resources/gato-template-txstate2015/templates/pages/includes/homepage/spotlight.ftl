@@ -1,4 +1,4 @@
-[#assign slides = cmsfn.asContentMap(cmsfn.nodeByPath('/homepage-data/features/research-feature', 'website'))]
+[#assign slides = cmsfn.asContentMap(cmsfn.nodeByPath('/homepage-data/features/research-feature', 'gatoapps'))]
 [#assign slides = cmsfn.children(slides, "mgnl:component")]
 [#assign aspectratio = 16.0/9.0]
 

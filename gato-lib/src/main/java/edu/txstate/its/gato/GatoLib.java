@@ -9,4 +9,6 @@ package edu.txstate.its.gato;
 public class GatoLib {
     /* you can optionally implement info.magnolia.module.ModuleLifecycle */
 
+    public static final String WS_GATOAPPS = "gatoapps";
+
 }

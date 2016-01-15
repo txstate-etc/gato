@@ -188,7 +188,7 @@ subApps:
 
     contentConnector:
       includeProperties: false
-      workspace: website
+      workspace: gatoapps
       rootPath: /homepage-data/events-dates
       defaultOrder: enddate desc
       nodeTypes:
@@ -413,5 +413,5 @@ subApps:
         icon: icon-datepicker
         name: mgnl:component
     contentConnector:
-      workspace: website
+      workspace: gatoapps
       rootPath: /homepage-data/events-dates

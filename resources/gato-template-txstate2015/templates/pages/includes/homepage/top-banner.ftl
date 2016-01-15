@@ -1,8 +1,8 @@
 [#include "audience-links.ftl"]
-[#assign future = cmsfn.asContentMap(cmsfn.nodeByPath('/homepage-data/audience-links/future-students', 'website'))]
-[#assign current = cmsfn.asContentMap(cmsfn.nodeByPath('/homepage-data/audience-links/current-students', 'website'))]
-[#assign facstaff = cmsfn.asContentMap(cmsfn.nodeByPath('/homepage-data/audience-links/faculty-staff', 'website'))]
-[#assign alumni = cmsfn.asContentMap(cmsfn.nodeByPath('/homepage-data/audience-links/alumni-visitors', 'website'))]
+[#assign future = cmsfn.asContentMap(cmsfn.nodeByPath('/homepage-data/audience-links/future-students', 'gatoapps'))]
+[#assign current = cmsfn.asContentMap(cmsfn.nodeByPath('/homepage-data/audience-links/current-students', 'gatoapps'))]
+[#assign facstaff = cmsfn.asContentMap(cmsfn.nodeByPath('/homepage-data/audience-links/faculty-staff', 'gatoapps'))]
+[#assign alumni = cmsfn.asContentMap(cmsfn.nodeByPath('/homepage-data/audience-links/alumni-visitors', 'gatoapps'))]
 
 <div id="homepage-banner">
   <div class="homepage-banner-content">

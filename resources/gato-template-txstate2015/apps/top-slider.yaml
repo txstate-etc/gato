@@ -172,7 +172,7 @@ subApps:
 
     contentConnector:
       includeProperties: false
-      workspace: website
+      workspace: gatoapps
       rootPath: /homepage-data/features/top-feature
       defaultOrder: title
       nodeTypes:
@@ -259,5 +259,5 @@ subApps:
         icon: icon-file-video
         name: mgnl:component
     contentConnector:
-      workspace: website
+      workspace: gatoapps
       rootPath: /homepage-data/features/top-feature
