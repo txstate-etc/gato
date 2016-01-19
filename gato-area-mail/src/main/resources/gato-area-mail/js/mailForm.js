@@ -273,7 +273,7 @@ txstValidate.prototype.checkNetIdOrANumber = function(inputToCheck) {
         this.curInput = inputToCheck;
         this.showPassed();
       } else if (this.elem.value == inputToCheck) {
-        // netid not found? that's an error		    	
+        // netid not found? that's an error
         this.curPassed = false;
         this.curInput = inputToCheck;
         this.showFailed();
@@ -431,8 +431,7 @@ Event.observe(document, 'dom:loaded', function() {
 });
 
 // form; check for mandatory fields
-function checkMandatories(formName, alertText) {
-  var theForm = document[formName];
+function checkMandatories(theForm, alertText) {
   var m = theForm.mgnlMandatory;
   var i = 0;
   var ok = true;
@@ -510,7 +509,7 @@ function checkMandatories(formName, alertText) {
 function form_fixcolumns() {
   $$('.txst-form-selectiongroup').each(function(selectiongroup){
     var availableInnerWidth = selectiongroup.getWidth();
-      
+
     var maxItemOuterWidth = 0;
     selectiongroup.select('.txst-form-selection-item').each(function(item){
       // Setting the element to inline briefly lets me get the width of what is inside, rather than the space it could fill up in the parent
@@ -521,14 +520,14 @@ function form_fixcolumns() {
         maxItemOuterWidth = itemOuterWidth;
       }
     });
-    
+
     var numberOfColumns = 1;
     if ( (maxItemOuterWidth+10)*3 < availableInnerWidth ) {
       var numberOfColumns = 3;
     } else if ( (maxItemOuterWidth+10)*2 < availableInnerWidth ) {
       var numberOfColumns = 2;
     }
-    
+
     selectiongroup.select('.txst-form-selection-item').each(function(item){
       item.setStyle({
         width: parseInt((availableInnerWidth-(numberOfColumns*10))/numberOfColumns, 10) + "px",
@@ -536,7 +535,7 @@ function form_fixcolumns() {
         marginTop: '5px'
       });
     });
-    
+
     selectiongroup.insert({bottom: new Element("div",{style:"clear:both"})});
   });
 }
