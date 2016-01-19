@@ -81,9 +81,6 @@ public class LinkMigrationLogic {
     // let's see if we have a gato-docs link
     } else if (path.startsWith("http://gato-docs.its.txstate.edu/")) {
       dmspath = Paths.get(path.substring(32));
-    // assume the /dam/ has been stripped off (happens in the damdownloadservlet)
-    } else {
-      dmspath = Paths.get(path);
     }
     return convertPathToDamNode(dmspath);
   }
