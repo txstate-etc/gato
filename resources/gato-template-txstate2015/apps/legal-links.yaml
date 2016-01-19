@@ -152,7 +152,8 @@ subApps:
 
       contentViews:
         - name: tree
-          class: info.magnolia.ui.workbench.tree.TreePresenterDefinition
+          class: edu.txstate.its.gato.GatoTreePresenterDefinition
+          sortable: true
           columns: &myColumns
             - name: text
               label: Title

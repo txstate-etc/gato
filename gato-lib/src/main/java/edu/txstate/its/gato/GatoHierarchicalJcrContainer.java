@@ -29,4 +29,15 @@ public class GatoHierarchicalJcrContainer extends HierarchicalJcrContainer {
 
     return super.getDefaultOrderBy(property);
   }
+
+  @Override
+  protected String constructJCRQuery(final boolean considerSorting) {
+    String ret = super.constructJCRQuery(considerSorting);
+
+    // replace 't.[property]' with 'lower(t.[property])' so sorting is
+    // case-insensitive
+    ret = ret.replaceAll("t\\.\\[([^\\]]+)\\]", "lower(t.[$1])");
+
+    return ret;
+  }
 }
