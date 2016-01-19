@@ -11,8 +11,6 @@
       <title>${title}</title>
     [#elseif node.title?has_content]
       <title>${node.title}</title>
-    [#else]
-      <title>Paragraph</title>
     [/#if]
 
     [#if link?has_content]
