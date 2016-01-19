@@ -1,7 +1,7 @@
 [#compress]
 [#include "/gato-template-rss/templates/includes/lib.ftl"]
 [#include "/gato-template/templates/includes/head.ftl"]
-[#assign news = cmsfn.asContentMap(cmsfn.nodeByPath('/homepage-data/news-links', 'website'))]
+[#assign news = cmsfn.asContentMap(cmsfn.nodeByPath('/homepage-data/news-links', 'gatoapps'))]
 [#assign news = cmsfn.children(news, "mgnl:component")]
 
 [#assign pubdate = gf.getModificationDate(content)]

@@ -1,6 +1,6 @@
 [#assign cacheEnvironment = (ctx.request.getHeader("via")!'')?contains("Proxy-HistoryCache")]
 [#assign globalData = cmsfn.contentByPath('/global-data')]
-[#assign globalLinks = cmsfn.asContentMap(cmsfn.nodeByPath('/homepage-data/global-links', 'website'))]
+[#assign globalLinks = cmsfn.asContentMap(cmsfn.nodeByPath('/homepage-data/global-links', 'gatoapps'))]
 [#assign page = cmsfn.page(content)]
 [#assign ancestorstopdown = cmsfn.ancestors(page)]
 [#assign ancestorsbottomup = cmsfn.ancestors(page)?reverse]
