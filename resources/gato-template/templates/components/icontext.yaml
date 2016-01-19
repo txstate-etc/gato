@@ -1,0 +1,7 @@
+templateScript: /gato-template/templates/components/icontext.ftl
+renderType: freemarker
+dialog: gato-template:components/icontext
+description: A FontAwesome Icon with text below it
+title: Icon and Text
+parameters:
+  icon: /gato-template/images/icon_text.png  

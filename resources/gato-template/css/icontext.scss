@@ -1,0 +1,30 @@
+.icontext-icon{
+    font-size: 12rem;
+    text-align: center;
+    &.color1{
+        color: $mc1-bg;
+    }
+    &.color2{
+        color: $mc2-bg;
+    }
+    &.color3{
+        color: $mc3-bg;
+    }
+    &.color4{
+        color: $mc4-bg;
+    }
+    &.color5{
+        color: $mc5-bg;
+    }
+    &.color6{
+        color: $mc6-bg;
+    }
+    &.color7{
+        color: $mc7-bg;
+    }
+}
+
+.icontext-text{
+    margin-top: 1rem;
+    text-align: center;
+}

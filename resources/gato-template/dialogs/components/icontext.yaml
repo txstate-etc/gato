@@ -1,0 +1,31 @@
+form:
+  tabs:
+    - name: tabTexts
+      label: Icon and Text
+      fields:
+        - name: script
+          label: Icon
+          class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
+          fields:
+            - name: icon
+              class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+          initFunction: initIconPicker
+          loadScriptsInOrder: true
+          required: true
+          scripts: [gato-template/js/icon-list.js, gato-template/js/icon-picker.js]
+          styles: [gato-lib/css/font-awesome.compiled.css, gato-template/css/icon-picker.css]
+        - name: color
+          label: Color
+          class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
+          fields:
+            - name: color
+              class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+          initFunction: initColorPicker
+          scripts: [gato-lib/js/color-picker.js]
+          styleName: single-color 
+        - name: text
+          class: info.magnolia.ui.form.field.definition.RichTextFieldDefinition
+          label: Text
+          source: true
+          configJsFile: /.resources/gato-template/js/richeditor/ti-richeditor-config.js
+actions: !include /gato-template/dialogs/common/actions-block.yaml

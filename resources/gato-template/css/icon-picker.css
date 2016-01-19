@@ -1,0 +1,38 @@
+.icon-picker-items{
+    margin-top: 5px;
+    max-width: 400px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.icon-picker-item {
+    float: left;
+    width: 14px;
+    height: 14px;
+    padding: 12px;
+    margin: 0px 12px 12px 0px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 14px;
+    color: inherit;
+    border: 1px solid #666;
+}
+
+.icon-picker-selected{
+    outline: 5px solid #93BBC4;
+}
+
+.icon-picker-item > input{
+    visibility: hidden;
+    position: absolute;
+}
+
+#preview-icon{
+    font-size: 3rem;
+    padding: 3px;
+}
+
+#icon-select-button{
+    font-size: 0.9rem; 
+}
