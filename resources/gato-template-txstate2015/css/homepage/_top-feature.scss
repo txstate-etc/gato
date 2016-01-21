@@ -28,7 +28,6 @@ div#top-feature {
       .caption-wrap {
         position: absolute;
         bottom: 5.5rem;
-        max-width: 50%;
         opacity: 0;
       }
 
@@ -115,6 +114,11 @@ div#top-feature {
         .caption-wrap {
           bottom: 4.5rem;
         }
+        .feature-headline {
+          a {
+            max-width: 500px;
+          }
+        }
       }
     }
 
@@ -163,7 +167,6 @@ div#top-feature {
       figcaption {
         padding: 0;
         .caption-wrap {
-          max-width: 100%;
           position: relative;
           bottom: 0;
           opacity: 1;
