@@ -77,11 +77,12 @@
 	<meta name="DC.publisher" content="${publisher}">
 	<meta name="DC.creator" content="${page}">
 	<meta name="DC.date" content="${cmsfn.metaData(page, 'mgnl:lastModified')}">
-	[#local lastmod = cmsfn.metaData(page, 'mgnl:lastModified')?datetime("yyyy-MM-dd'T'HH:mm:ss.SSSXXX")]
-	[#--TODO[#if contentIsStale]--]
-		<meta name="contentIsStale" content="false">
-	[#--[/#if]--]
-	[#--TODO <meta name="staleTimer" content="${inheritedcurrency}"> --]
+    [#local currency = gf.getStaleTimer(content)]
+    [#local contentIsStale = gf.isStale(content,currency)]
+	[#if contentIsStale]
+	<meta name="contentIsStale" content="${contentIsStale?c}">
+	[/#if]
+	<meta name="staleTimer" content="${currency}">
 [/#macro]
 
 [#macro rssautodiscover]

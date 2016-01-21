@@ -643,6 +643,79 @@ public final class GatoUtils {
     }
   }
 
+  //The inheritProperty method from templating functions doesn't work here anymore.  Magnolia 5 does not
+  //allow a property to be set to null so it is set to "inherit" if the user chooses to inherit the
+  //currency from the parent page.  inheritProperty considers that to be a valid value and will not 
+  //continue searching the ancestors for a numeric currency value.
+  public String getInheritedCurrency(ContentMap content) throws RepositoryException, ValueFormatException{
+    //get the currency property for this page
+    Property currency = PropertyUtil.getPropertyOrNull(content.getJCRNode(), "currency");
+    if(currency == null || currency.getString().equals("inherit")){
+      //this page does not have a specific currency set
+      if(tf.ancestors(content).isEmpty()){
+        //this is the home page so there are no parents to check for a currency
+        return null;
+      }
+      else{
+        //check if the parent page has a currency value
+        return getInheritedCurrency(tf.parent(content));
+      }
+    }
+    else{
+      //this page has a currency set so return it
+      return currency.getString();
+    }
+  }
+
+  //the user can specify how many days their content can be unmodified
+  //before they are notified that it needs updating.  Find and return that
+  //number of days or return 365 if they have not selected anything.
+  public int getStaleTimer(ContentMap content){
+    int inheritedCurrency = 365;
+    try{
+      String currency = getInheritedCurrency(content);
+      if(currency != null){
+        inheritedCurrency = Integer.parseInt(currency);
+      }
+    }
+    catch(Exception e){
+      e.printStackTrace();
+      return inheritedCurrency;
+    }
+    return inheritedCurrency;
+  }
+
+  //A page is stale if it has not been updated within
+  //the number of days specified by currency
+  public boolean isStale(ContentMap content, int currency){
+    boolean stale = false;
+    try{
+      Calendar modificationDate = getModificationDate(content);
+      Calendar expirationDate = Calendar.getInstance();
+      if(currency > 0){
+        expirationDate.add(Calendar.DAY_OF_MONTH, -currency);
+      }
+      else{
+        expirationDate.add(Calendar.YEAR, -1);
+      }
+      Calendar lastActivationDate = getLastActionDate(content);
+      
+      if(lastActivationDate != null){
+        if(lastActivationDate.before(modificationDate)){
+          stale = modificationDate.before(expirationDate);
+        }
+        else{
+          stale =  lastActivationDate.before(expirationDate);
+        }
+      }
+      return stale;
+    }
+    catch(Exception e){
+      e.printStackTrace();
+      return false;
+    }
+  }
+
   public Date incrementDate(Date d) {
     Calendar c = Calendar.getInstance();
     c.setTime(d);

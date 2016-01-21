@@ -25,6 +25,7 @@ form:
           class: info.magnolia.ui.form.field.definition.SelectFieldDefinition
           description: Send a note to the site owner when this page's content hasn't been updated for this long.
           label: Update Reminder
+          sortOptions: false
           options:
             - name: inherit
               label: Inherit from parent page (default)
