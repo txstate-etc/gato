@@ -8,6 +8,10 @@ areas:
     !include /gato-component-cssjs/templates/areas/customcss.yaml
   customjs:
     !include /gato-component-cssjs/templates/areas/customjs.yaml
+  navBlocks:
+    !include /gato-template/templates/areas/navBlocks.yaml
+  socialmedia:
+    !include /gato-template/templates/areas/sociallist.yaml
   footerLinks:
     renderType: freemarker
     type: list

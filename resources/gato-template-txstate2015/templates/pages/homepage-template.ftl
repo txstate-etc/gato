@@ -66,6 +66,7 @@
 
     </div> <!-- end of the container -->
     [@cssjsmodals /]
+    [@sidebarmodal /]
     [#include "includes/homepage/video-modal.ftl"]
     <!--  GENERATED-CONTENT-ENDS-DHTN23TN423HT4D -->
   </body>
