@@ -8,7 +8,7 @@ form:
           label: Title
         - name: hideTitle
           class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
-          buttonLabel: Hide the page title at the top of this page's content area.
+          buttonLabel: Hide the page title
           label: "" #without this, Magnolia makes its own messy label
         - name: hideInNav
           class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
