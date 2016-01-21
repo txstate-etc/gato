@@ -402,6 +402,7 @@ subApps:
               - name: enabled
                 class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
                 label: Enabled
+                defaultValue: true
                 buttonLabel: Item will only be displayed if checked.
               - name: displaystart
                 class: info.magnolia.ui.form.field.definition.DateFieldDefinition
