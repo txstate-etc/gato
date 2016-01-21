@@ -1,8 +1,12 @@
 package edu.txstate.its.gato.setup;
 
+import edu.txstate.its.gato.GatoLib;
+
+import info.magnolia.cms.security.Permission;
 import info.magnolia.dam.jcr.DamConstants;
 import info.magnolia.jcr.util.NodeTypes;
 import info.magnolia.module.DefaultModuleVersionHandler;
+import info.magnolia.module.delta.AddPermissionTask;
 import info.magnolia.module.delta.BootstrapSingleModuleResource;
 import info.magnolia.module.delta.ChangeNodeTypeTask;
 import info.magnolia.module.delta.CreateNodeTask;
@@ -12,6 +16,7 @@ import info.magnolia.module.delta.MoveNodeTask;
 import info.magnolia.module.delta.NodeExistsDelegateTask;
 import info.magnolia.module.delta.OrderNodeBeforeTask;
 import info.magnolia.module.delta.RemoveNodeTask;
+import info.magnolia.module.delta.RemovePermissionTask;
 import info.magnolia.module.delta.RenameNodeTask;
 import info.magnolia.module.delta.SetPropertyTask;
 import info.magnolia.module.delta.Task;
@@ -33,7 +38,13 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       .addTask(new BootstrapSingleModuleResource("config.modules.pages.commands.website.activate.xml"))
       .addTask(new BootstrapSingleModuleResource("config.modules.pages.commands.website.deactivate.xml"))
       .addTask(new BootstrapSingleModuleResource("config.modules.ui-admincentral.config.appLauncherLayout.groups.homepage.xml"))
-      .addTasks(installOrUpdateTasks())
+      .addTask(new AddPermissionTask("Give editor role access to global-links in gatoapps workspace", "editor", GatoLib.WS_GATOAPPS, "/homepage-data/global-links", Permission.READ, true))
+      .addTask(new RemovePermissionTask("Revoke editor role access to global-links in website workspace", "editor", RepositoryConstants.WEBSITE, "/homepage-data/global-links", Permission.READ))
+      .addTask(new AddPermissionTask("Give main2012-editor role access to homepage-data in gatoapps workspace", "main2012-editor", GatoLib.WS_GATOAPPS, "/homepage-data", Permission.ALL, true))
+      .addTask(new AddPermissionTask("Give main2012-editor role access to global-links in gatoapps workspace", "main2012-editor", GatoLib.WS_GATOAPPS, "/homepage-data/global-links", Permission.ALL, true))
+      .addTask(new RemovePermissionTask("Revoke main2012-editor role access to global-links in website workspace", "main2012-editor", RepositoryConstants.WEBSITE, "/homepage-data/global-links", Permission.ALL))
+      .addTask(new RemovePermissionTask("Revoke main2012-editor role access to homepage-data in website workspace", "main2012-editor", RepositoryConstants.WEBSITE, "/homepage-data", Permission.ALL))
+     .addTasks(installOrUpdateTasks())
     );
   }
 
