@@ -1,13 +1,13 @@
 div#president {
 
   .content-row-content {
-    padding-bottom: 5rem;
+    padding-bottom: 3rem;
     
     @media (max-width: $sm-breakpoint){
-      padding-bottom: 4rem;
-      .col-left { padding-bottom: 2rem; }
-      .col-middle, .col-right {
-        padding-bottom: 3rem;
+      .col-left { padding-bottom: 0; }
+      .col-right {
+        padding-bottom: 0;
+        margin-bottom: -1rem;
       }
     }
 
@@ -19,15 +19,21 @@ div#president {
       img { display: block; }
     }
 
-    .pres-message p {
-      margin: 0;
-      font-size: 1.6rem;
-      line-height: 2.8rem;
-      @media (max-width: $xl-breakpoint){
-        line-height: 2.5rem;
-      }
-      @media (max-width: $md-breakpoint){
-        line-height: 2.4rem;
+    .pres-message {
+      position: relative;
+      top: 3rem;
+      @media (max-width: $xl-breakpoint){ top: 0; }
+      
+      p {
+        margin: 0;
+        font-size: 1.6rem;
+        line-height: 2.8rem;
+        // @media (max-width: $xl-breakpoint){
+        //   line-height: 2.5rem;
+        // }
+        // @media (max-width: $md-breakpoint){
+        //   line-height: 2.4rem;
+        // }
       }
     }
 
@@ -41,14 +47,18 @@ div#president {
     .pres-updates {
       .pres-updates-content {
         background: $khaki;
-        padding: 2rem 3rem;
+        padding: 2rem 3rem 3rem;
         @media (max-width: $xl-breakpoint){
-          padding: 1.5rem 3rem;
+          padding: 0.5rem 2rem 1.5rem 2rem;
         }
         @media (max-width: $md-breakpoint){
-          padding: 0.5rem 0.5rem 0.5rem 2rem;
+          padding: 0 0.5rem 0.5rem 2rem;
         }
         line-height: 2.2rem;
+        h4 {
+          font-size: 1.6rem;
+          margin: 1.5rem 0;
+        }
         ul { 
           padding: 0 1.8rem; 
           font-size: 1.4rem;

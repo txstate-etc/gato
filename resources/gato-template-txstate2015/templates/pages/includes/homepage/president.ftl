@@ -27,7 +27,7 @@
       </div>
     </div>
   
-    <div class="solo-column">
+    [#-- <div class="solo-column">
       <div class="solo-bailout">
         <p>
           <a href="http://www.president.txstate.edu/questions/ask-a-question.html" class="solo-bailout-button">
@@ -35,7 +35,7 @@
           </a>
         </p>
       </div>
-    </div>
+    </div> --]
      
   </div>
 </div>

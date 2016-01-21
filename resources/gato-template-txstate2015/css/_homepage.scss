@@ -1,6 +1,11 @@
 body.homepage {
   img { max-width: 100%; }
 
+  a {
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+
   div.content-row-content {
     letter-spacing: -1rem;
     .content-row-column, .solo-column {
@@ -14,7 +19,8 @@ body.homepage {
 
     h2 {
       font-size: 2.8rem;
-      margin-bottom: 4rem;
+      margin-bottom: 3.5rem;
+      @media (max-width: $sm-breakpoint){margin-bottom: 2.5rem;}
       margin-top: 0.1rem;
       font-weight: 500;
     }
@@ -35,9 +41,9 @@ body.homepage {
     .content-row-content {
       margin: auto;
       max-width: 1200px;
-      padding: 5rem 0 6rem;
+      padding: 4.2rem 0 6rem;
       @media (max-width: $sm-breakpoint){
-        padding-top: 4rem;
+        padding-top: 3.2rem;
       }
 
       @media (max-width: $xl-breakpoint){
@@ -46,9 +52,13 @@ body.homepage {
 
       .solo-bailout {
         text-align: right;
-        padding-top: 4.5rem;
+        padding-top: 2rem;
+        @media (max-width: $xl-breakpoint){
+          a .fa { margin-left: 1.5rem; }
+        }
         @media (max-width: $md-breakpoint){
           padding-top: 2.5rem;
+          a .fa { margin-left: 1.8rem; }
         }
         font-size: 1.6rem;
         
@@ -68,7 +78,7 @@ body.homepage {
       @media (max-width: $sm-breakpoint){
         .solo-bailout {
           text-align: center;
-          padding-top: 0rem;
+          padding-top: 1rem;
           
           a.solo-bailout-button {
             display: block;
@@ -158,6 +168,14 @@ body.homepage {
           padding-left: 1.5rem;
         }
       }
+      @media (max-width: $sm-breakpoint){
+        .col-left {
+          padding-right: 2rem;
+        }
+        .col-right {
+          padding-left: 2rem;
+        }
+      }
     }
     @media (max-width: $sm-breakpoint){
        &.three-col,  &.two-col {
@@ -205,7 +223,7 @@ body.homepage {
     }
     img { display: block; }
     figcaption {
-      padding: 2rem;
+      padding: 2.1rem;
       @media (max-width: $md-breakpoint){ padding: 1.8rem; }
 
       p { 
@@ -214,7 +232,7 @@ body.homepage {
           font-size: 2rem;
           font-weight: bold;
           line-height: 2.6rem;
-          margin-bottom: 1rem;
+          margin-bottom: 1.2rem;
           a { 
             color: $maroon;
             text-decoration: underline; 
@@ -228,6 +246,7 @@ body.homepage {
         }
         &.feature-text {
           font-size: 1.6rem;
+          line-height: 2.2rem;
         }
       }
     }
@@ -260,6 +279,10 @@ body.homepage {
           top: 50%;
           margin-top: -1rem;
           left: .4rem;
+          @media (max-width: $sm-breakpoint) {
+            border-width: 0.8rem 0 0.8rem 1.4rem;
+            margin-top: -0.8rem;
+          }
         }
         &:hover {
           @include vendor-prefix(transform, scale(1.15));

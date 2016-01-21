@@ -38,7 +38,7 @@
     @extend .fa-#{$icon};
 }
 
-@mixin hover-bg($bg, $fg:null) {
+@mixin hover-bg($bg, $fg:null, $trans:true) {
   @at-root html.no-touch &:hover, html.touch &:active {
     background: $bg;
     @if $fg {
@@ -46,5 +46,7 @@
     }
     @content;
   }
-  @include vendor-prefix(transition, all 0.2s cubic-bezier(0, 0.5, 0.25, 1));
+  @if $trans {
+    @include vendor-prefix(transition, all 0.2s cubic-bezier(0, 0.5, 0.25, 1));
+  }
 }

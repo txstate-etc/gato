@@ -25,7 +25,11 @@ div#social {
       text-transform: uppercase;
       font-size: 1.3rem;      
       font-weight: 500;      
-      p { margin: 4rem 0 0; }      
+      p { margin: 4rem 0 0; }  
+      span.timestamp.relative {
+        position: relative;
+        bottom: 0.5rem;
+      }    
       span.social-area-icon {
         position: absolute;
         right: 0;
@@ -34,7 +38,6 @@ div#social {
         a { 
           display: block;
           color: $gold; 
-          &:hover { background: none; }
         }
       }
     }
@@ -53,7 +56,7 @@ div#social {
       }
       
       .caption {
-        padding: 1rem 2rem;
+        padding: 0.5rem 2rem;
         position: absolute;
         bottom: -30%;
         opacity: 0;
@@ -61,7 +64,8 @@ div#social {
         @include vendor-prefix(transition, all 0.3s ease);
         background: fade-out($gold, 0.1);
         color: $white;
-        font-size: 1.2rem;
+        font-size: 1.4rem;
+        line-height: 2rem;
         a { 
           color: inherit;
           text-decoration: underline;
@@ -69,16 +73,19 @@ div#social {
         }
       }
 
-      .social-area-icon a:hover { color: $instagram; }
+      .social-area-icon a {
+        @include hover-bg(none, $instagram);
+      }
     }
     .twitter {
       .social-upper { 
         text-align: center; 
 
         .twitter-handle {
-          font-size: 3.2rem;
+          font-size: 2.8rem;
           font-weight: bold;
-          padding-top: 2.8rem;
+          text-transform: lowercase;
+          padding-top: 2rem;
           margin: 0;
           a {
             text-decoration: none;
@@ -90,7 +97,7 @@ div#social {
           font-weight: 500;
           color: $medium-gray;
           text-transform: uppercase;
-          margin-top: -0.2rem;
+          margin-top: 0;
         }
 
         .tweet {
@@ -98,12 +105,18 @@ div#social {
           font-size: 2.2rem;
           line-height: 3.6rem;
           margin-top: 4rem;
+          a {
+            padding: 3px 5px;
+            margin: -3px -5px;
+          }
         }
 
         .twitter-timestamp { display: none; }
       }
 
-      .social-area-icon a:hover { color: $twitter; }
+      .social-area-icon a {
+        @include hover-bg(none, $twitter);
+      }
     }
     .facebook {
       font-size: 1.6rem;
@@ -117,9 +130,18 @@ div#social {
 
       .fb-content {
         padding: 0 1rem;
+        p {
+          line-height: 2.2rem;
+        }
+        a {
+          padding: 3px 5px;
+          margin: -3px -5px;
+        }
       }
 
-      .social-area-icon a:hover { color: $facebook; }
+      .social-area-icon a {
+        @include hover-bg(none, $facebook);
+      }
     }
 
     @media (max-width: $xl-breakpoint){

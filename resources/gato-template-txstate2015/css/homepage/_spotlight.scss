@@ -1,7 +1,7 @@
 div#spotlight {
   
   .content-row-content {
-    padding-bottom: 7rem;
+    padding-bottom: 4rem;
   }
 
   .research {
@@ -73,8 +73,8 @@ div#spotlight {
 
   .slick-prev, .slick-next {
     text-decoration: none;
-    padding: 1.2rem 1.5rem;
-    margin-left: .3rem;
+    padding: 1.2rem 1.4rem;
+    margin-left: 0.1rem;
     font-size: 0px;
     &:before { font-size: 1.9rem; }
     cursor: pointer;
@@ -97,7 +97,7 @@ div#spotlight {
     display: block;
     text-align: center;
     padding: 0;
-    margin: 0;
+    margin: 0.5rem 0 0;
     width: 100%;
     li {
         position: relative;
@@ -144,6 +144,7 @@ div#spotlight {
         }
         &.slick-active button:before {
             color: $page-indicator-active;
+            @include vendor-prefix(transform, scale(1.2));
         }
     }
   }

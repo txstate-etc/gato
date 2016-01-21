@@ -27,7 +27,7 @@ div#top-feature {
 
       .caption-wrap {
         position: absolute;
-        bottom: 3.5rem;
+        bottom: 5.5rem;
         max-width: 50%;
         opacity: 0;
       }
@@ -41,8 +41,9 @@ div#top-feature {
           text-decoration: none;
           font-weight: 500;
           font-size: 3.2rem;
-          line-height: 4.2rem;
-          padding: 1.6rem 3rem 1.4rem 2rem;
+          line-height: 4.5rem;
+          padding: 1.4rem 2.5rem 1.4rem 2rem;
+          max-width: 600px;
         }
       }
       .feature-play-button {
@@ -78,19 +79,19 @@ div#top-feature {
 
   .slide-nav { 
     position: absolute;
-    bottom: 3.5rem;
+    bottom: 5.5rem;
     right: 0;
 
     .slick-prev, .slick-next {
       text-decoration: none;
-      padding: 1.2rem 1.5rem;
-      margin-left: .3rem;
+      padding: 1.2rem 1.4rem;
+      margin-left: 0.7rem;
       font-size: 0px;
       &:before { font-size: 1.9rem; }
       cursor: pointer;
       border: none;
       outline: none;
-      background: fade-out($almost-black, 0.3);
+      background: fade-out($almost-black, 0.4);
       @include hover-bg($almost-black);
       color: $white;
     }
@@ -111,15 +112,17 @@ div#top-feature {
       figcaption {
         max-width: 1000px;
         
-        .feature-headline a {
-          font-size: 2.8rem;
-          line-height: 3.8rem;
+        .caption-wrap {
+          bottom: 4.5rem;
         }
       }
     }
 
     .slide-nav-wrap {
       width: 1000px;
+      .slide-nav {
+        bottom: 4.5rem;
+      }
     }
   }
 
@@ -129,16 +132,25 @@ div#top-feature {
 
       figcaption {
         padding: 0 2rem;
+
+        .caption-wrap {
+          bottom: 3.5rem;
+        }
+
         .feature-headline a {
-          font-size: 2.4rem;
-          line-height: 3.2rem;
+          font-size: 2.8rem;
+          line-height: 2.8rem;
+        }
+        .feature-play-button {
+          top: -6.2rem;
         }
       }
     }
     .slide-nav-wrap {
       width: 100%;
       .slide-nav {
-        right: 4rem;
+        bottom: 3.5rem;
+        right: 2rem;
       }
     }
   }
@@ -156,7 +168,13 @@ div#top-feature {
           bottom: 0;
           opacity: 1;
           left: 0;
+          .feature-headline a {
+            max-width: 100%;
+            font-size: 2.4rem;
+            line-height: 3.4rem;
+          }
           .feature-play-button {
+            top: -7rem;
             left: 2rem;
           }
         }
