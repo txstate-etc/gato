@@ -395,10 +395,10 @@ subApps:
                         value: p.m.
                         label: p.m.
                         selected: true
-              - name: information
+              - name: scheduling
                 class: info.magnolia.ui.form.field.definition.StaticFieldDefinition
                 label: ""
-                value: "<p style='border-top: 2px solid black; margin-top: 12px; padding-top: 12px;'>You can schedule stuff here</p>"
+                value: "<p style='border-top: 1px solid #999; margin-top: 25px; padding-top: 30px; font-size: 15px; font-weight: bold; margin-bottom: 5px;'>Scheduling</p>"
               - name: enabled
                 class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
                 label: Enabled
