@@ -69,8 +69,8 @@ public class TrainingAuthenticationModule extends ADAuthenticationModule {
         if ( user == null ) {
             log.debug( "User doesn't exist. Adding user " + name );
 
-            String fullName = null;
-            String email = null;
+            String fullName = name;
+            String email = name + "@txstate.edu";
             try {
                 // Call peoplesearch to get the person's real name and email
                 URL url = new URL("https://secure.its.txstate.edu/iphone/ldap/query.pl?netid=" + name);
@@ -78,9 +78,11 @@ public class TrainingAuthenticationModule extends ADAuthenticationModule {
 
                 // set up basic auth
                 MagnoliaConfigurationProperties mcp = Components.getSingleton(MagnoliaConfigurationProperties.class);
-                String authorizedUserPassword = mcp.getProperty("gato.ldapuser") + ":" + mcp.getProperty("gato.ldappassword");
-                String encodedAuthorizedUserPassword = new String(Base64.getEncoder().encode(authorizedUserPassword.getBytes()));
-                urlConnection.setRequestProperty("Authorization", "Basic " + encodedAuthorizedUserPassword );
+                if (mcp.hasProperty("gato.ldapuser") && mcp.hasProperty("gato.ldappassword")) {
+                    String authorizedUserPassword = mcp.getProperty("gato.ldapuser") + ":" + mcp.getProperty("gato.ldappassword");
+                    String encodedAuthorizedUserPassword = new String(Base64.getEncoder().encode(authorizedUserPassword.getBytes()));
+                    urlConnection.setRequestProperty("Authorization", "Basic " + encodedAuthorizedUserPassword );
+                }
 
                 JsonNode userRecord = new ObjectMapper().readTree(urlConnection.getInputStream());
 
