@@ -47,7 +47,6 @@ jQuery(function($) {
     if (detect_touch() && e.target != curAudienceLink) {
       e.preventDefault();
     }
-    console.log('audience link mouseenter');
     resetMenuTimeout();
     var $tab = $(this);
     menutimeout = setTimeout(function() {
