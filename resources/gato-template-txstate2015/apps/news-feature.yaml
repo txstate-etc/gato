@@ -157,8 +157,16 @@ subApps:
               sortable: true
               propertyName: title
               class: info.magnolia.ui.workbench.column.definition.PropertyColumnDefinition
+            - name: enabled
+              label: Enabled
+              width: 70
+              editable: true
+              sortable: true
+              propertyName: enabled
+              class: info.magnolia.ui.workbench.column.definition.BooleanPropertyColumnDefinition
             - name: status
-              width: 45
+              width: 60
+              sortable: true
               displayInChooseDialog: false
               formatterClass: info.magnolia.ui.workbench.column.StatusColumnFormatter
               class: info.magnolia.ui.workbench.column.definition.StatusColumnDefinition
