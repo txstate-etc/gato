@@ -37,7 +37,7 @@ div#video-modal {
 
     a {
       position: absolute;
-      top: 50%;
+      top: calc(50% - 3.2rem);
       &.video-nav-left { left: 0; }
       &.video-nav-right { right: 0; }
     }
