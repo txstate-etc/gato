@@ -227,12 +227,6 @@ subApps:
                   class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
                 description: "Title will be clickable. Enter a full URL (http://www.google.com/) or use the \"Internal Link\" button to link to another page in this site."
                 buttonSelectNewLabel: "Internal Link..."
-              - name: rsscontent
-                label: Full Description
-                class: info.magnolia.ui.form.field.definition.RichTextFieldDefinition
-                source: true
-                configJsFile: /.resources/gato-template/js/richeditor/ti-richeditor-config.js
-                description: "Will be included in RSS feeds."
               - name: startdate
                 class: info.magnolia.ui.form.field.definition.DateFieldDefinition
                 label: Start Date
