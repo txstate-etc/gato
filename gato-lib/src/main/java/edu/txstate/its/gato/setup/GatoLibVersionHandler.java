@@ -26,6 +26,7 @@ public class GatoLibVersionHandler extends DefaultModuleVersionHandler {
     register(DeltaBuilder.update("1.0.1", "")
       .addTask(new SetupModuleRepositoriesTask())
       .addTask(new WebsiteToGatoAppsWorkspaceTask("/homepage-data"))
+      .addTask(new BootstrapSingleResource("Bootstrap", "Bootstrap IsNotTopLevelRule into Rename Page action", "/mgnl-bootstrap/gato-lib/config.modules.pages.apps.pages.subApps.browser.actions.editPageName.availability.rules.IsNotTopLevelRule.xml"))
       .addTasks(installOrUpdateTasks())
     );
   }
