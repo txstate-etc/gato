@@ -1,4 +1,4 @@
-package edu.txstate.its.gato; 
+package edu.txstate.its.gato.apputil; 
 
 import info.magnolia.ui.vaadin.integration.contentconnector.JcrContentConnectorDefinition;
 import info.magnolia.ui.workbench.tree.HierarchicalJcrContainer;

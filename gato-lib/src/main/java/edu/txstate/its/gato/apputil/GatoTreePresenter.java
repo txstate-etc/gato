@@ -1,4 +1,4 @@
-package edu.txstate.its.gato; 
+package edu.txstate.its.gato.apputil; 
 
 import info.magnolia.objectfactory.ComponentProvider;
 import info.magnolia.ui.vaadin.integration.contentconnector.JcrContentConnector;

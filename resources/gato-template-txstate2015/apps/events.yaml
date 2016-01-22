@@ -148,11 +148,11 @@ subApps:
         availability:
           properties: false
     workbench:
-      dropConstraintClass: edu.txstate.its.gato.GatoDropConstraint
+      dropConstraintClass: edu.txstate.its.gato.apputil.GatoDropConstraint
       
       contentViews:
         - name: tree
-          class: edu.txstate.its.gato.GatoTreePresenterDefinition
+          class: edu.txstate.its.gato.apputil.GatoTreePresenterDefinition
           sortable: true
           columns: &myColumns
             - name: title
@@ -166,12 +166,14 @@ subApps:
               editable: true
               sortable: true
               propertyName: startdate
+              formatterClass: edu.txstate.its.gato.apputil.DateOnlyColumnFormatter
               class: info.magnolia.ui.workbench.column.definition.PropertyColumnDefinition
             - name: enddate
               label: End Date
               editable: true
               sortable: true
               propertyName: enddate
+              formatterClass: edu.txstate.its.gato.apputil.DateOnlyColumnFormatter
               class: info.magnolia.ui.workbench.column.definition.PropertyColumnDefinition
             - name: enabled
               label: Enabled

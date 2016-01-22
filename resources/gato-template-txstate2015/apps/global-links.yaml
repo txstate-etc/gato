@@ -147,7 +147,7 @@ subApps:
         availability:
           properties: false
     workbench:
-      dropConstraintClass: edu.txstate.its.gato.GatoDropConstraint
+      dropConstraintClass: edu.txstate.its.gato.apputil.GatoDropConstraint
       editable: true
 
       contentViews:
