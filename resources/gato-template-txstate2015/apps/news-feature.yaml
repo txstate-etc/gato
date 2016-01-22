@@ -225,7 +225,7 @@ subApps:
               - name: supertext
                 class: info.magnolia.ui.form.field.definition.TextFieldDefinition
                 label: Dateline
-                description: "Article date. Appears above the title."
+                description: "Article date. Appears above the title. Recommended format: Feb. 15, 2020."
               - name: title
                 class: info.magnolia.ui.form.field.definition.TextFieldDefinition
                 label: Caption Title
