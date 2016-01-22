@@ -217,7 +217,7 @@ subApps:
             fields:
               - name: title
                 class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-                label: Caption Title
+                label: Event Title
                 description: "Title for this event."
               - name: link
                 class: info.magnolia.ui.form.field.definition.LinkFieldDefinition

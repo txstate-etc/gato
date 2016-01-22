@@ -210,10 +210,6 @@ subApps:
                 contentPreviewDefinition:
                   contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
                 description: "Background image for this slide. Will be resized to fit the slideshow area."
-              - name: videourl
-                class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-                label: Video Url
-                styleName: videoUrl
               - name: alttext
                 class: info.magnolia.ui.form.field.definition.TextFieldDefinition
                 label: Image Alt Text
@@ -235,6 +231,10 @@ subApps:
                 rows: 5
                 label: Caption Text
                 description: "Text content for the caption area. Appears below the title."
+              - name: videourl
+                class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                label: Video Url
+                styleName: videoUrl
               - name: scheduling
                 class: info.magnolia.ui.form.field.definition.StaticFieldDefinition
                 label: ""

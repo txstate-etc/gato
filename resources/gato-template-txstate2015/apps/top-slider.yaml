@@ -210,10 +210,6 @@ subApps:
                 contentPreviewDefinition:
                   contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
                 description: "Background image for this slide. Will be resized to fit the slideshow area."
-              - name: videourl
-                class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-                label: Video Url
-                styleName: videoUrl
               - name: alttext
                 class: info.magnolia.ui.form.field.definition.TextFieldDefinition
                 label: Image Alt Text
@@ -230,6 +226,10 @@ subApps:
                   class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
                 description: "Title will be clickable. Enter a full URL (http://www.google.com/) or use the \"Internal Link\" button to link to another page in this site."
                 buttonSelectNewLabel: "Internal Link..."
+              - name: videourl
+                class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                label: Video Url
+                styleName: videoUrl
               - name: script
                 class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
                 fields:
