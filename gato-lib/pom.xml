@@ -34,6 +34,10 @@
       <artifactId>magnolia-ui-form</artifactId>
     </dependency>
     <dependency>
+      <groupId>info.magnolia.pages</groupId>
+      <artifactId>magnolia-pages-app</artifactId>
+    </dependency>
+    <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>servlet-api</artifactId>
     </dependency>

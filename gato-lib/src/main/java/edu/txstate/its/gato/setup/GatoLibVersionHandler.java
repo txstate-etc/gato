@@ -7,7 +7,9 @@ import info.magnolia.module.delta.Delta;
 import info.magnolia.module.delta.DeltaBuilder;
 import info.magnolia.module.delta.Task;
 import info.magnolia.module.delta.SetupModuleRepositoriesTask;
+import info.magnolia.module.delta.SetPropertyTask;
 import info.magnolia.rendering.module.setup.InstallRendererContextAttributeTask;
+import info.magnolia.repository.RepositoryConstants;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +26,14 @@ public class GatoLibVersionHandler extends DefaultModuleVersionHandler {
     register(DeltaBuilder.update("1.0.1", "")
       .addTask(new SetupModuleRepositoriesTask())
       .addTask(new WebsiteToGatoAppsWorkspaceTask("/homepage-data"))
+      .addTasks(installOrUpdateTasks())
     );
+  }
+
+  protected List<Task> installOrUpdateTasks() {
+    List<Task> tasks = new ArrayList<Task>();
+    tasks.add(new SetPropertyTask(RepositoryConstants.CONFIG, "/modules/pages/apps/pages/subApps/browser/workbench", "dropConstraintClass", "edu.txstate.its.gato.apputil.GatoPageDropConstraint"));
+    return tasks;
   }
 
   @Override
@@ -32,6 +41,7 @@ public class GatoLibVersionHandler extends DefaultModuleVersionHandler {
     List<Task> extraInstallTasks = new ArrayList<Task>(super.getExtraInstallTasks(installContext));
     extraInstallTasks.addAll(getFunctionsInstallerTask());
 		extraInstallTasks.add(new BootstrapSingleResource("Bootstrap", "Bootstrap default class definition for doing image resizing", "/mgnl-bootstrap/gato-lib/config.modules.gato-lib.imaging.resize.xml"));
+    extraInstallTasks.addAll(installOrUpdateTasks());
     return extraInstallTasks;
   }
 
