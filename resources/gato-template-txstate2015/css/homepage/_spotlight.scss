@@ -1,7 +1,8 @@
 div#spotlight {
   
   .content-row-content {
-    padding-bottom: 4rem;
+    padding-bottom: 7rem;
+    @media (max-width: $sm-breakpoint){ padding-bottom: 4rem; }
   }
 
   .research {

@@ -1,7 +1,6 @@
 div#news {
   p.feature-headline {
     margin-bottom: 0;
-    line-height: 2.8rem;
   }
 
   #news-links {
@@ -161,7 +160,7 @@ div#news {
     .more-events {
       display: block;
       padding: 1.6rem;
-      margin: 0;
+      margin-top: -1rem;
       font-size: 1.6rem;
       font-weight: bold;
       text-align: center;
@@ -221,7 +220,7 @@ div#news {
           }
         }
       }
-      .event-title, .event-time { padding-left: 10rem; }
+      li.event { .event-title, .event-time { padding-left: 10rem; } }
       .cal-jumps {
         margin-top: 2.5rem;
         padding: 0;

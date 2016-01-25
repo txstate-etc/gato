@@ -1,14 +1,12 @@
 div#president {
 
   .content-row-content {
-    padding-bottom: 3rem;
+    padding-bottom: 4rem;
     
     @media (max-width: $sm-breakpoint){
       .col-left { padding-bottom: 0; }
-      .col-right {
-        padding-bottom: 0;
-        margin-bottom: -1rem;
-      }
+      .col-middle, .col-right { padding-bottom: 3rem; }
+      .col-right { margin-bottom: -1rem; }
     }
 
     .pres-photo {
@@ -17,6 +15,9 @@ div#president {
         display: block;
       }
       img { display: block; }
+      .gato-textimage .gato-textimage-imageblock {
+        margin: 0 auto 3rem auto;
+      }
     }
 
     .pres-message {

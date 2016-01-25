@@ -224,14 +224,13 @@ body.homepage {
     img { display: block; }
     figcaption {
       padding: 2.1rem;
-      @media (max-width: $md-breakpoint){ padding: 1.8rem; }
 
       p { 
         margin: 0; 
         &.feature-headline {
           font-size: 2rem;
           font-weight: bold;
-          line-height: 2.6rem;
+          line-height: 2.8rem;
           margin-bottom: 1.2rem;
           a { 
             color: $maroon;

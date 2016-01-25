@@ -58,8 +58,6 @@ div#homepage-banner {
     }
     @media (max-width: $sm-breakpoint) {
       padding-left: 0;
-    }
-    @media (max-width: $mn-breakpoint) {
       & > a img { max-width: 23rem; }
     }
     @media (max-width: 368px) {
@@ -98,7 +96,7 @@ div#homepage-banner {
 
   .hamburger {
     position: relative;
-    top: 9px;
+    top: 18px;
     .toggle-button {
       background: #d1c7b7;
       font-weight: 500;
