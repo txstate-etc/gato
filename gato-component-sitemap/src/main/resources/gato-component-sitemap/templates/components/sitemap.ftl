@@ -3,7 +3,7 @@
     [#local children = cmsfn.children(node, "mgnl:page")]
     <li class="sitemap-item ${(children?size > 0)?string('open','leaf')}">
       <a href="${cmsfn.link(node)}">${gf.nodeTitle(node)}</a>
-      [#if children?size > 0 && depth > 0]
+      [#if gf.hasNavChildren(node) && depth > 0]
         <ul class="level${depth+1}">
         [#list children as child]
           [@processPage child depth-1 /]
