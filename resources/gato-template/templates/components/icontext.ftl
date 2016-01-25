@@ -1,12 +1,26 @@
-[#assign decodedContent = cmsfn.decode(content)]
 [#assign iconColor = content.color!"color1"]
-<div class="icontext">
-    <div class="icontext-icon ${iconColor}">
+[#assign float = content.align!"center"]
+
+[#macro buildIconText]
+    <p class="icontext-icon ${iconColor}">
         <i class="fa ${content.icon!fa-cog}"></i>
-    </div>
-    [#if decodedContent.text?has_content]
-        <div class="icontext-text">
-            ${gf.processRichText(decodedContent.text)}
-        </div>
+    </p>
+    [#if content.title?has_content]
+        <h3 class="icontext-title">${content.title}</h3>
     [/#if]
-</div>
+    [#if content.text?has_content]
+        <p class="icontext-text">
+            ${content.text}
+        </p>
+    [/#if]
+[/#macro]
+
+[#if content.link?has_content]
+    <a href="${gf.filterUrl(content.link)}" class="icontext ${float}">
+        [@buildIconText/]
+    </a>
+[#else]
+    <div class="icontext">
+        [@buildIconText/]
+    </div>
+[/#if]

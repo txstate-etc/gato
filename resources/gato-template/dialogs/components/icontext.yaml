@@ -12,20 +12,52 @@ form:
           initFunction: initIconPicker
           loadScriptsInOrder: true
           required: true
-          scripts: [gato-template/js/icon-list.js, gato-template/js/icon-picker.js]
-          styles: [gato-lib/css/font-awesome.compiled.css, gato-template/css/icon-picker.css]
+          scripts: [gato-lib/js/jquery-ui/jquery-ui.min.js, gato-template/js/icon-list.js, gato-template/js/icon-picker-modal.js]
+          styles: [gato-lib/js/jquery-ui/jquery-ui.min.css, gato-lib/css/font-awesome.compiled.css, gato-template/css/icon-picker.css]
+          description: Select an icon from the Font Awesome Icon library
+        - name: title
+          label: Title (optional)
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          maxLength: 25
+          description: Add a title to your icon and text, 25 characters or less.
+        - name: text
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Text (optional)
+          rows: 4
+          maxLength: 150
+          description: Text content to go with your icon, 150 characters or less.
+        - name: link
+          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+          label: Link (optional)
+          targetWorkspace: website
+          appName: pages
+          identifierToPathConverter:
+            class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
+          description: "Enter a full URL to an external site (http://www.google.com/) or use the \"Internal Link\" button to link to another page in this site."
+          buttonSelectNewLabel: "Internal Link..."
         - name: color
           label: Color
+          required: true
           class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
           fields:
             - name: color
               class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
           initFunction: initColorPicker
           scripts: [gato-lib/js/color-picker.js]
-          styleName: single-color 
-        - name: text
-          class: info.magnolia.ui.form.field.definition.RichTextFieldDefinition
-          label: Text
-          source: true
-          configJsFile: /.resources/gato-template/js/richeditor/ti-richeditor-config.js
+          styleName: single-color color1 color2 color3
+        # - name: align
+        #   label: Alignment
+        #   class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
+        #   sortOptions: false
+        #   options:
+        #     - name: left
+        #       value: left
+        #       label: Left
+        #     - name: center
+        #       value: center
+        #       label: Center
+        #       selected: true
+        #     - name: right
+        #       value: right
+        #       label: Right
 actions: !include /gato-template/dialogs/common/actions-block.yaml
