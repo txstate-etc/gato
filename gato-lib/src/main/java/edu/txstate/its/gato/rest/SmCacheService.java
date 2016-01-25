@@ -1,4 +1,4 @@
-package edu.txstate.its.gato;
+package edu.txstate.its.gato.rest;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

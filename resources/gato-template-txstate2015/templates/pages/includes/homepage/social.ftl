@@ -1,5 +1,4 @@
-[#assign service = restfn.getService("smcache", "edu.txstate.its.gato.SmCacheService")]
-[#assign response = service.all() /]
+[#assign service = restfn.getService("smcache", "edu.txstate.its.gato.rest.SmCacheService")]
 
 [#macro timestamp val]
   [#if val?has_content]
@@ -10,6 +9,9 @@
   [/#if]
 [/#macro]
 
+[#attempt]
+[#assign response = service.all() /]
+[#if response?has_content]
 <div id="social" class="content-row main three-col">
   <div class="content-row-content">
 
@@ -133,3 +135,7 @@
             
   </div>
 </div>
+[/#if]
+[#recover]
+  <!-- ERROR: Failed to get social media content! -->
+[/#attempt]
