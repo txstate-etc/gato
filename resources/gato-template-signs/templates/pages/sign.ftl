@@ -3,7 +3,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-signs/css/signs.compiled.css"/>
+		<link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-signs/css/sign.compiled.css"/>
     [#list ['gato-lib/js/prototype.js',
             'gato-lib/js/scriptaculous/scriptaculous.js',
             'gato-lib/js/scriptaculous/effects.js',
@@ -16,7 +16,7 @@
     [@meta publisher /]
     [@customCSS page ancestorstopdown /]
     <script type="text/javascript" src="${gf.replaceExtension(cmsfn.link(page), 'js')}"></script>
-    [@title publisher /]
+    [@title "Texas State University" /]
     [@favicons /]
     [@javascriptvariables /]
     [@cms.page /]
@@ -35,7 +35,7 @@
   	[#else]
       [#assign stylestring='fade,slide']
     [/#if]
-		[cms.area name="contentParagraph" contextAttributes={styles: stylestring}/]
+		[@cms.area name="contentParagraph" contextAttributes={'styles': stylestring}/]
 		[@cssjsmodals /]
 	</body>
 </html>

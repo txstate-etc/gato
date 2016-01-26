@@ -2,7 +2,7 @@ templateScript: /gato-template-signs/templates/pages/sign.ftl
 renderType: site
 visible: true
 title: Digital Sign
-dialog: gato-template:pages/sign-properties
+dialog: gato-template-signs:pages/sign-properties
 areas:
   customcss:
     !include /gato-component-cssjs/templates/areas/customcss.yaml

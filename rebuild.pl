@@ -28,6 +28,8 @@ our @sassfiles = ('resources/gato-template-tsus/css/tsus-home.scss',
                   'resources/gato-template-txstate2009/css/color-picker.scss',
                   'resources/gato-template-library/css/library.scss',
                   'resources/gato-template-library/css/mobile.scss',
+                  'resources/gato-template-signs/css/sign.scss',
+                  'resources/gato-template-signs/css/schedule.scss',
                   'resources/gato-lib/css/font-awesome.scss');
 our $sasscompressed = 1;
 our $module = "";
