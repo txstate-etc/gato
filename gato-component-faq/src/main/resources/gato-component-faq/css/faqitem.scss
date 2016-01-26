@@ -1,50 +1,64 @@
 .gato-faq-expand-collapse {
   margin-bottom: 10px;
+  font-size: 1.5rem;
 }
 
 .txst-faqitem .txst-faqitem-question, .faq-hierarchy > .txst-faq-group-title {
   margin: 0;
   padding: 0;
+  box-shadow: 0px 0px 0px 1px #d1c7b7; 
+  
   a {
     display: block;
     margin: 0;
-    padding: 14px 25px 12px 25px;
-    font-size: 18px;
-    font-weight: normal;
+    padding: 1.2rem 2rem;
+    font-size: 1.8rem;
+    font-weight: 500;
     text-decoration: none;
-    line-height: 20px;
-    border-bottom: 1px solid $gemini-border;
-    border-top: 1px solid $lightlighter; //need to define this for each color group?
+    line-height: 2.8rem;
+    border-bottom: none;
+    border-top: none;
     background-color: $gemini-bg;
     color: $gemini-text;
     &:hover, &.active {
-      background-color: $gemini-comp-bg;
+      background-color: $dark-sandstone;
       color: $gemini-comp-text;
     }
   }
+}
+.txst-faqitem .txst-faqitem-question{
+  margin: 1px;
+}
+
+.faq-hierarchy > .txst-faq-group-title{
+  margin: 1px !important;
 }
 
 .txst-faqitem {
   .txst-faqitem-answer {
     overflow: hidden;
-    padding: 18px 40px;
-    border-left: 1px solid $gemini-bg;
-    border-right: 1px solid $gemini-bg;
+    padding: 1.5rem 3rem;
   }
 }
 
 body {
+  .faq-hierarchy{
+    margin-top: 2rem;
+  }
   .faq-hierarchy > .txst-faqitem{
-    border-bottom: 1px solid #e8e3db;
+    box-shadow: inset 0px 0px 0px 1px $sandstone;
   }
   .faq-hierarchy .txst-faq-group .txst-faqitem {
-    .txst-faqitem-question a{
-      background: none;
-      border-top: none;
-      border-bottom: none;
-      font-weight: bold;
-      font-size: 1.8rem;
-      padding: 5px 0px 5px 5px;
+    .txst-faqitem-question {
+      box-shadow: none;
+      a{
+        background: none;
+        border-top: none;
+        border-bottom: none;
+        font-weight: bold;
+        font-size: 1.8rem;
+        padding: 5px 0px 5px 5px;
+      }
     }
     .txst-faqitem-answer{
       border-left: none;
@@ -69,7 +83,6 @@ body {
   }
 
   .faq-hierarchy > .txst-faq-group{
-    border-left: 1px solid $gemini-bg;
-    border-right: 1px solid $gemini-bg;
+    box-shadow: inset 0px 0px 0px 1px $sandstone;
   }
 }
