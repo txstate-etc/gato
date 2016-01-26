@@ -1,3 +1,23 @@
+#btnSelectIcon{
+    color: white;
+    background: #666;
+    border-radius:0px;
+    margin-left: 5px;
+    border: 0px;
+}
+
+#btnSelectIcon:hover{
+    background: #444;
+}
+
+.ui-widget-header{
+    border-color: #666;
+    background: #666;
+}
+
+.ui-dialog-titlebar-close{
+    display:none;
+}
 
 .icon-picker-items{
     margin-top: 5px;
@@ -45,6 +65,28 @@ label.icon-picker-item input[type=radio]:checked + span{
 
 .preview-name{
     font-size: 0.5em;
+}
+
+.ui-dialog-buttonset .btnSaveIcon{
+    color: white;
+    background: #689600;
+    border: 0px;
+    border-radius: 0px;
+}
+ 
+.btnSaveIcon:hover{
+    background: #3E5900;
+}
+
+.ui-dialog-buttonset .btnCancelIcon{
+    color: white;
+    border: 0px;
+    border-radius: 0px;
+    background: #666;
+}
+
+.btnCancelIcon:hover{
+    background: #444;
 }
 
 #icon-select-button{

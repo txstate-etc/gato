@@ -69,12 +69,18 @@ function initIconPicker(def, node, el, tmpl) {
         width: 450,
         height: 400,
         maxHeight:450,
-        buttons: {
-            "Select Icon": save,
-            Cancel: function() {
-                dialog.dialog( "close" );
+        buttons: [
+            {
+                text: "Cancel",
+                "class": "btnCancelIcon",
+                click: function() { dialog.dialog( "close" );}
+            },
+            {
+                text: "Select Icon",
+                "class": "btnSaveIcon",
+                click: save
             }
-        },
+        ],
         open: onOpen
     });
 
