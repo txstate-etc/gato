@@ -75,7 +75,10 @@ function initIconPicker(def, node, el, tmpl) {
             {
                 text: "Cancel",
                 "class": "btnCancelIcon",
-                click: function() { dialog.dialog( "close" );}
+                click: function() { 
+                    updatePreview(initialIcon);
+                    dialog.dialog( "close" );
+                }
             },
             {
                 text: "Select Icon",
