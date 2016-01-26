@@ -1,5 +1,6 @@
 .gato-faq-expand-collapse {
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
 }
 
 .txst-faqitem .txst-faqitem-question, .faq-hierarchy > .txst-faq-group-title {
@@ -8,17 +9,17 @@
   a {
     display: block;
     margin: 0;
-    padding: 14px 25px 12px 25px;
-    font-size: 18px;
-    font-weight: normal;
+    padding: 1.2rem 2rem;
+    font-size: 1.8rem;
+    font-weight: 500;
     text-decoration: none;
-    line-height: 20px;
-    border-bottom: 1px solid $gemini-border;
-    border-top: 1px solid $lightlighter; //need to define this for each color group?
+    line-height: 2.8rem;
+    border-bottom: none;
+    border-top: none;
     background-color: $gemini-bg;
     color: $gemini-text;
     &:hover, &.active {
-      background-color: $gemini-comp-bg;
+      background-color: $gemini-border;
       color: $gemini-comp-text;
     }
   }
@@ -31,11 +32,19 @@
     border-left: 1px solid $gemini-bg;
     border-right: 1px solid $gemini-bg;
   }
+  .txst-faqitem-question {
+    box-shadow: 0px 0px 0px 1px $gemini-comp-bg; margin: 1px;
+  }
 }
 
 body {
+  .faq-hierarchy {
+    margin-top: 2rem;
+  }
+
   .faq-hierarchy > .txst-faqitem{
-    border-bottom: 1px solid #e8e3db;
+    border-bottom: none;
+    box-shadow: inset 0px 0px 0px 1px $gemini-bg;
   }
   .faq-hierarchy .txst-faq-group .txst-faqitem {
     .txst-faqitem-question a{
@@ -49,8 +58,7 @@ body {
     .txst-faqitem-answer{
       border-left: none;
       border-right: none;
-      padding: 5px 0px 5px 5px;
-
+      padding: 1.5rem 3rem;
     }
   }
 
