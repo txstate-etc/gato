@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE module SYSTEM "module.dtd" >
+<module>
+  <name>gato-template-signs</name>
+  <displayName>${project.name}</displayName>
+  <description>${project.description}</description>
+  <versionHandler>edu.txstate.its.gato.setup.GatoSignsVersionHandler</versionHandler>
+  <version>${project.version}</version>
+  <dependencies>
+    <dependency>
+      <name>core</name>
+      <version>5.4/*</version>
+    </dependency>
+    <dependency>
+      <name>rendering</name>
+      <version>5.4/*</version>
+    </dependency>
+  </dependencies>
+</module>

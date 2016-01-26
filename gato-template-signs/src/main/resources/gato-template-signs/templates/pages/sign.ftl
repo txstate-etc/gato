@@ -4,7 +4,9 @@
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-signs/css/sign.compiled.css"/>
-    [#list ['gato-lib/js/prototype.js',
+    [#list ['gato-lib/js/jquery.js',
+            'gato-lib/js/jquery-noconflict.js',
+            'gato-lib/js/prototype.js',
             'gato-lib/js/scriptaculous/scriptaculous.js',
             'gato-lib/js/scriptaculous/effects.js',
             'gato-lib/js/gato-lib.js',
