@@ -11,6 +11,7 @@ function initIconPicker(def, node, el, tmpl) {
 
     //update the preview in the icon picker AND in the main dialog
     function updatePreview(icon){
+        console.log('updating preview');
         $('.preview-icon').removeClass(function(index,css){
             return (css.match(/(^|\s)fa\S+/g) || []).join(' ');
         }).addClass('fa').addClass(icon);
@@ -25,8 +26,9 @@ function initIconPicker(def, node, el, tmpl) {
     }
 
     //there is something going wrong in here.
+    //added the "off('change')" to make sure the event handler is only added once
     function attachIconClickHandlers(){
-        $('input[type=radio][name=iconselect]').on('change', function(event) {
+        $('input[type=radio][name=iconselect]').off('change').on('change', function(event) {
            $(this).prop("checked", true);
            updatePreview($(this).val());
         });
