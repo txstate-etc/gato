@@ -59,15 +59,6 @@ a:hover { text-decoration: underline; }
   }
   a {
     color: #836c31;
-    &.mailto {
-      text-decoration: none !important;
-      background: url(content/images/mail-arrow.png) no-repeat top left;
-      padding-left: 16px;
-      height: 16px;
-      &:hover {
-        text-decoration: none;
-      }
-    }
   }
   ul {
     list-style-type: disc;
