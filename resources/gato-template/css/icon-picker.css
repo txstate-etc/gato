@@ -1,25 +1,28 @@
+
 .icon-picker-items{
     margin-top: 5px;
     max-width: 400px;
     max-height: 300px;
-    overflow-y: auto;
+    padding: 5px;
+    width: 85%;
 }
 
 .icon-picker-item {
     float: left;
-    width: 14px;
-    height: 14px;
-    padding: 12px;
     margin: 0px 12px 12px 0px;
     text-align: center;
     cursor: pointer;
-    border-radius: 3px;
-    font-size: 14px;
     color: inherit;
-    border: 1px solid #666;
 }
 
-.icon-picker-selected{
+label.icon-picker-item input[type=radio] + span{
+    width: 14px;
+    height:14px;
+    border: 1px solid black;
+    padding: 12px;
+}
+
+label.icon-picker-item input[type=radio]:checked + span{
     outline: 5px solid #93BBC4;
 }
 
@@ -28,11 +31,26 @@
     position: absolute;
 }
 
-#preview-icon{
+.preview{
+    display: inline-block;
+    position: fixed;
+    margin-left: 20px;
+    text-align: center;
+}
+
+.preview-icon{
     font-size: 3rem;
     padding: 3px;
 }
 
+.preview-name{
+    font-size: 0.5em;
+}
+
 #icon-select-button{
     font-size: 0.9rem; 
+}
+
+#icon-modal{
+    background: #FFF;
 }
