@@ -105,6 +105,10 @@
   .formelement {
     margin-bottom: 3rem;
     max-width: 60rem;
+
+    >select{
+      width: 100%;
+    }
   }
   .txst-khan-alert {
     position: relative;
@@ -129,9 +133,6 @@
   }
   textarea{
     max-width: 60rem;
-  }
-  select{
-    width: 100%;
   }
   input[type=file]{
     line-height: 1rem;

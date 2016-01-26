@@ -393,6 +393,8 @@ Event.observe(document, 'dom:loaded', function() {
           format: "yyyy-mm-dd",
           min: rangeLow,
           max: rangeHigh,
+          selectYears: 20,
+          selectMonths: true,
           onClose: function() { vld.registerChange(); }
         };
         jQuery(ipt).pickadate(dateOpts);
