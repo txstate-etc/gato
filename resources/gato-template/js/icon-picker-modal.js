@@ -11,7 +11,6 @@ function initIconPicker(def, node, el, tmpl) {
 
     //update the preview in the icon picker AND in the main dialog
     function updatePreview(icon){
-        console.log('updating preview');
         $('.preview-icon').removeClass(function(index,css){
             return (css.match(/(^|\s)fa\S+/g) || []).join(' ');
         }).addClass('fa').addClass(icon);
@@ -25,8 +24,6 @@ function initIconPicker(def, node, el, tmpl) {
         dialog.dialog("close");
     }
 
-    //there is something going wrong in here.
-    //added the "off('change')" to make sure the event handler is only added once
     function attachIconClickHandlers(){
         $('input[type=radio][name=iconselect]').off('change').on('change', function(event) {
            $(this).prop("checked", true);
@@ -42,6 +39,36 @@ function initIconPicker(def, node, el, tmpl) {
             $('input[type=radio][name=iconselect][value='+val+']').prop('checked', true);
         }
         attachIconClickHandlers();
+    }
+
+    function initializeDialog(){
+        dialog = $( "#icon-modal" ).dialog({
+            modal: true,
+            autoOpen: false,
+            width: 450,
+            height: 400,
+            maxHeight:450,
+            buttons: [
+                {
+                    text: "Cancel",
+                    "class": "btnCancelIcon",
+                    click: function() { 
+                        updatePreview(initialIcon);
+                        dialog.dialog( "close" );
+                    }
+                },
+                {
+                    text: "Select Icon",
+                    "class": "btnSaveIcon",
+                    click: save
+                }
+            ],
+            open: onOpen,
+            close: function(event, ui){
+                dialog.dialog("destroy").hide();
+            }
+        });
+        return dialog;
     }
 
     var html = "";
@@ -65,35 +92,13 @@ function initIconPicker(def, node, el, tmpl) {
         updatePreview(initialIcon);
     }
 
-    var dialog = $( "#icon-modal" ).dialog({
-        modal: true,
-        autoOpen: false,
-        width: 450,
-        height: 400,
-        maxHeight:450,
-        buttons: [
-            {
-                text: "Cancel",
-                "class": "btnCancelIcon",
-                click: function() { 
-                    updatePreview(initialIcon);
-                    dialog.dialog( "close" );
-                }
-            },
-            {
-                text: "Select Icon",
-                "class": "btnSaveIcon",
-                click: save
-            }
-        ],
-        open: onOpen,
-        close: function(event, ui){
-            dialog.dialog("destroy").remove();
-        }
-    });
+    var dialog = initializeDialog();
 
     //open the dialog when the Select Icon button is clicked
     $( "#btnSelectIcon" ).button().on( "click", function() {
+      if(!($('#icon-modal').hasClass("ui-dialog-content"))){
+        dialog = initializeDialog();
+      }  
       dialog.dialog( "open" );
     });
 }
