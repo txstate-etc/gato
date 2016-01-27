@@ -86,7 +86,10 @@ function initIconPicker(def, node, el, tmpl) {
                 click: save
             }
         ],
-        open: onOpen
+        open: onOpen,
+        close: function(event, ui){
+            dialog.dialog("destroy").remove();
+        }
     });
 
     //open the dialog when the Select Icon button is clicked
