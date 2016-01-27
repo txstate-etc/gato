@@ -30,7 +30,10 @@
     }
 }
 
-
+.search_bar{
+  width: 25rem;
+  box-shadow: inset 0 -2px $gold;
+}
 .txst_search {
     float: right;
     margin-top: 18px;
@@ -42,15 +45,12 @@
     input.search {
         padding-left: 0; 
         font-weight: 500; 
-        box-shadow: inset 0 -2px $gold;
-        width: 250px;
+        width: 90%;
         background: transparent none repeat scroll 0% 0%;
         border: medium none;
         font-size: 1.5rem;
         border-radius: 0px;
         color: $charcoal;
-        position: absolute;
-        right: 0px;
         height: 30px;
         &::-webkit-input-placeholder { color: $gold; opacity: 1; font-weight: normal; }
         &:-moz-placeholder { color: $gold; opacity: 1; font-weight: normal; }
