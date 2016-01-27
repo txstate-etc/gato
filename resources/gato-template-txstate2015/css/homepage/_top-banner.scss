@@ -70,10 +70,13 @@ div#homepage-banner {
     padding-right: 0;
 
     .txst_search {
+      .search_bar{
+        width: 30rem;
+      }
       margin-top: 9px;
       input.search {
         font-size: 1.6rem;
-        width: 30rem;
+        width: 85%;
       } 
     }
 
