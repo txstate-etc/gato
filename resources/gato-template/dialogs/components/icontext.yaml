@@ -16,19 +16,19 @@ form:
           styles: [gato-lib/js/jquery-ui/jquery-ui.min.css, gato-lib/css/font-awesome.compiled.css, gato-template/css/icon-picker.css]
           description: Select an icon from the Font Awesome Icon library
         - name: title
-          label: Title (optional)
+          label: Title
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           maxLength: 25
           description: Add a title to your icon and text, 25 characters or less.
         - name: text
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-          label: Text (optional)
+          label: Text
           rows: 4
           maxLength: 150
           description: Text content to go with your icon, 150 characters or less.
         - name: link
           class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
-          label: Link (optional)
+          label: Link 
           targetWorkspace: website
           appName: pages
           identifierToPathConverter:
