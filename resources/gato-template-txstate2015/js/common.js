@@ -67,10 +67,20 @@ jQuery(document).ready(function($) {
   });
 
   // Mobile navigation
+  var slideoutPadding = 300;
+  //IE9 does not support window.matchMedia
+  if (window.matchMedia && window.matchMedia("(max-width: 350px)").matches) {
+    /* the viewport width <= 350px */
+    slideoutPadding = 275;
+  }
+  else{
+    //since we can't decrease the slideout padding for IE9, don't make the menu smaller either
+    jQuery('.slideout-menu').css("width", "300px");
+  }
   var slideout = new Slideout({
     'panel': document.getElementById('panel'),
     'menu': document.getElementById('menu'),
-    'padding': 300,
+    'padding' : slideoutPadding,
     'tolerance': 70,
     'side': 'right',
     'duration': 300,

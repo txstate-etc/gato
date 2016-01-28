@@ -28,8 +28,13 @@
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     display: none;
+    @media screen and (max-width: 350px) {
+      width: 275px;
+    }
 }
-.slideout-panel {position:relative; z-index: 1;}
+.slideout-panel {
+  position:relative; z-index: 1;
+}
 .slideout-open, .slideout-open body, .slideout-open .slideout-panel {overflow: hidden;}
 .slideout-open .slideout-menu {display: block;}
 
