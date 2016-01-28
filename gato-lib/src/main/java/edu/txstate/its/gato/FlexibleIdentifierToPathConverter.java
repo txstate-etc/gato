@@ -14,7 +14,12 @@ public class FlexibleIdentifierToPathConverter extends BaseIdentifierToPathConve
   protected final Pattern UUID_PATTERN = Pattern.compile("[a-f0-9]{8}-[a-f0-9]{4}-[1-5][a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}");
   @Override
   public String convertToModel(String path, Class<? extends String> targetType, Locale locale) throws ConversionException {
-    String ret = super.convertToModel(path, targetType, locale);
+    String ret = null;
+    try {
+      ret = super.convertToModel(path, targetType, locale);
+    } catch (Exception e) {
+      // if it does not convert, just return it as is
+    }
     if (ret == null && !StringUtils.isBlank(path)) return path;
     return ret;
   }
