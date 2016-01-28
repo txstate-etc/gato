@@ -1,7 +1,7 @@
 [#include "/gato-template/templates/includes/head.ftl"]
 
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
 <head>
   [@templatejs scripts=['gato-template-ua/js/accordion.js']/]
   <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-ua/css/home.compiled.css"/>

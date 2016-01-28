@@ -1,7 +1,7 @@
 [#include "/gato-template/templates/includes/head.ftl"]
 
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
 <head>
   [@templatejs scripts=['gato-template-library/js/searchbox.js',
                         'gato-template-library/js/library.js',

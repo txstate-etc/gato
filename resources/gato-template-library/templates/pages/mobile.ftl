@@ -1,6 +1,6 @@
 [#include "/gato-template/templates/includes/head.ftl"]
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   [@templatejs scripts=['gato-template-library/js/searchbox.js','gato-template-library/js/mobile.js']/]
   <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-library/css/mobile.compiled.css"/>

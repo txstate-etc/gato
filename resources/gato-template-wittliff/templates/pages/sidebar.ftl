@@ -1,7 +1,7 @@
 [#include "/gato-template-wittliff/templates/includes/init.ftl"]
 
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
 <head>
   [@templatejs scripts=['gato-template-wittliff/js/wittliff.js']/]
   <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-wittliff/css/sidebar.compiled.css"/>

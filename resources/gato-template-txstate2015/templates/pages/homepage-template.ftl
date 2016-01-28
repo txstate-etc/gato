@@ -2,7 +2,7 @@
 [#import "includes/search.ftl" as search]
 
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
   <head>
     [#assign jsscripts = [
       'gato-template-txstate2015/js/jquery-scrolltofixed-min.js',

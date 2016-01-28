@@ -6,7 +6,7 @@
   [/#if]
 [#else]
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
 <head>
   <title>Redirect</title>
   [@cms.init /]

@@ -1,7 +1,7 @@
 [#include "/gato-template/templates/includes/head.ftl"]
 
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
   <head>
     [@templatejs scripts=['gato-template-tsus/js/table-hover.js', 'gato-template-tsus/js/fixlineup.js']/]
     <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-tsus/css/standard.compiled.css"/>

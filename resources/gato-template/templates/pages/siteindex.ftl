@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
 <head>
   <title>Gato Site Index</title>
   [@cms.init/]

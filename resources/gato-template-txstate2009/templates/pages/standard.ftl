@@ -1,7 +1,7 @@
 [#include "/gato-template/templates/includes/head.ftl"]
 
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
 <head>
 	[@javascript scripts = [
 		'gato-template-txstate2009/js/main-menus.js',

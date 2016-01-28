@@ -1,6 +1,6 @@
 [#include "/gato-template/templates/includes/head.ftl"]
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   [@templatejs scripts=[]/]
   <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-txstate2009/css/mobile.compiled.css"/>
