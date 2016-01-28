@@ -73,10 +73,7 @@ jQuery(document).ready(function($) {
     /* the viewport width <= 350px */
     slideoutPadding = 275;
   }
-  else{
-    //since we can't decrease the slideout padding for IE9, don't make the menu smaller either
-    jQuery('.slideout-menu').css("width", "300px");
-  }
+  
   var slideout = new Slideout({
     'panel': document.getElementById('panel'),
     'menu': document.getElementById('menu'),
@@ -86,6 +83,10 @@ jQuery(document).ready(function($) {
     'duration': 300,
     'touch': false
   });
+  if(!window.matchMedia){
+    //since we can't decrease the slideout padding for IE9, don't make the menu smaller either
+    jQuery('.slideout-menu').css("width", "300px");
+  }
   jQuery('#menu').css('display', '');
 
   jQuery('.toggle-button').on("click", function(e){
