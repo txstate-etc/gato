@@ -3,7 +3,7 @@
 
 [#macro buildIconText]
     <p class="icontext-icon ${iconColor}">
-        <i class="fa ${content.icon!"fa-cog"}"></i>
+        <i class="fa ${content.icon!"fa-paw"}"></i>
     </p>
     [#if content.title?has_content]
         <h3 class="icontext-title">${content.title}</h3>

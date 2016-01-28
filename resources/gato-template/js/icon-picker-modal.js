@@ -38,6 +38,9 @@ function initIconPicker(def, node, el, tmpl) {
         if(val){
             $('input[type=radio][name=iconselect][value='+val+']').prop('checked', true);
         }
+        else{
+            $('input[type=radio][name=iconselect][value=fa-paw]').prop('checked', true);
+        }
         attachIconClickHandlers();
     }
 
@@ -84,12 +87,15 @@ function initIconPicker(def, node, el, tmpl) {
     html += '</div>';//close preview
     html += '</div>';//close icon-modal
     html += '<span class="preview-icon"></span>';
-    html += '<button id="btnSelectIcon">Select Icon</button>';
+    html += '<button id="btnSelectIcon">Select New Icon</button>';
     $(el).append(html);
 
     var initialIcon = $('input[type=hidden].icon').val();
     if(initialIcon){
         updatePreview(initialIcon);
+    }
+    else{
+        updatePreview("fa-paw");
     }
 
     var dialog = initializeDialog();

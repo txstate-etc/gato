@@ -10,6 +10,11 @@
     background: #444;
 }
 
+.maxlength-indicator{
+    color: black;
+    font-size: 15px;
+}
+
 .ui-widget-header{
     border-color: #666;
     background: #666;
