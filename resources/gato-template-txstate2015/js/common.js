@@ -66,27 +66,39 @@ jQuery(document).ready(function($) {
     jQuery('html').velocity('scroll', { duration: 500 });
   });
 
-  // Mobile navigation
-  var slideoutPadding = 300;
-  //IE9 does not support window.matchMedia
-  if (window.matchMedia && window.matchMedia("(max-width: 350px)").matches) {
-    /* the viewport width <= 350px */
-    slideoutPadding = 275;
+  var resizeTimer,slideout;
+  function resizeSlideout(){ 
+    var slideoutPadding = 300;
+    //IE9 does not support window.matchMedia
+    if (window.matchMedia && window.matchMedia("(max-width: 350px)").matches) {
+      /* the viewport width <= 350px */
+      slideoutPadding = 275;
+    }
+
+    if(slideout){
+      slideout.destroy();
+    }
+    
+    slideout = new Slideout({
+      'panel': document.getElementById('panel'),
+      'menu': document.getElementById('menu'),
+      'padding' : slideoutPadding,
+      'tolerance': 70,
+      'side': 'right',
+      'duration': 300,
+      'touch': false
+    });
+    if(!window.matchMedia){
+      //since we can't decrease the slideout padding for IE9, don't make the menu smaller either
+      jQuery('.slideout-menu').css("width", "300px");
+    }
   }
-  
-  var slideout = new Slideout({
-    'panel': document.getElementById('panel'),
-    'menu': document.getElementById('menu'),
-    'padding' : slideoutPadding,
-    'tolerance': 70,
-    'side': 'right',
-    'duration': 300,
-    'touch': false
+  $(window).resize(function(){
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(resizeSlideout, 250);
   });
-  if(!window.matchMedia){
-    //since we can't decrease the slideout padding for IE9, don't make the menu smaller either
-    jQuery('.slideout-menu').css("width", "300px");
-  }
+  resizeSlideout();
+
   jQuery('#menu').css('display', '');
 
   jQuery('.toggle-button').on("click", function(e){
