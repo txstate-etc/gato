@@ -130,8 +130,8 @@
             
           <div class="solo-bailout">
             <p>
-              <a id="news-service" href="http://www.txstate.edu/news" class="solo-bailout-button">
-                Official News Service<i class="button-chevron fa fa-chevron-right"></i>
+              <a id="news-service" href="/news-archive" class="solo-bailout-button">
+                Media Relations<i class="button-chevron fa fa-chevron-right"></i>
               </a>
             </p>
           </div>
