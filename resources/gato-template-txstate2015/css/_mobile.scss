@@ -43,6 +43,11 @@
   font-size: 1.8rem;
   ul {list-style: none; padding: 0; margin: 0;}
   .txst_mobile_search {
+
+    .search_bar{
+      width: 100%;
+    }
+
     input.search {
       width: 82%;
       border: 10px solid $mobile-search-border;
