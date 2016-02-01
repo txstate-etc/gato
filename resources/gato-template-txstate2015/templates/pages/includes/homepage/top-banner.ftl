@@ -29,7 +29,13 @@
       <nav class="homepage-banner-nav">
         <div class="homepage-banner-nav-content">
 
-          <div class="audience-link-tabs">
+          <div class="homepage-banner-nav-logo">
+            <a href="http://www.txstate.edu">
+              <img src="${ctx.contextPath}/.resources/gato-template-txstate2015/images/txst-secondary.png" alt="Texas State University" />
+            </a>
+          </div>
+
+          <div class="audience-link-tabs"> 
             <ul role="menubar">[#--
               --]<li role="presentation">
                   <a href="${gf.filterUrl(future.link)}" role="menuitem" aria-controls="audience-future-students" aria-selected="false" tabindex="0" id="tab-audience-future-students" class="needsclick">${gf.filterLinkTitle(future.title, future.link)}</a>
