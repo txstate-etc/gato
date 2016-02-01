@@ -49,7 +49,7 @@ public class GatoMIMEMapping {
 
   protected void addNodeToMap(Node n) throws RepositoryException {
     if (!n.hasProperty("mime-type")) { return; }
-    
+
     String mime = n.getProperty("mime-type").getString();
     String ext = n.hasProperty("extension") ? PropertyUtil.getString(n, "extension") : n.getName();
     extToMime.put(ext, mime);
@@ -62,7 +62,7 @@ public class GatoMIMEMapping {
 
   public List<String> getEquivalents(String ext) {
     if (needsReload) { loadMimeConfig(); }
-
+    ext = ext.trim();
     String mime = extToMime.get(ext);
     if (mime != null && mimeToExt.containsKey(mime)) {
       return new ArrayList<String>(mimeToExt.get(mime));
