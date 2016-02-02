@@ -52,6 +52,47 @@ h1 {
 // 	padding: 0px;
 // }
 
+#library-2012.admin{
+	.ddmenu-menubar{
+		position: relative;
+		top: auto;
+		left: auto;
+		div.ddmenu-menubaritem{
+			margin-right: 0px;
+		}
+		a.ddmenu-menubaritem {
+		    color: #222;
+		    border-left: 1px solid #BBAB92;
+		    padding: 0.8rem 1rem;
+		    font-size: 1.3rem;
+		}
+		.ddmenu-menu{
+			position: absolute;
+			z-index: 70000;
+			padding: 0px;
+			width: inherit;
+			box-shadow: none;
+			a{
+				color: #222;
+				font-size: 1.3rem;
+				padding: 0.6rem 0.8rem;
+				width: 20rem;
+				&:hover{
+					background-color: #d1c7b7;
+					text-decoration: underline;
+				}
+			}
+		}
+		.ddmenu-visible {
+			margin-left:0px;
+			a.ddmenu-menubaritem{
+				color: white;
+			}
+		}
+	}
+}
+
+
 .quick-links a {
 	color: #6c5521;
 	&:hover{
