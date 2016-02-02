@@ -267,7 +267,7 @@ jQuery(function($) {
   $('.feature-play-button a').blurclick(function(e) {
     var $slide = $(this).closest('.slide');
     // get list of siblings that have videos
-    var $slides = $slide.parent().find('.feature-play-button').closest('.slide');
+    var $slides = $slide.parent().find('.feature-play-button').closest('.slide').not('.slick-cloned');
     vmodal.open($slide, $slides);
   });
 
