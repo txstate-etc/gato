@@ -36,7 +36,7 @@ form:
             class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
           description: "Enter a full URL to an external site (http://www.google.com/) or use the \"Internal Link\" button to link to another page in this site."
           buttonSelectNewLabel: "Internal Link..."
-        - name: text
+        - name: linktext
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Link Title
           description: "Text to Display When Graphics aren't enabled. Required for Section 508 compliance."
