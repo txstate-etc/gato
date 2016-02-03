@@ -246,8 +246,7 @@ div#homepage-banner {
               }
             }
             &:last-child a { 
-              padding-right: 2.3rem; 
-              @media (max-width: $xl-breakpoint) {
+              @media (max-width: $md-breakpoint) {
                 padding-right: 2rem; 
               }
             }
