@@ -42,6 +42,7 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       .addTask(new BootstrapSingleModuleResource("config.modules.ui-admincentral.config.appLauncherLayout.groups.tools.apps.gatoappsJcrBrowser.xml"))
       .addTask(new BootstrapSingleModuleResource("config.modules.gato-lib.apps.gatoappsJcrBrowser.xml"))
       .addTask(new BootstrapSingleModuleResource("config.modules.gato-internal.rest-client.xml"))
+      .addTask(new BootstrapSingleModuleResource("config.server.IPConfig.allow-all.xml"))
       .addTask(new AddPermissionTask("Give editor role access to global-links in gatoapps workspace", "editor", GatoLib.WS_GATOAPPS, "/homepage-data/global-links", Permission.READ, true))
       .addTask(new RemovePermissionTask("Revoke editor role access to global-links in website workspace", "editor", RepositoryConstants.WEBSITE, "/homepage-data/global-links", Permission.READ))
       .addTask(new AddPermissionTask("Give main2012-editor role access to homepage-data in gatoapps workspace", "main2012-editor", GatoLib.WS_GATOAPPS, "/homepage-data", Permission.ALL, true))
