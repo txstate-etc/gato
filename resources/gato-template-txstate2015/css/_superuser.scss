@@ -16,7 +16,7 @@
   &.super-list-left {
     & > li:first-child {
       margin-left: -1.4rem;
-      @media screen and (max-width: $lg-breakpoint) {
+      @media screen and (max-width: $md-breakpoint) {
         margin-left: 0;
       }
     }
@@ -25,7 +25,7 @@
     text-align: right;
     & > li:last-child {
       margin-right: -1.4rem;
-      @media screen and (max-width: $lg-breakpoint) {
+      @media screen and (max-width: $md-breakpoint) {
         margin-right: 0;
       }
     }
