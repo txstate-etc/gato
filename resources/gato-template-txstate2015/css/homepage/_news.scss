@@ -17,6 +17,7 @@ div#news {
     letter-spacing: -1rem;
     padding: 0 2rem;
     margin-top: -1.5rem;
+    @media (max-width: $md-breakpoint){ padding: 0 1.5rem; }
     @media (max-width: $sm-breakpoint){ 
       padding: 0; 
       margin-top: 0.5rem;
@@ -33,11 +34,8 @@ div#news {
         margin-top: 2rem;
         text-align: left; 
       }
-      @media (max-width: $md-breakpoint) { 
-        width: 100%;
-        &:last-child { text-align: right; }
-      }
       @media (max-width: $sm-breakpoint) { 
+        width: 100%;
         &:last-child { text-align: center; }
       }
     }
