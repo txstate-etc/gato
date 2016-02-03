@@ -1,0 +1,98 @@
+/* style sheet for Gato Admin Information page */
+
+body	{	background-color: #FFFFFF; 
+		font-family: verdana, geneva, arial, sans-serif; 
+	}
+
+/* ------------ cell styles -------------------- */
+.textbody	{	background-color: #9999FF; 
+			font-family: verdana, geneva, arial, sans-serif; 
+			font-size: 0.8em; 
+			color: #000000;
+			}
+.text_alt	{	background-color: #FFFFFF; 
+			font-family: verdana, geneva, arial, sans-serif; 
+			font-size: 0.6em; 
+			color: #737373;
+		    }
+					
+.white_bg  {	background-color: #FFFFFF; 
+			font-family: verdana, geneva, arial, sans-serif; 
+			font-size: 0.8em; 
+			color: #000000;
+		    }
+.white_bg p {
+            font-size:1.2em;
+			margin-top:2.5em;
+			}
+.white_bg li p {
+            font-size:0.9em;
+	      margin-top:0px;
+		
+}
+.tophead	{ 	background-color: #660000; 
+			font-family: verdana, geneva, arial, sans-serif; 
+			color: #b4985a;
+		    padding-left: 20px;
+		    padding-right: 20px;
+		    padding-top: 20px;
+		    padding-bottom: 20px;
+	    	}
+	 	
+#navHorizontal  ul {
+		  font-family: arial, helvetica, sans-serif;
+		  font-size: 10px;
+		  list-style-type: none;
+		  text-align: center;
+}
+#navHorizontal ul li {
+		  display: inline;
+}
+#navHorizontal ul li a {
+		  color: #000000;
+		  text-decoration: none;
+		  padding-left: 40px;
+		  padding-right: 40px;
+		  padding-top: 6px;
+		  padding-bottom: 6px;
+		  background-color: #a78130;
+}
+#navHorizontal ul li a:hover {
+		  color: #000000;
+		  background-color: #b4985a;
+}
+	 	
+	 	
+/* ------------ heading styles ----------------- */
+h1	{	font-size: 2em; 
+		font-weight: bold; 
+		margin: 0px;
+ 	}
+h2	{	font-size: 1.5em; 
+		font-weight: bold; 
+		margin: 0px;
+ 	}
+h3	{	font-size: 1em; 
+		font-weight: bold; 
+		margin: 0px;
+ 	}
+/* ------------ list styles -------------------- */
+ul	{	list-style: square; 	}
+
+
+/* ------------ link styles -------------------- */
+a:link		{	color: #0000CC; 
+			text-decoration: underline; 
+	 	}
+a:visited	{	color: #666666; 
+			text-decoration: underline; 
+	 	} 
+a:active	{	color: #999999; 
+			text-decoration: none; 
+		}
+a:hover		{	color: #FFFFFF; 
+			text-decoration: none; 
+			background-color: #000000; 
+		}
+
+
