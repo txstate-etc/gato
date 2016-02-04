@@ -131,7 +131,7 @@
           <div class="solo-bailout">
             <p>
               <a id="news-service" href="/news-archive" class="solo-bailout-button">
-                Media Relations<i class="button-chevron fa fa-chevron-right"></i>
+                News Archive<i class="button-chevron fa fa-chevron-right"></i>
               </a>
             </p>
           </div>
