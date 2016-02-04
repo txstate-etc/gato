@@ -1,7 +1,3 @@
-[#if !model.error?has_content && model.items?has_content]
-  [#include "/gato-lib/templates/includes/accordion.ftl"]
-[/#if]
-
 [#if model.error?has_content]
 
   <div class="gato-rss-error">
@@ -31,6 +27,10 @@
         <a href="${model.feed.link}">${model.feed.link}</a><br/>
       [/#if]
     </div>
+  [/#if]
+
+  [#if model.items?has_content]
+    [#include "/gato-lib/templates/includes/accordion.ftl"]
   [/#if]
 
   [#list model.items as entry]
