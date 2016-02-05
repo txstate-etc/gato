@@ -12,6 +12,7 @@ import info.magnolia.module.delta.ChangeNodeTypeTask;
 import info.magnolia.module.delta.CreateNodeTask;
 import info.magnolia.module.delta.DeltaBuilder;
 import info.magnolia.module.delta.FindAndChangeTemplateIdTask;
+import info.magnolia.module.delta.IsAuthorInstanceDelegateTask;
 import info.magnolia.module.delta.MoveNodeTask;
 import info.magnolia.module.delta.NodeExistsDelegateTask;
 import info.magnolia.module.delta.OrderNodeBeforeTask;
@@ -43,6 +44,7 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       .addTask(new BootstrapSingleModuleResource("config.modules.gato-lib.apps.gatoappsJcrBrowser.xml"))
       .addTask(new BootstrapSingleModuleResource("config.modules.gato-internal.rest-client.xml"))
       .addTask(new BootstrapSingleModuleResource("config.server.IPConfig.allow-all.xml"))
+      .addTask(new IsAuthorInstanceDelegateTask("On Public only", (Task)null, new AddPermissionTask("Give anonymous role readonly access to subnodes in gatoapps workspace", "anonymous", GatoLib.WS_GATOAPPS, "/*", Permission.READ, false)))
       .addTask(new AddPermissionTask("Give editor role access to global-links in gatoapps workspace", "editor", GatoLib.WS_GATOAPPS, "/homepage-data/global-links", Permission.READ, true))
       .addTask(new RemovePermissionTask("Revoke editor role access to global-links in website workspace", "editor", RepositoryConstants.WEBSITE, "/homepage-data/global-links", Permission.READ))
       .addTask(new AddPermissionTask("Give main2012-editor role access to homepage-data in gatoapps workspace", "main2012-editor", GatoLib.WS_GATOAPPS, "/homepage-data", Permission.ALL, true))
