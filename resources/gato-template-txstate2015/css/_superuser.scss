@@ -42,6 +42,9 @@
       letter-spacing: 1px;
       display: block;
       padding: 1.3rem;
+      @media screen and (max-width: $xl-breakpoint) {
+        padding: 1.28rem;
+      }
       &:first-child {
         border-left: 1px solid $super-user-border;
       }
