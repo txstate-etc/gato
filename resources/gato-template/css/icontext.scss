@@ -1,36 +1,37 @@
-.page_content{
-    .icontext-icon{
-        font-size: 10rem;
-        text-align: center;
-        margin: 0;
-        -webkit-transition: all 0.2s ease-in-out;
-        -moz-transition: all 0.2s ease-in-out;
-        -o-transition: all 0.2s ease-in-out;
-        transition: all 0.2s ease-in-out;
-        backface-visibility: hidden;
-        &.color1{
-            color: $mc1-bg;
-        }
-        &.color2{
-            color: $mc2-bg;
-        }
-        &.color3{
-            color: $mc3-bg;
-        }
-        &.color4{
-            color: $mc4-bg;
-        }
-        &.color5{
-            color: $mc5-bg;
-        }
-        &.color6{
-            color: $mc6-bg;
-        }
-        &.color7{
-            color: $mc7-bg;
-        }
-    }
 
+.icontext-icon{
+    font-size: 10rem;
+    text-align: center;
+    margin: 0;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    backface-visibility: hidden;
+    &.color1{
+        color: $mc1-bg;
+    }
+    &.color2{
+        color: $mc2-bg;
+    }
+    &.color3{
+        color: $mc3-bg;
+    }
+    &.color4{
+        color: $mc4-bg;
+    }
+    &.color5{
+        color: $mc5-bg;
+    }
+    &.color6{
+        color: $mc6-bg;
+    }
+    &.color7{
+        color: $mc7-bg;
+    }
+}
+
+.column_paragraph{
     .icontext{
         display: block;
         padding: 0;
@@ -75,55 +76,57 @@
         //     float: right;
         // }
     }
-
-    //don't float left or right on in small areas
-
-    // [data-eq~="600px"] .icontext.left, [data-eq~="600px"] .icontext.right{
-    //     float: none;
-    // }
-
-    a.icontext{
-        &:hover{
-            background: transparent;
-            .icontext-icon{
-                -webkit-transform: perspective(1px) scale(1.05);
-                -moz-transform: perspective(1px) scale(1.05);
-                -ms-transform: scale(1.05);
-                -o-transform: scale(1.05);
-                transform: perspective(1px) scale(1.05);
-                &.color1{
-                    color: mix($mc1-bg, $white, 90); //10% lighter
-                }
-                &.color2{
-                    color: mix($mc2-bg, $white, 90); //10% lighter
-                }
-                &.color3{
-                    color: mix($mc3-bg, $white, 90); //10% lighter
-                }
-                &.color4{
-                    color: mix($mc4-bg, $white, 90); //10% lighter
-                }
-                &.color5{
-                    color: mix($mc5-bg, $white, 90); //10% lighter
-                }
-                &.color6{
-                    color: mix($mc6-bg, $white, 90); //10% lighter
-                }
-                &.color7{
-                    color: mix($mc7-bg, $white, 90); //10% lighter
-                }
-            }
-            .icontext-title:after{
-                width: 100%;
-                background: $khaki;
-            }
-
-        }
-        .icontext-text{
-            text-decoration: none;
-            color: #222222;
-        }
-    }
-
-    
 }
+
+//don't float left or right on in small areas
+
+// [data-eq~="600px"] .icontext.left, [data-eq~="600px"] .icontext.right{
+//     float: none;
+// }
+
+a.icontext{
+    text-decoration: none;
+    &:hover{
+        background: transparent !important;
+        .icontext-icon{
+            -webkit-transform: perspective(1px) scale(1.05);
+            -moz-transform: perspective(1px) scale(1.05);
+            -ms-transform: scale(1.05);
+            -o-transform: scale(1.05);
+            transform: perspective(1px) scale(1.05);
+            &.color1{
+                color: mix($mc1-bg, $white, 90); //10% lighter
+            }
+            &.color2{
+                color: mix($mc2-bg, $white, 90); //10% lighter
+            }
+            &.color3{
+                color: mix($mc3-bg, $white, 90); //10% lighter
+            }
+            &.color4{
+                color: mix($mc4-bg, $white, 90); //10% lighter
+            }
+            &.color5{
+                color: mix($mc5-bg, $white, 90); //10% lighter
+            }
+            &.color6{
+                color: mix($mc6-bg, $white, 90); //10% lighter
+            }
+            &.color7{
+                color: mix($mc7-bg, $white, 90); //10% lighter
+            }
+        }
+        .icontext-title:after{
+            width: 100%;
+            background: $khaki;
+        }
+
+    }
+    .icontext-text{
+        text-decoration: none;
+        color: #222222;
+    }
+}
+
+
+
