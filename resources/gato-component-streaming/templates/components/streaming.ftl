@@ -4,7 +4,7 @@
   [/#if]
   <div
     class="gatoEmbedContainer"
-    data-url="${content.videourl}"
+    data-url="${content.videourl!}"
     [#if content.videoid?has_content]data-videoid="${content.videoid}"[/#if]>
   </div>
 </div>
