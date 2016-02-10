@@ -55,7 +55,7 @@ public class SortCommand extends GatoBaseSchedulerCommand {
           isSorted = true;
           Node previousSite = null;
 
-          Iterator childNodesIterator = NodeUtil.getNodes(rootNode, NodeTypes.Page.NAME).iterator();
+          Iterator childNodesIterator = NodeUtil.getNodes(rootNode).iterator();
           while (childNodesIterator.hasNext()) {
             Node site = (Node) childNodesIterator.next();
             if (previousSite != null) {
