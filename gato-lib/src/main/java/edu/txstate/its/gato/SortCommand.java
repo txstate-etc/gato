@@ -38,7 +38,7 @@ public class SortCommand extends GatoBaseSchedulerCommand {
   }
 
   public boolean doExecute(Context context) {
-    log.info("SortCommand called. Getting JCR Session...");
+    log.info("SortCommand called. Getting JCR Session for repository {} ...", this.getRepository());
 
     try {
       Session session = MgnlContext.getJCRSession(this.getRepository());
@@ -58,13 +58,15 @@ public class SortCommand extends GatoBaseSchedulerCommand {
           Iterator childNodesIterator = NodeUtil.getNodes(rootNode, NodeTypes.Page.NAME).iterator();
           while (childNodesIterator.hasNext()) {
             Node site = (Node) childNodesIterator.next();
-            String title = PropertyUtil.getString(site, "title");
-            String prevTitle = PropertyUtil.getString(previousSite, "title");
-            if ((previousSite != null) && (title.compareToIgnoreCase(prevTitle) < 0)) {
-              log.debug("Moving " + title + " before " + prevTitle);
-              rootNode.orderBefore(site.getName(), previousSite.getName());
-              rootNode.save();
-              isSorted = false;
+            if (previousSite != null) {
+              String siteName = site.getName();
+              String prevName = previousSite.getName();
+              if (siteName.compareToIgnoreCase(prevName) < 0) {
+                log.debug("Moving " + siteName + " before " + prevName);
+                rootNode.orderBefore(siteName, prevName);
+                rootNode.save();
+                isSorted = false;
+              }
             }
             previousSite = site;
           }
@@ -73,10 +75,10 @@ public class SortCommand extends GatoBaseSchedulerCommand {
 
       }
 
-      log.info("SortCommand completed.");
+      log.info("SortCommand completed for repository {}.", this.getRepository());
       return true;
 
-    } catch (RepositoryException e) {
+    } catch (Exception e) {
       log.error("SortCommand failed for repository: {}", this.getRepository(), e);
       return false;
     }
