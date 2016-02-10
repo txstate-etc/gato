@@ -15,7 +15,7 @@ jQuery(document).ready(function ($) {
     // find the first gato-component paragraph whose top is
     // below the sidebar and expand it to full width
     resizeTimeout(function() {
-      $('.page_content .gato-component').each(function (i, cmp) {
+      $('.page_content .gato-section').each(function (i, cmp) {
         cmp = $(cmp);
         if (cmp.position().top > sidebar.position().top+sidebar.height()) {
           cmp.css('width', '100%');
