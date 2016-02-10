@@ -19,6 +19,9 @@
       overflow: hidden;
       img.bg {
         width: 100%;
+        &:hover{
+          opacity: 1;
+        }
       }
     }
     .caption {
