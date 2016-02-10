@@ -53,6 +53,12 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       .addTask(new RemovePermissionTask("Revoke main2012-editor role access to homepage-data in website workspace", "main2012-editor", RepositoryConstants.WEBSITE, "/homepage-data", Permission.ALL))
      .addTasks(installOrUpdateTasks())
     );
+
+    // register(DeltaBuilder.update("1.0.2", "")
+    //   .addTask(new BootstrapSingleModuleResource("config.modules.scheduler.config.jobs.sort-dam.xml"))
+    //   .addTasks(installOrUpdateTasks())
+    // );
+
   }
 
   protected List<Task> installOrUpdateTasks() {
