@@ -268,7 +268,7 @@ function resizeTimeout(callback) {
 		  savedHeight = vph;
 		}
 	};
-	jQuery(document).ready(myfunc);
+	jQuery(window).load(myfunc);
 	jQuery(window).resize(myfunc);
 }
 
