@@ -14,7 +14,7 @@
   &.quarters {
     width: 25%;
     [data-eq~="600px"] & { width: 50%; }
-    [data-eq~="300px"] & { width: 100%; }
+    [data-eq~="400px"] & { width: 100%; }
   }
   &.onethird {
     width: 100% * 1.0/3.0;
