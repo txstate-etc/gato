@@ -4,7 +4,7 @@
 <html lang="en">
 	<head>
 		<link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-txstate2015/css/txstate2015.compiled.css"/>
-    [@templatejs scripts=[
+    [#assign jsscripts = [
       'gato-template-txstate2015/js/jquery-scrolltofixed-min.js',
       'gato-template-txstate2015/js/respond.min.js',
       'gato-template-txstate2015/js/slideout.js',
@@ -12,9 +12,10 @@
       'gato-lib/js/fastclick.js',
       'gato-template-txstate2015/js/common.js'
     ]/]
-		[#if gf.isCacheEnvironment()]
-      <script type="text/javascript" src="gato-template-txstate2015/js/fontsdotcom.js"></script>
-		[/#if]
+    [#if gf.isCacheEnvironment()]
+      [#assign jsscripts = jsscripts + ['gato-template-txstate2015/js/fontsdotcom.js']]
+    [/#if]
+    [@templatejs scripts=jsscripts /]
 		[@templatehead/]
 	</head>
 	<body class="${cmsfn.isEditMode()?string('admin','')}">
