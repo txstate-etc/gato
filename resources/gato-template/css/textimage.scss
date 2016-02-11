@@ -24,6 +24,6 @@
 	.gato-textimage-caption {
 		background: $gemini-bg;
 		color: $gemini-text;
-		a { color: $gemini-link; }
+		a { color: $gemini-link; display: inline; }
 	}
 }
