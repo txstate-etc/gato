@@ -4,8 +4,6 @@ events:
   id: gato-component-events:components/events
 departmentdirectory:
   id: gato-component-dept-directory:components/departmentdirectory
-rss:
-  id: gato-component-rss:components/rss
 documents:
   id: gato-component-documents:components/documents
 streaming:
@@ -24,6 +22,8 @@ richeditor:
   id: gato-template:components/richeditor
 html:
   id: gato-template:components/html
+rss:
+  id: gato-component-rss:components/rss
 feature:
   id: gato-component-feature:components/feature
 separator:

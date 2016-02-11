@@ -1,6 +1,6 @@
 templateScript: /gato-component-rss/templates/components/rss.ftl
 renderType: freemarker
-title: Display RSS Feed 
+title: RSS Feed 
 description: Display the contents of an RSS feed on your site.
 dialog: gato-component-rss:components/rss
 modelClass: edu.txstate.its.gato.RssModel
