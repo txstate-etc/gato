@@ -3,15 +3,15 @@ form:
     - name: tabGeneral
       label: Link
       fields:
+        - name: text
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Link Text
         - name: link
           class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
           label: Link Target
           appName: pages
           identifierToPathConverter:
             class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
-        - name: text
-          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-          label: Link Text
         - name: newWindow
           class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
           label: New Window
