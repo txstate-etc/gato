@@ -3,9 +3,9 @@
   width: 100%;
   color: $footer-text;
   position: relative;
-  font-size: 1.5rem;
-  line-height: 2.8rem;
-  @media (min-width: $xs-breakpoint) { font-size: 1.3rem; line-height: 2.2rem; }
+  font-size: 1.3rem;
+  line-height: 2.2rem;
+  @media (max-width: $xs-breakpoint) { font-size: 1.5rem; line-height: 2.8rem; }
   a {
     padding: 5px;
     margin: -5px;
@@ -24,7 +24,8 @@
   letter-spacing: 1px;
   position: relative;
   overflow: hidden;
-  max-width: 1000px;
+  max-width: 1200px;
+  @media  (max-width: $xl-breakpoint) {max-width: 1000px;}
   a {
     text-decoration: none;
     color: $footer-text;
@@ -40,12 +41,13 @@
     width: 5rem;
     text-align: center;
     font-weight: 500;
+    font-size: 1.3rem;
     line-height: normal;
     color: $white;
     text-transform: uppercase;
     text-decoration: none;
     @include vendor-prefix(transition, all 0.2s ease-in-out);
-    @media (min-width: $xs-breakpoint) { font-size: 1.3rem; }
+    @media (max-width: $xs-breakpoint) { font-size: 1.5rem; }
     i {
       display: block;
       font-size: 1.8rem;
@@ -61,23 +63,31 @@
 
 .footer_column {
   padding: 0 2rem;
-  @media (min-width: $xs-breakpoint) {
-    width: 33.33%;
-    float: left;
+  width: 33.33%;
+  float: left;
+  @media (max-width: $xs-breakpoint) {
+    width: 100%;
+    float: none;
   }
 }
 
 .footer_column_1 {
-    margin-top: 4rem;
-    text-align: center;
+  margin-top: 0rem;
+  text-align: left;
+  @media (max-width: $xs-breakpoint) {
+    margin-top: 4rem; text-align: center;
+  }
 }
+
+
+
 .foot_linkage {
-  text-align: center;
-  margin: 0px 0px 4.5rem 0px;
+  text-align: right;
+  margin: 0px 0px 3.2rem 0px;
   list-style: none;
   padding-left: 0px;
   line-height: 3.2rem;
-  @media (min-width: $xs-breakpoint) { text-align: right; margin: 0px 0px 3.2rem 0px; }
+  @media (max-width: $xs-breakpoint) { text-align: center; margin: 0px 0px 4.5rem 0px; }
 }
 .apply_now {
     display: block;
@@ -90,46 +100,44 @@
     border-radius: 3px;
     @include vendor-prefix(transition, all 0.2s ease-in-out);
     border: 3px solid $footer-button-border;
-    padding: 2.2rem 0 !important;
-    font-size: 1.8rem;
+    padding: 1.5rem 6rem !important;
+    font-size: 1.5rem;
+    float: right;
     line-height: normal;
     &:hover {
         border-color: $footer-button-hover-border;
     }
-    @media (min-width: $xs-breakpoint) {
-      float: right;
-      font-size: 1.5rem;
+    @media (max-width: $sm-breakpoint) {
       padding: 1.5rem 5rem !important;
     }
-    @media (min-width: $sm-breakpoint) {
-      padding: 1.5rem 6rem !important;
+    @media (max-width: $xs-breakpoint) {
+      float: none;
+      font-size: 1.8rem;
+      padding: 2.2rem 0 !important;
+      
     }
 }
 
 h3.contact_us {
   margin: .5rem 0 2.5rem 0;
   font-family: $garamond;
-  font-size: 2.8rem;
+  font-size: 2.4rem;
   font-weight: normal;
   line-height: normal;
-  @media (min-width: $sm-breakpoint) { font-size: 2.4rem; }
+  @media (max-width: $sm-breakpoint) { font-size: 2.8rem; }
   a {
     padding: 0px;
   }
 }
 
 .txst_logo {
-    margin: 7rem auto;
-    @media (min-width: $sm-breakpoint) { margin-bottom: 0; }
-    max-width: 250px;
+    margin: 7rem auto 0 auto;
+    @media (max-width: $sm-breakpoint) { margin: 7rem auto; }
+    max-width: 280px;
+    @media (max-width: $xl-breakpoint) {max-width: 250px;}
 }
 .txst_logo img {width: 100%; height: auto;}
 
-@media screen and (min-width: $xs-breakpoint) {
-    .footer_column_1 {margin-top: 0; text-align: left;}
-}
 
-@media screen and (min-width: $xl-breakpoint) {
-    .footer_content {max-width: 1200px;}
-    .txst_logo {max-width: 280px;}
-}
+
+
