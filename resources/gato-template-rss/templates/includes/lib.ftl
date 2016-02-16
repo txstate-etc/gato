@@ -1,8 +1,9 @@
 [#macro rssitem node moddate=.now body='' title='' link='' guid='' enclosure={}]
   <item>
     <pubDate>
+      [#local moddate = gf.getModificationDate(node)]
       [#if !moddate?has_content]
-        [#local moddate = gf.getModificationDate(node)]
+        [#local moddate = .now]
       [/#if]
       ${moddate?string["EEE, dd MMM yyyy HH:mm:ss Z"]}
     </pubDate>
