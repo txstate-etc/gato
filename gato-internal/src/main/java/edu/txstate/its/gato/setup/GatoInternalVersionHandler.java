@@ -56,6 +56,8 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
 
     // register(DeltaBuilder.update("1.0.2", "")
     //   .addTask(new BootstrapSingleModuleResource("config.modules.scheduler.config.jobs.sort-dam.xml"))
+    //   .addTask(new BootstrapSingleModuleResource("config.modules.gato-lib.dialogs.addFolder.xml"))
+    //   .addTask(new BootstrapSingleModuleResource("config.modules.dam-app.apps.assets.subApps.browser.actions.addFolder.xml"))
     //   .addTasks(installOrUpdateTasks())
     // );
 
