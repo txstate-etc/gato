@@ -1,7 +1,7 @@
 var createInput = function(id) {
     return '<label for="'+id+'" title="'+id+'" class="icon-picker-item">'+
       '<input type="radio" name="iconselect" class="iconselect" value="'+id+'" id="'+id+'"/>'+
-      '<span class="fa ' + id +'"></span>'+
+      '<div><span class="fa ' + id +'"></span></div>'+
     '</label>'; 
 };
 
@@ -24,6 +24,17 @@ function initIconPicker(def, node, el, tmpl) {
         dialog.dialog("close");
     }
 
+    var createIconGrid = function(iconList){
+        var iconsHtml = "";
+        for (var i = 0; i < iconList.length; i++) {
+            iconsHtml += createInput(iconList[i]);
+        }
+        $('.icon-picker-items .icon-picker-item').remove();
+        $('.icon-picker-items').append(iconsHtml);
+        attachIconClickHandlers();
+        $('#no-icons').hide();
+    };
+
     function attachIconClickHandlers(){
         $('input[type=radio][name=iconselect]').off('change').on('change', function(event) {
            $(this).prop("checked", true);
@@ -41,7 +52,7 @@ function initIconPicker(def, node, el, tmpl) {
         else{
             $('input[type=radio][name=iconselect][value=fa-paw]').prop('checked', true);
         }
-        attachIconClickHandlers();
+        createIconGrid(icons);
     }
 
     function initializeDialog(){
@@ -57,6 +68,7 @@ function initIconPicker(def, node, el, tmpl) {
                     "class": "btnCancelIcon",
                     click: function() { 
                         updatePreview(initialIcon);
+                        $('#search_for').val('');
                         dialog.dialog( "close" );
                     }
                 },
@@ -76,10 +88,10 @@ function initIconPicker(def, node, el, tmpl) {
 
     var html = "";
     html += '<div id="icon-modal" title="Select Icon">';
+    html += '<input id="search_for" placeholder="Search Icons"/>';
+    html += '<div id="no-icons">No Icons Found</div>';
     html += '   <div class="icon-picker-items">';
-    for (var i = 0; i < icons.length; i++) {
-        html += createInput(icons[i]);
-    }
+
     html += '</div>';
     html += '<div class="preview">';
     html += '<span class="preview-icon"></span>';
@@ -106,5 +118,20 @@ function initIconPicker(def, node, el, tmpl) {
         dialog = initializeDialog();
       }  
       dialog.dialog( "open" );
+    });
+
+    $('#search_for').on("keyup", function(){
+        var searchVal = $(this).val();
+        function isSubstring(iconName){
+            return iconName.indexOf(searchVal) > -1;
+        }
+        var filteredIcons = icons.filter(isSubstring);
+        createIconGrid(filteredIcons);
+        if(filteredIcons.length < 1){
+            $('#no-icons').show();
+        }
+        else{
+            $('#no-icons').hide();
+        }
     });
 }

@@ -1,4 +1,4 @@
-#btnSelectIcon{
+#btnSelectIcon, #btnSearch{
     color: white;
     background: #666;
     border-radius:0px;
@@ -6,8 +6,12 @@
     border: 0px;
 }
 
-#btnSelectIcon:hover{
+#btnSelectIcon:hover, #btnSearch:hover{
     background: #444;
+}
+
+#search_for{
+    width: 300px;
 }
 
 .maxlength-indicator{
@@ -40,14 +44,28 @@
     color: inherit;
 }
 
-label.icon-picker-item input[type=radio] + span{
-    width: 14px;
-    height:14px;
+
+label.icon-picker-item input[type=radio] + div{
+    width: 18px;
+    height:18px;
     border: 1px solid black;
+    padding: 12px;
+    line-height:20px;
     padding: 12px;
 }
 
-label.icon-picker-item input[type=radio]:checked + span{
+label.icon-picker-item input[type=radio] + div span{
+    transition: font-size, 0.5s;
+    font-size:16px;
+}
+
+label.icon-picker-item input[type=radio] + div:hover span{
+    font-size:26px;
+    margin-left: -5px;
+    margin-top: -5px;
+}
+
+label.icon-picker-item input[type=radio]:checked + div {
     outline: 5px solid #93BBC4;
 }
 
@@ -59,7 +77,6 @@ label.icon-picker-item input[type=radio]:checked + span{
 .preview{
     display: inline-block;
     position: fixed;
-    margin-left: 20px;
     text-align: center;
 }
 
@@ -70,6 +87,11 @@ label.icon-picker-item input[type=radio]:checked + span{
 
 .preview-name{
     font-size: 0.5em;
+}
+
+#no-icons{
+    margin-top: 10px;
+    font-size: 1.5rem;
 }
 
 .ui-dialog-buttonset .btnSaveIcon{
