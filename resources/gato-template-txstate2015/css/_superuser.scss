@@ -45,6 +45,11 @@
       @media screen and (max-width: $xl-breakpoint) {
         padding: 1.28rem;
       }
+      @media screen and (max-width: $md-breakpoint){
+        padding-right: 1rem;
+        padding-left: 1rem;
+        font-size: 1rem;
+      }
       &:first-child {
         border-left: 1px solid $super-user-border;
       }
