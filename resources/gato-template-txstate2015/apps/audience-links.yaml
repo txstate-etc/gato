@@ -133,6 +133,7 @@ subApps:
               class: info.magnolia.ui.workbench.column.definition.MetaDataColumnDefinition
 
     contentConnector:
+      implementationClass: edu.txstate.its.gato.apputil.GatoJcrContentConnector
       includeProperties: false
       workspace: gatoapps
       rootPath: /homepage-data/audience-links
@@ -262,6 +263,7 @@ subApps:
         icon: icon-link-page
         name: mgnl:component
     contentConnector:
+      implementationClass: edu.txstate.its.gato.apputil.GatoJcrContentConnector
       workspace: gatoapps
       rootPath: /homepage-data/audience-links
       nodeTypes:

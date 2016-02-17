@@ -25,13 +25,29 @@ subApps:
           availability:
             nodeTypes:
               - mgnl:content
+        - name: deletedItem
+          label: Global Link
+          groups:
+            - name: activationActions
+              items:
+                - name: activateDeletion
+            - name: versionActions
+              items:
+                - name: showVersions
+                - name: restorePreviousVersion
+          availability:
+            nodeTypes:
+              - mgnl:component
+            rules:
+              - name: IsDeletedRule
+                implementationClass: info.magnolia.ui.framework.availability.IsDeletedRule
         - name: link
           label: Global Link
           groups:
             - name: editActions
               items:
                 - name: editLink
-                - name: deleteLink
+                - name: confirmDeletion
             - name: activationActions
               items:
                 - name: activate
@@ -68,13 +84,40 @@ subApps:
         availability:
           nodeTypes:
             - mgnl:component
-      deleteLink:
+      confirmDeletion:
         label: Delete Link
         icon: icon-delete
-        class: info.magnolia.ui.framework.action.DeleteItemActionDefinition
+        successActionName: delete
+        class: info.magnolia.ui.framework.action.ConfirmationActionDefinition
         availability:
           multiple: true
           writePermissionRequired: true
+          rules:
+            - name: IsNotDeletedRule
+              implementationClass: info.magnolia.ui.framework.availability.IsNotDeletedRule
+      delete:
+        asynchronous: true
+        command: markAsDeleted
+        class: info.magnolia.ui.framework.action.MarkNodeAsDeletedActionDefinition
+      restorePreviousVersion:
+        icon: icon-undo
+        parentNodeTypeOnly: true
+        class: info.magnolia.ui.contentapp.browser.action.RestoreItemPreviousVersionActionDefinition
+        availability:
+          multiple: true
+          writePermissionRequired: true
+      activateDeletion:
+        label: Publish Deletion
+        command: activate
+        icon: icon-publish
+        catalog: website
+        class: info.magnolia.ui.framework.action.ActivationActionDefinition
+        availability:
+          multiple: true
+          writePermissionRequired: true
+          rules:
+            - name: IsDeletedRule
+              implementationClass: info.magnolia.ui.framework.availability.IsDeletedRule
       activate:
         command: activate
         icon: icon-publish
@@ -180,6 +223,7 @@ subApps:
               class: info.magnolia.ui.workbench.column.definition.MetaDataColumnDefinition
 
     contentConnector:
+      implementationClass: edu.txstate.its.gato.apputil.GatoJcrContentConnector
       includeProperties: false
       workspace: gatoapps
       rootPath: /homepage-data/global-links
@@ -221,6 +265,7 @@ subApps:
         icon: icon-link-page
         name: mgnl:component
     contentConnector:
+      implementationClass: edu.txstate.its.gato.apputil.GatoJcrContentConnector
       workspace: gatoapps
       rootPath: /homepage-data/global-links
 
