@@ -7,6 +7,13 @@
     padding: 0.5rem;
     margin: 1rem;
     text-transform: uppercase;
+    a{
+      color: white;
+      &:hover{
+        background: transparent;
+      }
+      line-height: 2rem;
+    }
   }
   .side_nav_header {
     margin: 0;

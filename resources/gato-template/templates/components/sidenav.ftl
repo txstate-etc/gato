@@ -2,7 +2,9 @@
 [#include "/gato-template/templates/includes/commonmacros.ftl"]
 <div class="side_nav ${(content.title?has_content || content.type == 'auto2')?string('nav-with-title','nav-without-title')}">
   [#if cmsfn.isEditMode() && ctx.inheritedfrom?has_content]
-    <div class="inheritedalert">Inherited from ${gf.nodeTitle(ctx.inheritedfrom)}</div>
+    <div class="inheritedalert">
+      Inherited from ${gf.nodeTitle(ctx.inheritedfrom)} <a href="${cmsfn.link(ctx.inheritedfrom)}" role="navigation">Jump To Original</a>
+    </div>
   [/#if]
   [#if content.type == 'auto2']
     [@navloop cmsfn.children(page, "mgnl:page") ; subpage]
