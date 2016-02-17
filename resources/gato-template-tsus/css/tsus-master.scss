@@ -123,6 +123,16 @@ h3 { color: #383640 }
 	}
 }
 
+/* add padding for multiple columns */
+.layout-column{
+	padding: 0px 1rem;
+	box-sizing: border-box;
+	//don't add padding to single column layouts
+	&.full{
+		padding: 0px;
+	}
+}
+
 .tsus-rightcolumn-admin {
 	position: absolute;
 	top: -12px;
