@@ -13,8 +13,9 @@ import org.slf4j.LoggerFactory;
 
 import com.vaadin.data.Item;
 
-// Don't allow a top level page to be moved under another page
+// Don't allow a top level page to be moved under another page.
 // Dont allow a sub page to become a top level page.
+// Don't allow a sub page to be moved under a different top level page.
 public class GatoPageDropConstraint extends TemplateTypeRestrictionDropConstraint {
   private static Logger log = LoggerFactory.getLogger(GatoPageDropConstraint.class);
 
@@ -24,7 +25,8 @@ public class GatoPageDropConstraint extends TemplateTypeRestrictionDropConstrain
   }
 
   // Don't allow a top level page to be moved as a child of any node except root.
-  // Dont allow a sub page to be moved to root.
+  // Don't allow a sub page to be moved to root.
+  // Don't allow a sub page to be moved under a different top level page.
   @Override
   public boolean allowedAsChild(Item sourceItem, Item targetItem) {
     logm("allowedAsChild", sourceItem, targetItem);
@@ -35,6 +37,9 @@ public class GatoPageDropConstraint extends TemplateTypeRestrictionDropConstrain
     if (!isTopLevel(sourceItem) && isRoot(targetItem)) {
       log.debug("allowedAsChild returning false. s={}. t={}", isTopLevel(sourceItem), isRoot(targetItem));
       return false;
+    }
+    if (!isTopLevel(sourceItem)) {
+      return sameTopLevel(sourceItem, targetItem);
     }
     return super.allowedAsChild(sourceItem, targetItem);
   }
@@ -52,10 +57,14 @@ public class GatoPageDropConstraint extends TemplateTypeRestrictionDropConstrain
   }
 
   // Don't allow a top level node to be moved as a sibling of a non-top level node
+  // Don't allow a sub page to be moved under a different top level page.
   private boolean allowedAsSibling(Item sourceItem, Item targetItem) {
     if (isTopLevel(sourceItem) && !isTopLevel(targetItem)) {
       log.debug("allowedAsSibling returning false. s={}. t={}", isTopLevel(sourceItem), isTopLevel(targetItem));
       return false;
+    }
+    if (!isTopLevel(sourceItem)) {
+      return sameTopLevel(sourceItem, targetItem);
     }
     return true;
   }
@@ -72,7 +81,7 @@ public class GatoPageDropConstraint extends TemplateTypeRestrictionDropConstrain
     try {
       return "/".equals(((JcrNodeAdapter) item).getJcrItem().getPath());
     } catch (Exception ex) {
-      log.warn("Error in isTopLevel", ex);
+      log.warn("Error in isRoot", ex);
     }
     return false;
   }
@@ -89,5 +98,22 @@ public class GatoPageDropConstraint extends TemplateTypeRestrictionDropConstrain
     return false;
   }
 
+  private boolean sameTopLevel(Item sourceItem, Item targetItem) {
+    try {
+      return getTopLevel(sourceItem).isSame(getTopLevel(targetItem));
+    } catch (Exception ex) {
+      log.warn("Error in sameTopLevel", ex);
+    }
+    return false;
+  }
+
+  private Node getTopLevel(Item item) {
+    try {
+      return (Node)(((JcrNodeAdapter) item).getJcrItem().getAncestor(1));
+    } catch (Exception ex) {
+      log.warn("Error in getTopLevel", ex);
+    }
+    return null;
+  }
 
 }
