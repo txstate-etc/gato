@@ -65,6 +65,7 @@ import org.apache.jackrabbit.JcrConstants;
 public final class GatoUtils {
   private static final Pattern LINK_PATTERN = Pattern.compile("(https?://\\S+)", Pattern.CASE_INSENSITIVE);
   private static final Pattern USER_PATTERN = Pattern.compile("(^|)@(\\w+)");
+  private static final Pattern IG_USER_PATTERN = Pattern.compile("(^|)@(\\w(?:[\\w.\\-]){0,28}\\w)(?:\\W|$)");
   private static final Pattern HASHTAG_PATTERN = Pattern.compile("(^|)#(\\w+)");
   private static final Pattern ITEMKEY_PATTERN = Pattern.compile("^([a-z]+):([a-f0-9\\-]+)$");
   private static final Pattern EXTERNAL_LINK_PATTERN = Pattern.compile("^(\\w+:)?//.*$");
@@ -941,7 +942,7 @@ public final class GatoUtils {
   public String linkifyInstagram(String text) {
     if (text != null) {
       text = LINK_PATTERN.matcher(text).replaceAll("<a href=\"$1\">$1</a>");
-      text = USER_PATTERN.matcher(text).replaceAll("<a href=\"//instagram.com/$2\">$0</a>");
+      text = IG_USER_PATTERN.matcher(text).replaceAll("<a href=\"//instagram.com/$2\">$0</a>");
       text = HASHTAG_PATTERN.matcher(text).replaceAll("<a href=\"//instagram.com/explore/tags/$2/\">$0</a>");
     }
     return text;
