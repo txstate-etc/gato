@@ -1,4 +1,5 @@
-#btnSelectIcon, #btnSearch{
+/* Styles for "Select New Icon" button */
+#btnSelectIcon{
     color: white;
     background: #666;
     border-radius:0px;
@@ -6,34 +7,77 @@
     border: 0px;
 }
 
-#btnSelectIcon:hover, #btnSearch:hover{
+#btnSelectIcon:hover{
     background: #444;
 }
 
-#search_for{
-    width: 300px;
-}
-
+/* Character counter for title and text fields */
 .maxlength-indicator{
     color: black;
     font-size: 15px;
 }
 
+/* Styles for the icon picker dialog header */
+
 .ui-widget-header{
-    border-color: #666;
-    background: #666;
+    border-color: #eee;
+    background: #eee;
 }
 
-.ui-dialog-titlebar-close{
-    display:none;
+.ui-dialog .ui-dialog-titlebar{
+    padding: 5px 5px;
 }
+
+.ui-dialog-title{
+    display: none;
+}
+
+#close-icon-picker{
+    text-align: right;
+}
+
+#close-icon-picker i{
+    font-size: 15px;
+    border: 1px solid #999;
+    border-radius: 5px;
+    padding: 3px;
+    color: #999;
+    cursor: pointer;
+}
+
+/* White background for icon picker */
+#icon-modal{
+    background: #FFF;
+}
+
+/* Styles for search field */
+
+.search-wrapper{
+    position: relative;
+}
+
+#search_for{
+    width: 90%;
+    border-radius: 10px;
+    border: 1px solid #999;
+    height: 30px;
+    padding: 0px 0px 0px 30px;
+}
+
+#search_for + label{
+    position: absolute;
+    left: 7px;
+    top: 7px;
+    color: #999;
+}
+
+/* Styles for the icon picker grid */
 
 .icon-picker-items{
     margin-top: 5px;
     max-width: 400px;
     max-height: 300px;
     padding: 5px;
-    width: 85%;
 }
 
 .icon-picker-item {
@@ -42,36 +86,43 @@
     text-align: center;
     cursor: pointer;
     color: inherit;
-}
-
-
-label.icon-picker-item input[type=radio] + div{
-    width: 18px;
-    height:18px;
-    border: 1px solid black;
-    padding: 12px;
-    line-height:20px;
-    padding: 12px;
+    width: 10%;
 }
 
 label.icon-picker-item input[type=radio] + div span{
-    transition: font-size, 0.5s;
-    font-size:16px;
+    font-size:30px;
+    padding: 5px;
 }
 
-label.icon-picker-item input[type=radio] + div:hover span{
-    font-size:26px;
-    margin-left: -5px;
-    margin-top: -5px;
-}
 
 label.icon-picker-item input[type=radio]:checked + div {
-    outline: 5px solid #93BBC4;
+    outline: 4px solid #93BBC4;
+    background-color: #eee;
+}
+
+label.icon-picker-item input[type=radio]:hover + div{
+    background-color: #eee;
 }
 
 .icon-picker-item > input{
     visibility: hidden;
     position: absolute;
+}
+
+/* Message when no icons are returned from search */
+#no-icons{
+    margin-top: 10px;
+    font-size: 1.5rem;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 250px;
+    color: #999;
+}
+
+/* Styles for the previews */
+.ui-dialog-buttonpane .preview{
+    margin-left: 10px;
+    position: relative;
 }
 
 .preview{
@@ -80,46 +131,11 @@ label.icon-picker-item input[type=radio]:checked + div {
     text-align: center;
 }
 
-.preview-icon{
-    font-size: 3rem;
+.preview-icon, .hover-icon{
+    font-size: 2rem;
     padding: 3px;
 }
 
-.preview-name{
-    font-size: 0.5em;
-}
-
-#no-icons{
-    margin-top: 10px;
-    font-size: 1.5rem;
-}
-
-.ui-dialog-buttonset .btnSaveIcon{
-    color: white;
-    background: #689600;
-    border: 0px;
-    border-radius: 0px;
-}
- 
-.btnSaveIcon:hover{
-    background: #3E5900;
-}
-
-.ui-dialog-buttonset .btnCancelIcon{
-    color: white;
-    border: 0px;
-    border-radius: 0px;
-    background: #666;
-}
-
-.btnCancelIcon:hover{
-    background: #444;
-}
-
-#icon-select-button{
-    font-size: 0.9rem; 
-}
-
-#icon-modal{
-    background: #FFF;
+.preview-name, .hover-icon-name{
+    font-size: 0.8rem;
 }

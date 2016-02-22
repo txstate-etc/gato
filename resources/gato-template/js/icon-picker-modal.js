@@ -1,15 +1,15 @@
-var createInput = function(id) {
-    return '<label for="'+id+'" title="'+id+'" class="icon-picker-item">'+
-      '<input type="radio" name="iconselect" class="iconselect" value="'+id+'" id="'+id+'"/>'+
-      '<div><span class="fa ' + id +'"></span></div>'+
-    '</label>'; 
-};
-
 function initIconPicker(def, node, el, tmpl) {
 
-    var initialIcon;
+    var selectedIcon;
 
-    //update the preview in the icon picker AND in the main dialog
+    //if there is an icon saved already, return its name
+    //if not, return the default paw icon
+    function getSelectedIcon(){
+        var val = selectedIcon || $('input[type=hidden].icon').val();
+        return (val ? val : "fa-paw");
+    }
+
+    //update the preview in the icon/text dialog
     function updatePreview(icon){
         $('.preview-icon').removeClass(function(index,css){
             return (css.match(/(^|\s)fa\S+/g) || []).join(' ');
@@ -17,44 +17,7 @@ function initIconPicker(def, node, el, tmpl) {
         $('.preview-name').text(icon);
     }
 
-    //Save the icon selection
-    function save(){
-        var selected = $('input[type=radio][name=iconselect]:checked').val();
-        $('input[type=hidden].icon').val(selected).change();
-        dialog.dialog("close");
-    }
-
-    var createIconGrid = function(iconList){
-        var iconsHtml = "";
-        for (var i = 0; i < iconList.length; i++) {
-            iconsHtml += createInput(iconList[i]);
-        }
-        $('.icon-picker-items .icon-picker-item').remove();
-        $('.icon-picker-items').append(iconsHtml);
-        attachIconClickHandlers();
-        $('#no-icons').hide();
-    };
-
-    function attachIconClickHandlers(){
-        $('input[type=radio][name=iconselect]').off('change').on('change', function(event) {
-           $(this).prop("checked", true);
-           updatePreview($(this).val());
-        });
-    }
-
-    //on opening the icon picker dialog
-    function onOpen(){
-        //get the current value, if there is one
-        var val = initialIcon || $('input[type=hidden].icon').val();
-        if(val){
-            $('input[type=radio][name=iconselect][value='+val+']').prop('checked', true);
-        }
-        else{
-            $('input[type=radio][name=iconselect][value=fa-paw]').prop('checked', true);
-        }
-        createIconGrid(icons);
-    }
-
+    //create the jQuery dialog
     function initializeDialog(){
         dialog = $( "#icon-modal" ).dialog({
             modal: true,
@@ -62,53 +25,114 @@ function initIconPicker(def, node, el, tmpl) {
             width: 450,
             height: 400,
             maxHeight:450,
-            buttons: [
-                {
-                    text: "Cancel",
-                    "class": "btnCancelIcon",
-                    click: function() { 
-                        updatePreview(initialIcon);
-                        $('#search_for').val('');
-                        dialog.dialog( "close" );
-                    }
-                },
-                {
-                    text: "Select Icon",
-                    "class": "btnSaveIcon",
-                    click: save
-                }
-            ],
             open: onOpen,
+            closeOnEscape: false,
             close: function(event, ui){
+                $('#search_for').val('');
                 dialog.dialog("destroy").hide();
             }
         });
         return dialog;
     }
 
+    function createInput(id) {
+        return '<label for="'+id+'" title="'+id+'" class="icon-picker-item">'+
+          '<input type="radio" name="iconselect" class="iconselect" value="'+id+'" id="'+id+'"/>'+
+          '<div><span class="fa ' + id +'"></span></div>'+
+        '</label>'; 
+    }
+
+    //save the icon selection when an icon is clicked
+    //update the preview in the picker when the user hovers over an icon
+    function attachIconEventHandlers(){
+        $('input[type=radio][name=iconselect]').off('change').on('change', function(event) {
+           $(this).prop("checked", true);
+           updatePreview($(this).val());
+           save();
+
+        });
+        $('.icon-picker-item').hover(function(){
+            var name = $(this).find('input').val();
+            setPickerPreview(name);
+        });
+    }
+
+    function createIconGrid(iconList){
+        var iconsHtml = "";
+        for (var i = 0; i < iconList.length; i++) {
+            iconsHtml += createInput(iconList[i]);
+        }
+        $('.icon-picker-items .icon-picker-item').remove();
+        $('.icon-picker-items').append(iconsHtml);
+        attachIconEventHandlers();
+        $('#no-icons').hide();
+    }
+
+    //The preview in the picker, not the one in the icon/text dialog
+    function setPickerPreview(icon){
+        $('.hover-icon').removeClass(function(index,css){
+            return (css.match(/(^|\s)fa\S+/g) || []).join(' ');
+        }).addClass('fa').addClass(icon);
+        $('.hover-icon-name').text(icon);
+    }
+
+    function onCancel(){
+        $('#search_for').val('');
+        $('#icon-modal').dialog('close');
+    }
+
+    //called when the icon-picker opens
+    function onOpen(){
+        createIconGrid(icons);
+        //show the current icon as selected
+        $('input[type=radio][name=iconselect][value='+ getSelectedIcon() +']').prop('checked', true);
+      
+        //build the preview at the bottom of the icon picker
+        var previewHTML = '<div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">';
+        previewHTML += '<div class="preview">';
+        previewHTML += '<span class="hover-icon"></span>';
+        previewHTML += '<div class="hover-icon-name"></div>';
+        previewHTML += '</div>';
+        $('#icon-modal').after(previewHTML);
+        setPickerPreview(getSelectedIcon());
+
+        //get rid of the default close button and use a font awesome one instead
+        $('.ui-dialog-titlebar-close').hide().after('<div id="close-icon-picker"><i class="fa fa-close"></i></div>');
+
+        $('#close-icon-picker').click(onCancel);
+        //close dialog if they click off of it
+        $('.ui-widget-overlay').bind('click',function(){
+            onCancel();
+        });
+    }
+
+    //Save the icon selection in the hidden field
+    function save(){
+        var selected = $('input[type=radio][name=iconselect]:checked').val();
+        $('input[type=hidden].icon').val(selected).change();
+        selectedIcon = selected;
+        dialog.dialog("close");
+    }
+
     var html = "";
     html += '<div id="icon-modal" title="Select Icon">';
+    html += '<div class="search-wrapper">';
     html += '<input id="search_for" placeholder="Search Icons"/>';
-    html += '<div id="no-icons">No Icons Found</div>';
+    html += '<label for="search_for" class="fa fa-search" rel="tooltip" title="search"></label>';
+    html += '</div>';
     html += '   <div class="icon-picker-items">';
 
     html += '</div>';
-    html += '<div class="preview">';
-    html += '<span class="preview-icon"></span>';
-    html += '<div class="preview-name"></div>';
-    html += '</div>';//close preview
-    html += '</div>';//close icon-modal
+    html += '<div id="no-icons">No Icons Found</div>';
+    html += '</div>';
     html += '<span class="preview-icon"></span>';
     html += '<button id="btnSelectIcon">Select New Icon</button>';
     $(el).append(html);
 
-    var initialIcon = $('input[type=hidden].icon').val();
-    if(initialIcon){
-        updatePreview(initialIcon);
-    }
-    else{
-        updatePreview("fa-paw");
-    }
+    //if there is an icon saved already, display it in the preview
+    //if not, display the default icon
+    selectedIcon = getSelectedIcon();
+    updatePreview(selectedIcon);
 
     var dialog = initializeDialog();
 
@@ -120,6 +144,7 @@ function initIconPicker(def, node, el, tmpl) {
       dialog.dialog( "open" );
     });
 
+    //narrow down the displayed icons as the user types
     $('#search_for').on("keyup", function(){
         var searchVal = $(this).val();
         function isSubstring(iconName){
@@ -127,11 +152,16 @@ function initIconPicker(def, node, el, tmpl) {
         }
         var filteredIcons = icons.filter(isSubstring);
         createIconGrid(filteredIcons);
+        //if no icons match the search term, display a message
+        //and hide the preview
         if(filteredIcons.length < 1){
             $('#no-icons').show();
+            $('.preview').css('visibility', 'hidden');
         }
         else{
             $('#no-icons').hide();
+            setPickerPreview(getSelectedIcon());
+            $('.preview').css('visibility', 'visible');
         }
     });
 }
