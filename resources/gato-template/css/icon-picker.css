@@ -37,9 +37,7 @@
 }
 
 #close-icon-picker i{
-    font-size: 15px;
-    border: 1px solid #999;
-    border-radius: 5px;
+    font-size: 20px;
     padding: 3px;
     color: #999;
     cursor: pointer;
@@ -75,14 +73,13 @@
 
 .icon-picker-items{
     margin-top: 5px;
-    max-width: 400px;
     max-height: 300px;
     padding: 5px;
 }
 
 .icon-picker-item {
     float: left;
-    margin: 0px 12px 12px 0px;
+    margin: 0px 8px 12px 8px;
     text-align: center;
     cursor: pointer;
     color: inherit;
