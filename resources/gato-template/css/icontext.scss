@@ -1,6 +1,6 @@
 
 .icontext-icon{
-    font-size: 10rem;
+    font-size: 7.2rem;
     text-align: center;
     margin: 0;
     -webkit-transition: all 0.2s ease-in-out;
@@ -52,7 +52,7 @@
                 content: '';
                 display: block;
                 margin: auto;
-                height: 1px;
+                height: 2px;
                 width: 0;
                 background: transparent;
                 -webkit-transition: width 0.2s ease-in-out, background-color 0.2s ease-in-out;
@@ -89,16 +89,16 @@ a.icontext{
     &:hover{
         background: transparent !important;
         .icontext-icon{
-            -webkit-transform: perspective(1px) scale(1.05);
-            -moz-transform: perspective(1px) scale(1.05);
-            -ms-transform: scale(1.05);
-            -o-transform: scale(1.05);
-            transform: perspective(1px) scale(1.05);
+            -webkit-transform: perspective(1px) scale(1.1); 
+            -moz-transform: perspective(1px) scale(1.1); 
+            -ms-transform: scale(1.1); 
+            -o-transform: scale(1.1); 
+            transform: perspective(1px) scale(1.1);
             &.color1{
                 color: mix($mc1-bg, $white, 90); //10% lighter
             }
             &.color2{
-                color: mix($mc2-bg, $white, 90); //10% lighter
+                color: $mc2-bg;
             }
             &.color3{
                 color: mix($mc3-bg, $white, 90); //10% lighter
@@ -116,12 +116,19 @@ a.icontext{
                 color: mix($mc7-bg, $white, 90); //10% lighter
             }
         }
+
+
         .icontext-title:after{
             width: 100%;
             background: $khaki;
         }
 
     }
+
+    h3.icontext-title {
+        border-bottom: 2px solid #e8e3db;
+    }
+        
     .icontext-text{
         text-decoration: none;
         color: #222222;
