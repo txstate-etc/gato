@@ -32,6 +32,7 @@ public class GatoLibVersionHandler extends DefaultModuleVersionHandler {
 
     register(DeltaBuilder.update("1.0.2", "")
       .addTask(new BootstrapSingleResource("Bootstrap", "Bootstrap IsNotTopLevelRule into Delete Page action", "/mgnl-bootstrap/gato-lib/config.modules.pages.apps.pages.subApps.browser.actions.confirmDeletion.availability.rules.IsNotTopLevelRule.xml"))
+      .addTask(new BootstrapSingleResource("Bootstrap", "Bootstrap IsNotTopLevelRule into Delete Page action", "/mgnl-bootstrap/gato-lib/config.modules.pages.apps.pages.subApps.browser.actions.confirmDeletion.availability.rules.IsNotTopLevelRule.xml"))
       .addTasks(installOrUpdateTasks())
     );
   }
