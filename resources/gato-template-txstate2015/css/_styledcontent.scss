@@ -144,5 +144,21 @@
       border-color: $khaki;
     }
     th {background: #f4f1ed;}
+    &.header-color-gold th{
+      background: $gold;
+      color: $white;
+    }
+    &.header-color-maroon th{
+      background: $maroon;
+      color: $white;
+    }
+    &.header-color-sandstone th{
+      background: $sandstone;
+      color: $almost-black;
+    }
+    &.header-color-charcoal th{
+      background: $charcoal;
+      color: $white;
+    }
   }
 }

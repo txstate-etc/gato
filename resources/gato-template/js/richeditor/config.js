@@ -109,8 +109,6 @@
 
            });
 
-
-
            //customize table dialog
            CKEDITOR.on('dialogDefinition', function( ev ) {
 
@@ -155,18 +153,49 @@
                   return currentClasses.indexOf(val) > -1;
                 }
 
+
+                var selectHeaderColor = {
+                  type: 'select',
+                  id: 'selHeaderColor',
+                  label: 'Header Color',
+                  items: [ ['None',''], 
+                         [ 'Gold', 'header-color-gold' ], 
+                         [ 'Maroon', 'header-color-maroon' ], 
+                         [ 'Charcoal','header-color-charcoal' ], 
+                         [ 'Sandstone', 'header-color-sandstone' ] ],
+                  'default': '',
+                  onChange: function(api){
+                    for(var i=0; i<this.items.length; i++){
+                      var colorClass = this.items[i][1];
+                      if(colorClass.length > 0)
+                        removeTableCSSClass(colorClass);
+                    }
+                    addTableCSSClass(this.getValue());
+                  },
+                  setup: function (selectedTable){
+                    //the default is None.  If the table has one of the 
+                    //other color classes, set it.
+                    for(var i=0; i< this.items.length; i++){
+                      var colorClass = this.items[i][1];
+                      if(colorClass.length > 0 && hasTableCSSClass(selectedTable, colorClass)){
+                        this.setValue(colorClass);
+                      }
+                    }
+                  }
+                };
+                if(!infoTab.get('selHeaderColor')){
+                  infoTab.add(selectHeaderColor);
+                }
+
                 //Add alternate row color option
                 //If the checkbox is selected, alternate-row-color is added to the 
                 //css classes in the advanced tab
-                //TODO: It is possible to delete alternate-row-color from the classes
-                //and still have the checkbox checked.  Add onchange function to the css classes
-                //field to prevent this
                 var alternateRow = {
                   type: 'checkbox',
                   id: 'altRowColor',
                   label: 'Alternating Background Color',
                   'default': false,
-                  onChange: function(data, selectedTable){
+                  onChange: function(api){
                     if(this.getValue())
                       addTableCSSClass("alternate-row-color");
                     else
