@@ -32,7 +32,7 @@
                         <tr class="${(row_index % 2 == 0)?string("even", "odd")}">
                             [#list row?split("\t") as col]
                             [#if content.tableHeader && col_index < headers?size]
-                            <td data-label="${headers[col_index]}">
+                            <td data-label="${headers[col_index]?html}">
                             [#else]
                             <td>
                             [/#if]
