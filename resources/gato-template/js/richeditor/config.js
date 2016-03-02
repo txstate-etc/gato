@@ -101,6 +101,58 @@
            ];
            config.removeDialogTabs = 'image:advanced;link:advanced';
 
+
+           CKEDITOR.on('instanceReady', function( ev ){
+              console.log("instanceReady");
+              var tablePlugin = ev.editor.getCommand('table');
+              tablePlugin['allowedContent'] += ';table[class]{*}(*)';
+
+           });
+
+
+           //customize table dialog
+           CKEDITOR.on('dialogDefinition', function( ev ) {
+
+              var dialogName = ev.data.name;
+              var dialogDefinition = ev.data.definition;
+
+              if(dialogName === 'table' || dialogName === 'tableProperties') {
+                //Remove height, width, cellpadding, cellspacing, alignment, caption, summary, and language direction
+                var infoTab = dialogDefinition.getContents('info');
+                infoTab.remove('txtWidth');
+                infoTab.remove('txtHeight');
+                infoTab.remove('txtCellPad');
+                infoTab.remove('txtCellSpace');
+                infoTab.remove('cmbAlign');
+                infoTab.remove('txtCaption');
+                infoTab.remove('txtSummary');
+                var advTab = dialogDefinition.getContents('advanced');
+                advTab.remove('advLangDir');
+
+                //change border size to border on/off
+                var borderField = infoTab.get('txtBorder');
+                borderField['type'] = 'radio';
+                borderField['items'] = [ [ 'On', 1 ], [ 'Off', 0 ] ];
+                borderField['label'] = 'Border';
+
+              }
+
+              //Remove width, height, word-wrap, horizontal alignment, vertical alignment, border-color
+              if(dialogName === 'cellProperties') {
+                var infoTab = dialogDefinition.getContents('info');
+                infoTab.remove('width');
+                infoTab.remove('widthType');
+                infoTab.remove('height');
+                infoTab.remove('htmlHeightType');
+                infoTab.remove('wordWrap');
+                infoTab.remove('hAlign');
+                infoTab.remove('vAlign');
+                infoTab.remove('borderColor');
+                infoTab.remove('borderColorChoose');
+              }
+
+           });
+
            // Allow all elements/styles/attrs/classes except for line-height style. CKeditor 4.4 has 
            // disallowedContent list which would be ideal for this, but since we're stuck with 4.3 for now
            // we'll do it the long way.
