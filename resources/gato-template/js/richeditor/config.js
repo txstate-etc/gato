@@ -102,12 +102,13 @@
            config.removeDialogTabs = 'image:advanced;link:advanced';
 
 
+           //maybe not necessary
            CKEDITOR.on('instanceReady', function( ev ){
-              console.log("instanceReady");
               var tablePlugin = ev.editor.getCommand('table');
               tablePlugin['allowedContent'] += ';table[class]{*}(*)';
 
            });
+
 
 
            //customize table dialog
@@ -135,6 +136,49 @@
                 borderField['items'] = [ [ 'On', 1 ], [ 'Off', 0 ] ];
                 borderField['label'] = 'Border';
 
+                function addTableCSSClass(val){
+                  var cssClassesField = CKEDITOR.dialog.getCurrent().getContentElement( 'advanced', 'advCSSClasses' );
+                  var currentClasses = cssClassesField.getValue();
+                  if(currentClasses.indexOf(val) < 0){
+                    cssClassesField.setValue(currentClasses + " " + val);
+                  }
+                }
+
+                function removeTableCSSClass(val){
+                  var cssClassesField = CKEDITOR.dialog.getCurrent().getContentElement( 'advanced', 'advCSSClasses' );
+                  var currentClasses = cssClassesField.getValue();
+                  cssClassesField.setValue(currentClasses.replace(val, ""));
+                }
+
+                function hasTableCSSClass(selectedTable,val){
+                  var currentClasses = selectedTable.getAttribute("class");
+                  return currentClasses.indexOf(val) > -1;
+                }
+
+                //Add alternate row color option
+                //If the checkbox is selected, alternate-row-color is added to the 
+                //css classes in the advanced tab
+                //TODO: It is possible to delete alternate-row-color from the classes
+                //and still have the checkbox checked.  Add onchange function to the css classes
+                //field to prevent this
+                var alternateRow = {
+                  type: 'checkbox',
+                  id: 'altRowColor',
+                  label: 'Alternating Background Color',
+                  'default': false,
+                  onChange: function(data, selectedTable){
+                    if(this.getValue())
+                      addTableCSSClass("alternate-row-color");
+                    else
+                      removeTableCSSClass("alternate-row-color");
+                  },
+                  setup: function (selectedTable){
+                    this.setValue(hasTableCSSClass(selectedTable, "alternate-row-color"));
+                  }
+                };
+                if(!infoTab.get('altRowColor')){
+                  infoTab.add(alternateRow);
+                }
               }
 
               //Remove width, height, word-wrap, horizontal alignment, vertical alignment, border-color
