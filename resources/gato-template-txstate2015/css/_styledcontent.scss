@@ -118,6 +118,15 @@
     margin: 2rem 0 2rem 3rem;
     padding: 0;
   }
+
+  .rich-editor-table{
+    width:100%;
+    overflow-x:scroll;
+    table{
+      border: none;
+    }
+  }
+
   table{
     caption {
       background: $gold;

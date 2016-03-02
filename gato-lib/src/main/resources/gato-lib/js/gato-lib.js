@@ -482,3 +482,8 @@ jQuery(function($) {
      $(this).attr('role', 'navigation');
    });
 });
+
+//wrap rich editor tables in a div to make them scroll when they are too wide
+jQuery(function($){
+    $('.column_paragraph table:not(.gato-table)').wrap('<div class="rich-editor-table" />');
+});
