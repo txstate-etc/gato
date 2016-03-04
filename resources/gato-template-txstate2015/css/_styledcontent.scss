@@ -143,7 +143,10 @@
       padding: 0.5rem 1rem;
       border-color: $khaki;
     }
-    th {background: #f4f1ed;}
+    th {
+      background: $gold;
+      color: $white;
+    }
     &.header-color-gold th{
       background: $gold;
       color: $white;
