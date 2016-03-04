@@ -230,6 +230,13 @@
                 infoTab.remove('vAlign');
                 infoTab.remove('borderColor');
                 infoTab.remove('borderColorChoose');
+                infoTab.elements[0].widths = ['50%', '50%'];
+                //get rid of empty space left by deleted fields
+                if(infoTab.elements[0].children.length > 2){
+                  infoTab.elements[0].children.shift();
+                  infoTab.elements[0].children.shift();
+                  infoTab.elements[0].children.push({type: 'html', html: '&nbsp;'});
+                }
               }
 
               if(dialogName === 'colordialog') {
