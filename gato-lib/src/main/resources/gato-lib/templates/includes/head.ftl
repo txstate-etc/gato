@@ -1,6 +1,12 @@
 [#macro javascript scripts=[]]
-  [#list ['gato-lib/js/jquery.js',
-          'gato-lib/js/jquery-noconflict.js',
+    <![if gte IE 9]>
+    <script type="text/javascript" src="${gf.resourcePath()}/gato-lib/js/jquery.js"></script>
+    <![endif]>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="${gf.resourcePath()}/gato-lib/js/jquery-legacy.js"></script>
+    <script type="text/javascript" src="${gf.resourcePath()}/gato-lib/js/rem.min.js"></script>
+    <![endif]-->
+  [#list ['gato-lib/js/jquery-noconflict.js',
           'gato-lib/js/prototype.js',
           'gato-lib/js/scriptaculous/scriptaculous.js',
           'gato-lib/js/scriptaculous/effects.js',

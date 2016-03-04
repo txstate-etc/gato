@@ -442,6 +442,10 @@ var cssTransform = (function(){
     while( cssTransform === undefined ){
         cssTransform = el.style[prefixes[i]] != undefined ? prefixes[i] : undefined
         i++
+        if (i >= prefixes.length) {
+          cssTransform = function() {  }
+          break;
+        }
      }
      return cssTransform
  })();

@@ -5,7 +5,7 @@
 /* _header.scss */
 .bg_overlay, .bg_image, .bg_image_secondary, .bg_image_none {
     display: block;
-    @media (max-width: $xs-breakpoint){ 
+    @media (max-width: $xs-breakpoint){
       display: none;
     }
 }
@@ -13,7 +13,8 @@
 .banner {
     @include vertical-gradient($banner-top, $banner-bottom);
     border-bottom: 2px solid $banner-bottom-border;
-    padding: 0 2rem;
+    padding: 0px 20px;
+    padding: 0px 2.0rem;
     height: 70px;
     @media (max-width: $sm-breakpoint){
       height: 60px;
@@ -32,7 +33,7 @@
 
 .search_bar{
   width: 25rem;
-  box-shadow: inset 0 -2px $gold;
+  border-bottom: 2px solid $gold;
 }
 .txst_search {
     float: right;
@@ -43,8 +44,8 @@
       display: none;
     }
     input.search {
-        padding-left: 0; 
-        font-weight: 500; 
+        padding-left: 0;
+        font-weight: 500;
         width: 90%;
         background: transparent none repeat scroll 0% 0%;
         border: medium none;

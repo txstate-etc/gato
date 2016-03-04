@@ -8,10 +8,13 @@ html {
 
 body {
     font-family: $univers;
-    font-size: 1.8rem;
     text-rendering: optimizelegibility;
     background-color: $gold;
     color: $main-text;
+}
+
+body, table { /* in IE 8 apparently tables need a special invitation to use the body font size */
+  font-size: 1.8rem;
 }
 
 a, a:link, a:visited {
