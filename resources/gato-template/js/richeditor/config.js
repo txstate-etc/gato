@@ -191,8 +191,23 @@
                     }
                   }
                 };
-                if(!infoTab.get('selHeaderColor')){
-                  infoTab.add(selectHeaderColor);
+
+                //store the header type field
+                var selHeaders = infoTab.get('selHeaders');
+
+                //horizontal box to hold header type selection and header color selection
+                var hboxHeader = {
+                  type: 'hbox',
+                  id: 'hboxHeader',
+                  widths: ['50%', '50%' ],
+                  children: [selHeaders, selectHeaderColor]
+                };
+
+                if(!infoTab.get('hboxHeader')){
+                  //remove the existing header type selection since it is now in the
+                  //hbox with the header color selection
+                  infoTab.remove('selHeaders');
+                  infoTab.add(hboxHeader);
                 }
 
                 //Add alternate row color option
