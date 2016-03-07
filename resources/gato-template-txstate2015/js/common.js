@@ -117,6 +117,13 @@ jQuery(document).ready(function($) {
   });
 
   $('.more-tools > a').hovermenu('.super-list-sub');
+
+  //remove hover effect from rich editor image and font awesome links
+  $('.column_paragraph a').each(function(){
+    if($(this).children('img, .fa').length > 0){
+        $(this).addClass('link-with-children');
+    }
+  });
 });
 
 
