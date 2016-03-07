@@ -84,5 +84,11 @@
                    { name: "colors",        items: [ "TextColor" ] }
            ];
            config.removeDialogTabs = 'image:advanced;link:advanced';
+
+           CKEDITOR.on('instanceReady', function (ev){
+              //Change internal link button to say "Link to Gato Page" instead of "Link to Magnolia Page"
+              var internalLinkButton = jQuery('.cke_button__internallink');
+              internalLinkButton.attr('title', 'Link to Gato Page');
+            });
    };
 
