@@ -32,6 +32,9 @@
       <name>dam</name>
     </dependency>
     <dependency>
+      <name>pages</name>
+    </dependency>
+    <dependency>
       <name>observation</name>
     </dependency>
     <dependency>
