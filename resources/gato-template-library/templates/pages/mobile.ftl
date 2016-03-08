@@ -5,7 +5,14 @@
   [@templatejs scripts=['gato-template-library/js/searchbox.js','gato-template-library/js/mobile.js']/]
   <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-library/css/mobile.compiled.css"/>
   <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css" />
-  [@templatehead/]
+  [@meta "Texas State University" /]
+  [@customCSS page ancestorstopdown /]
+  <script type="text/javascript" src="${gf.replaceExtension(cmsfn.link(page), 'js')}"></script>
+  [@rssautodiscover /]
+  [@title "Texas State University" /]
+  [@googleanalytics /]
+  [@favicons /]
+  [@javascriptvariables /]
 </head>
 <body class="${cmsfn.isEditMode()?string('admin', 'public')}">
     <div class="mobile">
