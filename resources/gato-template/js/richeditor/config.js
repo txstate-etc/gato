@@ -142,11 +142,20 @@
                 var advTab = dialogDefinition.getContents('advanced');
                 advTab.remove('advLangDir');
 
-                //change border size to border on/off
+                //change border to a checkbox
                 var borderField = infoTab.get('txtBorder');
-                borderField['type'] = 'radio';
-                borderField['items'] = [ [ 'On', 1 ], [ 'Off', 0 ] ];
+                borderField['type'] = 'checkbox';
                 borderField['label'] = 'Border';
+                borderField['default'] = true;
+                borderField['commit'] =  function( data, selectedTable ) {
+                      if ( this.getValue() )
+                        selectedTable.setAttribute( 'border', 1 );
+                      else
+                        selectedTable.removeAttribute( 'border' );
+                    }
+                borderField['validate'] = function(){
+                  return true;
+                } 
 
                 function addTableCSSClass(val){
                   var cssClassesField = CKEDITOR.dialog.getCurrent().getContentElement( 'advanced', 'advCSSClasses' );
