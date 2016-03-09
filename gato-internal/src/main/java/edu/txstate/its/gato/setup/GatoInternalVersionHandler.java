@@ -59,7 +59,7 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       .addTask(new BootstrapSingleModuleResource("config.modules.gato-lib.dialogs.addFolder.xml"))
       .addTask(new BootstrapSingleModuleResource("config.modules.dam-app.apps.assets.subApps.browser.actions.addFolder.xml"))
       .addTask(new BootstrapSingleModuleResource("config.modules.dam.config.contentDisposition.xml"))
-      .addTask(new BootstrapSingleModuleResource("config.modules.pages.apps.pages.subApps.detail.actionbar.sections.pagePreviewActions.groups.xml"))
+      .addTask(new BootstrapSingleModuleResource("config.modules.pages.apps.pages.subApps.detail.actionbar.sections.pagePreviewActions.groups.activationActions.xml"))
       .addTasks(installOrUpdateTasks())
     );
 
