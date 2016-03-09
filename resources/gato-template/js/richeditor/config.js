@@ -155,7 +155,21 @@
                     }
                 borderField['validate'] = function(){
                   return true;
-                } 
+                }
+
+                var rowField = infoTab.get('txtRows');
+                var colField = infoTab.get('txtCols');
+                var hboxRowCol = {
+                  type: 'hbox',
+                  id: 'hboxRowCol',
+                  widths: ['50%', '50%' ],
+                  children: [rowField, colField]
+                };
+                if(!infoTab.get('hboxRowCol')){
+                  infoTab.remove('txtRows');
+                  infoTab.remove('txtCols');
+                  infoTab.add(hboxRowCol);
+                }
 
                 function addTableCSSClass(val){
                   var cssClassesField = CKEDITOR.dialog.getCurrent().getContentElement( 'advanced', 'advCSSClasses' );
@@ -175,7 +189,6 @@
                   var currentClasses = selectedTable.getAttribute("class");
                   return currentClasses.indexOf(val) > -1;
                 }
-
 
                 var selectHeaderColor = {
                   type: 'select',
@@ -218,13 +231,6 @@
                   children: [selHeaders, selectHeaderColor]
                 };
 
-                if(!infoTab.get('hboxHeader')){
-                  //remove the existing header type selection since it is now in the
-                  //hbox with the header color selection
-                  infoTab.remove('selHeaders');
-                  infoTab.add(hboxHeader);
-                }
-
                 //Add alternate row color option
                 //If the checkbox is selected, alternate-row-color is added to the 
                 //css classes in the advanced tab
@@ -243,8 +249,30 @@
                     this.setValue(hasTableCSSClass(selectedTable, "alternate-row-color"));
                   }
                 };
+
+                //rebuild the dialog to change the layout of the fields
+                if(!infoTab.get('hboxRowCol')){
+                  infoTab.remove('txtRows');
+                  infoTab.remove('txtCols');
+                  infoTab.add(hboxRowCol);
+                }
+                if(!infoTab.get('hboxHeader')){
+                  //remove the existing header type selection since it is now in the
+                  //hbox with the header color selection
+                  infoTab.remove('selHeaders');
+                  infoTab.add(hboxHeader);
+                  //move the border field below the headers  BELOW THE WIDTH WHEN IT'S THERE
+                  infoTab.remove('txtBorder');
+                  infoTab.add(borderField);
+                }
                 if(!infoTab.get('altRowColor')){
                   infoTab.add(alternateRow);
+                }
+                //get rid of rows that are empty now
+                if(infoTab.elements.length > 5){
+                  infoTab.elements.shift();
+                  infoTab.elements.shift();
+                  infoTab.elements.shift();
                 }
               }
 
