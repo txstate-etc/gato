@@ -110,7 +110,6 @@
                                    '*(*);' + // Allowed class names
                                    // Allowed styles, currently allowing everything except for line-height
                                    '*{align-content, align-items, align-self, alignment, alignment-baseline, all, alt, animation, animation-delay, animation-direction, animation-duration, animation-fill-mode, animation-iteration-count, animation-name, animation-play-state, animation-timing-function, appearance, azimuth, backface-visibility, background, background-attachment, background-blend-mode, background-clip, background-color, background-image, background-origin, background-position, background-position-block, background-position-inline, background-position-x, background-position-y, background-repeat, background-size, baseline-shift, bookmark-label, bookmark-level, bookmark-state, border, border-bottom, border-bottom-color, border-bottom-left-radius, border-bottom-right-radius, border-bottom-style, border-bottom-width, border-boundary, border-clip, border-clip-bottom, border-clip-left, border-clip-right, border-clip-top, border-collapse, border-color, border-image, border-image-outset, border-image-repeat, border-image-slice, border-image-source, border-image-width, border-left, border-left-color, border-left-style, border-left-width, border-limit, border-radius, border-right, border-right-color, border-right-style, border-right-width, border-spacing, border-style, border-top, border-top-color, border-top-left-radius, border-top-right-radius, border-top-style, border-top-width, border-width, bottom, box-decoration-break, box-shadow, box-sizing, box-snap, box-suppress, break-after, break-before, break-inside, caption-side, caret, caret-animation, caret-color, caret-shape, chains, child-align, clear, clear-after, clip, clip-path, clip-rule, color, color-interpolation-filters, column-count, column-fill, column-gap, column-rule, column-rule-color, column-rule-style, column-rule-width, column-span, column-width, columns, content, continue, corner-shape, corners, counter-increment, counter-reset, counter-set, crop, cue, cue-after, cue-before, cursor, direction, display, dominant-baseline, elevation, empty-cells, filter, flex, flex-basis, flex-direction, flex-flow, flex-grow, flex-shrink, flex-wrap, float, float-defer, float-displace, float-offset, float-reference, flood-color, flood-opacity, flow, flow-from, flow-into, font, font-family, font-feature-settings, font-kerning, font-language-override, font-size, font-size-adjust, font-stretch, font-style, font-synthesis, font-variant, font-variant-alternates, font-variant-caps, font-variant-east-asian, font-variant-ligatures, font-variant-numeric, font-variant-position, font-weight, footnote-display, footnote-policy, glyph-orientation-vertical, grid, grid-area, grid-auto-columns, grid-auto-flow, grid-auto-rows, grid-column, grid-column-end, grid-column-gap, grid-column-start, grid-gap, grid-row, grid-row-end, grid-row-gap, grid-row-start, grid-template, grid-template-areas, grid-template-columns, grid-template-rows, hanging-punctuation, height, hyphenate-character, hyphenate-limit-chars, hyphenate-limit-last, hyphenate-limit-lines, hyphenate-limit-zone, hyphens, image-orientation, image-rendering, image-resolution, indent-edge-reset, initial-letter, initial-letter-align, initial-letter-wrap, isolation, justify-content, justify-items, justify-self, left, letter-spacing, lighting-color, line-break, line-grid, line-snap, list-style, list-style-image, list-style-position, list-style-type, margin, margin-bottom, margin-left, margin-right, margin-top, marker-side, marquee-direction, marquee-loop, marquee-speed, marquee-style, mask, mask-border, mask-border-mode, mask-border-outset, mask-border-repeat, mask-border-slice, mask-border-source, mask-border-width, mask-clip, mask-composite, mask-image, mask-mode, mask-origin, mask-position, mask-repeat, mask-size, mask-type, max-height, max-lines, max-width, max-zoom, min-height, min-width, min-zoom, mix-blend-mode, motion, motion-offset, motion-path, motion-rotation, move-to, nav-down, nav-left, nav-right, nav-up, object-fit, object-position, offset-after, offset-before, offset-end, offset-start, opacity, order, orientation, orphans, outline, outline-color, outline-offset, outline-style, outline-width, overflow, overflow-style, overflow-wrap, overflow-x, overflow-y, padding, padding-bottom, padding-left, padding-right, padding-top, page, page-break-after, page-break-before, page-break-inside, page-policy, pause, pause-after, pause-before, perspective, perspective-origin, pitch, pitch-range, play-during, polar-anchor, polar-angle, polar-distance, polar-origin, position, presentation-level, quotes, region-fragment, resize, resolution, rest, rest-after, rest-before, richness, right, rotation, rotation-point, ruby-align, ruby-merge, ruby-position, running, scroll-behavior, scroll-snap-align, scroll-snap-coordinate, scroll-snap-destination, scroll-snap-margin, scroll-snap-padding, scroll-snap-points-x, scroll-snap-points-y, scroll-snap-type, shape-image-threshold, shape-inside, shape-margin, shape-outside, size, speak, speak-as, speak-header, speak-numeral, speak-punctuation, speech-rate, stress, string-set, tab, tab-align, tab-leaders, tab-leaders-alignment, tab-position, tab-size, table-baseline, table-column-span, table-layout, table-row-span, text-align, text-align-all, text-align-last, text-combine-upright, text-decoration, text-decoration-color, text-decoration-line, text-decoration-skip, text-decoration-style, text-emphasis, text-emphasis-color, text-emphasis-position, text-emphasis-style, text-indent, text-justify, text-orientation, text-overflow, text-shadow, text-space-collapse, text-space-trim, text-spacing, text-transform, text-underline-position, text-wrap, top, transform, transform-box, transform-origin, transform-style, transition, transition-delay, transition-duration, transition-property, transition-timing-function, unicode-bidi, user-select, user-zoom, vertical-align, visibility, voice-balance, voice-duration, voice-family, voice-pitch, voice-range, voice-rate, voice-stress, voice-volume, volume, white-space, widows, width, will-change, word-break, word-spacing, word-wrap, wrap-after, wrap-before, wrap-flow, wrap-inside, wrap-through, writing-mode, z-index, zoom}';
-   
 
             CKEDITOR.on('instanceReady', function (ev){
               //Change internal link button to say "Link to Gato Page" instead of "Link to Magnolia Page"
@@ -124,6 +123,8 @@
               * #7424
               *
             */
+            CKEDITOR.addCss('table.full-width{width:100%}');
+
             CKEDITOR.on('dialogDefinition', function( ev ) {
 
               var dialogName = ev.data.name;
@@ -187,6 +188,7 @@
 
                 function hasTableCSSClass(selectedTable,val){
                   var currentClasses = selectedTable.getAttribute("class");
+                  if(!currentClasses) return false;
                   return currentClasses.indexOf(val) > -1;
                 }
 
@@ -231,6 +233,37 @@
                   children: [selHeaders, selectHeaderColor]
                 };
 
+                var radioWidth = {
+                  type: 'radio',
+                  id: 'radioWidth',
+                  label: 'Table Width',
+                  items: [ [ "auto"], [ "100%"] ],
+                  'default': '100%',
+                  onChange: function(api){
+                    if(this.getValue() == "auto"){
+                      addTableCSSClass("auto-width");
+                      removeTableCSSClass("full-width");
+                    }
+                    else{
+                      addTableCSSClass("full-width");
+                      removeTableCSSClass("auto-width");
+                    }
+                  }, 
+                  setup: function(selectedTable){
+                    if(hasTableCSSClass(selectedTable, "auto-width")){
+                      this.setValue("auto");
+                    }
+                    
+                  },
+                  commit: function(data, selectedTable){
+                    //the table won't have a width class if it was just created and they didn't change it to auto
+                    if(!hasTableCSSClass(selectedTable,"auto-width") && !hasTableCSSClass(selectedTable,"full-width")){
+                      //add the default width class to the advanced field
+                      addTableCSSClass("full-width");
+                    }
+                  }
+                };
+
                 //Add alternate row color option
                 //If the checkbox is selected, alternate-row-color is added to the 
                 //css classes in the advanced tab
@@ -261,7 +294,10 @@
                   //hbox with the header color selection
                   infoTab.remove('selHeaders');
                   infoTab.add(hboxHeader);
-                  //move the border field below the headers  BELOW THE WIDTH WHEN IT'S THERE
+                }
+                if(!infoTab.get('radioWidth')){
+                  infoTab.add(radioWidth);
+                  //move the border field below the width field
                   infoTab.remove('txtBorder');
                   infoTab.add(borderField);
                 }

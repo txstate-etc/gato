@@ -132,6 +132,12 @@
     table.alternate-row-color tbody tr:nth-child(odd) {
        background-color: $light-sandstone;
     }
+    table.auto-width{
+      width: auto;
+    }
+    table.full-width{
+      width: 100%;
+    }
   }
 
   table{
