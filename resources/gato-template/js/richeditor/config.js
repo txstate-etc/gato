@@ -203,8 +203,7 @@
                          [ 'Deep Blue', 'header-color-blue'],
                          [ 'River', 'header-color-river'],
                          [ 'Sandstone', 'header-color-sandstone' ],
-                         [ 'Old Gold', 'header-color-oldgold'],
-                         //['White','header-color-white'] 
+                         [ 'Old Gold', 'header-color-oldgold']
                          ],
                   'default': '',
                   onChange: function(api){
@@ -229,16 +228,22 @@
 
                 //store the header type field
                 var selHeaders = infoTab.get('selHeaders');
+                var initialSetup = true;
+
                 //need to update header color field based on header type selection
                 selHeaders['onChange'] = function(){
                   var headerType = this.getValue();
-                  console.log("Initial Value: " + this.getInitValue());
-                  console.log("New Value: " + headerType);
                   var headerColorField = CKEDITOR.dialog.getCurrent().getContentElement('info', 'selHeaderColor');
                   //if they select header type NONE, set header color to white
                   if(headerType == ""){
                     headerColorField.setValue('');
                   }
+                  else{
+                    if(!initialSetup && headerColorField.getValue() == ""){
+                      headerColorField.setValue('header-color-gold');
+                    }
+                  }
+                  initialSetup = false;
                 }
 
                 //horizontal box to hold header type selection and header color selection
