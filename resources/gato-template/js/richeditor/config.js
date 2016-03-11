@@ -196,11 +196,16 @@
                   type: 'select',
                   id: 'selHeaderColor',
                   label: 'Header Color',
-                  items: [ ['None',''], 
-                         [ 'Gold', 'header-color-gold' ], 
+                  items: [ ['None', ''],
+                         [ 'Default(Gold)', 'header-color-gold' ], 
                          [ 'Maroon', 'header-color-maroon' ], 
                          [ 'Charcoal','header-color-charcoal' ], 
-                         [ 'Sandstone', 'header-color-sandstone' ] ],
+                         [ 'Deep Blue', 'header-color-blue'],
+                         [ 'River', 'header-color-river'],
+                         [ 'Sandstone', 'header-color-sandstone' ],
+                         [ 'Old Gold', 'header-color-oldgold'],
+                         //['White','header-color-white'] 
+                         ],
                   'default': '',
                   onChange: function(api){
                     for(var i=0; i<this.items.length; i++){
@@ -224,6 +229,17 @@
 
                 //store the header type field
                 var selHeaders = infoTab.get('selHeaders');
+                //need to update header color field based on header type selection
+                selHeaders['onChange'] = function(){
+                  var headerType = this.getValue();
+                  console.log("Initial Value: " + this.getInitValue());
+                  console.log("New Value: " + headerType);
+                  var headerColorField = CKEDITOR.dialog.getCurrent().getContentElement('info', 'selHeaderColor');
+                  //if they select header type NONE, set header color to white
+                  if(headerType == ""){
+                    headerColorField.setValue('');
+                  }
+                }
 
                 //horizontal box to hold header type selection and header color selection
                 var hboxHeader = {

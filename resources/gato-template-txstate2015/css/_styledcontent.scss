@@ -154,8 +154,8 @@
       border-color: $khaki;
     }
     th {
-      background: $gold;
-      color: $white;
+      background: transparent;
+      color: $almost-black;
     }
     &.header-color-gold th{
       background: $gold;
@@ -172,6 +172,18 @@
     &.header-color-charcoal th{
       background: $charcoal;
       color: $white;
+    }
+    &.header-color-blue th{
+      background: $blue;
+      color: $white;
+    }
+    &.header-color-river th{
+      background: $river;
+      color: $almost-black;
+    }
+    &.header-color-oldgold th{
+      background: $oldgold;
+      color: $almost-black;
     }
   }
 }
