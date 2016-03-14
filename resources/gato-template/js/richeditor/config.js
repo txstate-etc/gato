@@ -358,12 +358,28 @@
                 infoTab.remove('borderColor');
                 infoTab.remove('borderColorChoose');
                 infoTab.elements[0].widths = ['50%', '50%'];
+                //move color choose button before color display
+                var cellColor = infoTab.get('bgColor');
+                var cellColorButton = infoTab.get('bgColorChoose');
+                var hboxCellColor = {
+                  type: 'hbox',
+                  id: 'hboxCellColor',
+                  padding: 0,
+                  widths: ['25%','35%', '40%'],
+                  children: [cellColorButton, cellColor, {type: 'html', html: '&nbsp;'}]
+                };
+                if(!infoTab.get('hboxCellColor')){
+                  infoTab.remove('bgColor');
+                  infoTab.remove('bgColorChoose');
+                  infoTab.add(hboxCellColor);
+                }
                 //get rid of empty space left by deleted fields
                 if(infoTab.elements[0].children.length > 2){
                   infoTab.elements[0].children.shift();
                   infoTab.elements[0].children.shift();
                   infoTab.elements[0].children.push({type: 'html', html: '&nbsp;'});
                 }
+
               }
 
               if(dialogName === 'colordialog') {
