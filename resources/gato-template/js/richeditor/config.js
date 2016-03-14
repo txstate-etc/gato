@@ -360,6 +360,11 @@
                 infoTab.elements[0].widths = ['50%', '50%'];
                 //move color choose button before color display
                 var cellColor = infoTab.get('bgColor');
+                //show the header color instead of the hex value of the color
+                cellColor['onChange'] = function(){
+                  this.getInputElement().setStyle('background-color', this.getValue());
+                  this.getInputElement().setStyle('color', 'transparent');
+                };
                 var cellColorButton = infoTab.get('bgColorChoose');
                 var hboxCellColor = {
                   type: 'hbox',
