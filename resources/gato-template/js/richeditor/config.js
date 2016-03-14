@@ -228,22 +228,34 @@
 
                 //store the header type field
                 var selHeaders = infoTab.get('selHeaders');
-                var initialSetup = true;
+
+                //If the user chooses any kind of headers, we need to change the header color from
+                //"None" to the default value of gold.  We do not want to do this if the user chose
+                //"None" on purpose because we don't want to overwrite their selection.  
+                var setDefaultColor = false;
 
                 //need to update header color field based on header type selection
                 selHeaders['onChange'] = function(){
                   var headerType = this.getValue();
                   var headerColorField = CKEDITOR.dialog.getCurrent().getContentElement('info', 'selHeaderColor');
-                  //if they select header type NONE, set header color to white
+                  //This is a hacky way to determine if the setup function for this field was run.  If it was,
+                  //then the dialog will have a "hasColumnHeaders" property.  Setup is run when the user is updating
+                  //an existing table, but not when they are creating a new table.  Setup will call setValue on
+                  //this field, which will trigger the onChange event.
+                  if(!("hasColumnHeaders" in CKEDITOR.dialog.getCurrent())){
+                    //the onChange was triggered by a user action, not the setup function
+                    setDefaultColor = true;
+                  }
+                  //if they select header type NONE, set header color to none
                   if(headerType == ""){
                     headerColorField.setValue('');
                   }
                   else{
-                    if(!initialSetup && headerColorField.getValue() == ""){
+                    if(setDefaultColor && headerColorField.getValue() == ""){
                       headerColorField.setValue('header-color-gold');
                     }
                   }
-                  initialSetup = false;
+                  setDefaultColor = true;
                 }
 
                 //horizontal box to hold header type selection and header color selection
