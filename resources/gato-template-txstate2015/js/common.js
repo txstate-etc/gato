@@ -66,6 +66,25 @@ jQuery(document).ready(function($) {
     jQuery('html').velocity('scroll', { duration: 500 });
   });
 
+  //animate scrolling to anchors and make sure they don't hide behind sticky nav
+  //adapted from https://css-tricks.com/snippets/jquery/smooth-scrolling/
+  $('a[href*="#"]:not([href="#"])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+          //On mobile, the nav will not be there so we don't need to adjust the scrolling for it
+          var navHeight = $('.top_nav').height();
+          var adjustment = (navHeight > 0) ? -45 : 0;
+            $(target).velocity('scroll', {
+                duration: 500,
+                offset: adjustment
+            });
+        return false;
+      }
+    }
+  });
+
   var resizeTimer,slideout;
   function resizeSlideout(){ 
     var slideoutPadding = 300;
