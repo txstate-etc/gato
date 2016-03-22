@@ -382,6 +382,8 @@ div#homepage-banner {
               
               .featured-links-button {
                 margin: 2rem 0 0;
+                -webkit-box-decoration-break: initial;
+                box-decoration-break: initial;
               }
 
             }
