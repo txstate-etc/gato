@@ -108,7 +108,10 @@
     margin: 5rem 0;
   }
 
-
+  sub, sup{
+    line-height: 2rem;
+    display: inline-block;
+  }
 
   hr {
     position: initial;
