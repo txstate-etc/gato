@@ -73,12 +73,8 @@ jQuery(document).ready(function($) {
       var target = $(this.hash);
       target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
       if (target.length) {
-          //On mobile, the nav will not be there so we don't need to adjust the scrolling for it
-          var navHeight = $('.top_nav').height();
-          var adjustment = (navHeight > 0) ? -45 : 0;
             $(target).velocity('scroll', {
-                duration: 500,
-                offset: adjustment
+                duration: 500
             });
         return false;
       }

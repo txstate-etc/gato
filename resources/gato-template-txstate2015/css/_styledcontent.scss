@@ -86,6 +86,10 @@
     }
   }
   a:not([href]), a[href=""] {
+    padding-top: 45px;
+    @media (max-width: $sm-breakpoint) {
+      padding-top: 0px;
+    }
     &, &:hover {
       color: inherit;
       background: transparent;
