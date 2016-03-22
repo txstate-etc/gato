@@ -30,6 +30,9 @@
     text-decoration: none;
     color: $footer-text;
     &:hover {text-decoration: none;}
+    &.link-with-children:hover{
+      background-color: transparent;
+    }
   }
   a.btt {
     display: block;
