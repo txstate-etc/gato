@@ -196,7 +196,7 @@
                   type: 'select',
                   id: 'selHeaderColor',
                   label: 'Header Color',
-                  items: [ ['None', ''],
+                  items: [ ['None', 'header-color-none'],
                          [ 'Default(Gold)', 'header-color-gold' ], 
                          [ 'Maroon', 'header-color-maroon' ], 
                          [ 'Charcoal','header-color-charcoal' ], 
@@ -205,23 +205,30 @@
                          [ 'Sandstone', 'header-color-sandstone' ],
                          [ 'Old Gold', 'header-color-oldgold']
                          ],
-                  'default': '',
+                  'default': 'header-color-none',
                   onChange: function(api){
                     for(var i=0; i<this.items.length; i++){
                       var colorClass = this.items[i][1];
-                      if(colorClass.length > 0)
-                        removeTableCSSClass(colorClass);
+                      removeTableCSSClass(colorClass);
                     }
                     addTableCSSClass(this.getValue());
                   },
                   setup: function (selectedTable){
-                    //the default is None.  If the table has one of the 
-                    //other color classes, set it.
+                    var hasHeaderColor = false;
+                    //If the table has one of the 
+                    //header color classes, set it.
                     for(var i=0; i< this.items.length; i++){
                       var colorClass = this.items[i][1];
-                      if(colorClass.length > 0 && hasTableCSSClass(selectedTable, colorClass)){
+                      if(hasTableCSSClass(selectedTable, colorClass)){
                         this.setValue(colorClass);
+                        hasHeaderColor = true;
                       }
+                    }
+                    if(!hasHeaderColor){
+                     var ths = selectedTable.find('th');
+                     if(ths.count() > 0){
+                      this.setValue('header-color-gold');
+                     }
                     }
                   }
                 };
@@ -248,10 +255,11 @@
                   }
                   //if they select header type NONE, set header color to none
                   if(headerType == ""){
-                    headerColorField.setValue('');
+                    headerColorField.setValue('header-color-none');
                   }
                   else{
-                    if(setDefaultColor && headerColorField.getValue() == ""){
+                    //not sure about the header-color-none
+                    if(setDefaultColor && headerColorField.getValue() == "header-color-none"){
                       headerColorField.setValue('header-color-gold');
                     }
                   }

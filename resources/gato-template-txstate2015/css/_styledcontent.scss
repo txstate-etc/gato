@@ -161,8 +161,8 @@
       border-color: $khaki;
     }
     th {
-      background: transparent;
-      color: $almost-black;
+      background: $gold;
+      color: $white;
     }
     &.header-color-gold th{
       background: $gold;
@@ -190,6 +190,10 @@
     }
     &.header-color-oldgold th{
       background: $oldgold;
+      color: $almost-black;
+    }
+    &.header-color-none th{
+      background: transparent;
       color: $almost-black;
     }
   }
