@@ -488,7 +488,19 @@ jQuery(function($) {
    });
 });
 
-//wrap rich editor tables in a div to make them scroll when they are too wide
 jQuery(function($){
-    $('.column_paragraph table:not(.gato-table)').wrap('<div class="rich-editor-table" />');
+    $('.column_paragraph table:not(.gato-table)').each(function(){
+        //wrap rich editor tables in a div to make them scroll when they are too wide
+        //don't wrap nested tables
+        if($(this).parents('table').length == 0)
+            $(this).wrap('<div class="rich-editor-table" />');
+        //if the rich editor table has a width style, remove it and set a width class instead
+        //auto-width for width:auto; and full-width for width:100%
+        var width = $(this).css('width');
+        $(this).css('width', '');
+        if(parseInt(width) > 500)
+            $(this).addClass('full-width');
+        else
+            $(this).addClass('auto-width');
+    });
 });
