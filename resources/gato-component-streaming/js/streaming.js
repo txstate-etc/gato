@@ -76,10 +76,8 @@ function buildVimeoPlayer(el, videoInfo) {
 
 function buildYoutubePlayer(el, videoInfo) {
   jQuery(el).append('<div id="' + el.id + '-youtube"></div>');
-  var opts = { videoId: videoInfo.videoId, events: {} };
-  if (videoInfo.options.autoplay) {
-    opts.events.onReady = onYTPlayerReady;
-  }
+  var playerVars = { autoplay: videoInfo.options.autoplay ? 1:0};
+  var opts = { videoId: videoInfo.videoId, events: {}, playerVars: playerVars };
   var player = new YT.Player(el.id + '-youtube', opts);
 }
 
@@ -146,10 +144,6 @@ jQuery(document).ready(function() {
     createPlayer(container, jQuery(container).data("url"));
   });
 });
-
-function onYTPlayerReady(event) {
-  event.target.playVideo();
-}
 
 function loadStreamingDialog(def, node, el) {
   var container = jQuery('<div class="gatoEmbedContainer" id="videoPreviewContainer"></div>')[0];
