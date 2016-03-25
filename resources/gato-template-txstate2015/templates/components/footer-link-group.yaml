@@ -1,0 +1,7 @@
+templateScript: /gato-template-txstate2015/templates/components/footer-link-group.ftl
+renderType: freemarker
+dialog: gato-template-txstate2015:components/footer-link-group
+description: The set of footer links for a site
+title: Footer Button
+parameters:
+  icon: /gato-component-button/images/button.png

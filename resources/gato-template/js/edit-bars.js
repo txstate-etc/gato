@@ -24,6 +24,7 @@ jQuery( document ).ready(function($) {
   magnolialabelchange('#gato-customcss-modal', '.mgnlEditor.mgnlPlaceholder', 'Add Custom CSS');
   magnolialabelchange('.event_add', '.mgnlEditor.mgnlPlaceholder', 'Add Event');
   magnolialabelchange('.parentOrg_add', '.mgnlEditor.mgnlPlaceholder', 'Add Parent Organization');
+  magnolialabelchange('.footerLinks_admin', '.mgnlEditor.component', 'Toggle Footer Button');
   titledlabelchange('.slider-edit-bar');
 });
 

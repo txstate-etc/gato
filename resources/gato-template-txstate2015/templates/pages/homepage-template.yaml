@@ -14,15 +14,15 @@ areas:
     !include /gato-template/templates/areas/sociallist.yaml
   footerLinks:
     renderType: freemarker
-    type: list
+    type: single
     inheritance:
       enabled: true
       components: all
     title: Footer Links
-    templateScript: /gato-template-txstate2015/templates/pages/areas/footer-links.ftl
+    templateScript: /gato-template-txstate2015/templates/areas/footer-links-area.ftl
     availableComponents:
-      link:
-        id: gato-template:components/link
+      footerLinkGroup:
+        id: gato-template-txstate2015:components/footer-link-group
   siteinfo:
     renderType: freemarker
     type: single

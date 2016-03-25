@@ -45,15 +45,15 @@ siteinfo:
   #dialog: gato-template-txstate2015:pages/areas/contact-information
 footerLinks:
   renderType: freemarker
-  type: list
+  templateScript: /gato-template-txstate2015/templates/areas/footer-links-area.ftl
+  type: single
+  title: Footer Links
   inheritance:
     enabled: true
     components: all
-  title: Footer Links
-  templateScript: /gato-template-txstate2015/templates/pages/areas/footer-links.ftl
   availableComponents:
-    link:
-      id: gato-template:components/link
+    footerLinkGroup:
+      id: gato-template-txstate2015:components/footer-link-group
 contentParagraph:
   !include /gato-template/templates/areas/contentParagraph.yaml
 mail:

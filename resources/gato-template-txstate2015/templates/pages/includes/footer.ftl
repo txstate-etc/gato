@@ -22,12 +22,7 @@
       </div>
     </div>
     <div class="footer_column footer_column_3">
-      <ul class="foot_linkage">
-        [#list cmsfn.children(globalLinks.footerLinks, "mgnl:component") as component ]
-          <li><a href="${gf.filterUrl(component.link)}">${gf.filterLinkTitle(component.text, component.link)}</a></li>
-        [/#list]
-      </ul>
-      <a class="apply_now" href="http://www.txstate.edu/admissions#apply">Apply Now</a>
+      [@cms.area name="footerLinks" content=gf.getOrCreateArea(homepage, 'footerLinks') editable=isHomePage/]
     </div>
   </div> <!-- footer_content -->
 </div> <!-- footer -->

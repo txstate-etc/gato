@@ -1,0 +1,20 @@
+form:
+  tabs:
+    - name: tabText
+      label: Footer Button
+      fields:
+        - name: linkGroup
+          class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
+          label: Choose a Button
+          sortOptions: false
+          styleName: footerLinkGroup
+          description: "'Apply Now' and 'About Texas State' appear in the footer on every page.  Select which one you want to appear on the button."
+          options:
+            - name: option1
+              selected: true
+              label: Apply Now
+              value: option1
+            - name: option2
+              label: 'About Texas State'
+              value: option2
+actions: !include /gato-template/dialogs/common/actions-block.yaml
