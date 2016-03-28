@@ -142,6 +142,12 @@
                 infoTab.remove('txtSummary');
                 var advTab = dialogDefinition.getContents('advanced');
                 advTab.remove('advLangDir');
+                var idField = advTab.get('advId');
+                idField['label'] = 'Add an ID';
+                var cssField = advTab.get('advCSSClasses');
+                cssField['label'] = 'Add a class';
+                advTab.remove('advCSSClasses');
+                advTab.add(cssField);
 
                 //change border to a checkbox
                 var borderField = infoTab.get('txtBorder');
