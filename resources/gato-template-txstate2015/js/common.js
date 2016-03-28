@@ -74,7 +74,10 @@ jQuery(document).ready(function($) {
       target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
       if (target.length) {
             $(target).velocity('scroll', {
-                duration: 500
+                duration: 500,
+                complete: function(elements) { 
+                  window.location.hash = "#" + ($(this).attr('id') || $(this).attr('name'));
+                }
             });
         return false;
       }
