@@ -1002,21 +1002,42 @@ public final class GatoUtils {
   public JsonObject parseJSON(String json) {
     Matcher m = JSONP_PATTERN.matcher(json);
     if (m.find()) json = m.group(1);
-    return new JsonParser().parse(json).getAsJsonObject();
+    try {
+      JsonObject ret = new JsonParser().parse(json).getAsJsonObject();
+      return ret;
+    } catch (Exception e) {
+      return null;
+    }
   }
 
   public String translateMediafloLink(String quickLink) {
+    String mediafloServer = "";
+    try {
+      URL u = new URL(quickLink);
+      mediafloServer = u.getProtocol()+"://"+u.getHost();
+    } catch (Exception e) {
+      return "";
+    }
     String scraped = httpGetContent(quickLink);
     Matcher m = MEDIAFLO_ID_PATTERN.matcher(scraped);
     if (m.find()) {
       String entryid = m.group(1);
-      String json = httpGetContent("https://ensembleqa.its.txstate.edu/app/api/content/show.json/"+entryid);
+      String json = httpGetContent(mediafloServer+"/app/api/content/show.json/"+entryid);
       JsonObject parsed = parseJSON(json);
-      String videoid = parsed.getAsJsonObject("dataSet").getAsJsonObject("encodings").getAsJsonPrimitive("videoID").getAsString();
-      String tempid = parsed.getAsJsonObject("dataSet").getAsJsonObject("encodings").getAsJsonPrimitive("temporaryLinkId").getAsString();
-      String configjson = httpGetContent("https://ensembleqa.its.txstate.edu/api/player/GetPlayerConfig?temporaryLinkId="+tempid+"&contentId="+videoid);
-      JsonObject config = parseJSON(configjson);
-      return config.getAsJsonObject("setup").getAsJsonArray("playlist").get(0).getAsJsonObject().getAsJsonArray("sources").get(0).getAsJsonObject().getAsJsonPrimitive("file").getAsString();
+      if (parsed != null) {
+        String videoid = parsed.getAsJsonObject("dataSet").getAsJsonObject("encodings").getAsJsonPrimitive("videoID").getAsString();
+        String tempid = parsed.getAsJsonObject("dataSet").getAsJsonObject("encodings").getAsJsonPrimitive("temporaryLinkId").getAsString();
+        String configjson = httpGetContent(mediafloServer+"/api/player/GetPlayerConfig?temporaryLinkId="+tempid+"&contentId="+videoid);
+        System.out.println(configjson);
+        JsonObject config = parseJSON(configjson);
+        if (config != null) {
+          JsonArray sources = config.getAsJsonObject("setup").getAsJsonArray("playlist").get(0).getAsJsonObject().getAsJsonArray("sources");
+          for (int i = 0; i < sources.size(); i++) {
+            String file = sources.get(i).getAsJsonObject().getAsJsonPrimitive("file").getAsString();
+            if (file.endsWith("m3u8")) return file;
+          }
+        }
+      }
     }
     return "";
   }
