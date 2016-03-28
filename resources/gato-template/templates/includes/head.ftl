@@ -20,7 +20,6 @@
 		'gato-lib/js/photoswipe-util.js',
 		'gato-lib/js/spin.min.js',
 		'gato-lib/js/slick/slick.min.js',
-		'gato-lib/js/flowplayer/flowplayer.min.js',
 		'gato-component-gallery/js/gallery.js',
 		'gato-component-feature/js/feature.js',
 		'gato-component-faq/js/expand.js',

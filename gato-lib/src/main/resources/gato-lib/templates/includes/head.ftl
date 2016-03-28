@@ -13,7 +13,10 @@
           'gato-lib/js/velocity.js',
           'gato-lib/js/elementqueries.js',
           'gato-lib/js/gato-lib.js',
-          'gato-lib/js/modal.js'
+          'gato-lib/js/modal.js',
+          'gato-lib/js/flowplayer/flowplayer.min.js',
+          'gato-lib/js/flowplayer/flowplayer.hls.js',
+          'gato-lib/js/flowplayer/hls.min.js'
           ] + scripts as script]
     <script type="text/javascript" src="${gf.resourcePath()}/${script}"></script>
   [/#list]
