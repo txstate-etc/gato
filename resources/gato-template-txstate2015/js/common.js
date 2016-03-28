@@ -90,19 +90,17 @@ jQuery(document).ready(function($) {
       slideoutPadding = 275;
     }
 
-    if(slideout){
-      slideout.destroy();
+    if(!slideout){
+      slideout = new Slideout({
+        'panel': document.getElementById('panel'),
+        'menu': document.getElementById('menu'),
+        'padding' : slideoutPadding,
+        'tolerance': 70,
+        'side': 'right',
+        'duration': 300,
+        'touch': false
+      });
     }
-    
-    slideout = new Slideout({
-      'panel': document.getElementById('panel'),
-      'menu': document.getElementById('menu'),
-      'padding' : slideoutPadding,
-      'tolerance': 70,
-      'side': 'right',
-      'duration': 300,
-      'touch': false
-    });
     if(!window.matchMedia){
       //since we can't decrease the slideout padding for IE9, don't make the menu smaller either
       jQuery('.slideout-menu').css("width", "300px");
