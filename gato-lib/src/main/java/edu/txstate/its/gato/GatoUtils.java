@@ -5,6 +5,8 @@
 
 package edu.txstate.its.gato;
 
+import com.google.gson.*;
+
 import info.magnolia.cms.beans.config.MIMEMapping;
 import info.magnolia.cms.core.MgnlNodeType;
 import info.magnolia.context.MgnlContext;
@@ -26,6 +28,10 @@ import info.magnolia.rendering.engine.RenderingEngine;
 import info.magnolia.repository.RepositoryConstants;
 import info.magnolia.templating.functions.TemplatingFunctions;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 import java.util.Calendar;
@@ -69,6 +75,8 @@ public final class GatoUtils {
   private static final Pattern HASHTAG_PATTERN = Pattern.compile("(^|)#(\\w+)");
   private static final Pattern ITEMKEY_PATTERN = Pattern.compile("^([a-z]+):([a-f0-9\\-]+)$");
   private static final Pattern EXTERNAL_LINK_PATTERN = Pattern.compile("^(\\w+:)?//.*$");
+  private static final Pattern MEDIAFLO_ID_PATTERN = Pattern.compile("contentContainer_([a-f\\d\\-]+)");
+  private static final Pattern JSONP_PATTERN = Pattern.compile("^\\s*\\w+\\((.+?)\\);?\\s*$");
 
   private final TemplatingFunctions tf;
   private final DamTemplatingFunctions damfn;
@@ -646,7 +654,7 @@ public final class GatoUtils {
 
   //The inheritProperty method from templating functions doesn't work here anymore.  Magnolia 5 does not
   //allow a property to be set to null so it is set to "inherit" if the user chooses to inherit the
-  //currency from the parent page.  inheritProperty considers that to be a valid value and will not 
+  //currency from the parent page.  inheritProperty considers that to be a valid value and will not
   //continue searching the ancestors for a numeric currency value.
   public String getInheritedCurrency(ContentMap content) throws RepositoryException, ValueFormatException{
     //get the currency property for this page
@@ -700,7 +708,7 @@ public final class GatoUtils {
         expirationDate.add(Calendar.YEAR, -1);
       }
       Calendar lastActivationDate = getLastActionDate(content);
-      
+
       if(lastActivationDate != null){
         if(lastActivationDate.before(modificationDate)){
           stale = modificationDate.before(expirationDate);
@@ -963,5 +971,53 @@ public final class GatoUtils {
       e.printStackTrace();
       return null;
     }
+  }
+
+  public String httpGetContent(String link) {
+    String output = "";
+    HttpURLConnection c = null;
+    try {
+      URL myurl = new URL(link);
+      c = (HttpURLConnection) myurl.openConnection();
+      c.setConnectTimeout(5000);
+      if (c.getResponseCode() >= 200 && c.getResponseCode() <= 299) {
+        BufferedReader in = new BufferedReader(new InputStreamReader(c.getInputStream()));
+        String inputLine;
+        while ((inputLine = in.readLine()) != null)
+            output += inputLine.trim();
+        in.close();
+      }
+    } catch (Exception e) {
+      output = "";
+    } finally {
+      try {
+        c.disconnect();
+      } catch (Exception e) {
+
+      }
+    }
+    return output;
+  }
+
+  public JsonObject parseJSON(String json) {
+    Matcher m = JSONP_PATTERN.matcher(json);
+    if (m.find()) json = m.group(1);
+    return new JsonParser().parse(json).getAsJsonObject();
+  }
+
+  public String translateMediafloLink(String quickLink) {
+    String scraped = httpGetContent(quickLink);
+    Matcher m = MEDIAFLO_ID_PATTERN.matcher(scraped);
+    if (m.find()) {
+      String entryid = m.group(1);
+      String json = httpGetContent("https://ensembleqa.its.txstate.edu/app/api/content/show.json/"+entryid);
+      JsonObject parsed = parseJSON(json);
+      String videoid = parsed.getAsJsonObject("dataSet").getAsJsonObject("encodings").getAsJsonPrimitive("videoID").getAsString();
+      String tempid = parsed.getAsJsonObject("dataSet").getAsJsonObject("encodings").getAsJsonPrimitive("temporaryLinkId").getAsString();
+      String configjson = httpGetContent("https://ensembleqa.its.txstate.edu/api/player/GetPlayerConfig?temporaryLinkId="+tempid+"&contentId="+videoid);
+      JsonObject config = parseJSON(configjson);
+      return config.getAsJsonObject("setup").getAsJsonArray("playlist").get(0).getAsJsonObject().getAsJsonArray("sources").get(0).getAsJsonObject().getAsJsonPrimitive("file").getAsString();
+    }
+    return "";
   }
 }
