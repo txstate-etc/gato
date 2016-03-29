@@ -73,11 +73,14 @@ jQuery(document).ready(function($) {
       var target = $('[id="' + decodeURI(this.hash.slice(1)) +'"]');
       target = target.length ? target : $('[name="' + decodeURI(this.hash.slice(1)) +'"]');
       if (target.length) {
+            if(history && history.pushState){
+              history.pushState(null, null, window.location + this.hash);
+            }
+            else{
+              window.location.hash = this.hash;
+            }
             $(target).velocity('scroll', {
-                duration: 500,
-                complete: function(elements) { 
-                  window.location.hash = "#" + ($(this).attr('id') || $(this).attr('name'));
-                }
+                duration: 500
             });
         return false;
       }
