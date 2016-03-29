@@ -4,7 +4,8 @@
   [/#if]
   [#assign vurl = content.videourl!'']
   [#if vurl?contains('ensemble') || vurl?contains('mediaflo')]
-    [#assign vurl = gf.translateMediafloLink(vurl)]
+    [#assign translatedurl = gf.translateMediafloLink(vurl)]
+    [#if translatedurl?has_content][#assign vurl = translatedurl][/#if]
   [/#if]
   <div
     class="gatoEmbedContainer"

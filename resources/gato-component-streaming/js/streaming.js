@@ -50,12 +50,18 @@ function buildFlowPlayer(el, videoInfo) {
   var container = jQuery('<div class="functional"></div>');
   jQuery(el).append(container);
   var ext = getFileExtension(videoInfo.url);
-  flowplayer(container, {
-    embed: false,
-    clip: {
-      sources: [{ type: flowPlayerTypes[ext], src: videoInfo.url}]
-    }
-  });
+  var usehlsjs = false;
+  var startflowplayer = function () {
+    flowplayer(container, {
+      embed: false,
+      hlsjs: usehlsjs,
+      clip: {
+        sources: [{ type: flowPlayerTypes[ext], src: videoInfo.url}]
+      }
+    });
+  }
+  if (ext == 'm3u8') jQuery.ajax(videoInfo.url).done(function() { usehlsjs = {}; startflowplayer(); }).fail(startflowplayer);
+  else startflowplayer();
 }
 
 function buildEmbed(el, embedCode) {
