@@ -85,7 +85,7 @@
       opacity: 0.9;
     }
   }
-  a:not([href]), a[href=""] {
+  a[name]:not([href]), a[name][href=""] {
     padding-top: 45px;
     @media (max-width: $sm-breakpoint) {
       padding-top: 0px;

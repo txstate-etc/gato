@@ -47,10 +47,11 @@ function getFileExtension(url) {
 }
 
 function buildFlowPlayer(el, videoInfo) {
-  var container = jQuery("<div></div>");
+  var container = jQuery('<div class="functional"></div>');
   jQuery(el).append(container);
   var ext = getFileExtension(videoInfo.url);
   flowplayer(container, {
+    embed: false,
     clip: {
       sources: [{ type: flowPlayerTypes[ext], src: videoInfo.url}]
     }
