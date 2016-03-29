@@ -74,7 +74,7 @@ jQuery(document).ready(function($) {
       target = target.length ? target : $('[name="' + decodeURI(this.hash.slice(1)) +'"]');
       if (target.length) {
             if(history && history.pushState){
-              history.pushState(null, null, window.location + this.hash);
+              history.pushState(null, null, location.pathname + this.hash);
             }
             else{
               window.location.hash = this.hash;
