@@ -10,7 +10,7 @@
   <body class="${cmsfn.isEditMode()?string('admin', '')}">
     [#include "includes/topbanner.ftl"]
     [@breadcrumbs hidetxstate=true /]
-    [#assign showRightBar=!(def.parameters.isMailTemplate!false) && (cmsfn.isEditMode() || (cmsfn.children(content.rightbar, 'mgnl:component')?size > 0))]
+    [#assign showRightBar=!(def.parameters.isMailTemplate!false) && (cmsfn.isEditMode() || (content.rightbar?? && cmsfn.children(content.rightbar, 'mgnl:component')?size > 0))]
     <div class="tsus-columnparent ${(content.hideSidebar!false)?string('tsus-fullwidth','')} ${showRightBar?string('tsus-rightbar','')}">
 			[#if !(content.hideSidebar!false)]
         <nav class="gato-navcolumn">
