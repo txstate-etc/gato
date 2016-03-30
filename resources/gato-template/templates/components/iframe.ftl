@@ -1,4 +1,4 @@
-<div class="txst-iframe-container" style="height: ${content.height!800}px">
+<div class="txst-iframe-container">
 
   [#if content.title?has_content]
     <h2>${content.title}</h2>
@@ -6,8 +6,9 @@
 
   <iframe class="txst-iframe"
     frameborder="0"
+    style="height: ${content.height!800}px"
     src="${gf.filterUrl(content.url)}"
-    scrolling="no"
+    scrolling="auto"
     title="${content.title!("Iframe embed of " + content.url)}">
     <a href="${gf.filterUrl(content.url)}">${content.title!content.url}</a>
   </iframe>
