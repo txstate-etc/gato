@@ -7,3 +7,8 @@
     text-decoration: none;
   }
 }
+
+.gato-slider .slide.color2 .caption {
+  /* gold needs to be a little darker when transparent to ensure contrast with text */
+  background-color: rgba(100, 81, 53, 0.9);
+}
