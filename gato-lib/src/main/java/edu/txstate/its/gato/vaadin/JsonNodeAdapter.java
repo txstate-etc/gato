@@ -2,6 +2,7 @@ package edu.txstate.its.gato.vaadin;
 
 import info.magnolia.rest.service.node.v1.RepositoryMarshaller;
 import info.magnolia.rest.service.node.v1.RepositoryNode;
+import info.magnolia.ui.vaadin.integration.jcr.JcrItemUtil;
 import info.magnolia.ui.vaadin.integration.jcr.JcrNewNodeAdapter;
 import info.magnolia.ui.vaadin.integration.jcr.JcrNodeAdapter;
 
@@ -35,7 +36,9 @@ public class JsonNodeAdapter extends JcrNodeAdapter {
     }
 
     newNode.setName(getNodeName());
-    return createNode(parent, newNode);
+    Node newJcrNode = createNode(parent, newNode);
+    setItemId(JcrItemUtil.getItemId(newJcrNode));
+    return newJcrNode;
   }
 
   protected Node createNode(Node parent, RepositoryNode repoNode) throws RepositoryException {
