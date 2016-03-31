@@ -124,6 +124,9 @@
       @media (max-width: $sm-breakpoint) {
         padding: 1.5rem 1.2rem !important;
       }
+      @media (max-width: $xs-breakpoint) {
+        padding: 2.2rem 0 !important;
+      }
     }
 }
 
