@@ -60,12 +60,16 @@ public class VersionChangedPagesCommand extends GatoBaseSchedulerCommand {
       log.debug("Visiting page: " + subpage.getPath());
 
       try {
-        Version baseVersion = vm.getBaseVersion(subpage);
-        Calendar versiondate = baseVersion.getCreated();
+        Calendar versiondate = null;
+        if (vm.getAllVersions(subpage) != null) {
+          Version baseVersion = vm.getBaseVersion(subpage);
+          versiondate = baseVersion.getCreated();
+        }
         Calendar lastmod = NodeTypes.LastModified.getLastModified(subpage);
         log.debug("Page date: " + lastmod.toString());
-        log.debug("Base version date: " + versiondate.toString());
-        if (lastmod.after(versiondate)) {
+        if (versiondate != null) log.debug("Base version date: " + versiondate.toString());
+        else log.debug("Base version date: no base version existed");
+        if (versiondate == null || lastmod.after(versiondate)) {
           log.debug("I NEED BACKUP!");
           Version newVersion = vm.addVersion(subpage);
         }
