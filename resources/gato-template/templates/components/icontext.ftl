@@ -15,6 +15,9 @@
     [/#if]
 [/#macro]
 
+[#if cmsfn.isEditMode()]
+  <div cms:add="box"></div>
+[/#if]
 [#if content.link?has_content]
     <a href="${gf.filterUrl(content.link)}" class="icontext ${float}">
         [@buildIconText/]
