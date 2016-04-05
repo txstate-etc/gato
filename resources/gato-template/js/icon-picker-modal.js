@@ -105,6 +105,9 @@ function initIconPicker(def, node, el, tmpl) {
         $('.ui-widget-overlay').bind('click',function(){
             onCancel();
         });
+        $('.ui-dialog-titlebar, #search_for, .ui-dialog-buttonpane').hover(function(){
+            setPickerPreview(getSelectedIcon());
+        });
     }
 
     //Save the icon selection in the hidden field
