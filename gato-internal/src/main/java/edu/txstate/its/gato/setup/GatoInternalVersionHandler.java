@@ -63,12 +63,12 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       .addTask(new BootstrapSingleModuleResource("config.modules.scheduler.config.jobs.sort-dam.xml"))
       .addTask(new BootstrapSingleModuleResource("config.modules.scheduler.config.jobs.version.xml"))
       .addTask(new BootstrapSingleModuleResource("gatoapps.homepage-data.global-links.xml"))
-      .addTask(new BootstrapSingleModuleResource("config.server.MIMEMapping.csv"))
-      .addTask(new BootstrapSingleModuleResource("config.server.MIMEMapping.rss"))
-      .addTask(new BootstrapSingleModuleResource("config.server.MIMEMapping.ttf"))
-      .addTask(new BootstrapSingleModuleResource("config.server.MIMEMapping.eot"))
-      .addTask(new BootstrapSingleModuleResource("config.server.MIMEMapping.woff"))
-      .addTask(new BootstrapSingleModuleResource("config.server.MIMEMapping.woff2"))
+      .addTask(new BootstrapSingleModuleResource("config.server.MIMEMapping.csv.xml"))
+      .addTask(new BootstrapSingleModuleResource("config.server.MIMEMapping.rss.xml"))
+      .addTask(new BootstrapSingleModuleResource("config.server.MIMEMapping.ttf.xml"))
+      .addTask(new BootstrapSingleModuleResource("config.server.MIMEMapping.eot.xml"))
+      .addTask(new BootstrapSingleModuleResource("config.server.MIMEMapping.woff.xml"))
+      .addTask(new BootstrapSingleModuleResource("config.server.MIMEMapping.woff2.xml"))
       .addTasks(installOrUpdateTasks())
     );
 
