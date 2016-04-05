@@ -105,7 +105,7 @@ function initIconPicker(def, node, el, tmpl) {
         $('.ui-widget-overlay').bind('click',function(){
             onCancel();
         });
-        $('.ui-dialog-titlebar, #search_for, .ui-dialog-buttonpane').hover(function(){
+        $('.ui-dialog-titlebar, #search_for, .ui-dialog-buttonpane, .ui-widget-overlay').hover(function(){
             setPickerPreview(getSelectedIcon());
         });
     }
