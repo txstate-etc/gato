@@ -19,6 +19,7 @@ function initIconPicker(def, node, el, tmpl) {
 
     //create the jQuery dialog
     function initializeDialog(){
+        $('#icon-modal').show();
         dialog = $( "#icon-modal" ).dialog({
             modal: true,
             autoOpen: false,
@@ -128,20 +129,19 @@ function initIconPicker(def, node, el, tmpl) {
     html += '<span class="preview-icon"></span>';
     html += '<button id="btnSelectIcon">Select New Icon</button>';
     $(el).append(html);
+    $('#icon-modal').hide();
 
     //if there is an icon saved already, display it in the preview
     //if not, display the default icon
     selectedIcon = getSelectedIcon();
     updatePreview(selectedIcon);
 
-    var dialog = initializeDialog();
+    var dialog;
 
     //open the dialog when the Select Icon button is clicked
     $( "#btnSelectIcon" ).button().on( "click", function() {
-      if(!($('#icon-modal').hasClass("ui-dialog-content"))){
-        dialog = initializeDialog();
-      }  
-      dialog.dialog( "open" );
+      dialog = initializeDialog();
+      dialog.dialog("open");
     });
 
     //narrow down the displayed icons as the user types
