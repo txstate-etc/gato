@@ -42,6 +42,11 @@
     eq.observetargets();
     eq.refresh();
     $(window).resize(eq.refresh);
+    observePrint(function () {
+      $('body').addClass('print');
+    }, function () {
+      $('body').removeClass('print');
+    });
   };
   $(document).ready(elementqueries);
 })(jQuery);

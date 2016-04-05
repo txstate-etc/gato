@@ -1,0 +1,49 @@
+body.print {
+  background-color: white;
+  width: 535pt;
+  .sidebar,
+  .super-user-menu,
+  .top_nav,
+  .top_nav + div,
+  .footer,
+  .gato-search,
+  .header_no_image {
+    display: none !important;
+  }
+
+  .page_content {
+    min-height: 0px !important;
+  }
+
+  .banner {
+    background: none;
+  }
+
+  .trail .breadcrumbs {
+    margin-left: 0px;
+  }
+
+  .gato-section {
+    width: 100%;
+  }
+
+  .layout-column {
+    display: block;
+    float: left;
+  }
+
+  .gato-section {
+    width: 100%;
+  }
+
+  .column_paragraph {
+    font-family: Arial;
+  }
+
+  .column_paragraph h1,
+  .column_paragraph h2,
+  .column_paragraph h3,
+  .column_paragraph h4 {
+    font-family: Tahoma;
+  }
+}

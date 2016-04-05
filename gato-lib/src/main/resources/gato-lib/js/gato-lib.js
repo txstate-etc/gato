@@ -427,6 +427,24 @@ jQuery.fn.afterload = function (callback) {
   else this.load(callback);
 }
 
+function observePrint(beforePrint, afterPrint) {
+  if ('onbeforeprint' in window) {
+    // IE and Firefox fire before/after events
+    jQuery(window).on('beforeprint', beforePrint);
+    jQuery(window).on('afterprint', afterPrint);
+  } else if ('matchMedia' in window) {
+    // Chrome, Firefox, and IE 10 support mediaMatch listeners
+    window.matchMedia('print').addListener(function(media) {
+      if (media.matches) {
+        beforePrint();
+      } else {
+        // Fires immediately, so wait for the first mouse movement
+        jQuery(document).one('mouseover', afterPrint);
+      }
+    });
+  }
+}
+
 // these are cross-browser resolving variables that can be used for
 // high performing animations
 var animationframe = window.requestAnimationFrame ||
