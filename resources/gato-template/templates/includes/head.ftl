@@ -163,7 +163,7 @@
 		[#if (homepage.parentOrganization)?? && cmsfn.children(homepage.parentOrganization)?size gt 0 ]
 			[#local parentOrg = cmsfn.children(homepage.parentOrganization)?first]
 			[#if parentOrg.parent_name?? && parentOrg.parent_name?length gt 0]
-				<a href="${parentOrg.url!cmsfn.link(page)}">${parentOrg.parent_name}</a>
+				<a href="${gf.filterUrl(parentOrg.url!)}">${parentOrg.parent_name}</a>
 				<span class="separator"><i class="fa fa-angle-right"></i></span>
 			[/#if]
 		[/#if]
