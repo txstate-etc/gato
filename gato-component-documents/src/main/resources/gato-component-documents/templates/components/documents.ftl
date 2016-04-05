@@ -16,16 +16,16 @@
             [/#if]
             <span class="txst-filedownload-details">
                 [#if doc.extension?has_content]
-                    (${doc.extension},${doc.fileSize})
+                    (${doc.extension}, ${doc.fileSize})
                 [#else]
                     (${doc.fileSize})
                 [/#if]
-                
+
             </span>
             [#if doc.description?has_content]
                 <div class="txst-filedownload-description">${ doc.description}</div>
             [/#if]
-            
+
        </div>
     [/#list]
 [/#if]
