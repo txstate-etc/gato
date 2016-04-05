@@ -26,7 +26,8 @@ a {
 #banner {
   padding-top: 10px;
   padding-bottom: 10px;
-  position: relative; 
+  position: relative;
+  min-height: 38px;
   background-image: linear-gradient(bottom, rgb(216,209,183) 21%, rgb(176,165,141) 61%, rgb(176,165,141) 81%);
   background-image: -o-linear-gradient(bottom, rgb(216,209,183) 21%, rgb(176,165,141) 61%, rgb(176,165,141) 81%);
   background-image: -moz-linear-gradient(bottom, rgb(216,209,183) 21%, rgb(176,165,141) 61%, rgb(176,165,141) 81%);
@@ -69,13 +70,13 @@ a {
   right: 10px;
   top: 12px;
   img{
-    width: 60px; 
+    width: 60px;
     height: 34px;
   }
 }
 
 #banner-title {
-  font-size: 1.75em; 
+  font-size: 1.75em;
   font-weight: 400;
 }
 
@@ -160,18 +161,18 @@ a {
 #nav {
   background-color: #f6f4ec;
   div.texas-icon-link{
-    position: relative; 
+    position: relative;
     padding-left: 60px;
     padding-top: 15px;
     padding-bottom: 15px;
     div.texas-icon-link-icon {
-      position: absolute; 
-      top: 15px; 
-      left: 0; 
+      position: absolute;
+      top: 15px;
+      left: 0;
     }
   }
   p{
-    color: #6c5521; 
+    color: #6c5521;
   }
 }
 
@@ -204,7 +205,7 @@ a {
   color: #836c31;
 }
 
-.gato-accordion-expand-collapse { 
+.gato-accordion-expand-collapse {
   display: none;
 }
 
@@ -231,7 +232,7 @@ a {
 }
 
 #footer p {
-  font-size: .8em; 
-  color: #6c5521; 
-  margin-bottom: 10px; 
+  font-size: .8em;
+  color: #6c5521;
+  margin-bottom: 10px;
 }
