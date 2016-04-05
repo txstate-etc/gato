@@ -30,14 +30,16 @@
                     [#list rows as row]
                       [#if row?trim?has_content && row_index gte startingRow]
                         <tr class="${(row_index % 2 == 0)?string("even", "odd")}">
-                            [#list row?split("\t") as col]
-                            [#if content.tableHeader && col_index < headers?size]
-                            <td data-label="${headers[col_index]?html}">
-                            [#else]
-                            <td>
+                          [#list row?split("\t") as col]
+                            [#if col?trim?has_content || col_index < headers?size]
+                              [#if content.tableHeader && col_index < headers?size]
+                                <td data-label="${headers[col_index]?html}">
+                              [#else]
+                                <td>
+                              [/#if]
+                                  ${(col?trim?has_content)?string(col, "&nbsp;")}
+                                </td>
                             [/#if]
-                                ${(col?has_content)?string(col, "&nbsp;")}
-                            </td>
                         [/#list]
                         </tr>
                       [/#if]
