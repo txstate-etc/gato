@@ -36,7 +36,7 @@ function ebscoPreProcess(myForm) {
 }
 
 function limittoArticles(myForm) {
-  myForm.bquery.value += ' AND ZT Article';
+  myForm.bquery.value += ' AND ( PT Article OR PT Journal Article OR ZT Magazines OR PT Serial OR PT Trade OR PT Periodical OR ZT Periodical OR PT News OR ZT News OR PT Newspaper OR PT Academic Journal OR PT Journal OR ZT Academic Journal OR PT Conference Materials OR RV Y)';
 }
 
 function processReserve(myForm) {
