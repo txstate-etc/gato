@@ -123,6 +123,8 @@
               * #7424
               *
             */
+            //these styles only apply in the editor
+            CKEDITOR.addCss('table.auto-width{min-width:300px}');
             CKEDITOR.addCss('table.full-width{width:100%}');
 
             CKEDITOR.on('dialogDefinition', function( ev ) {
@@ -304,7 +306,7 @@
                   },
                   commit: function(data, selectedTable){
                     //the table won't have a width class if it was just created and they didn't change it to auto
-                    if(!hasTableCSSClass(selectedTable,"auto-width") && !hasTableCSSClass(selectedTable,"full-width")){
+                    if(this.getValue() != "auto"){
                       //add the default width class to the advanced field
                       addTableCSSClass("full-width");
                     }
