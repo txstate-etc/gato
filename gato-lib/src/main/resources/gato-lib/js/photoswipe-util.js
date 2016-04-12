@@ -42,12 +42,11 @@ var initPhotoSwipe = (function($) {
         for (i = 0; i < widths.length; i++) {
           var info = widths[i].trim().split(/\s+/);
           var width = parseInt(info[1], 10);
-          if (width > finalwidth) {
+          if (width >= vpwidth && width <= finalwidth) {
             href = info[0];
             finalwidth = width;
             finalheight = finalwidth/aspectratio;
           }
-          if (finalwidth > vpwidth || finalheight > vpheight) break;
         }
 
         // create slide object
