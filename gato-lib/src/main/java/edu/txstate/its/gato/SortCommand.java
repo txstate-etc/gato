@@ -11,30 +11,15 @@ import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class SortCommand extends GatoBaseSchedulerCommand {
-  
-  private boolean canSort(Node rootNode) throws RepositoryException {
-    Vector paths = new Vector();
-    String duplicates = "";
+  public static Logger log = LoggerFactory.getLogger(SortCommand.class);
 
-    Iterator childNodesIterator = NodeUtil.getNodes(rootNode, NodeTypes.Content.NAME).iterator();
-    while (childNodesIterator.hasNext()) {
-      Node site = (Node) childNodesIterator.next();
-      String siteName = site.getName();
-      if ( paths.contains( siteName ) ) {
-        duplicates = duplicates + " " + siteName;
-      } else {
-        paths.add( siteName );
-      }
-    }
-
-    if ( duplicates.equals("") ) {
-      return true;
-    } else {
-      log.error("Can't sort because there are multiple nodes named: " + duplicates );
-      return false;
-    }
-
+  public String nameWithIndex(Node n) throws Exception {
+    if (n.getIndex() == 1) return n.getName();
+    return n.getName()+"["+n.getIndex()+"]";
   }
 
   public boolean doExecute(Context context) {
@@ -46,33 +31,27 @@ public class SortCommand extends GatoBaseSchedulerCommand {
       log.debug("Getting root node...");
       Node rootNode = session.getNode(this.getPath());
 
-      if (canSort(rootNode)) {
-        log.debug("Sorting nodes");
+      boolean isSorted = false;
 
-        boolean isSorted = false;
+      while (!isSorted) {
+        isSorted = true;
+        Node previousSite = null;
 
-        while (!isSorted) {
-          isSorted = true;
-          Node previousSite = null;
-
-          Iterator childNodesIterator = NodeUtil.getNodes(rootNode).iterator();
-          while (childNodesIterator.hasNext()) {
-            Node site = (Node) childNodesIterator.next();
-            if (previousSite != null) {
-              String siteName = site.getName();
-              String prevName = previousSite.getName();
-              if (siteName.compareToIgnoreCase(prevName) < 0) {
-                log.debug("Moving " + siteName + " before " + prevName);
-                rootNode.orderBefore(siteName, prevName);
-                rootNode.save();
-                isSorted = false;
-              }
+        Iterator childNodesIterator = NodeUtil.getNodes(rootNode).iterator();
+        while (childNodesIterator.hasNext()) {
+          Node site = (Node) childNodesIterator.next();
+          if (previousSite != null) {
+            String siteName = nameWithIndex(site);
+            String prevName = nameWithIndex(previousSite);
+            if (siteName.compareToIgnoreCase(prevName) < 0) {
+              log.info("Moving " + siteName + " before " + prevName);
+              rootNode.orderBefore(siteName, prevName);
+              rootNode.save();
+              isSorted = false;
             }
-            previousSite = site;
           }
-
+          previousSite = site;
         }
-
       }
 
       log.info("SortCommand completed for repository {}.", this.getRepository());
