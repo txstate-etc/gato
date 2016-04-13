@@ -205,7 +205,7 @@
                   id: 'selHeaderColor',
                   label: 'Header Color',
                   items: [ ['None', 'header-color-none'],
-                         [ 'Default(Gold)', 'header-color-gold' ], 
+                         [ 'Default (Gold)', 'header-color-gold' ], 
                          [ 'Maroon', 'header-color-maroon' ], 
                          [ 'Charcoal','header-color-charcoal' ], 
                          [ 'Deep Blue', 'header-color-blue'],
@@ -376,18 +376,21 @@
                 infoTab.elements[0].widths = ['50%', '50%'];
                 //move color choose button before color display
                 var cellColor = infoTab.get('bgColor');
-                //show the header color instead of the hex value of the color
+                var cellColorDisplay = {
+                  type: 'html',
+                  id: 'cellColorDisplay',
+                  html: '<div id="cellBGColor" style="border:1px solid black;padding:5px;margin-left:10px; margin-top:12px;">&nbsp;</div>'
+                };
                 cellColor['onChange'] = function(){
-                  this.getInputElement().setStyle('background-color', this.getValue());
-                  this.getInputElement().setStyle('color', 'transparent');
+                  document.getElementById('cellBGColor').style.backgroundColor = this.getValue();
                 };
                 var cellColorButton = infoTab.get('bgColorChoose');
                 var hboxCellColor = {
                   type: 'hbox',
                   id: 'hboxCellColor',
                   padding: 0,
-                  widths: ['25%','35%', '40%'],
-                  children: [cellColorButton, cellColor, {type: 'html', html: '&nbsp;'}]
+                  widths: ['25%','35%', '20%', '20%'],
+                  children: [cellColorButton, cellColor, cellColorDisplay, {type: 'html', html: '&nbsp;'}]
                 };
                 if(!infoTab.get('hboxCellColor')){
                   infoTab.remove('bgColor');
