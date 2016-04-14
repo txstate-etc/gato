@@ -46,6 +46,9 @@
 
     .search_bar{
       width: 100%;
+      &.mobile_search_bar{
+        border:none;
+      }
     }
 
     input.search {
