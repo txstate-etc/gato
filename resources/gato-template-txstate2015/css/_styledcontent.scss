@@ -47,7 +47,7 @@
 
 .column_paragraph {
   img { max-width: 100%; height: auto; }
-  table img { max-width: none; }
+  table img, .pswp img { max-width: none; }
   figure {
     margin: 0;
     max-width: 100%;
