@@ -157,7 +157,7 @@ $pswpdir: $resource-root+"/gato-lib/js/photoswipe/default-skin";
   left: 0;
   padding: 10px;
   position: absolute;
-  z-index: 1600;
+  z-index: 160000;
   opacity: 0;
   -webkit-transition: opacity 0.25s ease-out;
           transition: opacity 0.25s ease-out;
@@ -168,7 +168,7 @@ $pswpdir: $resource-root+"/gato-lib/js/photoswipe/default-skin";
   display: none; }
 
 .pswp__share-tooltip {
-  z-index: 1620;
+  z-index: 162000;
   position: absolute;
   background: #FFF;
   top: 56px;
@@ -421,7 +421,7 @@ a.pswp__share--download:hover {
   -webkit-font-smoothing: auto;
   visibility: visible;
   opacity: 1;
-  z-index: 1550; }
+  z-index: 155000; }
 
 /* top black bar with buttons and "1 of X" indicator */
 .pswp__top-bar {
