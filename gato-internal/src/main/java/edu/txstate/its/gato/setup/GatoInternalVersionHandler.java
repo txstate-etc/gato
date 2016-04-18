@@ -76,6 +76,7 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       .addTask(new BootstrapSingleModuleResource("config.modules.pages.apps.pages.subApps.browser.actionbar.sections.pageActions.groups.addingActions.items.xml"))
       .addTask(new BootstrapSingleModuleResource("config.modules.pages.apps.pages.subApps.browser.actionbar.sections.pageDeleteActions.groups.addingActions.items.xml"))
       .addTask(new BootstrapSingleModuleResource("config.modules.pages.apps.pages.subApps.browser.actions.confirmPageDeletion.xml"))
+    );
   }
 
   protected List<Task> installOrUpdateTasks() {
