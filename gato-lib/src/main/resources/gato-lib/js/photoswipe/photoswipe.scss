@@ -13,7 +13,7 @@
   overflow: hidden;
   -ms-touch-action: none;
   touch-action: none;
-  z-index: 150000;
+  z-index: 1500;
   -webkit-text-size-adjust: 100%;
   /* create separate layer, to avoid paint on window.onscroll in webkit/blink */
   -webkit-backface-visibility: hidden;
@@ -66,6 +66,7 @@
   height: 100%;
   background: #000;
   opacity: 0;
+  transform: translateZ(0);
   -webkit-backface-visibility: hidden;
   will-change: opacity; }
 
@@ -120,8 +121,7 @@
 
 .pswp__container,
 .pswp__zoom-wrap {
-  -webkit-backface-visibility: hidden;
-  will-change: transform; }
+  -webkit-backface-visibility: hidden; }
 
 .pswp__item {
   position: absolute;
