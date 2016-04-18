@@ -9,7 +9,7 @@
 
   <properties>
     <gatoVersion>1.0.3</gatoVersion>
-    <magnoliaVersion>5.4.4</magnoliaVersion>
+    <magnoliaVersion>5.4.5</magnoliaVersion>
     <vaadinVersion>7.4.7</vaadinVersion>
     <javaVersion>1.8</javaVersion>
   </properties>
