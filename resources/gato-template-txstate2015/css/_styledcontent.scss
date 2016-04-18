@@ -131,23 +131,6 @@
     padding: 0;
   }
 
-  .rich-editor-table{
-    width:100%;
-    overflow-x:auto;
-    table{
-      border: none;
-    }
-    table.alternate-row-color tbody tr:nth-child(odd) {
-       background-color: $light-sandstone;
-    }
-    table.auto-width{
-      width: auto;
-    }
-    table.full-width{
-      width: 100%;
-    }
-  }
-
   table{
     caption {
       background: $gold;
@@ -164,38 +147,6 @@
     th {
       background: $gold;
       color: $white;
-    }
-    &.header-color-gold th{
-      background: $gold;
-      color: $white;
-    }
-    &.header-color-maroon th{
-      background: $maroon;
-      color: $white;
-    }
-    &.header-color-sandstone th{
-      background: $sandstone;
-      color: $almost-black;
-    }
-    &.header-color-charcoal th{
-      background: $charcoal;
-      color: $white;
-    }
-    &.header-color-blue th{
-      background: $blue;
-      color: $white;
-    }
-    &.header-color-river th{
-      background: $river;
-      color: $almost-black;
-    }
-    &.header-color-oldgold th{
-      background: $oldgold;
-      color: $almost-black;
-    }
-    &.header-color-none th{
-      background: transparent;
-      color: $almost-black;
     }
   }
 }

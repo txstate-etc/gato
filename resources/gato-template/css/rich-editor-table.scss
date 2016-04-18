@@ -1,0 +1,58 @@
+.column_paragraph{
+    .rich-editor-table{
+    width:100%;
+    overflow-x:auto;
+    table{
+        td, th{
+          padding: 0.5rem 1rem;
+          border-color: $khaki;
+        }
+        th {
+          background: $gold;
+          color: $white;
+        }
+        border: none;
+        &.header-color-gold th{
+          background: $gold;
+          color: $white;
+        }
+        &.header-color-maroon th{
+          background: $maroon;
+          color: $white;
+        }
+        &.header-color-sandstone th{
+          background: $sandstone;
+          color: $almost-black;
+        }
+        &.header-color-charcoal th{
+          background: $charcoal;
+          color: $white;
+        }
+        &.header-color-blue th{
+          background: $blue;
+          color: $white;
+        }
+        &.header-color-river th{
+          background: $river;
+          color: $almost-black;
+        }
+        &.header-color-oldgold th{
+          background: $oldgold;
+          color: $almost-black;
+        }
+        &.header-color-none th{
+          background: transparent;
+          color: $almost-black;
+        }
+    }
+    table.alternate-row-color tbody tr:nth-child(odd) {
+       background-color: $light-sandstone;
+    }
+    table.auto-width{
+      width: auto;
+    }
+    table.full-width{
+      width: 100%;
+    }
+  }
+}
