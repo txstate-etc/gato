@@ -12,16 +12,16 @@
       $(this).next('.gato-accordion-content').slideToggle(accordion_dur);
     });
 
-    $('.gato-accordion-expand-all').on('click', function(e) {
+    $('#gato-accordion-expand-all').on('click', function(e) {
       e.preventDefault();
-      var $accordions = $(this).closest('.gato-accordion-expand-collapse').parent().find('.gato-accordion');
+      var $accordions = $('.gato-accordion');
       $accordions.find('.gato-accordion-content').slideDown(accordion_dur);
       $accordions.find('.gato-accordion-header').addClass('selected');
     });
 
-    $('.gato-accordion-collapse-all').on('click', function(e) {
+    $('#gato-accordion-collapse-all').on('click', function(e) {
       e.preventDefault();
-      var $accordions = $(this).closest('.gato-accordion-expand-collapse').parent().find('.gato-accordion');
+      var $accordions = $('.gato-accordion');
       $accordions.find('.gato-accordion-content').slideUp(accordion_dur);
       $accordions.find('.gato-accordion-header').removeClass('selected');
     });
