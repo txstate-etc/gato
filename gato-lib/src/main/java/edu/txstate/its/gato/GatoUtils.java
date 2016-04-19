@@ -68,6 +68,8 @@ import org.apache.commons.codec.digest.DigestUtils;
 
 import org.apache.jackrabbit.JcrConstants;
 
+import org.jsoup.Jsoup;
+
 public final class GatoUtils {
   private static final Pattern LINK_PATTERN = Pattern.compile("(https?://\\S+)", Pattern.CASE_INSENSITIVE);
   private static final Pattern USER_PATTERN = Pattern.compile("(^|)@(\\w+)");
@@ -1040,5 +1042,9 @@ public final class GatoUtils {
       }
     }
     return "";
+  }
+
+  public String tidyHTML(String rawhtml) {
+    return Jsoup.parse("<!DOCTYPE html><html><head></head><body>"+rawhtml+"</body></html>").body().html();
   }
 }

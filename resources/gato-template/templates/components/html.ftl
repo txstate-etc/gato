@@ -1,1 +1,1 @@
-${cmsfn.decode(content).text}
+${gf.tidyHTML(cmsfn.decode(content).text)}
