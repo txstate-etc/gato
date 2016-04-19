@@ -20,8 +20,6 @@ availableComponents:
     id: gato-area-mail:components/formedit
   formselection:
     id: gato-area-mail:components/formselection
-  formsubmit:
-    id: gato-area-mail:components/formsubmit
   formfile:
     id: gato-area-mail:components/formfile
   html:

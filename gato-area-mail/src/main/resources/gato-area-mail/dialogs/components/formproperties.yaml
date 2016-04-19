@@ -1,8 +1,11 @@
 form:
   tabs:
     - name: tabform
-      label: Mail Form Properties
+      label: General Properties
       fields:
+        - name: buttonText
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Form Button Label
         - name: to
           class: info.magnolia.ui.form.field.definition.MultiValueFieldDefinition
           label: Send Mail To
@@ -13,19 +16,26 @@ form:
             class: info.magnolia.ui.form.field.definition.TextFieldDefinition
         - name: copySender
           class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
-          label: Copy Sender
+          label: ""
           buttonLabel: Send Copy to Submitter
           description: "Would you like a copy of email sent to the form submitter? Note: for this to work, you must designate one of the fields in the form as the Sender's Email."
-        - name: subject
-          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-          label: Subject
-          description: What would you like the subject of the E-Mail to be?
         - name: redirect
           class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
           targetWorkspace: website
           appName: pages
-          label: Page to Display After Submission
+          label: Confirmation Page
           description: "Once the form has been submitted successfully, where should the site visitor end up?"
-
+    - name: tabresponse
+      label: Auto Email Response
+      fields:
+        - name: subject
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Subject
+          description: What would you like the subject of the E-Mail to be?
+        - name: message
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Message
+          rows: 6
+          description: Add a customized message to the email set to form submitters
 actions: !include /gato-template/dialogs/common/actions-block.yaml
 label: Mail Form Properties
