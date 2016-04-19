@@ -140,7 +140,8 @@
         margin: 1.2rem;
       }
     }
-    td, th{
+    td, th {
+      word-wrap: normal;
       padding: 0.5rem 1rem;
       border-color: $khaki;
     }
