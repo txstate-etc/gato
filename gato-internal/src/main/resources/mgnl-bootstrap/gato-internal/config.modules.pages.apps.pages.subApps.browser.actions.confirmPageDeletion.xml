@@ -7,7 +7,7 @@
     <sv:value>mix:lockable</sv:value>
   </sv:property>
   <sv:property sv:name="jcr:uuid" sv:type="String">
-    <sv:value>adef5716-1175-4938-b6b7-c367567e80e0</sv:value>
+    <sv:value>5a46103a-ca80-4d95-b1fc-577959c1d469</sv:value>
   </sv:property>
   <sv:property sv:name="class" sv:type="String">
     <sv:value>edu.txstate.its.gato.GatoConfirmDeleteActionDefinition</sv:value>
@@ -18,11 +18,23 @@
   <sv:property sv:name="jcr:createdBy" sv:type="String">
     <sv:value>admin</sv:value>
   </sv:property>
+  <sv:property sv:name="mgnl:activationStatus" sv:type="Boolean">
+    <sv:value>false</sv:value>
+  </sv:property>
   <sv:property sv:name="mgnl:created" sv:type="Date">
-    <sv:value>2013-02-25T12:29:29.745+01:00</sv:value>
+    <sv:value>2016-04-19T13:28:08.158-05:00</sv:value>
+  </sv:property>
+  <sv:property sv:name="mgnl:createdBy" sv:type="String">
+    <sv:value>nw13</sv:value>
+  </sv:property>
+  <sv:property sv:name="mgnl:lastActivated" sv:type="Date">
+    <sv:value>2016-04-19T13:28:08.177-05:00</sv:value>
+  </sv:property>
+  <sv:property sv:name="mgnl:lastActivatedBy" sv:type="String">
+    <sv:value>nw13</sv:value>
   </sv:property>
   <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-    <sv:value>2016-04-18T15:05:22.954-05:00</sv:value>
+    <sv:value>2016-04-19T13:28:20.872-05:00</sv:value>
   </sv:property>
   <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
     <sv:value>nw13</sv:value>
@@ -35,19 +47,28 @@
       <sv:value>mgnl:contentNode</sv:value>
     </sv:property>
     <sv:property sv:name="jcr:uuid" sv:type="String">
-      <sv:value>4bcb450c-55ca-486a-8032-d044912c7210</sv:value>
+      <sv:value>e91442bf-71df-451c-a762-9fcc97b4ecc5</sv:value>
     </sv:property>
     <sv:property sv:name="jcr:createdBy" sv:type="String">
       <sv:value>admin</sv:value>
     </sv:property>
+    <sv:property sv:name="mgnl:activationStatus" sv:type="Boolean">
+      <sv:value>false</sv:value>
+    </sv:property>
     <sv:property sv:name="mgnl:created" sv:type="Date">
-      <sv:value>2013-05-22T16:38:42.323+02:00</sv:value>
+      <sv:value>2016-04-19T13:28:08.158-05:00</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:createdBy" sv:type="String">
-      <sv:value>superuser</sv:value>
+      <sv:value>nw13</sv:value>
+    </sv:property>
+    <sv:property sv:name="mgnl:lastActivated" sv:type="Date">
+      <sv:value>2016-04-19T13:28:08.178-05:00</sv:value>
+    </sv:property>
+    <sv:property sv:name="mgnl:lastActivatedBy" sv:type="String">
+      <sv:value>nw13</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-      <sv:value>2016-04-18T15:05:22.954-05:00</sv:value>
+      <sv:value>2016-04-19T13:28:20.872-05:00</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
       <sv:value>nw13</sv:value>
@@ -66,13 +87,28 @@
         <sv:value>mix:lockable</sv:value>
       </sv:property>
       <sv:property sv:name="jcr:uuid" sv:type="String">
-        <sv:value>532bbe1d-b7f5-45f1-b94a-225bc4b11f08</sv:value>
+        <sv:value>cacd1c6e-5025-49ab-b865-407cc5fab04e</sv:value>
       </sv:property>
       <sv:property sv:name="jcr:createdBy" sv:type="String">
         <sv:value>admin</sv:value>
       </sv:property>
+      <sv:property sv:name="mgnl:activationStatus" sv:type="Boolean">
+        <sv:value>false</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:created" sv:type="Date">
+        <sv:value>2016-04-19T13:28:08.158-05:00</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:createdBy" sv:type="String">
+        <sv:value>nw13</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:lastActivated" sv:type="Date">
+        <sv:value>2016-04-19T13:28:08.183-05:00</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:lastActivatedBy" sv:type="String">
+        <sv:value>nw13</sv:value>
+      </sv:property>
       <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-        <sv:value>2016-04-18T15:05:22.954-05:00</sv:value>
+        <sv:value>2016-04-19T13:28:20.872-05:00</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
         <sv:value>nw13</sv:value>
@@ -85,7 +121,7 @@
           <sv:value>mix:lockable</sv:value>
         </sv:property>
         <sv:property sv:name="jcr:uuid" sv:type="String">
-          <sv:value>a3967480-f58d-4db2-a0b3-b6e1f8a7bfd8</sv:value>
+          <sv:value>683b0f3e-2451-415c-9c35-4135ffd0c480</sv:value>
         </sv:property>
         <sv:property sv:name="implementationClass" sv:type="String">
           <sv:value>info.magnolia.ui.framework.availability.IsNotDeletedRule</sv:value>
@@ -93,8 +129,23 @@
         <sv:property sv:name="jcr:createdBy" sv:type="String">
           <sv:value>admin</sv:value>
         </sv:property>
+        <sv:property sv:name="mgnl:activationStatus" sv:type="Boolean">
+          <sv:value>false</sv:value>
+        </sv:property>
+        <sv:property sv:name="mgnl:created" sv:type="Date">
+          <sv:value>2016-04-19T13:28:08.158-05:00</sv:value>
+        </sv:property>
+        <sv:property sv:name="mgnl:createdBy" sv:type="String">
+          <sv:value>nw13</sv:value>
+        </sv:property>
+        <sv:property sv:name="mgnl:lastActivated" sv:type="Date">
+          <sv:value>2016-04-19T13:28:08.185-05:00</sv:value>
+        </sv:property>
+        <sv:property sv:name="mgnl:lastActivatedBy" sv:type="String">
+          <sv:value>nw13</sv:value>
+        </sv:property>
         <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-          <sv:value>2016-04-18T15:05:22.954-05:00</sv:value>
+          <sv:value>2016-04-19T13:28:20.872-05:00</sv:value>
         </sv:property>
         <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
           <sv:value>nw13</sv:value>
@@ -108,7 +159,7 @@
           <sv:value>mix:lockable</sv:value>
         </sv:property>
         <sv:property sv:name="jcr:uuid" sv:type="String">
-          <sv:value>828a1245-afab-44f2-bd85-b5fb54e10a2c</sv:value>
+          <sv:value>a0787507-49f7-4950-a404-0ec7db1777e6</sv:value>
         </sv:property>
         <sv:property sv:name="implementationClass" sv:type="String">
           <sv:value>edu.txstate.its.gato.apputil.IsNotTopLevelRule</sv:value>
@@ -120,19 +171,19 @@
           <sv:value>false</sv:value>
         </sv:property>
         <sv:property sv:name="mgnl:created" sv:type="Date">
-          <sv:value>2016-02-19T13:54:14.339-06:00</sv:value>
+          <sv:value>2016-04-19T13:28:08.158-05:00</sv:value>
         </sv:property>
         <sv:property sv:name="mgnl:createdBy" sv:type="String">
-          <sv:value>cj32</sv:value>
+          <sv:value>nw13</sv:value>
         </sv:property>
         <sv:property sv:name="mgnl:lastActivated" sv:type="Date">
-          <sv:value>2016-02-19T13:54:14.339-06:00</sv:value>
+          <sv:value>2016-04-19T13:28:08.186-05:00</sv:value>
         </sv:property>
         <sv:property sv:name="mgnl:lastActivatedBy" sv:type="String">
-          <sv:value>cj32</sv:value>
+          <sv:value>nw13</sv:value>
         </sv:property>
         <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-          <sv:value>2016-04-18T15:05:22.954-05:00</sv:value>
+          <sv:value>2016-04-19T13:28:20.872-05:00</sv:value>
         </sv:property>
         <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
           <sv:value>nw13</sv:value>
