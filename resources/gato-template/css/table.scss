@@ -52,8 +52,9 @@
         background-color: $light-sandstone;
     }
 
-    &.table-fontsm td {
-        font-size: .8em;
+    &.table-fontsm {
+      th { font-size: 0.9em; }
+      td { font-size: 0.8em; }
     }
 
     &.table-align-right td, &.table-align-right th {
