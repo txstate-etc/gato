@@ -13,7 +13,7 @@
   <input type="hidden" name="options" value="send-to-sender" />
 [/#if]
 <input type="hidden" name="destinationemail" value="${addresses}" />
-<input type="hidden" name="MessageSubject" value="${content.subject!''}" />
+<input type="hidden" name="MessageSubject" value="${content.subject!gf.nodeTitle(cmsfn.page(content))}" />
 <input type="hidden" name="MessageText" value="${content.message!''}" />
 
 <input type="hidden" id="formemailersetid" name="formemailersetid" value="${cmsfn.page(content).@id}" />
