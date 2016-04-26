@@ -382,8 +382,6 @@ div#homepage-banner {
               
               .featured-links-button {
                 margin: 2rem 0 0;
-                -webkit-box-decoration-break: initial;
-                box-decoration-break: initial;
               }
 
             }
@@ -399,6 +397,8 @@ div#homepage-banner {
               border-radius: $default-border-radius;
               text-align: center;
               text-transform: uppercase;
+              -webkit-box-decoration-break: initial;
+              box-decoration-break: initial;
               
               margin: 3rem 0 0;
               padding: 1.5rem 3rem;
