@@ -12,9 +12,9 @@ jQuery(document).ready(function ($) {
   waitforselector('.navBlocks_add', '.mgnlEditor.mgnlPlaceholder', setsidebarminheight);
 
   if (sidebar.size() > 0) {
-    // find the first gato-component paragraph whose top is
-    // below the sidebar and expand it to full width
-    resizeTimeout(function() {
+    var expandsectionsaftersidebar = function () {
+      // find the first gato-component paragraph whose top is
+      // below the sidebar and expand it to full width
       $('.page_content .gato-section').each(function (i, cmp) {
         cmp = $(cmp);
         if (cmp.position().top > sidebar.position().top+sidebar.height()) {
@@ -23,6 +23,8 @@ jQuery(document).ready(function ($) {
           cmp.css('width', '');
         }
       });
-    });
+    };
+    resizeTimeout(expandsectionsaftersidebar);
+    waitforselector('.navBlocks_add', '.mgnlEditor.mgnlPlaceholder', function () { setTimeout(expandsectionsaftersidebar, 0); });
   }
 });
