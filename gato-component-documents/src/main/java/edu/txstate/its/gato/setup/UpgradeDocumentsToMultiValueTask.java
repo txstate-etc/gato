@@ -38,7 +38,7 @@ public class UpgradeDocumentsToMultiValueTask extends GatoBaseUpgradeTask {
   private void convertToMulti(Node n) throws RepositoryException {
     if (!n.hasNode("docs") && n.hasProperty("link")) {
       Node docs = n.addNode("docs", NodeTypes.ContentNode.NAME);
-      PropertyUtil.setProperty(docs, "imported", PropertyUtil.getString(n, "link"));
+      PropertyUtil.setProperty(docs, "0", PropertyUtil.getString(n, "link"));
       n.getProperty("link").remove();
     }
   }
