@@ -14,6 +14,11 @@
 
   <dependencies>
     <dependency>
+      <groupId>edu.txstate.its.gato</groupId>
+      <artifactId>gato-lib</artifactId>
+      <version>${gatoVersion}</version>
+    </dependency>
+    <dependency>
       <groupId>info.magnolia</groupId>
       <artifactId>magnolia-core</artifactId>
     </dependency>

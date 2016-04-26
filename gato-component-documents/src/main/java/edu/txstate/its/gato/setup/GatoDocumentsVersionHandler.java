@@ -1,6 +1,7 @@
 package edu.txstate.its.gato.setup;
 
 import info.magnolia.module.DefaultModuleVersionHandler;
+import info.magnolia.module.delta.DeltaBuilder;
 
 /**
  * This class is optional and lets you manage the versions of your module,
@@ -12,5 +13,9 @@ import info.magnolia.module.DefaultModuleVersionHandler;
  * @see info.magnolia.module.delta.Task
  */
 public class GatoDocumentsVersionHandler extends DefaultModuleVersionHandler {
-
+  public GatoDocumentsVersionHandler() {
+    register(DeltaBuilder.update("1.0.3", "")
+      .addTask(new UpgradeDocumentsToMultiValueTask())
+    );
+  }
 }
