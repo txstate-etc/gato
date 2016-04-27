@@ -29,7 +29,8 @@ form:
               label: Checkboxes
               value: checkbox
         - name: options
-          class: edu.txstate.its.gato.vaadin.OrderableMultiFieldDefinition
+          class: info.magnolia.ui.form.field.definition.MultiValueFieldDefinition
+          transformerClass: info.magnolia.ui.form.field.transformer.multi.MultiValueChildNodeTransformer
           label: Options
           buttonSelectAddLabel: Add Option
           description: List the options available to the site visitor.

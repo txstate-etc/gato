@@ -13,10 +13,11 @@ import info.magnolia.module.delta.DeltaBuilder;
  * @see info.magnolia.module.delta.Task
  */
 public class GatoMailVersionHandler extends DefaultModuleVersionHandler {
-    public GatoMailVersionHandler() {
-        register(DeltaBuilder.update("1.0.3", "")
-            .addTask(new MoveButtonTextToFormPropertiesTask())
-            .addTask(new UpdateTextFieldTask())
-        );
-      }
+  public GatoMailVersionHandler() {
+    register(DeltaBuilder.update("1.0.3", "")
+      .addTask(new MoveButtonTextToFormPropertiesTask())
+      .addTask(new UpdateTextFieldTask())
+      .addTask(new ConvertSelectionOptionsToChildNodeOperatorTask())
+    );
+  }
 }
