@@ -6,7 +6,7 @@ form:
         - name: title
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           required: true
-          label: Title
+          label: Field Label
         - name: mandatory
           class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
           label: Mandatory
@@ -14,48 +14,104 @@ form:
         - name: dataType
           class: info.magnolia.ui.form.field.definition.SwitchableFieldDefinition
           transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
-          label: Data Type
+          label: Field Type
           description: Ensure that your user only enters data matching this type.
           selectionType: select
           styleName: dataType
           options:
             - name: none
-              label: -- None --
+              label: "Plain Text - Default"
               value: none
-            - name: date
-              label: Date
-              value: date
+            - name: "name"
+              label: Name
+              value: name
             - name: netid
               label: Net ID
               value: netid
             - name: anumber
               label: Student ID (A0...)
               value: anumber
-            - name: keystring
-              label: Alphanumeric (no spaces)
-              value: keystring
             - name: email
               label: E-Mail Address
               value: email
-            - name: txemail
-              label: Texas State E-Mail Address
-              value: txemail
-            - name: integer
-              label: Integer
-              value: integer
-            - name: decimal
-              label: Decimal
-              value: decimal
-            - name: zip
-              label: 5-digit Zip Code
-              value: zip
             - name: phone
               label: Phone Number (with area code)
               value: phone
+            - name: date
+              label: Date
+              value: date
+            - name: zip
+              label: Zip Code
+              value: zip
+            - name: keystring
+              label: Alphanumeric (no spaces)
+              value: keystring
+            - name: decimal
+              label: Decimal
+              value: decimal
+            - name: integer
+              label: Integer
+              value: integer
             - name: regex
               label: Regular Expression
               value: regex
           fields:
+            - name: none
+              class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
+              label: Field Size
+              transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+              layout: vertical
+              fields:
+                - name: lines
+                  class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
+                  label: ""
+                  sortOptions: false
+                  options:
+                    - name: single
+                      label: Single Line
+                      selected: true
+                      value: single
+                    - name: multi
+                      label: Multiple Lines
+                      value: multi
+                - name: maxlength
+                  label: Maximum Length
+                  class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                  type: Long
+                  description: "Enter a maximum number of characters to constrain the length of the text the form submitter enters.  For example, only allow them to enter up to 125 characters."
+            - name: name
+              class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
+              label: ""
+              transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+              fields:
+                - name: isSenderName
+                  label: ""
+                  class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+                  buttonLabel: This field is the form submitter's name
+                  defaultValue: false
+            - name: email
+              class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
+              transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+              label: ""
+              layout: vertical
+              fields:
+                - name: isSenderEmail
+                  class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+                  buttonLabel: This field is the form submitter's email address
+                  label: ""
+                - name: emailType
+                  class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
+                  label: E-mail Type
+                  sortOptions: false
+                  multiselect: false
+                  options:
+                    - name: txstate
+                      label: Txstate e-mail
+                      value: txstate
+                    - name: other
+                      label: Other e-mail
+                      value: other
+                      selected: true
             - name: date
               class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
               label: Date Range
@@ -69,7 +125,7 @@ form:
             - name: regex
               class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
               layout: vertical
-              label: Regular Expression
+              label: ""
               fields:
                 - name: regex
                   class: info.magnolia.ui.form.field.definition.TextFieldDefinition
@@ -77,42 +133,6 @@ form:
                 - name: error
                   class: info.magnolia.ui.form.field.definition.TextFieldDefinition
                   label: Error Message
-        - name: lines
-          class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
-          label: Lines
-          multiselect: false
-          type: String
-          sortOptions: false
-          options:
-            - name: single
-              label: Single Line Text Input
-              selected: true
-              value: single
-            - name: small
-              label: Small Text Area
-              value: small
-            - name: large
-              label: Large Text Area
-              value: large
-        - name: senderInfo
-          class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
-          label: Field Type
-          multiselect: false
-          description: "If you include fields for the submitter's name and email address, the emails you receive will have the FROM address set appropriately. Note: @txstate.edu email addresses will use the submitter's full name as recorded with the university, not the name entered."
-          type: String
-          sortOptions: false
-          styleName: senderInfo
-          options:
-            - name: none
-              label: Normal Field
-              selected: true
-              value: none
-            - name: name
-              label: This field is the form submitter's name
-              value: name
-            - name: email
-              label: This field is the form submitter's email address
-              value: email
         - name: script
           class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
           initFunction: initFormEdit

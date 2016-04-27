@@ -105,6 +105,7 @@ txstValidate.prototype.evaluate = function() {
     var re = new RegExp('\\.(' + this.elem.allowableFileExts.join('|') + ')$', 'i');
     return val.match(re);
   }
+  if(type == 'maxlength') return val.length <= this.elem.maxchars;
   return true;
 };
 
@@ -131,6 +132,7 @@ txstValidate.prototype.getErrorMsg = function() {
   if (type == 'phone') return 'must be a 10 digit phone number';
   if (type == 'netid') return 'must be a valid TX State Net ID';
   if (type == 'anumber') return 'must be a valid Student ID';
+  if (type == 'maxlength') return 'must be ' + this.elem.maxchars + ' characters or less';
   if (type == 'regex') {
     if (this.elem.valid_msg) return this.elem.valid_msg;
     else return 'does not appear to be valid';
@@ -342,7 +344,7 @@ txstValidate.isDateSupported = function isDateSupported() {
 Event.observe(document, 'dom:loaded', function() {
   $$('.txst-form-validicon').each(function(itm) {
     var type = '';
-    var ipt = itm.up('.formelement').down('input');
+    var ipt = itm.up('.formelement').down('input,textarea');
     while (ipt.type == 'hidden') ipt = ipt.next('input');
     if (itm.hasClassName('txst-form-date')) type = 'date';
     if (itm.hasClassName('txst-form-keystring')) type = 'keystring';
@@ -356,6 +358,8 @@ Event.observe(document, 'dom:loaded', function() {
     if (itm.hasClassName('txst-form-anumber')) type = 'anumber';
     if (itm.hasClassName('txst-form-regex')) type = 'regex';
     if (itm.hasClassName('txst-form-file')) type = 'file';
+    //The only validation available on a type 'none' field is maxlength
+    if (itm.hasClassName('txst-form-none')) type = 'maxlength';
     if (!type) return;
     var vld = new txstValidate(type, ipt, itm);
     var myform = itm.up().up('form');
@@ -544,3 +548,19 @@ function form_fixcolumns() {
 
 Event.observe(document,'dom:loaded', form_fixcolumns);
 Event.observe(window,orientationChangeEventName, form_fixcolumns);
+
+//update character counter for fields that have a maximum length defined
+Event.observe(document, 'dom:loaded', function(){
+  $$('textarea.limited, input.limited').invoke('observe', 'keyup', function(){
+    var length = this.value.length;
+    var charcounterdiv = $(this).previous('.charcounter');
+    var maxlength = charcounterdiv.down('.maxchars').textContent;
+    charcounterdiv.down('.charsentered').textContent = length;
+    if(length > maxlength){
+      charcounterdiv.setStyle({color: '#b30e1b', fontWeight: 'bold'});
+    }
+    else{
+      charcounterdiv.setStyle({color: '#222', fontWeight: 'normal'});
+    }
+  });
+});
