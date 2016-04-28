@@ -78,6 +78,7 @@ form:
                   label: Maximum Length
                   class: info.magnolia.ui.form.field.definition.TextFieldDefinition
                   type: Long
+                  styleName: max-length
                   description: "Enter a maximum number of characters to constrain the length of the text the form submitter enters.  For example, only allow them to enter up to 125 characters."
             - name: name
               class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
@@ -137,6 +138,6 @@ form:
           class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
           initFunction: initFormEdit
           scripts: [gato-area-mail/js/formedit.js]
-
+          styles: [gato-area-mail/css/formedit.css]
 actions: !include /gato-template/dialogs/common/actions-block.yaml
 label: Text Field

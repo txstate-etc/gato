@@ -1,0 +1,8 @@
+
+.v-caption-max-length{
+    margin-top:10px;
+}
+
+input.max-length.v-textfield-max-length.v-widget{
+    width:25% !important;
+}
