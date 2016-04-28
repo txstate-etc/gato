@@ -45,7 +45,7 @@ for Texas State email addresses for the validation--]
 [#assign limited=needCounter?string('limited','')]
 
 [#if content.lines?? && content.lines == "multi" && dataType == "none"]
-  <textarea name=${title} id=${title} rows="7" cols="60" class=${limited}></textarea>
+  <textarea name=${title} id=${title} rows="7" cols="60" class=${limited} [#if content.mandatory!false]aria-required="true"[/#if] aria-invalid="false" aria-describedby="${title}-error"></textarea>
   [#assign validating=needCounter]
 [#else]
   [#assign inputSize = "60"]
