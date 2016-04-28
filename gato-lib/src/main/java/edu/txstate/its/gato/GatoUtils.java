@@ -68,8 +68,6 @@ import org.apache.commons.codec.digest.DigestUtils;
 
 import org.apache.jackrabbit.JcrConstants;
 
-import org.jsoup.Jsoup;
-
 public final class GatoUtils {
   private static final Pattern LINK_PATTERN = Pattern.compile("(https?://\\S+)", Pattern.CASE_INSENSITIVE);
   private static final Pattern USER_PATTERN = Pattern.compile("(^|)@(\\w+)");
@@ -772,15 +770,33 @@ public final class GatoUtils {
   }
 
   public Collection<String> propertyValues(Object obj) {
+    List ret = (List) orderedPropertyValues(obj);
+    Collections.sort(ret);
+    return ret;
+  }
+
+  public Collection<String> orderedPropertyValues(Object obj) {
     Node n = toNode(obj);
     List ret = new ArrayList<String>();
+    List<Property> props = new ArrayList<Property>();
     try {
       Iterator iter = n.getProperties();
       while (iter.hasNext()) {
         Property p = (Property)iter.next();
-        if (!p.getName().startsWith("jcr:") && !p.getName().startsWith("mgnl:")) ret.add(p.getString());
+        if (!p.getName().startsWith("jcr:") && !p.getName().startsWith("mgnl:")) props.add(p);
       }
-      Collections.sort(ret);
+      Collections.sort(props, new Comparator<Property>(){
+        public int compare(Property a, Property b) {
+          try {
+            return a.getName().compareTo(b.getName());
+          } catch (Exception e) {
+            return 0;
+          }
+        }
+      });
+      for (Property p : props) {
+        ret.add(p.getString());
+      }
     } catch (Exception e) {
       // ignore and return empty collection
     }
@@ -1042,9 +1058,5 @@ public final class GatoUtils {
       }
     }
     return "";
-  }
-
-  public String tidyHTML(String rawhtml) {
-    return Jsoup.parse("<!DOCTYPE html><html><head></head><body>"+rawhtml+"</body></html>").body().html();
   }
 }

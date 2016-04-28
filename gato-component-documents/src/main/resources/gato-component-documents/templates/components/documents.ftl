@@ -1,5 +1,5 @@
 [#assign extension = content.extension!]
-[#list gf.propertyValues(content.docs) as link]
+[#list gf.orderedPropertyValues(content.docs) as link]
   [#if link??]
       [#assign documents = model.getFiles(link, extension)]
       [#list documents as doc]

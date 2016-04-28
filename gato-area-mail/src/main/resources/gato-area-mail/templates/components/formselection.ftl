@@ -14,7 +14,7 @@
 [#if content.type == "select"]
   <select name="${title}" id="${title}" [#if content.mandatory!false]aria-required="true"[/#if]>
   <option value="not selected">Please select:</option>
-  [#list gf.propertyValues(content.options) as option]
+  [#list gf.orderedPropertyValues(content.options) as option]
     [#assign value = option?keep_before("|")]
     [#assign label = option?keep_after("|")]
     [#if !label?has_content][#assign label = value][/#if]
@@ -25,7 +25,7 @@
   <div class="txst-form-selectiongroup" id="${title}">
   <input name="${title}" id="${title}-dummy-item" type="${content.type}" style="display:none" aria-hidden="true" value="" checked="checked" />
   [#assign i = 0]
-  [#list gf.propertyValues(content.options) as option]
+  [#list gf.orderedPropertyValues(content.options) as option]
     <div class="txst-form-selection-item">
       [#assign value = option?keep_before("|")]
       [#assign label = option?keep_after("|")]
