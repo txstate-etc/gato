@@ -37,12 +37,13 @@ var initPhotoSwipe = (function($) {
         // and find the optimal one to use
         var widths = $(link).attr('data-srcset').split(/,/);
         var href = $(link).attr('href');
-        var finalwidth = parseInt(size[0], 10);
+        var realwidth = parseInt(size[0], 10);
+        var finalwidth = realwidth;
         var finalheight = finalwidth/aspectratio;
         for (i = 0; i < widths.length; i++) {
           var info = widths[i].trim().split(/\s+/);
           var width = parseInt(info[1], 10);
-          if (width >= vpwidth && width <= finalwidth) {
+          if ((width >= vpwidth || width == realwidth) && width <= finalwidth) {
             href = info[0];
             finalwidth = width;
             finalheight = finalwidth/aspectratio;
