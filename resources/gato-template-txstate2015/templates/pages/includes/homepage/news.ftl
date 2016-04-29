@@ -34,10 +34,12 @@
             [#if !component.enddate?has_content || '${component.enddate?date}' == '${component.startdate?date}']
               <span class="month">${component.startdate?string['MMM']}</span>
               <span class="day">${component.startdate?string['d']}</span>
-            [#else /]  
-              <span class="range-start">${component.startdate?string['MMM. d']}</span>
+            [#else /]
+              [#assign startPeriod = (component.startdate?string['MMM'] == "May")?string("",".")]  
+              <span class="range-start">${component.startdate?string['MMM${startPeriod} d']}</span>
               <span class="range-to">to</span>
-              <span class="range-end">${component.enddate?string['MMM. d']}</span>
+              [#assign endPeriod = (component.enddate?string['MMM'] == "May")?string("",".")]
+              <span class="range-end">${component.enddate?string['MMM${endPeriod} d']}</span>
             [/#if]
 
             </a>
