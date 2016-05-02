@@ -68,7 +68,7 @@ jQuery(document).ready(function($) {
 
   //animate scrolling to anchors and make sure they don't hide behind sticky nav
   //adapted from https://css-tricks.com/snippets/jquery/smooth-scrolling/
-  $('a[href*="#"]:not([href="#"])').click(function() {
+  $('.column_paragraph a[href*="#"]:not([href="#"])').click(function() {
     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
       var target = $('[id="' + decodeURI(this.hash.slice(1)) +'"]');
       target = target.length ? target : $('[name="' + decodeURI(this.hash.slice(1)) +'"]');
