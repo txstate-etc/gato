@@ -345,7 +345,7 @@ Event.observe(document, 'dom:loaded', function() {
   $$('.txst-form-validicon').each(function(itm) {
     var type = '';
     var ipt = itm.up('.formelement').down('input,textarea');
-    while (ipt.type == 'hidden') ipt = ipt.next('input');
+    while (ipt.type == 'hidden') ipt = ipt.next('input,textarea');
     if (itm.hasClassName('txst-form-date')) type = 'date';
     if (itm.hasClassName('txst-form-keystring')) type = 'keystring';
     if (itm.hasClassName('txst-form-email')) type = 'email';
