@@ -40,6 +40,9 @@
         <a href="${entry.link}">${entry.title}</a>
       </h3>
       <div class="gato-accordion-content">
+        [#if content.showThumbnails!false]
+          <div class="gato-rss-thumbnail"><img src="${model.getThumbnail(entry)}" alt=""></div>
+        [/#if]
         <div class="gato-rss-published">
           [#if entry.publishedDate?has_content && content.showDates!false]
             <span class="gato-rss-date">

@@ -57,4 +57,9 @@ form:
           class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
           label: Show Created Date
           buttonLabel: Will display the creation date of each item.
+        - name: showThumbnails
+          class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+          label: Show Thumbnails
+          description: Depends on media:thumbnail tags in the feed. This is what WordPress does.
+          buttonLabel: Will display thumbnail images for each item.
 actions: !include /gato-template/dialogs/common/actions-block.yaml

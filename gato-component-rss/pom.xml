@@ -22,16 +22,21 @@
       <artifactId>magnolia-rendering</artifactId>
     </dependency>
     <dependency>
-      <groupId>rome</groupId>
+      <groupId>com.rometools</groupId>
       <artifactId>rome</artifactId>
-      <version>0.9</version>
+      <version>1.6.0</version>
     </dependency>
     <dependency>
-      <groupId>rome</groupId>
+      <groupId>com.rometools</groupId>
       <artifactId>rome-fetcher</artifactId>
-      <version>0.9</version>
+      <version>1.6.0</version>
     </dependency>
-    <!-- <dependency>
+		<dependency>
+			<groupId>com.rometools</groupId>
+			<artifactId>rome-modules</artifactId>
+			<version>1.6.0</version>
+		</dependency>
+<!-- <dependency>
       <groupId>edu.txstate.its.gato</groupId>
       <artifactId>gato-lib</artifactId>
       <version>${gatoVersion}</version>

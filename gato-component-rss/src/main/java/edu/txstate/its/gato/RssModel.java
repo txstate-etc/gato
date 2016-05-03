@@ -6,15 +6,16 @@ import info.magnolia.rendering.model.RenderingModel;
 import info.magnolia.rendering.model.RenderingModelImpl;
 import info.magnolia.rendering.template.RenderableDefinition;
 
-import com.sun.syndication.feed.synd.SyndFeed;
-import com.sun.syndication.feed.synd.SyndEntry;
-import com.sun.syndication.feed.synd.SyndContent;
-import com.sun.syndication.fetcher.FeedFetcher;
-import com.sun.syndication.fetcher.FetcherException;
-import com.sun.syndication.fetcher.impl.FeedFetcherCache;
-import com.sun.syndication.fetcher.impl.HashMapFeedInfoCache;
-import com.sun.syndication.fetcher.impl.HttpURLFeedFetcher;
-import com.sun.syndication.io.FeedException;
+import com.rometools.fetcher.FeedFetcher;
+import com.rometools.fetcher.FetcherException;
+import com.rometools.fetcher.impl.FeedFetcherCache;
+import com.rometools.fetcher.impl.HashMapFeedInfoCache;
+import com.rometools.fetcher.impl.HttpURLFeedFetcher;
+import com.rometools.modules.mediarss.MediaModule;
+import com.rometools.rome.feed.synd.SyndFeed;
+import com.rometools.rome.feed.synd.SyndEntry;
+import com.rometools.rome.feed.synd.SyndContent;
+import com.rometools.rome.io.FeedException;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -92,6 +93,14 @@ public class RssModel<RD extends RenderableDefinition> extends RenderingModelImp
     }
 
     return itemText;
+  }
+
+  public String getThumbnail(final SyndEntry item) {
+    try {
+      return ((MediaModule)item.getModule(MediaModule.URI)).getMetadata().getThumbnail()[0].getUrl().toString();
+    } catch (Exception e) {
+      return "";
+    }
   }
 
   private static SyndFeed fetchFeed(final Node content) throws IOException, MalformedURLException, FeedException, FetcherException, RepositoryException {
