@@ -44,14 +44,20 @@ body{
 
   //Use a red square for Not Published.
   //This is Magnolia's icon-slider-max icon
-  .icon-shape-circle.color-red:before{
+  .icon-shape-circle.color-red:before, .icon-status-red:before{
     content: "\e05A" !important;
   }
 
   //Use a green triangle for Published pages
   //This is Magnolia's icon-shape-triangle icon
-  .icon-shape-circle.color-green:before{
+  .icon-shape-circle.color-green:before, .icon-status-green:before{
     content: "\e0c6" !important;
+  }
+
+  //Use a yellow circle for modified but not Published pages
+  //This is Magnolia's icon-shape-circle icon
+  .icon-status-orange:before{
+    content: "\e0c4" !important;
   }
 
 }
