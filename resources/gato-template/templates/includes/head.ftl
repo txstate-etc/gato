@@ -154,7 +154,7 @@
 [/#macro]
 
 [#macro breadcrumbs hidetxstate=false]
-	<div id="txst-breadcrumbs" class="breadcrumbs">
+	<div class="breadcrumbs">
 		[#if !hidetxstate]
 			<a href="http://www.txstate.edu">Texas State</a>
 			<span class="separator"><i class="fa fa-angle-right"></i></span>
