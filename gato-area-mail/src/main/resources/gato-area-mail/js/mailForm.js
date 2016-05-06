@@ -221,11 +221,15 @@ txstValidate.prototype.clean = function() {
 
 txstValidate.prototype.focus = function() {
   this.elem.focus();
+  this.elem.scrollTo();
   var oset = document.viewport.getScrollOffsets();
   window.scrollTo((oset[0] > 50 ? oset[0] - 50 : 0), (oset[1] > 50 ? oset[1] - 50 : 0));
+  var background = this.elem.getStyle("backgroundColor");
+  //the highlight breaks if the endcolor is transparent
+  if(background == "transparent") background = "#ffffff";
   new Effect.Highlight(this.elem, {
     startcolor: '#ff5555',
-    endcolor: '#ffffff',
+    endcolor: rgb2hex(background),
     duration: 1.5
   });
 };
@@ -483,18 +487,28 @@ function checkMandatories(theForm, alertText) {
       }
       if (!ok) {
         alert(alertText);
-        var target;
+        var target,background;
         if (type === "select-one" || type == "checkbox" || type == "radio") {
           target = $(mgnlField[0]).up().up();
-        } else {
-          // type is input or textarea
+          background = "#FFFFFF";
+          target.scrollTo();
+        } 
+        else {
+          // type is input or textarea or file
           mgnlField.focus();
+          mgnlField.scrollTo();
+          var oset = document.viewport.getScrollOffsets();
+          window.scrollTo((oset[0] > 50 ? oset[0] - 50 : 0), (oset[1] > 50 ? oset[1] - 50 : 0));
           target = mgnlField;
+          if(type == "file")
+            background = '#ffffff';
+          else
+            background = jQuery(target).css("backgroundColor");
         }
         try {
           new Effect.Highlight(target, {
             startcolor: '#ff0000',
-            endcolor: '#ffffff',
+            endcolor: rgb2hex(background),
             duration: 2.5
           });
         } catch (err) {
@@ -510,6 +524,19 @@ function checkMandatories(theForm, alertText) {
   theForm.failedMandatories = !ok;
   if (ok) return true;
   else return false;
+}
+
+//http://stackoverflow.com/questions/1740700/how-to-get-hex-color-value-rather-than-rgb-value
+function rgb2hex(rgb) {
+   if (  rgb.search("rgb") == -1 ) {
+        return rgb;
+   } else {
+        rgb = rgb.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+))?\)$/);
+        function hex(x) {
+             return ("0" + parseInt(x).toString(16)).slice(-2);
+        }
+        return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]); 
+   }
 }
 
 function form_fixcolumns() {
