@@ -6,6 +6,14 @@
   <description>${project.description}</description>
   <versionHandler>edu.txstate.its.gato.setup.GatoCssJsVersionHandler</versionHandler>
   <version>${project.version}</version>
+	<components>
+		<id>main</id>
+		<component>
+			<type>edu.txstate.its.gato.JsUtil</type>
+			<implementation>edu.txstate.its.gato.JsUtil</implementation>
+			<scope>singleton</scope>
+		</component>
+	</components>
   <dependencies>
     <dependency>
       <name>core</name>

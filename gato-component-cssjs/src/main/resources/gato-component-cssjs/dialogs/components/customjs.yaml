@@ -1,7 +1,7 @@
 form:
   tabs:
     - name: tabGeneral
-      label: Custom Javascript
+      label: Main
       fields:
         - name: framework
           label: Framework
@@ -9,7 +9,7 @@ form:
           multiselect: false
           description: jQuery and Prototype are common javascript libraries that are very useful for writing cross-browser code.
           sortOptions: false
-          options: 
+          options:
             - name: none
               label: None
               value: none
@@ -32,5 +32,24 @@ form:
           class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
           initFunction: initTurnOffAcePairing
           scripts: [gato-template/js/turnoffacepairing.js]
+    - name: tabInclude
+      label: Include External Libraries
+      fields:
+        - name: includes
+          class: info.magnolia.ui.form.field.definition.MultiValueFieldDefinition
+          transformerClass: info.magnolia.ui.form.field.transformer.multi.MultiValueChildNodeTransformer
+          label: Javascript Libraries
+          description: "Each javascript file included here will be loaded asynchronously, but in order. The code you provide in the main tab will be executed only after all your external libraries have successfully loaded."
+          buttonSelectAddLabel: Add Library
+          field:
+            name: include
+            class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+            label: ""
+            description: You may upload your javascript file to Assets, or provide an external URL here.
+            appName: assets
+            targetWorkspace: dam
+            identifierToPathConverter:
+              class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
+
 actions: !include /gato-template/dialogs/common/actions-block.yaml
 label: Custom JS

@@ -21,6 +21,11 @@
       <groupId>info.magnolia</groupId>
       <artifactId>magnolia-rendering</artifactId>
     </dependency>
+    <dependency>
+      <groupId>edu.txstate.its.gato</groupId>
+      <artifactId>gato-lib</artifactId>
+      <version>${gatoVersion}</version>
+    </dependency>
   </dependencies>
 
 </project>

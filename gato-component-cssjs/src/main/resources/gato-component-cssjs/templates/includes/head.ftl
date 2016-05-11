@@ -1,8 +1,19 @@
+[#macro enclose includes code depth]
+  [#if depth gte includes?size]
+    ${code}
+  [#else]
+    jQuery.getScript('${includes[depth]}', function () {
+      [@enclose includes=includes code=code depth=depth+1/]
+    });
+  [/#if]
+[/#macro]
+
 [#macro pageCustomJS page isAncestor]
 	[#if page.customjs?has_content]
 		[#list cmsfn.children(page.customjs, 'mgnl:component') as entry]
 			[#local code = cmsfn.decode(entry).customJS!'']
 			[#local code = code?replace('<script[^>]*>([\\s\\S]+)</script>','$1','r')]
+			[#local code][@enclose includes=gatojs.getIncludes(entry.includes) code=code depth=0 /][/#local]
 			[#if (entry.inherit!false) || !isAncestor]
 				[#if entry.framework == "prototype"]
 					$(document).observe('dom:loaded', function () {
