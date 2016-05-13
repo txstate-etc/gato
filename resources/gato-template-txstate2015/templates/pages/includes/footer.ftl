@@ -15,9 +15,9 @@
           <!--[if lt IE 9]>
           <img alt="Texas State University - The Rising Star of Texas" src="${ctx.contextPath}/.resources/gato-template-txstate2015/images/txst_logo.png">
           <![endif]-->
-          <![if gte IE 9]>
+          <!--[if gte IE 9]>
           <img alt="Texas State University - The Rising Star of Texas" src="${ctx.contextPath}/.resources/gato-template-txstate2015/images/txst_logo.svg">
-          <![endif]>
+          <![endif]-->
         </a>
       </div>
     </div>

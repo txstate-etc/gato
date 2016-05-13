@@ -1,7 +1,7 @@
 [#macro javascript scripts=[]]
-    <![if gte IE 9]>
+    <!--[if gte IE 9]>
     <script type="text/javascript" src="${gf.resourcePath()}/gato-lib/js/jquery.js"></script>
-    <![endif]>
+    <![endif]-->
     <!--[if lt IE 9]>
     <script type="text/javascript" src="${gf.resourcePath()}/gato-lib/js/jquery-legacy.js"></script>
     <script type="text/javascript" src="${gf.resourcePath()}/gato-lib/js/rem.min.js"></script>
