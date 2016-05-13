@@ -98,7 +98,7 @@
                    { name: "styles",        items: [ "Styles"]},
                    { name: "colors",        items: [ "TextColor" ] }
            ];
-           config.removeDialogTabs = 'image:advanced;link:advanced';
+           config.removeDialogTabs = 'image:advanced;link:advanced;link:target';
 
            // Allow all elements/styles/attrs/classes except for line-height style. CKeditor 4.4 has 
            // disallowedContent list which would be ideal for this, but since we're stuck with 4.3 for now
