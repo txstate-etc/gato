@@ -591,3 +591,8 @@ Event.observe(document, 'dom:loaded', function(){
     }
   });
 });
+
+//make links in the mail template open in new tab or window
+Event.observe(document, 'dom:loaded', function(){
+  $$('.txst-form-body a').invoke('writeAttribute','target', '_blank');
+});
