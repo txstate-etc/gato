@@ -5,7 +5,7 @@ ${ctx.response.setContentType('application/rss+xml;charset=UTF-8')}
 <channel>
 
 <title>${gf.nodeTitle(content)}</title>
-<link>[#if gf.isCacheEnvironment()]${cmsfn.link(content)}[#else]${ gf.absoluteUrl(cmsfn.link(content)) }[/#if]</link>
+<link>${ gf.absoluteUrl(cmsfn.link(content)) }</link>
 <atom:link href="${ gf.absoluteUrl(gf.replaceExtension(cmsfn.link(content), 'rss')) }" rel="self" type="application/rss+xml" />
 <description>${content.metaDescription!}</description>
 <language>en-us</language>

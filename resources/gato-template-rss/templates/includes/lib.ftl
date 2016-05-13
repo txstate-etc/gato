@@ -17,9 +17,9 @@
     [#if link?has_content]
       <link>${link}</link>
     [#elseif node.link?has_content]
-      <link>[#if gf.isCacheEnvironment()]${gf.filterUrl(node.link)}[#else]${ gf.absoluteUrl(node.link) }[/#if]</link>
+      <link>${ gf.absoluteUrl(node.link) }</link>
     [#else]
-      <link>[#if gf.isCacheEnvironment()]${cmsfn.link(cmsfn.page(node))}[#else]${gf.absoluteUrl(cmsfn.link(cmsfn.page(node)))}[/#if]#${node.@id?substring(0,8)}</link>
+      <link>${gf.absoluteUrl(cmsfn.link(cmsfn.page(node)))}#${node.@id?substring(0,8)}</link>
     [/#if]
 
     [#if !body?has_content]
