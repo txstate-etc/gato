@@ -19,7 +19,7 @@
     [#elseif node.link?has_content]
       <link>${ gf.absoluteUrl(node.link) }</link>
     [#else]
-      <link>${gf.absoluteUrl(cmsfn.link(cmsfn.page(node)))}#${node.@id?substring(0,8)}</link>
+      <link>${gf.absoluteUrl(cmsfn.link(cmsfn.page(node)))}#${gf.uuidToHtmlId(node.@id)}</link>
     [/#if]
 
     [#if !body?has_content]

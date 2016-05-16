@@ -1066,4 +1066,10 @@ public final class GatoUtils {
     if (StringUtils.isBlank(rawhtml)) return "";
     return Jsoup.parse("<!DOCTYPE html><html><head></head><body>"+rawhtml+"</body></html>").body().html();
   }
+
+  public String uuidToHtmlId(String uuid) {
+    String ret = uuid.substring(0,8);
+    if (ret.matches("^\\[^a-zA-Z].*")) ret = "f"+ret;
+    return ret;
+  }
 }

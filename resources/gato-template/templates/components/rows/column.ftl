@@ -1,5 +1,5 @@
 [#list components as component]
-  <div class="column_paragraph" id="${component.@id?substring(0,8)}">
+  <div class="column_paragraph" id="${gf.uuidToHtmlId(component.@id)}">
     [@cms.component content=component /]
   </div>
 [/#list]
