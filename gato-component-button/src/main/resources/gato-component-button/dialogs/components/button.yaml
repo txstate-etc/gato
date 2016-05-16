@@ -103,6 +103,8 @@ form:
           class: info.magnolia.ui.form.field.definition.LinkFieldDefinition 
           label: Link
           appName: pages
+          identifierToPathConverter:
+            class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
           targetWorkspace: website
           description: "Enter a full URL to an external site (http://www.google.com/) or use the \"Internal Link\" button to link to another page in this site."
           buttonSelectNewLabel: "Internal Link..."
