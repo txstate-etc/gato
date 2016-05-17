@@ -4,7 +4,7 @@
 [#assign news = cmsfn.asContentMap(cmsfn.nodeByPath('/homepage-data/news-links', 'gatoapps'))]
 [#assign news = cmsfn.children(news, "mgnl:component")]
 [#assign events = cmsfn.asContentMap(cmsfn.nodeByPath('/homepage-data/events-dates/events', 'gatoapps'))]
-[#assign events = cmsfn.children(events, "mgnl:component")]
+[#assign events = gf.nonDeletedChildren(events, "mgnl:component")]
 [#assign dates = cmsfn.asContentMap(cmsfn.nodeByPath('/homepage-data/events-dates/dates', 'gatoapps'))]
 [#assign dates = cmsfn.children(dates, "mgnl:component")]
 

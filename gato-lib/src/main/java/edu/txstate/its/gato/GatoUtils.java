@@ -940,6 +940,14 @@ public final class GatoUtils {
     return false;
   }
 
+  public List<Node> nonDeletedChildren(Node content, String nodeTypeName) throws RepositoryException {
+    return content == null ? null : NodeUtil.asList(NodeUtil.getNodes(content, new NonDeletedNodeTypePredicate(nodeTypeName)));
+  }
+
+  public List<ContentMap> nonDeletedChildren(ContentMap content, String nodeTypeName) throws RepositoryException {
+    return content == null ? null : tf.asContentMapList(nonDeletedChildren(content.getJCRNode(), nodeTypeName));
+  }
+
   public String replaceExtension(String url, String newextension) {
     return url.replaceAll("\\.[^/\\.]+$", "."+newextension);
   }
