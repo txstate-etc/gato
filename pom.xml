@@ -108,13 +108,21 @@
       <id>magnolia.public</id>
       <url>https://nexus.magnolia-cms.com/content/groups/public</url>
       <snapshots>
-        <enabled>true</enabled>
+        <enabled>false</enabled>
       </snapshots>
     </repository>
     
     <repository>
       <id>magnolia.enterprise.releases</id>
       <url>https://nexus.magnolia-cms.com/content/repositories/magnolia.enterprise.releases</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+    
+    <repository>
+      <id>magnolia.forge.releases</id>
+      <url>https://nexus.magnolia-cms.com/content/repositories/magnolia.forge.releases</url>
       <snapshots>
         <enabled>false</enabled>
       </snapshots>
