@@ -11,39 +11,103 @@
           background: $gold;
           color: $white;
         }
+        a{
+          color: $maroon;
+          &:hover{
+            text-decoration: none;
+            background: transparent;
+          }
+        }
         border: none;
         &.header-color-gold th{
           background: $gold;
           color: $white;
+          a{
+            color: $white;
+            &:hover{
+              background: transparent;
+              text-decoration: none;
+            }
+          }
         }
         &.header-color-maroon th{
           background: $maroon;
           color: $white;
+          a{
+            color: $white;
+            &:hover{
+              background: transparent;
+              text-decoration: none;
+            }
+          }
         }
         &.header-color-sandstone th{
           background: $sandstone;
-          color: $almost-black;
+          color: $very-dark;
+          a{
+            color: $very-dark;
+            &:hover{
+              background: transparent;
+              text-decoration: none;
+            }
+          }
         }
         &.header-color-charcoal th{
           background: $charcoal;
           color: $white;
+          a{
+            color: $white;
+            &:hover{
+              background: transparent;
+              text-decoration: none;
+            }
+          }
         }
         &.header-color-blue th{
           background: $blue;
           color: $white;
+          a{
+            color: $white;
+            &:hover{
+              background: transparent;
+              text-decoration: none;
+            }
+          }
         }
         &.header-color-river th{
           background: $river;
           color: $almost-black;
+          a{
+            color: $almost-black;
+            &:hover{
+              background: transparent;
+              text-decoration: none;
+            }
+          }
         }
         &.header-color-oldgold th{
           background: $oldgold;
-          color: $almost-black;
+          color: $very-dark;
+          a{
+            color: $very-dark;
+            &:hover{
+              background: transparent;
+              text-decoration: none;
+            }
+          }
         }
         &.header-color-none th{
           background: transparent;
-          color: $almost-black;
+          color: $very-dark;
+          a{
+            color: $very-dark;
+            &:hover{
+              background: transparent;
+              text-decoration: none;
+            }
+          }
         }
+        
     }
     table.alternate-row-color tbody tr:nth-child(odd) {
        background-color: $light-sandstone;
