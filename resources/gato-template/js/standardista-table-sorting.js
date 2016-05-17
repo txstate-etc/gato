@@ -232,11 +232,11 @@ var standardistaTableSorting = {
 		spanEl.className = 'tableSortArrow';
 		if (null == previousSortOrder || '' == previousSortOrder || 'DESC' == previousSortOrder) {
 			//spanEl.appendChild(document.createTextNode(' \u2191'));
-			iconEl.className = "fa fa-chevron-up";
+			iconEl.className = "fa fa-caret-up";
 			spanEl.setAttribute('sortOrder', 'ASC');
 		} else {
 			//spanEl.appendChild(document.createTextNode(' \u2193'));
-			iconEl.className = "fa fa-chevron-down";
+			iconEl.className = "fa fa-caret-down";
 			spanEl.setAttribute('sortOrder', 'DESC');
 		}
 		
