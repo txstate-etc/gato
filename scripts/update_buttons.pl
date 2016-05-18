@@ -1,15 +1,8 @@
 #!/usr/bin/perl
 use strict;
+use File::Basename qw(dirname);
 
-use LWP::UserAgent qw//;
-use JSON::XS qw//;
-use URI::Escape;
-require('gato_restful_lib.pl');
-
-our $server = $ARGV[1] || 'http://localhost:8080';
-our $username = $ARGV[2] || 'superuser';
-our $password = $ARGV[3] || 'superuser';
-our $ua = LWP::UserAgent->new( keep_alive => 1, timeout => 60 );
+require(dirname(__FILE__).'/gato_restful_lib.pl');
 
 $|=1;
 exit(main());
@@ -20,18 +13,19 @@ sub main {
 	for my $node ( @{$json} ) {
 		print "evaluating button component at ".$$node{path}."\n";
 		my $target = getproperty($node, 'url');
-		if (!is_uuid($target) && !is_external_link($target)) {
-			my $targetednode = get('/nodes/v1/website'.$target);
+		if (!is_uuid($target) && !is_external_link($target) && $target =~ m/^\//) {
+			my $targetednode = get('/nodes/v1/website'.$target, 1);
 			
-			if (!$targetednode) {
+			if (!%{$targetednode}) {
 				my $site = grab_site($$node{path});
 				$target =~ s/\/[^\/]*/$site/;
-				$targetednode = get('/nodes/v1/website'.$target);
+				print "trying a new target $target...\n";
+				$targetednode = get('/nodes/v1/website'.$target, 1);
 			}
 			
-			if ($$targetednode{id}) {
+			if (%{$targetednode}) {
 				print "converting url from path to UUID...";
-				if (setproperty($node, 'url', $$targetednode{id})) {
+				if (setproperty($node, 'url', $$targetednode{identifier})) {
 					print "SUCCESS!\n";
 				} else {
 					print "FAILED!\n";

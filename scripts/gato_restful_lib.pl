@@ -1,3 +1,12 @@
+use LWP::UserAgent qw//;
+use JSON::XS qw//;
+use URI::Escape;
+
+our $server = $ARGV[1] || 'http://localhost:8080';
+our $username = $ARGV[2] || 'superuser';
+our $password = $ARGV[3] || 'superuser';
+our $ua = LWP::UserAgent->new( keep_alive => 1, timeout => 60 );
+
 sub query {
 	my $query = shift;
 	return get('/query/v1/website/JCR-SQL2?query='.uri_escape($query));
@@ -5,6 +14,7 @@ sub query {
 
 sub get {
 	my $endpoint = shift;
+	my $silence_errors = shift;
 	my $req = HTTP::Request->new(GET => $server.'/.rest'.$endpoint);
 	$req->authorization_basic($username, $password);
 	#print "get ".$req->uri."...";
@@ -13,8 +23,10 @@ sub get {
 	if ( $resp->is_success ) {
 		return JSON::XS->new->utf8->decode($resp->decoded_content);
 	} else { 
-		print "failed get with status ".$resp->code." from ".$req->uri.", response:\n";
-		print $resp->decoded_content."\n\n";
+		if (!$silence_errors) {
+			print "failed get with status ".$resp->code." from ".$req->uri.", response:\n";
+			print $resp->decoded_content."\n\n";
+		}
 		return {};
 	}
 }

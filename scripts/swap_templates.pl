@@ -1,14 +1,8 @@
 #!/usr/bin/perl
 use strict;
+use File::Basename qw(dirname);
 
-use LWP::UserAgent qw//;
-use JSON::XS qw//;
-use URI::Escape;
-
-our $server = $ARGV[1] || 'http://localhost:8080';
-our $username = $ARGV[2] || 'superuser';
-our $password = $ARGV[3] || 'superuser';
-our $ua = LWP::UserAgent->new( keep_alive => 1, timeout => 60 );
+require(dirname(__FILE__).'/gato_restful_lib.pl');
 
 $|=1;
 exit(main());
