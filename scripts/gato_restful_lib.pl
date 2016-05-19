@@ -2,14 +2,16 @@ use LWP::UserAgent qw//;
 use JSON::XS qw//;
 use URI::Escape;
 
-our $server = $ARGV[1] || 'http://localhost:8080';
-our $username = $ARGV[2] || 'superuser';
-our $password = $ARGV[3] || 'superuser';
+our $server = $ARGV[0] || 'http://localhost:8080';
+our $username = $ARGV[1] || 'superuser';
+our $password = $ARGV[2] || 'superuser';
 our $ua = LWP::UserAgent->new( keep_alive => 1, timeout => 60 );
 
 sub query {
 	my $query = shift;
-	return get('/query/v1/website/JCR-SQL2?query='.uri_escape($query));
+	$ret = get('/query/v1/website/JCR-SQL2?query='.uri_escape($query));
+	if (ref($ret) eq "ARRAY") { return $ret; }
+	return [];
 }
 
 sub get {
@@ -17,18 +19,22 @@ sub get {
 	my $silence_errors = shift;
 	my $req = HTTP::Request->new(GET => $server.'/.rest'.$endpoint);
 	$req->authorization_basic($username, $password);
-	#print "get ".$req->uri."...";
+	#print "get ".$req->uri."\n";
 	my $resp = $ua->request($req);
 	#print "complete\n";
 	if ( $resp->is_success ) {
-		return JSON::XS->new->utf8->decode($resp->decoded_content);
+		if ($resp->decoded_content =~ m/Texas State NetID Login/) {
+			print "Authentication failed.\n";
+		} else {
+			return JSON::XS->new->utf8->decode($resp->decoded_content);
+		}
 	} else { 
 		if (!$silence_errors) {
 			print "failed get with status ".$resp->code." from ".$req->uri.", response:\n";
 			print $resp->decoded_content."\n\n";
 		}
-		return {};
 	}
+	return {};
 }
 
 sub post {
@@ -41,10 +47,11 @@ sub post {
 	#print "post ".$req->uri."...";
 	my $resp = $ua->request($req);
 	#print "complete\n";
-	if ( $resp->is_success ) {
+	if ( $resp->code >= 200 && $resp->code < 400) {
 		return $resp->decoded_content;
 	} else { 
-		print "failed posting to ".$req->uri.", request body:\n";
+		print "failed post with status ".$resp->code." to ".$req->uri.", request body:\n";
+		print $resp->header('Location')."\n";
 		print $req->content."\n";
 		print "response:\n";
 		print $resp->decoded_content."\n\n";
