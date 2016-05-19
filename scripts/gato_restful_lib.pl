@@ -40,7 +40,7 @@ sub get {
 sub post {
 	my $endpoint = shift;
 	my $jsonstring = shift;
-	my $req = HTTP::Request->new(post => $server.'/.rest'.$endpoint);
+	my $req = HTTP::Request->new(POST => $server.'/.rest'.$endpoint);
 	$req->authorization_basic($username, $password);
 	$req->content($jsonstring);
 	$req->header("Content-Type", "application/json");
