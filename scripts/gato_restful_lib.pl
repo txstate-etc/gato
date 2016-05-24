@@ -9,7 +9,8 @@ our $ua = LWP::UserAgent->new( keep_alive => 1, timeout => 60 );
 
 sub query {
 	my $query = shift;
-	$ret = get('/query/v1/website/JCR-SQL2?query='.uri_escape($query));
+	my $repository = shift || 'website';
+	$ret = get('/query/v1/'.$repository.'/JCR-SQL2?query='.uri_escape($query));
 	if (ref($ret) eq "ARRAY") { return $ret; }
 	return [];
 }
@@ -47,10 +48,13 @@ sub post {
 	#print "post ".$req->uri."...";
 	my $resp = $ua->request($req);
 	#print "complete\n";
-	if ( $resp->code >= 200 && $resp->code < 400) {
+	if ( $resp->is_success ) {
 		return $resp->decoded_content;
+	} elsif ($resp->code == 302 && $req->uri =~ m/^http:/ && $resp->header('Location') =~ m/^https:/) {
+		print	"\nyou are being redirected to https, are you trying to update edit on http?\n";
+		return 'failed';
 	} else { 
-		print "failed post with status ".$resp->code." to ".$req->uri.", request body:\n";
+		print "\nfailed post with status ".$resp->code." to ".$req->uri.", request body:\n";
 		print $resp->header('Location')."\n";
 		print $req->content."\n";
 		print "response:\n";
@@ -72,7 +76,8 @@ sub getproperty {
 }
 
 sub setproperty {
-	my ($node, $propname, $propvalue, $proptype) = @_;
+	my ($node, $propname, $propvalue, $proptype, $repository) = @_;
+	$repository = "website" unless $repository;
 	my $obj = {
 		properties => [{
 			name => $propname,
@@ -82,7 +87,7 @@ sub setproperty {
 			]
 		}]
 	};
-	my $json = post('/nodes/v1/website'.$$node{path}, JSON::XS->new->utf8->encode($obj));
+	my $json = post('/nodes/v1/'.$repository.$$node{path}, JSON::XS->new->utf8->encode($obj));
 	return ($json ne 'failed');
 }
 
