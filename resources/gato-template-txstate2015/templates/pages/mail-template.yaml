@@ -1,7 +1,7 @@
 templateScript: /gato-template-txstate2015/templates/pages/standard-template.ftl
 renderType: site
 visible: true
-title: 2015 TXST Mail
+title: 2015 TXST Form
 dialog: gato-template:pages/page-properties
 parameters:
   isMailTemplate: true

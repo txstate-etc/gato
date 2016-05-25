@@ -1,7 +1,7 @@
 templateScript: /gato-template-wittliff/templates/pages/sidebar.ftl
 renderType: site
 visible: true
-title: Wittliff Mail
+title: Wittliff Form
 dialog: gato-template:pages/page-properties
 parameters:
   isMailTemplate: true

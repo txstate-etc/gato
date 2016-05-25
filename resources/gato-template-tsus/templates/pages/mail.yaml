@@ -1,7 +1,7 @@
 templateScript: /gato-template-tsus/templates/pages/standard.ftl
 renderType: site
 visible: true
-title: TSUS Mail
+title: TSUS Form
 dialog: gato-template:pages/page-properties
 parameters:
   isMailTemplate: true

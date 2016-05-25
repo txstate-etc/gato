@@ -1,7 +1,7 @@
 templateScript: /gato-template-ua/templates/pages/standard.ftl
 renderType: site
 visible: true
-title: Univ. Adv. Mail
+title: Univ. Adv. Form
 dialog: gato-template:pages/page-properties
 parameters:
   isMailTemplate: true
