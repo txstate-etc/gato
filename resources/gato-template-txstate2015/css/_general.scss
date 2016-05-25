@@ -51,3 +51,7 @@ hr {margin-bottom: 2em;}
 
 .float_left {float: left;}
 .float_right {float: right;}
+
+::-moz-selection {background: #d0dfd9; text-shadow: none;}
+::selection {background: #d0dfd9; text-shadow: none;}
+
