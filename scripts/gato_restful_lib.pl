@@ -6,10 +6,11 @@ our $server = $ARGV[0] || 'http://localhost:8080';
 our $username = $ARGV[1] || 'superuser';
 our $password = $ARGV[2] || 'superuser';
 our $ua = LWP::UserAgent->new( keep_alive => 1, timeout => 60 );
+our $default_repo = 'website';
 
 sub query {
 	my $query = shift;
-	my $repository = shift || 'website';
+	my $repository = shift || $default_repo;
 	$ret = get('/query/v1/'.$repository.'/JCR-SQL2?query='.uri_escape($query));
 	if (ref($ret) eq "ARRAY") { return $ret; }
 	return [];
@@ -77,7 +78,7 @@ sub getproperty {
 
 sub setproperty {
 	my ($node, $propname, $propvalue, $proptype, $repository) = @_;
-	$repository = "website" unless $repository;
+	$repository = $default_repo unless $repository;
 	my $obj = {
 		properties => [{
 			name => $propname,
