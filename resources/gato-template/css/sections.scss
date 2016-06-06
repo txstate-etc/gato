@@ -24,4 +24,7 @@
     width: 100% * 2.0/3.0;
     [data-eq~="#{$column-breakpoint}"] & { width: 100%; }
   }
+  &.blank {
+    display: none;
+  }
 }
