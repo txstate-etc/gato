@@ -143,6 +143,13 @@ jQuery(document).ready(function($) {
         $(this).addClass('link-with-children');
     }
   });
+
+  //remove target="_blank" from rich editor, text/image, and FAQ content  but NOT raw html
+  $('.column_paragraph :not(.gato-html) a').each(function(){
+    if($(this).attr('target') == "_blank")
+        $(this).attr('target', "_self");
+  });
+
 });
 
 
