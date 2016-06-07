@@ -47,6 +47,7 @@ subApps:
             - name: editActions
               items:
                 - name: editLink
+                - name: moveLink
                 - name: confirmDeletion
             - name: activationActions
               items:
@@ -84,6 +85,16 @@ subApps:
         availability:
           nodeTypes:
             - mgnl:component
+      moveLink:
+        label: Move Link
+        icon: icon-move
+        class: info.magnolia.ui.contentapp.movedialog.action.OpenMoveDialogActionDefinition
+        availability:
+          multiple: true
+          writePermissionRequired: true
+          rules:
+            - name: IsNotDeletedRule
+              implementationClass: info.magnolia.ui.framework.availability.IsNotDeletedRule
       confirmDeletion:
         label: Delete Link
         icon: icon-delete

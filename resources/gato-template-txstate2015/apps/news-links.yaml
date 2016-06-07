@@ -48,6 +48,7 @@ subApps:
             - name: editActions
               items:
                 - name: editItem
+                - name: moveItem
                 - name: confirmDeletion
             - name: activationActions
               items:
@@ -83,6 +84,16 @@ subApps:
         availability:
           nodeTypes:
             - mgnl:component
+      moveItem:
+        label: Move Item
+        icon: icon-move
+        class: info.magnolia.ui.contentapp.movedialog.action.OpenMoveDialogActionDefinition
+        availability:
+          multiple: true
+          writePermissionRequired: true
+          rules:
+            - name: IsNotDeletedRule
+              implementationClass: info.magnolia.ui.framework.availability.IsNotDeletedRule
       confirmDeletion:
         label: Delete Item
         icon: icon-delete
