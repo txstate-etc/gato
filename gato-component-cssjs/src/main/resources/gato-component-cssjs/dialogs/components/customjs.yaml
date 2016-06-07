@@ -49,7 +49,7 @@ form:
             appName: assets
             targetWorkspace: dam
             identifierToPathConverter:
-              class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
+              class: edu.txstate.its.gato.FlexibleAssetCompositeIdKeyTranslator
 
 actions: !include /gato-template/dialogs/common/actions-block.yaml
 label: Custom JS
