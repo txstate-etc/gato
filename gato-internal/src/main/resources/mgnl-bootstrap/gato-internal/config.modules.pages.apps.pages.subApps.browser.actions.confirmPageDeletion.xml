@@ -42,6 +42,9 @@
   <sv:property sv:name="successActionName" sv:type="String">
     <sv:value>delete</sv:value>
   </sv:property>
+  <sv:property sv:name="defaultCancel" sv:type="Boolean">
+    <sv:value>true</sv:value>
+  </sv:property>
   <sv:node sv:name="availability">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>mgnl:contentNode</sv:value>
