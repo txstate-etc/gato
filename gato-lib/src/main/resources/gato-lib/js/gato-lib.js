@@ -259,18 +259,25 @@ function resizeTimeout(callback) {
 	var savedWidth = 0;
 	var savedHeight = 0;
 	var myfunc = function () {
-    var vpw = window.innerWidth;
-    var vph = window.innerHeight;
-    if (vph != savedHeight || vpw != savedWidth) {
-      clearTimeout(to);
-		  to = setTimeout(callback, 100);
-		  savedWidth = vpw;
-		  savedHeight = vph;
-		}
+    clearTimeout(to);
+    to = setTimeout(callback, 100);
 	};
 	jQuery(document).ready(myfunc);
 	jQuery(window).load(myfunc);
 	jQuery(window).resize(myfunc);
+}
+
+// the same thing we do for resizeTimeout can be used to observe dom mutations
+// without huge performance problems
+function mutationTimeout(element, callback) {
+  var to;
+  if (typeof(MutationObserver) != "undefined") {
+    var observer = new MutationObserver(function(mutations, observer) {
+      clearTimeout(to);
+      to = setTimeout(callback, 100);
+    });
+    observer.observe(element, {childList: true, subtree: true});
+  }
 }
 
 // jQuery already has an 'fx' queue for each jquery object, but it permits

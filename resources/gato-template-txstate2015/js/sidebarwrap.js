@@ -9,6 +9,7 @@ jQuery(document).ready(function ($) {
     pagecontent.css('min-height', Math.max($(window).height()-pagecontent.offset().top-footer.height(), sidebar.height()+75)+'px');
   };
   resizeTimeout(setsidebarminheight);
+  mutationTimeout(sidebar.get(0), setsidebarminheight);
   waitforselector('.navBlocks_add', '.mgnlEditor.mgnlPlaceholder', setsidebarminheight);
 
   if (sidebar.size() > 0) {
