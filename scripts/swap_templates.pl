@@ -10,7 +10,11 @@ exit(main());
 sub main {
 	my $exceptions = {
 		'/ktsw-radio' => 1,
-		'/texas-justice-court-training-center' => 1
+		'/ktsw-radio-sandbox' => 1,
+		'/ktsw-radio-sandbox-old' => 1,
+		'/texas-justice-court-training-center' => 1,
+		'/texas-justice-court-training-center-old' => 1,
+		'/texas-justice-court-training-center-sandbox' => 1
 	};
 
 	swaptemplates('gato-template-txstate2009:pages/standard', 
