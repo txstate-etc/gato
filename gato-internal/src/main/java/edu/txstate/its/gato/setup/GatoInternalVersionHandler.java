@@ -80,6 +80,7 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       .addTask(new BootstrapSingleModuleResource("config.modules.pages.apps.pages.subApps.detail.actionbar.sections.pageActions.groups.editingFlow.items.externalPreview.xml"))
       .addTask(new BootstrapSingleModuleResource("config.modules.pages.apps.pages.subApps.detail.actionbar.sections.pagePreviewActions.groups.editingFlow.items.externalPreview.xml"))
       .addTask(new BootstrapSingleModuleResource("config.modules.pages.apps.pages.subApps.browser.actions.delete.xml"))
+      .addTask(new BootstrapSingleModuleResource("config.modules.pages.dialogs.createPage.xml"))
     );
   }
 
