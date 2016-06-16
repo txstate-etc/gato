@@ -139,7 +139,7 @@ jQuery(document).ready(function($) {
 
   //remove hover effect from rich editor image and font awesome links
   $('.column_paragraph a, .footer_content a, .txst-form-body a').each(function(){
-    if($(this).children('img, .fa').length > 0){
+    if($(this).find('img, .fa').length > 0){
         $(this).addClass('link-with-children');
     }
   });
