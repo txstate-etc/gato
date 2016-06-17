@@ -493,6 +493,7 @@ function relativeTime(time) {
     return t.calendar(null, {
       sameDay : '[Today at] LT',
       lastDay : '[Yesterday at] LT',
+      lastWeek : 'MMMM D',
       sameElse : 'MMMM D'
     });
   }
