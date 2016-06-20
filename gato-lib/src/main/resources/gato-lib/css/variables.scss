@@ -17,7 +17,7 @@ $white:                #FFFFFF;
 
 $darkest-maroon:       #400E10; //20% darker than maroon
 $dark-maroon:          #481012; //10% darker than maroon
-$light-maroon:         #622a2b; //10% lighter than maroon
+$light-maroon:         #622a2c; //10% lighter than maroon
 $lightest-maroon:      #734143; //20% lighter than maroon
 $maroon-shadow:        #380D0E;  //30% darker than maroon
 
@@ -28,7 +28,7 @@ $darkest-gold:         #55452D;    //40% darker than gold
 $gold-shadow:          #4A3C27; //30 % darker than gold
 
 $lightest-blue:        #33769A; //20% lighter than blue
-$light-blue:           #19658E; //10% lighter than blue
+$light-blue:           #1A658E; //10% lighter than blue
 $dark-blue:            #004B74; //10% darker than blue
 $darker-blue:          #004367; //20% darker than blue
 $blue-shadow:          #003B5A; //30% darker than blue
@@ -57,8 +57,8 @@ $darker-oldgold:       #B29006; //20% darker than oldgold
 $oldgold-shadow:       #9B7E05; //30% darker than oldgold
 
 $light-gray:           #D7D7D7; //80% lighter than charcoal
-$medium-light-gray:    #767676; 
-$medium-gray:          #595959; 
+$medium-light-gray:    #767676;
+$medium-gray:          #595959;
 $dark-gray:            #484848; //unrelated to charcoal?
 
 $very-dark:            #222;    //light black?  almost black but not quite as black as #111?
@@ -76,7 +76,7 @@ $emergency-background-gradient: repeating-linear-gradient(-135deg, #6B0810, #6B0
 
 @import "gato-lib/css/colors";
 
-// Social colors 
+// Social colors
 $instagram: #000;
 $twitter: #55acee;
 $facebook: #3b5998;
