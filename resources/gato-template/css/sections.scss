@@ -13,8 +13,8 @@
   }
   &.quarters {
     width: 25%;
-    [data-eq~="#{$column-breakpoint}"] & { width: 50%; }
-    [data-eq~="#{$column-breakpoint-half}"] & { width: 100%; }
+    [data-eq~="#{$column-breakpoint-early}"] & { width: 50%; }
+    [data-eq~="#{$column-breakpoint-late}"] & { width: 100%; }
   }
   &.onethird {
     width: 100% * 1.0/3.0;
