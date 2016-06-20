@@ -107,10 +107,12 @@ subApps:
       delete:
         asynchronous: true
         command: markAsDeleted
-        class: edu.txstate.its.gato.DeleteWithoutBannerActionDefinition
+        notifyUser: false
+        class: info.magnolia.ui.framework.action.MarkNodeAsDeletedActionDefinition
       restorePreviousVersion:
         icon: icon-undo
         parentNodeTypeOnly: true
+        notifyUser: false
         class: info.magnolia.ui.contentapp.browser.action.RestoreItemPreviousVersionActionDefinition
         availability:
           multiple: true
