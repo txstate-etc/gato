@@ -99,7 +99,7 @@ subApps:
       delete:
         asynchronous: true
         command: markAsDeleted
-        class: info.magnolia.ui.framework.action.MarkNodeAsDeletedActionDefinition
+        class: edu.txstate.its.gato.DeleteWithoutBannerActionDefinition
       restorePreviousVersion:
         icon: icon-undo
         parentNodeTypeOnly: true
