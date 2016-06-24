@@ -27,6 +27,7 @@ form:
           label: Javascript Code
           language: javascript
           rows: 8
+          height: 500
           description: "You can enter a block of javascript here that will be inserted into the HEAD of your page.<br/><br/>WARNING: For advanced users only. It is possible to make quite a mess of your site with this feature."
         - name: script
           class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
@@ -52,4 +53,5 @@ form:
               class: edu.txstate.its.gato.FlexibleAssetCompositeIdKeyTranslator
 
 actions: !include /gato-template/dialogs/common/actions-block.yaml
+wide: true
 label: Custom JS

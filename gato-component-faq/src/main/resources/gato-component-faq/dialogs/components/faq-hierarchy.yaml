@@ -19,4 +19,5 @@ form:
           configJsFile: /.resources/gato-template/js/richeditor/config.js
           label: Answer
           styleName: faqAnswer
+          height: 500
 actions: !include /gato-template/dialogs/common/actions-block.yaml
