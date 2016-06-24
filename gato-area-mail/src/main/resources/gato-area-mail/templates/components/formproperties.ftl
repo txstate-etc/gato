@@ -14,7 +14,7 @@
 [/#if]
 <input type="hidden" name="destinationemail" value="${addresses}" />
 <input type="hidden" name="MessageSubject" value="${content.subject!gf.nodeTitle(cmsfn.page(content))}" />
-<input type="hidden" name="MessageText" value="${content.message!''}" />
+<!--<input type="hidden" name="MessageText" value="[#--${content.message!''}--]" />-->
 
 <input type="hidden" id="formemailersetid" name="formemailersetid" value="${cmsfn.page(content).@id}" />
 <input type="hidden" id="thankyoupage" name="thankyoupage" value="${gf.absoluteUrl(content.redirect)}" />

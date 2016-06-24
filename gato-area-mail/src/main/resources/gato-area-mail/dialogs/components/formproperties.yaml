@@ -32,10 +32,10 @@ form:
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Subject
           description: What would you like the subject of the E-Mail to be?
-        - name: message
-          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-          label: Message
-          rows: 6
-          description: Add a customized message to the top of the email sent to form submitters
+        # - name: message
+        #   class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+        #   label: Message
+        #   rows: 6
+        #   description: Add a customized message to the top of the email sent to form submitters
 actions: !include /gato-template/dialogs/common/actions-block.yaml
 label: Mail Form Properties
