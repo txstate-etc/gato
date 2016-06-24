@@ -3,11 +3,16 @@ form:
     - name: tabGeneral
       label: ""
       fields:
-        - name: tableData
-          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-          label: Table Data
+        - name: script
+          class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
           description: "Paste table data from Excel or Word"
-          rows: 12
+          initFunction: initTableData
+          scripts: [gato-lib/js/jquery-ui/jquery-ui.min.js, gato-template/js/tableDataField.js]
+          loadScriptsInOrder: true
+          fields:
+          - name: tableData
+            class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+          label: Table Data
         - name: tableHeader
           class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
           label: Options
