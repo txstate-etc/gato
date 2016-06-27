@@ -4,7 +4,7 @@
       <div class="content-row-column">
         <div class="top-links-link">
           <a href="http://txstate.edu/admissions">
-            Admissions<i class="fa fa-chevron-right"></i>
+            Admissions &amp; Aid<i class="fa fa-chevron-right"></i>
           </a>
         </div>
       </div>
