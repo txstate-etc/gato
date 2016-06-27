@@ -10,6 +10,11 @@
         CKEDITOR.plugins.addExternal("widget", CKEDITOR.vaadinDirUrl + "js/richeditorplugins/widget/", 'plugin.js');
         CKEDITOR.plugins.addExternal("magnolialink", CKEDITOR.vaadinDirUrl + "js/magnolialink/", 'plugin.js');
 
+        //Don't allow spans inside links
+        CKEDITOR.dtd.a.span = 0;
+        //Allow <i></i> to make it easier to include font awesome icons
+        config.protectedSource.push(/<i[^>]*><\/i>/g);
+
          // MIRROR info.magnolia.ui.form.field.definition.RichTextFieldDefinition
          definition = {
                    alignment: false,

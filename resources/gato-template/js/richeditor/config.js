@@ -17,7 +17,12 @@
         CKEDITOR.plugins.addExternal("image2", CKEDITOR.vaadinDirUrl + "js/richeditorplugins/image2/", 'plugin.js');
         CKEDITOR.plugins.addExternal("magnolialink", CKEDITOR.vaadinDirUrl + "js/magnolialink/", 'plugin.js');
 
-         definition = {
+        //Don't allow spans inside links
+        CKEDITOR.dtd.a.span = 0;
+        //Allow <i></i> to make it easier to include font awesome icons
+        config.protectedSource.push(/<i[^>]*><\/i>/g);
+
+        definition = {
                    alignment: true,
                    images: true,
                    lists: true,
