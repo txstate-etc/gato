@@ -5,6 +5,7 @@
 [#include "/gato-template/templates/includes/analytics.ftl"]
 
 [#macro templatejs scripts]
+	[@javascriptvariables /]
 	[@javascript scripts = [
 		'gato-template/js/main-menus.js',
 		'gato-template/js/outgoing-clicks.js',
@@ -20,6 +21,8 @@
 		'gato-lib/js/photoswipe-util.js',
 		'gato-lib/js/spin.min.js',
 		'gato-lib/js/slick/slick.min.js',
+    'gato-lib/js/fullcalendar/fullcalendar.min.js',
+    'gato-component-hours/js/hours.js',
 		'gato-component-gallery/js/gallery.js',
 		'gato-component-feature/js/feature.js',
 		'gato-component-faq/js/expand.js',
@@ -37,7 +40,6 @@
 	[@title publisher /]
 	[@googleanalytics /]
 	[@favicons /]
-	[@javascriptvariables /]
 	[@cms.page /]
 [/#macro]
 

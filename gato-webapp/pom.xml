@@ -91,7 +91,7 @@
     <dependency>
       <groupId>edu.txstate.its.gato</groupId>
       <artifactId>rest-queries</artifactId>
-      <version>1.0</version>
+      <version>1.2-SNAPSHOT</version>
     </dependency>
     <dependency>
       <artifactId>resteasy-client</artifactId>
@@ -149,6 +149,11 @@
     <dependency>
       <groupId>edu.txstate.its.gato</groupId>
       <artifactId>gato-component-dept-directory</artifactId>
+      <version>${gatoVersion}</version>
+    </dependency>
+    <dependency>
+      <groupId>edu.txstate.its.gato</groupId>
+      <artifactId>gato-component-hours</artifactId>
       <version>${gatoVersion}</version>
     </dependency>
     <dependency>

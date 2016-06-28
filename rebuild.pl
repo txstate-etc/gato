@@ -11,7 +11,8 @@ our $magrepopath = "/var/mag_repositories";
 our $magnoliapropertiespath = "/etc/magnolia/config";
 our @heavymodules = ('gato-lib', 'gato-internal', 'gato-component-cssjs', 'gato-component-dept-directory', 
   'gato-component-faq', 'gato-component-gallery', 'gato-component-documents', 'gato-area-mail', 'gato-component-button', 
-  'gato-component-twitter', 'gato-component-rss', 'gato-component-events', 'gato-component-sitemap', 'gato-template-signs');
+  'gato-component-twitter', 'gato-component-rss', 'gato-component-events', 'gato-component-sitemap', 'gato-template-signs',
+  'gato-component-hours');
 our @sassfiles = ('resources/gato-template-tsus/css/tsus-home.scss', 
                   'resources/gato-template-tsus/css/standard.scss',
                   'resources/gato-template-tsus/css/color-picker.scss',

@@ -158,6 +158,7 @@
     <module>gato-component-gallery</module>
     <module>gato-component-sitemap</module>
     <module>gato-component-documents</module>
+    <module>gato-component-hours</module>
     <module>gato-area-mail</module>
     <module>gato-component-button</module>
     <module>gato-component-twitter</module>

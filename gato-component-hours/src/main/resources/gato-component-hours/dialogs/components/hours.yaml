@@ -1,0 +1,28 @@
+form:
+  tabs:
+    - name: tabGeneral
+      label: ""
+      fields:
+        - name: calendarId
+          class: edu.txstate.its.gato.GatoCalendarSelectFieldDefinition
+          label: Calendar
+        - name: displayStyle
+          class: info.magnolia.ui.form.field.definition.SwitchableFieldDefinition
+          transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+          selectionType: radio
+          label: Display Style
+          description: 'How should the hours be displayed?'
+          options:
+            - name: compact
+              value: compact
+              selected: true
+              label: Single Line
+            - name: full
+              value: full
+              label: Large Box
+          fields:
+            - name: full
+              class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+              label: Title
+actions: !include /gato-template/dialogs/common/actions-block.yaml
+label: Hours

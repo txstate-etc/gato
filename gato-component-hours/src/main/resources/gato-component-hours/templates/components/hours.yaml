@@ -1,0 +1,8 @@
+templateScript: /gato-component-hours/templates/components/hours.ftl
+renderType: freemarker
+dialog: gato-component-hours:components/hours
+description: Displays the hours for a building
+title: Hours
+modelClass: edu.txstate.its.gato.HoursModel
+parameters:
+  icon: /gato-component-hours/images/hours_icon.png
