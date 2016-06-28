@@ -4,7 +4,13 @@
 	.gato-textimage-imageblock {
 	  width: 100%;
 	  display: block;
-		&.left { float: left; margin: $text-image-top $text-image-horiz $text-image-bottom 0px; }
+		&.left { 
+            float: left; 
+            margin: $text-image-top $text-image-horiz $text-image-bottom 0px; 
+            & ~ ul, & ~ ol{
+                list-style-position: inside;
+            }
+        }
 		&.right { float: right; margin: $text-image-top 0px $text-image-bottom $text-image-horiz; }
 		&.left, &.right {
       width: 100% * (1.0/3.0);

@@ -126,9 +126,12 @@
     background: $khaki;
   }
   ul, ol {
-    list-style-position: inside;
-    margin: 2rem 0 2rem 3rem;
+    list-style-position: outside;
+    margin: 2rem 0 2rem 4rem;
     padding: 0;
+    li{
+      margin-bottom: 0.75rem;
+    }
   }
 
   table{
