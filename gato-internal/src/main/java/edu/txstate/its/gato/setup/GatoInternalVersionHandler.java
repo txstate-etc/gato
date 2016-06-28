@@ -86,6 +86,8 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       .addTask(new BootstrapSingleModuleResource("config.modules.pages.dialogs.createPage.xml"))
       .addTask(new BootstrapSingleModuleResource("config.modules.pages.apps.pages.subApps.browser.actions.restorePreviousVersion.xml"))
       .addTask(new BootstrapSingleModuleResource("config.modules.dam-app.apps.assets.subApps.browser.workbench.contentViews.tree.xml"))
+      .addTask(new BootstrapSingleModuleResource("config.modules.pages.apps.pages.subApps.browser.actions.externalPreview.xml"))
+      .addTask(new BootstrapSingleModuleResource("config.modules.pages.apps.pages.subApps.browser.actionbar.sections.pageActions.groups.editingActions.items.xml"))
     );
   }
 
