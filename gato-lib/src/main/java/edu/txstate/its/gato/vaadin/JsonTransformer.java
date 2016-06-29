@@ -47,7 +47,37 @@ public class JsonTransformer implements Transformer<String> {
         Node node = parent.getNode(definition.getName());
         repoNode = convertJcrNodeToRepoNode(node);
       }
-      return gson.toJson(repoNode);
+      String json = gson.toJson(repoNode);
+
+      // Some unicode code points don't make it into the hidden field value properly and cause a JSON
+      // parse error. In particular, unassigned code points cause this problem. The permanent solution
+      // is to rework the js include to use the vaadin RPC interface to pass the value, similar to how the
+      // ckeditor plugin works. For now, just replace these characters with the replacement character.
+      StringBuilder validJson = new StringBuilder(json.length());
+      json.codePoints().forEach(c -> {
+        
+        // There's a bug with the HiddenField where U+FFFD (replacement character) gets encoded as \ u0000fffd.
+        // This causes JSON parsers to break on \ u0000 since \ u escape expects a 16-bit hex value.
+        if (c == 0xFFFD) {
+          validJson.append("\\uFFFD");
+          return;
+        }
+
+        switch(Character.getType(c)) {
+          case Character.CONTROL:
+          case Character.FORMAT:
+          // Valid surrogate pairs are passed as a single code point, this only applies to lone surrogates
+          case Character.SURROGATE:
+          case Character.UNASSIGNED:
+            validJson.append("\\uFFFD");
+            break;
+          default:
+            validJson.append(Character.toChars(c));
+            break;
+        }
+      });
+
+      return validJson.toString();
     } catch (RepositoryException e) {
       e.printStackTrace();
       return "";
