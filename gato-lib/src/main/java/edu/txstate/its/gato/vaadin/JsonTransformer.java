@@ -69,7 +69,7 @@ public class JsonTransformer implements Transformer<String> {
           // Valid surrogate pairs are passed as a single code point, this only applies to lone surrogates
           case Character.SURROGATE:
           case Character.UNASSIGNED:
-            validJson.append("\\uFFFD");
+            // Strip these characters
             break;
           default:
             validJson.append(Character.toChars(c));
