@@ -1077,7 +1077,7 @@ public final class GatoUtils {
 
   public String uuidToHtmlId(String uuid) {
     String ret = uuid.substring(0,8);
-    if (ret.matches("^\\[^a-zA-Z].*")) ret = "f"+ret;
+    if (ret.matches("^[^a-zA-Z].*")) ret = "f"+ret;
     return ret;
   }
 }
