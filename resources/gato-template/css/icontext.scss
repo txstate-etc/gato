@@ -3,10 +3,10 @@
     font-size: 7.2rem;
     text-align: center;
     margin: 0;
-    -webkit-transition: all 0.2s ease-in-out;
-    -moz-transition: all 0.2s ease-in-out;
-    -o-transition: all 0.2s ease-in-out;
-    transition: all 0.2s ease-in-out;
+    -webkit-transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+    -moz-transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+    -o-transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
     backface-visibility: hidden;
     &.color1{
         color: $mc1-bg;
@@ -47,8 +47,10 @@
             text-transform: uppercase;
             font-weight: 400;
             display: inline-block;
-            margin-bottom: 0;
-            &:after{
+            margin-bottom: 0.2rem;
+            line-height: 2.6rem;
+            margin-top: 2.2rem;
+        &:after{
                 content: '';
                 display: block;
                 margin: auto;
@@ -71,7 +73,7 @@
         //     float: left;
         // }
 
-        
+
         // &.right{
         //     float: right;
         // }
@@ -89,11 +91,11 @@ a.icontext{
     &:hover{
         background: transparent !important;
         .icontext-icon{
-            -webkit-transform: perspective(1px) scale(1.1); 
-            -moz-transform: perspective(1px) scale(1.1); 
-            -ms-transform: scale(1.1); 
-            -o-transform: scale(1.1); 
-            transform: perspective(1px) scale(1.1);
+            -webkit-transform: scale(1.1);
+            -moz-transform: scale(1.1);
+            -ms-transform: scale(1.1);
+            -o-transform: scale(1.1);
+            transform: scale(1.1);
             &.color1{
                 color: mix($mc1-bg, $white, 90); //10% lighter
             }
@@ -128,7 +130,7 @@ a.icontext{
     h3.icontext-title {
         border-bottom: 2px solid #e8e3db;
     }
-        
+
     .icontext-text{
         text-decoration: none;
         color: #222222;
