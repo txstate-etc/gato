@@ -71,5 +71,32 @@ Event.observe(window, "load", function() {
       Event.stop(event);
     });
   }
+
+  openFaqAnchor();
 });
+
+// Using jQuery here for compatability with a handler in common.js
+// TODO: convert the rest of this file to jQuery
+jQuery(document).ready(function($) {
+  $('a[href^="#"]:not([href="#"]').click(function(event) {
+    // There's already some code in common.js to handle anchor clicks
+    // Just show the faq item, so the other handler works properly.
+    openFaqAnchor();
+  });
+});
+
+function openFaqAnchor() {
+  var anchorName = location.hash.slice(1);
+  if (anchorName) {
+    var anchor = $$('.txst-faqitem a[name="' + anchorName + '"]')[0];
+    if (anchor) {
+      var faqitem = anchor.up('.txst-faqitem');
+      var caret = faqitem.down('.caret');
+      faqitem.down('.txst-faqitem-answer').show();
+      if (caret) {
+        caret.removeClassName('fa-caret-right').addClassName('fa-caret-down');
+      }
+    }
+  }
+}
 
