@@ -47,9 +47,12 @@ import info.magnolia.ui.vaadin.integration.jcr.JcrItemAdapter;
 import info.magnolia.ui.vaadin.overlay.MessageStyleTypeEnum;
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
+import java.util.HashSet;
 
 import javax.inject.Inject;
+import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 
 import org.slf4j.Logger;
@@ -166,20 +169,21 @@ public class GatoConfirmDeleteAction<D extends GatoConfirmDeleteActionDefinition
     }
 
     private String formatMessage(final String message) throws RepositoryException {
-        long howMany = items.size();
-        log.warn(""+howMany);
+        HashSet deletedpaths = new HashSet();
         for (JcrItemAdapter item : items) {
             Object itemId = contentConnector.getItemId(item);
             String path = contentConnector.getItemUrlFragment(itemId);
-            howMany += NodeUtil.getCollectionFromNodeIterator(
+            deletedpaths.add(path);
+            Collection<Node> children = NodeUtil.getCollectionFromNodeIterator(
               QueryUtil.search(
                 item.getWorkspace(),
                 "select * from [mgnl:page] where ISDESCENDANTNODE(["+path+"])",
                 "JCR-SQL2"
               )
-            ).size();
+            );
+            for (Node n : children) deletedpaths.add(n.getPath());
         }
-        log.warn(""+howMany);
+        long howMany = deletedpaths.size();
         return MessageFormatterUtils.format(message, howMany, howMany);
     }
 
