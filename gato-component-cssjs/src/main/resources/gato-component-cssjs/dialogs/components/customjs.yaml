@@ -36,6 +36,10 @@ form:
     - name: tabInclude
       label: Include External Libraries
       fields:
+        - name: warning
+          class: info.magnolia.ui.form.field.definition.StaticFieldDefinition
+          label: Note
+          value: Do NOT include jQuery here, choose jQuery on the main tab instead.
         - name: includes
           class: info.magnolia.ui.form.field.definition.MultiValueFieldDefinition
           transformerClass: info.magnolia.ui.form.field.transformer.multi.MultiValueChildNodeTransformer
