@@ -232,7 +232,7 @@ sub sass {
     print "Compiling SASS files...\n";
   }
   my $loadpaths = '--load-path '.$gatodir.'/resources';
-  my $cmd = "sass --sourcemap=none $loadpaths ".($sasscompressed ? '--style compressed ': '--line-comments ').($watch ? '--watch ':'--force ');
+  my $cmd = "sass --precision 6 --sourcemap=none $loadpaths ".($sasscompressed ? '--style compressed ': '--line-comments ').($watch ? '--watch ':'--force ');
   foreach my $file (@sassfiles) {
     my $input = "$gatodir/$file";
     my $output = $input;
