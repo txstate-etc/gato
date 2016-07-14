@@ -18,6 +18,7 @@ public class GatoMailVersionHandler extends DefaultModuleVersionHandler {
       .addTask(new MoveButtonTextToFormPropertiesTask())
       .addTask(new UpdateTextFieldTask())
       .addTask(new ConvertSelectionOptionsToChildNodeOperatorTask())
+      .addTask(new WipeVersionsTask("gato-area-mail:areas/mailForm"))
     );
   }
 }
