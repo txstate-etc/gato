@@ -5,5 +5,3 @@ templateScript: gato-template/templates/areas/navBlocks.ftl
 availableComponents:
   navigationBlock:
     id: gato-template:components/sidenav
-  hours:
-    id: gato-component-hours:components/hours
