@@ -71,5 +71,6 @@
 			[#include "includes/footer.ftl"]
 		</div> <!-- end of the container -->
 		[@cssjsmodals /]
+    [@cms.area name="gatoHours" content=gf.getOrCreateArea(homepage, 'gatoHours') /]
 	</body>
 </html>

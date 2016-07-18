@@ -62,3 +62,9 @@ navBlocks:
   !include /gato-template/templates/areas/navBlocks.yaml
 socialmedia:
   !include /gato-template/templates/areas/sociallist.yaml
+gatoHours:
+  type: single
+  editable: false
+  availableComponents:
+    hours:
+      id: gato-component-hours:components/hours

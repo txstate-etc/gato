@@ -15,7 +15,6 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.TimeZone;
 import java.util.Locale;
-import static org.apache.commons.lang3.StringEscapeUtils.escapeHtml4;
 import org.apache.commons.lang3.time.DateUtils;
 
 
@@ -84,7 +83,7 @@ public class HoursModel<RD extends RenderableDefinition> extends RenderingModelI
         json += "\"end\":\""+inputFormatTimed.format(endDate)+"\"";
 
         json += "}";
-        return escapeHtml4(json);
+        return json;
     }
 
     private Date getDate( Element item, String dateLabel ) {

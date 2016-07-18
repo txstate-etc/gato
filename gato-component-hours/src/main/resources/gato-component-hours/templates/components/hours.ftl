@@ -1,5 +1,12 @@
-<div class="gato-hours">
-[#if content.title?has_content]<h3>${content.title}</h3>[/#if]
-${model.getEvents(false)}
-<a class="hours-full" href="#" data-hours="${model.getFullCalendar(content.calendarId)}"><i class="fa fa-calendar"></i> More Hours</a>
-</div>
+[#--<a class="hours-full" href="#" data-calendarid="${content.calendarId}"><i class="fa fa-calendar"></i> More Hours</a>--]
+<script type="text/javascript">
+  var gato_hours_data = {
+    "calendars" : [ {id: "${content.calendarId?json_string}"} ],
+    "${content.calendarId?json_string}" : {
+      "today_abbreviated" : "${model.getEvents(true)?json_string}",
+      "today_full" : "${model.getEvents(false)?json_string}",
+      "fullcalendar_data" : ${model.getFullCalendar(content.calendarId)}
+    }
+  };
+</script>
+
