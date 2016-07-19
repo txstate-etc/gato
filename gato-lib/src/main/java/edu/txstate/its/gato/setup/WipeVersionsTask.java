@@ -38,11 +38,12 @@ public class WipeVersionsTask extends GatoBaseUpgradeTask {
 
   @Override
   protected void doExecute(InstallContext installContext) throws RepositoryException, TaskExecutionException {
-    log.info("Running WipeVersionsTask");
+    log.warn("Running WipeVersionsTask");
 
     HashSet<Node> pages = new HashSet();
     Session s = installContext.getJCRSession(RepositoryConstants.WEBSITE);
     for (String templateId : templateIds) {
+      log.warn(templateId);
       visitByTemplate(s, templateId, new NodeVisitor() {
         public void visit(Node n) throws RepositoryException {
           pages.add(NodeUtil.getNearestAncestorOfType(n, NodeTypes.Page.NAME));
@@ -52,6 +53,7 @@ public class WipeVersionsTask extends GatoBaseUpgradeTask {
 
     VersionManager vm = Components.getComponent(VersionManager.class);
     for (Node p : pages) {
+      log.warn("removing version history for "+p.getPath());
       vm.removeVersionHistory(p);
       p.save();
     }

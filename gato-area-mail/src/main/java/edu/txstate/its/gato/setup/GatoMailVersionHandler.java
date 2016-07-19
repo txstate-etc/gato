@@ -3,6 +3,8 @@ package edu.txstate.its.gato.setup;
 import info.magnolia.module.DefaultModuleVersionHandler;
 import info.magnolia.module.delta.DeltaBuilder;
 
+import java.util.Arrays;
+
 /**
  * This class is optional and lets you manage the versions of your module,
  * by registering "deltas" to maintain the module's configuration, or other type of content.
@@ -18,7 +20,7 @@ public class GatoMailVersionHandler extends DefaultModuleVersionHandler {
       .addTask(new MoveButtonTextToFormPropertiesTask())
       .addTask(new UpdateTextFieldTask())
       .addTask(new ConvertSelectionOptionsToChildNodeOperatorTask())
-      .addTask(new WipeVersionsTask("gato-area-mail:areas/mailForm"))
+      .addTask(new WipeVersionsTask("gato-area-mail:components/formproperties"))
     );
   }
 }
