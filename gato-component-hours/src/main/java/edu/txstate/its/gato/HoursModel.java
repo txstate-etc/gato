@@ -16,6 +16,7 @@ import java.util.Date;
 import java.util.TimeZone;
 import java.util.Locale;
 import org.apache.commons.lang3.time.DateUtils;
+import org.apache.commons.lang3.StringUtils;
 
 
 public class HoursModel<RD extends RenderableDefinition> extends RenderingModelImpl<RD> {
@@ -29,7 +30,7 @@ public class HoursModel<RD extends RenderableDefinition> extends RenderingModelI
     public HoursModel(Node content, RD definition, RenderingModel<?> parent) {
         super(content, definition, parent);
         try {
-          String url = constructUrl(true);
+          String url = constructUrl(true, content.getProperty("calendarId").getString());
           System.out.println("<!-- USING URL : "+ url + "-->");
           rssDocument = DomUtils.parseXml( url );
         } catch (Exception e) {
@@ -268,8 +269,7 @@ public class HoursModel<RD extends RenderableDefinition> extends RenderingModelI
         return "";
     }
 
-    private String constructUrl (Boolean mobileDevice ) throws UnsupportedEncodingException {
-        String calendarId = "/division-of-information-technology-meta-calendar/alkek-library/library-hours";
+    private String constructUrl (Boolean mobileDevice, String calendarId) throws UnsupportedEncodingException {
         String url = CALENDAR_URL + "/search.xml?b=de&path="+java.net.URLEncoder.encode(calendarId, "UTF-8");
 
         Calendar startDate = Calendar.getInstance();
