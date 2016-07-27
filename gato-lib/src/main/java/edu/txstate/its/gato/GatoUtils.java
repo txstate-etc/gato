@@ -206,7 +206,10 @@ public final class GatoUtils {
     if (n == null) return "";
     try {
       String title = n.getProperty("title").getString();
-      if (!StringUtils.isEmpty(title)) return title;
+      if (!StringUtils.isBlank(title)) {
+        title = title.replaceAll("<br/?>", "");
+        return title;
+      }
     } catch (Exception e) {
       // use name instead
     }
