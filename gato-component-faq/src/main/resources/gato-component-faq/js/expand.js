@@ -6,7 +6,7 @@ Event.observe(window, "load", function() {
     var answerElement = item.ancestors()[0].next();
     answerElement.setStyle({display: 'none'});
     var caretElement = item.down('.caret');
-    Event.observe( item, "click", function( event ) { 
+    Event.observe( item, "click", function( event ) {
       item.blur();
       //answerElement.toggle();
       if(answerElement.visible()){
@@ -26,7 +26,7 @@ Event.observe(window, "load", function() {
       Event.stop( event );
     });
   });
-  
+
   $$('.txst-faq-group-title a').each(function(item) {
     var groupElement = item.up().next('.txst-faq-group');
 
@@ -78,7 +78,7 @@ Event.observe(window, "load", function() {
 // Using jQuery here for compatability with a handler in common.js
 // TODO: convert the rest of this file to jQuery
 jQuery(document).ready(function($) {
-  $('a[href^="#"]:not([href="#"]').click(function(event) {
+  $('a[href^="#"]:not([href="#"])').click(function(event) {
     // There's already some code in common.js to handle anchor clicks
     // Just show the faq item, so the other handler works properly.
     openFaqAnchor();
@@ -99,4 +99,3 @@ function openFaqAnchor() {
     }
   }
 }
-
