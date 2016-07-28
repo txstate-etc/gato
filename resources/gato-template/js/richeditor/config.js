@@ -18,7 +18,8 @@
         CKEDITOR.plugins.addExternal("magnolialink", CKEDITOR.vaadinDirUrl + "js/magnolialink/", 'plugin.js');
 
         //Don't allow spans inside links
-        CKEDITOR.dtd.a.span = 0;
+        CKEDITOR.dtd.a.span = 1;
+
         //Allow <i></i> to make it easier to include font awesome icons
         config.protectedSource.push(/<i[^>]*><\/i>/g);
 
@@ -105,7 +106,7 @@
            ];
            config.removeDialogTabs = 'image:advanced;link:advanced;link:target';
 
-           // Allow all elements/styles/attrs/classes except for line-height style. CKeditor 4.4 has 
+           // Allow all elements/styles/attrs/classes except for line-height style. CKeditor 4.4 has
            // disallowedContent list which would be ideal for this, but since we're stuck with 4.3 for now
            // we'll do it the long way.
            //
@@ -210,9 +211,9 @@
                   id: 'selHeaderColor',
                   label: 'Header Color',
                   items: [ ['None', 'header-color-none'],
-                         [ 'Default (Gold)', 'header-color-gold' ], 
-                         [ 'Maroon', 'header-color-maroon' ], 
-                         [ 'Charcoal','header-color-charcoal' ], 
+                         [ 'Default (Gold)', 'header-color-gold' ],
+                         [ 'Maroon', 'header-color-maroon' ],
+                         [ 'Charcoal','header-color-charcoal' ],
                          [ 'Deep Blue', 'header-color-blue'],
                          [ 'River', 'header-color-river'],
                          [ 'Sandstone', 'header-color-sandstone' ],
@@ -228,7 +229,7 @@
                   },
                   setup: function (selectedTable){
                     var hasHeaderColor = false;
-                    //If the table has one of the 
+                    //If the table has one of the
                     //header color classes, set it.
                     for(var i=0; i< this.items.length; i++){
                       var colorClass = this.items[i][1];
@@ -251,7 +252,7 @@
 
                 //If the user chooses any kind of headers, we need to change the header color from
                 //"None" to the default value of gold.  We do not want to do this if the user chose
-                //"None" on purpose because we don't want to overwrite their selection.  
+                //"None" on purpose because we don't want to overwrite their selection.
                 var setDefaultColor = false;
 
                 //need to update header color field based on header type selection
@@ -302,12 +303,12 @@
                       addTableCSSClass("full-width");
                       removeTableCSSClass("auto-width");
                     }
-                  }, 
+                  },
                   setup: function(selectedTable){
                     if(hasTableCSSClass(selectedTable, "auto-width")){
                       this.setValue("auto");
                     }
-                    
+
                   },
                   commit: function(data, selectedTable){
                     //the table won't have a width class if it was just created and they didn't change it to auto
@@ -319,7 +320,7 @@
                 };
 
                 //Add alternate row color option
-                //If the checkbox is selected, alternate-row-color is added to the 
+                //If the checkbox is selected, alternate-row-color is added to the
                 //css classes in the advanced tab
                 var alternateRow = {
                   type: 'checkbox',
@@ -422,7 +423,7 @@
                                           ['Old Gold', '#DEB407']
                 ];
                 var pickerTab = dialogDefinition.getContents('picker');
-      
+
                 var colorClickFn = CKEDITOR.tools.addFunction(function (colorCode){
                   CKEDITOR.dialog.getCurrent().getContentElement('picker','selectedColor').setValue(colorCode);
                 });
@@ -433,7 +434,7 @@
                   var highlightText = document.querySelector('[id$="_hicolortext"]');
                   highlightText.innerHTML = colorCode;
                 });
-                
+
                 function makeColorBoxes(){
 
                   var html = '<h3>Texas State Colors</h3><table role="presentation" cellspacing=0 cellpadding=0 width="100%" style="margin:0px">';
@@ -444,8 +445,8 @@
                     html += '<td>' +
                               '<a class="cke_colorbox" _cke_focus=1 hidefocus=true' +
                                 ' title="' + colorLabel + '"' +
-                                ' onclick="CKEDITOR.tools.callFunction(' + colorClickFn + ',' + '\'' + colorCode +  '\');"' + 
-                                ' onmouseover="CKEDITOR.tools.callFunction(' + colorFocusFn + ',' + '\'' + colorCode +  '\');"' + 
+                                ' onclick="CKEDITOR.tools.callFunction(' + colorClickFn + ',' + '\'' + colorCode +  '\');"' +
+                                ' onmouseover="CKEDITOR.tools.callFunction(' + colorFocusFn + ',' + '\'' + colorCode +  '\');"' +
                                 ' style="width:18px; height:18px"' +
                                 ' role="option" aria-posinset="' + ( i + 1) + '" aria-setsize="'+ preSelectedColors.length + '">' +
                                 '<span class="cke_colorbox" style="background-color:' + colorCode + '; width:16px; height:16px"></span>' +
@@ -462,7 +463,7 @@
                   id: 'txStateColors',
                   html: makeColorBoxes()
                 };
-                
+
                 if(!pickerTab.get('txStateColors')){
                   pickerTab['elements'].unshift(colorBoxField);
                 }
