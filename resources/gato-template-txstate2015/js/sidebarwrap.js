@@ -3,16 +3,16 @@ jQuery(document).ready(function ($) {
   var pagecontent = $('.page_content');
   var footer = $('.footer');
 
-  // prevent sidebar from flowing behind the footer,
-  // since it is position: absolute
-  var setsidebarminheight = function() {
-    pagecontent.css('min-height', Math.max($(window).height()-pagecontent.offset().top-footer.height(), sidebar.height()+75)+'px');
-  };
-  resizeTimeout(setsidebarminheight);
-  mutationTimeout(sidebar.get(0), setsidebarminheight);
-  waitforselector('.navBlocks_add', '.mgnlEditor.mgnlPlaceholder', setsidebarminheight);
-
   if (sidebar.size() > 0) {
+    // prevent sidebar from flowing behind the footer,
+    // since it is position: absolute
+    var setsidebarminheight = function() {
+      pagecontent.css('min-height', Math.max($(window).height()-pagecontent.offset().top-footer.height(), sidebar.height()+75)+'px');
+    };
+    resizeTimeout(setsidebarminheight);
+    mutationTimeout(sidebar.get(0), setsidebarminheight);
+    waitforselector('.navBlocks_add', '.mgnlEditor.mgnlPlaceholder', setsidebarminheight);
+
     var expandsectionsaftersidebar = function () {
       // find the first gato-component paragraph whose top is
       // below the sidebar and expand it to full width
