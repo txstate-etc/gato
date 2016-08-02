@@ -4,11 +4,11 @@
   <groupId>edu.txstate.its.gato</groupId>
   <artifactId>gato-base</artifactId>
   <name>Gato Base</name>
-  <version>1.0.3</version>
+  <version>1.0.4</version>
   <packaging>pom</packaging>
 
   <properties>
-    <gatoVersion>1.0.3</gatoVersion>
+    <gatoVersion>1.0.4</gatoVersion>
     <magnoliaVersion>5.4.5</magnoliaVersion>
     <vaadinVersion>7.4.7</vaadinVersion>
     <javaVersion>1.8</javaVersion>
@@ -111,7 +111,7 @@
         <enabled>false</enabled>
       </snapshots>
     </repository>
-    
+
     <repository>
       <id>magnolia.enterprise.releases</id>
       <url>https://nexus.magnolia-cms.com/content/repositories/magnolia.enterprise.releases</url>
@@ -119,7 +119,7 @@
         <enabled>false</enabled>
       </snapshots>
     </repository>
-    
+
     <repository>
       <id>magnolia.forge.releases</id>
       <url>https://nexus.magnolia-cms.com/content/repositories/magnolia.forge.releases</url>
@@ -127,12 +127,12 @@
         <enabled>false</enabled>
       </snapshots>
     </repository>
-    
+
     <repository>
       <id>vaadin-addons</id>
       <url>https://maven.vaadin.com/vaadin-addons</url>
     </repository>
-    
+
     <repository>
       <id>txstate-builder</id>
       <url>https://projects.its.txstate.edu/hg/maven-repo/raw-file/default</url>
@@ -140,7 +140,7 @@
         <enabled>false</enabled>
       </snapshots>
     </repository>
-    
+
     <repository>
       <id>git-txstate-etc</id>
       <name>TxState Git based repo</name>
