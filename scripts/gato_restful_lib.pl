@@ -30,7 +30,7 @@ sub get {
 		} else {
 			return JSON::XS->new->utf8->decode($resp->decoded_content);
 		}
-	} else { 
+	} else {
 		if (!$silence_errors) {
 			print "failed get with status ".$resp->code." from ".$req->uri.", response:\n";
 			print $resp->decoded_content."\n\n";
@@ -54,13 +54,13 @@ sub post {
 	} elsif ($resp->code == 302 && $req->uri =~ m/^http:/ && $resp->header('Location') =~ m/^https:/) {
 		print	"\nyou are being redirected to https, are you trying to update edit on http?\n";
 		return 'failed';
-	} else { 
+	} else {
 		print "\nfailed post with status ".$resp->code." to ".$req->uri.", request body:\n";
 		print $resp->header('Location')."\n";
 		print $req->content."\n";
 		print "response:\n";
 		print $resp->decoded_content."\n\n";
-		return "failed"; 
+		return "failed";
 	}
 }
 
@@ -69,7 +69,7 @@ sub getproperty {
 	my $node = shift;
 	my $propname = shift;
 	for my $property (@{$$node{properties}}) {
-		if ($$property{name} eq $propname) { 
+		if ($$property{name} eq $propname) {
 			return trim($$property{'values'}[0]);
 		}
 	}

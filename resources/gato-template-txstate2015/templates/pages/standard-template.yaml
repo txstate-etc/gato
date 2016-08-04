@@ -13,3 +13,5 @@ variations:
     templateScript: /gato-component-cssjs/templates/pages/jsvariation.ftl
   rss:
     templateScript: /gato-template-rss/templates/pages/rssvariation.ftl
+  txt:
+    templateScript: /gato-template/templates/pages/txtvariation.ftl

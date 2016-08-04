@@ -43,7 +43,7 @@
 	[@cms.page /]
 [/#macro]
 
-[#macro title rootorg]
+[#macro title rootorg="Texas State University"]
 	<title>
 		[@pagetitle page /]
 		[#if !isHomePage]: [@pagetitle homepage /][/#if]
