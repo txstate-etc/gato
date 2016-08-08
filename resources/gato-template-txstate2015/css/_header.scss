@@ -3,7 +3,7 @@
 //image, the parent organization, and the title
 
 /* _header.scss */
-.bg_overlay, .bg_image, .bg_image_secondary, .bg_image_none {
+.bg_overlay, .bg_image, .bg_image_none {
     display: block;
     @media (max-width: $xs-breakpoint){
       display: none;
@@ -79,8 +79,7 @@
 
 input[type="search"]:focus {outline: none;}
 
-.header_with_image_secondary, .header_with_image, .header_no_image {
-    //min-height: 70px; padding: 0;
+.header_with_image, .header_no_image {
     position: relative;
     overflow: hidden !important;
     background:$maroon;
@@ -97,19 +96,6 @@ input[type="search"]:focus {outline: none;}
 }
 
 .header_with_image{
-  min-height: 360px; //above xl breakpoint
-  @media (max-width: $xl-breakpoint) {
-    min-height: 320px; //from md to xl
-  }
-  @media (max-width: $md-breakpoint) {
-    min-height: 280px; padding: 0;
-  }
-  @media (max-width: $xs-breakpoint){
-    min-height: 70px; padding: 0;
-  }
-}
-
-.header_with_image_secondary{
   min-height: 220px; padding: 0;
   @media (max-width: $xl-breakpoint){
     min-height: 180px; padding: 0;
@@ -152,7 +138,6 @@ body.admin .header_no_image {
     width: 100%;
     overflow: hidden;
     &.bg_image { opacity: 0; }
-    &.bg_image_secondary { opacity: 0; }
     &.bg_image_none { display: none; }
     img {
       display: block;
