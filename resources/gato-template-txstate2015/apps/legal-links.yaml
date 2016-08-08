@@ -131,6 +131,7 @@ subApps:
       activateRecursive:
         recursive: true
         asynchronous: true
+        notifyUser: false
         command: activate
         icon: icon-publish-incl-sub
         class: info.magnolia.ui.framework.action.ActivationActionDefinition
