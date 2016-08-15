@@ -189,3 +189,9 @@
     <input type="image" src="${gf.resourcePath()}/${image}" class="gato-search-submit" alt="Start Search"/>
   </form>
 [/#macro]
+
+[#macro skipnav maincontent='maincontent']
+    <div class="skip-nav">
+        <a class="visuallyhidden focusable" href="#${maincontent}">Skip to main content</a>
+    </div>
+[/#macro]

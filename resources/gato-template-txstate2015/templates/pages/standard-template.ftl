@@ -36,6 +36,7 @@
 			[#include "includes/mobile-super-user.ftl"]
 		</nav>
 		<div id="panel" class="container">
+            [@skipnav/]
 			<!--"super user" menu bar -->
 			[#include "includes/super-user.ftl"]
 
@@ -53,7 +54,11 @@
 			</div>
 			<div class="page_content">
         [#if !isHomePage && !(content.hideTitle!false)]
-          [#include "includes/headline.ftl"]
+            <div class="headline">
+              <h1 id="maincontent">${gf.nodeTitle(content)}</h1>
+            </div>
+        [#else]
+            <h1 id="maincontent" class="visuallyhidden">${gf.nodeTitle(content)}</h1>
         [/#if]
 				[#assign hideSidebar = content.hideSidebar!false]
 				[#if def.parameters.isMailTemplate!false]
