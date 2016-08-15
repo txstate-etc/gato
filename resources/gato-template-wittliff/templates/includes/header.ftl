@@ -1,4 +1,5 @@
 <header id="header">
+  [@skipnav/]
   [#if !sectionIsHomePage]
     <div id="logo">
       <a href="${cmsfn.link(homepage)}" title="${gf.nodeTitle(homepage)}">${gf.nodeTitle(homepage)}</a>
