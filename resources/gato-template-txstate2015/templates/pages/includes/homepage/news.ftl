@@ -188,7 +188,7 @@
             </div>
 
             <div class="cal-jumps">
-              <h3>Jump to a calendar</h3>
+              <h3>Jump to a calendar:</h3>
               <ul>
                 <li><a href="http://www.registrar.txstate.edu/persistent-links/academic-calendar.html">Academic</a></li>
                 <li><a href="http://www.txstatebobcats.com/calendar.aspx?vtype=list">Athletics</a></li>
