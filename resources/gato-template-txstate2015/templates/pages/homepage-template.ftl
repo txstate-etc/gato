@@ -41,6 +41,7 @@
     </nav>
     <div id="panel" class="container">
       [#include "includes/homepage/emergency.ftl"]
+      [@skipnav/]
       <!--"super user" menu bar -->
       [#include "includes/super-user.ftl"]
 
@@ -51,7 +52,7 @@
       </div>
 
       <div class="main-content">
-
+        <h2 id="maincontent" class="visuallyhidden">Main Content</h2>
         [#include "includes/homepage/top-feature.ftl"]
         [#include "includes/homepage/top-links.ftl"]
         [#include "includes/homepage/news.ftl"]

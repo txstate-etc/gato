@@ -20,7 +20,9 @@
 
       <main class="tsus-contentcolumn txst-styledcontent">
 				[#if content.title?has_content && !isHomePage && !(content.hideTitle!false)]
-					<h1 class="tsus-page-title">${content.title}</h1>
+					<h1 id="maincontent" class="tsus-page-title">${content.title}</h1>
+        [#else]
+          <h1 id="maincontent" class="visuallyhidden">Main content</h1>
 				[/#if]
         [#if def.parameters.isMailTemplate!false]
           [@cms.area name="mail" /]

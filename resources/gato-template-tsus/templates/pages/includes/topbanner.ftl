@@ -1,5 +1,6 @@
 <div class="tsus-topbanner-bg">
 	<div class="tsus-topbanner">
+		[@skipnav/]
 		<a href="${cmsfn.link(homepage)}" class="tsus-homelink" title="Texas State University System">
 			<img src="${gf.resourcePath()}/gato-template-tsus/images/tsus-logo.png" alt="Texas State University System Logo"/>
 		</a>

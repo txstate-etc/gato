@@ -10,6 +10,7 @@
 
   <body class="${cmsfn.isEditMode()?string('admin', '')}">
 		[#include "includes/topbanner.ftl"]
+		<h2 id="maincontent" class="visuallyhidden">Main Content</h2>
 		<div class="slideshow-bg">
 			[@cms.area name="slideshow" /]
 		</div>

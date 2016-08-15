@@ -12,7 +12,7 @@
   [@templatehead /]
 </head>
 <body id="library-2012" class="${cmsfn.isEditMode()?string('admin', 'public')}">
-
+    [@skipnav/]
     <!--"super user" menu bar -->
     [#include "../../../gato-template-txstate2015/templates/pages/includes/super-user.ftl"]
     <!-- banner with logo and search bar -->
