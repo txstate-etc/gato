@@ -150,6 +150,43 @@ jQuery(document).ready(function($) {
         $(this).attr('target', "_self");
   });
 
+  var timer;
+  function resizeTitle(){
+    var title = $('.dept_name .office_name a');
+    var titleDiv = $('.office_name');
+    var rem=$('html').css("font-size");
+    var minFontSize = 3 * parseFloat(rem);
+    var outerWidth = titleDiv.outerWidth();
+
+    var scrollWidth = titleDiv[0].scrollWidth;
+    var currentFontSize = parseFloat(title.css("font-size"));
+    var percentage = 100;
+
+    //if the screen width is smaller than 1024px, the font won't need to be resized
+    //because wrapping is allowed.
+    if (window.matchMedia && window.matchMedia("(max-width: 1024px)").matches) {
+      /* the viewport width <= 1024px */
+      title.css("font-size", "");
+    }
+
+    while((currentFontSize > minFontSize) && (scrollWidth > outerWidth)){
+        percentage -= 5;
+        title.css("font-size", percentage + "%");
+        currentFontSize  = parseFloat(title.css("font-size"));
+        scrollWidth = titleDiv[0].scrollWidth;
+    }
+
+    if(scrollWidth > outerWidth){
+        title.css("white-space", "normal");
+    }
+  }
+  $(window).resize(function(){
+    clearTimeout(timer);
+    timer = setTimeout(resizeTitle, 250);
+  });
+  resizeTitle();
+  
+
 });
 
 
