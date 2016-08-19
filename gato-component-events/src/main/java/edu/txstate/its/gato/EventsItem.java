@@ -58,7 +58,7 @@ public class EventsItem {
 
   public String getDescription() {
     if (description == null) {
-      description = DomUtils.getTextValue(elem, "description");
+      description = DomUtils.getTextValue(elem, "html-description", false);
     }
     return description;
   }
