@@ -3,7 +3,7 @@
 [#assign buttonSize = content.size!]
 [#assign buttonText = content.text!]
 [#assign buttonLink = content.url!"#"]
-[#assign buttonCenter = (content.centered!false)?string('center-button', '')]
+[#assign buttonCenter = ((content.centered!false) && (buttonSize != 'block'))?string('center-button', '')]
 [#if buttonType == "rollover" && content.image?has_content]
     [#assign buttonBG = "style=\"background-image: url('" + gf.getImgDefault(content.image) + "'); \"" ]
 [/#if]

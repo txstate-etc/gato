@@ -112,5 +112,6 @@ form:
           class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
           buttonLabel: Center Button in Column
           label: ""
+          description: This option will be ignored if size is set to full width.
 actions: !include /gato-template/dialogs/common/actions-block.yaml
 label: Create Button
