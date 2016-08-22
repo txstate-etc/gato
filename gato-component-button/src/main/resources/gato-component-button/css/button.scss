@@ -8,7 +8,6 @@ $button-reverse-text-weight:       400;
 .button-wrapper {
 
   & > a.button {
-    display: inline-block;
     padding: 2rem 3rem;
     text-align: center;
     text-transform: uppercase;
@@ -246,5 +245,11 @@ $button-reverse-text-weight:       400;
         }
       }
     }
+    &.center-button{
+      display: inline-block;
+    }
+  }
+  &.center-button{
+    text-align: center;
   }
 }

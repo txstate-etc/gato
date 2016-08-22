@@ -108,5 +108,9 @@ form:
           targetWorkspace: website
           description: "Enter a full URL to an external site (http://www.google.com/) or use the \"Internal Link\" button to link to another page in this site."
           buttonSelectNewLabel: "Internal Link..."
+        - name: centered
+          class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+          buttonLabel: Center Button in Column
+          label: ""
 actions: !include /gato-template/dialogs/common/actions-block.yaml
 label: Create Button
