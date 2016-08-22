@@ -11,12 +11,22 @@ import info.magnolia.dam.templating.functions.DamTemplatingFunctions;
 
 import javax.jcr.Node;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
 
 import com.google.inject.Inject;
+import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class GatoDamServlet extends DamDownloadServlet {
+	private static Logger log = LoggerFactory.getLogger(GatoDamServlet.class);
   protected final LinkMigrationLogic lmlogic;
   protected final DamTemplatingFunctions damfn;
+	protected static final SimpleDateFormat httpDateFormat = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss z", Locale.US);
 
   @Inject
   public GatoDamServlet(final DamCoreConfiguration configuration, final AssetProviderRegistry assetProviderRegistry,
@@ -25,6 +35,25 @@ public class GatoDamServlet extends DamDownloadServlet {
     this.lmlogic = linklogic;
     this.damfn = damTemplatingFunctions;
   }
+
+	@Override
+	protected void process(HttpServletRequest req, HttpServletResponse res) throws Exception {
+		// Get Asset
+		Asset asset = getAsset(req);
+  	String ifmodsincestr = req.getHeader("If-Modified-Since");
+  	try {
+			Calendar ifmodsince = parseHttpDate(ifmodsincestr);
+			Calendar lastmod = asset.getLastModified();
+			if (lastmod != null && !lastmod.after(ifmodsince)) {
+				res.sendError(HttpServletResponse.SC_NOT_MODIFIED);
+        res.setDateHeader("Last-Modified", asset.getLastModified().getTimeInMillis());
+				return;
+			}
+		} catch (Exception e) {
+			log.warn("trouble evaluating if-modified-since", e);
+		}
+		super.process(req, res);
+	}
 
   @Override
   protected Asset getAsset(HttpServletRequest request) {
@@ -37,4 +66,9 @@ public class GatoDamServlet extends DamDownloadServlet {
     return super.getAsset(request);
   }
 
+	protected Calendar parseHttpDate(String datestr) throws Exception {
+		Calendar ret = Calendar.getInstance();
+		ret.setTime(httpDateFormat.parse(datestr));
+		return ret;
+	}
 }
