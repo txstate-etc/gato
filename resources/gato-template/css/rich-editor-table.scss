@@ -5,14 +5,14 @@
     table{
         td, th{
           padding: 0.5rem 1rem;
-          border-color: $khaki;
+          border-color: $table-border;
         }
         th {
-          background: $gold;
-          color: $white;
+          background: $table-header-bg;
+          color: $table-header-text;
         }
         a{
-          color: $maroon;
+          color: $table-link;
           &:hover{
             text-decoration: none;
             background: transparent;
@@ -20,10 +20,10 @@
         }
         border: none;
         &.header-color-gold th{
-          background: $gold;
-          color: $white;
+          background: $table-header-bg;
+          color: $table-header-text;
           a{
-            color: $white;
+            color: $table-header-text;
             &:hover{
               background: transparent;
               text-decoration: none;
@@ -107,10 +107,10 @@
             }
           }
         }
-        
+
     }
     table.alternate-row-color tbody tr:nth-child(odd) {
-       background-color: $light-sandstone;
+       background-color: $table-altrow-bg;
     }
     table.auto-width{
       width: auto;

@@ -8,7 +8,7 @@
   td{
       padding: 0.7rem 1rem !important;
       a{
-          color: $maroon;
+          color: $table-link;
           &:hover{
               background: transparent;
               text-decoration: none;
@@ -18,11 +18,11 @@
 
   th{
       padding: 0.7rem 1rem !important;
-      background-color: $gold;
-      color: #FFFFFF;
+      background-color: $table-header-bg;
+      color: $table-header-text;
 
       a {
-          color: #FFFFFF;
+          color: $table-header-text;
           &:hover{
               text-decoration: none;
               background: transparent;
@@ -33,23 +33,23 @@
 
     &.table-linesh{
         td{
-            border-top: 1px solid $khaki;
-            border-bottom: 1px solid $khaki;
+            border-top: 1px solid $table-border;
+            border-bottom: 1px solid $table-border;
         }
     }
 
     &.table-linesv{
-        border-top: 1px solid $khaki;
-        border-bottom: 1px solid $khaki;
+        border-top: 1px solid $table-border;
+        border-bottom: 1px solid $table-border;
         td{
-            border-left: 1px solid $khaki;
-            border-right: 1px solid $khaki;
+            border-left: 1px solid $table-border;
+            border-right: 1px solid $table-border;
         }
-        th {border: 1px solid #887860;}
+        th {border: 1px solid $table-header-border;}
     }
 
     &.table-alt tr.odd td {
-        background-color: $light-sandstone;
+        background-color: $table-altrow-bg;
     }
 
     &.table-fontsm {
@@ -81,13 +81,13 @@
     tr {
       margin-bottom: 0px !important;
       display: block;
-      border-bottom: 2px solid $gold;
+      border-bottom: 2px solid $table-carded-border;
     }
     td {
       display: block;
       text-align: right;
       border: 0px;
-      border-bottom: 1px dotted $gold;
+      border-bottom: 1px dotted $table-carded-border;
     }
     td:last-child{
       border-bottom: 0;
