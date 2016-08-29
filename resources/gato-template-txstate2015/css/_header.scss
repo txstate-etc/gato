@@ -159,7 +159,7 @@ body.admin .header_no_image {
   left: 0px;
   bottom: 0px;
   width: 100%;
-  @media (max-width: $xs-breakpoint) {
+  @media (max-width: $sm-breakpoint) {
     position: relative;
   }
   .dept_name {
