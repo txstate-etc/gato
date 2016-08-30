@@ -10,10 +10,12 @@
     <div class="image">
       <img src="${gf.getImgDefault(content.image, left, right, top, bottom, ctx.aspectratio)}" srcset="${gf.getSrcSet(content.image, left, right, top, bottom, ctx.aspectratio)}" class="bg" alt="${content.alttext!}">
     </div>
+    [#if content.title?has_content || content.subtext?has_content]
     <div class="caption">
       [#if content.title?has_content]<h3>${content.title}</h3>[/#if]
       <p>${content.subtext!}</p>
     </div>
+    [/#if]
 
     [#if content.link?has_content]
       </a>
