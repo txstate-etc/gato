@@ -52,7 +52,14 @@
 	color: #b92c26;
 	text-decoration: none;
 }
-
+.column_paragraph, .txst-form-body {
+	.rich-editor-table table, table.data {
+		a:hover {
+			color: #b92c26;
+			text-decoration: none;
+		}
+	}
+}
 .txst-styledcontent img {
 	border-color: #777777;
 	border-style: solid;
