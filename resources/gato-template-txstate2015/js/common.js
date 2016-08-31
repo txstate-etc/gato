@@ -155,7 +155,7 @@ jQuery(document).ready(function($) {
     var title = $('.dept_name .office_name a');
     var titleDiv = $('.office_name');
     var rem=$('html').css("font-size");
-    var minFontSize = 3 * parseFloat(rem);
+    var minFontSize = 2.8 * parseFloat(rem);
     var outerWidth = titleDiv.outerWidth();
 
     var scrollWidth = titleDiv[0].scrollWidth;
@@ -175,8 +175,9 @@ jQuery(document).ready(function($) {
         currentFontSize  = parseFloat(title.css("font-size"));
         scrollWidth = titleDiv[0].scrollWidth;
     }
-
+    
     if(scrollWidth > outerWidth){
+        title.css("font-size", minFontSize);
         title.css("white-space", "normal");
     }
   }
