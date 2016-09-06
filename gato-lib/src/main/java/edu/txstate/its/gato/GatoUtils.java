@@ -793,7 +793,7 @@ public final class GatoUtils {
       Collections.sort(props, new Comparator<Property>(){
         public int compare(Property a, Property b) {
           try {
-            return a.getName().compareTo(b.getName());
+            return Integer.valueOf(a.getName()).compareTo(Integer.valueOf(b.getName()));
           } catch (Exception e) {
             return 0;
           }
