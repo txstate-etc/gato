@@ -6,7 +6,7 @@
 			    </a>
 		</div>
 		<div class="hamburger">
-			<a class="toggle-button" href="#">Menu</a>
+			<a class="toggle-button" href="#" aria-label="Menu - toggle site navigation">Menu</a>
 		</div>
 		[#import "search.ftl" as search]
 		[@search.searchBar false/]

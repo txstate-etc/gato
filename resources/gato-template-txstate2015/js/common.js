@@ -88,7 +88,7 @@ jQuery(document).ready(function($) {
   });
 
   var resizeTimer,slideout;
-  function resizeSlideout(){ 
+  function resizeSlideout(){
     var slideoutPadding = 300;
     //IE9 does not support window.matchMedia
     if (window.matchMedia && window.matchMedia("(max-width: 350px)").matches) {
@@ -123,6 +123,7 @@ jQuery(document).ready(function($) {
   jQuery('.toggle-button').on("click", function(e){
     e.preventDefault();
     slideout.toggle();
+    if (slideout.isOpen()) $('.mobile_nav .mobile_search').focus();
   });
 
   $(document).on('click', function(event) {
@@ -132,6 +133,13 @@ jQuery(document).ready(function($) {
       if(slideout.isOpen()){
         slideout.close();
       }
+    }
+  });
+
+  $(document).keyup(function (e) {
+    if (e.keyCode === 27 && slideout.isOpen()) {
+      slideout.close();
+      $('.toggle-button').focus();
     }
   });
 
@@ -175,7 +183,7 @@ jQuery(document).ready(function($) {
         currentFontSize  = parseFloat(title.css("font-size"));
         scrollWidth = titleDiv[0].scrollWidth;
     }
-    
+
     if(scrollWidth > outerWidth){
         title.css("font-size", minFontSize);
         title.css("white-space", "normal");
@@ -186,7 +194,7 @@ jQuery(document).ready(function($) {
     timer = setTimeout(resizeTitle, 250);
   });
   resizeTitle();
-  
+
 
 });
 
