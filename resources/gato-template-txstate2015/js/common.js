@@ -87,61 +87,54 @@ jQuery(document).ready(function($) {
     }
   });
 
-  var resizeTimer,slideout;
-  function resizeSlideout(){
-    var slideoutPadding = 300;
-    //IE9 does not support window.matchMedia
-    if (window.matchMedia && window.matchMedia("(max-width: 350px)").matches) {
-      /* the viewport width <= 350px */
-      slideoutPadding = 275;
-    }
-
-    if(!slideout){
-      slideout = new Slideout({
-        'panel': document.getElementById('panel'),
-        'menu': document.getElementById('menu'),
-        'padding' : slideoutPadding,
-        'tolerance': 70,
-        'side': 'right',
-        'duration': 300,
-        'touch': false
-      });
-    }
-    if(!window.matchMedia){
-      //since we can't decrease the slideout padding for IE9, don't make the menu smaller either
-      jQuery('.slideout-menu').css("width", "300px");
-    }
+  /*** SLIDEOUT MENU ***/
+  var slideoutPadding = 300;
+  //IE9 does not support window.matchMedia
+  if (window.matchMedia && window.matchMedia("(max-width: 350px)").matches) {
+    /* the viewport width <= 350px */
+    slideoutPadding = 275;
   }
-  $(window).resize(function(){
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(resizeSlideout, 250);
+  if(!window.matchMedia){
+    //since we can't decrease the slideout padding for IE9, don't make the menu smaller either
+    jQuery('.slideout-menu').css("width", "300px");
+  }
+  var slideout = new Slideout({
+    'panel': document.getElementById('panel'),
+    'menu': document.getElementById('menu'),
+    'padding' : slideoutPadding,
+    'tolerance': 70,
+    'side': 'right',
+    'duration': 300,
+    'touch': false
   });
-  resizeSlideout();
-
-  jQuery('#menu').css('display', '');
-
+  slideout.on('open', function () {
+    $('.mobile_nav .mobile_search').focus();
+  });
+  slideout.on('beforeclose', function () {
+    $('.toggle-button').focus();
+  });
   jQuery('.toggle-button').on("click", function(e){
     e.preventDefault();
     slideout.toggle();
-    if (slideout.isOpen()) $('.mobile_nav .mobile_search').focus();
   });
 
-  $(document).on('click', function(event) {
-    //If they did not click on the menu button or on the mobile menu itself
-    if (!jQuery(event.target).is('.toggle-button') && !jQuery(event.target).closest('#menu').length) {
-      //if the menu is open, close it
-      if(slideout.isOpen()){
-        slideout.close();
-      }
+  // close the menu if they click outside it
+  $(document).on('click', function(e) {
+    var targ = $(e.target);
+    if (slideout.isOpen() && !targ.is('.toggle-button') && !targ.closest('#menu').length) {
+      e.preventDefault();
+      slideout.close();
     }
   });
 
+  // close the menu with the escape key
   $(document).keyup(function (e) {
     if (e.keyCode === 27 && slideout.isOpen()) {
+      e.preventDefault();
       slideout.close();
-      $('.toggle-button').focus();
     }
   });
+  /*** END SLIDEOUT MENU ***/
 
   $('.more-tools > a').hovermenu('.super-list-sub');
 

@@ -20,7 +20,7 @@
 		[@templatehead/]
 	</head>
 	<body class="${cmsfn.isEditMode()?string('admin','')}">
-		<nav id="menu" class="mobile_nav" style="display: none;">
+		<nav id="menu" class="mobile_nav">
 			[#import "includes/search.ftl" as search]
 			[@search.searchBar true/]
 			<div class="mobile_nav_container">
