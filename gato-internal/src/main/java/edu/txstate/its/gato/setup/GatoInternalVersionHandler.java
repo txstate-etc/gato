@@ -95,6 +95,10 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       .addTask(new BootstrapSingleModuleResource("config.modules.pages.apps.pages.subApps.browser.actionbar.sections.pageActions.groups.editingActions.items.xml"))
       .addTask(new BootstrapSingleModuleResource("config.modules.pages.dialogs.editPage.form.tabs.tabPage.fields.jcrName.xml"))
     );
+
+    register(DeltaBuilder.update("1.0.5", "")
+      .addTask(new BootstrapSingleModuleResource("config.modules.pages.dialogs.createPage.xml"))
+    );
   }
 
   protected List<Task> installOrUpdateTasks() {
