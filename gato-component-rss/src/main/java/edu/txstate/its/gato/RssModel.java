@@ -10,7 +10,7 @@ import com.rometools.fetcher.FeedFetcher;
 import com.rometools.fetcher.FetcherException;
 import com.rometools.fetcher.impl.FeedFetcherCache;
 import com.rometools.fetcher.impl.HashMapFeedInfoCache;
-import com.rometools.fetcher.impl.HttpURLFeedFetcher;
+import com.rometools.fetcher.impl.HttpClientFeedFetcher;
 import com.rometools.modules.mediarss.MediaModule;
 import com.rometools.rome.feed.synd.SyndFeed;
 import com.rometools.rome.feed.synd.SyndEntry;
@@ -107,7 +107,7 @@ public class RssModel<RD extends RenderableDefinition> extends RenderingModelImp
     Node unescapednode = NodeUtil.unwrap(content);
     final String feedUrl = PropertyUtil.getString(unescapednode, "feedUrl", null);
     final FeedFetcherCache cache = HashMapFeedInfoCache.getInstance();
-    final FeedFetcher feedFetcher = new HttpURLFeedFetcher(cache);
+    final FeedFetcher feedFetcher = new HttpClientFeedFetcher(cache);
     feedFetcher.setUserAgent("MagnoliaRSSFeedParagraph/0.1 (Java-ROME 0.9; Magnolia 3.5.4; gato@txstate.edu)");
 
     return feedFetcher.retrieveFeed(new URL(feedUrl));
