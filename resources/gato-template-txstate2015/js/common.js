@@ -155,6 +155,7 @@ jQuery(document).ready(function($) {
   function resizeTitle(){
     var title = $('.dept_name .office_name a');
     var titleDiv = $('.office_name');
+    if (!title.length || !titleDiv.length) return;
     var rem=$('html').css("font-size");
     var minFontSize = 2.8 * parseFloat(rem);
     var outerWidth = titleDiv.outerWidth();
