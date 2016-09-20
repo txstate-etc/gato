@@ -27,7 +27,7 @@
 
   </head>
   <body class="homepage ${cmsfn.isEditMode()?string('admin','')}">
-    <nav id="menu" class="mobile_nav" style="display: none;">
+    <nav id="menu" class="mobile_nav">
       [@search.searchBar true false/]
       <div class="mobile_nav_container">
         <h3 class="mobile-page-title"><a href="${cmsfn.link(homepage)}">${gf.nodeTitle(homepage)}</a></h3>
