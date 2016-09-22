@@ -75,6 +75,9 @@
       }
     }
   }
+  a span {
+    color: inherit !important;
+  }
   a img {
     transition: all 0.3s ease-out;
     -webkit-transition: all 0.3s ease-out;
