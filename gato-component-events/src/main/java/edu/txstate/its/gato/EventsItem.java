@@ -31,6 +31,8 @@ public class EventsItem {
   private Date endDate;
   private String machineEndDate;
   private String humanEndDate;
+  private String eventId;
+  private String recurrenceId;
   
   private Element elem;
 
@@ -247,6 +249,20 @@ public class EventsItem {
     }
 
     return dateFormat.format(date);       
+  }
+
+  public String getEventId() {
+    if (eventId == null) {
+      eventId = DomUtils.getTextValue(elem, "event-id");
+    }
+    return eventId;
+  }
+
+  public String getRecurrenceId() {
+    if (recurrenceId == null) {
+      recurrenceId = DomUtils.getTextValue(elem, "id");
+    }
+    return recurrenceId;
   }
 
 }

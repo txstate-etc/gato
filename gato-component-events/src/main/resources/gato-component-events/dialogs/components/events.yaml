@@ -49,5 +49,9 @@ form:
             - name: collapsedlist
               value: collapsedlist
               label: Collapsed list
+        - name: hideRepeats
+          class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+          label: ""
+          buttonLabel: Hide repeated occurrences of recurring events
 actions: !include /gato-template/dialogs/common/actions-block.yaml
 label: Calendar Events

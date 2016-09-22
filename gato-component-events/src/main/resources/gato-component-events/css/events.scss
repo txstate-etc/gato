@@ -7,7 +7,7 @@
 
     .txst-eventdetail-dates{
       font-size: 1.5rem;
-      abbr {
+      time, .repeat-event-enddate {
         border: none;
         font-style: italic;
       }

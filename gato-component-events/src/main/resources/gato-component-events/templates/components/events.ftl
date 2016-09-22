@@ -13,85 +13,123 @@
   </div>
 
 [#elseif model.items?has_content]
+  [#assign endDateHash = {}]
+  [#assign recurrenceIdHash = {}]
+  [#assign eventRepeats = {}]
+  [#if content.hideRepeats!false]
+    [#list model.items as item]
+
+      [#-- If the item's event ID is not in the hash or it has a later end date, save it in the hash --]
+      [#if !endDateHash[item.eventId]?? || (endDateHash[item.eventId]?datetime < item.endDate?datetime)]
+        [#assign endDateHash = endDateHash + {item.eventId : item.endDate}]
+      [/#if]
+
+      [#-- If the item's event ID has not been added yet or its first occurrence is before the current value --]
+      [#if !recurrenceIdHash[item.eventId]?? || item.recurrenceId?number < recurrenceIdHash[item.eventId]?number]
+        [#assign recurrenceIdHash = recurrenceIdHash + {item.eventId : item.recurrenceId}]
+      [/#if]
+
+      [#-- If an event ID is seen more than once, that means it is recurring --]
+      [#-- We only want to display the end dates for recurring events --]
+      [#if !eventRepeats[item.eventId]??]
+        [#assign eventRepeats = eventRepeats + {item.eventId : false}]
+      [#else]
+        [#assign eventRepeats = eventRepeats + {item.eventId : true}]
+      [/#if]
+
+    [/#list]
+  [/#if]
 <div class="gato-events">
   [#list model.items as item]
-    [#assign eventClass=item.cancelled?string('txst-eventdetail-cancelled','vevent')]
 
-    <div class="txst-eventdetail gato-accordion ${eventClass}"
-        data-start-collapsed="${model.collapsed?string('true', 'false')}">
+    [#-- if content.hideRepeats is missing or false OR content.hideRepeats is true and this is the first/only recurrence of an event --]
+    [#if (!content.hideRepeats?? || !content.hideRepeats) || (content.hideRepeats && recurrenceIdHash[item.eventId] == item.recurrenceId)]
 
-      <div class="gato-accordion-header">
-        <h3 class="txst-eventdetail-title">
-          ${item.cancelled?string('CANCELLED - ','')}
-          <span class="summary">
-            ${item.title}
-          </span>
-        </h3>
-        <div class="txst-eventdetail-dates">
-          <abbr class="dtstart" title="${item.machineStartDate}">
-            ${item.humanStartDate}
-          </abbr>
-          [#if item.showEndDate]
-            &ndash;
-            <abbr class="dtend" title="${item.machineEndDate}">
-              ${item.humanEndDate}
-            </abbr>
-          [/#if]
+      [#assign eventClass=item.cancelled?string('txst-eventdetail-cancelled','h-event vevent')]
+
+      <div class="txst-eventdetail gato-accordion ${eventClass}"
+          data-start-collapsed="${model.collapsed?string('true', 'false')}">
+
+        <div class="gato-accordion-header">
+          <h3 class="txst-eventdetail-title">
+            ${item.cancelled?string('CANCELLED - ','')}
+            <span class="p-name summary">
+              ${item.title}
+            </span>
+          </h3>
+          <div class="txst-eventdetail-dates">
+            <time class="dt-start dtstart" datetime="${item.machineStartDate}">
+              ${item.humanStartDate}
+            </time>
+            [#if item.showEndDate]
+              &ndash;
+              <time class="dt-end dtend" datetime="${item.machineEndDate}">
+                ${item.humanEndDate}
+              </time>
+            [/#if]
+
+            [#-- If repeat events are hidden and this is a recurring event.  Don't show end date for one time events --]
+            [#if (content.hideRepeats!false) && (eventRepeats[item.eventId])]
+              <span class="repeat-event-enddate">
+                until ${endDateHash[item.eventId]?string('MMM dd')}
+              </span>
+            [/#if]
+          </div>
         </div>
-      </div>
 
-      <div class="gato-accordion-content">
+        <div class="gato-accordion-content">
 
-        <div class="thumb-container">
-          [#if item.image?has_content]
-            <div class="txst-eventdetail-thumbnail">
-              <img alt="${item.title}" src="${gf.getImg(item.image, 600, 0, false, false, 0, 0, 0, 0)}" />
+          <div class="thumb-container">
+            [#if item.image?has_content]
+              <div class="txst-eventdetail-thumbnail">
+                <img alt="${item.title}" src="${gf.getImg(item.image, 600, 0, false, false, 0, 0, 0, 0)}" />
+              </div>
+            [/#if]
+
+            <a title="add ${item.title} to calendar"
+              href="${item.calendarUrl}"
+              class="txst-eventdetail-addtocalendar ${item.image?has_content?string("", "no-image")}">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <span class="linktext">add to calendar</span>
+            </a>
+          </div>
+
+          <div class="detail-container">
+            <dl class="txst-eventdetail-detailsbox">
+              [#if item.facility?has_content]
+                <dt>Location:</dt>
+                <dd class="p-location">${item.facility}</dd>
+              [/#if]
+
+              <dt>Cost:</dt>
+              <dd>${item.cost}</dd>
+
+              <dt>Contact:</dt>
+              <dd>${item.contact}</dd>
+
+              <dt>Campus Sponsor:</dt>
+              <dd>${item.sponsor}</dd>
+            </dl>
+          </div>
+
+          [#if item.description?has_content]
+            <div class="txst-eventdetail-description">
+              <span class="p-description">${item.description}</span>
+              [#if item.link?has_content]
+                <a href="${item.link}" class="u-url url">
+                  Click here for more information
+                </a>
+              [/#if]
             </div>
           [/#if]
 
-          <a title="add ${item.title} to calendar"
-            href="${item.calendarUrl}"
-            class="txst-eventdetail-addtocalendar ${item.image?has_content?string("", "no-image")}">
-            <i class="fa fa-calendar" aria-hidden="true"></i>
-            <span class="linktext">add to calendar</span>
+          <a class="txst-eventdetail-morelink" href="${item.url}">
+            <span class="linktext">more about event</span>
+            <i class="fa fa-angle-right" aria-hidden="true"></i>
           </a>
         </div>
-
-        <div class="detail-container">
-          <dl class="txst-eventdetail-detailsbox">
-            [#if item.facility?has_content]
-              <dt>Location:</dt>
-              <dd>${item.facility}</dd>
-            [/#if]
-
-            <dt>Cost:</dt>
-            <dd>${item.cost}</dd>
-
-            <dt>Contact:</dt>
-            <dd>${item.contact}</dd>
-
-            <dt>Campus Sponsor:</dt>
-            <dd>${item.sponsor}</dd>
-          </dl>
-        </div>
-
-        [#if item.description?has_content]
-          <div class="txst-eventdetail-description">
-            ${item.description}
-            [#if item.link?has_content]
-              <a href="${item.link}" class="url">
-                Click here for more information
-              </a>
-            [/#if]
-          </div>
-        [/#if]
-
-        <a class="txst-eventdetail-morelink" href="${item.url}">
-          <span class="linktext">more about event</span>
-          <i class="fa fa-angle-right" aria-hidden="true"></i>
-        </a>
       </div>
-    </div>
+    [/#if]
   [/#list]
 </div>
 [#else]
