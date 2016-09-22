@@ -1,7 +1,7 @@
 templateScript: /gato-template-txstate2015/templates/pages/standard-template.ftl
 renderType: site
 visible: true
-title: 2015 TXST Standard
+title: TXST Standard
 dialog: gato-template:pages/page-properties
 areas: !include /gato-template-txstate2015/templates/includes/template-areas.yaml
 parameters:
