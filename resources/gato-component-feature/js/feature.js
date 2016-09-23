@@ -30,7 +30,7 @@ jQuery(document).ready(function ($) {
     }
     $(this).find('.slides').slick({
       dots: true,
-      adaptiveHeight: true,
+      adaptiveHeight: false,
       autoplay: !isEditMode && (speed > 0),
       autoplaySpeed: speed,
     });
