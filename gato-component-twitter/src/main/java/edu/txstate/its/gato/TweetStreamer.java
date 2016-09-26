@@ -459,7 +459,7 @@ public class TweetStreamer {
     node.setNodeData("created_at", tweet.getCreatedAt().toString());
     node.setNodeData("screen_name", name);
     node.setNodeData("text", tweet.getText());
-    node.setNodeData("icon", tweet.getUser().getProfileImageURLHttps());
+    node.setNodeData("icon", tweet.getUser().getBiggerProfileImageURLHttps());
     node.setNodeData("reply", (tweet.getInReplyToStatusId() > 0));
 
     StringBuilder hashtags = new StringBuilder();
