@@ -237,18 +237,60 @@ public class EventsItem {
   
   private static String getHumanDate(Date date, boolean showDate, boolean showTime) {
     DateFormat dateFormat;
+    String abbrMonth = "";
+
+    if(showDate){
+      abbrMonth = abbreviateMonth(new SimpleDateFormat("MMMM").format(date));
+    }
 
     if (showDate && showTime) {
-      dateFormat = new SimpleDateFormat("MMM dd, h:mma");
+      dateFormat = new SimpleDateFormat(" dd, h:mma");
     } else if (showDate) {
-      dateFormat = new SimpleDateFormat ("MMM dd");
+      dateFormat = new SimpleDateFormat (" dd");
     } else if (showTime) {
       dateFormat = new SimpleDateFormat("h:mma");
     } else {
       return "";
     }
 
-    return dateFormat.format(date);       
+    return abbrMonth + dateFormat.format(date);       
+  }
+
+  //University Marketing is very specific about their preferred month abbreviations
+  private static String abbreviateMonth(String month){
+    String abbr = "";
+    switch(month.toLowerCase()){
+      case "january":
+        abbr = "Jan.";
+        break;
+      case "february":
+        abbr = "Feb.";
+        break;
+      case "august":
+        abbr = "Aug.";
+        break;
+      case "september":
+        abbr = "Sept.";
+        break;
+      case "october":
+        abbr = "Oct.";
+        break;
+      case "november":
+        abbr = "Nov.";
+        break;
+      case "december":
+        abbr = "Dec.";
+        break;
+      case "march":
+      case "april":
+      case "may":
+      case "june":
+      case "july":
+      default:
+        abbr = month;
+        break;
+    }
+    return abbr;
   }
 
   public String getEventId() {

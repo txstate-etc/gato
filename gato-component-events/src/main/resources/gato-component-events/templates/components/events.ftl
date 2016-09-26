@@ -71,7 +71,7 @@
             [#-- If repeat events are hidden and this is a recurring event.  Don't show end date for one time events --]
             [#if (content.hideRepeats!false) && (eventRepeats[item.eventId])]
               <span class="repeat-event-enddate">
-                until ${endDateHash[item.eventId]?string('MMM dd')}
+                until ${abbrMonth(endDateHash[item.eventId]?string('MMMM'))} ${endDateHash[item.eventId]?string('dd')}
               </span>
             [/#if]
           </div>
@@ -139,3 +139,38 @@
   </div>
 
 [/#if]
+
+[#function abbrMonth month]
+  [#assign val=""/]
+  [#switch (month?lower_case)]
+    [#case "january"]
+      [#assign val="Jan."/]
+      [#break]
+    [#case "february"]
+      [#assign val="Feb."/]
+      [#break]
+    [#case "march"]
+    [#case "april"]
+    [#case "may"]
+    [#case "june"]
+    [#case "july"]
+      [#assign val = month/]
+      [#break]
+    [#case "august"]
+      [#assign val="Aug."/]
+      [#break]
+    [#case "september"]
+      [#assign val="Sept."/]
+      [#break]
+    [#case "october"]
+      [#assign val="Oct."/]
+      [#break]
+    [#case "november"]
+      [#assign val="Nov."/]
+      [#break]
+    [#case "december"]
+      [#assign val="Dec."/]
+      [#break]
+  [/#switch]
+  [#return val]
+[/#function]
