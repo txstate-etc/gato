@@ -492,7 +492,7 @@ function checkMandatories(theForm, alertText) {
           target = $(mgnlField[0]).up().up();
           background = "#FFFFFF";
           target.scrollTo();
-        } 
+        }
         else {
           // type is input or textarea or file
           mgnlField.focus();
@@ -535,7 +535,7 @@ function rgb2hex(rgb) {
         function hex(x) {
              return ("0" + parseInt(x).toString(16)).slice(-2);
         }
-        return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]); 
+        return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
    }
 }
 
@@ -594,5 +594,5 @@ Event.observe(document, 'dom:loaded', function(){
 
 //make links in the mail template open in new tab or window
 Event.observe(document, 'dom:loaded', function(){
-  $$('.txst-form-body a').invoke('writeAttribute','target', '_blank');
+  $$('.txst-form-body a').not('.txstate-khan-notice a').invoke('writeAttribute','target', '_blank');
 });
