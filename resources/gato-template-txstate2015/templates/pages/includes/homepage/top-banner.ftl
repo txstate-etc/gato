@@ -16,7 +16,7 @@
       </div>
 
       <div class="hamburger">
-        <a class="toggle-button" href="#">Menu</a>
+        <a class="toggle-button" href="#" aria-label="Menu - toggle site navigation">Menu</a>
       </div>
 
       <div class="homepage-banner-searchwrap">
@@ -35,7 +35,7 @@
             </a>
           </div>
 
-          <div class="audience-link-tabs"> 
+          <div class="audience-link-tabs">
             <ul role="menubar">[#--
               --]<li role="presentation">
                   <a href="${gf.filterUrl(future.link)}" role="menuitem" aria-controls="audience-future-students" aria-selected="false" tabindex="0" id="tab-audience-future-students" class="needsclick">${gf.filterLinkTitle(future.title, future.link)}</a>
