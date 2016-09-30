@@ -3,10 +3,10 @@
   [#if cmsfn.metaData(node, "mgnl:activationStatus")?number < 1]
     [#local pagePublished = false]
   [/#if]
-  [#if !(node.hideInNav!false) && pagePublished]
+  [#if !(node.hideInNav!false)]
     [#local children = cmsfn.children(node, "mgnl:page")]
     <li class="sitemap-item ${(children?size > 0)?string('open','leaf')}">
-      <a href="${cmsfn.link(node)}">${gf.nodeTitle(node)}</a>
+      <a class="${pagePublished?string("", "not-published")}" href="${cmsfn.link(node)}">${gf.nodeTitle(node)}</a>
       [#if gf.hasNavChildren(node) && depth > 0]
         <ul class="level${depth+1}">
         [#list children as child]
@@ -21,7 +21,11 @@
 [#if (content.title!"")?length > 0]
   <h2>${content.title}</h2>
 [/#if]
-
+[#if cmsfn.editMode]
+  <div class="txst-khan-notice">
+    Italicized links represent unpublished pages and will not be visible on the public site.
+  </div>
+[/#if]
 [#if content.alphabetical!false]
   <ul>
   [#list model.sortedNodes as node]
