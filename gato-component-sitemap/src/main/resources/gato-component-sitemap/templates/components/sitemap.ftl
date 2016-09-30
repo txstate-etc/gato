@@ -1,5 +1,9 @@
 [#macro processPage node depth]
-  [#if !(node.hideInNav!false)]
+  [#local pagePublished = true]
+  [#if cmsfn.metaData(node, "mgnl:activationStatus")?number < 1]
+    [#local pagePublished = false]
+  [/#if]
+  [#if !(node.hideInNav!false) && pagePublished]
     [#local children = cmsfn.children(node, "mgnl:page")]
     <li class="sitemap-item ${(children?size > 0)?string('open','leaf')}">
       <a href="${cmsfn.link(node)}">${gf.nodeTitle(node)}</a>
