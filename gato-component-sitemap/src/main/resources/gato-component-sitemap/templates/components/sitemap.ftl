@@ -6,7 +6,11 @@
   [#if !(node.hideInNav!false)]
     [#local children = cmsfn.children(node, "mgnl:page")]
     <li class="sitemap-item ${(children?size > 0)?string('open','leaf')}">
-      <a class="${(cmsfn.authorInstance && !pagePublished)?string("not-published", "")}" href="${cmsfn.link(node)}">${gf.nodeTitle(node)}</a>
+      [#if cmsfn.authorInstance && !pagePublished]
+        ${gf.nodeTitle(node)}
+      [#else]
+        <a href="${cmsfn.link(node)}">${gf.nodeTitle(node)}</a>
+      [/#if]
       [#if gf.hasNavChildren(node) && depth > 0]
         <ul class="level${depth+1}">
         [#list children as child]
@@ -23,7 +27,7 @@
 [/#if]
 [#if cmsfn.authorInstance]
   <div class="txst-khan-notice">
-    Italicized links represent unpublished pages and will not be visible on the public site.
+    Non-link items represent unpublished pages and will not be visible on the public site.
   </div>
 [/#if]
 [#if content.alphabetical!false]
