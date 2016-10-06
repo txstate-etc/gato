@@ -7,7 +7,7 @@
     [#local children = cmsfn.children(node, "mgnl:page")]
     <li class="sitemap-item ${(children?size > 0)?string('open','leaf')}">
       [#if cmsfn.authorInstance && !pagePublished]
-        ${gf.nodeTitle(node)}
+        <span class="not-published">${gf.nodeTitle(node)}</span>
       [#else]
         <a href="${cmsfn.link(node)}">${gf.nodeTitle(node)}</a>
       [/#if]
@@ -27,7 +27,7 @@
 [/#if]
 [#if cmsfn.authorInstance]
   <div class="txst-khan-notice">
-    Non-link items represent unpublished pages and will not be visible on the public site.
+    Italicized items represent unpublished pages and will not be visible on the public site.
   </div>
 [/#if]
 [#if content.alphabetical!false]
