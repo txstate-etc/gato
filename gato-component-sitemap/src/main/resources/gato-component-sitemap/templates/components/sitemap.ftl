@@ -34,7 +34,13 @@
   <ul>
   [#list model.sortedNodes as node]
     [#assign nodeContentMap = cmsfn.asContentMap(node)]
-    <li><a href="${cmsfn.link(node)}">${gf.nodeTitle(node)}</a></li>
+    <li class="sitemap-item">
+      [#if cmsfn.authorInstance && !(cmsfn.metaData(node, "mgnl:activationStatus")?number < 1)]
+        <a href="${cmsfn.link(node)}">${gf.nodeTitle(node)}</a>
+      [#else]
+        <span class="not-published">${gf.nodeTitle(node)}</span>
+      [/#if]
+    </li>
   [/#list]
   </ul>
 [#else]
