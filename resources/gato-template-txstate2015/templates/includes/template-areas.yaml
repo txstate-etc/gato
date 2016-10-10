@@ -7,27 +7,24 @@ headerImage:
   templateScript: /gato-template-txstate2015/templates/areas/headerImage.ftl
   type: single
   title: Header Image
+  createAreaNode: false
   availableComponents:
     headerImg:
       id: gato-template-txstate2015:components/header-image
 parentOrganization:
   renderType: freemarker
-  templateScript: /gato-template-txstate2015/templates/areas/parentOrg.ftl 
+  templateScript: /gato-template-txstate2015/templates/areas/parentOrg.ftl
   type: single
   title: Parent Organization
-  inheritance:
-    enabled: true
-    components: all
+  createAreaNode: false
   availableComponents:
     parentOrg:
       id: gato-template-txstate2015:components/parent-organization
 superUser:
   renderType: freemarker
   type: list
-  inheritance:
-    enabled: true
-    components: all
   title: Top Menu
+  createAreaNode: false
   availableComponents:
     link:
       id: gato-template:components/link
@@ -35,22 +32,17 @@ siteinfo:
   renderType: freemarker
   type: single
   title: Contact Information
-  inheritance:
-    enabled: true
-    components: all
+  createAreaNode: false
   availableComponents:
     miscText:
       id: gato-template:components/misctext
   templateScript: /gato-template-txstate2015/templates/pages/areas/contact-information.ftl
-  #dialog: gato-template-txstate2015:pages/areas/contact-information
 footerLinks:
   renderType: freemarker
   templateScript: /gato-template-txstate2015/templates/areas/footer-links-area.ftl
   type: single
   title: Footer Links
-  inheritance:
-    enabled: true
-    components: all
+  createAreaNode: false
   availableComponents:
     footerLinkGroup:
       id: gato-template-txstate2015:components/footer-link-group
@@ -65,6 +57,7 @@ socialmedia:
 gatoHours:
   type: single
   editable: false
+  createAreaNode: false
   availableComponents:
     hours:
       id: gato-component-hours:components/hours
