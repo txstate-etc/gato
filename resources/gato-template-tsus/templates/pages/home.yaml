@@ -50,6 +50,7 @@ areas:
 parameters:
   sortOrder: 175
   favicon: /gato-template-tsus/images/tsus-icon.png
+  touchicon: /gato-template-tsus/images/apple-touch-icon.png
 variations:
   js:
     templateScript: /gato-component-cssjs/templates/pages/jsvariation.ftl
