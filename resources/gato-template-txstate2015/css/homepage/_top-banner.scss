@@ -11,7 +11,10 @@ div#homepage-banner {
     letter-spacing: -1rem;
     & > * { letter-spacing: normal; }
     @media (max-width: $sm-breakpoint) {
-      padding: 2.5rem 2.5rem 2.8rem;
+      padding: 2.2rem 2.2rem 2.6rem;
+    }
+    @media (max-width: $mc-breakpoint) {
+      padding: 2rem 2rem 2.2rem;
     }
   }
 
@@ -60,8 +63,8 @@ div#homepage-banner {
       padding-left: 0;
       & > a img { max-width: 23rem; }
     }
-    @media (max-width: 368px) {
-      & > a img { max-width: 20rem; }
+    @media (max-width: $mc-breakpoint) {
+      & > a img { max-width: 18rem; }
     }
   }
 
@@ -71,13 +74,15 @@ div#homepage-banner {
 
     .txst_search {
       .search_bar{
-        width: 30rem;
+        border-bottom: none;
       }
-      margin-top: 9px;
-      input.search {
-        font-size: 1.6rem;
-        width: 85%;
-      } 
+      margin-top: 0.8rem;
+      @media (max-width: $md-breakpoint) {
+        margin-top: 2.5rem;
+      }
+      @media (max-width: $xs-breakpoint) {
+        margin-top: 0.5rem;
+      }
     }
 
     @media (max-width: $xl-breakpoint) {
@@ -99,11 +104,17 @@ div#homepage-banner {
 
   .hamburger {
     position: relative;
-    top: 2rem;
+    top: 2.5rem;
+    @media (max-width: $mc-breakpoint) {
+      top: 1.5rem;
+    }
     .toggle-button {
       background: #d1c7b7;
       font-weight: 500;
       top: 8px;
+    }
+    a{
+      top: 0 !important;
     }
   }
 
@@ -446,3 +457,45 @@ div#homepage-banner {
   }
 
 }
+
+a.search-link{
+    display: block;
+    font-weight:500;
+    font-size: 1.8rem; 
+    float: right; 
+    padding: 1rem 1.8rem 1.2rem 2rem; 
+    border-radius: 4px; 
+    background: $khaki; 
+    color: $darkest-gold; 
+    position: relative;
+    @media screen and (max-width: $sm-breakpoint) {
+        
+    }
+    &.search-link-mobile{
+      float: left; 
+      margin-left: 0.8rem; 
+      font-size: 2.4rem; 
+      padding: 0.5rem 1.3rem 0.8rem 1.3rem; 
+      border: none; 
+      border-bottom: 2px solid #bbab92; 
+      box-shadow: none;
+      span{
+        display:none;
+      }
+    }
+    &:hover{
+      .search-words {text-decoration: underline;}
+    }
+    .icon{
+        right: initial; 
+        position: relative; 
+        font-size: 2rem; 
+        height: auto; 
+        width: auto; 
+        margin-left: 2rem; 
+        color: $darkest-gold;
+        &:hover{
+          color: inherit;
+        }
+      }
+  }

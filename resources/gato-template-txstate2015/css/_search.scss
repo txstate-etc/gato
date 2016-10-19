@@ -1,0 +1,105 @@
+/* needed for old browsers */
+dialog {
+  display: block;
+}
+/* removes scroll when modal is opened */
+.no-scroll {
+  overflow: hidden;
+}
+
+#search-modal-content.hidden{
+  display:none;
+}
+
+/* overlay covers everything */
+.search-modal-overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: $gold;
+  opacity: .9;
+  z-index: 2; 
+  cursor: pointer;
+  .invisible{
+    display: none;
+  }
+}
+/* modal */
+.search-modal {
+    position: fixed;
+    left: 0;
+    right: auto;
+    top: 0;
+    width: 100%;
+    background: $sandstone;
+    z-index: 3;
+    border: none;
+    padding: 0;
+    box-shadow: 0 10px 60px -15px #000;
+    .searchbar{
+        max-width: 60rem; 
+        margin: auto;
+        margin-top: -20px;
+        padding: 3rem 2rem 2.5rem 2rem;
+        .searchbar-content {
+            position: relative; 
+            border-bottom: 3px solid $gold; 
+            font-size: 2.4rem; 
+            padding-bottom: 0.5rem;
+            @media screen and (max-width: $mc-breakpoint) {
+                font-size: 2rem;
+            }
+            input.search {
+                background: transparent; 
+                border: none; 
+                width: 100%; 
+                color: #222; 
+                font-weight: 500;
+                &::-webkit-input-placeholder {color: $gold;}
+                &::-moz-placeholder {color: $gold;}
+                &:-ms-input-placeholder {color: $gold;}
+                &:-moz-placeholder {color: $gold; opacity: 1;}
+            }
+            .icon {
+                background: transparent;
+                border: none;
+                float: right;
+                color: $gold;
+                position: absolute;
+                right: 0;
+                top: 0;
+                &:hover{
+                    color: inherit;
+                }
+            }
+        }
+        .search-radios{
+            text-align: right;
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: $darkest-gold;
+            top: 1.5rem;
+            position: relative;
+            margin-bottom: 0.8rem;
+            span{
+                margin-left: 2rem;
+                input[type="radio"] {
+                    position: relative;
+                    bottom: 2px;
+                    margin-right: 0.5rem;
+                }
+            }
+        }
+    }
+}
+
+
+//If the close button is hidden in any way, the modal will not close when the user hits ESC.
+//This makes it invisible to the user since it blends into the background, but it is stil there. 
+.search-modal-close {
+    color: $sandstone;
+    background: $sandstone;
+    border: none;
+}

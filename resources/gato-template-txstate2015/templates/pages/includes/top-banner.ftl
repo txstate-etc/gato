@@ -5,18 +5,21 @@
 			    	<img src="${ctx.contextPath}/.resources/gato-template-txstate2015/images/txst-secondary.png" alt="Texas State University Logo"/>
 			    </a>
 		</div>
-		<div class="hamburger">
-			<a class="toggle-button" href="#" aria-label="Menu - toggle site navigation">Menu</a>
+		<div class="hamburger standard-hamburger">
+			<a class="search-link search-link-mobile js-modal" href="#" data-modal-prefix-class="search" data-modal-content-id="search-modal-content" aria-label="Start search"><i class="fa fa-search"></i></a>
+			<a class="search-link search-link-mobile toggle-button" href="#" aria-label="Menu - toggle site navigation"><i class="fa fa-bars"></i></a>
 		</div>
-		[#import "search.ftl" as search]
-		[@search.searchBar false/]
-		<!--
-		<div class="txst_search">
+		<div class="gato-search txst_search standard-search" role="search">
 			<div class="search_bar">
-				<input type="search" class="search" placeholder="Search this site" />
-			 <button class="icon"><i class="fa fa-search"></i></button>
+				<a href="#" class="search-link js-modal" data-modal-prefix-class="search" data-modal-content-id="search-modal-content">
+					<span>Search</span>
+					<i class="icon fa fa-search" aria-label="Start Search"></i>
+				</a>
 			</div>
 		</div>
-		-->
+		<div class="search-wrapper">
+		[#import "search-modal.ftl" as search]
+        [@search.searchBar false true false/]
+        </div>
 	</div>
 </div>

@@ -7,6 +7,7 @@
     [#assign jsscripts = [
       'gato-template/js/search-gsa.js',
       'gato-template-txstate2015/js/jquery-scrolltofixed-min.js',
+      'gato-template-txstate2015/js/jquery-accessible-modal-window-aria.js',
       'gato-template-txstate2015/js/respond.min.js',
       'gato-template-txstate2015/js/slideout.js',
       'gato-template-txstate2015/js/sidebarwrap.js',
@@ -21,8 +22,6 @@
 	</head>
 	<body class="${cmsfn.isEditMode()?string('admin','')}">
 		<nav id="menu" class="mobile_nav">
-			[#import "includes/search.ftl" as search]
-			[@search.searchBar true/]
 			<div class="mobile_nav_container">
 				<div class="mobile_trail">
 					[@breadcrumbs/]

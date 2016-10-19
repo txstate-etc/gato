@@ -19,6 +19,9 @@
     @media (max-width: $sm-breakpoint){
       height: 60px;
     }
+    @media (max-width: $mc-breakpoint){
+      padding: 0 1.5rem;
+    }
 }
 .banner_content {margin: auto;}
 .banner_logo {
@@ -29,52 +32,46 @@
       width: 195px;
       img {margin-top: 11px;}
     }
+    @media (max-width: $mc-breakpoint){
+      width: 165px;
+      img{margin-top: 15px;}
+    }
 }
 
-.search_bar{
-  width: 25rem;
-  border-bottom: 2px solid $gold;
-}
-.txst_search {
+.standard-search{
+  a.search-link {
+    padding: 0.5rem; 
+    background: none;
+  }
+  &.txst_search {
+    margin-top: 1.6rem;
     float: right;
-    margin-top: 18px;
     position: relative;
     display: block;
+    @media (max-width: $xl-breakpoint) {
+      margin-top: 1.8rem;
+    }
+    @media (max-width: $md-breakpoint) {
+      margin-top: 2rem;
+    }
     @media (max-width: $sm-breakpoint){
       display: none;
     }
-    input.search {
-        padding-left: 0;
-        font-weight: 500;
-        width: 90%;
-        background: transparent none repeat scroll 0% 0%;
-        border: medium none;
-        font-size: 1.5rem;
-        border-radius: 0px;
-        color: $charcoal;
-        height: 30px;
-        &::-webkit-input-placeholder { color: $gold; opacity: 1; font-weight: normal; }
-        &:-moz-placeholder { color: $gold; opacity: 1; font-weight: normal; }
-        &::-moz-placeholder { color: $gold; opacity: 1; font-weight: normal; }
-        &:-ms-input-placeholder { color: $gold; opacity: 1; font-weight: normal; }
+    .icon {
+      margin-left: 1.5rem; 
+      font-size: 2.4rem; 
+      top: 0.2rem;
+      background: transparent;
+      border: none;
+      height: auto;
+      width: auto;
+      position: relative;
+      color: $darkest-gold;
     }
-    .icon{
-        background: transparent;
-        -webkit-border-top-right-radius: $default-border-radius;
-        -webkit-border-bottom-right-radius: $default-border-radius;
-        -moz-border-radius-topright: $default-border-radius;
-        -moz-border-radius-bottomright: $default-border-radius;
-        border-top-right-radius: $default-border-radius;
-        border-bottom-right-radius: $default-border-radius;
-        border: none;
-        height: 32px;
-        width: 38px;
-        font-size: 1.8rem;
-        position: absolute;
-        right: -10px;
-        color: $search-icon;
-        &:hover{background: transparent; color: $search-icon-hover;}
-    }
+  }
+  span{
+    font-size: 2rem;
+  }
 }
 
 input[type="search"]:focus {outline: none;}

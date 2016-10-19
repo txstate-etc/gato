@@ -121,7 +121,7 @@ jQuery(document).ready(function($) {
   // close the menu if they click outside it
   $(document).on('click', function(e) {
     var targ = $(e.target);
-    if (slideout.isOpen() && !targ.is('.toggle-button') && !targ.closest('#menu').length) {
+    if (slideout.isOpen() && !targ.is('.toggle-button, .toggle-button .fa') && !targ.closest('#menu').length) {
       e.preventDefault();
       slideout.close();
     }
@@ -189,7 +189,4 @@ jQuery(document).ready(function($) {
   });
   resizeTitle();
 
-
 });
-
-

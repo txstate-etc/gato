@@ -102,6 +102,7 @@ $univers: 'Univers W01', Helvetica, Calibri, Arial, sans-serif;
 $garamond: 'Adobe Garamond W01', Garamond, 'Goudy Old Style', 'Times New Roman', serif;
 
 //media query breakpoints
+$mc-breakpoint: 23em;   //~368px mc = micro?  smaller than mn=mini
 $mn-breakpoint: 35.5em; //~568px
 $xs-breakpoint: 40em; //~640px
 $sm-breakpoint: 50em; //~800px

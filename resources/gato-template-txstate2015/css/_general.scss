@@ -3,6 +3,7 @@
 html {
   @media (max-width: $xl-breakpoint) { font-size: 59.5%; }
   @media (max-width: $md-breakpoint) { font-size: 56.5%; }
+  @media (max-width: $mc-breakpoint) { font-size: 53.5%; }
 }
 
 

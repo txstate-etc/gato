@@ -16,11 +16,20 @@
       </div>
 
       <div class="hamburger">
-        <a class="toggle-button" href="#" aria-label="Menu - toggle site navigation">Menu</a>
+        <a class="search-link search-link-mobile js-modal" data-modal-prefix-class="search" data-modal-content-id="search-modal-content" data-modal-close-text="" href="#" aria-label="start search"><i class="fa fa-search"></i></a>
+        <a class="search-link search-link-mobile toggle-button" href="#" aria-label="Menu - toggle site navigation"><i class="fa fa-bars"></i></a>
       </div>
 
       <div class="homepage-banner-searchwrap">
-        [@search.searchBar false false/]
+        <div class="gato-search txst_search">
+          <div class="search_bar">
+            <a href="#" class="search-link js-modal" data-modal-prefix-class="search" data-modal-content-id="search-modal-content" data-modal-close-text="">
+              <span class="search-words">Search people and pages</span>
+              <i class="icon fa fa-search" aria-label="start search"></i>
+            </a>
+          </div>
+        </div>
+        [@search.searchBar false false true/]
       </div>
 
     </div>

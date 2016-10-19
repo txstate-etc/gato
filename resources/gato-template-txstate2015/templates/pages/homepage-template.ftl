@@ -1,11 +1,12 @@
 [#include "/gato-template/templates/includes/head.ftl"]
-[#import "includes/search.ftl" as search]
+[#import "includes/search-modal.ftl" as search]
 
 <!DOCTYPE HTML>
 <html lang="en">
   <head>
     [#assign jsscripts = [
       'gato-template-txstate2015/js/jquery-scrolltofixed-min.js',
+      'gato-template-txstate2015/js/jquery-accessible-modal-window-aria.js',
       'gato-template-txstate2015/js/respond.min.js',
       'gato-template-txstate2015/js/slideout.js',
       'gato-template-txstate2015/js/homepage.js',
@@ -28,7 +29,6 @@
   </head>
   <body class="homepage ${cmsfn.isEditMode()?string('admin','')}">
     <nav id="menu" class="mobile_nav">
-      [@search.searchBar true false/]
       <div class="mobile_nav_container">
         <h3 class="mobile-page-title"><a href="${cmsfn.link(homepage)}">${gf.nodeTitle(homepage)}</a></h3>
         [#import "includes/homepage/mobile-menu.ftl" as menu]
