@@ -10,13 +10,13 @@
     <sv:value>35431714-94a6-431e-9e0b-0e8118465c25</sv:value>
   </sv:property>
   <sv:property sv:name="casLoginURL" sv:type="String">
-    <sv:value>https://llavero.its.txstate.edu/cas/login/</sv:value>
+    <sv:value>https://login.its.txstate.edu/login/</sv:value>
   </sv:property>
   <sv:property sv:name="casLogoutURL" sv:type="String">
-    <sv:value>https://llavero.its.txstate.edu/cas/logout?url={0}</sv:value>
+    <sv:value>https://login.its.txstate.edu/logout?url={0}</sv:value>
   </sv:property>
   <sv:property sv:name="casValidateURL" sv:type="String">
-    <sv:value>https://llavero.its.txstate.edu/cas/</sv:value>
+    <sv:value>https://login.its.txstate.edu/</sv:value>
   </sv:property>
   <sv:property sv:name="jcr:createdBy" sv:type="String">
     <sv:value>admin</sv:value>
