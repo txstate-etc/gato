@@ -12,7 +12,9 @@ dialog {
 }
 
 /* overlay covers everything */
-.search-modal-overlay {
+.search-modal-overlay,
+.search-modal--reverse + .search-modal-overlay
+ {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -25,9 +27,57 @@ dialog {
   .invisible{
     display: none;
   }
+  -webkit-animation: gold-overlay 0.2s ease-in-out;
+  -moz-animation: gold-overlay 0.2s ease-in-out;
+  -o-animation: gold-overlay 0.2s ease-in-out;
+  animation: gold-overlay 0.2s ease-in-out;
 }
+
+.search-modal--reverse + .search-modal-overlay{
+    -webkit-animation-direction: reverse;
+    -moz-animation-direction: reverse;
+    -o-animation-direction: reverse;
+    animation-direction: reverse
+}
+
+//there must be a good way to do this with SASS
+@-webkit-keyframes gold-overlay {
+    0% {opacity: 0;}
+    100% {opacity: 0.9;}
+}
+@-moz-keyframes gold-overlay {
+    0% {opacity: 0;}
+    100% {opacity: 0.9;}
+}
+@-o-keyframes gold-overlay {
+    0% {opacity: 0;}
+    100% {opacity: 0.9;}
+}
+@keyframes gold-overlay {
+    0% {opacity: 0;}
+    100% {opacity: 0.9;}
+}
+
+@-webkit-keyframes slide-in {
+    0% {transform: translateY(-10rem); }
+    100% {transform: translateY(0); }
+}
+@-moz-keyframes slide-in {
+    0% {transform: translateY(-10rem); }
+    100% {transform: translateY(0); }
+}
+@-o-keyframes slide-in {
+    0% {transform: translateY(-10rem); }
+    100% {transform: translateY(0); }
+}
+@keyframes slide-in {
+    0% {transform: translateY(-10rem); }
+    100% {transform: translateY(0); }
+}
+
 /* modal */
-.search-modal {
+.search-modal,
+.search-modal--reverse {
     position: fixed;
     left: 0;
     right: auto;
@@ -93,6 +143,21 @@ dialog {
             }
         }
     }
+}
+
+.search-modal,
+.search-modal--reverse {
+    -webkit-animation: slide-in 0.4s ease-in-out;
+    -moz-animation: slide-in 0.4s ease-in-out;
+    -o-animation: slide-in 0.4s ease-in-out;
+    animation: slide-in 0.4s ease-in-out;
+}
+
+.search-modal--reverse {
+    -webkit-animation-direction: reverse;
+    -moz-animation-direction: reverse;
+    -o-animation-direction: reverse;
+    animation-direction: reverse
 }
 
 
