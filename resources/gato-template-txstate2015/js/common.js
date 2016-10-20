@@ -146,9 +146,10 @@ jQuery(document).ready(function($) {
   });
 
   //remove target="_blank" from rich editor, text/image, and FAQ content  but NOT raw html
-  $('.column_paragraph :not(.gato-html) a').each(function(){
-    if($(this).attr('target') == "_blank")
-        $(this).attr('target', "_self");
+  $('.column_paragraph a').each(function(){
+    if($(this).attr('target') == "_blank" &&
+       $(this).parents('.gato-html').length == 0) // == 0 means not inside raw html
+      $(this).attr('target', "_self");
   });
 
   var timer;
