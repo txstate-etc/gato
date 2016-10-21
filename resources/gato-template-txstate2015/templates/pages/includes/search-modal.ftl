@@ -5,7 +5,6 @@
   [#assign mobileIcon = isMobile?string('mobile_icon', '')]
   [#assign placeholder = sitesearch?string('Search this site', 'Search all of Texas State')]
 
-  <!--div id="search-modal-content" class="hidden"-->
   <div id="search-modal-content" class="hidden">
     <div class="searchbar">
       <form class="searchbar-form" action="http://search.txstate.edu/search">

@@ -1,97 +1,35 @@
-/* needed for old browsers */
-dialog {
-  display: block;
-}
-/* removes scroll when modal is opened */
-.no-scroll {
-  overflow: hidden;
+.ui-dialog-titlebar{
+    display:none;
 }
 
-#search-modal-content.hidden{
-  display:none;
+.ui-widget-overlay{
+    background-image: none !important;
+    background: $gold !important;
+    transition: 0.2s ease-in-out;
 }
 
-/* overlay covers everything */
-.search-modal-overlay,
-.search-modal--reverse + .search-modal-overlay
- {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  background: $gold;
-  opacity: .9;
-  z-index: 2; 
-  cursor: pointer;
-  .invisible{
-    display: none;
-  }
-  -webkit-animation: gold-overlay 0.2s ease-in-out;
-  -moz-animation: gold-overlay 0.2s ease-in-out;
-  -o-animation: gold-overlay 0.2s ease-in-out;
-  animation: gold-overlay 0.2s ease-in-out;
+.ui-widget-overlay-fade{
+    opacity: 0.9 !important;
+    transition: 0.2s ease-in-out;
 }
 
-.search-modal--reverse + .search-modal-overlay{
-    -webkit-animation-direction: reverse;
-    -moz-animation-direction: reverse;
-    -o-animation-direction: reverse;
-    animation-direction: reverse
+#search-modal-content{
+    min-height: initial !important;
+    padding: 0px;
+    &.hidden{
+      display:none;
+    }
 }
 
-//there must be a good way to do this with SASS
-@-webkit-keyframes gold-overlay {
-    0% {opacity: 0;}
-    100% {opacity: 0.9;}
-}
-@-moz-keyframes gold-overlay {
-    0% {opacity: 0;}
-    100% {opacity: 0.9;}
-}
-@-o-keyframes gold-overlay {
-    0% {opacity: 0;}
-    100% {opacity: 0.9;}
-}
-@keyframes gold-overlay {
-    0% {opacity: 0;}
-    100% {opacity: 0.9;}
-}
-
-@-webkit-keyframes slide-in {
-    0% {transform: translateY(-10rem); }
-    100% {transform: translateY(0); }
-}
-@-moz-keyframes slide-in {
-    0% {transform: translateY(-10rem); }
-    100% {transform: translateY(0); }
-}
-@-o-keyframes slide-in {
-    0% {transform: translateY(-10rem); }
-    100% {transform: translateY(0); }
-}
-@keyframes slide-in {
-    0% {transform: translateY(-10rem); }
-    100% {transform: translateY(0); }
-}
-
-/* modal */
-.search-modal,
-.search-modal--reverse {
-    position: fixed;
-    left: 0;
-    right: auto;
-    top: 0;
-    width: 100%;
-    background: $sandstone;
+.ui-dialog {
+    background: $sandstone !important;
     z-index: 3;
-    border: none;
-    padding: 0;
+    border: none !important;
+    padding: 0px !important;
     box-shadow: 0 10px 60px -15px #000;
     .searchbar{
         max-width: 60rem; 
         margin: auto;
-        margin-top: -20px;
         padding: 3rem 2rem 2.5rem 2rem;
         .searchbar-content {
             position: relative; 
@@ -111,6 +49,9 @@ dialog {
                 &::-moz-placeholder {color: $gold;}
                 &:-ms-input-placeholder {color: $gold;}
                 &:-moz-placeholder {color: $gold; opacity: 1;}
+                &:focus{
+                    outline-width: 0;
+                }
             }
             .icon {
                 background: transparent;
@@ -143,28 +84,4 @@ dialog {
             }
         }
     }
-}
-
-.search-modal,
-.search-modal--reverse {
-    -webkit-animation: slide-in 0.4s ease-in-out;
-    -moz-animation: slide-in 0.4s ease-in-out;
-    -o-animation: slide-in 0.4s ease-in-out;
-    animation: slide-in 0.4s ease-in-out;
-}
-
-.search-modal--reverse {
-    -webkit-animation-direction: reverse;
-    -moz-animation-direction: reverse;
-    -o-animation-direction: reverse;
-    animation-direction: reverse
-}
-
-
-//If the close button is hidden in any way, the modal will not close when the user hits ESC.
-//This makes it invisible to the user since it blends into the background, but it is stil there. 
-.search-modal-close {
-    color: $sandstone;
-    background: $sandstone;
-    border: none;
 }
