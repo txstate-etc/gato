@@ -8,7 +8,8 @@ window.Search = function(opts) {
     num: opts.num || 5,
     start: opts.start || 0,
     url: opts.url || 'http://search.txstate.edu/search',
-    site: opts.site || 'txstate.edu'
+    site: opts.site || 'txstate.edu',
+    sort: opts.sort || 'relevance'
   }
 }
 
@@ -23,7 +24,8 @@ Search.prototype.doSearch = function(query) {
     sitesearch: self.opts.site,
     start: self.opts.start,
     num: self.opts.num,
-    q: self.query
+    q: self.query,
+    sort: self.opts.sort
   };
 
   var dfd = $.Deferred();
@@ -32,7 +34,7 @@ Search.prototype.doSearch = function(query) {
     data: params,
     success: function(data, textStatus, jqXHR) {
       console.log(data);
-      var result = [];
+      var result = {};
       result.total = parseInt($(data).find('M').text());
       result.type = "web";
       result.results = $(data).find('R').map(function() {

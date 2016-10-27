@@ -1,3 +1,5 @@
+/* drop down search bar */
+
 .ui-dialog-titlebar{
     display:none;
 }
@@ -85,3 +87,88 @@
         }
     }
 }
+
+/* site search results */
+#search-results{
+
+    h1.search-results-title{
+        color: $maroon;
+        font-weight: normal;
+        font-size: 3.6rem;
+        margin: 0px;
+    }
+
+    .results-list{
+        .result{
+            margin-top: 2.8rem;
+            a.result-title{
+                color: $gold;
+                &:hover{
+                    text-decoration: underline;
+                }
+                h3{
+                    margin: 0px;
+                    font-size: 1.8rem;
+                }
+            }
+            .summary{
+                margin: 0.5rem 0 0.5rem 0;
+                line-height: 2.5rem;
+            }
+            a.result-url-display{
+                color: $blue;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .all-results-link{
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        a{
+            color: $maroon;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 2rem;
+            &:hover{
+                text-decoration: underline;
+                background: transparent;
+            }
+        }
+    }
+
+    .sort-results{
+        padding-top: 1.6rem;
+        .sort-link{
+            text-decoration: none;
+            color: $maroon;
+            &.active{
+                font-weight: bold;
+            }
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .pagination{
+        margin: 4rem 0 2.8rem 0;
+        .pagination-link, .nonlink{
+            padding: .5rem 1rem .5rem 1rem;
+            margin: 0 1rem 1rem 0;
+            border: 1px solid $gold;
+            color: $gold;
+            font-weight: bold;
+            &.active{
+                color: $white;
+                background: $light-gold
+            }
+            &:hover{
+                color: $white;
+                background: $maroon;
+            }
+        }
+    }
+    
+}
+

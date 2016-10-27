@@ -4,7 +4,7 @@
   margin: auto;
   padding: 1.8rem 0 0 0;
   @media screen and (max-width: $sm-breakpoint) { display: none; }
-  .breadcrumbs {
+  .breadcrumbs, .searchbreadcrumbs {
     margin-left: 100% * 1.0/3.0;
     text-align: right;
     padding-right: 2rem;
@@ -22,7 +22,7 @@
   }
 }
 
-.page_content {
+.page_content, #search-results {
   overflow: hidden;
   margin: 0 auto;
   padding: 2.9rem 0 1rem 0;
@@ -51,7 +51,10 @@
   }
 }
 
-.page_content, .trail, .headline {max-width: 1200px;}
-@media (max-width: $xl-breakpoint) {
-  .page_content, .trail, .headline {max-width: 1000px;}
+.page_content, .trail, .headline, #search-results{
+  max-width: 1200px;
+  @media (max-width: $xl-breakpoint) {
+    max-width: 1000px;
+  }
 }
+

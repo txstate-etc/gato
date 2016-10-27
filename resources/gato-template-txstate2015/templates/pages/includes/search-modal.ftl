@@ -14,7 +14,7 @@
           <input type="hidden" name="output" value="xml_no_dtd" />
           <input type="hidden" name="proxystylesheet" value="txstate" />
           [#if sitesearch]
-            <input type="hidden" name="sitesearch" value="${ctx.request.serverName}" />
+            <input type="hidden" id="sitesearch" name="sitesearch" value="${ctx.request.serverName}" />
           [/#if]
           [#nested]
           <input id="search-text" class="search ${mobileSearch}" autofocus="autofocus" name="q" size="15" placeholder="${placeholder}" aria-label="Search"/>[#--
