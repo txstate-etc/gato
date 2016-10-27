@@ -190,7 +190,7 @@ jQuery(document).ready(function($) {
   });
   resizeTitle();
 
-  $('.search-link').on('click', function(e){
+  $('.search-link.search-button').on('click', function(e){
     e.preventDefault();
     var width = $(window).width();
     $('#search-modal-content').dialog({

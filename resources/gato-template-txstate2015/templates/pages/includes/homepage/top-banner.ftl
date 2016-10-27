@@ -16,14 +16,14 @@
       </div>
 
       <div class="hamburger">
-        <a class="search-link search-link-mobile" href="#" aria-label="start search"><i class="fa fa-search"></i></a>
+        <a class="search-link search-link-mobile search-button" href="#" aria-label="start search"><i class="fa fa-search"></i></a>
         <a class="search-link search-link-mobile toggle-button" href="#" aria-label="Menu - toggle site navigation"><i class="fa fa-bars"></i></a>
       </div>
 
       <div class="homepage-banner-searchwrap">
         <div class="gato-search txst_search">
           <div class="search_bar">
-            <a href="#" class="search-link">
+            <a href="#" class="search-link search-button">
               <span class="search-words">Search people and pages</span>
               <i class="icon fa fa-search" aria-label="start search"></i>
             </a>
