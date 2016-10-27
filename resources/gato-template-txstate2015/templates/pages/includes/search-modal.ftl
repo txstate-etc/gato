@@ -9,10 +9,6 @@
     <div class="searchbar">
       <form class="searchbar-form" action="http://search.txstate.edu/search">
         <div class="searchbar-content">
-          <input type="hidden" name="site" value="txstate_no_users" />
-          <input type="hidden" name="client" value="txstate" />
-          <input type="hidden" name="output" value="xml_no_dtd" />
-          <input type="hidden" name="proxystylesheet" value="txstate" />
           [#if sitesearch]
             <input type="hidden" id="sitesearch" name="sitesearch" value="${ctx.request.serverName}" />
           [/#if]

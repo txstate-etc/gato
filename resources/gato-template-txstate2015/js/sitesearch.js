@@ -15,8 +15,9 @@ jQuery(document).ready(function($) {
         //close the search modal
         $('#search-modal-content').dialog('close');
 
-        //redirect to global search if that's what the user wanted to do
-        if($('#txst-all').prop('checked')){
+        //redirect to global search if the user is on the homepage or selected that
+        //they want to search all of Texas State instead of doing a site search
+        if($('#sitesearch').length == 0 || $('#txst-all').prop('checked')){
             var params = {
                 site: "txstate_no_users",
                 client: "txstate",
