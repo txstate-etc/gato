@@ -7,12 +7,13 @@
 .ui-widget-overlay{
     background-image: none !important;
     background: $gold !important;
-    transition: 0.2s ease-in-out;
+    opacity: 0 !important;
+    transition: 0.2s linear;
 }
 
 .ui-widget-overlay-fade{
     opacity: 0.9 !important;
-    transition: 0.2s ease-in-out;
+    transition: 0.2s linear;
 }
 
 #search-modal-content{
@@ -27,8 +28,12 @@
     background: $sandstone !important;
     z-index: 3;
     border: none !important;
+    border-radius: 0px !important;
     padding: 0px !important;
     box-shadow: 0 10px 60px -15px #000;
+    &.ui-widget{
+        font-family: $univers;
+    }
     .searchbar{
         max-width: 60rem; 
         margin: auto;
@@ -47,6 +52,7 @@
                 width: 100%; 
                 color: #222; 
                 font-weight: 500;
+                font-family: $univers;
                 &::-webkit-input-placeholder {color: $gold;}
                 &::-moz-placeholder {color: $gold;}
                 &:-ms-input-placeholder {color: $gold;}
@@ -63,9 +69,6 @@
                 position: absolute;
                 right: 0;
                 top: 0;
-                &:hover{
-                    color: inherit;
-                }
             }
         }
         .search-radios{

@@ -194,8 +194,8 @@ jQuery(document).ready(function($) {
     e.preventDefault();
     var width = $(window).width();
     $('#search-modal-content').dialog({
-      show: { effect: "blind", duration: 400 },
-      hide: { effect: "blind", duration: 400 },
+      show: { effect: "slide", direction: "up", duration: 400 },
+      hide: { effect: "slide", direction: "up", duration: 400 },
       position: { my: "center", at: "top" },
       resizable: false,
       draggable: false,
@@ -213,7 +213,7 @@ jQuery(document).ready(function($) {
         myOverlay.appendTo('body').show();
         myOverlay.removeClass('ui-widget-overlay-fade');
         $('.ui-widget-overlay:first').remove();
-        myOverlay.fadeOut(400, function(){
+        myOverlay.fadeOut(600, function(){
             $(this).remove();
         });
       }
