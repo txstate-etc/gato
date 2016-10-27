@@ -17,7 +17,14 @@ jQuery(document).ready(function($) {
 
         //redirect to global search if that's what the user wanted to do
         if($('#txst-all').prop('checked')){
-            var url = "http://search.txstate.edu/search?site=txstate_no_users&client=txstate&output=xml_no_dtd&proxystylesheet=txstate&q=" + $('#search-text').val();
+            var params = {
+                site: "txstate_no_users",
+                client: "txstate",
+                output: "xml_no_dtd",
+                proxystylesheet: "txstate",
+                q: $('#search-text').val()
+            };
+            var url = "http://search.txstate.edu/search?" + $.param(params);
             window.location = url;
         }
         else{
@@ -214,7 +221,14 @@ function buildSearchResultsPage(site, query, results, total, page, sort){
                         '<a href="#" id="date-sort" class="sort-link ' + (sort == "date" ? "active" : "") + '">Sort By Date</a>' +
                     '</div>';
 
-    var globalSearchUrl = "http://search.txstate.edu/search?site=txstate_no_users&client=txstate&output=xml_no_dtd&proxystylesheet=txstate&q=" + query;
+    var globalSearchParams = {
+        site: "txstate_no_users",
+        client: "txstate",
+        output: "xml_no_dtd",
+        proxystylesheet: "txstate",
+        q: query
+    };
+    var globalSearchUrl = "http://search.txstate.edu/search?" + jQuery.param(globalSearchParams);
     
     var html =  '<div id="search-results">' + 
                     '<div class="headline">' +
