@@ -38,7 +38,7 @@
             if(e.target.id == "this-site"){
               searchField.attr('placeholder', 'Search this site');
               if(sitesearchfield.length < 1){
-                jQuery('.searchbar-form').append('<input type="hidden" name="sitesearch" value="${ctx.request.serverName}" />');
+                jQuery('.searchbar-form').append('<input type="hidden" id="sitesearch" name="sitesearch" value="${ctx.request.serverName}" />');
               }
             }
             else{
