@@ -8,7 +8,7 @@
     background-image: none !important;
     background: $gold !important;
     opacity: 0 !important;
-    transition: 0.2s linear;
+    transition: 0.3s linear;
 }
 
 .ui-widget-overlay-fade{
@@ -30,7 +30,6 @@
     border: none !important;
     border-radius: 0px !important;
     padding: 0px !important;
-    box-shadow: 0 10px 60px -15px #000;
     &.ui-widget{
         font-family: $univers;
     }
@@ -94,11 +93,86 @@
 /* site search results */
 #search-results{
 
+    .layout-column{
+        &.twothirds, &.onethird{
+            @media screen and (max-width: $sm-breakpoint) {
+                width: 100%;
+            }
+        }
+    }
+
+    .headline.search-headline{
+        width: 100% * 2.0/3.0;
+        @media screen and (max-width: $sm-breakpoint) {
+            width: 100%;
+        }
+    }
+
+    div.sort-results{
+        width: 100% * 1.0/3.0;
+        padding-top: 1rem;
+        @media screen and (max-width: $sm-breakpoint) {
+            width: 100%;
+        }
+        .sort-link{
+            text-decoration: none;
+            color: $maroon;
+            font-size: 1.6rem;
+            &.active{
+                font-weight: bold;
+            }
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .global-search{
+        margin-top: 2.8rem;
+    }
+
+    .no-results{
+        margin-top: 3rem;
+        font-weight: bold;
+    }
+
     h1.search-results-title{
         color: $maroon;
         font-weight: normal;
         font-size: 3.6rem;
         margin: 0px;
+        padding: 0px;
+    }
+
+    .search-again{
+        position: relative;
+        border-bottom: 3px solid $gold;
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: $gold;
+        padding-bottom: 0.5rem;
+        width: 66%;
+        margin-top: 2.8rem;
+        input{
+            background: transparent;
+            border: none;
+            width: 100%;
+            color: $gold;
+            font-family: $univers;
+            &:focus{
+                outline-width: 0;
+            }
+        }
+        .icon {
+            background: transparent;
+            border: none;
+            float: right;
+            color: $gold;
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-size: 2.2rem;
+        }
     }
 
     .results-list{
@@ -125,32 +199,17 @@
         }
     }
 
-    .all-results-link{
-        margin-top: 2rem;
-        margin-bottom: 1rem;
-        a{
-            color: $maroon;
-            font-weight: bold;
-            text-decoration: none;
-            font-size: 2rem;
-            &:hover{
-                text-decoration: underline;
-                background: transparent;
-            }
-        }
+    .all-results-help-text{
+        font-size: 1.2rem;
+        color: $gold;
+        text-align: right;
+        margin-bottom: 5px;
     }
 
-    .sort-results{
-        padding-top: 1.6rem;
-        .sort-link{
-            text-decoration: none;
-            color: $maroon;
-            &.active{
-                font-weight: bold;
-            }
-            &:hover{
-                text-decoration: underline;
-            }
+    .all-results-button{
+        a.button{
+            font-size: 1.8rem;
+            display: block;
         }
     }
 

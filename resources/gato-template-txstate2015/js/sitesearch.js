@@ -88,6 +88,7 @@ jQuery(document).ready(function($) {
             $('#search-results').remove();
             $('.page_content').after(page);
             $('.page_content').hide();
+            $('.search-again .searchbar-form .icon').hide();
         })
         .fail(function(){
             console.log("error")
@@ -131,9 +132,12 @@ jQuery(document).ready(function($) {
         }
     });
 
-    //handle clicks on pagination and sorting links
+    //handle clicks on pagination and sorting links and search again clicks
     $('#panel').click(function(e){
         var target = $(e.target);
+        if(!target.closest('#search-results').length != 0){
+            return;
+        }
         if(target.is('.pagination-link')){
             e.preventDefault();
             var site = $('#search-info').data('site');
@@ -180,6 +184,20 @@ jQuery(document).ready(function($) {
             addOrUpdateQSParam("sort", sort);
             handleBreadCrumbs();
         }
+        else if(target.is('.search-again .reset')){
+            $('.search-again .search').val("");
+            $('.search-again .reset').hide();
+            $('.search-again .searchbar-form .icon').show();
+        }
+        else if(target.is('.search-again .searchbar-form .icon')){
+            e.preventDefault();
+            var site = $('#search-info').data('site');
+            var query = $('.search-again .searchbar-form .search').first().val();
+            siteSearch(site, query, 1, "relevance");
+            addOrUpdateQSParam("query", query);
+            addOrUpdateQSParam("sort", "relevance");
+            handleBreadCrumbs();
+        }
     });
 
     //searches the query string for a parameter with a key matching
@@ -216,7 +234,7 @@ function buildSearchResultsPage(site, query, results, total, page, sort){
     var firstResult = (page - 1) * 10 + 1;
     var lastResult = (page * 10 > total) ? total : page * 10;
     var range = firstResult + " - " + lastResult;
-    var sorting = '<div class="sort-results">' +
+    var sorting = '<div class="sort-results layout-column onethird">' +
                         '<a href="#" id="relevance-sort" class="sort-link '+ (sort == "relevance" ? "active" : "") + '">Sort By Relevance</a>' +
                         ' / ' +
                         '<a href="#" id="date-sort" class="sort-link ' + (sort == "date" ? "active" : "") + '">Sort By Date</a>' +
@@ -232,23 +250,25 @@ function buildSearchResultsPage(site, query, results, total, page, sort){
     var globalSearchUrl = "http://search.txstate.edu/search?" + jQuery.param(globalSearchParams);
     
     var html =  '<div id="search-results">' + 
-                    '<div class="headline">' +
-                        '<h1 class="search-results-title" id="maincontent">Search results for ' +
-                            '<em>' + query + '</em>' +
-                        '</h1>' +
+                    '<div class="layout-column twothirds">' +
+                        '<h1 class="search-results-title" id="maincontent">Search</h1>' +
                     '</div>' +
-                    '<div class="gato-section eq-parent full-width">' + 
-                        '<div class="layout-column twothirds eq-parent">' + 
-                            '<div class="all-results-link">' +
-                                '<a href="' + globalSearchUrl + '">EXPAND SEARCH TO ALL TEXAS STATE SITES</a>' + 
-                            '</div>' +
-                            '<div id="search-info" data-site="' + site + '" data-query="' + query + '" data-sort="' + sort + '"></div>' + 
-                            (results.length > 0 ? '<div>Results ' + range + ' of about ' + total + ' for ' + query + '.</div>' : "") +
-                            (results.length > 0 ? sorting : "") + 
-                            formatResults(results) +
-                            (results.length > 0 ? buildPagination(site, query, page, total) : "" ) + 
-                        '</div><div class="layout-column onethird eq-parent">' +
-                            'There is another column here but it is not responsive.' + 
+                    (results.length > 0 ? sorting : "") + 
+                    '<div class="layout-column twothirds">' + 
+                        '<div id="search-info" data-site="' + site + '" data-query="' + query + '" data-sort="' + sort + '"></div>' + 
+                        '<div class="search-again">' +
+                            '<form class="searchbar-form">' +
+                                '<input type="text" class="search" name="q" value="'+ query +'"></input><button class="icon"><i class="fa fa-search" aria-label="Start Search"></i></button>' +
+                            '</form>' +
+                            '<button class="icon reset"><i class="fa fa-times" aria-label="Reset Search"></i></button>' +
+                        '</div>' + 
+                        (results.length > 0 ? '<!--<div>Results ' + range + ' of about ' + total + ' for ' + query + '.</div>-->' : "") +
+                        formatResults(results) +
+                        (results.length > 0 ? buildPagination(site, query, page, total) : "" ) + 
+                    '</div><div class="layout-column onethird">' +
+                        '<div class="global-search">' + 
+                            '<div class="all-results-help-text">Didn\'t find what you were looking for?</div>' +
+                            buildButton(globalSearchUrl) + 
                         '</div>' +
                     '</div>' +
                 '</div>';
@@ -260,7 +280,7 @@ function buildSearchResultsPage(site, query, results, total, page, sort){
 function formatResults(results){
     var html;
     if(results.length == 0){
-        html = '<div>No Results Found</div>';
+        html = '<div class="no-results">No Results Found</div>';
     }
     else{
         html = '<div class="results-list">';
@@ -290,5 +310,14 @@ function buildPagination(site, query, currentPage, total){
         }
     }
     html += next + '</div>';
+    return html;
+}
+
+function buildButton(url){
+    var html='<div class="button-wrapper all-results-button">' +
+                '<a class="button three-d color6 medium" href="'+ url +'">' +
+                    '<span>Search All Texas State</span>' +
+                '</a>' +
+             '</div>';
     return html;
 }
