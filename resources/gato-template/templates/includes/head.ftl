@@ -28,7 +28,8 @@
 		'gato-component-faq/js/expand.js',
 		'gato-template/js/standardista-table-sorting.js',
 		'gato-area-mail/js/mailForm.js',
-		'gato-component-streaming/js/streaming.js'
+		'gato-component-streaming/js/streaming.js',
+		'gato-template/js/sitesearch.js'
 	]+scripts /]
 [/#macro]
 

@@ -1,0 +1,59 @@
+#search-results {
+  &.web {
+    .search-people {
+      display: none;
+    }
+  }
+  &.people {
+    .search-web {
+      display: none;
+    }
+  }
+
+  a {
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    padding: 1px 3px;
+    margin: -1px -3px;
+    color: $content-link-text;
+    text-decoration: underline;
+    &:hover {background: $content-link-hover;}
+  }
+
+  .search-column-main {
+    width: 100% * 2.0/3.0;
+    float: left;
+    @media screen and (max-width: $sm-breakpoint) {
+      width: 100%;
+    }
+  }
+  .search-column-side {
+    width: 100% * 1.0/3.0;
+    float: left;
+    @media screen and (max-width: $sm-breakpoint) {
+      width: 100%;
+    }
+
+    .search-side-box {
+      border: 1px solid $sandstone;
+      h4 {
+        margin: 0;
+        padding: 1rem;
+        background-color: $sandstone;
+        color: $maroon;
+        font-weight: 500;
+      }
+      .search-side-results {
+        padding: 1rem;
+        .person {
+          margin-bottom: 1.5rem;
+          .person-name {
+            font-weight: 500;
+            color: $dark-gold;
+          }
+        }
+      }
+    }
+  }
+
+}

@@ -108,6 +108,29 @@ function deleteCookie(name) {
 	}
 }
 
+function getUrlParameters() {
+  var query = window.location.search.substring(1);
+  var ret = {};
+  if (query.length > 0) {
+    var pairs = query.split("&");
+    for(var i=0; i<pairs.length; i++){
+        var param = pairs[i].split("=");
+        ret[decodeURIComponent(param[0])] = decodeURIComponent(param[1]);
+    }
+  }
+  return ret;
+}
+
+function createUrlQuery(params) {
+  var pairs = [];
+  for (var key in params) {
+    if (params.hasOwnProperty(key)) {
+      pairs.push(encodeURIComponent(key)+'='+encodeURIComponent(params[key]));
+    }
+  }
+  return '?'+pairs.join('&');
+}
+
 // Add an abort method to Prototype's Ajax implementation
 Ajax.Request.prototype.abort = function() {
 	this.transport.onreadystatechange = Prototype.emptyFunction;

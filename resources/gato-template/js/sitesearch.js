@@ -1,10 +1,9 @@
 
 jQuery(document).ready(function($) {
-    
+
     //check for search parameters
     if(window.location.search.length > 0 && window.location.href.indexOf("?sitesearch") != -1){
-        var queryString = decodeURIComponent(window.location.search.substring(1));
-        var params = prepareSearchParams(queryString);
+        var params = getUrlParameters();
         siteSearch((params.sitesearch || "txstate.edu"), (params.query || ""), params.page || 1, params.sort || "relevance");
         handleBreadCrumbs();
     }
@@ -41,7 +40,7 @@ jQuery(document).ready(function($) {
         }
     })
 
-    //take the current url and add a query string to it so that the search results page can be 
+    //take the current url and add a query string to it so that the search results page can be
     //added to the history
     function addQueryString(url, site, query, num){
         var newQueryParams = "sitesearch=" + site + "&query=" + query + "&page=" + num;
@@ -61,18 +60,6 @@ jQuery(document).ready(function($) {
         }
         //add hash back in if there was one
         return urlNoHash + ((hash.length > 0) ? "#" + hash : "");
-    }
-
-    //parse the query string and store parameters as an object
-    // "param1=a&param2=b&param3=c" will be returned as {param1:a, param2:b, param3:c}
-    function prepareSearchParams(queryString){
-        var arrParams = queryString.split("&");
-        var objParams = {};
-        for(var i=0; i<arrParams.length; i++){
-            var param = arrParams[i].split("=");
-            objParams[param[0]] = param[1];
-        }
-        return objParams;
     }
 
     //Calls the google search appliance with the appropriate parameters and display
@@ -113,13 +100,12 @@ jQuery(document).ready(function($) {
         breadcrumbs.hide();
     }
 
-    //This handles the case where the user navigates to/from the search results page using the 
+    //This handles the case where the user navigates to/from the search results page using the
     //back and forward buttons in the browser
     $(window).on("popstate", function() {
         if(window.location.search.length > 0 && window.location.href.indexOf("?sitesearch") != -1){
             //The user navigated to a search results page
-            var queryString = window.location.search.substring(1);
-            var params = prepareSearchParams(queryString);
+            var params = getUrlParameters();
             siteSearch((params.sitesearch || "txstate.edu"), (params.query || ""), params.page || 1, params.sort || "relevance");
             handleBreadCrumbs();
         }
@@ -227,7 +213,7 @@ jQuery(document).ready(function($) {
         var url = window.location.pathname + updatedQS + window.location.hash;
         history.pushState(null, null, url);
     }
-}); 
+});
 
 //build the html that will replace the page content
 function buildSearchResultsPage(site, query, results, total, page, sort){
@@ -248,27 +234,27 @@ function buildSearchResultsPage(site, query, results, total, page, sort){
         q: query
     };
     var globalSearchUrl = "http://search.txstate.edu/search?" + jQuery.param(globalSearchParams);
-    
-    var html =  '<div id="search-results">' + 
+
+    var html =  '<div id="search-results">' +
                     '<div class="layout-column twothirds">' +
                         '<h1 class="search-results-title" id="maincontent">Search</h1>' +
                     '</div>' +
-                    (results.length > 0 ? sorting : "") + 
-                    '<div class="layout-column twothirds">' + 
-                        '<div id="search-info" data-site="' + site + '" data-query="' + query + '" data-sort="' + sort + '"></div>' + 
+                    (results.length > 0 ? sorting : "") +
+                    '<div class="layout-column twothirds">' +
+                        '<div id="search-info" data-site="' + site + '" data-query="' + query + '" data-sort="' + sort + '"></div>' +
                         '<div class="search-again">' +
                             '<form class="searchbar-form">' +
                                 '<input type="text" class="search" name="q" value="'+ query +'"></input><button class="icon"><i class="fa fa-search" aria-label="Start Search"></i></button>' +
                             '</form>' +
                             '<button class="icon reset"><i class="fa fa-times" aria-label="Reset Search"></i></button>' +
-                        '</div>' + 
+                        '</div>' +
                         (results.length > 0 ? '<!--<div>Results ' + range + ' of about ' + total + ' for ' + query + '.</div>-->' : "") +
                         formatResults(results) +
-                        (results.length > 0 ? buildPagination(site, query, page, total) : "" ) + 
+                        (results.length > 0 ? buildPagination(query, page, total) : "" ) +
                     '</div><div class="layout-column onethird">' +
-                        '<div class="global-search">' + 
+                        '<div class="global-search">' +
                             '<div class="all-results-help-text">Didn\'t find what you were looking for?</div>' +
-                            buildButton(globalSearchUrl) + 
+                            buildButton(globalSearchUrl) +
                         '</div>' +
                     '</div>' +
                 '</div>';
@@ -297,17 +283,15 @@ function formatResults(results){
 }
 
 //build pagination for search results.
-function buildPagination(site, query, currentPage, total){
+function buildPagination(query, currentPage, total){
     var totalPages = Math.ceil(total/10);
     var prev = (currentPage > 1) ? '<a class="pagination-link pagination-link-prev" href="#">Prev</a>' : '<span class="nonlink">Prev</span>';
     var next = (currentPage < totalPages) ? '<a class="pagination-link pagination-link-next" href="#">Next</a>' : '<span class="nonlink">Next</span>';
     var html='<div class="pagination show-if-results">' + prev;
-    for(var i=0; i<totalPages; i++){
+    for(var i=Math.max(1,currentPage-3); i<totalPages && i<=currentPage+3; i++){
         //create link for current page and 3 pages before and after current page
-        var activeClass = (i == currentPage -1) ? " active" : "";
-        if(i >= currentPage-1-3 && i <= currentPage-1+3){
-            html += '<a class="pagination-link' + activeClass + '" href="#">' + (i+1) + '</a>';
-        }
+        var activeClass = (i == currentPage) ? " active" : "";
+        html += '<a class="pagination-link' + activeClass + '" href="#">' + i + '</a>';
     }
     html += next + '</div>';
     return html;

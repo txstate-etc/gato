@@ -34,22 +34,22 @@
         font-family: $univers;
     }
     .searchbar{
-        max-width: 60rem; 
+        max-width: 60rem;
         margin: auto;
         padding: 3rem 2rem 2.5rem 2rem;
         .searchbar-content {
-            position: relative; 
-            border-bottom: 3px solid $gold; 
-            font-size: 2.4rem; 
+            position: relative;
+            border-bottom: 3px solid $gold;
+            font-size: 2.4rem;
             padding-bottom: 0.5rem;
             @media screen and (max-width: $mc-breakpoint) {
                 font-size: 2rem;
             }
             input.search {
-                background: transparent; 
-                border: none; 
-                width: 100%; 
-                color: #222; 
+                background: transparent;
+                border: none;
+                width: 100%;
+                color: #222;
                 font-weight: 500;
                 font-family: $univers;
                 &::-webkit-input-placeholder {color: $gold;}
@@ -179,7 +179,9 @@
         .result{
             margin-top: 2.8rem;
             a.result-title{
-                color: $gold;
+                text-decoration: none;
+                font-weight: 500;
+                color: $dark-gold;
                 &:hover{
                     text-decoration: underline;
                 }
@@ -221,6 +223,7 @@
             border: 1px solid $gold;
             color: $gold;
             font-weight: bold;
+            text-decoration: none;
             &.active{
                 color: $white;
                 background: $light-gold
@@ -231,6 +234,6 @@
             }
         }
     }
-    
+
 }
 
