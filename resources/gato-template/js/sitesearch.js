@@ -233,6 +233,17 @@ jQuery(document).ready(function($) {
         }
     });
 
+    $('#panel').keyup(function(e){
+        var target = $(e.target);
+        if(target.is('.search-again .searchbar-form .search')){
+            //If they changed the value in the searchbox, replace X with magnifying glass
+            if($('.search-again .searchbar-form .search').val() != $('#search-info').data('query')){
+                $('.search-again .reset').hide();
+                $('.search-again .searchbar-form .icon').show();
+            }
+        }
+    });
+
     //searches the query string for a parameter with a key matching
     //the name value passed in. if it is found, the value is changed to
     //the value passed in.  If it isn't found, it is added to the query string
@@ -291,7 +302,8 @@ function buildSearchResultsPage(site, query, results, total, page, sort){
                         '<div id="search-info" data-site="' + site + '" data-query="' + query + '" data-sort="' + sort + '"></div>' +
                         '<div class="search-again">' +
                             '<form class="searchbar-form">' +
-                                '<input type="text" class="search" name="q" value="'+ query +'"></input><button class="icon"><i class="fa fa-search" aria-label="Start Search"></i></button>' +
+                                '<label class="hidden" for="s">Search Terms</label>' +
+                                '<input id="s" type="text" class="search" name="q" value="'+ query +'"></input><button class="icon"><i class="fa fa-search" aria-label="Start Search"></i></button>' +
                             '</form>' +
                             '<button class="icon reset"><i class="fa fa-times" aria-label="Reset Search"></i></button>' +
                         '</div>' +

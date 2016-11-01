@@ -153,6 +153,14 @@
         padding-bottom: 0.5rem;
         width: 66%;
         margin-top: 2.8rem;
+        label.hidden{
+            position:absolute;
+            left:-10000px;
+            top:auto;
+            width:1px;
+            height:1px;
+            overflow:hidden;
+        }
         input{
             background: transparent;
             border: none;
