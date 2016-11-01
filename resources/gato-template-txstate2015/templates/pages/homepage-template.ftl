@@ -13,6 +13,7 @@
       'gato-template-txstate2015/js/tabs.js',
       'gato-lib/js/fastclick.js',
       'gato-template-txstate2015/js/common.js',
+      'gato-template/js/search-gsa.js',
       'gato-template-txstate2015/js/sitesearch.js'
     ]]
     [#if gf.isCacheEnvironment()]

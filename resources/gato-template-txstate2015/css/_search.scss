@@ -175,6 +175,10 @@
         }
     }
 
+    .results-count{
+        margin-top: 2rem;
+    }
+
     .results-list{
         .result{
             margin-top: 2.8rem;
@@ -212,6 +216,11 @@
         a.button{
             font-size: 1.8rem;
             display: block;
+            padding: 2rem 3rem;
+            text-decoration: none;
+            span{
+                color: #222;
+            }
         }
     }
 
@@ -237,3 +246,33 @@
 
 }
 
+//suggested results
+ul.ui-autocomplete {
+    z-index: 1200;
+    border: 1px solid $gold;
+    background: $white;
+    .suggestion-title{
+        a{
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: $gold;
+            text-decoration: underline;
+        }
+    }
+    .display-link{
+        a{
+            color: $blue;
+            font-size: 1.3rem;
+        }
+    }
+    .ui-state-focus{
+        background: $light-sandstone;
+        margin: 0px;
+        border: none;
+        .display-link{
+            a{
+                font-weight: normal;
+            }
+        }
+    }
+}

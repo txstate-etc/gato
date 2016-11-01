@@ -8,6 +8,53 @@ jQuery(document).ready(function($) {
         handleBreadCrumbs();
     }
 
+    //this makes the top results drop down stay the same size
+    //as the input field
+    jQuery.ui.autocomplete.prototype._resizeMenu = function () {
+      var ul = this.menu.element;
+      ul.outerWidth(this.element.outerWidth());
+    }
+
+    //top 3 search results shown after user types 3 characters
+    //in search box
+    $('#search-text').autocomplete({
+        minLength: 3,
+        open: function( event, ui ) {
+            var dialogZIndex = $('.ui-dialog').css('z-index');
+            $('.ui-autocomplete').css('z-index', dialogZIndex + 1);
+
+        },
+        source: function(request, response){
+            var options = {num: 3};
+            if($('#this-site').prop('checked')){
+                options.sitesearch = $('#sitesearch').val();
+            }
+            var search = new Search(options);
+            search.doSearch(request.term)
+            .then(function(results){
+                var data = results.results.map(function(obj){
+                    var result = {title: obj.title, url_display: obj.url_display, url: obj.url};
+                    return result;
+                });
+                response(data);
+            });
+        },
+        select: function(event, ui){
+            event.preventDefault();
+            window.location = ui.item.url;
+        }
+    })
+    .autocomplete( "instance" )._renderItem = function( ul, item ) {
+      return $( '<li class="suggestion">' )
+        .append( '<div class="suggestion-title">' +
+                    '<a href="#">' + item.title + '</a>' +
+                 '</div>')
+        .append('<div class="display-link">' +
+                    '<a href="#">' + item.url_display + '</a>' +
+                '</div>')
+        .appendTo( ul );
+    };
+
     $('.searchbar-form').submit(function(e){
         e.preventDefault();
 
@@ -248,7 +295,7 @@ function buildSearchResultsPage(site, query, results, total, page, sort){
                             '</form>' +
                             '<button class="icon reset"><i class="fa fa-times" aria-label="Reset Search"></i></button>' +
                         '</div>' +
-                        (results.length > 0 ? '<!--<div>Results ' + range + ' of about ' + total + ' for ' + query + '.</div>-->' : "") +
+                        (results.length > 0 ? '<div class="results-count">Results ' + range + ' of about ' + total + ' for ' + query + '.</div>' : "") +
                         formatResults(results) +
                         (results.length > 0 ? buildPagination(query, page, total) : "" ) +
                     '</div><div class="layout-column onethird">' +
