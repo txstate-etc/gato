@@ -111,7 +111,7 @@ div#homepage-banner {
     .toggle-button {
       background: #d1c7b7;
       font-weight: 500;
-      top: 8px;
+      //top: 8px;
     }
     a{
       top: 0 !important;
@@ -458,7 +458,7 @@ div#homepage-banner {
 
 }
 
-a.search-link{
+button.search-link{
     display: block;
     font-weight:500;
     font-size: 1.8rem; 
@@ -468,6 +468,7 @@ a.search-link{
     background: $khaki; 
     color: $darkest-gold; 
     position: relative;
+    border: none;
     @media screen and (max-width: $sm-breakpoint) {
         
     }
