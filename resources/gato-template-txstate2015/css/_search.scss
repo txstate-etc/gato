@@ -234,6 +234,9 @@
 
     .pagination{
         margin: 4rem 0 2.8rem 0;
+        list-style: none;
+        overflow: hidden;
+        padding: 0;
         .pagination-link, .nonlink{
             padding: .5rem 1rem .5rem 1rem;
             margin: 0 1rem 1rem 0;
@@ -241,9 +244,12 @@
             color: $gold;
             font-weight: bold;
             text-decoration: none;
+            float: left;
             &.active{
+              &, &:hover {
                 color: $white;
                 background: $light-gold
+              }
             }
             &:hover{
                 color: $white;
