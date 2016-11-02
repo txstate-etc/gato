@@ -5,7 +5,7 @@
     }
   }
   &.people {
-    .search-web {
+    .search-web, .search-side-people {
       display: none;
     }
   }
@@ -34,8 +34,10 @@
       width: 10rem;
       font-family: $garamond;
       text-align: center;
+      color: $dark-gray;
       &[aria-selected="true"] {
         background-color: $sandstone;
+        color: $maroon;
       }
     }
   }

@@ -48,7 +48,7 @@ jQuery(document).ready(function($) {
 
   var fill_people_search = function (query, page, perpage) {
     if (!page || page < 1) page = 1;
-    $.ajax("https://secure.its.txstate.edu/iphone/people/json.pl?q="+encodeURIComponent(query))
+    $.ajax("https://secure.its.txstate.edu/iphone/people/json.pl?q="+encodeURIComponent(query)+'&n=500')
       .done(function(data) {
         console.log(data);
         var html = '';
@@ -65,10 +65,13 @@ jQuery(document).ready(function($) {
         data.results.sort(function (a,b) {
           return sortvalue(a.category) - sortvalue(b.category);
         });
-        $.each(data.results, function (i, result) {
-          html += html_result_people(result);
-          if (i < 3) htmlshort += html_result_people_short(result);
-        });
+        var start = (page-1)*perpage;
+        for (var i = start; i < start+perpage; i++) {
+          html += html_result_people(data.results[i]);
+        }
+        for (var i = 0; i < 3; i++) {
+          htmlshort += html_result_people_short(data.results[i]);
+        }
         html += html_pagination(page, Math.ceil(data.count / perpage));
         $('.search-people').html(html);
         $('.search-side-results').html(htmlshort);
