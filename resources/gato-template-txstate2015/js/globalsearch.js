@@ -38,7 +38,7 @@ jQuery(document).ready(function($) {
         $.each(data.results, function (i, result) {
           html += html_result_web(result);
         });
-        html += html_pagination(query, page, data.total);
+        html += html_pagination(page, Math.ceil(data.total / perpage));
         $('.search-web').html(html);
       })
       .fail(function(e){
@@ -47,6 +47,7 @@ jQuery(document).ready(function($) {
   }
 
   var fill_people_search = function (query, page, perpage) {
+    if (!page || page < 1) page = 1;
     $.ajax("https://secure.its.txstate.edu/iphone/people/json.pl?q="+encodeURIComponent(query))
       .done(function(data) {
         console.log(data);
@@ -68,6 +69,7 @@ jQuery(document).ready(function($) {
           html += html_result_people(result);
           if (i < 3) htmlshort += html_result_people_short(result);
         });
+        html += html_pagination(page, Math.ceil(data.count / perpage));
         $('.search-people').html(html);
         $('.search-side-results').html(htmlshort);
       })
@@ -125,7 +127,7 @@ jQuery(document).ready(function($) {
     return html;
   }
 
-  var html_pagination = function (total, page, lastpage) {
+  var html_pagination = function (page, lastpage) {
     var html = '<div class="visuallyhidden">Pagination</div>';
     html += '<ul role="navigation" class="pagination">';
     html += '<li><a href="#" class="pagination-link" aria-label="Previous Page" data-page="'+Math.max(page-1, 1)+'" aria-disabled="'+(page == 1 ? 'true' : 'false')+'">Prev</a></li>';
