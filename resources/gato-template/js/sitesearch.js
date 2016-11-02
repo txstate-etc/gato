@@ -2,7 +2,7 @@
 jQuery(document).ready(function($) {
 
     //check for search parameters
-    if(window.location.search.length > 0 && window.location.href.indexOf("?sitesearch") != -1){
+    if(window.location.search.length > 0 && window.location.href.indexOf("sitesearch") != -1){
         var params = getUrlParameters();
         siteSearch((params.sitesearch || "txstate.edu"), (params.query || ""), params.page || 1, params.sort || "relevance");
         handleBreadCrumbs();
@@ -81,9 +81,9 @@ jQuery(document).ready(function($) {
             $('#search-text').val("");
             var site = $('#sitesearch').val();
             siteSearch(site, query, 1, "relevance");
-            var searchResultUrl = addQueryString(window.location.pathname + window.location.hash, site, query, 1);
-            history.pushState(null, null, searchResultUrl);
             handleBreadCrumbs();
+            var searchResultUrl = addQueryString(window.location.href, site, query, 1);
+            history.pushState(null, null, searchResultUrl);
         }
     })
 
@@ -139,7 +139,22 @@ jQuery(document).ready(function($) {
         var contents = searchbreadcrumbs.contents();
         contents.get(contents.size() -1).remove();  //remove last text element
         contents.get(searchbreadcrumbs.size() -1).remove();
-        searchbreadcrumbs.append('<a href="' + window.location.href + '">' + $('#maincontent').text() + '</a>');
+        var url = window.location.href;
+        if(url.indexOf("sitesearch") != -1){
+            console.log("need to remove parameters")
+            var params = getUrlParameters();
+            delete params.sitesearch;
+            delete params.query;
+            delete params.page;
+            delete params.sort;
+            url = window.location.pathname;
+            if(!$.isEmptyObject(params)){
+                console.log("more parameters")
+                url += createUrlQuery(params);
+            }
+            url += window.location.hash;
+        }
+        searchbreadcrumbs.append('<a href="' + url + '">' + $('#maincontent').text() + '</a>');
         searchbreadcrumbs.append('<span class="separator"><i class="fa fa-angle-right"></i></span>');
         searchbreadcrumbs.append(document.createTextNode(' Search Results'));
         breadcrumbs.after(searchbreadcrumbs);
@@ -150,7 +165,7 @@ jQuery(document).ready(function($) {
     //This handles the case where the user navigates to/from the search results page using the
     //back and forward buttons in the browser
     $(window).on("popstate", function() {
-        if(window.location.search.length > 0 && window.location.href.indexOf("?sitesearch") != -1){
+        if(window.location.search.length > 0 && window.location.href.indexOf("sitesearch") != -1){
             //The user navigated to a search results page
             var params = getUrlParameters();
             siteSearch((params.sitesearch || "txstate.edu"), (params.query || ""), params.page || 1, params.sort || "relevance");
@@ -194,7 +209,6 @@ jQuery(document).ready(function($) {
             }
             siteSearch(site, query, pageNum, sort);
             addOrUpdateQSParam("page", pageNum);
-            handleBreadCrumbs();
         }
         else if(target.is('.sort-link')){
             e.preventDefault();
@@ -215,7 +229,6 @@ jQuery(document).ready(function($) {
             }
             siteSearch(site, query, 1, sort);
             addOrUpdateQSParam("sort", sort);
-            handleBreadCrumbs();
         }
         else if(target.is('.search-again .reset')){
             $('.search-again .search').val("");
@@ -229,7 +242,6 @@ jQuery(document).ready(function($) {
             siteSearch(site, query, 1, "relevance");
             addOrUpdateQSParam("query", query);
             addOrUpdateQSParam("sort", "relevance");
-            handleBreadCrumbs();
         }
     });
 
@@ -344,6 +356,7 @@ function formatResults(results){
 //build pagination for search results.
 function buildPagination(query, currentPage, total){
     var totalPages = Math.ceil(total/10);
+    currentPage = parseInt(currentPage);
     var prev = (currentPage > 1) ? '<a class="pagination-link pagination-link-prev" href="#">Prev</a>' : '<span class="nonlink">Prev</span>';
     var next = (currentPage < totalPages) ? '<a class="pagination-link pagination-link-next" href="#">Next</a>' : '<span class="nonlink">Next</span>';
     var html='<div class="pagination show-if-results">' + prev;
