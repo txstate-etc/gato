@@ -4,14 +4,27 @@ jQuery(document).ready(function($) {
   var perpage_people = 10;
 
   var container = $('.search-container');
+  var tab_web = $('.search-tab-web');
+  var tab_people = $('.search-tab-people');
+  var results_web = $('.search-web');
+  var results_people = $('.search-people');
 
   var change_tab = function (type) {
+    var params = getUrlParameters();
+    if (params.type != type) {
+      params.type = type;
+      history.pushState(null, null, createUrlQuery(params));
+    }
     if (type == 'people') {
       container.removeClass('web');
       container.addClass('people');
+      tab_web.attr('aria-selected', 'false');
+      tab_people.attr('aria-selected', 'true');
     } else { // web
       container.removeClass('people');
       container.addClass('web');
+      tab_web.attr('aria-selected', 'true');
+      tab_people.attr('aria-selected', 'false');
     }
   }
 
@@ -39,9 +52,21 @@ jQuery(document).ready(function($) {
         console.log(data);
         var html = '';
         var htmlshort = '';
+        var sortvalue = function (cat) {
+          if (cat == "Staff") return 0;
+          if (cat == "Faculty") return 1;
+          if (cat == "Retired Staff") return 2;
+          if (cat == "Retired Faculty") return 3;
+          if (cat == "Doctoral") return 4;
+          if (cat == "Masters") return 5;
+          return 10;
+        }
+        data.results.sort(function (a,b) {
+          return sortvalue(a.category) - sortvalue(b.category);
+        });
         $.each(data.results, function (i, result) {
           html += html_result_people(result);
-          htmlshort += html_result_people_short(result);
+          if (i < 3) htmlshort += html_result_people_short(result);
         });
         $('.search-people').html(html);
         $('.search-side-results').html(htmlshort);
@@ -92,10 +117,7 @@ jQuery(document).ready(function($) {
   var html_result_people_short = function (result) {
     var html = '<div class="person">';
     html += '<div class="person-name">'+result.firstname+' '+result.lastname+'</div>';
-    if (result.title.length > 0)
-      html += '<div class="person-title">'+result.title+'</div>';
-    else
-      html += '<div class="person-category">'+result.category+'</div>';
+    html += '<div class="person-category">'+result.category+'</div>';
     html += '<div class="person-phone">'+result.phone+'</div>';
     if (result.email != 'unauthenticated')
       html += '<a class="person-email" href="mailto:'+result.email+'">'+result.email+'</a>';
@@ -111,5 +133,26 @@ jQuery(document).ready(function($) {
     var params = getUrlParameters();
     params.q = $('.search-form .search').val();
     update_state(params);
+  });
+
+  tab_web.blurclick(function(e){
+    change_tab('web');
+  });
+  tab_web.keydown(function(e){
+    if (e.keyCode == 37 || e.keyCode == 39) { //left and right arrows
+      e.preventDefault();
+      e.stopPropagation();
+      tab_people.focus();
+    }
+  });
+  tab_people.blurclick(function(e){
+    change_tab('people');
+  });
+  tab_people.keydown(function(e){
+    if (e.keyCode == 37 || e.keyCode == 39) { //left and right arrows
+      e.preventDefault();
+      e.stopPropagation();
+      tab_web.focus();
+    }
   });
 });

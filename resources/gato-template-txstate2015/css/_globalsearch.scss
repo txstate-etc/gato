@@ -20,9 +20,30 @@
     &:hover {background: $content-link-hover;}
   }
 
+  .search-tabs {
+    width: 100%;
+    list-style: none;
+    border-bottom: 1px solid $dark-sandstone;
+    overflow: hidden;
+    padding: 0;
+    li {
+      float: left;
+      text-transform: uppercase;
+      cursor: pointer;
+      padding: 1rem;
+      width: 10rem;
+      font-family: $garamond;
+      text-align: center;
+      &[aria-selected="true"] {
+        background-color: $sandstone;
+      }
+    }
+  }
+
   .search-column-main {
     width: 100% * 2.0/3.0;
     float: left;
+    padding: 0 2rem;
     @media screen and (max-width: $sm-breakpoint) {
       width: 100%;
     }

@@ -54,8 +54,8 @@
             <li class="search-tab-web" role="tab" tabindex="0">Web</li>
             <li class="search-tab-people" role="tab" tabindex="0">People</li>
           </ul>
-          <div class="search-web results-list"></div>
-          <div class="search-people results-list"></div>
+          <div class="search-web results-list" role="tabpanel"></div>
+          <div class="search-people results-list" role="tabpanel"></div>
         </div>
         <div class="search-column-side">
           <div class="search-side-box search-side-people">
