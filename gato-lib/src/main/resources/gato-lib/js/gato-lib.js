@@ -76,6 +76,12 @@ Array.prototype.shuffle = function(){ //v1.0
 	for(var j, x, i = this.length; i; j = parseInt(Math.random() * i), x = this[--i], this[i] = this[j], this[j] = x);
 };
 
+function isBlank(str) {
+  if (str === undefined) return true;
+  if (str.trim().length == 0) return true;
+  return false;
+}
+
 var hostElements = window.location.hostname.split(".");
 
 function createCookie(name,value,domain,days) {
@@ -206,10 +212,6 @@ function ie_redraw() {
 		document.body.style.display = 'block';
 	}
 }
-
-Array.prototype.shuffle = function(){ //v1.0
-	for(var j, x, i = this.length; i; j = parseInt(Math.random() * i), x = this[--i], this[i] = this[j], this[j] = x);
-};
 
 // clear search fields of their default when clicked
 document.observe('dom:loaded', function () {

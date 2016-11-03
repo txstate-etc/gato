@@ -30,6 +30,8 @@ jQuery(document).ready(function($) {
 
   var fill_web_search = function (query, sort, page, perpage) {
     if (!page || page < 1) page = 1;
+    $('.search-web').html('');
+    if (isBlank(query)) return;
     var search = new Search({start: (page-1)*perpage, num: 10, sort: sort});
     search.doSearch(query)
       .done(function(data){
@@ -38,7 +40,11 @@ jQuery(document).ready(function($) {
         $.each(data.results, function (i, result) {
           html += html_result_web(result);
         });
-        html += html_pagination(page, Math.ceil(data.total / perpage));
+        if (data.results.length == 0) {
+          html += 'No results.';
+        } else {
+          html += html_pagination(page, Math.ceil(data.total / perpage));
+        }
         $('.search-web').html(html);
         create_event_handlers_web();
       })
@@ -49,6 +55,10 @@ jQuery(document).ready(function($) {
 
   var fill_people_search = function (query, page, perpage) {
     if (!page || page < 1) page = 1;
+    $('.search-side-people').hide();
+    $('.search-people').html('');
+    $('.search-side-results').html('');
+    if (isBlank(query)) return;
     $.ajax("https://secure.its.txstate.edu/iphone/people/json.pl?q="+encodeURIComponent(query)+'&n=500')
       .done(function(data) {
         console.log(data);
@@ -64,18 +74,29 @@ jQuery(document).ready(function($) {
           return 10;
         }
         data.results.sort(function (a,b) {
-          return sortvalue(a.category) - sortvalue(b.category);
+          var cata = sortvalue(a.category);
+          var catb = sortvalue(b.category);
+          if (cata == catb) return a.lastname.localeCompare(b.lastname);
+          return cata - catb;
         });
         var start = (page-1)*perpage;
         for (var i = start; i < Math.min(start+perpage, data.results.length); i++) {
           html += html_result_people(data.results[i]);
         }
+        if (data.results.length == 0) {
+          html += 'No people were found that match your search.';
+        } else {
+          html += html_pagination(page, Math.ceil(data.count / perpage));
+        }
         for (var i = 0; i < 3; i++) {
           htmlshort += html_result_people_short(data.results[i]);
         }
-        html += html_pagination(page, Math.ceil(data.count / perpage));
+        if (data.count > 3) {
+          htmlshort += '<a href="#" class="search-people-more">'+(data.count-3)+' more people match your search</a>';
+        }
+        $('.search-side-people').css('display', '');
         $('.search-people').html(html);
-        $('.search-side-results').html(htmlshort);
+        $('.search-side-people .search-side-results').html(htmlshort);
         create_event_handlers_people();
       })
       .fail(function(jqxhr, status, error) {
@@ -167,6 +188,10 @@ jQuery(document).ready(function($) {
   }
   var create_event_handlers_people = function() {
     $('.search-people .pagination-link').click(pagination_click);
+    $('.search-people-more').click(function(e) {
+      e.preventDefault();
+      change_tab('people');
+    });
   }
 
   load_from_state();
