@@ -140,16 +140,24 @@ jQuery(document).ready(function($) {
   }
 
   var html_result_people = function (result) {
-    return '<div class="person">'+
-             '<div class="person-name">'+result.firstname+' '+result.lastname+'</div>'+
-             '<div class="person-title">'+result.title+'</div>'+
-             '<div class="person-department">'+result.department+'</div>'+
-             '<div class="person-category">'+result.category+'</div>'+
-             '<div class="person-address">'+result.address+'</div>'+
-             '<div class="person-phone">'+result.phone+'</div>'+
-             (result.email != 'unauthenticated' ?
-               '<a class="person-email" href="mailto:'+result.email+'">'+result.email+'</a>' : '')+
-           '</div>';
+    var html = '<div class="person eq-parent">'+
+               '<div class="person-name">'+result.firstname+' '+result.lastname+'</div>'+
+               '<div class="person-category">'+result.category+'</div>';
+    if (!isBlank(result.title))
+      html += '<dl><dt class="person-title">Title:</dt><dd class="person-title">'+result.title+'</dd></dl>';
+    if (!isBlank(result.department))
+      html += '<dl><dt class="person-department">Department:</dt><dd class="person-department">'+result.department+'</dd></dl>';
+    if (!isBlank(result.address))
+      html += '<dl><dt class="person-address">Address:</dt><dd class="person-address">'+result.address+'</dd></dl>';
+    if (!isBlank(result.phone))
+      html += '<dl><dt class="person-phone">Phone:</dt><dd class="person-phone">'+result.phone+'</dd></dl>';
+    if (result.email != 'unauthenticated')
+      html += '<dl><dt class="person-email">Email:</dt><dd class="person-email">'+
+              '<a class="person-email" href="mailto:'+result.email+'">'+result.email+'</a></dd></dl>';
+    if (!isBlank(result.userid))
+      html += '<dl><dt class="person-netid">NetID:</dt><dd class="person-netid">'+result.userid+'</dd></dl>';
+    html += '</div>';
+    return html;
   }
 
   var html_result_people_short = function (result) {
@@ -201,6 +209,7 @@ jQuery(document).ready(function($) {
       e.preventDefault();
       change_tab('people');
     });
+    window.elementqueries.update();
   }
 
   load_from_state();

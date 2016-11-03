@@ -43,39 +43,39 @@
   }
 
   .search-form {
-  	position: relative;
-		border-bottom: 3px solid $gold;
-		padding-bottom: 0.5rem;
-		margin-bottom: 4rem;
-		width: 50rem;
-		font-size: 2.4rem;
-		@media screen and (max-width: $mc-breakpoint) {
-				font-size: 2rem;
-		}
-		input.search {
-				background: transparent;
-				border: none;
-				width: 100%;
-				color: #222;
-				font-weight: 500;
-				font-family: $univers;
-				&::-webkit-input-placeholder {color: $gold;}
-				&::-moz-placeholder {color: $gold;}
-				&:-ms-input-placeholder {color: $gold;}
-				&:-moz-placeholder {color: $gold; opacity: 1;}
-				&:focus{
-						outline-width: 0;
-				}
-		}
-		.icon {
-				background: transparent;
-				border: none;
-				float: right;
-				color: $gold;
-				position: absolute;
-				right: 0;
-				top: 0;
-		}
+    position: relative;
+    border-bottom: 3px solid $gold;
+    padding-bottom: 0.5rem;
+    margin-bottom: 4rem;
+    width: 50rem;
+    font-size: 2.4rem;
+    @media screen and (max-width: $mc-breakpoint) {
+        font-size: 2rem;
+    }
+    input.search {
+        background: transparent;
+        border: none;
+        width: 100%;
+        color: #222;
+        font-weight: 500;
+        font-family: $univers;
+        &::-webkit-input-placeholder {color: $gold;}
+        &::-moz-placeholder {color: $gold;}
+        &:-ms-input-placeholder {color: $gold;}
+        &:-moz-placeholder {color: $gold; opacity: 1;}
+        &:focus{
+            outline-width: 0;
+        }
+    }
+    .icon {
+        background: transparent;
+        border: none;
+        float: right;
+        color: $gold;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
   }
 
   .search-column-main {
@@ -84,6 +84,46 @@
     padding: 0 2rem;
     @media screen and (max-width: $sm-breakpoint) {
       width: 100%;
+    }
+    .person {
+      position: relative;
+      overflow: hidden;
+      margin: 1rem 0;
+      padding: 1rem;
+      border: 1px solid $sandstone;
+      .person-name {
+        border-bottom: 1px dotted $dark-sandstone;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        color: $maroon;
+      }
+      .person-category {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+      }
+      dl {
+        overflow: hidden;
+        margin: 0;
+        width: 50%;
+        float: left;
+      }
+      &[data-eq~="600px"] dl {
+        width: 100%;
+      }
+      dt {
+        width: 14rem;
+        font-weight: 500;
+        float: left;
+        text-align: right;
+        padding-right: 2rem;
+      }
+      dd {
+        margin-left: 14rem;
+      }
+      dt, dd {
+        font-size: 1.7rem;
+      }
     }
   }
   .search-column-side {

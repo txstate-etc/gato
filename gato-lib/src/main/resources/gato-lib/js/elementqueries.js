@@ -39,8 +39,12 @@
       }
     }
 
-    eq.observetargets();
-    eq.refresh();
+    eq.update = function () {
+      eq.observetargets();
+      eq.refresh();
+    }
+
+    eq.update();
     $(window).resize(eq.refresh);
     observePrint(function () {
       $('body').addClass('print');
