@@ -123,6 +123,7 @@ jQuery(document).ready(function($) {
             $('.page_content').after(page);
             $('.page_content').hide();
             $('.search-again .searchbar-form .icon').hide();
+            create_event_handlers();
         })
         .fail(function(){
             console.log("error")
@@ -171,7 +172,7 @@ jQuery(document).ready(function($) {
             siteSearch((params.sitesearch || "txstate.edu"), (params.query || ""), params.page || 1, params.sort || "relevance");
             handleBreadCrumbs();
         }
-        else{
+        else if ($('#search-results.global').length == 0) {
             //The user went to the original page
             $('#search-results').remove();
             $('.page_content').show();
@@ -180,13 +181,10 @@ jQuery(document).ready(function($) {
         }
     });
 
-    //handle clicks on pagination and sorting links and search again clicks
-    $('#panel').click(function(e){
-        var target = $(e.target);
-        if(!target.closest('#search-results').length != 0){
-            return;
-        }
-        if(target.is('.pagination-link')){
+    var create_event_handlers = function() {
+        //handle clicks on pagination and sorting links and search again clicks
+        $('.pagination-link').click(function(e){
+            var target = $(e.target);
             e.preventDefault();
             var site = $('#search-info').data('site');
             var query = $('#search-info').data('query');
@@ -209,8 +207,9 @@ jQuery(document).ready(function($) {
             }
             siteSearch(site, query, pageNum, sort);
             addOrUpdateQSParam("page", pageNum);
-        }
-        else if(target.is('.sort-link')){
+        });
+        $('.sort-link').click(function(e){
+            var target = $(e.target);
             e.preventDefault();
             var site = $('#search-info').data('site');
             var query = $('#search-info').data('query');
@@ -229,32 +228,30 @@ jQuery(document).ready(function($) {
             }
             siteSearch(site, query, 1, sort);
             addOrUpdateQSParam("sort", sort);
-        }
-        else if(target.is('.search-again .reset')){
+        });
+        $('.search-again .reset').click(function(e){
             $('.search-again .search').val("");
             $('.search-again .reset').hide();
             $('.search-again .searchbar-form .icon').show();
-        }
-        else if(target.is('.search-again .searchbar-form .icon')){
+        });
+        $('.search-again .searchbar-form .icon').click(function(e){
             e.preventDefault();
             var site = $('#search-info').data('site');
             var query = $('.search-again .searchbar-form .search').first().val();
             siteSearch(site, query, 1, "relevance");
             addOrUpdateQSParam("query", query);
             addOrUpdateQSParam("sort", "relevance");
-        }
-    });
+        });
 
-    $('#panel').keyup(function(e){
-        var target = $(e.target);
-        if(target.is('.search-again .searchbar-form .search')){
+        $('.search-again .searchbar-form .search').keyup(function(e){
+            var target = $(e.target);
             //If they changed the value in the searchbox, replace X with magnifying glass
-            if($('.search-again .searchbar-form .search').val() != $('#search-info').data('query')){
+            if(target.val() != $('#search-info').data('query')){
                 $('.search-again .reset').hide();
                 $('.search-again .searchbar-form .icon').show();
             }
-        }
-    });
+        });
+    }
 
     //searches the query string for a parameter with a key matching
     //the name value passed in. if it is found, the value is changed to

@@ -42,7 +42,7 @@
 			<!--header image, parent organization, department name -->
 			[#include "includes/header.ftl"]
 
-			<div class="search-container web" id="search-results">
+			<div class="search-container global web" id="search-results">
 			  <div class="search-column-main">
           <h1 class="headline">Search</h1>
           <form class="search-form">

@@ -115,7 +115,9 @@ function getUrlParameters() {
     var pairs = query.split("&");
     for(var i=0; i<pairs.length; i++){
         var param = pairs[i].split("=");
-        ret[decodeURIComponent(param[0])] = decodeURIComponent(param[1]);
+        var val = decodeURIComponent(param[1]);
+        if (parseInt(val, 10) == val) val = parseInt(val, 10);
+        ret[decodeURIComponent(param[0])] = val;
     }
   }
   return ret;

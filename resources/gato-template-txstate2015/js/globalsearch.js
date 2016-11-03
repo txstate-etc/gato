@@ -40,6 +40,7 @@ jQuery(document).ready(function($) {
         });
         html += html_pagination(page, Math.ceil(data.total / perpage));
         $('.search-web').html(html);
+        create_event_handlers_web();
       })
       .fail(function(e){
         console.log(e)
@@ -66,7 +67,7 @@ jQuery(document).ready(function($) {
           return sortvalue(a.category) - sortvalue(b.category);
         });
         var start = (page-1)*perpage;
-        for (var i = start; i < start+perpage; i++) {
+        for (var i = start; i < Math.min(start+perpage, data.results.length); i++) {
           html += html_result_people(data.results[i]);
         }
         for (var i = 0; i < 3; i++) {
@@ -75,6 +76,7 @@ jQuery(document).ready(function($) {
         html += html_pagination(page, Math.ceil(data.count / perpage));
         $('.search-people').html(html);
         $('.search-side-results').html(htmlshort);
+        create_event_handlers_people();
       })
       .fail(function(jqxhr, status, error) {
         console.log(error);
@@ -96,6 +98,14 @@ jQuery(document).ready(function($) {
   var update_state = function (params) {
     history.pushState(null, null, createUrlQuery(params));
     load_from_state();
+  }
+
+  var update_state_param = function (name, value) {
+    var params = getUrlParameters();
+    if (params[name] != value) {
+      params[name] = value;
+      update_state(params);
+    }
   }
 
   var html_result_web = function (result) {
@@ -136,13 +146,27 @@ jQuery(document).ready(function($) {
     html += '<li><a href="#" class="pagination-link" aria-label="Previous Page" data-page="'+Math.max(page-1, 1)+'" aria-disabled="'+(page == 1 ? 'true' : 'false')+'">Prev</a></li>';
     for (var i = Math.max(page-3, 1); i <= Math.min(page+3, lastpage); i++) {
       if (i == page)
-        html += '<li><a href="#" class="pagination-link active" aria-label="You are currently reading page '+i+'" data-page"'+i+'">'+i+'</a></li>';
+        html += '<li><a href="#" class="pagination-link active" aria-label="You are currently reading page '+i+'" data-page="'+i+'">'+i+'</a></li>';
       else
-        html += '<li><a href="#" class="pagination-link" aria-label="Page '+i+'" data-page"'+i+'">'+i+'</a></li>';
+        html += '<li><a href="#" class="pagination-link" aria-label="Page '+i+'" data-page="'+i+'">'+i+'</a></li>';
     }
     html += '<li><a href="#" class="pagination-link" aria-label="Next Page" data-page="'+Math.min(page+1, lastpage)+'" aria-disabled="'+(page == lastpage ? 'true' : 'false')+'">Next</a></li>';
     html += '</ul>';
     return html;
+  }
+
+  var pagination_click = function(e) {
+    var lnk = $(this);
+    e.preventDefault();
+    var param = $('#search-results').is('.web') ? 'webpage' : 'peoplepage';
+    update_state_param(param, lnk.data('page'));
+  }
+
+  var create_event_handlers_web = function() {
+    $('.search-web .pagination-link').click(pagination_click);
+  }
+  var create_event_handlers_people = function() {
+    $('.search-people .pagination-link').click(pagination_click);
   }
 
   load_from_state();
@@ -150,9 +174,7 @@ jQuery(document).ready(function($) {
 
   $('.search-form').submit(function(e){
     e.preventDefault();
-    var params = getUrlParameters();
-    params.q = $('.search-form .search').val();
-    update_state(params);
+    update_state_param('q', $('.search-form .search').val());
   });
 
   tab_web.blurclick(function(e){
