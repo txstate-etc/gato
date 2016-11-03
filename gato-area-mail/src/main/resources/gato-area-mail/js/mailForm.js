@@ -593,6 +593,6 @@ Event.observe(document, 'dom:loaded', function(){
 });
 
 //make links in the mail template open in new tab or window
-Event.observe(document, 'dom:loaded', function(){
-  $$('.txst-form-body a').not('.txstate-khan-notice a').invoke('writeAttribute','target', '_blank');
+jQuery(document).ready(function($){
+  $('.txst-form-body a').not('.txstate-khan-notice a').attr('target', '_blank');
 });
