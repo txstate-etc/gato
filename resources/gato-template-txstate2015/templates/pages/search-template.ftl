@@ -47,7 +47,7 @@
           <h1 class="headline">Search</h1>
           <form class="search-form">
             <input type="text" class="search" name="q" value=""></input>
-            <button class="icon"><i class="fa fa-search" aria-label="Start Search"></i></button>
+            <button class="icon magnify"><i class="fa fa-search" aria-label="Start Search"></i></button>
             <button class="icon reset"><i class="fa fa-times" aria-label="Reset Search"></i></button>
           </form>
           <ul class="search-tabs" role="tablist">

@@ -42,6 +42,42 @@
     }
   }
 
+  .search-form {
+  	position: relative;
+		border-bottom: 3px solid $gold;
+		padding-bottom: 0.5rem;
+		margin-bottom: 4rem;
+		width: 50rem;
+		font-size: 2.4rem;
+		@media screen and (max-width: $mc-breakpoint) {
+				font-size: 2rem;
+		}
+		input.search {
+				background: transparent;
+				border: none;
+				width: 100%;
+				color: #222;
+				font-weight: 500;
+				font-family: $univers;
+				&::-webkit-input-placeholder {color: $gold;}
+				&::-moz-placeholder {color: $gold;}
+				&:-ms-input-placeholder {color: $gold;}
+				&:-moz-placeholder {color: $gold; opacity: 1;}
+				&:focus{
+						outline-width: 0;
+				}
+		}
+		.icon {
+				background: transparent;
+				border: none;
+				float: right;
+				color: $gold;
+				position: absolute;
+				right: 0;
+				top: 0;
+		}
+  }
+
   .search-column-main {
     width: 100% * 2.0/3.0;
     float: left;
