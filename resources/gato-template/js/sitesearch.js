@@ -1,13 +1,6 @@
 
 jQuery(document).ready(function($) {
 
-    //check for search parameters
-    if(window.location.search.length > 0 && window.location.href.indexOf("sitesearch") != -1){
-        var params = getUrlParameters();
-        siteSearch((params.sitesearch || "txstate.edu"), (params.query || ""), params.page || 1, params.sort || "relevance");
-        handleBreadCrumbs();
-    }
-
     //this makes the top results drop down stay the same size
     //as the input field
     jQuery.ui.autocomplete.prototype._resizeMenu = function () {
@@ -55,60 +48,6 @@ jQuery(document).ready(function($) {
         .appendTo( ul );
     };
 
-    $('.searchbar-form').submit(function(e){
-        e.preventDefault();
-
-        //close the search modal
-        $('#search-modal-content').dialog('close');
-
-        //redirect to global search if the user is on the homepage or selected that
-        //they want to search all of Texas State instead of doing a site search
-        if($('#sitesearch').length == 0 || $('#txst-all').prop('checked')){
-            var params = {
-                site: "txstate_no_users",
-                client: "txstate",
-                output: "xml_no_dtd",
-                proxystylesheet: "txstate",
-                q: $('#search-text').val()
-            };
-            var url = "http://search.txstate.edu/search?" + $.param(params);
-            window.location = url;
-        }
-        else{
-            //search this site
-            var query = $('#search-text').val();
-            //clear the search field
-            $('#search-text').val("");
-            var site = $('#sitesearch').val();
-            siteSearch(site, query, 1, "relevance");
-            handleBreadCrumbs();
-            var searchResultUrl = addQueryString(window.location.href, site, query, 1);
-            history.pushState(null, null, searchResultUrl);
-        }
-    })
-
-    //take the current url and add a query string to it so that the search results page can be
-    //added to the history
-    function addQueryString(url, site, query, num){
-        var newQueryParams = "sitesearch=" + site + "&query=" + query + "&page=" + num;
-        var urlNoHash=url;
-        var hash="";
-        if(url.indexOf('#') != -1){
-            var urlParts = url.split("#");
-            urlNoHash = urlParts[0];
-            hash = urlParts[1];
-        }
-        //check if it already has a querystring
-        if(url.indexOf('?') != -1){
-            urlNoHash += "&" + newQueryParams;
-        }
-        else{
-            urlNoHash += "?" + newQueryParams;
-        }
-        //add hash back in if there was one
-        return urlNoHash + ((hash.length > 0) ? "#" + hash : "");
-    }
-
     //Calls the google search appliance with the appropriate parameters and display
     //results on the current page.  The search results are inserted after the original
     //page content and the original page content is hidden.
@@ -130,6 +69,116 @@ jQuery(document).ready(function($) {
         })
     }
 
+    var load_from_state = function(){
+        var params = getUrlParameters();
+        //if the search parameters are not there, don't do anything.  There was no search.
+        if(!isSiteSearchPage(params)) return;
+        siteSearch((params.sitesearch || "txstate.edu"), (params.query || ""), params.page || 1, params.sort || "relevance");
+        handleBreadCrumbs();
+    }
+
+    var update_state = function(params){
+        var newQS = createUrlQuery(params);
+        history.pushState(null, null, window.location.pathname + createUrlQuery(params) + window.location.hash);
+        load_from_state();
+    }
+
+    //TODO: copied from globalsearch so maybe that should be available everywhere too?
+    var update_state_params = function(name, value){
+        var params = getUrlParameters();
+        if (params[name] != value) {
+          params[name] = value;
+          update_state(params);
+        }
+    }
+
+    //site search needs to updated more than one parameter at a time
+    //but we don't want to update the history after every new parameter
+    var update_multiple_state_params = function(newParams){
+        var params = getUrlParameters();
+        for (var key in newParams) {
+            if (newParams.hasOwnProperty(key)) {
+                if (params[key] != newParams[key]) {
+                    params[key] = newParams[key];
+                }
+            }
+        }
+        update_state(params);
+    }
+
+    //event handlers
+
+    var isSiteSearchPage = function(params){
+        return params['sitesearch'];
+    }
+
+    var pagination_click = function(e) {
+        var lnk = $(this);
+        e.preventDefault();
+        update_state_params("page", lnk.data('page'))
+    }
+
+    var sorting_click = function(e) {
+        var lnk = $(this);
+        e.preventDefault();
+        var sort = lnk.data('sort');
+        update_multiple_state_params({page: 1, sort: sort});
+    }
+
+    var search_again_reset = function(e) {
+        e.preventDefault();
+        $('.search-again .search').val("");
+        $('.search-again .reset').hide();
+        $('.search-again .searchbar-form .icon').show();
+    }
+
+    var search_again = function(e){
+        e.preventDefault();
+        var query = $('.search-again .searchbar-form .search').first().val();
+        update_multiple_state_params({page: 1, sort: "relevance", query: query});
+    }
+
+    var search_again_change = function(e){
+        var target = $(e.target);
+        if(target.val() != $('#search-info').data('query')){
+            $('.search-again .reset').hide();
+            $('.search-again .searchbar-form .icon').show();
+        }
+    }
+    
+    //handles submit from search modal
+    $('.searchbar-form').submit(function(e){
+        e.preventDefault();
+        //close the search modal
+        $('#search-modal-content').dialog('close');
+        //redirect to global search if the user is on the homepage or selected that
+        //they want to search all of Texas State instead of doing a site search
+        if($('#sitesearch').length == 0 || $('#txst-all').prop('checked')){
+            var params = {
+                site: "txstate_no_users",
+                client: "txstate",
+                output: "xml_no_dtd",
+                proxystylesheet: "txstate",
+                q: $('#search-text').val()
+            };
+            var url = "http://search.txstate.edu/search?" + $.param(params);
+            window.location = url;
+        }
+        else{
+            //search this site
+            var query = $('#search-text').val();
+            var site = $('#sitesearch').val();
+
+            var params = {
+                sitesearch: site,
+                query: query,
+                page: 1,
+                sort: "relevance"
+            };
+            update_multiple_state_params(params);
+        }
+    });
+
     //Modifies the breadcrumbs to account for the search results page.  If the original page
     //is called "Best Page Ever," then "Best Page Ever" becomes a link to itself in the breadcrumbs
     // and > Search Results is added to the end of the breadcrumbs.
@@ -142,7 +191,6 @@ jQuery(document).ready(function($) {
         contents.get(searchbreadcrumbs.size() -1).remove();
         var url = window.location.href;
         if(url.indexOf("sitesearch") != -1){
-            console.log("need to remove parameters")
             var params = getUrlParameters();
             delete params.sitesearch;
             delete params.query;
@@ -150,7 +198,6 @@ jQuery(document).ready(function($) {
             delete params.sort;
             url = window.location.pathname;
             if(!$.isEmptyObject(params)){
-                console.log("more parameters")
                 url += createUrlQuery(params);
             }
             url += window.location.hash;
@@ -163,14 +210,23 @@ jQuery(document).ready(function($) {
         breadcrumbs.hide();
     }
 
+    var create_event_handlers = function() {
+        //handle clicks on pagination and sorting links and search again clicks
+        $('.pagination-link').click(pagination_click);
+        $('.sort-link').click(sorting_click);
+        $('.search-again .reset').click(search_again_reset);
+        $('.search-again .searchbar-form .icon').click(search_again);
+        $('.search-again .searchbar-form .search').keyup(search_again_change);
+    }
+
+    load_from_state();
+
     //This handles the case where the user navigates to/from the search results page using the
     //back and forward buttons in the browser
     $(window).on("popstate", function() {
-        if(window.location.search.length > 0 && window.location.href.indexOf("sitesearch") != -1){
-            //The user navigated to a search results page
-            var params = getUrlParameters();
-            siteSearch((params.sitesearch || "txstate.edu"), (params.query || ""), params.page || 1, params.sort || "relevance");
-            handleBreadCrumbs();
+        var params = getUrlParameters();
+        if(isSiteSearchPage(params)){
+            load_from_state();
         }
         else if ($('#search-results.global').length == 0) {
             //The user went to the original page
@@ -180,106 +236,6 @@ jQuery(document).ready(function($) {
             $('.searchbreadcrumbs').remove();
         }
     });
-
-    var create_event_handlers = function() {
-        //handle clicks on pagination and sorting links and search again clicks
-        $('.pagination-link').click(function(e){
-            var target = $(e.target);
-            e.preventDefault();
-            var site = $('#search-info').data('site');
-            var query = $('#search-info').data('query');
-            var sortSelection = $('.sort-link.active').attr('id');
-            var sort = $('#search-info').data('sort');
-            var pageNum;
-            if(target.is('.pagination-link-next')){
-                //clicked on "Next"
-                var activePage = $('.pagination-link.active').first().text();
-                pageNum = parseInt(activePage) + 1;
-            }
-            else if(target.is('.pagination-link-prev')){
-                //clicked on "Prev"
-                var activePage = $('.pagination-link.active').first().text();
-                pageNum = activePage - 1;
-            }
-            else{
-                //clicked on specific page number
-                pageNum = $(e.target).text();
-            }
-            siteSearch(site, query, pageNum, sort);
-            addOrUpdateQSParam("page", pageNum);
-        });
-        $('.sort-link').click(function(e){
-            var target = $(e.target);
-            e.preventDefault();
-            var site = $('#search-info').data('site');
-            var query = $('#search-info').data('query');
-            var sort;
-            if(target.is('#relevance-sort')){
-                //sort by relevance
-                $('#date-sort').removeClass('active');
-                $('#relevance-sort').addClass('active');
-                sort="relevance";
-            }
-            else if(target.is('#date-sort')){
-                //sort by date
-                $('#relevance-sort').removeClass('active');
-                $('#date-sort').addClass('active');
-                sort = "date";
-            }
-            siteSearch(site, query, 1, sort);
-            addOrUpdateQSParam("sort", sort);
-        });
-        $('.search-again .reset').click(function(e){
-            $('.search-again .search').val("");
-            $('.search-again .reset').hide();
-            $('.search-again .searchbar-form .icon').show();
-        });
-        $('.search-again .searchbar-form .icon').click(function(e){
-            e.preventDefault();
-            var site = $('#search-info').data('site');
-            var query = $('.search-again .searchbar-form .search').first().val();
-            siteSearch(site, query, 1, "relevance");
-            addOrUpdateQSParam("query", query);
-            addOrUpdateQSParam("sort", "relevance");
-        });
-
-        $('.search-again .searchbar-form .search').keyup(function(e){
-            var target = $(e.target);
-            //If they changed the value in the searchbox, replace X with magnifying glass
-            if(target.val() != $('#search-info').data('query')){
-                $('.search-again .reset').hide();
-                $('.search-again .searchbar-form .icon').show();
-            }
-        });
-    }
-
-    //searches the query string for a parameter with a key matching
-    //the name value passed in. if it is found, the value is changed to
-    //the value passed in.  If it isn't found, it is added to the query string
-    function addOrUpdateQSParam(name, value){
-        var updatedQS, qs = window.location.search.substring(1);
-        if(qs.length > 0){
-            var found = false;
-            var params = qs.split('&');
-            for(var i=0; i<params.length; i++){
-                var param = params[i].split("=");
-                if(param[0] == name){
-                    param[1] = value ;
-                    found = true;
-                }
-                params[i] = param.join("=");
-            }
-            if(found)
-                updatedQS = "?" + params.join("&");
-            else
-                updatedQS = "?" + qs + "&" + name + "=" + value;
-        }
-        else{
-            updatedQS = "?" + name + "=" + value;
-        }
-        var url = window.location.pathname + updatedQS + window.location.hash;
-        history.pushState(null, null, url);
-    }
 });
 
 //build the html that will replace the page content
@@ -288,9 +244,9 @@ function buildSearchResultsPage(site, query, results, total, page, sort){
     var lastResult = (page * 10 > total) ? total : page * 10;
     var range = firstResult + " - " + lastResult;
     var sorting = '<div class="sort-results layout-column onethird">' +
-                        '<a href="#" id="relevance-sort" class="sort-link '+ (sort == "relevance" ? "active" : "") + '">Sort By Relevance</a>' +
+                        '<a href="#" data-sort="relevance" class="sort-link '+ (sort == "relevance" ? "active" : "") + '">Sort By Relevance</a>' +
                         ' / ' +
-                        '<a href="#" id="date-sort" class="sort-link ' + (sort == "date" ? "active" : "") + '">Sort By Date</a>' +
+                        '<a href="#" data-sort="date" class="sort-link ' + (sort == "date" ? "active" : "") + '">Sort By Date</a>' +
                     '</div>';
 
     var globalSearchParams = {
@@ -318,7 +274,7 @@ function buildSearchResultsPage(site, query, results, total, page, sort){
                         '</div>' +
                         (results.length > 0 ? '<div class="results-count">Results ' + range + ' of about ' + total + ' for ' + query + '.</div>' : "") +
                         formatResults(results) +
-                        (results.length > 0 ? buildPagination(query, page, total) : "" ) +
+                        (results.length > 0 ? html_pagination(page, Math.ceil(total/10)) : "" ) +
                     '</div><div class="layout-column onethird">' +
                         '<div class="global-search">' +
                             '<div class="all-results-help-text">Didn\'t find what you were looking for?</div>' +
@@ -340,7 +296,7 @@ function formatResults(results){
         html = '<div class="results-list">';
         for(var i=0; i<results.length; i++){
             html += '<div class="result">' +
-                        '<a class="result-title" href="' + results[i].url +'"><h3>' + results[i].title + '</h3></a>' +
+                        '<a class="result-title" href="' + results[i].url +'">' + results[i].title + '</a>' +
                         '<p class="summary">' + results[i].summary_html + '</p>' +
                         '<a class="result-url-display" href="' + results[i].url + '">' + results[i].url_display + '</a>' +
                     '</div>';
@@ -350,21 +306,22 @@ function formatResults(results){
     return html;
 }
 
-//build pagination for search results.
-function buildPagination(query, currentPage, total){
-    var totalPages = Math.ceil(total/10);
-    currentPage = parseInt(currentPage);
-    var prev = (currentPage > 1) ? '<a class="pagination-link pagination-link-prev" href="#">Prev</a>' : '<span class="nonlink">Prev</span>';
-    var next = (currentPage < totalPages) ? '<a class="pagination-link pagination-link-next" href="#">Next</a>' : '<span class="nonlink">Next</span>';
-    var html='<div class="pagination show-if-results">' + prev;
-    for(var i=Math.max(1,currentPage-3); i<totalPages && i<=currentPage+3; i++){
-        //create link for current page and 3 pages before and after current page
-        var activeClass = (i == currentPage) ? " active" : "";
-        html += '<a class="pagination-link' + activeClass + '" href="#">' + i + '</a>';
+//TODO: this is copied from globalsearch.  the global search version needs to be put somewhere
+//that it can be used by both searches
+var html_pagination = function (page, lastpage) {
+    var html = '<div class="visuallyhidden">Pagination</div>';
+    html += '<ul role="navigation" class="pagination">';
+    html += '<li><a href="#" class="pagination-link" aria-label="Previous Page" data-page="'+Math.max(page-1, 1)+'" aria-disabled="'+(page == 1 ? 'true' : 'false')+'">Prev</a></li>';
+    for (var i = Math.max(page-3, 1); i <= Math.min(page+3, lastpage); i++) {
+      if (i == page)
+        html += '<li><a href="#" class="pagination-link active" aria-label="You are currently reading page '+i+'" data-page="'+i+'">'+i+'</a></li>';
+      else
+        html += '<li><a href="#" class="pagination-link" aria-label="Page '+i+'" data-page="'+i+'">'+i+'</a></li>';
     }
-    html += next + '</div>';
+    html += '<li><a href="#" class="pagination-link" aria-label="Next Page" data-page="'+Math.min(page+1, lastpage)+'" aria-disabled="'+(page == lastpage ? 'true' : 'false')+'">Next</a></li>';
+    html += '</ul>';
     return html;
-}
+  }
 
 function buildButton(url){
     var html='<div class="button-wrapper all-results-button">' +
