@@ -166,10 +166,7 @@ jQuery(document).ready(function($) {
     html += '<ul role="navigation" class="pagination">';
     html += '<li><a href="#" class="pagination-link" aria-label="Previous Page" data-page="'+Math.max(page-1, 1)+'" aria-disabled="'+(page == 1 ? 'true' : 'false')+'">Prev</a></li>';
     for (var i = Math.max(page-3, 1); i <= Math.min(page+3, lastpage); i++) {
-      if (i == page)
-        html += '<li><a href="#" class="pagination-link active" aria-label="You are currently reading page '+i+'" data-page="'+i+'">'+i+'</a></li>';
-      else
-        html += '<li><a href="#" class="pagination-link" aria-label="Page '+i+'" data-page="'+i+'">'+i+'</a></li>';
+      html += '<li><a href="#" class="pagination-link" aria-selected="'+(i==page)+'" aria-label="Page '+i+'" data-page="'+i+'">'+i+'</a></li>';
     }
     html += '<li><a href="#" class="pagination-link" aria-label="Next Page" data-page="'+Math.min(page+1, lastpage)+'" aria-disabled="'+(page == lastpage ? 'true' : 'false')+'">Next</a></li>';
     html += '</ul>';

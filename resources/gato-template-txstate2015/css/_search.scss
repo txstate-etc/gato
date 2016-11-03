@@ -245,7 +245,7 @@
             font-weight: bold;
             text-decoration: none;
             float: left;
-            &.active{
+            &.active,&[aria-selected="true"]{
               &, &:hover {
                 color: $white;
                 background: $light-gold
