@@ -1,4 +1,3 @@
-
 jQuery(document).ready(function($) {
 
     //this makes the top results drop down stay the same size
@@ -57,7 +56,7 @@ jQuery(document).ready(function($) {
         var search = new Search({site: site, start: start, num: 10, sort: sort});
         search.doSearch(query)
         .then(function(results){
-            var page = buildSearchResultsPage(site, query, results.results, results.total, startPage, sortType);
+            var page = window.txstsearch.buildSearchResultsPage(site, query, results.results, results.total, startPage, sortType);
             $('#search-results').remove();
             $('.page_content').after(page);
             $('.page_content').hide();
@@ -154,14 +153,8 @@ jQuery(document).ready(function($) {
         //redirect to global search if the user is on the homepage or selected that
         //they want to search all of Texas State instead of doing a site search
         if($('#sitesearch').length == 0 || $('#txst-all').prop('checked')){
-            var params = {
-                site: "txstate_no_users",
-                client: "txstate",
-                output: "xml_no_dtd",
-                proxystylesheet: "txstate",
-                q: $('#search-text').val()
-            };
-            var url = "http://search.txstate.edu/search?" + $.param(params);
+            var query = $('#search-text').val();
+            var url = "/search?q=" + query;
             window.location = url;
         }
         else{
@@ -236,98 +229,91 @@ jQuery(document).ready(function($) {
             $('.searchbreadcrumbs').remove();
         }
     });
-});
 
-//build the html that will replace the page content
-function buildSearchResultsPage(site, query, results, total, page, sort){
-    var firstResult = (page - 1) * 10 + 1;
-    var lastResult = (page * 10 > total) ? total : page * 10;
-    var range = firstResult + " - " + lastResult;
-    var sorting = '<div class="sort-results layout-column onethird">' +
-                        '<a href="#" data-sort="relevance" class="sort-link '+ (sort == "relevance" ? "active" : "") + '">Sort By Relevance</a>' +
-                        ' / ' +
-                        '<a href="#" data-sort="date" class="sort-link ' + (sort == "date" ? "active" : "") + '">Sort By Date</a>' +
-                    '</div>';
+    window.txstsearch = function () {
+        var ts = window.txstsearch;
 
-    var globalSearchParams = {
-        site: "txstate_no_users",
-        client: "txstate",
-        output: "xml_no_dtd",
-        proxystylesheet: "txstate",
-        q: query
-    };
-    var globalSearchUrl = "http://search.txstate.edu/search?" + jQuery.param(globalSearchParams);
+        ts.html_pagination = function (page, lastpage) {
+          var html = '<div class="visuallyhidden">Pagination</div>';
+            html += '<ul role="navigation" class="pagination">';
+            html += '<li><a href="#" class="pagination-link" aria-label="Previous Page" data-page="'+Math.max(page-1, 1)+'" aria-disabled="'+(page == 1 ? 'true' : 'false')+'">Prev</a></li>';
+            for (var i = Math.max(page-3, 1); i <= Math.min(page+3, lastpage); i++) {
+              html += '<li><a href="#" class="pagination-link" aria-selected="'+(i==page)+'" aria-label="Page '+i+'" data-page="'+i+'">'+i+'</a></li>';
+            }
+            html += '<li><a href="#" class="pagination-link" aria-label="Next Page" data-page="'+Math.min(page+1, lastpage)+'" aria-disabled="'+(page == lastpage ? 'true' : 'false')+'">Next</a></li>';
+            html += '</ul>';
+            return html;
+        };
 
-    var html =  '<div id="search-results">' +
-                    '<div class="layout-column twothirds">' +
-                        '<h1 class="search-results-title" id="maincontent">Search</h1>' +
-                    '</div>' +
-                    (results.length > 0 ? sorting : "") +
-                    '<div class="layout-column twothirds">' +
-                        '<div id="search-info" data-site="' + site + '" data-query="' + query + '" data-sort="' + sort + '"></div>' +
-                        '<div class="search-again">' +
-                            '<form class="searchbar-form">' +
-                                '<label class="hidden" for="s">Search Terms</label>' +
-                                '<input id="s" type="text" class="search" name="q" value="'+ query +'"></input><button class="icon"><i class="fa fa-search" aria-label="Start Search"></i></button>' +
-                            '</form>' +
-                            '<button class="icon reset"><i class="fa fa-times" aria-label="Reset Search"></i></button>' +
-                        '</div>' +
-                        (results.length > 0 ? '<div class="results-count">Results ' + range + ' of about ' + total + ' for ' + query + '.</div>' : "") +
-                        formatResults(results) +
-                        (results.length > 0 ? html_pagination(page, Math.ceil(total/10)) : "" ) +
-                    '</div><div class="layout-column onethird">' +
-                        '<div class="global-search">' +
-                            '<div class="all-results-help-text">Didn\'t find what you were looking for?</div>' +
-                            buildButton(globalSearchUrl) +
-                        '</div>' +
-                    '</div>' +
-                '</div>';
-    return html;
-}
+        //build the html that will replace the page content
+        ts.buildSearchResultsPage = function (site, query, results, total, page, sort){
+            var firstResult = (page - 1) * 10 + 1;
+            var lastResult = (page * 10 > total) ? total : page * 10;
+            var range = firstResult + " - " + lastResult;
+            var sorting = '<div class="sort-results layout-column onethird">' +
+                                '<a href="#" data-sort="relevance" class="sort-link '+ (sort == "relevance" ? "active" : "") + '">Sort By Relevance</a>' +
+                                ' / ' +
+                                '<a href="#" data-sort="date" class="sort-link ' + (sort == "date" ? "active" : "") + '">Sort By Date</a>' +
+                            '</div>';
 
-//build the results section, either a list of results or a message indicating
-//that no results were found
-function formatResults(results){
-    var html;
-    if(results.length == 0){
-        html = '<div class="no-results">No Results Found</div>';
-    }
-    else{
-        html = '<div class="results-list">';
-        for(var i=0; i<results.length; i++){
-            html += '<div class="result">' +
-                        '<a class="result-title" href="' + results[i].url +'">' + results[i].title + '</a>' +
-                        '<p class="summary">' + results[i].summary_html + '</p>' +
-                        '<a class="result-url-display" href="' + results[i].url + '">' + results[i].url_display + '</a>' +
-                    '</div>';
+            var globalSearchUrl = "/search?q=" + query;
+
+            var html =  '<div id="search-results">' +
+                            '<div class="layout-column twothirds">' +
+                                '<h1 class="search-results-title" id="maincontent">Search</h1>' +
+                            '</div>' +
+                            (results.length > 0 ? sorting : "") +
+                            '<div class="layout-column twothirds">' +
+                                '<div id="search-info" data-site="' + site + '" data-query="' + query + '" data-sort="' + sort + '"></div>' +
+                                '<div class="search-again">' +
+                                    '<form class="searchbar-form">' +
+                                        '<label class="hidden" for="s">Search Terms</label>' +
+                                        '<input id="s" type="text" class="search" name="q" value="'+ query +'"></input><button class="icon"><i class="fa fa-search" aria-label="Start Search"></i></button>' +
+                                    '</form>' +
+                                    '<button class="icon reset"><i class="fa fa-times" aria-label="Reset Search"></i></button>' +
+                                '</div>' +
+                                (results.length > 0 ? '<div class="results-count">Results ' + range + ' of about ' + total + ' for ' + query + '.</div>' : "") +
+                                window.txstsearch.formatResults(results) +
+                                (results.length > 0 ? window.txstsearch.html_pagination(page, Math.ceil(total/10)) : "" ) +
+                            '</div><div class="layout-column onethird">' +
+                                '<div class="global-search">' +
+                                    '<div class="all-results-help-text">Didn\'t find what you were looking for?</div>' +
+                                    window.txstsearch.buildButton(globalSearchUrl) +
+                                '</div>' +
+                            '</div>' +
+                        '</div>';
+            return html;
         }
-        html += '</div>';
-    }
-    return html;
-}
 
-//TODO: this is copied from globalsearch.  the global search version needs to be put somewhere
-//that it can be used by both searches
-var html_pagination = function (page, lastpage) {
-    var html = '<div class="visuallyhidden">Pagination</div>';
-    html += '<ul role="navigation" class="pagination">';
-    html += '<li><a href="#" class="pagination-link" aria-label="Previous Page" data-page="'+Math.max(page-1, 1)+'" aria-disabled="'+(page == 1 ? 'true' : 'false')+'">Prev</a></li>';
-    for (var i = Math.max(page-3, 1); i <= Math.min(page+3, lastpage); i++) {
-      if (i == page)
-        html += '<li><a href="#" class="pagination-link active" aria-label="You are currently reading page '+i+'" data-page="'+i+'">'+i+'</a></li>';
-      else
-        html += '<li><a href="#" class="pagination-link" aria-label="Page '+i+'" data-page="'+i+'">'+i+'</a></li>';
-    }
-    html += '<li><a href="#" class="pagination-link" aria-label="Next Page" data-page="'+Math.min(page+1, lastpage)+'" aria-disabled="'+(page == lastpage ? 'true' : 'false')+'">Next</a></li>';
-    html += '</ul>';
-    return html;
-  }
-
-function buildButton(url){
-    var html='<div class="button-wrapper all-results-button">' +
-                '<a class="button three-d color6 medium" href="'+ url +'">' +
-                    '<span>Search All Texas State</span>' +
-                '</a>' +
-             '</div>';
-    return html;
-}
+        //build the results section, either a list of results or a message indicating
+        //that no results were found
+        ts.formatResults = function (results){
+            var html;
+            if(results.length == 0){
+                html = '<div class="no-results">No Results Found</div>';
+            }
+            else{
+                html = '<div class="results-list">';
+                for(var i=0; i<results.length; i++){
+                    html += '<div class="result">' +
+                                '<a class="result-title" href="' + results[i].url +'">' + results[i].title + '</a>' +
+                                '<p class="summary">' + results[i].summary_html + '</p>' +
+                                '<a class="result-url-display" href="' + results[i].url + '">' + results[i].url_display + '</a>' +
+                            '</div>';
+                }
+                html += '</div>';
+            }
+            return html;
+        }
+        //build "Search All Texas State" button
+        ts.buildButton = function(url){
+            var html='<div class="button-wrapper all-results-button">' +
+                        '<a class="button three-d color6 medium" href="'+ url +'">' +
+                            '<span>Search All Texas State</span>' +
+                        '</a>' +
+                     '</div>';
+            return html;
+        }
+    };
+    txstsearch();
+});
