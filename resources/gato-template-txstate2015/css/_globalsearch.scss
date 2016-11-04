@@ -22,6 +22,7 @@
 
   .search-tabs {
     width: 100%;
+    margin: 0 0 2rem 0;
     list-style: none;
     border-bottom: 1px solid $dark-sandstone;
     overflow: hidden;
@@ -78,10 +79,14 @@
     }
   }
 
+	.search-container.global {
+    padding: 0 2rem;
+	}
+
   .search-column-main {
     width: 100% * 2.0/3.0;
     float: left;
-    padding: 0 2rem;
+    padding-right: 1.5em;
     @media screen and (max-width: $sm-breakpoint) {
       width: 100%;
     }
@@ -129,6 +134,7 @@
   .search-column-side {
     width: 100% * 1.0/3.0;
     float: left;
+    padding-left: 1.5em;
     @media screen and (max-width: $sm-breakpoint) {
       width: 100%;
     }

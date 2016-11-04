@@ -83,13 +83,14 @@ jQuery(document).ready(function($) {
         for (var i = start; i < Math.min(start+perpage, data.results.length); i++) {
           html += html_result_people(data.results[i]);
         }
+        for (var i = 0; i < 3 && i < data.results.length; i++) {
+          htmlshort += html_result_people_short(data.results[i]);
+        }
         if (data.results.length == 0) {
           html += 'No people were found that match your search.';
+          htmlshort += 'No people match your search.';
         } else {
           html += html_pagination(page, Math.ceil(data.count / perpage));
-        }
-        for (var i = 0; i < 3; i++) {
-          htmlshort += html_result_people_short(data.results[i]);
         }
         if (data.count > 3) {
           htmlshort += '<a href="#" class="search-people-more">'+(data.count-3)+' more people match your search</a>';

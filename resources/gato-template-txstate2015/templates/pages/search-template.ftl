@@ -43,13 +43,13 @@
 			[#include "includes/header.ftl"]
 
 			<div class="search-container global web" id="search-results">
+				<h1 class="headline">Search</h1>
+				<form class="search-form">
+					<input type="text" class="search" name="q" value=""></input>
+					<button class="icon magnify"><i class="fa fa-search" aria-label="Start Search"></i></button>
+					<button class="icon reset"><i class="fa fa-times" aria-label="Reset Search"></i></button>
+				</form>
 			  <div class="search-column-main">
-          <h1 class="headline">Search</h1>
-          <form class="search-form">
-            <input type="text" class="search" name="q" value=""></input>
-            <button class="icon magnify"><i class="fa fa-search" aria-label="Start Search"></i></button>
-            <button class="icon reset"><i class="fa fa-times" aria-label="Reset Search"></i></button>
-          </form>
           <ul class="search-tabs" role="tablist">
             <li class="search-tab-web" role="tab" tabindex="0">Web</li>
             <li class="search-tab-people" role="tab" tabindex="0">People</li>
