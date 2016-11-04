@@ -45,7 +45,7 @@ jQuery(document).ready(function($) {
         if (data.results.length == 0) {
           html += 'No results.';
         } else {
-          html += html_pagination(page, Math.ceil(data.total / perpage));
+          html += window.txstsearch.html_pagination(page, Math.ceil(data.total / perpage));
         }
         $('.search-web').html(html);
         create_event_handlers_web();
@@ -99,7 +99,7 @@ jQuery(document).ready(function($) {
           html += 'No people were found that match your search.';
           htmlshort += 'No people match your search.';
         } else {
-          html += html_pagination(page, Math.ceil(data.count / perpage));
+          html += window.txstsearch.html_pagination(page, Math.ceil(data.count / perpage));
         }
         if (data.count > 3) {
           htmlshort += '<a href="#" class="search-people-more">'+(data.count-3)+' more people match your search</a>';
@@ -180,18 +180,6 @@ jQuery(document).ready(function($) {
     if (result.email != 'unauthenticated')
       html += '<a class="person-email" href="mailto:'+result.email+'">'+result.email+'</a>';
     html += '</div>';
-    return html;
-  }
-
-  var html_pagination = function (page, lastpage) {
-    var html = '<div class="visuallyhidden">Pagination</div>';
-    html += '<ul role="navigation" class="pagination">';
-    html += '<li><a href="#" class="pagination-link" aria-label="Previous Page" data-page="'+Math.max(page-1, 1)+'" aria-disabled="'+(page == 1 ? 'true' : 'false')+'">Prev</a></li>';
-    for (var i = Math.max(page-3, 1); i <= Math.min(page+3, lastpage); i++) {
-      html += '<li><a href="#" class="pagination-link" aria-selected="'+(i==page)+'" aria-label="Page '+i+'" data-page="'+i+'">'+i+'</a></li>';
-    }
-    html += '<li><a href="#" class="pagination-link" aria-label="Next Page" data-page="'+Math.min(page+1, lastpage)+'" aria-disabled="'+(page == lastpage ? 'true' : 'false')+'">Next</a></li>';
-    html += '</ul>';
     return html;
   }
 
