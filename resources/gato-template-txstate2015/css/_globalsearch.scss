@@ -20,6 +20,10 @@
     &:hover {background: $content-link-hover;}
   }
 
+  .search-for {
+    padding-left: 2rem;
+  }
+
   .search-tabs {
     width: 100%;
     margin: 0 0 2rem 0;
@@ -79,9 +83,9 @@
     }
   }
 
-	.search-container.global {
+  .search-container.global {
     padding: 0 2rem;
-	}
+  }
 
   .search-column-main {
     width: 100% * 2.0/3.0;
@@ -90,6 +94,10 @@
     padding: 0 2rem;
     @media screen and (max-width: $sm-breakpoint) {
       width: 100%;
+    }
+    .search-count {
+      font-size: 1.7rem;
+      padding-bottom: 0.5rem;
     }
     .person {
       position: relative;

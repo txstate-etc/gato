@@ -43,7 +43,7 @@
       [#include "includes/header.ftl"]
 
       <div class="search-container global web" id="search-results">
-        <h1 class="headline">Search</h1>
+        <h3 class="search-for">Search</h3>
         <div class="search-column-main">
           <form class="search-form">
             <input type="text" class="search" name="q" value=""></input>

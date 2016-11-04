@@ -32,11 +32,13 @@ jQuery(document).ready(function($) {
     if (!page || page < 1) page = 1;
     $('.search-web').html('');
     if (isBlank(query)) return;
-    var search = new Search({start: (page-1)*perpage, num: 10, sort: sort});
+    var start = (page-1)*perpage;
+    var search = new Search({start: start, num: perpage, sort: sort});
     search.doSearch(query)
       .done(function(data){
         console.log(data);
         var html = '';
+        html += html_result_total(start, Math.min(start+data.results.length, start+perpage), data.total);
         $.each(data.results, function (i, result) {
           html += html_result_web(result);
         });
@@ -71,6 +73,9 @@ jQuery(document).ready(function($) {
           if (cat == "Retired Faculty") return 3;
           if (cat == "Doctoral") return 4;
           if (cat == "Masters") return 5;
+          if (cat == "Senior") return 6;
+          if (cat == "Junior") return 7;
+          if (cat == "Sophomore") return 8;
           return 10;
         }
         data.results.sort(function (a,b) {
@@ -79,8 +84,12 @@ jQuery(document).ready(function($) {
           if (cata == catb) return a.lastname.localeCompare(b.lastname);
           return cata - catb;
         });
+
         var start = (page-1)*perpage;
-        for (var i = start; i < Math.min(start+perpage, data.results.length); i++) {
+        var end = Math.min(start+perpage, data.results.length);
+        html += html_result_total(start, end, data.count);
+
+        for (var i = start; i < end; i++) {
           html += html_result_people(data.results[i]);
         }
         for (var i = 0; i < 3 && i < data.results.length; i++) {
@@ -115,8 +124,10 @@ jQuery(document).ready(function($) {
     var params = getUrlParameters();
     $('.search-form .search').val(params.q);
     search(params);
-    if (isBlank(params.q)) search_form_magnify();
-    else search_form_reset();
+    if (isBlank(params.q)) {
+      search_form_magnify();
+      $('.search-form .search').focus();
+    } else search_form_reset();
   }
 
   var update_state = function (params) {
@@ -182,6 +193,17 @@ jQuery(document).ready(function($) {
     html += '<li><a href="#" class="pagination-link" aria-label="Next Page" data-page="'+Math.min(page+1, lastpage)+'" aria-disabled="'+(page == lastpage ? 'true' : 'false')+'">Next</a></li>';
     html += '</ul>';
     return html;
+  }
+
+  var html_result_total = function (start, end, total) {
+    if (end > 0) {
+      if (start+1 == end) {
+        return '<div class="search-count">Showing result '+(start+1)+' of '+total+'.</div>';
+      } else {
+        return '<div class="search-count">Showing results '+(start+1)+'-'+end+' of '+total+'.</div>';
+      }
+    }
+    return '';
   }
 
   var search_form_reset = function () {

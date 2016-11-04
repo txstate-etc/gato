@@ -8,6 +8,7 @@ parameters:
   sortOrder: 100
   favicon: /gato-template-txstate2015/images/favicon.png
   touchicon: /gato-template-txstate2015/images/touchicon.png
+  isSearchTemplate: true
 variations:
   js:
     templateScript: /gato-component-cssjs/templates/pages/jsvariation.ftl
