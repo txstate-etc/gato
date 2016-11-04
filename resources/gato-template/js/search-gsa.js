@@ -25,7 +25,7 @@ Search.prototype.doSearch = function(query) {
     start: self.opts.start,
     num: self.opts.num,
     q: self.query,
-    sort: self.opts.sort
+    sort: (self.opts.sort == 'date' ? 'date:D:S:d1' : 'date:D:L:d1')
   };
 
   var dfd = $.Deferred();
@@ -43,11 +43,13 @@ Search.prototype.doSearch = function(query) {
         if (url_display.length > 40) url_display = url_display.substr(0,40)+"...";
         var title = $(this).find('T').text() || url;
         var summary = $(this).find('S').text() || 'No summary available.';
+        var date = $(this).find('FS[NAME="date"]').attr('VALUE');
         return {
           title: title,
           summary_html: summary,
           url: url,
-          url_display: url_display
+          url_display: url_display,
+          date: date
         }
       }).get();
       dfd.resolve(result);

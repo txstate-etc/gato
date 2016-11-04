@@ -39,6 +39,7 @@ jQuery(document).ready(function($) {
         console.log(data);
         var html = '';
         html += html_result_total(start, Math.min(start+data.results.length, start+perpage), data.total);
+        if (data.results.length > 0) html += html_sort_web(sort);
         $.each(data.results, function (i, result) {
           html += html_result_web(result);
         });
@@ -148,6 +149,7 @@ jQuery(document).ready(function($) {
              '<a class="result-title" href="' + result.url +'">' + result.title + '</a>' +
              '<p class="summary">' + result.summary_html + '</p>' +
              '<a class="result-url-display" href="' + result.url + '">' + result.url_display + '</a>' +
+             '<span class="result-date">('+moment(result.date).format('MMM D, YYYY')+')</span>'
            '</div>';
   }
 
@@ -194,6 +196,15 @@ jQuery(document).ready(function($) {
     return '';
   }
 
+  var html_sort_web = function (sort) {
+    var html = '<div class="search-sort-options">' +
+                 '<a href="#" data-sort="relevance" class="sort-link '+ (sort == "relevance" ? "active" : "") + '">Sort By Relevance</a>' +
+                 ' / ' +
+                 '<a href="#" data-sort="date" class="sort-link ' + (sort == "date" ? "active" : "") + '">Sort By Date</a>' +
+                 '</div>';
+    return html;
+  }
+
   var search_form_reset = function () {
     $('.search-form .magnify').hide();
     $('.search-form .reset').show();
@@ -213,6 +224,11 @@ jQuery(document).ready(function($) {
 
   var create_event_handlers_web = function() {
     $('.search-web .pagination-link').click(pagination_click);
+    $('.sort-link').click(function (e) {
+      var lnk = $(this);
+      e.preventDefault();
+      update_state_param('sort', lnk.data('sort'));
+    });
   }
   var create_event_handlers_people = function() {
     $('.search-people .pagination-link').click(pagination_click);
