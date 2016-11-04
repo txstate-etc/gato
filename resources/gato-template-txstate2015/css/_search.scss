@@ -115,16 +115,20 @@
         @media screen and (max-width: $sm-breakpoint) {
             width: 100%;
         }
-        .sort-link{
-            text-decoration: none;
-            color: $maroon;
-            font-size: 1.6rem;
-            &.active{
-                font-weight: bold;
-            }
+    }
+    .sort-link{
+        text-decoration: none;
+        color: $maroon;
+        font-size: 1.6rem;
+        &.active{
+            font-weight: bold;
             &:hover{
-                text-decoration: underline;
+              text-decoration: none;
+              background-color: transparent;
             }
+        }
+        &:hover{
+            text-decoration: underline;
         }
     }
 
