@@ -6,12 +6,12 @@
 			    </a>
 		</div>
 		<div class="hamburger standard-hamburger">
-			[#if !def.parameters.isSearchTemplate]
+			[#if !def.parameters.isSearchTemplate!false]
 			<button class="search-link search-link-mobile search-button" href="#" aria-label="Start search"><i class="fa fa-search"></i></button>
 			[/#if]
 			<button class="search-link search-link-mobile toggle-button" href="#" aria-label="Menu - toggle site navigation"><i class="fa fa-bars"></i></button>
 		</div>
-		[#if !def.parameters.isSearchTemplate]
+		[#if !def.parameters.isSearchTemplate!false]
 			<div class="gato-search txst_search standard-search" role="search">
 				<div class="search_bar">
 					<button class="search-link search-button">
