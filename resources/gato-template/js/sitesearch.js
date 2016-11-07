@@ -237,11 +237,12 @@ jQuery(document).ready(function($) {
         ts.html_pagination = function (page, lastpage) {
           var html = '<div class="visuallyhidden">Pagination</div>';
             html += '<ul role="navigation" class="pagination">';
-            html += '<li><a href="#" class="pagination-link" aria-label="Previous Page" data-page="'+Math.max(page-1, 1)+'" aria-disabled="'+(page == 1 ? 'true' : 'false')+'">Prev</a></li>';
+            html += '<li><a href="#" class="pagination-link previous' + (page > 1 ? " enabled" : "") + '" aria-label="Previous Page" data-page="'+Math.max(page-1, 1)+'" aria-disabled="'+(page == 1 ? 'true' : 'false')+'">< Previous</a></li>';
             for (var i = Math.max(page-3, 1); i <= Math.min(page+3, lastpage); i++) {
-              html += '<li><a href="#" class="pagination-link" aria-selected="'+(i==page)+'" aria-label="Page '+i+'" data-page="'+i+'">'+i+'</a></li>';
+                var firstorlast = (i==1 || i == lastpage) ? true : false;
+              html += '<li><a href="#" class="pagination-link'+ (firstorlast ? " emphasize" : "" ) +'" aria-selected="'+(i==page)+'" aria-label="Page '+i+'" data-page="'+i+'">'+i+'</a></li>';
             }
-            html += '<li><a href="#" class="pagination-link" aria-label="Next Page" data-page="'+Math.min(page+1, lastpage)+'" aria-disabled="'+(page == lastpage ? 'true' : 'false')+'">Next</a></li>';
+            html += '<li><a href="#" class="pagination-link next' + (page < lastpage ? " enabled" : "") + '" aria-label="Next Page" data-page="'+Math.min(page+1, lastpage)+'" aria-disabled="'+(page == lastpage ? 'true' : 'false')+'">Next ></a></li>';
             html += '</ul>';
             return html;
         };

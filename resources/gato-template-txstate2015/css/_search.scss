@@ -249,20 +249,31 @@
         .pagination-link, .nonlink{
             padding: .5rem 1rem .5rem 1rem;
             margin: 0 1rem 1rem 0;
-            border: 1px solid $gold;
-            color: $gold;
-            font-weight: bold;
+            color: #222;
             text-decoration: none;
             float: left;
             &.active,&[aria-selected="true"]{
               &, &:hover {
-                color: $white;
-                background: $light-gold
+                background: $sandstone
               }
             }
             &:hover{
-                color: $white;
-                background: $maroon;
+                background: $sandstone;
+            }
+            &.previous, &.next{
+                color: #d9d9d9;
+                &:hover {
+                    background: transparent;
+                }
+                &.enabled{
+                    color: #222;
+                    &:hover {
+                        background: $sandstone;
+                    }
+                }
+            }
+            &.emphasize{
+                font-weight: bold;
             }
         }
     }
