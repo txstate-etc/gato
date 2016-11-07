@@ -60,7 +60,7 @@ jQuery(document).ready(function($) {
             $('#search-results').remove();
             $('.page_content').after(page);
             $('.page_content').hide();
-            $('.search-again .searchbar-form .icon').hide();
+            $('.search-again .searchbar-form .icon.magnify').hide();
             create_event_handlers();
         })
         .fail(function(){
@@ -127,8 +127,9 @@ jQuery(document).ready(function($) {
     var search_again_reset = function(e) {
         e.preventDefault();
         $('.search-again .search').val("");
-        $('.search-again .reset').hide();
-        $('.search-again .searchbar-form .icon').show();
+        $('.search-again .search').focus();
+        $('.search-again .icon.reset').hide();
+        $('.search-again .searchbar-form .icon.magnify').show();
     }
 
     var search_again = function(e){
@@ -140,8 +141,8 @@ jQuery(document).ready(function($) {
     var search_again_change = function(e){
         var target = $(e.target);
         if(target.val() != $('#search-info').data('query')){
-            $('.search-again .reset').hide();
-            $('.search-again .searchbar-form .icon').show();
+            $('.search-again .searchbar-form .icon.reset').hide();
+            $('.search-again .searchbar-form .icon.magnify').show();
         }
     }
     
@@ -208,7 +209,7 @@ jQuery(document).ready(function($) {
         $('.pagination-link').click(pagination_click);
         $('.sort-link').click(sorting_click);
         $('.search-again .reset').click(search_again_reset);
-        $('.search-again .searchbar-form .icon').click(search_again);
+        $('.search-again .searchbar-form .icon.magnify').click(search_again);
         $('.search-again .searchbar-form .search').keyup(search_again_change);
     }
 
@@ -268,9 +269,9 @@ jQuery(document).ready(function($) {
                                 '<div class="search-again">' +
                                     '<form class="searchbar-form">' +
                                         '<label class="hidden" for="s">Search Terms</label>' +
-                                        '<input id="s" type="text" class="search" name="q" value="'+ query +'"></input><button class="icon"><i class="fa fa-search" aria-label="Start Search"></i></button>' +
+                                        '<input id="s" type="text" class="search" name="q" value="'+ query +'"></input><button class="icon magnify"><i class="fa fa-search" aria-label="Start Search"></i></button>' +
+                                        '<button class="icon reset"><i class="fa fa-times" aria-label="Reset Search"></i></button>' +
                                     '</form>' +
-                                    '<button class="icon reset"><i class="fa fa-times" aria-label="Reset Search"></i></button>' +
                                 '</div>' +
                                 (results.length > 0 ? '<div class="results-count">Results ' + range + ' of about ' + total + ' for ' + query + '.</div>' : "") +
                                 window.txstsearch.formatResults(results) +
