@@ -145,7 +145,7 @@ jQuery(document).ready(function($) {
             $('.search-again .searchbar-form .icon.magnify').show();
         }
     }
-    
+
     //handles submit from search modal
     $('.searchbar-form').submit(function(e){
         e.preventDefault();
@@ -235,6 +235,7 @@ jQuery(document).ready(function($) {
         var ts = window.txstsearch;
 
         ts.html_pagination = function (page, lastpage) {
+          if (lastpage == 1) return '';
           var html = '<div class="visuallyhidden">Pagination</div>';
             html += '<ul role="navigation" class="pagination">';
             html += '<li><a href="#" class="pagination-link previous' + (page > 1 ? " enabled" : "") + '" aria-label="Previous Page" data-page="'+Math.max(page-1, 1)+'" aria-disabled="'+(page == 1 ? 'true' : 'false')+'">< Previous</a></li>';

@@ -37,8 +37,9 @@
       cursor: pointer;
       padding: 1rem;
       width: 10rem;
-      font-family: $garamond;
       text-align: center;
+      font-weight: bold;
+      font-size: 1.5rem;
       color: $dark-gray;
       &[aria-selected="true"] {
         background-color: $sandstone;
@@ -51,8 +52,9 @@
     position: relative;
     border-bottom: 3px solid $gold;
     padding-bottom: 0.5rem;
+    margin-left: 2rem;
     margin-bottom: 4rem;
-    width: 50rem;
+    max-width: 50rem;
     font-size: 2.4rem;
     @media screen and (max-width: $mc-breakpoint) {
         font-size: 2rem;
@@ -61,6 +63,7 @@
         background: transparent;
         border: none;
         width: 100%;
+        width: calc(100% - 30px);
         color: #222;
         font-weight: 500;
         font-family: $univers;
@@ -83,8 +86,8 @@
     }
   }
 
-  .search-container.global {
-    padding: 0 2rem;
+  &.search-container.global {
+    padding: 4rem 0;
   }
 
   .search-column-main {
@@ -99,22 +102,55 @@
       font-size: 1.7rem;
       padding-bottom: 0.5rem;
     }
+    .search-people-advanced {
+      margin-bottom: 2rem;
+      font-size: 1.7rem;
+    }
+    .search-people-advanced-info {
+      margin-top: -1rem;
+      margin-bottom: 2rem;
+      font-size: 1.5rem;
+      padding: 0 2rem;
+      .advanced-search-column {
+        width: 50%;
+        float: left;
+        overflow: hidden;
+      }
+      .advanced-search-examples {
+        padding-top: 0.5rem;
+        clear: both;
+      }
+      h4 {
+        margin: 0.5rem 0;
+      }
+    }
+
     .person {
       position: relative;
       overflow: hidden;
-      margin: 1rem 0;
-      padding: 1rem;
-      border: 1px solid $sandstone;
+      margin-top: 1rem;
+      margin-bottom: 3rem;
       .person-name {
         border-bottom: 1px dotted $dark-sandstone;
         margin-bottom: 0.5rem;
-        font-weight: 500;
-        color: $maroon;
+        padding: 0.5rem 0;
+        a {
+          font-weight: bold;
+          color: $gold;
+          text-decoration: none;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
       }
       .person-category {
         position: absolute;
-        top: 1rem;
+        top: 0.5rem;
         right: 1rem;
+        font-weight: 500;
+        /* font-size: 2.0rem; */
+        font-variant: small-caps;
+        text-transform: lowercase;
       }
       dl {
         overflow: hidden;
@@ -125,17 +161,17 @@
       &[data-eq~="600px"] dl {
         width: 100%;
       }
+
       dt {
-        width: 14rem;
         font-weight: 500;
         float: left;
-        text-align: right;
-        padding-right: 2rem;
+        padding-right: 1rem;
       }
       dd {
-        margin-left: 14rem;
+        margin: 0 0 0 1rem;
       }
       dt, dd {
+        line-height: 2.2rem;
         font-size: 1.7rem;
       }
     }
@@ -158,13 +194,19 @@
         color: $maroon;
         font-weight: 500;
       }
+      .search-people-more {
+        font-size: 1.6rem;
+        padding: 1rem 0;
+      }
       .search-side-results {
         padding: 1rem;
         .person {
-          margin-bottom: 1.5rem;
+          padding: 1rem 0;
+          font-size: 1.6rem;
           .person-name {
+            font-size: 1.8rem;
             font-weight: 500;
-            color: $dark-gold;
+            color: $gold;
           }
         }
       }

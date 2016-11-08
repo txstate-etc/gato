@@ -139,6 +139,11 @@ function createUrlQuery(params) {
   return '?'+pairs.join('&');
 }
 
+function html_encode( html ) {
+    return document.createElement( 'a' ).appendChild(
+        document.createTextNode( html ) ).parentNode.innerHTML;
+};
+
 // Add an abort method to Prototype's Ajax implementation
 Ajax.Request.prototype.abort = function() {
 	this.transport.onreadystatechange = Prototype.emptyFunction;

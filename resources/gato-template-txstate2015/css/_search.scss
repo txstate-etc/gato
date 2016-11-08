@@ -117,11 +117,10 @@
         }
     }
     .sort-link{
-        text-decoration: none;
-        color: $maroon;
         font-size: 1.6rem;
         &.active{
             font-weight: bold;
+            text-decoration: none;
             &:hover{
               text-decoration: none;
               background-color: transparent;
@@ -215,9 +214,9 @@
                 margin: 0.5rem 0 0.5rem 0;
                 line-height: 2.5rem;
             }
-            a.result-url-display{
-                color: $blue;
-                text-decoration: underline;
+            .result-url-display{
+                color: $dark-gray;
+                font-size: 1.6rem;
             }
         }
     }
@@ -253,6 +252,7 @@
             text-decoration: none;
             float: left;
             &.active,&[aria-selected="true"]{
+              font-weight: 500;
               &, &:hover {
                 background: $sandstone
               }
@@ -261,7 +261,7 @@
                 background: $sandstone;
             }
             &.previous, &.next{
-                color: #d9d9d9;
+                color: $medium-light-gray;
                 &:hover {
                     background: transparent;
                 }
@@ -271,9 +271,6 @@
                         background: $sandstone;
                     }
                 }
-            }
-            &.emphasize{
-                font-weight: bold;
             }
         }
     }

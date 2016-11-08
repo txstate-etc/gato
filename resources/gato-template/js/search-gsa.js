@@ -35,7 +35,7 @@ Search.prototype.doSearch = function(query) {
     success: function(data, textStatus, jqXHR) {
       console.log(data);
       var result = {};
-      result.total = parseInt($(data).find('M').text());
+      result.total = parseInt($(data).find('M').text()) || 0;
       result.type = "web";
       result.results = $(data).find('R').map(function() {
         var url = $(this).find('U').text();

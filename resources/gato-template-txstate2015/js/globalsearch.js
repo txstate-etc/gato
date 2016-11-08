@@ -89,7 +89,14 @@ jQuery(document).ready(function($) {
         var start = (page-1)*perpage;
         var end = Math.min(start+perpage, data.results.length);
         html += html_result_total(start, end, data.count);
-
+        html += '<div class="search-people-advanced"><a href="#">Advanced Search</a></div>';
+        html += '<div class="search-people-advanced-info" style="display: none;">'+
+        '<div class="advanced-search-intro">People Search allows for very detailed searches. You may combine any of these phrases to create a search string:</div>'+
+        '<div class="advanced-search-column"><h4>Fields</h4>lastname<br>firstname<br>email<br>department<br>address<br>phone<br>userid</div>'+
+        '<div class="advanced-search-column"><h4>Operators</h4>is<br>contains<br>begins with<br>ends with</div>'+
+        '<div class="advanced-search-examples"><h4>Examples</h4>lastname contains taylor<br>'+
+        'email contains jb<br>lastname begins with bura<br>department contains athletics</div>'+
+        '</div>';
         for (var i = start; i < end; i++) {
           html += html_result_people(data.results[i]);
         }
@@ -102,8 +109,9 @@ jQuery(document).ready(function($) {
         } else {
           html += window.txstsearch.html_pagination(page, Math.ceil(data.count / perpage));
         }
-        if (data.count > 3) {
-          htmlshort += '<a href="#" class="search-people-more">'+(data.count-3)+' more people match your search</a>';
+        if (data.count > 0) {
+          var pluralpeople = (data.count == 1 ? 'person' : 'people');
+          htmlshort += '<div class="search-people-more"><a href="#">'+(data.count)+' '+pluralpeople+' found.</a></div>';
         }
         $('.search-side-people').css('display', '');
         $('.search-people').html(html);
@@ -132,6 +140,11 @@ jQuery(document).ready(function($) {
   }
 
   var update_state = function (params) {
+    var oldparams = getUrlParameters();
+    if (oldparams.q != params.q) {
+      delete params.webpage;
+      delete params.peoplepage;
+    }
     history.pushState(null, null, createUrlQuery(params));
     load_from_state();
   }
@@ -144,43 +157,55 @@ jQuery(document).ready(function($) {
     }
   }
 
+  var update_state_params = function (newparams) {
+    var params = getUrlParameters();
+    var changed = false;
+    for (var key in newparams) {
+      if (newparams.hasOwnProperty(key)) {
+        if (params[key] != newparams[key]) changed = true;
+        params[key] = newparams[key];
+      }
+    }
+    if (changed) update_state(params);
+  }
+
   var html_result_web = function (result) {
     return '<div class="result">' +
              '<a class="result-title" href="' + result.url +'">' + result.title + '</a>' +
-             '<p class="summary">' + result.summary_html + '</p>' +
-             '<a class="result-url-display" href="' + result.url + '">' + result.url_display + '</a>' +
+             '<p class="summary">' + result.summary_html.replace('<br>', ' ') + '</p>' +
+             '<span class="result-url-display" href="' + result.url + '">' + result.url_display + '</span>' +
              '<span class="result-date">('+moment(result.date).format('MMM D, YYYY')+')</span>'
            '</div>';
   }
 
   var html_result_people = function (result) {
     var html = '<div class="person eq-parent">'+
-               '<div class="person-name">'+result.firstname+' '+result.lastname+'</div>'+
+               '<div class="person-name"><a href="#" data-userid="'+result.userid+'">'+result.firstname+' '+result.lastname+'</a></div>'+
                '<div class="person-category">'+result.category+'</div>';
     if (!isBlank(result.title))
-      html += '<dl><dt class="person-title">Title:</dt><dd class="person-title">'+result.title+'</dd></dl>';
+      html += '<dl class="person-title"><dt>Title:</dt><dd>'+result.title+'</dd></dl>';
     if (!isBlank(result.department))
-      html += '<dl><dt class="person-department">Department:</dt><dd class="person-department">'+result.department+'</dd></dl>';
+      html += '<dl class="person-department"><dt>Department:</dt><dd><a href="#">'+result.department+'</a></dd></dl>';
     if (!isBlank(result.address))
-      html += '<dl><dt class="person-address">Address:</dt><dd class="person-address">'+result.address+'</dd></dl>';
-    if (!isBlank(result.phone))
-      html += '<dl><dt class="person-phone">Phone:</dt><dd class="person-phone">'+result.phone+'</dd></dl>';
-    if (result.email != 'unauthenticated')
-      html += '<dl><dt class="person-email">Email:</dt><dd class="person-email">'+
-              '<a class="person-email" href="mailto:'+result.email+'">'+result.email+'</a></dd></dl>';
+      html += '<dl class="person-address"><dt>Address:</dt><dd>'+result.address+'</dd></dl>';
     if (!isBlank(result.userid))
-      html += '<dl><dt class="person-netid">NetID:</dt><dd class="person-netid">'+result.userid+'</dd></dl>';
+      html += '<dl class="person-netid"><dt>NetID:</dt><dd>'+result.userid+'</dd></dl>';
+    if (!isBlank(result.phone))
+      html += '<dl class="person-phone"><dt>Phone:</dt><dd>'+result.phone+'</dd></dl>';
+    if (result.email != 'unauthenticated')
+      html += '<dl class="person-email"><dt>Email:</dt><dd>'+
+              '<a class="person-email" href="mailto:'+html_encode(result.email)+'">'+html_encode(result.email)+'</a></dd></dl>';
     html += '</div>';
     return html;
   }
 
   var html_result_people_short = function (result) {
     var html = '<div class="person">';
-    html += '<div class="person-name">'+result.firstname+' '+result.lastname+'</div>';
+    html += '<div class="person-name"><a href="#" data-userid="'+result.userid+'">'+result.firstname+' '+result.lastname+'</a></div>';
     html += '<div class="person-category">'+result.category+'</div>';
     html += '<div class="person-phone">'+result.phone+'</div>';
     if (result.email != 'unauthenticated')
-      html += '<a class="person-email" href="mailto:'+result.email+'">'+result.email+'</a>';
+      html += '<a class="person-email" href="mailto:'+html_encode(result.email)+'">'+html_encode(result.email)+'</a>';
     html += '</div>';
     return html;
   }
@@ -232,9 +257,27 @@ jQuery(document).ready(function($) {
   }
   var create_event_handlers_people = function() {
     $('.search-people .pagination-link').click(pagination_click);
-    $('.search-people-more').click(function(e) {
+    $('.search-people-more a').click(function(e) {
       e.preventDefault();
       change_tab('people');
+    });
+    $('#search-results .person-name a').click(function(e) {
+      e.preventDefault();
+      update_state_params({
+        'q': 'userid is '+$(this).data('userid'),
+        'type': 'people'
+      });
+    });
+    $('.search-people-advanced a').click(function(e) {
+      e.preventDefault();
+      $('.search-people-advanced-info').toggle();
+    });
+    $('#search-results .person-department a').click(function(e) {
+      e.preventDefault();
+      update_state_params({
+        'q': 'department is "'+$(this).text()+'"',
+        'type': 'people'
+      });
     });
     window.elementqueries.update();
   }
