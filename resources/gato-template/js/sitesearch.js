@@ -239,10 +239,26 @@ jQuery(document).ready(function($) {
           var html = '<div class="visuallyhidden">Pagination</div>';
             html += '<ul role="navigation" class="pagination">';
             html += '<li><a href="#" class="pagination-link previous' + (page > 1 ? " enabled" : "") + '" aria-label="Previous Page" data-page="'+Math.max(page-1, 1)+'" aria-disabled="'+(page == 1 ? 'true' : 'false')+'">< Previous</a></li>';
-            for (var i = Math.max(page-3, 1); i <= Math.min(page+3, lastpage); i++) {
-                var firstorlast = (i==1 || i == lastpage) ? true : false;
-              html += '<li><a href="#" class="pagination-link'+ (firstorlast ? " emphasize" : "" ) +'" aria-selected="'+(i==page)+'" aria-label="Page '+i+'" data-page="'+i+'">'+i+'</a></li>';
+            //first page
+            html += '<li><a href="#" class="pagination-link" aria-selected="' + (page == 1) + '" aria-label="Page 1" data-page="1">1</a></li>';
+            //first ellipsis, if needed
+            if(lastpage > 4 && page > 2){
+                html += '<li><span class="nonlink">...</span></li>';
             }
+            if(lastpage == 3){
+                html += '<li><a href="#" class="pagination-link" aria-selected="'+(page == 2)+'" aria-label="Page 2" data-page="2">2</a></li>';
+            }
+            else{
+                for (var i = Math.min(Math.max(page - 1, 2), lastpage-2); i <= Math.max(Math.min(page + 1, lastpage - 1),3); i++) {
+                  html += '<li><a href="#" class="pagination-link" aria-selected="'+(i==page)+'" aria-label="Page '+i+'" data-page="'+i+'">'+i+'</a></li>';
+                }
+            }
+            //second ellipsis, if needed
+            if(lastpage > 4 && page < (lastpage - 2)){
+                html += '<li><span class="nonlink">...</span></li>';
+            }
+            //last page
+            html += '<li><a href="#" class="pagination-link" aria-selected="' + (page == lastpage) + '" aria-label="Page ' + lastpage + '" data-page="' + lastpage + '">' + lastpage + '</li>';
             html += '<li><a href="#" class="pagination-link next' + (page < lastpage ? " enabled" : "") + '" aria-label="Next Page" data-page="'+Math.min(page+1, lastpage)+'" aria-disabled="'+(page == lastpage ? 'true' : 'false')+'">Next ></a></li>';
             html += '</ul>';
             return html;
