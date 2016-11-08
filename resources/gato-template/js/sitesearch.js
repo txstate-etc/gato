@@ -51,9 +51,8 @@ jQuery(document).ready(function($) {
     //results on the current page.  The search results are inserted after the original
     //page content and the original page content is hidden.
     function siteSearch(site, query, startPage, sortType){
-        var sort = (sortType == "date") ? "date:D:S:d1" : "relevance";
         var start = (startPage <= 1) ? 0 : (10 * (startPage -1));
-        var search = new Search({site: site, start: start, num: 10, sort: sort});
+        var search = new Search({site: site, start: start, num: 10, sort: sortType});
         search.doSearch(query)
         .then(function(results){
             var page = window.txstsearch.buildSearchResultsPage(site, query, results.results, results.total, startPage, sortType);
@@ -269,7 +268,7 @@ jQuery(document).ready(function($) {
             var firstResult = (page - 1) * 10 + 1;
             var lastResult = (page * 10 > total) ? total : page * 10;
             var range = firstResult + " - " + lastResult;
-            var sorting = '<div class="sort-results layout-column onethird">' +
+            var sorting = '<div class="sort-results">' +
                                 '<a href="#" data-sort="relevance" class="sort-link '+ (sort == "relevance" ? "active" : "") + '">Sort By Relevance</a>' +
                                 ' / ' +
                                 '<a href="#" data-sort="date" class="sort-link ' + (sort == "date" ? "active" : "") + '">Sort By Date</a>' +
@@ -281,7 +280,6 @@ jQuery(document).ready(function($) {
                             '<div class="layout-column twothirds">' +
                                 '<h1 class="search-results-title" id="maincontent">Search</h1>' +
                             '</div>' +
-                            (results.length > 0 ? sorting : "") +
                             '<div class="layout-column twothirds">' +
                                 '<div id="search-info" data-site="' + site + '" data-query="' + query + '" data-sort="' + sort + '"></div>' +
                                 '<div class="search-again">' +
@@ -292,6 +290,7 @@ jQuery(document).ready(function($) {
                                     '</form>' +
                                 '</div>' +
                                 (results.length > 0 ? '<div class="results-count">Results ' + range + ' of about ' + total + ' for ' + query + '.</div>' : "") +
+                                (results.length > 0 ? sorting : "") +
                                 window.txstsearch.formatResults(results) +
                                 (results.length > 0 ? window.txstsearch.html_pagination(page, Math.ceil(total/10)) : "" ) +
                             '</div><div class="layout-column onethird">' +
@@ -317,7 +316,7 @@ jQuery(document).ready(function($) {
                     html += '<div class="result">' +
                                 '<a class="result-title" href="' + results[i].url +'">' + results[i].title + '</a>' +
                                 '<p class="summary">' + results[i].summary_html + '</p>' +
-                                '<a class="result-url-display" href="' + results[i].url + '">' + results[i].url_display + '</a>' +
+                                '<span class="result-url-display" href="' + results[i].url + '">' + results[i].url_display + '</span>' +
                             '</div>';
                 }
                 html += '</div>';

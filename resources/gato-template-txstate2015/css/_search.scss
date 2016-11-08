@@ -109,12 +109,7 @@
     }
 
     div.sort-results{
-        width: 100% * 1.0/3.0;
-        padding-top: 1rem;
-        text-align: right;
-        @media screen and (max-width: $sm-breakpoint) {
-            width: 100%;
-        }
+        margin-top: 1.5rem;
     }
     .sort-link{
         font-size: 1.6rem;
@@ -132,7 +127,11 @@
     }
 
     .global-search{
-        margin-top: 2.8rem;
+        margin-top: 4.4rem;
+        @media screen and (max-width: $sm-breakpoint) {
+            margin: 2rem 0rem 2.5rem 0rem;
+        }
+
     }
 
     .no-results{
@@ -188,7 +187,8 @@
     }
 
     .results-count{
-        margin-top: 2rem;
+        margin-top: 1rem;
+        font-size: 1.4rem;
     }
 
     .results-list{
@@ -225,7 +225,10 @@
         font-size: 1.2rem;
         color: $gold;
         text-align: right;
-        margin-bottom: 5px;
+        margin-bottom: 10px;
+        @media screen and (max-width: $sm-breakpoint) {
+            text-align: left;
+        }
     }
 
     .all-results-button{
