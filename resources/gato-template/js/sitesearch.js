@@ -244,12 +244,14 @@ jQuery(document).ready(function($) {
             if(lastpage > 4 && page > 2){
                 html += '<li><span class="nonlink">...</span></li>';
             }
-            if(lastpage == 3){
-                html += '<li><a href="#" class="pagination-link" aria-selected="'+(page == 2)+'" aria-label="Page 2" data-page="2">2</a></li>';
-            }
-            else{
-                for (var i = Math.min(Math.max(page - 1, 2), lastpage-2); i <= Math.max(Math.min(page + 1, lastpage - 1),3); i++) {
-                  html += '<li><a href="#" class="pagination-link" aria-selected="'+(i==page)+'" aria-label="Page '+i+'" data-page="'+i+'">'+i+'</a></li>';
+            if(lastpage > 2){
+                if(lastpage == 3){
+                    html += '<li><a href="#" class="pagination-link" aria-selected="'+(page == 2)+'" aria-label="Page 2" data-page="2">2</a></li>';
+                }
+                else{
+                    for (var i = Math.min(Math.max(page - 1, 2), lastpage-2); i <= Math.max(Math.min(page + 1, lastpage - 1),3); i++) {
+                      html += '<li><a href="#" class="pagination-link" aria-selected="'+(i==page)+'" aria-label="Page '+i+'" data-page="'+i+'">'+i+'</a></li>';
+                    }
                 }
             }
             //second ellipsis, if needed
