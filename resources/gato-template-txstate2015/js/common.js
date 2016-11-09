@@ -87,6 +87,14 @@ jQuery(document).ready(function($) {
     }
   });
 
+  var goToAnchor = function(){
+    var position = $(document.location.hash).offset();
+    if(position) $(document).scrollTop( position.top );
+  };
+  if(window.location.hash.length >0){
+    setTimeout(goToAnchor, 500);
+  }
+
   /*** SLIDEOUT MENU ***/
   var slideoutPadding = 300;
   //IE9 does not support window.matchMedia
