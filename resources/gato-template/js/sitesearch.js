@@ -241,7 +241,7 @@ jQuery(document).ready(function($) {
             //first page
             html += '<li><a href="#" class="pagination-link" aria-selected="' + (page == 1) + '" aria-label="Page 1" data-page="1">1</a></li>';
             //first ellipsis, if needed
-            if(lastpage > 4 && page > 2){
+            if(lastpage > 4 && page > 3){
                 html += '<li><span class="nonlink">...</span></li>';
             }
             if(lastpage > 2){
