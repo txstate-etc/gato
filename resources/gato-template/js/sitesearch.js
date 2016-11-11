@@ -24,7 +24,7 @@ jQuery(document).ready(function($) {
             var search = new Search(options);
             search.doSearch(request.term)
             .then(function(results){
-                var data = results.results.map(function(obj){
+                var data = results.results.slice(0,3).map(function(obj, index){
                     var result = {title: obj.title, url_display: obj.url_display, url: obj.url};
                     return result;
                 });
@@ -55,7 +55,7 @@ jQuery(document).ready(function($) {
         var search = new Search({site: site, start: start, num: 10, sort: sortType});
         search.doSearch(query)
         .then(function(results){
-            var page = window.txstsearch.buildSearchResultsPage(site, query, results.results, results.total, startPage, sortType);
+            var page = window.txstsearch.buildSearchResultsPage(site, query, results, startPage, sortType);
             $('#search-results').remove();
             $('.page_content').after(page);
             $('.page_content').hide();
@@ -266,10 +266,9 @@ jQuery(document).ready(function($) {
         };
 
         //build the html that will replace the page content
-        ts.buildSearchResultsPage = function (site, query, results, total, page, sort){
-            var firstResult = (page - 1) * 10 + 1;
-            var lastResult = (page * 10 > total) ? total : page * 10;
-            var range = firstResult + " - " + lastResult;
+        ts.buildSearchResultsPage = function (site, query, results, page, sort){
+            var total = results.total;
+            var range = results.start + " - " + results.end;
             var sorting = '<div class="sort-results">' +
                                 '<a href="#" data-sort="relevance" class="sort-link '+ (sort == "relevance" ? "active" : "") + '">Sort By Relevance</a>' +
                                 ' / ' +
@@ -277,6 +276,8 @@ jQuery(document).ready(function($) {
                             '</div>';
 
             var globalSearchUrl = "/search?q=" + query;
+
+            var searchResults = results.results;
 
             var html =  '<div id="search-results">' +
                             '<div class="layout-column twothirds">' +
@@ -291,10 +292,10 @@ jQuery(document).ready(function($) {
                                         '<button class="icon reset"><i class="fa fa-times" aria-label="Reset Search"></i></button>' +
                                     '</form>' +
                                 '</div>' +
-                                (results.length > 0 ? '<div class="results-count">Results ' + range + ' of about ' + total + ' for ' + query + '.</div>' : "") +
-                                (results.length > 0 ? sorting : "") +
-                                window.txstsearch.formatResults(results) +
-                                (results.length > 0 ? window.txstsearch.html_pagination(page, Math.ceil(total/10)) : "" ) +
+                                (searchResults.length > 0 ? '<div class="results-count">Results ' + range + ' of about ' + total + ' for ' + query + '.</div>' : "") +
+                                (searchResults.length > 0 ? sorting : "") +
+                                window.txstsearch.formatResults(searchResults) +
+                                (searchResults.length > 0 ? window.txstsearch.html_pagination(page, Math.ceil(total/10)) : "" ) +
                             '</div><div class="layout-column onethird">' +
                                 '<div class="global-search">' +
                                     '<div class="all-results-help-text">Didn\'t find what you were looking for?</div>' +
@@ -315,10 +316,11 @@ jQuery(document).ready(function($) {
             else{
                 html = '<div class="results-list">';
                 for(var i=0; i<results.length; i++){
-                    html += '<div class="result">' +
+                    html += '<div class="result' + (results[i].featured ? " featured" : "" )+'">' +
                                 '<a class="result-title" href="' + results[i].url +'">' + results[i].title + '</a>' +
                                 '<p class="summary">' + results[i].summary_html + '</p>' +
                                 '<span class="result-url-display" href="' + results[i].url + '">' + results[i].url_display + '</span>' +
+                                (results[i].featured ? "" : '<span class="result-date">'+moment(results[i].date).format('MM-DD-YYYY')+'</span>') + 
                             '</div>';
                 }
                 html += '</div>';

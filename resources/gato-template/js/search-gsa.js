@@ -33,10 +33,27 @@ Search.prototype.doSearch = function(query) {
     url: params.url,
     data: params,
     success: function(data, textStatus, jqXHR) {
-      console.log(data);
       var result = {};
       result.total = parseInt($(data).find('M').text()) || 0;
+      result.start = params.start + 1;
+      result.end = (params.start + params.num) > result.total ? result.total : (params.start + params.num);
       result.type = "web";
+      if(params.start == 0){
+        var featuredResults = $(data).find('GM').map(function() {
+          var url = $(this).find('GL').text();
+          var url_display = url.replace(/^\w+:\/\//, '');
+          if (url_display.length > 40) url_display = url_display.substr(0,40)+"...";
+          var title = $(this).find('GD').text();
+          return {
+            title: title,
+            summary_html: "",
+            url: url,
+            url_display: url_display,
+            date: "",
+            featured: true
+          }
+        }).get();
+      }
       result.results = $(data).find('R').map(function() {
         var url = $(this).find('U').text();
         var url_display = url.replace(/^\w+:\/\//, '');
@@ -49,9 +66,13 @@ Search.prototype.doSearch = function(query) {
           summary_html: summary,
           url: url,
           url_display: url_display,
-          date: date
+          date: date,
+          featured: false
         }
       }).get();
+      if(params.start == 0 && featuredResults.length > 0){
+        result.results = featuredResults.concat(result.results);
+      }
       dfd.resolve(result);
     },
     error: function(jqXHR, textStatus) {

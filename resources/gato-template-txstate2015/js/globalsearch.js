@@ -170,11 +170,11 @@ jQuery(document).ready(function($) {
   }
 
   var html_result_web = function (result) {
-    return '<div class="result">' +
+    return '<div class="result' + (result.featured ? " featured" : "") + '">' +
              '<a class="result-title" href="' + result.url +'">' + result.title + '</a>' +
              '<p class="summary">' + result.summary_html.replace('<br>', ' ') + '</p>' +
              '<span class="result-url-display" href="' + result.url + '">' + result.url_display + '</span>' +
-             '<span class="result-date">('+moment(result.date).format('MMM D, YYYY')+')</span>'
+             (result.featured? "" : '<span class="result-date">'+moment(result.date).format('MM-DD-YYYY')+'</span>') +
            '</div>';
   }
 
@@ -222,6 +222,7 @@ jQuery(document).ready(function($) {
   }
 
   var html_sort_web = function (sort) {
+    if(!sort) sort = "relevance";
     var html = '<div class="search-sort-options">' +
                  '<a href="#" data-sort="relevance" class="sort-link '+ (sort == "relevance" ? "active" : "") + '">Sort By Relevance</a>' +
                  ' / ' +
