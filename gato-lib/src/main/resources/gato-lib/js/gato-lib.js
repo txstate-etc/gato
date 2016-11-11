@@ -78,6 +78,7 @@ Array.prototype.shuffle = function(){ //v1.0
 
 function isBlank(str) {
   if (str === undefined) return true;
+  if (str.trim === undefined) return false;
   if (str.trim().length == 0) return true;
   return false;
 }
