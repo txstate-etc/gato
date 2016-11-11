@@ -38,7 +38,7 @@ jQuery(document).ready(function($) {
       .done(function(data){
         console.log(data);
         var html = '';
-        html += html_result_total(start, Math.min(start+data.results.length, start+perpage), data.total);
+        html += html_result_total(data.start-1, data.end, data.total);
         if (data.results.length > 0) html += html_sort_web(sort);
         $.each(data.results, function (i, result) {
           html += html_result_web(result);
