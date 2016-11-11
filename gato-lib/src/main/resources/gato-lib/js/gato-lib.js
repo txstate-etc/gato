@@ -132,7 +132,7 @@ function getUrlParameters() {
 function createUrlQuery(params) {
   var pairs = [];
   for (var key in params) {
-    if (params.hasOwnProperty(key)) {
+    if (params.hasOwnProperty(key) && !isBlank(params[key])) {
       pairs.push(encodeURIComponent(key)+'='+encodeURIComponent(params[key]));
     }
   }
