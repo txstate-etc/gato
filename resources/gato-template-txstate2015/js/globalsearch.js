@@ -106,6 +106,12 @@ jQuery(document).ready(function($) {
         if (data.results.length == 0) {
           html += 'No people were found that match your search.';
           htmlshort += 'No people match your search.';
+        } else if (data.results.length == 1) {
+          if (sortvalue(data.results[0].category) > 3) {
+            html += '<div class="search-people-contact">Error in listing?<br>Contact the <a href="http://www.registrar.txstate.edu/our-services/address-change.html">Registrar\'s Office</a>.<br>Students may request a <a href="http://www.registrar.txstate.edu/our-services/privacy-hold.html">Privacy Hold</a>.</div>';
+          } else {
+            html += '<div class="search-people-contact">Error in listing?<br>Contact <a href="mailto:hr@txstate.edu">hr@txstate.edu</a>.</div>';
+          }
         } else {
           html += window.txstsearch.html_pagination(page, Math.ceil(data.count / perpage));
         }
@@ -224,7 +230,7 @@ jQuery(document).ready(function($) {
   var html_sort_web = function (sort) {
     if(!sort) sort = "relevance";
     var html = '<div class="search-sort-options">' +
-                 '<a href="#" data-sort="relevance" class="sort-link '+ (sort == "relevance" ? "active" : "") + '">Sort By Relevance</a>' +
+                 '<a href="#" data-sort="relevance" class="sort-link '+ (sort == "date" ? "" : "active") + '">Sort By Relevance</a>' +
                  ' / ' +
                  '<a href="#" data-sort="date" class="sort-link ' + (sort == "date" ? "active" : "") + '">Sort By Date</a>' +
                  '</div>';
