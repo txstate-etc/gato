@@ -177,6 +177,20 @@ public final class GatoUtils {
     return MgnlContext.getContextPath()+"/.resources";
   }
 
+  public String peopleSearchTokenPath() {
+    String propKey = "gato.peoplesearch.token_url";
+    if (mcp.hasProperty(propKey))
+      return mcp.getProperty(propKey);
+    return "";
+  }
+
+  public String peopleSearchJwtPath() {
+    String propKey = "gato.peoplesearch.url";
+    if (mcp.hasProperty(propKey))
+      return mcp.getProperty(propKey);
+    return "";
+  }
+
   public String damPath() {
     String propKey = "gato.dmsbaseurl";
     if (isCacheEnvironment()) propKey += ".cache";

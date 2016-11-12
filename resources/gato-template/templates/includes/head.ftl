@@ -5,7 +5,10 @@
 [#include "/gato-template/templates/includes/analytics.ftl"]
 
 [#macro templatejs scripts]
-	[@javascriptvariables /]
+	[@javascriptvariables]
+		var peoplesearch_token_url = '${gf.peopleSearchTokenPath()}';
+		var peoplesearch_jwt_url = '${gf.peopleSearchJwtPath()}';
+	[/@javascriptvariables]
 	[@javascript scripts = [
 		'gato-template/js/main-menus.js',
 		'gato-template/js/outgoing-clicks.js',

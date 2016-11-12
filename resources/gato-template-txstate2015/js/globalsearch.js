@@ -62,7 +62,7 @@ jQuery(document).ready(function($) {
     $('.search-people').html('');
     $('.search-side-results').html('');
     if (isBlank(query)) return;
-    $.ajax("https://secure.its.txstate.edu/iphone/people/json.pl?q="+encodeURIComponent(query)+'&n=500')
+    $.ajax(peoplesearch_jwt_url+'?q='+encodeURIComponent(query)+'&n=500', {xhrFields:{withCredentials:true}})
       .done(function(data) {
         console.log(data);
         var html = '';
@@ -201,6 +201,9 @@ jQuery(document).ready(function($) {
     if (result.email != 'unauthenticated')
       html += '<dl class="person-email"><dt>Email:</dt><dd>'+
               '<a class="person-email" href="mailto:'+html_encode(result.email)+'">'+html_encode(result.email)+'</a></dd></dl>';
+    else
+      html += '<dl class="person-email"><dt>Email:</dt><dd>'+
+              '<a class="person-email" href="'+peoplesearch_token_url+'">log in to view email</a></dd></dl>';
     html += '</div>';
     return html;
   }
