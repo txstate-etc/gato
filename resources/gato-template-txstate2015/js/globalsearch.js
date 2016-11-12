@@ -8,6 +8,7 @@ jQuery(document).ready(function($) {
   var tab_people = $('.search-tab-people');
   var results_web = $('.search-web');
   var results_people = $('.search-people');
+  var people_cache = {};
 
   var change_tab = function (type) {
     var params = getUrlParameters();
@@ -56,77 +57,103 @@ jQuery(document).ready(function($) {
       })
   }
 
+  var people_search = function (query) {
+    var deferred = $.Deferred();
+    if (isBlank(query)) deferred.reject("People search query must not be blank.");
+
+    var cachekey = query;
+    if (people_cache[cachekey]) deferred.resolve(people_cache[cachekey]);
+    else {
+      $.ajax(peoplesearch_jwt_url+'?q='+encodeURIComponent(query)+'&n=500', {xhrFields:{withCredentials:true}})
+      .done(function(data) {
+        people_cache[cachekey] = data;
+        for(var i = 0; i < data.results.length; i++) {
+          var r = data.results[i];
+          people_cache['userid is '+r.userid] = {
+            count: 1,
+            lastpage: 1,
+            results: [r]
+          };
+        }
+        deferred.resolve(data);
+      })
+      .fail(function(jqxhr, status, error) {
+        deferred.reject(error);
+      })
+    }
+
+    return deferred.promise();
+  }
+
   var fill_people_search = function (query, page, perpage) {
     if (!page || page < 1) page = 1;
     $('.search-side-people').hide();
     $('.search-people').html('');
     $('.search-side-results').html('');
     if (isBlank(query)) return;
-    $.ajax(peoplesearch_jwt_url+'?q='+encodeURIComponent(query)+'&n=500', {xhrFields:{withCredentials:true}})
-      .done(function(data) {
-        console.log(data);
-        var html = '';
-        var htmlshort = '';
-        var sortvalue = function (cat) {
-          if (cat == "Staff") return 0;
-          if (cat == "Faculty") return 1;
-          if (cat == "Retired Staff") return 2;
-          if (cat == "Retired Faculty") return 3;
-          if (cat == "Doctoral") return 4;
-          if (cat == "Masters") return 5;
-          if (cat == "Senior") return 6;
-          if (cat == "Junior") return 7;
-          if (cat == "Sophomore") return 8;
-          return 10;
-        }
-        data.results.sort(function (a,b) {
-          var cata = sortvalue(a.category);
-          var catb = sortvalue(b.category);
-          if (cata == catb) return a.lastname.localeCompare(b.lastname);
-          return cata - catb;
-        });
+    people_search(query).done(function(data) {
+      var html = '';
+      var htmlshort = '';
+      var sortvalue = function (cat) {
+        if (cat == "Staff") return 0;
+        if (cat == "Faculty") return 1;
+        if (cat == "Retired Staff") return 2;
+        if (cat == "Retired Faculty") return 3;
+        if (cat == "Doctoral") return 4;
+        if (cat == "Masters") return 5;
+        if (cat == "Senior") return 6;
+        if (cat == "Junior") return 7;
+        if (cat == "Sophomore") return 8;
+        return 10;
+      }
+      data.results.sort(function (a,b) {
+        var cata = sortvalue(a.category);
+        var catb = sortvalue(b.category);
+        if (cata == catb) return a.lastname.localeCompare(b.lastname);
+        return cata - catb;
+      });
 
-        var start = (page-1)*perpage;
-        var end = Math.min(start+perpage, data.results.length);
-        html += html_result_total(start, end, data.count);
-        html += '<div class="search-people-advanced"><a href="#">Advanced Search</a></div>';
-        html += '<div class="search-people-advanced-info" style="display: none;">'+
-        '<div class="advanced-search-intro">People Search allows for very detailed searches. You may combine any of these phrases to create a search string:</div>'+
-        '<div class="advanced-search-column"><h4>Fields</h4>lastname<br>firstname<br>email<br>department<br>address<br>phone<br>userid</div>'+
-        '<div class="advanced-search-column"><h4>Operators</h4>is<br>contains<br>begins with<br>ends with</div>'+
-        '<div class="advanced-search-examples"><h4>Examples</h4>lastname contains taylor<br>'+
-        'email contains jb<br>lastname begins with bura<br>department contains athletics</div>'+
-        '</div>';
-        for (var i = start; i < end; i++) {
-          html += html_result_people(data.results[i]);
-        }
-        for (var i = 0; i < 3 && i < data.results.length; i++) {
-          htmlshort += html_result_people_short(data.results[i]);
-        }
-        if (data.results.length == 0) {
-          html += 'No people were found that match your search.';
-          htmlshort += 'No people match your search.';
-        } else if (data.results.length == 1) {
-          if (sortvalue(data.results[0].category) > 3) {
-            html += '<div class="search-people-contact">Error in listing?<br>Contact the <a href="http://www.registrar.txstate.edu/our-services/address-change.html">Registrar\'s Office</a>.<br>Students may request a <a href="http://www.registrar.txstate.edu/our-services/privacy-hold.html">Privacy Hold</a>.</div>';
-          } else {
-            html += '<div class="search-people-contact">Error in listing?<br>Contact <a href="mailto:hr@txstate.edu">hr@txstate.edu</a>.</div>';
-          }
+      var start = (page-1)*perpage;
+      var end = Math.min(start+perpage, data.results.length);
+      html += html_result_total(start, end, data.count);
+      html += '<div class="search-people-advanced"><a href="#">Advanced Search</a></div>';
+      html += '<div class="search-people-advanced-info" style="display: none;">'+
+      '<div class="advanced-search-intro">People Search allows for very detailed searches. You may combine any of these phrases to create a search string:</div>'+
+      '<div class="advanced-search-column"><h4>Fields</h4>lastname<br>firstname<br>email<br>department<br>address<br>phone<br>userid</div>'+
+      '<div class="advanced-search-column"><h4>Operators</h4>is<br>contains<br>begins with<br>ends with</div>'+
+      '<div class="advanced-search-examples"><h4>Examples</h4>lastname contains taylor<br>'+
+      'email contains jb<br>lastname begins with bura<br>department contains athletics</div>'+
+      '</div>';
+      for (var i = start; i < end; i++) {
+        html += html_result_people(data.results[i]);
+      }
+      for (var i = 0; i < 3 && i < data.results.length; i++) {
+        htmlshort += html_result_people_short(data.results[i]);
+      }
+      if (data.results.length == 0) {
+        html += 'No people were found that match your search.';
+        htmlshort += 'No people match your search.';
+      } else if (data.results.length == 1) {
+        if (sortvalue(data.results[0].category) > 3) {
+          html += '<div class="search-people-contact">Error in listing?<br>Contact the <a href="http://www.registrar.txstate.edu/our-services/address-change.html">Registrar\'s Office</a>.<br>Students may request a <a href="http://www.registrar.txstate.edu/our-services/privacy-hold.html">Privacy Hold</a>.</div>';
         } else {
-          html += window.txstsearch.html_pagination(page, Math.ceil(data.count / perpage));
+          html += '<div class="search-people-contact">Error in listing?<br>Contact <a href="mailto:hr@txstate.edu">hr@txstate.edu</a>.</div>';
         }
-        if (data.count > 0) {
-          var pluralpeople = (data.count == 1 ? 'person' : 'people');
-          htmlshort += '<div class="search-people-more"><a href="#">'+(data.count)+' '+pluralpeople+' found.</a></div>';
-        }
-        $('.search-side-people').css('display', '');
-        $('.search-people').html(html);
-        $('.search-side-people .search-side-results').html(htmlshort);
-        create_event_handlers_people();
-      })
-      .fail(function(jqxhr, status, error) {
-        console.log(error);
-      })
+      } else {
+        html += window.txstsearch.html_pagination(page, Math.ceil(data.count / perpage));
+      }
+      if (data.count > 0) {
+        var pluralpeople = (data.count == 1 ? 'person' : 'people');
+        htmlshort += '<div class="search-people-more"><a href="#">'+(data.count)+' '+pluralpeople+' found.</a></div>';
+      }
+      $('.search-side-people').css('display', '');
+      $('.search-people').html(html);
+      $('.search-side-people .search-side-results').html(htmlshort);
+      create_event_handlers_people();
+    })
+    .fail(function(error) {
+      console.log(error);
+    })
   }
 
   var search = function (params) {
