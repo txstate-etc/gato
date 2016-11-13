@@ -15,6 +15,7 @@ jQuery(document).ready(function($) {
     if (params.type != type) {
       params.type = type;
       history.pushState(null, null, createUrlQuery(params));
+      scroll_to_top();
     }
     if (type == 'people') {
       container.removeClass('web');
@@ -37,7 +38,6 @@ jQuery(document).ready(function($) {
     var search = new Search({start: start, num: perpage, sort: sort});
     search.doSearch(query)
       .done(function(data){
-        console.log(data);
         var html = '';
         html += html_result_total(data.start-1, data.end, data.total);
         if (data.results.length > 0) html += html_sort_web(sort);
@@ -162,6 +162,10 @@ jQuery(document).ready(function($) {
     fill_people_search(params.q, params.peoplepage, perpage_people);
   }
 
+  var scroll_to_top = function () {
+    $('html, body').scrollTop($('.search-container').offset().top);
+  }
+
   var load_from_state = function () {
     var params = getUrlParameters();
     $('.search-form .search').val(params.q);
@@ -179,6 +183,7 @@ jQuery(document).ready(function($) {
       delete params.peoplepage;
     }
     history.pushState(null, null, createUrlQuery(params));
+    scroll_to_top();
     load_from_state();
   }
 
