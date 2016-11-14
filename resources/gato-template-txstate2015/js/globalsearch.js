@@ -140,7 +140,7 @@ jQuery(document).ready(function($) {
           html += '<div class="search-people-contact">Error in listing?<br>Contact <a href="mailto:hr@txstate.edu">hr@txstate.edu</a>.</div>';
         }
       } else {
-        html += window.txstsearch.html_pagination(page, Math.ceil(data.count / perpage));
+        html += window.txstsearch.html_pagination(page, Math.ceil(Math.min(data.count, 500) / perpage));
       }
       if (data.count > 0) {
         var pluralpeople = (data.count == 1 ? 'person' : 'people');
