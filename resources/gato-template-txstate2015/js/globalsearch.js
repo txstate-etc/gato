@@ -2,6 +2,7 @@ jQuery(document).ready(function($) {
   // config
   var perpage_web = 10;
   var perpage_people = 10;
+  var max_people = 1000;
 
   var container = $('.search-container');
   var tab_web = $('.search-tab-web');
@@ -64,7 +65,7 @@ jQuery(document).ready(function($) {
     var cachekey = query;
     if (people_cache[cachekey]) deferred.resolve(people_cache[cachekey]);
     else {
-      $.ajax(peoplesearch_jwt_url+'?q='+encodeURIComponent(query)+'&n=500', {xhrFields:{withCredentials:true}})
+      $.ajax(peoplesearch_jwt_url+'?q='+encodeURIComponent(query)+'&n='+max_people, {xhrFields:{withCredentials:true}})
       .done(function(data) {
         people_cache[cachekey] = data;
         for(var i = 0; i < data.results.length; i++) {
@@ -140,7 +141,7 @@ jQuery(document).ready(function($) {
           html += '<div class="search-people-contact">Error in listing?<br>Contact <a href="mailto:hr@txstate.edu">hr@txstate.edu</a>.</div>';
         }
       } else {
-        html += window.txstsearch.html_pagination(page, Math.ceil(Math.min(data.count, 500) / perpage));
+        html += window.txstsearch.html_pagination(page, Math.ceil(Math.min(data.count, max_people) / perpage));
       }
       if (data.count > 0) {
         var pluralpeople = (data.count == 1 ? 'person' : 'people');
