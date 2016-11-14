@@ -19,7 +19,7 @@ jQuery(document).ready(function($) {
         source: function(request, response){
             var options = {num: 3};
             if($('#this-site').prop('checked')){
-                options.sitesearch = $('#sitesearch').val();
+                options.site = $('#sitesearch').val();
             }
             var search = new Search(options);
             search.doSearch(request.term)
