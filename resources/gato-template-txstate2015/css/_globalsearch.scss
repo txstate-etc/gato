@@ -162,9 +162,6 @@
         width: 50%;
         float: left;
       }
-      &[data-eq~="600px"] dl {
-        width: 100%;
-      }
 
       dt {
         font-weight: 500;
@@ -215,6 +212,10 @@
         }
       }
     }
+  }
+
+  [data-eq~="600px"] .person dl {
+    width: 100%;
   }
 
 }

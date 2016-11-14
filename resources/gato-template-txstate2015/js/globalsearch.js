@@ -217,7 +217,7 @@ jQuery(document).ready(function($) {
   }
 
   var html_result_people = function (result) {
-    var html = '<div class="person eq-parent">'+
+    var html = '<div class="person">'+
                '<div class="person-name"><a href="#" data-userid="'+result.userid+'">'+result.firstname+' '+result.lastname+'</a></div>'+
                '<div class="person-category">'+result.category+'</div>';
     if (!isBlank(result.title))
