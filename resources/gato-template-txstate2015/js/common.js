@@ -198,34 +198,4 @@ jQuery(document).ready(function($) {
   });
   resizeTitle();
 
-  $('.search-link.search-button').on('click', function(e){
-    e.preventDefault();
-    var width = $(window).width();
-    $('#search-modal-content').dialog({
-      show: { effect: "slide", direction: "up", duration: 400, easing: 'easeInOutCubic'},
-      hide: { effect: "slide", direction: "up", duration: 400, easing: 'easeInOutCubic'},
-      position: { my: "center", at: "top" },
-      resizable: false,
-      draggable: false,
-      width: width,
-      modal: true,
-      open: function(){
-        $('.ui-widget-overlay').addClass('ui-widget-overlay-fade');
-        $('.ui-widget-overlay').bind('click',function(){
-            $('#search-modal-content').dialog('close');
-        })
-      },
-      beforeClose: function(){
-        var myOverlay = $('.ui-widget-overlay:first').clone();
-        myOverlay.attr('id', 'fading-overlay');
-        myOverlay.appendTo('body').show();
-        myOverlay.removeClass('ui-widget-overlay-fade');
-        $('.ui-widget-overlay:first').remove();
-        myOverlay.fadeOut(600, function(){
-            $(this).remove();
-        });
-      }
-    });
-  })
-
 });

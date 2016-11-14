@@ -57,8 +57,8 @@ jQuery(document).ready(function($) {
         .then(function(results){
             var page = window.txstsearch.buildSearchResultsPage(site, query, results, startPage, sortType);
             $('#search-results').remove();
-            $('.page_content').after(page);
-            $('.page_content').hide();
+            $('.page_content, .library-page-content').after(page);
+            $('.page_content, .library-page-content').hide();
             $('.search-again .searchbar-form .icon.magnify').hide();
             create_event_handlers();
         })
@@ -180,27 +180,29 @@ jQuery(document).ready(function($) {
         var breadcrumbs = $('#panel .breadcrumbs');
         var searchbreadcrumbs = breadcrumbs.clone().addClass('searchbreadcrumbs');
         var contents = searchbreadcrumbs.contents();
-        contents.get(contents.size() -1).remove();  //remove last text element
-        contents.get(searchbreadcrumbs.size() -1).remove();
-        var url = window.location.href;
-        if(url.indexOf("sitesearch") != -1){
-            var params = getUrlParameters();
-            delete params.sitesearch;
-            delete params.query;
-            delete params.page;
-            delete params.sort;
-            url = window.location.pathname;
-            if(!$.isEmptyObject(params)){
-                url += createUrlQuery(params);
+        if(contents.length > 0) {
+            contents.get(contents.size() -1).remove();  //remove last text element
+            contents.get(searchbreadcrumbs.size() -1).remove();
+            var url = window.location.href;
+            if(url.indexOf("sitesearch") != -1){
+                var params = getUrlParameters();
+                delete params.sitesearch;
+                delete params.query;
+                delete params.page;
+                delete params.sort;
+                url = window.location.pathname;
+                if(!$.isEmptyObject(params)){
+                    url += createUrlQuery(params);
+                }
+                url += window.location.hash;
             }
-            url += window.location.hash;
+            searchbreadcrumbs.append('<a href="' + url + '">' + $('#maincontent').text() + '</a>');
+            searchbreadcrumbs.append('<span class="separator"><i class="fa fa-angle-right"></i></span>');
+            searchbreadcrumbs.append(document.createTextNode(' Search Results'));
+            breadcrumbs.after(searchbreadcrumbs);
+            searchbreadcrumbs.show();
+            breadcrumbs.hide();
         }
-        searchbreadcrumbs.append('<a href="' + url + '">' + $('#maincontent').text() + '</a>');
-        searchbreadcrumbs.append('<span class="separator"><i class="fa fa-angle-right"></i></span>');
-        searchbreadcrumbs.append(document.createTextNode(' Search Results'));
-        breadcrumbs.after(searchbreadcrumbs);
-        searchbreadcrumbs.show();
-        breadcrumbs.hide();
     }
 
     var create_event_handlers = function() {

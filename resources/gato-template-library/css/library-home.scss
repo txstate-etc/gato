@@ -511,3 +511,64 @@ a.txst-eventsbox-image {
 	    min-height: 120px;
 	}
 }
+
+#search-results{
+    min-height: 40rem;
+	a {
+	    -webkit-box-decoration-break: clone;
+	    box-decoration-break: clone;
+	    padding: 1px 3px;
+	    margin: -1px -3px;
+	    color: $content-link-text;
+	    text-decoration: underline;
+	    &:hover {background: $content-link-hover;}
+	  }
+
+	.global-search{
+	 	.button{
+	 		width: auto;
+	 	}
+	}
+
+	.results-list{
+		padding-bottom: 3rem;
+	}
+}
+
+button.search-link{
+    display: block;
+    font-weight:500;
+    font-size: 1.8rem;
+    float: right;
+    padding: 1rem 1.8rem 1.2rem 2rem;
+    border-radius: 4px;
+    background: $khaki;
+    color: $darkest-gold;
+    position: relative;
+    border: none;
+    &.search-link-mobile{
+      float: left;
+      margin-left: 0.8rem;
+      font-size: 2.4rem;
+      padding: 0.5rem 1.3rem 0.8rem 1.3rem;
+      border: none;
+      border-bottom: 2px solid #bbab92;
+      box-shadow: none;
+      span{
+        display:none;
+      }
+    }
+
+    .icon{
+        right: initial;
+        position: relative;
+        font-size: 2rem;
+        height: auto;
+        width: auto;
+        margin-left: 2rem;
+        color: $darkest-gold;
+        &:hover{
+          color: inherit;
+        }
+      }
+  }
