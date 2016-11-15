@@ -17,6 +17,7 @@
 }
 
 #search-modal-content{
+    background: $sandstone !important;
     min-height: initial !important;
     padding: 0px;
     &.hidden{
@@ -25,7 +26,6 @@
 }
 
 .ui-dialog {
-    background: $sandstone !important;
     z-index: 3;
     border: none !important;
     border-radius: 0px !important;
