@@ -226,7 +226,7 @@ jQuery(document).ready(function($) {
         else if ($('#search-results.global').length == 0) {
             //The user went to the original page
             $('#search-results').remove();
-            $('.page_content').show();
+            $('.page_content, .library-page-content').show();
             $('.breadcrumbs').show();
             $('.searchbreadcrumbs').remove();
         }
