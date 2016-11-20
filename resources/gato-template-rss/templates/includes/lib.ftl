@@ -1,4 +1,4 @@
-[#macro rssitem node moddate=.now body='' title='' link='' guid='' enclosure={}]
+[#macro rssitem node moddate=.now body='' title='' link='' guid='' enclosure={} thumbnail={}]
   <item>
     <pubDate>
       [#local moddate = gf.getModificationDate(node)]
@@ -44,6 +44,10 @@
         [#local mime = 'application/octet-stream']
       [/#if]
       <enclosure url="${gf.absoluteUrl(enclosure.url)}" length="${enclosure.size!0}" type="${mime}" />
+    [/#if]
+
+    [#if thumbnail?has_content]
+      <media:thumbnail url="${gf.absoluteUrl(thumbnail.url!)}" width="${thumbnail.width!100}" height="${thumbnail.height!100}"[#if thumbnail.time?has_content] time="${thumbnail.time}"[/#if] />
     [/#if]
 
     [#if !guid?has_content]
