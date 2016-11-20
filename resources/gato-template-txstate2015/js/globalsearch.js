@@ -35,24 +35,28 @@ jQuery(document).ready(function($) {
     if (!page || page < 1) page = 1;
     $('.search-web').html('');
     if (isBlank(query)) return;
+
+    var complete = function (data) {
+      var html = '';
+      html += html_result_total(data.start-1, data.end, data.total);
+      if (data.results.length > 0) html += html_sort_web(sort);
+      $.each(data.results, function (i, result) {
+        html += html_result_web(result);
+      });
+      if (data.results.length == 0) {
+        html += 'No results.';
+      } else {
+        html += window.txstsearch.html_pagination(page, Math.ceil(data.total / perpage));
+      }
+      $('.search-web').html(html);
+      create_event_handlers_web();
+    }
+    if (query.match(/^plid is .{5,12}$/)) return complete({total: 0, results: []});
+
     var start = (page-1)*perpage;
     var search = new Search({start: start, num: perpage, sort: sort});
     search.doSearch(query)
-      .done(function(data){
-        var html = '';
-        html += html_result_total(data.start-1, data.end, data.total);
-        if (data.results.length > 0) html += html_sort_web(sort);
-        $.each(data.results, function (i, result) {
-          html += html_result_web(result);
-        });
-        if (data.results.length == 0) {
-          html += 'No results.';
-        } else {
-          html += window.txstsearch.html_pagination(page, Math.ceil(data.total / perpage));
-        }
-        $('.search-web').html(html);
-        create_event_handlers_web();
-      })
+      .done(complete)
       .fail(function(e){
         console.log(e)
       })
@@ -70,11 +74,12 @@ jQuery(document).ready(function($) {
         people_cache[cachekey] = data;
         for(var i = 0; i < data.results.length; i++) {
           var r = data.results[i];
-          people_cache['userid is '+r.userid] = {
-            count: 1,
-            lastpage: 1,
-            results: [r]
-          };
+          if (!isBlank(r.plid))
+            people_cache['plid is '+r.plid] = {
+              count: 1,
+              lastpage: 1,
+              results: [r]
+            };
         }
         deferred.resolve(data);
       })
@@ -213,13 +218,13 @@ jQuery(document).ready(function($) {
              '<a class="result-title" href="' + result.url +'">' + result.title + '</a>' +
              '<p class="summary">' + result.summary_html.replace('<br>', ' ') + '</p>' +
              '<span class="result-url-display" href="' + result.url + '">' + result.url_display + '</span>' +
-             (result.featured? "" : '<span class="result-date">'+moment(result.date).format('MM-DD-YYYY')+'</span>') +
+             (result.featured || !moment(result.date).isValid() ? "" : '<span class="result-date">'+moment(result.date).format('MM-DD-YYYY')+'</span>') +
            '</div>';
   }
 
   var html_result_people = function (result) {
     var html = '<div class="person">'+
-               '<div class="person-name"><a href="#" data-userid="'+result.userid+'">'+result.firstname+' '+result.lastname+'</a></div>'+
+               '<div class="person-name"><a href="#" data-plid="'+result.plid+'">'+result.firstname+' '+result.lastname+'</a></div>'+
                '<div class="person-category">'+result.category+'</div>';
     if (!isBlank(result.title))
       html += '<dl class="person-title"><dt>Title:</dt><dd>'+result.title+'</dd></dl>';
@@ -227,7 +232,7 @@ jQuery(document).ready(function($) {
       html += '<dl class="person-department"><dt>Department:</dt><dd><a href="#">'+result.department+'</a></dd></dl>';
     if (!isBlank(result.address))
       html += '<dl class="person-address"><dt>Address:</dt><dd>'+result.address+'</dd></dl>';
-    if (!isBlank(result.userid))
+    if (!isBlank(result.userid) && result.userid != "unauthenticated")
       html += '<dl class="person-netid"><dt>NetID:</dt><dd>'+result.userid+'</dd></dl>';
     if (!isBlank(result.phone))
       html += '<dl class="person-phone"><dt>Phone:</dt><dd>'+result.phone+'</dd></dl>';
@@ -243,7 +248,7 @@ jQuery(document).ready(function($) {
 
   var html_result_people_short = function (result) {
     var html = '<div class="person">';
-    html += '<div class="person-name"><a href="#" data-userid="'+result.userid+'">'+result.firstname+' '+result.lastname+'</a></div>';
+    html += '<div class="person-name"><a href="#" data-plid="'+result.plid+'">'+result.firstname+' '+result.lastname+'</a></div>';
     html += '<div class="person-category">'+result.category+'</div>';
     html += '<div class="person-phone">'+result.phone+'</div>';
     if (result.email != 'unauthenticated')
@@ -307,7 +312,7 @@ jQuery(document).ready(function($) {
     $('#search-results .person-name a').click(function(e) {
       e.preventDefault();
       update_state_params({
-        'q': 'userid is '+$(this).data('userid'),
+        'q': 'plid is '+$(this).data('plid'),
         'type': 'people'
       });
     });
