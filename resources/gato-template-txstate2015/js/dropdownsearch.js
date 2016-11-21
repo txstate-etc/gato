@@ -1,14 +1,13 @@
 jQuery(document).ready(function($) {
     $('.search-link.search-button').on('click', function(e){
     e.preventDefault();
-    var width = $(window).width();
     $('#search-modal-content').dialog({
       show: { effect: "slide", direction: "up", duration: 400, easing: 'easeInOutCubic'},
       hide: { effect: "slide", direction: "up", duration: 400, easing: 'easeInOutCubic'},
       position: { my: "center", at: "top" },
       resizable: false,
       draggable: false,
-      width: width,
+      width: '100%',
       modal: true,
       open: function(){
         $('.ui-widget-overlay').addClass('ui-widget-overlay-fade');
