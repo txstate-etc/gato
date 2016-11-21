@@ -7,7 +7,6 @@ headerImage:
   templateScript: /gato-template-txstate2015/templates/areas/headerImage.ftl
   type: single
   title: Header Image
-  createAreaNode: false
   availableComponents:
     headerImg:
       id: gato-template-txstate2015:components/header-image
