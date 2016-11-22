@@ -1,3 +1,4 @@
+[#assign mypage = cmsfn.page(content)]
 [#macro searchBar isMobile sitesearch=true isHomePage=false]
   [#assign searchClass = isMobile?string('txst_mobile_search', 'txst_search')]
   [#assign mobileSearchBar = isMobile?string('mobile_search_bar', '')]
@@ -13,19 +14,19 @@
             <input type="hidden" id="sitesearch" name="sitesearch" value="${ctx.request.serverName}" />
           [/#if]
           [#nested]
-          <input id="search-text" class="search ${mobileSearch}" autofocus="autofocus" name="q" size="15" placeholder="${placeholder}" aria-label="Search"/>[#--
+          <input id="search-text" class="search ${mobileSearch}" autofocus="autofocus" name="q" size="15" placeholder="${placeholder}" />[#--
       --]<button class="icon ${mobileIcon}"><i class="fa fa-search" aria-label="Start Search"></i></button>
         </div>
         [#if !isHomePage]
         <div class="search-radios">
           <span>
-            <label for="this-site">
+            <label for="this-site" aria-label="search only in this site: ${gf.nodeTitle(mypage)}">
               <input checked="checked" name="txst-search" value="This Site" id="this-site" type="radio">
               This Site
             </label>
           </span>
           <span>
-            <label for="txst-all">
+            <label for="txst-all" aria-label="search all Texas State web sites">
               <input name="txst-search" value="All Texas State" id="txst-all" type="radio">
               All Texas State
             </label>
