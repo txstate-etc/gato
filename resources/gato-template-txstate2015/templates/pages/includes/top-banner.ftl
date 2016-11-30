@@ -16,7 +16,7 @@
 				<div class="search_bar">
 					<button class="search-link search-button">
 						<span>Search</span>
-						<i class="icon fa fa-search" aria-label="Start Search"></i>
+						<i class="icon fa fa-search" aria-label="Start Search - hit enter to open dialog"></i>
 					</button>
 				</div>
 			</div>
