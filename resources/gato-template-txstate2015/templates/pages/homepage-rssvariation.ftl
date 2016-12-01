@@ -30,7 +30,8 @@ ${ctx.response.setContentType('application/rss+xml;charset=UTF-8')}
 [#-- FIXME: sort by mod date --]
 [#list news as component]
   [#if isEnabled(component)]
-    [@rssitem node=component moddate=gf.getModificationDate(component) thumbnail={'url': gf.resourcePath()+'/gato-template-txstate2015/images/news_feed.png', 'width': 300, 'height':224}]
+    [#assign imageurl=gf.resourcePath()+'/gato-template-txstate2015/images/news_feed.png']
+    [@rssitem node=component moddate=gf.getModificationDate(component) enclosure={'url': imageurl, 'size':'3764'} thumbnail={'url': imageurl, 'width': 300, 'height':224}]
       ${gf.processRichText(cmsfn.decode(component).rsscontent)}
     [/@rssitem]
   [/#if]
