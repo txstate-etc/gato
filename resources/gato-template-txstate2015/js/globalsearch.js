@@ -51,7 +51,7 @@ jQuery(document).ready(function($) {
       $('.search-web').html(html);
       create_event_handlers_web();
     }
-    if (query.match(/^plid is .{5,12}$/)) return complete({total: 0, results: []});
+    if (query.match(/^searchid is \d+$/)) return complete({total: 0, results: []});
 
     var start = (page-1)*perpage;
     var search = new Search({start: start, num: perpage, sort: sort});
@@ -75,7 +75,7 @@ jQuery(document).ready(function($) {
         for(var i = 0; i < data.results.length; i++) {
           var r = data.results[i];
           if (!isBlank(r.plid))
-            people_cache['plid is '+r.plid] = {
+            people_cache['searchid is '+r.searchid] = {
               count: 1,
               lastpage: 1,
               results: [r]
@@ -125,7 +125,7 @@ jQuery(document).ready(function($) {
       html += '<div class="search-people-advanced"><a href="#">Advanced Search</a></div>';
       html += '<div class="search-people-advanced-info" style="display: none;">'+
       '<div class="advanced-search-intro">People Search allows for very detailed searches. You may combine any of these phrases to create a search string:</div>'+
-      '<div class="advanced-search-column"><h4>Fields</h4>lastname<br>firstname<br>email<br>department<br>address<br>phone<br>userid</div>'+
+      '<div class="advanced-search-column"><h4>Fields</h4>lastname<br>firstname<br>email<br>department<br>address<br>phone<br>userid (Texas State NetID)<br>searchid (unique ID only for search)</div>'+
       '<div class="advanced-search-column"><h4>Operators</h4>is<br>contains<br>begins with<br>ends with</div>'+
       '<div class="advanced-search-examples"><h4>Examples</h4>lastname contains taylor<br>'+
       'email contains jb<br>lastname begins with bura<br>department contains athletics</div>'+
@@ -224,7 +224,7 @@ jQuery(document).ready(function($) {
 
   var html_result_people = function (result) {
     var html = '<div class="person">'+
-               '<div class="person-name"><a href="#" data-plid="'+result.plid+'">'+result.firstname+' '+result.lastname+'</a></div>'+
+               '<div class="person-name"><a href="#" data-searchid="'+result.searchid+'">'+result.firstname+' '+result.lastname+'</a></div>'+
                '<div class="person-category">'+result.category+'</div>';
     if (!isBlank(result.title))
       html += '<dl class="person-title"><dt>Title:</dt><dd>'+result.title+'</dd></dl>';
@@ -248,7 +248,7 @@ jQuery(document).ready(function($) {
 
   var html_result_people_short = function (result) {
     var html = '<div class="person">';
-    html += '<div class="person-name"><a href="#" data-plid="'+result.plid+'">'+result.firstname+' '+result.lastname+'</a></div>';
+    html += '<div class="person-name"><a href="#" data-searchid="'+result.searchid+'">'+result.firstname+' '+result.lastname+'</a></div>';
     html += '<div class="person-category">'+result.category+'</div>';
     html += '<div class="person-phone">'+result.phone+'</div>';
     if (result.email != 'unauthenticated')
@@ -312,7 +312,7 @@ jQuery(document).ready(function($) {
     $('#search-results .person-name a').click(function(e) {
       e.preventDefault();
       update_state_params({
-        'q': 'plid is '+$(this).data('plid'),
+        'q': 'searchid is '+$(this).data('searchid'),
         'type': 'people'
       });
     });
