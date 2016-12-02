@@ -277,7 +277,7 @@ jQuery(document).ready(function($) {
                                 '<a href="#" data-sort="date" class="sort-link ' + (sort == "date" ? "active" : "") + '">Sort By Date</a>' +
                             '</div>';
 
-            var globalSearchUrl = "/search?q=" + query;
+            var globalSearchUrl = search_global_url+"?q=" + query;
 
             var searchResults = results.results;
 
@@ -322,7 +322,7 @@ jQuery(document).ready(function($) {
                                 '<a class="result-title" href="' + results[i].url +'">' + results[i].title + '</a>' +
                                 '<p class="summary">' + results[i].summary_html + '</p>' +
                                 '<span class="result-url-display" href="' + results[i].url + '">' + results[i].url_display + '</span>' +
-                                (results[i].featured ? "" : '<span class="result-date">'+moment(results[i].date).format('MM-DD-YYYY')+'</span>') + 
+                                (results[i].featured ? "" : '<span class="result-date">'+moment(results[i].date).format('MM-DD-YYYY')+'</span>') +
                             '</div>';
                 }
                 html += '</div>';

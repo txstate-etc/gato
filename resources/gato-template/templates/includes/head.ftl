@@ -8,6 +8,7 @@
 	[@javascriptvariables]
 		var peoplesearch_token_url = '${gf.peopleSearchTokenPath()}';
 		var peoplesearch_jwt_url = '${gf.peopleSearchJwtPath()}';
+		var search_global_url = '${gf.filterUrl('/search')}';
 	[/@javascriptvariables]
 	[@javascript scripts = [
 		'gato-template/js/main-menus.js',
