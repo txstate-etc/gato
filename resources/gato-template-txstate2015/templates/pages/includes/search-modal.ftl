@@ -1,4 +1,4 @@
-[#assign mypage = cmsfn.page(content)]
+[#assign mypage = cmsfn.ancestors(content)?first]
 [#macro searchBar isMobile sitesearch=true isHomePage=false]
   [#assign searchClass = isMobile?string('txst_mobile_search', 'txst_search')]
   [#assign mobileSearchBar = isMobile?string('mobile_search_bar', '')]
