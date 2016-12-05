@@ -42,12 +42,14 @@ public class GatoDamServlet extends DamDownloadServlet {
 		Asset asset = getAsset(req);
   	String ifmodsincestr = req.getHeader("If-Modified-Since");
   	try {
-			Calendar ifmodsince = parseHttpDate(ifmodsincestr);
-			Calendar lastmod = asset.getLastModified();
-			if (lastmod != null && !lastmod.after(ifmodsince)) {
-				res.sendError(HttpServletResponse.SC_NOT_MODIFIED);
-        res.setDateHeader("Last-Modified", asset.getLastModified().getTimeInMillis());
-				return;
+  		if (!StringUtils.isBlank(ifmodsincestr)) {
+				Calendar ifmodsince = parseHttpDate(ifmodsincestr);
+				Calendar lastmod = asset.getLastModified();
+				if (ifmodsince != null && lastmod != null && !lastmod.after(ifmodsince)) {
+					res.sendError(HttpServletResponse.SC_NOT_MODIFIED);
+					res.setDateHeader("Last-Modified", asset.getLastModified().getTimeInMillis());
+					return;
+				}
 			}
 		} catch (Exception e) {
 			log.warn("trouble evaluating if-modified-since", e);
