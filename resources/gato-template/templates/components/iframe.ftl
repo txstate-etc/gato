@@ -9,6 +9,7 @@
     style="height: ${content.height!800}px"
     src="${gf.filterUrl(content.url)}"
     scrolling="auto"
+    sandbox="allow-forms allow-pointer-lock allow-popups allow-scripts"
     title="${content.title!("Iframe embed of " + content.url)}">
     <a href="${gf.filterUrl(content.url)}">${content.title!content.url}</a>
   </iframe>
