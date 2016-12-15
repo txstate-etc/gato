@@ -115,8 +115,7 @@ function deleteCookie(name) {
 	}
 }
 
-function getUrlParameters() {
-  var query = window.location.search.substring(1);
+function parseParameterPairs(query) {
   var ret = {};
   if (query.length > 0) {
     var pairs = query.split("&");
@@ -130,14 +129,30 @@ function getUrlParameters() {
   return ret;
 }
 
-function createUrlQuery(params) {
+function getUrlParameters() {
+  return parseParameterPairs(window.location.search.substring(1));
+}
+
+function getHashParameters() {
+  return parseParameterPairs(window.location.hash.substring(1));
+}
+
+function constructParameterPairs(params) {
   var pairs = [];
   for (var key in params) {
     if (params.hasOwnProperty(key) && !isBlank(params[key])) {
       pairs.push(encodeURIComponent(key)+'='+encodeURIComponent(params[key]));
     }
   }
-  return '?'+pairs.join('&');
+  return pairs.join('&');
+}
+
+function createUrlQuery(params) {
+  return '?'+constructParameterPairs(params);
+}
+
+function createHashQuery(params) {
+  return '#'+constructParameterPairs(params);
 }
 
 function html_encode( html ) {

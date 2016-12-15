@@ -68,7 +68,7 @@ jQuery(document).ready(function($) {
     }
 
     var load_from_state = function(){
-        var params = getUrlParameters();
+        var params = getHashParameters();
         //if the search parameters are not there, don't do anything.  There was no search.
         if(!isSiteSearchPage(params)) return;
         siteSearch((params.sitesearch || "txstate.edu"), (params.query || ""), params.page || 1, params.sort || "relevance");
@@ -76,14 +76,13 @@ jQuery(document).ready(function($) {
     }
 
     var update_state = function(params){
-        var newQS = createUrlQuery(params);
-        history.pushState(null, null, window.location.pathname + createUrlQuery(params) + window.location.hash);
+        history.pushState(null, null, createHashQuery(params));
         load_from_state();
     }
 
     //TODO: copied from globalsearch so maybe that should be available everywhere too?
     var update_state_params = function(name, value){
-        var params = getUrlParameters();
+        var params = getHashParameters();
         if (params[name] != value) {
           params[name] = value;
           update_state(params);
@@ -93,7 +92,7 @@ jQuery(document).ready(function($) {
     //site search needs to updated more than one parameter at a time
     //but we don't want to update the history after every new parameter
     var update_multiple_state_params = function(newParams){
-        var params = getUrlParameters();
+        var params = getHashParameters();
         for (var key in newParams) {
             if (newParams.hasOwnProperty(key)) {
                 if (params[key] != newParams[key]) {
@@ -185,16 +184,15 @@ jQuery(document).ready(function($) {
             contents.get(searchbreadcrumbs.size() -1).remove();
             var url = window.location.href;
             if(url.indexOf("sitesearch") != -1){
-                var params = getUrlParameters();
+                var params = getHashParameters();
                 delete params.sitesearch;
                 delete params.query;
                 delete params.page;
                 delete params.sort;
                 url = window.location.pathname;
                 if(!$.isEmptyObject(params)){
-                    url += createUrlQuery(params);
+                    url += createHashQuery(params);
                 }
-                url += window.location.hash;
             }
             searchbreadcrumbs.append('<a href="' + url + '">' + $('#maincontent').text() + '</a>');
             searchbreadcrumbs.append('<span class="separator"><i class="fa fa-angle-right"></i></span>');
@@ -219,7 +217,7 @@ jQuery(document).ready(function($) {
     //This handles the case where the user navigates to/from the search results page using the
     //back and forward buttons in the browser
     $(window).on("popstate", function() {
-        var params = getUrlParameters();
+        var params = getHashParameters();
         if(isSiteSearchPage(params)){
             load_from_state();
         }

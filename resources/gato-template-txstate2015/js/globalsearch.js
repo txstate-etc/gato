@@ -12,10 +12,10 @@ jQuery(document).ready(function($) {
   var people_cache = {};
 
   var change_tab = function (type) {
-    var params = getUrlParameters();
+    var params = getHashParameters();
     if (params.type != type) {
       params.type = type;
-      history.pushState(null, null, createUrlQuery(params));
+      history.pushState(null, null, createHashQuery(params));
       scroll_to_top();
     }
     if (type == 'people') {
@@ -29,6 +29,10 @@ jQuery(document).ready(function($) {
       tab_web.attr('aria-selected', 'true');
       tab_people.attr('aria-selected', 'false');
     }
+  }
+
+  var query_is_person_page = function (query) {
+    return query.match(/^searchid is \d+$/);
   }
 
   var fill_web_search = function (query, sort, page, perpage) {
@@ -51,7 +55,7 @@ jQuery(document).ready(function($) {
       $('.search-web').html(html);
       create_event_handlers_web();
     }
-    if (query.match(/^searchid is \d+$/)) return complete({total: 0, results: []});
+    if (query_is_person_page(query)) return complete({total: 0, results: []});
 
     var start = (page-1)*perpage;
     var search = new Search({start: start, num: perpage, sort: sort});
@@ -173,8 +177,8 @@ jQuery(document).ready(function($) {
   }
 
   var load_from_state = function () {
-    var params = getUrlParameters();
-    $('.search-form .search').val(params.q);
+    var params = getHashParameters();
+    $('.search-form .search').val(query_is_person_page(params.q) ? '' : params.q);
     search(params);
     if (isBlank(params.q)) {
       search_form_magnify();
@@ -183,18 +187,18 @@ jQuery(document).ready(function($) {
   }
 
   var update_state = function (params) {
-    var oldparams = getUrlParameters();
+    var oldparams = getHashParameters();
     if (oldparams.q != params.q) {
       delete params.webpage;
       delete params.peoplepage;
     }
-    history.pushState(null, null, createUrlQuery(params));
+    history.pushState(null, null, createHashQuery(params));
     scroll_to_top();
     load_from_state();
   }
 
   var update_state_param = function (name, value) {
-    var params = getUrlParameters();
+    var params = getHashParameters();
     if (params[name] != value) {
       params[name] = value;
       update_state(params);
@@ -202,7 +206,7 @@ jQuery(document).ready(function($) {
   }
 
   var update_state_params = function (newparams) {
-    var params = getUrlParameters();
+    var params = getHashParameters();
     var changed = false;
     for (var key in newparams) {
       if (newparams.hasOwnProperty(key)) {
@@ -339,7 +343,7 @@ jQuery(document).ready(function($) {
   });
 
   $('.search-form input.search').keyup(function (e) {
-    if ($(this).val() != getUrlParameters()['q']) search_form_magnify();
+    if ($(this).val() != getHashParameters()['q']) search_form_magnify();
   });
 
   $('.search-form .magnify').click(function (e) {
