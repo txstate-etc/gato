@@ -246,7 +246,7 @@ jQuery(document).ready(function($) {
               '<a class="person-email" href="mailto:'+html_encode(result.email)+'">'+html_encode(result.email)+'</a></dd></dl>';
     else
       html += '<dl class="person-email"><dt>Email:</dt><dd>'+
-              '<a class="person-email" href="'+peoplesearch_token_url+'">log in to view email</a></dd></dl>';
+              '<a class="person-email person-email-unauthenticated" href="'+peoplesearch_token_url+'">log in to view email</a></dd></dl>';
     html += '</div>';
     return html;
   }
@@ -321,6 +321,9 @@ jQuery(document).ready(function($) {
         'type': 'people'
       });
     });
+    $('#search-results a.person-email-unauthenticated').click(function(e) {
+      createCookie("peoplesearchsavestate", window.location.hash);
+    });
     $('.search-people-advanced a').click(function(e) {
       e.preventDefault();
       $('.search-people-advanced-info').toggle();
@@ -335,6 +338,8 @@ jQuery(document).ready(function($) {
     window.elementqueries.update();
   }
 
+  var savedstate = readCookie("peoplesearchsavestate");
+  if (!isBlank(savedstate)) { window.location.hash = savedstate; deleteCookie("peoplesearchsavestate"); }
   load_from_state();
   $(window).on("popstate", load_from_state);
 
