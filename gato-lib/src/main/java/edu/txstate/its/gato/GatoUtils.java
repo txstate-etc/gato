@@ -165,8 +165,8 @@ public final class GatoUtils {
 
   public String absoluteDamUrl(String itemKey) {
     return absoluteUrl(damPath())+damfn.getAssetLink(itemKey)
-	                                .replaceAll("^"+MgnlContext.getContextPath(), "")
-	                                .replaceAll("^/dam", "");
+                                  .replaceAll("^"+MgnlContext.getContextPath(), "")
+                                  .replaceAll("^/dam", "");
   }
 
   public String resourcePath() {
@@ -891,13 +891,13 @@ public final class GatoUtils {
     templateQuery += "ISDESCENDANTNODE(node, '"+parent.getJCRNode().getPath()+"') and ";
     templateQuery += "([mgnl:template]=\""+String.join("\" or [mgnl:template] = \"", templateIds)+"\")";
     if (!StringUtils.isBlank(orderBy)) templateQuery += " ORDER BY "+orderBy;
-		NodeIterator nodes = MgnlContext.getJCRSession(RepositoryConstants.WEBSITE).getWorkspace().getQueryManager().
-			createQuery(templateQuery, "JCR-SQL2").
-			execute().getNodes();
-		while (nodes.hasNext()) {
-			ret.add(tf.asContentMap(nodes.nextNode()));
-		}
-		return ret;
+    NodeIterator nodes = MgnlContext.getJCRSession(RepositoryConstants.WEBSITE).getWorkspace().getQueryManager().
+      createQuery(templateQuery, "JCR-SQL2").
+      execute().getNodes();
+    while (nodes.hasNext()) {
+      ret.add(tf.asContentMap(nodes.nextNode()));
+    }
+    return ret;
   }
   public void visitComponents(Node parent, NodeVisitor v) throws Exception {
     for (Node n : NodeUtil.getNodes(parent)) {
@@ -1090,6 +1090,18 @@ public final class GatoUtils {
   public String tidyHTML(String rawhtml) {
     if (StringUtils.isBlank(rawhtml)) return "";
     return Jsoup.parse("<!DOCTYPE html><html><head></head><body>"+rawhtml+"</body></html>").body().html();
+  }
+
+  public JsonObject oEmbedAutodiscover(String url) {
+    try {
+      String oEmbedUrl = Jsoup.connect(url).get().select("link[type=\"application/json+oembed\"]").attr("href");
+      String oEmbedJson = httpGetContent(oEmbedUrl);
+      if (StringUtils.isBlank(oEmbedJson)) return null;
+      return parseJSON(oEmbedJson);
+    } catch (Exception e) {
+      e.printStackTrace();
+      return null;
+    }
   }
 
   public String uuidToHtmlId(String uuid) {

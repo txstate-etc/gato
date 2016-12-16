@@ -144,8 +144,8 @@ function createPlayer(el, url, options) {
   }
 }
 
-jQuery(document).ready(function() {
-  jQuery('.gatoEmbedContainer').each(function(i) {
+jQuery(document).ready(function($) {
+  $('.gatoEmbedContainer').each(function(i) {
     var container = this;
     container.id = 'gato-player-' + i;
     createPlayer(container, jQuery(container).data("url"));
