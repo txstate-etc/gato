@@ -13,7 +13,7 @@
 [/#list]
 
 ${ctx.response.setContentType('application/rss+xml;charset=UTF-8')}
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
 <channel>
 
 <title>${gf.nodeTitle(content)}</title>
