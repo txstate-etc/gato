@@ -80,6 +80,8 @@ public class RssModel<RD extends RenderableDefinition> extends RenderingModelImp
   public List<SyndEntry> getItems() { return items; }
 
   public String fmtItemText(final SyndEntry item) {
+    SyndContent description = item.getDescription();
+    if(description == null) return "";
     String itemText = item.getDescription().getValue();
 
     if (SUMMARY_ONLY.equalsIgnoreCase(displayType)) {
