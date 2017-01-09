@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sv:node sv:name="IsNotTopLevelRule" xmlns:sv="http://www.jcp.org/jcr/sv/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <sv:property sv:name="jcr:primaryType" sv:type="Name">
+    <sv:value>mgnl:contentNode</sv:value>
+  </sv:property>
+  <sv:property sv:name="jcr:uuid" sv:type="String">
+    <sv:value>74eb1b85-9fc3-43d4-adb1-48ef7a4cd546</sv:value>
+  </sv:property>
+  <sv:property sv:name="implementationClass" sv:type="String">
+    <sv:value>edu.txstate.its.gato.apputil.IsNotTopLevelRule</sv:value>
+  </sv:property>
+  <sv:property sv:name="jcr:createdBy" sv:type="String">
+    <sv:value>admin</sv:value>
+  </sv:property>
+  <sv:property sv:name="mgnl:created" sv:type="Date">
+    <sv:value>2017-01-09T09:29:33.663-06:00</sv:value>
+  </sv:property>
+  <sv:property sv:name="mgnl:createdBy" sv:type="String">
+    <sv:value>a_f269</sv:value>
+  </sv:property>
+  <sv:property sv:name="mgnl:lastModified" sv:type="Date">
+    <sv:value>2017-01-09T09:32:20.241-06:00</sv:value>
+  </sv:property>
+  <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
+    <sv:value>a_f269</sv:value>
+  </sv:property>
+</sv:node>
