@@ -15,7 +15,7 @@ var flowPlayerTypes = {
 function getVideoInfo(url) {
   var vInfo = {};
   vInfo.url = url;
-  urlInfo = urlParser.parse(vInfo.url);
+  var urlInfo = urlParser.parse(vInfo.url);
 
   if (urlInfo) {
     vInfo.playerType = urlInfo.provider;
@@ -69,25 +69,6 @@ function buildEmbed(el, embedCode) {
   jQuery(el).append(embedCode);
 }
 
-function buildMediaflo(el, videoInfo) {
-  jQuery(el).addClass('mediafloEmbedContainer');
-  jQuery(el).append('<iframe class="mediaflo-frame" src="' + videoInfo.url + '"></iframe>');
-}
-
-function buildVimeoPlayer(el, videoInfo) {
-  var autoplay = videoInfo.options.autoplay ? '1' : '0';
-  var vimeoUrl = "//player.vimeo.com/video/" + videoInfo.videoId + "?api=1&player_id=" + el.id + "-vimeo" +"&autoplay="+autoplay;
-  var iframe = '<iframe id="' + el.id + '-vimeo" src="' + vimeoUrl + '" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
-  jQuery(el).append(iframe);
-}
-
-function buildYoutubePlayer(el, videoInfo) {
-  jQuery(el).append('<div id="' + el.id + '-youtube"></div>');
-  var playerVars = { autoplay: videoInfo.options.autoplay ? 1:0};
-  var opts = { videoId: videoInfo.videoId, events: {}, playerVars: playerVars };
-  var player = new YT.Player(el.id + '-youtube', opts);
-}
-
 function buildUstreamChannel(el, videoInfo) {
   if (videoInfo.channelId) {
     var iframe = '<iframe src="http://www.ustream.tv/embed/' + videoInfo.channelId + '?html5ui" allowfullscreen webkitallowfullscreen scrolling="no" frameborder="0" style="border: 0 none transparent;"></iframe>';
@@ -102,50 +83,73 @@ function buildUstreamRecorded(el, videoInfo) {
   jQuery(el).append(iframe);
 }
 
-function createPlayer(el, url, options) {
-  var videoInfo = getVideoInfo(url);
-  videoInfo.options = options || {};
-  var embedcode = jQuery(el).data('embed');
-  if (embedcode.length > 0) {
-    jQuery('.gatoEmbedContainer').html(embedcode);
-  } else {
-    switch(videoInfo.playerType) {
-      case "youtube":
-        waitForYoutube().then(function() { buildYoutubePlayer(el, videoInfo); });
-        break;
-      case "vimeo":
-        buildVimeoPlayer(el, videoInfo);
-        break;
-      case "embed":
-        buildEmbed(el, videoInfo.url);
-        break;
-      case "flow":
-        buildFlowPlayer(el, videoInfo);
-        break;
-      case "mediaflo":
-        buildMediaflo(el, videoInfo);
-        break;
-      case "ustream_recorded":
-        buildUstreamRecorded(el, videoInfo);
-        break;
-      case "ustream_channel":
-        videoInfo.channelId = jQuery(el).data('videoid');
-        buildUstreamChannel(el, videoInfo);
-        break;
-      case "unknown":
-        if (videoInfo.url.startsWith("http")) {
-          jQuery(el).append('<a href="' + videoInfo.url + '">' + videoInfo.url + '</a>');
-        } else {
-          el.innerHTML = "Sorry, we're unable to play this video.";
-        }
-        jQuery(el).closest('.gatoEmbedContainer').removeClass('gatoEmbedContainer');
-        break;
-    }
+function oEmbedFinished(el, info) {
+  jQuery(el).html(info.html);
+}
 
-    var iframe = jQuery(el).find('iframe');
-    if (iframe.length && !iframe.attr('title')) {
-      iframe.attr('title', 'Video Player');
-    }
+function oEmbedGetInfo(el, oembedurl, videourl) {
+  jQuery.ajax(oembedurl, {dataType: 'json'})
+    .done(function(data) {
+      oEmbedFinished(el, data);
+    })
+    .fail(function () { createNonOembedPlayer(el, videourl); });
+}
+
+function oEmbedAutodiscover(el, videourl) {
+  jQuery.ajax(videourl, {dataType: 'xml'})
+    .done(function(data) {
+      var oembedurl = jQuery('link[type="application/json+oembed"]', data).attr('href');
+      if (!isBlank(oembedurl)) oEmbedGetInfo(el, oembedurl, videourl);
+      else createNonOembedPlayer(el, videourl);
+    })
+    .fail(function () { createNonOembedPlayer(el, videourl); });
+}
+
+function createPlayer(el, url) {
+  var urlInfo = urlParser.parse(url);
+  var oembedurl;
+  var embedcode = jQuery(el).data('embed');
+  if (!isBlank(embedcode)) {
+    jQuery(el).html(embedcode);
+  } else if (url.match(/^https?:\/\/mediaflo/)) {
+    oEmbedGetInfo(el, "https://secure.its.txstate.edu/mediaflo_oembed/mediaflo_oembed?format=json&url="+encodeURIComponent(url), url);
+  } else {
+    oEmbedAutodiscover(el, url);
+  }
+}
+
+function createNonOembedPlayer(el, url) {
+  var videoInfo = getVideoInfo(url);
+  switch(videoInfo.playerType) {
+    case "youtube":
+      waitForYoutube().then(function() { buildYoutubePlayer(el, videoInfo); });
+      break;
+    case "embed":
+      buildEmbed(el, videoInfo.url);
+      break;
+    case "flow":
+      buildFlowPlayer(el, videoInfo);
+      break;
+    case "ustream_recorded":
+      buildUstreamRecorded(el, videoInfo);
+      break;
+    case "ustream_channel":
+      videoInfo.channelId = jQuery(el).data('videoid');
+      buildUstreamChannel(el, videoInfo);
+      break;
+    case "unknown":
+      if (videoInfo.url.startsWith("http")) {
+        jQuery(el).append('<a href="' + videoInfo.url + '">' + videoInfo.url + '</a>');
+      } else {
+        el.innerHTML = "Sorry, we're unable to play this video.";
+      }
+      jQuery(el).closest('.gatoEmbedContainer').removeClass('gatoEmbedContainer');
+      break;
+  }
+
+  var iframe = jQuery(el).find('iframe');
+  if (iframe.length && !iframe.attr('title')) {
+    iframe.attr('title', 'Video Player');
   }
 }
 
@@ -156,96 +160,3 @@ jQuery(document).ready(function($) {
     createPlayer(container, jQuery(container).data("url"));
   });
 });
-
-function loadStreamingDialog(def, node, el) {
-  var container = jQuery('<div class="gatoEmbedContainer" id="videoPreviewContainer"></div>')[0];
-  jQuery(container).width(530);
-  jQuery(el).append(container);
-
-  var spinnerOptions = {
-    lines: 10,
-    length: 25,
-    width: 12,
-    radius: 40,
-    rotate: 0,
-    color: '#000',
-    speed: 1,
-    trail: 60,
-    shadow: false,
-    hwaccel: false,
-    zIndex: 2e9
-  };
-
-  var spinner = new Spinner(spinnerOptions);
-
-  function loadPreview() {
-    spinner.stop();
-    var url = jQuery('.videoUrl')[0].value;
-
-    if (url != "") {
-      if (url.match(uStreamChannelRegex)) {
-        container.innerHTML = "Preview not available for Ustream channels."
-      } else {
-        createPlayer(container, url);
-      }
-    }
-  }
-
-  jQuery('.videoUrl').keyup(function() {
-    clearTimeout(el.previewTimeout);
-    jQuery(container).empty();
-    jQuery(el).addClass('gatoEmbedContainer');
-    spinner.spin(el);
-    el.previewTimeout = setTimeout(loadPreview, 1000);
-  });
-
-  jQuery('.videoUrl').change(function() {
-    clearTimeout(el.previewTimeout);
-    jQuery(container).empty();
-    loadPreview();
-  })
-
-  // Wait for Vaadin stuff to happen. Wish we didn't have to do this,
-  // but it's just a preview of the video so shouldn't be a big deal if
-  // it doesn't load right away.
-  setTimeout(function() {
-    loadPreview();
-
-    jQuery('.commit').focus(function() {
-      var url = jQuery('.videoUrl')[0].value;
-      if (url.match(uStreamChannelRegex)) {
-        jQuery('input.ustreamChannelId').val(url).change();
-      }
-    });
-
-    jQuery(el).closest('.v-panel-content').keydown(function(e) {
-      if (e.keyCode == 13 || (e.keyCode == 83 && (e.altKey || e.shiftKey || e.ctrlKey || e.metaKey))) {
-        var url = jQuery('.videoUrl')[0].value;
-        if (url.match(uStreamChannelRegex)) {
-          jQuery('input.ustreamChannelId').val(url).change();
-        }
-      }
-    });
-  }, 500);
-}
-
-var youtubeApiPromise = jQuery.Deferred();
-
-function waitForYoutube() {
-  loadYoutubeScript();
-  return youtubeApiPromise;
-}
-
-function loadYoutubeScript() {
-  if (jQuery('#ytApiScript').length) { return; }
-
-  var script = document.createElement('script');
-  script.src = "https://youtube.com/iframe_api";
-  script.id = 'ytApiScript';
-
-  document.body.appendChild(script);
-}
-
-function onYouTubeIframeAPIReady() {
-  youtubeApiPromise.resolve();
-}

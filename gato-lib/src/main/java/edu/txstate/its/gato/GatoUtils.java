@@ -1058,38 +1058,6 @@ public final class GatoUtils {
     }
   }
 
-  public String translateMediafloLink(String quickLink) {
-    String mediafloServer = "";
-    try {
-      URL u = new URL(quickLink);
-      mediafloServer = u.getProtocol()+"://"+u.getHost();
-    } catch (Exception e) {
-      return "";
-    }
-    String scraped = httpGetContent(quickLink);
-    Matcher m = MEDIAFLO_ID_PATTERN.matcher(scraped);
-    if (m.find()) {
-      String entryid = m.group(1);
-      String json = httpGetContent(mediafloServer+"/app/api/content/show.json/"+entryid);
-      JsonObject parsed = parseJSON(json);
-      if (parsed != null) {
-        String videoid = parsed.getAsJsonObject("dataSet").getAsJsonObject("encodings").getAsJsonPrimitive("videoID").getAsString();
-        String tempid = parsed.getAsJsonObject("dataSet").getAsJsonObject("encodings").getAsJsonPrimitive("temporaryLinkId").getAsString();
-        String configjson = httpGetContent(mediafloServer+"/api/player/GetPlayerConfig?temporaryLinkId="+tempid+"&contentId="+videoid);
-        System.out.println(configjson);
-        JsonObject config = parseJSON(configjson);
-        if (config != null) {
-          JsonArray sources = config.getAsJsonObject("setup").getAsJsonArray("playlist").get(0).getAsJsonObject().getAsJsonArray("sources");
-          for (int i = 0; i < sources.size(); i++) {
-            String file = sources.get(i).getAsJsonObject().getAsJsonPrimitive("file").getAsString();
-            if (file.endsWith("m3u8")) return file;
-          }
-        }
-      }
-    }
-    return "";
-  }
-
   public String tidyHTML(String rawhtml) {
     if (StringUtils.isBlank(rawhtml)) return "";
     return Jsoup.parse("<!DOCTYPE html><html><head></head><body>"+rawhtml+"</body></html>").body().html();
