@@ -105,42 +105,47 @@ function buildUstreamRecorded(el, videoInfo) {
 function createPlayer(el, url, options) {
   var videoInfo = getVideoInfo(url);
   videoInfo.options = options || {};
-  switch(videoInfo.playerType) {
-    case "youtube":
-      waitForYoutube().then(function() { buildYoutubePlayer(el, videoInfo); });
-      break;
-    case "vimeo":
-      buildVimeoPlayer(el, videoInfo);
-      break;
-    case "embed":
-      buildEmbed(el, videoInfo.url);
-      break;
-    case "flow":
-      buildFlowPlayer(el, videoInfo);
-      break;
-    case "mediaflo":
-      buildMediaflo(el, videoInfo);
-      break;
-    case "ustream_recorded":
-      buildUstreamRecorded(el, videoInfo);
-      break;
-    case "ustream_channel":
-      videoInfo.channelId = jQuery(el).data('videoid');
-      buildUstreamChannel(el, videoInfo);
-      break;
-    case "unknown":
-      if (videoInfo.url.startsWith("http")) {
-        jQuery(el).append('<a href="' + videoInfo.url + '">' + videoInfo.url + '</a>');
-      } else {
-        el.innerHTML = "Sorry, we're unable to play this video.";
-      }
-      jQuery(el).closest('.gatoEmbedContainer').removeClass('gatoEmbedContainer');
-      break;
-  }
+  var embedcode = jQuery(el).data('embed');
+  if (embedcode.length > 0) {
+    jQuery('.gatoEmbedContainer').html(embedcode);
+  } else {
+    switch(videoInfo.playerType) {
+      case "youtube":
+        waitForYoutube().then(function() { buildYoutubePlayer(el, videoInfo); });
+        break;
+      case "vimeo":
+        buildVimeoPlayer(el, videoInfo);
+        break;
+      case "embed":
+        buildEmbed(el, videoInfo.url);
+        break;
+      case "flow":
+        buildFlowPlayer(el, videoInfo);
+        break;
+      case "mediaflo":
+        buildMediaflo(el, videoInfo);
+        break;
+      case "ustream_recorded":
+        buildUstreamRecorded(el, videoInfo);
+        break;
+      case "ustream_channel":
+        videoInfo.channelId = jQuery(el).data('videoid');
+        buildUstreamChannel(el, videoInfo);
+        break;
+      case "unknown":
+        if (videoInfo.url.startsWith("http")) {
+          jQuery(el).append('<a href="' + videoInfo.url + '">' + videoInfo.url + '</a>');
+        } else {
+          el.innerHTML = "Sorry, we're unable to play this video.";
+        }
+        jQuery(el).closest('.gatoEmbedContainer').removeClass('gatoEmbedContainer');
+        break;
+    }
 
-  var iframe = jQuery(el).find('iframe');
-  if (iframe.length && !iframe.attr('title')) {
-    iframe.attr('title', 'Video Player');
+    var iframe = jQuery(el).find('iframe');
+    if (iframe.length && !iframe.attr('title')) {
+      iframe.attr('title', 'Video Player');
+    }
   }
 }
 

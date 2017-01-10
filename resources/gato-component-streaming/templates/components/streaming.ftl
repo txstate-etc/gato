@@ -10,7 +10,7 @@
   <div
     class="gatoEmbedContainer"
     data-url="${vurl}"
-    data-embed="${((gf.oEmbedAutodiscover('https://www.youtube.com/watch?v=a4pZ6pzrdlc')!{}).html!'')?html}"
+    data-embed="${gf.jsonGetString(gf.oEmbedAutodiscover(content.videourl), 'html')?html}"
     [#if content.videoid?has_content]data-videoid="${content.videoid}"[/#if]>
   </div>
 </div>

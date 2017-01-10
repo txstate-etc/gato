@@ -32,6 +32,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 import java.util.Calendar;
@@ -63,6 +64,7 @@ import javax.jcr.PathNotFoundException;
 import javax.jcr.ValueFormatException;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.commons.lang3.time.DateUtils;
 import org.apache.commons.codec.digest.DigestUtils;
 
@@ -78,6 +80,7 @@ public final class GatoUtils {
   private static final Pattern ITEMKEY_PATTERN = Pattern.compile("^([a-z]+):([a-f0-9\\-]+)$");
   private static final Pattern EXTERNAL_LINK_PATTERN = Pattern.compile("^(\\w+:)?//.*$");
   private static final Pattern MEDIAFLO_ID_PATTERN = Pattern.compile("contentContainer_([a-f\\d\\-]+)");
+  private static final Pattern MEDIAFLO_URL_PATTERN = Pattern.compile("^https?://mediaflo.*$");
   private static final Pattern JSONP_PATTERN = Pattern.compile("^\\s*\\w+\\((.+?)\\);?\\s*$");
 
   private final TemplatingFunctions tf;
@@ -1093,8 +1096,16 @@ public final class GatoUtils {
   }
 
   public JsonObject oEmbedAutodiscover(String url) {
+    if (StringUtils.isBlank(url)) return null;
     try {
-      String oEmbedUrl = Jsoup.connect(url).get().select("link[type=\"application/json+oembed\"]").attr("href");
+      Matcher m = MEDIAFLO_URL_PATTERN.matcher(url);
+      String oEmbedUrl;
+      if (m.find()) {
+        String mediafloUrl = m.group();
+        oEmbedUrl = "https://secure.its.txstate.edu/mediaflo_oembed/mediaflo_oembed?format=json&url="+URLEncoder.encode(mediafloUrl, "UTF-8");
+      } else {
+        oEmbedUrl = Jsoup.connect(url).get().select("link[type=\"application/json+oembed\"]").attr("href");
+      }
       String oEmbedJson = httpGetContent(oEmbedUrl);
       if (StringUtils.isBlank(oEmbedJson)) return null;
       return parseJSON(oEmbedJson);
@@ -1102,6 +1113,14 @@ public final class GatoUtils {
       e.printStackTrace();
       return null;
     }
+  }
+
+  public String jsonGetString(JsonObject obj, String key) {
+    if (obj == null || StringUtils.isBlank(key) || !obj.has(key)) return "";
+    String str = obj.getAsJsonPrimitive(key).toString();
+    String ret = StringEscapeUtils.unescapeJava(str);
+    ret = ret.substring(1, ret.length()-1);
+    return ret;
   }
 
   public String uuidToHtmlId(String uuid) {
