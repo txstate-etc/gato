@@ -10,6 +10,10 @@ form:
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Video Url
           styleName: videoUrl
+        - name: videoid
+          class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+          transformerClass: edu.txstate.its.gato.vaadin.UstreamChannelTransformer
+          styleName: ustreamChannelId
 
 actions: !include /gato-template/dialogs/common/actions-block.yaml
 label: Streaming Media
