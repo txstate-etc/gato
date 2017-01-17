@@ -23,6 +23,7 @@ subApps:
               items:
                 - name: addItem
                 - name: import
+                - name: activateRoot
           availability:
             nodes: false
             root: true
@@ -66,6 +67,16 @@ subApps:
             nodeTypes:
               - mgnl:component
     actions:
+      activateRoot:
+        subAppId: detail
+        label: Activate All
+        icon: icon-publish
+        nodeType: mgnl:component
+        appName: news-links
+        class: info.magnolia.ui.framework.action.ActivationActionDefinition
+        recursive: true
+        availability:
+          root: true
       addItem:
         subAppId: detail
         label: Add Item
