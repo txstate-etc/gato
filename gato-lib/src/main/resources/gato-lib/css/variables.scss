@@ -97,7 +97,7 @@ $mediumtext: black;
 //Other variables
 $default-border-radius: 3px;
 $page-indicator-active: $maroon;
-$page-indicator-inactive: rgba($almost-black, 0.25);
+$page-indicator-inactive: $light-gray;
 $page-indicator-hover: rgba($almost-black, 1);
 
 @import "gato-lib/css/mixins";
