@@ -45,13 +45,14 @@
         margin: 0px 0px 1.5rem 0px;
         font-weight: 600;
         text-transform: none;
-        letter-spacing: 0;
+        letter-spacing: 0.125rem;
         border: none;
         line-height: 3rem;
         display: inline-block;
         padding: .3rem 1.2rem;
         font-size: 1.8rem;
         transition: all 0.3s ease-in-out;
+        opacity: 0.9;
       }
       p {
         margin: 0px;
@@ -59,6 +60,7 @@
         font-size: 1.6rem;
         line-height: 2.4rem;
         transition: all 0.3s ease-in-out;
+        opacity: 0.9;
       }
     }
     &.color1 {

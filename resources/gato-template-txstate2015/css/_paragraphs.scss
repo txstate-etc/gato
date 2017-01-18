@@ -8,6 +8,14 @@
   }
 }
 
+.gato-slider .slide.color2 .caption {
+  [data-eq~="500px"] & { background-color: rgba(100, 81, 53, 1); }
+  h3, p{
+    /* gold needs to be a little darker when transparent to ensure contrast with text */
+    background-color: rgba(100, 81, 53, 1);
+  }
+}
+
 .pswp__caption__center {
   max-width: 60rem;
 }
