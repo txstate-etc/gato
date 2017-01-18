@@ -69,11 +69,13 @@ subApps:
     actions:
       activateRoot:
         subAppId: detail
-        label: Activate All
+        label: Publish All
         icon: icon-publish
         nodeType: mgnl:component
         appName: news-links
         class: info.magnolia.ui.framework.action.ActivationActionDefinition
+        command: activate
+        catalog: versioned
         recursive: true
         availability:
           root: true
