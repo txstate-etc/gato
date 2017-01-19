@@ -1,23 +1,22 @@
 div#top-feature {
   position: relative;
   background: $charcoal;
-  
+
   figure {
     position: relative;
     overflow: hidden;
     height: 600px;
     margin: 0;
     background: $maroon;
-    
-    .img-wrap {
+
+    img {
+      width: 100%;
       height: 100%;
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: 50% 50%;
+      @include object-fit-poly(cover);
     }
 
     p { margin: 0; }
-    
+
     figcaption {
       width: 100%;
       height: 100%;
@@ -48,10 +47,10 @@ div#top-feature {
       .feature-play-button {
         top: -7.5rem;
       }
-    }    
+    }
   }
-  
-  .slide {  
+
+  .slide {
     &.color1 { .feature-headline a, .feature-play-button a { background-color: $mc1-bg; color: $mc1-text; @include hover-bg($mc1-comp-bg); } }
     &.color2 { .feature-headline a, .feature-play-button a { background-color: $mc2-bg; color: $mc2-text; @include hover-bg($mc2-comp-bg); } }
     &.color3 { .feature-headline a, .feature-play-button a { background-color: $mc3-bg; color: $mc3-text; @include hover-bg($mc3-comp-bg); } }
@@ -69,14 +68,14 @@ div#top-feature {
     &.color7 .feature-play-button a:after { border-left-color: $mc7-text; }
 
   }
-  
+
   .slide-nav-wrap {
     position: relative;
     width: 1200px;
     margin: auto;
   }
 
-  .slide-nav { 
+  .slide-nav {
     position: absolute;
     bottom: 5.5rem;
     right: 0;
@@ -102,15 +101,15 @@ div#top-feature {
     }
   }
 
-  .slide:first-child .img-wrap, .slide-nav { opacity: 0; }
+  .slide:first-child img, .slide-nav { opacity: 0; }
 
   @media (max-width: $xl-breakpoint){
     figure {
       height: 500px;
-  
+
       figcaption {
         max-width: 1000px;
-        
+
         .caption-wrap {
           bottom: 4.5rem;
         }
@@ -163,7 +162,7 @@ div#top-feature {
     .slide-nav-wrap { display: none; }
     figure {
       height: auto;
-      .img-wrap { height: 250px; }
+      img { height: 250px; }
       figcaption {
         padding: 0;
         .caption-wrap {
@@ -183,12 +182,12 @@ div#top-feature {
         }
       }
     }
-    .slide:first-child .img-wrap, .slide-nav { opacity: 1; }
+    .slide:first-child img, .slide-nav { opacity: 1; }
   }
 
   @media (max-width: $mn-breakpoint){
     figure {
-      .img-wrap { height: 185px; }
+      img { height: 185px; }
     }
   }
 }

@@ -4,15 +4,14 @@
 
 
 <div id="top-feature" class="feature">
-    
+
     <div class="slides">
 
       [#list slides as component]
         [#if isEnabled(component)]
           <div class="slide ${component.color!''}">
             <figure class="feature top-slider" >
-              <div class="img-wrap" style="background-image: url(${gf.getImgDefault(component.image)});"></div>
-              [#-- <img src="${gf.getImgDefault(component.image, aspectratio)}" srcset="${gf.getSrcSet(component.image, aspectratio)}" alt="${component.alttext!}"> --]
+              <img class="slide-image" src="${gf.getImgDefault(component.image, aspectratio)}" srcset="${gf.getSrcSet(component.image, aspectratio)}" alt="${component.alttext!}">
               <figcaption>
                 <div class="caption-wrap">
 
@@ -27,7 +26,7 @@
                       [#if link?has_content]
                         </a>
                       [/#if]
-                      
+
                     </p>
                   [/#if]
 

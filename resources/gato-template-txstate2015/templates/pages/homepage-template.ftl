@@ -9,6 +9,7 @@
       'gato-lib/js/jquery-ui/jquery-ui.min.js',
       'gato-template-txstate2015/js/respond.min.js',
       'gato-template-txstate2015/js/slideout.js',
+      'gato-lib/js/object-fit-images.min.js',
       'gato-template-txstate2015/js/homepage.js',
       'gato-template-txstate2015/js/tabs.js',
       'gato-lib/js/fastclick.js',

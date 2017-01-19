@@ -50,3 +50,8 @@
     @include vendor-prefix(transition, all 0.2s cubic-bezier(0, 0.5, 0.25, 1));
   }
 }
+
+@mixin object-fit-poly($fitcommand) {
+  object-fit: $fitcommand;
+  font-family: 'object-fit: #{$fitcommand};';
+}
