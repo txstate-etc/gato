@@ -32,7 +32,8 @@
 
                   [#if component.videourl?has_content]
                     <p class="feature-play-button">
-                      <a href="${component.videourl}" aria-label="Play Video"></a>
+                      <a href="${component.videourl}" aria-label="Play Video" 
+                      data-embed="${gf.jsonGetString(gf.oEmbedAutodiscover(component.videourl), 'html')?html}"></a>
                     </p>
                   [/#if]
 

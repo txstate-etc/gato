@@ -239,9 +239,11 @@ jQuery(function($) {
     $cur: null,
 
     loadSlide: function($slide) {
-      var $container = $('<div class="gatoEmbedContainer"></div>');
+      var dataEmbed = $slide.find('.feature-play-button a').attr('data-embed');
+      var dataUrl = $slide.find('.feature-play-button a').attr('href');
+      var $container = $('<div class="gatoEmbedContainer" data-url="' + dataUrl + '" data-embed=\''+ dataEmbed +'\'></div>');
       $('#video-modal .video-container').empty().append($container);
-      createPlayer($container, $slide.find('.feature-play-button a').attr('href'), { autoplay: true });
+      createPlayer($container, dataUrl, { autoplay: true });
       this.$cur = $slide;
     },
 
