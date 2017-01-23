@@ -11,6 +11,7 @@
       'gato-template-txstate2015/js/slideout.js',
       'gato-lib/js/object-fit-images.min.js',
       'gato-template-txstate2015/js/homepage.js',
+      'gato-template/js/video-slide.js',
       'gato-template-txstate2015/js/tabs.js',
       'gato-lib/js/fastclick.js',
       'gato-template-txstate2015/js/common.js',
@@ -71,7 +72,7 @@
     </div> <!-- end of the container -->
     [@cssjsmodals /]
     [@sidebarmodal /]
-    [#include "includes/homepage/video-modal.ftl"]
+    [#include "/gato-template/templates/includes/video-modal.ftl"]
     <!--  GENERATED-CONTENT-ENDS-DHTN23TN423HT4D -->
   </body>
 </html>
