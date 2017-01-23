@@ -17,6 +17,7 @@ form:
         - name: title
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Title
+          maxLength: 50
           description: "Title for this slide. Appears in the caption area."
         - name: videourl
           required: true

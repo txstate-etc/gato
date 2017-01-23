@@ -9,9 +9,15 @@
       <img src="${gf.getImgDefault(content.image, left, right, top, bottom, ctx.aspectratio)}" srcset="${gf.getSrcSet(content.image, left, right, top, bottom, ctx.aspectratio)}" class="bg" alt="${content.alttext!}">
     </div>
     <div class="caption">
-      [#if content.title?has_content && content.link?has_content]<a href="${content.link}">[/#if]
-      <h3>${content.title}</h3>
-      [#if content.link?has_content]</a>[/#if]
+      [#if content.title?has_content]
+        [#if content.link?has_content]
+          <a href="${content.link}">
+        [/#if]
+        <h3>${content.title}</h3>
+        [#if content.link?has_content]
+          </a>
+        [/#if]
+      [/#if]
       [#if content.videourl?has_content]
         <div class="feature-play-button">
           <a href="${content.videourl}" aria-label="Play Video" 
