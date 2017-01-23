@@ -111,7 +111,13 @@ public final class GatoUtils {
     if ( StringUtils.strip(url).matches("[^/]+\\.(com|edu|org|net|gov|us|ca|uk)(/.*?)?") ) return "http://"+StringUtils.strip(url);
 
     // let's see if it's an id for something in the website tree
-    String websiteLink = tf.link(RepositoryConstants.WEBSITE, url);
+    String websiteLink="";
+    try{
+      websiteLink = tf.link(RepositoryConstants.WEBSITE, url);
+    }
+    catch(Exception e){
+      e.printStackTrace();
+    }
     if (!StringUtils.isBlank(websiteLink)) return websiteLink;
 
     // let's see if it's an item key for something in DAM
