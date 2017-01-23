@@ -1,0 +1,7 @@
+templateScript: /gato-component-feature/templates/components/video-slide.ftl
+renderType: freemarker
+title: Video
+description: Video slide for the feature slideshow.
+dialog: gato-component-feature:components/video-slide
+parameters:
+  icon: /gato-component-feature/images/video.png

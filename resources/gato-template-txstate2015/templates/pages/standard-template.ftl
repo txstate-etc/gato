@@ -6,6 +6,7 @@
 		<link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-txstate2015/css/txstate2015.compiled.css"/>
     [#assign jsscripts = [
       'gato-template/js/search-gsa.js',
+      'gato-template/js/video-slide.js',
       'gato-template-txstate2015/js/jquery-scrolltofixed-min.js',
       'gato-lib/js/jquery-ui/jquery-ui.min.js',
       'gato-template-txstate2015/js/respond.min.js',
@@ -81,5 +82,6 @@
             [@sidebarmodal/]
         [/#if]
     [@cms.area name="gatoHours" content=gf.getOrCreateArea(homepage, 'gatoHours') /]
+    [#include "/gato-template/templates/includes/video-modal.ftl"]
 	</body>
 </html>

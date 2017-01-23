@@ -52,7 +52,6 @@
         padding: .3rem 1.2rem;
         font-size: 1.8rem;
         transition: all 0.3s ease-in-out;
-        opacity: 0.9;
       }
       p {
         margin: 0px;
@@ -60,76 +59,232 @@
         font-size: 1.6rem;
         line-height: 2.4rem;
         transition: all 0.3s ease-in-out;
-        opacity: 0.9;
+      }
+      .feature-play-button {
+        position: absolute;
+        top: -5.5rem;
+        margin: 0;
+        a {
+          @include vendor-prefix(border-radius, 50%);
+          border-radius: 8rem;
+          background: $maroon;
+          position: absolute;
+          width: 6rem;
+          height: 6rem;
+          &:after {
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            position: absolute;
+            border: solid transparent;
+            border-left-color: $white;
+            border-width: 1rem 0 1rem 1.6rem;
+            content: "";
+            height: 0;
+            width: 0;
+            position: absolute;
+            top: 50%;
+            margin-top: -1rem;
+            left: .4rem;
+            @media (max-width: $sm-breakpoint) {
+              border-width: 0.8rem 0 0.8rem 1.4rem;
+              margin-top: -0.8rem;
+            }
+          }
+          &:hover {
+            @include vendor-prefix(transform, scale(1.15));
+            background: $light-maroon;
+          }
+          @include vendor-prefix(transition, all 0.2s cubic-bezier(0, 0.5, 0.25, 1));
+        }
       }
     }
     &.color1 {
       .caption {
-        h3, p{ background-color: $mc1-bg; color: $mc1-text; }
+        h3, p{ background-color: rgba($mc1-bg, 0.9); color: $mc1-text; }
       }
       &>a:hover{
-        .caption h3, p{
-          background: $mc1-comp-bg;
+        .caption h3, .caption p{
+          background: rgba($mc1-comp-bg, 0.9);
         }
       }
     }
     &.color2 {
       .caption {
-        h3, p{ background-color: $mc2-bg; color: $mc2-text; }
+        h3, p{ background-color: rgba($mc2-bg, 0.9); color: $mc2-text; }
       }
       &>a:hover{
-        .caption h3, p{
-          background: $mc2-comp-bg;
+        .caption h3, .caption p{
+          background: rgba($mc2-comp-bg, 0.9);
         }
       }
     }
     &.color3 {
       .caption {
-        h3, p{ background-color: $mc3-bg; color: $mc3-text; }
+        h3, p{ background-color: rgba($mc3-bg, 0.9); color: $mc3-text; }
       }
       &>a:hover{
-        .caption h3, p{
-          background: $mc3-comp-bg;
+        .caption h3, .caption p{
+          background: rgba($mc3-comp-bg, 0.9);
         }
       }
     }
     &.color4 {
       .caption {
-        h3, p{ background-color: $mc4-bg; color: $mc4-text; }
+        h3, p{ background-color: rgba($mc4-bg, 0.9); color: $mc4-text; }
       }
       &>a:hover{
-        .caption h3, p{
-          background: $mc4-comp-bg;
+        .caption h3, .caption p{
+          background: rgba($mc4-comp-bg, 0.9);
         }
       }
     }
     &.color5 {
       .caption {
-        h3, p{ background-color: $mc5-bg; color: $mc5-text; }
+        h3, p{ background-color: rgba($mc5-bg, 0.9); color: $mc5-text; }
       }
       &>a:hover{
-        .caption h3, p{
-          background: $light-river;
+        .caption h3, .caption p{
+          background: rgba($light-river, 0.9);
         }
       }
     }
     &.color6 {
       .caption {
-        h3, p{ background-color: $mc6-bg; color: $mc6-text; }
+        h3, p{ background-color: rgba($mc6-bg, 0.9); color: $mc6-text; }
       }
       &>a:hover{
-        .caption h3, p{
-          background: $light-sandstone;
+        .caption h3, .caption p{
+          background: rgba($light-sandstone, 0.9);
         }
       }
     }
     &.color7 {
       .caption {
-        h3, p{ background-color: $mc7-bg; color: $mc7-text; }
+        h3, p{ background-color: rgba($mc7-bg, 0.9); color: $mc7-text; }
       }
       &>a:hover{
-        .caption h3, p{
-          background: $light-oldgold;
+        .caption h3, .caption p{
+          background: rgba($light-oldgold, 0.9);
+        }
+      }
+    }
+    &.video-slide{
+      .caption{
+        h3{
+          padding: 1.3rem 1.8rem;
+        }
+      }
+      &.color1{
+        .caption{
+          h3:hover{
+            background: rgba($mc1-comp-bg, 0.9);
+          }
+          .feature-play-button a{
+            background: rgba($mc1-bg, 0.9);
+            &:hover{
+              background: rgba($mc1-comp-bg, 0.9);
+            }
+            &:after{
+              border-left-color: $mc1-text;
+            }
+          }
+        }
+      }
+      &.color2{
+        .caption{
+          h3:hover{
+            background: rgba($mc2-comp-bg, 0.9);
+          }
+          .feature-play-button a{
+            background: rgba($mc2-bg, 0.9);
+            &:hover{
+              background: rgba($mc2-comp-bg, 0.9);
+            }
+            &:after{
+              border-left-color: $mc2-text;
+            }
+          }
+        }
+      }
+      &.color3{
+        .caption{
+          h3:hover{
+            background: rgba($mc3-comp-bg, 0.9);
+          }
+          .feature-play-button a{
+            background: rgba($mc3-bg, 0.9);
+            &:hover{
+              background: rgba($mc3-comp-bg, 0.9);
+            }
+            &:after{
+              border-left-color: $mc3-text;
+            }
+          }
+        }
+      }
+      &.color4{
+        .caption{
+          h3:hover{
+            background: rgba($mc4-comp-bg, 0.9);
+          }
+          .feature-play-button a{
+            background: rgba($mc4-bg, 0.9);
+            &:hover{
+              background: rgba($mc4-comp-bg, 0.9);
+            }
+            &:after{
+              border-left-color: $mc4-text;
+            }
+          }
+        }
+      }
+      &.color5{
+        .caption{
+          h3:hover{
+            background: rgba($light-river, 0.9);
+          }
+          .feature-play-button a{
+            background: rgba($mc5-bg, 0.9);
+            &:hover{
+              background: rgba($light-river, 0.9);
+            }
+            &:after{
+              border-left-color: $mc5-text;
+            }
+          }
+        }
+      }
+      &.color6{
+        .caption{
+          h3:hover{
+            background: rgba($light-sandstone, 0.9);
+          }
+          .feature-play-button a{
+            background: rgba($mc6-bg, 0.9);
+            &:hover{
+              background: rgba($light-sandstone, 0.9);
+            }
+            &:after{
+              border-left-color: $mc6-text;
+            }
+          }
+        }
+      }
+      &.color7{
+        .caption{
+          h3:hover{
+            background: rgba($light-oldgold, 0.9);
+          }
+          .feature-play-button a{
+            background: rgba($mc7-bg, 0.9);
+            &:hover{
+              background: rgba($light-oldgold, 0.9);
+            }
+            &:after{
+              border-left-color: $mc7-text;
+            }
+          }
         }
       }
     }
@@ -272,6 +427,17 @@
       &.color5 .caption { background-color: $mc5-bg; }
       &.color6 .caption { background-color: $mc6-bg; }
       &.color7 .caption { background-color: $mc7-bg; }
+      &.video-slide{
+        .caption{
+          .feature-play-button{
+            top: -6.5rem;
+            a{
+              width: 5rem;
+              height: 5rem;
+            }
+          }
+        }
+      }
     }
 
     .slick-prev, .slick-next{
