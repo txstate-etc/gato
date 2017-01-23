@@ -33,6 +33,8 @@ jQuery(document).ready(function ($) {
       adaptiveHeight: false,
       autoplay: !isEditMode && (speed > 0),
       autoplaySpeed: speed,
+      accessibility: true,
+      lazyLoad: 'progressive'
     });
   });
 });
