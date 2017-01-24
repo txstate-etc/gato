@@ -3,8 +3,8 @@ jQuery( document ).ready(function($) {
   magnolialabelchange('.navBlocks_add', '.mgnlEditor.mgnlPlaceholder', 'Add Link Group');
   magnolialabelchange('.listItems_add', '.mgnlEditor.mgnlPlaceholder', 'Add Link');
   magnolialabelchange('.txst-gallery-image.add', '.mgnlEditor.mgnlPlaceholder', 'Add Image');
-  magnolialabelchange('.feature_add', '.mgnlEditor.mgnlPlaceholder', 'Add Image');
-  magnolialabelchange('.feature_max', '.mgnlEditor.mgnlPlaceholder', 'Maximum images added');
+  magnolialabelchange('.feature_add', '.mgnlEditor.mgnlPlaceholder', 'Add Slide');
+  magnolialabelchange('.feature_max', '.mgnlEditor.mgnlPlaceholder', 'Maximum slides added');
   magnolialabelchange('.gato-section', '.section-bar>.mgnlEditor.component', 'Section');
   magnolialabelchange('.column_add', '.mgnlEditor.mgnlPlaceholder', 'Add Content');
   magnolialabelchange('.genEmergency_add', '.mgnlEditor.mgnlPlaceholder', 'Add Emergency Information');
