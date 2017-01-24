@@ -13,7 +13,7 @@
     [#if content.title?has_content || content.subtext?has_content]
     <div class="caption">
       [#if content.title?has_content]<h3>${content.title}</h3>[/#if]
-      <p>${content.subtext!}</p>
+      [#if content.subtext?has_content]<p data-orig-text='${content.subtext!}'>${content.subtext!}</p>[/#if]
     </div>
     [/#if]
 
