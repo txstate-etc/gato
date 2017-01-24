@@ -287,6 +287,9 @@ subApps:
                 class: info.magnolia.ui.form.field.definition.TextFieldDefinition
                 label: Caption Title
                 description: "Title for this slide. Appears in the caption area."
+              - name: videourl
+                class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                label: Video Url
               - name: link
                 class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
                 label: Link

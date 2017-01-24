@@ -77,40 +77,40 @@
               [#if count gte 1][#break /][/#if]
               [#if isEnabled(component)]
                 [#assign count = count + 1]
-
-                <figure id="news-feature" class="feature">
-                  
-                  [#if component.link?has_content]
-                    <a class="image-link" href="${component.link}">
-                  [/#if]
-                      <img src="${gf.getImgDefault(component.image, aspectratio)}" srcset="${gf.getSrcSet(component.image, aspectratio)}" alt="${component.alttext!}">
-                  [#if component.link?has_content]
-                    </a>
-                  [/#if]
-                  
-                  <figcaption>
-                  
-                    [#if component.supertext?has_content]
-                      <p class="feature-date">${component.supertext}</p>
+                <div class="slide">
+                  <figure id="news-feature" class="feature">
+                    [#if component.link?has_content && !(component.videourl?has_content)]
+                      <a class="image-link" href="${component.link}">
                     [/#if]
-                                        
-                    [#if component.title?has_content]
-                      <p class="feature-headline">
-
-                        [#if component.link?has_content]
-                          <a href="${gf.filterUrl(component.link)}">
+                        <img src="${gf.getImgDefault(component.image, aspectratio)}" srcset="${gf.getSrcSet(component.image, aspectratio)}" alt="${component.alttext!}">
+                        [#if component.videourl?has_content]
+                          <p class="feature-play-button">
+                            <a href="${component.videourl}" aria-label="Play Video"
+                            data-embed="${gf.jsonGetString(gf.oEmbedAutodiscover(component.videourl), 'html')?html}"></a>
+                          </p>
                         [/#if]
-                            ${component.title}
-                        [#if component.link?has_content]
-                          </a>
-                        [/#if]
-                        
-                      </p>
+                    [#if component.link?has_content && !(component.videourl?has_content)]
+                      </a>
                     [/#if]
+                    <figcaption>
+                      [#if component.supertext?has_content]
+                        <p class="feature-date">${component.supertext}</p>
+                      [/#if]
+                      [#if component.title?has_content]
+                        <p class="feature-headline">
 
-                  </figcaption>
-                </figure>
-
+                          [#if component.link?has_content]
+                            <a href="${gf.filterUrl(component.link)}">
+                          [/#if]
+                              ${component.title}
+                          [#if component.link?has_content]
+                            </a>
+                          [/#if]
+                        </p>
+                      [/#if]
+                    </figcaption>
+                  </figure>
+                </div>
               [/#if]
             [/#list]
             

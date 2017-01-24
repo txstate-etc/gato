@@ -3,6 +3,18 @@ div#news {
     margin-bottom: 0;
   }
 
+  .news-slider-wrap {
+    position: relative;
+    .feature-play-button {
+      left: calc(50% - 3.25rem);
+      top: calc(50% - 3.25rem);
+      @media (max-width: $xs-breakpoint){
+        left: calc(50% - 2.75rem);
+        top: calc(50% - 2.75rem);
+      }
+    }
+  }
+
   #news-links {
     padding: 2rem;
     @media (max-width: $md-breakpoint){ padding: 1.5rem; }
