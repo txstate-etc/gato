@@ -36,10 +36,10 @@ jQuery(document).ready(function($) {
     var himg = headerimage.find('img');
     himg.afterload(function() {
       // Background image ensure big enough
-      var imgh = himg.height();
-      var imgw = himg.width();
-      var ar = (1.0*imgw) / imgh;
       resizeTimeout(function () {
+        var imgh = himg.height();
+        var imgw = himg.width();
+        var ar = (1.0*imgw) / imgh;
         var minw = headerimage.width();
         var minh = headerimage.height();
         var newh = Math.max(Math.ceil(minw / ar), minh);
