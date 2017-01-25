@@ -276,7 +276,7 @@ public final class GatoUtils {
   protected GatoResizer getResizer() throws Exception {
     String resizeClass = sc.getJCRSession(RepositoryConstants.CONFIG)
       .getNode("/modules/gato-lib/imaging/resize").getProperty("class").getString();
-    if (mcp.hasProperty("gato.gato-lib.noresize"))
+    if (mcp.getBooleanProperty("gato.gato-lib.noresize"))
       resizeClass = "edu.txstate.its.gato.GatoResizer";
     GatoResizer srv = (GatoResizer) Components.getComponent(Class.forName(resizeClass));
     return srv;
