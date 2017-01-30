@@ -49,7 +49,7 @@ jQuery(document).ready(function ($) {
 resizeTimeout(function(){
   jQuery('.gato-slider .slides .slide .caption p').each(function(){
     var description = jQuery(this);
-    var originalText = description.attr('data-orig-text');
+    var originalText = description.attr('data-orig-text').replace("<br/>", "").replace("<BR/>", "");
     var caption = description.closest('.caption');
     if(caption.css('position') == 'absolute'){
       var maxLineHeight = Math.round(2 * parseFloat(description.css('line-height')));
