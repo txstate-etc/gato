@@ -9,12 +9,12 @@ document.documentElement.className += isTouchScreen ? " touch" : " no-touch";
 
 // detect iphone or ipod touch
 function detect_iphone() {
-	return navigator.userAgent.match(/(iPhone|iPod)/i);
+	return navigator.userAgent.match(/(iPhone|iPod)/i) ? true : false;
 }
 
 // detect Apple mobile devices with touch screen interfaces
 function detect_apple() {
-	return navigator.userAgent.match(/(iPhone|iPod|iPad)/i);
+	return navigator.userAgent.match(/(iPhone|iPod|iPad)/i) ? true : false;
 }
 
 // detect devices with touch screen interfaces
@@ -25,12 +25,16 @@ function detect_touch() {
 
 // detect android
 function detect_android() {
-	return navigator.userAgent.match(/android/i);
+	return navigator.userAgent.match(/android/i) ? true : false;
 }
 
 // detect mobile
 function detect_mobile() {
 	return screen && screen.width <= 500;
+}
+
+function is_url_scheme_appropriate() {
+  return detect_apple() || detect_android();
 }
 
 // fire an event on an element in a cross-platform manner

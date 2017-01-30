@@ -5,6 +5,7 @@
   <div
     class="gatoEmbedContainer"
     data-url="${content.videourl!''}"
+    data-openinapp="${(content.openinapp!false)?string('true','false')}"
     data-embed="${gf.jsonGetString(gf.oEmbedAutodiscover(content.videourl), 'html')?html}"
     [#if content.videoid?has_content]data-videoid="${content.videoid}"[/#if]>
   </div>

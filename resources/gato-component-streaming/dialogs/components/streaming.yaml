@@ -10,6 +10,10 @@ form:
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Video Url
           styleName: videoUrl
+        - name: openinapp
+          class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+          label: Open in App
+          buttonLabel: Provide link to play in original app instead of in browser, when appropriate.
         - name: videoid
           class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
           transformerClass: edu.txstate.its.gato.vaadin.UstreamChannelTransformer

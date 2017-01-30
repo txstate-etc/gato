@@ -84,7 +84,13 @@ function buildUstreamRecorded(el, videoInfo) {
 }
 
 function oEmbedFinished(el, info) {
-  jQuery(el).html(info.html);
+  el = jQuery(el);
+  el.html(info.html);
+  var url = el.data('url');
+  if (getVideoInfo(url).playerType == "youtube" && el.data('openinapp') && is_url_scheme_appropriate()) {
+    var appurl = url.replace(/^https?:/, 'vnd.youtube:');
+    el.after('<a href="'+appurl+'">Open in Youtube App</a>');
+  }
 }
 
 function oEmbedGetInfo(el, oembedurl, videourl) {
@@ -110,7 +116,7 @@ function createPlayer(el, url) {
   var oembedurl;
   var embedcode = jQuery(el).data('embed');
   if (!isBlank(embedcode)) {
-    jQuery(el).html(embedcode);
+    oEmbedFinished(el, {html:embedcode});
   } else if (url.match(/^https?:\/\/mediaflo/)) {
     oEmbedGetInfo(el, "https://secure.its.txstate.edu/mediaflo_oembed/mediaflo_oembed?format=json&url="+encodeURIComponent(url), url);
   } else {
@@ -121,9 +127,6 @@ function createPlayer(el, url) {
 function createNonOembedPlayer(el, url) {
   var videoInfo = getVideoInfo(url);
   switch(videoInfo.playerType) {
-    case "youtube":
-      waitForYoutube().then(function() { buildYoutubePlayer(el, videoInfo); });
-      break;
     case "embed":
       buildEmbed(el, videoInfo.url);
       break;
