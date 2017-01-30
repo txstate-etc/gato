@@ -8,7 +8,8 @@
     <div class="image">
       <img src="${gf.getImgDefault(content.image, left, right, top, bottom, ctx.aspectratio)}" srcset="${gf.getSrcSet(content.image, left, right, top, bottom, ctx.aspectratio)}" class="bg" alt="${content.alttext!}">
     </div>
-    <div class="caption">
+    [#assign notitle = (content.title?has_content)?string("","no-title")]
+    <div class="caption ${notitle}">
       [#if content.title?has_content]
         [#if content.link?has_content]
           <a href="${content.link}">

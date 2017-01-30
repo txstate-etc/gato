@@ -4,22 +4,16 @@
   .slide {
     position: relative;
     overflow: hidden;
-    a, a:hover{
+    a{
       background: transparent;
       border-bottom: none;
-      &:hover{
-        opacity: 1;
-      }
-    }
-    & > a {
       display: block;
       padding: 0;
       margin: 0;
       text-decoration: none;
       @include vendor-prefix(transition, opacity 0.3s ease-out);
       &:hover {
-        background: transparent;
-        opacity: 0.9;
+        opacity: 1;
       }
     }
     div.image {
@@ -40,6 +34,7 @@
       font-size: 1.3em;
       background-color: transparent;
       padding: 2.2rem;
+
       h3 {
         color: inherit;
         margin: 0px 0px 1.5rem 0px;
@@ -53,6 +48,7 @@
         font-size: 1.8rem;
         transition: all 0.3s ease-in-out;
       }
+
       p {
         margin: 0px;
         padding: 0.6rem 1.2rem 0.8rem 1.2rem;
@@ -60,6 +56,7 @@
         line-height: 2.4rem;
         transition: all 0.3s ease-in-out;
       }
+
       .feature-play-button {
         position: absolute;
         top: -5.5rem;
@@ -96,6 +93,25 @@
             background: $light-maroon;
           }
           @include vendor-prefix(transition, all 0.2s cubic-bezier(0, 0.5, 0.25, 1));
+        }
+      }
+      //the play button should be larger and centered if there is no slide title
+      &.no-title{
+        padding: 0px;
+        top:50%;
+        left:50%;
+        .feature-play-button {
+          top: -4.5rem;
+          left: -4.5rem;
+          a{
+            width: 9rem;
+            height:9rem;
+            &:after{
+              border-width: 2rem 0 2rem 3.2rem;
+              margin-top: -2rem;
+              left: .8rem;
+            }
+          }
         }
       }
     }
@@ -169,6 +185,7 @@
         }
       }
     }
+
     &.video-slide{
       .caption{
         h3{
@@ -176,10 +193,13 @@
           font-weight: 500;
           line-height: 2.4rem;
         }
+        a:hover{
+          background: transparent;
+        }
       }
       &.color1{
         .caption{
-          h3:hover{
+          a h3:hover{
             background: rgba($mc1-comp-bg, 0.9);
           }
           .feature-play-button a{
@@ -195,7 +215,7 @@
       }
       &.color2{
         .caption{
-          h3:hover{
+          a h3:hover{
             background: rgba($mc2-comp-bg, 0.9);
           }
           .feature-play-button a{
@@ -211,7 +231,7 @@
       }
       &.color3{
         .caption{
-          h3:hover{
+          a h3:hover{
             background: rgba($mc3-comp-bg, 0.9);
           }
           .feature-play-button a{
@@ -227,7 +247,7 @@
       }
       &.color4{
         .caption{
-          h3:hover{
+          a h3:hover{
             background: rgba($mc4-comp-bg, 0.9);
           }
           .feature-play-button a{
@@ -243,7 +263,7 @@
       }
       &.color5{
         .caption{
-          h3:hover{
+          a h3:hover{
             background: rgba($light-river, 0.9);
           }
           .feature-play-button a{
@@ -259,7 +279,7 @@
       }
       &.color6{
         .caption{
-          h3:hover{
+          a h3:hover{
             background: rgba($light-sandstone, 0.9);
           }
           .feature-play-button a{
@@ -275,7 +295,7 @@
       }
       &.color7{
         .caption{
-          h3:hover{
+          a h3:hover{
             background: rgba($light-oldgold, 0.9);
           }
           .feature-play-button a{
@@ -379,6 +399,7 @@
         }
     }
   }
+
   [data-eq~="1200px"] & {
     .slide {
       .caption {
@@ -387,6 +408,7 @@
     }
     .slick-prev, .slick-next { &:before { font-size: 36px; } padding: calc(28.125% - 18px) 10px; }
   }
+
   [data-eq~="800px"] & {
     .slide {
       .caption {
@@ -395,6 +417,7 @@
     }
     .slick-prev, .slick-next { &:before { font-size: 32px; } padding: calc(28.125% - 16px) 10px; }
   }
+
   [data-eq~="700px"] & {
     .slide {
       .caption {
@@ -408,7 +431,6 @@
       }
     }
   }
-
   [data-eq~="500px"] & {
     .slide{
       .caption{
@@ -431,6 +453,25 @@
       &.color7 .caption { background-color: $mc7-bg; }
       &.video-slide{
         .caption{
+          &.no-title{
+            background-color: transparent;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            .feature-play-button{
+              top: -3rem;
+              left: -3rem;
+              a{
+                width: 6rem;
+                height: 6rem;
+                &:after{
+                  border-width: 1.5rem 0 1.5rem 2.4rem;
+                  margin-top: -1.5rem;
+                  left: .6rem;
+                }
+              }
+            }
+          }
           .feature-play-button{
             top: -6.5rem;
             a{
@@ -441,12 +482,10 @@
         }
       }
     }
-
     .slick-prev, .slick-next{
       top: 35%;
     }
   }
-
   [data-eq~="400px"] & {
     .slide {
       .caption {
