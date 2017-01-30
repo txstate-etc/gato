@@ -14,24 +14,28 @@ form:
           contentPreviewDefinition:
             contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
           description: "Background image for this slide. Will be resized to fit the slideshow area."
-        - name: title
-          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-          label: Title
-          maxLength: 50
-          description: "Title for this slide. Appears in the caption area."
         - name: videourl
           required: true
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-          label: Video Url
+          label: Video URL
           styleName: videoUrl
         - name: alttext
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           required: true
           label: Video Alt Text
           description: "Descriptive text for users who are unable to see the video."
+        - name: spacing
+          class: info.magnolia.ui.form.field.definition.StaticFieldDefinition
+          value: ""
+          label: ""
+        - name: title
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Title
+          maxLength: 50
+          description: "Title for this slide. Appears in the caption area."
         - name: link
           class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
-          label: Link
+          label: Link to Page
           appName: pages
           identifierToPathConverter:
             class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
