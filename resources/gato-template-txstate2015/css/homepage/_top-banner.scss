@@ -37,10 +37,10 @@ div#homepage-banner {
 
   .homepage-banner-logo, .homepage-banner-searchwrap {
     @extend .grid-cell;
-    letter-spacing: normal; 
+    letter-spacing: normal;
     width: 50%;
   }
-  
+
   .homepage-banner-logo {
     padding-left: 0;
     & > a {
@@ -134,14 +134,14 @@ div#homepage-banner {
     }
 
     .homepage-banner-nav-content {
-      max-width: 1200px; 
+      max-width: 1200px;
       @media (max-width: $xl-breakpoint) {
         max-width: 1000px;
       }
       margin: auto;
 
       .homepage-banner-nav-logo {
-        letter-spacing: normal; 
+        letter-spacing: normal;
         position: absolute;
         z-index: 9;
         display: inline-block;
@@ -176,7 +176,7 @@ div#homepage-banner {
       .audience-link-tabs {
         position: relative;
         width: 100%;
-        letter-spacing: normal; 
+        letter-spacing: normal;
         text-align: right;
         @media (max-width: $md-breakpoint) {
           text-align: center;
@@ -196,7 +196,7 @@ div#homepage-banner {
           letter-spacing: -1rem;
           li {
             display: inline-block;
-            letter-spacing: normal; 
+            letter-spacing: normal;
             margin: 0;
             font-size: 2rem;
             @media (max-width: $xl-breakpoint) {
@@ -215,7 +215,7 @@ div#homepage-banner {
                 padding: 2.2rem 2rem 3.5rem 2rem;
               }
               @media (max-width: $md-breakpoint) {
-                padding: 1.8rem 2.8rem;  
+                padding: 1.8rem 2.8rem;
               }
             }
             &:first-child a { padding-left: 0; }
@@ -223,7 +223,7 @@ div#homepage-banner {
           }
         }
       }
-    
+
     }
 
     &.scroll-to-fixed-fixed {
@@ -237,12 +237,12 @@ div#homepage-banner {
         visibility: visible;
         opacity: 1;
       }
-      
+
       .audience-links {
         margin-top: 0;
         .audience-link-section { margin: 0; }
       }
-      
+
       .audience-link-tabs {
         text-align: right;
 
@@ -256,16 +256,16 @@ div#homepage-banner {
                 padding: 1.6rem 2.4rem;
               }
             }
-            &:last-child a { 
+            &:last-child a {
               @media (max-width: $md-breakpoint) {
-                padding-right: 2rem; 
+                padding-right: 2rem;
               }
             }
           }
         }
       }
     }
-  
+
     .audience-links {
 
       .audience-link-section {
@@ -295,18 +295,18 @@ div#homepage-banner {
           font-size: 1.4rem;
           color: $white;
           a { color: inherit; }
-          
-          ul { 
-            list-style: none; 
+
+          ul {
+            list-style: none;
             margin: 0;
             padding: 0;
 
             li {
-              margin: 0; 
+              margin: 0;
               &:not(:last-child) {
-                margin-bottom: 1.2rem; 
+                margin-bottom: 1.2rem;
                 @media (max-width: $md-breakpoint) {
-                  margin-bottom: 1rem; 
+                  margin-bottom: 1rem;
                 }
               }
             }
@@ -314,7 +314,7 @@ div#homepage-banner {
 
           & > div {
             @extend .grid-cell;
-            letter-spacing: normal; 
+            letter-spacing: normal;
             width: 25%;
             @media (max-width: $md-breakpoint) {
               width: 33%;
@@ -323,7 +323,7 @@ div#homepage-banner {
 
           .image-block {
             padding-right: 3.5rem;
-            
+
             .image-block-bg {
               background: $white;
               & > a {
@@ -357,7 +357,7 @@ div#homepage-banner {
             padding: 0 2rem;
             font-weight: 500;
 
-            &.future-students {            
+            &.future-students {
 
               h3 {
                 margin: 0;
@@ -366,15 +366,15 @@ div#homepage-banner {
                 text-transform: uppercase;
               }
 
-              ul { 
-                margin: 1rem 0 1.5rem; 
-                &:first-of-type { 
-                  margin-bottom: 3rem; 
+              ul {
+                margin: 1rem 0 1.5rem;
+                &:first-of-type {
+                  margin-bottom: 3rem;
                 }
                 @media (max-width: $md-breakpoint) {
                   margin-top: 0.5rem;
-                  &:first-of-type { 
-                    margin-bottom: 3rem; 
+                  &:first-of-type {
+                    margin-bottom: 3rem;
                   }
                 }
 
@@ -383,26 +383,26 @@ div#homepage-banner {
                   padding: 0;
                   &:not(:last-child) {
                     padding-right: 0.7rem;
-                    &:after { 
-                      content: "|"; 
+                    &:after {
+                      content: "|";
                       padding-left: 1.1rem;
                     }
                   }
                 }
               }
-              
+
               .featured-links-button {
                 margin: 2rem 0 0;
               }
 
             }
 
-            &.alumni-visitors {  
+            &.alumni-visitors {
               .featured-links-button {
                 padding: 1.2rem 3rem
               }
             }
-            
+
             .featured-links-button {
               display: inline-block;
               border-radius: $default-border-radius;
@@ -410,7 +410,7 @@ div#homepage-banner {
               text-transform: uppercase;
               -webkit-box-decoration-break: initial;
               box-decoration-break: initial;
-              
+
               margin: 3rem 0 0;
               padding: 1.5rem 3rem;
               border: 3px solid $lightest-gold;
@@ -421,7 +421,7 @@ div#homepage-banner {
               }
 
               @include hover-bg($maroon) {
-                border-color: $darkest-sandstone;  
+                border-color: $darkest-sandstone;
               }
 
               i {
@@ -461,37 +461,37 @@ div#homepage-banner {
 button.search-link{
     display: block;
     font-weight:500;
-    font-size: 1.8rem; 
-    float: right; 
-    padding: 1rem 1.8rem 1.2rem 2rem; 
-    border-radius: 4px; 
-    background: $khaki; 
-    color: $darkest-gold; 
+    font-size: 18px;
+    float: right;
+    padding: 10px 18px 12px 2px;
+    border-radius: 4px;
+    background: $khaki;
+    color: $darkest-gold;
     position: relative;
     border: none;
     @media screen and (max-width: $sm-breakpoint) {
-        
+
     }
     &.search-link-mobile{
-      float: left; 
-      margin-left: 0.8rem; 
-      font-size: 2.4rem; 
-      padding: 0.5rem 1.3rem 0.8rem 1.3rem; 
-      border: none; 
-      border-bottom: 2px solid #bbab92; 
+      float: left;
+      margin-left: 7px;
+      font-size: 22px;
+      padding: 5px 12px 7px 12px;
+      border: none;
+      border-bottom: 2px solid #bbab92;
       box-shadow: none;
       span{
         display:none;
       }
     }
-    
+
     .icon{
-        right: initial; 
-        position: relative; 
-        font-size: 2rem; 
-        height: auto; 
-        width: auto; 
-        margin-left: 2rem; 
+        right: initial;
+        position: relative;
+        font-size: 20px;
+        height: auto;
+        width: auto;
+        margin-left: 20px;
         color: $darkest-gold;
         &:hover{
           color: inherit;
