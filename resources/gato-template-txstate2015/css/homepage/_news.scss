@@ -7,10 +7,14 @@ div#news {
     position: relative;
     .feature-play-button {
       left: calc(50% - 3.25rem);
-      top: calc(50% - 3.25rem);
+      top: calc(30% - 3.25rem);
+      @media (max-width: $sm-breakpoint){
+        left: calc(50% - 3.25rem);
+      top: calc(40% - 3.25rem);
+      }
       @media (max-width: $xs-breakpoint){
         left: calc(50% - 2.75rem);
-        top: calc(50% - 2.75rem);
+        top: calc(30% - 2.75rem);
       }
     }
   }
