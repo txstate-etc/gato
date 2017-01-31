@@ -153,7 +153,7 @@ jQuery(document).ready(function($) {
         //they want to search all of Texas State instead of doing a site search
         if($('#sitesearch').length == 0 || $('#txst-all').prop('checked')){
             var query = $('#search-text').val();
-            var url = "/search?q=" + query;
+            var url = "/search#q=" + query;
             window.location = url;
         }
         else{
@@ -275,7 +275,7 @@ jQuery(document).ready(function($) {
                                 '<a href="#" data-sort="date" class="sort-link ' + (sort == "date" ? "active" : "") + '">Sort By Date</a>' +
                             '</div>';
 
-            var globalSearchUrl = search_global_url+"?q=" + query;
+            var globalSearchUrl = search_global_url+"#q=" + query;
 
             var searchResults = results.results;
 
