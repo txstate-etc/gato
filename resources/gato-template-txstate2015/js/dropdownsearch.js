@@ -13,7 +13,8 @@ jQuery(document).ready(function($) {
         $('.ui-widget-overlay').addClass('ui-widget-overlay-fade');
         $('.ui-widget-overlay').bind('click',function(){
             $('#search-modal-content').dialog('close');
-        })
+        });
+        $('#search-text').focus();
       },
       beforeClose: function(){
         var myOverlay = $('.ui-widget-overlay:first').clone();
