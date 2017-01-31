@@ -46,6 +46,7 @@
               searchField.attr('placeholder', 'Search all of Texas State');
               sitesearchfield.remove();
             }
+            searchField.focus();
           });
         </script>
         [/#if]
