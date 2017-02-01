@@ -8,7 +8,7 @@
     [#assign top = (content.imagecroptop!0.0)?number]
     [#assign bottom = (content.imagecropbottom!0.0)?number]
     <div class="image">
-      <img src="${gf.getImgDefault(content.image, left, right, top, bottom, ctx.aspectratio)}" srcset="${gf.getSrcSet(content.image, left, right, top, bottom, ctx.aspectratio)}" class="bg" alt="${content.alttext!}">
+      <img data-lazy="${gf.getImgDefault(content.image, left, right, top, bottom, ctx.aspectratio)}" data-srcset="${gf.getSrcSet(content.image, left, right, top, bottom, ctx.aspectratio)}" class="bg" alt="${content.alttext!}">
     </div>
     [#if content.title?has_content || content.subtext?has_content]
     <div class="caption">
