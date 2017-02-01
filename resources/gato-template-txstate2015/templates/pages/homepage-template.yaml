@@ -4,6 +4,10 @@ visible: true
 title: TXST Home
 dialog: gato-template:pages/page-properties
 areas:
+  areapride:
+    title: Pride Content Area
+    availableComponents:
+      !include /gato-template/templates/areas/availableComponents.yaml
   customcss:
     !include /gato-component-cssjs/templates/areas/customcss.yaml
   customjs:
