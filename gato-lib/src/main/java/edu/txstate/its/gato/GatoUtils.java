@@ -520,6 +520,7 @@ public final class GatoUtils {
   public final Pattern WIDTH_ATTR_PATTERN = Pattern.compile("width[ ]*=[ ]*\"([0-9]+)[^\"]*\"");
   public final Pattern SRCSET_ATTR_PATTERN = Pattern.compile("srcset[ ]*=[ ]*\"([^\"]*)\"");
   public final Pattern ASSET_KEY_PATTERN = Pattern.compile("/([a-z]+:[a-f0-9\\-]+)/");
+  public final Pattern DATA_URI_REPAIR_PATTERN = Pattern.compile("/(jpeg|png);base64,(.*)");
   public String processRichText(String str) {
     if (StringUtils.isBlank(str)) return "";
     StringBuffer result = new StringBuffer();
@@ -529,23 +530,32 @@ public final class GatoUtils {
       String existingSrc = matcher.group(2);
       String existingSrcSet = captureMatch(imageTag, SRCSET_ATTR_PATTERN);
       String newSrc = existingSrc;
-      if (StringUtils.isBlank(existingSrcSet) && !existingSrc.endsWith(".svg")) {
-        String assetKey = captureMatch(imageTag, ASSET_KEY_PATTERN);
+      if (!existingSrc.startsWith("data:")) {
+        if (existingSrc.length() > 1000) {
+          Matcher repairmatcher = DATA_URI_REPAIR_PATTERN.matcher(existingSrc);
+          if (repairmatcher.find()) {
+            newSrc = "data:image/"+repairmatcher.group(1)+";base64,"+repairmatcher.group(2);
+          } else {
+            newSrc = "";
+          }
+        } else if (StringUtils.isBlank(existingSrcSet) && !existingSrc.endsWith(".svg")) {
+          String assetKey = captureMatch(imageTag, ASSET_KEY_PATTERN);
 
-        Asset image = damfn.getAsset(assetKey);
-        if (image != null) {
-          newSrc = getImgDefault(image);
-          if (StringUtils.isBlank(existingSrcSet)) newSrc += "\" srcset=\""+getSrcSet(image);
-        }
+          Asset image = damfn.getAsset(assetKey);
+          if (image != null) {
+            newSrc = getImgDefault(image);
+            if (StringUtils.isBlank(existingSrcSet)) newSrc += "\" srcset=\""+getSrcSet(image);
+          }
 
-        long width = 0;
-        try {
-          width = Long.parseLong(captureMatch(imageTag, WIDTH_ATTR_PATTERN));
-        } catch (Exception e) {
-          width = getImgWidth(image);
-          if (width > 0) newSrc += "\" width=\""+width;
+          long width = 0;
+          try {
+            width = Long.parseLong(captureMatch(imageTag, WIDTH_ATTR_PATTERN));
+          } catch (Exception e) {
+            width = getImgWidth(image);
+            if (width > 0) newSrc += "\" width=\""+width;
+          }
+          if (width > 0) newSrc += "\" sizes=\""+width+"px";
         }
-        if (width > 0) newSrc += "\" sizes=\""+width+"px";
       }
       matcher.appendReplacement(result, "$1" + newSrc + "$3");
     }
