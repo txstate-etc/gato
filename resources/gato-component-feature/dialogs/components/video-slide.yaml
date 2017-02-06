@@ -8,7 +8,7 @@ form:
           required: true
           appName: assets
           targetWorkspace: dam
-          label: Image
+          label: Splash Image
           identifierToPathConverter:
             class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
           contentPreviewDefinition:
