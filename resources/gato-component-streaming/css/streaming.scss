@@ -29,3 +29,22 @@
 .mediafloEmbedContainer {
   padding-top: 35px;
 }
+
+.gatoStreamingWrapper .streaming-open-in-app {
+  padding-top: 0.4rem;
+  text-align: center;
+  a {
+    display: block;
+    padding: 0;
+    margin: 0;
+    line-height: 4.5rem;
+    text-decoration: none;
+    color: $blue;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.6rem;
+    &:hover, &:active, &:focus {
+      text-decoration: underline;
+    }
+  }
+}
