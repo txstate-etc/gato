@@ -6,7 +6,7 @@
   [#if !(node.hideInNav!false)]
     [#local children = cmsfn.children(node, "mgnl:page")]
     <li class="sitemap-item ${(children?size > 0)?string('open','leaf')}">
-      [#if cmsfn.authorInstance && !pagePublished]
+      [#if cmsfn.isAuthorInstance() && !pagePublished]
         <span class="not-published">${gf.nodeTitle(node)}</span>
       [#else]
         <a href="${cmsfn.link(node)}">${gf.nodeTitle(node)}</a>
@@ -25,7 +25,7 @@
 [#if (content.title!"")?length > 0]
   <h2>${content.title}</h2>
 [/#if]
-[#if cmsfn.authorInstance]
+[#if cmsfn.isAuthorInstance()]
   <div class="txst-khan-notice">
     Italicized items represent unpublished pages and will not be visible on the public site.
   </div>
@@ -34,11 +34,15 @@
   <ul>
   [#list model.sortedNodes as node]
     [#assign nodeContentMap = cmsfn.asContentMap(node)]
+    [#local pagePublished = true]
+    [#if cmsfn.metaData(node, "mgnl:activationStatus")?number < 1]
+      [#local pagePublished = false]
+    [/#if]
     <li class="sitemap-item">
-      [#if cmsfn.authorInstance && !(cmsfn.metaData(node, "mgnl:activationStatus")?number < 1)]
-        <a href="${cmsfn.link(node)}">${gf.nodeTitle(node)}</a>
-      [#else]
+      [#if cmsfn.isAuthorInstance() && !pagePublished]
         <span class="not-published">${gf.nodeTitle(node)}</span>
+      [#else]
+        <a href="${cmsfn.link(node)}">${gf.nodeTitle(node)}</a>
       [/#if]
     </li>
   [/#list]
