@@ -443,6 +443,17 @@
         p{
           padding: 0.3rem 0.8rem 0.5rem 0.8rem;
         }
+        h3, p {
+          background-color: transparent;
+          transition-duration: 0s;
+        }
+      }
+      a:hover, a:focus {
+        .caption {
+          h3, p {
+            background-color: transparent;
+          }
+        }
       }
       &.color1 .caption { background-color: $mc1-bg; }
       &.color2 .caption { background-color: $mc2-bg; }
@@ -451,6 +462,13 @@
       &.color5 .caption { background-color: $mc5-bg; }
       &.color6 .caption { background-color: $mc6-bg; }
       &.color7 .caption { background-color: $mc7-bg; }
+      &.color1 { a:hover, a:focus { .caption { background-color: $mc1-comp-bg; } } }
+      &.color2 { a:hover, a:focus { .caption { background-color: $mc2-comp-bg; } } }
+      &.color3 { a:hover, a:focus { .caption { background-color: $mc3-comp-bg; } } }
+      &.color4 { a:hover, a:focus { .caption { background-color: $mc4-comp-bg; } } }
+      &.color5 { a:hover, a:focus { .caption { background-color: $light-river; } } }
+      &.color6 { a:hover, a:focus { .caption { background-color: $light-sandstone; } } }
+      &.color7 { a:hover, a:focus { .caption { background-color: $light-oldgold; } } }
       &.video-slide{
         .caption{
           &.no-title{
