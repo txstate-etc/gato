@@ -276,7 +276,9 @@ public class HoursModel<RD extends RenderableDefinition> extends RenderingModelI
         Calendar endDate = Calendar.getInstance();
         if ( mobileDevice ) {
             startDate.add( Calendar.DATE, -1 );
-            endDate.add( Calendar.DATE, 30 );
+            endDate.add( Calendar.DATE, 94 );
+            endDate.set( Calendar.DAY_OF_MONTH, 1 );
+            endDate.add( Calendar.DATE, -1);
         }
 
         url = url + "&year=" + startDate.get( Calendar.YEAR );
