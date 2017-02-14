@@ -14,7 +14,7 @@
     [#assign tidysubtext = gf.tidyHTML(cmsfn.decode(content).subtext!'')]
     <div class="caption">
       [#if content.title?has_content]<h3>${content.title}</h3>[/#if]
-      [#if content.subtext?has_content]<p data-orig-text="${tidysubtext?html}">${tidysubtext}</p>[/#if]
+      [#if content.subtext?has_content]<p data-orig-text="${tidysubtext?html}" data-skip-truncation="${ctx.skiptruncation!'false'}">${tidysubtext}</p>[/#if]
     </div>
     [/#if]
 

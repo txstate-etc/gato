@@ -50,9 +50,8 @@ resizeTimeout(function(){
   jQuery('.gato-slider .slides .slide .caption p').each(function(){
     var description = jQuery(this);
     var originalText = description.data('orig-text').replace(/<br\/?>/i,'').replace(/<[^>]*\s[^>]*>/, '').replace(/\s+(<\/[^>]*>)/, '$1').replace(/(<[^\/][^>]*>)\s+/, '$1');
-    console.log(originalText);
     var caption = description.closest('.caption');
-    if(caption.css('position') == 'absolute'){
+    if(caption.css('position') == 'absolute' && !description.data('skip-truncation')){
       var maxLineHeight = Math.round(2 * parseFloat(description.css('line-height')));
       //if this has been resized, we need the reset the original text
       description.html(originalText);
