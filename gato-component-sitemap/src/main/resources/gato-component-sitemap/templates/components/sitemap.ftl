@@ -34,9 +34,9 @@
   <ul>
   [#list model.sortedNodes as node]
     [#assign nodeContentMap = cmsfn.asContentMap(node)]
-    [#local pagePublished = true]
+    [#assign pagePublished = true]
     [#if cmsfn.metaData(node, "mgnl:activationStatus")?number < 1]
-      [#local pagePublished = false]
+      [#assign pagePublished = false]
     [/#if]
     <li class="sitemap-item">
       [#if cmsfn.isAuthorInstance() && !pagePublished]
