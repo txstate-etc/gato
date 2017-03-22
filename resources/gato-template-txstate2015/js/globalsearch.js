@@ -227,9 +227,13 @@ jQuery(document).ready(function($) {
            '</div>';
   }
 
+  var fullname = function(result) {
+    return result.name_title+(result.name_title ? ' ' : '')+result.firstname+' '+result.lastname;
+  }
+
   var html_result_people = function (result) {
     var html = '<div class="person">'+
-               '<div class="person-name"><a href="#" data-searchid="'+result.searchid+'">'+result.firstname+' '+result.lastname+'</a></div>'+
+               '<div class="person-name"><a href="#" data-searchid="'+result.searchid+'">'+fullname(result)+'</a></div>'+
                '<div class="person-category">'+result.category+'</div>';
     if (!isBlank(result.title))
       html += '<dl class="person-title"><dt>Title:</dt><dd>'+result.title+'</dd></dl>';
@@ -253,7 +257,7 @@ jQuery(document).ready(function($) {
 
   var html_result_people_short = function (result) {
     var html = '<div class="person">';
-    html += '<div class="person-name"><a href="#" data-searchid="'+result.searchid+'">'+result.firstname+' '+result.lastname+'</a></div>';
+    html += '<div class="person-name"><a href="#" data-searchid="'+result.searchid+'">'+fullname(result)+'</a></div>';
     html += '<div class="person-category">'+result.category+'</div>';
     html += '<div class="person-phone">'+result.phone+'</div>';
     if (result.email != 'unauthenticated')
