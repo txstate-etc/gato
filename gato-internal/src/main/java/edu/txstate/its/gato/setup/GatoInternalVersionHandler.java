@@ -104,6 +104,7 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
 
     register(DeltaBuilder.update("1.0.6", "")
       .addTask(new BootstrapSingleModuleResource("config.modules.dam-app.apps.assets.subApps.browser.actions.editFolder.availability.rules.IsNotTopLevelRule.xml"))
+      .addTask(new RemoveSitewideAreasFromSubpagesTask())
     );
   }
 
