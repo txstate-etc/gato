@@ -52,7 +52,7 @@ public class RemoveSitewideAreasFromSubpagesTask extends GatoBaseUpgradeTask {
         if (n.hasNode(areaname)) {
           Node area = n.getNode(areaname);
           if (!area.hasNodes()) {
-            log.info("deleting an empty area at "+area.getPath());
+            log.warn("deleting an empty area at "+area.getPath());
             area.remove();
           }
         }
