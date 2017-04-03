@@ -19,11 +19,67 @@
       <groupId>com.vaadin</groupId>
       <artifactId>vaadin-client</artifactId>
       <scope>provided</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>com.vaadin.external.gwt</groupId>
+          <artifactId>gwt-user</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>com.vaadin.external.gwt</groupId>
+          <artifactId>gwt-elemental</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>com.vaadin</groupId>
       <artifactId>vaadin-client-compiler</artifactId>
       <scope>provided</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>xml-apis</groupId>
+          <artifactId>xml-apis</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>commons-logging</groupId>
+          <artifactId>commons-logging</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>com.vaadin.external.gwt</groupId>
+          <artifactId>gwt-dev</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>com.vaadin.external.gwt</groupId>
+          <artifactId>gwt-elemental</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>com.google.gwt</groupId>
+      <artifactId>gwt-user</artifactId>
+      <version>${gwtVersion}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.google.gwt</groupId>
+      <artifactId>gwt-elemental</artifactId>
+      <version>${gwtVersion}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.google.gwt</groupId>
+      <artifactId>gwt-dev</artifactId>
+      <version>${gwtVersion}</version>
+      <scope>provided</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>xml-apis</groupId>
+          <artifactId>xml-apis</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>commons-logging</groupId>
+          <artifactId>commons-logging</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>com.vaadin</groupId>
@@ -45,21 +101,11 @@
         <groupId>com.vaadin</groupId>
         <artifactId>vaadin-maven-plugin</artifactId>
         <version>${vaadinVersion}</version>
-        <configuration>
-          <extraJvmArgs>-Xmx1024M -Xss1024k</extraJvmArgs>
-          <module>edu.txstate.its.gato.GatoWidgetSet</module>
-          <webappDirectory>${basedir}/target/classes/VAADIN/widgetsets</webappDirectory>
-          <draftCompile>false</draftCompile>
-          <compileReport>false</compileReport>
-          <disableCastChecking>false</disableCastChecking>
-          <enableClosureCompiler>false</enableClosureCompiler>
-        </configuration>
         <executions>
           <execution>
             <goals>
               <goal>resources</goal>
               <goal>update-widgetset</goal>
-              <goal>compile</goal>
               <!-- disabled by default to use on-the-fly theme compilation -->
               <!-- <goal>compile-theme</goal> -->
             </goals>
@@ -67,7 +113,35 @@
         </executions>
       </plugin>
       <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>gwt-maven-plugin</artifactId>
+        <version>${gwtVersion}</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>compile</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <sourceLevel>1.8</sourceLevel>
+          <extraJvmArgs>-Xmx1024M -Xss1024k</extraJvmArgs>
+          <style>OBF</style>
+          <strict>true</strict>
+          <module>edu.txstate.its.gato.GatoWidgetSet</module>
+          <!-- put the created resources on the classpath (and the gwt-unitCache outside of it) -->
+          <webappDirectory>${project.build.outputDirectory}/VAADIN/widgetsets</webappDirectory>
+          <persistentunitcachedir>${project.build.directory}</persistentunitcachedir>
+          <!-- widgetset is pretty monolithic atm, don't bother generating reports -->
+          <compileReport>false</compileReport>
+          <draftCompile>false</draftCompile>
+          <enableClosureCompiler>false</enableClosureCompiler>
+          <disableCastChecking>false</disableCastChecking>
+        </configuration>
+      </plugin>
+      <plugin>
         <artifactId>maven-jar-plugin</artifactId>
+        <version>3.0.0</version>
         <configuration>
           <excludes>
             <exclude>**/VAADIN/gwt-unitCache/**</exclude>

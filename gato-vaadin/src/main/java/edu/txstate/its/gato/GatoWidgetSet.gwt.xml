@@ -37,5 +37,4 @@
     <inherits name="info.magnolia.ui.vaadin.editor.gwt.PageEditorWidgetSet" />
 
     <inherits name="com.vaadin.DefaultWidgetSet" />
-
 </module>
