@@ -83,10 +83,6 @@
             top: 50%;
             margin-top: -1rem;
             left: .4rem;
-            @media (max-width: $sm-breakpoint) {
-              border-width: 0.8rem 0 0.8rem 1.4rem;
-              margin-top: -0.8rem;
-            }
           }
           &:hover {
             @include vendor-prefix(transform, scale(1.15));
@@ -492,9 +488,13 @@
           }
           .feature-play-button{
             top: -6.5rem;
-            a{
+            a {
               width: 5rem;
               height: 5rem;
+              &:after {
+                border-width: 0.8rem 0 0.8rem 1.4rem;
+                margin-top: -0.8rem;
+              }
             }
           }
         }
