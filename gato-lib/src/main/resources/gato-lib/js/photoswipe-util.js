@@ -139,7 +139,21 @@ var initPhotoSwipe = (function($) {
       }
 
       // Pass data to PhotoSwipe and initialize it
-      new PhotoSwipe($('.pswp')[0], PhotoSwipeUI_Default, items, options).init();
+      $('body').append($('.pswp'));
+      $('body').children().each(function() {
+          if (!$(this).is('.pswp')) {
+            this.pswpsavedariahidden = $(this).attr('aria-hidden');
+            $(this).attr('aria-hidden', 'true');
+          }
+      });
+      var ps = new PhotoSwipe($('.pswp')[0], PhotoSwipeUI_Default, items, options);
+      ps.init();
+      ps.listen('close', function() {
+        $('body').children().each(function() {
+          if (!$(this).is('.pswp') && !this.pswpsavedariahidden)
+            $(this).removeAttr('aria-hidden');
+        });
+      });
     };
 
     // parse picture index and gallery index from URL (#&pid=1&gid=2)

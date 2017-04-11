@@ -1,17 +1,17 @@
 [#if !ctx.request.getAttribute('pswploaded')!false]
   ${ctx.request.setAttribute('pswploaded', true)}
-  
+
   <!-- Root element of PhotoSwipe. Must have class pswp. -->
   <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
 
-    <!-- Background of PhotoSwipe. 
+    <!-- Background of PhotoSwipe.
     It's a separate element as animating opacity is faster than rgba(). -->
     <div class="pswp__bg"></div>
 
     <!-- Slides wrapper with overflow:hidden. -->
     <div class="pswp__scroll-wrap">
 
-      <!-- Container that holds slides. 
+      <!-- Container that holds slides.
       PhotoSwipe keeps only 3 of them in the DOM to save memory.
       Don't modify these 3 pswp__item elements, data is added later on. -->
       <div class="pswp__container">
@@ -29,13 +29,13 @@
 
           <div class="pswp__counter"></div>
 
-          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+          <button class="pswp__button pswp__button--close" title="Close (Esc)"><span class="visuallyhidden">Close - you may also hit escape</span></button>
 
-          <button class="pswp__button pswp__button--share" title="Share"></button>
+          <button class="pswp__button pswp__button--share" title="Share"><span class="visuallyhidden">Share</span></button>
 
-          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"><span class="visuallyhidden">Toggle full screen</span></button>
 
-          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"><span class="visuallyhidden">Zoom in or zoom out</span></button>
 
           <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
           <!-- element will get class pswp__preloader- -active when preloader is running -->
@@ -49,13 +49,15 @@
         </div>
 
         <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-          <div class="pswp__share-tooltip"></div> 
+          <div class="pswp__share-tooltip"></div>
         </div>
 
         <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+          <span class="visuallyhidden">Previous Image</span>
         </button>
 
         <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+          <span class="visuallyhidden">Next Image</span>
         </button>
 
         <div class="pswp__caption">
