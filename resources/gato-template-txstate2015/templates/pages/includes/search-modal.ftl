@@ -14,7 +14,7 @@
             <input type="hidden" id="sitesearch" name="sitesearch" value="${ctx.request.serverName}" />
           [/#if]
           [#nested]
-          <input id="search-text" class="search ${mobileSearch}" name="q" size="15" placeholder="${placeholder}" />[#--
+          <input id="search-text" class="search ${mobileSearch}" name="q" size="15" aria-label="Search Input" placeholder="${placeholder}" />[#--
       --]<button class="icon ${mobileIcon}"><i class="fa fa-search" aria-label="Start Search"></i></button>
         </div>
         [#if !isHomePage]
