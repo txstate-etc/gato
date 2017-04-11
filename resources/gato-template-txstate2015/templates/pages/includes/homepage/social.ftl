@@ -46,6 +46,7 @@
                 <span class="social-area-icon">
                   <a href="https://www.instagram.com/txst">
                     <i class="fa fa-instagram"></i>
+                    <span class="visuallyhidden">Instagram</span>
                   </a>
                 </span>
               </p>
@@ -53,17 +54,17 @@
           [/#if]
         </div>
       </div>[#--
-      
+
     --]<div class="content-row-column twitter-wrap">
         <div class="twitter col-middle">
-          <div class="social-upper">        
+          <div class="social-upper">
             <div class="slides">
               [#list response.path("twitter").getElements() as post]
                 [#assign screen_name = post.path('screen_name').asText() /]
                 [#assign display_name = post.path('display_name').asText() /]
                 [#assign link = post.path('link').asText() /]
                 [#assign caption = post.path('html').asText() /]
-                [#assign time = post.path('tweettime').asText() /]          
+                [#assign time = post.path('tweettime').asText() /]
                 <div class="slide" style="${(post_index == 0)?string('','display:none;')}">
                   <p class="twitter-handle">
                     <a href="https://twitter.com/${screen_name!}">@${screen_name!}</a>
@@ -71,32 +72,33 @@
                   <p class="twitter-name">${display_name!}</p>
                   <p class="tweet">${caption!}</p>
                   <p class="twitter-timestamp">[@timestamp time /]</p>
-                </div> 
+                </div>
               [/#list]
             </div>
-          </div> 
-                
+          </div>
+
           <div class="social-lower">
             <p>
               <span class="twitter-timestamp">[@timestamp response.path("twitter").path(0).path('tweettime').asText() /]</span>
               <span class="social-area-icon">
                 <a href="https://twitter.com/txst">
                   <i class="fa fa-twitter"></i>
+                  <span class="visuallyhidden">Twitter</span>
                 </a>
               </span>
             </p>
           </div>
         </div>
       </div>[#--
-    
-    --]<div class="content-row-column">        
+
+    --]<div class="content-row-column">
         <div class="facebook col-right">
           [#assign post = response.path("facebook").path(0) /]
           [#if post?has_content]
             [#assign link = post.path('link').asText() /]
             [#assign image = post.path('image_proxy').asText() /]
             [#assign caption = post.path('caption').asText() /]
-            [#assign time = post.path('posttime').asText() /]          
+            [#assign time = post.path('posttime').asText() /]
             <div class="social-upper">
               <figure class="image">
                 <a href="${link!}">
@@ -108,13 +110,14 @@
                 </figcaption>
               </figure>
             </div>
-            
+
             <div class="social-lower">
               <p>
                 [@timestamp time /]
                 <span class="social-area-icon">
                   <a href="https://www.facebook.com/TXSTATEU">
                     <i class="fa fa-facebook-official"></i>
+                    <span class="visuallyhidden">Facebook</span>
                   </a>
                 </span>
               </p>
@@ -122,7 +125,7 @@
           [/#if]
         </div>
       </div>[#--
-      
+
     --]<div class="solo-column">
         <div class="solo-bailout">
           <p>
@@ -132,7 +135,7 @@
           </p>
         </div>
       </div>
-            
+
   </div>
 </div>
 [/#if]

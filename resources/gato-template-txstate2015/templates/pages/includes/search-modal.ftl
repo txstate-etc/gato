@@ -15,7 +15,7 @@
           [/#if]
           [#nested]
           <input id="search-text" class="search ${mobileSearch}" name="q" size="15" aria-label="Search Input" placeholder="${placeholder}" />[#--
-      --]<button class="icon ${mobileIcon}"><i class="fa fa-search" aria-label="Start Search"></i></button>
+      --]<button class="icon ${mobileIcon}"><i class="fa fa-search"></i><span class="visuallyhidden">Start Search</span></button>
         </div>
         [#if !isHomePage]
         <div class="search-radios">
