@@ -50,11 +50,11 @@
 				</form>
         <div class="search-column-main eq-parent">
           <ul class="search-tabs" role="tablist">
-            <li class="search-tab-web" role="tab" tabindex="0">Web</li>
-            <li class="search-tab-people" role="tab" tabindex="0">People</li>
+            <li id="search-tab-web" class="search-tab-web" role="tab" tabindex="0">Web</li>
+            <li id="search-tab-people" class="search-tab-people" role="tab" tabindex="0">People</li>
           </ul>
-          <div class="search-web results-list" role="tabpanel"></div>
-          <div class="search-people results-list" role="tabpanel"></div>
+          <div class="search-web results-list" role="tabpanel" aria-labeledby="search-tab-web"></div>
+          <div class="search-people results-list" role="tabpanel" aria-labeledby="search-tab-people"></div>
         </div>
         <div class="search-column-side">
           <div class="search-side-box search-side-people">
