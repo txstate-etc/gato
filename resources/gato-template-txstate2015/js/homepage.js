@@ -176,7 +176,6 @@ jQuery(function($) {
       }
     ]
   });
-  $topSlider.children().removeAttr('aria-describedby');
   if ($topSlider.slick('slickGetOption', 'fade') === true) {
     $topSliderFirst.delay(500).animate(topSliderFirstCss, 700);
     animateTopSlider(0, 750);
