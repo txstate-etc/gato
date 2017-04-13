@@ -185,6 +185,7 @@ txstValidate.prototype.showPassed = function() {
     this.icon.innerHTML = '&nbsp;';
   }
   this.elem.setAttribute('aria-invalid', 'false');
+  this.elem.removeAttribute('aria-describedby');
 
   this.spinner.stop();
   this.isSpinning = false;
@@ -196,6 +197,7 @@ txstValidate.prototype.showFailed = function() {
   this.icon.addClassName('txst-form-fail');
   this.icon.innerHTML = this.getErrorMsg();
   this.elem.setAttribute('aria-invalid', 'true');
+  this.elem.setAttribute('aria-describedby', this.elem.getAttribute('data-aria-describedby'));
 
   this.spinner.stop();
   this.isSpinning = false;

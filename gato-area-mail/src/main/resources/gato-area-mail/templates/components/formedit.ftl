@@ -5,7 +5,7 @@
 [#assign inputType = "text"]
 [#assign dataType = content.dataType!"none"]
 
-[#-- The dataType for both email fields is 'email' now but we need it to be 'txemail' 
+[#-- The dataType for both email fields is 'email' now but we need it to be 'txemail'
 for Texas State email addresses for the validation--]
 [#if dataType == "email" && (content.emailType!"") == "txstate"]
   [#assign dataType = "txemail"]
@@ -81,7 +81,7 @@ for Texas State email addresses for the validation--]
     [#default]
       [#assign validating = false]
   [/#switch]
-  <input type="${inputType}" id="${title}" name="${title}" class="text ${limited}" size="${inputSize}" [#if content.mandatory!false]aria-required="true"[/#if] aria-invalid="false" aria-describedby="${title}-error"/>
+  <input type="${inputType}" id="${title}" name="${title}" class="text ${limited}" size="${inputSize}" [#if content.mandatory!false]aria-required="true"[/#if] aria-invalid="false" data-aria-describedby="${title}-error"/>
 
   [#if (content.dataType!"") == "date"]
     <script type="text/javascript">
