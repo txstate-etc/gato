@@ -19,6 +19,8 @@
         </div>
         [#if !isHomePage]
         <div class="search-radios">
+          <fieldset>
+          <legend class="visuallyhidden">Select search scope</legend>
           <span>
             <label for="this-site" aria-label="search only in this site: ${gf.nodeTitle(mypage)}">
               <input checked="checked" name="txst-search" value="This Site" id="this-site" type="radio">
@@ -31,6 +33,7 @@
               All Texas State
             </label>
           </span>
+          </fieldset>
         </div>
         <script>
           jQuery( "input[name=txst-search]:radio" ).on('change', function(e){

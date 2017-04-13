@@ -78,6 +78,9 @@
             top: 1.5rem;
             position: relative;
             margin-bottom: 0.8rem;
+            fieldset {
+              border: 0;
+            }
             span{
                 margin-left: 2rem;
                 input[type="radio"] {
