@@ -11,14 +11,14 @@
 [/#macro]
 
 <div id="legal-footer" class="content-row four-col">
-  <div class="content-row-content"> 
+  <div class="content-row-content">
 
     <div class="content-row-column">
       <div id="quick-links" class="legal-links">
         [@linklist quickLinks /]
       </div>
     </div>
-    
+
     [#if requiredLinks?has_content]
       [#list requiredLinks?chunk(collen) as column]
         <div class="content-row-column">
@@ -32,10 +32,10 @@
     <div class="solo-column">
       <div class="member-statement">
         <a class="image-link" href="http://www.tsus.edu">
-          <img src="${ctx.contextPath}/.resources/gato-template/images/tsus-member.png"/>
+          <img src="${ctx.contextPath}/.resources/gato-template/images/tsus-member.png" alt="University System Logo"/>
         </a>
       </div>
     </div>
-    
+
   </div>
-</div> 
+</div>
