@@ -106,7 +106,9 @@
     margin-bottom: 3rem;
     max-width: 60rem;
     white-space: normal !important;
-
+    fieldset.selectiongroup {
+      border: 0;
+    }
     >select{
       width: 100%;
     }

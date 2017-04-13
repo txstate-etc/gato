@@ -1,11 +1,11 @@
 [#assign title = ctx.request.getAttribute("safeTitle")]
 
-<div class="formelement">
+<div class="formelement"><fieldset class="selectiongroup">
 [#if (content.title!"")?has_content || content.mandatory!false]
-  <label for="${title}" class="txst-form-text-label">
+  <legend for="${title}" class="txst-form-text-label">
     ${cmsfn.decode(content).title!}
     [#if content.mandatory!false]*[/#if]
-  </label>
+  </legend>
 [/#if]
 [#if content.mandatory!false]
   <input type="hidden" name="mgnlMandatory" value="${title}" />
@@ -37,4 +37,4 @@
   [/#list]
   </div>
 [/#if]
-</div>
+</fieldset></div>
