@@ -16,8 +16,8 @@
       </div>
 
       <div class="hamburger">
-        <button class="search-link search-link-mobile search-button" href="#" aria-label="start search"><i class="fa fa-search"></i></button>
-        <button class="search-link search-link-mobile toggle-button" href="#" aria-label="Menu - toggle site navigation"><i class="fa fa-bars"></i></button>
+        <button class="search-link search-link-mobile search-button" aria-label="start search"><i class="fa fa-search"></i></button>
+        <button class="search-link search-link-mobile toggle-button" aria-label="Menu - toggle site navigation"><i class="fa fa-bars"></i></button>
       </div>
 
       <div class="homepage-banner-searchwrap">
