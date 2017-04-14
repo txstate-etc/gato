@@ -197,6 +197,6 @@
 
 [#macro skipnav maincontent='maincontent']
     <div class="skip-nav">
-        <a class="visuallyhidden focusable" href="#${maincontent}">Skip to main content</a>
+        <a class="visuallyhidden focusable" href="#${maincontent}">Skip to Content</a>
     </div>
 [/#macro]
