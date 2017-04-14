@@ -58,7 +58,7 @@
 
   <a href="${content.link}" class="gato-sociallink ${(ctx.icononly!false)?string('icononly','')}">
     [#if content.icon?has_content]
-      <img src="${damfn.getAssetLink(content.icon)!}" alt="${title}" title="${title}"/>[#--
+      <img src="${damfn.getAssetLink(content.icon)!}" [#if title?has_content]alt="${title}" title="${title}"[/#if]/>[#--
     --][#else][#--
       --]<i class="fa ${iconclass!'fa-share-alt-square'}" aria-label="${title}"></i>[#--
     --][/#if][#--
