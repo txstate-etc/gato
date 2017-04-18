@@ -87,6 +87,10 @@ function oEmbedFinished(el, info) {
   el = jQuery(el);
   el.html(info.html);
   var url = el.data('url');
+  var iframe = el.find('iframe');
+  iframe.removeAttr('frameborder');
+  var title = el.data('embedtitle');
+  if (title) iframe.attr('title', title);
   if (getVideoInfo(url).playerType == "youtube" && el.data('openinapp') && is_url_scheme_appropriate()) {
     var appurl = url.replace(/^https?:/, 'vnd.youtube:');
     el.after('<div class="streaming-open-in-app"><a href="'+appurl+'">Open 360 video in YouTube <i class="fa fa-chevron-right" aria-hidden="true"></i></a></div>');
