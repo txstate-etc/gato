@@ -9,7 +9,7 @@
 
       [#list slides as component]
         [#if isEnabled(component)]
-          <div class="slide ${component.color!''}" aria-labeledby="${gf.uuidToHtmlId(component.@id)}">
+          <div class="slide ${component.color!''}">
             <figure class="feature top-slider" >
               <img class="slide-image" src="${gf.getImgDefault(component.image, aspectratio)}" srcset="${gf.getSrcSet(component.image, aspectratio)}" alt="${component.alttext!}">
               <figcaption>
@@ -32,8 +32,8 @@
 
                   [#if component.videourl?has_content]
                     <p class="feature-play-button">
-                      <a href="${component.videourl}" aria-label="Play Video"
-                      data-embed="${gf.jsonGetString(gf.oEmbedAutodiscover(component.videourl), 'html')?html}"></a>
+                      <a href="${component.videourl}"
+                      data-embed="${gf.jsonGetString(gf.oEmbedAutodiscover(component.videourl), 'html')?html}"><span class="visuallyhidden">Play Video</span></a>
                     </p>
                   [/#if]
 

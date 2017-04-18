@@ -32,7 +32,7 @@
             <div class="social-upper">
               <figure class="image">
                 <a href="${link!}">
-                  <img src="${gf.getImg(image!, 640, 640, true, false, 0, 0, 0, 0)}">
+                  <img src="${gf.getImg(image!, 640, 640, true, false, 0, 0, 0, 0)}" alt="Instagram Post">
                 </a>
                 <figcaption class="caption">
                   <p>${gf.linkifyInstagram(caption)!}</p>
@@ -102,7 +102,7 @@
             <div class="social-upper">
               <figure class="image">
                 <a href="${link!}">
-                  <img src="${gf.getImg(image!, 1080, 400, true, false, 0, 0, 0, 0)}">
+                  <img src="${gf.getImg(image!, 1080, 400, true, false, 0, 0, 0, 0)}" alt="Facebook Post">
                 </a>
                 <figcaption class="fb-content">
                   <p>${gf.linkify(caption)!}</p>
