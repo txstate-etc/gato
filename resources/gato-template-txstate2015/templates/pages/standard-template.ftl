@@ -23,6 +23,7 @@
 		[@templatehead/]
 	</head>
 	<body class="${cmsfn.isEditMode()?string('admin','')}">
+    [@skipnav/]
 		<nav id="menu" class="mobile_nav">
 			<div class="mobile_nav_container">
 				<div class="mobile_trail">
@@ -33,11 +34,10 @@
 				[@menu.menuBar isMobile=true/]
 			</div>
 			<!-- social media in mobile menu -->
-            [#include "/gato-template/templates/includes/socialsidenav.ftl"]
+      [#include "/gato-template/templates/includes/socialsidenav.ftl"]
 			[#include "includes/mobile-super-user.ftl"]
 		</nav>
 		<div id="panel" class="container">
-            [@skipnav/]
 			<!--"super user" menu bar -->
 			[#include "includes/super-user.ftl"]
 

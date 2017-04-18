@@ -32,6 +32,7 @@
 
   </head>
   <body class="homepage ${cmsfn.isEditMode()?string('admin','')}">
+    [@skipnav/]
     <nav id="menu" class="mobile_nav">
       <div class="mobile_nav_container">
         <h3 class="mobile-page-title"><a href="${cmsfn.link(homepage)}">${gf.nodeTitle(homepage)}</a></h3>
@@ -45,7 +46,6 @@
     </nav>
     <div id="panel" class="container">
       [#include "includes/homepage/emergency.ftl"]
-      [@skipnav/]
       <!--"super user" menu bar -->
       [#include "includes/super-user.ftl"]
 
