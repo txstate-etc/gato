@@ -102,7 +102,7 @@ for Texas State email addresses for the validation--]
 [/#if]
 [#if needCounter ]
   <script type="text/javascript">
-    $('${title}').maxchars = '${content.maxlength!""}';
+    $('${title}').maxchars = parseInt(${(content.maxlength!0)?c}, 10);
  </script>
 [/#if]
 [#if validating]
