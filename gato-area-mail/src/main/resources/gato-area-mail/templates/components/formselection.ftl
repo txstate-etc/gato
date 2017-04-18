@@ -1,17 +1,17 @@
 [#assign title = ctx.request.getAttribute("safeTitle")]
 
-<div class="formelement"><fieldset class="selectiongroup">
-[#if (content.title!"")?has_content || content.mandatory!false]
-  <legend for="${title}" class="txst-form-text-label">
-    ${cmsfn.decode(content).title!}
-    [#if content.mandatory!false]*[/#if]
-  </legend>
-[/#if]
+<div class="formelement">
 [#if content.mandatory!false]
   <input type="hidden" name="mgnlMandatory" value="${title}" />
 [/#if]
 
 [#if content.type == "select"]
+  [#if (content.title!"")?has_content || content.mandatory!false]
+    <label for="${title}" class="txst-form-text-label">
+      ${cmsfn.decode(content).title!}
+      [#if content.mandatory!false]*[/#if]
+    </label>
+  [/#if]
   <select name="${title}" id="${title}" [#if content.mandatory!false]aria-required="true"[/#if]>
   <option value="not selected">Please select:</option>
   [#list gf.orderedPropertyValues(content.options) as option]
@@ -22,8 +22,15 @@
   [/#list]
   </select>
 [#else]
+  <fieldset class="selectiongroup">
+  [#if (content.title!"")?has_content || content.mandatory!false]
+    <legend for="${title}" class="txst-form-text-label">
+      ${cmsfn.decode(content).title!}
+      [#if content.mandatory!false]*[/#if]
+    </legend>
+  [/#if]
   <div class="txst-form-selectiongroup" id="${title}">
-  <input name="${title}" id="${title}-dummy-item" type="${content.type}" style="display:none" aria-hidden="true" aria-label="hidden" value="" checked="checked" />
+  <input name="${title}" id="${title}-dummy-item" type="${content.type}" style="display:none" aria-hidden="true" aria-label="hidden" title="hidden" value="" checked="checked" />
   [#assign i = 0]
   [#list gf.orderedPropertyValues(content.options) as option]
     <div class="txst-form-selection-item">
@@ -36,5 +43,6 @@
     [#assign i = i + 1]
   [/#list]
   </div>
+  </fieldset>
 [/#if]
-</fieldset></div>
+</div>
