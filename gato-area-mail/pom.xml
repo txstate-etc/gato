@@ -4,7 +4,7 @@
   <parent>
     <artifactId>gato-base</artifactId>
     <groupId>edu.txstate.its.gato</groupId>
-    <version>1.0.6</version>
+    <version>1.0.7</version>
   </parent>
   <groupId>edu.txstate.its.gato</groupId>
   <artifactId>gato-area-mail</artifactId>
