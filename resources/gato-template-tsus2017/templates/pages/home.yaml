@@ -1,0 +1,15 @@
+templateScript: /gato-template-tsus2017/templates/pages/home.ftl
+renderType: site
+visible: true
+title: TSUS Homepage 2017
+dialog: gato-template:pages/page-properties
+areas:
+  customcss:
+    !include /gato-component-cssjs/templates/areas/customcss.yaml
+  customjs:
+    !include /gato-component-cssjs/templates/areas/customjs.yaml
+variations:
+  js:
+    templateScript: /gato-component-cssjs/templates/pages/jsvariation.ftl
+  rss:
+    templateScript: /gato-template-rss/templates/pages/rssvariation.ftl

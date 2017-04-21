@@ -1,0 +1,10 @@
+templateScript: /gato-template-tsus2017/templates/pages/standard.ftl
+renderType: site
+visible: true
+title: TSUS Standard 2017
+dialog: gato-template:pages/page-properties
+variations:
+  js:
+    templateScript: /gato-component-cssjs/templates/pages/jsvariation.ftl
+  rss:
+    templateScript: /gato-template-rss/templates/pages/rssvariation.ftl
