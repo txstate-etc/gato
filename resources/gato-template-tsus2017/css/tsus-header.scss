@@ -1,0 +1,47 @@
+header{
+    background-color: $tsus-darkblue;
+    padding: 3.1rem 0 3.2rem;
+    position:relative;
+    color: #fff;
+    @media (max-width: $sm-breakpoint){
+      padding: 1.1rem 1rem 1.2rem;
+    }
+    .flex-header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .tsus-homelink{
+        width: 353px;
+        height: 36px;
+        background: url(../images/logo.png) no-repeat;
+        -webkit-background-size: 100% auto;
+        background-size: 100% auto;
+        font-size: 0;
+        line-height: 0;
+        @media (max-width: $sm-breakpoint){
+            width: 74px;
+            height: 25px;
+            background: url(../images/footer-logo.png) no-repeat;
+            -webkit-background-size: 100% auto;
+            background-size: 100% auto;
+        }
+    }
+    .btn-menu{
+        font-size:2rem;
+        @media (max-width: $sm-breakpoint){
+           font-size: 1.4rem;
+        }
+        &:after{
+            content: "\f0c9"; //fa-bars
+            font-family: FontAwesome;
+            margin-left: 2.5rem;
+        }
+        &.menu-open:after{
+            content: "\f00d"; //fa-close
+        }
+        &:hover{
+            color: #d1d1d3;
+        }
+    }
+}
