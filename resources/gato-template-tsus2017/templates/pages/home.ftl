@@ -8,7 +8,15 @@
     </head>
     <body>
         [#include "includes/header.ftl"]
-        2017 TSUS Homepage
+        <!-- slideshow -->
+        TSUS slideshow
+        <!-- progress bars -->
+        TSUS progress bars
+        <!-- news -->
+        News section
+        <!-- institution logos -->
+        Institution logos
+        [#include "includes/footer.ftl"]
         [@cssjsmodals /]
     </body>
 </html>

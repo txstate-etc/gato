@@ -1,0 +1,36 @@
+form:
+  tabs:
+    - name: tabMain
+      label: Contact Information
+      fields:
+        - name: organization_name
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Organization Name
+          required: true
+        - name: address_line_1
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Address Line 1
+          required: true
+        - name: address_line_2
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Address Line 2
+        - name: city
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: City
+          required: true
+        - name: state
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: State
+          required: true
+        - name: zip
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Zip Code
+          required: true
+        - name: phone
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Phone Number
+          required: true
+        - name: fax
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Fax Number
+actions: !include /gato-template/dialogs/common/actions-block.yaml

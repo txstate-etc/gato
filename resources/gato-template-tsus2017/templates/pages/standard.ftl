@@ -10,6 +10,7 @@
   <body>
     [#include "includes/header.ftl"]
     2017 TSUS Standard Template
+    [#include "includes/footer.ftl"]
     [@cssjsmodals /]
   </body>
 </html>

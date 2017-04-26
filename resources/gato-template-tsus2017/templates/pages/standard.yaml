@@ -8,6 +8,22 @@ areas:
     !include /gato-component-cssjs/templates/areas/customcss.yaml
   customjs:
     !include /gato-component-cssjs/templates/areas/customjs.yaml
+  contact-information:
+    type: single
+    availableComponents:
+      tsus-contact:
+        id: gato-template-tsus2017:components/tsus-contact
+  socialmedia:
+    !include /gato-template/templates/areas/sociallist.yaml
+  footerlinks1:
+    !include /gato-template/templates/areas/linklist.yaml
+  footerlinks2:
+    type: list
+    renderType: freemarker
+    templateScript: /gato-template-tsus2017/templates/areas/footerlinks.ftl
+    availableComponents:
+      link:
+        id: gato-template:components/link
 variations:
   js:
     templateScript: /gato-component-cssjs/templates/pages/jsvariation.ftl

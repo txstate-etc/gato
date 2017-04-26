@@ -1,0 +1,7 @@
+templateScript: /gato-template-tsus2017/templates/components/tsus-contact.ftl
+renderType: freemarker
+title: Contact Information
+description: Contact Information for TSUS
+dialog: gato-template-tsus2017:components/tsus-contact
+# parameters:
+#   icon: /gato-template-tsus/images/slide.png
