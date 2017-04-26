@@ -119,7 +119,7 @@ jQuery(document).ready(function($) {
     'touch': false
   });
   slideout.on('open', function () {
-    $('.mobile_nav .mobile_search').focus();
+    $('.mobile_nav .mobile-page-title a').focus();
   });
   slideout.on('beforeclose', function () {
     $('.toggle-button').focus();
