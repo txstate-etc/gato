@@ -4,7 +4,7 @@
   [/#if]
   [#assign embedinfo=gf.oEmbedAutodiscover(content.videourl)!]
   [#if embedinfo?has_content]
-    [#assign embedhtml=gf.jsonGetString(embedinfo, 'title')?html]
+    [#assign embedhtml=gf.jsonGetString(embedinfo, 'html')?html]
     [#assign embedtitle=gf.jsonGetString(embedinfo, 'title')?html]
   [/#if]
   <div
