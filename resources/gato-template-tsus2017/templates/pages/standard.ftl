@@ -9,8 +9,28 @@
   </head>
   <body>
     [#include "includes/header.ftl"]
-    2017 TSUS Standard Template
+    <div class="container">
+        <div class="page_content">
+            [#assign hideSidebar = content.hideSidebar!false]
+            [@cms.area name="contentParagraph" contextAttributes={"hideSidebar":hideSidebar} /]
+            [#if hideSidebar == false]
+            <aside class="sidebar">
+                TSUS Sidebar
+                <br>
+                Categories
+                <br>
+                Staff Directory
+                <br>
+                Quick Links
+                <br>
+                Contact
+            </aside>
+            [/#if]
+        </div>
+    </div>
     [#include "includes/footer.ftl"]
+    <!-- if the sidebar is hidden, add a sidebar modal so they can edit it for child pages if necessary.  
+    See 2015 template and old TSUS template -->
     [@cssjsmodals /]
   </body>
 </html>

@@ -8,6 +8,8 @@ areas:
     !include /gato-component-cssjs/templates/areas/customcss.yaml
   customjs:
     !include /gato-component-cssjs/templates/areas/customjs.yaml
+  contentParagraph:
+    !include /gato-template/templates/areas/contentParagraph.yaml
   contact-information:
     type: single
     availableComponents:

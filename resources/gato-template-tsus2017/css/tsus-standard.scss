@@ -1,2 +1,26 @@
 @import "gato-template-tsus2017/css/variables";
 @import "gato-template-tsus2017/css/includes";
+
+.page_content{
+    max-width: 1280px;
+    position: relative;
+    padding-top: 6.7rem;
+    padding-bottom: 7.7rem;
+    .gato-section{
+        width: 78%;
+        padding: 0 6.5rem 0 0.8rem;
+    }
+    .sidebar{
+        background-color: #f6f7f9;
+        width: 22%;
+        padding: 2.9rem 2.2rem 2rem;
+        position: absolute;
+        top: 9.1rem;
+        right: 0;
+        @media (max-width: $md-breakpoint){
+          width: 100%;
+          position: relative;
+          top: 0px;
+        }
+    }
+}
