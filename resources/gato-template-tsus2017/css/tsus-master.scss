@@ -5,3 +5,23 @@
     margin: 0 auto;
     padding: 0 15px;
 }
+
+/* TSUS Progress Bar */
+.circle-progress{
+    .svg-container{
+        .inner-circle{
+            stroke: #b4282e;
+        }
+        .outer-circle{
+            stroke: #90867c;
+        }
+        path{
+            stroke: #1e355e;
+        }
+    }
+    .content {
+        .progress-title{
+            color: #1e355e;
+        }
+    }
+}

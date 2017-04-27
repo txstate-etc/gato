@@ -1,0 +1,31 @@
+form:
+  tabs:
+    - name: tabMain
+      label: Progess Bar
+      fields:
+        - name: title
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Title
+          required: true
+        - name: text
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Text
+          required: true
+        - name: percent_complete
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Percentage of Goal Completed
+          description: Enter a number between 0 and 100
+        - name: mobile_layout
+          class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
+          label: Mobile Layout
+          description: How do you want it to display on smaller screens?
+          sortOptions: false
+          options:
+            - name: vertical
+              label: Vertical
+              selected: true
+              value: vertical
+            - name: horizontal
+              label: Horizontal
+              value: horizontal
+actions: !include /gato-template/dialogs/common/actions-block.yaml
