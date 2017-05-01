@@ -10,6 +10,10 @@ areas:
     !include /gato-component-cssjs/templates/areas/customjs.yaml
   contentParagraph:
     !include /gato-template/templates/areas/contentParagraph.yaml
+  categories:
+    !include /gato-template/templates/areas/linklist.yaml
+  quick-links:
+    !include /gato-template/templates/areas/linklist.yaml
   contact-information:
     type: single
     availableComponents:

@@ -1,26 +1,134 @@
 @import "gato-template-tsus2017/css/variables";
 @import "gato-template-tsus2017/css/includes";
 
-.page_content{
-    max-width: 1280px;
-    position: relative;
+//TODO: Go thorugh CSS files and use variables for color names.  Variables should be defined in 
+// gato-template-tsus2017/css/variables.scss
+
+.page_content {
+    max-width: 1250px;
     padding-top: 6.7rem;
     padding-bottom: 7.7rem;
-    .gato-section{
-        width: 78%;
-        padding: 0 6.5rem 0 0.8rem;
+    position: relative;
+    @media (max-width: $md-breakpoint){
+      padding-top: 3rem;
+      padding-bottom: 0;
     }
-    .sidebar{
-        background-color: #f6f7f9;
-        width: 22%;
-        padding: 2.9rem 2.2rem 2rem;
-        position: absolute;
-        top: 9.1rem;
-        right: 0;
+    .gato-section {
+        padding: 0 6.5rem 0 0.8rem;
+        width: 78%;
         @media (max-width: $md-breakpoint){
           width: 100%;
+          padding: 0 2.5rem 2rem;
+        }
+    }
+    .sidebar {
+        background-color: #f6f7f9;
+        position: absolute;
+        right: 0;
+        top: 9.1rem;
+        padding: 2.9rem 2.2rem 2rem;
+        width: 22%;
+        @media (max-width: $md-breakpoint){
           position: relative;
-          top: 0px;
+          top: 0;
+          width: 100%;
+          padding: 4rem 3.5rem;
+        }
+        .sidebar-section{
+            padding-bottom: 2.5rem;
+            @media (max-width: $sm-breakpoint){
+                padding-bottom: 0.8rem;
+            }
+            .sidebar-section-title{
+                text-transform: uppercase;
+                font-size: 1.6rem;
+                line-height: 2.2rem;
+                @media (max-width: $sm-breakpoint){
+                    margin: 0 0 1rem;
+                }
+            }
+            //all sidebar-sections except the first one
+            & + .sidebar-section{
+                border-top: 1px dashed #d9d9d9;
+                padding-top: 3.5rem;
+                @media (max-width: $sm-breakpoint){
+                    padding-top: 1.5rem;
+                }
+            }
+            ul.categories{
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                font-size: 0;
+                line-height: 0;
+                li{
+                    padding: 0 0 1rem 1.3rem;
+                    position: relative;
+                    font-weight: 300;
+                    font-size: 1.4rem;
+                    line-height: 2.1rem;
+                    font-family: 'Roboto', sans-serif;
+                    &::before{
+                        content: '';
+                        position: absolute;
+                        width: 3px;
+                        height: 3px;
+                        border-radius: 50%;
+                        background-color: #505050;
+                        top: 9px;
+                        left: 2px;
+                    }
+                    a{
+                        color: #505050;
+                        text-decoration: none;
+                        transition: all .3s;
+                        &:hover{
+                            font-weight: 700;
+                        }
+                    }
+                }
+            }
+            ul.quick-links{
+                margin: 0;
+                padding: 0.5rem 0 1rem;
+                list-style: none;
+                font-size: 0;
+                line-height: 0;
+                li{
+                    display: inline-block;
+                    vertical-align: top;
+                    font-weight: 300;
+                    font-size: 1.2rem;
+                    line-height: 1.6rem;
+                    font-family: 'Roboto', sans-serif;
+                    margin: 0 0.5rem 0.5rem 0;
+                    a{
+                        display: inline-block;
+                        text-decoration: none;
+                        vertical-align: top;
+                        color: #161616;
+                        border: 1px solid #bdbec0;
+                        padding: 0.3rem 1rem 0.4rem;
+                        transition: all .3s;
+                        &:hover{
+                            color: #fff;
+                            background-color: #373644;
+                            border-color: #373644;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.container{
+    @media (max-width: $lg-breakpoint){
+      max-width: 970px;
+    }
+    &.standard-container{
+        @media (max-width: $lg-breakpoint){
+            padding: 0;
         }
     }
 }

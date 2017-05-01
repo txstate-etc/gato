@@ -1,5 +1,13 @@
 /* CSS used on both home and standard templates */
 
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
 .container {
     max-width: 1310px;
     margin: 0 auto;
@@ -23,6 +31,7 @@
         }
     }
     .content {
+        font-family: 'ProximaNova-Bold', sans-serif;
         .progress-title{
             color: #1e355e;
         }

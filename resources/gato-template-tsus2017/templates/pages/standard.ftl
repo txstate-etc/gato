@@ -9,21 +9,38 @@
   </head>
   <body>
     [#include "includes/header.ftl"]
-    <div class="container">
+    <div class="container standard-container">
         <div class="page_content">
             [#assign hideSidebar = content.hideSidebar!false]
             [@cms.area name="contentParagraph" contextAttributes={"hideSidebar":hideSidebar} /]
             [#if hideSidebar == false]
             <aside class="sidebar">
-                TSUS Sidebar
-                <br>
-                Categories
-                <br>
-                Staff Directory
-                <br>
-                Quick Links
-                <br>
-                Contact
+                <div class="sidebar-section">
+                    <h3 class="sidebar-section-title">
+                        Categories
+                    </h3>
+                    <ul class="categories">
+                        [@cms.area name="categories" /]
+                    </ul>
+                </div>
+                <div class="sidebar-section">
+                    <h3 class="sidebar-section-title">
+                       Staff Directory
+                    </h3>
+                </div>
+                <div class="sidebar-section">
+                    <h3 class="sidebar-section-title">
+                       Quick Links
+                    </h3>
+                    <ul class="quick-links">
+                        [@cms.area name="quick-links" /]
+                    </ul>
+                </div>
+                <div class="sidebar-section">
+                    <h3 class="sidebar-section-title">
+                       Contact
+                    </h3>
+                </div>
             </aside>
             [/#if]
         </div>
