@@ -1,0 +1,49 @@
+form:
+  tabs:
+    - name: tabTexts
+      label: Card
+      fields:
+        - name: image
+          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+          appName: assets
+          targetWorkspace: dam
+          label: Image
+          required: true
+          identifierToPathConverter:
+            class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
+          contentPreviewDefinition:
+            contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
+          description: "Choose an image from Assets. You may also upload an image to Assets from here."
+        - name: alttext
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          required: true
+          label: Image Alt Text
+          description: "Descriptive text for users who are unable to see the image."
+        - name: title
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Caption Title
+          description: "Title for this slide. Appears in the caption area."
+        - name: subtext
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Caption Text
+          description: "Text content for the caption area. Appears below the title."
+        - name: link
+          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+          label: Link
+          appName: pages
+          identifierToPathConverter:
+            class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
+          description: "Entire slide will be clickable. Enter a full URL (http://www.google.com/) or use the \"Internal Link\" button to link to another page in this site."
+          buttonSelectNewLabel: "Internal Link..."
+        - name: script
+          class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
+          fields:
+            - name: color
+              class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+          transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+          initFunction: initColorPicker
+          scripts: [gato-lib/js/color-picker.js]
+          loadScriptsInOrder: true
+          styleName: single-color
+          label: Caption Background Color
+actions: !include /gato-template/dialogs/common/actions-block.yaml

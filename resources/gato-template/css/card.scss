@@ -1,0 +1,101 @@
+//This content type was designed for the TSUS 2017 template.
+//Our other content types are responsive based on element queries.
+//The TSUS designers made theirs responsive to media queries.
+//We need to figure out how to handle media queries in content types because the small breakpoint
+//might not be the same from template to template or it might not exist at all.  We probably need to standardize
+//where we declare those so that we can assume they are available in content types.
+
+.gato-card {
+    
+    figure {
+        position: relative;
+        img {
+            display: block
+        }
+        figcaption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2.4rem 2.3rem 2.7rem;
+            h3{
+                font-size: 1.8rem;
+                line-height: 2.4rem;
+                font-family: 'ProximaNova-Bold', sans-serif;
+                color: #ddd;
+                margin: 0;
+                text-transform: uppercase;
+            }
+            p{
+                margin: 0;
+                height: 0;
+                overflow: hidden;
+                transition: all .3s;
+                font-size: 1.6rem;
+                line-height: 2.4rem;
+                font-family: 'Lato', sans-serif;
+            }
+            &.color1{
+                background: rgba($mc1-bg, 0.8); 
+                h3, p {color: $mc1-text;}
+            }
+            &.color2{
+                background: rgba($mc2-bg, 0.8); 
+                h3, p {color: $mc2-text;}
+            }
+            &.color3{
+                background: rgba($mc3-bg, 0.8); 
+                h3, p {color: $mc3-text;}
+            }
+            &.color4{
+                background: rgba($mc4-bg, 0.8); 
+                h3, p {color: $mc4-text;}
+            }
+            &.color5{
+                background: rgba($mc5-bg, 0.8); 
+                h3, p {color: $mc5-text;}
+            }
+            &.color6{
+                background: rgba($mc6-bg, 0.8); 
+                h3, p {color: $mc6-text;}
+            }
+            &.color7{
+                background: rgba($mc7-bg, 0.8); 
+                h3, p {color: $mc7-text;}
+            }
+            @media (max-width: 767px){ //THIS SHOULD BE A VARIABLE.  THIS IS THE TSUS SMALL BREAKPOINT
+                position: relative;
+                padding: 3.5rem 1.6rem 3.2rem;
+                display: block;
+                &.color1 { background: $mc1-bg;}
+                &.color2 { background: $mc2-bg;}
+                &.color3 { background: $mc3-bg;}
+                &.color4 { background: $mc4-bg;}
+                &.color5 { background: $mc5-bg;}
+                &.color6 { background: $mc6-bg;}
+                &.color7 { background: $mc7-bg;}
+                p {
+                    margin: 2rem 0 0.5rem;
+                    height: auto;
+                }
+            }
+        }
+
+        &:hover{
+            figcaption{
+                p{
+                    margin: 1.1rem 0 1rem;
+                    height: 9.6rem;
+                }
+            }
+            @media (max-width: 767px){ //THIS SHOULD BE A VARIABLE.  THIS IS THE TSUS SMALL BREAKPOINT
+                figcaption{
+                    p{
+                        margin: 2rem 0 0.5rem;
+                        height: auto;
+                    }
+                }
+            }
+        }
+    }
+}
