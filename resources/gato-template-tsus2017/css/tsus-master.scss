@@ -21,19 +21,19 @@
 .circle-progress{
     .svg-container{
         .inner-circle{
-            stroke: #b4282e;
+            stroke: $tsus-red;
         }
         .outer-circle{
-            stroke: #90867c;
+            stroke: $tsus-taupe;
         }
         path{
-            stroke: #1e355e;
+            stroke: $tsus-blue;
         }
     }
     .content {
         font-family: 'ProximaNova-Bold', sans-serif;
         .progress-title{
-            color: #1e355e;
+            color: $tsus-blue;
         }
     }
 }

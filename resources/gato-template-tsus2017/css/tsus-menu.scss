@@ -46,12 +46,12 @@
             &:hover, &:active{
                 >a:after{
                     width: 100%;
-                    background: #9c9ba0;
+                    background: $tsus-mediumbluegray;
                 }
             }
         }
         a.ddmenu-menubaritem{
-            color: #fff;
+            color: $white;
             text-decoration: none;
             padding: 0 1.2rem 0.5rem;
             @media (max-width: $sm-breakpoint){
@@ -71,7 +71,7 @@
                     line-height: 20px;
                 }
                 a{
-                    color: #fff;
+                    color: $white;
                     text-decoration: none;
                     padding: 0 1.2rem 0.5rem;
                     @media (max-width: $sm-breakpoint){

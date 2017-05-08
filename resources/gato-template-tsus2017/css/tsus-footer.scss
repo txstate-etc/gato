@@ -23,9 +23,9 @@ footer {
                 flex: 1 0 100%;
             }
             .contact {
-                color: #acabab;
+                color: $tsus-mediumgray;
                 .org-name {
-                    color: #fff;
+                    color: $white;
                     margin: 0;
                 }
                 .horizontal-list {
@@ -44,14 +44,14 @@ footer {
                             width: 4px;
                             height: 4px;
                             border-radius: 50%;
-                            background-color: #acabab;
+                            background-color: $tsus-mediumgray;
                             top: 10px;
                             left: -11px;
                         }
                     }
                 }
                 .label {
-                    color: #fff;
+                    color: $white;
                 }
             }
         }
@@ -76,7 +76,7 @@ footer {
                         text-decoration: none;
                         .fa {
                             font-size: 2rem;
-                            color: #fff;
+                            color: $white;
                         }
                     }
                 }
@@ -84,9 +84,9 @@ footer {
         }
     }
     .link-footer {
-        background-color: #202020;
+        background-color: $tsus-darkgray;
         padding: 1.8rem 0 5rem;
-        color: #fff;
+        color: $white;
         font-weight: 300;
         font-size: 1.4rem;
         line-height: 2rem;
@@ -137,10 +137,10 @@ footer {
                         line-height: 1.6rem;
                     }
                     a{
-                        color: #acabab;
+                        color: $tsus-mediumgray;
                         text-decoration: none;
                         &:hover{
-                            color: #fff;
+                            color: $white;
                         }
                     }
                 }
@@ -174,10 +174,10 @@ footer {
                             line-height: 2rem;
                         }
                         a{
-                            color: #acabab;
+                            color: $tsus-mediumgray;
                             text-decoration: none;
                             &:hover{
-                                color: #fff;
+                                color: $white;
                             }
                         }
                     }
