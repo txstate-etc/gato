@@ -19,7 +19,7 @@
 
       <div class="content-row-column">
         <div class="top-links-link">
-          <a href="http://www.gradcollege.txstate.edu/steps.html">
+          <a href="http://www.gradcollege.txstate.edu/programs.html">
             Graduate Programs<i class="fa fa-chevron-right"></i>
           </a>
         </div>
