@@ -8,7 +8,10 @@ import lombok.Setter;
 
 import java.util.Arrays;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 
 /**
  * Definition for the GatoJSInclude field.
@@ -35,6 +38,9 @@ import java.util.List;
  *         scripts: [gato-lib/js/prototype.js, gato-lib/js/modal.js, gato-example/js/test.js]
  *         styles: [gato-example/css/test.css]
  *         loadScriptsInOrder: false
+ *         parameters:
+ *           key1: value1
+ *           key2: value2
  *
  * Example gato-example/js/test.js:
  *
@@ -55,6 +61,7 @@ public class GatoJsIncludeDefinition extends CompositeFieldDefinition {
     setScripts(def.getScripts());
     setStyles(def.getStyles());
     setLoadScriptsInOrder(def.isLoadScriptsInOrder());
+    setParameters(def.getParameters());
   }
 
   // Function to be called after script is loaded. Should be of the form init(def, node, el).
@@ -65,6 +72,9 @@ public class GatoJsIncludeDefinition extends CompositeFieldDefinition {
 
   // An array of css files to be loaded. Paths of files should be relative to magnolia resources root.
   @Getter @Setter private List<String> styles = new ArrayList<String>();
+
+  // An object containing key/value pairs of parameters to be used by the JS field
+  @Getter @Setter private Map<String, Object> parameters = new HashMap<String,Object>();
 
   public void setScriptsStr(String scripts) {
     this.scripts = Arrays.asList(scripts.split(","));
