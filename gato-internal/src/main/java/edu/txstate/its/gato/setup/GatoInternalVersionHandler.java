@@ -109,6 +109,7 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
 
     register(DeltaBuilder.update("1.0.7", "")
       .addTask(new BootstrapSingleModuleResource("config.modules.resources.config.resourceFilter.byType.fonts.xml"))
+      .addTask(new BootstrapSingleModuleResource("config.modules.gato-internal.rest-client.xml"))
     );
   }
 

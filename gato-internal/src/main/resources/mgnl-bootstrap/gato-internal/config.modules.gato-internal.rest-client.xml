@@ -32,10 +32,10 @@
       <sv:value>http://ruby-stack.its.txstate.edu/smcache</sv:value>
     </sv:property>
     <sv:property sv:name="class" sv:type="String">
-      <sv:value>edu.txstate.its.gato.rest.RestEasyClientDefinition</sv:value>
+      <sv:value>info.magnolia.resteasy.client.RestEasyClientDefinition</sv:value>
     </sv:property>
     <sv:property sv:name="clientFactoryClass" sv:type="String">
-      <sv:value>edu.txstate.its.gato.rest.RestEasyClientFactory</sv:value>
+      <sv:value>info.magnolia.resteasy.client.factory.RestEasyClientFactory</sv:value>
     </sv:property>
     <sv:property sv:name="connectionPoolSize" sv:type="String">
       <sv:value>20</sv:value>
