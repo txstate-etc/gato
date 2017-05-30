@@ -2,7 +2,7 @@ header{
     background-color: $tsus-darkblue;
     padding: 3.1rem 0 3.2rem;
     position:relative;
-    color: #fff;
+    color: $white;
     @media (max-width: $sm-breakpoint){
       padding: 1.1rem 1rem 1.2rem;
     }
@@ -27,21 +27,30 @@ header{
             background-size: 100% auto;
         }
     }
-    .btn-menu{
+    .header-buttons{
         font-size:2rem;
+        font-family: 'ProximaNova-Regular', sans-serif;
         @media (max-width: $sm-breakpoint){
            font-size: 1.4rem;
         }
-        &:after{
-            content: "\f0c9"; //fa-bars
-            font-family: FontAwesome;
-            margin-left: 2.5rem;
+        .btn-search{
+            margin-right: 2rem;
+            &:hover{
+                color: $tsus-lightgray; //They used #d1d1d3 here.  Do we need 2 different light grays?
+            }
         }
-        &.menu-open:after{
-            content: "\f00d"; //fa-close
-        }
-        &:hover{
-            color: #d1d1d3;
+        .btn-menu{
+            &:after{
+                content: "\f0c9"; //fa-bars
+                font-family: FontAwesome;
+                margin-left: 2.5rem;
+            }
+            &.menu-open:after{
+                content: "\f00d"; //fa-close
+            }
+            &:hover{
+                color: $tsus-lightgray; //They used #d1d1d3 here.  Do we need 2 different light grays?
+            }
         }
     }
 }
