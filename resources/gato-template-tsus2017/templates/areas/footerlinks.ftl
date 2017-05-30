@@ -1,8 +1,7 @@
 [#include "/gato-lib/templates/includes/areamacros.ftl"]
 [#assign count = components?size]
-[#assign linksPerColumn = (count/3)?ceiling]
-
-[#list components?chunk(linksPerColumn) as row]
+[#assign linksPerColumn = (count == 0)?string(1,(count/3)?ceiling)]
+[#list components?chunk(linksPerColumn?number) as row]
     <div class="col">
         <ul>
         [#list row as link]
