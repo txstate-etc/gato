@@ -9,6 +9,7 @@
     padding-top: 6.7rem;
     padding-bottom: 7.7rem;
     position: relative;
+    min-height: 32rem;
     @media (max-width: $md-breakpoint){
       padding-top: 3rem;
       padding-bottom: 0;
@@ -19,6 +20,10 @@
         @media (max-width: $md-breakpoint){
           width: 100%;
           padding: 0 2.5rem 2rem;
+        }
+        & + .gato-section {
+            border-top: 1px dashed #d9d9d9;
+            padding-top: 35px;
         }
     }
     .sidebar {
@@ -34,28 +39,30 @@
           width: 100%;
           padding: 4rem 3.5rem;
         }
-        .sidebar-section{
+        //.sidebar-section{
+        .side_nav{
             padding-bottom: 2.5rem;
             @media (max-width: $sm-breakpoint){
                 padding-bottom: 0.8rem;
             }
-            .sidebar-section-title{
+            .side_nav_header{
                 text-transform: uppercase;
                 font-size: 1.6rem;
                 line-height: 2.2rem;
+                margin-bottom: 2rem;
                 @media (max-width: $sm-breakpoint){
                     margin: 0 0 1rem;
                 }
             }
             //all sidebar-sections except the first one
-            & + .sidebar-section{
+            & + .side_nav{
                 border-top: 1px dashed #d9d9d9;
                 padding-top: 3.5rem;
                 @media (max-width: $sm-breakpoint){
                     padding-top: 1.5rem;
                 }
             }
-            ul.categories{
+            ul.side_nav_list{
                 margin: 0;
                 padding: 0;
                 list-style: none;
@@ -88,6 +95,8 @@
                     }
                 }
             }
+
+            //Style for the quick links section.  Not currently being used
             ul.quick-links{
                 margin: 0;
                 padding: 0.5rem 0 1rem;
