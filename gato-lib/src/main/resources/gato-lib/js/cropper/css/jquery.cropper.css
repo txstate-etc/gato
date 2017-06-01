@@ -1,0 +1,71 @@
+.cropper-wrapper{
+    margin-bottom: 20px;
+}
+.cropImageContainer {
+    width: 700px;
+    position: relative;
+    cursor: crosshair;
+    z-index: 1;
+}
+
+.cropImage {
+    max-width:100%;
+    max-height: 100%;
+    z-index: 3;
+    position: relative;
+    cursor: crosshair; 
+    display: block;
+}
+
+.imageCropSelection {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    z-index: 9;
+    visibility: hidden;
+    overflow: hidden;
+    max-width:100%;
+    max-height: 100%;
+}
+
+.divShield {
+    position:       absolute;
+    left:           0;
+    top:            0;
+    background:     #000;
+    z-index:        4;
+    cursor:         default;
+    visibility:     hidden;
+    filter:         alpha(opacity=80);  
+    opacity:        0.8;
+}
+
+.divSelectionHor {
+    position:       absolute;
+    left:           0;
+    top:            0;
+    width:          1px;
+    height:         1px;
+    font:           1px/1px verdana, sans-serif;
+    background:     transparent url(../media/selection_horizontal_static.gif) repeat-x;
+    z-index:        10;
+    cursor:         crosshair;
+    visibility:     hidden;
+}
+.divSelectionVer {
+    position:       absolute;
+    left:           0;
+    top:            0;
+    width:          1px;
+    height:         1px;
+    font:           1px/1px verdana, sans-serif;
+    background:     transparent url(../media/selection_vertical_static.gif) repeat-y;
+    z-index:        10;
+    cursor:         crosshair;
+    visibility:     hidden;
+}
+
+.action-buttons{
+    margin-top: 15px;
+}
