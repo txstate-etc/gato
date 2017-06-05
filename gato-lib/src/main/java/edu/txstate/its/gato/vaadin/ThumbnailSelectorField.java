@@ -18,18 +18,24 @@ public class ThumbnailSelectorField extends CustomField<Object> {
 
   private GatoUtils gf;
   private Node node;
+  private String controlName;
 
   public ThumbnailSelectorField(Node node, GatoUtils gf) {
+    this(node, gf, "image");
+  }
+
+  public ThumbnailSelectorField(Node node, GatoUtils gf, String controlName){
     this.gf = gf;
     this.node = node;
+    this.controlName = controlName;
   }
 
   @Override
   protected Component initContent() {
-    String left = PropertyUtil.getString(node, "imagecropleft", "0");
-    String right = PropertyUtil.getString(node, "imagecropright", "0");
-    String top = PropertyUtil.getString(node, "imagecroptop", "0");
-    String bottom = PropertyUtil.getString(node, "imagecropbottom", "0");
+    String left = PropertyUtil.getString(node, this.controlName + "cropleft", "0");
+    String right = PropertyUtil.getString(node, this.controlName + "cropright", "0");
+    String top = PropertyUtil.getString(node, this.controlName + "croptop", "0");
+    String bottom = PropertyUtil.getString(node, this.controlName + "cropbottom", "0");
 
     String itemKey = PropertyUtil.getString(node, "image"); //FIXME: is this name configurable?
     String link = gf.getImg(itemKey, 500, 0, false, false, 0f, 0f, 0f, 0f);
@@ -39,21 +45,22 @@ public class ThumbnailSelectorField extends CustomField<Object> {
       imgHtml = "You may adjust the cropping for this image after it has been saved.<br/><br/>";
     } else {
       imgHtml = 
-        "<div id=\"cropInputs\">" +
-          "<input type=\"hidden\" id=\"imagecropleft\" value=\""+left+"\"/>" +
-          "<input type=\"hidden\" id=\"imagecropright\" value=\""+right+"\"/>" +
-          "<input type=\"hidden\" id=\"imagecroptop\" value=\""+top+"\"/>" +
-          "<input type=\"hidden\" id=\"imagecropbottom\" value=\""+bottom+"\"/>" +
-        "</div>" +
-        "<div id=\"cropImageContainer\">" +
-          "<img id=\"cropImage\" src=\""+link+"\" alt=\"\" />" +
-        "</div>" +
-        "<a href=\"#cropMaximize\" id=\"cropMaximize\">Center and Maximize</a>" +
-        "<a href=\"#clearSelection\" id=\"clearSelection\">Clear</a>" +
-        "<div class=\"mgnlDialogDescription\">" +
+        "<div class=\"cropper-wrapper cropper-wrapper-" + this.controlName +"\">" +
+            "<input type=\"hidden\" class=\"" + this.controlName + "croptop\" name=\"cropTop\" autocomplete=\"off\" value=\""+top+"\"/>" +
+            "<input type=\"hidden\" class=\"" + this.controlName + "cropright\" name=\"cropRight\" autocomplete=\"off\" value=\""+right+"\"/>" +
+            "<input type=\"hidden\" class=\"" + this.controlName + "cropbottom\" name=\"cropBottom\" autocomplete=\"off\" value=\""+bottom+"\"/>" +
+            "<input type=\"hidden\" class=\"" + this.controlName + "cropleft\" name=\"cropLeft\"  autocomplete=\"off\" value=\""+left+"\"/>" +
+            "<div class=\"cropImageContainer\">" +
+                "<img class=\"cropImage cropImage-" + this.controlName + "\" src=\""+link+"\" alt=\"\" />" +
+            "</div>" +
+            "<div class=\"action-buttons\">" +
+                "<button class='btnCenterMax'>Center and Maximize</button>" +
+                "<button class='btnClear'>Clear</button>" +
+            "</div>" +
+            "<div class=\"mgnlDialogDescription\">" +
           "Click and drag to select a section of your image to use.<br/><br/>" +
-        "</div>"
-      ;
+        "</div>" +
+        "</div>";
     }
 
     VerticalLayout layout = new VerticalLayout();
