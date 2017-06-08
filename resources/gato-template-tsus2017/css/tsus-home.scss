@@ -1,2 +1,53 @@
 @import "gato-template-tsus2017/css/variables";
 @import "gato-template-tsus2017/css/includes";
+
+.gato-flex-container {
+	justify-content: space-between; // To override flex container behaviour for flex item css
+}
+.tsus-institution-logos{
+  border-top: 1px solid $tsus-taupe;
+}
+
+.tsus-institution-logos ul li a img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0 auto;
+}
+
+.container {
+	max-width: 131rem;
+	margin: 0 auto;
+	padding: 0 1.5rem;
+}
+.container:after,
+.clearfix:after {
+	clear: both;
+	content: '';
+	display: block;
+}
+
+/*Responsiive start images */
+@media screen and (max-width: $sm-breakpoint){
+	  .tsus-institution-logos img{
+			width: 5rem;
+		}
+
+  .tsus-institution-logos li{
+     width: 15%;// 8=20%
+      padding: 0;
+      margin: 1rem;
+			justify-content: space-between;
+  }
+	/*.tsus-institution-logos li, .tsus-institution-logos li:first-child, .tsus-institution-logos li:last-child {
+		 width: 15%;// 8=20%
+			padding: 0;
+			margin: 1rem;
+			justify-content: space-between;
+	}*/
+
+}
+
+
+
+/*Responsive ends*/

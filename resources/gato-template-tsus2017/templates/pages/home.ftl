@@ -7,15 +7,25 @@
         [@templatehead publisher="Texas State University System"/]
     </head>
     <body>
+
         [#include "includes/header.ftl"]
+
         <!-- slideshow -->
         TSUS slideshow
         <!-- progress bars -->
         TSUS progress bars
-        <!-- news -->
-        News section
-        <!-- institution logos -->
-        Institution logos
+        <div class="container">
+
+            <!-- news -->
+            News section
+
+            <!-- institution logos -->
+              <div class="tsus-institution-logos">
+                [@cms.area name="tsuslogos" /]
+              </div>
+        </div>
+
+
         [#include "includes/footer.ftl"]
         [@cssjsmodals /]
     </body>

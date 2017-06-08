@@ -24,6 +24,17 @@ areas:
     availableComponents:
       link:
         id: gato-template:components/link
+
+  tsuslogos:
+    type: list
+    renderType: freemarker
+    templateScript: /gato-template/templates/areas/flexitems.ftl
+    parameters:
+      maxitemwidth: 60px
+    availableComponents:
+      logo:
+        id: gato-template:components/imagelink
+
 variations:
   js:
     templateScript: /gato-component-cssjs/templates/pages/jsvariation.ftl
