@@ -13,7 +13,7 @@
     <sv:value>https://login.its.txstate.edu/login/</sv:value>
   </sv:property>
   <sv:property sv:name="casLogoutURL" sv:type="String">
-    <sv:value>https://login.its.txstate.edu/logout?url={0}</sv:value>
+    <sv:value>https://login.its.txstate.edu/logout?url=${casServiceURL}</sv:value>
   </sv:property>
   <sv:property sv:name="casValidateURL" sv:type="String">
     <sv:value>https://login.its.txstate.edu/</sv:value>

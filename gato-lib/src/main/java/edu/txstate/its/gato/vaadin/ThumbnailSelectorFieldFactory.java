@@ -27,7 +27,8 @@ public class ThumbnailSelectorFieldFactory<D extends FieldDefinition> extends Ab
   @Override
   protected Field<Object> createFieldComponent() {
     Node node = ((JcrNodeAdapter)item).getJcrItem();
-    return new ThumbnailSelectorField(node, gf);
+    String controlName = definition.getControlName();
+    return new ThumbnailSelectorField(node, gf, controlName);
   }
 
 }

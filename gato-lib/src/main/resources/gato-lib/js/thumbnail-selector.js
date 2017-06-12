@@ -1,30 +1,31 @@
 function initThumbnailSelector(def, node, el) {
-  if (def.aspect) {
-    Cropper.aspect = def.aspect;
-  }
-  if (def.name) {
-    Cropper.controlName = def.name;
-  }
-  
-  Toolkit.Events.addListener(document.getElementById('cropMaximize'), "onclick", function(e){
-    e.preventDefault();
-    e.stopPropagation();
-    Cropper.maximize();
-    return false;
-  }, Cropper);
 
-  Toolkit.Events.addListener(document.getElementById('clearSelection'), "onclick", function(e){
-    e.preventDefault();
-    e.stopPropagation();
-    Cropper.reset();
-    return false;
-  }, Cropper);
+  var aspect = 1; controlName = "image";
+  if (def.parameters && def.parameters.aspect) {
+    aspect = def.parameters.aspect;
+  }
+  if (def.parameters && def.parameters.controlName) {
+    controlName = def.parameters.controlName;
+  }
 
-  $('#cropImage').one('load', function() {
-    Cropper.init();
-  }).each(function() {
-    if(this.complete) $(this).trigger('load');
-  });
-  
-  //FIXME: how do we save the data?
+  //There was a problem where the wrong controlName was being used
+  //in dialogs with multiple cropper instances. This closure fixes that.
+  (function (asp, cn){
+
+    $('.cropImage.cropImage-' + cn).one('load', function(){
+      var wrapper = $(this).closest('.cropper-wrapper-' + cn);
+      var crop = $(this).cropImage({aspect: asp, controlName: cn});
+      wrapper.find('.btnCenterMax').click(function(){
+        crop.data('plugin_cropImage').maximize();
+      })
+      wrapper.find('.btnClear').click(function(){
+        crop.data('plugin_cropImage').reset();
+      })
+    }).each(function() {
+      if(this.complete) $(this).trigger('load');
+    })
+    
+  })(aspect, controlName);
+
 }
+
