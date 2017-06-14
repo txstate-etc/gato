@@ -20,6 +20,7 @@
             [#if hideSidebar == false]
             <aside class="sidebar">
                 <!-- search field should go here-->
+                [#include "includes/search.ftl"]
 
                 [@cms.area name="navBlocks" /]
 
@@ -28,7 +29,7 @@
                 image and some text to the right of it.  It does not change significantly on small screens.  Currently,
                 the only component type that can be added to each block is gato-template:components/link (see sidenav.yaml).  We need to be able to add the new component type to the sidebar as well, but probably only for TSUS. -->
                 <!-- "Contact" block should go here -->
-                  
+
             </aside>
             [/#if]
         </div>

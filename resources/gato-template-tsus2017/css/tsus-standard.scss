@@ -205,3 +205,48 @@
     color:  $tsus-lightgray;
     padding: .3rem 1rem .4rem;
   }
+
+/////////////////////////////////////
+
+///search bar
+.search-form{
+  margin-bottom: 3.5rem;
+}
+#q{
+  padding-left: 4rem;// make it 5 on mobile
+}
+.tsus-searchform {
+  position: relative;
+ }
+
+.tsus-searchform input.research {
+//styles for search go here
+  display: block;
+  height: 4.5rem;
+  width: 100%;
+  border: .1rem solid #bcbdbf;
+  border-radius: 0 !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  background: none;
+  font-weight: 300;
+  font-size: 1.2rem;
+  line-height: 2rem;
+  color: #878787;
+  padding: .5rem 1rem;
+  -webkit-appearance: none;
+ }
+
+
+#tsus-searchform-searchbutton {
+  font-size: 0;
+  line-height: 0;
+  position: absolute;
+  top: 25%;
+  bottom: 0;
+  left: 4%;
+  width: 2.5rem;
+  border: none;
+  //background: url(../images/ico-search.png) no-repeat;
+  background-position: 75% 50%;
+}
