@@ -72,20 +72,7 @@ jQuery(document).ready(function($) {
         }
       });
 
-    $(window).resize(function(){
-      var $logoVar=$('.tsus-institution-logos li');
-      var $tCount=$logoVar.length;
-    	if ($(window).width() <= 767){
-        if($tCount==8){
-          $logoVar.css("width","20%");
-        }
-    	}
-      else{
-        if($tCount==8){
-          $logoVar.css("width","auto");
-        }
-      }
-    });
+    
 
 
 });
