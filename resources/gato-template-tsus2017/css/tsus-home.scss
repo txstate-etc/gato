@@ -27,25 +27,12 @@
 	display: block;
 }
 
-/*Responsiive start images */
+//*Responsiive start images */
 @media screen and (max-width: $sm-breakpoint){
 	  .tsus-institution-logos img{
-			width: 5rem;
+			height: 5rem;
+			margin-bottom: 1rem !important;
 		}
-
-  .tsus-institution-logos li{
-     width: 15%;// 8=20%
-      padding: 0;
-      margin: 1rem;
-			justify-content: space-between;
-  }
-	/*.tsus-institution-logos li, .tsus-institution-logos li:first-child, .tsus-institution-logos li:last-child {
-		 width: 15%;// 8=20%
-			padding: 0;
-			margin: 1rem;
-			justify-content: space-between;
-	}*/
-
 }
 
 
