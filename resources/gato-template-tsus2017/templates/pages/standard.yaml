@@ -11,7 +11,22 @@ areas:
   contentParagraph:
     !include /gato-template/templates/areas/contentParagraph.yaml
   navBlocks:
-    !include /gato-template/templates/areas/navBlocks.yaml
+    type: list
+    availableComponents:
+      navigationBlock:
+        id: gato-template:components/sidenav
+      navStaffDirectory:
+        id: gato-template:components/navStaffDirectory
+      navQuickLinks:
+        id: gato-template:components/navQuickLinks
+
+#  navBlocks:
+#   !include /gato-template/templates/areas/navBlocks.yaml
+#  navStaffDirectory:
+#    !include /gato-template/templates/areas/navStaffDirectory.yaml
+
+
+
   contact-information:
     type: single
     availableComponents:

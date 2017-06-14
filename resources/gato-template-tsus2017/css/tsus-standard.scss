@@ -1,7 +1,7 @@
 @import "gato-template-tsus2017/css/variables";
 @import "gato-template-tsus2017/css/includes";
 
-//TODO: Go thorugh CSS files and use variables for color names.  Variables should be defined in 
+//TODO: Go thorugh CSS files and use variables for color names.  Variables should be defined in
 // gato-template-tsus2017/css/variables.scss
 
 .page_content {
@@ -117,7 +117,7 @@
                         vertical-align: top;
                         color: #161616;
                         border: 1px solid #bdbec0;
-                        padding: 0.3rem 1rem 0.4rem;
+                        adding: 0.3rem 1rem 0.4rem;
                         transition: all .3s;
                         &:hover{
                             color: #fff;
@@ -141,3 +141,67 @@
         }
     }
 }
+
+
+
+
+
+/*style code for staff directory*/
+//side_nav_list
+.side_nav_list_dir{
+	margin: 0;
+	padding: .5rem 0;
+	list-style: none;
+	font-size: 0;
+	line-height: 0;
+}
+.side_nav_list_dir li + li {padding-top: 10px;}
+.side_nav_list li a {
+	display: block;
+	overflow: hidden;
+  text-decoration: none;
+}
+.side_nav_list_dir .photo {
+	float: left;
+	width: 5rem;
+	height: 5rem;
+	margin: 0 1rem 1rem 0;
+	background-color: #e0e0e0;
+	-webkit-background-size: cover;
+	background-size: cover;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+}
+.side_nav_list_dir .photo img {
+  width: 100%;
+  height: 100%;
+}
+.side_nav_list_dir .info {
+	overflow: hidden;
+	font: 300 1.2rem/1.4rem 'Roboto', sans-serif;
+	color: #878787;
+	padding-top: .3rem;
+
+}
+.side_nav_list_dir .info .name {
+	display: block;
+	font-size: 1.4rem;
+	line-height: 1.6rem;
+	min-height: 3.2rem;
+	color: black;
+  font-weight: 500;
+}
+
+.side_nav_list_dir .staffDir {
+	text-decoration: none;
+}
+
+///////////////////////////////////
+
+///quick-links
+  .quick-links{
+    display: inline-block;
+    vertical-align: top;
+    color:  $tsus-lightgray;
+    padding: .3rem 1rem .4rem;
+  }

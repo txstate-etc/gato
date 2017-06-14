@@ -2,7 +2,7 @@ templateScript: /gato-template/templates/components/sidenav.ftl
 renderType: freemarker
 dialog: gato-template:components/sidenav
 description: A group of links for the side navigation area.
-title: Navigation links
+title: Staff Directory Link
 areas:
   links:
     type: list
@@ -10,6 +10,7 @@ areas:
     title: Links
     availableComponents:
       link:
-        id: gato-template:components/link
+        id: gato-template:components/linkStaffDirectory
 parameters:
-  icon: /gato-template/images/navlink_icon.png
+  className: side_nav_list_dir
+  icon: /gato-template/images/dep_directory.png

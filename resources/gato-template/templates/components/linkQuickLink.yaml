@@ -1,0 +1,7 @@
+templateScript: /gato-template/templates/components/linkQuickLink.ftl
+renderType: freemarker
+dialog: gato-template:components/link
+description: List of Quick link
+title: Link
+parameters:
+  icon: /gato-template/images/link.png

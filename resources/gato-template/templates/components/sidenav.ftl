@@ -1,5 +1,7 @@
 [#include "/gato-template/templates/includes/component.ftl"]
 [#include "/gato-template/templates/includes/commonmacros.ftl"]
+[#assign className = def.parameters.className!"side_nav_list"]
+
 <div class="side_nav ${(content.title?has_content || content.type == 'auto2')?string('nav-with-title','nav-without-title')}">
   [#if cmsfn.isEditMode() && ctx.inheritedfrom?has_content]
     <div class="inheritedalert">
@@ -23,7 +25,7 @@
       <h3 class="side_nav_header ${haschildren?string('','solo')}">${cmsfn.decode(content).title}</h3>
     [/#if]
     [#if haschildren || cmsfn.isEditMode()]
-      <ul class="side_nav_list">
+      <ul class="${className}">
         [#-- loop through all the components and display them --]
         [#if content.type == 'auto']
           [@navloop cmsfn.children(page, "mgnl:page") ; subpage]

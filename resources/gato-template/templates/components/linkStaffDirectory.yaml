@@ -1,0 +1,7 @@
+templateScript: /gato-template/templates/components/linkStaffDirectory.ftl
+renderType: freemarker
+dialog: gato-template:components/linkStaffDirectory
+description: Staff Direcotry list
+title: Link
+parameters:
+  icon: /gato-template/images/link.png
