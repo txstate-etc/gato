@@ -29,15 +29,30 @@ jQuery(document).ready(function ($) {
         break;
     }
 
-    //The animation for moving image slides starts in the afterChange
-    //event.  The first slide won't have this event on load so it needs
-    //to be animated on init
     $(this).find('.slides').on('init', function(slick){
-      //get first slide
+      $(this).find(".moving-image").each(function(index,slide){
+        var $slide = $(slide);
+        setHeight($slide);
+        var data = $slide.find('.cropData');
+        var startCrop = { left: parseFloat(data.attr('data-start-left')),
+                    top: parseFloat(data.attr('data-start-top')),
+                    right: parseFloat(data.attr('data-start-right')),
+                    bottom: parseFloat(data.attr('data-start-bottom'))}
+        $slide.find('img').load(function(){
+          var startTransform = calculateTransform($slide, startCrop)
+          $(this).css('width', startTransform.width)
+          $(this).css('height', startTransform.height)
+          $(this).css('left', startTransform.left)
+          $(this).css('top', startTransform.top)
+        })
+      })
+      //The animation for moving image slides starts in the afterChange
+      //event.  The first slide won't have this event on load so it needs
+      //to be animated on init
       var slide = $(this).find('.slick-current')
       if(slide.hasClass('moving-image')){
         slide.find('img').load(function(){
-          initMovingImage(slide)
+          startMovingImage(slide)
         })
       }
     })
@@ -59,7 +74,7 @@ jQuery(document).ready(function ($) {
     slide.find('.image-container').height(slide.width() * 9.0 / 16.0)
   }
 
-  function transformImage(slide, cropData){
+  function calculateTransform(slide, cropData){
 
     var naturalWidth = slide.find('img')[0].naturalWidth;
     var naturalHeight = slide.find('img')[0].naturalHeight;
@@ -80,44 +95,29 @@ jQuery(document).ready(function ($) {
     var imageScaledH = naturalHeight * scale;
     var top = -1 * imageScaledH * cropData.top;
 
-    //the next 4 lines are for testing
-    // slide.find('.image').css('left', left + "px");
-    // slide.find('.image').css('top', top + "px");
-    // slide.find('.image').css('width', imageScaledW)
-    // slide.find('.image').css('height', imageScaledH)
-
     return {width: imageScaledW, height: imageScaledH, left: left + "px", top: top + "px"}
   }
 
-  function initMovingImage(slide){
-
+  function startMovingImage(slide){
     setHeight(slide);
     //get the crop data
     var data = slide.children('.cropData');
-    var startCrop = { left: parseFloat(data.attr('data-start-left')),
-                    top: parseFloat(data.attr('data-start-top')),
-                    right: parseFloat(data.attr('data-start-right')),
-                    bottom: parseFloat(data.attr('data-start-bottom'))}
-    if(startCrop.right < startCrop.left) startCrop.right = 1;
-    if(startCrop.bottom < startCrop.top) startCrop.bottom = 1;
     var endCrop = { left: parseFloat(data.attr('data-end-left')),
                     top: parseFloat(data.attr('data-end-top')),
                     right: parseFloat(data.attr('data-end-right')),
                     bottom: parseFloat(data.attr('data-end-bottom'))}
     if(endCrop.right < endCrop.left) endCrop.right = 1;
     if(endCrop.bottom < endCrop.top) endCrop.bottom = 1;
-
-    startTransform = transformImage(slide, startCrop)
-    endTransform = transformImage(slide, endCrop)
+    endTransform = calculateTransform(slide, endCrop)
 
     slide.find('img').velocity({
-                                width: [endTransform.width, startTransform.width],
-                                height: [endTransform.height, startTransform.height],
-                                left: [endTransform.left, startTransform.left],
-                                top: [endTransform.top, startTransform.top]
+                                width: endTransform.width,
+                                height: endTransform.height,
+                                left: endTransform.left,
+                                top: endTransform.top
                                },
                                {
-                                  duration: 30000,
+                                  duration: 20000,
                                   easing: 'linear'
                                }
                               )
@@ -127,7 +127,27 @@ jQuery(document).ready(function ($) {
   $('.gato-slider').on('afterChange', function(event, slick, currentSlide){
     var slide = $(slick.$slides[currentSlide]);
     if(slide.hasClass('moving-image')){
-      initMovingImage(slide)
+      startMovingImage(slide)
+    }
+  });
+
+  $('.gato-slider').on('beforeChange', function(event, slick, currentSlide){
+    var slide = $(slick.$slides[currentSlide]);
+    if(slide.hasClass('moving-image')){
+      var image = slide.find('img');
+      //stop animation
+      image.velocity("stop");
+      //reset start position
+      var data = slide.find('.cropData');
+      var startCrop = { left: parseFloat(data.attr('data-start-left')),
+                    top: parseFloat(data.attr('data-start-top')),
+                    right: parseFloat(data.attr('data-start-right')),
+                    bottom: parseFloat(data.attr('data-start-bottom'))}
+      var startTransform = calculateTransform(slide, startCrop)
+      image.css('width', startTransform.width)
+      image.css('height', startTransform.height)
+      image.css('left', startTransform.left)
+      image.css('top', startTransform.top)
     }
   });
 
