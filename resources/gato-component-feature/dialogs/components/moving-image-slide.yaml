@@ -1,0 +1,91 @@
+form:
+  tabs:
+    - name: tabMain
+      label: Image
+      fields:
+        - name: image
+          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+          required: true
+          appName: assets
+          targetWorkspace: dam
+          label: Image
+          identifierToPathConverter:
+            class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
+          contentPreviewDefinition:
+            contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
+          description: "Background image for this slide. Will be resized to fit the slideshow area."
+        - name: alttext
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          required: true
+          label: Image Alt Text
+          description: "Descriptive text for users who are unable to see the image."
+        - name: title
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Caption Title
+          description: "Title for this slide. Appears in the caption area."
+        - name: subtext
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          rows: 5
+          label: Caption Text
+          description: "Text content for the caption area. Appears below the title."
+        - name: link
+          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+          label: Link
+          appName: pages
+          identifierToPathConverter:
+            class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
+          description: "Entire slide will be clickable. Enter a full URL (http://www.google.com/) or use the \"Internal Link\" button to link to another page in this site."
+          buttonSelectNewLabel: "Internal Link..."
+        - name: instructions
+          label: ""
+          class: info.magnolia.ui.form.field.definition.StaticFieldDefinition
+          value: Select a section of the image to use as a starting point for the animation and a section to use as an ending point.  The slide will gradually transition from the starting image to the ending image.
+        - name: start
+          class: edu.txstate.its.gato.vaadin.ThumbnailSelectorFieldDefinition
+          label: Start Image
+          controlName: start
+        - name: startscript
+          class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
+          fields:
+            - name: startcropleft
+              class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+            - name: startcropright
+              class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+            - name: startcroptop
+              class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+            - name: startcropbottom
+              class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+          transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+          initFunction: initThumbnailSelector
+          scripts: [gato-lib/js/cropper/js/jQuery.Cropper.js, gato-lib/js/thumbnail-selector.js]
+          styles: [gato-lib/js/cropper/css/jquery.cropper.css]
+          loadScriptsInOrder: true
+          label: ''
+          parameters:
+            aspect: 1.7777777
+            controlName: start
+        - name: end
+          class: edu.txstate.its.gato.vaadin.ThumbnailSelectorFieldDefinition
+          label: End Image
+          controlName: end
+        - name: endscript
+          class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
+          fields:
+            - name: endcropleft
+              class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+            - name: endcropright
+              class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+            - name: endcroptop
+              class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+            - name: endcropbottom
+              class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+          transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+          initFunction: initThumbnailSelector
+          scripts: [gato-lib/js/cropper/js/jQuery.Cropper.js, gato-lib/js/thumbnail-selector.js]
+          styles: [gato-lib/js/cropper/css/jquery.cropper.css]
+          loadScriptsInOrder: true
+          label: ''
+          parameters:
+            aspect: 1.7777777
+            controlName: end
+actions: !include /gato-template/dialogs/common/actions-block.yaml

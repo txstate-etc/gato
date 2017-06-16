@@ -1,0 +1,7 @@
+templateScript: /gato-component-feature/templates/components/moving-image-slide.ftl
+renderType: freemarker
+title: Moving Image
+description: Moving Image slide for the feature slideshow.
+dialog: gato-component-feature:components/moving-image-slide
+parameters:
+  icon: /gato-component-feature/images/image.png
