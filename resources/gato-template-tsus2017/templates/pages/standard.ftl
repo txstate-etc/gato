@@ -16,7 +16,14 @@
     <div class="container standard-container">
         <div class="page_content">
             [#assign hideSidebar = content.hideSidebar!false]
-            [@cms.area name="contentParagraph" contextAttributes={"hideSidebar":hideSidebar} /]
+            <main class="tsus-contentcolumn txst-styledcontent">
+              [#if def.parameters.isMailTemplate!false]
+                  [@cms.area name="mail" /]
+              [#else]
+                  [@cms.area name="contentParagraph" contextAttributes={"hideSidebar":hideSidebar} /]
+              [/#if]
+            </main>
+
             [#if hideSidebar == false]
             <aside class="sidebar">
                 <!-- search field should go here-->
