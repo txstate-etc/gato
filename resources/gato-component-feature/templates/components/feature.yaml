@@ -14,6 +14,8 @@ areas:
         id: gato-component-feature:components/slide
       video-slide:
         id: gato-component-feature:components/video-slide
+      moving-image-slide:
+        id: gato-component-feature:components/moving-image-slide
     maxComponents: 10
 parameters:
   icon: /gato-component-feature/images/feature.png
