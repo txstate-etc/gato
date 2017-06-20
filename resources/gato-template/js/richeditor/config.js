@@ -23,13 +23,18 @@
         //Allow <i></i> to make it easier to include font awesome icons
         config.protectedSource.push(/<i[^>]*><\/i>/g);
 
+        var definition_colors = "222222,501214,6a5638,363534,b30e1b";
+        if(window.cktemplatevars && window.cktemplatevars.definition_colors){
+          definition_colors = window.cktemplatevars.definition_colors;
+        }
+
         definition = {
                    alignment: true,
                    images: true,
                    lists: true,
                    source: true,
                    tables: true,
-                   colors: "222222,501214,6a5638,363534,b30e1b",
+                   colors: definition_colors,
                    fonts: null,
                    fontSizes: null
            }
@@ -206,11 +211,7 @@
                   return currentClasses.indexOf(val) > -1;
                 }
 
-                var selectHeaderColor = {
-                  type: 'select',
-                  id: 'selHeaderColor',
-                  label: 'Header Color',
-                  items: [ ['None', 'header-color-none'],
+                var header_colors = [ ['None', 'header-color-none'],
                          [ 'Default (Gold)', 'header-color-gold' ],
                          [ 'Maroon', 'header-color-maroon' ],
                          [ 'Charcoal','header-color-charcoal' ],
@@ -218,7 +219,21 @@
                          [ 'River', 'header-color-river'],
                          [ 'Sandstone', 'header-color-sandstone' ],
                          [ 'Old Gold', 'header-color-oldgold']
-                         ],
+                         ];
+                if(window.cktemplatevars && window.cktemplatevars.header_color_options){
+                  header_colors = window.cktemplatevars.header_color_options;
+                }
+
+                var default_header_color_class = "header_color_gold";
+                if(window.cktemplatevars && window.cktemplatevars.default_header_color_class){
+                  default_header_color_class = window.cktemplatevars.default_header_color_class;
+                }
+
+                var selectHeaderColor = {
+                  type: 'select',
+                  id: 'selHeaderColor',
+                  label: 'Header Color',
+                  items: header_colors,
                   'default': 'header-color-none',
                   onChange: function(api){
                     for(var i=0; i<this.items.length; i++){
@@ -241,7 +256,7 @@
                     if(!hasHeaderColor){
                      var ths = selectedTable.find('th');
                      if(ths.count() > 0){
-                      this.setValue('header-color-gold');
+                      this.setValue(default_header_color_class);
                      }
                     }
                   }
@@ -274,7 +289,7 @@
                   else{
                     //not sure about the header-color-none
                     if(setDefaultColor && headerColorField.getValue() == "header-color-none"){
-                      headerColorField.setValue('header-color-gold');
+                      headerColorField.setValue(default_header_color_class);
                     }
                   }
                   setDefaultColor = true;
@@ -413,7 +428,7 @@
               }
 
               if(dialogName === 'colordialog') {
-                //add Texas State template colors to top of colordialog
+                //add template colors to top of colordialog
                 var preSelectedColors = [ ['Maroon', '#501214' ],
                                           ['Gold', '#6A5638'],
                                           ['Charcoal', '#363534'],
@@ -422,6 +437,9 @@
                                           ['Sandstone', '#E8E3DB'],
                                           ['Old Gold', '#DEB407']
                 ];
+                if(window.cktemplatevars && window.cktemplatevars.template_colors){
+                  preSelectedColors = window.cktemplatevars.template_colors
+                }
                 var pickerTab = dialogDefinition.getContents('picker');
 
                 var colorClickFn = CKEDITOR.tools.addFunction(function (colorCode){
@@ -436,8 +454,11 @@
                 });
 
                 function makeColorBoxes(){
-
-                  var html = '<h3>Texas State Colors</h3><table role="presentation" cellspacing=0 cellpadding=0 width="100%" style="margin:0px">';
+                  var header = "Texas State Colors";
+                  if(window.cktemplatevars && window.cktemplatevars.template_color_label){
+                    header = window.cktemplatevars.template_color_label
+                  }
+                  var html = '<h3>' + header + '</h3><table role="presentation" cellspacing=0 cellpadding=0 width="100%" style="margin:0px">';
                   html += '<tr>';
                   for(var i = 0; i<preSelectedColors.length; i++){
                     var colorLabel = preSelectedColors[i][0];

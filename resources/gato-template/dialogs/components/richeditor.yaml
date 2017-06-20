@@ -1,8 +1,22 @@
+#-------------------------------------------------------------------------------------------------------------
+#
+# The setCKEditorVars function is used to define per-template colors in the rich editor.  It loads a JS file
+# into the head that defines an object containing configuration variables.  An example JS file can be found at
+# /gato-template-txstate2015/js/ckeditor-custom-colors.js.  If this JS file is not defined for a particular
+# template, the txstate2015 template values will be used.
+#
+#-------------------------------------------------------------------------------------------------------------
+
 form:
   tabs:
     - name: tabGeneral
       label: Rich Editor
       fields:
+        - name: script
+          label: ""
+          class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
+          initFunction: setCKEditorVars
+          scripts: [gato-template/js/ckeditorVars.js]
         - name: content
           class: info.magnolia.ui.form.field.definition.RichTextFieldDefinition
           label: Title
