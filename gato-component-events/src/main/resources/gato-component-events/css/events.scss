@@ -1,7 +1,11 @@
 .gato-events {
+  .gato-accordion{
+    box-shadow: inset 0px 0px 2px 1px $event-box-shadow-color;
+  }
+  
   div.txst-eventdetail {
     a {
-      color: $maroon;
+      color: $event-detail-link-color;
       text-decoration: none;
     }
 
@@ -14,11 +18,20 @@
     }
 
     .gato-accordion-header {
+      color: $event-header-color;
+      background: $event-header-background;
+      box-shadow: 0px 0px 0px 1px $event-header-box-shadow-color;
+      &:hover, &:active, &.selected {
+        background: $event-header-background-hover;
+      }
       [data-eq~="200px"] & {
         margin: 0;
         padding: 1rem;
       }
-      h3 { margin: 0 0 0.5rem; }
+      h3 { 
+        margin: 0 0 0.5rem;
+        color: $event-header-title-color;
+      }
     }
     div.gato-accordion-content {
       padding: 3rem;
@@ -95,7 +108,8 @@
       margin: 0;
       padding: 1rem 1.8rem;
       border-radius: 0;
-      background: $dark-sandstone;
+      background: $event-detail-detailsbox-background;
+      color: $event-detail-detailsbox-color;
       [data-eq~="600px"] & { background: none; padding: 0; }
       dt, dd {
         padding: 0;
@@ -126,7 +140,7 @@
       display: none;
       margin-top: 2rem;
       text-align: right;
-      color: $maroon;
+      color: $event-detail-link-color;
       text-decoration: underline;
       i.fa {
         padding-left: 0.75rem;

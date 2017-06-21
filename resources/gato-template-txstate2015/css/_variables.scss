@@ -1,9 +1,15 @@
 /* GATO-TEMPLATE OVERRIDES */
-
+@import "gato-template-txstate2015/css/colors";
 /* TXSTATE2015 VARIABLES */
 //Colors
  $default-background:               $gold;
  $container-background:             $white;
+
+ $main-bg:                   $white;
+ $main-text:                 $very-dark;
+ $main-link:                 $blue;
+ $main-header:               $very-dark;
+ $main-border:               $gold;
 
  $banner-top:                       $khaki;
  $banner-bottom:                    $darkest-sandstone;
@@ -86,13 +92,6 @@
  $legalfooter-background:           $maroon;
  $legalfooter-text:                 $light-gray;
  $quicklinks-text:                  $white;
-
-/* Overrides for components */
-$separator-color: $khaki;
-$text-image-horiz: 3rem;
-$text-image-top: 2rem;
-$text-image-bottom: 1.5rem;
-
 
 @import "gato-template-txstate2015/css/colors";
 

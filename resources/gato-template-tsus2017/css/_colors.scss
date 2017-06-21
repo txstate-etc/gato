@@ -1,0 +1,144 @@
+$navy:                     #1F355E;
+
+$darkest-navy:             #1924ab;
+$dark-navy:                #1C3055;
+$light-navy:               #35496E;
+$lightest-navy:            #4C5D7E;
+$navy-shadow:              #132038;
+
+
+// Put TSUS color overrides here
+/* TSUS multicolors */
+
+$mc1-name:                  'Midnight';  
+$mc1-bg:                    #37333D;
+$mc1-text:                  $white;
+$mc1-link:                  $white;
+$mc1-header:                $white;
+$mc1-border:                #2C2931; //20% darker
+$mc1-comp-bg:               #4B4750; //10% lighter
+$mc1-comp-text:             $white;
+$mc1-comp-link:             $mc1-link;
+$mc1-comp-header:           $mc1-header;
+$mc1-comp-border:           $mc1-border;
+$mc1-hilite-bg:             $white;
+$mc1-hilite-text:           $mc1-bg;
+$mc1-grad-top:              #4B4750; //10% lighter
+$mc1-grad-bottom:           #322E37; //10% darker
+$mc1-comp-grad-top:         #5F5C64; //20% lighter
+$mc1-comp-grad-bottom:      $mc1-bg;
+$mc1-shadow:                #27242B; //30% darker
+
+$mc2-name:                  'Taupe';
+$mc2-bg:                    #8E857B; 
+$mc2-text:                  #000;
+$mc2-link:                  #000;
+$mc2-header:                #000;
+$mc2-border:                #726A62; //20% darker
+$mc2-comp-bg:               #999188; //10% lighter
+$mc2-comp-text:             $mc2-text;
+$mc2-comp-link:             $mc2-link;
+$mc2-comp-header:           $mc2-header;
+$mc2-comp-border:           $mc2-border;
+$mc2-hilite-bg:             $white;
+$mc2-hilite-text:           #000;
+$mc2-grad-top:              #80786F;
+$mc2-grad-bottom:           #999188;
+$mc2-comp-grad-top:         #A59D95;
+$mc2-comp-grad-bottom:      $mc2-bg;
+$mc2-shadow:                #635D56;
+
+$mc3-name:                  'Red'; 
+$mc3-bg:                    #B3282D; //20% darker #8F2024 has accessible contrast with white text
+$mc3-text:                  $white;
+$mc3-link:                  $white;
+$mc3-header:                $white;
+$mc3-border:                #8F2024;
+$mc3-comp-bg:               #BB3E42;
+$mc3-comp-text:             $mc3-text;
+$mc3-comp-link:             $mc3-link;
+$mc3-comp-header:           $mc3-header;
+$mc3-comp-border:           $mc3-border;
+$mc3-hilite-bg:             $white;
+$mc3-hilite-text:           #a12429; //10% darker
+$mc3-grad-top:              #BB3E42; //10% lighter
+$mc3-grad-bottom:           #a12429; //10% darker
+$mc3-comp-grad-top:         #C25357; //20% lighter
+$mc3-comp-grad-bottom:      $mc3-bg;
+$mc3-shadow:                #7D1C1F; //30% darker
+
+$mc4-name:                  'Navy';
+$mc4-bg:                    $navy; 
+$mc4-text:                  $white;
+$mc4-link:                  $white;
+$mc4-header:                $white;
+$mc4-border:                $darkest-navy;
+$mc4-comp-bg:               $light-navy;
+$mc4-comp-text:             $mc4-text;
+$mc4-comp-link:             $mc4-link;
+$mc4-comp-header:           $mc4-header;
+$mc4-comp-border:           $mc4-border;
+$mc4-hilite-bg:             $white; 
+$mc4-hilite-text:           $mc4-bg;
+$mc4-grad-top:              $dark-navy;
+$mc4-grad-bottom:           $light-navy;
+$mc4-comp-grad-top:         $lightest-navy;
+$mc4-comp-grad-bottom:      $mc4-bg;
+$mc4-shadow:                $navy-shadow;
+
+$mc5-name:                  'Sea Green';
+$mc5-bg:                    #6C8973; //20% lighter #89A18F passes with black text
+$mc5-text:                  #000;
+$mc5-link:                  #000;
+$mc5-header:                #000;
+$mc5-border:                #566E5C;
+$mc5-comp-bg:               #7B9581;
+$mc5-comp-text:             $mc5-text;
+$mc5-comp-link:             $mc5-link;
+$mc5-comp-header:           $mc5-header;
+$mc5-comp-border:           $mc5-border;
+$mc5-hilite-bg:             $white;
+$mc5-hilite-text:           #415245; //40% darker
+$mc5-grad-top:              #7B9581;
+$mc5-grad-bottom:           #617B68;
+$mc5-comp-grad-top:         #89A18F;
+$mc5-comp-grad-bottom:      $mc5-bg;
+$mc5-shadow:                #4C6051;
+
+$mc6-name:                  'Ocean';
+$mc6-bg:                    #657F89;  
+$mc6-text:                  #000;
+$mc6-link:                  #000;
+$mc6-header:                #000;
+$mc6-border:                #51666E; //20% darker
+$mc6-comp-bg:               #748C95; //10% lighter
+$mc6-comp-text:             $mc6-text;
+$mc6-comp-link:             $mc6-link;
+$mc6-comp-header:           $mc6-header;
+$mc6-comp-border:           $mc6-border;
+$mc6-hilite-bg:             $white; 
+$mc6-hilite-text:           #475960; //30% darker
+$mc6-grad-top:              #748C95; 
+$mc6-grad-bottom:           #5B727B;
+$mc6-comp-grad-top:         #8499A1; 
+$mc6-comp-grad-bottom:      $mc6-bg;
+$mc6-shadow:                #475960;
+
+$mc7-name:                  'Blue'; 
+$mc7-bg:                    #2755AA; 
+$mc7-text:                  $white;
+$mc7-link:                  $white;
+$mc7-header:                $white;
+$mc7-border:                #1F4488;
+$mc7-comp-bg:               #3D66B3;
+$mc7-comp-text:             $white;
+$mc7-comp-link:             $white;
+$mc7-comp-header:           $white;
+$mc7-comp-border:           $mc7-border;
+$mc6-hilite-bg:             $white; 
+$mc6-hilite-text:           $mc7-bg;
+$mc7-grad-top:              #3D66B3;
+$mc7-grad-bottom:           #234D99;
+$mc7-comp-grad-top:         #5277BB;
+$mc7-comp-grad-bottom:      $mc7-bg;
+$mc7-shadow:                #1B3B77;

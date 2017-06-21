@@ -19,81 +19,53 @@
           }
         }
         border: none;
-        &.header-color-gold th{
-          background: $table-header-bg;
-          color: $table-header-text;
-          a{
-            color: $table-header-text;
-            &:hover{
-              background: transparent;
-              text-decoration: none;
-            }
-          }
-        }
-        &.header-color-maroon th{
-          background: $maroon;
+        &.header-color-graphite th{
+          background: $default-graphite;
           color: $white;
           a{
             color: $white;
-            &:hover{
-              background: transparent;
-              text-decoration: none;
-            }
           }
         }
-        &.header-color-sandstone th{
-          background: $sandstone;
-          color: $very-dark;
-          a{
-            color: $very-dark;
-            &:hover{
-              background: transparent;
-              text-decoration: none;
-            }
-          }
-        }
-        &.header-color-charcoal th{
-          background: $charcoal;
+        &.header-color-default-blue th{
+          background: $default-blue;
           color: $white;
           a{
             color: $white;
-            &:hover{
-              background: transparent;
-              text-decoration: none;
-            }
           }
         }
-        &.header-color-blue th{
-          background: $blue;
-          color: $white;
+        &.header-color-silver th{
+          background: $default-silver;
+          color: $black;
           a{
-            color: $white;
-            &:hover{
-              background: transparent;
-              text-decoration: none;
-            }
+            color: $black;
           }
         }
-        &.header-color-river th{
-          background: $river;
-          color: $almost-black;
+        &.header-color-ice th{
+          background: $default-ice;
+          color: $black;
           a{
-            color: $almost-black;
-            &:hover{
-              background: transparent;
-              text-decoration: none;
-            }
+            color: $black;
           }
         }
-        &.header-color-oldgold th{
-          background: $oldgold;
-          color: $very-dark;
+        &.header-color-pink-sand th{
+          background: $default-pink-sand;
+          color: $black;
           a{
-            color: $very-dark;
-            &:hover{
-              background: transparent;
-              text-decoration: none;
-            }
+            color: $black;
+          }
+        }
+        &.header-color-sand th{
+          background: $default-sand;
+          color: $black;
+          a{
+            color: $black;
+          }
+        }
+        &.header-color-beige th{
+          background: $default-beige;
+          color: $black;
+          a{
+            color: $black;
           }
         }
         &.header-color-none th{

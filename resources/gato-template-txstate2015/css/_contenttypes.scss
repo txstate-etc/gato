@@ -1,0 +1,104 @@
+
+/* Calendar */
+$event-box-shadow-color: $sandstone;
+$event-header-background: $maroon;
+$event-header-color: $white;
+$event-header-background-hover: $light-maroon;
+$event-header-title-color: $white;
+$event-header-box-shadow-color: $lightest-maroon;
+$event-detail-link-color: $maroon;
+$event-detail-detailsbox-background: $sandstone;
+$event-detail-detailsbox-color: $very-dark;
+
+/* RSS */
+$rss-box-shadow-color: $sandstone;
+$rss-header-background: $gold;
+$rss-header-color: $white;
+$rss-header-background-hover: $light-gold;
+$rss-header-box-shadow-color:  $lightest-gold;
+
+/* Text and Image */
+$text-image-caption-background: $sandstone;
+$text-image-caption-color: $very-dark;
+$text-image-caption-link-color: $maroon;
+$text-image-horiz: 3rem;
+$text-image-top: 2rem;
+$text-image-bottom: 1.5rem;
+
+/* FAQ */
+$faq-item-background-color: $sandstone;
+$faq-item-text-color: $very-dark;
+$faq-item-background-hover-color: $dark-sandstone;
+$faq-item-text-hover-color: $very-dark;
+$faq-item-box-shadow-color: $sandstone;
+$faq-group-title-text-color: $very-dark;
+$faq-group-box-shadow-color: $sandstone;
+$faq-question-box-shadow-color: $khaki;
+
+/* Rich Editor Tables */
+$table-header-bg: $gold;
+$table-header-text: $white;
+$table-header-border: $lightest-gold;
+$table-border: $khaki;
+$table-carded-border: $gold;
+$table-link: $maroon;
+$table-altrow-bg: $light-sandstone;
+$table-caption-background: $gold;
+$table-caption-color: $white;
+
+/* Icon and Text */
+$icontext-title-underline-top-color: $khaki;
+$icontext-title-underline-bottom-color: $sandstone;
+$icontext-text-color: $very-dark;
+
+/* Progress */
+$progress-inner-circle-color: $maroon;
+$progress-outer-circle-color: mix($charcoal, $white, 70 );
+$progress-outer-circle-fill-color: $blue;
+$progress-title-color: $blue;
+
+/* Documents */
+$document-icon-color: $charcoal;
+$document-details-text-color: $gold;
+
+/* Gallery */
+$gallery-caption-text-color: $white;
+$gallery-top-bar-background-color: $gold;
+$gallery-top-bar-border-color: $gold-shadow;
+$gallery-tooltip-link-color: $blue;
+$gallery-facebook-border-color: $sandstone;
+$gallery-arrow-color: $white;
+
+/* Feature */
+$feature-arrow-text-shadow-color: $charcoal;
+$feature-play-button-default-background: $maroon;
+$feature-play-button-default-color: $white;
+$feature-play-button-hover-background: $light-maroon;
+
+/* Forms */
+$form-alert-link-color: $maroon;
+$form-textfield-border-color: $gold;
+$form-textfield-background-color: $sandstone;
+$form-submit-text-color: $white;
+$form-submit-box-shadow-color: $gold-shadow;
+$form-submit-background-color: $gold;
+$form-submit-hover-background-color: $light-gold;
+
+/* Department Directory */
+$directory-name-color: $maroon;
+$directory-email-color: $blue;
+$directory-icon-color: $charcoal;
+$directory-title-color: $gold;
+$directory-address-color: $gold;
+
+/* Video embed */
+$streaming-wrapper-link-color: $blue;
+
+/* Separator */
+$separator-color: $khaki;
+
+
+//set defaults in gato-template, all possible variable names.  overrides per template
+//move colors to gato-template
+//2 variables files
+//put neutral defaults in gato-lib and define 2015 colors in 2015 template

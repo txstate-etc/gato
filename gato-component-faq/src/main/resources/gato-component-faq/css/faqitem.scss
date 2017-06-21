@@ -6,7 +6,7 @@
 .txst-faqitem .txst-faqitem-question, .faq-hierarchy > .txst-faq-group-title {
   margin: 0;
   padding: 0;
-  box-shadow: 0px 0px 0px 1px #d1c7b7; 
+  box-shadow: 0px 0px 0px 1px $faq-question-box-shadow-color; 
   
   a {
     display: block;
@@ -18,11 +18,11 @@
     line-height: 2.8rem;
     border-bottom: none;
     border-top: none;
-    background-color: $gemini-bg;
-    color: $gemini-text;
+    background-color: $faq-item-background-color;
+    color: $faq-item-text-color;
     &:hover, &.active {
-      background-color: $dark-sandstone;
-      color: $gemini-comp-text;
+      background-color: $faq-item-background-hover-color;
+      color: $faq-item-text-hover-color;
     }
   }
 }
@@ -46,7 +46,7 @@ body {
     margin-top: 2rem;
   }
   .faq-hierarchy > .txst-faqitem{
-    box-shadow: inset 0px 0px 0px 1px $sandstone;
+    box-shadow: inset 0px 0px 0px 1px $faq-item-box-shadow-color;
   }
   .faq-hierarchy .txst-faq-group .txst-faqitem {
     .txst-faqitem-question {
@@ -71,7 +71,7 @@ body {
   .txst-faq-group-title {
     margin: 0px;
     a {
-      color:$gemini-text;
+      color: $faq-group-title-text-color;
       text-decoration: none;
       font-size: 2rem;
       padding: 5px 0px 5px 5px;
@@ -83,6 +83,6 @@ body {
   }
 
   .faq-hierarchy > .txst-faq-group{
-    box-shadow: inset 0px 0px 0px 1px $sandstone;
+    box-shadow: inset 0px 0px 0px 1px $faq-group-box-shadow-color;
   }
 }

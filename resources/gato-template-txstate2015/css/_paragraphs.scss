@@ -16,6 +16,55 @@
       background-color: rgba(100, 81, 53, 0.9);
     }
   }
+  //these multicolors used the light version of the colors instead of the usual $mc-comp-bg colors for some reason
+  .slide.color5>a:hover{
+    .caption h3, .caption p{
+      background: rgba($light-river, 0.9);
+    }
+  }
+  .slide.color6>a:hover{
+    .caption h3, .caption p{
+      background: rgba($light-sandstone, 0.9);
+    }
+  }
+  .slide.color6>a:hover{
+    .caption h3, .caption p{
+      background: rgba($light-oldgold, 0.9);
+    }
+  }
+  .video-slide{
+    &.color5 caption{
+      a h3:hover{
+        background: rgba($light-river, 0.9);
+      }
+      .feature-play-button a:hover{
+        background: rgba($light-river, 0.9);
+      }
+    }
+    &.color6 caption{
+      a h3:hover{
+        background: rgba($light-sandstone, 0.9);
+      }
+      .feature-play-button a:hover{
+        background: rgba($light-sandstone, 0.9);
+      }
+    }
+    &.color7 caption{
+      a h3:hover{
+        background: rgba($light-oldgold, 0.9);
+      }
+      .feature-play-button a:hover{
+        background: rgba($light-oldgold, 0.9);
+      }
+    }
+  }
+  [data-eq~="500px"] & {
+    .slide{
+      &.color5 { a:hover, a:focus { .caption { background-color: $light-river; } } }
+      &.color6 { a:hover, a:focus { .caption { background-color: $light-sandstone; } } }
+      &.color7 { a:hover, a:focus { .caption { background-color: $light-oldgold; } } }
+    }
+  }
 }
 
 .pswp__caption__center {
@@ -24,4 +73,87 @@
 
 .column_paragraph .gato-gallery-image.txst-gallery-image {
   margin-bottom: 0;
+}
+
+/* Rich Editor Tables */
+.rich-editor-table{
+  table{
+    &.header-color-gold th{
+      background: $table-header-bg;
+      color: $table-header-text;
+      a{
+        color: $table-header-text;
+        &:hover{
+          background: transparent;
+          text-decoration: none;
+        }
+      }
+    }
+    &.header-color-maroon th{
+      background: $maroon;
+      color: $white;
+      a{
+        color: $white;
+        &:hover{
+          background: transparent;
+          text-decoration: none;
+        }
+      }
+    }
+    &.header-color-sandstone th{
+      background: $sandstone;
+      color: $very-dark;
+      a{
+        color: $very-dark;
+        &:hover{
+          background: transparent;
+          text-decoration: none;
+        }
+      }
+    }
+    &.header-color-charcoal th{
+      background: $charcoal;
+      color: $white;
+      a{
+        color: $white;
+        &:hover{
+          background: transparent;
+          text-decoration: none;
+        }
+      }
+    }
+    &.header-color-blue th{
+      background: $blue;
+      color: $white;
+      a{
+        color: $white;
+        &:hover{
+          background: transparent;
+          text-decoration: none;
+        }
+      }
+    }
+    &.header-color-river th{
+      background: $river;
+      color: $almost-black;
+      a{
+        color: $almost-black;
+        &:hover{
+          background: transparent;
+          text-decoration: none;
+        }
+      }
+    }
+    &.header-color-oldgold th{
+      background: $oldgold;
+      color: $very-dark;
+      a{
+        color: $very-dark;
+        &:hover{
+          background: transparent;
+          text-decoration: none;
+        }
+      }
+    }
+  }
 }

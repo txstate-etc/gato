@@ -4,11 +4,13 @@
 }
 
 .gato-rss-item.gato-accordion {
+  box-shadow: inset 0px 0px 2px 1px $rss-box-shadow-color;
   .gato-accordion-header {
-    box-shadow: 0px 0px 0px 1px $lightest-gold;
-    background: $gold;
+    box-shadow: 0px 0px 0px 1px $rss-header-box-shadow-color;
+    color: $rss-header-color;
+    background: $rss-header-background;
     &:hover, &:active, &.selected {
-      background: $light-gold;
+      background: $rss-header-background-hover;
     }
   }
 }

@@ -122,18 +122,18 @@ a.icontext{
 
         .icontext-title:after{
             width: 100%;
-            background: $khaki;
+            background: $icontext-title-underline-top-color;
         }
 
     }
 
     h3.icontext-title {
-        border-bottom: 2px solid #e8e3db;
+        border-bottom: 2px solid $icontext-title-underline-bottom-color;
     }
 
     .icontext-text{
         text-decoration: none;
-        color: #222222;
+        color: $icontext-text-color;
     }
 }
 

@@ -3,17 +3,17 @@
     font-weight: 700;
     font-size: 90%;
     overflow: hidden;
-    color: $maroon;
+    color: $directory-name-color;
   }
 
   .dd-email {
     overflow: hidden;
     font-size: 85%;
-    color: #005481;  /* $blue  */
+    color: $directory-email-color;
   }
 
   .dd-icon{
-    color: #353534;
+    color: $directory-icon-color;
   }
 
   .dd-row {
@@ -26,13 +26,13 @@
 
   .dd-title {
     overflow: hidden;
-    color: #6A5638; /* $gold */
+    color: $directory-title-color;
     font-size: 80%;
   }
 
   .dd-address {
     overflow: hidden;
-    color: #6A5638; /* $gold */
+    color: $directory-address-color;
     font-size: 80%;
   }
 

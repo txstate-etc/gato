@@ -120,7 +120,7 @@
     padding-right: 1em;
     margin-bottom: 1em;
     a{
-      color: $maroon;
+      color: $form-alert-link-color;
       &:hover{
         text-decoration: none;
         background: transparent;
@@ -129,9 +129,9 @@
   }
   input.text, textarea, picker__input{
     width: 100%;
-    border: 3px solid $gold;
+    border: 3px solid $form-textfield-border-color;
     border-radius: 3px;
-    background-color: $sandstone;
+    background-color: $form-textfield-background-color;
     padding: 0.5rem 1rem;
   }
   textarea{
@@ -143,9 +143,9 @@
   }
   input.submit{
     font-weight: 500;
-    color: $white;
-    box-shadow: 0 4px $gold-shadow;
-    background: $gold;
+    color: $form-submit-text-color;
+    box-shadow: 0 4px $form-submit-box-shadow-color;
+    background: $form-submit-background-color;
     padding: 1.8rem 4rem;
     margin-top: 1rem;
     text-transform: uppercase;
@@ -154,10 +154,10 @@
     position: relative;
     border: none;
     &:hover{
-      background: $light-gold;
+      background: $form-submit-hover-background-color;
     }
     &:active{
-      box-shadow: 0 0 $gold-shadow;
+      box-shadow: 0 0 $form-submit-box-shadow-color;
       top: 4px;
     }
   }

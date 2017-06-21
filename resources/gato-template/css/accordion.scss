@@ -4,20 +4,20 @@
 }
 
 .gato-accordion {
-  box-shadow: inset 0px 0px 2px 1px $lightbg;
+  box-shadow: inset 0px 0px 2px 1px $accordion-box-shadow-color;
 
   .gato-accordion-header {
     margin: 1px 0;
-    box-shadow: 0px 0px 0px 1px $mc1-comp-grad-top;
+    box-shadow: 0px 0px 0px 1px $accordion-header-box-shadow-color;
     padding: 1.8rem 2rem;
-    color: $mc1-text;
+    color: $accordion-header-color;
     font-size: 2rem;
     line-height: 2.8rem;
-    background: $mc1-bg;
+    background: $accordion-header-background;
     cursor: pointer;
     position: relative;
     &:hover, &:active, &.selected {
-      background: $mc1-comp-bg;
+      background: $accordion-header-background-hover;
     }
     a { 
       color: inherit;
@@ -25,7 +25,7 @@
       &:hover { background: inherit; }
     }
     h3{
-      color: $mc1-text;
+      color: $accordion-header-title-color;
       margin-bottom: 0.3rem !important;
       font-size: 2rem;
       line-height: 2.8rem;

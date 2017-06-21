@@ -5,13 +5,13 @@
         position: relative;
         margin: 0 auto 3rem;
         .inner-circle{
-            stroke: $maroon;
+            stroke: $progress-inner-circle-color;
         }
         .outer-circle{
-            stroke: mix($charcoal, $white, 70 );
+            stroke: $progress-outer-circle-color;
         }
         path{
-            stroke: $blue;
+            stroke: $progress-outer-circle-fill-color;
         }
         .percent{
             
@@ -21,7 +21,7 @@
         text-align: center;
         .progress-title{
             text-transform: uppercase;
-            color: $blue;
+            color: $progress-title-color;
             letter-spacing: 1px;
             margin: 0 0 0.5rem;
         }

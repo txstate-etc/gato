@@ -65,7 +65,7 @@
         a {
           @include vendor-prefix(border-radius, 50%);
           border-radius: 8rem;
-          background: $maroon;
+          background: $feature-play-button-default-background;
           position: absolute;
           width: 6rem;
           height: 6rem;
@@ -75,7 +75,7 @@
             margin: 0 auto;
             position: absolute;
             border: solid transparent;
-            border-left-color: $white;
+            border-left-color: $feature-play-button-default-color;
             border-width: 1rem 0 1rem 1.6rem;
             content: "";
             height: 0;
@@ -87,7 +87,7 @@
           }
           &:hover {
             @include vendor-prefix(transform, scale(1.15));
-            background: $light-maroon;
+            background: $feature-play-button-hover-background;
           }
           @include vendor-prefix(transition, all 0.2s cubic-bezier(0, 0.5, 0.25, 1));
         }
@@ -158,7 +158,7 @@
       }
       &>a:hover{
         .caption h3, .caption p{
-          background: rgba($light-river, 0.9);
+          background: rgba($mc5-comp-bg, 0.9);
         }
       }
     }
@@ -168,7 +168,7 @@
       }
       &>a:hover{
         .caption h3, .caption p{
-          background: rgba($light-sandstone, 0.9);
+          background: rgba($mc6-comp-bg, 0.9);
         }
       }
     }
@@ -178,7 +178,7 @@
       }
       &>a:hover{
         .caption h3, .caption p{
-          background: rgba($light-oldgold, 0.9);
+          background: rgba($mc7-comp-bg, 0.9);
         }
       }
     }
@@ -261,12 +261,12 @@
       &.color5{
         .caption{
           a h3:hover{
-            background: rgba($light-river, 0.9);
+            background: rgba($mc5-comp-bg, 0.9);
           }
           .feature-play-button a{
             background: rgba($mc5-bg, 0.9);
             &:hover{
-              background: rgba($light-river, 0.9);
+              background: rgba($mc5-comp-bg, 0.9);
             }
             &:after{
               border-left-color: $mc5-text;
@@ -277,12 +277,12 @@
       &.color6{
         .caption{
           a h3:hover{
-            background: rgba($light-sandstone, 0.9);
+            background: rgba($mc6-comp-bg, 0.9);
           }
           .feature-play-button a{
             background: rgba($mc6-bg, 0.9);
             &:hover{
-              background: rgba($light-sandstone, 0.9);
+              background: rgba($mc6-comp-bg, 0.9);
             }
             &:after{
               border-left-color: $mc6-text;
@@ -293,12 +293,12 @@
       &.color7{
         .caption{
           a h3:hover{
-            background: rgba($light-oldgold, 0.9);
+            background: rgba($mc7-comp-bg, 0.9);
           }
           .feature-play-button a{
             background: rgba($mc7-bg, 0.9);
             &:hover{
-              background: rgba($light-oldgold, 0.9);
+              background: rgba($mc7-comp-bg, 0.9);
             }
             &:after{
               border-left-color: $mc7-text;
@@ -343,7 +343,7 @@
     }
   }
   .slick-prev, .slick-next {
-    text-shadow: 0px 0px 1px $charcoal;
+    text-shadow: 0px 0px 1px $feature-arrow-text-shadow-color;
     color: $white;
     transition: all .2s ease-in-out;
     position: absolute;
@@ -497,9 +497,9 @@
       &.color2 { a:hover, a:focus { .caption { background-color: $mc2-comp-bg; } } }
       &.color3 { a:hover, a:focus { .caption { background-color: $mc3-comp-bg; } } }
       &.color4 { a:hover, a:focus { .caption { background-color: $mc4-comp-bg; } } }
-      &.color5 { a:hover, a:focus { .caption { background-color: $light-river; } } }
-      &.color6 { a:hover, a:focus { .caption { background-color: $light-sandstone; } } }
-      &.color7 { a:hover, a:focus { .caption { background-color: $light-oldgold; } } }
+      &.color5 { a:hover, a:focus { .caption { background-color: $mc5-comp-bg; } } }
+      &.color6 { a:hover, a:focus { .caption { background-color: $mc6-comp-bg; } } }
+      &.color7 { a:hover, a:focus { .caption { background-color: $mc7-comp-bg; } } }
       &.video-slide{
         .caption{
           &.no-title{

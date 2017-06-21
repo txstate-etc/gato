@@ -139,9 +139,9 @@
 
   table{
     caption {
-      background: $gold;
+      background: $table-caption-background;
       font-weight: 500;
-      color: $white;
+      color: $table-caption-color;
       p {
         margin: 1.2rem;
       }
@@ -149,11 +149,11 @@
     td, th {
       word-wrap: normal;
       padding: 0.5rem 1rem;
-      border-color: $khaki;
+      border-color: $table-border;
     }
     th {
-      background: $gold;
-      color: $white;
+      background: $table-header-bg;
+      color: $table-header-text;
     }
   }
 }

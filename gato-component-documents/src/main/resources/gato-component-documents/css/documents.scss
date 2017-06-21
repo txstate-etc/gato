@@ -4,10 +4,15 @@
         text-decoration: none;
         font-weight: 400;
     }
+    .doc-icon{
+        color: $document-icon-color !important;
+        margin-right: 5px;
+        font-size: 110%;
+    }
 }
 
 .txst-filedownload-details {
-	color: $gold;
+	color: $document-details-text-color;
 	font-size: 75%;
 	margin-left: 10px;
 }
@@ -17,10 +22,3 @@
 	margin-bottom: 10px;
 	font-size: .8em;
 }
-
-.doc-icon{
-    color: $charcoal;
-    margin-right: 5px;
-    font-size: 110%;
-}
-

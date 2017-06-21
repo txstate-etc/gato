@@ -1,0 +1,106 @@
+
+/* Accordion */
+$accordion-box-shadow-color:  $default-pink-sand;
+$accordion-header-background: $default-blue;
+$accordion-header-color: $white;
+$accordion-header-background-hover: $light-default-blue;
+$accordion-header-box-shadow-color: $light-default-blue;
+$accordion-header-title-color: $white;
+
+/* Calendar */
+$event-box-shadow-color: $accordion-box-shadow-color;
+$event-header-background: $accordion-header-background;
+$event-header-color: $accordion-header-color;
+$event-header-background-hover: $accordion-header-background-hover;
+$event-header-title-color: $accordion-header-title-color;
+$event-header-box-shadow-color: $accordion-header-box-shadow-color;
+$event-detail-link-color: $default-graphite;
+$event-detail-detailsbox-background: $default-pink-sand;
+$event-detail-detailsbox-color: $black;
+
+/* RSS */
+$rss-box-shadow-color: $accordion-box-shadow-color;
+$rss-header-background: $accordion-header-background;
+$rss-header-color: $accordion-header-color;
+$rss-header-background-hover: $accordion-header-background-hover;
+$rss-header-box-shadow-color: $accordion-header-box-shadow-color;
+
+/* Text and Image */
+$text-image-caption-background: $default-ice;
+$text-image-caption-color: $black;
+$text-image-caption-link-color: $darkest-default-blue;
+$text-image-horiz: 10px;
+$text-image-top: 10px;
+$text-image-bottom: 10px;
+
+/* FAQ */
+$faq-item-background-color: $default-ice;
+$faq-item-text-color: $black;
+$faq-item-background-hover-color: $dark-ice;
+$faq-item-text-hover-color: $black;
+$faq-item-box-shadow-color: $default-ice;
+$faq-group-title-text-color: $black;
+$faq-group-box-shadow-color: $default-ice;
+$faq-question-box-shadow-color: $darkest-ice;
+
+/* Rich Editor */
+$table-header-bg: $default-beige;
+$table-header-text: $black;
+$table-header-border: $lightest-beige;
+$table-border: $light-beige;
+$table-carded-border: $default-beige;
+$table-link: $default-blue;
+$table-altrow-bg: $light-sand;
+$table-caption-background: $dark-sand;
+$table-caption-color: $black;
+
+/* Icon and Text */
+$icontext-title-underline-top-color: $default-beige;
+$icontext-title-underline-bottom-color: $default-sand;
+$icontext-text-color: $black;
+
+/* Progress */
+$progress-inner-circle-color: $default-beige;
+$progress-outer-circle-color: $light-silver;
+$progress-outer-circle-fill-color: $default-blue;
+$progress-title-color: $default-blue;
+
+/* Documents */
+$document-icon-color: $default-graphite;
+$document-details-text-color: $beige-shadow;
+
+/* Gallery */
+$gallery-caption-text-color: $black;
+$gallery-top-bar-background-color: $default-blue;
+$gallery-top-bar-border-color: $default-blue-shadow;
+$gallery-tooltip-link-color: $default-silver;
+$gallery-facebook-border-color: $default-sand;
+$gallery-arrow-color: $white;
+
+/* Feature */
+$feature-arrow-text-shadow-color: $default-graphite;
+$feature-play-button-default-background: $default-blue;
+$feature-play-button-default-color: $white;
+$feature-play-button-hover-background: $light-default-blue;
+
+/* Forms */
+$form-alert-link-color: $default-graphite;
+$form-textfield-border-color: $default-blue;
+$form-textfield-background-color: $default-ice;
+$form-submit-text-color: $white;
+$form-submit-box-shadow-color: $default-blue-shadow;
+$form-submit-background-color: $default-blue;
+$form-submit-hover-background-color: $light-default-blue;
+
+/* Department Directory */
+$directory-name-color: $default-blue;
+$directory-email-color: $default-graphite;
+$directory-icon-color: $default-graphite;
+$directory-title-color: $darkest-beige;
+$directory-address-color: $darkest-beige;
+
+/* Video embed */
+$streaming-wrapper-link-color: $default-blue;
+
+/* Separator */
+$separator-color: $dark-gray;
