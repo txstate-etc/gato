@@ -111,6 +111,7 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       .addTask(new BootstrapSingleModuleResource("config.modules.resources.config.resourceFilter.byType.fonts.xml"))
       .addTask(new BootstrapSingleModuleResource("config.modules.gato-internal.rest-client.xml"))
       .addTask(new BootstrapSingleModuleResource("config.server.MIMEMapping.js.xml"))
+      .addTask(new BootstrapSingleModuleResource("config.modules.ui-admincentral.config.appLauncherLayout.groups.manage.permissions.xml"))
       .addTask(new BootstrapSingleModuleResource("config.modules.cas.config.xml"))
       .addTask(new SetPropertyTask(RepositoryConstants.CONFIG, "/server/filters/logout", "class", "info.magnolia.cms.security.auth.logout.CASLogoutFilter"))
       .addTask(new RemoveNodeTask("Remove Gato Apps tool, JCR Browser covers it fine", "/modules/ui-admincentral/config/appLauncherLayout/groups/tools/apps/gatoappsJcrBrowser"))
