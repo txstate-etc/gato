@@ -1,18 +1,6 @@
 @import "gato-template/css/variables";
 @import "gato-template-tsus2017/css/colors";
 
-//put the colors in the colors file
-
-$tsus-darkblue: #383640;
-$tsus-blue: #1e355e; //this is the one on the progress bars.  The blue on the cards is #293e6b.  Do they really need to be different?
-$tsus-darkgray: #202020;
-$tsus-mediumgray: #acabab;
-$tsus-lightgray: #ddd;
-$tsus-mediumbluegray: #9c9ba0;
-$tsus-red: #b4282e; //this is the one on the progress bars.  They use #bf202f for the headline.  Do we need both?
-$tsus-taupe: #90867c;
-$white: #fff;
-
 //media query breakpoints
 $sm-breakpoint: 48em; //~767px
 $md-breakpoint: 62em;//~991px

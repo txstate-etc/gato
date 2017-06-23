@@ -16,24 +16,3 @@
       max-width: 970px;
     }
 }
-
-/* TSUS Progress Bar */
-.circle-progress{
-    .svg-container{
-        .inner-circle{
-            stroke: $tsus-red;
-        }
-        .outer-circle{
-            stroke: $tsus-taupe;
-        }
-        path{
-            stroke: $tsus-blue;
-        }
-    }
-    .content {
-        font-family: 'ProximaNova-Bold', sans-serif;
-        .progress-title{
-            color: $tsus-blue;
-        }
-    }
-}
