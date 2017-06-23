@@ -1,0 +1,81 @@
+.column_paragraph .rich-editor-table{
+  table{
+    &.header-color-midnight th{
+      background: $midnight;
+      color: $white;
+      a{
+        color: $white;
+        &:hover{
+          background: transparent;
+          text-decoration: none;
+        }
+      }
+    }
+    &.header-color-taupe th{
+      background: $taupe;
+      color: $black;
+      a{
+        color: $black;
+        &:hover{
+          background: transparent;
+          text-decoration: none;
+        }
+      }
+    }
+    &.header-color-red th{
+      background: $red;
+      color: $white;
+      a{
+        color: $white;
+        &:hover{
+          background: transparent;
+          text-decoration: none;
+        }
+      }
+    }
+    &.header-color-navy th{
+      background: $navy;
+      color: $white;
+      a{
+        color: $white;
+        &:hover{
+          background: transparent;
+          text-decoration: none;
+        }
+      }
+    }
+    &.header-color-seagreen th{
+      background: $seagreen;
+      color: $black;
+      a{
+        color: $black;
+        &:hover{
+          background: transparent;
+          text-decoration: none;
+        }
+      }
+    }
+    &.header-color-ocean th{
+      background: $ocean;
+      color: $black;
+      a{
+        color: $black;
+        &:hover{
+          background: transparent;
+          text-decoration: none;
+        }
+      }
+    }
+    &.header-color-tsusblue th{
+      background: $blue;
+      color: $white;
+      a{
+        color: $white;
+        &:hover{
+          background: transparent;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
