@@ -9,7 +9,7 @@ window.cktemplatevars = {
                          [ 'Sandstone', 'header-color-sandstone' ],
                          [ 'Old Gold', 'header-color-oldgold']
                          ],
-    default_header_color_class: 'header_color_gold',
+    default_header_color_class: 'header-color-gold',
     template_colors: [ ['Maroon', '#501214' ],
                                           ['Gold', '#6A5638'],
                                           ['Charcoal', '#363534'],
