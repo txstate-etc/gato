@@ -40,10 +40,10 @@ jQuery(document).ready(function ($) {
                     bottom: parseFloat(data.attr('data-start-bottom'))}
         $slide.find('img').load(function(){
           var startTransform = calculateTransform($slide, startCrop)
-          $(this).css('width', startTransform.width)
-          $(this).css('height', startTransform.height)
-          $(this).css('left', startTransform.left)
-          $(this).css('top', startTransform.top)
+          $.Velocity.hook($(this), "scaleX", startTransform.scale)
+          $.Velocity.hook($(this), "scaleY", startTransform.scale)
+          $.Velocity.hook($(this), "translateX", startTransform.translateX + "px")
+          $.Velocity.hook($(this), "translateY", startTransform.translateY + "px")
         })
       })
       //The animation for moving image slides starts in the afterChange
@@ -75,12 +75,10 @@ jQuery(document).ready(function ($) {
   }
 
   function calculateTransform(slide, cropData){
-
     var naturalWidth = slide.find('img')[0].naturalWidth;
     var naturalHeight = slide.find('img')[0].naturalHeight;
 
     var cropWidth = naturalWidth * (cropData.right - cropData.left);
-    var cropHeight = naturalHeight * (cropData.bottom - cropData.top);
 
     //get the width and height of the container
     var containerW = slide.find('.image-container').width();
@@ -88,14 +86,10 @@ jQuery(document).ready(function ($) {
 
     var scale = containerW / cropWidth;
 
-    //get the scaled width and height of the image
-    var imageScaledW = naturalWidth * scale;
-    var left = -1 * imageScaledW * cropData.left;
+    var transX = -1  * naturalWidth * parseFloat(cropData.left);
+    var transY = -1 * naturalHeight * parseFloat(cropData.top);
 
-    var imageScaledH = naturalHeight * scale;
-    var top = -1 * imageScaledH * cropData.top;
-
-    return {width: imageScaledW, height: imageScaledH, left: left + "px", top: top + "px"}
+    return {scale: scale, translateX: transX, translateY: transY}
   }
 
   function startMovingImage(slide){
@@ -111,16 +105,15 @@ jQuery(document).ready(function ($) {
     endTransform = calculateTransform(slide, endCrop)
 
     slide.find('img').velocity({
-                                width: endTransform.width,
-                                height: endTransform.height,
-                                left: endTransform.left,
-                                top: endTransform.top
-                               },
-                               {
-                                  duration: 20000,
-                                  easing: 'linear'
-                               }
-                              )
+                              scaleX: endTransform.scale,
+                              scaleY: endTransform.scale,
+                              translateX: endTransform.translateX + 'px',
+                              translateY: endTransform.translateY +'px'
+                            },
+                            {
+                              duration: 20000,
+                              easing: 'linear'
+                            })
 
   }
 
@@ -129,27 +122,40 @@ jQuery(document).ready(function ($) {
     if(slide.hasClass('moving-image')){
       startMovingImage(slide)
     }
+    //reset previous slide
+    var previousSlideIndex = currentSlide - 1;
+    if(previousSlideIndex == -1) previousSlideIndex = slick.$slides.length - 1;
+    var previousSlide = $(slick.$slides[previousSlideIndex])
+    if(previousSlide.hasClass('moving-image')){
+      resetAnimation(previousSlide)
+    }
+    //reset next slide, because they could be moving backwards
+    var nextSlideIndex = (currentSlide + 1) % slick.$slides.length;
+    var nextSlide = $(slick.$slides[nextSlideIndex])
+    if(nextSlide.hasClass('moving-image')){
+      resetAnimation(nextSlide)
+    }
   });
 
-  $('.gato-slider').on('beforeChange', function(event, slick, currentSlide){
-    var slide = $(slick.$slides[currentSlide]);
-    if(slide.hasClass('moving-image')){
-      var image = slide.find('img');
-      //stop animation
-      image.velocity("stop");
-      //reset start position
-      var data = slide.find('.cropData');
-      var startCrop = { left: parseFloat(data.attr('data-start-left')),
+  function resetAnimation(slide){
+    var image = slide.find('img')
+    image.velocity("stop");
+    var data = slide.find('.cropData');
+    var startCrop = { left: parseFloat(data.attr('data-start-left')),
                     top: parseFloat(data.attr('data-start-top')),
                     right: parseFloat(data.attr('data-start-right')),
                     bottom: parseFloat(data.attr('data-start-bottom'))}
-      var startTransform = calculateTransform(slide, startCrop)
-      image.css('width', startTransform.width)
-      image.css('height', startTransform.height)
-      image.css('left', startTransform.left)
-      image.css('top', startTransform.top)
-    }
-  });
+    var startTransform = calculateTransform(slide, startCrop)
+    slide.find('img').velocity({
+                            scaleX: startTransform.scale,
+                            scaleY: startTransform.scale,
+                            translateX: startTransform.translateX + 'px',
+                            translateY: startTransform.translateY +'px'
+                          },
+                          {
+                            duration: 500
+                          })
+  }
 
   //for moving images, update image container height when width changes
   resizeTimeout(function(){
