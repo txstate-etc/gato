@@ -114,21 +114,7 @@
     div.sort-results{
         margin-top: 1.5rem;
     }
-    .sort-link{
-        font-size: 1.6rem;
-        &.active{
-            font-weight: bold;
-            text-decoration: none;
-            &:hover{
-              text-decoration: none;
-              background-color: transparent;
-            }
-        }
-        &:hover{
-            text-decoration: underline;
-        }
-    }
-
+    
     .global-search{
         margin-top: 4.4rem;
         @media screen and (max-width: $sm-breakpoint) {
@@ -194,45 +180,6 @@
         font-size: 1.4rem;
     }
 
-    .results-list{
-        .result{
-            margin-top: 2.8rem;
-            a.result-title{
-                text-decoration: none;
-                font-weight: 500;
-                color: $dark-gold;
-                &:hover{
-                    text-decoration: underline;
-                }
-                h3{
-                    margin: 0px;
-                    font-size: 1.8rem;
-                }
-            }
-            .result-date {
-              color: $dark-gray;
-              margin-left: 1rem;
-              font-size: 1.6rem;
-            }
-            .summary{
-                margin: 0.5rem 0 0.5rem 0;
-                line-height: 2.5rem;
-            }
-            .result-url-display{
-                color: $dark-gray;
-                font-size: 1.6rem;
-            }
-            &.featured{
-                a.result-title{
-                    font-weight: bold;
-                }
-                .result-date{
-                    display: none;
-                }
-            }
-        }
-    }
-
     .all-results-help-text{
         font-size: 1.2rem;
         color: $gold;
@@ -251,46 +198,6 @@
             text-decoration: none;
             span{
                 color: #222;
-            }
-        }
-    }
-
-    .pagination{
-        margin: 4rem 0 2.8rem 0;
-        list-style: none;
-        overflow: hidden;
-        padding: 0;
-        .pagination-link, .nonlink{
-            padding: .5rem 1rem .5rem 1rem;
-            margin: 0 1rem 1rem 0;
-            color: #222;
-            text-decoration: none;
-            float: left;
-            &.active,&[aria-selected="true"]{
-              font-weight: 500;
-              &, &:hover {
-                background: $sandstone
-              }
-            }
-            &:hover{
-                background: $sandstone;
-            }
-            &.previous, &.next{
-                color: $medium-light-gray;
-                &:hover {
-                    background: transparent;
-                }
-                &.enabled{
-                    color: #222;
-                    &:hover {
-                        background: $sandstone;
-                    }
-                }
-            }
-        }
-        .nonlink{
-            &:hover{
-                background: transparent;
             }
         }
     }

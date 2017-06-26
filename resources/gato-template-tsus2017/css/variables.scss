@@ -1,6 +1,28 @@
 @import "gato-template/css/variables";
 @import "gato-template-tsus2017/css/colors";
 
+// Search page variables
+$search-tabs-border-bottom-color:           $light-taupe;
+$search-tab-background:                     transparent;
+$search-tab-color:                          $midnight;
+$search-selected-tab-background:            $lightest-taupe;
+$search-selected-tab-color:                 $midnight;
+$search-form-input-line-color:              $midnight;
+$search-form-input-font-family:             ProximaNova-Regular;
+$search-form-input-placeholder-color:       $midnight;
+$search-form-icon-color:                    $midnight;
+$search-person-name-border:                 $lightest-midnight;
+$search-person-name-color:                  $midnight;
+$search-side-box-border:                    $lightest-taupe;
+$search-side-box-header-background:         $lightest-taupe;
+$search-side-box-header-color:              $midnight;
+$search-result-title:                       $red;
+$search-result-date:                        $light-midnight;
+$search-result-url:                         $light-midnight;
+$search-pagination-selected-background:     $lightest-taupe;
+$search-pagination-hover-background:        $lightest-taupe;
+$search-pagination-link-color:              $tsus-mediumgray;
+
 //media query breakpoints
 $sm-breakpoint: 48em; //~767px
 $md-breakpoint: 62em;//~991px

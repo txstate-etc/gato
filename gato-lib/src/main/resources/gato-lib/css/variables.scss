@@ -15,10 +15,6 @@ $primarybg : $default-graphite;  //was maroon
 $primaryhover : $light-graphite; //was light-maroon
 $primarytext : white;
 
-// $lightbg : $sandstone;
-// $lighttext : black;
-// $lightlighter: $light-sandstone;
-// $lightdarker: $dark-sandstone;
 $lightbg : $default-pink-sand;
 $lighttext : black;
 $lightlighter: $light-pink-sand;
@@ -27,11 +23,44 @@ $lightdarker: $dark-pink-sand;
 $mediumbg : $dark-pink-sand;
 $mediumtext: black;
 
+// Search page variables
+$search-tabs-border-bottom-color:           $dark-beige;
+$search-tab-background:                     $default-pink-sand;
+$search-tab-color:                          $default-graphite;
+$search-selected-tab-background:            $default-ice;
+$search-selected-tab-color:                 $dark-default-blue;
+$search-form-input-line-color:              $darkest-beige;
+$search-form-input-font-family:             sans-serif;
+$search-form-input-placeholder-color:       $darkest-beige;
+$search-form-icon-color:                    $darkest-beige;
+$search-person-name-border:                 $dark-sand;
+$search-person-name-color:                  $darkest-beige;
+$search-side-box-border:                    $light-pink-sand;
+$search-side-box-header-background:         $light-pink-sand;
+$search-side-box-header-color:              $default-graphite;
+$search-result-title:                       $default-graphite;
+$search-result-date:                        $light-graphite;
+$search-result-url:                         $light-graphite;
+$search-pagination-selected-background:     $default-pink-sand;
+$search-pagination-hover-background:        $default-pink-sand;
+$search-pagination-link-color:              $lightest-graphite;
+
 //Other variables
+$content-link-text: $default-blue;
+$content-link-hover: $lightest-sand;
 $default-border-radius: 3px;
 $page-indicator-active: $default-graphite; //was maroon
 $page-indicator-inactive: $light-gray;
 $page-indicator-hover: rgba($almost-black, 1);
+
+// breakpoints.  These are from the 2015 template but can be overridden in other templates
+$mc-breakpoint: 23em;   //~368px 
+$mn-breakpoint: 35.5em; //~568px
+$xs-breakpoint: 40em; //~640px
+$sm-breakpoint: 50em; //~800px
+$md-breakpoint: 64em; //~1024px
+$lg-breakpoint: 80em; //~1280px
+$xl-breakpoint: 90em; //~1440px
 
 @import "gato-lib/css/mixins";
 @import "gato-lib/css/contenttypes";

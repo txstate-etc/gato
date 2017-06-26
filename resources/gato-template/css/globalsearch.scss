@@ -28,7 +28,7 @@
     width: 100%;
     margin: 0 0 2rem 0;
     list-style: none;
-    border-bottom: 1px solid $dark-sandstone;
+    border-bottom: 1px solid $search-tabs-border-bottom-color;
     overflow: hidden;
     padding: 0;
     li {
@@ -40,17 +40,111 @@
       text-align: center;
       font-weight: bold;
       font-size: 1.5rem;
-      color: $dark-gray;
+      background-color: $search-tab-background;
+      color: $search-tab-color;
       &[aria-selected="true"] {
-        background-color: $sandstone;
-        color: $maroon;
+        background-color: $search-selected-tab-background;
+        color: $search-selected-tab-color;
+      }
+    }
+  }
+  .sort-link{
+    font-size: 1.6rem;
+    &.active{
+        font-weight: bold;
+        text-decoration: none;
+        &:hover{
+          text-decoration: none;
+          background-color: transparent;
+        }
+    }
+    &:hover{
+        text-decoration: underline;
+    }
+  }
+
+  .results-list{
+    .result{
+      margin-top: 2.8rem;
+      a.result-title{
+        text-decoration: none;
+        font-weight: 500;
+        color: $search-result-title;
+        &:hover{
+          text-decoration: underline;
+        }
+        h3{
+          margin: 0px;
+          font-size: 1.8rem;
+        }
+      }
+      .result-date {
+        color: $search-result-date;
+        margin-left: 1rem;
+        font-size: 1.6rem;
+      }
+      .summary{
+        margin: 0.5rem 0 0.5rem 0;
+        line-height: 2.5rem;
+      }
+      .result-url-display{
+        color: $search-result-url;
+        font-size: 1.6rem;
+      }
+      &.featured{
+        a.result-title{
+            font-weight: bold;
+        }
+        .result-date{
+            display: none;
+        }
+      }
+    }
+  }
+
+  .pagination{
+    margin: 4rem 0 2.8rem 0;
+    list-style: none;
+    overflow: hidden;
+    padding: 0;
+    .pagination-link, .nonlink{
+      padding: .5rem 1rem .5rem 1rem;
+      margin: 0 1rem 1rem 0;
+      color: #222;
+      text-decoration: none;
+      float: left;
+      &.active,&[aria-selected="true"]{
+        font-weight: 500;
+        &, &:hover {
+          background: $search-pagination-selected-background;
+        }
+      }
+      &:hover{
+        background: $search-pagination-hover-background;
+      }
+      &.previous, &.next{
+        color: $search-pagination-link-color;
+        &:hover {
+          background: transparent;
+        }
+        &.enabled{
+          color: #222;
+          &:hover {
+            background: $search-pagination-hover-background;
+          }
+        }
+      }
+    }
+    .nonlink{
+      &:hover{
+        background: transparent;
       }
     }
   }
 
   .search-form {
     position: relative;
-    border-bottom: 3px solid $gold;
+    border-bottom: 3px solid $search-form-input-line-color;
     padding-bottom: 0.5rem;
     margin-left: 2rem;
     margin-bottom: 4rem;
@@ -66,11 +160,11 @@
         width: calc(100% - 30px);
         color: #222;
         font-weight: 500;
-        font-family: $univers;
-        &::-webkit-input-placeholder {color: $gold;}
-        &::-moz-placeholder {color: $gold;}
-        &:-ms-input-placeholder {color: $gold;}
-        &:-moz-placeholder {color: $gold; opacity: 1;}
+        font-family: $search-form-input-font-family;
+        &::-webkit-input-placeholder {color: $search-form-input-placeholder-color;}
+        &::-moz-placeholder {color: $search-form-input-placeholder-color;}
+        &:-ms-input-placeholder {color: $search-form-input-placeholder-color;}
+        &:-moz-placeholder {color: $search-form-input-placeholder-color; opacity: 1;}
         &:focus{
             outline-width: 0;
         }
@@ -79,7 +173,7 @@
         background: transparent;
         border: none;
         float: right;
-        color: $gold;
+        color: $search-form-icon-color;
         position: absolute;
         right: 0;
         top: 0;
@@ -135,12 +229,12 @@
       margin-top: 1rem;
       margin-bottom: 3rem;
       .person-name {
-        border-bottom: 1px dotted $dark-sandstone;
+        border-bottom: 1px dotted $search-person-name-border;;
         margin-bottom: 0.5rem;
         padding: 0.5rem 0;
         a {
           font-weight: bold;
-          color: $gold;
+          color: $search-person-name-color;
           text-decoration: none;
           &:hover {
             text-decoration: underline;
@@ -186,13 +280,13 @@
     }
 
     .search-side-box {
-      border: 1px solid $sandstone;
+      border: 1px solid $search-side-box-border;
       margin-bottom: 3rem;
       h4 {
         margin: 0;
         padding: 1rem;
-        background-color: $sandstone;
-        color: $maroon;
+        background-color: $search-side-box-header-background;
+        color: $search-side-box-header-color;
         font-weight: 500;
       }
       .search-people-more {
@@ -207,7 +301,6 @@
           .person-name {
             font-size: 1.8rem;
             font-weight: 500;
-            color: $gold;
           }
         }
       }
