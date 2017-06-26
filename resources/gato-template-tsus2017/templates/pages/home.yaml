@@ -8,6 +8,17 @@ areas:
     !include /gato-component-cssjs/templates/areas/customcss.yaml
   customjs:
     !include /gato-component-cssjs/templates/areas/customjs.yaml
+  tsus-slideshow:
+    renderType: freemarker
+    type: single
+    autoGeneration:
+      content:
+        slideshow:
+          nodeType: mgnl:component
+          templateId: gato-component-feature:components/feature
+          color: alternating
+          defaultTimer: none
+      generatorClass: info.magnolia.rendering.generator.CopyGenerator
   contact-information:
     type: single
     availableComponents:

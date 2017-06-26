@@ -1,0 +1,175 @@
+.tsus-slideshow .gato-slider{
+    //hide the arrows for TSUS.  Is this an accessibility problem?
+    .slick-prev, .slick-next{
+        display: none !important;
+    }
+    .slick-dots {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-size: 0;
+        line-height: 0;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 19px;
+        z-index: 1009;
+        text-align: center;
+        li {
+            display: inline-block;
+            vertical-align: top;
+            margin: 0 4px;
+            button {
+                outline: none;
+                display: block;
+                padding: 0;
+                font-size: 0;
+                line-height: 0;
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                position: relative;
+                border: none;
+                background: none;
+                &:hover {opacity: .7;}
+                &:before, &:after {
+                    content: '';
+                    position: absolute;
+                    border-radius: 50%;
+                    top: 50%;
+                    left: 50%;
+                    -webkit-transition: all .3s;
+                    -o-transition: all .3s;
+                    transition: all .3s;
+                }
+                &:before {
+                    width: 8px;
+                    height: 8px;
+                    margin: -4px 0 0 -4px;
+                    background-color: #f9f9f9;
+                    opacity: 1;
+                }
+                &:after {
+                    width: 12px;
+                    height: 12px;
+                    margin: -6px 0 0 -6px;
+                    border: 1px solid #f9f9f9;
+                    opacity: 0;
+                    -webkit-transform: scale(0);
+                    -ms-transform: scale(0);
+                    -o-transform: scale(0);
+                    transform: scale(0);
+                }
+            }
+            &.slick-active button:before {opacity: 0;}
+            &.slick-active button:after {
+                opacity: 1;
+                -webkit-transform: scale(1);
+                -ms-transform: scale(1);
+                -o-transform: scale(1);
+                transform: scale(1);
+            }
+        }
+    }
+
+    .slide {
+        .caption {
+            position: absolute;
+            left: 0;
+            bottom: 10%;
+            padding: 2rem 1rem 2.4rem 10.5rem;
+            width: auto; //might need to change this to something else
+            h3 {
+                font-size: 2.5rem;
+                line-height: 2.9rem;
+                letter-spacing: 0.1rem;
+                margin-bottom: 0.3rem;
+                margin-top: 0;
+                background-color: transparent;
+            }
+            p{
+                margin: 0;
+                font-size: 2rem;
+                line-height: 2.4rem;
+                letter-spacing: 0.05rem;
+                background-color: transparent;
+            }
+        }
+        &.color1{
+            .moving-image-caption {
+                background-color: rgba($mc1-bg, 0.9);
+                h3, p {color: $mc1-text};
+            }
+        }
+        &.color2{
+            .moving-image-caption {
+              background-color: rgba($mc2-bg, 0.9);
+             h3, p {color: $mc2-text};
+            }
+        }
+        &.color3{
+            .moving-image-caption {
+              background-color: rgba($mc3-bg, 0.9);
+              h3, p {color: $mc3-text};
+            }
+        }
+        &.color4{
+            .moving-image-caption {
+              background-color: rgba($mc4-bg, 0.9);
+              h3, p {color: $mc4-text};
+            }
+        }
+        &.color5{
+            .moving-image-caption {
+              background-color: rgba($mc5-bg, 0.9);
+              h3, p {color: $mc5-text};
+            }
+        }
+        &.color6{
+            .moving-image-caption {
+              background-color: rgba($mc6-bg, 0.9);
+              h3, p {color: $mc6-text};
+            }
+        }
+        &.color7{
+            .moving-image-caption {
+              background-color: rgba($mc7-bg, 0.9);
+              h3, p {color: $mc7-text};
+            }
+        }
+    }
+    
+  .moving-image-caption {
+    p {
+      font-style: italic;
+    }
+  }
+}
+
+.gato-slider {
+    [data-eq~="800px"] & {
+        .slide {
+            .caption {
+                //position: relative;
+                width: 100%;
+                bottom: 0;
+                text-align: center;
+                padding: 0.4rem 1rem;
+                h3 {
+                    font-size: 1.4rem;
+                    line-height: 2rem;
+                    letter-spacing: 0.05rem;
+                    margin: 0;
+                }
+                p{
+                    font-size: 1.4rem;
+                    line-height: 1.8rem;
+
+                }
+            }
+        }
+        .slick-dots {
+            display: none !important;
+        }
+    }
+}

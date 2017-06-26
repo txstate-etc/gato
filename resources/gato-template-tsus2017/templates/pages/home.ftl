@@ -11,7 +11,9 @@
         [#include "includes/header.ftl"]
 
         <!-- slideshow -->
-        TSUS slideshow
+        <div class="tsus-slideshow eq-parent">
+        [@cms.area name="tsus-slideshow" /]
+        </div>
         <!-- progress bars -->
         TSUS progress bars
         <div class="container">

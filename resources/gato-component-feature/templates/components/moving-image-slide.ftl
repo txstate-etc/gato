@@ -23,10 +23,10 @@
     <div class="image-container">
       <img class="image" data-lazy="${gf.getImgDefault(content.image)}" data-srcset="${gf.getSrcSet(content.image)}" class="bg" alt="${content.alttext!}"> 
     </div>
-   [#-- <div class="moving-image-caption">
+   <div class="caption moving-image-caption">
       <h3>${content.title!""}</h3>
-      <p>${content.subtext!""}</p>
-    </div> --]
+      <p data-orig-text="${content.subtext!""}">${content.subtext!""}</p>
+    </div>
   </div>
 [#else]
   <div class="slider-edit-bar" data-title="${content.title!'Slider Moving Image'}" cms:edit></div>
