@@ -9,11 +9,19 @@
   border-top: 1px solid $taupe;
 }
 
-.tsus-institution-logos ul li a img {
+.tsus-institution-logos{
+  img {
     display: block;
     max-width: 100%;
     max-height: 100%;
     margin: 0 auto;
+  }
+  &[data-eq~="800px"] {
+    img{
+        height: 5rem;
+        margin-bottom: 1rem !important;
+    }
+  }
 }
 
 .container {
@@ -28,14 +36,4 @@
 	display: block;
 }
 
-//*Responsiive start images */
-@media screen and (max-width: $sm-breakpoint){
-	  .tsus-institution-logos img{
-			height: 5rem;
-			margin-bottom: 1rem !important;
-		}
-}
 
-
-
-/*Responsive ends*/

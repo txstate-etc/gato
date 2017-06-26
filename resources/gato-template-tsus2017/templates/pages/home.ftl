@@ -22,7 +22,7 @@
             News section
 
             <!-- institution logos -->
-              <div class="tsus-institution-logos">
+              <div class="tsus-institution-logos eq-parent">
                 [@cms.area name="tsuslogos" /]
               </div>
         </div>
