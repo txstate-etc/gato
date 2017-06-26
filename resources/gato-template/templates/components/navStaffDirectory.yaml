@@ -1,6 +1,6 @@
 templateScript: /gato-template/templates/components/sidenav.ftl
 renderType: freemarker
-dialog: gato-template:components/sidenav
+dialog: gato-template:components/sidenav-no-type
 description: A group of links for the side navigation area.
 title: Staff Directory Link
 areas:

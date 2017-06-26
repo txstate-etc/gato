@@ -5,24 +5,6 @@ form:
     - name: tabText
       label: ""
       fields:
-        - name: type
-          class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
-          label: Navigation Type
-          multiselect: false
-          description: A Manual Block lets you create all your own links. A Show Sub-Pages Block will create links automatically for all subpages of the page to which it's added.
-          options:
-            - name: manual
-              label: Manual
-              selected: true
-              value: manual
-            - name: automatic
-              label: Show Sub-Pages (One Level)
-              selected: false
-              value: auto
-            - name: automatic2
-              label: Show Sub-Pages (Two Levels)
-              selected: false
-              value: auto2
         - name: inherit
           class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
           label: Appear on subpages?
