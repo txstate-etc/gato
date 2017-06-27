@@ -1,13 +1,36 @@
 /*Charts section Starts*/
 
+
+/*Background color for progress section*/
+.color1{
+    background-color: $mc1-bg;
+}
+.color2{
+    background-color: $mc2-bg;
+}
+.color3{
+    background-color: $mc3-bg;
+}
+.color4{
+    background-color: $mc4-bg;
+}
+.color5{
+    background-color: $mc5-bg;
+}
+.color6{
+    background-color: $mc6-bg;
+}
+.color7{
+    background-color: $mc7-bg;
+}
+
 .performance {
     padding: 54px 0 79px;
-    background-color: #ddd;
     text-align: center;
 }
 
 .performance .container{
-	width: 80%;
+	width: 100%;
 	margin:0 auto;
 }
 .charts li {

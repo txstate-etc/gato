@@ -9,6 +9,16 @@ form:
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           description: A title for this block of links.
           label: Group Title(optional)
+        - name: script
+          class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
+          fields:
+            - name: color
+              class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+          transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+          initFunction: initColorPicker
+          scripts: [gato-lib/js/color-picker.js]
+          loadScriptsInOrder: true
+          label: Background Color
 
 
 actions: !include /gato-template/dialogs/common/actions-block.yaml

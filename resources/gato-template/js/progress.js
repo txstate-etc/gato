@@ -23,7 +23,7 @@ jQuery(document).ready(function($) {
             x: radius * Math.cos(angleInRadians),
             y: radius * Math.sin(angleInRadians)
         }
-        
+
         //M -> Move to the arc starting point
         //A -> x radius, y radius, x-axis rotation, large-arc-flag, sweep-flag, arc-end-x, arc-end-y
         var path = "M " + (center.x - radius) + " " + center.y + " A " + radius + " " + radius + " 0 " + largeArcFlag + " 0 " + (end.x + center.x) + " " + (center.y - end.y);
@@ -31,6 +31,19 @@ jQuery(document).ready(function($) {
         $(this).find('path').attr("d", path)
     });
 
+    if($(".performance").hasClass( "alternating" )){
+      var class_index=1;
+      setInterval(function(){
+          if(class_index===8){
+            class_index=1;
+          }
+          var $element=$(".performance").attr('class').split(' ')[1];
+          var addClass='color'+class_index;
+          $( ".performance" ).removeClass($element).addClass(addClass);
+          class_index++;
+
+      },5000);
+    }
 });
 
 // (percent/100) * 360

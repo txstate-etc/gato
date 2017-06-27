@@ -1,7 +1,8 @@
 [#include "/gato-template/templates/includes/component.ftl"]
 [#include "/gato-template/templates/includes/commonmacros.ftl"]
-
-<div class="performance">
+[#assign background_color = content.color!"color1"]
+<h1>${background_color}</h1>
+<div class="performance ${background_color}">
   <div class="container">
 
   <h2><span>${content.title}</span></h2>
