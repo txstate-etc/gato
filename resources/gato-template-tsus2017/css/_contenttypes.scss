@@ -1,22 +1,94 @@
-
 /* Calendar */
+$event-box-shadow-color: $white-smoke;
+$event-header-background: $taupe;
+$event-header-color: $black;
+$event-header-background-hover: $light-taupe;
+$event-header-title-color: $black;
+$event-header-box-shadow-color: $lightest-taupe;
+$event-detail-link-color: $navy;
+$event-detail-detailsbox-background: $white-smoke;
+$event-detail-detailsbox-color: $black;
+
+/* Text and Image */
+$text-image-caption-background: $light-taupe;
+$text-image-caption-color: $black;
+$text-image-caption-link-color: $blue;
 
 /* Department Directory */
+$directory-name-color: $midnight;
+$directory-email-color: $navy;
+$directory-icon-color: $midnight;
+$directory-title-color: $blue;
+$directory-address-color: $blue;
 
 /* Documents */
+$document-icon-color: $midnight;
+$document-details-text-color: $tsus-darkgray;
 
 /* FAQ Hierarchy */
+$faq-item-background-color: $light-ocean;
+$faq-item-text-color: $black;
+$faq-item-background-hover-color: $ocean;
+$faq-item-text-hover-color: $black;
+$faq-item-box-shadow-color: $light-ocean;
+$faq-group-title-text-color: $black;
+$faq-group-box-shadow-color: $light-ocean;
+$faq-question-box-shadow-color: $dark-ocean;
+
+/* Gallery */
+$gallery-caption-text-color: $white;
+$gallery-top-bar-background-color: $navy;
+$gallery-top-bar-border-color: $navy-shadow;
+$gallery-tooltip-link-color: $blue;
+$gallery-facebook-border-color: $lightest-taupe;
+$gallery-arrow-color: $white;
+
+/* Feature */
+$feature-arrow-text-shadow-color: $tsus-darkgray;
+$feature-play-button-default-background: $midnight;
+$feature-play-button-default-color: $white;
+$feature-play-button-hover-background: $light-midnight;
 
 /* Icon and Text */
+$icontext-title-underline-top-color: $dark-taupe;
+$icontext-title-underline-bottom-color: $light-taupe;
+$icontext-text-color: $black;
 
 /* Table */
 $table-header-bg: $midnight;
 $table-header-text: $white;
 $table-header-border: $platinum;
 $table-border: $platinum;
+$table-carded-border: $dark-taupe;
+$table-link: $navy;
+$table-altrow-bg: $white-smoke;
+$table-caption-background: $taupe;
+$table-caption-color: $black;
 
 /* Progress */
 $progress-inner-circle-color: $red;
 $progress-outer-circle-color: $taupe;
 $progress-outer-circle-fill-color: $navy;
 $progress-title-color: $navy;
+
+/* RSS */
+$rss-box-shadow-color: $lightest-seagreen;
+$rss-header-background: $light-seagreen;
+$rss-header-color: $black;
+$rss-header-background-hover: $seagreen;
+$rss-header-box-shadow-color:  $lightest-seagreen;
+
+/* Video embed */
+$streaming-wrapper-link-color: $blue;
+
+/* Separator */
+$separator-color: $taupe;
+
+/* Forms */
+$form-alert-link-color: $midnight;
+$form-textfield-border-color: $taupe;
+$form-textfield-background-color: $white-smoke;
+$form-submit-text-color: $black;
+$form-submit-box-shadow-color: $seagreen-shadow;
+$form-submit-background-color: $seagreen;
+$form-submit-hover-background-color: $light-seagreen;
