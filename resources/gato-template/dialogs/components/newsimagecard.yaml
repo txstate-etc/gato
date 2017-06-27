@@ -1,0 +1,31 @@
+form:
+  label: Image link Group
+  description: A group linkes for Latest News.
+  tabs:
+    - name: tabText
+      label: ""
+      fields:
+        - name: titleimgnews
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          description: A title for this image.
+          label: Image Heading
+        - name: sectionsummary
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          description: Image news sumarry.
+          rows: 3
+          label: short note
+        - name: image
+          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+          appName: assets
+          targetWorkspace: dam
+          label: Image
+          identifierToPathConverter:
+            class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
+          contentPreviewDefinition:
+            contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
+          description: "Choose an image from Assets. You may also upload an image to Assets from here."
+        - name: imagealt
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Alternate Text
+          description: "Text to Display When Graphics aren't enabled. Required for Section 508 compliance."
+actions: !include /gato-template/dialogs/common/actions-block.yaml

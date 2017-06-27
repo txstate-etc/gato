@@ -210,11 +210,13 @@
 /////////////////////////////////////
 
 ///search bar
+
+
 .search-form{
   margin-bottom: 3.5rem;
 }
 #q{
-  padding-left: 4rem;// make it 5 on mobile
+  padding-left: 4rem;
 }
 .tsus-searchform {
   position: relative;
@@ -251,3 +253,10 @@
   //background: url(../images/ico-search.png) no-repeat;
   background-position: 75% 50%;
 }
+
+
+@media screen and (max-width: $sm-breakpoint){
+  #q{
+    padding-left: 5rem;
+  }
+		}

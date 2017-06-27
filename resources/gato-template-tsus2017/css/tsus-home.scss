@@ -36,4 +36,12 @@
 	display: block;
 }
 
+//*Responsiive start images */
+@media screen and (max-width: $sm-breakpoint){
+	  .tsus-institution-logos img{
+			height: 5rem;
+			margin-bottom: 1rem !important;
+		}
+}
 
+/*Responsive ends*/
