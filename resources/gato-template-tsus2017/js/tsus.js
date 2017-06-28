@@ -1,4 +1,5 @@
 jQuery(document).ready(function($) {
+
     //toggle menu
     $(".btn-menu").click(function(e){
         e.preventDefault();
@@ -50,6 +51,8 @@ jQuery(document).ready(function($) {
       }
     }
 
+
+
     resizeTimeout(function(){
         var $logoVar=$('.tsus-institution-logos li');
         var $tCount=$logoVar.length;
@@ -67,50 +70,9 @@ jQuery(document).ready(function($) {
         else{
             $logoVar.css("width","auto");
         }
-    });
-
-    /*===================================*/
-    /* image card and lates news code  */
-    /*===================================*/
-
-    // Masonry grid setup
-    var grid = $(".grid").masonry({
-      itemSelector: ".grid__item",
-      columnWidth: ".grid__sizer",
-      gutter: 15,
-      percentPosition: true
-      //isFitWidth: true,
-    });
-
-
-     $(".img").each(function(index) {
-          //var currentImg=this;
-          console.log($(this).attr('src'));
-          var $img = new Image();
-          $img.src=$(this).attr('src');
-          var width = $img.width;
-          console.log(width);
-          if (width > 700) {
-            $(this).closest(".grid__item").addClass("grid__item-lg");
-            $(this).closest(".img-box").addClass("img-box-lg");
-            console.log("number: "+index+ " is large its width is "+ width);
-          } else if (width < 516 && width >= 300) {
-            $(this).closest(".grid__item").addClass("grid__item-md");
-             console.log("number: "+index+ " is medium its width is "+ width);
-          } else {
-            $(this).closest(".grid__item").addClass("grid__item-sm");
-             console.log("number: "+index+ " is small its width is "+ width);
-          }
-          //$(".grid").reload();
-          grid.masonry()
-        });
-
-    //if the image is large turn it to a background for easier cropping.
-     $(".img-box-lg").each(function() {
-        $(this)
-          .css("background-image", "url(" + $(this).find("> img").attr("src") + ")")
-          .find("> img")
-          .hide();
       });
+
+    
+
 
 });

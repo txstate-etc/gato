@@ -1,7 +1,0 @@
-templateScript: /gato-template/templates/components/newsimagecard.ftl
-renderType: freemarker
-dialog: gato-template:components/newsimagecard
-description: A group of links for the latest News.
-title: Image Card
-parameters:
-  icon: /gato-template/images/text_image.png

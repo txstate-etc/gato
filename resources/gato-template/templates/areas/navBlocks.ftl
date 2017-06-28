@@ -18,7 +18,7 @@
 [/#list]
 [#list components as component]
   [#if component.position == 'bottom']
-  [@cms.component content=component /]
+    [@cms.component content=component /]
   [/#if]
 [/#list]
 [#if cmsfn.isEditMode()]

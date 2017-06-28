@@ -35,18 +35,7 @@ areas:
     availableComponents:
       link:
         id: gato-template:components/link
-  progressection:
-    type: single
-    availableComponents:
-      charts:
-        id: gato-template:components/progressection
-  newssection:
-    type: list
-    availableComponents:
-      latestNews:
-        id: gato-template:components/latestnews
-      imageNews:
-        id: gato-template:components/newsimagecard
+
   tsuslogos:
     type: list
     renderType: freemarker
@@ -56,6 +45,7 @@ areas:
     availableComponents:
       logo:
         id: gato-template:components/imagelink
+
 variations:
   js:
     templateScript: /gato-component-cssjs/templates/pages/jsvariation.ftl

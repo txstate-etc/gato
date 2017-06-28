@@ -26,6 +26,6 @@
                 [@cms.area name="footerlinks2" content=gf.getOrCreateArea(homepage, 'footerlinks2') editable=isHomePage /]
             </div>
         </div>
-
+        
     </div>
 </footer>
