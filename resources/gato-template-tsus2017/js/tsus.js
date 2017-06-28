@@ -72,7 +72,18 @@ jQuery(document).ready(function($) {
         }
       });
 
-    
-
+      /*Logic to switch between different background color on progress section*/
+      if($(".performance").hasClass("alternating")){
+        var class_index=1;
+        setInterval(function(){
+          if(class_index===8){
+            class_index=1;
+          }
+          var $element=$(".performance").attr('class').split(' ')[1];
+          var addClass='color'+class_index;
+          $( ".performance" ).removeClass($element).addClass(addClass);
+          class_index++;
+        },5000);
+      }
 
 });

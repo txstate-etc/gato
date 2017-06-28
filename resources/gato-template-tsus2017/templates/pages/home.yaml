@@ -36,6 +36,12 @@ areas:
       link:
         id: gato-template:components/link
 
+  progress-section:
+    type: single
+    availableComponents:
+      tsus-contact:
+        id: gato-template-tsus2017:components/progressection
+
   tsuslogos:
     type: list
     renderType: freemarker

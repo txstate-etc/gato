@@ -31,19 +31,6 @@ jQuery(document).ready(function($) {
         $(this).find('path').attr("d", path)
     });
 
-    if($(".performance").hasClass( "alternating" )){
-      var class_index=1;
-      setInterval(function(){
-          if(class_index===8){
-            class_index=1;
-          }
-          var $element=$(".performance").attr('class').split(' ')[1];
-          var addClass='color'+class_index;
-          $( ".performance" ).removeClass($element).addClass(addClass);
-          class_index++;
-
-      },5000);
-    }
 });
 
 // (percent/100) * 360

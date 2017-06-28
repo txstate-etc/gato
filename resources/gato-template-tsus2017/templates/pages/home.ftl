@@ -15,7 +15,8 @@
         [@cms.area name="tsus-slideshow" /]
         </div>
         <!-- progress bars -->
-        TSUS progress bars
+
+        [@cms.area name="progress-section" /]
         <div class="container">
 
             <!-- news -->
