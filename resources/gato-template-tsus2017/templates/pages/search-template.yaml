@@ -5,7 +5,7 @@ title: TSUS Search 2017
 dialog: gato-template:pages/page-properties
 areas: !include /gato-template-tsus2017/templates/includes/standardareas.yaml
 parameters:
-  # sortOrder: 100
+  sortOrder: 190
   # favicon: /gato-template-txstate2015/images/favicon.png
   # touchicon: /gato-template-txstate2015/images/touchicon.png
   isSearchTemplate: true

@@ -43,6 +43,8 @@ areas:
     availableComponents:
       link:
         id: gato-template:components/link
+parameters:
+  sortOrder: 180
 variations:
   js:
     templateScript: /gato-component-cssjs/templates/pages/jsvariation.ftl

@@ -5,7 +5,7 @@ title: TSUS Form 2017
 dialog: gato-template:pages/page-properties
 parameters:
   isMailTemplate: true
-  sortOrder: 150
+  sortOrder: 185
   favicon: /gato-template-tsus2017/images/tsus-icon.png
 areas:
   !include /gato-template-tsus2017/templates/includes/standardareas.yaml

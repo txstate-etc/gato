@@ -51,7 +51,8 @@ areas:
     availableComponents:
       logo:
         id: gato-template:components/imagelink
-
+parameters:
+  sortOrder: 187
 variations:
   js:
     templateScript: /gato-component-cssjs/templates/pages/jsvariation.ftl
