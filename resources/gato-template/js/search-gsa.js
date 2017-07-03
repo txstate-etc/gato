@@ -8,8 +8,10 @@ window.Search = function(opts) {
     num: opts.num || 5,
     start: opts.start || 0,
     url: opts.url || 'http://search.txstate.edu/search',
-    site: opts.site || 'txstate.edu',
-    sort: opts.sort || 'relevance'
+    sitesearch: opts.sitesearch || 'txstate.edu',
+    sort: opts.sort || 'relevance',
+    site: opts.site || 'txstate_no_users',
+    client: opts.client || 'txstate'
   }
 }
 
@@ -18,10 +20,10 @@ Search.prototype.doSearch = function(query) {
   self.query = query;
   var params = {
     url: self.opts.url,
-    site: 'txstate_no_users',
-    client: 'txstate',
+    site: self.opts.site,
+    client: self.opts.client,
     output: 'xml_no_dtd',
-    sitesearch: self.opts.site,
+    sitesearch: self.opts.sitesearch,
     start: self.opts.start,
     num: self.opts.num,
     q: self.query,

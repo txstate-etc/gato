@@ -19,7 +19,7 @@ jQuery(document).ready(function($) {
         source: function(request, response){
             var options = {num: 3};
             if($('#this-site').prop('checked')){
-                options.site = $('#sitesearch').val();
+                options.sitesearch = $('#sitesearch').val();
             }
             var search = new Search(options);
             search.doSearch(request.term)
@@ -50,12 +50,12 @@ jQuery(document).ready(function($) {
     //Calls the google search appliance with the appropriate parameters and display
     //results on the current page.  The search results are inserted after the original
     //page content and the original page content is hidden.
-    function siteSearch(site, query, startPage, sortType){
+    function siteSearch(sitesearch, query, startPage, sortType){
         var start = (startPage <= 1) ? 0 : (10 * (startPage -1));
-        var search = new Search({site: site, start: start, num: 10, sort: sortType});
+        var search = new Search({sitesearch: sitesearch, start: start, num: 10, sort: sortType});
         search.doSearch(query)
         .then(function(results){
-            var page = window.txstsearch.buildSearchResultsPage(site, query, results, startPage, sortType);
+            var page = window.txstsearch.buildSearchResultsPage(sitesearch, query, results, startPage, sortType);
             $('#search-results').remove();
             $('.page_content, .library-page-content').after(page);
             $('.page_content, .library-page-content').hide();
