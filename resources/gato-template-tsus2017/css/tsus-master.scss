@@ -20,3 +20,21 @@
 a, a:link, a:visited {
     color: $blue;
 }
+
+/*Blockquotes*/
+blockquote p:before {
+  font-family: FontAwesome;
+  content: "\f10d";
+  color :#8e847a;
+ font-size: 3.9rem;
+  position: absolute;
+  top: -.5rem;
+  left: -.5rem;
+}
+blockquote p{
+  font-weight: lighter;
+	display: block;
+	position: relative;
+	padding: 0 0 1.1rem 4.6rem;
+
+}

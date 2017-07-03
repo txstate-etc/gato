@@ -51,8 +51,6 @@ jQuery(document).ready(function($) {
       }
     }
 
-
-
     resizeTimeout(function(){
         var $logoVar=$('.tsus-institution-logos li');
         var $tCount=$logoVar.length;
@@ -85,5 +83,45 @@ jQuery(document).ready(function($) {
           class_index++;
         },5000);
       }
+////////masonry layout settings
+  // Masonry grid setup
+  var grid = $(".grid").masonry({
+    itemSelector: ".gato-card",
+    columnWidth: ".grid__sizer",
+    gutter: 25,
+    percentPosition: true
+  });
+//to add img-box class so we can target it
+  $('.grid').find('figure').addClass('img-box');
+
+  $(".img-box > img").each(function(index) {
+      console.log("test pass");
+      var $img = new Image();
+      $img.src=$(this).attr('src');
+      var width = $img.width;
+      if (width > 1000) {
+        $(this).closest(".gato-card").addClass("gato-card-lg").addClass("gato-card-height-lg");
+      }
+      else if (width >= 400) {
+        $(this).closest(".gato-card").addClass("gato-card-md").addClass("gato-card-height-lg");
+      }
+      else {
+        $(this).closest(".gato-card").addClass("gato-card-sm").addClass("gato-card-height-sm");
+      }
+      grid.masonry()
+  });
+
+  //if the image is large turn it to a background for easier cropping.
+   $(".img-box").each(function() {
+      $(this)
+        .css("background-image", "url(" + $(this).find("> img").attr("src") + ")")
+        .find("> img")
+        .hide();
+
+
+    });
+
+
+
 
 });

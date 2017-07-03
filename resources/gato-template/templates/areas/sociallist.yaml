@@ -1,7 +1,7 @@
-type: list
+type: single
 renderType: freemarker
 createAreaNode: false
-templateScript: /gato-template/templates/areas/listitems.ftl
+#templateScript: /gato-template/templates/areas/listitems.ftl
 availableComponents:
   sociallink:
     id: gato-template:components/sociallink

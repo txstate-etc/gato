@@ -42,10 +42,15 @@ areas:
       tsus-contact:
         id: gato-template-tsus2017:components/progressection
 
-  tsuslogos:
+  news-section:
     type: list
+    availableComponents:
+      imageNews:
+        id: gato-template:components/card
+
+  tsuslogos:
+    type: single
     renderType: freemarker
-    templateScript: /gato-template/templates/areas/flexitems.ftl
     parameters:
       maxitemwidth: 60px
     availableComponents:

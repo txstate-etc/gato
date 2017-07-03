@@ -5,9 +5,7 @@
                 [@cms.area name="contact-information" content=gf.getOrCreateArea(homepage, 'contact-information') editable=isHomePage /]
             </div>
             <div class="social-media">
-                <ul class="social-media-icons">
                     [@cms.area name="socialmedia" content=gf.getOrCreateArea(homepage, 'socialmedia') editable=isHomePage contextAttributes={"icononly": true} /]
-                </ul>
             </div>
         </div>
     </div>
@@ -26,6 +24,5 @@
                 [@cms.area name="footerlinks2" content=gf.getOrCreateArea(homepage, 'footerlinks2') editable=isHomePage /]
             </div>
         </div>
-        
     </div>
 </footer>

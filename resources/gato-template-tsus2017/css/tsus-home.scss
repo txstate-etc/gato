@@ -3,7 +3,9 @@
 @import "gato-template-tsus2017/css/tsus-paragraphs";
 
 .gato-flex-container {
+	display: flex;
 	justify-content: space-between; // To override flex container behaviour for flex item css
+	li{list-style: none;}
 }
 .tsus-institution-logos{
   border-top: 1px solid $taupe;
@@ -35,5 +37,3 @@
 	content: '';
 	display: block;
 }
-
-

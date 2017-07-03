@@ -8,7 +8,7 @@
       Inherited from ${gf.nodeTitle(ctx.inheritedfrom)} <a href="${cmsfn.link(ctx.inheritedfrom)}" role="navigation">Jump To Original</a>
     </div>
   [/#if]
-  [#if content.type == 'auto2']
+  [#if content.type! == 'auto2']
     [@navloop cmsfn.children(page, "mgnl:page") ; subpage]
       <h3 class="side_nav_header ${gf.hasNavChildren(subpage)?string('','solo')}"><a href="${cmsfn.link(subpage)}">${gf.nodeTitle(subpage)}</a></h3>
       [#if gf.hasNavChildren(subpage)]
@@ -20,14 +20,14 @@
       [/#if]
     [/@navloop]
   [#else]
-    [#assign haschildren = gf.hasComponents(content.links) || (content.type=='auto' && gf.hasNavChildren(page))]
+    [#assign haschildren = gf.hasComponents(content.links) || (content.type! =='auto' && gf.hasNavChildren(page))]
     [#if content.title?has_content]
       <h3 class="side_nav_header ${haschildren?string('','solo')}">${cmsfn.decode(content).title}</h3>
     [/#if]
     [#if haschildren || cmsfn.isEditMode()]
       <ul class="${className}">
         [#-- loop through all the components and display them --]
-        [#if content.type == 'auto']
+        [#if content.type! == 'auto']
           [@navloop cmsfn.children(page, "mgnl:page") ; subpage]
             <li><a href="${cmsfn.link(subpage)}">${gf.nodeTitle(subpage)}</a></li>
           [/@navloop]

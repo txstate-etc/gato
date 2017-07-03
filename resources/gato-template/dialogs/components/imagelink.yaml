@@ -3,36 +3,53 @@ form:
     - name: tabMain
       label: Image Link
       fields:
-        - name: image
-          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
-          appName: assets
-          targetWorkspace: dam
-          label: Image
-          identifierToPathConverter:
-            class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
-          contentPreviewDefinition:
-            contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
-          description: "Choose an image from Assets. You may also upload an image to Assets from here."
-        - name: rollover
-          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
-          appName: assets
-          targetWorkspace: dam
-          label: Rollover Image
-          identifierToPathConverter:
-            class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
-          contentPreviewDefinition:
-            contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
-          description: "Optionally choose an image to appear when the mouse hovers over the link."
-        - name: imageAlt
-          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-          label: Alternate Text
-          description: "Text to Display When Graphics aren't enabled. Required for Section 508 compliance."
-        - name: link
-          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
-          label: Link
-          appName: pages
-          identifierToPathConverter:
-            class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
-          description: "Enter a full URL to an external site (http://www.google.com/) or use the \"Internal Link\" button to link to another page in this site."
-          buttonSelectNewLabel: "Internal Link..."
+        - name: institutionallogos
+          class: info.magnolia.ui.form.field.definition.MultiValueFieldDefinition
+          transformerClass: info.magnolia.ui.form.field.transformer.multi.MultiValueSubChildrenNodePropertiesTransformer
+          label: Institutional images
+          field:
+            name: logos
+            class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
+            transformerClass: info.magnolia.ui.form.field.transformer.composite.NoOpCompositeTransformer
+            layout: vertical
+            fields:
+              - name: image
+                class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+                appName: assets
+                targetWorkspace: dam
+                label: Image
+                identifierToPathConverter:
+                  class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
+      #          contentPreviewDefinition:
+      #            contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
+                description: "Choose an image from Assets. You may also upload an image to Assets from here."
+              - name: rollover
+                class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+                appName: assets
+                targetWorkspace: dam
+                label: Rollover Image
+                identifierToPathConverter:
+                  class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
+                ##contentPreviewDefinition:
+                ##  contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
+                description: "Optionally choose an image to appear when the mouse hovers over the link."
+              - name: imageAlt
+                class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                label: Alternate Text
+                description: "Text to Display When Graphics aren't enabled. Required for Section 508 compliance."
+              - name: link
+                class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+                label: Link
+                appName: pages
+                identifierToPathConverter:
+                  class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
+                description: "Enter a full URL to an external site (http://www.google.com/) or use the \"Internal Link\" button to link to another page in this site."
+                buttonSelectNewLabel: "Internal Link..."
+              - name: information
+                class: info.magnolia.ui.form.field.definition.StaticFieldDefinition
+                label: ""
+                value: ""
+
+
+
 actions: !include /gato-template/dialogs/common/actions-block.yaml
