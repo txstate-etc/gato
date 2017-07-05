@@ -1,3 +1,5 @@
+/* Styles for Site Search */
+
 /* drop down search bar */
 
 .ui-dialog-titlebar{
@@ -6,7 +8,7 @@
 
 .ui-widget-overlay{
     background-image: none !important;
-    background: $gold !important;
+    background: $search-dd-overlay-background-color !important;
     opacity: 0 !important;
     transition: 0.3s linear;
 }
@@ -17,7 +19,7 @@
 }
 
 #search-modal-content{
-    background: $sandstone !important;
+    background: $search-dd-dropdown-background-color !important;
     min-height: initial !important;
     padding: 0px;
     &.hidden{
@@ -31,7 +33,7 @@
     border-radius: 0px !important;
     padding: 0px !important;
     &.ui-widget{
-        font-family: $univers;
+        font-family: $search-dd-dialog-font-family;
     }
     .searchbar{
         max-width: 60rem;
@@ -39,7 +41,7 @@
         padding: 3rem 2rem 2.5rem 2rem;
         .searchbar-content {
             position: relative;
-            border-bottom: 3px solid $gold;
+            border-bottom: 3px solid $search-dd-input-line-color;
             font-size: 2.4rem;
             padding-bottom: 0.5rem;
             @media screen and (max-width: $mc-breakpoint) {
@@ -49,13 +51,13 @@
                 background: transparent;
                 border: none;
                 width: 100%;
-                color: #222;
+                color: $search-dd-input-color;
                 font-weight: 500;
-                font-family: $univers;
-                &::-webkit-input-placeholder {color: $gold;}
-                &::-moz-placeholder {color: $gold;}
-                &:-ms-input-placeholder {color: $gold;}
-                &:-moz-placeholder {color: $gold; opacity: 1;}
+                font-family: $search-dd-dialog-font-family;
+                &::-webkit-input-placeholder {color: $search-dd-input-placeholder-color;}
+                &::-moz-placeholder {color: $search-dd-input-placeholder-color;}
+                &:-ms-input-placeholder {color: $search-dd-input-placeholder-color;}
+                &:-moz-placeholder {color: $search-dd-input-placeholder-color; opacity: 1;}
                 &:focus{
                     outline-width: 0;
                 }
@@ -64,7 +66,7 @@
                 background: transparent;
                 border: none;
                 float: right;
-                color: $gold;
+                color: $search-dd-icon-color;
                 position: absolute;
                 right: 0;
                 top: 0;
@@ -74,7 +76,7 @@
             text-align: right;
             font-size: 1.4rem;
             font-weight: 500;
-            color: $darkest-gold;
+            color: $search-dd-radio-label-color;
             top: 1.5rem;
             position: relative;
             margin-bottom: 0.8rem;
@@ -129,7 +131,7 @@
     }
 
     h1.search-results-title{
-        color: $maroon;
+        color: $sitesearch-results-page-title-color;
         font-weight: normal;
         font-size: 3.6rem;
         margin: 0px;
@@ -138,10 +140,10 @@
 
     .search-again{
         position: relative;
-        border-bottom: 3px solid $gold;
+        border-bottom: 3px solid $sitesearch-result-search-input;
         font-size: 2.4rem;
         font-weight: bold;
-        color: $gold;
+        color: $sitesearch-result-search-color;
         padding-bottom: 0.5rem;
         width: 66%;
         margin-top: 2.8rem;
@@ -159,7 +161,7 @@
             width: 100%;
             color: #222;
             font-weight: 500;
-            font-family: $univers;
+            font-family: $sitesearch-font-family;
             &:focus{
                 outline-width: 0;
             }
@@ -168,7 +170,7 @@
             background: transparent;
             border: none;
             float: right;
-            color: $gold;
+            color: $sitesearch-result-search-input;
             position: absolute;
             right: 0;
             top: 0;
@@ -182,7 +184,7 @@
 
     .all-results-help-text{
         font-size: 1.2rem;
-        color: $gold;
+        color: $sitesearch-help-text-color;
         text-align: right;
         margin-bottom: 10px;
         @media screen and (max-width: $sm-breakpoint) {
@@ -207,24 +209,24 @@
 //suggested results
 ul.ui-autocomplete {
     z-index: 1200;
-    border: 1px solid $gold;
+    border: 1px solid $search-dd-suggested-results-border;
     background: $white;
     .suggestion-title{
         a{
             font-weight: bold;
             font-size: 1.5rem;
-            color: $gold;
+            color: $search-dd-suggested-result-title-color;
             text-decoration: underline;
         }
     }
     .display-link{
         a{
-            color: $blue;
+            color: $search-dd-suggested-result-link-color;
             font-size: 1.3rem;
         }
     }
     .ui-state-focus{
-        background: $light-sandstone;
+        background: $search-dd-suggested-result-hover-color;
         margin: 0px;
         border: none;
         .display-link{

@@ -98,33 +98,52 @@ $font-path: $resource-root+"/gato-private/css/fonts/files";
 $univers: 'Univers W01', Helvetica, Calibri, Arial, sans-serif;
 $garamond: 'Adobe Garamond W01', Garamond, 'Goudy Old Style', 'Times New Roman', serif;
 
+//Search Drop Down
+$search-dd-overlay-background-color:  $gold;
+$search-dd-dropdown-background-color: $sandstone;
+$search-dd-dialog-font-family:        $univers;
+$search-dd-input-line-color:        $gold;
+$search-dd-input-color:               $very-dark;
+$search-dd-input-placeholder-color:   $gold;
+$search-dd-icon-color:                $gold;
+$search-dd-radio-label-color:         $darkest-gold;
+$search-dd-suggested-results-border:  $gold;
+$search-dd-suggested-result-title-color: $gold;
+$search-dd-suggested-result-link-color: $blue;
+$search-dd-suggested-result-hover-color: $light-sandstone;
 
- // Search Page variables
- $search-tabs-border-bottom-color:  $dark-sandstone;
- $search-tab-background:            transparent;
- $search-tab-color:                 $dark-gray;
- $search-selected-tab-background:   $sandstone;
- $search-selected-tab-color:        $maroon;
- $search-form-input-line-color:     $gold;
- $search-form-input-font-family:    $univers;
- $search-form-input-placeholder-color: $gold;
- $search-form-icon-color:           $gold;
- $search-person-name-border:        $dark-sandstone;
- $search-person-name-color:         $gold;
- $search-side-box-border:           $sandstone;
- $search-side-box-header-background: $sandstone;
- $search-side-box-header-color:     $maroon;
- $search-result-title:              $dark-gold;
- $search-result-date:               $dark-gray;
- $search-result-url:                $dark-gray;
- $search-pagination-selected-background: $sandstone;
- $search-pagination-hover-background:    $sandstone;
- $search-pagination-link-color:     $medium-light-gray;
+// Global Search Page variables
+$search-tabs-border-bottom-color:  $dark-sandstone;
+$search-tab-background:            transparent;
+$search-tab-color:                 $dark-gray;
+$search-selected-tab-background:   $sandstone;
+$search-selected-tab-color:        $maroon;
+$search-person-name-border:        $dark-sandstone;
+$search-person-name-color:         $gold;
+$search-side-box-border:           $sandstone;
+$search-side-box-header-background: $sandstone;
+$search-side-box-header-color:     $maroon;
+$search-form-input-line-color:     $gold;
+$search-form-input-font-family:    $univers;
+$search-form-input-placeholder-color: $gold;
+$search-form-icon-color:           $gold;
+ 
+// Search Results (both global and site search)
+$search-result-title:              $dark-gold;
+$search-result-date:               $dark-gray;
+$search-result-url:                $dark-gray;
+$search-pagination-selected-background: $sandstone;
+$search-pagination-hover-background:    $sandstone;
+$search-pagination-link-color:     $medium-light-gray;
 
-
+// Site Search variables
+$sitesearch-results-page-title-color:  $maroon;
+$sitesearch-result-search-input:       $gold;
+$sitesearch-result-search-color:       $gold;
+$sitesearch-help-text-color:           $gold;
+$sitesearch-font-family:               $univers;
+ 
 @import "gato-template-txstate2015/css/colors";
-
-
 
 //media query breakpoints
 $mc-breakpoint: 23em;   //~368px mc = micro?  smaller than mn=mini

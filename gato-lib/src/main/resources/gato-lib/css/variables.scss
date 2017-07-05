@@ -23,27 +23,50 @@ $lightdarker: $dark-pink-sand;
 $mediumbg : $dark-pink-sand;
 $mediumtext: black;
 
-// Search page variables
+//Search Drop Down
+$search-dd-overlay-background-color:  $default-beige;
+$search-dd-dropdown-background-color: $default-pink-sand;
+$search-dd-dialog-font-family:        sans-serif;
+$search-dd-input-line-color:          $default-graphite;
+$search-dd-input-color:               $default-graphite;
+$search-dd-input-placeholder-color:   $default-graphite;
+$search-dd-icon-color:                $default-graphite;
+$search-dd-radio-label-color:         $default-graphite;
+$search-dd-suggested-results-border:  $default-graphite;
+$search-dd-suggested-result-title-color: $default-graphite;
+$search-dd-suggested-result-link-color: $default-blue;
+$search-dd-suggested-result-hover-color: $light-pink-sand;
+
+// Global Search page variables
 $search-tabs-border-bottom-color:           $dark-beige;
 $search-tab-background:                     $default-pink-sand;
 $search-tab-color:                          $default-graphite;
 $search-selected-tab-background:            $default-ice;
 $search-selected-tab-color:                 $dark-default-blue;
-$search-form-input-line-color:              $darkest-beige;
-$search-form-input-font-family:             sans-serif;
-$search-form-input-placeholder-color:       $darkest-beige;
-$search-form-icon-color:                    $darkest-beige;
 $search-person-name-border:                 $dark-sand;
 $search-person-name-color:                  $darkest-beige;
 $search-side-box-border:                    $light-pink-sand;
 $search-side-box-header-background:         $light-pink-sand;
 $search-side-box-header-color:              $default-graphite;
+$search-form-input-line-color:              $darkest-beige;
+$search-form-input-font-family:             sans-serif;
+$search-form-input-placeholder-color:       $darkest-beige;
+$search-form-icon-color:                    $darkest-beige;
+
+// Search Results (both global and site search)
 $search-result-title:                       $default-graphite;
 $search-result-date:                        $light-graphite;
 $search-result-url:                         $light-graphite;
 $search-pagination-selected-background:     $default-pink-sand;
 $search-pagination-hover-background:        $default-pink-sand;
 $search-pagination-link-color:              $lightest-graphite;
+
+// Site Search variables
+$sitesearch-results-page-title-color:  $default-graphite;
+$sitesearch-result-search-input:       $default-graphite;
+$sitesearch-result-search-color:       $default-graphite;
+$sitesearch-help-text-color:           $default-graphite;
+$sitesearch-font-family:                sans-serif;
 
 //Other variables
 $content-link-text: $default-blue;

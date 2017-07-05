@@ -2,26 +2,34 @@
 @import "gato-template-tsus2017/css/colors";
 
 // Search page variables
-$search-tabs-border-bottom-color:           $light-taupe;
-$search-tab-background:                     transparent;
-$search-tab-color:                          $midnight;
-$search-selected-tab-background:            $lightest-taupe;
-$search-selected-tab-color:                 $midnight;
-$search-form-input-line-color:              $midnight;
-$search-form-input-font-family:             ProximaNova-Regular;
-$search-form-input-placeholder-color:       $midnight;
-$search-form-icon-color:                    $midnight;
-$search-person-name-border:                 $lightest-midnight;
-$search-person-name-color:                  $midnight;
-$search-side-box-border:                    $lightest-taupe;
-$search-side-box-header-background:         $lightest-taupe;
-$search-side-box-header-color:              $midnight;
+
+//drop down dialog
+$search-dd-overlay-background-color:  $ocean;
+$search-dd-dropdown-background-color: $midnight;
+$search-dd-dialog-font-family:        inherit;
+$search-dd-input-line-color:          $white;
+$search-dd-input-color:               $white;
+$search-dd-input-placeholder-color:   $white;
+$search-dd-icon-color:                $white;
+// $search-dd-suggested-results-border:  $gold;
+// $search-dd-suggested-result-title-color: $gold;
+// $search-dd-suggested-result-link-color: $blue;
+// $search-dd-suggested-result-hover-color: $light-sandstone;
+
+//search results
 $search-result-title:                       $red;
 $search-result-date:                        $light-midnight;
 $search-result-url:                         $light-midnight;
 $search-pagination-selected-background:     $lightest-taupe;
 $search-pagination-hover-background:        $lightest-taupe;
 $search-pagination-link-color:              $tsus-mediumgray;
+
+// Site Search variables
+$sitesearch-results-page-title-color:       $midnight;
+$sitesearch-result-search-input:            $midnight;
+$sitesearch-result-search-color:            $midnight;
+$sitesearch-font-family:                    inherit;
+
 
 //media query breakpoints
 $sm-breakpoint: 48em; //~767px
