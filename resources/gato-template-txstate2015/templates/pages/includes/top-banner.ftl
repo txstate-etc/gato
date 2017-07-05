@@ -22,7 +22,7 @@
 			</div>
 		[/#if]
 		<div class="search-wrapper">
-		[#import "search-modal.ftl" as search]
+		[#import "/gato-template/templates/includes/search-modal.ftl" as search]
         [@search.searchBar false true false/]
         </div>
 	</div>

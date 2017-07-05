@@ -1,5 +1,5 @@
 [#assign mypage = (cmsfn.ancestors(content)?first)!cmsfn.page(content)]
-[#macro searchBar isMobile sitesearch=true isHomePage=false]
+[#macro searchBar isMobile sitesearch=true isHomePage=false site='txstate_no_users' client='txstate']
   [#assign searchClass = isMobile?string('txst_mobile_search', 'txst_search')]
   [#assign mobileSearchBar = isMobile?string('mobile_search_bar', '')]
   [#assign mobileSearch = isMobile?string('mobile_search', '')]
@@ -13,6 +13,8 @@
           [#if sitesearch]
             <input type="hidden" id="sitesearch" name="sitesearch" value="${ctx.request.serverName}" />
           [/#if]
+          <input type="hidden" id="client" name="client" value="${client}" />
+          <input type="hidden" id="site" name="site" value="${site}" />
           [#nested]
           <label for="search-text" class="visuallyhidden">Search Terms</label>
           <input id="search-text" class="search ${mobileSearch}" name="q" size="15" placeholder="${placeholder}" />[#--

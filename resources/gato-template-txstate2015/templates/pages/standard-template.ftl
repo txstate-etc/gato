@@ -14,7 +14,7 @@
       'gato-template-txstate2015/js/sidebarwrap.js',
       'gato-lib/js/fastclick.js',
       'gato-template-txstate2015/js/common.js',
-      'gato-template-txstate2015/js/dropdownsearch.js'
+      'gato-template/js/dropdownsearch.js'
     ]/]
     [#if gf.isCacheEnvironment()]
       [#assign jsscripts = jsscripts + ['gato-template-txstate2015/js/fontsdotcom.js']]
