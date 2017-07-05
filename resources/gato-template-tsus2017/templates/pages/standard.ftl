@@ -4,9 +4,10 @@
 <html lang="en">
   <head>
     [@templatejs scripts=['gato-lib/js/jquery-ui/jquery-ui.min.js',
+                          'gato-lib/js/masonry.min.js',
                           'gato-template-tsus2017/js/tsus.js',
-                          'gato-template-txstate2015/js/sidebarwrap.js', 
-                          'gato-template/js/dropdownsearch.js', 
+                          'gato-template-txstate2015/js/sidebarwrap.js',
+                          'gato-template/js/dropdownsearch.js',
                           'gato-template/js/search-gsa.js']/]
     <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-tsus2017/css/tsus-standard.compiled.css"/>
     [@templatehead publisher="Texas State University System"/]

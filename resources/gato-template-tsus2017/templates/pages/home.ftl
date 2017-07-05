@@ -2,11 +2,11 @@
 <!DOCTYPE HTML>
 <html lang="en">
     <head>
-        [@templatejs scripts=['gato-lib/js/jquery-ui/jquery-ui.min.js', 
-                              'gato-template-tsus2017/js/tsus.js', 
-                              'gato-template/js/dropdownsearch.js', 
+        [@templatejs scripts=['gato-lib/js/jquery-ui/jquery-ui.min.js',
+                              'gato-lib/js/masonry.min.js',
+                              'gato-template-tsus2017/js/tsus.js',
+                              'gato-template/js/dropdownsearch.js',
                               'gato-template/js/search-gsa.js']/]
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.2/masonry.pkgd.min.js"></script>
         <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-tsus2017/css/tsus-home.compiled.css"/>
         [@templatehead publisher="Texas State University System"/]
     </head>
