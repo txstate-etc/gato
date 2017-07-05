@@ -18,9 +18,10 @@ jQuery(document).ready(function($) {
         },
         source: function(request, response){
             var options = {num: 3};
-            //this won't work for tsus
             if($('#this-site').prop('checked')){
                 options.sitesearch = $('#sitesearch').val();
+                if(!isBlank($('#site').val())) options.site = $('#site').val();
+                if(!isBlank($('#client').val())) options.client = $('#client').val();
             }
             var search = new Search(options);
             search.doSearch(request.term)
