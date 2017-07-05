@@ -18,6 +18,7 @@ jQuery(document).ready(function($) {
         },
         source: function(request, response){
             var options = {num: 3};
+            //this won't work for tsus
             if($('#this-site').prop('checked')){
                 options.sitesearch = $('#sitesearch').val();
             }
@@ -50,9 +51,9 @@ jQuery(document).ready(function($) {
     //Calls the google search appliance with the appropriate parameters and display
     //results on the current page.  The search results are inserted after the original
     //page content and the original page content is hidden.
-    function siteSearch(sitesearch, query, startPage, sortType){
+    function siteSearch(sitesearch, query, startPage, sortType, client, site){
         var start = (startPage <= 1) ? 0 : (10 * (startPage -1));
-        var search = new Search({sitesearch: sitesearch, start: start, num: 10, sort: sortType});
+        var search = new Search({sitesearch: sitesearch, start: start, num: 10, sort: sortType, client: client, site: site});
         search.doSearch(query)
         .then(function(results){
             var page = window.txstsearch.buildSearchResultsPage(sitesearch, query, results, startPage, sortType);
@@ -71,7 +72,7 @@ jQuery(document).ready(function($) {
         var params = getHashParameters();
         //if the search parameters are not there, don't do anything.  There was no search.
         if(!isSiteSearchPage(params)) return;
-        siteSearch((params.sitesearch || "txstate.edu"), (params.query || ""), params.page || 1, params.sort || "relevance");
+        siteSearch((params.sitesearch || "txstate.edu"), (params.query || ""), params.page || 1, params.sort || "relevance", params.client || "txstate", params.site || "txstate_no_users");
         handleBreadCrumbs();
     }
 
@@ -167,6 +168,8 @@ jQuery(document).ready(function($) {
                 page: 1,
                 sort: "relevance"
             };
+            if(!isBlank($('#site').val())) params.site = $('#site').val();
+            if(!isBlank($('#client').val())) params.client = $('#client').val();
             update_multiple_state_params(params);
         }
     });
