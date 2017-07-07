@@ -1,0 +1,14 @@
+form:
+  tabs:
+    - name: tabTexts
+      label: Section
+      fields:
+        - name: title
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          required: false
+          label: Title
+          description: "Enter a title for the section."
+        - name: showBackgroundColor
+          class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+          label: Show background color
+          buttonLabel: Select to display background color
