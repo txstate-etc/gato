@@ -16,6 +16,7 @@
 		'gato-template/js/accordion.js',
 		'gato-template/js/easter-egg.js',
 		'gato-template/js/edit-bars.js',
+        'gato-template/js/section-background.js',
 		'gato-lib/js/moment.js',
 		'gato-lib/js/jsonp.js',
 		'gato-lib/js/pickadate/picker.js',
