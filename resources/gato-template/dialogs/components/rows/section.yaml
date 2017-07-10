@@ -12,3 +12,4 @@ form:
           class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
           label: Show background color
           buttonLabel: Select to display background color
+actions: !include /gato-template/dialogs/common/actions-block.yaml
