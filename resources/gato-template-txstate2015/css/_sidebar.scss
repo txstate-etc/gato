@@ -27,7 +27,7 @@
    absolute */
   .columns-container {
   width: 75%;
-  &.full-width{
+  &.full-width, &.no-sidebar{
     width: 100%;
   }
   @media screen and (max-width: $sm-breakpoint) { width: 100%; }

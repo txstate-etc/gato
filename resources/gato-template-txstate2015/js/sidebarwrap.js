@@ -19,9 +19,8 @@ jQuery(document).ready(function ($) {
       $('.page_content .gato-section .columns-container').each(function (i, cmp) {
         cmp = $(cmp);
         if (cmp.position().top > sidebar.position().top+sidebar.height()) {
-          cmp.css('width', '100%');
+          cmp.addClass('no-sidebar');
         } else {
-          cmp.css('width', '');
           cmp.closest('.gato-section-parent').removeClass('has-background');
         }
       });
