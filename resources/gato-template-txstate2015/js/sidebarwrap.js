@@ -16,12 +16,13 @@ jQuery(document).ready(function ($) {
     var expandsectionsaftersidebar = function () {
       // find the first gato-component paragraph whose top is
       // below the sidebar and expand it to full width
-      $('.page_content .gato-section').each(function (i, cmp) {
+      $('.page_content .gato-section .columns-container').each(function (i, cmp) {
         cmp = $(cmp);
         if (cmp.position().top > sidebar.position().top+sidebar.height()) {
           cmp.css('width', '100%');
         } else {
           cmp.css('width', '');
+          cmp.closest('.gato-section-parent').removeClass('has-background');
         }
       });
     };

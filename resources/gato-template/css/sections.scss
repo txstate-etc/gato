@@ -1,3 +1,9 @@
+.gato-section-parent {
+  &.has-background{
+    background-color: $section-background-color;
+  }
+}
+
 .layout-column {
   @extend .grid-cell;
   &.full {

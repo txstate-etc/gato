@@ -54,26 +54,30 @@
 				[@breadcrumbs/]
 			</div>
 			<div class="page_content">
+            [#assign hideSidebar = content.hideSidebar!false]
+            [#if hideSidebar == false]
+                <div class="sidebar-parent">
+                    <div class="sidebar">
+                        [@cms.area name="navBlocks" /]
+                        [#include "/gato-template/templates/includes/socialsidenav.ftl"]
+                    </div>
+                </div>
+                [/#if]
         [#if !isHomePage && !(content.hideTitle!false)]
-            <div class="headline">
-              <h1 id="maincontent">${gf.nodeTitle(content)}</h1>
+            <div class="headline-parent">
+                <div class="headline">
+                  <h1 id="maincontent">${gf.nodeTitle(content)}</h1>
+                </div>
             </div>
         [#else]
             <h1 id="maincontent" class="visuallyhidden">${gf.nodeTitle(content)}</h1>
         [/#if]
-				[#assign hideSidebar = content.hideSidebar!false]
 				[#if def.parameters.isMailTemplate!false]
 					[@cms.area name="mail" /]
 				[#else]
 					[@cms.area name="contentParagraph" contextAttributes={"hideSidebar":hideSidebar} /]
 				[/#if]
 
-				[#if hideSidebar == false]
-				<div class="sidebar">
-					[@cms.area name="navBlocks" /]
-					[#include "/gato-template/templates/includes/socialsidenav.ftl"]
-				</div>
-				[/#if]
 			</div> <!-- end of page_content -->
 			[#include "includes/footer.ftl"]
 		</div> <!-- end of the container -->

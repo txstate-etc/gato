@@ -1,7 +1,16 @@
+.sidebar-parent {
+  height: 1px;
+  position: relative;
+  margin: 0 auto;
+  max-width: 1200px;
+  @media (max-width: $xl-breakpoint) {
+    max-width: 1000px;
+  }
+}
+
 .sidebar {
   padding: 0 2rem;
   position: absolute;
-  top: 2.9rem;
   right: 0px;
   margin-bottom: -1rem;
   width: 25%;
@@ -16,7 +25,7 @@
 /* these lay out to the left of the sidebar and need
    to have constrained width since the sidebar is position
    absolute */
-.gato-section {
+  .columns-container {
   width: 75%;
   &.full-width{
     width: 100%;
