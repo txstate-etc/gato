@@ -6,8 +6,7 @@
 // gato-template-tsus2017/css/variables.scss
 
 .page_content {
-    max-width: 1250px;
-    padding-top: 6.7rem;
+    padding-top: $content-top-padding;
     padding-bottom: 7.7rem;
     position: relative;
     min-height: 32rem;
@@ -15,23 +14,43 @@
       padding-top: 3rem;
       padding-bottom: 0;
     }
+    .content-alignment {
+      height: 1px;
+      margin: 0 auto;
+      max-width: 1250px;
+    }
     .gato-section {
+        max-width: 1250px;
+        margin: 0 auto;
         padding: 0 6.5rem 0 0.8rem;
-        width: 78%;
         @media (max-width: $md-breakpoint){
-          width: 100%;
           padding: 0 2.5rem 2rem;
         }
         & + .gato-section {
             border-top: 1px dashed #d9d9d9;
             padding-top: 35px;
         }
+        .columns-container {
+          width: 78%;
+          &.full-width, &.no-sidebar{
+            width: 100%;
+          }
+          @media (max-width: $md-breakpoint) {
+            width: 100%;
+          }
+          .section-title {
+            color: $red;
+            text-align: center;
+            padding: 2rem 1rem;
+          }
+        }
     }
+    
     .sidebar {
         background-color: $white-smoke;
         position: absolute;
-        right: 0;
-        top: 9.1rem;
+        top: $content-top-padding;
+        margin-top: 2.4rem;
         padding: 2.9rem 2.2rem 2rem;
         width: 22%;
         @media (max-width: $md-breakpoint){
@@ -39,6 +58,7 @@
           top: 0;
           width: 100%;
           padding: 4rem 3.5rem;
+          margin-top: 0px;
         }
         //.sidebar-section{
         .side_nav{

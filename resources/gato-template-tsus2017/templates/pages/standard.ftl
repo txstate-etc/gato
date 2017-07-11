@@ -16,10 +16,10 @@
   </head>
   <body>
     [#include "includes/header.ftl"]
-    <div class="container standard-container">
         <div class="page_content">
-            [#assign hideSidebar = content.hideSidebar!false]
-            <main class="tsus-contentcolumn txst-styledcontent">
+          <div class="content-alignment" data-sidebar-width-percentage="22"></div>
+          [#assign hideSidebar = content.hideSidebar!false]
+          <main class="tsus-contentcolumn txst-styledcontent">
               [#if def.parameters.isMailTemplate!false]
                   [@cms.area name="mail" /]
               [#else]
@@ -33,17 +33,9 @@
                 [#include "includes/search.ftl"]
 
                 [@cms.area name="navBlocks" /]
-
-                <!-- Need to add another content type for the TSUS sidebar.  The section labeled "Staff Directory"
-                in the design can't be done with our current sidebar code.  The new component type should have a small
-                image and some text to the right of it.  It does not change significantly on small screens.  Currently,
-                the only component type that can be added to each block is gato-template:components/link (see sidenav.yaml).  We need to be able to add the new component type to the sidebar as well, but probably only for TSUS. -->
-                <!-- "Contact" block should go here -->
-
             </aside>
             [/#if]
         </div>
-    </div>
     [#include "includes/footer.ftl"]
     <!-- if the sidebar is hidden, add a sidebar modal so they can edit it for child pages if necessary.
     See 2015 template and old TSUS template -->
