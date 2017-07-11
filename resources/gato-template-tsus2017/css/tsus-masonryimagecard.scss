@@ -74,16 +74,16 @@ header {
 .img-box{
   height: 100%;
   position: relative;
-top: 0;
-right: 0;
-bottom: 0;
-left: 0;
--webkit-background-size: cover;
-background-size: cover;
-background-repeat: no-repeat;
-background-position: 50% 50%;
-margin: 0;
-padding: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  margin: 0;
+  padding: 0;
 }
 
 
@@ -91,5 +91,11 @@ padding: 0;
   .gato-card,.gato-card-sm,.gato-card-md,.gato-card-lg {
     left: 0 !important; //centers for mobile.
     width:100%;
+  }
+}
+//change the position fig caption for the gato-card in msonry
+@media (max-width: 767px){
+  .gato-card figure figcaption {
+      position: absolute;
   }
 }
