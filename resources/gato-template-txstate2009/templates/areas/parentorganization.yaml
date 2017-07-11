@@ -1,7 +1,0 @@
-renderType: freemarker
-templateScript: /gato-template-txstate2009/templates/areas/parentorganization.ftl 
-type: single
-title: Parent Organization
-availableComponents:
-  parentOrg:
-    id: gato-template-txstate2015:components/parentorganization

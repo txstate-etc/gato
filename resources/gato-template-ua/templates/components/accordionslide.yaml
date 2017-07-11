@@ -1,5 +1,0 @@
-templateScript: /gato-template-ua/templates/components/accordionslide.ftl
-renderType: freemarker
-title: Slide
-description: Single slide in the accordion built for the UA home page.
-dialog: gato-template-ua:components/accordionslide

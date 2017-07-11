@@ -9,34 +9,24 @@ our $backupdir = "$gatodir/../gatobackup";
 our $edgewarpath = "$gatodir/gato-webapp/target/gato-webapp*war";
 our $magrepopath = "/var/mag_repositories";
 our $magnoliapropertiespath = "/etc/magnolia/config";
-our @heavymodules = ('gato-lib', 'gato-internal', 'gato-component-cssjs', 'gato-component-dept-directory', 
-  'gato-component-faq', 'gato-component-gallery', 'gato-component-documents', 'gato-area-mail', 'gato-component-button', 
-  'gato-component-twitter', 'gato-component-rss', 'gato-component-events', 'gato-component-sitemap', 'gato-template-signs',
+our @heavymodules = ('gato-lib', 'gato-internal', 'gato-component-cssjs', 'gato-component-dept-directory',
+  'gato-component-faq', 'gato-component-gallery', 'gato-component-documents', 'gato-area-mail', 'gato-component-button',
+  'gato-component-twitter', 'gato-component-rss', 'gato-component-events', 'gato-component-sitemap',
   'gato-component-hours');
-our @sassfiles = ('resources/gato-template-tsus/css/tsus-home.scss', 
+our @sassfiles = ('resources/gato-template-tsus/css/tsus-home.scss',
                   'resources/gato-template-tsus/css/standard.scss',
                   'resources/gato-template-tsus/css/color-picker.scss',
                   'resources/gato-template-blank/css/blank.scss',
-                  'resources/gato-template-ua/css/home.scss',
-                  'resources/gato-template-ua/css/standard.scss',
-                  'resources/gato-template-ua/css/color-picker.scss',
                   'resources/gato-template-wittliff/css/standard.scss',
                   'resources/gato-template-wittliff/css/sidebar.scss',
                   'resources/gato-template-wittliff/css/color-picker.scss',
                   'resources/gato-template-txstate2015/css/txstate2015.scss',
                   'resources/gato-template-txstate2015/css/color-picker.scss',
                   'resources/gato-template-txstate2015/css/fonts.scss',
-                  'resources/gato-template-txstate2009/css/mobile.scss',
-                  'resources/gato-template-txstate2009/css/standard.scss',
-                  'resources/gato-template-txstate2009/css/color-picker.scss',
-                  'resources/gato-template-library/css/library.scss',
-                  'resources/gato-template-library/css/mobile.scss',
-                  'resources/gato-template-signs/css/sign.scss',
-                  'resources/gato-template-signs/css/schedule.scss',
                   'resources/gato-lib/css/font-awesome.scss',
                   'resources/gato-template-tsus2017/css/tsus-home.scss',
                   'resources/gato-template-tsus2017/css/tsus-standard.scss',
-                  'resources/gato-template-tsus2017/css/color-picker.scss',);
+                  'resources/gato-template-tsus2017/css/color-picker.scss');
 our $sasscompressed = 1;
 our $module = "";
 
@@ -102,7 +92,7 @@ sub tomcat_stop {
     print "waiting for tomcat to go away...\n";
     sleep(1);
   }
-  
+
   print "wiping out the cache directory so our CSS/JS gets reloaded...\n";
   `rm -rf $tomcatdir/webapps/ROOT/cache`;
 }
@@ -197,7 +187,7 @@ sub triggerbootstrap() {
   print "initiating upgrade tasks...\n";
   sleep(10);
   `curl $urlbase/.magnolia/installer > /dev/null`;
-  `curl $urlbase/.magnolia/installer/start > /dev/null`;  
+  `curl $urlbase/.magnolia/installer/start > /dev/null`;
 }
 
 sub waitforbootstrap() {

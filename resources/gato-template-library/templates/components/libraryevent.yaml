@@ -1,8 +1,0 @@
-templateScript: /gato-template-library/templates/components/libraryevent.ftl
-renderType: freemarker
-title: Event
-description: Event for the Library Homepage
-modelClass: edu.txstate.its.gato.LibraryTemplateModel
-dialog: gato-template-library:components/libraryevent
-parameters:
-  icon: /gato-component-events/images/calendar.png
