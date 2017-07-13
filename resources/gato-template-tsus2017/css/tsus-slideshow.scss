@@ -85,13 +85,16 @@
                 letter-spacing: 0.1rem;
                 margin-bottom: 0.3rem;
                 margin-top: 0;
-                background-color: transparent;
             }
             p{
                 margin: 0;
                 font-size: 2rem;
                 line-height: 2.4rem;
                 letter-spacing: 0.05rem;
+            }
+        }
+        .moving-image-caption {
+            h3, p {
                 background-color: transparent;
             }
         }
@@ -139,11 +142,11 @@
         }
     }
     
-  .moving-image-caption {
-    p {
-      font-style: italic;
+    .moving-image-caption {
+        p {
+          font-style: italic;
+        }
     }
-  }
 }
 
 .gato-slider {
