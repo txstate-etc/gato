@@ -87,6 +87,11 @@
       <artifactId>magnolia-jcr-tools</artifactId>
     </dependency>
     <dependency>
+      <groupId>info.magnolia.log</groupId>
+      <artifactId>magnolia-log-tools</artifactId>
+      <version>1.0.3</version>
+    </dependency>
+    <dependency>
       <groupId>info.magnolia.cache</groupId>
       <artifactId>magnolia-cache-app</artifactId>
     </dependency>

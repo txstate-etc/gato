@@ -112,6 +112,8 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       .addTask(new BootstrapSingleModuleResource("config.modules.gato-internal.rest-client.xml"))
       .addTask(new BootstrapSingleModuleResource("config.server.MIMEMapping.js.xml"))
       .addTask(new BootstrapSingleModuleResource("config.modules.ui-admincentral.config.appLauncherLayout.groups.manage.permissions.xml"))
+      .addTask(new BootstrapSingleModuleResource("config.modules.ui-admincentral.config.appLauncherLayout.groups.dev.apps.xml"))
+      .addTask(new BootstrapSingleModuleResource("config.modules.ui-admincentral.config.appLauncherLayout.groups.tools.apps.xml"))
       .addTask(new BootstrapSingleModuleResource("config.modules.cas.config.xml"))
       .addTask(new BootstrapSingleModuleResource("config.modules.site.config.site.templates.availability.templates.2017-tsus-home.xml"))
       .addTask(new BootstrapSingleModuleResource("config.modules.site.config.site.templates.availability.templates.2017-tsus-standard.xml"))
