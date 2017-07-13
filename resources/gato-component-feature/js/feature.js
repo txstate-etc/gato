@@ -79,6 +79,10 @@ jQuery(document).ready(function ($) {
     var naturalHeight = slide.find('img')[0].naturalHeight;
 
     var cropWidth = naturalWidth * (cropData.right - cropData.left);
+    //If they haven't cropped the image, don't transform it
+    if(cropWidth == 0) {
+      return {scale: 1, translateX: 0, translateY: 0}
+    }
 
     //get the width and height of the container
     var containerW = slide.find('.image-container').width();
