@@ -8,3 +8,5 @@ areas:
     availableComponents:
       imageNews:
         id: gato-template:components/card-masonry
+parameters:
+  icon: /gato-template/images/imagelink.png

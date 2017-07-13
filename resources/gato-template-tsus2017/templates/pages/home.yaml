@@ -37,10 +37,7 @@ areas:
         id: gato-template:components/link
 
   progress-section:
-    type: single
-    availableComponents:
-      tsus-contact:
-        id: gato-template-tsus2017:components/progressection
+    !include /gato-template/templates/areas/contentParagraph.yaml
 
   masonry-section:
     !include /gato-template/templates/areas/contentParagraph.yaml

@@ -11,4 +11,4 @@ thirds:
 quarters:
   id: gato-template:components/rows/quarters
 masonrycard:
-  id: gato-template:components/masonry
+  id: gato-template:components/rows/masonry

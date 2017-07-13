@@ -18,6 +18,8 @@ gallery:
   id: gato-component-gallery:components/gallery
 # gallerym:
 #   id: gato-component-gallery:components/gallerym
+progresswidget:
+  id: gato-template:components/progress
 richeditor:
   id: gato-template:components/richeditor
 html:
