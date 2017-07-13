@@ -1,0 +1,38 @@
+templateScript: /gato-template-wittliff/templates/pages/standard.ftl
+renderType: site
+visible: true
+title: Wittliff
+dialog: gato-template:pages/page-properties
+areas:
+  customcss:
+    !include /gato-component-cssjs/templates/areas/customcss.yaml
+  customjs:
+    !include /gato-component-cssjs/templates/areas/customjs.yaml
+  contentParagraph:
+    !include /gato-template/templates/areas/contentParagraph.yaml
+  navBlocks:
+    type: list
+    availableComponents:
+      navigationBlock:
+        id: gato-template:components/sidenav
+  footer-findus:
+    type: single
+    availableComponents:
+      footer-findus:
+        id: gato-template-wittliff:components/footer-findus
+  footer-hours:
+    type: single
+    availableComponents:
+      footer-hours:
+        id: gato-template-wittliff:components/footer-hours
+  socialmedia:
+    !include /gato-template/templates/areas/sociallist.yaml
+  footerlinks1:
+    !include /gato-template/templates/areas/linklist.yaml
+parameters:
+  sortOrder: 200
+variations:
+  js:
+    templateScript: /gato-component-cssjs/templates/pages/jsvariation.ftl
+  rss:
+    templateScript: /gato-template-rss/templates/pages/rssvariation.ftl
