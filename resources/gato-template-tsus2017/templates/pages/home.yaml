@@ -42,11 +42,8 @@ areas:
       tsus-contact:
         id: gato-template-tsus2017:components/progressection
 
-  news-section:
-    type: list
-    availableComponents:
-      imageNews:
-        id: gato-template:components/card
+  masonry-section:
+    !include /gato-template/templates/areas/contentParagraph.yaml
 
   tsuslogos:
     type: single

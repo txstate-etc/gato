@@ -15,33 +15,30 @@ $quick: .2s;
   padding: 20px;
   background: #EEE;
 }
-header {
+.masonry-section header {
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
 
-.gato-card, .grid__sizer {
+.masonry-section  .gato-card, .grid__sizer {
    width: 29.35%;
-   //min-width: remy(260px);
 }
 
-.gato-card-lg {
+.masonry-section .gato-card-lg {
  width: 59.35%;
 }
-.lg{width: 59.35%;}
-.md{width: 34.35%;}
-.gato-card-sm {
- //width: 23.35%;
-}
-.gato-card-md {
-  //width: 59.35%;
-}
+.masonry-section .gato-card-lg{width: 59.35%;   height: 600px;}
+.masonry-section .gato-card-md{width: 34.35%;   height: 350px;}
+.masonry-section .gato-card-sm{width: 24.35%;   height: 250px }
+/*.masonry-section .gato-card-lg{width: 59.35%;}
+.masonry-section .gato-card-md{width: 34.35%;}
+.masonry-section .gato-card-sm{width: 24.35%;}*/
 
-.gato-card {
+
+.masonry-section  .gato-card {
   box-shadow: $shadow;
- background: #DDD;
+  background: #DDD;
   margin-bottom: .9375rem;
-  height: 400px;
   &:hover{
      cursor: pointer;
      z-index: 1000;
@@ -51,51 +48,52 @@ header {
   }
 
 }
-.auto{
+.masonry-section  .auto{
   height: auto ;
 }
-
-.gato-card-height-lg{
+ //delete later....
+.masonry-section .gato-card-height-lg{
   height: 600px;
 }
-.gato-card-height-md{
+.masonry-section .gato-card-height-md{
   height: 350px;
 
 }
-.gato-card-height-sm{
+.masonry-section .gato-card-height-sm{
   height: 250px;
 
 }
 
-.img{
+.masonry-section .img{
   background-size: cover;
   background-color: green !important;
 }
-.img-box{
+.masonry-section .img-box{
   height: 100%;
   position: relative;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  -webkit-background-size: cover;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  margin: 0;
-  padding: 0;
+top: 0;
+right: 0;
+bottom: 0;
+left: 0;
+-webkit-background-size: cover;
+background-size: cover;
+background-repeat: no-repeat;
+background-position: 50% 50%;
+margin: 0;
+padding: 0;
 }
 
 
 @media screen and (max-width: 700px){
-  .gato-card,.gato-card-sm,.gato-card-md,.gato-card-lg {
+  .masonry-section .gato-card,.gato-card-sm,.gato-card-md,.gato-card-lg {
     left: 0 !important; //centers for mobile.
     width:100%;
   }
 }
-//change the position fig caption for the gato-card in msonry
-@media (max-width: 767px){
-  .gato-card figure figcaption {
-      position: absolute;
-  }
+
+
+
+
+@media screen and (max-width:767px){
+  .masonry-section .gato-card figure figcaption {position: absolute;}
 }

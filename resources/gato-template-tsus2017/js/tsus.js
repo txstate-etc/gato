@@ -91,25 +91,11 @@ jQuery(document).ready(function($) {
     gutter: 25,
     percentPosition: true
   });
-//to add img-box class so we can target it
-  $('.grid').find('figure').addClass('img-box');
+  /*
+  $container.imagesLoaded( function() {
+   $container.masonry();
+ });*/
 
-  $(".img-box > img").each(function(index) {
-      console.log("test pass");
-      var $img = new Image();
-      $img.src=$(this).attr('src');
-      var width = $img.width;
-      if (width > 1000) {
-        $(this).closest(".gato-card").addClass("gato-card-lg").addClass("gato-card-height-lg");
-      }
-      else if (width >= 400) {
-        $(this).closest(".gato-card").addClass("gato-card-md").addClass("gato-card-height-lg");
-      }
-      else {
-        $(this).closest(".gato-card").addClass("gato-card-sm").addClass("gato-card-height-sm");
-      }
-      grid.masonry()
-  });
 
   //if the image is large turn it to a background for easier cropping.
    $(".img-box").each(function() {

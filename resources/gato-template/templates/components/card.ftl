@@ -2,11 +2,16 @@
 [#assign width = gf.getImgWidth(content.image)?c+'px']
 [#assign sizes = gf.lesserwidth('100vw', width)]
 
-<div class="gato-card">
+<div class="gato-card ${content.sizeSelect! }">
     [#if content.link?has_content]
       <a href="${gf.filterUrl(content.link!)}">
     [/#if]
-    <figure>
+
+    [#if content.sizeSelect?has_content]
+          <figure class="img-box">
+    [#else]
+          <figure>
+    [/#if]
         <img src="${gf.getImgDefault(content.image, sizes)}" sizes="${sizes}" alt="${content.imageAlt!}" srcset="${gf.getSrcSet(content.image)}" />
         <figcaption class="${content.color!'color1'}">
             <h3>${decodedContent.title}</h3>

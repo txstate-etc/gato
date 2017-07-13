@@ -1,0 +1,10 @@
+templateScript: /gato-template/templates/components/rows/masonry.ftl
+renderType: site
+visible: true
+title: Masonry Layout
+areas:
+  masonrycard:
+    type: list
+    availableComponents:
+      imageNews:
+        id: gato-template:components/card-masonry

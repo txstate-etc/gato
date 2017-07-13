@@ -24,10 +24,7 @@
             <div class="container">
 
                 <!-- news -->
-                <div class="grid">
-                      <div class="grid__sizer"></div>
-                      [@cms.area name="news-section" /]
-                </div>
+                [@cms.area name="masonry-section" /]
 
                 <!-- institution logos -->
                   <div class="tsus-institution-logos eq-parent">
