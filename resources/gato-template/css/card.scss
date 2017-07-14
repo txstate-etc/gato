@@ -9,8 +9,13 @@
     
     figure {
         position: relative;
+        margin: 0;
+        max-width: 100%;
+        display: inline-block;
+
         img {
-            display: block
+            display: block;
+            max-width: 100%;
         }
         figcaption {
             position: absolute;

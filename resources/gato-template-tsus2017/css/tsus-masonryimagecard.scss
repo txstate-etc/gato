@@ -46,7 +46,9 @@ $quick: .2s;
      transform: perspective(5000px) translateZ(150px);
      box-shadow: $shadow;
   }
-
+  figure {
+    display: block;
+  }
 }
 .masonry-section  .auto{
   height: auto ;

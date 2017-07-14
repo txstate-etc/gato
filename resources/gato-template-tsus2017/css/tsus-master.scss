@@ -17,6 +17,26 @@
     }
 }
 
+.gato-section {
+  margin: 0 auto;
+  max-width: 1280px;
+  @media (max-width: $lg-breakpoint) {
+    //this value might need adjusting
+    max-width: 1000px;
+  }
+  .section-title {
+    display: block;
+    text-align: center;
+    margin: 0;
+    &.hidden {
+      display: none;
+    }
+  }
+  .layout-column {
+    padding: 0px 2rem;
+  }
+}
+
 a, a:link, a:visited {
     color: $content-link-text;
 }
