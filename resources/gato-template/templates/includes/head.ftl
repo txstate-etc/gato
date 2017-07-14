@@ -150,6 +150,24 @@
 	</nav>
 [/#macro]
 
+[#macro simplemenu]
+	<ul class="simplemenu">
+    [@navloop cmsfn.children(homepage, 'mgnl:page') ; page]
+      <li class="${gf.hasNavChildren(page)?string('haschildren', '')}">
+        <a href="${cmsfn.link(page)}">${gf.nodeTitle(page)}</a>
+        [#if gf.hasNavChildren(page)]
+          <ul class="simplemenu-subitems">
+            [@navloop cmsfn.children(page, 'mgnl:page') ; subpage]
+              <li><a href="${cmsfn.link(subpage)}">${gf.nodeTitle(subpage)}</a></li>
+            [/@navloop]
+          </ul>
+        [/#if]
+      </li>
+    [/@navloop]
+    [#nested]
+	</ul>
+[/#macro]
+
 [#macro mobilemenu page]
   [#if gf.hasNavChildren(page)]
     <nav id="iphone-navigationarea">
