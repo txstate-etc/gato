@@ -7,6 +7,15 @@ jQuery(document).ready(function($) {
         $('.btn-menu').toggleClass('menu-open');
     });
 
+    $(document).click(function(e){
+      var target = $(e.target);
+      if( !target.is('.btn-menu') && !target.closest('.main-menu').length){
+        e.preventDefault();
+        $('.btn-menu').toggleClass('menu-open');
+        $('.main-menu').slideUp();
+      }
+    });
+
 
     function setWidth($logoVar,$column){
       var $logoWidth;//in order to force column count
