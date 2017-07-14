@@ -18,14 +18,10 @@
             <div class="tsus-slideshow eq-parent">
               [@cms.area name="tsus-slideshow" /]
             </div>
-            <!-- progress bars -->
 
-            [@cms.area name="progress-section" /]
+            [@cms.area name="contentParagraph"/]
+
             <div class="container">
-
-                <!-- news -->
-                [@cms.area name="masonry-section" /]
-
                 <!-- institution logos -->
                   <div class="tsus-institution-logos eq-parent">
                     [@cms.area name="tsuslogos" /]

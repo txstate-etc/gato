@@ -35,13 +35,8 @@ areas:
     availableComponents:
       link:
         id: gato-template:components/link
-
-  progress-section:
+  contentParagraph:
     !include /gato-template/templates/areas/contentParagraph.yaml
-
-  masonry-section:
-    !include /gato-template/templates/areas/contentParagraph.yaml
-
   tsuslogos:
     type: single
     renderType: freemarker
