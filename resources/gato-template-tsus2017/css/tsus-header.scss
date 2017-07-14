@@ -33,6 +33,10 @@ header{
         @media (max-width: $sm-breakpoint){
            font-size: 1.4rem;
         }
+        button {
+            background: transparent;
+            border: 0px;
+        }
         .search-button{
             color: $white;
             margin-right: 2rem;
