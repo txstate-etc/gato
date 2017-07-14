@@ -1,4 +1,6 @@
 
+.masonry-section{
+
 
 *{
   box-sizing : border-box;
@@ -12,90 +14,76 @@ $quick: .2s;
   @return ($value / 16px) *1rem;
 }
 .grid{
-  padding: 20px;
   background: #EEE;
 }
-.masonry-section header {
+ header {
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
 
-.masonry-section  .gato-card, .grid__sizer {
-   width: 29.35%;
+  .gato-card, .grid__sizer {
+   width: 25%;
 }
-
-.masonry-section .gato-card-lg {
- width: 59.35%;
+.gato-card-lg{width: 100%;   }
+.gato-card-md{width: 50%;   }
+/* option to let images height be based on
+ figure{
+  background-image: none !important;
+   & img{
+  display: block !important;
 }
-.masonry-section .gato-card-lg{width: 59.35%;   height: 600px;}
-.masonry-section .gato-card-md{width: 34.35%;   height: 350px;}
-.masonry-section .gato-card-sm{width: 24.35%;   height: 250px }
-/*.masonry-section .gato-card-lg{width: 59.35%;}
-.masonry-section .gato-card-md{width: 34.35%;}
-.masonry-section .gato-card-sm{width: 24.35%;}*/
+}*/
 
 
-.masonry-section  .gato-card {
-  box-shadow: $shadow;
-  background: #DDD;
+
+
+  .gato-card {
+  height: 350px;
+  padding: remy(10px);
+  //background: #DDD;
   margin-bottom: .9375rem;
-  &:hover{
-     cursor: pointer;
-     z-index: 1000;
-     transition: .5s;
-     transform: perspective(5000px) translateZ(150px);
-     box-shadow: $shadow;
-  }
+
   figure {
     display: block;
+    box-shadow: $shadow;
+    &:hover{
+       cursor: pointer;
+       z-index: 1000;
+       transition: .5s;
+       transform: perspective(5000px) translateZ(150px);
+    }
   }
 }
-.masonry-section  .auto{
-  height: auto ;
-}
- //delete later....
-.masonry-section .gato-card-height-lg{
-  height: 600px;
-}
-.masonry-section .gato-card-height-md{
-  height: 350px;
 
-}
-.masonry-section .gato-card-height-sm{
-  height: 250px;
 
-}
-
-.masonry-section .img{
+ .img{
   background-size: cover;
   background-color: green !important;
 }
-.masonry-section .img-box{
+ .img-box{
   height: 100%;
   position: relative;
-top: 0;
-right: 0;
-bottom: 0;
-left: 0;
--webkit-background-size: cover;
-background-size: cover;
-background-repeat: no-repeat;
-background-position: 50% 50%;
-margin: 0;
-padding: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  margin: 0;
+  padding: 0;
 }
 
 
 @media screen and (max-width: 700px){
-  .masonry-section .gato-card,.gato-card-sm,.gato-card-md,.gato-card-lg {
+   .gato-card,.gato-card-sm,.gato-card-md,.gato-card-lg {
     left: 0 !important; //centers for mobile.
     width:100%;
   }
 }
 
-
-
-
 @media screen and (max-width:767px){
-  .masonry-section .gato-card figure figcaption {position: absolute;}
+   .gato-card figure figcaption {position: absolute;}
+}
 }

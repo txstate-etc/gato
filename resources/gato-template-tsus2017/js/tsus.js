@@ -97,26 +97,13 @@ jQuery(document).ready(function($) {
   var grid = $(".grid").masonry({
     itemSelector: ".gato-card",
     columnWidth: ".grid__sizer",
-    gutter: 25,
+    gutter: 0,
     percentPosition: true
   });
-  /*
-  $container.imagesLoaded( function() {
-   $container.masonry();
- });*/
-
-
-  //if the image is large turn it to a background for easier cropping.
    $(".img-box").each(function() {
       $(this)
         .css("background-image", "url(" + $(this).find("> img").attr("src") + ")")
         .find("> img")
         .hide();
-
-
     });
-
-
-
-
 });
