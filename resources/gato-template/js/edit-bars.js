@@ -25,6 +25,7 @@ jQuery( document ).ready(function($) {
   magnolialabelchange('.event_add', '.mgnlEditor.mgnlPlaceholder', 'Add Event');
   magnolialabelchange('.parentOrg_add', '.mgnlEditor.mgnlPlaceholder', 'Add Parent Organization');
   magnolialabelchange('.footerLinks_admin', '.mgnlEditor.component', 'Toggle Footer Button');
+  magnolialabelchange('.masonry-section', '.mgnlEditor.mgnlPlaceholder', 'Add Card');
   titledlabelchange('.slider-edit-bar');
 });
 
