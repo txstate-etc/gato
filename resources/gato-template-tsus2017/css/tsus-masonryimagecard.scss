@@ -1,11 +1,4 @@
 
-.masonry-section{
-
-
-*{
-  box-sizing : border-box;
-}
-
 $counterBg: #222;
 $shadow: 0px 5px 15px rgba(black,.5);
 $quick: .2s;
@@ -13,9 +6,14 @@ $quick: .2s;
 @function remy($value) {
   @return ($value / 16px) *1rem;
 }
-.grid{
-  background: #EEE;
-}
+.grid{}
+.masonry-section{
+  margin-bottom: 20px;
+  *{
+    box-sizing : border-box;
+  }
+
+
  header {
   padding-top: 2rem;
   padding-bottom: 2rem;
@@ -33,14 +31,16 @@ $quick: .2s;
   display: block !important;
 }
 }*/
+.gato-card-add{
+  width: 25%;
 
+}
 
 
 
   .gato-card {
   height: 350px;
   padding: remy(10px);
-  //background: #DDD;
   margin-bottom: .9375rem;
 
   figure {
@@ -86,4 +86,5 @@ $quick: .2s;
 @media screen and (max-width:767px){
    .gato-card figure figcaption {position: absolute;}
 }
+
 }

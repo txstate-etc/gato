@@ -3,7 +3,8 @@ renderType: site
 visible: true
 title: Masonry Layout
 areas:
-  masonrycard:
+  masonrycards:
+    templateScript: /gato-template/templates/areas/masonry-area.ftl
     type: list
     availableComponents:
       imageNews:
