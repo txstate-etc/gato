@@ -1,0 +1,3 @@
+name: gatoCssInclude
+definitionClass: edu.txstate.its.gato.vaadin.GatoCssIncludeDefinition
+factoryClass: edu.txstate.its.gato.vaadin.GatoCssIncludeFactory
