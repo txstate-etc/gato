@@ -12,4 +12,8 @@ form:
           class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
           label: Show background color
           buttonLabel: Select to display background color
+        - name: stylesheet
+          label: ""
+          class: edu.txstate.its.gato.vaadin.GatoCssIncludeDefinition
+          styles: [gato-template/dialogs/css/section-dialog.css]
 actions: !include /gato-template/dialogs/common/actions-block.yaml
