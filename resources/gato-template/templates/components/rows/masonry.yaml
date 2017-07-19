@@ -8,4 +8,4 @@ areas:
     type: list
     availableComponents: !include /gato-template/templates/areas/availableMasonryComponents.yaml
 parameters:
-  icon: /gato-template/images/imagelink.png
+  icon: /gato-template/images/masonry.png
