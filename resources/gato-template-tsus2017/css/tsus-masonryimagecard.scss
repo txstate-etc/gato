@@ -22,6 +22,7 @@ $gato-card-shadow: 0px 5px 15px rgba(black,.5);
         object-fit: cover;
       }
     }
-    &[data-eq~="400px"] figure figcaption { position: relative; }
+    //&[data-eq~="400px"] figure figcaption { position: relative; }
+    //causing fig caption to transition down instead of up from the card
   }
 }
