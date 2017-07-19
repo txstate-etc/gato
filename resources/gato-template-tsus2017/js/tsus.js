@@ -94,16 +94,22 @@ jQuery(document).ready(function($) {
       }
 ////////masonry layout settings
   // Masonry grid setup
-  var grid = $(".grid").masonry({
+
+  /*
+  $(".img-box").each(function() {
+    $(this).css("background-image", "url(" + $(this).find("> img").attr("src") + ")")
+    .find("> img")
+    .hide();
+  });
+  */
+});
+
+jQuery(window).on('load', function($) {
+  var $ = jQuery;
+  var $grid = $(".masonry-section").masonry({
     itemSelector: ".gato-card",
-    columnWidth: ".grid__sizer",
+    columnWidth: ".masonry-sizer",
     gutter: 0,
     percentPosition: true
   });
-   $(".img-box").each(function() {
-      $(this)
-        .css("background-image", "url(" + $(this).find("> img").attr("src") + ")")
-        .find("> img")
-        .hide();
-    });
 });

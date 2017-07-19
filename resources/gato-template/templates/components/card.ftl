@@ -2,7 +2,7 @@
 [#assign width = gf.getImgWidth(content.image)?c+'px']
 [#assign sizes = gf.lesserwidth('100vw', width)]
 
-<div class="gato-card ${content.sizeSelect! }">
+<div class="gato-card eq-parent ${content.sizeSelect! }">
     [#if content.link?has_content]
       <a href="${gf.filterUrl(content.link!)}">
     [/#if]

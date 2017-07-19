@@ -1,4 +1,4 @@
-<div class="grid masonry-section">
-      <div class="grid__sizer"></div>
-      [@cms.area name="masonrycards" /]
-</div>
+[#include "/gato-template/templates/includes/section.ftl"]
+[@sectionLabel cssClass="masonry-section"]
+  [@cms.area name="masonrycards" /]
+[/@sectionLabel]

@@ -6,7 +6,6 @@
 //where we declare those so that we can assume they are available in content types.
 
 .gato-card {
-    
     figure {
         position: relative;
         margin: 0;
@@ -41,31 +40,31 @@
                 font-family: 'Lato', sans-serif;
             }
             &.color1{
-                background: rgba($mc1-bg, 0.8); 
+                background: rgba($mc1-bg, 0.8);
                 h3, p {color: $mc1-text;}
             }
             &.color2{
-                background: rgba($mc2-bg, 0.8); 
+                background: rgba($mc2-bg, 0.8);
                 h3, p {color: $mc2-text;}
             }
             &.color3{
-                background: rgba($mc3-bg, 0.8); 
+                background: rgba($mc3-bg, 0.8);
                 h3, p {color: $mc3-text;}
             }
             &.color4{
-                background: rgba($mc4-bg, 0.8); 
+                background: rgba($mc4-bg, 0.8);
                 h3, p {color: $mc4-text;}
             }
             &.color5{
-                background: rgba($mc5-bg, 0.8); 
+                background: rgba($mc5-bg, 0.8);
                 h3, p {color: $mc5-text;}
             }
             &.color6{
-                background: rgba($mc6-bg, 0.8); 
+                background: rgba($mc6-bg, 0.8);
                 h3, p {color: $mc6-text;}
             }
             &.color7{
-                background: rgba($mc7-bg, 0.8); 
+                background: rgba($mc7-bg, 0.8);
                 h3, p {color: $mc7-text;}
             }
             @media (max-width: 767px){ //THIS SHOULD BE A VARIABLE.  THIS IS THE TSUS SMALL BREAKPOINT
