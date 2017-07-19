@@ -71,37 +71,12 @@ jQuery(document).ready(function($) {
               console.log('prime detected!....resolving');
               $tCount=$tCount + 1;// add 1 then call again.
               $gridSet=setGrid($logoVar,$tCount);
-
             }
       	}
         else{
             $logoVar.css("width","auto");
         }
       });
-
-      /*Logic to switch between different background color on progress section*/
-      if($(".performance").hasClass("alternating")){
-        var class_index=1;
-        setInterval(function(){
-          if(class_index===8){
-            class_index=1;
-          }
-          var $element=$(".performance").attr('class').split(' ')[1];
-          var addClass='color'+class_index;
-          $( ".performance" ).removeClass($element).addClass(addClass);
-          class_index++;
-        },5000);
-      }
-////////masonry layout settings
-  // Masonry grid setup
-
-  /*
-  $(".img-box").each(function() {
-    $(this).css("background-image", "url(" + $(this).find("> img").attr("src") + ")")
-    .find("> img")
-    .hide();
-  });
-  */
 });
 
 jQuery(window).on('load', function($) {
