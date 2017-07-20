@@ -4,6 +4,6 @@ form:
       label: Card Size
       fields: !include /gato-template/dialogs/common/masonry-card-size.yaml
     - name: tabTexts
-      label: Card
-      fields: !include /gato-template/dialogs/common/card.yaml
+      label: vidoe Card
+      fields: !include /gato-component-streaming/dialogs/common/common-content.yaml
 actions: !include /gato-template/dialogs/common/actions-block.yaml

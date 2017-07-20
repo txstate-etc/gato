@@ -1,0 +1,16 @@
+        - name: title
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Title (optional)
+        - name: videourl
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Video Url
+          styleName: videoUrl
+        - name: openinapp
+          class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+          label: Open in App
+          buttonLabel: Above video is a 360 video.
+          description: If you check this, certain users will get an option to launch the video in its original app, which is necessary for 360 video support.
+        - name: videoid
+          class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+          transformerClass: edu.txstate.its.gato.vaadin.UstreamChannelTransformer
+          styleName: ustreamChannelId

@@ -6,8 +6,6 @@ areas:
   masonrycards:
     templateScript: /gato-template/templates/areas/masonry-area.ftl
     type: list
-    availableComponents:
-      imageNews:
-        id: gato-template:components/card-masonry
+    availableComponents: !include /gato-template/templates/areas/availableMasonryComponents.yaml
 parameters:
   icon: /gato-template/images/imagelink.png

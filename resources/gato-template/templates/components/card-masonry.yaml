@@ -2,4 +2,6 @@ templateScript: /gato-template/templates/components/card.ftl
 renderType: freemarker
 dialog: gato-template:components/card-masonry
 description: An image with a caption
-title: Card
+title: Image Card
+parameters:
+  icon: /gato-template/images/banner.png

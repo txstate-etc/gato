@@ -1,0 +1,28 @@
+#events:
+#  id: gato-component-events:components/events
+streaming:
+    id: gato-template:components/video-card-masonry
+progresswidget:
+  id: gato-template:components/card-masonry
+#iframe:
+#  id: gato-template:components/iframe
+#icontext:
+#  id: gato-template:components/icontext
+#gallery:
+#  id: gato-component-gallery:components/gallery
+#progresswidget:
+#  id: gato-template:components/progress
+#richeditor:
+#  id: gato-template:components/richeditor
+#html:
+#  id: gato-template:components/html
+rss:
+  id: gato-component-rss:components/rss
+#feature:
+#  id: gato-component-feature:components/feature
+#table:
+#  id: gato-template:components/table
+#textimage:
+#  id: gato-template:components/textimage
+#twitter:
+#  id: gato-component-twitter:components/twitter
