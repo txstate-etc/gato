@@ -1,0 +1,8 @@
+templateScript: /gato-component-rss/templates/components/masonryRss.ftl
+renderType: freemarker
+title: RSS Feed
+description: Display the contents of an RSS feed on your site.
+dialog: gato-template:components/masonry/masonry-rss
+modelClass: edu.txstate.its.gato.RssModel
+parameters:
+  icon: /gato-component-rss/images/rssfeed.png

@@ -1,5 +1,8 @@
 form:
   tabs:
+    - name: cardSize
+      label: Card Size
+      fields: !include /gato-template/dialogs/common/masonry-card-size.yaml
     - name: tabRss
       label: RSS Feed
       fields: !include /gato-component-rss/dialogs/common/common-content.yaml

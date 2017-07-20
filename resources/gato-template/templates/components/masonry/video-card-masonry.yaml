@@ -1,6 +1,6 @@
 templateScript: /gato-component-streaming/templates/components/masonryStreaming.ftl
 renderType: freemarker
-dialog: gato-template:components/videocard-masonry
+dialog: gato-template:components/masonry/videocard-masonry
 description: video with a caption
 title: Video Card
 parameters:
