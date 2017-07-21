@@ -38,3 +38,7 @@ textimage:
   id: gato-template:components/textimage
 twitter:
   id: gato-component-twitter:components/twitter
+progress:
+  id: gato-template:components/progress
+card:
+  id: gato-template:components/card
