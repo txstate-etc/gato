@@ -1,0 +1,71 @@
+$gato-card-shadow: 0px 5px 15px rgba(black,.5);
+
+.gato-card-rss{
+  &-container{
+      background: #DDD;
+      padding: 1rem;
+      box-shadow: $gato-card-shadow;
+    .gato-rss-feedinformation{
+      a,.gato-rss-title{display: none;}
+      font-size: 0;//hides extra text that may show up from rss feeds not enclosed in a tag other than .gato-rss-feedimage
+      .gato-rss-feedimage{
+
+        width: 100%;
+        display: initial;
+        display: inline-block;
+        vertical-align: top;
+        background-color: #ddd;
+        padding-right: 3.3rem;
+        position: relative;
+        z-index: 2;
+        img{
+          background: #DDD;
+        }
+        &::after{
+          content: '';
+          position: absolute;
+          z-index: -1;
+          height: .5rem;
+          right: 0;
+          left: 0;
+          bottom: .6rem;
+          background-color: #b4282e;
+          transform: translateY(-1.5rem);
+        }
+      }
+    }
+    .gato-accordion{
+      &-expand-collapse{
+        display: none;
+      }
+      &-header{
+        line-height: 2.2rem;
+        padding: 0rem 1rem 1rem 2rem;
+        background:#DDD !important;
+        box-shadow: none !important;
+        border: none;
+        display: block;
+        margin-bottom: .4rem;
+        -webkit-transition: all .3s;
+        transition: all .3s;
+        a{
+          line-height: 2rem;
+          font-weight: 400;
+          font-size: 1.4rem;
+          color: #444;
+
+          &::after {
+            content:'Read More';
+            font-size:1.1rem;
+            display: block;
+            font-weight: 700;
+            color: #1e355e;
+          }
+      }
+      }
+      &-content{
+        display: none !important;
+      }
+  }
+  }
+}

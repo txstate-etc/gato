@@ -4,25 +4,22 @@ $gato-card-shadow: 0px 5px 15px rgba(black,.5);
   .gato-card {
     padding: 1rem;
     margin-bottom: 1rem;
-
+    &:hover{
+       cursor: pointer;
+       z-index: 1000;
+       transition: .5s;
+       transform: perspective(5000px) translateZ(150px);
+    }
     figure {
       width: 100%;
       height: 100%;
       display: block;
       box-shadow: $gato-card-shadow;
-      &:hover{
-         cursor: pointer;
-         z-index: 1000;
-         transition: .5s;
-         transform: perspective(5000px) translateZ(150px);
-      }
       img {
         width: 100%;
         height: 350px;
         object-fit: cover;
       }
     }
-    //&[data-eq~="400px"] figure figcaption { position: relative; }
-    //causing fig caption to transition down instead of up from the card
   }
 }
