@@ -122,7 +122,8 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       .addTask(new RemoveNodeTask("Remove Gato Apps tool, JCR Browser covers it fine", "/modules/ui-admincentral/config/appLauncherLayout/groups/tools/apps/gatoappsJcrBrowser"))
       .addTask(new RemoveNodeTask("Remove Gato Apps tool config", "/modules/gato-lib/apps/gatoappsJcrBrowser"))
       .addTask(new RemoveNodeTask("Remove defunct adminInterface config", "/modules/adminInterface"))
-      .addTask(new UpgradeTsusLogoTask())
+      .addTask(new UpgradeTsusLogoTask("tsuslogos","importedLogo","institutionallogos","gato-template:components/imagelink"))
+      .addTask(new UpgradeTsusLogoTask("socialmedia","importedsocial","sociallinkitem","gato-template:components/sociallink"))
     );
   }
 
