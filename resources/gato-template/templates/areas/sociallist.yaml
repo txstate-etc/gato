@@ -3,5 +3,5 @@ renderType: freemarker
 createAreaNode: false
 #templateScript: /gato-template/templates/areas/listitems.ftl
 availableComponents:
-  sociallinkitem:
+  sociallink:
     id: gato-template:components/sociallink
