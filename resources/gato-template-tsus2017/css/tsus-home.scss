@@ -5,17 +5,12 @@
 
 .gato-flex-container {
 	display: flex;
-	justify-content: space-around;
+	justify-content: center;
+	overflow: hidden;
 	li{list-style: none;}
   @for $i from 1 through 12 {
     &.flex-columns-#{$i} li {
       width: (100% / $i);
-      &.flex-remainder-left {
-        margin-left: (50% / $i);
-      }
-      &.flex-remainder-right {
-        margin-right: (50% / $i);
-      }
     }
   }
 }

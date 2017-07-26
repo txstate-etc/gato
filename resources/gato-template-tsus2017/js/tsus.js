@@ -35,15 +35,6 @@ jQuery(document).ready(function($) {
       container.removeClass(function (idx, classname) {
         return (classname.match (/flex-columns-\S+/g) || []).join(' ');
       }).addClass('flex-columns-'+currentbest);
-
-      logos.removeClass(function (idx, classname) {
-        return (classname.match (/flex-remainder-\S+/g) || []).join(' ');
-      });
-      var currentremainder = logocount % currentbest;
-      if (currentremainder > 0) {
-        logos.eq(-currentremainder).addClass('flex-remainder-left');
-        logos.eq(-1).addClass('flex-remainder-right');
-      }
     }
 
     resizeTimeout(evaluate_tsus_logos);
