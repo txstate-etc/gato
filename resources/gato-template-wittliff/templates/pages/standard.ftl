@@ -9,23 +9,26 @@
   </head>
   <body>
     [#include "includes/header.ftl"]
-    <div class="page_content">
-      <div class="content-alignment" data-sidebar-width-percentage="22"></div>
-      [#assign hideSidebar = content.hideSidebar!false]
-      <main class="tsus-contentcolumn txst-styledcontent">
-        [#if def.parameters.isMailTemplate!false]
-          [@cms.area name="mail" /]
-        [#else]
-          [@cms.area name="contentParagraph" contextAttributes={"hideSidebar":hideSidebar} /]
-        [/#if]
-      </main>
-
-      [#if hideSidebar == false]
-        <aside class="sidebar">
-          [@cms.area name="navBlocks" /]
-        </aside>
+    [#if !isHomePage && !(content.hideTitle!false)]
+      <h1 class="headline">${gf.nodeTitle(content)}</h1>
+    [#else]
+      <h1 class="visuallyhidden">${gf.nodeTitle(content)}</h1>
+    [/#if]
+    <div class="content-alignment" data-sidebar-width-percentage="22"></div>
+    [#assign hideSidebar = content.hideSidebar!false]
+    <main class="contentcolumn">
+      [#if def.parameters.isMailTemplate!false]
+        [@cms.area name="mail" /]
+      [#else]
+        [@cms.area name="contentParagraph" contextAttributes={"hideSidebar":hideSidebar} /]
       [/#if]
-    </div>
+    </main>
+
+    [#if !hideSidebar]
+      <aside class="sidebar">
+        [@cms.area name="navBlocks" /]
+      </aside>
+    [/#if]
     [#include "includes/footer.ftl"]
     [@cssjsmodals /]
   </body>

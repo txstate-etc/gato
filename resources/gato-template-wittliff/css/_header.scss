@@ -1,1 +1,66 @@
+$header-height: 8rem;
 
+.page-header {
+  background-color: $wittliffgreen;
+  display: flex;
+  flex-wrap: no-wrap;
+  justify-content: flex-end;
+  align-items: center;
+  height: $header-height;
+  color: $white;
+
+  button {
+    background: transparent;
+    border: 0;
+  }
+
+  .homelink {
+    margin-right: auto;
+    display: block;
+    padding: 0rem 3rem;
+    img {
+      height: 6rem;
+    }
+  }
+  .texas-state {
+    display: block;
+    padding-right: 4rem;
+    img {
+      height: 4rem;
+    }
+  }
+
+  .social-media {
+    button {
+      span {
+        font-family: HelveticaNeue;
+        font-size: 2rem;
+        letter-spacing: .05rem;
+        padding-right: 0.5rem;
+      }
+    }
+    margin-right: 2rem;
+  }
+
+  .start-search {
+    font-size: 2rem;
+    margin-right: 2rem;
+  }
+
+  .main-menu {
+    position: relative;
+    padding-right: 4rem;
+    > button {
+      font-size: 2rem;
+      text-transform: uppercase;
+      span {
+        padding-right: 0.6rem;
+      }
+    }
+    .main-menu-panel {
+      position: absolute;
+      top: $header-height;
+      right: 0;
+    }
+  }
+}
