@@ -123,6 +123,7 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       .addTask(new RemoveNodeTask("Remove Gato Apps tool config", "/modules/gato-lib/apps/gatoappsJcrBrowser"))
       .addTask(new RemoveNodeTask("Remove defunct adminInterface config", "/modules/adminInterface"))
       .addTask(new UpgradeTsusLogoTask())
+      .addTask(new UpgradeSocialmediaTask())
     );
   }
 
