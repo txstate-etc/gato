@@ -3,7 +3,7 @@ form:
     - name: tabMain
       label: Social Link
       fields:
-        - name: socialmedia
+        - name: sociallinks
           class: info.magnolia.ui.form.field.definition.MultiValueFieldDefinition
           transformerClass: info.magnolia.ui.form.field.transformer.multi.MultiValueSubChildrenNodePropertiesTransformer
           label: Social Media

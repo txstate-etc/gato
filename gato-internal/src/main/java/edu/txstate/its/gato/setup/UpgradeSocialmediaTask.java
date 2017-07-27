@@ -45,7 +45,7 @@ public class UpgradeSocialmediaTask extends GatoBaseUpgradeTask {
 
           Node socialComponent = NodeUtil.createPath(socialmediaArea, "importSocialLink", NodeTypes.Component.NAME);
           socialComponent.setProperty("mgnl:template", "gato-template:components/sociallink");
-          Node newSocialNode = NodeUtil.createPath(socialComponent, "sociallink", NodeTypes.ContentNode.NAME);
+          Node newSocialNode = NodeUtil.createPath(socialComponent, "sociallinks", NodeTypes.ContentNode.NAME);
 
           NodeIterator nodeiter = socialmediaArea.getNodes();
           while (nodeiter.hasNext()) {

@@ -1,6 +1,6 @@
-[#if gf.hasChildren(content.socialmedia)]
+[#if gf.hasChildren(content.sociallinks)]
   <ul class="social-media-icons">
-    [#list cmsfn.children(content.socialmedia) as socialink]
+    [#list cmsfn.children(content.sociallinks) as socialink]
 
         [#if socialink.link?has_content]
           [#if socialink.link?contains("facebook")]
