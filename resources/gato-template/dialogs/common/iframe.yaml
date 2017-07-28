@@ -1,0 +1,12 @@
+        - name: title
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Title
+          rows: 3
+        - name: url
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: URL
+          description: What is the address of the web page you’d like to embed?
+        - name: height
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Height
+          description: 'Optional: The Porthole will default to the height of an average webpage (800px), and will display scrollbars if needed. If you’d like to make it bigger or smaller, you can enter the height you’d like in pixels here (e.g. "1000", "250", etc).'
