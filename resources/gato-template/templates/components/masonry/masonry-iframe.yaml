@@ -1,7 +1,8 @@
-templateScript: /gato-template/templates/components/masonry/masonry-iframe.ftl
+templateScript: /gato-template/templates/components/masonry/mastertemplate.ftl
 renderType: freemarker
 dialog: gato-template:components/masonry/masonry-iframe
 description: A paragraph that lets you embed the content of another webpage within yours.
 title: Embed Webpage
 parameters:
   icon: /gato-template/images/app_porthole.png
+  templateName: iframe
