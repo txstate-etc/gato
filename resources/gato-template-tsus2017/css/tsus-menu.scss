@@ -1,91 +1,80 @@
 .main-menu{
-    display: none;
-    background-color: $tsus-darkblue;
-    position: absolute;
-    z-index: 100;
-    top: 100%;
-    left: 0;
-    right: 0;
+  display: none;
+  background-color: $tsus-darkblue;
+  position: absolute;
+  z-index: 65536;
+  top: 100%;
+  left: 0;
+  right: 0;
 
-    .ddmenu-menubar{
-        flex-direction: column;
-        justify-content: center;
-        max-width: 800px;
-        margin: 0 auto;
-        align-items: center;
-
-        div.ddmenu-menubaritem{
-            font-weight: 700;
-            font-size: 1.8rem;
-            line-height: 2.7rem;
-            text-transform: uppercase;
-            margin-bottom: 1.6rem;
-            @media (max-width: $sm-breakpoint){
-                margin-bottom: 0.2rem;
-            }
-            letter-spacing: 0.08rem;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            //underline hover effect
-            >a:after, >a:active{
-                content: '';
-                display: block;
-                margin: auto;
-                background: transparent;
-                -webkit-transition: all .3s;
-                -ms-transition: all .3s;
-                -o-transition: all .3s;
-                transition: all .3s;
-                @media (max-width: $sm-breakpoint){
-                  height: 3px;
-                }
-            }
-            >a:after {
-                height: 2px;
-                width: 0;
-                margin-top: 0.5rem;
-            }
-            &:hover, &:active{
-                >a:after{
-                    width: 100%;
-                    background: $tsus-mediumbluegray;
-                }
-            }
-        }
-        a.ddmenu-menubaritem{
-            color: $white;
-            text-decoration: none;
-            padding: 0 1.2rem 0.5rem;
-            @media (max-width: $sm-breakpoint){
-                padding: 0 1rem 0.4rem;
-            }
-        }
-        .ddmenu-menu{
-            display: none !important;
-            // text-align: center;
-            // position: initial;
-            // padding: 0.8rem 0 0;
-            // li{
-            //     text-transform: none;
-            //     font-weight: 400;
-            //     line-height: 22px;
-            //     margin: 0;
-            //     @media (max-width: $sm-breakpoint){
-            //         line-height: 20px;
-            //     }
-            //     a{
-            //         color: $white;
-            //         text-decoration: none;
-            //         padding: 0 1.2rem 0.5rem;
-            //         @media (max-width: $sm-breakpoint){
-            //             padding: 0;
-            //         }
-            //     }
-            // }
-            // @media (max-width: $sm-breakpoint){
-            //   padding: 0.3rem 0 1.2rem;
-            // }
-        }
+  .simplemenu {
+    &, ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 auto;
     }
+    flex-direction: column;
+    justify-content: center;
+    max-width: 800px;
+    align-items: center;
+
+    > li {
+      > a {
+        display: block;
+        position: relative;
+        font-weight: 700;
+        font-size: 1.8rem;
+        line-height: 2.7rem;
+        text-transform: uppercase;
+        margin-bottom: 0.6rem;
+      }
+
+      > a:before {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        content: '';
+        display: block;
+        margin: 0.5rem auto 0 auto;
+        width: 0;
+        height: 2px;
+        background: transparent;
+        transform: scale(1);
+        -webkit-transition: all .3s;
+        -ms-transition: all .3s;
+        -o-transition: all .3s;
+        transition: all .3s;
+        @media (max-width: $sm-breakpoint){
+          height: 3px;
+        }
+      }
+      > a:hover, > a:active {
+        &:before {
+          width: 100%;
+          background: $tsus-mediumbluegray;
+        }
+      }
+    }
+
+    li {
+      margin-bottom: 0.6rem;
+      @media (max-width: $sm-breakpoint){
+        margin-bottom: 0.4rem;
+      }
+      letter-spacing: 0.08rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    a {
+      color: $white;
+      text-decoration: none;
+      padding: 0 1.2rem 0.5rem;
+      @media (max-width: $sm-breakpoint){
+        padding: 0 1rem 0.4rem;
+      }
+    }
+  }
 }

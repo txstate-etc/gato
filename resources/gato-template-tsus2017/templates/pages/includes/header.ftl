@@ -7,7 +7,7 @@
         </div>
     </div>
     <div class="main-menu">
-    [@mainmenu textmenu=true /]
+    [@simplemenu /]
     </div>
     <div class="search-wrapper">
         [#import "/gato-template/templates/includes/search-modal.ftl" as search]
