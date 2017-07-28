@@ -1,0 +1,10 @@
+        - name: script
+          label: ""
+          class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
+          initFunction: setCKEditorVars
+          scripts: [gato-template/js/ckeditorVars.js]
+        - name: content
+          class: info.magnolia.ui.form.field.definition.RichTextFieldDefinition
+          label: Title
+          configJsFile: /.resources/gato-template/js/richeditor/config.js
+          height: 500

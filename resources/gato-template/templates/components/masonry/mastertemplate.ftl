@@ -8,6 +8,8 @@
               [#include "*/components/iframe.ftl"]
             [#elseif useTemplate=="rss"]
                 [#include "*/gato-component-rss/templates/components/rss.ftl"]
+            [#elseif useTemplate=="richeditor"]
+                [#include "*/components/richeditor.ftl"]
             [#else]
                 <p>Error while rendering a template or did not find the requested template</p>
             [/#if]

@@ -11,17 +11,7 @@ form:
   tabs:
     - name: tabGeneral
       label: Rich Editor
-      fields:
-        - name: script
-          label: ""
-          class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
-          initFunction: setCKEditorVars
-          scripts: [gato-template/js/ckeditorVars.js]
-        - name: content
-          class: info.magnolia.ui.form.field.definition.RichTextFieldDefinition
-          label: Title
-          configJsFile: /.resources/gato-template/js/richeditor/config.js
-          height: 500
+      fields: !include /gato-template/dialogs/common/richeditor.yaml
 actions: !include /gato-template/dialogs/common/actions-block.yaml
 label: Rich Editor
 description: Enter the text you wish to display.  Use the various editing tools to format text how you'd like.
