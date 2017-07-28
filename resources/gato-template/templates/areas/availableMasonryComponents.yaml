@@ -1,5 +1,3 @@
-#events:
-#  id: gato-component-events:components/events
 iframe:
   id: gato-template:components/masonry/masonry-iframe
 icontext:
@@ -10,6 +8,8 @@ richeditor:
   id: gato-template:components/masonry/masonry-richeditor
 rss:
   id: gato-template:components/masonry/masonry-rss
+textimage:
+  id: gato-template:components/masonry/masonry-textimage
 streaming:
   id: gato-template:components/masonry/video-card-masonry
 #html:
@@ -19,7 +19,6 @@ streaming:
 #  id: gato-component-feature:components/feature
 #table:
 #  id: gato-template:components/table
-#textimage:
-#  id: gato-template:components/textimage
+
 #twitter:
 #  id: gato-component-twitter:components/twitter
