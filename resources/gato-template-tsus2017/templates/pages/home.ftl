@@ -6,6 +6,7 @@
                               'gato-lib/js/masonry.min.js',
                               'gato-template-tsus2017/js/tsus.js',
                               'gato-template/js/dropdownsearch.js',
+                              'gato-template/js/masonry-video.js',
                               'gato-template/js/search-gsa.js']/]
         <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-tsus2017/css/tsus-home.compiled.css"/>
         [@templatehead publisher="Texas State University System"/]

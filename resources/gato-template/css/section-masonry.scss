@@ -17,6 +17,7 @@
     .gato-card-sm { width: 50%; }
     .gato-card-md { width: 50%; }
     .gato-card-lg { width: 100%; }
+    figcaption{position: absolute;}
   }
   [data-eq~="600px"] & {
     .gato-card-sm { width: 50%; }

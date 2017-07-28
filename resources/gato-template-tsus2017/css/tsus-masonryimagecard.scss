@@ -1,13 +1,13 @@
-$gato-card-shadow: 0px 5px 15px rgba(black,.5);
-
+$gato-card-shadow: 0px 5px 15px rgba(black,.3);
+$quick:.5s;
 .masonry-section {
   .gato-card {
     padding: 1rem;
     margin-bottom: 1rem;
-    &:hover{
+    &:not(.gato-card-streaming):hover{
+    //Hover behavior on the gato-card-streaming causes a weird behavior for the modal. So I took it away
        cursor: pointer;
-       z-index: 1000;
-       transition: .5s;
+       transition: $quick;
        transform: perspective(5000px) translateZ(150px);
     }
     figure {
