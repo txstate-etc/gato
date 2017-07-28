@@ -12,14 +12,14 @@
           <figure class="img-box ${content.color!'color1'}">
             <!--where the thumbnail image will go-->
               [#if content.thumbnail?has_content]
-                <img class='userThumbnail' src="${gf.getImgDefault(content.thumbnail, sizes)}" sizes="${sizes}"
+                <img class='userThumbnail' src="${gf.getImgDefault(content.thumbnail)}"
                   alt="thumbnail for video" srcset="${gf.getSrcSet(content.thumbnail)}" />
               [/#if]
 
                 <figcaption>
-              [#if content.title?has_content]
-                <h3>${content.title}</h3>
-              [/#if]
+                  [#if content.title?has_content]
+                    <h3>${content.title}</h3>
+                  [/#if]
                 </figcaption>
           </figure>
         </div>

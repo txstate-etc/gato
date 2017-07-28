@@ -1,5 +1,6 @@
 $gato-card-shadow: 0px 5px 15px rgba(black,.3);
 $quick:.5s;
+$darker:.95;
 .masonry-section {
   .gato-card {
     padding: 1rem;
@@ -9,6 +10,30 @@ $quick:.5s;
        cursor: pointer;
        transition: $quick;
        transform: perspective(5000px) translateZ(150px);
+       figcaption{
+         transition: $quick;
+         &.color1{
+             background: rgba($mc1-bg, $darker);
+         }
+         &.color2{
+             background: rgba($mc2-bg, $darker);
+         }
+         &.color3{
+             background: rgba($mc3-bg, $darker);
+         }
+         &.color4{
+             background: rgba($mc4-bg, $darker);
+         }
+         &.color5{
+             background: rgba($mc5-bg, $darker);
+         }
+         &.color6{
+             background: rgba($mc6-bg, $darker);
+         }
+         &.color7{
+             background: rgba($mc7-bg, $darker);
+         }
+       }
     }
     figure {
       width: 100%;
