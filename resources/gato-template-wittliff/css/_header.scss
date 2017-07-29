@@ -98,6 +98,7 @@ body {
       }
     }
     .social-media-panel {
+      display: none;
       position: absolute;
       top: (4rem + $header-height) / 2;
       right: 0;
@@ -110,6 +111,9 @@ body {
       @media (max-width: $sm-breakpoint) {
         display: none !important;
       }
+    }
+    &.shown {
+      .social-media-panel { display: block; }
     }
   }
 
