@@ -2,9 +2,7 @@
 <!DOCTYPE HTML>
 <html lang="en">
     <head>
-        [@templatejs scripts=['gato-lib/js/jquery-ui/jquery-ui.min.js',
-                              'gato-lib/js/masonry.min.js',
-                              'gato-template-tsus2017/js/tsus.js',
+        [@templatejs scripts=['gato-template-tsus2017/js/tsus.js',
                               'gato-template/js/dropdownsearch.js',
                               'gato-template/js/masonry-video.js',
                               'gato-template/js/search-gsa.js']/]

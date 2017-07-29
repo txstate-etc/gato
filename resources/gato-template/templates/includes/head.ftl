@@ -5,57 +5,59 @@
 [#include "/gato-template/templates/includes/analytics.ftl"]
 
 [#macro templatejs scripts]
-	[@javascriptvariables]
-		var peoplesearch_token_url = '${gf.peopleSearchTokenPath()}';
-		var peoplesearch_jwt_url = '${gf.peopleSearchJwtPath()}';
-		var search_global_url = '${gf.filterUrl('/search')}';
-	[/@javascriptvariables]
-	[@javascript scripts = [
-		'gato-template/js/main-menus.js',
-		'gato-template/js/outgoing-clicks.js',
-		'gato-template/js/accordion.js',
-		'gato-template/js/easter-egg.js',
-		'gato-template/js/edit-bars.js',
+  [@javascriptvariables]
+    var peoplesearch_token_url = '${gf.peopleSearchTokenPath()}';
+    var peoplesearch_jwt_url = '${gf.peopleSearchJwtPath()}';
+    var search_global_url = '${gf.filterUrl('/search')}';
+  [/@javascriptvariables]
+  [@javascript scripts = [
+    'gato-template/js/main-menus.js',
+    'gato-template/js/outgoing-clicks.js',
+    'gato-template/js/accordion.js',
+    'gato-template/js/easter-egg.js',
+    'gato-template/js/edit-bars.js',
         'gato-template/js/section-background.js',
-		'gato-lib/js/moment.js',
-		'gato-lib/js/jsonp.js',
-		'gato-lib/js/pickadate/picker.js',
-		'gato-lib/js/pickadate/picker.date.js',
-		'gato-lib/js/photoswipe/photoswipe.js',
-		'gato-lib/js/photoswipe/photoswipe-ui-default.js',
-		'gato-lib/js/photoswipe-util.js',
-		'gato-lib/js/spin.min.js',
-		'gato-lib/js/slick/slick.min.js',
+    'gato-lib/js/moment.js',
+    'gato-lib/js/jsonp.js',
+    'gato-lib/js/pickadate/picker.js',
+    'gato-lib/js/pickadate/picker.date.js',
+    'gato-lib/js/photoswipe/photoswipe.js',
+    'gato-lib/js/photoswipe/photoswipe-ui-default.js',
+    'gato-lib/js/photoswipe-util.js',
+    'gato-lib/js/spin.min.js',
+    'gato-lib/js/slick/slick.min.js',
     'gato-lib/js/fullcalendar/fullcalendar.min.js',
     'gato-component-hours/js/hours.js',
-		'gato-component-gallery/js/gallery.js',
-		'gato-component-feature/js/feature.js',
-		'gato-component-faq/js/expand.js',
-		'gato-template/js/standardista-table-sorting.js',
-		'gato-area-mail/js/mailForm.js',
-		'gato-component-streaming/js/streaming.js',
-		'gato-template/js/sitesearch.js',
-        'gato-template/js/progress.js'
-	]+scripts /]
+    'gato-component-gallery/js/gallery.js',
+    'gato-component-feature/js/feature.js',
+    'gato-component-faq/js/expand.js',
+    'gato-template/js/standardista-table-sorting.js',
+    'gato-area-mail/js/mailForm.js',
+    'gato-component-streaming/js/streaming.js',
+    'gato-template/js/sitesearch.js',
+    'gato-lib/js/jquery-ui/jquery-ui.min.js',
+    'gato-lib/js/masonry.min.js',
+    'gato-template/js/progress.js'
+  ]+scripts /]
 [/#macro]
 
 [#macro templatehead publisher="Texas State University"]
-	[@meta publisher /]
-	[@customCSS page ancestorstopdown /]
-	<script type="text/javascript" src="${gf.replaceExtension(cmsfn.link(page), 'js')}"></script>
-	[@rssautodiscover /]
-	[@title publisher /]
-	[@googleanalytics /]
-	[@favicons /]
-	[@cms.page /]
+  [@meta publisher /]
+  [@customCSS page ancestorstopdown /]
+  <script type="text/javascript" src="${gf.replaceExtension(cmsfn.link(page), 'js')}"></script>
+  [@rssautodiscover /]
+  [@title publisher /]
+  [@googleanalytics /]
+  [@favicons /]
+  [@cms.page /]
 [/#macro]
 
 [#macro title rootorg="Texas State University"]
-	<title>
-		[@pagetitle page /]
-		[#if !isHomePage]: [@pagetitle homepage /][/#if]
-		[#if rootorg == "Texas State University"]: ${rootorg}[/#if]
-	</title>
+  <title>
+    [@pagetitle page /]
+    [#if !isHomePage]: [@pagetitle homepage /][/#if]
+    [#if rootorg == "Texas State University"]: ${rootorg}[/#if]
+  </title>
 [/#macro]
 
 [#macro favicons]
@@ -68,29 +70,29 @@
 [/#macro]
 
 [#macro meta publisher="Texas State University"]
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	[#if page.metaNoIndex?has_content]
-		<meta name="ROBOTS" content="NOINDEX">
-	[/#if]
-	[#if page.metaDescription?has_content]
-		<meta name="description" content="${page.metaDescription}">
-		<meta name="DC.description" content="${page.metaDescription}">
-	[/#if]
-	[#if page.metaKeywords?has_content]
-		<meta name="keywords" content="${page.metaKeywords}">
-		<meta name="DC.subject" content="${page.metaKeywords}">
-	[/#if]
-	<meta name="DC.publisher" content="${publisher}">
-	<meta name="DC.creator" content="${page}">
-	<meta name="DC.date" content="${cmsfn.metaData(page, 'mgnl:lastModified')}">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  [#if page.metaNoIndex?has_content]
+    <meta name="ROBOTS" content="NOINDEX">
+  [/#if]
+  [#if page.metaDescription?has_content]
+    <meta name="description" content="${page.metaDescription}">
+    <meta name="DC.description" content="${page.metaDescription}">
+  [/#if]
+  [#if page.metaKeywords?has_content]
+    <meta name="keywords" content="${page.metaKeywords}">
+    <meta name="DC.subject" content="${page.metaKeywords}">
+  [/#if]
+  <meta name="DC.publisher" content="${publisher}">
+  <meta name="DC.creator" content="${page}">
+  <meta name="DC.date" content="${cmsfn.metaData(page, 'mgnl:lastModified')}">
     [#local currency = gf.getStaleTimer(content)]
     [#local contentIsStale = gf.isStale(content,currency)]
-	[#if contentIsStale]
-	<meta name="contentIsStale" content="${contentIsStale?c}">
-	[/#if]
-	<meta name="staleTimer" content="${currency}">
+  [#if contentIsStale]
+  <meta name="contentIsStale" content="${contentIsStale?c}">
+  [/#if]
+  <meta name="staleTimer" content="${currency}">
 [/#macro]
 
 [#macro rssautodiscover]
@@ -101,57 +103,57 @@
 [/#macro]
 
 [#macro sidebarmodal skipsocial=false]
-	[#if cmsfn.isEditMode()]
-		<div id="gato-navcolumn" class="gato-navcolumn">
-  			[@cms.area name="navBlocks"/]
-			<!-- social media links -->
-			[#if !skipsocial]
-				[@cms.area name="socialmedia" /]
-			[/#if]
-  		</div>
-		<script type="text/javascript">
-		  	var navmodal = new modal($('gato-navcolumn'));
-		    navmodal.addToMainbar('Sidenav');
-		</script>
-	[/#if]
+  [#if cmsfn.isEditMode()]
+    <div id="gato-navcolumn" class="gato-navcolumn">
+        [@cms.area name="navBlocks"/]
+      <!-- social media links -->
+      [#if !skipsocial]
+        [@cms.area name="socialmedia" /]
+      [/#if]
+      </div>
+    <script type="text/javascript">
+        var navmodal = new modal($('gato-navcolumn'));
+        navmodal.addToMainbar('Sidenav');
+    </script>
+  [/#if]
 [/#macro]
 
 [#macro bannermodal]
-	[#if cmsfn.isEditMode()]
-		<div id="gato-banner-modal">
-			[@cms.area name="gato-banners"/]
-		</div>
-		<script type="text/javascript">
-			var bannmodal = new modal($('gato-banner-modal'));
-			bannmodal.addToMainbar('Banners');
-		</script>
-	[/#if]
+  [#if cmsfn.isEditMode()]
+    <div id="gato-banner-modal">
+      [@cms.area name="gato-banners"/]
+    </div>
+    <script type="text/javascript">
+      var bannmodal = new modal($('gato-banner-modal'));
+      bannmodal.addToMainbar('Banners');
+    </script>
+  [/#if]
 [/#macro]
 
 [#macro pagetitle page]${gf.nodeTitle(page)}[/#macro]
 
 [#macro mainmenu textmenu=false]
-	<nav class="ddmenu-bg">
-		<div class="ddmenu-menubar">
-			[@navloop cmsfn.children(homepage, 'mgnl:page') ; page]
-				<div class="ddmenu-menubaritem ${gf.hasNavChildren(page)?string('haschildren', '')}">
-					<a href="${cmsfn.link(page)}" class="ddmenu-menubaritem">${gf.nodeTitle(page)}</a>
-					[#if gf.hasNavChildren(page)]
-						<ul class="ddmenu-menu">
-							[@navloop cmsfn.children(page, 'mgnl:page') ; subpage]
-								<li><a href="${cmsfn.link(subpage)}">${gf.nodeTitle(subpage)}</a></li>
-							[/@navloop]
-						</ul>
-					[/#if]
-				</div>
-			[/@navloop]
+  <nav class="ddmenu-bg">
+    <div class="ddmenu-menubar">
+      [@navloop cmsfn.children(homepage, 'mgnl:page') ; page]
+        <div class="ddmenu-menubaritem ${gf.hasNavChildren(page)?string('haschildren', '')}">
+          <a href="${cmsfn.link(page)}" class="ddmenu-menubaritem">${gf.nodeTitle(page)}</a>
+          [#if gf.hasNavChildren(page)]
+            <ul class="ddmenu-menu">
+              [@navloop cmsfn.children(page, 'mgnl:page') ; subpage]
+                <li><a href="${cmsfn.link(subpage)}">${gf.nodeTitle(subpage)}</a></li>
+              [/@navloop]
+            </ul>
+          [/#if]
+        </div>
+      [/@navloop]
       [#nested]
-		</div>
-	</nav>
+    </div>
+  </nav>
 [/#macro]
 
 [#macro simplemenu]
-	<ul class="simplemenu">
+  <ul class="simplemenu">
     [@navloop cmsfn.children(homepage, 'mgnl:page') ; page]
       <li class="${gf.hasNavChildren(page)?string('haschildren', '')}">
         <a href="${cmsfn.link(page)}">${gf.nodeTitle(page)}</a>
@@ -165,7 +167,7 @@
       </li>
     [/@navloop]
     [#nested]
-	</ul>
+  </ul>
 [/#macro]
 
 [#macro mobilemenu page]
@@ -181,25 +183,25 @@
 [/#macro]
 
 [#macro breadcrumbs hidetxstate=false]
-	<div class="breadcrumbs">
-		[#if !hidetxstate]
-			<a href="http://www.txstate.edu">Texas State</a>
-			<span class="separator"><i class="fa fa-angle-right"></i></span>
-		[/#if]
-		[#-- Put the parent organization in the breadcrumbs if there is one --]
-		[#if (homepage.parentOrganization)?? && cmsfn.children(homepage.parentOrganization)?size gt 0 ]
-			[#local parentOrg = cmsfn.children(homepage.parentOrganization)?first]
-			[#if parentOrg.parent_name?? && parentOrg.parent_name?length gt 0]
-				<a href="${gf.filterUrl(parentOrg.url!)}">${parentOrg.parent_name}</a>
-				<span class="separator"><i class="fa fa-angle-right"></i></span>
-			[/#if]
-		[/#if]
-		[#list ancestorstopdown as ancestor]
-			<a href="${cmsfn.link(ancestor)}">${gf.nodeTitle(ancestor)}</a>
-			<span class="separator"><i class="fa fa-angle-right"></i></span>
-		[/#list]
-		${gf.nodeTitle(page)}
-	</div>
+  <div class="breadcrumbs">
+    [#if !hidetxstate]
+      <a href="http://www.txstate.edu">Texas State</a>
+      <span class="separator"><i class="fa fa-angle-right"></i></span>
+    [/#if]
+    [#-- Put the parent organization in the breadcrumbs if there is one --]
+    [#if (homepage.parentOrganization)?? && cmsfn.children(homepage.parentOrganization)?size gt 0 ]
+      [#local parentOrg = cmsfn.children(homepage.parentOrganization)?first]
+      [#if parentOrg.parent_name?? && parentOrg.parent_name?length gt 0]
+        <a href="${gf.filterUrl(parentOrg.url!)}">${parentOrg.parent_name}</a>
+        <span class="separator"><i class="fa fa-angle-right"></i></span>
+      [/#if]
+    [/#if]
+    [#list ancestorstopdown as ancestor]
+      <a href="${cmsfn.link(ancestor)}">${gf.nodeTitle(ancestor)}</a>
+      <span class="separator"><i class="fa fa-angle-right"></i></span>
+    [/#list]
+    ${gf.nodeTitle(page)}
+  </div>
 [/#macro]
 
 [#macro search image='gato-template/images/x.gif' ]

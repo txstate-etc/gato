@@ -108,7 +108,7 @@ body {
         top: (4rem + $header-height-tablet) / 2;
       }
       @media (max-width: $sm-breakpoint) {
-        display: none;
+        display: none !important;
       }
     }
   }
@@ -137,6 +137,14 @@ body {
         }
       }
     }
+    &.shown {
+      >button i:before {
+        content: $fa-var-times;
+      }
+      .main-menu-panel {
+        display: block;
+      }
+    }
     .main-menu-panel {
       position: absolute;
       top: $header-height;
@@ -144,6 +152,7 @@ body {
       background-color: $wittliffgreen;
       width: 32rem;
       padding: 2rem;
+      display: none;
       @media (max-width: $md-breakpoint) {
         top: $header-height-tablet;
       }
