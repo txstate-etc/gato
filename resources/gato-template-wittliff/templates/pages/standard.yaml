@@ -15,6 +15,14 @@ areas:
     availableComponents:
       navigationBlock:
         id: gato-template:components/sidenav
+  socialmedia:
+    !include /gato-template/templates/areas/sociallist.yaml
+  newsletter:
+    type: single
+    templateScript: /gato-template-wittliff/templates/areas/newsletter.ftl
+    availableComponents:
+      link:
+        id: gato-template:components/link
   footer-findus:
     type: single
     availableComponents:
@@ -25,8 +33,6 @@ areas:
     availableComponents:
       footer-hours:
         id: gato-template-wittliff:components/footer-hours
-  socialmedia:
-    !include /gato-template/templates/areas/sociallist.yaml
   footerlinks1:
     !include /gato-template/templates/areas/linklist.yaml
 parameters:

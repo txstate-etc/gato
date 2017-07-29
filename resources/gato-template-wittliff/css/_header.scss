@@ -1,5 +1,15 @@
 $header-height: 8rem;
 
+html {
+  background-color: $light-gray;
+}
+
+body {
+  background-color: $white;
+  max-width: 140rem;
+  margin: 0 auto;
+}
+
 .page-header {
   background-color: $wittliffgreen;
   display: flex;
@@ -8,10 +18,16 @@ $header-height: 8rem;
   align-items: center;
   height: $header-height;
   color: $white;
+  position: relative;
+  z-index: 65536;
 
   button {
     background: transparent;
     border: 0;
+    padding: 0;
+    line-height: 4rem;
+    text-align: center;
+    min-width: 5rem;
   }
 
   .homelink {
@@ -31,6 +47,8 @@ $header-height: 8rem;
   }
 
   .social-media {
+    position: relative;
+    margin-right: 2rem;
     button {
       span {
         font-family: HelveticaNeue;
@@ -39,7 +57,13 @@ $header-height: 8rem;
         padding-right: 0.5rem;
       }
     }
-    margin-right: 2rem;
+    .social-media-panel {
+      position: absolute;
+      top: 4rem;
+      left: 0;
+      width: 20rem;
+      background-color: $wittliffgreen;
+    }
   }
 
   .start-search {
@@ -48,10 +72,10 @@ $header-height: 8rem;
   }
 
   .main-menu {
-    position: relative;
     padding-right: 4rem;
     > button {
       font-size: 2rem;
+      letter-spacing: 0.15rem;
       text-transform: uppercase;
       span {
         padding-right: 0.6rem;
@@ -61,6 +85,34 @@ $header-height: 8rem;
       position: absolute;
       top: $header-height;
       right: 0;
+      background-color: $wittliffgreen;
+      width: 30rem;
+    }
+  }
+  .newsletter {
+    &, i {
+      line-height: 3rem;
+    }
+    display: block;
+    text-decoration: none;
+    padding-left: 2rem;
+    border: 2px solid $white;
+    font-family: HelveticaNeue;
+    font-size: 1.8rem;
+    letter-spacing: 0.05rem;
+    color: $white;
+    max-width: 15rem;
+    margin: 0 auto;
+    i {
+      display: block;
+      float: right;
+      font-size: 1.5rem;
+      border-left: 2px solid $white;
+      width: 3rem;
+      text-align: center;
+    }
+    &:hover, &:active {
+      background-color: $wittliffgreen-faded;
     }
   }
 }
