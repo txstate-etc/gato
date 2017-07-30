@@ -19,10 +19,9 @@ areas:
     !include /gato-template/templates/areas/sociallist.yaml
   newsletter:
     type: single
-    templateScript: /gato-template-wittliff/templates/areas/newsletter.ftl
     availableComponents:
       link:
-        id: gato-template:components/link
+        id: gato-template-wittliff:components/newsletter
   footer-findus:
     type: single
     availableComponents:
