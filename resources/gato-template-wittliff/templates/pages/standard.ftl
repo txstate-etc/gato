@@ -25,8 +25,10 @@
     </main>
 
     [#if !hideSidebar]
-      <aside class="sidebar">
-        [@cms.area name="navBlocks" /]
+      <aside class="sidebar-container">
+        <div class="sidebar">
+          [@cms.area name="navBlocks" /]
+        </div>
       </aside>
     [/#if]
     [#include "includes/footer.ftl"]

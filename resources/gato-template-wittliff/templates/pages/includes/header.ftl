@@ -4,8 +4,8 @@
   <div class="social-media">
     <button class="icon" aria-haspopup="true" aria-controls="social-media-panel" aria-expanded="false"><span>Stay Connected</span><i class="fa fa-caret-down" aria-hidden="true"></i></button>
     <div id="social-media-panel" class="social-media-panel">
-      [@cms.area name="socialmedia" content=gf.getOrCreateArea(homepage, 'socialmedia') editable=isHomePage /]
-      [@cms.area name="newsletter" content=gf.getOrCreateArea(homepage, 'newsletter') editable=isHomePage /]
+      [@cms.area name="socialmedia" content=gf.getOrCreateArea(homepage, 'socialmedia') editable=false /]
+      [@cms.area name="newsletter" content=gf.getOrCreateArea(homepage, 'newsletter') editable=false /]
     </div>
   </div>
   <button class="start-search icon"><span class="visuallyhidden">Search</span><i class="fa fa-search" aria-hidden="true"></i></button>
@@ -14,8 +14,8 @@
     <nav id="main-menu-panel" class="main-menu-panel" role="navigation">
       [@simplemenu /]
       <div class="menu-social-media">
-        [@cms.area name="socialmedia" content=gf.getOrCreateArea(homepage, 'socialmedia') editable=false/]
-        [@cms.area name="newsletter" content=gf.getOrCreateArea(homepage, 'newsletter') editable=false /]
+        [@cms.area name="socialmedia" content=gf.getOrCreateArea(homepage, 'socialmedia') editable=isHomePage/]
+        [@cms.area name="newsletter" content=gf.getOrCreateArea(homepage, 'newsletter') editable=isHomePage /]
       </div>
     </nav>
   </div>
