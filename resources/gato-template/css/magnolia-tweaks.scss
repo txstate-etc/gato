@@ -23,8 +23,18 @@ $move-target-bar: #00f2d6;
 }
 
 //make the bar for adding rows smaller so it isn't right up against the sidebar
-.mainContent_add {
-    width: 70% !important;
+.addsection{
+  max-width: 1200px;
+  @media (max-width: $xl-breakpoint) {
+    max-width: 1000px;
+  }
+  margin: 0 auto;
+  .mainContent_add {
+      width: 75%;
+      &.full-width {
+        width: 100%;
+      }
+  }
 }
 
 .plus-component{

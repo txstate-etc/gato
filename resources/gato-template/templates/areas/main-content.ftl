@@ -8,5 +8,9 @@
     </div>
 [/#list]
 [#if cmsfn.isEditMode()]
-  <div class="mainContent_add" cms:add="box"></div>
+  <div class="addsection-parent">
+    <div class="addsection ${mainContentClass}">
+        <div class="mainContent_add ${mainContentClass}" cms:add="box"></div>
+    </div>
+  </div>
 [/#if]

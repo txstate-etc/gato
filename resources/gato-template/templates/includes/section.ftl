@@ -7,6 +7,7 @@
   <div class="section-data" data-title="${title}" data-background="${showBackground?string('show', 'none')}"></div>
   [/#if]
   <div class="columns-container ${columnWidthClass} ${cssClass}">
+  <div cms:edit="bar"></div>
   <h3 class="section-title hidden"></h3>
   [#if cmsfn.isEditMode()]
     <div class="section-bar">
