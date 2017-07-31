@@ -1,5 +1,7 @@
+[#assign hideSidebar = ctx.getAttribute("hideSidebar")!false]
+[#assign formWidthClass = hideSidebar?string('full-width','')]
 [#assign addresses = (content.to![])?join(",")]
-<form class="txst-form gato-section eq-parent" name="samplesForm" action="${gf.getConfigProperty('gato.formemailer.server')}/formemailer/formemailer.pl" method="post" enctype="multipart/form-data"
+<form class="txst-form gato-section eq-parent ${formWidthClass}" name="samplesForm" action="${gf.getConfigProperty('gato.formemailer.server')}/formemailer/formemailer.pl" method="post" enctype="multipart/form-data"
   onsubmit="return (checkMandatories(this,'Please complete all of the required fields marked with an asterisk *.'));">
   <div class="txst-form-body">
     <div [#if cmsfn.isEditMode()]class="txst-khan-alert txst-khan-notice"[/#if]>

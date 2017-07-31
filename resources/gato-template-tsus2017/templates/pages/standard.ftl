@@ -21,7 +21,7 @@
           [#assign hideSidebar = content.hideSidebar!false]
           <main class="tsus-contentcolumn txst-styledcontent">
               [#if def.parameters.isMailTemplate!false]
-                  [@cms.area name="mail" /]
+                  [@cms.area name="mail" contextAttributes={"hideSidebar":hideSidebar} /]
               [#else]
                   [@cms.area name="contentParagraph" contextAttributes={"hideSidebar":hideSidebar} /]
               [/#if]

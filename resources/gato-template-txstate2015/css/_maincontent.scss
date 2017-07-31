@@ -86,3 +86,13 @@
   }
 }
 
+.txst-form-body {
+  width: 75%;
+}
+
+.txst-form.full-width {
+  .txst-form-body {
+    width: 100%;
+  }
+}
+

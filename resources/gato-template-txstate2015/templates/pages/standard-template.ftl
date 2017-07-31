@@ -66,7 +66,7 @@
                 <h1 id="maincontent" class="visuallyhidden">${gf.nodeTitle(content)}</h1>
             [/#if]
 			[#if def.parameters.isMailTemplate!false]
-				[@cms.area name="mail" /]
+				[@cms.area name="mail" contextAttributes={"hideSidebar":hideSidebar} /]
 			[#else]
 				[@cms.area name="contentParagraph" contextAttributes={"hideSidebar":hideSidebar} /]
 			[/#if]
