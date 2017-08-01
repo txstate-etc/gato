@@ -1,9 +1,9 @@
 form:
   tabs:
-    - name: cardSize
-      label: Card Size
-      fields: !include /gato-template/dialogs/common/masonry-card-size.yaml
     - name: tabTexts
       label: video Card
       fields: !include /gato-template/dialogs/common/masonry-video.yaml
+    - name: cardSize
+      label: Card Size
+      fields: !include /gato-template/dialogs/common/masonry-card-size.yaml
 actions: !include /gato-template/dialogs/common/actions-block.yaml

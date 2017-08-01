@@ -1,13 +1,12 @@
 form:
   tabs:
-    - name: tabtextimagesize
-      label: Size
-      fields: !include /gato-template/dialogs/common/masonry-card-size.yaml
     - name: tabTexts
       label: Text
       fields: !include /gato-template/dialogs/common/textimage-text.yaml
     - name: tabImage
       label: Image
       fields: !include /gato-template/dialogs/common/textimage-image.yaml
-
+    - name: tabtextimagesize
+      label: Size
+      fields: !include /gato-template/dialogs/common/masonry-card-size.yaml
 actions: !include /gato-template/dialogs/common/actions-block.yaml

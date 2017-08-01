@@ -1,9 +1,9 @@
 form:
   tabs:
-    - name: contextSize
-      label: Size
-      fields: !include /gato-template/dialogs/common/masonry-card-size.yaml
     - name: tabTexts
       label: Icon and Text
       fields: !include /gato-template/dialogs/common/icontext.yaml
+    - name: contextSize
+      label: Size
+      fields: !include /gato-template/dialogs/common/masonry-card-size.yaml
 actions: !include /gato-template/dialogs/common/actions-block.yaml
