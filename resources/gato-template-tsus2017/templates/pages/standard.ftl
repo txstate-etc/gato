@@ -29,9 +29,6 @@
 
             [#if hideSidebar == false]
             <aside class="sidebar">
-                <!-- search field should go here-->
-                [#include "includes/search.ftl"]
-
                 [@cms.area name="navBlocks" /]
             </aside>
             [/#if]
