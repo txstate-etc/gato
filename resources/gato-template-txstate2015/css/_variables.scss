@@ -98,7 +98,6 @@
  $quicklinks-text:                  $white;
 
  //fonts
-$font-path: $resource-root+"/gato-private/css/fonts/files";
 $univers: 'Univers W01', Helvetica, Calibri, Arial, sans-serif;
 $garamond: 'Adobe Garamond W01', Garamond, 'Goudy Old Style', 'Times New Roman', serif;
 
@@ -131,7 +130,7 @@ $search-form-input-line-color:     $gold;
 $search-form-input-font-family:    $univers;
 $search-form-input-placeholder-color: $gold;
 $search-form-icon-color:           $gold;
- 
+
 // Search Results (both global and site search)
 $search-result-title:              $dark-gold;
 $search-result-date:               $dark-gray;
@@ -146,7 +145,7 @@ $sitesearch-result-search-input:       $gold;
 $sitesearch-result-search-color:       $gold;
 $sitesearch-help-text-color:           $gold;
 $sitesearch-font-family:               $univers;
- 
+
 @import "gato-template-txstate2015/css/colors";
 
 //media query breakpoints
