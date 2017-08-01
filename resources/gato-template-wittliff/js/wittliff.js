@@ -13,6 +13,14 @@ jQuery(document).ready(function($) {
       menucontainer.removeClass('shown');
     }
   });
+  // close the menu with the escape key
+  $(document).keyup(function (e) {
+    if (e.keyCode === 27 && menucontainer.hasClass('shown')) {
+      e.preventDefault();
+      menucontainer.removeClass('shown');
+    }
+  });
+
 
   // Stay Connected Button
   var smcontainer = $('.social-media');
