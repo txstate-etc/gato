@@ -5,3 +5,4 @@ description: video with a caption
 title: Video Card
 parameters:
   icon: /gato-component-streaming/images/stream_media.png
+  cssClass: moveEditor

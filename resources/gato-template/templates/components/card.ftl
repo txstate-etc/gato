@@ -1,8 +1,9 @@
 [#assign decodedContent = cmsfn.decode(content)]
 [#assign width = gf.getImgWidth(content.image)?c+'px']
 [#assign sizes = gf.lesserwidth('100vw', width)]
+[#assign editorClass = def.parameters.cssClass!""]
 
-<div class="gato-card eq-parent ${content.sizeSelect! }">
+<div class="gato-card eq-parent ${content.sizeSelect!} ${cmsfn.editMode?string(editorClass, '')}">
     [#if content.link?has_content]
       <a href="${gf.filterUrl(content.link!)}">
     [/#if]

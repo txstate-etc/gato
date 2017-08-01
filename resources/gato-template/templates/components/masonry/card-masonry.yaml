@@ -5,3 +5,4 @@ description: An image with a caption
 title: Image Card
 parameters:
   icon: /gato-template/images/banner.png
+  cssClass: moveEditor

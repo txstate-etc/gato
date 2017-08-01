@@ -1,5 +1,7 @@
+[#assign editorClass = def.parameters.cssClass!""]
+
 [#if content.sizeSelect?has_content]
-      <div class="gato-card gato-card-streaming eq-parent ${content.sizeSelect! }">
+      <div class="gato-card gato-card-streaming eq-parent ${content.sizeSelect!} ${cmsfn.editMode?string(editorClass, '')}">
         [#if content.videourl?has_content]
         <div class="gato-card-streaming-wrap">
           <p class="feature-play-button">
