@@ -7,6 +7,10 @@
                               'gato-template/js/masonry-video.js',
                               'gato-template/js/search-gsa.js']/]
         <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-tsus2017/css/tsus-home.compiled.css"/>
+        <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+        <!--script above ^ needed for content being loaded in iframes like youtube.
+        download is here https://imagesloaded.desandro.com/
+      -->
         [@templatehead publisher="Texas State University System"/]
     </head>
     <body>

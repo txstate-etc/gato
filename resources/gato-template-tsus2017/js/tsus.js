@@ -41,11 +41,18 @@ jQuery(document).ready(function($) {
 });
 
 jQuery(window).on('load', function($) {
-  var $ = jQuery;
-  var $grid = $(".masonry-section").masonry({
+
+    var $ = jQuery;
+    var $grid = $(".masonry-section").masonry({
     itemSelector: ".gato-card",
     columnWidth: ".masonry-sizer",
     gutter: 0,
-    percentPosition: true
+    percentPosition: true,
   });
+
+  $grid.imagesLoaded(function() {
+    //waits till images are being loaded before triggering new layout.
+    $grid.masonry('layout');
+});
+
 });

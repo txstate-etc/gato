@@ -4,7 +4,6 @@ $quicker:.4s;
 @media(max-width: $sm-breakpoint){
    .gato-card-streaming-wrap {
     figure::before{
-      height: 21.4%;
       opacity: 1;
     }
   }
@@ -16,14 +15,13 @@ $quicker:.4s;
       position: absolute;
       bottom:0;
       left:0;
-      height: 100%;
+      height: 21.4%;
       width: 100%;
       background:inherit;
-      opacity: .6;
+      opacity: .8;
       z-index: 1;
     }
     figcaption{
-      color: white;
       z-index: 1;
     }
   }
@@ -35,15 +33,6 @@ $quicker:.4s;
     &:hover{
       transition: $quick;
       transform: perspective(5000px) translateZ(150px);
-      figure::before{
-        transition: $quicker;
-        height: 21.4%;
-        opacity: .95;
-      }
-      .feature-play-button{
-        transition: $quick;
-        transform: scale(1.1);
-      }
     }
 
     .img-box{
@@ -52,7 +41,8 @@ $quicker:.4s;
     .feature-play-button{
       position: absolute;
       width:90%;
-      height:95%;
+      top:50%;
+      left: 50%;
       margin:0;
       padding: 0,1rem;
       z-index: 2;//to position button infront of card image
@@ -63,12 +53,7 @@ $quicker:.4s;
         display:block;
         height: 100%;
         .fa-youtube-play{
-          margin-left: auto;
-          margin-right: auto;
-          position: absolute;
           transform: translate(-50%, -50%);
-          top: 50%;
-          left: 50%;
         }
        }
       }
