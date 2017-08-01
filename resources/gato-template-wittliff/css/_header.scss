@@ -88,7 +88,7 @@ body {
     > button.icon {
       white-space: nowrap;
       span {
-        font-family: HelveticaNeue;
+        font-family: $helveticaneue;
         font-size: 2rem;
         letter-spacing: .05rem;
         padding-right: 0.5rem;
@@ -155,13 +155,57 @@ body {
       right: 0;
       background-color: $wittliffgreen;
       width: 32rem;
-      padding: 2rem;
+      padding: 2rem 4rem 2rem 2rem;
       display: none;
       @media (max-width: $md-breakpoint) {
         top: $header-height-tablet;
       }
       @media (max-width: $sm-breakpoint) {
         top: $header-height-mobile;
+      }
+
+      .simplemenu {
+        &, ul {
+          list-style: none;
+          padding: 0;
+        }
+        a {
+          display: block;
+          color: $white;
+          text-decoration: none;
+          font-family: $helveticaneue;
+        }
+        > li {
+          position: relative;
+          > a {
+            letter-spacing: 0.2rem;
+            font-size: 2.6rem;
+            font-weight: bold;
+            line-height: 3rem;
+            padding: 1rem 0 .5rem 0;
+            border-bottom: 2px solid $wittliffgreen-light;
+            padding-right: 5rem;
+            @media (max-width: $md-breakpoint) {
+              padding-right: 4rem;
+            }
+          }
+          > button {
+            position: absolute;
+            top: 0;
+            right: 0;
+            line-height: 3rem;
+            padding: 1rem 0 .5rem 0;
+            font-size: 3rem;
+          }
+        }
+        .simplemenu-subitems {
+          a {
+            font-size: 2rem;
+            letter-spacing: 0.05rem;
+            line-height: 1.8rem;
+            padding: 1.6rem 0 1rem 0;
+          }
+        }
       }
     }
   }
@@ -173,7 +217,7 @@ body {
     text-decoration: none;
     padding-left: 2rem;
     border: 2px solid $white;
-    font-family: HelveticaNeue;
+    font-family: $helveticaneue;
     font-size: 1.8rem;
     letter-spacing: 0.05rem;
     color: $white;
@@ -188,7 +232,7 @@ body {
       text-align: center;
     }
     &:hover, &:active {
-      background-color: $wittliffgreen-faded;
+      background-color: $wittliffgreen-lighter;
     }
   }
 }

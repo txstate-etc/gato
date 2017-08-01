@@ -152,13 +152,20 @@
   </nav>
 [/#macro]
 
-[#macro simplemenu]
+[#macro simplemenu arrows=false]
   <ul class="simplemenu">
     [@navloop cmsfn.children(homepage, 'mgnl:page') ; page]
       <li class="${gf.hasNavChildren(page)?string('haschildren', '')}">
         <a href="${cmsfn.link(page)}">${gf.nodeTitle(page)}</a>
         [#if gf.hasNavChildren(page)]
-          <ul class="simplemenu-subitems">
+          [#assign submenuid = gf.uuidToHtmlId(page.@id)]
+          [#if arrows]
+            <button aria-haspopup="true" aria-expanded="false" aria-controls="menu-${submenuid}">
+              <span class="visuallyhidden">Expand Submenu</span>
+              <i class="fa fa-angle-right" aria-hidden="true"></i>
+            </button>
+          [/#if]
+          <ul class="simplemenu-subitems" id="menu-${submenuid}">
             [@navloop cmsfn.children(page, 'mgnl:page') ; subpage]
               <li><a href="${cmsfn.link(subpage)}">${gf.nodeTitle(subpage)}</a></li>
             [/@navloop]

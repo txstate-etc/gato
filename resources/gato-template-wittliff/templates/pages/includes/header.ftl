@@ -12,7 +12,7 @@
   <div class="main-menu">
     <button class="icon" aria-haspopup="true" aria-controls="main-menu-panel" aria-expanded="false"><span>Menu</span><i class="fa fa-bars" aria-hidden="true"></i></button>
     <nav id="main-menu-panel" class="main-menu-panel" role="navigation">
-      [@simplemenu /]
+      [@simplemenu arrows=true /]
       <div class="menu-social-media">
         [@cms.area name="socialmedia" content=gf.getOrCreateArea(homepage, 'socialmedia') editable=isHomePage/]
         [@cms.area name="newsletter" content=gf.getOrCreateArea(homepage, 'newsletter') editable=isHomePage /]
