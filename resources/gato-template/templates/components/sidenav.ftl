@@ -2,7 +2,7 @@
 [#include "/gato-template/templates/includes/commonmacros.ftl"]
 [#assign className = def.parameters.className!"side_nav_list"]
 
-<div class="side_nav ${(content.title?has_content || content.type == 'auto2')?string('nav-with-title','nav-without-title')}">
+<div class="side_nav ${(content.title?has_content || content.type! == 'auto2')?string('nav-with-title','nav-without-title')}">
   [#if cmsfn.isEditMode() && ctx.inheritedfrom?has_content]
     <div class="inheritedalert">
       Inherited from ${gf.nodeTitle(ctx.inheritedfrom)} <a href="${cmsfn.link(ctx.inheritedfrom)}" role="navigation">Jump To Original</a>
