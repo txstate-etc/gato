@@ -21,6 +21,14 @@ jQuery(document).ready(function($) {
     }
   });
 
+  // Main Menu expand/contract
+  $('.simplemenu-expand').click(function (e) {
+    var btn = $(this);
+    var toplevel = btn.closest('li');
+    toplevel.toggleClass('expanded');
+    btn.attr('aria-expanded', toplevel.hasClass('expanded'));
+  });
+
 
   // Stay Connected Button
   var smcontainer = $('.social-media');
