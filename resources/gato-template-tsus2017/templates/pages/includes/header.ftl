@@ -3,10 +3,10 @@
         <a href="${cmsfn.link(homepage)}" class="tsus-homelink">Texas State University System</a><!--
      --><div class="header-buttons">
             <button class="fa fa-search search-link search-button" aria-label="Start Search - hit enter to open dialog"></button>
-            <button class="btn-menu" aria-label="Menu - hit enter to open dialog">Menu</button>
+            <button class="btn-menu" aria-label="Menu - hit enter to open dialog" aria-haspopup="true" aria-expanded="false" aria-controls="tsus-main-menu">Menu</button>
         </div>
     </div>
-    <div class="main-menu">
+    <div id="tsus-main-menu" class="main-menu">
     [@simplemenu /]
     </div>
     <div class="search-wrapper">

@@ -3,19 +3,30 @@ jQuery(document).ready(function($) {
     //toggle menu
     $(".btn-menu").click(function(e){
         e.preventDefault();
+        var $btn = $(this);
         $('.main-menu').slideToggle(300);
-        $('.btn-menu').toggleClass('menu-open');
+        $btn.toggleClass('menu-open');
+        $btn.attr('aria-expanded', $btn.hasClass('menu-open'));
     });
 
     $(document).click(function(e){
       var target = $(e.target);
-      if( !target.is('.btn-menu') && !target.closest('.main-menu').length){
+      if( $('.btn-menu').hasClass('menu-open') && !target.is('.btn-menu') && !target.closest('.main-menu').length){
         e.preventDefault();
-        $('.btn-menu').toggleClass('menu-open');
+        $('.btn-menu').removeClass('menu-open');
         $('.main-menu').slideUp();
       }
     });
 
+    // close the menu with the escape key
+    $(document).keyup(function (e) {
+      if (e.keyCode === 27 && $('.btn-menu').hasClass('menu-open')) {
+        e.preventDefault();
+        $('.btn-menu').removeClass('menu-open');
+        $('.main-menu').slideUp();
+        $('.btn-menu').focus();
+      }
+    });
 
     function evaluate_tsus_logos() {
       var container = $('.gato-flex-container');
