@@ -75,8 +75,10 @@ jQuery(document).ready(function ($) {
   }
 
   function calculateTransform(slide, cropData){
-    var naturalWidth = slide.find('img')[0].naturalWidth;
-    var naturalHeight = slide.find('img')[0].naturalHeight;
+    //need to use the offsetWidth and Height instead of the naturalHeight property
+    //because it is consistent between browsers
+    var naturalWidth = slide.find('img')[0].offsetWidth;
+    var naturalHeight = slide.find('img')[0].offsetHeight;
 
     var cropWidth = naturalWidth * (cropData.right - cropData.left);
     //If they haven't cropped the image, don't transform it
