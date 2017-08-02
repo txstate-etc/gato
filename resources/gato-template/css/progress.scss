@@ -17,7 +17,14 @@
             stroke: $progress-outer-circle-fill-color;
         }
         .percent{
-
+            position: absolute;
+            font-size: 3.5rem;
+            width: 100%;
+            text-align: center;
+            top: 40%;
+            [data-eq~="300px"] & {
+                font-size: 3rem;
+            }
         }
     }
     .content{
@@ -46,10 +53,14 @@
     line-height: 1.8rem;
     padding: 0 1rem 2rem;
     .svg-container {
-        width: 100% * 1.0/3.0;
+        width: 25%;
         display: inline-block;
         max-width: 75px;
         margin: 0 1.6rem 1rem 0;
+    }
+    .percent {
+        font-size: 1.5rem;
+        top: calc(50% - 1rem);
     }
     .content{
         width: 100% * 2.0/3.0;
