@@ -3,6 +3,9 @@ $quick:.5s;
 $darker:.95;
 .masonry-section {
   .gato-card {
+    a{
+      text-decoration: none;
+    }
     padding: 1rem;
     margin-bottom: 1rem;
     &:not(.gato-card-streaming):hover{

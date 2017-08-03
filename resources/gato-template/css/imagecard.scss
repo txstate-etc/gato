@@ -1,0 +1,94 @@
+.gato-card {
+    figure {
+        position: relative;
+        margin: 0;
+        max-width: 100%;
+        display: inline-block;
+        img {
+            display: block;
+            max-width: 100%;
+        }
+        figcaption {
+            margin: 0;
+            text-align: left;
+            padding: 2rem;
+            text-decoration: none;
+            [data-eq~="500px"] & {
+                padding: 1.2rem;
+            }
+            h3{
+                margin: 0 0 0.6rem 0;
+                letter-spacing: 0.125rem;
+                font-size: 1.8rem;
+                [data-eq~="500px"] & {
+                    margin-bottom: 0.6rem;
+                    padding: 0.1rem 0.8rem;
+                }
+            }
+            p{
+              margin: 0;
+              font-size: 1.6rem;
+              [data-eq~="500px"] & {
+                padding: 0.3rem 0.8rem 0.5rem 0.8rem;
+              }
+            }
+            &.color1{
+              background: $mc1-bg;
+              h3, p {color: $mc1-text;}
+            }
+            &.color2{
+              background: $mc2-bg;
+              h3, p {color: $mc2-text;}
+            }
+            &.color3{
+              background: $mc3-bg;
+              h3, p {color: $mc3-text;}
+            }
+            &.color4{
+              background: $mc4-bg;
+              h3, p {color: $mc4-text;}
+            }
+            &.color5{
+              background: $mc5-bg;
+              h3, p {color: $mc5-text;}
+            }
+            &.color6{
+              background: $mc6-bg;
+              h3, p {color: $mc6-text;}
+            }
+            &.color7{
+              background: $mc7-bg;
+              h3, p {color: $mc7-text;}
+            }
+            
+        }
+    }
+
+    a:hover {
+        figure {
+            figcaption {
+                &.color1 {
+                    background: $mc1-comp-bg;
+                }
+                &.color2 {
+                    background: $mc2-comp-bg;
+                }
+                &.color3 {
+                    background: $mc3-comp-bg;
+                }
+                &.color4 {
+                    background: $mc4-comp-bg;
+                }
+                &.color5 {
+                    background: $mc5-comp-bg;
+                }
+                &.color6 {
+                    background: $mc6-comp-bg;
+                }
+                &.color7 {
+                    background: $mc7-comp-bg;
+                }
+            }
+        }
+    }
+}
