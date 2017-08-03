@@ -11,6 +11,7 @@ body {
   background-color: $white;
   max-width: 144rem;
   margin: 0 auto;
+  font-family: $helveticaneue;
 }
 
 .page-header {
@@ -23,11 +24,14 @@ body {
   color: $white;
   position: relative;
   z-index: 65536;
+  margin-bottom: 4rem;
   @media (max-width: $md-breakpoint) {
     height: $header-height-tablet;
+    margin-bottom: 3rem;
   }
   @media (max-width: $sm-breakpoint) {
     height: $header-height-mobile;
+    margin-bottom: 2rem;
   }
 
   button {

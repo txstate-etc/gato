@@ -3,33 +3,39 @@ $content-width: 120rem;
 .sidebar-container {
   position: absolute;
   width: 100%;
-  top: $header-height;
+  top: $header-height + 4rem;
   left: 50%;
   transform: translateX(-50%);
   max-width: $content-width;
   @media (max-width: $md-breakpoint) {
-    top: $header-height-tablet;
+    top: $header-height-tablet + 3rem;
   }
   @media (max-width: $sm-breakpoint) {
-    top: $header-height-mobile;
+    top: $header-height-mobile + 2rem;
   }
   @media (max-width: $xs-breakpoint) {
     position: relative;
   }
   .sidebar {
     width: 25%;
+    padding-left: 4rem;
+    @media (max-width: $md-breakpoint) {
+      padding-left: 3rem;
+    }
     @media (max-width: $sm-breakpoint) {
       width: 33%;
+      padding-left: 3rem;
     }
     @media (max-width: $xs-breakpoint) {
       width: auto;
+      padding: 0 2rem;
     }
   }
 }
 
 .gato-section {
   max-width: $content-width;
-  margin: 0 auto;
+  margin: 0 auto 2rem auto;
   padding-left: 25%;
   @media (max-width: $sm-breakpoint) {
     padding-left: 33%;
