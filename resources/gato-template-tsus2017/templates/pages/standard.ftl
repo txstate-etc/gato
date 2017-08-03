@@ -28,7 +28,10 @@
             </main>
 
             [#if hideSidebar == false]
-            <aside class="sidebar">
+            [#if cmsfn.isEditMode()]
+               [#assign hideSidebarStat = "hideSideBar"]
+             [/#if]
+            <aside class="sidebar ${hideSidebarStat!}">
                 [@cms.area name="navBlocks" /]
             </aside>
             [/#if]

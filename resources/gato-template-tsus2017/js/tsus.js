@@ -49,6 +49,11 @@ jQuery(document).ready(function($) {
     }
 
     resizeTimeout(evaluate_tsus_logos);
+
+    var $sidebar=$('.sidebar');
+    if(!$sidebar.hasClass('hideSideBar') && $sidebar.children().length===0){
+      $sidebar.hide();
+    }
 });
 
 jQuery(window).on('load', function($) {
