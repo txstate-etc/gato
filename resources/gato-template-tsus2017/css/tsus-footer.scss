@@ -147,6 +147,9 @@ footer {
             }
         }
         .bottom{
+            .listItems_add {
+                list-style: none;
+            }
             display: flex;
             padding-top: 2.2rem;
             justify-content: flex-end;
