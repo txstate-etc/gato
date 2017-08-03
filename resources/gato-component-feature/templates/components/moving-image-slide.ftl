@@ -14,8 +14,8 @@
       <img class="image" data-lazy="${gf.getImgDefault(content.image)}" data-srcset="${gf.getSrcSet(content.image)}" class="bg" alt="${content.alttext!}">
     </div>
     <div class="caption moving-image-caption">
-      <h3>${content.title!''}</h3>
-      <p data-orig-text="${content.subtext!''}">${content.subtext!''}</p>
+      [#if content.title?has_content]<h3>${content.title!''}</h3>[/#if]
+      [#if content.subtext?has_content]<p data-orig-text="${content.subtext!''}">${content.subtext!''}</p>[/#if]
     </div>
   </div>
 [#else]
