@@ -23,7 +23,7 @@ footer {
                 flex: 1 0 100%;
             }
             .contact {
-                color: $tsus-mediumgray;
+                color: $light-gray;
                 .org-name {
                     color: $white;
                     margin: 0;
@@ -44,7 +44,7 @@ footer {
                             width: 4px;
                             height: 4px;
                             border-radius: 50%;
-                            background-color: $tsus-mediumgray;
+                            background-color: $light-gray;
                             top: 10px;
                             left: -11px;
                         }
