@@ -1,7 +1,6 @@
 [#if gf.hasChildren(content.sociallinks)]
   <ul class="social-media-icons">
     [#list cmsfn.children(content.sociallinks) as socialink]
-
         [#if socialink.link?has_content]
           [#if socialink.link?contains("facebook")]
               [#assign iconclass="fa-facebook-square"]
@@ -45,6 +44,9 @@
           [#elseif socialink.link?matches(r".*youtu\.?be.*")]
               [#assign iconclass="fa-youtube-square"]
               [#assign alttext="YouTube"]
+          [#elseif socialink.link?contains("plus.google")]
+              [#assign iconclass="fa-google-plus-square"]
+              [#assign alttext="Google Plus"]
           [/#if]
 
           [#if !alttext?has_content]
@@ -60,10 +62,12 @@
           [#if linktext?lower_case?contains(alttext?lower_case)]
           [#assign title = '']
           [/#if]
-
+          [#if !iconclass?has_content]
+            [#assign iconclass = 'fa-share-alt-square']
+          [/#if]
           <li>
-                <a href="${socialink.link}" class="gato-sociallink ${(ctx.icononly!false)?string('icononly','')}">
-                   [#if content.icon?has_content]
+                <a href="${gf.filterUrl(socialink.link)}" class="gato-sociallink ${(ctx.icononly!false)?string('icononly','')}">
+                   [#if socialink.icon?has_content]
                      <img src="${damfn.getAssetLink(socialink.icon)!}" alt="${title}" [#if title?has_content]title="${title}"[/#if]/>[#--
                    --][#else][#--
                      --]<i class="fa ${iconclass!'fa-share-alt-square'}" [#if title?has_content]aria-label="${title}"[#else]aria-hidden="true"[/#if]></i>[#--
@@ -72,7 +76,8 @@
                  --]</a>
           </li>
         [/#if]
-
+        [#assign iconclass=""]
+        [#assign alttext=""]
     [/#list]
     </ul>
 [/#if]
