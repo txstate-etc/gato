@@ -3,7 +3,7 @@ iframe:
 icontext:
   id: gato-template:components/masonry/masonry-icontext
 imagecard:
-  id: gato-template:components/masonry/card-masonry
+  id: gato-template:components/masonry/masonry-imagecard
 richeditor:
   id: gato-template:components/masonry/masonry-richeditor
 rss:

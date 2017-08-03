@@ -1,6 +1,6 @@
-templateScript: /gato-template/templates/components/card.ftl
+templateScript: /gato-template/templates/components/imagecard.ftl
 renderType: freemarker
-dialog: gato-template:components/masonry/card-masonry
+dialog: gato-template:components/masonry/masonry-imagecard
 description: An image with a caption
 title: Image Card
 parameters:

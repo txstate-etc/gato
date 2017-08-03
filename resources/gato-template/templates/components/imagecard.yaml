@@ -1,0 +1,5 @@
+templateScript: /gato-template/templates/components/imagecard.ftl
+renderType: freemarker
+dialog: gato-template:components/imagecard
+description: An image with a caption
+title: Image Card
