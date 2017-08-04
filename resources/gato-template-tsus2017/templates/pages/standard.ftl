@@ -26,12 +26,9 @@
                   [@cms.area name="contentParagraph" contextAttributes={"hideSidebar":hideSidebar} /]
               [/#if]
             </main>
-
-            [#if hideSidebar == false]
-            [#if cmsfn.isEditMode()]
-               [#assign hideSidebarStat = "hideSideBar"]
-             [/#if]
-            <aside class="sidebar ${hideSidebarStat!}">
+            [#if hideSidebar==false && (cmsfn.isEditMode() || gf.hasChildren(content.navBlocks))]
+            [#assign showInEdit=cmsfn.editMode?string('show-inedit','')]
+            <aside class="sidebar ${showInEdit}">
                 [@cms.area name="navBlocks" /]
             </aside>
             [/#if]
