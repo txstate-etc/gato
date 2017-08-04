@@ -1,0 +1,10 @@
+    type: list
+    templateScript: gato-template/templates/areas/navBlocks.ftl
+    renderType: freemarker
+    availableComponents:
+      navigationBlock:
+        id: gato-template:components/sidenav
+      navStaffDirectory:
+        id: gato-template:components/navStaffDirectory
+      navQuickLinks:
+        id: gato-template:components/navQuickLinks
