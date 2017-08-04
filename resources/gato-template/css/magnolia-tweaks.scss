@@ -38,15 +38,6 @@ $move-target-bar: #00f2d6;
   font-weight: 500;
 }
 
-body.admin{
-  div.layout-row{
-    // border: 2px dashed #FFA500;
-    // border-top: none;
-    // margin-bottom: 40px;
-  }
-}
-
-
 //COMMENTED OUT COLORS WERE FOR TESTING PURPOSES
 body {
   // These two rules remove the status indicator from the bars
@@ -188,11 +179,5 @@ body {
     background-color: white !important;
     border: none !important;
   }
-
-  //make library emergency info bar smaller so it doesn't cover the hours section
-  .genEmergency_add .mgnlEditor.mgnlPlaceholder{
-    width: 33% !important;;
-  }
-
 }
 
