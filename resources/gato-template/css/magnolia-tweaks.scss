@@ -24,13 +24,10 @@ $move-target-bar: #00f2d6;
 
 /* make the bar for adding rows smaller so it isn't right up against the sidebar */
 .mainContent_add {
-  padding: 0 2rem;
+  padding: 0 1rem;
   .full-width & {
     padding: 0;
   }
-}
-.column_add {
-  padding: 0 2rem;
 }
 
 .plus-component{
