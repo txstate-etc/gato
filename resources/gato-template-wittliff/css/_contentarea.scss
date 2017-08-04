@@ -54,22 +54,7 @@ $content-width: 120rem;
   .layout-column {
     padding: 0 2rem;
   }
-}
-
-.addsection {
-  max-width: $content-width;
-  margin: 0 auto;
-  padding-left: 25%;
-  @media (max-width: $sm-breakpoint) {
-    padding-left: 33%;
-  }
-  @media (max-width: $xs-breakpoint) {
-    padding-left: 0;
-  }
-  &.full-width {
-    padding-left: 0;
-  }
   .mainContent_add {
-      width: 100%;
+    width: 100%;
   }
 }

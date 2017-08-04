@@ -32,7 +32,7 @@
         }
         .columns-container {
           width: 78%;
-          &.full-width, &.no-sidebar{
+          @at-root .gato-section.full-width .columns-container {
             width: 100%;
           }
           @media (max-width: $md-breakpoint) {
@@ -45,7 +45,7 @@
           }
         }
     }
-    
+
     .sidebar {
         background-color: $white-smoke;
         position: absolute;

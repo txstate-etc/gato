@@ -18,8 +18,8 @@ jQuery(document).ready(function ($) {
       // below the sidebar and expand it to full width
       $('.page_content .gato-section .columns-container').each(function (i, cmp) {
         cmp = $(cmp);
-        if (cmp.position().top > sidebar.position().top+sidebar.height()) {
-          cmp.addClass('no-sidebar');
+        if (cmp.offset().top > sidebar.offset().top+sidebar.height()) {
+          cmp.closest('.gato-section').addClass('full-width');
         } else {
           cmp.closest('.gato-section-parent').removeClass('has-background');
         }

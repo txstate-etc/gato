@@ -105,15 +105,3 @@ blockquote p{
 	padding: 0 0 1.1rem 4.6rem;
 
 }
-
-//customize add section bar for TSUS
-.addsection {
-  max-width: 1250px;
-  padding: 0 6.5rem 0 0.8rem;
-  @media (max-width: $md-breakpoint){
-    padding: 0 2.5rem 2rem;
-  }
-  .mainContent_add {
-    width: 78%;
-  }
-}
