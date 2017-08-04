@@ -1,10 +1,27 @@
 .sidebar {
+  .side_nav {
+    margin-bottom: 4rem;
+  }
   h3 {
+    text-transform: uppercase;
     font-size: 3rem;
-    font-weight: 500;
+    line-height: 3rem;
+    font-weight: bold;
+    letter-spacing: 0.2rem;
+    color: $wittliffbrown-light;
   }
   a {
+    font-size: 2.4rem;
+    line-height: 2.4rem;
     text-decoration: none;
+    letter-spacing: 0.2rem;
     color: $wittliffbrown-light;
+    &:hover, &:active {
+      color: $wittliffgreen-lighter;
+    }
+  }
+  h3, .side_nav_list a {
+    border-bottom: 2px solid $wittliffbrown-dark;
+    padding: 1rem 0;
   }
 }
