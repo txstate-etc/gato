@@ -229,3 +229,16 @@
         <a class="visuallyhidden focusable" href="#${maincontent}">Skip to Content</a>
     </div>
 [/#macro]
+
+[#macro headline]
+  [#if !isHomePage && !(content.hideTitle!false)]
+    [#if hideSidebar]
+      [#assign fullwidth = 'full-width']
+    [/#if]
+    <section class="gato-section ${fullwidth!}">
+      <h1 class="headline">${gf.nodeTitle(content)}</h1>
+    </section>
+  [#else]
+    <h1 class="visuallyhidden">${gf.nodeTitle(content)}</h1>
+  [/#if]
+[/#macro]

@@ -9,14 +9,10 @@
   </head>
   <body>
     [#include "includes/header.ftl"]
-    [#if !isHomePage && !(content.hideTitle!false)]
-      <h1 class="headline">${gf.nodeTitle(content)}</h1>
-    [#else]
-      <h1 class="visuallyhidden">${gf.nodeTitle(content)}</h1>
-    [/#if]
     <div class="content-alignment" data-sidebar-width-percentage="22"></div>
     [#assign hideSidebar = content.hideSidebar!false]
     <main class="contentcolumn">
+      [@headline /]
       [#if def.parameters.isMailTemplate!false]
         [@cms.area name="mail" /]
       [#else]
