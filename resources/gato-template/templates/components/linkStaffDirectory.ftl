@@ -1,9 +1,9 @@
-<a class="staffDir" href="#">
+<a class="staffDir" href="${gf.filterUrl(content.link)}">
   <div class="photo">
-    <img src=${gf.getImgDefault(content.ProfileImage)} alt="Profile Image of ${content.textNameTitle}" style="display: initial;">
+    <img src=${gf.getImgDefault(content.image)} alt="Profile Image of ${content.name}" style="display: initial;">
   </div>
   <div class="info">
-  	<strong class="name">${content.textNameTitle}</strong>
-  	<span>${content.textRole}</span>
+    <strong class="name">${content.name}</strong>
+    <span>${content.role}</span>
   </div>
 </a>

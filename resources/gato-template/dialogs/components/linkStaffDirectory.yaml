@@ -3,19 +3,19 @@ form:
     - name: tabGeneral
       label: Link
       fields:
-        - name: textNameTitle
+        - name: name
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Name - Title
-        - name: textRole
+        - name: role
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Role
-        - name: linkToPersonalPage
+        - name: link
           class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
           label: Link Target
           appName: pages
           identifierToPathConverter:
             class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
-        - name: ProfileImage
+        - name: image
           class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
           required: true
           appName: assets
