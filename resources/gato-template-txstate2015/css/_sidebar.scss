@@ -1,23 +1,37 @@
-
-.sidebar {
-  padding: 0 2rem;
+.sidebar-container {
   position: absolute;
+  width: 100%;
+  left: 50%;
   top: $content-top-padding;
+  transform: translateX(-50%);
+  max-width: 1200px;
   margin-bottom: -1rem;
-  width: 25%;
+  @media (max-width: $xl-breakpoint) {
+    max-width: 1000px;
+  }
   @media screen and (max-width: $sm-breakpoint) {
-    position: inherit;
-    top: 0px;
-    padding: 0;
+    position: relative;
+    top: 0;
     width: 100%;
+    padding: 0;
+  }
+  .sidebar {
+    padding: 0 2rem;
+    float: right;
+    //margin-bottom: -1rem;
+    width: 25%;
+    @media screen and (max-width: $sm-breakpoint) {
+      padding: 0px;
+      float: none;
+      width: 100%;
+    }
   }
 }
-
 /* these lay out to the left of the sidebar and need
    to have constrained width since the sidebar is position
    absolute */
 .columns-container {
-  width: 75%;
+  //width: 75%;
   .gato-section.full-width & {
     width: 100%;
   }

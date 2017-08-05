@@ -26,19 +26,6 @@ jQuery(document).ready(function ($) {
       });
     };
 
-    var setsidebarwidthandposition = function() {
-      var alignment = $('.content-alignment');
-      if(alignment.size() > 0){
-        var sidebarWidthPercent = parseInt(alignment.attr('data-sidebar-width-percentage'))
-        sidebar.css('right', alignment.offset().left);
-        sidebar.css('width', alignment.width() * (sidebarWidthPercent/100) + "px");
-      }
-      if(sidebar.css('position') != 'absolute') {
-        sidebar.css('width', '100%');
-      }
-    }
-    resizeTimeout(setsidebarwidthandposition);
-
     resizeTimeout(expandsectionsaftersidebar);
     waitforselector('.navBlocks_add', '.mgnlEditor.mgnlPlaceholder', function () { setTimeout(expandsectionsaftersidebar, 0); });
   }

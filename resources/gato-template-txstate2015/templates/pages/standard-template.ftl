@@ -54,7 +54,6 @@
 				[@breadcrumbs/]
 			</div>
 			<div class="page_content">
-            <div class="content-alignment" data-sidebar-width-percentage="25"></div>
             [#assign hideSidebar = content.hideSidebar!false]
             [#if !isHomePage && !(content.hideTitle!false)]
                 <div class="headline-parent">
@@ -71,10 +70,12 @@
 				[@cms.area name="contentParagraph" contextAttributes={"hideSidebar":hideSidebar} /]
 			[/#if]
             [#if hideSidebar == false]
+            <aside class="sidebar-container">
                 <div class="sidebar">
                     [@cms.area name="navBlocks" /]
                     [#include "/gato-template/templates/includes/socialsidenav.ftl"]
                 </div>
+            </aside>
             [/#if]
 			</div> <!-- end of page_content -->
 			[#include "includes/footer.ftl"]

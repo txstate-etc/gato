@@ -5,6 +5,8 @@
 //TODO: Go thorugh CSS files and use variables for color names.  Variables should be defined in
 // gato-template-tsus2017/css/variables.scss
 
+$sidebar-width: 22%;
+
 .page_content {
     padding-top: $content-top-padding;
     padding-bottom: 7.7rem;
@@ -14,24 +16,25 @@
       padding-top: 3rem;
       padding-bottom: 0;
     }
-    .content-alignment {
-      height: 1px;
-      margin: 0 auto;
-      max-width: 1250px;
-    }
     .gato-section {
-        max-width: 1250px;
+        max-width: $max-width-larger;
+        @media (max-width: $lg-breakpoint){
+          max-width: $max-width-smaller;
+        }
         margin: 0 auto;
         padding: 0 6.5rem 0 0.8rem;
+        padding-right: $sidebar-width;
+        &.full-width {
+          padding: 0;
+        }
         @media (max-width: $md-breakpoint){
-          padding: 0 2.5rem 2rem;
+          padding: 0;
         }
         & + .gato-section {
             border-top: 1px dashed #d9d9d9;
             padding-top: 35px;
         }
         .columns-container {
-          width: 78%;
           @at-root .gato-section.full-width .columns-container {
             width: 100%;
           }
@@ -46,21 +49,32 @@
         }
     }
 
+  .sidebar-container {
+    position: absolute;
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: $max-width-larger;
+    @media (max-width: $lg-breakpoint){
+      max-width: $max-width-smaller;
+    }
+    top: $content-top-padding;
+    @media (max-width: $md-breakpoint){
+      position: relative;
+      top: 0;
+      padding: 0px;
+    }
     .sidebar {
-        background-color: $white-smoke;
-        position: absolute;
-        top: $content-top-padding;
-        margin-top: 2.4rem;
-        padding: 2.9rem 2.2rem 2rem;
-        width: 22%;
-        @media (max-width: $md-breakpoint){
-          position: relative;
-          top: 0;
-          width: 100%;
-          padding: 4rem 3.5rem;
-          margin-top: 0px;
-        }
-        //.sidebar-section{
+      background-color: $white-smoke;
+      margin-top: 2.4rem;
+      padding: 2.9rem 2.2rem 2rem;
+      width: $sidebar-width;
+      float: right;
+      @media (max-width: $md-breakpoint){
+        width: 100%;
+        padding: 4rem 3.5rem;
+        margin-top: 0px;
+      }
         .side_nav{
             padding-bottom: 2.5rem;
             @media (max-width: $sm-breakpoint){
@@ -150,11 +164,12 @@
             }
         }
     }
+  }
 }
 
 .container{
     @media (max-width: $lg-breakpoint){
-      max-width: 970px;
+      max-width: $max-width-smaller;
     }
     &.standard-container{
         @media (max-width: $lg-breakpoint){

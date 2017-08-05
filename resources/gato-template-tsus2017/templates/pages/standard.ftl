@@ -17,7 +17,6 @@
   <body>
     [#include "includes/header.ftl"]
         <div class="page_content">
-          <div class="content-alignment" data-sidebar-width-percentage="22"></div>
           [#assign hideSidebar = content.hideSidebar!false]
           <main class="tsus-contentcolumn txst-styledcontent">
               [#if def.parameters.isMailTemplate!false]
@@ -28,8 +27,10 @@
             </main>
             [#if hideSidebar==false && (cmsfn.isEditMode() || gf.hasChildren(content.navBlocks))]
             [#assign showInEdit=cmsfn.editMode?string('show-inedit','')]
-            <aside class="sidebar ${showInEdit}">
-                [@cms.area name="navBlocks" /]
+            <aside class="sidebar-container">
+              <div class="sidebar ${showInEdit}">
+                  [@cms.area name="navBlocks" /]
+              </div>
             </aside>
             [/#if]
         </div>
