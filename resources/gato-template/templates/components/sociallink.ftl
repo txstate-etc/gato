@@ -72,7 +72,7 @@
                    --][#else][#--
                      --]<i class="fa ${iconclass!'fa-share-alt-square'}" [#if title?has_content]aria-label="${title}"[#else]aria-hidden="true"[/#if]></i>[#--
                    --][/#if][#--
-                   --]${linktext}[#--
+                   --]<span>${linktext}</span>[#--
                  --]</a>
           </li>
         [/#if]

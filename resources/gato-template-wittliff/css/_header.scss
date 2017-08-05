@@ -249,3 +249,29 @@ body {
     }
   }
 }
+
+.social-media-icons {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  padding: 0;
+  .gato-sociallink {
+    text-align: center;
+    width: 4rem;
+    line-height: 4rem;
+    text-decoration: none;
+    color: $white;
+    &:hover, &:active {
+      i { color: $wittlifforange; }
+    }
+    span {
+      @include sr-only();
+    }
+    i {
+      float: none;
+      font-size: 3rem;
+      color: $white;
+    }
+  }
+}
