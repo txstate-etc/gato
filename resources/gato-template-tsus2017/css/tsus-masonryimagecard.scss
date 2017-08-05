@@ -12,7 +12,7 @@ $darker:.95;
     //Hover behavior on the gato-card-streaming causes a weird behavior for the modal. So I took it away
        cursor: pointer;
        transition: $quick;
-       transform: perspective(5000px) translateZ(150px);
+       //transform: perspective(5000px) translateZ(150px);
        figcaption{
          transition: $quick;
          &.color1{

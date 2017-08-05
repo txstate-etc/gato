@@ -32,7 +32,7 @@ $quicker:.4s;
     width: 100%;
     &:hover{
       transition: $quick;
-      transform: perspective(5000px) translateZ(150px);
+      //transform: perspective(5000px) translateZ(150px);
     }
 
     .img-box{
