@@ -1,5 +1,5 @@
 jQuery(document).ready(function ($) {
-  var sidebar = $('.page_content .sidebar');
+  var sidebar = $('.page_content .sidebar-container');
   var pagecontent = $('.page_content');
   var footer = $('.footer');
 
@@ -16,7 +16,7 @@ jQuery(document).ready(function ($) {
     var expandsectionsaftersidebar = function () {
       // find the first gato-component paragraph whose top is
       // below the sidebar and expand it to full width
-      $('.page_content .gato-section .columns-container').each(function (i, cmp) {
+      $('.page_content .gato-section').each(function (i, cmp) {
         cmp = $(cmp);
         if (cmp.offset().top > sidebar.offset().top+sidebar.height()) {
           cmp.closest('.gato-section').addClass('full-width');

@@ -34,18 +34,10 @@ $sidebar-width: 22%;
             border-top: 1px dashed #d9d9d9;
             padding-top: 35px;
         }
-        .columns-container {
-          @at-root .gato-section.full-width .columns-container {
-            width: 100%;
-          }
-          @media (max-width: $md-breakpoint) {
-            width: 100%;
-          }
-          .section-title {
-            color: $red;
-            text-align: center;
-            padding: 2rem 1rem;
-          }
+        .section-title {
+          color: $red;
+          text-align: center;
+          padding: 2rem 1rem;
         }
     }
 
