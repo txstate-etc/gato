@@ -16,11 +16,13 @@
     padding: 0;
   }
   .sidebar {
+    position: absolute;
+    top: 0;
+    right: 0;
     padding: 0 2rem;
-    float: right;
-    //margin-bottom: -1rem;
     width: 25%;
     @media screen and (max-width: $sm-breakpoint) {
+      position: relative;
       padding: 0px;
       float: none;
       width: 100%;

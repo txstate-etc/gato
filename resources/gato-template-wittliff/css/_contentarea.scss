@@ -1,5 +1,11 @@
 $content-width: 120rem;
 
+.contentcolumn {
+  @media (max-width: $xs-breakpoint) {
+    min-height: 0px !important;
+  }
+}
+
 .sidebar-container {
   position: absolute;
   width: 100%;
@@ -15,8 +21,12 @@ $content-width: 120rem;
   }
   @media (max-width: $xs-breakpoint) {
     position: relative;
+    top: 0;
   }
   .sidebar {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 25%;
     padding-left: 4rem;
     @media (max-width: $md-breakpoint) {
@@ -27,9 +37,12 @@ $content-width: 120rem;
       padding-left: 3rem;
     }
     @media (max-width: $xs-breakpoint) {
+      position: relative;
       width: auto;
-      padding: 0 2rem;
-    }
+      padding-left: 2rem;
+      padding-right: 2rem;
+      padding-bottom: 1rem;
+   }
   }
 }
 
