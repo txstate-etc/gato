@@ -11,7 +11,7 @@
       'gato-lib/js/jquery-ui/jquery-ui.min.js',
       'gato-template-txstate2015/js/respond.min.js',
       'gato-template-txstate2015/js/slideout.js',
-      'gato-template-txstate2015/js/sidebarwrap.js',
+      'gato-template/js/sidebarwrap.js',
       'gato-lib/js/fastclick.js',
       'gato-template-txstate2015/js/common.js',
       'gato-template/js/dropdownsearch.js'
@@ -53,7 +53,7 @@
 			<div class="trail">
 				[@breadcrumbs/]
 			</div>
-			<div class="page_content">
+			<div class="page_content contentcolumn">
             [#assign hideSidebar = content.hideSidebar!false]
             [#if !isHomePage && !(content.hideTitle!false)]
                 <div class="headline-parent">

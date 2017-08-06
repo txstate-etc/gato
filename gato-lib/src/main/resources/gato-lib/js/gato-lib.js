@@ -411,7 +411,7 @@ function waitforselector(parentselector, selector, callback) {
       sanitycount++;
       if (parent.find(selector).size() > 0) {
         observer.disconnect();
-        return callback(parent.find(selector));
+        return setTimeout(function () { callback(parent.find(selector)); }, 0);
       } else if (sanitycount > 200) {
         observer.disconnect();
       }

@@ -91,7 +91,7 @@
            config.width = 660;
            config.indentOffset = 4;
            config.indentUnit = 'rem';
-           config.bodyClass = "txst-styledcontent txst-contentarea-paragraph";
+           config.bodyClass = "contentcolumn column_paragraph";
            config.baseFloatZIndex = 150;
            config.resize_enabled = false;
            config.toolbar = "Magnolia";

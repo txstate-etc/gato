@@ -73,7 +73,7 @@
            config.indentOffset = 4;
            config.indentUnit = 'rem';
            config.allowedContent = true;
-           config.bodyClass = "txst-styledcontent txst-contentarea-paragraph";
+           config.bodyClass = "contentcolumn column_paragraph";
            config.baseFloatZIndex = 150;
            config.resize_enabled = false;
            config.toolbar = "Magnolia";
@@ -90,7 +90,7 @@
            ];
            config.removeDialogTabs = 'image:advanced;link:advanced;link:target';
 
-           // Allow all elements/styles/attrs/classes except for line-height style. CKeditor 4.4 has 
+           // Allow all elements/styles/attrs/classes except for line-height style. CKeditor 4.4 has
            // disallowedContent list which would be ideal for this, but since we're stuck with 4.3 for now
            // we'll do it the long way.
            //

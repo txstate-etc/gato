@@ -16,7 +16,7 @@
     <body>
 
         [#include "includes/header.ftl"]
-        <div class="page_content">
+        <div class="contentcolumn">
             <!-- slideshow -->
             <div class="tsus-slideshow eq-parent">
               [@cms.area name="tsus-slideshow" /]

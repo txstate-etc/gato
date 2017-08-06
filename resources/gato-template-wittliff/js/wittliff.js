@@ -62,17 +62,4 @@ jQuery(document).ready(function($) {
       smcontainer.removeClass('shown');
     }
   });
-
-  // Make sure page is tall enough to accomodate the sidebar height
-  // .contentcolumn is position relative and its top should be lined up with sidebar
-  // so we'll use a min-height to push down the page as needed
-  var sbc = $('.sidebar-container');
-  var contentcol = $('.contentcolumn');
-  var sidebarheightfix = function () {
-    var sbc = $('.sidebar-container');
-    if (sbc.size() > 0) {
-      contentcol.css('min-height', sbc.outerHeight());
-    }
-  }
-  resizeTimeout(sidebarheightfix);
 });
