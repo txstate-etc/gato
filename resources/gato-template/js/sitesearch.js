@@ -59,8 +59,8 @@ jQuery(document).ready(function($) {
         .then(function(results){
             var page = window.txstsearch.buildSearchResultsPage(sitesearch, query, results, startPage, sortType);
             $('#search-results').remove();
-            $('.page_content, .library-page-content').after(page);
-            $('.page_content, .library-page-content').hide();
+            $('.contentcolumn').after(page);
+            $('.contentcolumn, .sidebar-container').hide();
             $('.search-again .searchbar-form .icon.magnify').hide();
             create_event_handlers();
         })
@@ -228,7 +228,7 @@ jQuery(document).ready(function($) {
         else if ($('#search-results.global').length == 0) {
             //The user went to the original page
             $('#search-results').remove();
-            $('.page_content, .library-page-content').show();
+            $('.contentcolumn, .sidebar-container').show();
             $('.breadcrumbs').show();
             $('.searchbreadcrumbs').remove();
         }
@@ -283,7 +283,7 @@ jQuery(document).ready(function($) {
 
             var searchResults = results.results;
 
-            var html =  '<div id="search-results">' +
+            var html =  '<div id="search-results" class="gato-section full-width">' +
                             '<div class="layout-column twothirds">' +
                                 '<h1 class="search-results-title" id="maincontent">Search</h1>' +
                             '</div>' +

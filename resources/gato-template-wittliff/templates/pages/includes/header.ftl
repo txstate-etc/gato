@@ -8,7 +8,7 @@
       [@cms.area name="newsletter" content=gf.getOrCreateArea(homepage, 'newsletter') editable=false /]
     </div>
   </div>
-  <button class="start-search icon"><span class="visuallyhidden">Search</span><i class="fa fa-search" aria-hidden="true"></i></button>
+  <button class="search-link search-button"><span class="visuallyhidden">Search</span><i class="fa fa-search" aria-hidden="true"></i></button>
   <div class="main-menu">
     <button class="icon" aria-haspopup="true" aria-controls="main-menu-panel" aria-expanded="false"><span>Menu</span><i class="fa fa-bars" aria-hidden="true"></i></button>
     <nav id="main-menu-panel" class="main-menu-panel" role="navigation">
@@ -18,5 +18,9 @@
         [@cms.area name="newsletter" content=gf.getOrCreateArea(homepage, 'newsletter') editable=isHomePage /]
       </div>
     </nav>
+  </div>
+  <div class="search-wrapper">
+    [#import "/gato-template/templates/includes/search-modal.ftl" as search]
+    [@search.searchBar false true true /]
   </div>
 </header>

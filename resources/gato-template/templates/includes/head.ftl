@@ -16,7 +16,7 @@
     'gato-template/js/accordion.js',
     'gato-template/js/easter-egg.js',
     'gato-template/js/edit-bars.js',
-        'gato-template/js/section-background.js',
+    'gato-template/js/section-background.js',
     'gato-lib/js/moment.js',
     'gato-lib/js/jsonp.js',
     'gato-lib/js/pickadate/picker.js',
@@ -34,11 +34,13 @@
     'gato-template/js/standardista-table-sorting.js',
     'gato-area-mail/js/mailForm.js',
     'gato-component-streaming/js/streaming.js',
-    'gato-template/js/sitesearch.js',
     'gato-template/js/sidebarheightfix.js',
     'gato-lib/js/jquery-ui/jquery-ui.min.js',
     'gato-lib/js/masonry.min.js',
-    'gato-template/js/progress.js'
+    'gato-template/js/progress.js',
+    'gato-template/js/sitesearch.js',
+    'gato-template/js/search-gsa.js',
+    'gato-template/js/dropdownsearch.js'
   ]+scripts /]
 [/#macro]
 

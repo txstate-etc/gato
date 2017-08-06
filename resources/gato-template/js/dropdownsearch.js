@@ -1,5 +1,5 @@
 jQuery(document).ready(function($) {
-    $('.search-link.search-button').on('click', function(e){
+  $('.search-link.search-button').on('click', function(e){
     e.preventDefault();
     $('#search-modal-content').dialog({
       show: { effect: "slide", direction: "up", duration: 400, easing: 'easeInOutCubic'},
@@ -27,5 +27,5 @@ jQuery(document).ready(function($) {
         });
       }
     });
-  })
+  });
 });

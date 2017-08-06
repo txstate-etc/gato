@@ -3,11 +3,13 @@ $header-height-tablet: 6rem;
 $header-height-mobile: 5rem;
 
 html {
+  height: 100%;
   background-color: $light-gray;
   * { box-sizing: border-box; }
 }
 
 body {
+  min-height: 100%;
   background-color: $white;
   max-width: 144rem;
   margin: 0 auto;
@@ -23,7 +25,6 @@ body {
   height: $header-height;
   color: $white;
   position: relative;
-  z-index: 65536;
   margin-bottom: 4rem;
   @media (max-width: $md-breakpoint) {
     height: $header-height-tablet;
@@ -109,6 +110,7 @@ body {
       width: 20rem;
       background-color: $wittliffbrown;
       padding: 2rem;
+      z-index: 65536;
       @media (max-width: $md-breakpoint) {
         top: (4rem + $header-height-tablet) / 2;
       }
@@ -161,6 +163,7 @@ body {
       width: 32rem;
       padding: 2rem 4rem 2rem 2rem;
       display: none;
+      z-index: 65536;
       @media (max-width: $md-breakpoint) {
         top: $header-height-tablet;
       }
