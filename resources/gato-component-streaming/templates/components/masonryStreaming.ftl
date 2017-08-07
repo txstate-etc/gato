@@ -11,14 +11,14 @@
               <span class="visuallyhidden">Play Video</span>
             </a>
           </p>
-          <figure class="img-box ${content.color!'color1'}">
+          <figure class="img-box">
             <!--where the thumbnail image will go-->
               [#if content.thumbnail?has_content]
                 <img class='userThumbnail' src="${gf.getImgDefault(content.thumbnail)}"
                   alt="thumbnail for video" srcset="${gf.getSrcSet(content.thumbnail)}" />
               [/#if]
 
-                <figcaption>
+                <figcaption class="${content.color!'color1'}">
                   [#if content.title?has_content]
                     <h3>${content.title}</h3>
                   [/#if]
