@@ -55,6 +55,10 @@
 			</div>
 			<div class="page_content contentcolumn">
             [#assign hideSidebar = content.hideSidebar!false]
+            [#if !cmsfn.isEditMode() && !gf.areaHasChildrenIncludingInheritance(content.navBlocks) && !gf.hasChildren(homepage.socialmedia)]
+               [#assign hideSidebar = true]
+            [/#if]
+
             [#if !isHomePage && !(content.hideTitle!false)]
                 <div class="headline-parent">
                     <div class="headline">

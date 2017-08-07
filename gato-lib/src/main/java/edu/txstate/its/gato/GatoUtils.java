@@ -46,6 +46,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Map;
 import java.util.Random;
 import java.lang.reflect.Array;
@@ -972,6 +973,35 @@ public final class GatoUtils {
     Node n = toNode(node);
     for (Node sp : NodeUtil.getNodes(n)) {
         return true;
+    }
+    return false;
+  }
+
+  public boolean areaHasChildrenIncludingInheritance(Object node) throws Exception {
+    if (node == null) return false;
+    //no need to check for inherited children if this page has children of its own
+    if (hasChildren(node)) return true;
+    Node n = toNode(node);
+    String areaName = NodeUtil.getName(n);
+    Node page = NodeUtil.getNearestAncestorOfType(n, NodeTypes.Page.NAME);
+    List<Node> ancestors =  tf.ancestors(page, NodeTypes.Page.NAME);
+    //for each ancestor page, starting with the parent
+    ListIterator lit = ancestors.listIterator(ancestors.size());
+    while (lit.hasPrevious()) {
+      Node p = (Node) lit.previous();
+      //check if ancestor page has a node corresponding to the one we are checking
+      if (p.hasNode(areaName)) {
+        Node area = p.getNode(areaName);
+        List<Node> children = tf.children(area);
+        Iterator iter = children.iterator();
+        //if that node has children, see if inherit == true
+        while (iter.hasNext()) {
+          Node child = (Node) iter.next();
+          if (PropertyUtil.getBoolean(child, "inherit", false)) {
+            return true;
+          }
+        }
+      }
     }
     return false;
   }
