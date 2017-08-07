@@ -49,24 +49,5 @@ jQuery(document).ready(function($) {
     }
 
     resizeTimeout(evaluate_tsus_logos);
-
-    /*Hide nav if no content inside each items*/
-    (function(){
-      var $sidebar=$('.sidebar');
-      if(!$sidebar.hasClass('show-inedit')){
-        var $childOfSidebar=$sidebar.children('.side_nav');
-        var showSideBarInLive=false;
-        $childOfSidebar.each(function(){
-            if($(this).children().length>0){
-                showSideBarInLive=true;
-                return false;
-            }
-        });
-        if(showSideBarInLive==false){
-          $sidebar.hide();
-        }
-      }
-    })();
-    /*Hide nav logic ends*/
-
+  
 });

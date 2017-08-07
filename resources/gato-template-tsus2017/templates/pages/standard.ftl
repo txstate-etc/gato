@@ -14,6 +14,9 @@
     [#include "includes/header.ftl"]
         <div class="page_content">
           [#assign hideSidebar = content.hideSidebar!false]
+          [#if !cmsfn.isEditMode() && !gf.areaHasChildrenIncludingInheritance(content.navBlocks)]
+            [#assign hideSidebar = true]
+          [/#if]
           <main class="contentcolumn">
               [#if def.parameters.isMailTemplate!false]
                   [@cms.area name="mail" contextAttributes={"hideSidebar":hideSidebar} /]
@@ -21,13 +24,12 @@
                   [@cms.area name="contentParagraph" contextAttributes={"hideSidebar":hideSidebar} /]
               [/#if]
             </main>
-            [#if hideSidebar==false && (cmsfn.isEditMode() || gf.hasChildren(content.navBlocks))]
-            [#assign showInEdit=cmsfn.editMode?string('show-inedit','')]
-            <aside class="sidebar-container">
-              <div class="sidebar ${showInEdit}">
-                  [@cms.area name="navBlocks" /]
-              </div>
-            </aside>
+            [#if hideSidebar==false]
+              <aside class="sidebar-container">
+                <div class="sidebar">
+                    [@cms.area name="navBlocks" /]
+                </div>
+              </aside>
             [/#if]
         </div>
     [#include "includes/footer.ftl"]
