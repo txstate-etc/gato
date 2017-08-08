@@ -1,6 +1,15 @@
 .gato-section-parent {
-  &.has-background{
+  background-color: transparent;
+  &.has-background.below-sidebar {
     background-color: $section-background-color;
+  }
+}
+
+@media (max-width: $sidebar-moves-below-point) {
+  .gato-section-parent {
+    &.has-background {
+      background-color: $section-background-color;
+    }
   }
 }
 

@@ -43,3 +43,6 @@ $sitesearch-font-family:                    inherit;
 $sm-breakpoint: 48em; //~767px
 $md-breakpoint: 62em;//~991px
 $lg-breakpoint: 75em; //~1200px
+
+//the point at which the sidebar moves below the content column instead of next to it
+$sidebar-moves-below-point: $md-breakpoint;

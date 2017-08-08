@@ -88,5 +88,8 @@ $md-breakpoint: 64em; //~1024px
 $lg-breakpoint: 80em; //~1280px
 $xl-breakpoint: 90em; //~1440px
 
+//the point at which the sidebar moves below the content column instead of next to it
+$sidebar-moves-below-point: $sm-breakpoint;
+
 @import "gato-lib/css/mixins";
 @import "gato-lib/css/contenttypes";

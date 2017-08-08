@@ -8,10 +8,10 @@ jQuery(document).ready(function ($) {
       // below the sidebar and expand it to full width
       $('.gato-section').each(function (i, cmp) {
         cmp = $(cmp);
-        if (cmp.offset().top > sidebar.offset().top+sidebar.outerHeight())
+        if (cmp.offset().top > sidebar.offset().top+sidebar.outerHeight()) {
           cmp.addClass('full-width');
-        if (!cmp.hasClass('full-width'))
-          cmp.closest('.gato-section-parent').removeClass('has-background');
+          cmp.closest('.gato-section-parent').addClass('below-sidebar');
+        }
       });
     };
 
