@@ -14,6 +14,8 @@ faqhierarchy:
   id: gato-component-faq:components/faq-hierarchy
 icontext:
   id: gato-template:components/icontext
+imagecard:
+  id: gato-template:components/imagecard
 gallery:
   id: gato-component-gallery:components/gallery
 # gallerym:
