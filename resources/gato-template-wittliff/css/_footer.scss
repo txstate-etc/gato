@@ -1,6 +1,10 @@
 footer {
+
 	background-color: $wittliffgray;
 	padding: 1rem;
+	@media (max-width: $sm-breakpoint) {
+		padding-bottom: 3rem;
+	}
 	overflow: hidden;
 
 	div.footer-column {
@@ -48,19 +52,13 @@ footer {
 	ul.social-media-icons {
 		margin: 2rem 0 0 0;
 
-		li {
-			margin: 0 0;
-			padding: 0;
+		i.fa {
+			color: black;
+		}
 
-			img {
-				display: inline-block;
-				float: none;
-			}
+		a.gato-sociallink:hover i.fa {
+			color: $wittliffbrown;
 		}
 	}
 
 }
-
-
-
-//  @media (max-width: $sm-breakpoint) {
