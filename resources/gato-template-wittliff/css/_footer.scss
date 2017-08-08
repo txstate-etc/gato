@@ -24,7 +24,10 @@ footer {
 
 	a.texas-state img {
 		height: 4.5rem;
-		margin-top: 1rem;
+		margin: 1rem 0 0 0;
+		@media (max-width: $sm-breakpoint) {
+			margin: 0 0 1rem 0;
+		}
 	}
 
 	ul.footer-links {
