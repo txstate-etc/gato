@@ -1,23 +1,32 @@
 jQuery(document).ready(function($) {
 
   // Main Menu Hamburger Button
+  var header = $('.page-header');
   var menucontainer = $('.main-menu');
   var menubtn = $('.main-menu >button');
   var menupanel = $('.main-menu .main-menu-panel');
+  var menuhide = function () {
+    header.removeClass('menu-out');
+    menubtn.attr('aria-expanded', false);
+  }
+  var menushow = function() {
+    header.addClass('menu-out');
+    menubtn.attr('aria-expanded', true);
+  }
   menubtn.click(function (e) {
-    menucontainer.toggleClass('shown');
-    menubtn.attr('aria-expanded', menucontainer.is('.shown'));
+    if (header.hasClass('menu-out')) menuhide();
+    else menushow();
   })
   $('html').click( function (e) {
     if (!$.contains(menucontainer.get(0), e.target)) {
-      menucontainer.removeClass('shown');
+      menuhide();
     }
   });
   // close the menu with the escape key
   $(document).keyup(function (e) {
     if (e.keyCode === 27 && menucontainer.hasClass('shown')) {
       e.preventDefault();
-      menucontainer.removeClass('shown');
+      menuhide();
     }
   });
 

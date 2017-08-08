@@ -147,14 +147,6 @@ body {
         }
       }
     }
-    &.shown {
-      >button i:before {
-        content: $fa-var-times;
-      }
-      .main-menu-panel {
-        display: block;
-      }
-    }
     .main-menu-panel {
       position: absolute;
       top: $header-height;
@@ -225,6 +217,20 @@ body {
       }
     }
   }
+  &.menu-out {
+    .main-menu {
+      >button i:before {
+        content: $fa-var-times;
+      }
+      .main-menu-panel {
+        display: block;
+      }
+    }
+    .texas-state, .social-media, .search-link {
+      display: none;
+    }
+  }
+
   .newsletter {
     &, i {
       line-height: 3rem;
