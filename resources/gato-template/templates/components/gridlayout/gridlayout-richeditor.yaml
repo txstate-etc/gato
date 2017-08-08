@@ -1,0 +1,8 @@
+templateScript: /gato-template/templates/components/gridlayout/mastertemplate.ftl
+renderType: freemarker
+dialog: gato-template:components/richeditor
+description: Create a free-form paragraph with styled text and images from your DAM.
+title: Rich Editor
+parameters:
+  icon: /gato-template/images/rtexteditor.png
+  templateName: richeditor

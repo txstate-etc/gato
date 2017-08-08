@@ -12,3 +12,5 @@ quarters:
   id: gato-template:components/rows/quarters
 masonrycard:
   id: gato-template:components/rows/masonry
+gridlayout:
+  id: gato-template:components/rows/gridlayout

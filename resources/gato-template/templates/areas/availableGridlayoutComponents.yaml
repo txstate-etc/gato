@@ -1,0 +1,14 @@
+iframe:
+  id: gato-template:components/gridlayout/gridlayout-iframe
+icontext:
+  id: gato-template:components/gridlayout/gridlayout-icontext
+imagecard:
+  id: gato-template:components/gridlayout/gridlayout-imagecard
+richeditor:
+  id: gato-template:components/gridlayout/gridlayout-richeditor
+rss:
+  id: gato-template:components/gridlayout/gridlayout-rss
+textimage:
+  id: gato-template:components/gridlayout/gridlayout-textimage
+streaming:
+  id: gato-template:components/gridlayout/gridlayout-videocard

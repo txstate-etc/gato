@@ -1,0 +1,8 @@
+templateScript: /gato-template/templates/components/gridlayout/mastertemplate.ftl
+renderType: freemarker
+dialog: gato-template:components/imagecard
+description: An image with a caption
+title: Image Card
+parameters:
+  icon: /gato-template/images/banner.png
+  templateName: imagecard

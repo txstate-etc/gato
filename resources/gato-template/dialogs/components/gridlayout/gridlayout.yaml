@@ -1,0 +1,22 @@
+form:
+  tabs:
+    - name: contextSize
+      label: Size
+      fields:
+          - name: cardsperrow
+            class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
+            multiselect: false
+            type: String
+            label: Cards Per Row
+            options:
+              - name: card-sm
+                label: four cards
+                value: grid-card-sm
+              - name: card-md
+                label: three cards
+                selected: true
+                value: grid-card-md
+              - name: card-lg
+                label: two cards
+                value: grid-card-lg
+actions: !include /gato-template/dialogs/common/actions-block.yaml
