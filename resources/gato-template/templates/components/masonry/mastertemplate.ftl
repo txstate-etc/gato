@@ -4,17 +4,19 @@
 [/#if]
 
 [#if content.sizeSelect?has_content]
-      <div class="gato-card  ${rssClass!} eq-parent ${content.sizeSelect!} ${cmsfn.editMode?string('moveEditor', '')}">
+      <div class="card-item  ${rssClass!} eq-parent ${content.sizeSelect!} ${cmsfn.editMode?string('moveEditor', '')}">
             [#if useTemplate=="icontext"]
               [#include "*/components/icontext.ftl"]
             [#elseif useTemplate=="iframe"]
               [#include "*/components/iframe.ftl"]
             [#elseif useTemplate=="rss"]
-              <div class="gato-card-rss-container">
+              <div class=" gato-card-rss-container">
                 [#include "*/gato-component-rss/templates/components/rss.ftl"]
               </div>
             [#elseif useTemplate=="richeditor"]
                 [#include "*/components/richeditor.ftl"]
+            [#elseif useTemplate=="imagecard"]
+                [#include "*/components/imagecard.ftl"]
             [#elseif useTemplate=="textimage"]
                 [#include "*/components/textimage.ftl"]
             [#else]

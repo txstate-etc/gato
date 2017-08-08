@@ -6,11 +6,11 @@
     options:
       - name: card-sm
         label: Small Card
-        value: gato-card-sm
+        value: card-item-sm
       - name: card-md
         label: Medium Card
         selected: true
-        value: gato-card-md
+        value: card-item-md
       - name: card-lg
         label: Large Card
-        value: gato-card-lg
+        value: card-item-lg

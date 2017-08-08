@@ -1,34 +1,34 @@
 
 .masonry-section {
   .moveEditor{margin-top: 20px;}
-  .gato-card-add{height:50px;margin:40px 0px;}
+  .card-item-add{height:50px;margin:40px 0px;}
   overflow: hidden;
   * { box-sizing : border-box; }
   .masonry-sizer { width: 25%; }
 
-  .gato-card-sm { width: 25%; }
-  .gato-card-md { width: 25%; }
-  .gato-card-lg { width: 50%; }
+  .card-item-sm { width: 25%; }
+  .card-item-md { width: 25%; }
+  .card-item-lg { width: 50%; }
 
   [data-eq~="1200px"] & {
-    .gato-card-sm { width: 25%; }
-    .gato-card-md { width: 50%; }
-    .gato-card-lg { width: 50%; }
+    .card-item-sm { width: 25%; }
+    .card-item-md { width: 50%; }
+    .card-item-lg { width: 50%; }
   }
   [data-eq~="800px"] & {
-    .gato-card-sm { width: 50%; }
-    .gato-card-md { width: 50%; }
-    .gato-card-lg { width: 100%; }
+    .card-item-sm { width: 50%; }
+    .card-item-md { width: 50%; }
+    .card-item-lg { width: 100%; }
     figcaption{position: absolute;}
   }
   [data-eq~="600px"] & {
-    .gato-card-sm { width: 50%; }
-    .gato-card-md { width: 100%; }
-    .gato-card-lg { width: 100%; }
+    .card-item-sm { width: 50%; }
+    .card-item-md { width: 100%; }
+    .card-item-lg { width: 100%; }
   }
   [data-eq~="400px"] & {
-    .gato-card-sm { width: 100%; }
-    .gato-card-md { width: 100%; }
-    .gato-card-lg { width: 100%; }
+    .card-item-sm { width: 100%; }
+    .card-item-md { width: 100%; }
+    .card-item-lg { width: 100%; }
   }
 }

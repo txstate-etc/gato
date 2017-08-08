@@ -4,6 +4,6 @@
         [@cms.component content=component /]
     [/#list]
     [#if cmsfn.isEditMode()]
-        <div class="gato-card gato-card-add gato-card-md" cms:add="box"></div>
+    <div class="card-item card-item-add card-item-md" cms:add="box"></div>
     [/#if]
 </div>

@@ -49,5 +49,21 @@ jQuery(document).ready(function($) {
     }
 
     resizeTimeout(evaluate_tsus_logos);
-  
+});
+
+jQuery(window).on('load', function($) {
+
+    var $ = jQuery;
+    var $grid = $(".masonry-section").masonry({
+    itemSelector: ".card-item",
+    columnWidth: ".masonry-sizer",
+    gutter: 0,
+    percentPosition: true,
+  });
+
+  $grid.imagesLoaded(function() {
+    //waits till images are being loaded before triggering new layout.
+    $grid.masonry('layout');
+});
+
 });
