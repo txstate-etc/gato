@@ -60,6 +60,3 @@
 
 <div style="clear: both"></div>
 </footer>
-
-
-<!--       [@cms.area name="socialmedia" content=gf.getOrCreateArea(homepage, 'socialmedia') editable=false /] -->
