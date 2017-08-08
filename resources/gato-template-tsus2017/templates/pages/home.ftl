@@ -30,5 +30,6 @@
         </div>
         [#include "includes/footer.ftl"]
         [@cssjsmodals /]
+        [@sidebarmodal skipsocial=true /]
     </body>
 </html>

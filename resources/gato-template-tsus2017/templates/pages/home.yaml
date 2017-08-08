@@ -8,6 +8,8 @@ areas:
     !include /gato-component-cssjs/templates/areas/customcss.yaml
   customjs:
     !include /gato-component-cssjs/templates/areas/customjs.yaml
+  navBlocks:
+    !include /gato-template-tsus2017/templates/areas/navBlocks.yaml
   tsus-slideshow:
     renderType: freemarker
     type: single
