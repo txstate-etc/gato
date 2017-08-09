@@ -1,6 +1,5 @@
 
 jQuery(window).on('load', function($) {
-
     var $ = jQuery;
     var $grid = $(".masonry-section").masonry({
     itemSelector: ".card-item",
@@ -8,6 +7,7 @@ jQuery(window).on('load', function($) {
     gutter: 0,
     percentPosition: true,
   });
+  setTimeout(function(){$grid.masonry('layout');},1000);
   //for adding youtube or Vimeo thumbnails if no custom thumbnail is added
   $('.gato-card-streaming-wrap a').each(function(index) {
     if(!$('.gato-card-streaming .img-box img').eq(index).hasClass('userThumbnail')){
