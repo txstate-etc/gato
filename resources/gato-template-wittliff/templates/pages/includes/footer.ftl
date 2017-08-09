@@ -1,11 +1,19 @@
 <footer>
 
 <div class="footer-column">
-	[@cms.area name="footer-findus" content=gf.getOrCreateArea(homepage, 'footer-findus') editable=isHomePage/]
+	<div class="footer-column-content">
+		[@cms.area name="footer-findus" content=gf.getOrCreateArea(homepage, 'footer-findus') editable=isHomePage/]
+	</div>
+
+	<div class="footer-button">
+		[@cms.area name="footer-button" content=gf.getOrCreateArea(homepage, 'footer-button') editable=isHomePage/]
+	</div>
 </div>
 
 <div class="footer-column">
-	[@cms.area name="footer-hours" content=gf.getOrCreateArea(homepage, 'footer-hours') editable=isHomePage/]
+	<div class="footer-column-content">
+		[@cms.area name="footer-hours" content=gf.getOrCreateArea(homepage, 'footer-hours') editable=isHomePage/]
+	</div>
 
 	<a href="http://www.txstate.edu" class="texas-state"><img src="${gf.resourcePath()}/gato-template-wittliff/images/txst-logo-black-color.svg" alt="Texas State University"></a>
 </div>

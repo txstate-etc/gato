@@ -29,6 +29,11 @@ areas:
     availableComponents:
       footer-hours:
         id: gato-template-wittliff:components/footer-column
+  footer-button:
+    type: single
+    availableComponents:
+      footer-button:
+        id: gato-component-button:components/button
   footerlinks1:
     !include /gato-template/templates/areas/linklist.yaml
 parameters:

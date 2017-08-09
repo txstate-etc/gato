@@ -28,7 +28,8 @@ jQuery( document ).ready(function($) {
   magnolialabelchange('.masonry-section', '.mgnlEditor.mgnlPlaceholder', 'Add Card');
   magnolialabelchange('.contact-info .contact-container', '.mgnlEditor.mgnlPlaceholder', 'Contact Information');
   magnolialabelchange('.contact-info .social-media', '.mgnlEditor.mgnlPlaceholder', 'Social Media Links');
-  magnolialabelchange('.footer-column', '.mgnlEditor.mgnlPlaceholder', 'Add Footer Column');  
+  magnolialabelchange('.footer-column-content', '.mgnlEditor.mgnlPlaceholder', 'Add Column');
+  magnolialabelchange('.footer-button', '.mgnlEditor.mgnlPlaceholder', 'Add Button');
   titledlabelchange('.slider-edit-bar');
 });
 
