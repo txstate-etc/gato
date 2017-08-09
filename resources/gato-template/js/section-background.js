@@ -6,7 +6,7 @@ jQuery( document ).ready(function($) {
             if(!isBlank(title))
               $(this).parent().find('.section-title').text(title).removeClass('hidden')
             if(background == 'show')
-              $(this).closest('.gato-section-parent').addClass('has-background');
+              $(this).closest('.gato-section-full').addClass('has-background');
         });
     };
     resizeTimeout(addBackgroundColors);

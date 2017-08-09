@@ -2,6 +2,7 @@ $content-width-max: 1200px !default;
 $content-width-xl: 1000px !default;
 $content-width-lg: 1000px !default;
 $sidebar-leftright: 'right' !default;
+$sidebar-moves-below-point: $sm-breakpoint !default;
 
 .page_content {
   position: relative;
@@ -9,7 +10,7 @@ $sidebar-leftright: 'right' !default;
 
 .contentcolumn {
   min-height: 32rem;
-  @media (max-width: $xs-breakpoint) {
+  @media (max-width: $sidebar-moves-below-point) {
     min-height: 0px !important;
   }
 }
@@ -27,7 +28,7 @@ $sidebar-leftright: 'right' !default;
   @media (max-width: $lg-breakpoint) {
     max-width: $content-width-lg;
   }
-  @media (max-width: $xs-breakpoint) {
+  @media (max-width: $sidebar-moves-below-point) {
     position: relative;
   }
   .sidebar {
@@ -36,9 +37,12 @@ $sidebar-leftright: 'right' !default;
     #{$sidebar-leftright}: 0;
     width: 25%;
     @media (max-width: $md-breakpoint) {
+      width: 29%;
+    }
+    @media (max-width: $sm-breakpoint) {
       width: 33%;
     }
-    @media (max-width: $xs-breakpoint) {
+    @media (max-width: $sidebar-moves-below-point) {
       position: relative;
       width: auto;
    }
@@ -59,9 +63,12 @@ $sidebar-leftright: 'right' !default;
   .gato-section {
     padding-#{$sidebar-leftright}: 25%;
     @media (max-width: $md-breakpoint) {
+      padding-#{$sidebar-leftright}: 29%;
+    }
+    @media (max-width: $sm-breakpoint) {
       padding-#{$sidebar-leftright}: 33%;
     }
-    @media (max-width: $xs-breakpoint) {
+    @media (max-width: $sidebar-moves-below-point) {
       padding-#{$sidebar-leftright}: 0;
     }
   }

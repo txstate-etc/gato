@@ -9,8 +9,7 @@ jQuery(document).ready(function ($) {
       $('.gato-section').each(function (i, cmp) {
         cmp = $(cmp);
         if (cmp.offset().top > sidebar.offset().top+sidebar.outerHeight()) {
-          cmp.addClass('full-width');
-          cmp.closest('.gato-section-parent').addClass('below-sidebar');
+          cmp.closest('.gato-section-full').addClass('full-width');
         }
       });
     };

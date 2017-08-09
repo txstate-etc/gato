@@ -1,7 +1,7 @@
 .sidebar-container {
   .sidebar {
     padding: 0 2rem;
-    @media screen and (max-width: $xs-breakpoint) {
+    @media screen and (max-width: $sidebar-moves-below-point) {
       padding: 0;
     }
   }
