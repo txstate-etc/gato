@@ -23,12 +23,12 @@ areas:
     type: single
     availableComponents:
       footer-findus:
-        id: gato-template-wittliff:components/footer-findus
+        id: gato-template-wittliff:components/footer-column
   footer-hours:
     type: single
     availableComponents:
       footer-hours:
-        id: gato-template-wittliff:components/footer-hours
+        id: gato-template-wittliff:components/footer-column
   footerlinks1:
     !include /gato-template/templates/areas/linklist.yaml
 parameters:

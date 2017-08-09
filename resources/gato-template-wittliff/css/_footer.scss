@@ -15,17 +15,17 @@ footer {
 		}
 		text-align: center;
 		padding: 0 3rem;
-	}
 
-	h2.footer-title {
-		font-family: $garamond;
-		text-transform: uppercase;
-		font-size: 3rem;
-		margin: 0 0 1rem 0;
-		letter-spacing: .2rem;
-		font-weight: 500;
+		h2 {
+			font-family: $garamond;
+			text-transform: uppercase;
+			font-size: 3rem;
+			margin: 0 0 1rem 0;
+			letter-spacing: .2rem;
+			font-weight: 500;
+		}
 	}
-
+	
 	a.texas-state img {
 		height: 4.5rem;
 		margin: 1rem 0 0 0;

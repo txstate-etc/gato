@@ -1,7 +1,0 @@
-templateScript: /gato-template/templates/components/miscrichtext.ftl
-renderType: freemarker
-dialog: gato-template:components/miscrichtext
-description: Hours Text
-title: Hours Text
-parameters:
-  icon: /gato-template/images/misctext.png

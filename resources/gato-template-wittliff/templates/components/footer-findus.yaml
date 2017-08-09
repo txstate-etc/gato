@@ -1,7 +1,0 @@
-templateScript: /gato-template/templates/components/miscrichtext.ftl
-renderType: freemarker
-dialog: gato-template:components/miscrichtext
-description: Find Us Text
-title: Find Us Text
-parameters:
-  icon: /gato-template/images/misctext.png

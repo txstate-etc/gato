@@ -1,25 +1,13 @@
 <footer>
 
 <div class="footer-column">
-	<h2 class="footer-title">
-		Find Us
-	</h2>
-
-	<div class="footer-content">
-		[@cms.area name="footer-findus" content=gf.getOrCreateArea(homepage, 'footer-findus') editable=isHomePage/]
-	</div>
+	[@cms.area name="footer-findus" content=gf.getOrCreateArea(homepage, 'footer-findus') editable=isHomePage/]
 </div>
 
 <div class="footer-column">
-	<h2 class="footer-title">
-		Hours
-	</h2>
+	[@cms.area name="footer-hours" content=gf.getOrCreateArea(homepage, 'footer-hours') editable=isHomePage/]
 
-	<div class="footer-content">
-		[@cms.area name="footer-hours" content=gf.getOrCreateArea(homepage, 'footer-hours') editable=isHomePage/]
-
-		<a href="http://www.txstate.edu" class="texas-state"><img src="${gf.resourcePath()}/gato-template-wittliff/images/txst-logo-black-color.svg" alt="Texas State University"></a>
-	</div>
+	<a href="http://www.txstate.edu" class="texas-state"><img src="${gf.resourcePath()}/gato-template-wittliff/images/txst-logo-black-color.svg" alt="Texas State University"></a>
 </div>
 
 <div class="footer-column footer-column-links">
