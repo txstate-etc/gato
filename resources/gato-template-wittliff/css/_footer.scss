@@ -7,7 +7,7 @@ footer {
 	}
 	overflow: hidden;
 
-	div.footer-column {
+	div.footer-column, div.footer-column-links {
 		float: left;
 		width: 33%;
 		@media (max-width: $sm-breakpoint) {
@@ -34,9 +34,9 @@ footer {
 		}
 	}
 
-	ul.footer-links {
+	div.footer-column-links ul {
 		list-style: none;
-		margin: 0;
+		margin: .5rem 0 0 0;
 		padding: 0;
 
 		a {
