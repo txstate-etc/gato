@@ -27,7 +27,6 @@ jQuery(document).ready(function($) {
         //M -> Move to the arc starting point
         //A -> x radius, y radius, x-axis rotation, large-arc-flag, sweep-flag, arc-end-x, arc-end-y
         var path = "M " + (center.x - radius) + " " + center.y + " A " + radius + " " + radius + " 0 " + largeArcFlag + " 0 " + (end.x + center.x) + " " + (center.y - end.y);
-        console.log("Path: " + path)
         $(this).find('path').attr("d", path)
     });
 
