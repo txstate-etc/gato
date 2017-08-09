@@ -9,24 +9,25 @@
   </head>
   <body>
     [#include "includes/header.ftl"]
-    <div class="content-alignment" data-sidebar-width-percentage="22"></div>
-    [#assign hideSidebar = content.hideSidebar!false]
-    <main class="contentcolumn">
-      [@headline /]
-      [#if def.parameters.isMailTemplate!false]
-        [@cms.area name="mail" /]
-      [#else]
-        [@cms.area name="contentParagraph" contextAttributes={"hideSidebar":hideSidebar} /]
-      [/#if]
-    </main>
+    <div class="page_content">
+      [#assign hideSidebar = content.hideSidebar!false]
+      <main class="contentcolumn">
+        [@headline /]
+        [#if def.parameters.isMailTemplate!false]
+          [@cms.area name="mail" /]
+        [#else]
+          [@cms.area name="contentParagraph" contextAttributes={"hideSidebar":hideSidebar} /]
+        [/#if]
+      </main>
 
-    [#if !hideSidebar]
-      <aside class="sidebar-container">
-        <div class="sidebar">
-          [@cms.area name="navBlocks" /]
-        </div>
-      </aside>
-    [/#if]
+      [#if !hideSidebar]
+        <aside class="sidebar-container">
+          <div class="sidebar">
+            [@cms.area name="navBlocks" /]
+          </div>
+        </aside>
+      [/#if]
+    </div>
     [#include "includes/footer.ftl"]
     [@cssjsmodals /]
   </body>

@@ -173,6 +173,7 @@ sub installwar {
   my $warpath = shift;
   print "copying war...\n";
   `cp $warpath $tomcatdir/webapps/ROOT.war`;
+  `mvn clean`;
 }
 
 sub replacemodule {

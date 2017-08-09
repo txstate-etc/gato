@@ -15,7 +15,7 @@
   display: inline-block;
 }
 
-[data-eq~="600px"] .txst-form-body {
+.txst-form[data-eq~="600px"] {
   .valid-icon-cont {
     display: block;
     margin-top: 5px;
@@ -95,7 +95,7 @@
   width: 100% !important;
 }
 
-.txst-form-body {
+.txst-form {
   background-color:$white;
   padding: 2rem;
   margin-bottom: 1em;

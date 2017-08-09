@@ -2,26 +2,64 @@
   .side_nav {
     margin-bottom: 4rem;
   }
-  h3 {
+  h3, h3 a {
     text-transform: uppercase;
-    font-size: 3rem;
+    font-size: 2.6rem;
     line-height: 3rem;
     font-weight: bold;
     letter-spacing: 0.2rem;
-    color: $wittliffbrown-light;
-  }
-  a {
-    font-size: 2.4rem;
-    line-height: 2.4rem;
-    text-decoration: none;
-    letter-spacing: 0.2rem;
-    color: $wittliffbrown-light;
-    &:hover, &:active {
-      color: $wittliffgreen-lighter;
+    @media (max-width: $lg-breakpoint) {
+      font-size: 2.4rem;
+      line-height: 2.7rem;
+      letter-spacing: 0.18rem;
+    }
+    @media (max-width: $md-breakpoint) {
+      font-size: 2.2rem;
+      line-height: 2.5rem;
+      letter-spacing: 0.16rem;
+    }
+    @media (max-width: $sm-breakpoint) {
+      font-size: 2rem;
+      line-height: 2.2rem;
+      letter-spacing: 0.15rem;
+    }
+    @media (max-width: $xs-breakpoint) {
+      font-size: 2.2rem;
+      line-height: 2.5rem;
+      letter-spacing: 0.16rem;
     }
   }
+  li a {
+    font-size: 2rem;
+    line-height: 2rem;
+    letter-spacing: 0.15rem;
+    @media (max-width: $lg-breakpoint) {
+      font-size: 1.8rem;
+      line-height: 1.8rem;
+    }
+    @media (max-width: $md-breakpoint) {
+      font-size: 1.7rem;
+      line-height: 1.7rem;
+    }
+    @media (max-width: $sm-breakpoint) {
+      font-size: 1.6rem;
+      line-height: 1.6rem;
+    }
+    @media (max-width: $xs-breakpoint) {
+      font-size: 1.8rem;
+      line-height: 1.8rem;
+    }
+ }
   h3, .side_nav_list a {
     border-bottom: 2px solid $wittliffbrown-dark;
     padding: 1rem 0;
+  }
+
+  a {
+    color: $wittliffbrown-light;
+    text-decoration: none;
+    &:hover, &:active {
+      color: $wittliffgreen-lighter;
+    }
   }
 }

@@ -24,8 +24,7 @@
 
 .page_content, #search-results {
   overflow: hidden;
-  margin: 0 auto;
-  padding: $content-top-padding 0 1rem 0;
+  margin-top: 2.9rem;
   min-height: 32rem;
   position: relative;
   .content-alignment {
@@ -71,18 +70,6 @@
 }
 
 .gato-section {
-  margin: 0 auto;
-  max-width: 1200px;
-  padding-right: 25%;
-  @media (max-width: $xl-breakpoint) {
-    max-width: 1000px;
-  }
-  @media screen and (max-width: $sm-breakpoint) {
-    padding-right: 0;
-  }
-  &.full-width {
-    padding-right: 0;
-  }
   .section-title {
     display: block;
     text-align: center;
@@ -92,14 +79,3 @@
     }
   }
 }
-
-.txst-form-body {
-  width: 75%;
-}
-
-.txst-form.full-width {
-  .txst-form-body {
-    width: 100%;
-  }
-}
-

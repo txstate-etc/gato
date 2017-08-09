@@ -1,31 +1,8 @@
 .sidebar-container {
-  position: absolute;
-  width: 100%;
-  left: 50%;
-  top: $content-top-padding;
-  transform: translateX(-50%);
-  max-width: 1200px;
-  margin-bottom: -1rem;
-  @media (max-width: $xl-breakpoint) {
-    max-width: 1000px;
-  }
-  @media screen and (max-width: $sm-breakpoint) {
-    position: relative;
-    top: 0;
-    width: 100%;
-    padding: 0;
-  }
   .sidebar {
-    position: absolute;
-    top: 0;
-    right: 0;
     padding: 0 2rem;
-    width: 25%;
-    @media screen and (max-width: $sm-breakpoint) {
-      position: relative;
-      padding: 0px;
-      float: none;
-      width: 100%;
+    @media screen and (max-width: $xs-breakpoint) {
+      padding: 0;
     }
   }
 }

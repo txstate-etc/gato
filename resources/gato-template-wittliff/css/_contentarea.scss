@@ -1,64 +1,28 @@
-$content-width: 120rem;
-
-.contentcolumn {
-  @media (max-width: $xs-breakpoint) {
-    min-height: 0px !important;
-  }
+.page_content {
+  margin-top: 4rem;
 }
 
 .sidebar-container {
-  position: absolute;
-  width: 100%;
-  top: $header-height + 4rem;
-  left: 50%;
-  transform: translateX(-50%);
-  max-width: $content-width;
-  @media (max-width: $md-breakpoint) {
-    top: $header-height-tablet + 3rem;
-  }
-  @media (max-width: $sm-breakpoint) {
-    top: $header-height-mobile + 2rem;
-  }
-  @media (max-width: $xs-breakpoint) {
-    position: relative;
-    top: 0;
-  }
   .sidebar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 25%;
-    padding-left: 4rem;
+    padding-right: 2rem;
+    padding-bottom: 1rem;
+    @media (max-width: $lg-breakpoint) {
+      padding-left: 4rem;
+    }
     @media (max-width: $md-breakpoint) {
       padding-left: 3rem;
     }
     @media (max-width: $sm-breakpoint) {
-      width: 33%;
-      padding-left: 3rem;
+      padding-left: 2rem;
     }
     @media (max-width: $xs-breakpoint) {
-      position: relative;
-      width: auto;
       padding-left: 2rem;
       padding-right: 2rem;
-      padding-bottom: 1rem;
    }
   }
 }
 
-.gato-section {
-  max-width: $content-width;
-  margin: 0 auto 2rem auto;
-  padding-left: 25%;
-  @media (max-width: $sm-breakpoint) {
-    padding-left: 33%;
-  }
-  @media (max-width: $xs-breakpoint) {
-    padding-left: 0;
-  }
-  &.full-width {
-    padding-left: 0;
-  }
+.gato-section-full {
   .section-title {
     margin: 0;
     padding: 1rem 0;

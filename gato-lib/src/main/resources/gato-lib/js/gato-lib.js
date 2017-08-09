@@ -567,7 +567,7 @@ jQuery(function($) {
 });
 
 jQuery(function($){
-    $('.column_paragraph table:not(.gato-table), .txst-form-body table').each(function(){
+    $('.column_paragraph table:not(.gato-table), .txst-form table').each(function(){
         //wrap rich editor tables in a div to make them scroll when they are too wide
         //don't wrap nested tables
         if($(this).parents('table').length == 0)

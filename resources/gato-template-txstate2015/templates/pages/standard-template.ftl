@@ -53,34 +53,36 @@
 			<div class="trail">
 				[@breadcrumbs/]
 			</div>
-			<div class="page_content contentcolumn">
-            [#assign hideSidebar = content.hideSidebar!false]
-            [#if !cmsfn.isEditMode() && !gf.areaHasChildrenIncludingInheritance(content.navBlocks) && !gf.hasChildren(homepage.socialmedia)]
-               [#assign hideSidebar = true]
-            [/#if]
+			<div class="page_content">
+        [#assign hideSidebar = content.hideSidebar!false]
+        [#if !cmsfn.isEditMode() && !gf.areaHasChildrenIncludingInheritance(content.navBlocks) && !gf.hasChildren(homepage.socialmedia)]
+           [#assign hideSidebar = true]
+        [/#if]
 
-            [#if !isHomePage && !(content.hideTitle!false)]
-                <div class="headline-parent">
-                    <div class="headline">
-                      <h1 id="maincontent">${gf.nodeTitle(content)}</h1>
-                    </div>
+        [#if !isHomePage && !(content.hideTitle!false)]
+            <div class="headline-parent">
+                <div class="headline">
+                  <h1 id="maincontent">${gf.nodeTitle(content)}</h1>
                 </div>
-            [#else]
-                <h1 id="maincontent" class="visuallyhidden">${gf.nodeTitle(content)}</h1>
-            [/#if]
-			[#if def.parameters.isMailTemplate!false]
-				[@cms.area name="mail" contextAttributes={"hideSidebar":hideSidebar} /]
-			[#else]
-				[@cms.area name="contentParagraph" contextAttributes={"hideSidebar":hideSidebar} /]
-			[/#if]
-            [#if hideSidebar == false]
-            <aside class="sidebar-container">
-                <div class="sidebar">
-                    [@cms.area name="navBlocks" /]
-                    [#include "/gato-template/templates/includes/socialsidenav.ftl"]
-                </div>
-            </aside>
-            [/#if]
+            </div>
+        [#else]
+            <h1 id="maincontent" class="visuallyhidden">${gf.nodeTitle(content)}</h1>
+        [/#if]
+        <main class="contentcolumn">
+          [#if def.parameters.isMailTemplate!false]
+            [@cms.area name="mail" contextAttributes={"hideSidebar":hideSidebar} /]
+          [#else]
+            [@cms.area name="contentParagraph" contextAttributes={"hideSidebar":hideSidebar} /]
+          [/#if]
+        </main>
+        [#if hideSidebar == false]
+        <aside class="sidebar-container">
+            <div class="sidebar">
+                [@cms.area name="navBlocks" /]
+                [#include "/gato-template/templates/includes/socialsidenav.ftl"]
+            </div>
+        </aside>
+        [/#if]
 			</div> <!-- end of page_content -->
 			[#include "includes/footer.ftl"]
 		</div> <!-- end of the container -->

@@ -31,7 +31,6 @@ strong {
   height: $header-height;
   color: $white;
   position: relative;
-  margin-bottom: 4rem;
   @media (max-width: $md-breakpoint) {
     height: $header-height-tablet;
     margin-bottom: 3rem;

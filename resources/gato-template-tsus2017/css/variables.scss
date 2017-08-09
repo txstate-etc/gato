@@ -5,8 +5,6 @@ $content-background:               $white;
 $content-link-text:                $blue;
 $content-link-hover:               $platinum;
 
-$content-top-padding:              6.7rem;
-
 $max-width-larger:  1250px;
 $max-width-smaller: 970px;
 
@@ -43,6 +41,10 @@ $sitesearch-font-family:                    inherit;
 $sm-breakpoint: 48em; //~767px
 $md-breakpoint: 62em;//~991px
 $lg-breakpoint: 75em; //~1200px
+
+$content-width-max: 1250px;
+$content-width-xl: 1150px;
+$content-width-lg: 970px;
 
 //the point at which the sidebar moves below the content column instead of next to it
 $sidebar-moves-below-point: $md-breakpoint;

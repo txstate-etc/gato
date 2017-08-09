@@ -238,9 +238,13 @@
     [#if hideSidebar]
       [#assign fullwidth = 'full-width']
     [/#if]
-    <section class="gato-section ${fullwidth!}">
-      <h1 class="headline">${gf.nodeTitle(content)}</h1>
-    </section>
+    <div class="gato-section-full ${fullwidth!}">
+      <div class="gato-section-centered">
+        <div class="gato-section">
+          <h1 class="headline">${gf.nodeTitle(content)}</h1>
+        </div>
+      </div>
+    </div>
   [#else]
     <h1 class="visuallyhidden">${gf.nodeTitle(content)}</h1>
   [/#if]
