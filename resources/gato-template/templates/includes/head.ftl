@@ -40,7 +40,9 @@
     'gato-template/js/progress.js',
     'gato-template/js/sitesearch.js',
     'gato-template/js/search-gsa.js',
-    'gato-template/js/dropdownsearch.js'
+    'gato-template/js/dropdownsearch.js',
+    'gato-template/js/masonry.js',
+    'gato-template/js/masonry-video.js'
   ]+scripts /]
 [/#macro]
 
