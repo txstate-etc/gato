@@ -1,47 +1,55 @@
-$gato-card-shadow: 0px 5px 15px rgba(black,.5);
+$light-grey:rgba($grey,.5);
+
 
 .gato-card-rss{
   &-container{
-      background: #DDD;
+    overflow: hidden;
+      background: #f2f2f2;
       padding: 1rem;
       box-shadow: $gato-card-shadow;
     .gato-rss-feedinformation{
       a,.gato-rss-title{display: none;}
       font-size: 0;//hides extra text that may show up from rss feeds not enclosed in a tag other than .gato-rss-feedimage
       .gato-rss-feedimage{
-
         width: 100%;
         display: initial;
         display: inline-block;
         vertical-align: top;
-        background-color: #ddd;
+        background-color: inherit;
         padding-right: 3.3rem;
         position: relative;
         z-index: 2;
         img{
-          background: #DDD;
+          background: white;
+          padding:1px;
+          max-width: 17rem;
+          max-height: 6rem;
+          border-radius: 5%;
+          border: .3rem solid $light-grey;
         }
         &::after{
           content: '';
           position: absolute;
           z-index: -1;
-          height: .5rem;
+          height: .3rem;
           right: 0;
           left: 0;
-          bottom: .6rem;
-          background-color: #b4282e;
-          transform: translateY(-1.5rem);
+          bottom:1.5rem;
+          background-color: $light-grey;
         }
+
       }
+
     }
     .gato-accordion{
+      box-shadow: none;
       &-expand-collapse{
         display: none;
       }
       &-header{
         line-height: 2.2rem;
         padding: 0rem 1rem 1rem 2rem;
-        background:#DDD !important;
+        background:inherit !important;
         box-shadow: none !important;
         border: none;
         display: block;
@@ -53,14 +61,14 @@ $gato-card-shadow: 0px 5px 15px rgba(black,.5);
           line-height: 2rem;
           font-weight: 400;
           font-size: 1.4rem;
-          color: #444;
+          color: $grey;
 
           &::after {
             content:'Read More';
             font-size:1.1rem;
             display: block;
             font-weight: 700;
-            color: #1e355e;
+            color: $blue;
             cursor: pointer;
           }
       }
