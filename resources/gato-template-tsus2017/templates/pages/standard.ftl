@@ -11,12 +11,14 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet"><!--font sheet from tsus demo-->
   </head>
   <body>
+    [@skipnav/]
     [#include "includes/header.ftl"]
         <div class="page_content">
           [#assign hideSidebar = content.hideSidebar!false]
           [#if !cmsfn.isEditMode() && !gf.areaHasChildrenIncludingInheritance(content.navBlocks)]
             [#assign hideSidebar = true]
           [/#if]
+          [@headline hideSidebar /]
           <main class="contentcolumn">
               [#if def.parameters.isMailTemplate!false]
                   [@cms.area name="mail" contextAttributes={"hideSidebar":hideSidebar} /]

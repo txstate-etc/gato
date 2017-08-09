@@ -233,7 +233,7 @@
     </div>
 [/#macro]
 
-[#macro headline]
+[#macro headline hideSidebar=false]
   [#if !isHomePage && !(content.hideTitle!false)]
     [#if hideSidebar]
       [#assign fullwidth = 'full-width']
@@ -241,11 +241,11 @@
     <div class="gato-section-full ${fullwidth!}">
       <div class="gato-section-centered">
         <div class="gato-section">
-          <h1 class="headline">${gf.nodeTitle(content)}</h1>
+          <h1 id="maincontent" class="headline">${gf.nodeTitle(content)}</h1>
         </div>
       </div>
     </div>
   [#else]
-    <h1 class="visuallyhidden">${gf.nodeTitle(content)}</h1>
+    <h1 id="maincontent" class="visuallyhidden">${gf.nodeTitle(content)}</h1>
   [/#if]
 [/#macro]

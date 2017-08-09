@@ -59,15 +59,7 @@
            [#assign hideSidebar = true]
         [/#if]
 
-        [#if !isHomePage && !(content.hideTitle!false)]
-            <div class="headline-parent">
-                <div class="headline">
-                  <h1 id="maincontent">${gf.nodeTitle(content)}</h1>
-                </div>
-            </div>
-        [#else]
-            <h1 id="maincontent" class="visuallyhidden">${gf.nodeTitle(content)}</h1>
-        [/#if]
+        [@headline hideSidebar /]
         <main class="contentcolumn">
           [#if def.parameters.isMailTemplate!false]
             [@cms.area name="mail" contextAttributes={"hideSidebar":hideSidebar} /]

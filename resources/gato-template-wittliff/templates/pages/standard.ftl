@@ -8,11 +8,15 @@
     [@templatehead publisher="The Wittliff Collections"/]
   </head>
   <body>
+    [@skipnav/]
     [#include "includes/header.ftl"]
     <div class="page_content">
       [#assign hideSidebar = content.hideSidebar!false]
+      [#if !cmsfn.isEditMode() && !gf.areaHasChildrenIncludingInheritance(content.navBlocks)]
+        [#assign hideSidebar = true]
+      [/#if]
       <main class="contentcolumn">
-        [@headline /]
+        [@headline hideSidebar /]
         [#if def.parameters.isMailTemplate!false]
           [@cms.area name="mail" /]
         [#else]
