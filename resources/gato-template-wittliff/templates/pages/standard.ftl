@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-wittliff/css/standard.compiled.css"/>
     [@templatehead publisher="The Wittliff Collections"/]
   </head>
-  <body>
+  <body class="template-wittliff">
     [@skipnav/]
     [#include "includes/header.ftl"]
     <div class="page_content">
