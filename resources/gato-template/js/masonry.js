@@ -3,14 +3,14 @@ jQuery(window).on('load', function($) {
 
     var $ = jQuery;
     var $grid = $(".masonry-section").masonry({
-    itemSelector: ".gato-card",
+    itemSelector: ".card-item",
     columnWidth: ".masonry-sizer",
     gutter: 0,
     percentPosition: true,
   });
   //for adding youtube or Vimeo thumbnails if no custom thumbnail is added
   $('.gato-card-streaming-wrap a').each(function(index) {
-    if(!$('.img-box img').eq(index+1).hasClass('userThumbnail')){
+    if(!$('.gato-card-streaming .img-box img').eq(index).hasClass('userThumbnail')){
       var linkArray=this.getAttribute('href').split('/');
       if(linkArray[2]==='vimeo.com'){
         var vimeoID=linkArray[linkArray.length-1];//grab the last part of the link which is the id for vimeo.

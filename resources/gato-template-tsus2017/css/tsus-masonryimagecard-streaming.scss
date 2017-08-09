@@ -2,7 +2,7 @@ $quick:.5s;
 $quicker:.4s;
 .default-size{width:100%}//default size for card
 .gato-card-streaming{
-
+  position: relative;
   figure{
     figcaption{
       z-index: 1;
@@ -12,15 +12,6 @@ $quicker:.4s;
     }
   }
   &-wrap{
-    display: flex;
-    justify-content: center;
-    background: #DDD;
-    width: 100%;
-    &:hover{
-      transition: $quick;
-      //transform: perspective(5000px) translateZ(150px);
-    }
-
     .img-box{
       overflow: hidden;
     }
