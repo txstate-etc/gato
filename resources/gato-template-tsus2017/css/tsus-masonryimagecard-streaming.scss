@@ -14,6 +14,8 @@ $quicker:.4s;
   &-wrap{
     .img-box{
       overflow: hidden;
+      background: #f2f2f2;
+      min-height: 350px;
     }
     .feature-play-button{
       position: absolute;
