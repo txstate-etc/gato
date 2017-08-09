@@ -62,13 +62,20 @@ jQuery(document).ready(function($) {
       smbtn.attr('aria-expanded', false);
     }, 200);
   }
+  var smcancel = function() {
+    if (smcontainer.hasClass('shown')) {
+      clearTimeout(smtimeout);
+    }
+  }
   smbtn.mouseover(smin);
   smpanel.mouseover(smin);
-  smbtn.mouseout(smout);
+  header.mouseover(smcancel);
+  header.mouseout(smout);
   smpanel.mouseout(smout);
   $('html').click( function (e) {
     if (!$.contains(smcontainer.get(0), e.target)) {
       smcontainer.removeClass('shown');
+      smbtn.attr('aria-expanded', false);
     }
   });
 });
