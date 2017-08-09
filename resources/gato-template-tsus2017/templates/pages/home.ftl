@@ -12,12 +12,13 @@
 
         [#include "includes/header.ftl"]
         <div class="contentcolumn">
+          [#assign hideSidebar = true]
             <!-- slideshow -->
             <div class="tsus-slideshow eq-parent">
               [@cms.area name="tsus-slideshow" /]
             </div>
 
-            [@cms.area name="contentParagraph"/]
+            [@cms.area name="contentParagraph" contextAttributes={"hideSidebar":hideSidebar} /]
 
             <div class="container">
                 <!-- institution logos -->
