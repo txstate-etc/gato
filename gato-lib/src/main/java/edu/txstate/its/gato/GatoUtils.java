@@ -184,7 +184,7 @@ public final class GatoUtils {
     if (isCacheEnvironment()) propKey += ".cache";
     if (mcp.hasProperty(propKey))
       return filterUrl(mcp.getProperty(propKey));
-    return MgnlContext.getContextPath()+"/.resources";
+    return MgnlContext.getContextPath()+"/.resources"+getCacheStr();
   }
 
   public String peopleSearchTokenPath() {
@@ -217,7 +217,7 @@ public final class GatoUtils {
     if (furl.startsWith(cpath)) {
       String path = stripExtension(furl.substring(furl.indexOf(cpath) + cpath.length()));
       try {
-        return nodeTitle(sc.getJCRSession("website").getNode(path));
+        return nodeTitle(sc.getJCRSession(RepositoryConstants.WEBSITE).getNode(path));
       } catch (Exception e) {
         return path;
       }
@@ -497,6 +497,16 @@ public final class GatoUtils {
 
   public String getCacheStr(Asset a) {
     return getCacheStr(a.getLastModified());
+  }
+
+  public String getCacheStr() {
+    String cacheidentifier = "";
+    try {
+      cacheidentifier = sc.getJCRSession(RepositoryConstants.CONFIG).getProperty("modules/gato-internal/cachebuster").getString();
+    } catch (Exception e) {
+      // empty cacheidentifier is fine
+    }
+    return getCacheStr(cacheidentifier);
   }
 
   public String md5(String str) {

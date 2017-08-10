@@ -51,7 +51,7 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       .addTask(new AddPermissionTask("Give main2012-editor role access to global-links in gatoapps workspace", "main2012-editor", GatoLib.WS_GATOAPPS, "/homepage-data/global-links", Permission.ALL, true))
       .addTask(new RemovePermissionTask("Revoke main2012-editor role access to global-links in website workspace", "main2012-editor", RepositoryConstants.WEBSITE, "/homepage-data/global-links", Permission.ALL))
       .addTask(new RemovePermissionTask("Revoke main2012-editor role access to homepage-data in website workspace", "main2012-editor", RepositoryConstants.WEBSITE, "/homepage-data", Permission.ALL))
-     .addTasks(installOrUpdateTasks())
+      .addTasks(installOrUpdateTasks())
     );
 
     register(DeltaBuilder.update("1.0.2", "")
@@ -94,17 +94,20 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       .addTask(new BootstrapSingleModuleResource("config.modules.pages.apps.pages.subApps.browser.actions.externalPreview.xml"))
       .addTask(new BootstrapSingleModuleResource("config.modules.pages.apps.pages.subApps.browser.actionbar.sections.pageActions.groups.editingActions.items.xml"))
       .addTask(new BootstrapSingleModuleResource("config.modules.pages.dialogs.editPage.form.tabs.tabPage.fields.jcrName.xml"))
+      .addTasks(installOrUpdateTasks())
     );
 
     register(DeltaBuilder.update("1.0.5", "")
       .addTask(new BootstrapSingleModuleResource("config.modules.pages.dialogs.createPage.xml"))
       .addTask(new BootstrapSingleModuleResource("config.modules.cas.config.xml"))
       .addTask(new BootstrapSingleModuleResource("config.modules.site.config.site.templates.availability.templates.xml"))
+      .addTasks(installOrUpdateTasks())
     );
 
     register(DeltaBuilder.update("1.0.6", "")
       .addTask(new BootstrapSingleModuleResource("config.modules.dam-app.apps.assets.subApps.browser.actions.editFolder.availability.rules.IsNotTopLevelRule.xml"))
       .addTask(new RemoveSitewideAreasFromSubpagesTask())
+      .addTasks(installOrUpdateTasks())
     );
 
     register(DeltaBuilder.update("1.0.7", "")
@@ -124,11 +127,13 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       .addTask(new RemoveNodeTask("Remove defunct adminInterface config", "/modules/adminInterface"))
       .addTask(new UpgradeTsusLogoTask())
       .addTask(new UpgradeSocialmediaTask())
+      .addTasks(installOrUpdateTasks())
     );
   }
 
   protected List<Task> installOrUpdateTasks() {
     List<Task> tasks = new ArrayList<Task>();
+    tasks.add(new RandomizeCacheStrTask());
     return tasks;
   }
 
