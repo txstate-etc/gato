@@ -24,10 +24,12 @@ jQuery(function($) {
     }
   };
 
-  $('.masonry-section .feature-play-button a').blurclick(function(e) {
+  $('.gato-card-streaming .feature-play-button a').blurclick(function(e) {
     console.log(this.getAttribute('href'));
     masonryVideo.open(this);
   });
+
+
 
   $('.masonry-video-modal .video-modal-close').blurclick(masonryVideo.close);
   $('.masonry-video-modal').on('click', masonryVideo.close);
@@ -40,6 +42,6 @@ jQuery(function($) {
 //to set thumbnail for youtube and vimeo videos.
 jQuery(window).on('load', function($) {
     var $ = jQuery;
-  
+
 
 });
