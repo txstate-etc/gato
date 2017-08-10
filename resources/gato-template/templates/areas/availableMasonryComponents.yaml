@@ -1,24 +1,10 @@
-iframe:
-  id: gato-template:components/masonry/masonry-iframe
 icontext:
   id: gato-template:components/masonry/masonry-icontext
 imagecard:
   id: gato-template:components/masonry/masonry-imagecard
-richeditor:
-  id: gato-template:components/masonry/masonry-richeditor
 rss:
   id: gato-template:components/masonry/masonry-rss
 textimage:
   id: gato-template:components/masonry/masonry-textimage
 streaming:
   id: gato-template:components/masonry/video-card-masonry
-#html:
-#  id: gato-template:components/html
-
-#feature:
-#  id: gato-component-feature:components/feature
-#table:
-#  id: gato-template:components/table
-
-#twitter:
-#  id: gato-component-twitter:components/twitter
