@@ -1,13 +1,4 @@
-[#assign editorClass = def.parameters.cssClass!""]
-
-[#if content.sizeSelect!?has_content]
-    [#assign sizeClass = content.sizeSelect ]
-[#else]
-  [#assign sizeClass = "default-size" ]
-[/#if]
-
-  <div class="card-item eq-parent ${sizeClass}">
-        <div class="gato-card gato-card-streaming  ${cmsfn.editMode?string(editorClass, '')}">
+         <div class="gato-card gato-card-streaming">
           [#if content.videourl?has_content]
           <div class="gato-card-streaming-wrap">
             <p class="feature-play-button">
@@ -39,4 +30,3 @@
             <div class="video-container"></div><!--where the video will go-->
           </div>
         </div>
-  </div>

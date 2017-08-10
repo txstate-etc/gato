@@ -19,6 +19,8 @@
                 [#include "*/components/imagecard.ftl"]
             [#elseif useTemplate=="textimage"]
                 [#include "*/components/textimage.ftl"]
+            [#elseif useTemplate=="videocard"]
+                [#include "*/gato-component-streaming/templates/components/masonryStreaming.ftl"]
             [#else]
                 <p>Error while rendering a template or did not find the requested template</p>
             [/#if]

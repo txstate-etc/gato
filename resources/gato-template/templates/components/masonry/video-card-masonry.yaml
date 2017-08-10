@@ -1,8 +1,8 @@
-templateScript: /gato-component-streaming/templates/components/masonryStreaming.ftl
+templateScript: /gato-template/templates/components/masonry/mastertemplate.ftl
 renderType: freemarker
 dialog: gato-template:components/masonry/videocard-masonry
 description: video with a caption
 title: Video Card
 parameters:
   icon: /gato-component-streaming/images/stream_media.png
-  cssClass: moveEditor
+  templateName: videocard
