@@ -127,6 +127,7 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       .addTask(new RemoveNodeTask("Remove defunct adminInterface config", "/modules/adminInterface"))
       .addTask(new UpgradeTsusLogoTask())
       .addTask(new UpgradeSocialmediaTask())
+      .addTask(new UpdateTemplateBeneathPathTask("/testing-wittliff", Arrays.asList("gato-template-wittliff:pages/sidebar", "gato-template-txstate2009:pages/standard"), "gato-template-wittliff:pages/standard"))
       .addTasks(installOrUpdateTasks())
     );
   }
