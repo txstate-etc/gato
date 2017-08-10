@@ -1,6 +1,6 @@
 templateScript: /gato-template/templates/components/gridlayout/mastertemplate.ftl
 renderType: freemarker
-dialog: gato-component-streaming:components/streaming
+dialog: gato-template:components/gridlayout/gridlayout-videocard
 description: video with a caption
 title: Video Card
 parameters:

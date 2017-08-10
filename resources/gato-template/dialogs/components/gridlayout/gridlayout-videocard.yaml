@@ -1,0 +1,6 @@
+form:
+  tabs:
+    - name: tabTexts
+      label: video Card
+      fields: !include /gato-template/dialogs/common/masonry-video.yaml
+actions: !include /gato-template/dialogs/common/actions-block.yaml
