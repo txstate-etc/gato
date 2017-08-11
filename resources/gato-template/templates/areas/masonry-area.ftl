@@ -1,4 +1,4 @@
-<div class="masonry-section">
+<div class="masonry-section ${cmsfn.editMode?string('margin-editor', '')}">
     <div class="masonry-sizer"></div>
     [#list components as component]
         [@cms.component content=component /]

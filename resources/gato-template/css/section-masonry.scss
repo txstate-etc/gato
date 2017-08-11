@@ -1,7 +1,7 @@
 
 .masonry-section {
-  .moveEditor{margin-top: 20px;}
-  .card-item-add{height:50px;margin:40px 0px;}
+  .moveEditor{margin-top: 2.0rem;}
+  .card-item-add{height:5rem;margin:2.0rem 0rem;}
   overflow: hidden;
   * { box-sizing : border-box; }
   .masonry-sizer { width: 25%; }
@@ -32,3 +32,4 @@
     .card-item-lg { width: 100%; }
   }
 }
+.masonry-section.margin-editor{margin-bottom: 2.0rem;}

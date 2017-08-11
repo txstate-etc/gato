@@ -1,8 +1,8 @@
 $quick:.5s;
 $darker:.95;
-.masonry-section {
+.masonry-section,.grid-container {
   width: 100%;
-  .card-item {
+  .card-item,.grid-card {
     a{
       text-decoration: none;
     }
