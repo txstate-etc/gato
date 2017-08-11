@@ -10,12 +10,16 @@
     var peoplesearch_jwt_url = '${gf.peopleSearchJwtPath()}';
     var search_global_url = '${gf.filterUrl('/search')}';
   [/@javascriptvariables]
+  [#if cmsfn.isEditMode()]
+    [#local scripts = [
+      'gato-template/js/edit-bars.js'
+    ]+scripts]
+  [/#if]
   [@javascript scripts = [
     'gato-template/js/main-menus.js',
     'gato-template/js/outgoing-clicks.js',
     'gato-template/js/accordion.js',
     'gato-template/js/easter-egg.js',
-    'gato-template/js/edit-bars.js',
     'gato-template/js/section-background.js',
     'gato-lib/js/moment.js',
     'gato-lib/js/jsonp.js',

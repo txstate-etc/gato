@@ -3,7 +3,11 @@
 <!DOCTYPE HTML>
 <html lang="en">
 	<head>
-		[@templatejs scripts=['gato-template-tsus/js/tsus-slideshow.js']/]
+		[@templatejs scripts=[
+			'gato-lib/js/scriptaculous/scriptaculous.js',
+			'gato-lib/js/scriptaculous/effects.js',
+			'gato-template-tsus/js/tsus-slideshow.js'
+		]/]
     <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-tsus/css/tsus-home.compiled.css"/>
 		[@templatehead publisher="Texas State University System"/]
 	</head>
