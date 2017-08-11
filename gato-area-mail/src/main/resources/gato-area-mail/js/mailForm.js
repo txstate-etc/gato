@@ -229,10 +229,12 @@ txstValidate.prototype.focus = function() {
   var background = this.elem.getStyle("backgroundColor");
   //the highlight breaks if the endcolor is transparent
   if(background == "transparent") background = "#ffffff";
-  new Effect.Highlight(this.elem, {
-    startcolor: '#ff5555',
-    endcolor: rgb2hex(background),
-    duration: 1.5
+  var target = this.elem;
+  jQuery(target).velocity({backgroundColor: rgb2hex(background)}, {
+    begin: function() {
+      target.setStyle({backgroundColor: '#ff5555'});
+    },
+    duration: 1500
   });
 };
 
@@ -508,10 +510,11 @@ function checkMandatories(theForm, alertText) {
             background = jQuery(target).css("backgroundColor");
         }
         try {
-          new Effect.Highlight(target, {
-            startcolor: '#ff0000',
-            endcolor: rgb2hex(background),
-            duration: 2.5
+          jQuery(target).velocity({backgroundColor: rgb2hex(background)}, {
+            begin: function() {
+              target.setStyle({backgroundColor: '#ff0000'});
+            },
+            duration: 2500
           });
         } catch (err) {
           // don't sweat it if the highlight didn't work. We still want
