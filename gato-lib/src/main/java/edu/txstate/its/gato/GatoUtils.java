@@ -502,7 +502,7 @@ public final class GatoUtils {
   public String getCacheStr() {
     String cacheidentifier = "";
     try {
-      cacheidentifier = sc.getJCRSession(RepositoryConstants.CONFIG).getProperty("modules/gato-internal/cachebuster").getString();
+      cacheidentifier = sc.getJCRSession(RepositoryConstants.CONFIG).getProperty("/modules/gato-internal/cachebuster").getString();
     } catch (Exception e) {
       // empty cacheidentifier is fine
     }
