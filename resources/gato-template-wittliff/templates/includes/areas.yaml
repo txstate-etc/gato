@@ -1,0 +1,34 @@
+customcss:
+  !include /gato-component-cssjs/templates/areas/customcss.yaml
+customjs:
+  !include /gato-component-cssjs/templates/areas/customjs.yaml
+mail:
+  !include /gato-area-mail/templates/areas/mailForm.yaml
+contentParagraph:
+  !include /gato-template/templates/areas/contentParagraph.yaml
+navBlocks:
+  !include /gato-template/templates/areas/navBlocks.yaml
+socialmedia:
+  !include /gato-template/templates/areas/sociallist.yaml
+newsletter:
+  type: single
+  availableComponents:
+    link:
+      id: gato-template-wittliff:components/newsletter
+footer-findus:
+  type: single
+  availableComponents:
+    footer-findus:
+      id: gato-template-wittliff:components/footer-column
+footer-hours:
+  type: single
+  availableComponents:
+    footer-hours:
+      id: gato-template-wittliff:components/footer-column
+footer-button:
+  type: single
+  availableComponents:
+    footer-button:
+      id: gato-component-button:components/button
+footerlinks1:
+  !include /gato-template/templates/areas/linklist.yaml
