@@ -5,6 +5,7 @@ jQuery(document).ready(function($) {
     var $panel = $lnk.next();
     $li.addClass('shown');
     $li.attr('aria-expanded', true);
+    $panel.attr('aria-hidden', false);
     if (options.instant) {
       $panel.show();
     } else {
@@ -18,6 +19,7 @@ jQuery(document).ready(function($) {
     var $panel = $lnk.next();
     $li.removeClass('shown');
     $li.attr('aria-expanded', false);
+    $panel.attr('aria-hidden', true);
     if (options.instant) {
       $panel.hide();
     } else {
