@@ -38,6 +38,7 @@
           transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
           initFunction: initColorPicker
           scripts: [gato-lib/js/color-picker.js]
-          loadScriptsInOrder: true
           styleName: single-color
           label: Caption Background Color
+          parameters:
+            contentType: imageCard

@@ -36,37 +36,56 @@ label.colorsel {
     }
   }
 
+  $gradients: (
+    linear-gradient(to right, $mc1-bg, $mc1-bg),
+    linear-gradient(to right, $mc2-bg, $mc2-bg),
+    linear-gradient(to right, $mc3-bg, $mc3-bg),
+    linear-gradient(to right, $mc4-bg, $mc4-bg),
+    linear-gradient(to right, $mc5-bg, $mc5-bg),
+    linear-gradient(to right, $mc6-bg, $mc6-bg),
+    linear-gradient(to right, $mc7-bg, $mc7-bg)
+  );
+
+  @function getAlternatingBackgroundImage($numColors){
+    $backgroundImage: nth($gradients, 1);
+    @for $i from 2 through $numColors {
+      $backgroundImage: $backgroundImage + ",";
+      $backgroundImage: $backgroundImage + nth($gradients, $i);
+    }
+    @return $backgroundImage;
+  }
+
+  @function getBackgroundPosition($numColors){
+    $backgroundPosition: 0 0;
+    $x: 100 / ($numColors - 1);
+    @for $i from 1 through $numColors - 1 {
+      $backgroundPosition: $backgroundPosition + ",";
+      $backgroundPosition: $backgroundPosition + ($i * $x);
+      $backgroundPosition: $backgroundPosition + "% 0";
+    }
+    @return $backgroundPosition;
+  }
+
+  @function getBackgroundSize($numColors){
+    $x: 100 / ($numColors);
+    $backgroundSize: $x + "% " + "100%";
+    @for $i from 2 through $numColors - 1 {
+      $backgroundSize: $backgroundSize + ",";
+      $backgroundSize: $backgroundSize + $x + "% " + "100%";
+    }
+    @return $backgroundSize;
+  }
+
   &.alternating > span {
     color: white;
     text-shadow: 1px 1px 0 $almost-black, 1px -1px 0 $almost-black, -1px 1px 0 $almost-black, -1px -1px 0 $almost-black;
 
-    background-image:  
-      linear-gradient(to right, $mc1-bg, $mc1-bg),
-      linear-gradient(to right, $mc2-bg, $mc2-bg),
-      linear-gradient(to right, $mc3-bg, $mc3-bg),
-      linear-gradient(to right, $mc4-bg, $mc4-bg),
-      linear-gradient(to right, $mc5-bg, $mc5-bg),
-      linear-gradient(to right, $mc6-bg, $mc6-bg),
-      linear-gradient(to right, $mc7-bg, $mc7-bg);
-             
+    background-image: getAlternatingBackgroundImage($template-color-count);
+
     background-repeat:no-repeat;
-    background-position: 
-      0 0,
-      17% 0,
-      34% 0,
-      50% 0,
-      67% 0,
-      84% 0,
-      100% 0;
+    background-position: unquote(getBackgroundPosition($template-color-count));
     
-    background-size:
-      15% 100%,
-      15% 100%,
-      15% 100%,
-      15% 100%,
-      15% 100%,
-      15% 100%,
-      15% 100%;
+    background-size: unquote(getBackgroundSize($template-color-count));
   }
 
 }

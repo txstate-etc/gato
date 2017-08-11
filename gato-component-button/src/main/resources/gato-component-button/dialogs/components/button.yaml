@@ -34,6 +34,8 @@ form:
               initFunction: initColorPicker
               scripts: [gato-lib/js/color-picker.js]
               styleName: single-color
+              parameters:
+                contentType: gradientButton
             - name: rollover
               class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
               transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
@@ -50,6 +52,8 @@ form:
                   initFunction: initColorPicker
                   scripts: [gato-lib/js/color-picker.js]
                   styleName: single-color color1 color2 color3 color4 color7
+                  parameters:
+                    contentType: rolloverButton
                 - name: image
                   class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
                   label: Image
@@ -67,6 +71,8 @@ form:
               initFunction: initColorPicker
               scripts: [gato-lib/js/color-picker.js]
               styleName: single-color color1 color2 color3 color4
+              parameters:
+                contentType: reverseButton
             - name: three-d
               transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
               label: Color
@@ -77,6 +83,8 @@ form:
               initFunction: initColorPicker
               scripts: [gato-lib/js/color-picker.js]
               styleName: single-color
+              parameters:
+                contentType: threeDButton
         - name: size
           class: info.magnolia.ui.form.field.definition.SelectFieldDefinition
           label: Size

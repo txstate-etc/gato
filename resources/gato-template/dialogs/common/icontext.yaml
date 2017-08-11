@@ -38,3 +38,5 @@
           initFunction: initColorPicker
           scripts: [gato-lib/js/color-picker.js]
           styleName: single-color color1 color2 color3
+          parameters:
+            contentType: iconText

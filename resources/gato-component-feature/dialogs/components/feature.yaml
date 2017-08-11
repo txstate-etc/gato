@@ -10,9 +10,11 @@ form:
               class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
           transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
           initFunction: initColorPicker
-          scripts: [gato-lib/js/color-picker.js]
           loadScriptsInOrder: true
+          scripts: [gato-lib/js/color-picker.js]
           label: Background Color
+          parameters:
+            contentType: slider
         - name: defaultTimer
           class: info.magnolia.ui.form.field.definition.SelectFieldDefinition
           label: Rotation Speed

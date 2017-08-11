@@ -29,6 +29,8 @@ import info.magnolia.repository.RepositoryConstants;
 import info.magnolia.templating.functions.TemplatingFunctions;
 
 import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -1151,5 +1153,30 @@ public final class GatoUtils {
     String ret = uuid.substring(0,8);
     if (ret.matches("^[^a-zA-Z].*")) ret = "f"+ret;
     return ret;
+  }
+
+  public int getTemplateColorCount(String templateId) {
+    //get the color configuration file
+    String template = templateId.substring(0, templateId.indexOf(':'));
+    String path =  getConfigProperty("magnolia.resources.dir") + "/" + template + "/js/color-picker-config.js";
+    try {
+      InputStream inputStream = new FileInputStream(path);
+      BufferedReader buffer = new BufferedReader(new InputStreamReader(inputStream));
+      String line = buffer.readLine();
+      StringBuilder sb = new StringBuilder();
+      while(line != null){
+         sb.append(line).append("\n");
+         line = buffer.readLine();
+      }
+      String json = sb.toString();
+      JsonObject colorConfig = parseJSON(json);
+      JsonObject defaultConfig = colorConfig.getAsJsonObject("default");
+      JsonArray colorList = defaultConfig.getAsJsonArray("colors");
+      return colorList.size();
+    }
+    catch(Exception e) {
+      e.printStackTrace();
+      return 7;
+    }
   }
 }
