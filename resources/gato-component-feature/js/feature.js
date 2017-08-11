@@ -99,6 +99,11 @@ jQuery(document).ready(function ($) {
   }
 
   function startMovingImage(slide){
+    var slideshow = slide.closest('.slides');
+    //if slide show is auto-rotating, pause it to allow the moving image animation to finish
+    if (slideshow.slick('slickGetOption', 'autoplay')) {
+      slideshow.slick('slickPause');
+    }
     setHeight(slide);
     //get the crop data
     var data = slide.children('.cropData');
@@ -118,7 +123,15 @@ jQuery(document).ready(function ($) {
                             },
                             {
                               duration: 20000,
-                              easing: 'linear'
+                              easing: 'linear',
+                              complete: function() {
+                                //restart slideshow if it is set to auto-rotate
+                                if (slideshow.slick('slickGetOption', 'autoplay')) {
+                                  setTimeout(function(){
+                                    slideshow.slick('slickPlay').slick('slickNext');
+                                  }, 2000);
+                                }
+                              }
                             })
 
   }
