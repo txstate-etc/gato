@@ -16,10 +16,10 @@
     background: $accordion-header-background;
     cursor: pointer;
     position: relative;
-    &:hover, &:active, &.selected {
+    &:hover, &:active {
       background: $accordion-header-background-hover;
     }
-    a { 
+    a {
       color: inherit;
       text-decoration: none;
       &:hover { background: inherit; }
@@ -35,6 +35,12 @@
   }
 
   .gato-accordion-content {
+    display: none;
     padding: 2rem 4rem;
+  }
+  &.shown {
+    .gato-accordion-header {
+      background: $accordion-header-background-hover;
+    }
   }
 }

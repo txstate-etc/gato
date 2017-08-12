@@ -2,7 +2,12 @@
   .gato-accordion{
     box-shadow: inset 0px 0px 2px 1px $event-box-shadow-color;
   }
-  
+  .gato-accordion.shown {
+    .gato-accordion-header {
+      background: $event-header-background-hover;
+    }
+  }
+
   div.txst-eventdetail {
     a {
       color: $event-detail-link-color;
@@ -21,14 +26,14 @@
       color: $event-header-color;
       background: $event-header-background;
       box-shadow: 0px 0px 0px 1px $event-header-box-shadow-color;
-      &:hover, &:active, &.selected {
+      &:hover, &:active {
         background: $event-header-background-hover;
       }
       [data-eq~="200px"] & {
         margin: 0;
         padding: 1rem;
       }
-      h3 { 
+      h3 {
         margin: 0 0 0.5rem;
         color: $event-header-title-color;
       }
