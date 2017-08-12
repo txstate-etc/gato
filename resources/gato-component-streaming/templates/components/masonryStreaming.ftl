@@ -1,6 +1,6 @@
          <div class="gato-card gato-card-streaming">
           [#if content.videourl?has_content]
-          <div class="gato-card-streaming-wrap">
+          <div class="gato-card-streaming-wrap slide">
             <p class="feature-play-button">
               <a href="${content.videourl}"
               data-embed="${gf.jsonGetString(gf.oEmbedAutodiscover(content.videourl), 'html')?html}">
@@ -23,10 +23,4 @@
             </figure>
           </div>
           [/#if]
-          <div  id="video-modal"  class='masonry-video-modal' style="display: none;">
-            <div class="video-modal-buttons">
-              <a class="video-modal-close" href="#"><i class="fa fa-close"></i><span class="visuallyhidden">Close</span></a>
-            </div>
-            <div class="video-container"></div><!--where the video will go-->
-          </div>
         </div>

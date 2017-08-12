@@ -30,5 +30,6 @@
         [#include "includes/footer.ftl"]
         [@cssjsmodals /]
         [@sidebarmodal skipsocial=true /]
+        [#include "/gato-template/templates/includes/video-modal.ftl"]
     </body>
 </html>
