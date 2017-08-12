@@ -87,17 +87,6 @@ jQuery(document).ready(function($) {
     }
   });
 
-  var goToAnchor = function(){
-    // check if the hash is legal or else we'll end up with an "unrecognized expression" exception
-    if (document.location.hash.match(/^#[a-z][\w\-\:\.]*$/i)) {
-      var position = $(document.location.hash).offset();
-      if(position) $(document).scrollTop( position.top );
-    }
-  };
-  if(window.location.hash.length >0){
-    setTimeout(goToAnchor, 500);
-  }
-
   /*** SLIDEOUT MENU ***/
   var slideoutPadding = 300;
   //IE9 does not support window.matchMedia

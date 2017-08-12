@@ -39,12 +39,24 @@
       }
     }
 
+    eq.gotoanchor = function() {
+      // since we are dramatically resizing, we need to scroll to the proper place for an
+      // anchor tag
+      if (document.location.hash.match(/^#[a-z][\w\-\:\.]*$/i)) {
+        setTimeout(function () {
+          var position = $(document.location.hash+', [name="'+document.location.hash.slice(1)+'"]').offset();
+          if(position) $(document).scrollTop( position.top );
+        }, 0);
+      }
+    }
+
     eq.update = function () {
       eq.observetargets();
       eq.refresh();
     }
 
     eq.update();
+    eq.gotoanchor();
     $(window).resize(eq.refresh);
     observePrint(function () {
       $('body').addClass('print');
