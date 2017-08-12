@@ -1,12 +1,9 @@
 [#macro sectionLabel cssClass=""]
   [#assign hideSidebar = ctx.getAttribute("hideSidebar")!false]
-  [#assign title = content.title!]
-  [#assign showBackground = content.showBackgroundColor!false]
-  [#if content.title?has_content || showBackground]
-  <div class="section-data" data-title="${title}" data-background="${showBackground?string('show', 'none')}"></div>
-  [/#if]
   <div cms:edit="bar"></div>
-  <h3 class="section-title hidden"></h3>
+  [#if content.title?has_content]
+    <h3 class="section-title">${content.title!}</h3>
+  [/#if]
   [#if cmsfn.isEditMode()]
     <div class="section-bar">
       [#nested]

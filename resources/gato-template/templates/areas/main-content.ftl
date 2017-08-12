@@ -1,7 +1,12 @@
 [#assign hideSidebar = ctx.getAttribute("hideSidebar")!false]
 [#assign mainContentClass = hideSidebar?string('full-width','')]
 [#list components as component]
-  <div class="gato-section-full ${mainContentClass}">
+  [#if component.showBackgroundColor!false]
+    [#assign hasBackgroundClass = 'has-background']
+  [#else]
+    [#assign hasBackgroundClass = '']
+  [/#if]
+  <div class="gato-section-full ${mainContentClass} ${hasBackgroundClass}">
     <div class="gato-section-centered">
       <div class="gato-section eq-parent">
         [@cms.component content=component /]
