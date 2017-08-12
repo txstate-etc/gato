@@ -34,5 +34,6 @@
     </div>
     [#include "includes/footer.ftl"]
     [@cssjsmodals /]
+    [#include "/gato-template/templates/includes/video-modal.ftl"]
   </body>
 </html>
