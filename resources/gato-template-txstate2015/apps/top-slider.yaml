@@ -306,6 +306,8 @@ subApps:
                 loadScriptsInOrder: true
                 styleName: single-color
                 label: Background Color
+                parameters:
+                  contentType: txstateHomeTopSlider
               - name: scheduling
                 class: info.magnolia.ui.form.field.definition.StaticFieldDefinition
                 label: ""
