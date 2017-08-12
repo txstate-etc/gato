@@ -6,12 +6,13 @@
 body ul.gato-faq-hierarchy {
   list-style: none;
   margin: 2rem 0 0 0;
+  padding: 0;
 
   .gato-faqitem-question, .gato-faq-group-title {
     display: block;
     font-weight: bold;
     line-height: 2.8rem;
-    padding: 5px 0px 5px 5px;
+    padding: 0.5rem;
     text-decoration: none;
   }
   .gato-faqitem-question {
@@ -24,7 +25,10 @@ body ul.gato-faq-hierarchy {
   .gato-faqitem-answer {
     display: none;
     overflow: hidden;
-    padding: 5px 0px 5px 5px;
+    padding: 0.5rem;
+    p:first-child {
+      margin-top: 0;
+    }
   }
 
   .gato-faq-group-title {
@@ -32,8 +36,10 @@ body ul.gato-faq-hierarchy {
     font-size: 2rem;
   }
   .gato-faq-group-children {
+    display: none;
     list-style: none;
-    margin: 0;
+    margin: 0 0 0 2rem;
+    padding: 0;
   }
 
   > .gato-faqitem .gato-faqitem-question, > .gato-faq-group > .gato-faq-group-title {
@@ -54,9 +60,6 @@ body ul.gato-faq-hierarchy {
   }
   > .gato-faq-group {
     box-shadow: inset 0px 0px 0px 1px $faq-group-box-shadow-color;
-  }
-  .gato-faq-group-children .gato-faqitem {
-    margin-left: 2rem;
   }
   .gato-faqitem.shown i:before {
     content: $fa-var-caret-down;

@@ -48,9 +48,11 @@ jQuery(document).ready(function($) {
   });
 
   // if the url contains an anchor that lives inside an faq, let's open the FAQ to that item
-  $('.gato-faqitem-answer '+location.hash).each(function (i, ele) {
-    var $lis = $(ele).parents('.gato-faqitem, .gato-faq-group');
-    var $lnks = $lis.find('> .gato-faqitem-question, > .gato-faq-group-title')
-    show($lnks, {instant: true});
-  });
+  if (document.location.hash.match(/^#[a-z][\w\-\:\.]*$/i)) {
+    $('.gato-faqitem-answer '+document.location.hash+', .gato-faqitem-answer [name="'+document.location.hash.slice(1)+'"]').each(function (i, ele) {
+      var $lis = $(ele).parents('.gato-faqitem, .gato-faq-group');
+      var $lnks = $lis.find('> .gato-faqitem-question, > .gato-faq-group-title')
+      show($lnks, {instant: true});
+    });
+  }
 });
