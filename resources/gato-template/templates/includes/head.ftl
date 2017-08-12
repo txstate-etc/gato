@@ -44,6 +44,7 @@
     'gato-template/js/sitesearch.js',
     'gato-template/js/search-gsa.js',
     'gato-template/js/dropdownsearch.js',
+    'gato-template/js/video-slide.js',
     'gato-template/js/masonry.js',
     'gato-template/js/video-slide.js'
   ]+scripts /]
