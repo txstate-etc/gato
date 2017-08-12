@@ -23,11 +23,11 @@ import org.apache.jackrabbit.commons.predicate.NodeTypePredicate;
  * @version $Revision: $ ($Author: $)
  */
 public abstract class GatoBaseUpgradeTask extends info.magnolia.module.delta.AbstractRepositoryTask {
-			
+
 	public GatoBaseUpgradeTask(String name, String description) {
 		super(name, description);
 	}
-		
+
 	protected void visitByTemplate(Session ws, String componentId, NodeVisitor visitor) throws RepositoryException, InvalidQueryException, ItemNotFoundException, AccessDeniedException {
 		NodeIterator nodes = ws.getWorkspace().getQueryManager().
 			createQuery("SELECT * FROM [nt:base] WHERE [mgnl:template] = '"+componentId+"'", "JCR-SQL2").
@@ -38,11 +38,13 @@ public abstract class GatoBaseUpgradeTask extends info.magnolia.module.delta.Abs
 			node.save();
 		}
 	}
-	
+
 	protected void visitSubPages(Session ws, String path, NodeVisitor visitor) throws RepositoryException, InvalidQueryException, ItemNotFoundException, AccessDeniedException {
-		NodeUtil.visit(ws.getNode(path), visitor, new NodeTypePredicate("mgnl:page", true));
+	  if (ws.nodeExists(path)) {
+		  NodeUtil.visit(ws.getNode(path), visitor, new NodeTypePredicate("mgnl:page", true));
+		}
 	}
-	
+
 	protected void visitPages(Session ws, NodeVisitor visitor) throws RepositoryException, InvalidQueryException, ItemNotFoundException, AccessDeniedException {
 		// apparently NodeUtil.visit visits the given node even if it does not match the predicate
 		// so we have to find the pages beneath the root node and call visit on each of them

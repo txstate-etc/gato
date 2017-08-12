@@ -129,6 +129,10 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       .addTask(new UpgradeSocialmediaTask())
       .addTask(new SetPropertyTask("Allow mixed case logins", RepositoryConstants.CONFIG, "/modules/cas/config", "caseSensitiveUserNames", Boolean.FALSE))
       .addTask(new UpdateTemplateBeneathPathTask("/testing-wittliff", Arrays.asList("gato-template-wittliff:pages/sidebar", "gato-template-txstate2009:pages/standard"), "gato-template-wittliff:pages/standard"))
+      .addTask(new UpdateTemplateBeneathPathTask("/wittliff-content-examples", Arrays.asList("gato-template-txstate2015:pages/standard-template"), "gato-template-wittliff:pages/standard"))
+      .addTask(new UpdateTemplateBeneathPathTask("/wittliff-content-examples", Arrays.asList("gato-template-txstate2015:pages/mail-template"), "gato-template-wittliff:pages/mail"))
+      .addTask(new UpdateTemplateBeneathPathTask("/tsus-content-examples", Arrays.asList("gato-template-txstate2015:pages/standard-template"), "gato-template-tsus2017:pages/standard"))
+      .addTask(new UpdateTemplateBeneathPathTask("/tsus-content-examples", Arrays.asList("gato-template-txstate2015:pages/mail-template"), "gato-template-tsus2017:pages/mail"))
       .addTasks(installOrUpdateTasks())
     );
   }
