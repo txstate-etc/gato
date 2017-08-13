@@ -237,31 +237,49 @@ strong {
     }
   }
 
-  .newsletter {
+  .linkbutton {
     &, i {
       line-height: 3rem;
     }
-    display: block;
+    display: inline-block;
     text-decoration: none;
     padding-left: 2rem;
     border: 2px solid $white;
     font-family: $helveticaneue;
     font-size: 1.8rem;
+    font-weight: 500;
     letter-spacing: 0.05rem;
     color: $white;
-    max-width: 15rem;
+    max-width: 20rem;
     margin: 0 auto;
     i {
       display: block;
       float: right;
       font-size: 1.5rem;
       border-left: 2px solid $white;
+      margin-left: 2rem;
       width: 3rem;
       text-align: center;
     }
     &:hover, &:active {
       background-color: $wittliffgreen-lighter;
     }
+  }
+  .menu-social-media, .menu-donate-button {
+    padding: 1.5rem 0;
+    text-align: center;
+  }
+  .menu-donate-button {
+    border: 2px solid $wittliffgreen-light;
+    border-width: 2px 0px;
+    .linkbutton {
+      border: 2px solid $wittlifforange;
+    }
+  }
+  .menu-txst-logo {
+    display: block;
+    margin: 2rem auto 0 auto;
+    max-width: 14rem;
   }
 }
 

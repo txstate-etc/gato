@@ -17,6 +17,10 @@
         [@cms.area name="socialmedia" content=gf.getOrCreateArea(homepage, 'socialmedia') editable=isHomePage/]
         [@cms.area name="newsletter" content=gf.getOrCreateArea(homepage, 'newsletter') editable=isHomePage /]
       </div>
+      <div class="menu-donate-button">
+        [@cms.area name="donate-button" content=gf.getOrCreateArea(homepage, 'donate-button') editable=isHomePage /]
+      </div>
+      <img src="${gf.resourcePath()}/gato-template-wittliff/images/txst-logo.svg" class="menu-txst-logo">
     </nav>
   </div>
   <div class="search-wrapper">

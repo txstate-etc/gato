@@ -1,7 +1,7 @@
-templateScript: /gato-template-wittliff/templates/components/newsletter.ftl
+templateScript: /gato-template-wittliff/templates/components/linkbutton.ftl
 renderType: freemarker
 dialog: gato-template:components/link
 description: Enter a full URL to an external site (http://www.google.com/) or browse for another page in this site.
-title: Link
+title: Button Link
 parameters:
   icon: /gato-template/images/link.png

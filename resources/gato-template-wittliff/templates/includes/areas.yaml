@@ -14,7 +14,12 @@ newsletter:
   type: single
   availableComponents:
     link:
-      id: gato-template-wittliff:components/newsletter
+      id: gato-template-wittliff:components/linkbutton
+donate-button:
+  type: single
+  availableComponents:
+    link:
+      id: gato-template-wittliff:components/linkbutton
 footer-findus:
   type: single
   availableComponents:
