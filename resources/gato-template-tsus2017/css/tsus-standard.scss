@@ -44,6 +44,10 @@
           @media (max-width: $sm-breakpoint){
               margin: 0 0 1rem;
           }
+          a {
+            text-decoration: none;
+            color: $black;
+          }
       }
       //all sidebar-sections except the first one
       & + .side_nav{
