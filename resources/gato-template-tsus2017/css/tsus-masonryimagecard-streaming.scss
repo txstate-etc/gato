@@ -26,16 +26,47 @@ $quicker:.4s;
       padding: 0,1rem;
       z-index: 2;//to position button infront of card image
       a{
-        color: rgba($red,.9);
-        font-size: 10rem;
+        transition:$quick;
+        display: block;
+        position: relative;
+        font-size: 3rem;
+        border-radius: 100%;
+        width:  7rem;
+        height: 7rem;
         cursor: pointer;
-        display:block;
-        height: 100%;
+        box-shadow: $gato-card-shadow;
+        i{
+          position: absolute;
+          top:50%;
+          left: 54%;// looks weird when perfectly centerd or are my eyes playing tricks on me?
+          transform: translate(-50%, -50%);
+        }
+        &.color{
+          &1{color:$mc1-text; background: $mc1-bg;}
+          &2{color:$mc2-text; background: $mc2-bg;}
+          &3{color:$mc3-text; background: $mc3-bg;}
+          &4{color:$mc4-text; background: $mc4-bg;}
+          &5{color:$mc5-text; background: $mc5-bg;}
+          &6{color:$mc6-text; background: $mc6-bg;}
+          &7{color:$mc7-text; background: $mc7-bg;}
+        }
        }
       }
       .youtubeThumbnail{
         //scale the youtube image so it fits card
         transform: scale(1.4);
+      }
+      //when you hover over the card
+      &:hover{
+        .feature-play-button a.color{
+          &1{ background: $mc1-comp-bg;}
+          &2{ background: $mc2-comp-bg;}
+          &3{ background: $mc3-comp-bg;}
+          &4{ background: $mc4-comp-bg;}
+          &5{ background: $mc5-comp-bg;}
+          &6{ background: $mc6-comp-bg;}
+          &7{ background: $mc7-comp-bg;}
+        }
       }
     }
 

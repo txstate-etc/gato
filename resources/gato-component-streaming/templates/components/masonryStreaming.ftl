@@ -2,9 +2,9 @@
           [#if content.videourl?has_content]
           <div class="gato-card-streaming-wrap slide">
             <p class="feature-play-button">
-              <a href="${content.videourl}"
+              <a href="${content.videourl}" class="${content.color!'color1'}"
               data-embed="${gf.jsonGetString(gf.oEmbedAutodiscover(content.videourl), 'html')?html}">
-                <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                <i class="fa fa-play" aria-hidden="true"></i>
                 <span class="visuallyhidden">Play Video</span>
               </a>
             </p>
