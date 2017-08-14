@@ -42,13 +42,13 @@ $quicker:.4s;
           transform: translate(-50%, -50%);
         }
         &.color{
-          &1{color:$mc1-text; background: $mc1-bg;}
-          &2{color:$mc2-text; background: $mc2-bg;}
-          &3{color:$mc3-text; background: $mc3-bg;}
-          &4{color:$mc4-text; background: $mc4-bg;}
-          &5{color:$mc5-text; background: $mc5-bg;}
-          &6{color:$mc6-text; background: $mc6-bg;}
-          &7{color:$mc7-text; background: $mc7-bg;}
+          &1{color:rgba($mc1-text,.9); background: rgba($mc1-bg,.9);}
+          &2{color:rgba($mc2-text,.9); background: rgba($mc2-bg,.9);}
+          &3{color:rgba($mc3-text,.9); background: rgba($mc3-bg,.9);}
+          &4{color:rgba($mc4-text,.9); background: rgba($mc4-bg,.9);}
+          &5{color:rgba($mc5-text,.9); background: rgba($mc5-bg,.9);}
+          &6{color:rgba($mc6-text,.9); background: rgba($mc6-bg,.9);}
+          &7{color:rgba($mc7-text,.9); background: rgba($mc7-bg,.9);}
         }
        }
       }
@@ -59,13 +59,13 @@ $quicker:.4s;
       //when you hover over the card
       &:hover{
         .feature-play-button a.color{
-          &1{ background: $mc1-comp-bg;}
-          &2{ background: $mc2-comp-bg;}
-          &3{ background: $mc3-comp-bg;}
-          &4{ background: $mc4-comp-bg;}
-          &5{ background: $mc5-comp-bg;}
-          &6{ background: $mc6-comp-bg;}
-          &7{ background: $mc7-comp-bg;}
+          &1{ background: rgba($mc1-comp-bg,.9);}
+          &2{ background: rgba($mc2-comp-bg,.9);}
+          &3{ background: rgba($mc3-comp-bg,.9);}
+          &4{ background: rgba($mc4-comp-bg,.9);}
+          &5{ background: rgba($mc5-comp-bg,.9);}
+          &6{ background: rgba($mc6-comp-bg,.9);}
+          &7{ background: rgba($mc7-comp-bg,.9);}
         }
       }
     }
