@@ -30,16 +30,13 @@
     description: Display a short summary, full contents, or just the items title.
     sortOptions: false
     options:
-      - name: showSummaryOnly
-        value: showSummaryOnly
-        selected: true
-        label: Summary Only
-      - name: showFullContents
-        value: showFullContents
-        label: Full Contents
       - name: showTitleOnly
         value: showTitleOnly
         label: Title Only
+      - name: showSummaryOnly
+        value: showSummaryOnly
+        selected: true
+        label: Title and Summary
   - name: showDates
     class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
     label: Show Created Date
