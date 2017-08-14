@@ -185,7 +185,7 @@ public final class GatoUtils {
     String propKey = "gato.assetsbaseurl";
     if (isCacheEnvironment()) propKey += ".cache";
     if (mcp.hasProperty(propKey))
-      return filterUrl(mcp.getProperty(propKey));
+      return filterUrl(mcp.getProperty(propKey))+getCacheStr();
     return MgnlContext.getContextPath()+"/.resources"+getCacheStr();
   }
 
