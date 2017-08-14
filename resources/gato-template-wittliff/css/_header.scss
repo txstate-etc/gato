@@ -111,10 +111,11 @@ strong {
       display: none;
       position: absolute;
       top: (4rem + $header-height) / 2;
-      right: 0;
-      width: 20rem;
+      right: -0.6rem;
+      width: 24rem;
       background-color: $wittliffbrown;
       padding: 2rem;
+      text-align: center;
       z-index: 65536;
       @media (max-width: $md-breakpoint) {
         top: (4rem + $header-height-tablet) / 2;
