@@ -1,0 +1,51 @@
+  - name: feedUrl
+    class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+    label: Feed URL
+    description: The URL of the feed you'd like to display on your site.
+  - name: feedlimit
+    class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+    label: Max Articles
+    description: The maximum number of feed items to display.  0 for unlimited.
+    defaultValue: 0
+    maxLength: 4
+  - name: sortOrder
+    class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
+    label: Sort Order
+    description: 'How should the feed items be sorted?'
+    sortOptions: false
+    options:
+      - name: pubDateDesc
+        value: pubDateDesc
+        selected: true
+        label: 'Publish Date (newest first)'
+      - name: pubDateAsc
+        value: pubDateAsc
+        label: 'Publish Date (oldest first)'
+      - name: none
+        value: none
+        label: 'Dont sort the feed items'
+  - name: displayType
+    class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
+    label: What to Display
+    description: Display a short summary, full contents, or just the items title.
+    sortOptions: false
+    options:
+      - name: showSummaryOnly
+        value: showSummaryOnly
+        selected: true
+        label: Summary Only
+      - name: showFullContents
+        value: showFullContents
+        label: Full Contents
+      - name: showTitleOnly
+        value: showTitleOnly
+        label: Title Only
+  - name: showDates
+    class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+    label: Show Created Date
+    buttonLabel: Will display the creation date of each item.
+  - name: showThumbnails
+    class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+    label: Show Thumbnails
+    description: Depends on media:thumbnail tags in the feed. This is what WordPress does.
+    buttonLabel: Will display thumbnail images for each item.
