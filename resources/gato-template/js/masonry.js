@@ -20,7 +20,7 @@ jQuery(window).on('load', function($) {
     let className = $(this).siblings().context.firstElementChild.className;
     let userThumbnail=false;
     (className==='userThumbnail')? userThumbnail = true:userThumbnail=false;
-    
+
     if(!userThumbnail){
       var linkArray= $('.gato-card-streaming-wrap a').eq(index)[0].href.split('/');
       let vimeo = linkArray[2]==='vimeo.com';
@@ -45,6 +45,13 @@ jQuery(window).on('load', function($) {
             $grid.masonry('layout');
       }
     }
+  });
+  /*Opening rss content on new tab on header click*/
+  $('.gato-card-rss-container').on('click','.gato-accordion-header',function(){
+      var $rssOpenUrl=$('.gato-accordion-header > a').attr('href');
+      if($rssOpenUrl.length>0){
+          window.open($rssOpenUrl, '_blank');
+      }
   });
 
 });
