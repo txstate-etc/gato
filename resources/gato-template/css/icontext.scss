@@ -31,55 +31,55 @@
     }
 }
 
-.column_paragraph{
-    .icontext{
-        display: block;
-        padding: 0;
-        margin: 0;
-        text-decoration: none;
-        max-width: 30rem;
-        text-align: center;
-        margin: auto;
-        padding: 2rem 0;
 
-        .icontext-title{
-            font-size: 1.7rem;
-            text-transform: uppercase;
-            font-weight: 400;
-            display: inline-block;
-            margin-bottom: 0.2rem;
-            line-height: 2.6rem;
-            margin-top: 2.2rem;
-            color: $icontext-title-color;
-        &:after{
-                content: '';
-                display: block;
-                margin: auto;
-                height: 2px;
-                width: 0;
-                background: transparent;
-                -webkit-transition: width 0.2s ease-in-out, background-color 0.2s ease-in-out;
-                -moz-transition: width 0.2s ease-in-out, background-color 0.2s ease-in-out;
-                -o-transition: width 0.2s ease-in-out, background-color 0.2s ease-in-out;
-                transition: width 0.2s ease-in-out, background-color 0.2s ease-in-out;
-            }
+.icontext{
+    display: block;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    max-width: 30rem;
+    text-align: center;
+    margin: auto;
+    padding: 2rem 0;
+
+    .icontext-title{
+        font-size: 1.7rem;
+        text-transform: uppercase;
+        font-weight: 400;
+        display: inline-block;
+        margin-bottom: 0.2rem;
+        line-height: 2.6rem;
+        margin-top: 2.2rem;
+        color: $icontext-title-color;
+    &:after{
+            content: '';
+            display: block;
+            margin: auto;
+            height: 2px;
+            width: 0;
+            background: transparent;
+            -webkit-transition: width 0.2s ease-in-out, background-color 0.2s ease-in-out;
+            -moz-transition: width 0.2s ease-in-out, background-color 0.2s ease-in-out;
+            -o-transition: width 0.2s ease-in-out, background-color 0.2s ease-in-out;
+            transition: width 0.2s ease-in-out, background-color 0.2s ease-in-out;
         }
-
-        &.center{
-            float: none;
-        }
-        //These are the alignment options in case we want to use them at some point
-
-        // &.left{
-        //     float: left;
-        // }
-
-
-        // &.right{
-        //     float: right;
-        // }
     }
+
+    &.center{
+        float: none;
+    }
+    //These are the alignment options in case we want to use them at some point
+
+    // &.left{
+    //     float: left;
+    // }
+
+
+    // &.right{
+    //     float: right;
+    // }
 }
+
 
 //don't float left or right on in small areas
 
@@ -88,7 +88,7 @@
 // }
 
 a.icontext{
-    text-decoration: none;
+    text-decoration: none !important;
     &:hover{
         background: transparent !important;
         .icontext-icon{
