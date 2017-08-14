@@ -88,6 +88,11 @@
                       font-weight: 700;
                   }
               }
+              &.listItems_add {
+                &::before {
+                  display:none;
+                }
+              }
           }
       }
 
