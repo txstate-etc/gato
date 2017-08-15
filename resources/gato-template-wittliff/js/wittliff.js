@@ -8,10 +8,12 @@ jQuery(document).ready(function($) {
   var menuhide = function () {
     header.removeClass('menu-out');
     menubtn.attr('aria-expanded', false);
+    menupanel.velocity('slideUp', { duration: 150 });
   }
   var menushow = function() {
     header.addClass('menu-out');
     menubtn.attr('aria-expanded', true);
+    menupanel.velocity('slideDown', { duration: 150 });
   }
   menubtn.click(function (e) {
     if (header.hasClass('menu-out')) menuhide();
@@ -34,8 +36,10 @@ jQuery(document).ready(function($) {
   $('.simplemenu-expand').click(function (e) {
     var btn = $(this);
     var toplevel = btn.closest('li');
+    var panel = toplevel.find('.simplemenu-subitems');
     toplevel.toggleClass('expanded');
     btn.attr('aria-expanded', toplevel.hasClass('expanded'));
+    panel.velocity(toplevel.hasClass('expanded') ? 'slideDown' : 'slideUp', { duration: 150 });
   });
 
 
