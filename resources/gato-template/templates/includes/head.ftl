@@ -45,6 +45,7 @@
     'gato-template/js/search-gsa.js',
     'gato-template/js/dropdownsearch.js',
     'gato-component-cards/js/masonry.js',
+    'gato-component-cards/js/gridlayout.js',
     'gato-template/js/video-slide.js'
   ]+scripts /]
 [/#macro]
