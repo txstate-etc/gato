@@ -1,12 +1,12 @@
 /* FAQ Paragraph */
 body ul.gato-faq-hierarchy {
-  > .gato-faqitem, .gato-faq-group {
+  > .gato-faqitem, > .gato-faq-group {
     box-shadow: none;
     border-bottom: 2px solid $wittliffgray-dark;
     &:first-child {
       border-top: 2px solid $wittliffgray-dark;
     }
-    .gato-faqitem-question, .gato-faq-group-title {
+    > .gato-faqitem-question, > .gato-faq-group-title {
       box-shadow: none;
       line-height: 2.8rem;
       i {
@@ -20,7 +20,7 @@ body ul.gato-faq-hierarchy {
       }
     }
     &.shown {
-      .gato-faqitem-question, .gato-faq-group-title {
+      > .gato-faqitem-question, > .gato-faq-group-title {
         i:before {
           content: $fa-var-angle-down;
         }
