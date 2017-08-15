@@ -40,16 +40,24 @@ header{
         .search-button{
             color: $white;
             margin-right: 2rem;
+            padding: 0;
             &:hover{
                 color: $tsus-lightgray; //They used #d1d1d3 here.  Do we need 2 different light grays?
+            }
+            @media (max-width: $sm-breakpoint){
+                margin-right: 0.7rem;
             }
         }
         .btn-menu{
             color: $white;
+            padding: 0;
             &:after{
                 content: "\f0c9"; //fa-bars
                 font-family: FontAwesome;
                 margin-left: 2.5rem;
+                @media (max-width: $sm-breakpoint){
+                  margin-left: 1rem;
+                }
             }
             &.menu-open:after{
                 content: "\f00d"; //fa-close
