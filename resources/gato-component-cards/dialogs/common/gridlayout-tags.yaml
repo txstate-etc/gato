@@ -1,0 +1,5 @@
+- name: tags
+  class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+  type: String
+  label: Tags
+  description: "Comma delimited list of tags for this card. These are used for the filtering that can be enabled in the grid's properties."
