@@ -49,4 +49,8 @@ jQuery(document).ready(function($) {
     }
 
     resizeTimeout(evaluate_tsus_logos);
+
+     $('body.admin #tsus-main-menu a, body.admin a.tsus-homelink').each(function(){
+       $(this).attr('role', 'navigation');
+     });
 });

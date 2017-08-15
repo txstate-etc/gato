@@ -10,7 +10,7 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet"><!--font sheet from tsus demo-->
         [@templatehead publisher="Texas State University System"/]
     </head>
-    <body>
+    <body class="${cmsfn.isEditMode()?string('admin','')}">
 
         [#include "includes/header.ftl"]
         <div class="contentcolumn">
