@@ -19,4 +19,19 @@ form:
               - name: card-lg
                 label: two cards
                 value: grid-card-lg
+    - name: tabFiltering
+      label: Filtering
+      fields:
+          - name: enablefiltering
+            class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+            label: "Enable Filtering"
+            buttonLabel: Add a tab bar above the grid to filter by tags.
+            defaultValue: false
+            type: Boolean
+          - name: includeallfilter
+            class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+            label: "Include All Filter"
+            buttonLabel: Add an "All" filter to the tab list.
+            defaultValue: false
+            type: Boolean
 actions: !include /gato-template/dialogs/common/actions-block.yaml
