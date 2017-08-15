@@ -10,11 +10,15 @@
     <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-wittliff/css/standard.compiled.css"/>
     [@templatehead publisher="The Wittliff Collections"/]
   </head>
-  <body class="template-wittliff">
+
+  <body class="template-wittliff ${(def.parameters.isHomeTemplate!false)?string('wittliff-home', '')}">
     [@skipnav/]
     [#include "includes/header.ftl"]
+    [#if def.parameters.isHomeTemplate!false]
+      [@cms.area name="hero-banner" content=gf.getOrCreateArea(homepage, 'hero-banner') /]
+    [/#if]
     <div class="page_content">
-      [#assign hideSidebar = content.hideSidebar!false]
+      [#assign hideSidebar = (content.hideSidebar!false) || (def.parameters.isHomeTemplate!false)]
       [#if !cmsfn.isEditMode() && !gf.areaHasChildrenIncludingInheritance(content.navBlocks)]
         [#assign hideSidebar = true]
       [/#if]
