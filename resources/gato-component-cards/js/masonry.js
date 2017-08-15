@@ -48,7 +48,7 @@ jQuery(window).on('load', function($) {
   });
   /*Opening rss content on new tab on header click*/
   $('.gato-card-rss-container').on('click','.gato-accordion-header',function(){
-      var $rssOpenUrl=$('.gato-accordion-header > a').attr('href');
+      var $rssOpenUrl=$(this).children('a').attr('href');
       if($rssOpenUrl.length>0){
           window.open($rssOpenUrl, '_blank');
       }
