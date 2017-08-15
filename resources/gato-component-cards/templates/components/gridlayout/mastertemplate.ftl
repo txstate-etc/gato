@@ -2,7 +2,7 @@
 [#if useTemplate=="rss"]
   [#assign rssClass = "gato-card-rss"]
 [/#if]
-<div class="grid-card  ${rssClass!} eq-parent ${ctx.cardsperrow!} ${cmsfn.editMode?string('moveEditor', '')}">
+<div class="grid-card  ${rssClass!} eq-parent ${ctx.cardsperrow!} ${cmsfn.editMode?string('moveEditor', '')}" data-gridtags="${content.tags}">
             [#if useTemplate=="icontext"]
               [#include "/gato-template/templates/components/icontext.ftl"]
             [#elseif useTemplate=="iframe"]
