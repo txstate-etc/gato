@@ -37,12 +37,15 @@ body {
     padding: 4rem 0 3rem 0;
     font-size: 2.5rem;
     text-transform: uppercase;
+    @media (max-width: $sm-breakpoint) {
+      font-size: 1.7rem;
+    }
 
     &.hidden {
       display: none;
     }
   }
-  .layout-column {
+  .layout-column, .headline {
     padding: 0px 2rem;
   }
 }
