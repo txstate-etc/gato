@@ -26,7 +26,7 @@ jQuery(document).ready(function($) {
   });
   // close the menu with the escape key
   $(document).keyup(function (e) {
-    if (e.keyCode === 27 && menucontainer.hasClass('shown')) {
+    if (e.keyCode === 27 && header.hasClass('menu-out')) {
       e.preventDefault();
       menuhide();
     }
