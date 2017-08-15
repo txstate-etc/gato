@@ -6,6 +6,7 @@
     padding: 0px;
     width: calc(100% + 24px);
     box-sizing: border-box;
+    letter-spacing: 0;
 
     .gato-gallery-image {
       @extend .grid-cell;
