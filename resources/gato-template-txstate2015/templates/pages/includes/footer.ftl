@@ -13,10 +13,10 @@
       <div class="txst_logo">
         <a class="image_link" href="http://www.txstate.edu">
           <!--[if lt IE 9]>
-          <img alt="Texas State University - The Rising Star of Texas" src="${ctx.contextPath}/.resources/gato-template-txstate2015/images/txst_logo.png">
+          <img alt="Texas State University - The Rising Star of Texas" src="${gf.resourcePath()}/gato-template-txstate2015/images/txst_logo.png">
           <![endif]-->
           <!--[if gte IE 9]><!-->
-          <img alt="Texas State University - The Rising Star of Texas" src="${ctx.contextPath}/.resources/gato-template-txstate2015/images/txst_logo.svg">
+          <img alt="Texas State University - The Rising Star of Texas" src="${gf.resourcePath()}/gato-template-txstate2015/images/txst_logo.svg">
           <!--<![endif]-->
         </a>
       </div>
