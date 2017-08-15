@@ -1,8 +1,0 @@
-templateScript: /gato-template/templates/components/gridlayout/mastertemplate.ftl
-renderType: freemarker
-dialog: gato-template:components/gridlayout/gridlayout-videocard
-description: video with a caption
-title: Video Card
-parameters:
-  icon: /gato-component-streaming/images/stream_media.png
-  templateName: videocard

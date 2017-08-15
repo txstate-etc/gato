@@ -1,0 +1,10 @@
+icontext:
+  id: gato-component-cards:components/gridlayout/gridlayout-icontext
+imagecard:
+  id: gato-component-cards:components/gridlayout/gridlayout-imagecard
+rss:
+  id: gato-component-cards:components/gridlayout/gridlayout-rss
+textimage:
+  id: gato-component-cards:components/gridlayout/gridlayout-textimage
+streaming:
+  id: gato-component-cards:components/gridlayout/gridlayout-videocard

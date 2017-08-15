@@ -39,12 +39,12 @@
     'gato-component-streaming/js/streaming.js',
     'gato-template/js/sidebarheightfix.js',
     'gato-lib/js/jquery-ui/jquery-ui.min.js',
-    'gato-lib/js/masonry.min.js',
+    'gato-component-cards/js/masonry.min.js',
     'gato-template/js/progress.js',
     'gato-template/js/sitesearch.js',
     'gato-template/js/search-gsa.js',
     'gato-template/js/dropdownsearch.js',
-    'gato-template/js/masonry.js',
+    'gato-component-cards/js/masonry.js',
     'gato-template/js/video-slide.js'
   ]+scripts /]
 [/#macro]

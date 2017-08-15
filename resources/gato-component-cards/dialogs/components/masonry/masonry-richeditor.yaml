@@ -1,0 +1,11 @@
+form:
+  tabs:
+    - name: tabGeneral
+      label: Rich Editor
+      fields: !include /gato-template/dialogs/common/richeditor.yaml
+    - name: tabricheditor
+      label: Size
+      fields: !include /gato-component-cards/dialogs/components/masonry/masonry-card-size.yaml
+actions: !include /gato-template/dialogs/common/actions-block.yaml
+label: Rich Editor
+description: Enter the text you wish to display.  Use the various editing tools to format text how you'd like.

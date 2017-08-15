@@ -1,9 +1,0 @@
-form:
-  tabs:
-    - name: tabIFrame
-      label: Text
-      fields: !include /gato-template/dialogs/common/iframe.yaml
-    - name: tabIFrameSize
-      label: Frame Size
-      fields: !include /gato-template/dialogs/common/masonry-card-size.yaml
-actions: !include /gato-template/dialogs/common/actions-block.yaml

@@ -1,0 +1,8 @@
+templateScript: /gato-component-cards/templates/components/masonry/mastertemplate.ftl
+renderType: freemarker
+dialog: gato-component-cards:components/masonry/masonry-icontext
+description: A FontAwesome Icon with text below it
+title: Icon and Text
+parameters:
+  icon: /gato-template/images/icon_text.png
+  templateName: icontext

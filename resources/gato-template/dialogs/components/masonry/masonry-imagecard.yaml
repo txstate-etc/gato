@@ -1,9 +1,0 @@
-form:
-  tabs:
-    - name: tabTexts
-      label: Image Card
-      fields: !include /gato-template/dialogs/common/imagecard.yaml
-    - name: cardSize
-      label: Card Size
-      fields: !include /gato-template/dialogs/common/masonry-card-size.yaml
-actions: !include /gato-template/dialogs/common/actions-block.yaml

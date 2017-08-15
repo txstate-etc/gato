@@ -1,8 +1,0 @@
-templateScript: /gato-template/templates/components/masonry/mastertemplate.ftl
-renderType: freemarker
-dialog: gato-template:components/masonry/masonry-imagecard
-description: An image with a caption
-title: Image Card
-parameters:
-  icon: /gato-template/images/banner.png
-  templateName: imagecard
