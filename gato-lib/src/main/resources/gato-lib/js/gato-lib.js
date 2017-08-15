@@ -141,6 +141,10 @@ function getHashParameters() {
   return parseParameterPairs(window.location.hash.substring(1));
 }
 
+function setHashParameters(params) {
+  history.replaceState({},document.title,createHashQuery(params));
+}
+
 function constructParameterPairs(params) {
   var pairs = [];
   for (var key in params) {
