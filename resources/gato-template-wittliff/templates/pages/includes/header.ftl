@@ -5,7 +5,7 @@
     <button class="icon" aria-haspopup="true" aria-controls="social-media-panel" aria-expanded="false"><span>Stay Connected</span><i class="fa fa-caret-down" aria-hidden="true"></i></button>
     <div id="social-media-panel" class="social-media-panel">
       [@cms.area name="socialmedia" content=gf.getOrCreateArea(homepage, 'socialmedia') editable=false /]
-      [@cms.area name="newsletter" content=gf.getOrCreateArea(homepage, 'newsletter') editable=false /]
+      [@cms.area name="newsletter-button" content=gf.getOrCreateArea(homepage, 'newsletter-button') editable=false /]
     </div>
   </div>
   <button class="search-link search-button"><span class="visuallyhidden">Search</span><i class="fa fa-search" aria-hidden="true"></i></button>
@@ -15,7 +15,7 @@
       [@simplemenu arrows=true /]
       <div class="menu-social-media">
         [@cms.area name="socialmedia" content=gf.getOrCreateArea(homepage, 'socialmedia') editable=isHomePage/]
-        [@cms.area name="newsletter" content=gf.getOrCreateArea(homepage, 'newsletter') editable=isHomePage /]
+        [@cms.area name="newsletter-button" content=gf.getOrCreateArea(homepage, 'newsletter-button') editable=isHomePage /]
       </div>
       <div class="menu-donate-button">
         [@cms.area name="donate-button" content=gf.getOrCreateArea(homepage, 'donate-button') editable=isHomePage /]

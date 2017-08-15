@@ -10,7 +10,7 @@ navBlocks:
   !include /gato-template/templates/areas/navBlocks.yaml
 socialmedia:
   !include /gato-template/templates/areas/sociallist.yaml
-newsletter:
+newsletter-button:
   type: single
   availableComponents:
     link:
