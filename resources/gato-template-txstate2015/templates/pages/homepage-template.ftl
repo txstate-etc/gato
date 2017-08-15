@@ -4,9 +4,9 @@
 <!DOCTYPE HTML>
 <html lang="en">
   <head>
-    [#assign jsscripts = [
+    <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-txstate2015/css/txstate2015.compiled.css"/>
+    [@templatejs scripts = [
       'gato-template-txstate2015/js/jquery-scrolltofixed-min.js',
-      'gato-lib/js/jquery-ui/jquery-ui.min.js',
       'gato-template-txstate2015/js/respond.min.js',
       'gato-template-txstate2015/js/slideout.js',
       'gato-lib/js/object-fit-images.min.js',
@@ -14,15 +14,8 @@
       'gato-template-txstate2015/js/tabs.js',
       'gato-lib/js/fastclick.js',
       'gato-template-txstate2015/js/common.js',
-      'gato-template/js/dropdownsearch.js',
-      'gato-template/js/search-gsa.js'
+      'gato-template-txstate2015/js/fontsdotcom.js'
     ]]
-    [#if gf.isCacheEnvironment()]
-      [#assign jsscripts = jsscripts + ['gato-template-txstate2015/js/fontsdotcom.js']]
-    [/#if]
-    [@templatejs scripts=jsscripts /]
-
-    <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-txstate2015/css/txstate2015.compiled.css"/>
     [@templatehead publisher='Texas State' /]
 
     <link rel="alternate" type="application/rss+xml"

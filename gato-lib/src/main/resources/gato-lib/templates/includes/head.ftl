@@ -14,7 +14,10 @@
           'gato-lib/js/modal.js',
           'gato-lib/js/flowplayer/flowplayer.min.js'
           ] + scripts as script]
-    <script type="text/javascript" src="${gf.resourcePath()}/${script}"></script>
+    [#if !script?ends_with('fontsdotcom.js') || gf.isCacheEnvironment()]
+      [#-- we only need the fontsdotcom code in the live environment, it's for tracking screen loads --]
+      <script type="text/javascript" src="${gf.resourcePath()}/${script}"></script>
+    [/#if]
   [/#list]
 [/#macro]
 

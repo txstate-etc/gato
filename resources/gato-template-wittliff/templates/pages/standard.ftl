@@ -3,7 +3,10 @@
 <!DOCTYPE HTML>
 <html lang="en">
   <head>
-    [@templatejs scripts=['gato-template-wittliff/js/wittliff.js']/]
+    [@templatejs scripts=[
+      'gato-template-wittliff/js/wittliff.js',
+      'gato-template-wittliff/js/fontsdotcom.js'
+    ]/]
     <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-wittliff/css/standard.compiled.css"/>
     [@templatehead publisher="The Wittliff Collections"/]
   </head>
