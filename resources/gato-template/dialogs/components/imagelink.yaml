@@ -6,7 +6,7 @@ form:
         - name: institutionallogos
           class: info.magnolia.ui.form.field.definition.MultiValueFieldDefinition
           transformerClass: info.magnolia.ui.form.field.transformer.multi.MultiValueSubChildrenNodePropertiesTransformer
-          label: Institutional images
+          label: Images
           field:
             name: logos
             class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
@@ -20,8 +20,6 @@ form:
                 label: Image
                 identifierToPathConverter:
                   class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
-      #          contentPreviewDefinition:
-      #            contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
                 description: "Choose an image from Assets. You may also upload an image to Assets from here."
               - name: rollover
                 class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
@@ -30,12 +28,12 @@ form:
                 label: Rollover Image
                 identifierToPathConverter:
                   class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
-                ##contentPreviewDefinition:
-                ##  contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
                 description: "Optionally choose an image to appear when the mouse hovers over the link."
               - name: imageAlt
                 class: info.magnolia.ui.form.field.definition.TextFieldDefinition
                 label: Alternate Text
+                required: true
+                styleName: image-alt-text
                 description: "Text to Display When Graphics aren't enabled. Required for Section 508 compliance."
               - name: link
                 class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
@@ -49,6 +47,10 @@ form:
                 class: info.magnolia.ui.form.field.definition.StaticFieldDefinition
                 label: ""
                 value: ""
+        - name: stylesheet
+          label: ""
+          class: edu.txstate.its.gato.vaadin.GatoCssIncludeDefinition
+          styles: [gato-template/dialogs/css/imagelink-dialog.css]
 
 
 

@@ -1,0 +1,7 @@
+.v-caption-image-alt-text {
+    white-space: normal;
+}
+
+.v-caption-image-alt-text .v-required-field-indicator {
+   float: none;
+}
