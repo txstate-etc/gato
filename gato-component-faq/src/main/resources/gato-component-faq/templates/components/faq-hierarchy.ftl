@@ -1,7 +1,7 @@
 [#macro faqItem node depth]
   <li class="gato-faqitem" role="treeitem" aria-expanded="false">
     <a href="#" class="gato-faqitem-question">
-      [#if depth > 0]<i class="fa fa-caret-right" aria-hidden="true"></i>[/#if]
+      <i class="fa fa-caret-right" aria-hidden="true"></i>
       ${node.question}</a>
     <div class="gato-faqitem-answer" role="group" aria-hidden="true"><div role="treeitem">${node.answer}</div></div>
   </li>

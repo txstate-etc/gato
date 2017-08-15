@@ -22,6 +22,12 @@ body ul.gato-faq-hierarchy {
       color: $faq-item-text-hover-color;
     }
   }
+  .gato-faqitem-question i {
+    display: none;
+  }
+  .gato-faq-group-children .gato-faqitem-question i {
+    display: inline;
+  }
   .gato-faqitem-answer {
     display: none;
     overflow: hidden;
