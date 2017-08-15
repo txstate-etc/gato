@@ -1,4 +1,4 @@
-<footer>
+<footer class="page-footer">
 
 <div class="footer-column">
 	<div class="footer-column-content">
