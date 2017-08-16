@@ -13,4 +13,5 @@
       [@cms.area name="contentParagraph" /]
     </main>
   </body>
+  [#include "/gato-template/templates/includes/video-modal.ftl"]
 </html>
