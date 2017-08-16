@@ -44,6 +44,7 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.TimeZone;
 import java.util.Iterator;
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -1024,6 +1025,18 @@ public final class GatoUtils {
 
   public List<ContentMap> nonDeletedChildren(ContentMap content, String nodeTypeName) throws RepositoryException {
     return content == null ? null : tf.asContentMapList(nonDeletedChildren(content.getJCRNode(), nodeTypeName));
+  }
+
+  public boolean isCardSection(Object node) {
+    if (node == null) return false;
+    Node n = toNode(node);
+    List<String> cardSections = Arrays.asList("gato-component-cards/components/masonry", "gato-component-cards/components/gridlayout");
+    try {
+      String t = NodeTypes.Renderable.getTemplate(n);
+      return cardSections.contains(t);
+    } catch (Exception e) {
+      return false;
+    }
   }
 
   public String replaceExtension(String url, String newextension) {

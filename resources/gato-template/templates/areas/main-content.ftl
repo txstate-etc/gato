@@ -6,7 +6,7 @@
   [#else]
     [#assign hasBackgroundClass = '']
   [/#if]
-  <div class="gato-section-full ${mainContentClass} ${hasBackgroundClass}">
+  <div class="gato-section-full ${mainContentClass} ${hasBackgroundClass} ${gf.isCardSection(component)?string('card-layout', '')}">
     <div class="gato-section-centered">
       <div class="gato-section eq-parent">
         [@cms.component content=component /]
