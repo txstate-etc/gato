@@ -32,12 +32,15 @@ jQuery(function() {
 
 		var handle_filterlink_click = function(e){
 			e.stopPropagation();
+			e.preventDefault();
 
 			$.each(filters,function(i,filter){
 				filter.selected = $(e.target).text() == filter.name ? true : false;
 			});
 
 			filterable_grid.update();
+
+			return false;
 		};
 
 		filterable_grid.update = function(){
