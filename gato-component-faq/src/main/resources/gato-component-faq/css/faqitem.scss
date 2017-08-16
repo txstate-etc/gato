@@ -14,16 +14,14 @@ body ul.gato-faq-hierarchy {
     line-height: 2.8rem;
     padding: 0.5rem;
     text-decoration: none;
-  }
-  .gato-faqitem-question {
     font-size: 1.8rem;
     color: $faq-item-text-color;
-    &:hover, &.active {
+    &:hover, &:active, &.active {
       color: $faq-item-text-hover-color;
     }
-  }
-  .gato-faqitem-question i, .gato-faq-group-title i {
-    display: none;
+    i {
+      display: none;
+    }
   }
   .gato-faq-group-children {
     .gato-faqitem-question i, .gato-faq-group-title i {
@@ -39,10 +37,6 @@ body ul.gato-faq-hierarchy {
     }
   }
 
-  .gato-faq-group-title {
-    color: $faq-group-title-text-color;
-    font-size: 2rem;
-  }
   .gato-faq-group-children {
     display: none;
     list-style: none;

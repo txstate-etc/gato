@@ -1,13 +1,11 @@
 /* FAQ Paragraph */
 body ul.gato-faq-hierarchy {
   > .gato-faqitem, > .gato-faq-group {
-    box-shadow: none;
     border-bottom: 2px solid $wittliffstone;
     &:first-child {
       border-top: 2px solid $wittliffstone;
     }
     > .gato-faqitem-question, > .gato-faq-group-title {
-      box-shadow: none;
       line-height: 2.8rem;
       i {
         display: block;
