@@ -1,0 +1,73 @@
+div.grid-container {
+	border-top: 7px solid $wittliffrust;
+	margin-bottom: 1.5rem;
+
+	ul.grid-filter:before {
+		content: "YOU ARE A...";
+		color: white;
+		padding: 2rem 7rem;
+		vertical-align: middle;
+		font-size: 2.3rem;
+		letter-spacing: .3rem;
+		font-weight: 200;
+	}
+
+	ul.grid-filter {
+		background-color: $wittliffbrown;
+		list-style: none;
+		width: 100%;
+		margin: 0;
+		padding: 0;
+
+		li {
+			display: inline-block;
+
+			a {
+				display: inline-block;
+				text-decoration: none;
+				color: white;
+				padding: 2rem 7rem;
+				vertical-align: middle;
+				font-size: 2.3rem;
+				letter-spacing: .3rem;
+				font-weight: 200;
+			}
+
+			a.grid-filter-selected {
+				background-color: $wittliffrust;
+			}
+		}
+	}
+
+	div.grid-card {
+		margin: 0 0 0 0;
+		padding: 0 0 0 0;
+		border-right: 1px solid white;
+
+		div.gato-textimage {
+			display: flex;
+			flex-direction: column;
+
+			h2.gato-textimage-title {
+				background-color: $wittliffbrown;
+				order: 2;
+				color: white;
+				padding: 3rem 2rem;
+				margin: 0;
+				vertical-align: middle;
+				font-size: 2.3rem;
+				letter-spacing: .3rem;
+				font-weight: 200;
+			}
+
+			div.gato-textimage-imageblock {
+				order: 1;
+				margin: 0;
+			}
+		}
+	}
+}
+
+body.template-wittliff div.gato-section-centered {
+	max-width: inherit;
+}
