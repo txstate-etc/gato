@@ -17,6 +17,9 @@ function initColorPicker(def, node, el, tmpl) {
   $('head').append('<link rel="stylesheet" type="text/css" href="'+cssfile+'">');
 
   var configfile = "./../.resources/"+tmpl+"/js/color-picker-config.js";
+  if (!fileExists(configfile)) {
+    configfile = "./../.resources/"+"gato-template-txstate2015"+"/js/color-picker-config.js";
+  }
   $.getJSON(configfile, function(data, status, xhr){
     var colorConfig = data;
     if (def.parameters.contentType) {
@@ -59,4 +62,16 @@ function initColorPicker(def, node, el, tmpl) {
   .fail(function(){
     $(el).append("<div>No Color Configuration File Found</div>");
   })
+}
+
+function fileExists(urlToFile)
+{
+    var xhr = new XMLHttpRequest();
+    xhr.open('HEAD', urlToFile, false);
+    xhr.send();
+    if (xhr.status == "404") {
+        return false;
+    } else {
+        return true;
+    }
 }
