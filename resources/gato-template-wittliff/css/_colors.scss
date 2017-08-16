@@ -1,17 +1,6 @@
 
 $maroon:                #501214; // (106,86,56)
 $gold:                  #6A5638; // (80, 18, 20)
-$wittliffgreen:         #465247;
-$wittliffgreen-light:   #4A574B;
-$wittliffgreen-lighter: #586659;
-$wittliffbrown:         #654E3C;
-$wittliffbrown-light:   #A66947;
-$wittliffbrown-dark:    #5f4737;
-$wittlifforange:        #f3c9a3;
-$wittliffrust:          #7E2F16;
-
-$wittliffgray:          #C8BEB7;
-$wittliffgray-dark:     #8A7C72;
 
 $charcoal:            #363534; // (54, 53, 52)
 $blue:                #005481; // (0, 84, 129)
@@ -61,6 +50,27 @@ $light-oldgold:        #E1BC20; //10% lighter than oldgold
 $dark-oldgold:         #C8A106; //10% darker than oldgold
 $darker-oldgold:       #B29006; //20% darker than oldgold
 $oldgold-shadow:       #9B7E05; //30% darker than oldgold
+
+
+
+$wittliffgreen:         #465247;
+$wittliffgreen-light:   #4A574B;
+$wittliffgreen-lighter: #586659;
+$wittliffgreen-superlight: #7e867e;
+
+
+$wittliffbrown:         #654E3C;
+$wittliffbrown-light:   #A66947;
+$wittliffbrown-dark:    #5f4737;
+
+/* Highlights */
+$wittliffpeach:         #f3c9a3;
+$wittliffrust:          #7E2F16;
+$wittliffred:           #862425;
+
+/* Primary Colors / Browns */
+$wittliffsand:          #C8BEB7;
+$wittliffstone:         #8A7C72;
 
 $template-color-count: 7;
 

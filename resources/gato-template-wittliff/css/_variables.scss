@@ -11,3 +11,33 @@ $content-width-lg: 1200px;
 
 $sidebar-leftright: 'left';
 $sidebar-moves-below-point: $xs-breakpoint;
+
+// Search page variables
+
+//drop down dialog
+$search-dd-overlay-background-color:  $wittliffsand;
+$search-dd-dropdown-background-color: $wittliffgreen;
+$search-dd-dialog-font-family:        inherit;
+$search-dd-input-line-color:          $white;
+$search-dd-input-color:               $white;
+$search-dd-input-placeholder-color:   $white;
+$search-dd-icon-color:                $white;
+$search-dd-suggested-results-border:  $wittliffgreen;
+$search-dd-suggested-result-title-color: $wittliffred;
+$search-dd-suggested-result-link-color: $wittliffred;
+$search-dd-suggested-result-hover-color: red;
+/*
+//search results
+$search-result-title:                       $blue;
+$search-result-date:                        $light-midnight;
+$search-result-url:                         $light-midnight;
+$search-pagination-selected-background:     $lightest-taupe;
+$search-pagination-hover-background:        $lightest-taupe;
+$search-pagination-link-color:              $tsus-mediumgray;
+
+// Site Search variables
+$sitesearch-results-page-title-color:       $midnight;
+$sitesearch-result-search-input:            $midnight;
+$sitesearch-result-search-color:            $midnight;
+$sitesearch-font-family:                    inherit;
+*/

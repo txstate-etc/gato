@@ -1,0 +1,7 @@
+form:
+  tabs:
+    - name: tabHero
+      label: Hero Banner
+      fields: !include /gato-template/dialogs/common/textimage-text.yaml
+
+actions: !include /gato-template/dialogs/common/actions-block.yaml

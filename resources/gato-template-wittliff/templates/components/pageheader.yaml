@@ -2,6 +2,6 @@ templateScript: /gato-template-wittliff/templates/components/pageheader.ftl
 renderType: freemarker
 title: Page Header
 description: A basic paragraph that includes a Title, an image, and body text.
-dialog: gato-template:components/textimage
+dialog: gato-template-wittliff:components/pageheader
 parameters:
   icon: /gato-template/images/text_image.png
