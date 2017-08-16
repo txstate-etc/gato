@@ -41,13 +41,31 @@ jQuery(function() {
 		};
 
 		filterable_grid.update = function(){
+			var currentFilter;
+
 			$.each(filters,function(i,filter){
 				if ( filter.selected ) {
 					$(filter.linkelement).attr('aria-selected',true);
 					$(filter.linkelement).addClass('grid-filter-selected');
+					currentFilter = filter.name;
 				} else {
-					$(filter.linkelement).removeAttr('aria-selected');
+					$(filter.linkelement).attr('aria-selected',false);
 					$(filter.linkelement).removeClass('grid-filter-selected');
+				}
+			});
+
+			var hashParams = getHashParameters();
+			hashParams[gridid+"_f"] = currentFilter;
+			setHashParameters(hashParams);
+
+			$(element).find('div.grid-card').each(function(i,card){
+				var tags = $(card).data("gridtags").split(/ *, */);
+				if ( tags.indexOf(currentFilter) != -1 || currentFilter == "All" ) {
+					$(card).show();
+					$(card).attr('aria-hidden',false);
+				} else {
+					$(card).hide();
+					$(card).attr('aria-hidden',true);
 				}
 			});
 		};
