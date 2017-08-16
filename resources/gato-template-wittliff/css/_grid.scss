@@ -26,7 +26,7 @@ div.grid-container {
 				display: inline-block;
 				text-decoration: none;
 				color: white;
-				padding: 2rem 7rem;
+				padding: 2.5rem 7rem;
 				vertical-align: middle;
 				font-size: 2.3rem;
 				letter-spacing: .3rem;
@@ -44,25 +44,25 @@ div.grid-container {
 		padding: 0 0 0 0;
 		border-right: 1px solid white;
 
-		div.gato-textimage {
-			display: flex;
-			flex-direction: column;
+		figure {
+			box-shadow: none;
 
-			h2.gato-textimage-title {
-				background-color: $wittliffbrown;
-				order: 2;
-				color: white;
-				padding: 3rem 2rem;
-				margin: 0;
-				vertical-align: middle;
-				font-size: 2.3rem;
-				letter-spacing: .3rem;
-				font-weight: 200;
+			img {
+				height: 300px;
 			}
 
-			div.gato-textimage-imageblock {
-				order: 1;
+			figcaption {
+				padding: 0;
 				margin: 0;
+
+				h3 {
+					padding: 3rem 0 3rem 3rem;
+					margin: 0;
+					vertical-align: middle;
+					font-size: 2.3rem;
+					letter-spacing: .3rem;
+					font-weight: 200;
+				}
 			}
 		}
 	}

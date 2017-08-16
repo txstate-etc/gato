@@ -1,6 +1,6 @@
 templateScript: /gato-component-cards/templates/components/gridlayout/mastertemplate.ftl
 renderType: freemarker
-dialog: gato-template:components/imagecard
+dialog: gato-component-cards:components/gridlayout/gridlayout-imagecard
 description: An image with a caption
 title: Image Card
 parameters:

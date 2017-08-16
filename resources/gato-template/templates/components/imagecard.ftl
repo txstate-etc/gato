@@ -14,10 +14,14 @@
           <figure>
     [/#if]
         <img src="${gf.getImgDefault(content.image, sizes)}" sizes="${sizes}" alt="${content.imageAlt!}" srcset="${gf.getSrcSet(content.image)}" />
-        <figcaption class="${content.color!'color1'}">
-            <h3>${decodedContent.title}</h3>
-            <p>${decodedContent.subtext}</p>
-        </figcaption>
+        [#if content.title?has_content]
+            <figcaption class="${content.color!'color1'}">
+                <h3>${decodedContent.title}</h3>
+                [#if content.subtext?has_content]
+                    <p>${decodedContent.subtext}</p>
+                [/#if]
+            </figcaption>
+        [/#if]
     </figure>
     [#if content.link?has_content]
       </a>
