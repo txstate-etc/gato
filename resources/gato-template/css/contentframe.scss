@@ -71,6 +71,9 @@ $sidebar-leftright: 'right' !default;
       padding-#{$sidebar-leftright}: 0;
     }
   }
+  &.has-background .gato-section {
+    padding-top: 2rem;
+  }
   &.full-width .gato-section {
     padding-#{$sidebar-leftright}: 0;
   }
