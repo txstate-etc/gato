@@ -64,10 +64,14 @@ jQuery(function() {
 			$(element).find('div.grid-card').each(function(i,card){
 				var tags = $(card).data("gridtags").split(/ *, */);
 				if ( tags.indexOf(currentFilter) != -1 || currentFilter == "All" ) {
-					$(card).show();
+					$(card).removeClass('grid-card-hidden grid-card-hiddenedit');
 					$(card).attr('aria-hidden',false);
 				} else {
-					$(card).hide();
+					if ( isEditMode ) {
+						$(card).addClass('grid-card-hiddenedit');
+					} else {
+						$(card).addClass('grid-card-hidden');
+					}
 					$(card).attr('aria-hidden',true);
 				}
 			});

@@ -58,4 +58,16 @@
     .grid-card-md { width: 100%; }
     .grid-card-lg { width: 100%; }
   }
+
+  .grid-card-hidden {
+    display: none;
+  }
+
+  .grid-card-hiddenedit {
+  	background-color: white;
+  	-webkit-filter: grayscale(1) brightness(.5);
+    filter: grayscale(1) brightness(.5);
+  }
+
 }
+
