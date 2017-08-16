@@ -16,7 +16,7 @@ body ul.gato-faq-hierarchy {
     text-decoration: none;
     font-size: 1.8rem;
     color: $faq-item-text-color;
-    &:hover, &:active, &.active {
+    &:hover, &:active {
       color: $faq-item-text-hover-color;
     }
     i {
@@ -50,7 +50,7 @@ body ul.gato-faq-hierarchy {
     padding: 1.2rem 2rem;
     font-weight: 500;
     background-color: $faq-item-background-color;
-    &:hover, &.active {
+    &:hover, &:active {
       background-color: $faq-item-background-hover-color;
     }
   }
