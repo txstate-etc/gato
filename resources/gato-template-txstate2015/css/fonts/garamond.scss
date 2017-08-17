@@ -1,66 +1,42 @@
-@font-face{
-font-family:"Adobe Garamond W01_n4";
-src:url("#{$font-path}/73fe293c-69da-4927-80ce-773ee1a1879c.eot?#iefix") format("eot")
+@font-face {
+  font-family:"Adobe Garamond W01";
+  src:url("#{$font-path}/73fe293c-69da-4927-80ce-773ee1a1879c.eot?#iefix");
+  src:url("#{$font-path}/73fe293c-69da-4927-80ce-773ee1a1879c.eot?#iefix") format("eot"),url("#{$font-path}/d5ca2f36-723d-4882-8658-9746fb0eea72.woff2") format("woff2"),url("#{$font-path}/859018fa-3c03-484b-8774-97bd6548d48d.woff") format("woff"),url("#{$font-path}/abb87b70-21d4-4ac2-bf9f-41548a67e564.ttf") format("truetype"),url("#{$font-path}/6e4e2084-ff69-479e-b179-92d90deb7885.svg#6e4e2084-ff69-479e-b179-92d90deb7885") format("svg");
+  font-weight: 400;
+  font-style: normal;
 }
-@font-face{
-font-family:"Adobe Garamond W01";
-src:url("#{$font-path}/73fe293c-69da-4927-80ce-773ee1a1879c.eot?#iefix");
-src:url("#{$font-path}/73fe293c-69da-4927-80ce-773ee1a1879c.eot?#iefix") format("eot"),url("#{$font-path}/d5ca2f36-723d-4882-8658-9746fb0eea72.woff2") format("woff2"),url("#{$font-path}/859018fa-3c03-484b-8774-97bd6548d48d.woff") format("woff"),url("#{$font-path}/abb87b70-21d4-4ac2-bf9f-41548a67e564.ttf") format("truetype"),url("#{$font-path}/6e4e2084-ff69-479e-b179-92d90deb7885.svg#6e4e2084-ff69-479e-b179-92d90deb7885") format("svg");
-font-weight: 400;
-font-style: normal;
+@font-face {
+  font-family:"Adobe Garamond W01";
+  src:url("#{$font-path}/cc631089-fa2c-4288-baf8-2e744de1a554.eot?#iefix");
+  src:url("#{$font-path}/cc631089-fa2c-4288-baf8-2e744de1a554.eot?#iefix") format("eot"),url("#{$font-path}/68e92036-cf88-44c3-8061-e7d30fc9d1c4.woff2") format("woff2"),url("#{$font-path}/bb497139-4ed5-41d1-905c-46d29a1b30f8.woff") format("woff"),url("#{$font-path}/80bceb3f-535e-478f-95eb-db6597482771.ttf") format("truetype"),url("#{$font-path}/63e15210-781f-4eae-b157-1a28f02f1cfe.svg#63e15210-781f-4eae-b157-1a28f02f1cfe") format("svg");
+  font-weight: 400;
+  font-style: italic;
 }
-@font-face{
-font-family:"Adobe Garamond W01_i4";
-src:url("#{$font-path}/cc631089-fa2c-4288-baf8-2e744de1a554.eot?#iefix") format("eot")
+@font-face {
+  font-family:"Adobe Garamond W01";
+  src:url("#{$font-path}/0d0bd309-6c34-40a5-9a6c-9760379b7c5e.eot?#iefix");
+  src:url("#{$font-path}/0d0bd309-6c34-40a5-9a6c-9760379b7c5e.eot?#iefix") format("eot"),url("#{$font-path}/74f8f324-5678-419e-a062-18a9b7ce2cd8.woff2") format("woff2"),url("#{$font-path}/7dc507e2-738a-4a3d-9253-31a1f36bf337.woff") format("woff"),url("#{$font-path}/37d87f5a-c625-4343-a3d8-00c73e1bc91a.ttf") format("truetype"),url("#{$font-path}/498f83f0-7a41-4bfb-82d9-e7ced50ad6dc.svg#498f83f0-7a41-4bfb-82d9-e7ced50ad6dc") format("svg");
+  font-weight: 500;
+  font-style: normal;
 }
-@font-face{
-font-family:"Adobe Garamond W01";
-src:url("#{$font-path}/cc631089-fa2c-4288-baf8-2e744de1a554.eot?#iefix");
-src:url("#{$font-path}/cc631089-fa2c-4288-baf8-2e744de1a554.eot?#iefix") format("eot"),url("#{$font-path}/68e92036-cf88-44c3-8061-e7d30fc9d1c4.woff2") format("woff2"),url("#{$font-path}/bb497139-4ed5-41d1-905c-46d29a1b30f8.woff") format("woff"),url("#{$font-path}/80bceb3f-535e-478f-95eb-db6597482771.ttf") format("truetype"),url("#{$font-path}/63e15210-781f-4eae-b157-1a28f02f1cfe.svg#63e15210-781f-4eae-b157-1a28f02f1cfe") format("svg");
-font-weight: 400;
-font-style: italic;
+@font-face {
+  font-family:"Adobe Garamond W01";
+  src:url("#{$font-path}/6ab8ca00-cb3c-4650-9898-8bd7549e4bba.eot?#iefix");
+  src:url("#{$font-path}/6ab8ca00-cb3c-4650-9898-8bd7549e4bba.eot?#iefix") format("eot"),url("#{$font-path}/67966868-1c07-4861-84a1-aff5f6d52915.woff2") format("woff2"),url("#{$font-path}/f57c0124-5531-42de-8161-da69918f789c.woff") format("woff"),url("#{$font-path}/bb927941-6c69-42fa-835e-85beae1f8365.ttf") format("truetype"),url("#{$font-path}/8ef94dbb-5086-4bdd-be4e-60dc74748264.svg#8ef94dbb-5086-4bdd-be4e-60dc74748264") format("svg");
+  font-weight: 500;
+  font-style: italic;
 }
-@font-face{
-font-family:"Adobe Garamond W01_n5";
-src:url("#{$font-path}/0d0bd309-6c34-40a5-9a6c-9760379b7c5e.eot?#iefix") format("eot")
+@font-face {
+  font-family:"Adobe Garamond W01";
+  src:url("#{$font-path}/a5240191-4466-40a5-9858-50ca14584e4a.eot?#iefix");
+  src:url("#{$font-path}/a5240191-4466-40a5-9858-50ca14584e4a.eot?#iefix") format("eot"),url("#{$font-path}/f81fa4ca-48c0-496c-a54f-5e1f69bc54a1.woff2") format("woff2"),url("#{$font-path}/cd40a899-1f96-413c-9d0b-725d91328946.woff") format("woff"),url("#{$font-path}/f3b3a415-75b2-4241-9867-da4e137d5dee.ttf") format("truetype"),url("#{$font-path}/f4c5fec8-4f38-4edc-b25b-295a90bf8e57.svg#f4c5fec8-4f38-4edc-b25b-295a90bf8e57") format("svg");
+  font-weight: 700;
+  font-style: normal;
 }
-@font-face{
-font-family:"Adobe Garamond W01";
-src:url("#{$font-path}/0d0bd309-6c34-40a5-9a6c-9760379b7c5e.eot?#iefix");
-src:url("#{$font-path}/0d0bd309-6c34-40a5-9a6c-9760379b7c5e.eot?#iefix") format("eot"),url("#{$font-path}/74f8f324-5678-419e-a062-18a9b7ce2cd8.woff2") format("woff2"),url("#{$font-path}/7dc507e2-738a-4a3d-9253-31a1f36bf337.woff") format("woff"),url("#{$font-path}/37d87f5a-c625-4343-a3d8-00c73e1bc91a.ttf") format("truetype"),url("#{$font-path}/498f83f0-7a41-4bfb-82d9-e7ced50ad6dc.svg#498f83f0-7a41-4bfb-82d9-e7ced50ad6dc") format("svg");
-font-weight: 500;
-font-style: normal;
-}
-@font-face{
-font-family:"Adobe Garamond W01_i5";
-src:url("#{$font-path}/6ab8ca00-cb3c-4650-9898-8bd7549e4bba.eot?#iefix") format("eot")
-}
-@font-face{
-font-family:"Adobe Garamond W01";
-src:url("#{$font-path}/6ab8ca00-cb3c-4650-9898-8bd7549e4bba.eot?#iefix");
-src:url("#{$font-path}/6ab8ca00-cb3c-4650-9898-8bd7549e4bba.eot?#iefix") format("eot"),url("#{$font-path}/67966868-1c07-4861-84a1-aff5f6d52915.woff2") format("woff2"),url("#{$font-path}/f57c0124-5531-42de-8161-da69918f789c.woff") format("woff"),url("#{$font-path}/bb927941-6c69-42fa-835e-85beae1f8365.ttf") format("truetype"),url("#{$font-path}/8ef94dbb-5086-4bdd-be4e-60dc74748264.svg#8ef94dbb-5086-4bdd-be4e-60dc74748264") format("svg");
-font-weight: 500;
-font-style: italic;
-}
-@font-face{
-font-family:"Adobe Garamond W01_n7";
-src:url("#{$font-path}/a5240191-4466-40a5-9858-50ca14584e4a.eot?#iefix") format("eot")
-}
-@font-face{
-font-family:"Adobe Garamond W01";
-src:url("#{$font-path}/a5240191-4466-40a5-9858-50ca14584e4a.eot?#iefix");
-src:url("#{$font-path}/a5240191-4466-40a5-9858-50ca14584e4a.eot?#iefix") format("eot"),url("#{$font-path}/f81fa4ca-48c0-496c-a54f-5e1f69bc54a1.woff2") format("woff2"),url("#{$font-path}/cd40a899-1f96-413c-9d0b-725d91328946.woff") format("woff"),url("#{$font-path}/f3b3a415-75b2-4241-9867-da4e137d5dee.ttf") format("truetype"),url("#{$font-path}/f4c5fec8-4f38-4edc-b25b-295a90bf8e57.svg#f4c5fec8-4f38-4edc-b25b-295a90bf8e57") format("svg");
-font-weight: 700;
-font-style: normal;
-}
-@font-face{
-font-family:"Adobe Garamond W01_i7";
-src:url("#{$font-path}/7b962fbf-c081-46ab-858f-dee2779c4fa4.eot?#iefix") format("eot")
-}
-@font-face{
-font-family:"Adobe Garamond W01";
-src:url("#{$font-path}/7b962fbf-c081-46ab-858f-dee2779c4fa4.eot?#iefix");
-src:url("#{$font-path}/7b962fbf-c081-46ab-858f-dee2779c4fa4.eot?#iefix") format("eot"),url("#{$font-path}/4f3b4e5d-e634-4c01-8a14-690e44f8ef58.woff2") format("woff2"),url("#{$font-path}/f8ee3845-fc85-4f8b-9bee-9eac5fccb0f3.woff") format("woff"),url("#{$font-path}/a33b7202-9081-4ce7-ad4d-528996891012.ttf") format("truetype"),url("#{$font-path}/d2e699fe-6a32-45fd-b5a6-30b435bd8bca.svg#d2e699fe-6a32-45fd-b5a6-30b435bd8bca") format("svg");
-font-weight: 700;
-font-style: italic;
+@font-face {
+  font-family:"Adobe Garamond W01";
+  src:url("#{$font-path}/7b962fbf-c081-46ab-858f-dee2779c4fa4.eot?#iefix");
+  src:url("#{$font-path}/7b962fbf-c081-46ab-858f-dee2779c4fa4.eot?#iefix") format("eot"),url("#{$font-path}/4f3b4e5d-e634-4c01-8a14-690e44f8ef58.woff2") format("woff2"),url("#{$font-path}/f8ee3845-fc85-4f8b-9bee-9eac5fccb0f3.woff") format("woff"),url("#{$font-path}/a33b7202-9081-4ce7-ad4d-528996891012.ttf") format("truetype"),url("#{$font-path}/d2e699fe-6a32-45fd-b5a6-30b435bd8bca.svg#d2e699fe-6a32-45fd-b5a6-30b435bd8bca") format("svg");
+  font-weight: 700;
+  font-style: italic;
 }
