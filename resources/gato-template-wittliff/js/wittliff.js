@@ -82,4 +82,16 @@ jQuery(document).ready(function($) {
       smbtn.attr('aria-expanded', false);
     }
   });
+
+  // Make sure the footer is at the bottom of the window when the
+  // page is shorter than one window
+  var win = $(window);
+  var header = $('.page-header');
+  var footer = $('.page-footer');
+  var pagecontent = $('.page_content');
+  var pagecontentheightfix = function () {
+    pagecontent.css('min-height', win.height() - header.outerHeight(true) - footer.outerHeight(true) - pagecontent.outerHeight(true) + pagecontent.outerHeight());
+  }
+  resizeTimeout(pagecontentheightfix);
+  waitforselector('.navBlocks_add', '.mgnlEditor.mgnlPlaceholder', pagecontentheightfix);
 });
