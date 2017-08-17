@@ -41,6 +41,6 @@ footer-button:
   type: single
   availableComponents:
     footer-button:
-      id: gato-component-button:components/button
+      id: gato-template-wittliff:components/linkbutton
 footerlinks1:
   !include /gato-template/templates/areas/linklist.yaml

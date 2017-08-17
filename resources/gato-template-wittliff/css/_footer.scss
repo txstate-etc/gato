@@ -66,4 +66,16 @@ footer.page-footer {
 		margin-bottom: 1rem;
 	}
 
+  .linkbutton {
+    border: 2px solid $wittliffbrown;
+    background-color: $wittliffbrown;
+    i {
+      border-left: 2px solid $wittliffbrown;
+      color: $wittliffbrown;
+      background-color: $wittliffsand;
+    }
+    &:hover, &:active {
+      background-color: $wittliffbrown-light;
+    }
+  }
 }
