@@ -32,6 +32,7 @@
   display: flex;
 
   -webkit-flex-flow: row wrap;
+  flex-wrap: wrap;
   justify-content: space-around;
 
   .grid-card-sm { width: 25%; }
