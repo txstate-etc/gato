@@ -12,6 +12,10 @@ div.grid-container {
 		font-size: 2.3rem;
 		letter-spacing: .3rem;
 		font-weight: 200;
+		[data-eq~="800px"] & {
+			width: 100%;
+			text-align: center;
+		}
 	}
 
 	ul.grid-filter {
@@ -21,9 +25,16 @@ div.grid-container {
 		margin: 0;
 		padding: 0;
 		display: flex;
+		[data-eq~="800px"] & {
+			flex-wrap: wrap;
+		}
+
 
 		li {
 			width: 100%;
+			[data-eq~="800px"] & {
+				width: 50%;
+			}
 
 			a {
 				display: block;
@@ -48,22 +59,43 @@ div.grid-container {
 		margin: 0 0 0 0;
 		padding: 0 0 0 0;
 		border-right: 1px solid white;
+		border-bottom: 1px solid white;
+		[data-eq~="800px"] & {
+			width: 100%;
+		}
 
 		figure {
 			box-shadow: none;
+			display: flex;
+			flex-flow: column;
+			[data-eq~="800px"] & {
+				flex-flow: row;
+			}
 
 			img {
 				height: 300px;
+				[data-eq~="800px"] & {
+					height: 150px;
+					width: 150px;
+				}
 			}
 
 			figcaption {
-				padding: 0;
+				padding: 3rem 0 3rem 3rem;
 				margin: 0;
+				flex: 1;
+				[data-eq~="800px"] & {
+					padding: 2rem;
+					display: flex;
+					text-align: center;
+					align-items: center;
+				}
 
 				h3 {
-					padding: 3rem 0 3rem 3rem;
+					display: block;
+					width: 100%;
+					padding: 0;
 					margin: 0;
-					vertical-align: middle;
 					font-size: 2.3rem;
 					letter-spacing: .3rem;
 					font-weight: 200;
