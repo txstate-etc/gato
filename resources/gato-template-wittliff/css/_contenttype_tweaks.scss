@@ -1,0 +1,31 @@
+/* FAQ Paragraph */
+body ul.gato-faq-hierarchy {
+  > .gato-faqitem, > .gato-faq-group {
+    border-bottom: 2px solid $wittliffstone;
+    &:first-child {
+      border-top: 2px solid $wittliffstone;
+    }
+    > .gato-faqitem-question, > .gato-faq-group-title {
+      line-height: 2.8rem;
+      i {
+        display: block;
+        float: right;
+        font-size: 5rem;
+        line-height: 2.8rem;
+        &:before {
+          content: $fa-var-angle-right;
+        }
+      }
+    }
+    &.shown {
+      > .gato-faqitem-question, > .gato-faq-group-title {
+        i:before {
+          content: $fa-var-angle-down;
+        }
+      }
+    }
+  }
+  .gato-faq-group-children .gato-faqitem-question i {
+    display: inline;
+  }
+}
