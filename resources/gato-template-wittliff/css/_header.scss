@@ -165,19 +165,13 @@ strong {
     }
     .main-menu-panel {
       position: absolute;
-      top: $header-height;
+      top: 100%;
       right: 0;
       background-color: $wittliffgreen;
       width: 32rem;
       padding: 2rem 4rem 2rem 2rem;
       display: none;
       z-index: 65536;
-      @media (max-width: $md-breakpoint) {
-        top: $header-height-tablet;
-      }
-      @media (max-width: $sm-breakpoint) {
-        top: $header-height-mobile;
-      }
 
       .simplemenu {
         &, ul {
