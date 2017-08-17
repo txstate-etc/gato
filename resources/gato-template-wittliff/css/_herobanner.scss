@@ -35,10 +35,10 @@
   }
   .herobanner-text {
     background-color: $wittliffsand;
-    padding: 3rem 10rem;
+    padding: 1rem 8rem;
     font-weight: 400;
     @media (max-width: $sm-breakpoint) {
-      padding: 2rem 5rem;
+      padding: 0.8rem 2rem;
     }
   }
 }
