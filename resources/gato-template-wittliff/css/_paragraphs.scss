@@ -29,3 +29,50 @@ body ul.gato-faq-hierarchy {
     display: inline;
   }
 }
+
+/* Hero Banner */
+.gato-herobanner {
+  margin: 0;
+  .herobanner-image {
+    position: relative;
+    img {
+      width: 100%;
+      display: block;
+    }
+    .herobanner-title {
+      position: absolute;
+      text-align: center;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      h2 {
+        margin: 0;
+        color: $white;
+        text-transform: uppercase;
+        font-size: 5.5rem;
+        font-family: $garamond;
+        letter-spacing: 0.4rem;
+        background-color: rgba($wittliffgreen, 0.8);
+        display: inline-block;
+        padding: 0.8rem 2rem;
+        @media (max-width: $md-breakpoint) {
+          padding: 0.6rem 1.5rem;
+          font-size: 4.5rem;
+        }
+        @media (max-width: $sm-breakpoint) {
+          padding: 0.5rem 1rem;
+          font-size: 2.7rem;
+        }
+      }
+    }
+  }
+  .herobanner-text {
+    background-color: $wittliffsand;
+    padding: 3rem 10rem;
+    font-weight: 400;
+    @media (max-width: $sm-breakpoint) {
+      padding: 2rem 5rem;
+    }
+  }
+}
+

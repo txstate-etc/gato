@@ -2,6 +2,28 @@ form:
   tabs:
     - name: tabHero
       label: Hero Banner
-      fields: !include /gato-template/dialogs/common/textimage-text.yaml
+      fields:
+        - name: image
+          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+          appName: assets
+          targetWorkspace: dam
+          label: Image
+          required: true
+          identifierToPathConverter:
+            class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
+          contentPreviewDefinition:
+            contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
+          description: "You may upload an image, or choose one from the Digital Asset Manager. If you upload an image, the DAM image will be ignored."
+        - name: imageAlt
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Alt. Text
+          required: true
+        - name: title
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Title
+        - name: text
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Text
+          rows: 8
 
 actions: !include /gato-template/dialogs/common/actions-block.yaml
