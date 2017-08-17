@@ -1030,7 +1030,9 @@ public final class GatoUtils {
   public boolean isCardSection(Object node) {
     if (node == null) return false;
     Node n = toNode(node);
-    List<String> cardSections = Arrays.asList("gato-component-cards/components/masonry", "gato-component-cards/components/gridlayout");
+    List<String> cardSections = Arrays.asList(
+      "gato-component-cards:components/masonry",
+      "gato-component-cards:components/gridlayout");
     try {
       String t = NodeTypes.Renderable.getTemplate(n);
       return cardSections.contains(t);

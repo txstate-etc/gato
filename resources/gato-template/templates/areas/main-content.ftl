@@ -1,12 +1,9 @@
 [#assign hideSidebar = ctx.getAttribute("hideSidebar")!false]
-[#assign mainContentClass = hideSidebar?string('full-width','')]
+[#assign mainContentClass = hideSidebar?string(' full-width','')]
 [#list components as component]
-  [#if component.showBackgroundColor!false]
-    [#assign hasBackgroundClass = 'has-background']
-  [#else]
-    [#assign hasBackgroundClass = '']
-  [/#if]
-  <div class="gato-section-full ${mainContentClass} ${hasBackgroundClass} ${gf.isCardSection(component)?string('card-layout', '')}">
+  [#assign hasBackgroundClass = (component.showBackgroundColor!false)?string(' has-background','')]
+  [#assign cardLayoutClass = gf.isCardSection(component)?string(' card-layout', '')]
+  <div class="gato-section-full${mainContentClass}${hasBackgroundClass}${cardLayoutClass}">
     <div class="gato-section-centered">
       <div class="gato-section eq-parent">
         [@cms.component content=component /]
