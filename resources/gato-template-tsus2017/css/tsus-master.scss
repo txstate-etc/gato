@@ -56,6 +56,20 @@ a, a:link, a:visited {
     color: $content-link-text;
 }
 
+.column_paragraph {
+  a img {
+    transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    /* This kills weird opacity image hover effects in Webkit browsers */
+    -webkit-backface-visibility: hidden;
+    &:hover{
+      opacity: 0.9;
+    }
+  }
+}
+
 /* Headers */
 h1 {
   font-size: 3rem;
