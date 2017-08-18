@@ -1,0 +1,18 @@
+[#if ctx.enablefiltering]
+	<ul class="grid-filter" role="tablist">
+		[#if ctx.includeallfilter]
+			<li role="presentation"><a href="#" role="tab">All</a></li>
+		[/#if]
+		[#list ctx.filterlist?split(",") as tab]
+			<li role="presentation"><a href="#" role="tab">${tab?trim}</a></li>
+		[/#list]
+	</ul>
+[/#if]
+[#list components as component]
+  <div class="card-item eq-parent ${component.sizeSelect!} ${cmsfn.isEditMode()?string('moveEditor', '')}">
+    [@cms.component content=component contextAttributes={"cardsperrow":ctx.cardsperrow!"gato-card-md"}/]
+  </div>
+[/#list]
+[#if cmsfn.isEditMode()]
+    <div class="grid-item grid-card-add ${ctx.cardsperrow!}" cms:add="box"></div>
+[/#if]

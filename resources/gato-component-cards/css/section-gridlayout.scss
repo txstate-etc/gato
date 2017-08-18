@@ -35,17 +35,22 @@
   flex-wrap: wrap;
   justify-content: space-around;
 
-  .grid-card-sm { width: 25%; }
-  .grid-card-md { width: 33.33%; }
-  .grid-card-lg { width: 50%; }
+  .grid-card-sm { width: 20%; }
+  .grid-card-md { width: 25%; }
+  .grid-card-lg { width: 33%; }
 
   [data-eq~="1200px"] & {
     .grid-card-sm { width: 25%; }
     .grid-card-md { width: 33.33%; }
     .grid-card-lg { width: 50%; }
   }
+  [data-eq~="900px"] & {
+    .grid-card-sm { width: 25%; }
+    .grid-card-md { width: 50%; }
+    .grid-card-lg { width: 50%; }
+  }
   [data-eq~="800px"] & {
-    .grid-card-sm { width: 50%; }
+    .grid-card-sm { width: 33%; }
     .grid-card-md { width: 50%; }
     .grid-card-lg { width: 100%; }
   }

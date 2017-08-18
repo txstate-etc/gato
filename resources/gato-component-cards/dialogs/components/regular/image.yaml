@@ -1,0 +1,6 @@
+form:
+  tabs:
+    - name: tabTexts
+      label: Image Card
+      fields: !include /gato-component-cards/dialogs/tabs/image.yaml
+actions: !include /gato-template/dialogs/common/actions-block.yaml

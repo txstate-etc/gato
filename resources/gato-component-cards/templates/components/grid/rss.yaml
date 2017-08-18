@@ -1,0 +1,9 @@
+templateScript: /gato-component-cards/templates/components/grid/mastertemplate.ftl
+renderType: freemarker
+title: RSS Feed
+description: Display the contents of an RSS feed on your site.
+dialog: gato-component-cards:components/grid/rss
+modelClass: edu.txstate.its.gato.RssModel
+parameters:
+  icon: /gato-component-rss/images/rssfeed.png
+  templateName: rss

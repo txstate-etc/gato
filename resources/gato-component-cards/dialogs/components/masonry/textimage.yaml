@@ -1,0 +1,12 @@
+form:
+  tabs:
+    - name: tabTexts
+      label: Text
+      fields: !include /gato-template/dialogs/common/textimage-text.yaml
+    - name: tabImage
+      label: Image
+      fields: !include /gato-template/dialogs/common/textimage-image.yaml
+    - name: tabtextimagesize
+      label: Size
+      fields: !include /gato-component-cards/dialogs/tabs/cardsize.yaml
+actions: !include /gato-template/dialogs/common/actions-block.yaml

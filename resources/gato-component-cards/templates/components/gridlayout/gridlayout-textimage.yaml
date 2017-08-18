@@ -1,8 +1,0 @@
-templateScript: /gato-component-cards/templates/components/gridlayout/mastertemplate.ftl
-renderType: freemarker
-title: Text and Image
-description: A basic paragraph that includes a Title, an image, and body text.
-dialog: gato-component-cards:components/gridlayout/gridlayout-textimage
-parameters:
-  icon: /gato-template/images/text_image.png
-  templateName: textimage

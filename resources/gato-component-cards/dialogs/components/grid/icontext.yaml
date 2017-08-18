@@ -1,0 +1,9 @@
+form:
+  tabs:
+    - name: tabTexts
+      label: Icon and Text
+      fields: !include /gato-template/dialogs/common/icontext.yaml
+    - name: tabTags
+      label: Tags
+      fields: !include /gato-component-cards/dialogs/tabs/tags.yaml
+actions: !include /gato-template/dialogs/common/actions-block.yaml

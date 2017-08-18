@@ -16,7 +16,7 @@
             [#elseif useTemplate=="richeditor"]
                 [#include "/gato-template/templates/components/richeditor.ftl"]
             [#elseif useTemplate=="imagecard"]
-                [#include "/gato-template/templates/components/imagecard.ftl"]
+                [#include "/gato-component-cards/templates/components/imagecard.ftl"]
             [#elseif useTemplate=="textimage"]
                 [#include "/gato-template/templates/components/textimage.ftl"]
             [#elseif useTemplate=="videocard"]

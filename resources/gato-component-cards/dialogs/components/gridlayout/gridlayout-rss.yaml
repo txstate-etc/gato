@@ -1,6 +1,0 @@
-form:
-  tabs:
-    - name: tabRss
-      label: RSS Feed
-      fields: !include /gato-template/dialogs/common/rss.yaml
-actions: !include /gato-template/dialogs/common/actions-block.yaml

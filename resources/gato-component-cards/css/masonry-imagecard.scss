@@ -7,14 +7,9 @@
     padding: 1rem;
     margin-bottom: 1rem;
     figure {
-      width: 100%;
-      height: 100%;
-      display: block;
       box-shadow: $gato-card-shadow;
       img {
         width: 100%;
-        height: 350px;
-        object-fit: cover;
       }
     }
   }

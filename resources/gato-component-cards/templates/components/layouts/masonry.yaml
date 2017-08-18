@@ -1,0 +1,11 @@
+templateScript: /gato-component-cards/templates/components/layouts/masonry.ftl
+renderType: site
+visible: true
+title: Masonry Layout
+areas:
+  masonrycards:
+    templateScript: /gato-component-cards/templates/areas/masonry.ftl
+    type: list
+    availableComponents: !include /gato-component-cards/templates/areas/availableMasonryComponents.yaml
+parameters:
+  icon: /gato-component-cards/images/masonry.png

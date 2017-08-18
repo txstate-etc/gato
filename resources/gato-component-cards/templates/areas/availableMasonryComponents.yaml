@@ -1,10 +1,4 @@
-icontext:
-  id: gato-component-cards:components/masonry/masonry-icontext
-imagecard:
-  id: gato-component-cards:components/masonry/masonry-imagecard
-rss:
-  id: gato-component-cards:components/masonry/masonry-rss
-textimage:
-  id: gato-component-cards:components/masonry/masonry-textimage
-streaming:
-  id: gato-component-cards:components/masonry/video-card-masonry
+image:
+  id: gato-component-cards:components/masonry/image
+video:
+  id: gato-component-cards:components/masonry/video

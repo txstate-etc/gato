@@ -1,0 +1,13 @@
+  - name: sizeSelect
+    class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
+    multiselect: false
+    type: String
+    label: Select Size of Card
+    options:
+      - name: card-sm
+        label: Small Card
+        value: card-item-sm
+        selected: true
+      - name: card-lg
+        label: Large Card
+        value: card-item-lg
