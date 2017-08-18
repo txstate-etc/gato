@@ -3,7 +3,6 @@
 <html lang="en">
     <head>
         [@templatejs scripts=['gato-template-tsus2017/js/tsus.js',
-                              'gato-template-tsus2017/js/tsus-header-menu.js',
                               'gato-template/js/dropdownsearch.js',
                               'gato-template/js/search-gsa.js']/]
         <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-tsus2017/css/tsus-home.compiled.css"/>

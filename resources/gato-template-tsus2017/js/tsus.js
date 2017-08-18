@@ -1,5 +1,15 @@
 jQuery(document).ready(function($) {
 
+
+    /*List of element that will hide when click on menu btn*/
+    var hideElements=function(hide){
+      var $searchBtn=$('.search-link.search-button');
+      if( $('.btn-menu').hasClass('menu-open')) {
+        $searchBtn.hide();
+        return;
+      }
+      $searchBtn.show();
+    }
     //toggle menu
     $(".btn-menu").click(function(e){
         e.preventDefault();
@@ -7,7 +17,9 @@ jQuery(document).ready(function($) {
         $('.main-menu').slideToggle(300);
         $btn.toggleClass('menu-open');
         $btn.attr('aria-expanded', $btn.hasClass('menu-open'));
+        hideElements();
     });
+
 
     $(document).click(function(e){
       var target = $(e.target);
@@ -15,6 +27,7 @@ jQuery(document).ready(function($) {
         e.preventDefault();
         $('.btn-menu').removeClass('menu-open');
         $('.main-menu').slideUp();
+        hideElements();
       }
     });
 
@@ -25,6 +38,7 @@ jQuery(document).ready(function($) {
         $('.btn-menu').removeClass('menu-open');
         $('.main-menu').slideUp();
         $('.btn-menu').focus();
+        hideElements();
       }
     });
 

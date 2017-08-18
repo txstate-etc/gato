@@ -1,12 +1,12 @@
+$header-height: 3.5rem;
+$header-height-tablet: 1.5rem;
 .main-menu{
   display: none;
   background-color: $tsus-darkblue;
-  position: absolute;
+  position: relative;
   z-index: 65536;
   top: 100%;
-  left: 0;
   right: 0;
-
   .simplemenu {
     &, ul {
       list-style: none;
@@ -76,5 +76,20 @@
         padding: 0 1rem 0.4rem;
       }
     }
+  }
+  .main-menu-panel{
+        position: absolute;
+        right: -1.5rem;
+        background-color: $tsus-darkgray;
+        width: 32rem;
+        padding: 2rem 4rem 2rem 2rem;
+        z-index: 65536;
+       .menu-tsus-button>img{
+           width: 100%;
+       }
+       top: $header-height;
+       @media (max-width: $sm-breakpoint){
+         top: $header-height-tablet;
+       }
   }
 }
