@@ -79,9 +79,6 @@ $page-indicator-active: $default-graphite; //was maroon
 $page-indicator-inactive: $light-gray;
 $page-indicator-hover: rgba($almost-black, 1);
 
-//shadows
-$gato-card-shadow: 0px 5px 15px rgba(black,.3);
-
 // breakpoints.  These are from the 2015 template but can be overridden in other templates
 $mc-breakpoint: 23em;   //~368px
 $mn-breakpoint: 35.5em; //~568px
