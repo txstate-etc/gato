@@ -8,9 +8,11 @@ $sidebar-leftright: 'right' !default;
 }
 
 .contentcolumn {
-  min-height: 32rem;
   @media (max-width: $sidebar-moves-below-point) {
     min-height: 0px !important;
+  }
+  .headline {
+    margin-top: 0;
   }
 }
 
@@ -60,21 +62,21 @@ $sidebar-leftright: 'right' !default;
     }
   }
   .gato-section {
-    padding-#{$sidebar-leftright}: 25%;
+    margin-#{$sidebar-leftright}: 25%;
     @media (max-width: $md-breakpoint) {
-      padding-#{$sidebar-leftright}: 29%;
+      margin-#{$sidebar-leftright}: 29%;
     }
     @media (max-width: $sm-breakpoint) {
-      padding-#{$sidebar-leftright}: 33%;
+      margin-#{$sidebar-leftright}: 33%;
     }
     @media (max-width: $sidebar-moves-below-point) {
-      padding-#{$sidebar-leftright}: 0;
+      margin-#{$sidebar-leftright}: 0;
     }
   }
   &.has-background .gato-section {
     padding-top: 2rem;
   }
   &.full-width .gato-section {
-    padding-#{$sidebar-leftright}: 0;
+    margin-#{$sidebar-leftright}: 0;
   }
 }

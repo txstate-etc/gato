@@ -1,8 +1,10 @@
 .column_paragraph {
-  clear: both;
-  margin: 0px 0px 2rem 0px;
+  margin: 0px 0px 3rem 0px;
   @extend .clearfix;
   ul, ol {
     list-style-position: inside;
+  }
+  > :first-child {
+    margin-top: 0;
   }
 }
