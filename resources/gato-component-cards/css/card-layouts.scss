@@ -1,9 +1,9 @@
 $gato-card-shadow: 2px 5px 4px rgba($masonry-card-box-shadow-color, 0.2);
 
-@import "gato-component-cards/css/section-masonry.scss";
-@import "gato-component-cards/css/section-gridlayout.scss";
-@import "gato-component-cards/css/masonry-imagecard.scss";
-@import "gato-component-cards/css/masonry-card-rss.scss";
-@import "gato-component-cards/css/masonry-card-streaming.scss";
-@import "gato-component-cards/css/masonry-card-textimage.scss";
+@import "gato-component-cards/css/section-masonry";
+@import "gato-component-cards/css/section-gridlayout";
+@import "gato-component-cards/css/masonry-imagecard";
+@import "gato-component-cards/css/masonry-card-rss";
+@import "gato-component-cards/css/masonry-card-textimage";
 @import "gato-component-cards/css/image";
+@import "gato-component-cards/css/video";

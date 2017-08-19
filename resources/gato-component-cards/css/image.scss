@@ -1,4 +1,4 @@
-.gato-card-image {
+.gato-card-image, .gato-card-video {
   figure {
     margin: 0;
     img {
@@ -8,27 +8,6 @@
     figcaption {
       margin: 0;
       text-align: left;
-      padding: 2rem;
-      text-decoration: none;
-      @at-root [data-eq~="500px"]#{&} {
-          padding: 1.2rem;
-      }
-      h3{
-          margin: 0 0 0.6rem 0;
-          letter-spacing: 0.125rem;
-          font-size: 1.8rem;
-          @at-root [data-eq~="500px"]#{&} {
-              margin-bottom: 0.6rem;
-              padding: 0.1rem 0.8rem;
-          }
-      }
-      p{
-        margin: 0;
-        font-size: 1.6rem;
-        @at-root [data-eq~="500px"]#{&} {
-          padding: 0.3rem 0.8rem 0.5rem 0.8rem;
-        }
-      }
     }
   }
 
@@ -81,5 +60,32 @@
     }
     a:hover figcaption { background: $mc7-comp-bg; }
   }
+}
 
+.gato-card-image {
+  figure {
+    figcaption {
+      padding: 2rem;
+      text-decoration: none;
+      @at-root [data-eq~="500px"]#{&} {
+        padding: 1.2rem;
+      }
+      h3 {
+        margin: 0 0 0.6rem 0;
+        letter-spacing: 0.125rem;
+        font-size: 1.8rem;
+        @at-root [data-eq~="500px"]#{&} {
+          margin-bottom: 0.6rem;
+          padding: 0.1rem 0.8rem;
+        }
+      }
+      p {
+        margin: 0;
+        font-size: 1.6rem;
+        @at-root [data-eq~="500px"]#{&} {
+          padding: 0.3rem 0.8rem 0.5rem 0.8rem;
+        }
+      }
+    }
+  }
 }

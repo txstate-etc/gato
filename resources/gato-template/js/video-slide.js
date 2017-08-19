@@ -1,13 +1,14 @@
 jQuery(function($) {
-    
+
   var vmodal = {
     isOpen: false,
     $slides: null,
     $cur: null,
 
     loadSlide: function($slide) {
-      var dataEmbed = $slide.find('.feature-play-button a').attr('data-embed');
-      var dataUrl = $slide.find('.feature-play-button a').attr('href');
+      var $lnk = $slide.find('.feature-play-button a, a.feature-play-button');
+      var dataEmbed = $lnk.data('embed');
+      var dataUrl = $lnk.attr('href');
       var $container = $('<div class="gatoEmbedContainer" data-url="' + dataUrl + '" data-embed=\''+ dataEmbed +'\'></div>');
       $('#video-modal .video-container').empty().append($container);
       createPlayer($container, dataUrl, { autoplay: true });
@@ -33,8 +34,8 @@ jQuery(function($) {
     }
   };
 
-  $('.feature-play-button a').blurclick(function(e) {
-    var $slide = $(this).closest('.slide');
+  $('.feature-play-button a, a.feature-play-button').blurclick(function(e) {
+    var $slide = $(this).closest('.slide, .gato-card');
     // get list of siblings that have videos
     var $slides = $slide.parent().find('.feature-play-button').closest('.slide').not('.slick-cloned');
     vmodal.open($slide, $slides);

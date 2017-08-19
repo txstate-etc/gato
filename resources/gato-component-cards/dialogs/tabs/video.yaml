@@ -1,14 +1,3 @@
-- name: image
-  class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
-  required: true
-  appName: assets
-  targetWorkspace: dam
-  label: Splash Image
-  identifierToPathConverter:
-    class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
-  contentPreviewDefinition:
-    contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
-  description: "Preview image for this video. If left blank, Gato will try to find a preview image from the video service, but may not be successful."
 - name: videourl
   required: true
   class: info.magnolia.ui.form.field.definition.TextFieldDefinition
@@ -18,20 +7,30 @@
   required: true
   label: Video Alt Text
   description: "Descriptive text for users who are unable to see the video."
-- name: openinapp
-  class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
-  label: Open in App
-  buttonLabel: Above video is a 360 video.
-  description: If you check this, certain users will get an option to launch the video in its original app, which is necessary for 360 video support.
-- name: spacing
-  class: info.magnolia.ui.form.field.definition.StaticFieldDefinition
-  value: ""
-  label: ""
 - name: title
   class: info.magnolia.ui.form.field.definition.TextFieldDefinition
   label: Title
   maxLength: 50
   description: "Title for this slide. Appears in the caption area."
+- name: image
+  class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+  appName: assets
+  targetWorkspace: dam
+  label: Splash Image
+  identifierToPathConverter:
+    class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
+  contentPreviewDefinition:
+    contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
+  description: "Preview image for this video. If left blank, Gato will try to find a preview image from the video service, but may not be successful."
+- name: openinapp
+  class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+  label: Open in App
+  buttonLabel: Video is a 360 video.
+  description: If you check this, certain users will get an option to launch the video in its original app, which is necessary for 360 video support.
+- name: spacing
+  class: info.magnolia.ui.form.field.definition.StaticFieldDefinition
+  value: ""
+  label: ""
 - name: script
   class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
   fields:

@@ -1,0 +1,46 @@
+.gato-card-video {
+  position: relative;
+  figcaption {
+    position: absolute;
+    left: 2rem;
+    bottom: 4rem;
+    padding: 0.7rem 1rem;
+    h3 { margin: 0; }
+    @at-root .color1#{&} { background-color: rgba($mc1-bg, 0.95); }
+    @at-root .color2#{&} { background-color: rgba($mc2-bg, 0.95); }
+    @at-root .color3#{&} { background-color: rgba($mc3-bg, 0.95); }
+    @at-root .color4#{&} { background-color: rgba($mc4-bg, 0.95); }
+    @at-root .color5#{&} { background-color: rgba($mc5-bg, 0.95); }
+    @at-root .color6#{&} { background-color: rgba($mc6-bg, 0.95); }
+    @at-root .color7#{&} { background-color: rgba($mc7-bg, 0.95); }
+  }
+  .feature-play-button {
+    display: block;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin:0;
+    padding: 0, 1rem;
+    font-size: 4rem;
+    color: white;
+    border-radius: 100%;
+    width:  7rem;
+    height: 7rem;
+    border: 5px solid white;
+    opacity: 0.9;
+    @at-root .color1#{&} { background-color: $mc1-bg; }
+    @at-root .color2#{&} { background-color: $mc2-bg; }
+    @at-root .color3#{&} { background-color: $mc3-bg; }
+    @at-root .color4#{&} { background-color: $mc4-bg; }
+    @at-root .color5#{&} { background-color: $mc5-bg; }
+    @at-root .color6#{&} { background-color: $mc6-bg; }
+    @at-root .color7#{&} { background-color: $mc7-bg; }
+    i {
+      position: absolute;
+      top:50%;
+      left: 55%;// looks weird when perfectly centerd or are my eyes playing tricks on me?
+      transform: translate(-50%, -50%);
+    }
+  }
+}
