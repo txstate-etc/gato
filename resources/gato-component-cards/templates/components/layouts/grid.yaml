@@ -1,10 +1,10 @@
-templateScript: /gato-component-cards/templates/components/layouts/gridlayout.ftl
+templateScript: /gato-component-cards/templates/components/layouts/grid.ftl
 renderType: site
-dialog: gato-component-cards:components/gridlayout
+dialog: gato-component-cards:components/layouts/grid
 visible: true
 title: Grid Layout
 areas:
-  gridlayout:
+  cards:
     templateScript: /gato-component-cards/templates/areas/grid.ftl
     type: list
     availableComponents: !include /gato-component-cards/templates/areas/availableGridComponents.yaml

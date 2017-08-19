@@ -11,7 +11,7 @@
     [@templatehead publisher="The Wittliff Collections"/]
   </head>
 
-  <body class="template-wittliff ${(def.parameters.isHomeTemplate!false)?string('wittliff-home', '')}">
+  <body class="template-wittliff${(def.parameters.isHomeTemplate!false)?string(' wittliff-home', '')}${cmsfn.isEditMode()?string(' admin','')}">
     [@skipnav/]
     [#include "includes/header.ftl"]
     [#if def.parameters.isHomeTemplate!false]

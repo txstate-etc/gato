@@ -9,10 +9,15 @@
 	</ul>
 [/#if]
 [#list components as component]
-  <div class="card-item eq-parent ${component.sizeSelect!} ${cmsfn.isEditMode()?string('moveEditor', '')}">
-    [@cms.component content=component contextAttributes={"cardsperrow":ctx.cardsperrow!"gato-card-md"}/]
-  </div>
+  [#if ctx.cardsize=='small']
+    [#assign sizes="400px"]
+  [#elseif ctx.cardsize=='medium']
+    [#assign sizes="600px"]
+  [#else]
+    [#assign sizes="800px"]
+  [/#if]
+  [@cms.component content=component contextAttributes={"cardsize":ctx.cardsize, "sizes":sizes}/]
 [/#list]
 [#if cmsfn.isEditMode()]
-    <div class="grid-item grid-card-add ${ctx.cardsperrow!}" cms:add="box"></div>
+    <div class="gato-card gato-card-add ${ctx.cardsize}" cms:add="box"></div>
 [/#if]

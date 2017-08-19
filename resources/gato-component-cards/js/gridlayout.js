@@ -1,7 +1,4 @@
-jQuery(function() {
-	var $ = jQuery;
-
-
+jQuery(function($) {
 
 
 	var filterable_grid = function(element){
@@ -61,17 +58,13 @@ jQuery(function() {
 			hashParams[gridid+"_f"] = currentFilter;
 			setHashParameters(hashParams);
 
-			$(element).find('div.grid-card').each(function(i,card){
-				var tags = $(card).data("gridtags").split(/ *, */);
+			$(element).find('div.gato-card').each(function(i,card){
+				var tags = $(card).data("tags").split(/ *, */);
 				if ( tags.indexOf(currentFilter) != -1 || currentFilter == "All" ) {
-					$(card).removeClass('grid-card-hidden grid-card-hiddenedit');
+					$(card).removeClass('gato-card-hidden');
 					$(card).attr('aria-hidden',false);
 				} else {
-					if ( isEditMode ) {
-						$(card).addClass('grid-card-hiddenedit');
-					} else {
-						$(card).addClass('grid-card-hidden');
-					}
+          $(card).addClass('gato-card-hidden');
 					$(card).attr('aria-hidden',true);
 				}
 			});
@@ -93,7 +86,7 @@ jQuery(function() {
 
 
 
-	$('.grid-container').each(function(i,grid){
+	$('.section-grid, .section-masonry').each(function(i,grid){
 		if ( $(grid).find('ul.grid-filter').length ) {
 			new filterable_grid(grid);
 		}

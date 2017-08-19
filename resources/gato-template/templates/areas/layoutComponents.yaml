@@ -10,7 +10,7 @@ thirds:
   id: gato-template:components/rows/thirds
 quarters:
   id: gato-template:components/rows/quarters
-masonrycard:
+cardlayoutmasonry:
   id: gato-component-cards:components/layouts/masonry
-gridlayout:
-  id: gato-component-cards:components/layouts/gridlayout
+cardlayoutgrid:
+  id: gato-component-cards:components/layouts/grid

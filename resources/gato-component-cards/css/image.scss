@@ -1,0 +1,85 @@
+.gato-card-image {
+  figure {
+    margin: 0;
+    img {
+      display: block;
+      width: 100%;
+    }
+    figcaption {
+      margin: 0;
+      text-align: left;
+      padding: 2rem;
+      text-decoration: none;
+      @at-root [data-eq~="500px"]#{&} {
+          padding: 1.2rem;
+      }
+      h3{
+          margin: 0 0 0.6rem 0;
+          letter-spacing: 0.125rem;
+          font-size: 1.8rem;
+          @at-root [data-eq~="500px"]#{&} {
+              margin-bottom: 0.6rem;
+              padding: 0.1rem 0.8rem;
+          }
+      }
+      p{
+        margin: 0;
+        font-size: 1.6rem;
+        @at-root [data-eq~="500px"]#{&} {
+          padding: 0.3rem 0.8rem 0.5rem 0.8rem;
+        }
+      }
+    }
+  }
+
+  &.color1 {
+    figcaption {
+      background: $mc1-bg;
+      color: $mc1-text;
+    }
+    a:hover figcaption { background: $mc1-comp-bg; }
+  }
+  &.color2 {
+    figcaption {
+      background: $mc2-bg;
+      color: $mc2-text;
+    }
+    a:hover figcaption { background: $mc2-comp-bg; }
+  }
+  &.color3 {
+    figcaption {
+      background: $mc3-bg;
+      color: $mc3-text;
+    }
+    a:hover figcaption { background: $mc3-comp-bg; }
+  }
+  &.color4 {
+    figcaption {
+      background: $mc4-bg;
+      color: $mc4-text;
+    }
+    a:hover figcaption { background: $mc4-comp-bg; }
+  }
+  &.color5 {
+    figcaption {
+      background: $mc5-bg;
+      color: $mc5-text;
+    }
+    a:hover figcaption { background: $mc5-comp-bg; }
+  }
+  &.color6 {
+    figcaption {
+      background: $mc6-bg;
+      color: $mc6-text;
+    }
+    a:hover figcaption { background: $mc6-comp-bg; }
+  }
+  &.color7 {
+    figcaption {
+      background: $mc7-bg;
+      color: $mc7-text;
+    }
+    a:hover figcaption { background: $mc7-comp-bg; }
+  }
+
+}
