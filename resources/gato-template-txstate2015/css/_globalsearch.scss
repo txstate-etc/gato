@@ -1,4 +1,6 @@
-#search-results {
+#search-results.global {
+  padding: 4rem 0;
+
   &.web {
     .search-people {
       display: none;
@@ -9,139 +11,6 @@
       display: none;
     }
   }
-
-  a {
-    -webkit-box-decoration-break: clone;
-    box-decoration-break: clone;
-    padding: 1px 3px;
-    margin: -1px -3px;
-    color: $content-link-text;
-    text-decoration: underline;
-    &:hover {background: $content-link-hover;}
-  }
-
-  .search-for {
-    padding-left: 2rem;
-  }
-
-  .search-tabs {
-    width: 100%;
-    margin: 0 0 2rem 0;
-    list-style: none;
-    border-bottom: 1px solid $search-tabs-border-bottom-color;
-    overflow: hidden;
-    padding: 0;
-    li {
-      float: left;
-      text-transform: uppercase;
-      cursor: pointer;
-      padding: 1rem;
-      width: 10rem;
-      text-align: center;
-      font-weight: bold;
-      font-size: 1.5rem;
-      background-color: $search-tab-background;
-      color: $search-tab-color;
-      &[aria-selected="true"] {
-        background-color: $search-selected-tab-background;
-        color: $search-selected-tab-color;
-      }
-    }
-  }
-  .sort-link{
-    font-size: 1.6rem;
-    &.active{
-        font-weight: bold;
-        text-decoration: none;
-        &:hover{
-          text-decoration: none;
-          background-color: transparent;
-        }
-    }
-    &:hover{
-        text-decoration: underline;
-    }
-  }
-
-  .results-list{
-    .result{
-      margin-top: 2.8rem;
-      a.result-title{
-        text-decoration: none;
-        font-weight: 500;
-        color: $search-result-title;
-        &:hover{
-          text-decoration: underline;
-        }
-        h3{
-          margin: 0px;
-          font-size: 1.8rem;
-        }
-      }
-      .result-date {
-        color: $search-result-date;
-        margin-left: 1rem;
-        font-size: 1.6rem;
-      }
-      .summary{
-        margin: 0.5rem 0 0.5rem 0;
-        line-height: 2.5rem;
-      }
-      .result-url-display{
-        color: $search-result-url;
-        font-size: 1.6rem;
-      }
-      &.featured{
-        a.result-title{
-            font-weight: bold;
-        }
-        .result-date{
-            display: none;
-        }
-      }
-    }
-  }
-
-  .pagination{
-    margin: 4rem 0 2.8rem 0;
-    list-style: none;
-    overflow: hidden;
-    padding: 0;
-    .pagination-link, .nonlink{
-      padding: .5rem 1rem .5rem 1rem;
-      margin: 0 1rem 1rem 0;
-      color: #222;
-      text-decoration: none;
-      float: left;
-      &.active,&[aria-selected="true"]{
-        font-weight: 500;
-        &, &:hover {
-          background: $search-pagination-selected-background;
-        }
-      }
-      &:hover{
-        background: $search-pagination-hover-background;
-      }
-      &.previous, &.next{
-        color: $search-pagination-link-color;
-        &:hover {
-          background: transparent;
-        }
-        &.enabled{
-          color: #222;
-          &:hover {
-            background: $search-pagination-hover-background;
-          }
-        }
-      }
-    }
-    .nonlink{
-      &:hover{
-        background: transparent;
-      }
-    }
-  }
-
   .search-form {
     position: relative;
     border-bottom: 3px solid $search-form-input-line-color;
@@ -151,7 +20,7 @@
     max-width: 50rem;
     font-size: 2.4rem;
     @media screen and (max-width: $mc-breakpoint) {
-        font-size: 2rem;
+      font-size: 2rem;
     }
     input.search {
         background: transparent;
@@ -180,8 +49,29 @@
     }
   }
 
-  &.search-container.global {
-    padding: 4rem 0;
+  .search-tabs {
+    width: 100%;
+    margin: 0 0 2rem 0;
+    list-style: none;
+    border-bottom: 1px solid $search-tabs-border-bottom-color;
+    overflow: hidden;
+    padding: 0;
+    li {
+      float: left;
+      text-transform: uppercase;
+      cursor: pointer;
+      padding: 1rem;
+      width: 10rem;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.5rem;
+      background-color: $search-tab-background;
+      color: $search-tab-color;
+      &[aria-selected="true"] {
+        background-color: $search-selected-tab-background;
+        color: $search-selected-tab-color;
+      }
+    }
   }
 
   .search-column-main {

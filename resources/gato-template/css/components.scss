@@ -1,8 +1,27 @@
+.layout-column {
+  padding: 0 2rem;
+}
+
 .column_paragraph {
   margin: 0px 0px 3rem 0px;
+  word-wrap: break-word;
+  a {
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    padding: 1px 3px;
+    margin: -1px -3px;
+    color: $content-link-text;
+    &:hover { background-color: $content-link-hover; }
+  }
   @extend .clearfix;
   ul, ol {
     list-style-position: inside;
+    li {
+      margin-bottom: 0.5rem;
+      ul, ol {
+        margin-top: 0.5rem;
+      }
+    }
   }
   > :first-child {
     margin-top: 0;

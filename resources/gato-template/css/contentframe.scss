@@ -80,3 +80,14 @@ $sidebar-leftright: 'right' !default;
     margin-#{$sidebar-leftright}: 0;
   }
 }
+
+#search-results {
+  margin: 0 auto;
+  max-width: $content-width-max;
+  @media (max-width: $xl-breakpoint) {
+    max-width: $content-width-xl;
+  }
+  @media (max-width: $lg-breakpoint) {
+    max-width: $content-width-lg;
+  }
+}

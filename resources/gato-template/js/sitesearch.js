@@ -283,7 +283,7 @@ jQuery(document).ready(function($) {
 
             var searchResults = results.results;
 
-            var html =  '<div id="search-results" class="gato-section full-width">' +
+            var html =  '<div id="search-results">' +
                             '<div class="layout-column twothirds">' +
                                 '<h1 class="search-results-title" id="maincontent">Search</h1>' +
                             '</div>' +

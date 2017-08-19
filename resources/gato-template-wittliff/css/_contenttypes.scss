@@ -1,3 +1,8 @@
+/* Base Styles */
+$content-link-text:                $wittliffred;
+$content-link-hover:               $wittliffsand-light;
+
+$section-background-color:         $lightgray;
 
 /* Calendar */
 $event-box-shadow-color: $sandstone;
@@ -99,3 +104,29 @@ $separator-color: $khaki;
 
 /* Masonry */
 $masonry-rss-card-readmore-color: $dark-blue;
+
+/* Search Dialog */
+$search-dd-overlay-background-color:  $wittliffsand;
+$search-dd-dropdown-background-color: $wittliffgreen;
+$search-dd-dialog-font-family:        inherit;
+$search-dd-input-line-color:          $white;
+$search-dd-input-color:               $white;
+$search-dd-input-placeholder-color:   $white;
+$search-dd-icon-color:                $white;
+$search-dd-suggested-results-border:  $wittliffgreen;
+$search-dd-suggested-result-title-color: $wittliffred;
+$search-dd-suggested-result-link-color: $wittliffred;
+$search-dd-suggested-result-hover-color: red;
+
+/* Search Results */
+$search-result-title:                       $wittliffred;
+$search-result-date:                        $darkgray;
+$search-result-url:                         $darkgray;
+$search-pagination-selected-background:     $wittliffsand-light;
+$search-pagination-hover-background:        $wittliffsand-light;
+$search-pagination-link-color:              $wittliffred;
+
+$sitesearch-results-page-title-color:       black;
+$sitesearch-result-search-input:            $wittliffgreen;
+$sitesearch-result-search-color:            black;
+$sitesearch-font-family:                    inherit;

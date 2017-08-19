@@ -1,14 +1,7 @@
 .contentcolumn {
   line-height: 3rem;
-  word-wrap: break-word;
   a{
-    -webkit-box-decoration-break: clone;
-    box-decoration-break: clone;
-    padding: 1px 3px;
-    margin: -1px -3px;
-    color: $content-link-text;
     text-decoration: underline;
-    &:hover {background: $content-link-hover;}
   }
   h1, h2{
     font-size: 2.7rem;
