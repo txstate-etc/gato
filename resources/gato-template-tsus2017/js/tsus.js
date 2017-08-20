@@ -1,46 +1,47 @@
 jQuery(document).ready(function($) {
 
-
-    /*List of element that will hide when click on menu btn*/
-    var hideElements=function(hide){
-      var $searchBtn=$('.search-link.search-button');
-      if( $('.btn-menu').hasClass('menu-open')) {
-        $searchBtn.hide();
-        return;
-      }
-      $searchBtn.show();
+    //copied from Wittliff template.  TODO: Move this into a place where it can be shared
+    // Main Menu Hamburger Button
+  var header = $('.page-header');
+  var menucontainer = $('.main-menu');
+  var menubtn = $('.main-menu >button');
+  var menupanel = $('.main-menu .main-menu-panel');
+  var menuhide = function () {
+    header.removeClass('menu-out');
+    menubtn.attr('aria-expanded', false);
+    menupanel.velocity('slideUp', { duration: 150 });
+  }
+  var menushow = function() {
+    header.addClass('menu-out');
+    menubtn.attr('aria-expanded', true);
+    menupanel.velocity('slideDown', { duration: 150 });
+  }
+  menubtn.click(function (e) {
+    if (header.hasClass('menu-out')) menuhide();
+    else menushow();
+  })
+  $('html').click( function (e) {
+    if (!$.contains(menucontainer.get(0), e.target)) {
+      menuhide();
     }
-    //toggle menu
-    $(".btn-menu").click(function(e){
-        e.preventDefault();
-        var $btn = $(this);
-        $('.main-menu').slideToggle(300);
-        $btn.toggleClass('menu-open');
-        $btn.attr('aria-expanded', $btn.hasClass('menu-open'));
-        hideElements();
-    });
+  });
+  // close the menu with the escape key
+  $(document).keyup(function (e) {
+    if (e.keyCode === 27 && header.hasClass('menu-out')) {
+      e.preventDefault();
+      menuhide();
+    }
+  });
 
-
-    $(document).click(function(e){
-      var target = $(e.target);
-      if( $('.btn-menu').hasClass('menu-open') && !target.is('.btn-menu') && !target.closest('.main-menu').length){
-        e.preventDefault();
-        $('.btn-menu').removeClass('menu-open');
-        $('.main-menu').slideUp();
-        hideElements();
-      }
-    });
-
-    // close the menu with the escape key
-    $(document).keyup(function (e) {
-      if (e.keyCode === 27 && $('.btn-menu').hasClass('menu-open')) {
-        e.preventDefault();
-        $('.btn-menu').removeClass('menu-open');
-        $('.main-menu').slideUp();
-        $('.btn-menu').focus();
-        hideElements();
-      }
-    });
+  // Main Menu expand/contract
+  $('.simplemenu-expand').click(function (e) {
+    var btn = $(this);
+    var toplevel = btn.closest('li');
+    var panel = toplevel.find('.simplemenu-subitems');
+    toplevel.toggleClass('expanded');
+    btn.attr('aria-expanded', toplevel.hasClass('expanded'));
+    panel.velocity(toplevel.hasClass('expanded') ? 'slideDown' : 'slideUp', { duration: 150 });
+  });
 
     function evaluate_tsus_logos() {
       var container = $('.gato-flex-container');

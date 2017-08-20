@@ -1,72 +1,136 @@
 header{
-    background-color: $tsus-darkblue;
-    padding: 3.1rem 0 3.2rem;
-    position:relative;
-    color: $white;
-    @media (max-width: $sm-breakpoint){
-      padding: 1.1rem 1rem 1.2rem;
-    }
-    .flex-header{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    .tsus-homelink{
-        width: 353px;
-        height: 36px;
-        background: url(../images/logo.png) no-repeat;
+  background-color: $tsus-darkblue;
+  padding: 3.1rem 0 3.2rem;
+  position:relative;
+  color: $white;
+  @media (max-width: $sm-breakpoint){
+    padding: 1.1rem 1rem 1.2rem;
+  }
+  .flex-header{
+    display: flex;
+    justify-content: flex-end;
+    align-items: unsafe center;
+    flex-wrap: nowrap;
+    .tsus-homelink {
+      margin-right: auto;
+      width: 353px;
+      height: 36px;
+      background: url(../images/logo.png) no-repeat;
+      -webkit-background-size: 100% auto;
+      background-size: 100% auto;
+      font-size: 0;
+      line-height: 0;
+      @media (max-width: $sm-breakpoint){
+        width: 74px;
+        height: 25px;
+        background: url(../images/footer-logo.png) no-repeat;
         -webkit-background-size: 100% auto;
         background-size: 100% auto;
-        font-size: 0;
-        line-height: 0;
-        @media (max-width: $sm-breakpoint){
-            width: 74px;
-            height: 25px;
-            background: url(../images/footer-logo.png) no-repeat;
-            -webkit-background-size: 100% auto;
-            background-size: 100% auto;
-        }
+      }
     }
-    .header-buttons{
-        font-size:2rem;
+    button {
+      background: transparent;
+      border: 0px;
+      font-size: 2rem;
+      min-width: 5rem;
+      @media (max-width: $sm-breakpoint) {
+        font-size: 1.4rem;
+      }
+      &.search-link {
+        margin-right: 1rem;
+      }
+      &:hover { opacity: 0.7; }
+    }
+
+    .main-menu {
+      > button {
         font-family: 'ProximaNova-Regular', sans-serif;
-        @media (max-width: $sm-breakpoint){
-           font-size: 1.4rem;
-        }
-        button {
-            background: transparent;
-            border: 0px;
-        }
-        .search-button{
-            color: $white;
-            margin-right: 2rem;
+        letter-spacing: 0.15rem;
+        text-transform: uppercase;
+        background: transparent;
+        border: 0px;
+      }
+      .main-menu-panel {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: $tsus-darkblue;
+        width: 32rem;
+        padding: 2rem 4rem 2rem 2rem;
+        display: none;
+        z-index: 65536;
+        .simplemenu {
+          &, ul {
+            list-style: none;
             padding: 0;
-            &:hover{
-                color: $tsus-lightgray; //They used #d1d1d3 here.  Do we need 2 different light grays?
-            }
-            @media (max-width: $sm-breakpoint){
-                margin-right: 0.7rem;
-            }
-        }
-        .btn-menu{
+            margin: 0;
+          }
+          a {
+            display: block;
             color: $white;
-            padding: 0;
-            &:after{
-                content: "\f0c9"; //fa-bars
-                font-family: FontAwesome;
-                margin-left: 2.5rem;
-                @media (max-width: $sm-breakpoint){
-                  margin-left: 1rem;
+            text-decoration: none;
+            font-family: 'Lato', sans-serif;
+          }
+          > li {
+            position: relative;
+            &.expanded {
+              > button {
+                background-color: mix($tsus-darkblue, $white, 70);;
+                i:before {
+                  content: $fa-var-angle-down;
                 }
+              }
+              .simplemenu-subitems {
+                display: block;
+              }
             }
-            &.menu-open:after{
-                content: "\f00d"; //fa-close
+            > a {
+              letter-spacing: 0.2rem;
+              font-size: 2.2rem;
+              font-weight: 400;
+              line-height: 2.5rem;
+              padding: 1rem 0 .5rem 0;
+              border-bottom: 2px solid mix($tsus-darkblue, $white, 70);
+              padding-right: 5rem;
+              @media (max-width: $sm-breakpoint) {
+                padding-right: 4rem;
+              }
             }
-            &:hover{
-                color: $tsus-lightgray; //They used #d1d1d3 here.  Do we need 2 different light grays?
+            > button {
+              position: absolute;
+              top: 0;
+              right: 0;
+              line-height: 3.0rem;
+              padding: .5rem 0 .5rem 0;
+              font-size: 3.0rem;
+              border-left: 2px solid mix($tsus-darkblue, $white, 70);;
             }
+          }
+          .simplemenu-subitems {
+            display: none;
+            padding-bottom: 1rem;
+            a {
+              font-size: 1.8rem;
+              letter-spacing: 0.05rem;
+              line-height: 1.8rem;
+              padding: 1.5rem 0 .5rem 0;
+            }
+          }
         }
+      }
     }
-
-
+  }
+  &.menu-out {
+    .main-menu {
+      >button i:before {
+        content: $fa-var-times;
+      }
+      .main-menu-panel {
+        display: block;
+      }
+    }
+    .texas-state, .social-media, .search-link {
+      display: none;
+    }
+  }
 }
