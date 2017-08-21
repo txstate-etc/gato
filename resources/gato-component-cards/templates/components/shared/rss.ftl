@@ -8,8 +8,6 @@
         <div class="gato-rss-feedinformation">
           [#if content.feedtitle?has_content]
             <h2 class="gato-rss-title"><span>${content.feedtitle}</span></h2>
-          [#else]
-                <h2 class="gato-rss-title"><span>Test heading</span></h2>
           [/#if]
         </div>
       [/#if]
