@@ -15,7 +15,7 @@
         for (var j = 0; j < watchlist[i].length; j++) {
           var w = widths[j];
           var attrstr = '';
-          for (var k = 1200; k > w; k -= 100) attrstr += k+'px ';
+          for (var k = 1200; k >= w; k -= 100) attrstr += k+'px ';
           if (attrstr != attrs[j]) watchlist[i][j].setAttribute('data-eq', attrstr);
         }
       }

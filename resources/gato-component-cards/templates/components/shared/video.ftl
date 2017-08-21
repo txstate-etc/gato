@@ -2,10 +2,10 @@
   <figure>
     [#if content.thumbnail?has_content]
       <img src="${gf.getImgDefault(content.image)}" sizes="${ctx.sizes}"
-        alt="${alttext}" srcset="${gf.getSrcSet(content.image)}" />
+        alt="${content.alttext!}" srcset="${gf.getSrcSet(content.image)}" />
     [#else]
       <img src="${gf.resourcePath()}/gato-component-cards/images/video-default.png" class="default"
-        alt="${alttext}" />
+        alt="${content.alttext!}" />
     [/#if]
 
     [#if content.title?has_content]
