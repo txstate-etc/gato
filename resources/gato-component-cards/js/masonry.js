@@ -26,14 +26,15 @@ jQuery(function($) {
       if(href.match(/vimeo\.com/i)){
         var vimeoID=split[split.length-1];
         $.getJSON('http://vimeo.com/api/oembed.json?url=http%3A//vimeo.com/'+vimeoID, function(video) {
-          splash.attr('src', video.thumbnail_url).addClass('vimeo');
+          splash.attr('src', video.thumbnail_url).closest('.gato-card-video').addClass('vimeo');
           $grid.masonry('layout');
         });
       }
       else if (href.match(/youtu(\.be|be\.com)/i)) {
         var secondsplit = split[split.length-1].split('=');
         var youtubeID = secondsplit[secondsplit.length-1];
-        splash.attr('src', 'http://img.youtube.com/vi/'+youtubeID+'/0.jpg').addClass('youtube');
+        splash.closest('figure').css('background-image', 'url(http://img.youtube.com/vi/'+youtubeID+'/0.jpg)')
+          .closest('.gato-card-video').addClass('youtube');
         $grid.masonry('layout');
       }
     }

@@ -8,6 +8,11 @@ jQuery(function($) {
     loadSlide: function($slide) {
       var $lnk = $slide.find('.feature-play-button a, a.feature-play-button');
       var dataEmbed = $lnk.data('embed');
+
+      // special treatment for youtube and vimeo to autoplay when the modal appears
+      var dataEmbed = dataEmbed.replace(/src="(.*?youtube\.com.*?)"/i, 'src="$1&autoplay=1"');
+      var dataEmbed = dataEmbed.replace(/src="(.*?vimeo\.com.*?)"/i, 'src="$1?autoplay=1"');
+
       var dataUrl = $lnk.attr('href');
       var $container = $('<div class="gatoEmbedContainer" data-url="' + dataUrl + '" data-embed=\''+ dataEmbed +'\'></div>');
       $('#video-modal .video-container').empty().append($container);
