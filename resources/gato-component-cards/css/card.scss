@@ -10,11 +10,21 @@
     filter: grayscale(1) brightness(.5);
   }
 }
-body div.mgnlEditorBar.area.init ~ {
-  &,* {
-    .gato-card-add div.mgnlPlaceholder div.mgnlEditorBar.component {
-      height: 10rem !important;
-      margin-bottom: 0 !important;
+
+/* ridiculous set of rules for changing the placeholder box */
+body {
+  div.mgnlEditorBar.area {
+    &.init, &.childFocus {
+      ~, ~ * {
+        .gato-card-add div.mgnlPlaceholder div.mgnlEditorBar.component {
+          height: 10rem !important;
+          margin-bottom: 0 !important;
+        }
+      }
     }
   }
+}
+body .gato-card-add div.mgnlPlaceholder div.mgnlEditorBar.component {
+  height: 10rem !important;
+  margin-bottom: 0 !important;
 }
