@@ -7,7 +7,7 @@ departmentdirectory:
 documents:
   id: gato-component-documents:components/documents
 streaming:
-    id: gato-component-streaming:components/streaming
+  id: gato-component-streaming:components/streaming
 iframe:
   id: gato-template:components/iframe
 faqhierarchy:
@@ -15,11 +15,9 @@ faqhierarchy:
 icontext:
   id: gato-template:components/icontext
 imagecard:
-  id: gato-template:components/imagecard
+  id: gato-component-cards:components/regular/image
 gallery:
   id: gato-component-gallery:components/gallery
-# gallerym:
-#   id: gato-component-gallery:components/gallerym
 percentdisplay:
   id: gato-template:components/percentdisplay
 html:

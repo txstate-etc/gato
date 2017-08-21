@@ -58,7 +58,7 @@ jQuery(function($) {
 			hashParams[gridid+"_f"] = currentFilter;
 			setHashParameters(hashParams);
 
-			$(element).find('div.gato-card').each(function(i,card){
+			$(element).find('div.gato-card[data-tags]:not([data-tags=""])').each(function(i,card){
 				var tags = $(card).data("tags").toLowerCase().split(/ *, */);
 				if ( tags.indexOf(currentFilter.toLowerCase()) != -1 || currentFilter == "All" ) {
 					$(card).removeClass('gato-card-hidden');

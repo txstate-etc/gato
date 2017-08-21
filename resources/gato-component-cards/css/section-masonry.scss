@@ -1,21 +1,19 @@
-
-.masonry-section {
-  .moveEditor{margin-top: 2.0rem;}
-  .card-item-add{height:5rem;margin:2.0rem 0rem;}
+.section-masonry {
   overflow: hidden;
-  * { box-sizing : border-box; }
-  .masonry-sizer { width: 25%; }
+  .masonry-sizer { width: $gato-card-fourths; }
+  .masonry-gutter { width: $gato-card-gutter; }
 
-  .card-item-sm { width: 25%; }
-  .card-item-lg { width: 50%; }
+  .gato-card {
+    &.small { width: $gato-card-fourths; }
+    &.large { width: $gato-card-halves; }
 
-  [data-eq~="800px"] & {
-    .card-item-sm { width: 50%; }
-    .card-item-lg { width: 100%; }
-  }
-  [data-eq~="400px"] & {
-    .card-item-sm { width: 100%; }
-    .card-item-lg { width: 100%; }
+    [data-eq~="800px"] & {
+      &.small { width: $gato-card-halves; }
+      &.large { width: 100%; }
+    }
+    [data-eq~="400px"] & {
+      &.small { width: 100%; }
+      &.large { width: 100%; }
+    }
   }
 }
-.masonry-section.margin-editor{margin-bottom: 2.0rem;}

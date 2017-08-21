@@ -14,49 +14,49 @@
   &.color1 {
     figcaption {
       background: $mc1-bg;
-      color: $mc1-text;
+      &, h3 { color: $mc1-text; }
     }
     a:hover figcaption { background: $mc1-comp-bg; }
   }
   &.color2 {
     figcaption {
       background: $mc2-bg;
-      color: $mc2-text;
+      &, h3 { color: $mc2-text; }
     }
     a:hover figcaption { background: $mc2-comp-bg; }
   }
   &.color3 {
     figcaption {
       background: $mc3-bg;
-      color: $mc3-text;
+      &, h3 { color: $mc3-text; }
     }
     a:hover figcaption { background: $mc3-comp-bg; }
   }
   &.color4 {
     figcaption {
       background: $mc4-bg;
-      color: $mc4-text;
+      &, h3 { color: $mc4-text; }
     }
     a:hover figcaption { background: $mc4-comp-bg; }
   }
   &.color5 {
     figcaption {
       background: $mc5-bg;
-      color: $mc5-text;
+      &, h3 { color: $mc5-text; }
     }
     a:hover figcaption { background: $mc5-comp-bg; }
   }
   &.color6 {
     figcaption {
       background: $mc6-bg;
-      color: $mc6-text;
+      &, h3 { color: $mc6-text; }
     }
     a:hover figcaption { background: $mc6-comp-bg; }
   }
   &.color7 {
     figcaption {
       background: $mc7-bg;
-      color: $mc7-text;
+      &, h3 { color: $mc7-text; }
     }
     a:hover figcaption { background: $mc7-comp-bg; }
   }

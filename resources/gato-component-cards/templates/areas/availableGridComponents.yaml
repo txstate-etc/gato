@@ -1,10 +1,6 @@
-icontext:
-  id: gato-component-cards:components/grid/icontext
 image:
   id: gato-component-cards:components/grid/image
+video:
+  id: gato-component-cards:components/grid/video
 rss:
   id: gato-component-cards:components/grid/rss
-textimage:
-  id: gato-component-cards:components/grid/textimage
-streaming:
-  id: gato-component-cards:components/grid/video

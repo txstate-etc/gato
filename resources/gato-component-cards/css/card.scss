@@ -1,0 +1,20 @@
+.gato-card {
+  box-shadow: $gato-card-shadow;
+  margin-bottom: 1.0rem;
+}
+.gato-card-hidden {
+  display: none;
+  .admin & {
+    display: block;
+    -webkit-filter: grayscale(1) brightness(.5);
+    filter: grayscale(1) brightness(.5);
+  }
+}
+body div.mgnlEditorBar.area.init ~ {
+  &,* {
+    .gato-card-add div.mgnlPlaceholder div.mgnlEditorBar.component {
+      height: 10rem !important;
+      margin-bottom: 0 !important;
+    }
+  }
+}

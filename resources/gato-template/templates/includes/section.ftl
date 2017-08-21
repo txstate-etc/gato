@@ -1,4 +1,4 @@
-[#macro sectionLabel cssClass=""]
+[#macro sectionLabel]
   [#assign hideSidebar = ctx.getAttribute("hideSidebar")!false]
   [#if cmsfn.isEditMode()]
     <div cms:edit="bar"></div>

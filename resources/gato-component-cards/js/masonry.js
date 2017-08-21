@@ -1,8 +1,10 @@
 jQuery(function($) {
+  magnolialabelchange('.gato-card-add', '.mgnlEditor.mgnlPlaceholder', 'Add Card');
+
   var $grid = $(".section-masonry").masonry({
     itemSelector: ".gato-card",
     columnWidth: ".masonry-sizer",
-    gutter: 0,
+    gutter: ".masonry-gutter",
     percentPosition: true,
   });
   setTimeout(function(){$grid.masonry('layout');},0);

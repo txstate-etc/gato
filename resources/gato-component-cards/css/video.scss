@@ -17,11 +17,11 @@
       bottom: 3rem;
       padding: 0.7rem 1rem;
       margin-right: 2rem;
-      @at-root [data-eq~="400px"]#{&} {
+      @at-root [data-eq~="500px"]#{&} {
         bottom: 2rem;
         h3 { font-size: 1.5rem; }
       }
-      h3 { margin: 0; font-size: 1.7rem; }
+      h3 { margin: 0; font-size: 1.7rem; line-height: 1.2; }
       @at-root .color1#{&} { background-color: rgba($mc1-bg, 0.95); }
       @at-root .color2#{&} { background-color: rgba($mc2-bg, 0.95); }
       @at-root .color3#{&} { background-color: rgba($mc3-bg, 0.95); }
