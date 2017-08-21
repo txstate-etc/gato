@@ -40,7 +40,7 @@
     'gato-template/js/sidebarheightfix.js',
     'gato-lib/js/jquery-ui/jquery-ui.min.js',
     'gato-component-cards/js/masonry.min.js',
-    'gato-template/js/progress.js',
+    'gato-template/js/percentdisplay.js',
     'gato-template/js/sitesearch.js',
     'gato-template/js/search-gsa.js',
     'gato-template/js/dropdownsearch.js',

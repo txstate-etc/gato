@@ -1,5 +1,0 @@
-templateScript: /gato-template/templates/components/progress.ftl
-renderType: freemarker
-title: Progress Bar
-description: Shows what percentage of a goal has been completed
-dialog: gato-template:components/progress

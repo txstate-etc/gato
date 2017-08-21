@@ -157,3 +157,27 @@
     }
   }
 }
+
+/* Percent Display */
+.circle-progress {
+  .svg-container {
+    .outer-circle {
+      stroke-width: 9;
+    }
+    .inner-circle {
+      stroke-width: 1;
+      transform: scale(1.07);
+      transform-origin: center;
+    }
+    path {
+      stroke-width: 9;
+    }
+  }
+  .content {
+    .progress-title {
+      letter-spacing: 3px;
+    }
+  }
+}
+
+

@@ -1,0 +1,5 @@
+templateScript: /gato-template/templates/components/percentdisplay.ftl
+renderType: freemarker
+title: Percent Display
+description: Shows what percentage of a goal has been completed
+dialog: gato-template:components/percentdisplay

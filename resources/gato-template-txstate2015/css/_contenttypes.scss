@@ -52,11 +52,11 @@ $icontext-title-underline-bottom-color: $sandstone;
 $icontext-text-color: $very-dark;
 $icontext-title-color: $gold;
 
-/* Progress */
-$progress-inner-circle-color: $maroon;
-$progress-outer-circle-color: mix($charcoal, $white, 70 );
-$progress-outer-circle-fill-color: $blue;
-$progress-title-color: $blue;
+/* Percent Display */
+$progress-inner-circle-color: #e4e4e4;
+$progress-outer-circle-color: #e4e4e4;
+$progress-outer-circle-fill-color: $oldgold;
+$progress-title-color: $charcoal;
 
 /* Documents */
 $document-icon-color: $charcoal;
