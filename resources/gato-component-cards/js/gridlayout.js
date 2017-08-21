@@ -59,8 +59,8 @@ jQuery(function($) {
 			setHashParameters(hashParams);
 
 			$(element).find('div.gato-card').each(function(i,card){
-				var tags = $(card).data("tags").split(/ *, */);
-				if ( tags.indexOf(currentFilter) != -1 || currentFilter == "All" ) {
+				var tags = $(card).data("tags").toLowerCase().split(/ *, */);
+				if ( tags.indexOf(currentFilter.toLowerCase()) != -1 || currentFilter == "All" ) {
 					$(card).removeClass('gato-card-hidden');
 					$(card).attr('aria-hidden',false);
 				} else {
