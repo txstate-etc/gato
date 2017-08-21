@@ -81,7 +81,8 @@ header{
                 }
               }
               .simplemenu-subitems {
-                display: block;
+                /* unnecessary as long as we use velocity 'slideDown' animation */
+                /* display: block; */
               }
             }
             > a {
@@ -126,7 +127,8 @@ header{
         content: $fa-var-times;
       }
       .main-menu-panel {
-        display: block;
+        /* unnecessary as long as we use velocity 'slideDown' animation */
+        /* display: block; */
       }
     }
     .texas-state, .social-media, .search-link {
