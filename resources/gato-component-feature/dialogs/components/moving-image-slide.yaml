@@ -36,10 +36,14 @@ form:
             class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
           description: "Entire slide will be clickable. Enter a full URL (http://www.google.com/) or use the \"Internal Link\" button to link to another page in this site."
           buttonSelectNewLabel: "Internal Link..."
+        - name: space
+          label: ""
+          class: info.magnolia.ui.form.field.definition.StaticFieldDefinition
+          value: ""
         - name: instructions
           label: ""
           class: info.magnolia.ui.form.field.definition.StaticFieldDefinition
-          value: Select a section of the image to use as a starting point for the animation and a section to use as an ending point.  The slide will gradually transition from the starting image to the ending image.
+          value: To animate the slide make a start and end selection. Select any area of the image as a start point and again for end point. 
         - name: start
           class: edu.txstate.its.gato.vaadin.ThumbnailSelectorFieldDefinition
           label: Start Image
