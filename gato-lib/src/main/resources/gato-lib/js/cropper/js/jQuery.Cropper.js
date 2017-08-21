@@ -18,6 +18,8 @@
 //               : Uses classes instead of ID's so there can be more                  \\
 //               : than one on a page                                                 \\
 //====================================================================================\\
+//   2017-08-21 : added mimimum selection size feature                                \\
+//====================================================================================\\
 
 ;(function ( $, window, document, undefined ) {
     
@@ -30,6 +32,8 @@
         this._defaults = $.fn.cropImage.defaults;
         this.imgWidth = 0;
         this.imgHeight = 0;
+        this.minSelectionWidth = 0;
+        this.minSelectionHeight = 0;
         this.localCoord = null;
         this.oldGlobalCoord = {x : 0, y : 0};
         this.initialGlobalCoord = null;
@@ -161,7 +165,26 @@
                 this.initialGlobalCoord = {x : e.clientX, y : e.clientY};
                 this.oldGlobalCoord.x = e.clientX;
                 this.oldGlobalCoord.y = e.clientY;
-                this.selection.draw(e.offsetX, e.offsetY, 1, 1);
+                var selectionWidth = 1;
+                var selectionHeight = 1;
+                //minSelection is a value between 0 and 1
+                //if the image is wider than the aspect ratio, minSelection
+                //is a percentage of the height of the image, expressed as a decimal
+                if(this.options.minSelection > 0){
+                    var imageaspect = this.imgWidth / this.imgHeight;
+                    if (imageaspect > this.options.aspect) {
+                        // use height for min selection calculation
+                        selectionHeight = this.imgHeight * this.options.minSelection;
+                        selectionWidth = (16.0 * selectionHeight) / 9.0;
+                    } else {
+                        // use width for min selection calculation
+                        selectionWidth = this.imgWidth * this.options.minSelection;
+                        selectionHeight = (9.0 * selectionWidth) / 16.0;
+                    }
+                    this.minSelectionWidth = selectionWidth;
+                    this.minSelectionHeight = selectionHeight;
+                }
+                this.selection.draw(e.offsetX, e.offsetY, selectionWidth, selectionHeight);
                 this.selection.track = true;
             }
             return false;
@@ -316,6 +339,11 @@
             } else {
                 if(invertedVer) top += height - width / this.options.aspect;
                 height = width / this.options.aspect;
+            }
+
+            if (width < this.minSelectionWidth || height < this.minSelectionHeight) {
+                width = this.minSelectionWidth;
+                height = this.minSelectionHeight;
             }
             
             // Drawing the selection.
@@ -680,7 +708,8 @@
     $.fn.cropImage.defaults = {
         controlName: 'image',
         aspect: 1,
-        snapDistance: 0
+        snapDistance: 0,
+        minSelection: 0
     };
 
 })( jQuery, window, document );

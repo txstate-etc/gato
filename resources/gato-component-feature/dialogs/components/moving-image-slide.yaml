@@ -68,6 +68,7 @@ form:
           parameters:
             aspect: 1.7777777
             controlName: start
+            minSelection: 0.5
         - name: end
           class: edu.txstate.its.gato.vaadin.ThumbnailSelectorFieldDefinition
           label: End Image
@@ -92,4 +93,5 @@ form:
           parameters:
             aspect: 1.7777777
             controlName: end
+            minSelection: 0.5
 actions: !include /gato-template/dialogs/common/actions-block.yaml
