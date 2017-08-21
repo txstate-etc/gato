@@ -8,37 +8,34 @@ $light-grey:rgba($grey,.5);
       padding: 1rem;
       box-shadow: $gato-card-shadow;
     .gato-rss-feedinformation{
-      a,.gato-rss-title{display: none;}
-      font-size: 0;//hides extra text that may show up from rss feeds not enclosed in a tag other than .gato-rss-feedimage
-      .gato-rss-feedimage{
-        width: 100%;
-        display: initial;
-        display: inline-block;
-        vertical-align: top;
-        background-color: inherit;
-        padding-right: 3.3rem;
+      .gato-rss-title{
+        font: 18px/24px 'ProximaNova-Bold', sans-serif;
+        text-transform: uppercase;
+        color: #666;
+        margin: 0 0 30px;
         position: relative;
-        z-index: 2;
-        img{
-          background: white;
-          padding:1px;
-          max-width: 17rem;
-          max-height: 6rem;
-          border-radius: 5%;
-          border: .3rem solid $light-grey;
+        span{
+          display: inline-block;
+          vertical-align: top;
+          background-color: #f2f2f2;
+          padding-right: 33px;
+          position: relative;
+          z-index: 2;
         }
         &::after{
           content: '';
           position: absolute;
-          z-index: -1;
-          height: .3rem;
+          z-index: 1;
+          height: 5px;
           right: 0;
           left: 0;
-          bottom:1.5rem;
-          background-color: $light-grey;
+          bottom: 6px;
+          background-color: #b4282e;
         }
 
       }
+
+      font-size: 0;//hides extra text that may show up from rss feeds not enclosed in a tag other than .gato-rss-feedimage
 
     }
     .gato-accordion{
