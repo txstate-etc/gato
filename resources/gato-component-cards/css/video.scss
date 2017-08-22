@@ -44,7 +44,7 @@
     border-radius: 100%;
     width:  7rem;
     height: 7rem;
-    border: 5px solid white;
+    border: 2px solid white;
     opacity: 0.9;
     @at-root .color1#{&} { background-color: $mc1-bg; }
     @at-root .color2#{&} { background-color: $mc2-bg; }
