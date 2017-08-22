@@ -4,5 +4,5 @@ dialog: gato-component-cards:components/grid/image
 description: An image with a caption
 title: Image Card
 parameters:
-  icon: /gato-template/images/banner.png
+  icon: /gato-component-cards/images/image-card.png
   templateName: imagecard
