@@ -12,7 +12,7 @@
     <div class="caption ${notitle}">
       [#if content.title?has_content]
         [#if content.link?has_content]
-          <a href="${content.link}">
+          <a href="${gf.filterUrl(content.link!)}">
         [/#if]
         <h3>${content.title}</h3>
         [#if content.link?has_content]

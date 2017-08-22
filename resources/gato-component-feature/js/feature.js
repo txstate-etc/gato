@@ -106,7 +106,7 @@ jQuery(document).ready(function ($) {
     }
     setHeight(slide);
     //get the crop data
-    var data = slide.children('.cropData');
+    var data = slide.find('.cropData');
     var endCrop = { left: parseFloat(data.attr('data-end-left')),
                     top: parseFloat(data.attr('data-end-top')),
                     right: parseFloat(data.attr('data-end-right')),

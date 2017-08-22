@@ -317,7 +317,11 @@
           transform-origin: 0 0;
         }
       }
-
+      a:hover {
+        img {
+          opacity: 1;
+        }
+      }
     }
   }
   .slick-prev, .slick-next {

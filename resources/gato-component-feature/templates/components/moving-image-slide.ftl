@@ -1,6 +1,9 @@
 
 [#if !(ctx.barsonly!false)]
   <div class="slide moving-image ${ctx.slideactive!''} ${ctx.colorClass!}">
+    [#if content.link?has_content]
+      <a href="${gf.filterUrl(content.link!)}">
+    [/#if]
     <div class="cropData" data-start-left="${content.startcropleft!'0'}"
                           data-start-top="${content.startcroptop!'0'}"
                           data-start-right="${content.startcropright!'0'}"
@@ -17,6 +20,10 @@
       [#if content.title?has_content]<h3>${content.title!''}</h3>[/#if]
       [#if content.subtext?has_content]<p data-orig-text="${content.subtext!''}">${content.subtext!''}</p>[/#if]
     </div>
+    
+    [#if content.link?has_content]
+      </a>
+    [/#if]
   </div>
 [#else]
   <div class="slider-edit-bar" data-title="${content.title!'Slider Moving Image'}" cms:edit></div>
