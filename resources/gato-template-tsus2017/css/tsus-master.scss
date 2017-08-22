@@ -26,7 +26,15 @@ body {
 .gato-section {
   margin: 0 auto;
   max-width: 1280px;
-  padding-bottom: 3.2rem;
+    @at-root {
+      .gato-section-full.has-background {
+        .gato-section {
+          padding-bottom: 2rem;
+          margin-bottom: 3.5rem;
+        }
+      }
+    }
+
   @media (max-width: $lg-breakpoint) {
     //this value might need adjusting
     max-width: 1000px;
