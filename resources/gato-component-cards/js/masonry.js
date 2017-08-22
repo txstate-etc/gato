@@ -49,7 +49,7 @@ jQuery(function($) {
             bestidx = i;
           }
         }
-        colheights[bestidx] = cardheight+gutterwidth;
+        colheights[bestidx] += cardheight+gutterwidth;
         $card.velocity({'top': bestheight+'px', 'left': (bestidx*colwidthpercent)+'%'}, {duration: 150});
       });
       $grid.css('height', Math.max.apply(Math, colheights)+'px');
