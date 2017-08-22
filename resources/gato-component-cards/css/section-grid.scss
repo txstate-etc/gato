@@ -1,45 +1,37 @@
-@mixin card-with-margin($cols) {
-  width: ((100% - $gato-card-gutter*($cols - 1))/$cols);
-  margin-right: $gato-card-gutter;
-  &:nth-child(#{$cols}n+0) {
-    margin-right: 0;
-  }
-}
-
 .section-grid {
-  overflow: hidden;
+  position: relative;
   padding: 0;
   margin: 0 0 3rem 0;
   list-style: none;
-
+/*
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: flex-start;
+*/
 
-  .gato-card {
-    &.small { @include card-with-margin(4); }
-    &.medium { @include card-with-margin(3); }
-    &.large { @include card-with-margin(2); }
-    [data-eq~="900px"] & {
-      &.small { @include card-with-margin(3); }
-      &.medium { @include card-with-margin(2); }
-      &.large { @include card-with-margin(2); }
+  .gato-card { position: absolute; }
+  .masonry-gutter { width: $gato-card-gutter; }
+
+  &.small {
+    .gato-card, .masonry-sizer {
+      width: $gato-card-fourths;
+      [data-eq~="900px"] & { width: $gato-card-thirds; }
+      [data-eq~="600px"] & { width: $gato-card-halves; }
+      [data-eq~="400px"] & { width: 100%; }
     }
-    [data-eq~="800px"] & {
-      &.small { @include card-with-margin(3); }
-      &.medium { @include card-with-margin(2); }
-      &.large { width: 100%; }
+  }
+  &.medium {
+    .gato-card, .masonry-sizer {
+      width: $gato-card-thirds;
+      [data-eq~="800px"] & { width: $gato-card-halves; }
+      [data-eq~="600px"] & { width: 100%; }
     }
-    [data-eq~="600px"] & {
-      &.small { @include card-with-margin(2); }
-      &.medium { width: 100%; }
-      &.large { width: 100%; }
-    }
-    [data-eq~="400px"] & {
-      &.small { width: 100%; }
-      &.medium { width: 100%; }
-      &.large { width: 100%; }
+  }
+  &.large {
+    .gato-card, .masonry-sizer {
+      width: $gato-card-halves;
+      [data-eq~="800px"] & { width: 100%; }
     }
   }
 

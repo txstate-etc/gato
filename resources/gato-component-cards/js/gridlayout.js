@@ -5,13 +5,14 @@ jQuery(function($) {
 		var filterable_grid = this;
 		var gridid = element.id;
 		var filters = [];
+		var $section = $(element).closest('.section-grid, .section-masonry');
 
 		var init_filters = function(){
 			// Get the current selected filter from the hash parameter
 			var activetab = getHashParameters()[gridid+"_f"];
 
 			// Loop through the filters at the top and store their details in the filters variable
-			$(element).find('ul.grid-filter>li>a').each(function(i,filterlink){
+			$(element).prev('ul.gato-card-filter').find('>li>a').each(function(i,filterlink){
 				filters.push({
 					linkelement : filterlink,
 					name : $(filterlink).text(),
@@ -60,12 +61,25 @@ jQuery(function($) {
 
 			$(element).find('div.gato-card[data-tags]:not([data-tags=""])').each(function(i,card){
 				var tags = $(card).data("tags").toLowerCase().split(/ *, */);
+				var $card = $(card);
+				var changed = false;
+				var appeared = [];
 				if ( tags.indexOf(currentFilter.toLowerCase()) != -1 || currentFilter == "All" ) {
-					$(card).removeClass('gato-card-hidden');
-					$(card).attr('aria-hidden',false);
+				  if ($card.hasClass('gato-card-hidden')) {
+				    appeared.push(card);
+				    changed = true;
+				  }
+					$card.removeClass('gato-card-hidden');
+					$card.attr('aria-hidden',false);
 				} else {
-          $(card).addClass('gato-card-hidden');
-					$(card).attr('aria-hidden',true);
+				  if (!$card.hasClass('gato-card-hidden')) changed = true;
+          $card.addClass('gato-card-hidden');
+					$card.attr('aria-hidden',true);
+				}
+				if (changed) {
+				  $(appeared).css({'left':0, 'top':0, 'transform': 'none'});
+				  if ($section.is('.section-masonry')) $section.masonry('layout');
+				  else gatogridlayout($section);
 				}
 			});
 		};
@@ -87,7 +101,7 @@ jQuery(function($) {
 
 
 	$('.section-grid, .section-masonry').each(function(i,grid){
-		if ( $(grid).find('ul.grid-filter').length ) {
+		if ( $(grid).prev('ul.gato-card-filter').length ) {
 			new filterable_grid(grid);
 		}
 	});
