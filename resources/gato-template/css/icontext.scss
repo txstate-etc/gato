@@ -35,12 +35,16 @@
 .icontext{
     display: block;
     padding: 0;
-    margin: 0;
+    margin: 0 auto;
     text-decoration: none;
     max-width: 30rem;
     text-align: center;
-    margin: auto;
     padding: 2rem 0;
+
+    @at-root .column_paragraph a.icontext {
+      margin: 0 auto;
+      padding: 0;
+    }
 
     .icontext-title{
         font-size: 1.7rem;
