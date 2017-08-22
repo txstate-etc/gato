@@ -17,7 +17,6 @@ form:
             class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
         - name: image
           class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
-          required: true
           appName: assets
           targetWorkspace: dam
           label: Image

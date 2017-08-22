@@ -83,6 +83,8 @@
               a{
                   color: $dark-gray;
                   text-decoration: none;
+                  overflow: hidden;
+
                   transition: all .3s;
                   &:hover{
                       font-weight: 700;
@@ -143,9 +145,6 @@
 }
 
 
-
-
-
 /*style code for staff directory*/
 //side_nav_list
 .side_nav_list_dir{
@@ -154,47 +153,52 @@
 	list-style: none;
 	font-size: 0;
 	line-height: 0;
-}
-.side_nav_list_dir li + li {padding-top: 10px;}
-.side_nav_list li a {
-	display: block;
-	overflow: hidden;
-  text-decoration: none;
-}
-.side_nav_list_dir .photo {
-	float: left;
-  clear: both;
-	width: 5rem;
-	height: 5rem;
-	margin: 0 1rem 1rem 0;
-	background-color: #e0e0e0;
-	-webkit-background-size: cover;
-	background-size: cover;
-	background-position: 50% 50%;
-	background-repeat: no-repeat;
-}
-.side_nav_list_dir .photo img {
-  width: 100%;
-  height: 100%;
-}
-.side_nav_list_dir .info {
-	overflow: hidden;
-	font: 300 1.2rem/1.4rem 'Roboto', sans-serif;
-	color: $dark-gray;
-	padding-top: .3rem;
 
-}
-.side_nav_list_dir .info .name {
-	display: block;
-	font-size: 1.4rem;
-	line-height: 1.6rem;
-	min-height: 3.2rem;
-	color: black;
-  font-weight: 500;
-}
+  li + li {padding-top: 1.2rem;}
 
-.side_nav_list_dir .staffDir {
-	text-decoration: none;
+  .photo {
+    float: left;
+    clear: both;
+    width: 5rem;
+    height: 5rem;
+    margin: 0 1rem 1rem 0;
+    background-color: #e0e0e0;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .info {
+    overflow: hidden;
+    font: 300 1.2rem/1.4rem 'Roboto', sans-serif;
+    color: $dark-gray;
+    padding-top: .3rem;
+
+    &.no-image {
+      overflow: visible;
+      .name {
+        min-height: 2rem;
+      }
+    }
+
+    .name {
+      display: block;
+      font-size: 1.4rem;
+      line-height: 1.6rem;
+      min-height: 3.2rem;
+      color: black;
+      font-weight: 500;
+    }
+  }
+
+  .staffDir {
+    text-decoration: none;
+  }
 }
 
 ///////////////////////////////////
