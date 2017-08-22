@@ -77,7 +77,10 @@ jQuery(function($) {
 					$card.attr('aria-hidden',true);
 				}
 				if (changed) {
-				  $(appeared).css({'left':0, 'top':0, 'transform': 'none'});
+				  // resetting previously invisible cards to 0,0 makes for a better animation when it appears, but we don't
+				  // actually hide in edit mode so avoid doing the animation
+				  if ($card.closest('.admin').length == 0) $(appeared).css({'left':0, 'top':0, 'transform': 'none'});
+
 				  if ($section.is('.section-masonry')) $section.masonry('layout');
 				  else gatogridlayout($section);
 				}
