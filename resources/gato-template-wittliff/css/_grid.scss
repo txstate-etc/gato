@@ -52,7 +52,6 @@ ul.gato-card-filter {
 
 .section-grid, .section-masonry {
   .gato-card {
-    [data-eq~="800px"] &
     box-shadow: none;
     &.gato-card-image {
       figure {
