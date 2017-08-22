@@ -56,11 +56,12 @@ $icontext-title-underline-top-color: $khaki;
 $icontext-title-underline-bottom-color: $sandstone;
 $icontext-text-color: $very-dark;
 
-/* Progress */
+/* Percent Display */
 $progress-inner-circle-color: $maroon;
 $progress-outer-circle-color: mix($charcoal, $white, 70 );
 $progress-outer-circle-fill-color: $blue;
 $progress-title-color: $blue;
+$progress-percent-color: $charcoal;
 
 /* Documents */
 $document-icon-color: $charcoal;
