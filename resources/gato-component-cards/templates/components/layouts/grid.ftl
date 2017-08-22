@@ -1,3 +1,6 @@
+[#if cmsfn.isEditMode()]
+  <div class="section-grid-edit" cms:edit></div>
+[/#if]
 [#if content.enablefiltering!false]
 	<ul class="gato-card-filter" role="tablist">
 		[#if content.includeallfilter!false]

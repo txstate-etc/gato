@@ -10,29 +10,13 @@ jQuery(function($) {
   });
   setTimeout(function(){$masonry.masonry('layout');},0);
 
-  window.gatogridlayout = function ($grids, args) {
-    args = args || {};
+  window.gatogridlayout = function ($grids) {
     $grids.each(function() {
       var $grid = $(this);
       var sectionwidth = $grid.width();
       var sizerwidth = $grid.find('.masonry-sizer').width();
       var gutterwidth = $grid.find('.masonry-gutter').width();
       var numcols = Math.round(sectionwidth/sizerwidth);
-
-      // a resize event doesn't require a full recalc unless the number of columns
-      // has changed, but the container height does need to be re-evaluated
-      if ($grid.data('last-gridlayout-cols') == numcols && args.resize) {
-        var maxheight = 0;
-        $grid.find('.gato-card:visible').each(function() {
-          var $card = $(this);
-          var h = $card.position().top+$card.height();
-          if (h > maxheight) maxheight = h;
-        });
-        $grid.css('height', (maxheight+gutterwidth)+'px');
-        return;
-      }
-      $grid.data('last-gridlayout-cols', numcols);
-
       var colwidth = sizerwidth+gutterwidth;
       var colwidthpercent = 100.0 * colwidth / sectionwidth;
       var colheights = [];
@@ -56,8 +40,9 @@ jQuery(function($) {
     });
   }
   var $grids = $('.section-grid');
-  $grids.find('img').one('load', function () { gatogridlayout($grids); });
-  resizeTimeout(function () { gatogridlayout($grids, {resize: true}); });
+  var executegridlayout = function () { gatogridlayout($grids) }
+  resizeTimeout(executegridlayout);
+  waitforselector('.section-grid-edit', '.mgnlEditorBar', executegridlayout);
 
   /*
     For adding youtube or Vimeo thumbnails if no custom thumbnail is added
@@ -72,7 +57,8 @@ jQuery(function($) {
     var lnk = video.find('a');
     var splash = video.find('img');
     var updatelayouts = function () {
-      video.closest('.section-masonry').masonry('layout');
+      var $masonry = video.closest('.section-masonry')
+      if ($masonry.length > 0) $masonry.masonry('layout');
       gatogridlayout(video.closest('.section-grid'));
     }
 
