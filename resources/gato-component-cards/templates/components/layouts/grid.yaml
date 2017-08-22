@@ -2,11 +2,11 @@ templateScript: /gato-component-cards/templates/components/layouts/grid.ftl
 renderType: site
 dialog: gato-component-cards:components/layouts/grid
 visible: true
-title: Grid Layout
+title: Mosaic Layout
 areas:
   cards:
     templateScript: /gato-component-cards/templates/areas/grid.ftl
     type: list
     availableComponents: !include /gato-component-cards/templates/areas/availableGridComponents.yaml
 parameters:
-  icon: /gato-component-cards/images/grid.png
+  icon: /gato-component-cards/images/mosaic.png
