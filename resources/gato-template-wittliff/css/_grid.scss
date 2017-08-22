@@ -1,110 +1,102 @@
+ul.gato-card-filter {
+  background-color: $wittliffbrown;
+  border-top: 7px solid $wittliffrust;
+  list-style: none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  [data-eq~="800px"] & {
+    flex-wrap: wrap;
+  }
+  &:before {
+    content: "YOU ARE A...";
+    display: block;
+    white-space: nowrap;
+    color: white;
+    padding: 2.5rem 4rem;
+    vertical-align: middle;
+    font-size: 2.3rem;
+    letter-spacing: .3rem;
+    font-weight: 200;
+    [data-eq~="800px"] & {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  li {
+    width: 100%;
+    [data-eq~="800px"] & {
+      width: 50%;
+    }
+
+    a {
+      display: block;
+      text-decoration: none;
+      color: white;
+      padding: 2.5rem 0;
+      width: 100%;
+      vertical-align: middle;
+      text-align: center;
+      font-size: 2.3rem;
+      letter-spacing: .3rem;
+      font-weight: 200;
+    }
+
+    a.grid-filter-selected {
+      background-color: $wittliffrust;
+    }
+  }
+}
+
 .section-grid, .section-masonry {
-	border-top: 7px solid $wittliffrust;
-	margin-bottom: 1.5rem;
+  .gato-card {
+    [data-eq~="800px"] &
+    box-shadow: none;
+    &.gato-card-image {
+      figure {
+        display: flex;
+        flex-flow: column;
+        [data-eq~="800px"] & {
+          flex-flow: row;
+        }
 
-	ul.grid-filter:before {
-		content: "YOU ARE A...";
-		display: block;
-		white-space: nowrap;
-		color: white;
-		padding: 2.5rem 4rem;
-		vertical-align: middle;
-		font-size: 2.3rem;
-		letter-spacing: .3rem;
-		font-weight: 200;
-		[data-eq~="800px"] & {
-			width: 100%;
-			text-align: center;
-		}
-	}
+        img {
+          object-fit: cover;
+          height: 300px;
+          [data-eq~="800px"] & {
+            height: 150px;
+            width: 50%;
+          }
+        }
 
-	ul.grid-filter {
-		background-color: $wittliffbrown;
-		list-style: none;
-		width: 100%;
-		margin: 0;
-		padding: 0;
-		display: flex;
-		[data-eq~="800px"] & {
-			flex-wrap: wrap;
-		}
+        figcaption {
+          padding: 2rem;
+          margin: 0;
+          flex: 1;
+          [data-eq~="800px"] & {
+            padding: 1rem;
+            display: flex;
+            text-align: center;
+            align-items: center;
+          }
 
-
-		li {
-			width: 100%;
-			[data-eq~="800px"] & {
-				width: 50%;
-			}
-
-			a {
-				display: block;
-				text-decoration: none;
-				color: white;
-				padding: 2.5rem 0;
-				width: 100%;
-				vertical-align: middle;
-				text-align: center;
-				font-size: 2.3rem;
-				letter-spacing: .3rem;
-				font-weight: 200;
-			}
-
-			a.grid-filter-selected {
-				background-color: $wittliffrust;
-			}
-		}
-	}
-
-	div.grid-card {
-		margin: 0 0 0 0;
-		padding: 0 0 0 0;
-		border-right: 1px solid white;
-		border-bottom: 1px solid white;
-		[data-eq~="800px"] & {
-			width: 100%;
-		}
-
-		figure {
-			box-shadow: none;
-			display: flex;
-			flex-flow: column;
-			[data-eq~="800px"] & {
-				flex-flow: row;
-			}
-
-			img {
-				height: 300px;
-				[data-eq~="800px"] & {
-					height: 150px;
-					width: 150px;
-				}
-			}
-
-			figcaption {
-				padding: 3rem 0 3rem 3rem;
-				margin: 0;
-				flex: 1;
-				[data-eq~="800px"] & {
-					padding: 2rem;
-					display: flex;
-					text-align: center;
-					align-items: center;
-				}
-
-				h3 {
-					display: block;
-					width: 100%;
-					padding: 0;
-					margin: 0;
-					font-size: 2.3rem;
-					letter-spacing: .3rem;
-					font-weight: 200;
-				}
-			}
-		}
-	}
+          h3 {
+            display: block;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            font-size: 2.3rem;
+            letter-spacing: .3rem;
+            font-weight: 200;
+          }
+        }
+      }
+    }
+  }
 }
 
 .gato-section-full.full-width.card-layout div.gato-section-centered {
-	max-width: inherit;
+  max-width: inherit;
 }
