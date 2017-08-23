@@ -1,23 +1,22 @@
-$light-grey:rgba($grey,.5);
-
-
 .gato-card-rss{
   &-container{
     overflow: hidden;
-      background: #f2f2f2;
+      background: $rss-card-background-color;
       padding: 1rem;
       box-shadow: $gato-card-shadow;
     .gato-rss-feedinformation{
       .gato-rss-title{
-        font: 18px/24px 'ProximaNova-Bold', sans-serif;
+        font-size: 1.8rem;
+        line-height: 2.4rem;
+        font-family: 'ProximaNova-Bold', sans-serif;
         text-transform: uppercase;
-        color: #666;
-        margin: 0 0 30px;
+        color: $rss-card-title-color;
+        margin: 1.4rem 1.4rem 3rem;
         position: relative;
         span{
           display: inline-block;
           vertical-align: top;
-          background-color: #f2f2f2;
+          background-color: $rss-card-background-color;
           padding-right: 33px;
           position: relative;
           z-index: 2;
@@ -30,7 +29,7 @@ $light-grey:rgba($grey,.5);
           right: 0;
           left: 0;
           bottom: 6px;
-          background-color: #b4282e;
+          background-color: $rss-card-stripe-color;
         }
 
       }
@@ -53,19 +52,20 @@ $light-grey:rgba($grey,.5);
         margin-bottom: .4rem;
         -webkit-transition: all .3s;
         transition: all .3s;
+        text-transform: none;
         a{
           display: block;
           line-height: 2rem;
-          font-weight: 400;
+          font-weight: bold;
           font-size: 1.4rem;
-          color: $grey;
+          color: $rss-card-entry-title-color;
 
           &::after {
             content:'Read More';
             font-size:1.1rem;
             display: block;
             font-weight: 700;
-            color: $masonry-rss-card-readmore-color;
+            color: $rss-card-readmore-color;
             cursor: pointer;
           }
       }
