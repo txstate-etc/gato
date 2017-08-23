@@ -12,19 +12,21 @@
         </div>
       [/#if]
 
-      [#if model.items?has_content]
-        [#include "/gato-lib/templates/includes/accordion.ftl"]
-      [/#if]
-
       [#list model.items as entry]
-        <div class="gato-rss-item ${model.collapsible?string('gato-accordion', '')}"
-          data-start-collapsed="${model.collapsed?string('true', 'false')}">
-          <h3 class="${model.collapsible?string('gato-accordion-header', '')}">
+        <div class="gato-rss-item">
+          <h3 class="gato-rss-item-header">
             <a href="${entry.link}">${entry.title!}</a>
           </h3>
-          <div class="gato-accordion-content">
-            [#if content.showThumbnails!false]
-              <div class="gato-rss-thumbnail"><img src="${model.getThumbnail(entry)}" alt=""></div>
+          <div class="rss-item-content">
+            [#if !model.hideArticleText]
+              <div class="gato-rss-itemdescription">
+                <div class="gato-rss-itemdescription-content">
+                  ${model.fmtItemText(entry)}
+                </div>
+                <div class="gato-rss-more-link">
+                  <a href="${entry.link}">Read more</a>
+                </div>
+              </div>
             [/#if]
             <div class="gato-rss-published">
               [#if entry.publishedDate?has_content && content.showDates!false]
@@ -36,16 +38,6 @@
                 </span>
               [/#if]
             </div>
-            [#if !model.hideArticleText]
-              <div class="gato-rss-itemdescription">
-                <div class="gato-rss-itemdescription-content">
-                  ${model.fmtItemText(entry)}
-                </div>
-                <div class="gato-rss-more-link">
-                  <a href="${entry.link}">Read more</a>
-                </div>
-              </div>
-            [/#if]
           </div>
         </div>
       [/#list]

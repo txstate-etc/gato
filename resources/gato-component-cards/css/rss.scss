@@ -1,11 +1,11 @@
-.gato-card-rss{
+.gato-card-rss {
   &-container{
     overflow: hidden;
       background: $rss-card-background-color;
       padding: 1rem;
       box-shadow: $gato-card-shadow;
-    .gato-rss-feedinformation{
-      .gato-rss-title{
+    .gato-rss-feedinformation {
+      .gato-rss-title {
         font-size: 1.8rem;
         line-height: 2.4rem;
         font-family: 'ProximaNova-Bold', sans-serif;
@@ -31,48 +31,53 @@
           bottom: 6px;
           background-color: $rss-card-stripe-color;
         }
-
       }
-
       font-size: 0;//hides extra text that may show up from rss feeds not enclosed in a tag other than .gato-rss-feedimage
-
     }
-    .gato-accordion{
-      box-shadow: none;
-      &-expand-collapse{
-        display: none;
-      }
-      &-header{
+    .gato-rss-item {
+      padding: 0rem 1rem 2.3rem 2rem;
+      .gato-rss-item-header {
         line-height: 2.2rem;
-        padding: 0rem 1rem 1rem 2rem;
-        background:inherit !important;
-        box-shadow: none !important;
-        border: none;
-        display: block;
-        margin-bottom: .4rem;
-        -webkit-transition: all .3s;
-        transition: all .3s;
+        margin-bottom: 0.4rem;
         text-transform: none;
-        a{
+        a {
           display: block;
           line-height: 2rem;
-          font-weight: bold;
+          font-weight: 400;
           font-size: 1.4rem;
           color: $rss-card-entry-title-color;
-
-          &::after {
-            content:'Read More';
-            font-size:1.1rem;
-            display: block;
-            font-weight: 700;
+          text-decoration: none;
+        }
+      }
+      .rss-item-content {
+        .gato-rss-itemdescription {
+          font-size: 1.3rem;
+          color: $rss-card-summary-color;
+          font-weight: 300;
+        }
+        .gato-rss-more-link {
+          margin-top: 0.5rem;
+          margin-bottom: 0;
+          font-size:1.1rem;
+          display: block;
+          a {
             color: $rss-card-readmore-color;
-            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
           }
+        }
+        .gato-rss-published {
+          margin-top: 0rem;
+          margin-bottom: 0rem;
+          .gato-rss-date, .gato-rss-time {
+            font-weight: bold;
+            color: $rss-card-date-color;
+            margin-top: 0.5rem;
+            font-size: 1.3rem;
+          }
+        }
       }
-      }
-      &-content{
-        display: none !important;
-      }
-  }
+    }
   }
 }

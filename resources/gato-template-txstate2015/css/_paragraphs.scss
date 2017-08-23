@@ -192,10 +192,26 @@
       padding: 0;
     }
   }
-  .gato-accordion-header {
-    a::after {
-      text-transform: uppercase;
-      font-weight: bold;
+  .gato-rss-item {
+    .gato-rss-item-header {
+      margin-top: 1rem;
+      a {
+        font-weight: bold;
+      }
+    }
+    .rss-item-content {
+      .gato-rss-itemdescription {
+        line-height: 2rem;
+        .gato-rss-more-link {
+          margin: 0;
+        }
+      }
+      .gato-rss-published {
+        line-height: 2rem;
+        .gato-rss-date, .gato-rss-time {
+          font-weight: 500;
+        }
+      }
     }
   }
 }

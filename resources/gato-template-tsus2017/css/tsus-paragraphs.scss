@@ -97,3 +97,16 @@
     margin: 0;
   }
 }
+
+// RSS Card
+.gato-card-rss-container {
+  .gato-rss-item {
+    .rss-item-content {
+      .gato-rss-itemdescription {
+        .gato-rss-more-link {
+          display: none;
+        }
+      }
+    }
+  }
+}
