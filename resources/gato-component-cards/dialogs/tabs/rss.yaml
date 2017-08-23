@@ -2,6 +2,7 @@
     class: info.magnolia.ui.form.field.definition.TextFieldDefinition
     label: Feed Title
     description: The Title of the feed you'd like to display on Card.
+    maxLength: 25
   - name: feedUrl
     class: info.magnolia.ui.form.field.definition.TextFieldDefinition
     label: Feed URL
