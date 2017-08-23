@@ -63,6 +63,8 @@
 
   a.gato-card-image-link {
     text-decoration: none;
+    padding: 0;
+    margin: 0;
     &:hover {
       img {
         opacity: 0.9;
