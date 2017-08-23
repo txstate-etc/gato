@@ -44,14 +44,8 @@ jQuery(function($) {
   resizeTimeout(executegridlayout);
   waitforselector('.section-grid-edit', '.mgnlEditorBar', executegridlayout);
 
-  /*
-    For adding youtube or Vimeo thumbnails if no custom thumbnail is added
-    className will be set to .img-box first child className.
-    If that className is userThumbnail then that means the user has added a thumbnail
-    which means theres no need to fetch a thumbnail.
-    Only works for vimeo and youtube videos for now.
-
-  */
+  /* Special treatment for youtube and vimeo: fetch preview images if
+     the user did not upload a splash image */
   $('.gato-card-video').each(function(index, ele) {
     var video = $(ele);
     var lnk = video.find('a');
