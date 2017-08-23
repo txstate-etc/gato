@@ -45,3 +45,90 @@ body ul.gato-faq-hierarchy {
     }
   }
 }
+
+/* Buttons */
+/* The Wittliff template has a very different design for "reverse" button */
+.column_paragraph .button-wrapper a.button {
+  &.reverse {
+    border-width: 2px;
+    float: left;
+    line-height: 1.2;
+    text-transform: none;
+    border-radius: 0;
+    display: flex;
+    align-items: stretch;
+    &:after {
+      @extend .fa;
+      display: flex;
+      align-items: center;
+      content: $fa-var-long-arrow-right;
+      margin-left: 1.5rem;
+      border-width: 0 0 0 2px;
+      border-style: solid;
+      border-color: inherit;
+      text-align: center;
+    }
+    &:hover {
+      border-color: white;
+      &:after { border-color: white; }
+    }
+    &.block {
+      float: none;
+      padding: 0;
+      font-size: 2.2rem;
+      letter-spacing: 0.05rem;
+      font-weight: 500;
+      &:after {
+        margin-left: auto;
+        padding: 0 2.5rem;
+        font-size: 2rem;
+      }
+      span {
+        padding: 2rem 0;
+        flex-grow: 1;
+      }
+    }
+    &.small {
+      padding: 0 0 0 2rem;
+      font-size: 1.8rem;
+      letter-spacing: 0.05rem;
+      font-weight: 500;
+      &:after {
+        margin-left: 2rem;
+        padding: 0 1.5rem;
+        font-size: 1.6rem;
+      }
+      span {
+        padding: 1.2rem 0;
+      }
+    }
+    &.medium {
+      padding: 0 0 0 2.3rem;
+      font-size: 2.0rem;
+      letter-spacing: 0.05rem;
+      font-weight: 500;
+      &:after {
+        margin-left: 2.3rem;
+        padding: 0 2.3rem;
+        font-size: 1.8rem;
+      }
+      span {
+        padding: 1.8rem 0;
+      }
+    }
+    &.large {
+      padding: 0 0 0 2.9rem;
+      font-size: 2.2rem;
+      letter-spacing: 0.05rem;
+      font-weight: bold;
+      &:after {
+        margin-left: 2.9rem;
+        padding: 0 2.9rem;
+        font-size: 2rem;
+      }
+      span {
+        padding: 2.4rem 0;
+      }
+    }
+  }
+}
