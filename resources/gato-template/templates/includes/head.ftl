@@ -171,7 +171,7 @@
           [#if arrows]
             <button aria-haspopup="true" aria-expanded="false" aria-controls="menu-${submenuid}" class="simplemenu-expand">
               <span class="visuallyhidden">sub menu for ${gf.nodeTitle(page)}</span>
-              <i class="fa fa-angle-right" aria-hidden="true"></i>
+              <i class="fa fa-angle-down" aria-hidden="true"></i>
             </button>
           [/#if]
           <ul class="simplemenu-subitems" id="menu-${submenuid}">
