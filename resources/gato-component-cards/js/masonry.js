@@ -1,14 +1,14 @@
 jQuery(function($) {
   magnolialabelchange('.gato-card-add', '.mgnlEditor.mgnlPlaceholder', 'Add Card');
 
-  var $masonry = $(".section-masonry").masonry({
+  var $masonry = $(".section-masonry").packery({
     itemSelector: ".gato-card",
     columnWidth: ".masonry-sizer",
     gutter: ".masonry-gutter",
     percentPosition: true,
     initLayout: false
   });
-  var masonrylayout = function(){$masonry.masonry('layout');}
+  var masonrylayout = function(){$masonry.packery('layout');}
   setTimeout(masonrylayout,0);
   waitforselector('.gato-card-add', '.mgnlEditorBar', masonrylayout);
 
@@ -54,7 +54,7 @@ jQuery(function($) {
     var splash = video.find('img');
     var updatelayouts = function () {
       var $masonry = video.closest('.section-masonry')
-      if ($masonry.length > 0) $masonry.masonry('layout');
+      if ($masonry.length > 0) $masonry.packery('layout');
       gatogridlayout(video.closest('.section-grid'));
     }
 
