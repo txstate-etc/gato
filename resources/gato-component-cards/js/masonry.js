@@ -8,7 +8,9 @@ jQuery(function($) {
     percentPosition: true,
     initLayout: false
   });
-  setTimeout(function(){$masonry.masonry('layout');},0);
+  var masonrylayout = function(){$masonry.masonry('layout');}
+  setTimeout(masonrylayout,0);
+  waitforselector('.gato-card-add', '.mgnlEditorBar', masonrylayout);
 
   window.gatogridlayout = function ($grids) {
     $grids.each(function() {
