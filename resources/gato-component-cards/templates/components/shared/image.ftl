@@ -1,6 +1,6 @@
 <div class="gato-card gato-card-image eq-parent ${ctx.cardsize!} ${content.color!'color1'}" data-tags="${content.tags!''}">
   [#if content.link?has_content]
-    <a href="${gf.filterUrl(content.link!)}">
+    <a class="gato-card-image-link" href="${gf.filterUrl(content.link!)}">
   [/#if]
 
   <figure>

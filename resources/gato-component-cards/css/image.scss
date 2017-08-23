@@ -60,6 +60,15 @@
     }
     a:hover figcaption { background: $mc7-comp-bg; }
   }
+
+  a.gato-card-image-link {
+    text-decoration: none;
+    &:hover {
+      img {
+        opacity: 0.9;
+      }
+    }
+  }
 }
 
 .gato-card-image {
