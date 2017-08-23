@@ -9,6 +9,9 @@ import info.magnolia.ui.vaadin.integration.jcr.AbstractJcrNodeAdapter;
 
 import com.vaadin.ui.UI;
 import edu.txstate.its.gato.GatoUtils;
+import info.magnolia.link.LinkUtil;
+import info.magnolia.context.MgnlContext;
+import javax.servlet.http.HttpServletRequest;
 
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
@@ -49,8 +52,10 @@ public class PreviewInNewWindowAction extends AbstractAction<PreviewInNewWindowA
             if (pageNode == null) {
                 throw new ActionExecutionException("Not able to resolve page node from " + nodeItemToPreview.getJcrItem().getPath());
             }
-
-            String url = gf.absoluteUrl(pageNode.getPath());
+            String relativeUrl = LinkUtil.createAbsoluteLink(pageNode);
+            HttpServletRequest request = MgnlContext.getWebContext().getRequest();
+            String serverpath = request.getScheme()+"://"+gf.serverNameAndPort();
+            String url =  serverpath + relativeUrl;
             ui.getCurrent().getPage().open(url, "_blank");
 
         } catch (RepositoryException e) {
