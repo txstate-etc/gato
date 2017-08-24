@@ -1,6 +1,6 @@
 <div class="gato-card gato-card-video eq-parent ${ctx.cardsize} ${content.color!'color1'}" data-tags="${content.tags!''}">
   <figure>
-    [#if content.thumbnail?has_content]
+    [#if content.image?has_content]
       <img src="${gf.getImgDefault(content.image)}" sizes="${ctx.sizes}"
         alt="${content.alttext!}" srcset="${gf.getSrcSet(content.image)}" />
     [#else]
