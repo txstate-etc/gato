@@ -1,0 +1,7 @@
+templateScript: /gato-template/templates/components/articlelink.ftl
+renderType: freemarker
+dialog: gato-template:components/articlelink
+description: Enter the details for an article on another page. Useful for creating a list of articles on your site.
+title: Article List
+parameters:
+  icon: /gato-template/images/link.png

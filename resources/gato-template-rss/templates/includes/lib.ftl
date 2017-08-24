@@ -1,4 +1,4 @@
-[#macro rssitem node moddate=.now body='' title='' link='' guid='' enclosure={} thumbnail={}]
+[#macro rssitem node moddate=.now body='' author='' title='' link='' guid='' enclosure={} thumbnail={}]
   <item>
     <pubDate>
       [#local moddate = gf.getModificationDate(node)]
@@ -20,6 +20,10 @@
       <link>${ gf.absoluteUrl(node.link) }</link>
     [#else]
       <link>${gf.absoluteUrl(cmsfn.link(cmsfn.page(node)))}#${gf.uuidToHtmlId(node.@id)}</link>
+    [/#if]
+
+    [#if author?has_content]
+      <author>${author}</author>
     [/#if]
 
     [#if !body?has_content]

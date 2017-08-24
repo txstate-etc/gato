@@ -19,6 +19,7 @@ ${ctx.response.setContentType('application/rss+xml;charset=UTF-8')}
     'gato-template:components/textimage'
     'gato-template:components/richeditor'
     'gato-template:components/table'
+    'gato-template:components/articlelink'
   ]) as content]
   [#include cmsfn.metaData(content,'mgnl:template')?replace('^.*?:', '/gato-template-rss/templates/', 'r')+'.ftl']
 [/#list]

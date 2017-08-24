@@ -1,3 +1,5 @@
+articlelink:
+  id: gato-template:components/articlelink
 button:
   id: gato-component-button:components/button
 events:

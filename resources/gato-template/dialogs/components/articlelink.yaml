@@ -1,0 +1,29 @@
+form:
+  tabs:
+    - name: tabGeneral
+      label: Article
+      fields:
+        - name: title
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Title
+          required: true
+        - name: link
+          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+          label: Link
+          required: true
+          appName: pages
+          identifierToPathConverter:
+            class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
+        - name: author
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Author
+        - name: articledate
+          class: info.magnolia.ui.form.field.definition.DateFieldDefinition
+          label: Date
+        - name: summary
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Summary
+          rows: 4
+          maxLength: 360
+actions: !include /gato-template/dialogs/common/actions-block.yaml
+label: Article List
