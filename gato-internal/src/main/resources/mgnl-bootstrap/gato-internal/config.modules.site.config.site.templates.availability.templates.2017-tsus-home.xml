@@ -1,71 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sv:node sv:name="2017-tsus-home" xmlns:sv="http://www.jcp.org/jcr/sv/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<sv:node xmlns:sv="http://www.jcp.org/jcr/sv/1.0" xmlns:rep="internal" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:fn_old="http://www.w3.org/2004/10/xpath-functions" xmlns:stringutils="xalan://org.apache.commons.lang.StringUtils" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns="http://www.w3.org/1999/xhtml" xmlns:jcrfn="http://www.jcp.org/jcr/xpath-functions/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:mgnl="http://www.magnolia.info/jcr/mgnl" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" sv:name="2017-tsus-home">
   <sv:property sv:name="jcr:primaryType" sv:type="Name">
     <sv:value>mgnl:contentNode</sv:value>
   </sv:property>
-  <sv:property sv:name="jcr:uuid" sv:type="String">
-    <sv:value>788f70c0-bfcd-4261-888f-2d372deda8a8</sv:value>
-  </sv:property>
   <sv:property sv:name="id" sv:type="String">
     <sv:value>gato-template-tsus2017:pages/home</sv:value>
-  </sv:property>
-  <sv:property sv:name="jcr:createdBy" sv:type="String">
-    <sv:value>admin</sv:value>
-  </sv:property>
-  <sv:property sv:name="mgnl:activationStatus" sv:type="Boolean">
-    <sv:value>false</sv:value>
-  </sv:property>
-  <sv:property sv:name="mgnl:created" sv:type="Date">
-    <sv:value>2017-04-21T11:54:58.818-05:00</sv:value>
-  </sv:property>
-  <sv:property sv:name="mgnl:createdBy" sv:type="String">
-    <sv:value>a_f269</sv:value>
-  </sv:property>
-  <sv:property sv:name="mgnl:lastActivated" sv:type="Date">
-    <sv:value>2017-04-21T11:54:58.819-05:00</sv:value>
-  </sv:property>
-  <sv:property sv:name="mgnl:lastActivatedBy" sv:type="String">
-    <sv:value>a_f269</sv:value>
-  </sv:property>
-  <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-    <sv:value>2017-06-22T20:52:20.838-05:00</sv:value>
-  </sv:property>
-  <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
-    <sv:value>a_f269</sv:value>
   </sv:property>
   <sv:node sv:name="roles">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>mgnl:contentNode</sv:value>
     </sv:property>
-    <sv:property sv:name="jcr:uuid" sv:type="String">
-      <sv:value>59480924-494d-481a-ac3a-ab55c13b0fe0</sv:value>
-    </sv:property>
-    <sv:property sv:name="jcr:createdBy" sv:type="String">
-      <sv:value>admin</sv:value>
-    </sv:property>
-    <sv:property sv:name="mgnl:activationStatus" sv:type="Boolean">
-      <sv:value>false</sv:value>
-    </sv:property>
-    <sv:property sv:name="mgnl:created" sv:type="Date">
-      <sv:value>2017-04-21T11:54:58.818-05:00</sv:value>
-    </sv:property>
-    <sv:property sv:name="mgnl:createdBy" sv:type="String">
-      <sv:value>a_f269</sv:value>
-    </sv:property>
-    <sv:property sv:name="mgnl:lastActivated" sv:type="Date">
-      <sv:value>2017-04-21T11:54:58.820-05:00</sv:value>
-    </sv:property>
-    <sv:property sv:name="mgnl:lastActivatedBy" sv:type="String">
-      <sv:value>a_f269</sv:value>
-    </sv:property>
-    <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-      <sv:value>2017-06-22T20:52:20.838-05:00</sv:value>
-    </sv:property>
-    <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
-      <sv:value>a_f269</sv:value>
-    </sv:property>
     <sv:property sv:name="superuser" sv:type="String">
       <sv:value>superuser</sv:value>
     </sv:property>
+    <sv:property sv:name="tsus-editor" sv:type="String">
+      <sv:value>tsus-editor</sv:value>
+    </sv:property>
   </sv:node>
 </sv:node>
+
