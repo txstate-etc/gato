@@ -1,7 +1,9 @@
-[#macro rssitem node moddate=.now body='' author='' title='' link='' guid='' enclosure={} thumbnail={}]
+[#macro rssitem node moddate='' body='' author='' title='' link='' guid='' enclosure={} thumbnail={}]
   <item>
     <pubDate>
-      [#local moddate = gf.getModificationDate(node)]
+      [#if !moddate?has_content]
+        [#local moddate = gf.getModificationDate(node)]
+      [/#if]
       [#if !moddate?has_content]
         [#local moddate = .now]
       [/#if]
