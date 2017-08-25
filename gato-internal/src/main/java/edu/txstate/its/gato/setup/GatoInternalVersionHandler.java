@@ -137,6 +137,10 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       .addTask(new RemoveNodeTask("Remove Wittliff sidebar template", "/modules/site/config/site/templates/availability/templates/wittliff-sidebar"))
       .addTask(new BootstrapSingleModuleResource("config.modules.site.config.site.templates.availability.templates.wittliff-home.xml"))
       .addTask(new BootstrapSingleModuleResource("config.modules.pages.apps.pages.subApps.detail.actions.changeComponentTemplate.availability.xml"))
+      .addTask(new ReformatTSUSPagesTask())
+      //.addTask(new FindAndChangeTemplateIdTask(RepositoryConstants.WEBSITE, "gato-template-tsus:pages/home", "gato-template-tsus2017:pages/home"))
+      .addTask(new FindAndChangeTemplateIdTask(RepositoryConstants.WEBSITE, "gato-template-tsus:pages/standard", "gato-template-tsus2017:pages/standard"))
+      .addTask(new FindAndChangeTemplateIdTask(RepositoryConstants.WEBSITE, "gato-template-tsus:pages/mail", "gato-template-tsus2017:pages/form"))
       .addTasks(installOrUpdateTasks())
     );
   }
