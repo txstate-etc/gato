@@ -2,10 +2,6 @@ customcss:
   !include /gato-component-cssjs/templates/areas/customcss.yaml
 customjs:
   !include /gato-component-cssjs/templates/areas/customjs.yaml
-menulinks:
-  !include /gato-template/templates/areas/linklist.yaml
-newsletter:
-  type: single
 socialmedia:
   !include /gato-template/templates/areas/sociallist.yaml
 navBlocks:
@@ -14,22 +10,17 @@ contentParagraph:
   !include /gato-template/templates/areas/contentParagraph.yaml
 mail:
   !include /gato-area-mail/templates/areas/mailForm.yaml
-banners:
-  type: list
-rightbar:
-  type: list
+contact-information:
+  type: single
   availableComponents:
-    richeditor:
-      id: gato-template:components/richeditor
-    textimage:
-      id: gato-template:components/textimage
-    documents:
-      id: gato-component-documents:components/documents
-    button:
-      id: gato-component-button:components/button
+    tsus-contact:
+      id: gato-template-tsus2017:components/tsus-contact
 footerlinks1:
   !include /gato-template/templates/areas/linklist.yaml
 footerlinks2:
-  !include /gato-template/templates/areas/linklist.yaml
-footer:
-  !include /gato-template/templates/areas/misctext.yaml
+  type: list
+  renderType: freemarker
+  templateScript: /gato-template-tsus2017/templates/areas/footerlinks.ftl
+  availableComponents:
+    link:
+      id: gato-template:components/link
