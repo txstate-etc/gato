@@ -312,13 +312,11 @@ var fitText = function(item) {
 // first resize event?
 function resizeTimeout(callback) {
 	var to;
-	var savedWidth = 0;
-	var savedHeight = 0;
 	var myfunc = function () {
     clearTimeout(to);
     to = setTimeout(callback, 100);
 	};
-	jQuery(document).ready(myfunc);
+	setTimeout(myfunc, 0);
 	jQuery(window).load(myfunc);
 	jQuery(window).resize(myfunc);
 }

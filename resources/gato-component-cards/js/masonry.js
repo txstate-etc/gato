@@ -6,10 +6,11 @@ jQuery(function($) {
     columnWidth: ".masonry-sizer",
     gutter: ".masonry-gutter",
     percentPosition: true,
-    initLayout: false
+    initLayout: false,
+    resize: false
   });
   var masonrylayout = function(){$masonry.packery('layout');}
-  setTimeout(masonrylayout,0);
+  resizeTimeout(masonrylayout);
   waitforselector('.gato-card-add', '.mgnlEditorBar', masonrylayout);
 
   window.gatogridlayout = function ($grids) {
