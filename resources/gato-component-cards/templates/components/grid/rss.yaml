@@ -5,5 +5,5 @@ description: Display the contents of an RSS feed on your site.
 dialog: gato-component-cards:components/grid/rss
 modelClass: edu.txstate.its.gato.RssModel
 parameters:
-  icon: /gato-component-rss/images/rssfeed.png
+  icon: /gato-component-cards/images/rssfeed-card.png
   templateName: rss
