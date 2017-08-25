@@ -29,6 +29,12 @@
       @at-root .color5#{&} { background-color: rgba($mc5-bg, 0.95); }
       @at-root .color6#{&} { background-color: rgba($mc6-bg, 0.95); }
       @at-root .color7#{&} { background-color: rgba($mc7-bg, 0.95); }
+      @at-root [data-eq~="300px"]#{&} {
+        position: relative;
+        left: 0;
+        bottom: 0;
+        margin: 0;
+      }
     }
   }
   .feature-play-button {
@@ -53,6 +59,12 @@
     @at-root .color5#{&} { background-color: $mc5-bg; }
     @at-root .color6#{&} { background-color: $mc6-bg; }
     @at-root .color7#{&} { background-color: $mc7-bg; }
+    @at-root [data-eq~="300px"]#{&} {
+      top: 35%;
+      width: 5rem;
+      height: 5rem;
+      font-size: 2.5rem;
+    }
     i {
       position: absolute;
       top:50%;
