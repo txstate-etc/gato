@@ -5,14 +5,14 @@ $content-link-hover:               $wittliffsand-light;
 $section-background-color:         $lightgray;
 
 /* Calendar */
-$event-box-shadow-color: $sandstone;
-$event-header-background: $maroon;
-$event-header-color: $white;
-$event-header-background-hover: $light-maroon;
-$event-header-title-color: $white;
-$event-header-box-shadow-color: $lightest-maroon;
-$event-detail-link-color: $maroon;
-$event-detail-detailsbox-background: $sandstone;
+$event-box-shadow-color: $white;
+$event-header-background: $silver;
+$event-header-color: $black;
+$event-header-background-hover: $light-silver;
+$event-header-title-color: $black;
+$event-header-box-shadow-color: $lightest-silver;
+$event-detail-link-color: $wittliffred;
+$event-detail-detailsbox-background: $white;
 $event-detail-detailsbox-color: $very-dark;
 
 /* RSS */
@@ -23,9 +23,9 @@ $rss-header-background-hover: $light-gold;
 $rss-header-box-shadow-color:  $lightest-gold;
 
 /* Text and Image */
-$text-image-caption-background: $sandstone;
+$text-image-caption-background: $lightest-coffee;
 $text-image-caption-color: $very-dark;
-$text-image-caption-link-color: $maroon;
+$text-image-caption-link-color: $black;
 $text-image-horiz: 3rem;
 $text-image-top: 2rem;
 $text-image-bottom: 1.5rem;
@@ -41,41 +41,41 @@ $faq-group-box-shadow-color: transparent;
 $faq-question-box-shadow-color: transparent;
 
 /* Rich Editor Tables */
-$table-header-bg: $gold;
+$table-header-bg: $coffee;
 $table-header-text: $white;
-$table-header-border: $lightest-gold;
+$table-header-border: $lightest-coffee;
 $table-border: $khaki;
-$table-carded-border: $gold;
-$table-link: $maroon;
-$table-altrow-bg: $light-sandstone;
-$table-caption-background: $gold;
+$table-carded-border: $lightest-coffee;
+$table-link: $wittliffrust;
+$table-altrow-bg: $lightest-coffee;
+$table-caption-background: $lightest-coffee;
 $table-caption-color: $white;
 
 /* Article Link */
 $articlelink-more-text: $blue;
 
 /* Icon and Text */
-$icontext-title-underline-top-color: $khaki;
-$icontext-title-underline-bottom-color: $sandstone;
+$icontext-title-underline-top-color: $silver;
+$icontext-title-underline-bottom-color: $silver;
 $icontext-text-color: $very-dark;
 
 /* Percent Display */
-$progress-inner-circle-color: $maroon;
-$progress-outer-circle-color: mix($charcoal, $white, 70 );
-$progress-outer-circle-fill-color: $blue;
-$progress-title-color: $blue;
+$progress-inner-circle-color: $wittliffred;
+$progress-outer-circle-color: $light-silver;
+$progress-outer-circle-fill-color: $sienna;
+$progress-title-color: $charcoal;
 $progress-percent-color: $charcoal;
 
 /* Documents */
-$document-icon-color: $charcoal;
-$document-details-text-color: $gold;
+$document-icon-color: $coffee;
+$document-details-text-color: $coffee;
 
 /* Gallery */
 $gallery-caption-text-color: $white;
-$gallery-top-bar-background-color: $gold;
-$gallery-top-bar-border-color: $gold-shadow;
+$gallery-top-bar-background-color: $cactus;
+$gallery-top-bar-border-color: $cactus-shadow;
 $gallery-tooltip-link-color: $blue;
-$gallery-facebook-border-color: $sandstone;
+$gallery-facebook-border-color: $silver;
 $gallery-arrow-color: $white;
 
 /* Feature */
@@ -85,26 +85,26 @@ $feature-play-button-default-color: $white;
 $feature-play-button-hover-background: $light-maroon;
 
 /* Forms */
-$form-alert-link-color: $maroon;
-$form-textfield-border-color: $gold;
-$form-textfield-background-color: $sandstone;
+$form-alert-link-color: $wittliffred;
+$form-textfield-border-color: $coffee;
+$form-textfield-background-color: $lightest-coffee;
 $form-submit-text-color: $white;
-$form-submit-box-shadow-color: $gold-shadow;
-$form-submit-background-color: $gold;
-$form-submit-hover-background-color: $light-gold;
+$form-submit-box-shadow-color: $sienna-shadow;
+$form-submit-background-color: $sienna;
+$form-submit-hover-background-color: $light-sienna;
 
 /* Department Directory */
-$directory-name-color: $maroon;
-$directory-email-color: $blue;
+$directory-name-color: $wittliffred;
+$directory-email-color: $wittliffred;
 $directory-icon-color: $charcoal;
-$directory-title-color: $gold;
-$directory-address-color: $gold;
+$directory-title-color: $charcoal;
+$directory-address-color: $charcoal;
 
 /* Video embed */
 $streaming-wrapper-link-color: $blue;
 
 /* Separator */
-$separator-color: $khaki;
+//$separator-color: $lighter-coffee;
 
 /* Masonry / Mosaic */
 $rss-card-readmore-color: $blue;

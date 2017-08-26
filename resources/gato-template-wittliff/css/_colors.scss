@@ -1,56 +1,75 @@
+//These 2015 colors are still be used in Wittliff 
 
 $maroon:                #501214; // (106,86,56)
 $gold:                  #6A5638; // (80, 18, 20)
 
 $charcoal:            #363534; // (54, 53, 52)
-$blue:                #005481; // (0, 84, 129)
-$river:               #8BAEA1; // (140, 175, 161)
 $sandstone:           #E8E3DB; // (232, 227, 219)
-$oldgold:             #DEB407; // (222, 180, 7)
 
-$white:                #FFFFFF;
-
-$darkest-maroon:       #400E10; //20% darker than maroon
-$dark-maroon:          #481012; //10% darker than maroon
 $light-maroon:         #622a2c; //10% lighter than maroon
-$lightest-maroon:      #734143; //20% lighter than maroon
-$maroon-shadow:        #380D0E;  //30% darker than maroon
 
 $lightest-gold:        #887860;
 $light-gold:           #79674C; //10% lighter than gold
-$dark-gold:            #5F4D32;
-$darkest-gold:         #55452D;    //40% darker than gold
-$gold-shadow:          #4A3C27; //30 % darker than gold
 
-$lightest-blue:        #33769A; //20% lighter than blue
-$light-blue:           #1A658E; //10% lighter than blue
-$dark-blue:            #004B74; //10% darker than blue
-$darker-blue:          #004367; //20% darker than blue
-$blue-shadow:          #003B5A; //30% darker than blue
-
-$lightest-charcoal:    #5E5D5D; //20% lighter than charcoal
-$light-charcoal:       #4A4948; //10% lighter than charcoal
-$dark-charcoal:        #31302F; //10% darker than charcoal
-$darker-charcoal:      #2B2A2A; //20% darker than charcoal
-$darkest-charcoal:     #262524; //30% darker than charcoal
-
-$lightest-river:       #A2BEB4; //20% lighter than river
-$light-river:          #97B6AA; //10% lighter than river
-$dark-river:           #7D9D91; //10% darker than river
-$darker-river:         #6F8B81; //20% darker than river
-$river-shadow:         #617A71; //30% darker than river
-
-$light-sandstone:      #F4F1ED; //50% lighter than sandstone
 $khaki:                #D1C7B7; //50% darker than sandstone
-$darkest-sandstone:    #BBAB92; //40% darker than sandstone
-$dark-sandstone:       #DDD5C9; //10% darker than sandstone
 
-$lightest-oldgold:     #E5C339; //20% lighter than oldgold
-$light-oldgold:        #E1BC20; //10% lighter than oldgold
-$dark-oldgold:         #C8A106; //10% darker than oldgold
-$darker-oldgold:       #B29006; //20% darker than oldgold
-$oldgold-shadow:       #9B7E05; //30% darker than oldgold
+//end 2015 colors
 
+$cactus:              #465147; // (70,82,71)
+$coffee:              #654D3C; // (101,78,60)
+
+$silver:              #C8BEB7; // (200, 190, 183) Nick calls this $wittliffsand:#C8BEB7;
+$tumbleweed:          #C69D77; // (198, 157, 119)
+$sienna:              #7D2F19; // (125, 47, 25)
+$palebrown:           #764A33; // (118, 74, 51)
+$maize:               #F3C9A3; // (243, 201, 163)
+
+$white:                #FFFFFF;
+$blue:                 #005481; // (0, 84, 129)
+
+$dark-cactus:          #3f4940; //10% darker than cactus
+$darkest-cactus:       #384139; //20% darker than cactus
+$light-cactus:         #5e6c5f; //10% lighter than cactus
+$lightest-cactus:      #919f92; //20% lighter than cactus
+$cactus-shadow:        #363F37;  //
+
+
+$dark-coffee:            #5F4D32; //10% darker than cofee
+$darkest-coffee:         #55452D; //20% darker than coffee
+$light-coffee:           #85654f; //10% lighter than coffee
+$lightest-coffee:        #B59884; //20% lighter than coffee
+$coffee-shadow:          #503D2F; //
+
+
+$dark-silver:            #b2a49a; //10% darker than silver
+$darker-silver:          #9c8a7d; //20% darker than silver
+$lightest-silver:        #f4f2f1; //20% lighter than silver
+$light-silver:           #ded8d4; //10% lighter than silver
+$silver-shadow:          #a39387; //
+
+$dark-tumbleweed:        #bc8c5f; //10% darker than tumbleweed
+$darker-tumbleweed:      #b07b4a; //20% darker than tumbleweed
+$darkest-tumbleweed:     #8c623b; //30% darker than tumbleweed
+$lightest-tumbleweed:    #dfc8b3; //20% lighter than tumbleweed
+$light-tumbleweed:       #d5b79b; //10% lighter than tumbleweed
+$tumbleweed-shadow:      #8c623b;
+
+$lightest-sienna:       #a73f21; //10% lighter than sienna
+$light-sienna:          #8b341c; //4% lighter than sienna
+$dark-sienna:           #612413; //10% darker than sienna
+$darker-sienna:         #441a0e; //20% darker than sienna
+$sienna-shadow:         #612413; //
+
+$light-maize:           #f7dbc1; //
+$khaki:                 #D1C7B7; //
+$darkest-maize:         #EFB785; //10% darker than maize
+$dark-maize:            #f1c094; //5% darker than maize
+
+$lightest-palebrown:     #a56848; //20% lighter than palebrown
+$light-palebrown:        #8e593d; //10% lighter than palebrown
+$dark-palebrown:         #6a432e; //10% darker than palebrown
+$darker-palebrown:       #523424; //20% darker than palebrown
+$palebrown-shadow:       #5E3B29; //30% darker than palebrown
 
 
 /* Key Colors */
@@ -81,137 +100,136 @@ $alabaster:             #ede9e7;
 
 $template-color-count: 7;
 
-$mc1-name:                  'Maroon';
-$mc1-bg:                    $maroon;
+$mc1-name:                  'Cactus';
+$mc1-bg:                    $cactus;
 $mc1-text:                  $white;
 $mc1-link:                  $white;
 $mc1-header:                $white;
-$mc1-border:                $darkest-maroon;
-$mc1-comp-bg:               $light-maroon;
+$mc1-border:                $darkest-cactus;
+$mc1-comp-bg:               $light-cactus;
 $mc1-comp-text:             $mc1-text;
 $mc1-comp-link:             $mc1-link;
 $mc1-comp-header:           $mc1-header;
 $mc1-comp-border:           $mc1-border;
 $mc1-hilite-bg:             $white;
-$mc1-hilite-text:           $maroon;
-$mc1-grad-top:              $light-maroon;
-$mc1-grad-bottom:           $dark-maroon;
-$mc1-comp-grad-top:         $lightest-maroon;
-$mc1-comp-grad-bottom:      $maroon;
-$mc1-shadow:                $maroon-shadow;
+$mc1-hilite-text:           $cactus;
+$mc1-grad-top:              $light-cactus;
+$mc1-grad-bottom:           $dark-cactus;
+$mc1-comp-grad-top:         $lightest-cactus;
+$mc1-comp-grad-bottom:      $cactus;
+$mc1-shadow:                $cactus-shadow;
 
-$mc2-name:                  'Gold';
-$mc2-bg:                    $gold;
+$mc2-name:                  'Coffee';
+$mc2-bg:                    $coffee;
 $mc2-text:                  $white;
 $mc2-link:                  $white;
 $mc2-header:                $white;
-$mc2-border:                $darkest-gold;
-$mc2-comp-bg:               $light-gold;
+$mc2-border:                $darkest-coffee;
+$mc2-comp-bg:               $light-coffee;
 $mc2-comp-text:             $white;
 $mc2-comp-link:             $mc2-link;
 $mc2-comp-header:           $mc2-header;
 $mc2-comp-border:           $mc2-border;
-$mc2-hilite-bg:             $light-gold;
+$mc2-hilite-bg:             $light-coffee;
 $mc2-hilite-text:           $white;
-$mc2-grad-top:              $light-gold;
-$mc2-grad-bottom:           $dark-gold;
-$mc2-comp-grad-top:         $lightest-gold;
+$mc2-grad-top:              $light-coffee;
+$mc2-grad-bottom:           $dark-coffee;
+$mc2-comp-grad-top:         $lightest-coffee;
 $mc2-comp-grad-bottom:      $mc2-bg;
-$mc2-shadow:                $gold-shadow;
+$mc2-shadow:                $coffee-shadow;
 
 
-$mc3-name:                  'Charcoal';
-$mc3-bg:                    $charcoal;
-$mc3-text:                  $white;
-$mc3-link:                  $white;
-$mc3-header:                $white;
-$mc3-border:                $darker-charcoal;
-$mc3-comp-bg:               $light-charcoal;
+$mc3-name:                  'Tumbleweed';
+$mc3-bg:                    $tumbleweed;
+$mc3-text:                  $almost-black;
+$mc3-link:                  $almost-black;
+$mc3-header:                $almost-black;
+$mc3-border:                $darker-tumbleweed;
+$mc3-comp-bg:               $light-tumbleweed;
 $mc3-comp-text:             $mc3-text;
 $mc3-comp-link:             $mc3-link;
 $mc3-comp-header:           $mc3-header;
 $mc3-comp-border:           $mc3-border;
 $mc3-hilite-bg:             $white;
-$mc3-hilite-text:           $charcoal;
-$mc3-grad-top:              $light-charcoal;
-$mc3-grad-bottom:           $dark-charcoal;
-$mc3-comp-grad-top:         $lightest-charcoal;
+$mc3-hilite-text:           $tumbleweed;
+$mc3-grad-top:              $light-tumbleweed;
+$mc3-grad-bottom:           $dark-tumbleweed;
+$mc3-comp-grad-top:         $lightest-tumbleweed;
 $mc3-comp-grad-bottom:      $mc3-bg;
 $mc3-shadow:                $almost-black;
 
-$mc4-name:                  'Blue';
-$mc4-bg:                    $blue;
-$mc4-text:                  $white;
-$mc4-link:                  $white;
-$mc4-header:                $white;
-$mc4-border:                $darker-blue;
-$mc4-comp-bg:               $light-blue;
+$mc4-name:                  'Silver';
+$mc4-bg:                    $silver;
+$mc4-text:                  $almost-black;
+$mc4-link:                  $almost-black;
+$mc4-header:                $almost-black;
+$mc4-border:                $darker-silver;
+$mc4-comp-bg:               $light-silver;
 $mc4-comp-text:             $mc4-text;
 $mc4-comp-link:             $mc4-link;
 $mc4-comp-header:           $mc4-header;
 $mc4-comp-border:           $mc4-border;
 $mc4-hilite-bg:             $white;
 $mc4-hilite-text:           $mc4-bg;
-$mc4-grad-top:              $light-blue;
-$mc4-grad-bottom:           $dark-blue;
-$mc4-comp-grad-top:         $lightest-blue;
+$mc4-grad-top:              $light-silver;
+$mc4-grad-bottom:           $dark-silver;
+$mc4-comp-grad-top:         $lightest-silver;
 $mc4-comp-grad-bottom:      $mc4-bg;
-$mc4-shadow:                $blue-shadow;
+$mc4-shadow:                $silver-shadow;
 
-$mc5-name:                  'River';
-$mc5-bg:                    $river;
-$mc5-text:                  $almost-black;
-$mc5-link:                  $almost-black;
-$mc5-header:                $almost-black;
-$mc5-border:                $darker-river;
-$mc5-comp-bg:               $lightest-river;
+$mc5-name:                  'Sienna';
+$mc5-bg:                    $sienna;
+$mc5-text:                  $white;
+$mc5-link:                  $white;
+$mc5-header:                $white;
+$mc5-border:                $darker-sienna;
+$mc5-comp-bg:               $lightest-sienna;
 $mc5-comp-text:             $mc5-text;
 $mc5-comp-link:             $mc5-link;
 $mc5-comp-header:           $mc5-header;
 $mc5-comp-border:           $mc5-border;
-$mc5-hilite-bg:             $lightest-river;
+$mc5-hilite-bg:             $lightest-sienna;
 $mc5-hilite-text:           $almost-black;
-$mc5-grad-top:              $light-river;
-$mc5-grad-bottom:           $dark-river;
-$mc5-comp-grad-top:         $lightest-river;
+$mc5-grad-top:              $light-sienna;
+$mc5-grad-bottom:           $dark-sienna;
+$mc5-comp-grad-top:         $lightest-sienna;
 $mc5-comp-grad-bottom:      $mc5-bg;
-$mc5-shadow:                $river-shadow;
+$mc5-shadow:                $sienna-shadow;
 
-$mc6-name:                  'Sandstone';
-$mc6-bg:                    $sandstone;
-$mc6-text:                  $very-dark;
-$mc6-link:                  $very-dark;
-$mc6-header:                $very-dark;
-$mc6-border:                $darkest-sandstone;
-$mc6-comp-bg:               $dark-sandstone;
+$mc6-name:                  'Pale Brown';
+$mc6-bg:                    $coffee;
+$mc6-text:                  $white;
+$mc6-link:                  $white;
+$mc6-header:                $white;
+$mc6-border:                $darker-palebrown;
+$mc6-comp-bg:               $lightest-palebrown;
 $mc6-comp-text:             $mc6-text;
 $mc6-comp-link:             $mc6-link;
 $mc6-comp-header:           $mc6-header;
 $mc6-comp-border:           $mc6-border;
 $mc6-hilite-bg:             $white;
 $mc6-hilite-text:           $very-dark;
-$mc6-grad-top:              $light-sandstone;
-$mc6-grad-bottom:           $dark-sandstone;
-$mc6-comp-grad-top:         $mc6-bg;
-$mc6-comp-grad-bottom:      $khaki;
-$mc6-shadow:                $darkest-sandstone;
+$mc6-grad-top:              $light-palebrown;
+$mc6-grad-bottom:           $dark-palebrown;
+$mc6-comp-grad-top:         $lightest-palebrown;
+$mc6-comp-grad-bottom:      $mc6-bg;
+$mc6-shadow:                $palebrown-shadow;
 
-$mc7-name:                  'Old Gold';
-$mc7-bg:                    $oldgold;
+$mc7-name:                  'Maize';
+$mc7-bg:                    $maize;
 $mc7-text:                  $very-dark;
 $mc7-link:                  $very-dark;
 $mc7-header:                $very-dark;
-$mc7-border:                $darker-oldgold;
-$mc7-comp-bg:               $lightest-oldgold;
+$mc7-border:                $darkest-maize;
+$mc7-comp-bg:               $dark-maize;
 $mc7-comp-text:             $mc7-text;
 $mc7-comp-link:             $mc7-link;
 $mc7-comp-header:           $mc7-header;
 $mc7-comp-border:           $mc7-border;
 $mc7-hilite-bg:             $white;
 $mc7-hilite-text:           $very-dark;
-$mc7-grad-top:              $light-oldgold;
-$mc7-grad-bottom:           $dark-oldgold;
-$mc7-comp-grad-top:         $lightest-oldgold;
-$mc7-comp-grad-bottom:      $mc7-bg;
-$mc7-shadow:                $oldgold-shadow;
-
+$mc7-grad-top:              $light-maize;
+$mc7-grad-bottom:           $dark-maize;
+$mc7-comp-grad-top:         $mc7-bg;
+$mc7-comp-grad-bottom:      $khaki;
+$mc7-shadow:                $darkest-maize;
