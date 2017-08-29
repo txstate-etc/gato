@@ -9,6 +9,7 @@ form:
         - name: link
           class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
           label: Link Target
+          required: true
           appName: pages
           identifierToPathConverter:
             class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter

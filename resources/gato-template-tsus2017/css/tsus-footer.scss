@@ -145,10 +145,16 @@ footer {
                     }
                 }
             }
+            .listItems_add .mgnlEditorBarLabel {
+                white-space: normal !important;
+            }
         }
         .bottom{
             .listItems_add {
                 list-style: none;
+                .mgnlEditorBar.mgnlEditor {
+                    width: 15rem !important;
+                }
             }
             display: flex;
             padding-top: 2.2rem;
