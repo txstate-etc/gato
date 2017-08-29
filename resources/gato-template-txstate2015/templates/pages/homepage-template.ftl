@@ -15,7 +15,7 @@
       'gato-lib/js/fastclick.js',
       'gato-template-txstate2015/js/common.js',
       'gato-template-txstate2015/js/fontsdotcom.js'
-    ]]
+    ]/]
     [@templatehead publisher='Texas State' /]
 
     <link rel="alternate" type="application/rss+xml"
