@@ -141,6 +141,7 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       //.addTask(new FindAndChangeTemplateIdTask(RepositoryConstants.WEBSITE, "gato-template-tsus:pages/home", "gato-template-tsus2017:pages/home"))
       .addTask(new FindAndChangeTemplateIdTask(RepositoryConstants.WEBSITE, "gato-template-tsus:pages/standard", "gato-template-tsus2017:pages/standard"))
       .addTask(new FindAndChangeTemplateIdTask(RepositoryConstants.WEBSITE, "gato-template-tsus:pages/mail", "gato-template-tsus2017:pages/form"))
+      .addTask(new BootstrapSingleModuleResource("config.modules.pages.dialogs.newComponent.form.tabs.components.fields.mgnl-position.xml"))
       .addTasks(installOrUpdateTasks())
     );
   }
