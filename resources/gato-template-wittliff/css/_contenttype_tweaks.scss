@@ -164,3 +164,62 @@ body ul.gato-faq-hierarchy {
     }
   }
 }
+
+// Rich Editor Tables
+.column_paragraph .rich-editor-table{
+  table{
+    a:hover {
+      background: transparent;
+      text-decoration: none;
+    }
+    &.header-color-cactus th{
+      background: $cactus;
+      color: $white;
+      a{
+        color: $white;
+      }
+    }
+    &.header-color-coffee th{
+      background: $coffee;
+      color: $white;
+      a{
+        color: $white;
+      }
+    }
+    &.header-color-tumbleweed th{
+      background: $tumbleweed;
+      color: $black;
+      a{
+        color: $black;
+      }
+    }
+    &.header-color-silver th{
+      background: $silver;
+      color: $black;
+      a{
+        color: $black;
+      }
+    }
+    &.header-color-sienna th{
+      background: $sienna;
+      color: $white;
+      a{
+        color: $white;
+      }
+    }
+    &.header-color-palebrown th{
+      background: $palebrown;
+      color: $white;
+      a{
+        color: $white;
+      }
+    }
+    &.header-color-maize th{
+      background: $maize;
+      color: $black;
+      a{
+        color: $black;
+      }
+    }
+  }
+}
