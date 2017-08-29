@@ -5,7 +5,7 @@
     },
     "iconText": {
         "singleColor": true,
-        "colors": ["color1", "color2", "color3"]
+        "colors": ["color1", "color2", "color5"]
     },
     "gradientButton": {
         "singleColor": true,
