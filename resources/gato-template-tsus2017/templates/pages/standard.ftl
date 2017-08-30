@@ -35,9 +35,10 @@
             [/#if]
         </div>
     [#include "includes/footer.ftl"]
-    <!-- if the sidebar is hidden, add a sidebar modal so they can edit it for child pages if necessary.
-    See 2015 template and old TSUS template -->
     [@cssjsmodals /]
+    [#if hideSidebar]
+        [@sidebarmodal/]
+    [/#if]
     [#include "/gato-template/templates/includes/video-modal.ftl"]
   </body>
 </html>
