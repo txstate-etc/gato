@@ -1,7 +1,7 @@
 templateScript: /gato-component-cards/templates/components/layouts/masonry.ftl
 renderType: site
 visible: true
-title: Masonry Layout
+title: Collage Layout
 areas:
   masonrycards:
     templateScript: /gato-component-cards/templates/areas/masonry.ftl
