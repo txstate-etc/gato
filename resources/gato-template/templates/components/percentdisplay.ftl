@@ -10,7 +10,7 @@
             <path d="M${center_x?number - progress_radius?number} ${center_y}
                      A ${progress_radius} ${progress_radius} 0 0 0 ${center_x?number - progress_radius?number} ${center_y}" stroke="#1e355e" stroke-width="12"  fill="transparent"/>
         </svg>
-        <div class="percent">${content.percent_complete!0}%</div>
+        <div class="percent">${(content.percent_complete!0)?number?string['##0.#']}%</div>
     </div><!--
   --><div class="content">
         <h3 class="progress-title">${content.title}</h3>
