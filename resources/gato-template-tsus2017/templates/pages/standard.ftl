@@ -37,7 +37,7 @@
     [#include "includes/footer.ftl"]
     [@cssjsmodals /]
     [#if hideSidebar]
-        [@sidebarmodal/]
+      [@sidebarmodal skipsocial=true /]
     [/#if]
     [#include "/gato-template/templates/includes/video-modal.ftl"]
   </body>

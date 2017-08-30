@@ -41,6 +41,9 @@
     </div>
     [#include "includes/footer.ftl"]
     [@cssjsmodals /]
+    [#if isHomePage && hideSidebar]
+      [@sidebarmodal skipsocial=true /]
+    [/#if]
     [#include "/gato-template/templates/includes/video-modal.ftl"]
   </body>
 </html>
