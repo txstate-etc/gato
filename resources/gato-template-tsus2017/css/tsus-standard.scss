@@ -99,35 +99,10 @@
       }
 
       //Style for the quick links section.  Not currently being used
-      ul.quick-links{
-          margin: 0;
-          padding: 0.5rem 0 1rem;
-          list-style: none;
-          font-size: 0;
-          line-height: 0;
-          li{
-              display: inline-block;
-              vertical-align: top;
-              font-weight: 300;
-              font-size: 1.2rem;
-              line-height: 1.6rem;
-              font-family: 'Roboto', sans-serif;
-              margin: 0 0.5rem 0.5rem 0;
-              a{
-                  display: inline-block;
-                  text-decoration: none;
-                  vertical-align: top;
-                  color: #161616;
-                  border: 1px solid #bdbec0;
-                  adding: 0.3rem 1rem 0.4rem;
-                  transition: all .3s;
-                  &:hover{
-                      color: #fff;
-                      background-color: #373644;
-                      border-color: #373644;
-                  }
-              }
-          }
+      ul.quick-links {
+        li {
+          font-family: 'Roboto', sans-serif;
+        }
       }
     }
   }
@@ -200,15 +175,3 @@
     text-decoration: none;
   }
 }
-
-///////////////////////////////////
-
-///quick-links
-  .quick-links{
-    display: inline-block;
-    vertical-align: top;
-    color:  $tsus-lightgray;
-    padding: .3rem 1rem .4rem;
-  }
-
-/////////////////////////////////////
