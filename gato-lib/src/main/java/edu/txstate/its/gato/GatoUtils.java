@@ -1031,8 +1031,8 @@ public final class GatoUtils {
     if (node == null) return false;
     Node n = toNode(node);
     List<String> cardSections = Arrays.asList(
-      "gato-component-cards:components/masonry",
-      "gato-component-cards:components/gridlayout");
+      "gato-component-cards:components/layouts/masonry",
+      "gato-component-cards:components/layouts/grid");
     try {
       String t = NodeTypes.Renderable.getTemplate(n);
       return cardSections.contains(t);
