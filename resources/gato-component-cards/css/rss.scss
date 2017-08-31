@@ -6,30 +6,25 @@
       box-shadow: $gato-card-shadow;
     .gato-rss-feedinformation {
       .gato-rss-title {
+        display: flex;
+        align-items: center;
         font-size: 1.8rem;
         line-height: 2.4rem;
         font-family: 'ProximaNova-Bold', sans-serif;
         text-transform: uppercase;
         color: $rss-card-title-color;
-        margin: 1.4rem 1.4rem 3rem;
-        position: relative;
-        span{
-          display: inline-block;
-          vertical-align: top;
+        margin: 1.4rem 1.4rem 2.8rem;
+        span {
           background-color: $rss-card-background-color;
-          padding-right: 33px;
-          position: relative;
-          z-index: 2;
+          padding-top: 1px;
+          padding-right: 3rem;
         }
         &::after{
           content: '';
-          position: absolute;
           z-index: 1;
           height: 5px;
-          right: 0;
-          left: 0;
-          bottom: 6px;
           background-color: $rss-card-stripe-color;
+          flex-grow: 1;
         }
       }
       font-size: 0;//hides extra text that may show up from rss feeds not enclosed in a tag other than .gato-rss-feedimage
@@ -37,14 +32,13 @@
     .gato-rss-item {
       padding: 0rem 1rem 2.3rem 2rem;
       .gato-rss-item-header {
-        line-height: 2.2rem;
         margin-bottom: 0.4rem;
         text-transform: none;
         a {
           display: block;
-          line-height: 2rem;
+          line-height: 1.2;
           font-weight: 400;
-          font-size: 1.4rem;
+          font-size: 1.5rem;
           color: $rss-card-entry-title-color;
           text-decoration: none;
         }
