@@ -1,5 +1,5 @@
 .tsus-slideshow .gato-slider{
-    //hide the arrows for TSUS.  Is this an accessibility problem?
+    margin-bottom: 0px;
     .slick-prev, .slick-next{
         display: none !important;
     }
@@ -15,6 +15,9 @@
         bottom: 19px;
         z-index: 1009;
         text-align: center;
+        @media (max-width: $sm-breakpoint){
+            display: none !important;
+        }
         li {
             display: inline-block;
             vertical-align: top;
@@ -79,7 +82,7 @@
             left: 0;
             bottom: 10%;
             padding: 2rem 1rem 2.4rem 10.5rem;
-            width: auto; //might need to change this to something else
+            width: auto;
             h3 {
                 font-size: 2.5rem;
                 line-height: 2.9rem;
@@ -93,73 +96,11 @@
                 line-height: 2.4rem;
                 letter-spacing: 0.05rem;
             }
-        }
-        .moving-image-caption {
-            h3, p {
-                background-color: transparent !important;
-            }
-        }
-        &.color1{
-            .moving-image-caption {
-                background-color: rgba($mc1-bg, 0.9);
-                h3, p {color: $mc1-text};
-            }
-        }
-        &.color2{
-            .moving-image-caption {
-              background-color: rgba($mc2-bg, 0.9);
-             h3, p {color: $mc2-text};
-            }
-        }
-        &.color3{
-            .moving-image-caption {
-              background-color: rgba($mc3-bg, 0.9);
-              h3, p {color: $mc3-text};
-            }
-        }
-        &.color4{
-            .moving-image-caption {
-              background-color: rgba($mc4-bg, 0.9);
-              h3, p {color: $mc4-text};
-            }
-        }
-        &.color5{
-            .moving-image-caption {
-              background-color: rgba($mc5-bg, 0.9);
-              h3, p {color: $mc5-text};
-            }
-        }
-        &.color6{
-            .moving-image-caption {
-              background-color: rgba($mc6-bg, 0.9);
-              h3, p {color: $mc6-text};
-            }
-        }
-        &.color7{
-            .moving-image-caption {
-              background-color: rgba($mc7-bg, 0.9);
-              h3, p {color: $mc7-text};
-            }
-        }
-    }
-    
-    .moving-image-caption {
-        p {
-          font-style: italic;
-        }
-    }
-}
-
-.gato-slider {
-    margin-bottom: 0px;
-    [data-eq~="800px"] & {
-        .slide {
-            .caption {
-                //position: relative;
+            @media (max-width: $sm-breakpoint){
                 width: 100%;
                 bottom: 0;
                 text-align: center;
-                padding: 0px;
+                padding: 0.4rem 1rem;
                 h3 {
                     font-size: 1.4rem;
                     line-height: 2rem;
@@ -173,9 +114,151 @@
 
                 }
             }
+            .feature-play-button {
+              top: 2rem;
+              left: 4rem;
+              @media (max-width: $sm-breakpoint){
+                top: -8rem;
+                left: 2rem;
+              }
+              a {
+                border: 1px solid $black;
+                &:hover {
+                    transform: none;
+                }
+              }
+            }
         }
-        .slick-dots {
-            display: none !important;
+        .caption {
+            h3, p {
+                background-color: transparent !important;
+            }
+        }
+        &.color1{
+            .caption {
+                background-color: rgba($mc1-bg, 0.9);
+                h3, p {color: $mc1-text};
+                .feature-play-button {
+                  a { 
+                    border-color: $mc1-text;
+                    background-color: transparent;
+                  }
+                  @media (max-width: $sm-breakpoint){
+                    a {
+                        border-color: transparent;
+                        background-color: rgba($mc1-bg, 0.9);
+                    }
+                  }
+                }
+            }
+        }
+        &.color2{
+            .caption {
+              background-color: rgba($mc2-bg, 0.9);
+              h3, p {color: $mc2-text};
+              .feature-play-button {
+                a { border-color: $mc2-text;
+                    background-color: transparent;
+                }
+                @media (max-width: $sm-breakpoint){
+                    a {
+                        border-color: transparent;
+                        background-color: rgba($mc2-bg, 0.9);
+                    }
+                }
+              }
+            }
+        }
+        &.color3{
+            .caption {
+              background-color: rgba($mc3-bg, 0.9);
+              h3, p {color: $mc3-text};
+              .feature-play-button {
+                a { border-color: $mc3-text;
+                    background-color: transparent;
+                }
+                @media (max-width: $sm-breakpoint){
+                    a {
+                        border-color: transparent;
+                        background-color: rgba($mc3-bg, 0.9);
+                    }
+                }
+              }
+            }
+        }
+        &.color4{
+            .caption {
+              background-color: rgba($mc4-bg, 0.9);
+              h3, p {color: $mc4-text};
+              .feature-play-button {
+                a { border-color: $mc4-text;
+                    background-color: transparent;
+                }
+                @media (max-width: $sm-breakpoint){
+                    a {
+                        border-color: transparent;
+                        background-color: rgba($mc4-bg, 0.9);
+                    }
+                }
+              }
+            }
+        }
+        &.color5{
+            .caption {
+              background-color: rgba($mc5-bg, 0.9);
+              h3, p {color: $mc5-text};
+              .feature-play-button {
+                a { border-color: $mc5-text;
+                    background-color: transparent;
+                }
+                @media (max-width: $sm-breakpoint){
+                    a {
+                        border-color: transparent;
+                        background-color: rgba($mc5-bg, 0.9);
+                    }
+                }
+              }
+            }
+        }
+        &.color6{
+            .caption {
+              background-color: rgba($mc6-bg, 0.9);
+              h3, p {color: $mc6-text};
+              .feature-play-button {
+                a { border-color: $mc6-text;
+                    background-color: transparent;
+                }
+                @media (max-width: $sm-breakpoint){
+                    a {
+                        border-color: transparent;
+                        background-color: rgba($mc6-bg, 0.9);
+                    }
+                }
+              }
+            }
+        }
+        &.color7{
+            .caption {
+              background-color: rgba($mc7-bg, 0.9);
+              h3, p {color: $mc7-text};
+              .feature-play-button {
+                a { border-color: $mc7-text;
+                    background-color: transparent;
+                }
+                @media (max-width: $sm-breakpoint){
+                    a {
+                        border-color: transparent;
+                        background-color: rgba($mc7-bg, 0.9);
+                    }
+                }
+              }
+            }
+        }
+    }
+    
+    .moving-image-caption {
+        p {
+          font-style: italic;
         }
     }
 }
