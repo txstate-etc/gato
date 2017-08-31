@@ -82,7 +82,7 @@ modal.prototype.show = function() {
 	// set aria-disabled="true" on everything in the page that is not
 	// inside our modal
 	$(document.body).childElements().each( function (itm) {
-		if (itm != modal.outerdiv) {
+		if (itm != modal.outerdiv && itm.readAttribute) {
 			itm.modal_disabled = true;
 			itm.save_aria_disable = itm.readAttribute('aria-disabled');
 			itm.writeAttribute('aria-disabled', 'true');
