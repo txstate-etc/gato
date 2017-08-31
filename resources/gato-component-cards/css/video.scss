@@ -72,4 +72,11 @@
       transform: translate(-50%, -50%);
     }
   }
+
+  .mgnlEditorBar {
+    position: absolute !important;
+    left: 0;
+    top: 0;
+    width: 100% !important;
+  }
 }
