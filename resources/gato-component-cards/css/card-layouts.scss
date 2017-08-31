@@ -1,4 +1,4 @@
-$gato-card-shadow: 2px 5px 4px rgba($masonry-card-box-shadow-color, 0.2);
+$gato-card-shadow: 2px 5px 4px rgba($masonry-card-box-shadow-color, 0.2) !default;
 $gato-card-gutter: 0.4% !default;
 $gato-card-halves: ((100% - $gato-card-gutter*1)/2);
 $gato-card-thirds: ((100% - $gato-card-gutter*2)/3);
