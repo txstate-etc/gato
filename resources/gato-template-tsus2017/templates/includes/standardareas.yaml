@@ -5,7 +5,7 @@ customjs:
 socialmedia:
   !include /gato-template/templates/areas/sociallist.yaml
 navBlocks:
-  !include /gato-template/templates/areas/navBlocks.yaml
+  !include /gato-template-tsus2017/templates/areas/navBlocks.yaml
 contentParagraph:
   !include /gato-template/templates/areas/contentParagraph.yaml
 mail:
