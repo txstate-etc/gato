@@ -10,7 +10,7 @@
     <sv:value>/modules/site/config/site/templates/availability/templates/2017-tsus-home</sv:value>
   </sv:property>
   <sv:property sv:name="id" sv:type="String">
-    <sv:value>gato-template-tsus2017:pages/form</sv:value>
+    <sv:value>gato-template-tsus2017:pages/mail</sv:value>
   </sv:property>
   <sv:property sv:name="jcr:createdBy" sv:type="String">
     <sv:value>admin</sv:value>
