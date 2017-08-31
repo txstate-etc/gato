@@ -89,8 +89,17 @@ $button-reverse-text-weight:       400;
         &.color3 {
             @include reverse-button($mc3-bg);
         }
-       &.color4 {
+        &.color4 {
             @include reverse-button($mc4-bg);
+        }
+        &.color5 {
+            @include reverse-button($mc5-bg);
+        }
+        &.color6 {
+            @include reverse-button($mc6-bg);
+        }
+        &.color7 {
+            @include reverse-button($mc7-bg);
         }
     }
 

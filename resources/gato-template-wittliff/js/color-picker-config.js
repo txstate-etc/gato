@@ -17,7 +17,7 @@
     },
     "reverseButton": {
         "singleColor": true,
-        "colors": ["color1", "color2", "color3", "color4"]
+        "colors": ["color1", "color2", "color5"]
     },
     "threeDButton": {
         "singleColor": true,
