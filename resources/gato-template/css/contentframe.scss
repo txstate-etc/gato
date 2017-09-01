@@ -62,6 +62,9 @@ $sidebar-leftright: 'right' !default;
     }
   }
   .gato-section {
+    .background-color-warning {
+      display: none;
+    }
     margin-#{$sidebar-leftright}: 25%;
     @media (max-width: $md-breakpoint) {
       margin-#{$sidebar-leftright}: 29%;
@@ -75,6 +78,12 @@ $sidebar-leftright: 'right' !default;
   }
   &.has-background .gato-section {
     padding-top: 2rem;
+  }
+  &.has-background:not(.full-width) .gato-section{
+    .background-color-warning {
+      display: inline;
+      padding: 0.2rem;
+    }
   }
   &.full-width .gato-section {
     margin-#{$sidebar-leftright}: 0;
