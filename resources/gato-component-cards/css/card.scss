@@ -4,6 +4,9 @@
 
 .gato-card {
   box-shadow: $gato-card-shadow;
+  &.gato-card-add {
+    box-shadow: none;
+  }
 }
 .gato-card-hidden {
   display: none;
