@@ -71,7 +71,7 @@ jQuery(function($) {
       else if (href.match(/youtu(\.be|be\.com)/i)) {
         var secondsplit = split[split.length-1].split('=');
         var youtubeID = secondsplit[secondsplit.length-1];
-        splash.closest('figure').css('background-image', 'url(http://img.youtube.com/vi/'+youtubeID+'/0.jpg)')
+        splash.closest('.gato-card-video-splash').css('background-image', 'url(http://img.youtube.com/vi/'+youtubeID+'/0.jpg)')
           .closest('.gato-card-video').addClass('youtube');
         updatelayouts();
       }

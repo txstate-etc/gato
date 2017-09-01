@@ -1,9 +1,7 @@
 .gato-card-video {
-  position: relative;
   figure {
-    @at-root .youtube#{&} {
+    @at-root .youtube#{&} .gato-card-video-splash {
       padding-top: 56.25%;
-      height: 0;
       background-size: cover;
       background-repeat: no-repeat;
       background-position: 50% 50%;
@@ -12,13 +10,8 @@
       }
     }
     figcaption {
-      position: absolute;
-      left: 2rem;
-      bottom: 3rem;
       padding: 0.7rem 1rem;
-      right: 2rem;
       @at-root [data-eq~="500px"]#{&} {
-        bottom: 2rem;
         h3 { font-size: 1.5rem; }
       }
       h3 { margin: 0; font-size: 1.7rem; line-height: 1.2; }
@@ -29,12 +22,6 @@
       @at-root .color5#{&} { background-color: rgba($mc5-bg, 0.95); }
       @at-root .color6#{&} { background-color: rgba($mc6-bg, 0.95); }
       @at-root .color7#{&} { background-color: rgba($mc7-bg, 0.95); }
-      @at-root [data-eq~="300px"]#{&} {
-        position: relative;
-        left: 0;
-        bottom: 0;
-        right: 0;
-      }
     }
   }
   .feature-play-button {
