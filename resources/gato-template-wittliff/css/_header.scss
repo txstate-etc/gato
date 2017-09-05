@@ -1,6 +1,7 @@
 $header-height: 8rem;
 $header-height-tablet: 6rem;
 $header-height-mobile: 5rem;
+$menu-border-color: rgba(white, 0.2);
 
 html {
   height: 100%;
@@ -190,7 +191,8 @@ strong {
           position: relative;
           &.expanded {
             > button {
-              background-color: $wittliffgreen-superlight;
+              background-color: $menu-border-color;
+              border-left: 0px;
               i:before {
                 content: $fa-var-angle-up;
               }
@@ -206,7 +208,7 @@ strong {
             font-weight: 400;
             line-height: 2.5rem;
             padding: 1rem 0 .5rem 0;
-            border-bottom: 2px solid $wittliffgreen-superlight;
+            border-bottom: 2px solid $menu-border-color;
             padding-right: 5rem;
             @media (max-width: $md-breakpoint) {
               padding-right: 4rem;
@@ -219,7 +221,7 @@ strong {
             line-height: 3.0rem;
             padding: .5rem 0 .5rem 0;
             font-size: 3.0rem;
-            border-left: 2px solid $wittliffgreen-superlight;
+            border-left: 2px solid $menu-border-color;
           }
         }
         .simplemenu-subitems {
@@ -263,7 +265,7 @@ strong {
     text-align: center;
   }
   .menu-donate-button {
-    border: 2px solid $wittliffgreen-superlight;
+    border: 2px solid $menu-border-color;
     border-width: 2px 0px;
     .linkbutton {
       border: 2px solid $maize;
@@ -326,6 +328,6 @@ strong {
     text-align: center;
   }
   &:hover, &:active {
-    background-color: $wittliffgreen-lighter;
+    background-color: $light-cactus;
   }
 }
