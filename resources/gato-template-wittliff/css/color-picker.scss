@@ -1,3 +1,10 @@
 @import "gato-lib/css/variables";
 @import "gato-template-wittliff/css/colors";
 @import "gato-lib/css/color-picker";
+
+label.colorsel {
+    width: 16%;
+    &.color3 {
+        font-size: 12.5px;
+    }
+}
