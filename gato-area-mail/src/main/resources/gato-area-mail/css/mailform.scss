@@ -110,6 +110,9 @@
     white-space: normal !important;
     fieldset.selectiongroup {
       border: 0;
+      legend {
+        width: 100%;
+      }
     }
     >select{
       width: 100%;
