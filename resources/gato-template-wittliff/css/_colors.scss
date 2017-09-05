@@ -1,21 +1,12 @@
-//These 2015 colors are still be used in Wittliff 
+/* Generic Colors that we can tweak per template */
+$white:                #FFFFFF;
+$blue:                 #005481; // (0, 84, 129)
 
-$maroon:                #501214; // (106,86,56)
-$gold:                  #6A5638; // (80, 18, 20)
-
+/* Holdover colors from the Texas State template */
 $charcoal:            #363534; // (54, 53, 52)
-$sandstone:           #E8E3DB; // (232, 227, 219)
 
-$light-maroon:         #622a2c; //10% lighter than maroon
-
-$lightest-gold:        #887860;
-$light-gold:           #79674C; //10% lighter than gold
-
-$khaki:                #D1C7B7; //50% darker than sandstone
-
-//end 2015 colors
-
-$cactus:              #465147; // (70,82,71)
+/* Wittliff base colors */
+$cactus:              #465247; // (70,82,71)
 $coffee:              #654D3C; // (101,78,60)
 
 $silver:              #C8BEB7; // (200, 190, 183) Nick calls this $wittliffsand:#C8BEB7;
@@ -24,9 +15,7 @@ $sienna:              #7D2F19; // (125, 47, 25)
 $palebrown:           #764A33; // (118, 74, 51)
 $maize:               #F3C9A3; // (243, 201, 163)
 
-$white:                #FFFFFF;
-$blue:                 #005481; // (0, 84, 129)
-
+/* Wittliff base color variations */
 $dark-cactus:          #3f4940; //10% darker than cactus
 $darkest-cactus:       #384139; //20% darker than cactus
 $light-cactus:         #5e6c5f; //10% lighter than cactus
@@ -74,8 +63,6 @@ $palebrown-shadow:       #5E3B29; //30% darker than palebrown
 
 
 /* Key Colors */
-$wittliffgreen:         #465247;
-$wittliffgreen-light:   #4A574B;
 $wittliffgreen-lighter: #586659;
 $wittliffgreen-superlight: #7e867e;
 
@@ -84,13 +71,10 @@ $wittliffbrown-light:   #847163;
 $wittliffbrown-dark:    #5f4737;
 
 /* Highlights */
-$wittliffpeach:         #f3c9a3;
-$wittliffrust:          #7E2F16;
 $wittliffred:           #862425;
 $wittlifforange:        #D85329;
 
 /* Browns / Grays */
-$wittliffsand:          #C8BEB7;
 $wittliffsand-light:    #e9e5e2;
 $wittliffstone:         #8A7C72;
 $wittliffwood:          #A66947;

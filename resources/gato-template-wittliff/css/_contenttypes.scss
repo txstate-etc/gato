@@ -16,11 +16,11 @@ $event-detail-detailsbox-background: $white;
 $event-detail-detailsbox-color: $very-dark;
 
 /* RSS */
-$rss-box-shadow-color: $sandstone;
-$rss-header-background: $gold;
-$rss-header-color: $white;
-$rss-header-background-hover: $light-gold;
-$rss-header-box-shadow-color:  $lightest-gold;
+$rss-box-shadow-color: $white;
+$rss-header-background: $silver;
+$rss-header-color: $black;
+$rss-header-background-hover: $light-silver;
+$rss-header-box-shadow-color:  $lightest-silver;
 
 /* Text and Image */
 $text-image-caption-background: $lightest-coffee;
@@ -32,11 +32,11 @@ $text-image-bottom: 1.5rem;
 
 /* FAQ */
 $faq-item-background-color: $white;
-$faq-item-text-color: $wittliffrust;
-$faq-item-background-hover-color: $wittliffsand;
+$faq-item-text-color: $sienna;
+$faq-item-background-hover-color: $silver;
 $faq-item-text-hover-color: black;
 $faq-item-box-shadow-color: transparent;
-$faq-group-title-text-color: $wittliffrust;
+$faq-group-title-text-color: $sienna;
 $faq-group-box-shadow-color: transparent;
 $faq-question-box-shadow-color: transparent;
 
@@ -44,9 +44,9 @@ $faq-question-box-shadow-color: transparent;
 $table-header-bg: $coffee;
 $table-header-text: $white;
 $table-header-border: $lightest-coffee;
-$table-border: $khaki;
+$table-border: $silver;
 $table-carded-border: $lightest-coffee;
-$table-link: $wittliffrust;
+$table-link: $sienna;
 $table-altrow-bg: $lightest-coffee;
 $table-caption-background: $lightest-coffee;
 $table-caption-color: $white;
@@ -80,9 +80,9 @@ $gallery-arrow-color: $white;
 
 /* Feature */
 $feature-arrow-text-shadow-color: $charcoal;
-$feature-play-button-default-background: $maroon;
+$feature-play-button-default-background: $sienna;
 $feature-play-button-default-color: $white;
-$feature-play-button-hover-background: $light-maroon;
+$feature-play-button-hover-background: $light-sienna;
 
 /* Forms */
 $form-alert-link-color: $wittliffred;
@@ -124,14 +124,14 @@ $rss-card-summary-color: $black;
 $rss-card-date-color: $charcoal;
 
 /* Search Dialog */
-$search-dd-overlay-background-color:  $wittliffsand;
-$search-dd-dropdown-background-color: $wittliffgreen;
+$search-dd-overlay-background-color:  $silver;
+$search-dd-dropdown-background-color: $cactus;
 $search-dd-dialog-font-family:        inherit;
 $search-dd-input-line-color:          $white;
 $search-dd-input-color:               $white;
 $search-dd-input-placeholder-color:   $white;
 $search-dd-icon-color:                $white;
-$search-dd-suggested-results-border:  $wittliffgreen;
+$search-dd-suggested-results-border:  $cactus;
 $search-dd-suggested-result-title-color: $wittliffred;
 $search-dd-suggested-result-link-color: $wittliffred;
 $search-dd-suggested-result-hover-color: red;
@@ -145,6 +145,6 @@ $search-pagination-hover-background:        $wittliffsand-light;
 $search-pagination-link-color:              $wittliffred;
 
 $sitesearch-results-page-title-color:       black;
-$sitesearch-result-search-input:            $wittliffgreen;
+$sitesearch-result-search-input:            $cactus;
 $sitesearch-result-search-color:            black;
 $sitesearch-font-family:                    inherit;

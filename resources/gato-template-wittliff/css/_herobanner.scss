@@ -19,7 +19,7 @@
         font-size: 5.5rem;
         font-family: $garamond;
         letter-spacing: 0.4rem;
-        background-color: rgba($wittliffgreen, 0.8);
+        background-color: rgba($cactus, 0.8);
         display: inline-block;
         padding: 0.8rem 2rem;
         @media (max-width: $md-breakpoint) {
@@ -34,7 +34,7 @@
     }
   }
   .herobanner-text {
-    background-color: $wittliffsand;
+    background-color: $silver;
     padding: 1rem 8rem;
     font-weight: 400;
     @media (max-width: $sm-breakpoint) {

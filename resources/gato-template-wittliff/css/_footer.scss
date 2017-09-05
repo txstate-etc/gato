@@ -1,6 +1,6 @@
 footer.page-footer {
 
-	background-color: $wittliffsand;
+	background-color: $silver;
 	padding: 1rem;
 	margin-top: 3rem;
 	@media (max-width: $sm-breakpoint) {
@@ -72,7 +72,7 @@ footer.page-footer {
     i {
       border-left: 2px solid $wittliffbrown;
       color: $wittliffbrown;
-      background-color: $wittliffsand;
+      background-color: $silver;
     }
     &:hover, &:active {
       background-color: $wittliffbrown-light;

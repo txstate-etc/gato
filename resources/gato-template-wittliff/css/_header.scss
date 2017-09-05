@@ -23,7 +23,7 @@ strong {
 }
 
 .page-header {
-  background-color: $wittliffgreen;
+  background-color: $cactus;
   display: flex;
   flex-wrap: nowrap;
   justify-content: flex-end;
@@ -168,7 +168,7 @@ strong {
       position: absolute;
       top: 100%;
       right: 0;
-      background-color: $wittliffgreen;
+      background-color: $cactus;
       width: 32rem;
       padding: 2rem 4rem 2rem 2rem;
       display: none;
@@ -266,7 +266,7 @@ strong {
     border: 2px solid $wittliffgreen-superlight;
     border-width: 2px 0px;
     .linkbutton {
-      border: 2px solid $wittliffpeach;
+      border: 2px solid $maize;
     }
   }
   .menu-txst-logo {
@@ -289,7 +289,7 @@ strong {
     text-decoration: none;
     color: $white;
     &:hover, &:active {
-      i { color: $wittliffpeach; }
+      i { color: $maize; }
     }
     span {
       @include sr-only();
