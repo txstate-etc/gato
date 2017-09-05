@@ -47,6 +47,7 @@
         padding: .3rem 1.2rem;
         font-size: 1.8rem;
         transition: all 0.3s ease-in-out;
+        float: left;
       }
 
       p {
@@ -55,6 +56,7 @@
         font-size: 1.6rem;
         line-height: 2.4rem;
         transition: all 0.3s ease-in-out;
+        clear: both;
       }
 
       .feature-play-button {
