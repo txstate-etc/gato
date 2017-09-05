@@ -64,6 +64,7 @@ body ul.gato-faq-hierarchy {
     border-radius: 0;
     display: flex;
     align-items: stretch;
+    transform: perspective(1px) translateZ(0);
     &:after {
       @extend .fa;
       display: flex;
@@ -75,9 +76,29 @@ body ul.gato-faq-hierarchy {
       border-color: inherit;
       text-align: center;
     }
+    &:before {
+      content:'';
+      position: absolute;
+      z-index: -1;
+      top: 0px;
+      left: 0px;
+      bottom: 0px;
+      right: 0px;
+      width: 0px;
+      height: 100%;
+      background: #000;
+      transition: all 0.3s ease-out;
+    }
+    @at-root #{&}.color1:before { background: $mc1-bg }
+    @at-root #{&}.color2:before { background: $mc2-bg }
+    @at-root #{&}.color5:before { background: $mc5-bg }
     &:hover {
-      border-color: white;
+      //border-color: white;
+      background-color: transparent;
       &:after { border-color: white; }
+      &:before {
+        width: 100%;
+      }
     }
     &.block {
       float: none;
