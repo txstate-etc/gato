@@ -27,6 +27,13 @@ jQuery(document).ready(function($) {
         //M -> Move to the arc starting point
         //A -> x radius, y radius, x-axis rotation, large-arc-flag, sweep-flag, arc-end-x, arc-end-y
         var path = "M " + (center.x - radius) + " " + center.y + " A " + radius + " " + radius + " 0 " + largeArcFlag + " 0 " + (end.x + center.x) + " " + (center.y - end.y);
+        //A circle needs to be drawn with 2 arcs when using path.
+        if (percent == 100) {
+            path = "M " + center.x + ", " + center.y + 
+                  " m " + (-1 * radius) + ", 0 " +
+                  "a " + radius + ", " + radius + " 0 1 0 " + (radius * 2) + ", 0 " + 
+                  "a " + radius + ", " + radius + " 0 1 0 " + (radius * -2) + ", 0"
+        }
         $(this).find('path').attr("d", path)
     });
 

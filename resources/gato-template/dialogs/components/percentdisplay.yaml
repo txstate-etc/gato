@@ -14,7 +14,13 @@ form:
         - name: percent_complete
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Percentage
+          required: true
           description: Enter a number between 0 and 100
+          validators:
+            - name: numeric
+              class: info.magnolia.ui.form.validator.definition.RegexpValidatorDefinition
+              pattern: ^\d{1,2}$|^100$
+              errorMessage: Please enter a number between 0 and 100
         - name: mobile_layout
           class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
           label: Mobile Layout
