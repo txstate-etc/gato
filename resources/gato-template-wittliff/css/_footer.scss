@@ -73,13 +73,13 @@ footer.page-footer {
   .linkbutton {
     border: 2px solid $wittliffbrown;
     background-color: $wittliffbrown;
+    &:before {
+      background: $wittliffbrown-light;
+    }
     i {
       border-left: 2px solid $wittliffbrown;
       color: $wittliffbrown;
       background-color: $silver;
-    }
-    &:hover, &:active {
-      background-color: $wittliffbrown-light;
     }
   }
 }

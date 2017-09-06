@@ -269,6 +269,7 @@ strong {
     border-width: 2px 0px;
     .linkbutton {
       border: 2px solid $maize;
+      i { border-left: 2px solid $maize; }
     }
   }
   .menu-txst-logo {
@@ -308,7 +309,9 @@ strong {
   &, i {
     line-height: 3rem;
   }
-  display: inline-block;
+  display: inline-flex;
+  align-items: stretch;
+  position: relative;
   text-decoration: none;
   padding-left: 1.5rem;
   border: 2px solid $white;
@@ -318,16 +321,36 @@ strong {
   letter-spacing: 0.05rem;
   color: $white;
   margin: 0 auto;
+  &:before {
+    content:'';
+    position: absolute;
+    z-index: 0;
+    top: 0px;
+    left: 0px;
+    width: 0px;
+    height: 100%;
+    background: $light-cactus;
+    transition: all 0.15s ease-out;
+  }
+  span {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    z-index: 1;
+  }
   i {
-    display: block;
-    float: right;
+    display: flex;
+    align-items: center;
     font-size: 1.5rem;
     border-left: 2px solid $white;
     margin-left: 1.5rem;
-    width: 3rem;
+    padding: 0 1rem;
     text-align: center;
+    z-index: 1;
   }
   &:hover, &:active {
-    background-color: $light-cactus;
+    &:before {
+      width: 100%;
+    }
   }
 }
