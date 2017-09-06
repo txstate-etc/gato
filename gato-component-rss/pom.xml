@@ -11,7 +11,7 @@
   <artifactId>gato-component-rss</artifactId>
   <packaging>jar</packaging>
   <name>Gato RSS Module</name>
-  
+
   <dependencies>
     <dependency>
       <groupId>info.magnolia</groupId>
@@ -34,7 +34,7 @@
 		<dependency>
 			<groupId>com.rometools</groupId>
 			<artifactId>rome-modules</artifactId>
-			<version>1.6.0</version>
+			<version>1.7.4</version>
 		</dependency>
 <!-- <dependency>
       <groupId>edu.txstate.its.gato</groupId>
