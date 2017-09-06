@@ -120,7 +120,7 @@ public final class GatoUtils {
       websiteLink = tf.link(RepositoryConstants.WEBSITE, url);
     }
     catch(Exception e){
-      e.printStackTrace();
+      // we expect this to throw sometimes, it's no big deal
     }
     if (!StringUtils.isBlank(websiteLink)) return websiteLink;
 
