@@ -1147,6 +1147,7 @@ public final class GatoUtils {
     Node n = toNode(node);
     if (n == null) return null;
     try {
+      n = NodeUtil.unwrap(n);
       String embed = PropertyUtil.getString(n, "embed");
       Calendar saved = PropertyUtil.getDate(n, "embedsaved", Calendar.getInstance());
       Calendar cutoffdate = Calendar.getInstance();
