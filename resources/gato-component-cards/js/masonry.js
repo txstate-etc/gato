@@ -47,35 +47,11 @@ jQuery(function($) {
   resizeTimeout(executegridlayout);
   waitforselector('.section-grid-edit', '.mgnlEditorBar', executegridlayout);
 
-  /* Special treatment for youtube and vimeo: fetch preview images if
-     the user did not upload a splash image */
-  $('.gato-card-video').each(function(index, ele) {
+  /* Special treatment for youtube: clip the splash image since it gets black bars */
+  $('.gato-card-video.youtube').each(function(index, ele) {
     var video = $(ele);
-    var lnk = video.find('a');
     var splash = video.find('img');
-    var updatelayouts = function () {
-      var $masonry = video.closest('.section-masonry')
-      if ($masonry.length > 0) $masonry.packery('layout');
-      gatogridlayout(video.closest('.section-grid'));
-    }
-
-    if(splash.hasClass('default')){
-      var href = lnk.attr('href');
-      var split = href.split('/');
-      if(href.match(/vimeo\.com/i)){
-        var vimeoID=split[split.length-1];
-        $.getJSON('http://vimeo.com/api/oembed.json?url=http%3A//vimeo.com/'+vimeoID, function(video) {
-          splash.one('load', updatelayouts).attr('src', video.thumbnail_url).closest('.gato-card-video').addClass('vimeo');
-        });
-      }
-      else if (href.match(/youtu(\.be|be\.com)/i)) {
-        var secondsplit = split[split.length-1].split('=');
-        var youtubeID = secondsplit[secondsplit.length-1];
-        splash.closest('.gato-card-video-splash').css('background-image', 'url(http://img.youtube.com/vi/'+youtubeID+'/0.jpg)')
-          .closest('.gato-card-video').addClass('youtube');
-        updatelayouts();
-      }
-    }
+    video.find('.gato-card-video-splash').css('background-image', 'url('+splash.attr('src')+')');
   });
 
   /*Opening rss content on new tab on header click*/
