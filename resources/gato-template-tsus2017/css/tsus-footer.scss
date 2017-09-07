@@ -143,6 +143,9 @@ footer {
                             color: $white;
                         }
                     }
+                    .mgnlEditorBar.mgnlEditor {
+                        min-width: 110px;
+                    }
                 }
             }
             .listItems_add .mgnlEditorBarLabel {
@@ -188,6 +191,9 @@ footer {
                             &:hover{
                                 color: $white;
                             }
+                        }
+                        .mgnlEditorBar.mgnlEditor {
+                            min-width: 110px;
                         }
                     }
                 }
