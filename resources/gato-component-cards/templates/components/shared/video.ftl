@@ -15,7 +15,7 @@
     [/#if]
   </figure>
   <a href="${content.videourl}" class="feature-play-button"
-  data-embed="${gf.jsonGetString(gf.oEmbedAutodiscover(content.videourl), 'html')?html}">
+  data-embed="${gf.jsonGetString(gf.oEmbedCached(content, content.videourl), 'html')?html}">
     <i class="fa fa-play" aria-hidden="true"></i>
     <span class="visuallyhidden">Play Video</span>
   </a>

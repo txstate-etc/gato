@@ -2,7 +2,7 @@
   [#if content.title?has_content]
     <h2>${content.title}</h2>
   [/#if]
-  [#assign embedinfo=gf.oEmbedAutodiscover(content.videourl)!]
+  [#assign embedinfo=gf.oEmbedCached(content, content.videourl)!]
   [#if embedinfo?has_content]
     [#assign embedhtml=gf.jsonGetString(embedinfo, 'html')?html]
     [#assign embedtitle=gf.jsonGetString(embedinfo, 'title')?html]

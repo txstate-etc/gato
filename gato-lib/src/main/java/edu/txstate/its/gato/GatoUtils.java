@@ -800,6 +800,7 @@ public final class GatoUtils {
   }
 
   public Node toNode(Object obj) {
+    if (obj == null) return null;
     Node n = null;
     try {
       if (obj instanceof ContentMap) n = ((ContentMap)obj).getJCRNode();
@@ -892,6 +893,12 @@ public final class GatoUtils {
       e.printStackTrace();
     }
     return child;
+  }
+
+  public Node nodeInSystemContext(Node node) throws Exception {
+    if (node == null) return null;
+    Session scs = sc.getJCRSession(node.getSession().getWorkspace().getName());
+    return scs.getNodeByIdentifier(node.getIdentifier());
   }
 
   public String getConfigProperty(String propertyName) {
@@ -1134,6 +1141,30 @@ public final class GatoUtils {
   public String tidyHTML(String rawhtml) {
     if (StringUtils.isBlank(rawhtml)) return "";
     return Jsoup.parse("<!DOCTYPE html><html><head></head><body>"+rawhtml+"</body></html>").body().html();
+  }
+
+  public JsonObject oEmbedCached(Object node, String url) {
+    Node n = toNode(node);
+    if (n == null) return null;
+    try {
+      String embed = PropertyUtil.getString(n, "embed");
+      Calendar saved = PropertyUtil.getDate(n, "embedsaved", Calendar.getInstance());
+      Calendar cutoffdate = Calendar.getInstance();
+      cutoffdate.add(Calendar.MONTH, -2);
+      if (StringUtils.isBlank(embed) || saved.before(cutoffdate)) {
+        embed = (new GsonBuilder()).create().toJson(oEmbedAutodiscover(url));
+        if (!StringUtils.isBlank(embed)) {
+          Node sn = nodeInSystemContext(n);
+          sn.setProperty("embed", embed);
+          sn.setProperty("embedsaved", Calendar.getInstance());
+          sn.save();
+        }
+      }
+      return parseJSON(embed);
+    } catch (Exception e) {
+      e.printStackTrace();
+      return null;
+    }
   }
 
   public JsonObject oEmbedAutodiscover(String url) {
