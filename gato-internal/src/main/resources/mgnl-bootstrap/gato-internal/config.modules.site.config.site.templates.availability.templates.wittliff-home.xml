@@ -4,7 +4,7 @@
     <sv:value>mgnl:contentNode</sv:value>
   </sv:property>
   <sv:property sv:name="jcr:uuid" sv:type="String">
-    <sv:value>07cdf409-4893-44b9-84f9-b917aae15a9b</sv:value>
+    <sv:value>07cdf409-4893-44b9-84f9-b817aae15a9b</sv:value>
   </sv:property>
   <sv:property sv:name="extends" sv:type="String">
     <sv:value>/modules/site/config/site/templates/availability/templates/wittliff-standard</sv:value>
