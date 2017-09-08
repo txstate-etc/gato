@@ -27,7 +27,7 @@ jQuery(function($) {
       $grid.find('.gato-card:visible').velocity('stop').each(function() {
         var $card = $(this);
         var cardheight = $card.outerHeight(true);
-        var fudge = Math.min(200,cardheight/2);
+        var fudge = Math.min(150,cardheight/2);
         var bestheight = colheights[0];
         var bestidx = 0;
         for (var i = 1; i < numcols; i++) {
