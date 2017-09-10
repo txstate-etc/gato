@@ -38,10 +38,10 @@ body ul.gato-faq-hierarchy {
   }
 
   .gato-faq-group-children {
-    display: none;
     list-style: none;
     margin: 0 0 0 2rem;
     padding: 0;
+    overflow: hidden;
   }
 
   > .gato-faqitem .gato-faqitem-question, > .gato-faq-group > .gato-faq-group-title {
@@ -63,7 +63,9 @@ body ul.gato-faq-hierarchy {
   > .gato-faq-group {
     box-shadow: inset 0px 0px 0px 1px $faq-group-box-shadow-color;
   }
-  .gato-faqitem.shown i:before {
-    content: $fa-var-caret-down;
+  .gato-faqitem, .gato-faq-group {
+    &.shown > a i:before {
+      content: $fa-var-caret-down;
+    }
   }
 }

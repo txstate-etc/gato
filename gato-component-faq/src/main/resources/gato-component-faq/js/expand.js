@@ -10,7 +10,7 @@ jQuery(document).ready(function($) {
   });
   $('#gato-collapse-all-faqs').click(function(e) {
     e.preventDefault();
-    window.accordion.hide($('.gato-faqitem-question, .gato-faq-group-title'));
+    window.accordion.hide($('.gato-faqitem-question'));
   });
 
   // if the url contains an anchor that lives inside an faq, let's open the FAQ to that item

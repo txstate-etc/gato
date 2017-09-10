@@ -8,11 +8,11 @@
 [/#macro]
 
 [#macro faqGroup node depth]
-  <li class="gato-faq-group" role="treeitem" aria-expanded="false">
+  <li class="gato-faq-group shown" role="treeitem" aria-expanded="true">
     <a href="#" class="gato-faq-group-title">
       <i class="fa fa-caret-right" aria-hidden="true"></i>
       ${node.title}</a>
-    <ul class="gato-faq-group-children" role="group" aria-hidden="true">
+    <ul class="gato-faq-group-children" role="group" aria-hidden="false">
       [#list node.children as child]
         [@faqNode child depth+1 /]
       [/#list]
