@@ -22,7 +22,7 @@
       [#if content.videourl?has_content]
         <div class="feature-play-button">
           <a href="${content.videourl}" aria-label="Play Video" 
-          data-embed="${gf.jsonGetString(gf.oEmbedAutodiscover(content.videourl), 'html')?html}"></a>
+          data-embed="${gf.jsonGetString(gf.oEmbedCached(content, content.videourl), 'html')?html}"></a>
         </div>
       [/#if]
     </div>
