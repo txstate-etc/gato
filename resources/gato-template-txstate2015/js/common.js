@@ -54,11 +54,33 @@ jQuery(document).ready(function($) {
   }
 });
 
-
 jQuery(document).ready(function($) {
 
-	// Fixed desktop navigation
-  jQuery('.top_nav').scrollToFixed({zIndex: 71000});
+  // Fixed desktop navigation
+  var $navcontainer = $('.top_nav');
+  var $menu = $('.top_nav .ddmenu-bg');
+  var navfixed = function () {
+    var offsettop = $navcontainer.offset().top;
+    var top = ($(window).scrollTop() || $("body").scrollTop());
+
+    if (offsettop >= top) {
+      if ($navcontainer.hasClass('scroll-to-fixed-fixed')) {
+        $navcontainer.css('height', '');
+        $navcontainer.removeClass('scroll-to-fixed-fixed');
+      }
+    } else if (!$navcontainer.hasClass('scroll-to-fixed-fixed')) {
+      var navh = $navcontainer.height();
+      $navcontainer.css('height', navh+'px');
+      $navcontainer.addClass('scroll-to-fixed-fixed');
+    }
+  }
+  resizeTimeout(navfixed);
+  $(window).scroll(function () {
+    var timer = animationframe(function () {
+      cancelanimationframe(timer);
+      navfixed();
+    });
+  });
 
   // Back to top
   jQuery('.btt').on("click", function(e) {

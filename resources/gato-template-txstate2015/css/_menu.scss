@@ -70,7 +70,12 @@ a.ddmenu-menubaritem{
   /* this transform solves an ios9 problem but top_nav loses its z-index which is
      a pretty big deal. turning it off until we find another way */
   /* -webkit-transform: translate3d(0,0,0); /* iOS9 hack: http://stackoverflow.com/a/32891079 */
-  &.scroll-to-fixed-fixed {
+  &.scroll-to-fixed-fixed nav {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 71000;
     @include vertical-gradient($primary-nav-gradient-top, $primary-nav-gradient-bottom);
     border-bottom: 2px solid $secondary-nav-fixed-border;
     @media screen and (max-width: $sm-breakpoint){

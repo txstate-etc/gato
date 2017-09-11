@@ -514,6 +514,9 @@ var animationframe = window.requestAnimationFrame ||
                      window.msRequestAnimationFrame ||
                      window.oRequestAnimationFrame ||
                      function(callback){ window.setTimeout(callback, 1000/20) };
+var cancelanimationframe = window.cancelAnimationFrame ||
+        window.mozCancelAnimationFrame || window.webkitCancelAnimationFrame ||
+        window.msCancelAnimationFrame || function(timer) { window.clearTimeout(timer) };
 var cssTransform = (function(){
     var prefixes = 'transform webkitTransform mozTransform oTransform msTransform'.split(' ')
       , el = document.createElement('div')
