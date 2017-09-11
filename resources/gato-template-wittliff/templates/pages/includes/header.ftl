@@ -13,10 +13,12 @@
     <button class="icon" aria-haspopup="true" aria-controls="main-menu-panel" aria-expanded="false"><span>Menu</span><i class="fa fa-bars" aria-hidden="true"></i></button>
     <nav id="main-menu-panel" class="main-menu-panel" role="navigation">
       [@simplemenu arrows=true /]
+      [#if gf.hasComponents(homepage['socialmedia']) || gf.hasComponents(homepage['newsletter-button']) || (isHomePage && cmsfn.isEditMode())]
       <div class="menu-social-media">
         [@cms.area name="socialmedia" content=gf.getOrCreateArea(homepage, 'socialmedia') editable=isHomePage/]
         [@cms.area name="newsletter-button" content=gf.getOrCreateArea(homepage, 'newsletter-button') editable=isHomePage /]
       </div>
+      [/#if]
       [#if gf.hasComponents(homepage['donate-button']) || (isHomePage && cmsfn.isEditMode())]
       <div class="menu-donate-button">
         [@cms.area name="donate-button" content=gf.getOrCreateArea(homepage, 'donate-button') editable=isHomePage /]
