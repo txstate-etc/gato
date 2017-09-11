@@ -1,6 +1,7 @@
 /* FAQ Paragraph */
 body ul.gato-faq-hierarchy {
   > .gato-faqitem, > .gato-faq-group {
+    margin-bottom: 0;
     border-bottom: 2px solid $wittliffstone;
     &:first-child {
       border-top: 2px solid $wittliffstone;
