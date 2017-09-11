@@ -25,7 +25,7 @@
       <main class="contentcolumn">
         [@headline hideSidebar /]
         [#if def.parameters.isMailTemplate!false]
-          [@cms.area name="mail" /]
+          [@cms.area name="mail" contextAttributes={"hideSidebar":hideSidebar} /]
         [#else]
           [@cms.area name="contentParagraph" contextAttributes={"hideSidebar":hideSidebar} /]
         [/#if]
