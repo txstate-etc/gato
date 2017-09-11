@@ -1,4 +1,8 @@
 jQuery(document).ready(function($) {
+  // Editing environment text changes
+  magnolialabelchange('.menu-social-media', '.mgnlEditor.mgnlPlaceholder:nth-child(2n)', 'Add Social Media');
+  magnolialabelchange('.menu-social-media', '.mgnlEditor.mgnlPlaceholder:nth-child(5n)', 'Add Newsletter Button');
+  magnolialabelchange('.menu-donate-button', '.mgnlEditor.mgnlPlaceholder', 'Add Donate Button');
 
   // Main Menu Hamburger Button
   var header = $('.page-header');
