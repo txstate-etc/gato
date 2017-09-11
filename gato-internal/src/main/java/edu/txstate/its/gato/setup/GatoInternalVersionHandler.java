@@ -129,10 +129,6 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       .addTask(new UpgradeSocialmediaTask())
       .addTask(new SetPropertyTask("Allow mixed case logins", RepositoryConstants.CONFIG, "/modules/cas/config", "caseSensitiveUserNames", Boolean.FALSE))
       .addTask(new UpdateTemplateBeneathPathTask("/testing-wittliff", Arrays.asList("gato-template-wittliff:pages/sidebar", "gato-template-txstate2009:pages/standard"), "gato-template-wittliff:pages/standard"))
-      .addTask(new UpdateTemplateBeneathPathTask("/wittliff-content-examples", Arrays.asList("gato-template-txstate2015:pages/standard-template"), "gato-template-wittliff:pages/standard"))
-      .addTask(new UpdateTemplateBeneathPathTask("/wittliff-content-examples", Arrays.asList("gato-template-txstate2015:pages/mail-template"), "gato-template-wittliff:pages/mail"))
-      .addTask(new UpdateTemplateBeneathPathTask("/tsus-content-examples", Arrays.asList("gato-template-txstate2015:pages/standard-template"), "gato-template-tsus2017:pages/standard"))
-      .addTask(new UpdateTemplateBeneathPathTask("/tsus-content-examples", Arrays.asList("gato-template-txstate2015:pages/mail-template"), "gato-template-tsus2017:pages/mail"))
       .addTask(new BootstrapSingleModuleResource("config.modules.ui-framework.fieldTypes.multiField.xml"))
       .addTask(new RemoveNodeTask("Remove Wittliff sidebar template", "/modules/site/config/site/templates/availability/templates/wittliff-sidebar"))
       .addTask(new BootstrapSingleModuleResource("config.modules.site.config.site.templates.availability.templates.wittliff-home.xml"))
@@ -148,6 +144,10 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
 
   protected List<Task> installOrUpdateTasks() {
     List<Task> tasks = new ArrayList<Task>();
+    tasks.add(new UpdateTemplateBeneathPathTask("/wittliff-content-examples", Arrays.asList("gato-template-txstate2015:pages/standard-template"), "gato-template-wittliff:pages/standard"));
+    tasks.add(new UpdateTemplateBeneathPathTask("/wittliff-content-examples", Arrays.asList("gato-template-txstate2015:pages/mail-template"), "gato-template-wittliff:pages/mail"));
+    tasks.add(new UpdateTemplateBeneathPathTask("/tsus-content-examples", Arrays.asList("gato-template-txstate2015:pages/standard-template"), "gato-template-tsus2017:pages/standard"));
+    tasks.add(new UpdateTemplateBeneathPathTask("/tsus-content-examples", Arrays.asList("gato-template-txstate2015:pages/mail-template"), "gato-template-tsus2017:pages/mail"));
     tasks.add(new RandomizeCacheStrTask());
     return tasks;
   }
