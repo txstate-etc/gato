@@ -117,7 +117,7 @@
         [@cms.area name="navBlocks"/]
       <!-- social media links -->
       [#if !skipsocial]
-        [@cms.area name="socialmedia" /]
+        [@cms.area name="socialmedia" content=gf.getOrCreateArea(homepage, 'socialmedia') editable=isHomePage /]
       [/#if]
       </div>
     <script type="text/javascript">

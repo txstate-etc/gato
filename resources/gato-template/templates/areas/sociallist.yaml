@@ -1,6 +1,6 @@
 type: single
 renderType: freemarker
-createAreaNode: false
+optional: true
 #templateScript: /gato-template/templates/areas/listitems.ftl
 availableComponents:
   sociallink:
