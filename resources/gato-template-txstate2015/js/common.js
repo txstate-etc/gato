@@ -59,9 +59,10 @@ jQuery(document).ready(function($) {
   // Fixed desktop navigation
   var $navcontainer = $('.top_nav');
   var $menu = $('.top_nav .ddmenu-bg');
+  var $window = $(window);
   var navfixed = function () {
     var offsettop = $navcontainer.offset().top;
-    var top = ($(window).scrollTop() || $("body").scrollTop());
+    var top = ($window.scrollTop() || $("body").scrollTop());
 
     if (offsettop >= top) {
       if ($navcontainer.hasClass('scroll-to-fixed-fixed')) {
@@ -74,13 +75,15 @@ jQuery(document).ready(function($) {
       $navcontainer.addClass('scroll-to-fixed-fixed');
     }
   }
-  resizeTimeout(navfixed);
-  $(window).scroll(function () {
-    var timer = animationframe(function () {
-      cancelanimationframe(timer);
-      navfixed();
+  if ($navcontainer.length > 0) {
+    resizeTimeout(navfixed);
+    $(window).scroll(function () {
+      var timer = animationframe(function () {
+        cancelanimationframe(timer);
+        navfixed();
+      });
     });
-  });
+  }
 
   // Back to top
   jQuery('.btt').on("click", function(e) {
