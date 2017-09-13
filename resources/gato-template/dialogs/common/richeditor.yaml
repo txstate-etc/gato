@@ -5,6 +5,6 @@
           scripts: [gato-template/js/ckeditorVars.js]
         - name: content
           class: info.magnolia.ui.form.field.definition.RichTextFieldDefinition
-          label: Title
+          label: Content
           configJsFile: /.resources/gato-template/js/richeditor/config.js
           height: 500
