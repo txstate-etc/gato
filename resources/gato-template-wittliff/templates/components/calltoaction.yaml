@@ -1,0 +1,7 @@
+templateScript: /gato-template-wittliff/templates/components/calltoaction.ftl
+renderType: freemarker
+title: Call To Action
+description: A panel with a background image, title, and button with customizable text
+dialog: gato-template-wittliff:components/calltoaction
+parameters:
+  icon: /gato-component-button/images/button.png
