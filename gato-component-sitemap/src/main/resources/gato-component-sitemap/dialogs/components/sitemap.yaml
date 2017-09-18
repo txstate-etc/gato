@@ -14,6 +14,7 @@ form:
           description: "What page would you like to use as the root of the site map?"
           styleName: startPageSelect
           sortOptions: false
+          type: Long
         - name: depth
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Depth
