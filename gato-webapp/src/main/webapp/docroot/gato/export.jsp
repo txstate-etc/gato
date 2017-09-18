@@ -1,22 +1,13 @@
 
 <jsp:root version="2.0" xmlns:jsp="http://java.sun.com/JSP/Page">
 
-<jsp:directive.page contentType="text/html; charset=UTF-8" session="false"/>
-<jsp:output doctype-root-element="html"
-	doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN"
-	doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" />
+<jsp:directive.page contentType="text/xml; charset=UTF-8" session="false"/>
 <jsp:directive.page import="info.magnolia.importexport.DataTransporter" />
 <jsp:directive.page import="info.magnolia.cms.beans.config.ContentRepository" />
 <jsp:directive.page import="info.magnolia.context.MgnlContext" />
 <jsp:directive.page import="javax.jcr.Session" />
 <jsp:directive.page import="org.apache.commons.lang.StringUtils" />
 <jsp:directive.page import="java.util.Arrays" />
-
-<html>
-	<head>
-		<title>Export files</title>
-	</head>
-	<body>
 
 <jsp:declaration><![CDATA[
 	public String fileFromPath (String path, String repo) throws Exception {
@@ -49,7 +40,4 @@
 		out.flush();
 	}
 ]]></jsp:scriptlet>
-
-	</body>
-</html>
 </jsp:root>
