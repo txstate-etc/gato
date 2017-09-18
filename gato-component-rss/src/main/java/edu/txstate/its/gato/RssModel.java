@@ -6,17 +6,6 @@ import info.magnolia.rendering.model.RenderingModel;
 import info.magnolia.rendering.model.RenderingModelImpl;
 import info.magnolia.rendering.template.RenderableDefinition;
 
-import com.rometools.fetcher.FeedFetcher;
-import com.rometools.fetcher.FetcherException;
-import com.rometools.fetcher.impl.FeedFetcherCache;
-import com.rometools.fetcher.impl.HashMapFeedInfoCache;
-import com.rometools.fetcher.impl.HttpClientFeedFetcher;
-import com.rometools.modules.mediarss.MediaModule;
-import com.rometools.rome.feed.synd.SyndFeed;
-import com.rometools.rome.feed.synd.SyndEntry;
-import com.rometools.rome.feed.synd.SyndContent;
-import com.rometools.rome.io.FeedException;
-
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
