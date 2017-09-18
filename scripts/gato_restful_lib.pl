@@ -19,7 +19,8 @@ sub query {
 sub get {
 	my $endpoint = shift;
 	my $silence_errors = shift;
-	my $req = HTTP::Request->new(GET => $server.'/.rest'.$endpoint);
+	my $overrideserver = shift || $server;
+	my $req = HTTP::Request->new(GET => $overrideserver.'/.rest'.$endpoint);
 	$req->authorization_basic($username, $password);
 	#print "get ".$req->uri."\n";
 	my $resp = $ua->request($req);
@@ -42,7 +43,9 @@ sub get {
 sub post {
 	my $endpoint = shift;
 	my $jsonstring = shift;
-	my $req = HTTP::Request->new(POST => $server.'/.rest'.$endpoint);
+	my $overrideserver = shift || $server;
+	my $method = shift || 'POST';
+	my $req = HTTP::Request->new($method => $overrideserver.'/.rest'.$endpoint);
 	$req->authorization_basic($username, $password);
 	$req->content($jsonstring);
 	$req->header("Content-Type", "application/json");
