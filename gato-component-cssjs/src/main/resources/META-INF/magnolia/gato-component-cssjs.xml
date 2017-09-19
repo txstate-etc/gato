@@ -23,5 +23,9 @@
       <name>rendering</name>
       <version>5.4/*</version>
     </dependency>
+    <dependency>
+      <name>site</name>
+      <version>5.4/*</version>
+    </dependency>
   </dependencies>
 </module>
