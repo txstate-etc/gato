@@ -42,3 +42,37 @@
     }
   }
 }
+
+.gato-heroslider {
+  position: relative;
+  height: 0;
+  padding-bottom: 45.45%;
+  margin-bottom: 2rem;
+  .slides-admin {
+    top: 30px;
+  }
+  .slides, .slide, .slider-admin, .slides-admin {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  .slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    &.wide {
+      img { height: 100%; }
+    }
+    &.tall {
+      img { width: 100%; }
+    }
+  }
+}
+
+.gato-herobanner, .gato-heroslider {
+  margin-top: -12rem;
+  .admin & {
+    margin-top: -4rem;
+  }
+}

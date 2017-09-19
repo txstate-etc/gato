@@ -1,7 +1,7 @@
-templateScript: /gato-template-wittliff/templates/components/pageheader.ftl
+templateScript: /gato-template-wittliff/templates/components/herobanner.ftl
 renderType: freemarker
-title: Page Header
+title: Hero Banner
 description: A basic paragraph that includes a Title, an image, and body text.
-dialog: gato-template-wittliff:components/pageheader
+dialog: gato-template-wittliff:components/herobanner
 parameters:
   icon: /gato-template/images/text_image.png

@@ -18,10 +18,13 @@ newsletter-button:
 hero-banner:
   type: single
   availableComponents:
-    slider:
-      id: gato-component-feature:components/feature
-    pageheader:
-      id: gato-template-wittliff:components/pageheader
+    herobanner:
+      id: gato-template-wittliff:components/herobanner
+hero-slider:
+  type: single
+  availableComponents:
+    heroslider:
+      id: gato-template-wittliff:components/heroslider
 donate-button:
   type: single
   availableComponents:

@@ -33,6 +33,7 @@ strong {
   color: $white;
   position: relative;
   margin-bottom: 4rem;
+  z-index: 65536;
   @media (max-width: $md-breakpoint) {
     height: $header-height-tablet;
     margin-bottom: 3rem;
@@ -40,6 +41,9 @@ strong {
   @media (max-width: $sm-breakpoint) {
     height: $header-height-mobile;
     margin-bottom: 2rem;
+  }
+  .wittliff-home &, .wittliff-special & {
+    background-color: rgba($cactus, 0.9);
   }
 
   button {
@@ -123,7 +127,6 @@ strong {
       background-color: $wittliffbrown;
       padding: 2rem;
       text-align: center;
-      z-index: 65536;
       @media (max-width: $md-breakpoint) {
         top: (4rem + $header-height-tablet) / 2;
         width: 20rem;
@@ -173,7 +176,6 @@ strong {
       width: 32rem;
       padding: 2rem 4rem 2rem 2rem;
       display: none;
-      z-index: 65536;
 
       .simplemenu {
         &, ul {
