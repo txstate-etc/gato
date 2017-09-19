@@ -87,14 +87,45 @@ jQuery(document).ready(function($) {
     }
   });
 
+  // Hero Slider
+  $('.gato-heroslider').each(function (idx, itm) {
+    var slider = $(itm);
+    var slides = slider.find('.slide');
+    var active = 0;
+    var setactive = function (slideidx) {
+      var currslide = slides.eq(active);
+      var nextslide = slides.eq(slideidx);
+      if (currslide.is(nextslide)) return;
+      currslide.velocity({ left: ['-100%', '0%'] }, {duration: 500});
+      nextslide.velocity({ left: ['0%', '100%'] }, {duration: 500});
+      active = slideidx;
+    };
+    var advance = function () {
+      setactive((active+1) % slides.length);
+    }
+    var timer = 0;
+    if (slider.is('.slow')) timer = 30;
+    else if (slider.is('.medium')) timer = 20;
+    else if (slider.is('.fast')) timer = 10;
+    if (timer > 0) {
+      setInterval(advance, timer*1000);
+    }
+  });
+  $('.gato-heroslider .slide:not(:first-child)').each(function (idx, itm) {
+    var slide = $(itm);
+    var img = slide.find('img');
+    img.attr('src', slide.data('src')).attr('srcset', slide.data('srcset'));
+  });
+
   // Make sure the footer is at the bottom of the window when the
   // page is shorter than one window
   var win = $(window);
   var header = $('.page-header');
   var footer = $('.page-footer');
+  var herobanner = $('.gato-heroslider, .gato-herobanner');
   var pagecontent = $('.page_content');
   var pagecontentheightfix = function () {
-    pagecontent.css('min-height', win.height() - header.outerHeight(true) - footer.outerHeight(true) - pagecontent.outerHeight(true) + pagecontent.outerHeight());
+    pagecontent.css('min-height', win.height() - header.outerHeight(true) - herobanner.outerHeight(true) - footer.outerHeight(true) - pagecontent.outerHeight(true) + pagecontent.outerHeight());
   }
   resizeTimeout(pagecontentheightfix);
   waitforselector('.navBlocks_add', '.mgnlEditor.mgnlPlaceholder', pagecontentheightfix);
