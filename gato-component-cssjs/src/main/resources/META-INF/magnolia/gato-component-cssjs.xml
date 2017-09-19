@@ -25,7 +25,7 @@
     </dependency>
     <dependency>
       <name>site</name>
-      <version>5.4/*</version>
+      <version>1.1/*</version>
     </dependency>
   </dependencies>
 </module>
