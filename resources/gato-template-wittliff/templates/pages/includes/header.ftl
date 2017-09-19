@@ -16,9 +16,11 @@
       [#if gf.hasComponents(homepage['socialmedia']) || gf.hasComponents(homepage['newsletter-button']) || (isHomePage && cmsfn.isEditMode())]
       <div class="menu-social-media">
         [@cms.area name="socialmedia" content=gf.getOrCreateArea(homepage, 'socialmedia') editable=isHomePage/]
-        [@cms.area name="newsletter-button" content=gf.getOrCreateArea(homepage, 'newsletter-button') editable=isHomePage /]
       </div>
       [/#if]
+      <div class="menu-newsletter-button">
+        [@cms.area name="newsletter-button" content=gf.getOrCreateArea(homepage, 'newsletter-button') editable=isHomePage /]
+      </div>
       [#if gf.hasComponents(homepage['donate-button']) || (isHomePage && cmsfn.isEditMode())]
       <div class="menu-donate-button">
         [@cms.area name="donate-button" content=gf.getOrCreateArea(homepage, 'donate-button') editable=isHomePage /]

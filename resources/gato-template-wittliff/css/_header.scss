@@ -256,12 +256,19 @@ strong {
     max-width: 20rem;
   }
 
-  .menu-social-media .social-media-icons {
-    margin-top: 0;
-    margin-bottom: 2rem;
+  .menu-social-media {
+    padding: 2.5rem 0 2rem 0;
+    .social-media-icons {
+      margin: 0;
+    }
   }
-  .menu-social-media, .menu-donate-button {
+  .menu-donate-button {
     padding: 2.5rem 0;
+  }
+  .menu-newsletter-button {
+    padding: 0 0 2.5rem 0;
+  }
+  .menu-social-media, .menu-donate-button, .menu-newsletter-button {
     text-align: center;
   }
   .menu-donate-button {
