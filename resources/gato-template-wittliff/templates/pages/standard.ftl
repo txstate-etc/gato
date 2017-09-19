@@ -11,14 +11,17 @@
     [@templatehead publisher="The Wittliff Collections"/]
   </head>
 
-  <body class="template-wittliff${(def.parameters.isHomeTemplate!false)?string(' wittliff-home', '')}${cmsfn.isEditMode()?string(' admin','')}">
+  <body class="template-wittliff${(def.parameters.isHomeTemplate!false)?string(' wittliff-home', '')}${(def.parameters.isSpecialTemplate!false)?string(' wittliff-special', '')}${cmsfn.isEditMode()?string(' admin','')}">
     [@skipnav/]
     [#include "includes/header.ftl"]
     [#if def.parameters.isHomeTemplate!false]
-      [@cms.area name="hero-banner" content=gf.getOrCreateArea(homepage, 'hero-banner') /]
+      [@cms.area name="hero-slider"/]
+    [/#if]
+    [#if def.parameters.isSpecialTemplate!false]
+      [@cms.area name="hero-banner"/]
     [/#if]
     <div class="page_content">
-      [#assign hideSidebar = (content.hideSidebar!false) || (def.parameters.isHomeTemplate!false)]
+      [#assign hideSidebar = (content.hideSidebar!false) || (def.parameters.isHomeTemplate!false) || (def.parameters.isSpecialTemplate!false)]
       [#if !cmsfn.isEditMode() && !gf.areaHasChildrenIncludingInheritance(content.navBlocks)]
         [#assign hideSidebar = true]
       [/#if]
