@@ -73,6 +73,32 @@
     &.tall {
       img { width: 100%; }
     }
+    .feature-play-button {
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 4rem;
+      border-radius: 100%;
+      width:  7rem;
+      height: 7rem;
+      border: 2px solid white;
+      opacity: 0.9;
+      @media (max-width: $md-breakpoint) {
+        top: 60%;
+        width: 5rem;
+        height: 5rem;
+        font-size: 3rem;
+      }
+      i {
+        position: absolute;
+        top:50%;
+        left: 55%;// looks weird when perfectly centerd or are my eyes playing tricks on me?
+        transform: translate(-50%, -50%);
+      }
+    }
   }
 }
 
