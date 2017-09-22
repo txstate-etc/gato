@@ -13,6 +13,9 @@ form:
           - name: tableData
             class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
           label: Table Data
+        - name: tableCaption
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Caption
         - name: tableHeader
           class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
           label: Options

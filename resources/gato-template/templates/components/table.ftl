@@ -14,6 +14,9 @@
         [#assign rows = decodedContent.tableData?split("\n")]
         [#assign startingRow = 0]
         <table cellspacing="0" class="gato-table ${cssClasses}">
+            [#if content.tableCaption?has_content]
+            <caption>${content.tableCaption}</caption>
+            [/#if]
             [#if content.tableHeader && rows?size > 0]
                 [#assign headers = rows?first?split("\t")]
                 [#assign startingRow = 1]
