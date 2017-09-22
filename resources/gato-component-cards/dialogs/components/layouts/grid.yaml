@@ -8,6 +8,7 @@ form:
           multiselect: false
           type: String
           label: Column Size
+          sortOptions: false
           options:
             - name: card-sm
               label: Small (Up to four columns)
@@ -19,6 +20,20 @@ form:
             - name: card-lg
               label: Large (Up to two columns)
               value: large
+        - name: grid
+          class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
+          multiselect: false
+          type: Boolean
+          label: Uniform Layout
+          sortOptions: false
+          options:
+            - name: false
+              label: Use Mosaic Layout (default)
+              value: false
+              selected: true
+            - name: true
+              label: Line up the top of each new row (stricter grid)
+              value: true
     - name: tabFiltering
       label: Filtering
       fields:
