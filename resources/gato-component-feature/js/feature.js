@@ -1,3 +1,4 @@
+var GATO_MOVINGIMAGE_TIMINGS = { 'none':0, 'slow':20000, 'medium':20000, 'fast':20000};
 jQuery(document).ready(function ($) {
   var NONE = 0, SLOW = 10000, MEDIUM = 7500, FAST = 5000;
 
@@ -100,6 +101,8 @@ jQuery(document).ready(function ($) {
 
   function startMovingImage(slide){
     var slideshow = slide.closest('.slides');
+    var speedstr = slide.closest('.gato-slider').data('feature-timer');
+    var speed = GATO_MOVINGIMAGE_TIMINGS[speedstr.toLowerCase()];
     //if slide show is auto-rotating, pause it to allow the moving image animation to finish
     if (slideshow.slick('slickGetOption', 'autoplay')) {
       slideshow.slick('slickPause');
@@ -122,14 +125,14 @@ jQuery(document).ready(function ($) {
                               translateY: endTransform.translateY +'px'
                             },
                             {
-                              duration: 20000,
+                              duration: speed,
                               easing: 'linear',
                               complete: function() {
                                 //restart slideshow if it is set to auto-rotate
                                 if (slideshow.slick('slickGetOption', 'autoplay')) {
                                   setTimeout(function(){
                                     slideshow.slick('slickPlay').slick('slickNext');
-                                  }, 2000);
+                                  }, speed*0.1);
                                 }
                               }
                             })
