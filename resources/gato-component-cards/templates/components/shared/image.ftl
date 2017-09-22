@@ -4,7 +4,7 @@
   [/#if]
 
   <figure>
-    <img src="${gf.getImgDefault(content.image, ctx.sizes)}" sizes="${ctx.sizes}" alt="${content.alttext!}" srcset="${gf.getSrcSet(content.image)}" />
+    <img src="${gf.getImgDefault(content.image, ctx.sizes)}" sizes="${ctx.sizes}" alt="${content.alttext!}" srcset="${gf.getSrcSet(content.image)}" width="${gf.getImgWidth(content.image)}" height="${gf.getImgHeight(content.image)}"/>
     [#if content.title?has_content]
       <figcaption>
         <h3>${content.title}</h3>

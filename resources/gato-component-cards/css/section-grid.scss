@@ -4,6 +4,14 @@
   .gato-card { position: absolute; }
   .masonry-gutter { width: $gato-card-gutter; }
 
+  &.forcegrid {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    .gato-card { position: relative; }
+  }
+
   &.small {
     .gato-card, .masonry-sizer {
       width: $gato-card-fourths;

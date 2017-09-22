@@ -19,8 +19,10 @@
 [#else]
   [#assign sizes="800px"]
 [/#if]
-<div id="${gf.uuidToHtmlId(content.@id)}" class="section-grid ${cardsize}">
+<div id="${gf.uuidToHtmlId(content.@id)}" class="section-grid ${cardsize} ${(content.forcegrid!false)?string('forcegrid','')}">
+  [#if !(content.forcegrid!false)]
   <div class="masonry-sizer"></div>
   <div class="masonry-gutter"></div>
+  [/#if]
   [@cms.area name="cards" contextAttributes={"cardsize":cardsize, "sizes":sizes}/]
 </div>

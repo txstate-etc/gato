@@ -20,7 +20,7 @@ form:
             - name: card-lg
               label: Large (Up to two columns)
               value: large
-        - name: grid
+        - name: forcegrid
           class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
           multiselect: false
           type: Boolean

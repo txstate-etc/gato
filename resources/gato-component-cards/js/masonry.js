@@ -16,6 +16,7 @@ jQuery(function($) {
   window.gatogridlayout = function ($grids) {
     $grids.each(function() {
       var $grid = $(this);
+      if ($grid.is('.forcegrid')) return;
       var sectionwidth = $grid.width();
       var sizerwidth = $grid.find('.masonry-sizer').width();
       var gutterwidth = $grid.find('.masonry-gutter').width();
@@ -24,7 +25,7 @@ jQuery(function($) {
       var colwidthpercent = 100.0 * colwidth / sectionwidth;
       var colheights = [];
       for (var i = 0; i < numcols; i++) { colheights[i] = 0.0; }
-      $grid.find('.gato-card:visible').velocity('stop').each(function() {
+      $grid.find('.gato-card:visible').velocity('stop').each(function(idx) {
         var $card = $(this);
         var cardheight = $card.outerHeight(true);
         var fudge = Math.min(150,cardheight/2);
@@ -32,10 +33,10 @@ jQuery(function($) {
         var bestidx = 0;
         for (var i = 1; i < numcols; i++) {
           if (colheights[i] < bestheight - fudge) {
-            bestheight = colheights[i];
             bestidx = i;
           }
         }
+        bestheight = colheights[bestidx];
         colheights[bestidx] += cardheight+gutterwidth;
         $card.velocity({'top': bestheight+'px', 'left': (bestidx*colwidthpercent)+'%'}, {duration: 150});
       });
