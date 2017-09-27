@@ -59,32 +59,41 @@ jQuery(function($) {
 			hashParams[gridid+"_f"] = currentFilter;
 			setHashParameters(hashParams);
 
+			var changed = false;
+			var appeared = [];
 			$(element).find('div.gato-card[data-tags]:not([data-tags=""])').each(function(i,card){
 				var tags = $(card).data("tags").toLowerCase().split(/ *, */);
 				var $card = $(card);
-				var changed = false;
-				var appeared = [];
 				if ( tags.indexOf(currentFilter.toLowerCase()) != -1 || currentFilter == "All" ) {
-				  if ($card.hasClass('gato-card-hidden')) {
-				    appeared.push(card);
-				    changed = true;
-				  }
+					if ($card.hasClass('gato-card-hidden')) {
+						appeared.push(card);
+						changed = true;
+					}
 					$card.removeClass('gato-card-hidden');
 					$card.attr('aria-hidden',false);
 				} else {
-				  if (!$card.hasClass('gato-card-hidden')) changed = true;
-          $card.addClass('gato-card-hidden');
+					if (!$card.hasClass('gato-card-hidden')) changed = true;
+					$card.addClass('gato-card-hidden');
 					$card.attr('aria-hidden',true);
 				}
-				if (changed) {
-				  // resetting previously invisible cards to 0,0 makes for a better animation when it appears, but we don't
-				  // actually hide in edit mode so avoid doing the animation
-				  if ($card.closest('.admin').length == 0) $(appeared).css({'left':0, 'top':0, 'transform': 'none'});
-
-				  if ($section.is('.section-masonry')) $section.masonry('layout');
-				  else gatogridlayout($section);
-				}
 			});
+			if (changed) {
+				// resetting previously invisible cards to 0,0 makes for a better animation when it appears, but we don't
+				// actually hide in edit mode so avoid doing the animation
+				if ($('body.admin').length == 0) $(appeared).css({'left':0, 'top':0, 'transform': 'none'});
+
+
+				if ($section.is('.section-masonry')) $section.masonry('layout');
+				else {
+					$section.find('.gato-card:visible').removeClass('halves-edge thirds-edge fourths-edge').each(function (idx) {
+						var card = $(this);
+						if (idx % 2 == 1) card.addClass('halves-edge');
+						if (idx % 3 == 2) card.addClass('thirds-edge');
+						if (idx % 4 == 3) card.addClass('fourths-edge');
+					});
+					gatogridlayout($section);
+				}
+			}
 		};
 
 
