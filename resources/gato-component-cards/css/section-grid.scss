@@ -8,8 +8,28 @@
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
-    justify-content: space-between;
-    .gato-card { position: relative; }
+    justify-content: flex-start;
+    .gato-card {
+      position: relative;
+      margin-bottom: $gato-card-gutter;
+      margin-right: $gato-card-gutter;
+      figcaption { margin-top: -1px; }
+    }
+    &.small {
+      .gato-section:not([data-eq~="900px"]) & .fourths-edge,
+      [data-eq~="900px"]:not([data-eq~="600px"]) & .thirds-edge,
+      [data-eq~="600px"]:not([data-eq~="400px"]) & .halves-edge,
+      [data-eq~="400px"] & .gato-card { margin-right: 0; }
+    }
+    &.medium {
+      .gato-section:not([data-eq~="800px"]) & .thirds-edge,
+      [data-eq~="800px"]:not([data-eq~="600px"]) & .halves-edge,
+      [data-eq~="600px"] & .gato-card { margin-right: 0; }
+    }
+    &.large {
+      .gato-section:not([data-eq~="800px"]) & .halves-edge,
+      [data-eq~="800px"] & .gato-card { margin-right: 0; }
+    }
   }
 
   &.small {

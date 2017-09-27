@@ -20,20 +20,32 @@ form:
             - name: card-lg
               label: Large (Up to two columns)
               value: large
-        - name: forcegrid
+        - name: aspect
           class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
           multiselect: false
-          type: Boolean
-          label: Uniform Layout
+          type: Double
+          label: Image Cropping
           sortOptions: false
           options:
-            - name: false
-              label: Use Mosaic Layout (default)
-              value: false
+            - name: mosaic
+              label: Use default layout (no cropping)
+              value: 0
               selected: true
-            - name: true
-              label: Line up the top of each new row (stricter grid)
-              value: true
+            - name: 169
+              label: Make image cards landscape (16:9)
+              value: 1.777778
+            - name: 43
+              label: Make image cards iphone landscape (4:3)
+              value: 1.333333
+            - name: 34
+              label: Make image cards iphone portrait (3:4)
+              value: 0.75
+            - name: 32
+              label: Make image cards camera landscape (3:2)
+              value: 1.5
+            - name: 1
+              label: Make image cards square (1:1)
+              value: 1
     - name: tabFiltering
       label: Filtering
       fields:

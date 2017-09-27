@@ -16,7 +16,20 @@ jQuery(function($) {
   window.gatogridlayout = function ($grids) {
     $grids.each(function() {
       var $grid = $(this);
-      if ($grid.is('.forcegrid')) return;
+
+      if ($grid.is('.forcegrid')) {
+        var $captions = $grid.find('figcaption');
+        $captions.css('min-height', '');
+        var maxfigureheight = Math.max.apply(null, $captions.map(function() { return $(this).outerHeight(); }));
+        $grid.find('.gato-card:visible').removeClass('halves-edge thirds-edge fourths-edge').each(function (idx) {
+          var card = $(this);
+          if (idx % 2 == 1) card.addClass('halves-edge');
+          if (idx % 3 == 2) card.addClass('thirds-edge');
+          if (idx % 4 == 3) card.addClass('fourths-edge');
+        });
+        $captions.css('min-height', maxfigureheight+'px');
+        return;
+      }
       var sectionwidth = $grid.width();
       var sizerwidth = $grid.find('.masonry-sizer').width();
       var gutterwidth = $grid.find('.masonry-gutter').width();
