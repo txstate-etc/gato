@@ -20,7 +20,7 @@
   [#assign sizes="800px"]
 [/#if]
 <div id="${gf.uuidToHtmlId(content.@id)}" class="section-grid ${cardsize} ${((content.aspect!0) > 0)?string('forcegrid','')}">
-  [#if !(content.forcegrid!false)]
+  [#if (content.aspect!0) <= 0]
   <div class="masonry-sizer"></div>
   <div class="masonry-gutter"></div>
   [/#if]

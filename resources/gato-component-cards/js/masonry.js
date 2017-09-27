@@ -29,6 +29,7 @@ jQuery(function($) {
       var sizerwidth = $grid.find('.masonry-sizer').width();
       var gutterwidth = $grid.find('.masonry-gutter').width();
       var numcols = Math.round(sectionwidth/sizerwidth);
+      if (numcols > 100000) return; // sanity check, could be Infinity if there was no .masonry-sizer and crash browser
       var colwidth = sizerwidth+gutterwidth;
       var colwidthpercent = 100.0 * colwidth / sectionwidth;
       var colheights = [];
@@ -48,7 +49,7 @@ jQuery(function($) {
         colheights[bestidx] += cardheight+gutterwidth;
         $card.velocity({'top': bestheight+'px', 'left': (bestidx*colwidthpercent)+'%'}, {duration: 150});
       });
-      $grid.css('height', Math.max.apply(Math, colheights)+'px');
+      animationframe(function() {$grid.css('height', Math.max.apply(Math, colheights)+'px');});
     });
   }
   var $grids = $('.section-grid');
