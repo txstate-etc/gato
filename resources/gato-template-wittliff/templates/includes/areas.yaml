@@ -30,6 +30,11 @@ donate-button:
   availableComponents:
     link:
       id: gato-template-wittliff:components/linkbutton
+home-content:
+  type: list
+  availableComponents:
+    calltoaction:
+      id: gato-template-wittliff:components/calltoaction-container
 footer-findus:
   type: single
   availableComponents:

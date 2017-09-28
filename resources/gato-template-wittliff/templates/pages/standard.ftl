@@ -29,6 +29,8 @@
         [@headline hideSidebar /]
         [#if def.parameters.isMailTemplate!false]
           [@cms.area name="mail" contextAttributes={"hideSidebar":hideSidebar} /]
+        [#elseif def.parameters.isHomeTemplate!false]
+          [@cms.area name="home-content" contextAttributes={"hideSidebar":hideSidebar} /]
         [#else]
           [@cms.area name="contentParagraph" contextAttributes={"hideSidebar":hideSidebar} /]
         [/#if]

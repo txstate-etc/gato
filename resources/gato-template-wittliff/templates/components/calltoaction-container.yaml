@@ -1,0 +1,19 @@
+templateScript: /gato-template-wittliff/templates/components/calltoaction-container.ftl
+renderType: freemarker
+title: Call To Action Section
+description: Two columns, one Call to Action in each
+areas:
+  column1:
+    type: list
+    templateScript: /gato-template/templates/components/rows/column.ftl
+    availableComponents:
+      calltoaction:
+        id: gato-template-wittliff:components/calltoaction
+  column2:
+    type: list
+    templateScript: /gato-template/templates/components/rows/column.ftl
+    availableComponents:
+      calltoaction:
+        id: gato-template-wittliff:components/calltoaction
+parameters:
+  icon: /gato-component-button/images/button.png
