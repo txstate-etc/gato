@@ -43,9 +43,9 @@ jQuery(function($) {
         for (var i = 1; i < numcols; i++) {
           if (colheights[i] < bestheight - fudge) {
             bestidx = i;
+            bestheight = colheights[bestidx];
           }
         }
-        bestheight = colheights[bestidx];
         colheights[bestidx] += cardheight+gutterwidth;
         $card.velocity({'top': bestheight+'px', 'left': (bestidx*colwidthpercent)+'%'}, {duration: 150});
       });
