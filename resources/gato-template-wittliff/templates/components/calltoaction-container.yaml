@@ -4,14 +4,12 @@ title: Call To Action Section
 description: Two columns, one Call to Action in each
 areas:
   column1:
-    type: list
-    templateScript: /gato-template/templates/components/rows/column.ftl
+    type: single
     availableComponents:
       calltoaction:
         id: gato-template-wittliff:components/calltoaction
   column2:
-    type: list
-    templateScript: /gato-template/templates/components/rows/column.ftl
+    type: single
     availableComponents:
       calltoaction:
         id: gato-template-wittliff:components/calltoaction
