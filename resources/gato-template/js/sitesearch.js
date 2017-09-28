@@ -62,6 +62,7 @@ jQuery(document).ready(function($) {
             $('.contentcolumn').after(page);
             $('.contentcolumn, .sidebar-container, .gato-herobanner, .gato-heroslider').hide();
             $('.search-again .searchbar-form .icon.magnify').hide();
+            window.dispatchEvent(new Event('resize')); // allow any resize handlers to re-layout the page
             create_event_handlers();
         })
         .fail(function(){
@@ -231,6 +232,7 @@ jQuery(document).ready(function($) {
             $('.contentcolumn, .sidebar-container, .gato-herobanner, .gato-heroslider').show();
             $('.breadcrumbs').show();
             $('.searchbreadcrumbs').remove();
+            window.dispatchEvent(new Event('resize')); // allow any resize handlers to re-layout the page
         }
     });
 
