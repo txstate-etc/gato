@@ -26,6 +26,11 @@ strong {
 	font-weight: 500;
 }
 
+.gato-heroslider, .gato-herobanner, .page_content, .page-footer {
+  position: relative;
+  z-index: 1;
+}
+
 .page-header {
   background-color: $cactus;
   display: flex;
@@ -36,7 +41,7 @@ strong {
   color: $white;
   position: relative;
   margin-bottom: $header-margin;
-  z-index: 65536;
+  z-index: 3;
   @media (max-width: $md-breakpoint) {
     height: $header-height-tablet;
     margin-bottom: $header-margin-tablet;
