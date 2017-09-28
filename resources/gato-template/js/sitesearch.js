@@ -60,7 +60,7 @@ jQuery(document).ready(function($) {
             var page = window.txstsearch.buildSearchResultsPage(sitesearch, query, results, startPage, sortType);
             $('#search-results').remove();
             $('.contentcolumn').after(page);
-            $('.contentcolumn, .sidebar-container').hide();
+            $('.contentcolumn, .sidebar-container, .gato-herobanner, .gato-heroslider').hide();
             $('.search-again .searchbar-form .icon.magnify').hide();
             create_event_handlers();
         })
@@ -228,7 +228,7 @@ jQuery(document).ready(function($) {
         else if ($('#search-results.global').length == 0) {
             //The user went to the original page
             $('#search-results').remove();
-            $('.contentcolumn, .sidebar-container').show();
+            $('.contentcolumn, .sidebar-container, .gato-herobanner, .gato-heroslider').show();
             $('.breadcrumbs').show();
             $('.searchbreadcrumbs').remove();
         }
