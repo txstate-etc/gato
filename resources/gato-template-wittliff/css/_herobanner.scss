@@ -80,17 +80,18 @@
       left: 50%;
       transform: translate(-50%, -50%);
       color: white;
-      font-size: 4rem;
+      font-size: 3.5rem;
       border-radius: 100%;
-      width:  7rem;
-      height: 7rem;
-      border: 2px solid white;
+      width:  8rem;
+      height: 8rem;
+      border: 7px solid white;
       opacity: 0.9;
       @media (max-width: $md-breakpoint) {
         top: 60%;
         width: 5rem;
         height: 5rem;
-        font-size: 3rem;
+        font-size: 2.5rem;
+        border: 5px solid white;
       }
       i {
         position: absolute;
@@ -103,8 +104,20 @@
 }
 
 .gato-herobanner, .gato-heroslider {
-  margin-top: -12rem;
+  margin-top: -1 * ($header-height + $header-margin);
   .admin & {
-    margin-top: -4rem;
+    margin-top: -1 * ($header-margin);
+  }
+  @media (max-width: $md-breakpoint) {
+    margin-top: -1 * ($header-height-tablet + $header-margin-tablet);
+    .admin & {
+      margin-top: -1 * ($header-margin-tablet);
+    }
+  }
+  @media (max-width: $sm-breakpoint) {
+    margin-top: -1 * ($header-height-mobile + $header-margin-mobile);
+    .admin & {
+      margin-top: -1 * ($header-margin-mobile);
+    }
   }
 }
