@@ -16,16 +16,50 @@
             font-size: 2.2rem;
             color: #212121;
             letter-spacing: 2px;
+            @media (max-width: $lg-breakpoint) {
+                font-size: 2rem;
+            }
+            @media (max-width: $md-breakpoint) {
+                font-size: 1.8rem;
+                padding-right: 2.5rem;
+            }
+            @media (max-width: $sm-breakpoint) {
+                flex: 0 0 25%;
+            }
+            @media (max-width: $mn-breakpoint) {
+                flex: 0 0 33%;
+                font-size: 1.6rem;
+            }
         }
         .event-content {
             flex: 0 0 60%;
             padding-right: 5rem;
+            @media (max-width: $md-breakpoint) {
+                padding-right: 2.5rem;
+            }
+            @media (max-width: $sm-breakpoint) {
+                flex: 0 0 75%;
+            }
+            @media (max-width: $mn-breakpoint) {
+                flex: 0 0 67%;
+            }
             .event-title {
                 color: $cactus;
                 font-family: $helveticaneue;
                 font-size: 4rem;
                 font-weight: 500;
                 letter-spacing: 2px;
+                word-wrap: break-word;
+                hyphens: auto;
+                @media (max-width: $lg-breakpoint) {
+                    font-size: 3.5rem;
+                }
+                @media (max-width: $md-breakpoint) {
+                    font-size: 3rem;
+                }
+                @media (max-width: $mn-breakpoint) {
+                    font-size: 2rem;
+                }
             }
             .event-details {
                 color: #212121;
@@ -36,6 +70,15 @@
                 font-size: 2.2rem;
                 font-weight: 500;
                 letter-spacing: 2px;
+                @media (max-width: $lg-breakpoint) {
+                    font-size: 2rem;
+                }
+                @media (max-width: $md-breakpoint) {
+                    font-size: 1.8rem;
+                }
+                @media (max-width: $mn-breakpoint) {
+                    font-size: 1.6rem;
+                }
                 i {
                     &:before {
                       content: $fa-var-angle-right;
@@ -47,7 +90,12 @@
                     content: $fa-var-angle-down;
                 }
             }
-            .event-icon-links{
+            .event-description {
+                img {
+                    max-width: 100%;
+                }
+            }
+            .event-icon-links {
                 .addtocalendar {
                     color: #212121;
                     text-decoration: none;
@@ -59,8 +107,12 @@
         }
         .event-image {
             flex: 0 0 25%;
+            display: block;
             img {
                 max-width: 100%;
+            }
+            @media (max-width: $sm-breakpoint) {
+                display: none;
             }
         }
     }
