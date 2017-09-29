@@ -5,10 +5,14 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
+import java.util.List;
+import java.util.ArrayList;
 
 import org.apache.commons.lang3.StringUtils;
 
 import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 public class EventsItem {
   private static final DateFormat inputFormatTimed = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
@@ -33,6 +37,7 @@ public class EventsItem {
   private String humanEndDate;
   private String eventId;
   private String recurrenceId;
+  private List<String> categories;
   
   private Element elem;
 
@@ -305,6 +310,21 @@ public class EventsItem {
       recurrenceId = DomUtils.getTextValue(elem, "id");
     }
     return recurrenceId;
+  }
+
+  public List<String> getCategories() {
+    if (categories == null) {
+      categories = new ArrayList<String>();
+      Element categoriesElem = DomUtils.getChildNode(this.elem, "categories");
+      NodeList children = categoriesElem.getElementsByTagName("category");
+      for (int i=0; i<children.getLength(); i++) {
+        Node category = (Node) children.item(i);
+        if (null != category){
+          categories.add(category.getTextContent());
+        }
+      }
+    }
+    return categories;
   }
 
 }
