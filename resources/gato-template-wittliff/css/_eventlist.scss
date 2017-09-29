@@ -1,0 +1,67 @@
+.wittliff-event-list {
+    padding-top: 6rem; //change when filtering is added
+    .event {
+        display: flex;
+        justify-content: space-between;
+        padding: 3rem 0rem;
+        border-bottom: 3px solid $coffee;
+        &:first-child {
+            border-top: 3px solid $coffee;
+        }
+        .event-datetime {
+            flex: 0 0 15%;
+            text-align: right;
+            padding-right: 5rem;
+            font-family: $helveticaneue;
+            font-size: 2.2rem;
+            color: #212121;
+            letter-spacing: 2px;
+        }
+        .event-content {
+            flex: 0 0 60%;
+            padding-right: 5rem;
+            .event-title {
+                color: $cactus;
+                font-family: $helveticaneue;
+                font-size: 4rem;
+                font-weight: 500;
+                letter-spacing: 2px;
+            }
+            .event-details {
+                color: #212121;
+                text-decoration: none;
+                font-family: $helveticaneue;
+                padding-top: 20px;
+                display: block;
+                font-size: 2.2rem;
+                font-weight: 500;
+                letter-spacing: 2px;
+                i {
+                    &:before {
+                      content: $fa-var-angle-right;
+                    }
+                }
+            }
+            &.shown {
+                .event-details i:before {
+                    content: $fa-var-angle-down;
+                }
+            }
+            .event-icon-links{
+                .addtocalendar {
+                    color: #212121;
+                    text-decoration: none;
+                    i {
+                        color: $sienna;
+                    }
+                }
+            }
+        }
+        .event-image {
+            flex: 0 0 25%;
+            img {
+                max-width: 100%;
+            }
+        }
+    }
+}

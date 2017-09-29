@@ -6,6 +6,8 @@ mail:
   !include /gato-area-mail/templates/areas/mailForm.yaml
 contentParagraph:
   !include /gato-template/templates/areas/contentParagraph.yaml
+events:
+  !include /gato-template-wittliff/templates/areas/events-area.yaml
 navBlocks:
   !include /gato-template/templates/areas/navBlocks.yaml
 socialmedia:

@@ -1,0 +1,15 @@
+renderType: freemarker
+templateScript: /gato-template-wittliff/templates/areas/events-area.ftl
+type: list
+title: Events Page Content
+areas:
+  eventlist:
+    type: single
+    title: List of Events
+    autoGeneration:
+      content:
+        events:
+          nodeType: mgnl:component
+          templateId: gato-template-wittliff:components/events
+          copySender: false
+      generatorClass: info.magnolia.rendering.generator.CopyGenerator

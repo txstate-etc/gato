@@ -5,7 +5,8 @@
   <head>
     [@templatejs scripts=[
       'gato-template-wittliff/js/wittliff.js',
-      'gato-template-wittliff/js/fontsdotcom.js'
+      'gato-template-wittliff/js/fontsdotcom.js',
+      'gato-template-wittliff/js/wittliff-events.js'
     ]/]
     <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-wittliff/css/standard.compiled.css"/>
     [@templatehead publisher="The Wittliff Collections"/]
@@ -17,7 +18,7 @@
     [#if def.parameters.isHomeTemplate!false]
       [@cms.area name="hero-slider"/]
     [/#if]
-    [#if def.parameters.isSpecialTemplate!false]
+    [#if def.parameters.isSpecialTemplate!false || def.parameters.isEventsTemplate!false]
       [@cms.area name="hero-banner"/]
     [/#if]
     <div class="page_content">
@@ -31,6 +32,8 @@
           [@cms.area name="mail" contextAttributes={"hideSidebar":hideSidebar} /]
         [#elseif def.parameters.isHomeTemplate!false]
           [@cms.area name="home-content" contextAttributes={"hideSidebar":hideSidebar} /]
+        [#elseif def.parameters.isEventsTemplate!false]
+          [@cms.area name="events" contextAttributes={"hideSidebar":hideSidebar} /]
         [#else]
           [@cms.area name="contentParagraph" contextAttributes={"hideSidebar":hideSidebar} /]
         [/#if]

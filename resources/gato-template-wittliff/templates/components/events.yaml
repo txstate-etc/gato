@@ -1,0 +1,7 @@
+templateScript: /gato-template-wittliff/templates/components/events.ftl
+renderType: freemarker
+dialog: gato-template-wittliff:components/events
+title: Wittliff Event List
+modelClass: edu.txstate.its.gato.EventsModelForWittliffEvents
+parameters:
+  icon: /gato-component-events/images/calendar.png
