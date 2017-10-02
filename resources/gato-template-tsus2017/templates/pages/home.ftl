@@ -15,6 +15,7 @@
         [#include "includes/header.ftl"]
         <div class="contentcolumn">
           [#assign hideSidebar = true]
+          [@headline hideSidebar /]
             <!-- slideshow -->
             <div class="tsus-slideshow eq-parent">
               [@cms.area name="tsus-slideshow" /]
