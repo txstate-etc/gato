@@ -15,7 +15,7 @@
         [#assign startingRow = 0]
         <table cellspacing="0" class="gato-table ${cssClasses}">
             [#if content.tableCaption?has_content]
-            <caption>${content.tableCaption}</caption>
+            <caption><p>${content.tableCaption}</p></caption>
             [/#if]
             [#if content.tableHeader && rows?size > 0]
                 [#assign headers = rows?first?split("\t")]
