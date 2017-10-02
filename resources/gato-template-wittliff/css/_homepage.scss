@@ -3,3 +3,88 @@
   width: 50%;
   &.left { padding-right: 1px; }
 }
+
+.gato-eventbanner {
+  position: relative;
+  overflow: hidden;
+  line-height: 1.2;
+  .eventbanner-image {
+    height: 0;
+    padding-bottom: 45.45%;
+    img {
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    &.tall img { width: 100%; }
+    &.wide img { height: 100%; }
+  }
+  .eventbanner-panel {
+    background-color: rgba($coffee, 0.8);
+    color: white;
+    padding: 2.5em 3em;
+    position: absolute;
+    width: 35%;
+    height: 100%;
+    top: 0;
+    font-size: 1rem;
+    @media (max-width: $lg-breakpoint) {
+      font-size: 0.79rem;
+    }
+    @media (max-width: $md-breakpoint) {
+      font-size: 0.6rem;
+    }
+    @media (max-width: $sm-breakpoint) {
+      font-size: 0.5rem;
+    }
+    &.left { left: 0; }
+    &.right { right: 0; }
+    .typeheader {
+      text-transform: uppercase;
+      font-size: 3em;
+      letter-spacing: 2px;
+    }
+    h2 {
+      font-size: 1em;
+      margin: 2.3em 0;
+      .title {
+        font-family: $garamond;
+        font-size: 8em;
+        letter-spacing: 3px;
+        font-weight: 500;
+        line-height: 1;
+      }
+      .subtitle {
+        font-size: 4em;
+        letter-spacing: 2px;
+        font-weight: normal;
+      }
+    }
+    .dates {
+      font-size: 3em;
+      letter-spacing: 2px;
+      margin-bottom: .67em;
+    }
+    a.all, a.share {
+      display: block;
+      color: white;
+      text-decoration: none;
+      font-size: 2em;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      i {
+        display: inline;
+      }
+    }
+    a.share {
+      margin-bottom: 0.5em;
+    }
+    a.all {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

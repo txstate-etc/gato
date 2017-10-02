@@ -27,7 +27,9 @@
         [#assign hideSidebar = true]
       [/#if]
       <main class="contentcolumn">
-        [@headline hideSidebar /]
+        [#if !(def.parameters.isHomeTemplate!false) && !(def.parameters.isSpecialTemplate!false)]
+          [@headline hideSidebar /]
+        [/#if]
         [#if def.parameters.isMailTemplate!false]
           [@cms.area name="mail" contextAttributes={"hideSidebar":hideSidebar} /]
         [#elseif def.parameters.isHomeTemplate!false]

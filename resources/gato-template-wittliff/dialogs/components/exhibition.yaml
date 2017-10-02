@@ -1,0 +1,74 @@
+form:
+  tabs:
+    - name: tabExh
+      label: Exhibition Banner
+      fields:
+        - name: image
+          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+          appName: assets
+          targetWorkspace: dam
+          label: Image
+          required: true
+          identifierToPathConverter:
+            class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
+          contentPreviewDefinition:
+            contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
+          description: "Choose a large image, it will be used as the background for the section."
+        - name: type
+          class: info.magnolia.ui.form.field.definition.SwitchableFieldDefinition
+          transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+          label: Type
+          layout: vertical
+          selectionType: select
+          required: true
+          options:
+            - name: permanent
+              value: permanent
+              label: Permanent Exhibition
+            - name: exhibition
+              value: exhibition
+              label: Featured Exhibition
+            - name: ongoing
+              value: ongoing
+              label: Ongoing
+          fields:
+            exhibition:
+              class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
+              layout: vertical
+              transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+              label: ""
+              fields:
+                - name: start
+                  class: info.magnolia.ui.form.field.definition.DateFieldDefinition
+                  label: Start Date
+                  type: Date
+                - name: end
+                  class: info.magnolia.ui.form.field.definition.DateFieldDefinition
+                  label: End Date
+                  type: Date
+        - name: title
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Title
+          required: true
+        - name: subtitle
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Sub-title
+        - name: link
+          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+          label: Link
+          description: This MUST be a link to more details about this specific exhibition.
+          required: true
+          appName: pages
+          identifierToPathConverter:
+            class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
+        - name: layout
+          class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
+          label: Layout
+          options:
+            - name: left
+              label: Left
+              selected: true
+            - name: right
+              label: Right
+
+actions: !include /gato-template/dialogs/common/actions-block.yaml

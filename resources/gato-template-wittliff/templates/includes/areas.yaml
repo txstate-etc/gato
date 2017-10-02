@@ -37,6 +37,8 @@ home-content:
   availableComponents:
     calltoaction:
       id: gato-template-wittliff:components/calltoaction-container
+    exhibition:
+      id: gato-template-wittliff:components/exhibition
     mosaic:
       id: gato-component-cards:components/layouts/grid
 footer-findus:
