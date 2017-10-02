@@ -1160,12 +1160,14 @@ public final class GatoUtils {
       Calendar saved = PropertyUtil.getDate(n, "embedsaved", Calendar.getInstance());
       Calendar cutoffdate = Calendar.getInstance();
       cutoffdate.add(Calendar.MONTH, -2);
-      if (StringUtils.isBlank(embed) || saved.before(cutoffdate)) {
+      String savedurl = PropertyUtil.getString(n, "embedsavedurl", "");
+      if (StringUtils.isBlank(embed) || saved.before(cutoffdate) || !savedurl.equals(url)) {
         embed = (new GsonBuilder()).create().toJson(oEmbedAutodiscover(url));
         if (!StringUtils.isBlank(embed)) {
           Node sn = nodeInSystemContext(n);
           sn.setProperty("embed", embed);
           sn.setProperty("embedsaved", Calendar.getInstance());
+          sn.setProperty("embedsavedurl", url);
           sn.save();
         }
       }
