@@ -1,30 +1,22 @@
 .gato-herobanner {
-  position: relative;
-  height: 40.9em;
-  @media (max-width: $xl-breakpoint) {
-    height: 0;
-    padding-bottom: 45.45%;
-  }
   margin-bottom: 2rem;
-  overflow: hidden;
   .herobanner-image {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative;
     overflow: hidden;
-    &.wide {
-      img { height: 100%; }
+    height: 40.9em;
+    @media (max-width: $xl-breakpoint) {
+      height: 0;
+      padding-bottom: 45.45%;
     }
-    &.tall {
-      img { width: 100%; }
-    }
+    overflow: hidden;
+    &.wide img { height: 100%; }
+    &.tall img { width: 100%; }
     img {
       display: block;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
     }
   }
   .herobanner-title {
