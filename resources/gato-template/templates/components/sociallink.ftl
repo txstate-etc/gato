@@ -56,7 +56,11 @@
           [/#if]
 
           [#assign linktext = socialink.title!alttext]
-          [#if ctx.icononly!false][#assign linktext = ''][/#if]
+          [#if ctx.icononly!false]
+            [#assign linktextclass = 'visuallyhidden']
+          [#else]
+            [#assign linktextclass = '']
+          [/#if]
 
           [#assign title = alttext]
           [#if linktext?lower_case?contains(alttext?lower_case)]
@@ -68,11 +72,11 @@
           <li>
                 <a href="${gf.filterUrl(socialink.link)}" class="gato-sociallink ${(ctx.icononly!false)?string('icononly','')}">
                    [#if socialink.icon?has_content]
-                     <img src="${damfn.getAssetLink(socialink.icon)!}" alt="${title}" [#if title?has_content]title="${title}"[/#if]/>[#--
+                     <img src="${damfn.getAssetLink(socialink.icon)!}" alt="${title}"/>[#--
                    --][#else][#--
                      --]<i class="fa ${iconclass!'fa-share-alt-square'}" [#if title?has_content]aria-label="${title}"[#else]aria-hidden="true"[/#if]></i>[#--
                    --][/#if][#--
-                   --]<span>${linktext}</span>[#--
+                   --]<span class="${linktextclass}">${linktext}</span>[#--
                  --]</a>
           </li>
         [/#if]
