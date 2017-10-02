@@ -140,7 +140,10 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       .addTask(new BootstrapSingleModuleResource("config.modules.pages.dialogs.newComponent.form.tabs.components.fields.mgnl-position.xml"))
       .addTasks(installOrUpdateTasks())
     );
+
     register(DeltaBuilder.update("1.0.8", "")
+      .addTask(new BootstrapSingleModuleResource("config.modules.site.config.site.templates.availability.templates.wittliff-events.xml"))
+      .addTask(new BootstrapSingleModuleResource("config.modules.site.config.site.templates.availability.templates.wittliff-special.xml"))
       .addTasks(installOrUpdateTasks())
     );
 
