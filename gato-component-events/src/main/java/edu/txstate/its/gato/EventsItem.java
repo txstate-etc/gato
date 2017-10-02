@@ -14,7 +14,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-public class EventsItem {
+public class EventsItem implements Comparable<EventsItem> {
   private static final DateFormat inputFormatTimed = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
   private static final DateFormat inputFormatUntimed = new SimpleDateFormat("yyyyMMdd");
 
@@ -38,12 +38,12 @@ public class EventsItem {
   private String eventId;
   private String recurrenceId;
   private List<String> categories;
-  
+
   private Element elem;
 
   public EventsItem(Element elem) {
     this.elem = elem;
-  } 
+  }
 
   public boolean isCancelled() {
     if (status == null) {
@@ -94,7 +94,7 @@ public class EventsItem {
     }
 
     facility = "";
-    
+
     Element location = DomUtils.getChildNode(elem, "location");
     String url = DomUtils.getTextValue(location, "url");
     if (!StringUtils.isEmpty(url)) {
@@ -112,7 +112,7 @@ public class EventsItem {
     if (!StringUtils.isEmpty(room)) {
       facility += "; " + room;
     }
-    
+
     return facility;
   }
 
@@ -136,9 +136,9 @@ public class EventsItem {
     }
 
     Element elem = DomUtils.getChildNode(this.elem, "contact");
-    
+
     contact = DomUtils.getTextValue(elem, "firstname") + " " + DomUtils.getTextValue(elem, "lastname");
-    
+
     String email = DomUtils.getTextValue(elem, "email");
     if (!StringUtils.isEmpty(email)) {
       contact = "<a href=\"mailto:" + email + "\">" + contact + "</a>";
@@ -148,7 +148,7 @@ public class EventsItem {
     if (!StringUtils.isEmpty(phone)) {
       contact += ", " + phone;
     }
-    
+
     return contact;
   }
 
@@ -210,36 +210,36 @@ public class EventsItem {
 
   private static Date getDate(Element elem, String dateLabel) {
     final String dateString = DomUtils.getTextValue(elem, dateLabel);
-    
+
     try {
       inputFormatTimed.setTimeZone(TimeZone.getTimeZone("America/Chicago"));
       return inputFormatTimed.parse(dateString);
     } catch (ParseException e) {
       // couldn't parse with a date
     }
-    
+
     try {
       return inputFormatUntimed.parse(dateString);
     } catch (ParseException e) {
       // couldn't parse without a date
     }
-    
+
     return new Date(0l);
   }
 
   private static String getMachineDate(Date date, boolean showTime) {
     final DateFormat dateFormat = new SimpleDateFormat( "yyyy-MM-dd" );
     final DateFormat timeFormat = new SimpleDateFormat( "HH:mm:00Z" );
-    
+
     String dateString = dateFormat.format(date);
-    
+
     if (showTime) {
       dateString += "T" + timeFormat.format(date);
     }
-    
+
     return dateString;
   }
-  
+
   private static String getHumanDate(Date date, boolean showDate, boolean showTime) {
     DateFormat dateFormat;
     String abbrMonth = "";
@@ -258,7 +258,7 @@ public class EventsItem {
       return "";
     }
 
-    return abbrMonth + dateFormat.format(date);       
+    return abbrMonth + dateFormat.format(date);
   }
 
   //University Marketing is very specific about their preferred month abbreviations
@@ -325,6 +325,10 @@ public class EventsItem {
       }
     }
     return categories;
+  }
+
+  public int compareTo(EventsItem other) {
+    return getRecurrenceId().compareTo(other.getRecurrenceId());
   }
 
 }
