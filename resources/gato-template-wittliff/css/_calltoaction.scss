@@ -1,3 +1,13 @@
+.calltoaction-column {
+  display: inline-block;
+  width: 50%;
+  margin-bottom: 1rem;
+  &.left { padding-right: 1px; }
+  [data-eq~="700px"] & {
+    width: 100%;
+  }
+}
+
 .call-to-action {
   background-repeat: no-repeat;
   background-size: cover;

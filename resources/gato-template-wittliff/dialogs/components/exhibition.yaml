@@ -49,10 +49,12 @@ form:
         - name: title
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Title
+          maxLength: 25
           required: true
         - name: subtitle
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Sub-title
+          maxLength: 45
         - name: link
           class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
           label: Link
