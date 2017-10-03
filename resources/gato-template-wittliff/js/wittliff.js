@@ -3,6 +3,7 @@ jQuery(document).ready(function($) {
   magnolialabelchange('.menu-social-media', '.mgnlEditor.mgnlPlaceholder', 'Add Social Media');
   magnolialabelchange('.menu-newsletter-button', '.mgnlEditor.mgnlPlaceholder', 'Add Newsletter Button');
   magnolialabelchange('.menu-donate-button', '.mgnlEditor.mgnlPlaceholder', 'Add Donate Button');
+  magnolialabelchange('.calltoaction-column', '.mgnlEditor.mgnlPlaceholder', 'Add Button');
 
   // Main Menu Hamburger Button
   var header = $('.page-header');

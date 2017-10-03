@@ -1,6 +1,6 @@
 templateScript: /gato-template-wittliff/templates/components/calltoaction-container.ftl
 renderType: freemarker
-title: Call To Action Section
+title: Call To Action Buttons
 description: Two columns, one Call to Action in each
 areas:
   column1:
