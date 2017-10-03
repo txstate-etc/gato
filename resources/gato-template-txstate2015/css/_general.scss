@@ -11,7 +11,6 @@ body {
     font-family: $univers;
     text-rendering: optimizelegibility;
     color: $main-text;
-    line-height: 1.2;
 }
 
 body, table { /* in IE 8 apparently tables need a special invitation to use the body font size */
