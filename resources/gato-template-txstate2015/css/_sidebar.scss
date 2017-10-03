@@ -30,6 +30,9 @@
   }
   .side_nav_list {
     padding-bottom: 2rem;
+    li:hover {
+      background-color: $sandstone;
+    }
     a {
       line-height: 1.5em;
       padding: 0.6rem 1.8rem;
