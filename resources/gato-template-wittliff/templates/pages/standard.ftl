@@ -22,12 +22,12 @@
       [@cms.area name="hero-banner"/]
     [/#if]
     <div class="page_content">
-      [#assign hideSidebar = (content.hideSidebar!false) || (def.parameters.isHomeTemplate!false) || (def.parameters.isSpecialTemplate!false)]
+      [#assign hideSidebar = (content.hideSidebar!false) || (def.parameters.isHomeTemplate!false) || (def.parameters.isSpecialTemplate!false) || def.parameters.isEventsTemplate!false]
       [#if !cmsfn.isEditMode() && !gf.areaHasChildrenIncludingInheritance(content.navBlocks)]
         [#assign hideSidebar = true]
       [/#if]
       <main class="contentcolumn">
-        [#if !(def.parameters.isHomeTemplate!false) && !(def.parameters.isSpecialTemplate!false)]
+        [#if !(def.parameters.isHomeTemplate!false) && !(def.parameters.isSpecialTemplate!false) && !(def.parameters.isEventsTemplate!false)]
           [@headline hideSidebar /]
         [/#if]
         [#if def.parameters.isMailTemplate!false]
