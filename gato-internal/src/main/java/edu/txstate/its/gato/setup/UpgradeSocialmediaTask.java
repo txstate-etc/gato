@@ -41,7 +41,16 @@ public class UpgradeSocialmediaTask extends GatoBaseUpgradeTask {
           log.warn("Processing socialmedia upgrade node opertion on : "+page.getName());
 
           Node socialmediaArea = page.getNode(areaname);
-          if (socialmediaArea.hasNode("importSocialLink")) return;
+          if (socialmediaArea.hasNode("importSocialLink")) {
+            Node importSocialLinkNode = socialmediaArea.getNode("importSocialLink");
+            if (importSocialLinkNode.hasNode("sociallinks")) {
+              Node sociallinksNode = importSocialLinkNode.getNode("sociallinks");
+              if (!sociallinksNode.hasNodes()) {
+                importSocialLinkNode.remove();
+              }
+            }
+            return;
+          }
 
           Node socialComponent = NodeUtil.createPath(socialmediaArea, "importSocialLink", NodeTypes.Component.NAME);
           socialComponent.setProperty("mgnl:template", "gato-template:components/sociallink");

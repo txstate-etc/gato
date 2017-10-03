@@ -144,6 +144,7 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
     register(DeltaBuilder.update("1.0.8", "")
       .addTask(new BootstrapSingleModuleResource("config.modules.site.config.site.templates.availability.templates.wittliff-events.xml"))
       .addTask(new BootstrapSingleModuleResource("config.modules.site.config.site.templates.availability.templates.wittliff-special.xml"))
+      .addTask(new UpgradeSocialmediaTask())
       .addTasks(installOrUpdateTasks())
     );
 
