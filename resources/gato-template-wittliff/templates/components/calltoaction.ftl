@@ -11,7 +11,7 @@
 
 <div class="call-to-action" ${background}>
   <div class="overlay">
-    <div class="title">
+    <div class="title" data-max-lines="1">
       ${title}
     </div>
     <a class="button" href="${gf.filterUrl(content.link)}">

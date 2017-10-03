@@ -2,13 +2,13 @@
 
 [#assign decodedContent = cmsfn.decode(content)]
 [#assign aspectclass = 'tall']
-[#if gf.getImgAspectRatio(content.image) > 16.0/9.0]
+[#if gf.getImgAspectRatio(content.image) > 2.2]
   [#assign aspectclass = 'wide']
 [/#if]
 
 <div class="gato-herobanner">
   <div class="herobanner-image ${aspectclass}">
-    <img src="${gf.getImgDefault(content.image)}" alt="${content.imageAlt!}" srcset="${gf.getSrcSet(content.image)}" />
+    <img src="${gf.getImgDefault(content.image)}" alt="${content.imageAlt!}" srcset="${gf.getSrcSet(content.image)}" width="${gf.getImgWidth(content.image)?c}" height="${gf.getImgHeight(content.image)?c}" />
   </div>
   [#if (content.title)?has_content]
   <div class="herobanner-title">

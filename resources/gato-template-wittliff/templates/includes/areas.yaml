@@ -36,6 +36,7 @@ donate-button:
       id: gato-template-wittliff:components/linkbutton
 home-content:
   type: list
+  templateScript: /gato-template/templates/areas/main-content.ftl
   availableComponents:
     calltoaction:
       id: gato-template-wittliff:components/calltoaction-container

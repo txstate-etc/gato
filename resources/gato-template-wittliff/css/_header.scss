@@ -7,15 +7,11 @@ $header-margin-mobile: 2rem;
 $menu-border-color: rgba(white, 0.2);
 
 html {
-  height: 100%;
-  background-color: $light-gray;
   * { box-sizing: border-box; }
 }
 
 body {
-  min-height: 100%;
   background-color: $white;
-  max-width: 144rem;
   margin: 0 auto;
   font-family: $helveticaneue;
   font-weight: 300;

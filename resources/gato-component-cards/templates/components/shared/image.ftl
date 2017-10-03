@@ -16,7 +16,7 @@
       [#assign padbottom = 100/ctx.aspect]
     [/#if]
     <div class="crop-container ${aspectclass!}" style="padding-bottom: ${padbottom!0}%;">
-      <img src="${gf.getImgDefault(content.image, ctx.sizes)}" sizes="${ctx.sizes}" alt="${content.alttext!}" srcset="${gf.getSrcSet(content.image)}" width="${gf.getImgWidth(content.image)}" height="${gf.getImgHeight(content.image)}"/>
+      <img src="${gf.getImgDefault(content.image, ctx.sizes)}" sizes="${ctx.sizes}" alt="${content.alttext!}" srcset="${gf.getSrcSet(content.image)}" width="${gf.getImgWidth(content.image)?c}" height="${gf.getImgHeight(content.image)?c}"/>
     </div>
     [#if content.title?has_content]
       <figcaption>

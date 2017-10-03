@@ -120,6 +120,20 @@ jQuery(document).ready(function($) {
     img.attr('src', slide.data('src')).attr('srcset', slide.data('srcset'));
   });
 
+  var checkimageratios = function () {
+    $('.tall, .wide').each(function (idx, itm) {
+      var $itm = $(itm);
+      var $img = $itm.find('img');
+      var container_ar = (1.0*$itm.outerWidth()) / $itm.outerHeight();
+      var image_ar = (1.0*$img.outerWidth()) / $img.outerHeight();
+      animationframe(function () {
+        if (image_ar > container_ar) $itm.removeClass('tall').addClass('wide');
+        else $itm.removeClass('wide').addClass('tall');
+      });
+    });
+  }
+  resizeTimeout(checkimageratios);
+
   // Make sure the footer is at the bottom of the window when the
   // page is shorter than one window
   var win = $(window);
@@ -165,8 +179,9 @@ jQuery(document).ready(function($) {
         var $itm = $(itm);
 
         var iterate = function () {
-          var currentlines = Math.round($itm.height() / parseInt($itm.css('line-height'), 10));
           var currentsize = parseInt($itm.css('font-size'), 10);
+          var lineheight = parseInt($itm.css('line-height'), 10) || currentsize*1.14;
+          var currentlines = Math.round($itm.height() / lineheight);
           var newsize;
           if (currentlines <= $itm.data('max-lines')) {
             $itm.data('max-lines-bottom', currentsize);
