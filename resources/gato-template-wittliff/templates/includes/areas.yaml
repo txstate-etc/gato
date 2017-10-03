@@ -19,11 +19,13 @@ newsletter-button:
       id: gato-template-wittliff:components/linkbutton
 hero-banner:
   type: single
+  templateScript: /gato-template-wittliff/templates/areas/herobanner-container.ftl
   availableComponents:
     herobanner:
       id: gato-template-wittliff:components/herobanner
 hero-slider:
   type: single
+  templateScript: /gato-template-wittliff/templates/areas/heroslider-container.ftl
   availableComponents:
     heroslider:
       id: gato-template-wittliff:components/heroslider
