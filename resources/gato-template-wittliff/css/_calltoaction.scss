@@ -1,5 +1,8 @@
+.calltoaction-container {
+  overflow: hidden;
+}
 .calltoaction-column {
-  display: inline-block;
+  float: left;
   width: 50%;
   margin-bottom: 1rem;
   &.left { padding-right: 1px; }
@@ -13,7 +16,7 @@
   background-size: cover;
   .overlay {
     background: rgba(#d85329,0.8);
-    padding: 6rem 0;
+    padding: 6rem 0 0 0;
     text-align: center;
     [data-eq~="600px"] & {
         padding: 5rem 0;
@@ -27,59 +30,52 @@
      font-size: 4rem;
      letter-spacing: 0.2rem;
      text-transform: uppercase;
-     margin-bottom: 5rem;
+     line-height: 4.8rem;
+     padding: 0 1.5rem;
      [data-eq~="600px"] & {
         font-size: 3.5rem;
+        line-height: 4.2rem;
         margin-bottom: 4rem;
      }
      [data-eq~="400px"] & {
         font-size: 2.5rem;
+        line-height: 3rem;
         margin-bottom: 2rem;
      }
      span {
         font-weight: bold;
      }
     }
-    .button {
-      color: $white;
-      display: inline-block;
-      border: 3px solid $white;
-      padding: 0;
+    .bottomspace {
       position: relative;
-      font-size: 2rem;
-      letter-spacing: 2px;
-      transform: perspective(1px) translateZ(0);
-      &:hover {
-        background-color: transparent;
+      height: 18rem;
+      margin-top: -3px;
+    }
+    .container {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+    }
+    .linkbutton {
+      border: 3px solid $white;
+      min-width: 40%;
+      max-width: 85%;
+      padding: 0;
+      span {
+        display: block;
+        text-align: center;
+        padding: 1.5rem 2rem;
+        font-size: 2rem;
+        letter-spacing: 2px;
       }
-      .action-text, .arrow {
-        display: inline-block;
-        padding: 1.8rem 0;
-      }
-      .action-text {
-        padding-left: 6rem;
-        padding-right: 6rem;
-      }
-      .arrow {
-        border-left: 3px solid $white;
-        padding-left: 2rem;
-        padding-right: 2rem;
+      i {
+        font-size: 2rem;
+        padding: 0 2rem;
       }
       &:before {
-        content:'';
-        position: absolute;
-        z-index: -1;
-        top: 0px;
-        left: 0px;
-        bottom: 0px;
-        right: 0px;
-        width: 0px;
-        height: 100%;
-        background: #572515;
-        transition: all 0.3s ease-out;
-      }
-      &:hover:before {
-        width: 100%;
+        background-color: #572515;
       }
     }
   }

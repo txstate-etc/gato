@@ -14,8 +14,12 @@
     <div class="title" data-max-lines="1">
       ${title}
     </div>
-    <a class="button" href="${gf.filterUrl(content.link)}">
-        <div class="action-text">${content.buttontext}</div><div class="arrow"><i class="fa fa-long-arrow-right"></i></div>
-    </a>
+    <div class="bottomspace">
+      <div class="container">
+        <a class="linkbutton" href="${gf.filterUrl(content.link)}">
+          <span>${content.buttontext}</span><i class="fa fa-long-arrow-right"></i>
+        </a>
+      </div>
+    </div>
   </div>
 </div>
