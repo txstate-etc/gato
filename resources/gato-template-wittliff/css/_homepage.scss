@@ -11,6 +11,8 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      width: auto;
+      height: auto;
     }
     &.tall img { width: 100%; }
     &.wide img { height: 100%; }
