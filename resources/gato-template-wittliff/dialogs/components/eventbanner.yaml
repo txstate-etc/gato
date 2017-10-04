@@ -1,0 +1,59 @@
+form:
+  tabs:
+    - name: tabExh
+      label: Event Banner
+      fields:
+        - name: image
+          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+          appName: assets
+          targetWorkspace: dam
+          label: Image
+          required: true
+          identifierToPathConverter:
+            class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
+          contentPreviewDefinition:
+            contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
+          description: "Choose a large image, it will be used as the background for the section."
+        - name: type
+          class: info.magnolia.ui.form.field.definition.HiddenFieldDefinition
+          defaultValue: event
+        - name: start
+          class: info.magnolia.ui.form.field.definition.DateFieldDefinition
+          time: true
+          label: Date
+          type: Date
+        - name: title
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Title
+          maxLength: 25
+          required: true
+        - name: subtitle
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Sub-title
+          maxLength: 45
+        - name: eventlink
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Calendar Link
+          required: true
+          description: This MUST be a link to events.txstate.edu.
+        - name: link
+          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+          label: Event Website Link
+          description: This MUST be a link to more details about this specific event.
+          appName: pages
+          identifierToPathConverter:
+            class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
+        - name: rsvp
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: RSVP Link
+        - name: layout
+          class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
+          label: Layout
+          options:
+            - name: left
+              label: Left
+              selected: true
+            - name: right
+              label: Right
+
+actions: !include /gato-template/dialogs/common/actions-block.yaml

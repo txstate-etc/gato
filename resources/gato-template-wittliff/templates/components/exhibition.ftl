@@ -33,15 +33,23 @@
         <span class="separator">-</span>
         <span class="end">${content.end?string['MMM d']}</span>
       [#else]
-
+        <span class="date">${content.start?string['MMMM d']}</span>
+        <span class="separator">/</span>
+        <span class="time">${content.start?string['h:mm a']?lower_case}</span>
       [/#if]
     </div>
     [/#if]
-    <a class="share" href="#"><i class="fa fa-share-square-o" aria-hidden="true"></i> Share</a>
+    <a class="share bottom" href="#"><i class="fa fa-share-square-o" aria-hidden="true"></i> Share</a>
     [#if content.type == 'event']
-      <a class="all" href="${gf.filterUrl('/wittliff/events')}">All Events <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+      [#if content.rsvp?has_content]
+        <a class="rsvp bottom" href="${gf.filterUrl(content.rsvp)}"><i class="fa fa-envelope-o" aria-hidden="true"></i> RSVP</a>
+      [/#if]
+      [#if content.eventlink?has_content]
+        <a class="add bottom" href="${content.eventlink}.ics"><i class="fa fa-calendar" aria-hidden="true"></i> Add to Calendar</a>
+      [/#if]
+      <a class="all bottom" href="${gf.filterUrl('/wittliff/events')}">All Events <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
     [#else]
-      <a class="all" href="${gf.filterUrl('/wittliff/exhibitions')}">All Exhibitions <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+      <a class="all bottom" href="${gf.filterUrl('/wittliff/exhibitions')}">All Exhibitions <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
     [/#if]
   </div>
 </div>
