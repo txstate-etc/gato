@@ -23,9 +23,15 @@
     margin: 0;
     padding: 1rem 0;
     text-align: center;
+    font-family: $garamond;
+    font-size: 3.3rem;
+    letter-spacing: 0.12rem;
   }
   .headline {
     padding: 0 2rem;
     word-wrap: break-word;
+    font-family: $garamond;
+    font-size: 3.75rem;
+    letter-spacing: 0.15rem;
   }
 }

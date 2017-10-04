@@ -41,15 +41,15 @@ $faq-group-box-shadow-color: transparent;
 $faq-question-box-shadow-color: transparent;
 
 /* Rich Editor Tables */
-$table-header-bg: $coffee;
+$table-header-bg: $sienna;
 $table-header-text: $white;
 $table-header-border: $lightest-coffee;
 $table-border: $silver;
 $table-carded-border: $lightest-coffee;
 $table-link: $sienna;
-$table-altrow-bg: $lightest-coffee;
-$table-caption-background: $lightest-coffee;
-$table-caption-color: $white;
+$table-altrow-bg: $silver;
+$table-caption-background: $silver;
+$table-caption-color: $black;
 
 /* Article Link */
 $articlelink-more-text: $blue;
@@ -84,10 +84,13 @@ $feature-play-button-default-background: $sienna;
 $feature-play-button-default-color: $white;
 $feature-play-button-hover-background: $light-sienna;
 
+/* Article Link */
+$articlelink-more-text: $content-link-text;
+
 /* Forms */
 $form-alert-link-color: $wittliffred;
-$form-textfield-border-color: $light-coffee;
-$form-textfield-background-color: $barely-coffee;
+$form-textfield-border-color: $cactus;
+$form-textfield-background-color: $light-silver;
 $form-submit-text-color: $white;
 $form-submit-box-shadow-color: $sienna-shadow;
 $form-submit-background-color: $sienna;
@@ -104,7 +107,7 @@ $directory-address-color: $charcoal;
 $streaming-wrapper-link-color: $blue;
 
 /* Separator */
-//$separator-color: $lighter-coffee;
+$separator-color: $cactus;
 
 /* Sidebar Quick Links */
 $quick-links-color: $almost-black;

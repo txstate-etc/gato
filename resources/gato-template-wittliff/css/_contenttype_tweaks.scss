@@ -8,6 +8,7 @@ body ul.gato-faq-hierarchy {
     }
     > .gato-faqitem-question, > .gato-faq-group-title {
       line-height: 2.8rem;
+      font-size: 2.2rem;
       i {
         display: block;
         float: right;
@@ -57,6 +58,7 @@ body ul.gato-faq-hierarchy {
 /* Buttons */
 /* The Wittliff template has a very different design for "reverse" button */
 .column_paragraph .button-wrapper a.button {
+  text-transform: none;
   &.reverse {
     border-width: 2px;
     float: left;
@@ -256,4 +258,9 @@ body ul.gato-faq-hierarchy {
   a:hover{
     text-decoration: none;
   }
+}
+
+/* Separator */
+.gato-separator hr {
+  height: 2px;
 }
