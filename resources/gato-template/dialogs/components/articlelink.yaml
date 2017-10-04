@@ -20,6 +20,7 @@ form:
         - name: articledate
           class: info.magnolia.ui.form.field.definition.DateFieldDefinition
           label: Date
+          time: true
         - name: summary
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Summary
