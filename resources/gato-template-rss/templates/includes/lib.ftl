@@ -17,7 +17,7 @@
     [/#if]
 
     [#if link?has_content]
-      <link>${link}</link>
+      <link>${gf.absoluteUrl(link)}</link>
     [#elseif node.link?has_content]
       <link>${ gf.absoluteUrl(node.link) }</link>
     [#else]
