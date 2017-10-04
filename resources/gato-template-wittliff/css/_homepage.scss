@@ -2,6 +2,7 @@
   position: relative;
   overflow: hidden;
   line-height: 1.2;
+  margin-bottom: 2rem;
   .eventbanner-image {
     height: 0;
     padding-bottom: 45.45%;
@@ -26,6 +27,9 @@
     height: 100%;
     top: 0;
     font-size: 1rem;
+    @media (max-width: $xl-breakpoint) {
+      font-size: 0.95rem;
+    }
     @media (max-width: $lg-breakpoint) {
       font-size: 0.79rem;
     }

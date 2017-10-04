@@ -1,17 +1,19 @@
 .calltoaction-container {
   overflow: hidden;
+  margin-bottom: 2rem;
 }
 .calltoaction-column {
   float: left;
   width: 50%;
-  margin-bottom: 1rem;
+  margin-bottom: 1px;
   &.left { padding-right: 1px; }
-  [data-eq~="700px"] & {
+  [data-eq~="650px"] & {
     width: 100%;
   }
 }
 
 .call-to-action {
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   .overlay {
@@ -19,10 +21,10 @@
     padding: 6rem 0 0 0;
     text-align: center;
     [data-eq~="600px"] & {
-        padding: 5rem 0;
+        padding: 5rem  0 0 0;
     }
     [data-eq~="400px"] & {
-        padding: 2rem 0;
+        padding: 2rem 0 0 0;
     }
     .title {
      color: $white;
@@ -35,12 +37,10 @@
      [data-eq~="600px"] & {
         font-size: 3.5rem;
         line-height: 4.2rem;
-        margin-bottom: 4rem;
      }
      [data-eq~="400px"] & {
         font-size: 2.5rem;
         line-height: 3rem;
-        margin-bottom: 2rem;
      }
      span {
         font-weight: bold;
@@ -50,6 +50,12 @@
       position: relative;
       height: 18rem;
       margin-top: -3px;
+      [data-eq~="600px"] & {
+        height: 16rem;
+      }
+      [data-eq~="400px"] & {
+        height: 13rem;
+      }
     }
     .container {
       position: absolute;
@@ -61,8 +67,9 @@
     .linkbutton {
       border: 3px solid $white;
       min-width: 40%;
-      max-width: 85%;
+      max-width: 80%;
       padding: 0;
+      line-height: 1.4;
       span {
         display: block;
         text-align: center;
@@ -71,11 +78,20 @@
         letter-spacing: 2px;
       }
       i {
+        margin-left: 0;
         font-size: 2rem;
         padding: 0 2rem;
       }
       &:before {
         background-color: #572515;
+      }
+      [data-eq~="600px"] & {
+        span { padding: 1.2rem 1.6rem; }
+        i { padding: 0 1.6rem; }
+      }
+      [data-eq~="400px"] & {
+        span { padding: 1rem 1.3rem; font-size: 1.8rem; }
+        i { padding: 0 1.3rem; font-size: 1.8rem; }
       }
     }
   }

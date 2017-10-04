@@ -1,4 +1,4 @@
-[#assign background = "style=\"background-image: url('" + gf.getImgDefault(content.image) + "'); \"" ]
+[#assign background = "style=\"background-image: url('" + gf.getImgDefault(content.image, ctx.sizes) + "'); \"" ]
 [#assign seqTitle = content.title?split(" ")]
 [#assign title = ""]
 [#list seqTitle as word]
