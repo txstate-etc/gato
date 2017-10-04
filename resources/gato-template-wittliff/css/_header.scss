@@ -86,16 +86,18 @@ strong {
   }
   .texas-state {
     display: block;
-    padding-right: 3.5rem;
+    margin-right: 3.5rem;
     @media (max-width: $md-breakpoint) {
-      padding-right: 2rem;
+      margin-right: 2rem;
     }
     @media (max-width: $sm-breakpoint) {
       display: none;
     }
     img {
+      width: 1.7875 * $header-height;
       height: ($header-height / 2);
       @media (max-width: $md-breakpoint) {
+        width: 1.7875 * $header-height-tablet;
         height: ($header-height-tablet / 2);
       }
     }
