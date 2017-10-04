@@ -11,7 +11,7 @@
     <img src="${gf.getImgDefault(content.image)}" alt="${content.imageAlt!}" srcset="${gf.getSrcSet(content.image)}" width="${gf.getImgWidth(content.image)?c}" height="${gf.getImgHeight(content.image)?c}" />
   </div>
   <div class="eventbanner-panel ${content.layout!'left'}">
-    <div class="typeheader">
+    <div class="typeheader" data-max-lines="1">
       [#if content.type == 'exhibition']
         Featured Exhibition
       [#elseif content.type == 'event']
