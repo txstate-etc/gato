@@ -37,7 +37,7 @@ public class EventsModelForWittliffEvents<RD extends RenderableDefinition> exten
     Exception error = null;
     Set<EventsItem> items = new HashSet<EventsItem>();
     try {
-      items.addAll(fetchItems(constructCalendarUrl(content)));
+      //items.addAll(fetchItems(constructCalendarUrl(content)));
       items.addAll(fetchItems(constructCategoryUrl(content)));
     } catch (Exception e) {
       log.error("Failed to fetch RSS feed.", e);
