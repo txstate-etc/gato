@@ -1,5 +1,6 @@
 jQuery(document).ready(function($) {
   $('body').after('<div id="gato-share-panel">'+
+  '<a class="facebook" href="" target="_blank"><i class="fa fa-facebook-square"><span class="visuallyhidden">Share on Facebook</span></i></a>'+
   '<a class="twitter" href="" target="_blank"><i class="fa fa-twitter"><span class="visuallyhidden">Share on Twitter</span></i></a>'+
   '</div>');
   var sharepanel = $('#gato-share-panel');
@@ -9,13 +10,14 @@ jQuery(document).ready(function($) {
     sharepanel.find('.twitter').attr('href',
       'http://twitter.com/intent/tweet?text='+encodeURIComponent($lnk.data('gato-share-text'))+
       '&url='+encodeURIComponent($lnk.data('gato-share-link')));
-    sharepanel.css({left: $lnk.offset().left+'px', top: ($lnk.offset().top+$lnk.outerHeight())+'px'});
+    sharepanel.find('.facebook').attr('href',
+      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent($lnk.data('gato-share-link')));
+    sharepanel.css({left: ($lnk.offset().left+25)+'px', top: ($lnk.offset().top-sharepanel.outerHeight()-5)+'px'});
   }).click(function (e) {
     e.preventDefault();
     if (sharepanel.is(':visible')) sharepanel.hide();
     else sharepanel.show();
   }).keydown(function (e) {
-    console.log(e.which);
     if (e.which == 40) { // down arrow
       e.preventDefault();
       sharepanel.find('a').eq(0).focus();
@@ -24,7 +26,8 @@ jQuery(document).ready(function($) {
 
   var timer;
   $('#gato-share-panel, #gato-share-panel a, [data-gato-share-link]').on('mouseout blur', function () {
-    timer = setTimeout(function() { sharepanel.hide() }, 100);
+    clearTimeout(timer);
+    timer = setTimeout(function() { sharepanel.hide() }, 150);
   }).on('mouseover focus', function () {
     clearTimeout(timer);
     sharepanel.show();
