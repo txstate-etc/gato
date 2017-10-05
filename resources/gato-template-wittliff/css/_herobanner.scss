@@ -106,7 +106,6 @@
       border: 7px solid white;
       opacity: 0.9;
       @media (max-width: $md-breakpoint) {
-        top: 60%;
         width: 5rem;
         height: 5rem;
         font-size: 2.5rem;
@@ -138,5 +137,8 @@
     .admin & {
       margin-top: -1 * ($header-margin-mobile);
     }
+  }
+  @media (max-width: $xs-breakpoint) {
+    margin-top: -1 * ($header-margin-mobile);
   }
 }

@@ -48,6 +48,9 @@ strong {
   .wittliff-home &, .wittliff-special & {
     background-color: rgba($cactus, 0.9);
     &.menu-out { background-color: $cactus; }
+    @media (max-width: $xs-breakpoint) {
+      background-color: $cactus;
+    }
   }
 
   button {
