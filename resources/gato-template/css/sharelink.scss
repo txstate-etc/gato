@@ -5,6 +5,8 @@ $share-link-color: white !default;
   z-index: 1000;
   position: absolute;
   background-color: $share-link-bg;
+  padding: 0.7rem;
+  display: none;
   a {
     font-size: 2.5rem;
     color: $share-link-color;

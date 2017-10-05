@@ -1,10 +1,15 @@
 jQuery(document).ready(function($) {
+  if ($('[data-gato-share-link]').length == 0) return;
+
   $('body').after('<div id="gato-share-panel">'+
   '<a class="facebook" href="" target="_blank"><i class="fa fa-facebook-square"><span class="visuallyhidden">Share on Facebook</span></i></a>'+
   '<a class="twitter" href="" target="_blank"><i class="fa fa-twitter"><span class="visuallyhidden">Share on Twitter</span></i></a>'+
+  '<a class="email" href=""><i class="fa fa-envelope"><span class="visuallyhidden">Share by E-Mail</span></i></a>'+
   '</div>');
   var sharepanel = $('#gato-share-panel');
   var $lnk;
+  $('[data-gato-share-link]').attr('aria-label', "share link, press down for options");
+
   $('[data-gato-share-link]').on('mouseover focus click', function() {
     $lnk = $(this);
     sharepanel.find('.twitter').attr('href',
@@ -12,6 +17,8 @@ jQuery(document).ready(function($) {
       '&url='+encodeURIComponent($lnk.data('gato-share-link')));
     sharepanel.find('.facebook').attr('href',
       'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent($lnk.data('gato-share-link')));
+    sharepanel.find('.email').attr('href',
+      'mailto:?subject='+encodeURIComponent($lnk.data('gato-share-subject'))+'&body='+encodeURIComponent($lnk.data('gato-share-text'))+encodeURIComponent("\r\n\r\n")+encodeURIComponent($lnk.data('gato-share-link')));
     sharepanel.css({left: ($lnk.offset().left+25)+'px', top: ($lnk.offset().top-sharepanel.outerHeight()-5)+'px'});
   }).click(function (e) {
     e.preventDefault();
@@ -32,8 +39,28 @@ jQuery(document).ready(function($) {
     clearTimeout(timer);
     sharepanel.show();
   }).keydown(function (e) {
+    console.log(e.which);
     if (e.which == 27) { // escape
       sharepanel.hide();
     }
+  });
+
+  $('#gato-share-panel a').keydown(function (e) {
+    if (e.which == 37) // left arrow
+      $(this).prev('a').focus();
+    if (e.which == 38) // up arrow
+      if ($(this).prev('a').length > 0)
+        $(this).prev('a').focus();
+      else
+        $lnk.focus();
+    if (e.which == 39) // right arrow
+      $(this).next('a').focus();
+    if (e.which == 40) // down arrow
+      $(this).next('a').focus();
+    e.preventDefault();
+  });
+  $('#gato-share-panel a').eq(-1).keydown(function (e) {
+    if (e.which == 9) // tab
+      $lnk.focus();
   });
 });

@@ -39,7 +39,7 @@
       [/#if]
     </div>
     [/#if]
-    <a class="share bottom" href="#" aria-haspopup="true" aria-controls="gato-share-panel" data-gato-share-link="${gf.absoluteUrl(content.link)}" data-gato-share-text="Sponsored by The Wittliff Collections: ${content.title!} ${content.subtitle!}" data-gato-share-image="${gf.filterUrl(content.image)}"><i class="fa fa-share-square-o" aria-hidden="true"></i> Share</a>
+    <a class="share bottom" href="#" aria-haspopup="true" aria-controls="gato-share-panel" data-gato-share-link="${gf.absoluteUrl(content.link)}" data-gato-share-subject="${content.title!} ${content.subtitle!}" data-gato-share-text="Sponsored by The Wittliff Collections: ${content.title!} ${content.subtitle!}" data-gato-share-image="${gf.filterUrl(content.image)}"><i class="fa fa-share-square-o" aria-hidden="true"></i> Share</a>
     [#if content.type == 'event']
       [#if content.rsvp?has_content]
         <a class="rsvp bottom" href="${gf.filterUrl(content.rsvp)}"><i class="fa fa-envelope-o" aria-hidden="true"></i> RSVP</a>
