@@ -1,6 +1,5 @@
 [#include "/gato-template/templates/includes/commonmacros.ftl"]
 
-[#assign decodedContent = cmsfn.decode(content)]
 [#assign aspectclass = 'tall']
 [#if gf.getImgAspectRatio(content.image) > 2.2]
   [#assign aspectclass = 'wide']
@@ -15,7 +14,7 @@
     <h1>${content.title}</h1>
   </div>
   [/#if]
-  [#if (decodedContent.text)?has_content]
-    <div class="herobanner-text">${gf.processRichText(decodedContent.text)}</div>
+  [#if content.text?has_content]
+    <div class="herobanner-text">${content.text}</div>
   [/#if]
 </div>
