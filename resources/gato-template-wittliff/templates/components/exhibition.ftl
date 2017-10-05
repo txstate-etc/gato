@@ -23,7 +23,7 @@
       [/#if]
     </div>
     <h2>
-      <span class="title" data-max-lines="3">${content.title}</span>
+      <span class="title" data-max-lines="3">${content.title!}</span>
       [#if content.subtitle?has_content]<div class="subtitle" data-max-lines="2">${content.subtitle}</div>[/#if]
     </h2>
     [#if content.type == 'event' || content.type == 'exhibition']
@@ -39,7 +39,7 @@
       [/#if]
     </div>
     [/#if]
-    <a class="share bottom" href="#"><i class="fa fa-share-square-o" aria-hidden="true"></i> Share</a>
+    <a class="share bottom" href="#" aria-haspopup="true" aria-controls="gato-share-panel" data-gato-share-link="${gf.absoluteUrl(content.link)}" data-gato-share-text="Sponsored by The Wittliff Collections: ${content.title!} ${content.subtitle!}" data-gato-share-image="${gf.filterUrl(content.image)}"><i class="fa fa-share-square-o" aria-hidden="true"></i> Share</a>
     [#if content.type == 'event']
       [#if content.rsvp?has_content]
         <a class="rsvp bottom" href="${gf.filterUrl(content.rsvp)}"><i class="fa fa-envelope-o" aria-hidden="true"></i> RSVP</a>

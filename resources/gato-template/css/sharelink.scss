@@ -1,0 +1,13 @@
+$share-link-bg: #333333;
+$share-link-color: white;
+
+#gato-share-panel {
+  z-index: 1000;
+  position: absolute;
+  background-color: $share-link-bg;
+  padding: 1rem;
+  a {
+    font-size: 2rem;
+    color: $share-link-color;
+  }
+}
