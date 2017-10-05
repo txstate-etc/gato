@@ -1,7 +1,7 @@
 templateScript: /gato-template-wittliff/templates/components/heroslide.ftl
 renderType: freemarker
-title: Image Slide
+title: Video Slide
 description: A slide for the Wittliff Hero Slider.
-dialog: gato-template-wittliff:components/heroslide
+dialog: gato-template-wittliff:components/heroslide-video
 parameters:
-  icon: /gato-component-feature/images/image.png
+  icon: /gato-component-feature/images/video.png

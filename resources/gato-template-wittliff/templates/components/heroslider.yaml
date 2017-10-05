@@ -10,8 +10,10 @@ areas:
     renderType: freemarker
     templateScript: /gato-template-wittliff/templates/areas/heroslider.ftl
     availableComponents:
-      slide:
+      image:
         id: gato-template-wittliff:components/heroslide
+      video:
+        id: gato-template-wittliff:components/heroslide-video
     maxComponents: 10
 parameters:
   icon: /gato-template/images/text_image.png
