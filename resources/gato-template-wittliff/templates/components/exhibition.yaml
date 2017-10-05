@@ -4,4 +4,4 @@ title: Exhibition Banner
 description: A large full-width section for displaying details about an exhibition.
 dialog: gato-template-wittliff:components/exhibition
 parameters:
-  icon: /gato-component-events/images/calendar.png
+  icon: /gato-template-wittliff/images/exhibition.png

@@ -14,4 +14,4 @@ areas:
       calltoaction:
         id: gato-template-wittliff:components/calltoaction
 parameters:
-  icon: /gato-component-button/images/button.png
+  icon: /gato-template-wittliff/images/calltoaction.png
