@@ -79,6 +79,11 @@
         letter-spacing: 2px;
         font-weight: normal;
       }
+      a {
+        display: block;
+        color: inherit;
+        text-decoration: none;
+      }
     }
     .dates {
       font-size: 3em;

@@ -22,10 +22,10 @@
         Ongoing
       [/#if]
     </div>
-    <h2>
+    <h2><a href="${content.link!}">
       <span class="title" data-max-lines="3">${content.title!}</span>
       [#if content.subtitle?has_content]<div class="subtitle" data-max-lines="2">${content.subtitle}</div>[/#if]
-    </h2>
+    </a></h2>
     [#if content.type == 'event' || content.type == 'exhibition']
     <div class="dates">
       [#if content.type == 'exhibition']
