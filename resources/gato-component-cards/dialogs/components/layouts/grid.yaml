@@ -32,19 +32,19 @@ form:
               value: 0
               selected: true
             - name: 169
-              label: Make image cards landscape (16:9)
+              label: Crop image cards to 16:9 landscape
               value: 1.777778
             - name: 43
-              label: Make image cards iphone landscape (4:3)
+              label: Crop image cards to 4:3 landscape
               value: 1.333333
             - name: 34
-              label: Make image cards iphone portrait (3:4)
+              label: Crop image cards 3:4 portrait
               value: 0.75
             - name: 32
-              label: Make image cards camera landscape (3:2)
+              label: Crop image cards 3:2 landscape
               value: 1.5
             - name: 1
-              label: Make image cards square (1:1)
+              label: Crop image cards to 1:1 square
               value: 1
     - name: tabFiltering
       label: Filtering
