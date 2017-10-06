@@ -119,6 +119,22 @@
       }
     }
   }
+  .back, .forward {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 8rem;
+    @media (max-width: $md-breakpoint) {
+      font-size: 5rem;
+    }
+  }
+  .back {
+    left: 2%;
+  }
+  .forward {
+    right: 2%;
+  }
 }
 
 .gato-herobanner, .gato-heroslider {

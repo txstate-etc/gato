@@ -95,24 +95,48 @@ jQuery(document).ready(function($) {
     var slider = $(itm);
     var slides = slider.find('.slide');
     var active = 0;
-    var setactive = function (slideidx) {
+    var setactive = function (slideidx, backwards) {
       var currslide = slides.eq(active);
       var nextslide = slides.eq(slideidx);
       if (currslide.is(nextslide)) return;
-      currslide.velocity({ left: ['-100%', '0%'] }, {duration: 500});
-      nextslide.velocity({ left: ['0%', '100%'] }, {duration: 500});
+      if (backwards) {
+        currslide.velocity({ left: ['100%', '0%'] }, {duration: 500});
+        nextslide.velocity({ left: ['0%', '-100%'] }, {duration: 500});
+      } else {
+        currslide.velocity({ left: ['-100%', '0%'] }, {duration: 500});
+        nextslide.velocity({ left: ['0%', '100%'] }, {duration: 500});
+      }
       active = slideidx;
     };
     var advance = function () {
       setactive((active+1) % slides.length);
     }
+    var goback = function () {
+      if (active == 0) setactive(slides.length-1, true);
+      else setactive(active-1, true);
+    }
     var timer = 0;
     if (slider.is('.slow')) timer = 30;
     else if (slider.is('.medium')) timer = 20;
     else if (slider.is('.fast')) timer = 10;
-    if (timer > 0) {
-      setInterval(advance, timer*1000);
+    var interval;
+    var startinterval = function () {
+      clearInterval(interval);
+      if (timer > 0) {
+        interval = setInterval(advance, timer*1000);
+      }
     }
+    startinterval();
+
+    slider.find('.back').click(function (e) {
+      e.preventDefault();
+      goback();
+    });
+    slider.find('.forward').click(function (e) {
+      e.preventDefault();
+      advance();
+    });
+
   });
   $('.gato-heroslider .slide:not(:first-child)').each(function (idx, itm) {
     var slide = $(itm);
