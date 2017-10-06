@@ -28,11 +28,13 @@
     </a></h2>
     [#if content.type == 'event' || content.type == 'exhibition']
     <div class="dates">
-      [#if content.type == 'exhibition']
+      [#if content.type == 'exhibition' && content.start?has_content]
         <span class="start">${content.start?string['MMM d']}</span>
-        <span class="separator">-</span>
-        <span class="end">${content.end?string['MMM d']}</span>
-      [#else]
+        [#if content.end?has_content]
+          <span class="separator">-</span>
+          <span class="end">${content.end?string['MMM d']}</span>
+        [/#if]
+      [#elseif content.start?has_content]
         <span class="date">${content.start?string['MMMM d']}</span>
         <span class="separator">/</span>
         <span class="time">${content.start?string['h:mm a']?lower_case}</span>
