@@ -1,11 +1,33 @@
+.wittliff-home {
+  .gato-section-full {
+    .gato-section-centered {
+      max-width: none;
+    }
+    &.card-layout {
+      background-color: rgba($coffee, 0.97);
+      border-top: 7px solid $sienna;
+      .gato-section-centered {
+        max-width: 1440px;
+        background-color: white;
+        .gato-card {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
 .gato-eventbanner {
   position: relative;
   overflow: hidden;
   line-height: 1.2;
   margin-bottom: 2rem;
   .eventbanner-image {
-    height: 0;
-    padding-bottom: 45.45%;
+    height: 654px;
+    @media (max-width: $xl-breakpoint) {
+      height: 0;
+      padding-bottom: 45.45%;
+    }
     @include coverimage();
   }
   .eventbanner-panel {
