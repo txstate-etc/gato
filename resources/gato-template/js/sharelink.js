@@ -10,6 +10,19 @@ jQuery(document).ready(function($) {
   var $lnk;
   $('[data-gato-share-link]').attr('aria-label', "share link, press down for options");
 
+  $('#gato-share-panel a:not(.email)').click(function (e) {
+    e.preventDefault();
+    var size = {
+      width: 500,
+      height: 500
+    };
+    var loc = {
+        left:  (window.screen.availLeft + (window.screen.availWidth / 2)) - (size.width / 2),
+        top: (window.screen.availTop + (window.screen.availHeight / 2)) - (size.height / 2)
+    };
+    window.open($(this).attr('href'), 'sharelink', 'menubar=no,status=no,titlebar=no,location=no,toolbar=no,width='+size.width+',height='+size.height+',resizable=yes,left='+loc.left+',top='+loc.top);
+  });
+
   $('[data-gato-share-link]').on('mouseover focus click', function() {
     $lnk = $(this);
     sharepanel.find('.twitter').attr('href',
@@ -58,7 +71,7 @@ jQuery(document).ready(function($) {
     if (e.which == 40) // down arrow
       $(this).next('a').focus();
     e.preventDefault();
-  });
+  })
   $('#gato-share-panel a').eq(-1).keydown(function (e) {
     if (e.which == 9) // tab
       $lnk.focus();
