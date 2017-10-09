@@ -107,6 +107,7 @@ jQuery(document).ready(function($) {
         nextslide.velocity({ left: ['0%', '100%'] }, {duration: 500});
       }
       active = slideidx;
+      startinterval();
     };
     var advance = function () {
       setactive((active+1) % slides.length);
