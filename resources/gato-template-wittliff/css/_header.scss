@@ -85,6 +85,9 @@ strong {
       @media (max-width: $sm-breakpoint) {
         height: 2.5rem;
       }
+      @media (max-width: $mc-breakpoint) {
+        height: 1.9rem;
+      }
     }
   }
   .texas-state {

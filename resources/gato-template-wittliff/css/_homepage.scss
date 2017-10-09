@@ -41,6 +41,10 @@
       padding: 1em 1.5em;
       font-size: 0.37rem;
     }
+    @media (max-width: $mc-breakpoint) {
+      width: 52%;
+      font-size: 0.35rem;
+    }
     &.left { left: 0; }
     &.right { right: 0; }
     .typeheader {
@@ -63,6 +67,12 @@
         letter-spacing: 3px;
         font-weight: 500;
         line-height: 1;
+        @media (max-width: $mn-breakpoint) {
+          font-size: 6em;
+        }
+        @media (max-width: $mc-breakpoint) {
+          font-size: 5.5em;
+        }
       }
       .subtitle {
         font-size: 4em;
@@ -92,7 +102,7 @@
         font-size: 2.5em;
       }
       @media (max-width: $sm-breakpoint) {
-        display: none;
+        &, &.all { display: none; }
       }
       i {
         display: inline;
