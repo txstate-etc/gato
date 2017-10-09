@@ -9,6 +9,7 @@
   &.left { padding-right: 1px; }
   [data-eq~="650px"] & {
     width: 100%;
+    &.left { padding-right: 0; }
   }
 }
 
