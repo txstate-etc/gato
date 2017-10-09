@@ -14,6 +14,10 @@
     display: block;
     -webkit-filter: grayscale(1) brightness(.5);
     filter: grayscale(1) brightness(.5);
+    @include ie11() {
+      background-color: black;
+      * { opacity: 0.6; }
+    }
   }
 }
 
