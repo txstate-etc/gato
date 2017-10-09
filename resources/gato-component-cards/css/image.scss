@@ -15,14 +15,7 @@
       position: relative;
       overflow: hidden;
       height: 0;
-      img {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-      }
-      &.wide img { height: 100%; width: auto; }
-      &.tall img { width: 100%; height: auto; }
+      @include coverimage();
     }
   }
 

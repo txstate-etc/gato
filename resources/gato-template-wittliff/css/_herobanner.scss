@@ -13,20 +13,14 @@
     &.tall img { width: 100%; }
     img {
       display: block;
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
+      @include absolutecenter();
       width: auto;
       height: auto;
     }
   }
   .herobanner-title {
-    position: absolute;
     text-align: center;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
+    @include absolutecenter();
     h1 {
       margin: 0;
       color: $white;
@@ -81,23 +75,10 @@
     &.active {
       left: 0;
     }
-    &.wide img { height: 100%; }
-    &.tall img { width: 100%; }
-    img {
-      display: block;
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      width: auto;
-      height: auto;
-    }
+    @include coverimage();
     .feature-play-button {
       display: block;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      @include absolutecenter();
       color: white;
       font-size: 3.5rem;
       border-radius: 100%;
@@ -112,17 +93,13 @@
         border: 5px solid white;
       }
       i {
-        position: absolute;
-        top:50%;
+        @include absolutecenter();
         left: 55%;// looks weird when perfectly centerd or are my eyes playing tricks on me?
-        transform: translate(-50%, -50%);
       }
     }
   }
   .back, .forward {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    @include verticalcenter();
     color: white;
     font-size: 8rem;
     @media (max-width: $md-breakpoint) {

@@ -58,10 +58,8 @@
       }
     }
     .container {
-      position: absolute;
+      @include verticalcenter();
       left: 0;
-      top: 50%;
-      transform: translateY(-50%);
       width: 100%;
     }
     .linkbutton {

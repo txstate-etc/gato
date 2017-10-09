@@ -61,3 +61,34 @@
     @content;
   }
 }
+
+// NOTE: will center inside the nearest ancestor with position: relative set
+@mixin absolutecenter() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+}
+
+@mixin verticalcenter() {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+}
+
+// NOTE: requires you to set css class of .wide or .tall on the element you include this on,
+// depending on whether the image is wider than the element or taller than the element
+// javascript can help with this or if you have image dimensions during html render you can
+// do it there
+@mixin coverimage() {
+  &.wide img { height: 100%; }
+  &.tall img { width: 100%; }
+  img {
+    display: block;
+    @include absolutecenter();
+    width: auto;
+    height: auto;
+  }
+}

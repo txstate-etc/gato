@@ -6,17 +6,7 @@
   .eventbanner-image {
     height: 0;
     padding-bottom: 45.45%;
-    img {
-      display: block;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: auto;
-      height: auto;
-    }
-    &.tall img { width: 100%; }
-    &.wide img { height: 100%; }
+    @include coverimage();
   }
   .eventbanner-panel {
     background-color: rgba($coffee, 0.8);
