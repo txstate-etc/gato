@@ -80,18 +80,18 @@
       i {
         margin-left: 0;
         font-size: 2rem;
-        padding: 0 2rem;
+        min-width: 5.8rem;
       }
       &:before {
         background-color: #572515;
       }
       [data-eq~="600px"] & {
         span { padding: 1.2rem 1.6rem; }
-        i { padding: 0 1.6rem; }
+        i { min-width: 5rem; }
       }
       [data-eq~="400px"] & {
         span { padding: 1rem 1.3rem; font-size: 1.8rem; }
-        i { padding: 0 1.3rem; font-size: 1.8rem; }
+        i { min-width: 4.4rem; font-size: 1.8rem; }
       }
     }
   }

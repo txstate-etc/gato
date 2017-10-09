@@ -358,14 +358,18 @@ strong {
     z-index: 1;
   }
   i {
-    display: flex;
-    align-items: center;
+    position: relative;
     font-size: 1.5rem;
     border-left: 2px solid $white;
     margin-left: 1.5rem;
-    padding: 0 1rem;
-    text-align: center;
+    min-width: 3.2rem;
     z-index: 1;
+    &:before {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
   }
   &:hover, &:active {
     &:before {
