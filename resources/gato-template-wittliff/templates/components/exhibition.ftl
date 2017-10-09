@@ -22,7 +22,7 @@
         Ongoing
       [/#if]
     </div>
-    <h2><a href="${content.link!}">
+    <h2><a href="${gf.filterUrl(content.link)}">
       <span class="title" data-max-lines="3">${content.title!}</span>
       [#if content.subtitle?has_content]<div class="subtitle" data-max-lines="2">${content.subtitle}</div>[/#if]
     </a></h2>
