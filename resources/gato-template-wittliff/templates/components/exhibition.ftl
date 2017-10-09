@@ -34,8 +34,12 @@
           <span class="separator">-</span>
           <span class="end">${content.end?string['MMM d']}</span>
         [/#if]
-      [#elseif content.start?has_content]
-        <span class="date">${content.start?string['MMMM d']}</span>
+      [#elseif content.type == 'event' && content.start?has_content]
+        [#if .now > content.start?datetime]
+          <span class="date">${content.start?string['MMMM d, YYYY']}</span>
+        [#else]
+          <span class="date">${content.start?string['MMMM d']}</span>
+        [/#if]
         <span class="separator">/</span>
         <span class="time">${content.start?string['h:mm a']?lower_case}</span>
       [/#if]
