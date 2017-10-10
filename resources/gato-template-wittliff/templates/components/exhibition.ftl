@@ -27,7 +27,7 @@
       [#if content.subtitle?has_content]<div class="subtitle" data-max-lines="2">${content.subtitle}</div>[/#if]
     </a></h2>
     [#if content.type == 'event' || content.type == 'exhibition']
-    <div class="dates">
+    <div class="dates" data-max-lines="1">
       [#if content.type == 'exhibition' && content.start?has_content]
         <span class="start">${content.start?string['MMM d']}</span>
         [#if content.end?has_content]
@@ -41,7 +41,7 @@
           <span class="date">${content.start?string['MMMM d']}</span>
         [/#if]
         <span class="separator">/</span>
-        <span class="time">${content.start?string['h:mm a']?lower_case}</span>
+        <span class="time">${content.start?string['h:mma']?lower_case}</span>
       [/#if]
     </div>
     [/#if]
