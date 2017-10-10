@@ -2,7 +2,7 @@
   .sidebar {
     padding-right: 2rem;
     padding-bottom: 1rem;
-    @media (max-width: $lg-breakpoint) {
+    @media (max-width: 95em) {
       padding-left: 4rem;
     }
     @media (max-width: $md-breakpoint) {
