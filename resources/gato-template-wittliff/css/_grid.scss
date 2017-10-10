@@ -25,9 +25,10 @@ ul.gato-card-filter {
   }
 
   li {
-    width: 100%;
+    flex-grow: 1;
     [data-eq~="800px"] & {
       width: 50%;
+      flex-grow: 0;
     }
 
     a {
