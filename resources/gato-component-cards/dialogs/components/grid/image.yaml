@@ -3,7 +3,7 @@ form:
     - name: tabTexts
       label: Image Card
       fields: !include /gato-component-cards/dialogs/tabs/image.yaml
-    - name: tabTags
-      label: Tags
-      fields: !include /gato-component-cards/dialogs/tabs/tags.yaml
+#    - name: tabTags
+#      label: Tags
+#      fields: !include /gato-component-cards/dialogs/tabs/tags.yaml
 actions: !include /gato-template/dialogs/common/actions-block.yaml
