@@ -49,6 +49,8 @@ areas:
         id: gato-template:components/imagelink
 parameters:
   sortOrder: 187
+  favicon: /gato-template-tsus2017/images/favicon.png
+  touchicon: /gato-template-tsus2017/images/apple-touch-icon.png
 variations:
   js:
     templateScript: /gato-component-cssjs/templates/pages/jsvariation.ftl

@@ -6,7 +6,8 @@ dialog: gato-template:pages/page-properties
 parameters:
   isMailTemplate: true
   sortOrder: 185
-  favicon: /gato-template-tsus2017/images/tsus-icon.png
+  favicon: /gato-template-tsus2017/images/favicon.png
+  touchicon: /gato-template-tsus2017/images/apple-touch-icon.png
 areas:
   !include /gato-template-tsus2017/templates/includes/standardareas.yaml
 variations:

@@ -7,6 +7,8 @@ areas:
   !include /gato-template-tsus2017/templates/includes/standardareas.yaml
 parameters:
   sortOrder: 180
+  favicon: /gato-template-tsus2017/images/favicon.png
+  touchicon: /gato-template-tsus2017/images/apple-touch-icon.png
 variations:
   js:
     templateScript: /gato-component-cssjs/templates/pages/jsvariation.ftl
