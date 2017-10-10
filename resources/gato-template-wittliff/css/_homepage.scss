@@ -4,10 +4,9 @@
       max-width: none;
     }
     &.card-layout {
-      background-color: rgba($coffee, 0.97);
-      border-top: 7px solid $sienna;
+      background-color: $wittliffstone;
       .gato-section-centered {
-        max-width: 1440px;
+        max-width: 2000px;
         background-color: white;
         .gato-card {
           margin-bottom: 0;
@@ -21,7 +20,7 @@
   position: relative;
   overflow: hidden;
   line-height: 1.2;
-  margin-bottom: 2rem;
+  margin-bottom: 1.2rem;
   .eventbanner-image {
     height: 654px;
     @media (max-width: $xl-breakpoint) {
@@ -33,13 +32,17 @@
   .eventbanner-panel {
     background-color: rgba($coffee, 0.8);
     color: white;
-    padding: 2.5em 3em;
+    padding: 4.5em 6em;
     position: absolute;
     width: 35%;
     height: 100%;
     top: 0;
     font-size: 1rem;
+    @media (max-width: $xxl-breakpoint) {
+      padding: 3.5em 5em;
+    }
     @media (max-width: $xl-breakpoint) {
+      padding: 2.5em 3em;
       font-size: 0.95rem;
     }
     @media (max-width: $lg-breakpoint) {
