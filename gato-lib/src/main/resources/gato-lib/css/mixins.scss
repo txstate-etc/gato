@@ -83,8 +83,8 @@
 // javascript can help with this or if you have image dimensions during html render you can
 // do it there
 @mixin coverimage() {
-  &.wide img { height: 100%; }
-  &.tall img { width: 100%; }
+  &.wide img { height: 100.5%; }
+  &.tall img { width: 100.5%; }
   img {
     display: block;
     @include absolutecenter();
