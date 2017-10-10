@@ -99,6 +99,8 @@ jQuery(document).ready(function($) {
       var currslide = slides.eq(active);
       var nextslide = slides.eq(slideidx);
       if (currslide.is(nextslide)) return;
+      currslide.velocity('stop');
+      nextslide.velocity('stop');
       if (backwards) {
         currslide.velocity({ left: ['100%', '0%'] }, {duration: 500});
         nextslide.velocity({ left: ['0%', '-100%'] }, {duration: 500});
