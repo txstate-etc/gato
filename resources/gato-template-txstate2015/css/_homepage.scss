@@ -61,9 +61,9 @@ body.homepage {
           a .fa { margin-left: 1.8rem; }
         }
         font-size: 1.6rem;
-        
+
         p { margin: 0; }
-        
+
         a {
           text-transform: uppercase;
           text-decoration: none;
@@ -79,19 +79,19 @@ body.homepage {
         .solo-bailout {
           text-align: center;
           padding-top: 1rem;
-          
+
           a.solo-bailout-button {
             display: block;
             padding: 2rem 0;
             margin: 0;
             border-radius: $default-border-radius;
             color: $white;
-            background: $gold; 
+            background: $gold;
             @include hover-bg($light-gold);
           }
         }
-      } 
-    } 
+      }
+    }
 
     .solo-title, .solo-bailout {
       padding-left: 0;
@@ -136,7 +136,7 @@ body.homepage {
         padding-bottom: 4rem;
       }
     }
-    
+
     &.three-col {
       .content-row-column {
         width: 100% * 1 / 3;
@@ -199,13 +199,13 @@ body.homepage {
       .slides, figure.feature { background: $khaki; }
       .solo-bailout a {
         color: $maroon;
-        &:hover { 
-          background: $khaki; 
+        &:hover {
+          background: $khaki;
         }
       }
       @media (max-width: $sm-breakpoint){
         .solo-bailout a.solo-bailout-button {
-          background: $maroon; 
+          background: $maroon;
           @include hover-bg($light-maroon);
         }
       }
@@ -215,26 +215,26 @@ body.homepage {
   figure.feature {
     background: $sandstone;
     margin: 0;
-    a.image-link { 
+    a.image-link {
       display: block;
-      margin: 0; 
-      padding: 0; 
-      @extend .hover-blur; 
+      margin: 0;
+      padding: 0;
+      @extend .hover-blur;
     }
     img { display: block; }
     figcaption {
       padding: 2.1rem;
 
-      p { 
-        margin: 0; 
+      p {
+        margin: 0;
         &.feature-headline {
           font-size: 2rem;
           font-weight: bold;
           line-height: 2.8rem;
           margin-bottom: 1.2rem;
-          a { 
+          a {
             color: $maroon;
-            text-decoration: underline; 
+            text-decoration: underline;
             &:hover { text-decoration: none; background: none; }
           }
         }
@@ -294,7 +294,7 @@ body.homepage {
 
   @media (max-width: $md-breakpoint){
     .slides {
-      figure.feature {    
+      figure.feature {
         .feature-play-button {
           a {
             width: 5.5rem;
@@ -305,7 +305,7 @@ body.homepage {
     }
   }
 
-  .slide-nav { 
+  .slide-nav {
     a {
       display: inline-block;
       padding: 1rem 1.5rem;
@@ -316,7 +316,7 @@ body.homepage {
       font-size: 1.8rem;
     }
   }
-  .slide-nav-dots { 
+  .slide-nav-dots {
     text-align: center;
     margin: 0.5rem 0;
     a {
@@ -358,7 +358,7 @@ body.homepage {
       font-size: 2rem;
     }
   }
-  
+
   @media (max-width: 64em) {
     .hp-u-social a {margin-right: .2rem;}
   }

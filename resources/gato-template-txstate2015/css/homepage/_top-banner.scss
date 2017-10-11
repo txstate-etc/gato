@@ -251,6 +251,7 @@ div#homepage-banner {
           li {
             font-size: 1.6rem;
             a {
+              color: $maroon;
               padding: 1.6rem 2.6rem;
               @media (max-width: $xl-breakpoint) {
                 padding: 1.6rem 2.4rem;
