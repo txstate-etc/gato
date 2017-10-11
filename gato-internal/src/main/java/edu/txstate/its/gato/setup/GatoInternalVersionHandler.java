@@ -148,6 +148,10 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       .addTasks(installOrUpdateTasks())
     );
 
+    register(DeltaBuilder.update("1.0.9", "")
+      .addTasks(installOrUpdateTasks())
+    );
+
   }
 
   protected List<Task> installOrUpdateTasks() {
