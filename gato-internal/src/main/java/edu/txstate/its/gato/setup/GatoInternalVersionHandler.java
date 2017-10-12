@@ -149,6 +149,7 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
     );
 
     register(DeltaBuilder.update("1.0.9", "")
+      .addTask(new SetPropertyTask(RepositoryConstants.CONFIG, "/server/filters/servlets/ResourcesServlet", "servletClass", "edu.txstate.its.gato.GatoResourcesServlet"))
       .addTasks(installOrUpdateTasks())
     );
 
@@ -175,6 +176,11 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
 
     // make sure legacy links filter comes before aggregator, aggregator will terminate chain
     tasks.add(new OrderNodeBeforeTask("legacylinks", "Put legacy links filter before aggregator filter in the cms chain.", RepositoryConstants.CONFIG, "/server/filters/cms/legacylinks", "aggregator"));
+
+    // config tree changes that we don't want to bootstrap
+    tasks.add(new SetPropertyTask(RepositoryConstants.CONFIG, "/server/filters/logout", "class", "info.magnolia.cms.security.auth.logout.CASLogoutFilter"));
+    tasks.add(new SetPropertyTask(RepositoryConstants.CONFIG, "/server/filters/servlets/ResourcesServlet", "servletClass", "edu.txstate.its.gato.GatoResourcesServlet"));
+    tasks.add(new SetPropertyTask("Allow mixed case logins", RepositoryConstants.CONFIG, "/modules/cas/config", "caseSensitiveUserNames", Boolean.FALSE));
 
     // tasks for every update
     tasks.addAll(installOrUpdateTasks());
