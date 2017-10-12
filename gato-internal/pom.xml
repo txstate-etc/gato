@@ -23,6 +23,10 @@
       <artifactId>magnolia-core</artifactId>
     </dependency>
     <dependency>
+      <groupId>info.magnolia.resources</groupId>
+      <artifactId>magnolia-resources</artifactId>
+    </dependency>
+    <dependency>
       <groupId>info.magnolia.dam</groupId>
       <artifactId>magnolia-dam-app</artifactId>
     </dependency>
