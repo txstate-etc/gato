@@ -150,6 +150,7 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
 
     register(DeltaBuilder.update("1.0.9", "")
       .addTask(new SetPropertyTask(RepositoryConstants.CONFIG, "/server/filters/servlets/ResourcesServlet", "servletClass", "edu.txstate.its.gato.GatoResourcesServlet"))
+      .addTask(new RssCardShowTimeTask())
       .addTasks(installOrUpdateTasks())
     );
 

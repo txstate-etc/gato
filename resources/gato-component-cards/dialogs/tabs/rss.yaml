@@ -43,6 +43,15 @@
         selected: true
         label: Title and Summary
   - name: showDates
-    class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
-    label: Show Created Date
-    buttonLabel: Will display the creation date of each item.
+    class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
+    label: Show Date
+    buttonLabel: Will display the published date (and optionally time) of each item.
+    sortOptions: false
+    options:
+      - name: none
+        label: Do not display publish date
+      - name: date
+        selected: true
+        label: Display publish date
+      - name: time
+        label: Display publish date and time

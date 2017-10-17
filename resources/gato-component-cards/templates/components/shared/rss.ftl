@@ -29,13 +29,15 @@
               </div>
             [/#if]
             <div class="gato-rss-published">
-              [#if entry.publishedDate?has_content && content.showDates!false]
+              [#if entry.publishedDate?has_content && (content.showDates!'none') != 'none']
                 <span class="gato-rss-date">
                   ${entry.publishedDate?string["MMMM d, yyyy"]}
                 </span>
-                <span class="gato-rss-time">
-                  ${entry.publishedDate?string[" h:mma"]}
-                </span>
+                [#if content.showDates == 'time']
+                  <span class="gato-rss-time">
+                    ${entry.publishedDate?string[" h:mma"]}
+                  </span>
+                [/#if]
               [/#if]
             </div>
           </div>
