@@ -35,8 +35,8 @@
                         <tr class="${(row_index % 2 == 0)?string("even", "odd")}">
                           [#list row?split("\t") as col]
                             [#if col?trim?has_content || col_index < headers?size]
-                              [#if content.tableHeader && col_index < headers?size]
-                                <td data-label="${headers[col_index]?html?replace('&lt;br\\s*/?\\s*&gt;', '&#xa;', 'r')}">
+                              [#if (content.tableResponsive!false) && content.tableHeader && col_index < headers?size]
+                                <td><div class="carded-label">${headers[col_index]}</div>
                               [#else]
                                 <td>
                               [/#if]

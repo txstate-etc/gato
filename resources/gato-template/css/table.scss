@@ -17,6 +17,9 @@
               text-decoration: none;
           }
       }
+      .carded-label {
+        display: none;
+      }
   }
 
   th{
@@ -95,9 +98,8 @@
     td:last-child{
       border-bottom: 0;
     }
-    td:before{
-      white-space: pre-wrap;
-      content: attr(data-label);
+    td .carded-label {
+      display: block;
       float: left;
       font-weight: 400;
     }
