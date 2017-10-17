@@ -8,7 +8,7 @@
       'gato-template-wittliff/js/fontsdotcom.js',
       'gato-template-wittliff/js/wittliff-events.js'
     ]/]
-    <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-wittliff/css/standard.compiled.css"/>
+    <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-wittliff/css/standard.scss"/>
     [@templatehead publisher="The Wittliff Collections"/]
   </head>
 
