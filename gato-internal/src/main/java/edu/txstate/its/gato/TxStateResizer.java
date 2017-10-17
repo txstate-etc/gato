@@ -42,7 +42,6 @@ public class TxStateResizer extends GatoResizer {
 
   public String createLink(String url) {
     try {
-
       String returl = gf.getImageHandlerBase()+gf.getCacheStr(url)+"/imagehandler/scaler/"+url.replaceAll("^\\w{3,15}://", "");
       return buildUrl(returl);
     } catch (Exception e) {
@@ -63,6 +62,7 @@ public class TxStateResizer extends GatoResizer {
       if (cropleft > 0) returl += "&amp;cropleft="+cropleft;
       if (cropright > 0) returl += "&amp;cropright="+cropright;
       if (!upscale) returl += "&amp;nogrow=1";
+      if (quality > 0) returl += "&amp;quality="+quality;
       return returl;
   }
 

@@ -347,6 +347,10 @@ public final class GatoUtils {
     return getSrcSet(assetOrId, 0f, 0f, 0f, 0f);
   }
 
+  public String getSrcSet(Object assetOrId, int quality) {
+    return getSrcSet(assetOrId, -1f, quality);
+  }
+
   public String getSrcSet(Object assetOrId, float left, float right, float top, float bottom) {
     return getSrcSet(assetOrId, left, right, top, bottom, false);
   }
@@ -355,8 +359,16 @@ public final class GatoUtils {
     return getSrcSet(assetOrId, 0f, 0f, 0f, 0f, aspectratio);
   }
 
+  public String getSrcSet(Object assetOrId, float aspectratio, int quality) {
+    return getSrcSet(assetOrId, 0f, 0f, 0f, 0f, aspectratio, quality);
+  }
+
   public String getSrcSet(Object assetOrId, float left, float right, float top, float bottom, boolean square) {
     return getSrcSet(assetOrId, left, right, top, bottom, (square ? 1f : -1f));
+  }
+
+  public String getSrcSet(Object assetOrId, float left, float right, float top, float bottom, float aspectratio) {
+    return getSrcSet(assetOrId, left, right, top, bottom, aspectratio, 0);
   }
 
   // note: "right" means distance from left at which to crop, expressed as a
@@ -364,7 +376,7 @@ public final class GatoUtils {
   // same for bottom
   // for example, left = .25, right = .75 means cut 25% off each side
   // counterintuitive, may need refactored at some point
-  public String getSrcSet(Object assetOrId, float left, float right, float top, float bottom, float aspectratio) {
+  public String getSrcSet(Object assetOrId, float left, float right, float top, float bottom, float aspectratio, int quality) {
     Asset asset = toAsset(assetOrId);
     if (asset == null) return "";
     try {
@@ -373,6 +385,7 @@ public final class GatoUtils {
       srv.setUpscale(true);
       srv.setCrop(left, right, top, bottom);
       srv.setZoom(aspectratio > 0);
+      srv.setQuality(quality);
 
       long width = getImgWidth(asset);
       if (right - left > 0.001) width = Math.round(width*(right - left));

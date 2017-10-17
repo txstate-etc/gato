@@ -19,6 +19,7 @@ public class GatoResizer {
   protected float cropbottom = 0;
   protected boolean upscale = false;
   protected boolean zoom = false;
+  protected int quality = 0;
 
   @Inject
   public GatoResizer(GatoUtils gf) {
@@ -60,5 +61,9 @@ public class GatoResizer {
 
   public void setZoom(boolean zoom) {
   	this.zoom = zoom;
+  }
+
+  public void setQuality(int quality) {
+    this.quality = quality;
   }
 }

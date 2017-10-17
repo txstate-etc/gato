@@ -11,7 +11,7 @@
         [#if isEnabled(component)]
           <div class="slide ${component.color!''}">
             <figure class="feature top-slider" >
-              <img class="slide-image" src="${gf.getImgDefault(component.image, aspectratio)}" srcset="${gf.getSrcSet(component.image, aspectratio)}" alt="${component.alttext!}">
+              <img class="slide-image" src="${gf.getImgDefault(component.image, aspectratio)}" srcset="${gf.getSrcSet(component.image, aspectratio, 80)}" alt="${component.alttext!}">
               <figcaption>
                 <div class="caption-wrap" id="${gf.uuidToHtmlId(component.@id)}">
 
