@@ -36,7 +36,7 @@
                           [#list row?split("\t") as col]
                             [#if col?trim?has_content || col_index < headers?size]
                               [#if content.tableHeader && col_index < headers?size]
-                                <td data-label="${headers[col_index]?html}">
+                                <td data-label="${headers[col_index]?html?replace('&lt;br\\s*/?\\s*&gt;', '&#xa;', 'r')}">
                               [#else]
                                 <td>
                               [/#if]
