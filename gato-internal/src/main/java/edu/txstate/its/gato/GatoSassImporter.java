@@ -1,6 +1,6 @@
 package edu.txstate.its.gato;
 
-import info.magnolia.module.resources.ResourceLinker;
+import info.magnolia.resourceloader.ResourceOrigin;
 import info.magnolia.resourceloader.Resource;
 
 import io.bit3.jsass.importer.Import;
@@ -18,10 +18,10 @@ import org.slf4j.LoggerFactory;
 
 public class GatoSassImporter implements Importer {
 	private static Logger log = LoggerFactory.getLogger(GatoSassImporter.class);
-	protected final ResourceLinker ln;
+	protected final ResourceOrigin origin;
 
-	public GatoSassImporter(ResourceLinker linker) {
-	  this.ln = linker;
+	public GatoSassImporter(ResourceOrigin origin) {
+	  this.origin = origin;
 	}
 
 	@Override
@@ -37,10 +37,13 @@ public class GatoSassImporter implements Importer {
       String scssurl = path+fn+".scss";
       String partialurl = path+"_"+fn+".scss";
       String cssurl = path+fn+".css";
-      Resource resource = ln.getResource(scssurl);
-      if (resource == null) resource = ln.getResource(partialurl);
-      if (resource == null) resource = ln.getResource(resourceurl);
-      if (resource == null) resource = ln.getResource(cssurl);
+
+      String actualurl = "";
+      if (this.origin.hasPath(scssurl)) actualurl = scssurl;
+      else if (this.origin.hasPath(partialurl)) actualurl = partialurl;
+      else if (this.origin.hasPath(resourceurl)) actualurl = resourceurl;
+      else if (this.origin.hasPath(cssurl)) actualurl = cssurl;
+      Resource resource = this.origin.getByPath(actualurl);
       Import uriImport = new Import(
         new URI(url),
         new URI(resource.getPath()),
