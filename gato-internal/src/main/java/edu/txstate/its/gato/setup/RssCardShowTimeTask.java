@@ -1,5 +1,6 @@
 package edu.txstate.its.gato.setup;
 
+import javax.jcr.Node;
 import javax.jcr.Session;
 import javax.jcr.RepositoryException;
 import javax.jcr.PathNotFoundException;
@@ -23,13 +24,17 @@ public class RssCardShowTimeTask extends GatoBaseUpgradeTask {
 
   protected void doExecute(InstallContext ctx) throws RepositoryException, PathNotFoundException, TaskExecutionException, LoginException {
     Session session=ctx.getJCRSession(RepositoryConstants.WEBSITE);
-    visitByTemplate(session, "gato-component-cards:components/grid/rss", card -> {
-      String showdates = PropertyUtil.getString(card, "showDates", "false");
-      if ("false".equals(showdates)) {
-        PropertyUtil.setProperty(card, "showDates", "none");
-      } else if ("true".equals(showdates)) {
-        PropertyUtil.setProperty(card, "showDates", "time");
-      }
-    });
+
+    visitByTemplate(session, "gato-component-cards:components/grid/rss", this::update);
+    visitByTemplate(session, "gato-component-rss:components/rss", this::update);
+  }
+
+  protected void update(Node card) throws RepositoryException {
+    String showdates = PropertyUtil.getString(card, "showDates", "false");
+    if ("false".equals(showdates)) {
+      PropertyUtil.setProperty(card, "showDates", "none");
+    } else if ("true".equals(showdates)) {
+      PropertyUtil.setProperty(card, "showDates", "time");
+    }
   }
 }
