@@ -54,7 +54,7 @@ public class RssParser {
 
       String thumbnail = item.select("media|thumbnail").attr("url");
       if (StringUtils.isBlank(thumbnail)) thumbnail = item.select("g|image_link").text();
-      if (StringUtils.isBlank(thumbnail)) thumbnail = item.select("> link[rel=enclosure][type^=image]").text();
+      if (StringUtils.isBlank(thumbnail)) thumbnail = item.select("> link[rel=enclosure][type^=image]").eq(0).text();
       r.setThumbnail(thumbnail);
 
       String itemlink = item.select("> link").text();
