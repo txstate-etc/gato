@@ -1,5 +1,7 @@
 package edu.txstate.its.gato;
 
+import info.magnolia.cms.security.JCRSessionOp;
+import info.magnolia.context.MgnlContext;
 import info.magnolia.context.SystemContext;
 import info.magnolia.module.resources.ResourcesServlet;
 import info.magnolia.module.resources.ResourceLinker;
@@ -21,6 +23,9 @@ import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.UUID;
+import javax.jcr.RepositoryException;
+import javax.jcr.Session;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -64,6 +69,18 @@ public class GatoResourcesServlet extends ResourcesServlet {
 
   public void initialize() {
     this.cache.clear();
+    try {
+      MgnlContext.doInSystemContext(new JCRSessionOp<Boolean>("config") {
+        @Override
+        public Boolean exec(Session session) throws RepositoryException {
+          session.getProperty("/modules/gato-internal/cachebuster").setValue(UUID.randomUUID().toString());
+          session.save();
+          return true;
+        }
+      });
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
   }
 
   protected String compileSass(Resource resource) throws IOException, URISyntaxException, CompilationException {
