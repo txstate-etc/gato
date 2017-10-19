@@ -5,16 +5,15 @@
   </div>
 
 [#else]
-
   [#if !(content.hideFeedInformation!false)]
     <div class="gato-rss-feedinformation">
-      [#if model.feed.image?has_content]
+      [#if model.feed.thumbnail?has_content]
         [#if model.feed.link?has_content]
           <a href="${model.feed.link}" class="gato-rss-feedimage">
-            <img src="${model.feed.image.url}" />
+            <img src="${model.feed.thumbnail}" />
           </a>
         [#else]
-          <img src="${model.feed.image.url}" class="gato-rss-feedimage" />
+          <img src="${model.feed.thumbnail}" class="gato-rss-feedimage" />
         [/#if]
       [/#if]
       [#if model.feed.title?has_content]
@@ -41,7 +40,7 @@
       </h3>
       <div class="gato-accordion-content">
         [#if content.showThumbnails!false]
-          <div class="gato-rss-thumbnail"><img src="${model.getThumbnail(entry)}" alt=""></div>
+          <div class="gato-rss-thumbnail"><img src="${entry.thumbnail}" alt=""></div>
         [/#if]
         <div class="gato-rss-published">
           [#if entry.publishedDate?has_content && (content.showDates!'none') != 'none']

@@ -7,6 +7,7 @@ import info.magnolia.rendering.model.RenderingModelImpl;
 import info.magnolia.rendering.template.RenderableDefinition;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
@@ -31,12 +32,13 @@ public class RssModel<RD extends RenderableDefinition> extends RenderingModelImp
   public static final String SORT_ASC = "pubDateAsc";
   public static final String SORT_DESC = "pubDateDesc";
   public static final String SORT_NONE = "none";
+  public static final RssParser parser = new RssParser();
 
   private final boolean startCollapsed;
   private final String displayType;
   private final Exception error;
-  private final SyndFeed feed;
-  private final List<SyndEntry> items;
+  private final RssFeed feed;
+  private final List<RssItem> items;
 
   @Inject
   public RssModel(Node content, RD definition, RenderingModel<?> parent) {
@@ -46,8 +48,8 @@ public class RssModel<RD extends RenderableDefinition> extends RenderingModelImp
     startCollapsed = PropertyUtil.getBoolean(content, "startCollapsed", false);
 
     Exception error = null;
-    SyndFeed feed = null;
-    List<SyndEntry> items = null;
+    RssFeed feed = null;
+    List<RssItem> items = null;
     try {
       feed = fetchFeed(content);
       items = initList(content, feed);
@@ -65,52 +67,34 @@ public class RssModel<RD extends RenderableDefinition> extends RenderingModelImp
   public boolean isCollapsible() { return !getHideArticleText(); }
   public boolean isCollapsed() { return isCollapsible() && startCollapsed; }
   public Exception getError() { return error; }
-  public SyndFeed getFeed() { return feed; }
-  public List<SyndEntry> getItems() { return items; }
+  public RssFeed getFeed() { return feed; }
+  public List<RssItem> getItems() { return items; }
 
-  public String fmtItemText(final SyndEntry item) {
-    SyndContent description = item.getDescription();
-    if(description == null) return "";
-    String itemText = item.getDescription().getValue();
-
+  public String fmtItemText(final RssItem item) {
+    String itemText = "";
     if (SUMMARY_ONLY.equalsIgnoreCase(displayType)) {
-      itemText = itemText.replaceAll("\\<[^>]*>", "");
+      itemText = item.getDescription();
       itemText = StringUtils.abbreviate(itemText, 350);
-    } else if (item.getContents().size() > 0) {
-      String fullContents = ((SyndContent)item.getContents().get(0)).getValue();
-      if (!StringUtils.isBlank(fullContents)) {
-        itemText = fullContents;
-      }
+    } else {
+      itemText = item.getContent();
     }
 
-    return itemText;
+    return StringUtils.trim(itemText);
   }
 
-  public String getThumbnail(final SyndEntry item) {
-    try {
-      return ((MediaModule)item.getModule(MediaModule.URI)).getMetadata().getThumbnail()[0].getUrl().toString();
-    } catch (Exception e) {
-      return "";
-    }
-  }
-
-  private static SyndFeed fetchFeed(final Node content) throws IOException, MalformedURLException, FeedException, FetcherException, RepositoryException {
+  private static RssFeed fetchFeed(final Node content) throws IOException, RepositoryException {
     Node unescapednode = NodeUtil.unwrap(content);
     final String feedUrl = PropertyUtil.getString(unescapednode, "feedUrl", null);
-    final FeedFetcherCache cache = HashMapFeedInfoCache.getInstance();
-    final FeedFetcher feedFetcher = new HttpClientFeedFetcher(cache);
-    feedFetcher.setUserAgent("MagnoliaRSSFeedParagraph/0.1 (Java-ROME 0.9; Magnolia 3.5.4; gato@txstate.edu)");
-
-    return feedFetcher.retrieveFeed(new URL(feedUrl));
+    return parser.getFeed(feedUrl);
   }
 
-  private static List<SyndEntry> initList(final Node content, final SyndFeed feed) {
-    final List<SyndEntry> items = new ArrayList(feed.getEntries());
+  private static List<RssItem> initList(final Node content, final RssFeed feed) {
+    final List<RssItem> items = new ArrayList(feed.getItems());
     final String sortOrder = PropertyUtil.getString(content, "sortOrder", SORT_DESC);
 
     if (!SORT_NONE.equalsIgnoreCase(sortOrder)) {
       final boolean ascending = SORT_ASC.equalsIgnoreCase(sortOrder);
-      Collections.sort(items, new SyndEntryComparator(ascending));
+      Collections.sort(items, new ItemComparator(ascending));
     }
 
     final int feedlimit = PropertyUtil.getLong(content, "feedlimit", 0l).intValue();
@@ -121,17 +105,14 @@ public class RssModel<RD extends RenderableDefinition> extends RenderingModelImp
     return items;
   }
 
-  private static class SyndEntryComparator extends Object implements Comparator {
+  private static class ItemComparator extends Object implements Comparator {
     private final int signum;
-    public SyndEntryComparator(final boolean ascending) {
+    public ItemComparator(final boolean ascending) {
       signum = ascending ? 1 : -1;
     }
     public int compare(final Object a, final Object b) {
-      final SyndEntry c = (SyndEntry) a;
-      final SyndEntry d = (SyndEntry) b;
-      if (c.getPublishedDate() == null && d.getPublishedDate() != null) return signum;
-      if (c.getPublishedDate() != null && d.getPublishedDate() == null) return -1*signum;
-      if (c.getPublishedDate() == null && d.getPublishedDate() == null) return 0;
+      final RssItem c = (RssItem) a;
+      final RssItem d = (RssItem) b;
       return signum*c.getPublishedDate().compareTo(d.getPublishedDate());
     }
   }

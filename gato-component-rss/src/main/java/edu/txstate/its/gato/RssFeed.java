@@ -1,5 +1,6 @@
 package edu.txstate.its.gato;
 
+import java.io.Serializable;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -22,12 +23,12 @@ public class RssFeed implements Serializable {
   protected URL thumbnail;
   public URL getThumbnail() { return thumbnail; }
   public void setThumbnail(URL u) { thumbnail = u; }
-  public void setThumbnail(String s) { thumbnail = new URL(s); }
+  public void setThumbnail(String s) { try { thumbnail = new URL(s); } catch (Exception e) { /* no action */ } }
 
   protected URL link;
   public URL getLink() { return link; }
   public void setLink(URL u) { link = u; }
-  public void setLink(String s) { link = new URL(s); }
+  public void setLink(String s) { try { link = new URL(s); } catch (Exception e) { /* no action */ } }
 
   protected Calendar publishedDate;
   public Calendar getPublishedDate() { return publishedDate; }
