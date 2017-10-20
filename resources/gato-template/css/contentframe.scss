@@ -1,7 +1,6 @@
 $content-width-max: 1200px !default;
 $content-width-xl: 1000px !default;
 $content-width-lg: 1000px !default;
-$sidebar-leftright: 'right' !default;
 
 .page_content {
   position: relative;
@@ -47,46 +46,6 @@ $sidebar-leftright: 'right' !default;
       position: relative;
       width: auto;
    }
-  }
-}
-
-.gato-section-full {
-  .gato-section-centered {
-    margin: 0 auto;
-    max-width: $content-width-max;
-    @media (max-width: $xl-breakpoint) {
-      max-width: $content-width-xl;
-    }
-    @media (max-width: $lg-breakpoint) {
-      max-width: $content-width-lg;
-    }
-  }
-  .gato-section {
-    .background-color-warning {
-      display: none;
-    }
-    margin-#{$sidebar-leftright}: 25%;
-    @media (max-width: $md-breakpoint) {
-      margin-#{$sidebar-leftright}: 29%;
-    }
-    @media (max-width: $sm-breakpoint) {
-      margin-#{$sidebar-leftright}: 33%;
-    }
-    @media (max-width: $sidebar-moves-below-point) {
-      margin-#{$sidebar-leftright}: 0;
-    }
-  }
-  &.has-background .gato-section {
-    padding-top: 2rem;
-  }
-  &.has-background:not(.full-width) .gato-section{
-    .background-color-warning {
-      display: inline;
-      padding: 0.2rem;
-    }
-  }
-  &.full-width .gato-section {
-    margin-#{$sidebar-leftright}: 0;
   }
 }
 
