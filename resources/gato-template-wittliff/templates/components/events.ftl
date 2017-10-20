@@ -59,7 +59,7 @@
                 <span class="p-description">${item.description}</span>
                 [#if item.link?has_content]
                   <a href="${item.link}" class="u-url url">
-                    Click here for more information
+                    More Information
                   </a>
                 [/#if]
               </div>
