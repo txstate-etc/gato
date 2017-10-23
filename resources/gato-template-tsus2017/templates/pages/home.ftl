@@ -5,7 +5,7 @@
         [@templatejs scripts=['gato-template-tsus2017/js/tsus.js',
                               'gato-template/js/dropdownsearch.js',
                               'gato-template/js/search-gsa.js']/]
-        <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-tsus2017/css/tsus-home.compiled.css"/>
+        <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-tsus2017/css/tsus-home.scss"/>
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet"><!--font sheet from tsus demo-->
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet"><!--font sheet from tsus demo-->
         [@templatehead publisher="Texas State University System"/]

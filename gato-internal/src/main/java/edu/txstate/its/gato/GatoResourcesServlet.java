@@ -105,6 +105,11 @@ public class GatoResourcesServlet extends ResourcesServlet {
     } catch (Exception e) {
       e.printStackTrace();
     }
+    String path = request.getPathInfo();
+    if (path.endsWith(".compiled.css")) {
+      String newpath = path.replaceFirst("\\.compiled\\.css$", ".scss");
+      request.setAttribute("javax.servlet.forward.path_info", newpath);
+    }
     super.doGet(request, response);
   }
 

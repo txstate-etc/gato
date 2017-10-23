@@ -5,7 +5,7 @@ function initColorPicker(def, node, el, tmpl) {
     return '<label for="'+id+'" class="colorsel '+id+'">'+
       '<input type="radio" name="colorsel" class="colorsel" value="'+id+'" id="'+id+'"/>'+
       '<span>' + (text ? text : '') + '</span>'+
-    '</label>'; 
+    '</label>';
   };
 
   // Pull in the template's colors.css file if it exists
@@ -13,7 +13,7 @@ function initColorPicker(def, node, el, tmpl) {
     tmpl = 'gato-template-txstate2015';
   }
   tmpl = tmpl.replace(/:.+/, '');
-  var cssfile = "./../.resources/"+tmpl+"/css/color-picker.compiled.css";
+  var cssfile = "./../.resources/"+tmpl+"/css/color-picker.scss";
   $('head').append('<link rel="stylesheet" type="text/css" href="'+cssfile+'">');
 
   var configfile = "./../.resources/"+tmpl+"/js/color-picker-config.js";
@@ -32,13 +32,13 @@ function initColorPicker(def, node, el, tmpl) {
       //TODO: This won't work the way Charles wrote it anymore.  Need to build it in JS?
       $(el).append(createInput("alternating", 'Alternating'));
     }
-    
+
     // Create fields for the specified colors
     var html = '';
     for (var i = 0; i < availableColors.length; i++) {
       html += createInput(availableColors[i]);
     }
-  
+
     $(el).append(html);
 
     // Register the change event on the radio buttons to update the hidden field,
@@ -46,14 +46,14 @@ function initColorPicker(def, node, el, tmpl) {
     $('input[type=radio][name=colorsel]').change(function() {
       $('input[type=hidden].color').val($(this).val()).change();
     });
-  
+
     // Get the initial value out of the hidden field and check the associated radio button.
     var val = $('input[type=hidden].color').val();
     //if val has been set and either all colors are available or it is one of the available colors
     if (val && availableColors.indexOf(val) > -1) {
       $('input[type=radio][name=colorsel][value='+val+']').prop('checked', true);
     } else {
-      // auto-select the first choice. 
+      // auto-select the first choice.
       $('input[type=radio][name=colorsel]').first().prop('checked', true);
       var firstVal = $('input[type=radio][name=colorsel]').first().val();
       $('input[type=hidden].color').val(firstVal).change();

@@ -3,7 +3,7 @@
 <!DOCTYPE HTML>
 <html lang="en">
   <head>
-    <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-txstate2015/css/txstate2015.compiled.css"/>
+    <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-txstate2015/css/txstate2015.scss"/>
     [#assign jsscripts = [
       'gato-template/js/search-gsa.js',
       'gato-lib/js/jquery-ui/jquery-ui.min.js',
