@@ -21,13 +21,13 @@ public class RssParser {
     Document doc = Jsoup.connect(source).get();
     Element feed = doc.select("feed, channel").first();
 
-    ret.setTitle(feed.select("> title").html());
+    ret.setTitle(htmlStrip(feed.select("> title").text()));
 
     String link = feed.select("> link").text();
     if (StringUtils.isBlank(link)) link = feed.select("> link").attr("href");
     ret.setLink(link);
 
-    ret.setDescription(feed.select(":root > description, :root > subtitle").html());
+    ret.setDescription(htmlTidy(feed.select(":root > description, :root > subtitle").text()));
 
     String date = feed.select(":root > pubDate, :root > updated").text();
     ret.setPublishedDate(parseDate(date));
@@ -36,25 +36,25 @@ public class RssParser {
     ret.setThumbnail(image);
 
     for (Element item : feed.select(":root > item, :root > entry")) {
-      System.out.println(item.outerHtml());
       RssItem r = new RssItem();
       r.setGuid(item.select(":root > guid, :root > id").eq(0).text());
       r.setPublishedDate(parseDate(item.select(":root > pubDate, :root > updated").text()));
-      r.setTitle(item.select("> title").html());
+      r.setTitle(htmlStrip(item.select("> title").text()));
 
       if (item.select("> summary").size() > 0)
-        r.setDescription(item.select("> summary").text());
+        r.setDescription(htmlStrip(item.select("> summary").text()));
       else
-        r.setDescription(item.select(":root > content, :root > description").text());
+        r.setDescription(htmlStrip(item.select(":root > content, :root > description").text()));
 
       if (item.select("> content").size() > 0)
-        r.setContent(item.select("> content").html());
+        r.setContent(htmlTidy(item.select("> content").text()));
       else
-        r.setContent(item.select(":root > summary, :root > description").html());
+        r.setContent(htmlTidy(item.select(":root > summary, :root > description").text()));
 
       String thumbnail = item.select("media|thumbnail").attr("url");
       if (StringUtils.isBlank(thumbnail)) thumbnail = item.select("g|image_link").text();
       if (StringUtils.isBlank(thumbnail)) thumbnail = item.select("> link[rel=enclosure][type^=image]").eq(0).text();
+      if (StringUtils.isBlank(thumbnail)) thumbnail = item.select("> media|group media|content[medium^=image]").eq(0).attr("url");
       r.setThumbnail(thumbnail);
 
       String itemlink = item.select("> link").text();
@@ -72,6 +72,14 @@ public class RssParser {
       ret.addItem(r);
     }
     return ret;
+  }
+
+  protected String htmlStrip(String rawhtml) {
+    return Jsoup.parse("<!DOCTYPE html><html><head></head><body>"+rawhtml+"</body></html>").body().text();
+  }
+
+  protected String htmlTidy(String rawhtml) {
+    return Jsoup.parse("<!DOCTYPE html><html><head></head><body>"+rawhtml+"</body></html>").body().html();
   }
 
   protected Calendar parseDate(String s) {
