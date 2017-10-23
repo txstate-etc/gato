@@ -85,11 +85,30 @@ public class GatoResourcesServlet extends ResourcesServlet {
 
   protected String compileSass(Resource resource) throws IOException, URISyntaxException, CompilationException {
     String path = resource.getPath();
+    if (this.cache.containsKey(path)) return this.cache.get(path);
+
     URI inputuri = new URI(path);
     Output output = this.compiler.compileString(IOUtils.toString(resource.openReader()), new URI("/"), inputuri, this.options);
     String ret = output.getCss();
     this.cache.put(path, ret);
     return ret;
+  }
+
+  protected String compileCjs(Resource resource) throws IOException {
+    String path = resource.getPath();
+    if (this.cache.containsKey(path)) return this.cache.get(path);
+
+    StringBuilder ret = new StringBuilder(100000);
+    String cjs = IOUtils.toString(resource.openReader());
+    String[] files = cjs.split("\\n");
+    for (String file : files) {
+      Resource r = this.origin.getByPath(file);
+      if (file.endsWith(".cjs")) ret.append(compileCjs(r));
+      else ret.append(IOUtils.toString(r.openReader()));
+    }
+    String finalret = ret.toString();
+    this.cache.put(path, finalret);
+    return finalret;
   }
 
   @Override
@@ -121,10 +140,15 @@ public class GatoResourcesServlet extends ResourcesServlet {
 
       final String extension = StringUtils.substringAfterLast(resource.getName(), ".");
       if (extension.equals("scss")) {
-        String key = resource.getPath();
-        String cssout = this.cache.containsKey(key) ? this.cache.get(key) : compileSass(resource);
+        String cssout = compileSass(resource);
         response.setContentType("text/css");
         IOUtils.write(cssout, response.getOutputStream(), StandardCharsets.UTF_8);
+        response.getOutputStream().flush();
+        return;
+      } else if (extension.equals("cjs")) {
+        String jsout = compileCjs(resource);
+        response.setContentType("application/javascript");
+        IOUtils.write(jsout, response.getOutputStream(), StandardCharsets.UTF_8);
         response.getOutputStream().flush();
         return;
       }

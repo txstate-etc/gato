@@ -3,8 +3,7 @@
 <!DOCTYPE HTML>
 <html lang="en">
   <head>
-    [@templatejs scripts=['gato-template-tsus2017/js/tsus.js',
-                          'gato-template/js/sidebarwrap.js']/]
+    [@templatejs scripts=['gato-template-tsus2017/js/standard.cjs', '/gato-template/js/sidebarwrap.js']/]
       <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-tsus2017/css/tsus-standard.scss"/>
       <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet"><!--font sheet from tsus demo-->
       <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet"><!--font sheet from tsus demo-->

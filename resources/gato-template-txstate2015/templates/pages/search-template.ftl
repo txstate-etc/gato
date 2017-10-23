@@ -5,13 +5,9 @@
   <head>
     <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-txstate2015/css/txstate2015.scss"/>
     [#assign jsscripts = [
-      'gato-template/js/search-gsa.js',
-      'gato-lib/js/jquery-ui/jquery-ui.min.js',
-      'gato-template-txstate2015/js/respond.min.js',
-      'gato-template-txstate2015/js/slideout.js',
-      'gato-lib/js/fastclick.js',
-      'gato-template-txstate2015/js/common.js',
-      'gato-template-txstate2015/js/globalsearch.js'
+      'gato-template-txstate2015/js/includes.cjs',
+      'gato-template-txstate2015/js/globalsearch.js',
+      'gato-template-txstate2015/js/fontsdotcom.js'
     ]/]
     [#if gf.isCacheEnvironment()]
       [#assign jsscripts = jsscripts + ['gato-template-txstate2015/js/fontsdotcom.js']]

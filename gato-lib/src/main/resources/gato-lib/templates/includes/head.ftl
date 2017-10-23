@@ -6,14 +6,7 @@
     <script type="text/javascript" src="${gf.resourcePath()}/gato-lib/js/jquery-legacy.js"></script>
     <script type="text/javascript" src="${gf.resourcePath()}/gato-lib/js/rem.min.js"></script>
     <![endif]-->
-  [#list ['gato-lib/js/jquery-noconflict.js',
-          'gato-lib/js/prototype.js',
-          'gato-lib/js/velocity.js',
-          'gato-lib/js/elementqueries.js',
-          'gato-lib/js/gato-lib.js',
-          'gato-lib/js/modal.js',
-          'gato-lib/js/flowplayer/flowplayer.min.js'
-          ] + scripts as script]
+  [#list scripts as script]
     [#if !script?ends_with('fontsdotcom.js') || gf.isCacheEnvironment()]
       [#-- we only need the fontsdotcom code in the live environment, it's for tracking screen loads --]
       <script type="text/javascript" src="${gf.resourcePath()}/${script}"></script>

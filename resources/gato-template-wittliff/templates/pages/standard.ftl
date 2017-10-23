@@ -3,11 +3,14 @@
 <!DOCTYPE HTML>
 <html lang="en">
   <head>
-    [@templatejs scripts=[
-      'gato-template-wittliff/js/wittliff.js',
-      'gato-template-wittliff/js/fontsdotcom.js',
-      'gato-template-wittliff/js/wittliff-events.js'
-    ]/]
+    [#assign scripts = [
+      'gato-template-wittliff/js/standard.cjs',
+      'gato-template-wittliff/js/fontsdotcom.js'
+    ]]
+    [#if def.parameters.isEventsTemplate!false]
+      [#assign scripts = scripts + ['gato-template-wittliff/js/wittliff-events.js']]
+    [/#if]
+    [@templatejs scripts /]
     <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-wittliff/css/standard.scss"/>
     [@templatehead publisher="The Wittliff Collections"/]
   </head>

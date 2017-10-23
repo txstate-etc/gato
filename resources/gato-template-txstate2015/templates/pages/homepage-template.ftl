@@ -6,14 +6,8 @@
   <head>
     <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-txstate2015/css/txstate2015.scss"/>
     [@templatejs scripts = [
-      'gato-template-txstate2015/js/jquery-scrolltofixed-min.js',
-      'gato-template-txstate2015/js/respond.min.js',
-      'gato-template-txstate2015/js/slideout.js',
-      'gato-lib/js/object-fit-images.min.js',
-      'gato-template-txstate2015/js/homepage.js',
-      'gato-template-txstate2015/js/tabs.js',
-      'gato-lib/js/fastclick.js',
-      'gato-template-txstate2015/js/common.js',
+      'gato-template-txstate2015/js/includes.cjs',
+      'gato-template-txstate2015/js/home.cjs',
       'gato-template-txstate2015/js/fontsdotcom.js'
     ]/]
     [@templatehead publisher='Texas State' /]
