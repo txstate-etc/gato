@@ -147,7 +147,7 @@ sub cleanwebapp {
 
 sub buildedge {
   symlinkheavyresources();
-  sass();
+  #sass();
   print "building full war...\n";
   chdir($gatodir);
   buildany();
