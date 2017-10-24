@@ -1,5 +1,6 @@
 .gato-herobanner {
   margin-bottom: 2rem;
+  background-color: $silver;
   .herobanner-image {
     position: relative;
     overflow: hidden;
@@ -42,9 +43,10 @@
     }
   }
   .herobanner-text {
-    background-color: $silver;
-    padding: 1rem 8rem;
+    padding: 1rem 2rem;
     font-weight: 400;
+    max-width: $content-width-max;
+    margin: 0 auto;
     @media (max-width: $sm-breakpoint) {
       padding: 0.8rem 2rem;
     }
