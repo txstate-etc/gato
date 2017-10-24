@@ -8,6 +8,14 @@ footer.page-footer {
 	}
 	overflow: hidden;
 
+  a:not(.linkbutton) {
+    color: black;
+    text-decoration: none;
+    &:hover {
+      color: $wittliffred;
+    }
+  }
+
 	div.footer-column, div.footer-column-links {
 		float: left;
 		width: 33%;
@@ -44,11 +52,6 @@ footer.page-footer {
 		margin: .5rem 0 0 0;
 		padding: 0;
 
-		a {
-			color: black;
-			text-decoration: none;
-		}
-
 		li {
 			margin-bottom: 2rem;
 		}
@@ -70,7 +73,7 @@ footer.page-footer {
 		margin-bottom: 1rem;
 	}
 
-  .linkbutton {
+  a.linkbutton {
     border: 2px solid $wittliffbrown;
     background-color: $wittliffbrown;
     &:before {
