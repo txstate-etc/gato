@@ -6,13 +6,13 @@
 	  display: block;
 		&.left {
             float: left;
-            margin: $text-image-top $text-image-horiz $text-image-bottom 0px;
+            margin: 0;
+            padding: 0 $text-image-horiz $text-image-bottom 0;
             & ~ ul, & ~ ol{
-                list-style-position: inside;
-                overflow: hidden;
+              overflow: hidden;
             }
         }
-		&.right { float: right; margin: $text-image-top 0px $text-image-bottom $text-image-horiz; }
+		&.right { float: right; padding: 0 0 $text-image-bottom $text-image-horiz; }
 		&.left, &.right {
       width: 100% * (1.0/3.0);
       [data-eq~="800px"] & { width: 50%; }
