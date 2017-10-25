@@ -61,11 +61,10 @@ body ul.gato-faq-hierarchy {
   text-transform: none;
   &.reverse {
     border-width: 2px;
-    float: left;
     line-height: 1.2;
     text-transform: none;
     border-radius: 0;
-    display: flex;
+    display: inline-flex;
     align-items: stretch;
     transform: perspective(1px) translateZ(0);
     &:after {
@@ -104,7 +103,7 @@ body ul.gato-faq-hierarchy {
       }
     }
     &.block {
-      float: none;
+      display: flex;
       padding: 0;
       font-size: 2.2rem;
       letter-spacing: 0.05rem;

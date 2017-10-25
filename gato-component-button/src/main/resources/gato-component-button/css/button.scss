@@ -1,9 +1,7 @@
 @import "button-mixins";
 
 //button colors
-$button-reverse-background:        transparent;
-$button-reverse-text-weight:       400;
-
+$button-reverse-text-weight:       600 !default;
 
 .button-wrapper {
 

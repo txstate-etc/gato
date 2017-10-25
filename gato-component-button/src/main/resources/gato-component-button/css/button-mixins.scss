@@ -17,18 +17,18 @@
 
 //build a "reverse" button.  The color passed in is used for the
 //border and text color on a white button.  When the user hovers over
-//the button, the button turns the color passed in and the text 
+//the button, the button turns the color passed in and the text
 //becomes white
 @mixin reverse-button($color){
   color: $color;
-  background: $button-reverse-background;
+  background: transparent;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: $button-reverse-text-weight;
   border: 3px solid $color;
   @include vendor-prefix(transition, all 0.1s ease-in-out);
   &:hover{
     background: $color;
-    color: $button-reverse-background;
+    color: white;
   }
 }
 
