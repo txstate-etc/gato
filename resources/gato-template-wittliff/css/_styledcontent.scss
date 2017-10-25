@@ -18,4 +18,22 @@
     border: 0px solid #fff;
     background: $light-silver;
   }
+  h2{
+    font-family: $garamond;
+    font-size: 5rem;
+  }
+  h3{
+    font-size: 4rem;
+    letter-spacing: 0.2rem;
+  }
+  h4 {
+    font-size: 3rem;
+    letter-spacing: 0.2rem;
+  }
+  h2, h3, h4 {
+    font-weight: 400;
+    a:hover{
+      text-decoration: none;
+    }
+  }
 }

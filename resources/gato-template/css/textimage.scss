@@ -19,7 +19,7 @@
       [data-eq~="400px"] & {
         width: 100%;
         float: none;
-        margin: $text-image-top auto $text-image-bottom auto;
+        padding: $text-image-top auto $text-image-bottom auto;
       }
 		}
 		&.top { margin: $text-image-top auto $text-image-bottom auto; }

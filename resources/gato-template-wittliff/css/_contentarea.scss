@@ -21,15 +21,18 @@
 .gato-section-full {
   .section-title {
     text-align: center;
-    font-family: $garamond;
-    font-size: 3.3rem;
-    letter-spacing: 0.12rem;
+    font-family: $helveticaneue;
+    font-size: 4rem;
+    letter-spacing: 0.2rem;
+    font-weight: 400;
   }
   .headline {
     padding: 0 2rem;
     word-wrap: break-word;
     font-family: $garamond;
-    font-size: 3.75rem;
-    letter-spacing: 0.15rem;
+    font-size: 5.75rem;
+    letter-spacing: 0.3rem;
+    font-weight: 400;
+    color: $wittliffbrown;
   }
 }
