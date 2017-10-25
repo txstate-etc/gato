@@ -16,6 +16,15 @@
       <artifactId>magnolia-vaadin-widgetset</artifactId>
     </dependency>
     <dependency>
+      <groupId>info.magnolia.ui</groupId>
+      <artifactId>magnolia-ui-vaadin-common-widgets</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>info.magnolia.pages</groupId>
+      <artifactId>magnolia-pages-editor-widget</artifactId>
+      <version>5.5</version>
+    </dependency>
+    <dependency>
       <groupId>com.vaadin</groupId>
       <artifactId>vaadin-client</artifactId>
       <scope>provided</scope>

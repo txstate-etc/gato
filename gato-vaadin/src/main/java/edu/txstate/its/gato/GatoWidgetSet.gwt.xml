@@ -28,6 +28,16 @@
 
     <inherits name="org.vaadin.openesignforms.ckeditor.widgetset.VaadinCKEditorWidgetset" />
 
+
+
+
+
+
+
+
+
+    
+
     <inherits name="org.vaadin.aceeditor.AceEditorWidgetSet" />
 
     <inherits name="org.vaadin.cssinject.Cssinject_addonWidgetset" />
@@ -35,6 +45,8 @@
     <inherits name="info.magnolia.ui.vaadin.gwt.CommonWidgetSet" />
 
     <inherits name="info.magnolia.ui.vaadin.editor.gwt.PageEditorWidgetSet" />
+
+
 
     <inherits name="com.vaadin.DefaultWidgetSet" />
 </module>
