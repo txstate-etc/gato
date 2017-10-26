@@ -21,7 +21,24 @@
       [/#if]
     [/#list]
   [/#if]
-
+<div class="wittliff-event-filters">
+  <div class="month">
+    <select name="month">
+      <option value="">All Dates</option>
+      [#list model.months as month]
+        <option value="${month.key}">${month.name}</option>
+      [/#list]
+    </select>
+  </div>
+  <div class="category">
+    <select name="category">
+      <option value="">All Categories</option>
+      [#list model.categories as cat]
+        <option>${cat}</option>
+      [/#list]
+    </select>
+  </div>
+</div>
 <div class="wittliff-event-list">
   [#list model.items as item]
 
@@ -30,7 +47,7 @@
 
       [#assign eventClass=item.cancelled?string('txst-eventdetail-cancelled','h-event vevent')]
 
-      <div class="event ${eventClass}">
+      <div class="event ${eventClass}" data-month-key="${item.machineMonth}" data-categories="${item.categoryJson?html}">
         <div class="event-datetime">
           <time class="dt-start dtstart" datetime="${item.machineStartDate}">
              [#assign startDate = item.machineStartDate?datetime("yyyy-MM-dd'T'HH:mm:ssZ")]

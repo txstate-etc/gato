@@ -130,3 +130,76 @@
         }
     }
 }
+.wittliff-event-filters {
+  width: 50%;
+  margin: 0 auto;
+  div {
+    position: relative;
+    display: inline-block;
+    border-top: 2px solid $cactus;
+    border-bottom: 2px solid $cactus;
+    width: 49%;
+    &:after {
+      @extend .fa;
+      content: $fa-var-angle-down;
+      @include verticalcenter();
+      right: 1rem;
+      font-size: 4rem;
+    }
+    &.month {
+      select {
+        padding-left: 5rem;
+      }
+      &:before {
+        @extend .fa;
+        font-size: 3rem;
+        color: $wittliffbrown;
+        content: $fa-var-calendar;
+        @include verticalcenter();
+        left: 1rem;
+        z-index: -1;
+      }
+    }
+  }
+  select {
+    width: 100%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    &:-ms-expand { display: none; }
+    background: none;
+    border: none;
+    font-size: 2.6rem;
+    white-space: nowrap;
+    padding: 1rem;
+    option {
+      border-bottom: 1px solid $cactus;
+    }
+  }
+  @media (max-width: $lg-breakpoint) {
+    width: 60%;
+  }
+  @media (max-width: $md-breakpoint) {
+    width: 70%;
+    div:after { font-size: 3.5rem; }
+    select { font-size: 2.4rem; }
+  }
+  @media (max-width: $sm-breakpoint) {
+    width: 85%;
+    div:after { font-size: 3.5rem; }
+    select { font-size: 2rem; }
+    .month select { padding-left: 4.5rem; &:before { font-size: 2.5rem; } }
+  }
+  @media (max-width: $xs-breakpoint) {
+    width: 95%;
+    div:after { font-size: 3rem; }
+    select { font-size: 1.6rem; }
+    .month select { padding-left: 4rem; &:before { font-size: 2rem; } }
+  }
+  @media (max-width: $mn-breakpoint) {
+    width: 100%;
+    //div:after { font-size: 3rem; }
+    select { font-size: 1.5rem; }
+    //.month select { padding-left: 4rem; &:before { font-size: 2rem; } }
+  }
+}

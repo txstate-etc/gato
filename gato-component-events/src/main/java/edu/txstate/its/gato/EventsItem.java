@@ -208,6 +208,11 @@ public class EventsItem implements Comparable<EventsItem> {
     return humanEndDate;
   }
 
+  public static DateFormat machineMonthFormat = new SimpleDateFormat("yyyyMM");
+  public String getMachineMonth() {
+    return machineMonthFormat.format(getStartDate());
+  }
+
   private static Date getDate(Element elem, String dateLabel) {
     final String dateString = DomUtils.getTextValue(elem, dateLabel);
 
@@ -325,6 +330,19 @@ public class EventsItem implements Comparable<EventsItem> {
       }
     }
     return categories;
+  }
+
+  public String getCategoryJson() {
+    List<String> categories = getCategories();
+    String last = categories.get(categories.size() - 1);
+    StringBuilder json = new StringBuilder();
+    json.append("[");
+    for (String c : categories) {
+      json.append("\""+c+"\"");
+      if (!c.equals(last)) json.append(",");
+    }
+    json.append("]");
+    return json.toString();
   }
 
   public int compareTo(EventsItem other) {
