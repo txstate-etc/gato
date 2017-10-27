@@ -29,8 +29,8 @@
         <option value="${month.key}">${month.name}</option>
       [/#list]
     </select>
-  </div>
-  <div class="category">
+  </div>[#--
+  --]<div class="category">
     <select name="category">
       <option value="">All Categories</option>
       [#list model.categories as cat]
