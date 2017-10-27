@@ -7,7 +7,7 @@ window.Search = function(opts) {
   this.opts = {
     num: opts.num || 5,
     start: opts.start || 0,
-    url: opts.url || 'http://search.txstate.edu/search',
+    url: opts.url || '//search.txstate.edu/search',
     sitesearch: opts.sitesearch || 'txstate.edu',
     sort: opts.sort || 'relevance',
     site: opts.site || 'txstate_no_users',
