@@ -131,31 +131,30 @@ strong {
         }
       }
     }
-    .social-media-panel {
-      display: none;
-      position: absolute;
-      top: (4rem + $header-height) / 2;
-      right: -0.6rem;
-      width: 24rem;
-      background-color: $wittliffbrown;
-      padding: 2rem;
-      text-align: center;
-      @media (max-width: $md-breakpoint) {
-        top: (4rem + $header-height-tablet) / 2;
-        width: 20rem;
-        padding: 1rem;
-        .linkbutton {
-          font-size: 1.6rem;
-        }
-      }
-      @media (max-width: $sm-breakpoint) {
-        display: none !important;
+  }
+
+  .social-media-panel {
+    display: none;
+    position: absolute;
+    top: (4rem + $header-height) / 2;
+    right: -1.6rem;
+    width: 20rem;
+    background-color: $wittliffbrown;
+    padding: 2rem;
+    text-align: center;
+    @media (max-width: $md-breakpoint) {
+      top: (4rem + $header-height-tablet) / 2;
+      width: 20rem;
+      padding: 1rem;
+      .linkbutton {
+        font-size: 1.6rem;
       }
     }
-    &.shown {
-      .social-media-panel { display: block; }
+    @media (max-width: $sm-breakpoint) {
+      display: none !important;
     }
   }
+  .shown .social-media-panel { display: block; }
 
   .start-search {
     font-size: 2rem;
@@ -306,7 +305,7 @@ strong {
   list-style: none;
   display: flex;
   justify-content: center;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   padding: 0;
   .gato-sociallink {
     text-align: center;
