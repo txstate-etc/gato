@@ -23,7 +23,8 @@ form:
           label: Page Title
           maxLength: 25
         - name: text
-          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          class: info.magnolia.ui.form.field.definition.RichTextFieldDefinition
+          configJsFile: /.resources/gato-template/js/richeditor/minimal-config.js
           label: Text
           rows: 5
 

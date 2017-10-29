@@ -50,6 +50,8 @@
     @media (max-width: $sm-breakpoint) {
       padding: 2rem 2rem;
     }
+    p { margin-top: 0; }
+    p:last-child { margin-bottom: 0; }
   }
 }
 

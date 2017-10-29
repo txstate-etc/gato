@@ -15,6 +15,6 @@
     [/#if]
   </div>
   [#if content.text?has_content]
-    <div class="herobanner-text">${content.text}</div>
+    <div class="herobanner-text">${cmsfn.decode(content).text}</div>
   [/#if]
 </div>
