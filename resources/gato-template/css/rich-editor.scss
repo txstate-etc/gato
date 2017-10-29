@@ -2,4 +2,10 @@
   img {
     max-width: 100%;
   }
+  blockquote {
+    padding: 2rem 2rem 0 2rem;
+    p {
+      margin: 0 0 2rem 0; padding: 0; line-height: inherit;
+    }
+  }
 }
