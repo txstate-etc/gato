@@ -1,0 +1,14 @@
+templateScript: /gato-template-txstate2015/templates/pages/emergency.ftl
+renderType: site
+visible: true
+title: Emergency Template
+dialog: gato-template:pages/page-properties
+areas:
+  emergency:
+    availableComponents:
+      richeditor:
+        id: gato-template:components/richeditor
+parameters:
+  sortOrder: 10000
+  favicon: /gato-template-txstate2015/images/favicon.png
+  touchicon: /gato-template-txstate2015/images/touchicon.png
