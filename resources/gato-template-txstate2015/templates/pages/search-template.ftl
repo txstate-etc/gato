@@ -17,7 +17,7 @@
   </head>
   <body class="${cmsfn.isEditMode()?string('admin','')}">
     [@skipnav/]
-    <nav id="menu" class="mobile_nav">
+    <nav id="menu" class="mobile_nav" role="dialog">
       <div class="mobile_nav_container">
         <h3 class="mobile-page-title"><a href="${cmsfn.link(homepage)}">${gf.nodeTitle(homepage)}</a></h3>
         [#import "includes/homepage/mobile-menu.ftl" as menu]

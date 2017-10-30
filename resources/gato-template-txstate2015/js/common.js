@@ -132,11 +132,25 @@ jQuery(document).ready(function($) {
     'duration': 300,
     'touch': false
   });
+  var toplevelitems = $('body > #panel, body > .skip-nav');
+  var tabbables = toplevelitems.find(':tabbable');
+  tabbables.each(function (idx, itm) {
+    itm.slideout_save_tabindex = $(itm).attr('tabindex');
+  });
   slideout.on('open', function () {
     $('.mobile_nav .mobile-page-title a').focus();
+    toplevelitems.attr('aria-disabled', true);
+    $('#menu').attr('aria-modal', true);
+    tabbables.attr('tabindex', -1);
   });
   slideout.on('beforeclose', function () {
     $('.toggle-button').focus();
+    toplevelitems.removeAttr('aria-disabled');
+    $('#menu').removeAttr('aria-modal');
+    tabbables.each(function (idx, itm) {
+      if (isBlank(itm.slideout_save_tabindex)) $(itm).removeAttr('tabindex');
+      else $(itm).attr('tabindex', itm.slideout_save_tabindex);
+    });
   });
   jQuery('.toggle-button').on("click", function(e){
     e.preventDefault();

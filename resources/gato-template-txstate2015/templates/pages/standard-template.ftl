@@ -13,7 +13,7 @@
 	</head>
 	<body class="${cmsfn.isEditMode()?string('admin','')}">
     [@skipnav/]
-		<nav id="menu" class="mobile_nav">
+		<nav id="menu" class="mobile_nav" role="dialog">
 			<div class="mobile_nav_container">
 				<div class="mobile_trail">
 					[@breadcrumbs/]
