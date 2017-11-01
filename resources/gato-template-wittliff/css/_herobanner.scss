@@ -52,6 +52,12 @@
     }
     p { margin-top: 0; }
     p:last-child { margin-bottom: 0; }
+    a {
+      padding: 1px 3px;
+      margin: -1px -3px;
+      color: $content-link-text;
+      &:hover { background-color: $content-link-hover; }
+    }
   }
 }
 
