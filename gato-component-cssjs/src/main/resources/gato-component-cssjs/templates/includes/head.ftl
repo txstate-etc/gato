@@ -41,18 +41,20 @@
 	[#if page.customcss?has_content]
 		[#list cmsfn.children(page.customcss, 'mgnl:component') as entry]
 			[#if (entry.inherit!false) || !isAncestor]
-				${cmsfn.decode(entry).customCSS!}
+				${gf.tidyCSS(cmsfn.decode(entry).customCSS)}
 			[/#if]
 		[/#list]
 	[/#if]
 [/#macro]
 
 [#macro customCSS page ancestorstopdown]
-	<style type="text/css">
+  <style type="text/css">
+  [#compress]
 		[@inheritLoop page ancestorstopdown ; curr, isAncestor]
 			[@pageCustomCSS page=curr isAncestor=isAncestor /]
 		[/@inheritLoop]
-	</style>
+  [/#compress]
+  </style>
 [/#macro]
 
 [#macro cssjsmodals]

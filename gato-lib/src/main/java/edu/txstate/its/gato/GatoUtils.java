@@ -6,6 +6,8 @@
 package edu.txstate.its.gato;
 
 import com.google.gson.*;
+import com.steadystate.css.parser.CSSOMParser;
+import com.steadystate.css.parser.SACParserCSS3;
 
 import info.magnolia.cms.beans.config.MIMEMapping;
 import info.magnolia.cms.core.MgnlNodeType;
@@ -32,6 +34,7 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.StringReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
@@ -75,6 +78,11 @@ import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.jackrabbit.JcrConstants;
 
 import org.jsoup.Jsoup;
+import org.w3c.css.sac.CSSException;
+import org.w3c.css.sac.CSSParseException;
+import org.w3c.css.sac.ErrorHandler;
+import org.w3c.css.sac.InputSource;
+import org.w3c.dom.css.CSSStyleSheet;
 
 public final class GatoUtils {
   private static final Pattern LINK_PATTERN = Pattern.compile("(https?://\\S+)", Pattern.CASE_INSENSITIVE);
@@ -1162,6 +1170,31 @@ public final class GatoUtils {
   public String tidyHTML(String rawhtml) {
     if (StringUtils.isBlank(rawhtml)) return "";
     return Jsoup.parse("<!DOCTYPE html><html><head></head><body>"+rawhtml+"</body></html>").body().html();
+  }
+
+  protected final CSSOMParser cssparser = new CSSOMParser(new SACParserCSS3());
+  public static class SilencingErrorHandler implements ErrorHandler {
+    public void warning(CSSParseException exception) throws CSSException {
+    }
+    public void error(CSSParseException exception) throws CSSException {
+    }
+    public void fatalError(CSSParseException exception) throws CSSException {
+    }
+  }
+  protected final ErrorHandler csserrorhandler = new SilencingErrorHandler();
+  public String tidyCSS(String rawcss) {
+    if (StringUtils.isBlank(rawcss)) return "";
+    StringBuilder ret = new StringBuilder(rawcss.length());
+    try {
+      InputSource source = new InputSource(new StringReader(rawcss));
+      cssparser.setErrorHandler(csserrorhandler);
+      CSSStyleSheet sheet = cssparser.parseStyleSheet(source, null, null);
+      for (int i = 0; i < sheet.getCssRules().getLength(); i++) {
+        ret.append(sheet.getCssRules().item(i).getCssText()+"\n");
+      }
+    } catch (Exception e) {
+    }
+    return ret.toString();
   }
 
   public JsonObject oEmbedCached(Object node, String url) {
