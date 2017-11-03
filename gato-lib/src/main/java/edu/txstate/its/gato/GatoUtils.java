@@ -78,6 +78,7 @@ import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.jackrabbit.JcrConstants;
 
 import org.jsoup.Jsoup;
+import org.jsoup.select.Elements;
 import org.w3c.css.sac.CSSException;
 import org.w3c.css.sac.CSSParseException;
 import org.w3c.css.sac.ErrorHandler;
@@ -559,12 +560,13 @@ public final class GatoUtils {
       return "";
     }
   }
+
   public final Pattern IMAGE_TAG_PATTERN = Pattern.compile("(<img[^>]*src[ ]*=[ ]*\")([^\"]*)(\"[^>]*>)");
   public final Pattern WIDTH_ATTR_PATTERN = Pattern.compile("width[ ]*=[ ]*\"([0-9]+)[^\"]*\"");
   public final Pattern SRCSET_ATTR_PATTERN = Pattern.compile("srcset[ ]*=[ ]*\"([^\"]*)\"");
   public final Pattern ASSET_KEY_PATTERN = Pattern.compile("/([a-z]+:[a-f0-9\\-]+)/");
   public final Pattern DATA_URI_REPAIR_PATTERN = Pattern.compile("/(jpeg|png);base64,(.*)");
-  public String processRichText(String str) {
+  public String richTextFindAndReplaceImages(String str) {
     if (StringUtils.isBlank(str)) return "";
     StringBuffer result = new StringBuffer();
     Matcher matcher = IMAGE_TAG_PATTERN.matcher(str);
@@ -604,6 +606,32 @@ public final class GatoUtils {
     }
     matcher.appendTail(result);
     return result.toString();
+  }
+
+  public String richTextAdjustHeaders(String rawhtml, long headerlevel) {
+    if (StringUtils.isBlank(rawhtml)) return "";
+    long offset = headerlevel-2;
+    Elements body = Jsoup.parse("<!DOCTYPE html><html><head></head><body>"+rawhtml+"</body></html>").select("body");
+    Elements h2 = body.select("h2");
+    Elements h3 = body.select("h3");
+    Elements h4 = body.select("h4");
+    Elements h5 = body.select("h5");
+    Elements h6 = body.select("h6");
+    h2.tagName("h"+Long.toString(Math.min(6, 2+offset))).addClass("richtext-h2");
+    h3.tagName("h"+Long.toString(Math.min(6, 3+offset))).addClass("richtext-h3");
+    h4.tagName("h"+Long.toString(Math.min(6, 4+offset))).addClass("richtext-h4");
+    h5.tagName("h"+Long.toString(Math.min(6, 5+offset))).addClass("richtext-h5");
+    h6.addClass("richtext-h6");
+    return body.html();
+  }
+
+  public String processRichText(String str, long headerlevel) {
+    str = richTextFindAndReplaceImages(str);
+    str = richTextAdjustHeaders(str, headerlevel);
+    return str;
+  }
+  public String processRichText(String str) {
+    return processRichText(str, 2);
   }
 
   public String convertLinksToAbsolute(String str) {

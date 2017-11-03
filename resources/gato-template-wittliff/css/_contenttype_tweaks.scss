@@ -1,12 +1,15 @@
 /* FAQ Paragraph */
 body ul.gato-faq-hierarchy {
-  > .gato-faqitem, > .gato-faq-group {
+  > li {
     margin-bottom: 0;
     border-bottom: 2px solid $wittliffstone;
     &:first-child {
       border-top: 2px solid $wittliffstone;
     }
-    > .gato-faqitem-question, > .gato-faq-group-title {
+    .gato-faq-header {
+      font-family: $helveticaneue;
+    }
+    > .gato-faq-header a {
       line-height: 2.8rem;
       font-size: 2.2rem;
       i {
@@ -19,12 +22,8 @@ body ul.gato-faq-hierarchy {
         }
       }
     }
-    &.shown {
-      > .gato-faqitem-question, > .gato-faq-group-title {
-        i:before {
-          content: $fa-var-angle-down;
-        }
-      }
+    &.shown > .gato-faq-header i:before {
+      content: $fa-var-angle-down;
     }
   }
   .gato-faq-group-children .gato-faqitem-question i {

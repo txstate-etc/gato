@@ -1,17 +1,19 @@
+[#include "/gato-template/templates/includes/commonmacros.ftl"]
+
 [#macro faqItem node depth]
   <li class="gato-faqitem" role="treeitem" aria-expanded="false">
-    <a href="#" class="gato-faqitem-question">
+    [@h2 offset=depth class='gato-faqitem-question gato-faq-header']<a href="#">
       <i class="fa fa-caret-right" aria-hidden="true"></i>
-      ${node.question}</a>
-    <div class="gato-faqitem-answer" role="group" aria-hidden="true"><div role="treeitem">${node.answer}</div></div>
+      ${node.question}</a>[/@h2]
+    <div class="gato-faqitem-answer" role="group" aria-hidden="true"><div role="treeitem">${gf.processRichText(node.answer, (ctx.headerlevel!2)+depth+1)}</div></div>
   </li>
 [/#macro]
 
 [#macro faqGroup node depth]
   <li class="gato-faq-group shown" role="treeitem" aria-expanded="true">
-    <a href="#" class="gato-faq-group-title">
+    [@h2 offset=depth class='gato-faq-group-title gato-faq-header']<a href="#">
       <i class="fa fa-caret-right" aria-hidden="true"></i>
-      ${node.title}</a>
+      ${node.title}</a>[/@h2>
     <ul class="gato-faq-group-children" role="group" aria-hidden="false">
       [#list node.children as child]
         [@faqNode child depth+1 /]

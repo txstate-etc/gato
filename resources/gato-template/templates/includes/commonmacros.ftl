@@ -13,3 +13,19 @@
 		[/#if]
 	[/#list]
 [/#macro]
+
+[#function min(a,b)]
+  [#return (b > a)?then(a, b)]
+[/#function]
+[#macro h2 offset=0 class='']
+  [#local headerlevel = min(offset + ctx.headerlevel!2, 6)]
+  <h${headerlevel} class="${class}">
+  [#nested]
+  </h${headerlevel}>
+[/#macro]
+[#macro h3 offset=0 class='']
+  [@h2 offset+1 class][#nested][/@h2]
+[/#macro]
+[#macro h4 offset=0 class='']
+  [@h3 offset+1 class][#nested][/@h3]
+[/#macro]
