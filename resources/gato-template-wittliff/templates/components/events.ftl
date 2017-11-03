@@ -93,7 +93,7 @@
         </div>
         <div class="event-image">
           [#if item.image?has_content]
-              <img alt="${item.title}" src="${gf.getImg(item.image, 600, 0, false, false, 0, 0, 0, 0)}" />
+              <img alt="" src="${gf.getImg(item.image, 600, 0, false, false, 0, 0, 0, 0)}" />
           [/#if]
         </div>
       </div>
