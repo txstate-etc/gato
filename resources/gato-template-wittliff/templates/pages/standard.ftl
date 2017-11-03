@@ -30,7 +30,7 @@
         [#assign hideSidebar = true]
       [/#if]
       <main class="contentcolumn">
-        [#if !(def.parameters.isHomeTemplate!false) && !(def.parameters.isSpecialTemplate!false) && !(def.parameters.isEventsTemplate!false)]
+        [#if !(def.parameters.isSpecialTemplate!false) && !(def.parameters.isEventsTemplate!false)]
           [@headline hideSidebar /]
         [/#if]
         [#if def.parameters.isMailTemplate!false]

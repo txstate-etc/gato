@@ -17,8 +17,8 @@
           [#if !cmsfn.isEditMode() && !gf.areaHasChildrenIncludingInheritance(content.navBlocks)]
             [#assign hideSidebar = true]
           [/#if]
-          [@headline hideSidebar /]
           <main class="contentcolumn">
+            [@headline hideSidebar /]
               [#if def.parameters.isMailTemplate!false]
                   [@cms.area name="mail" contextAttributes={"hideSidebar":hideSidebar} /]
               [#else]
