@@ -10,7 +10,7 @@
     <img src="${gf.getImgDefault(content.image)}" alt="${content.imageAlt!}" srcset="${gf.getSrcSet(content.image)}" width="${gf.getImgWidth(content.image)?c}" height="${gf.getImgHeight(content.image)?c}" />
     [#if (content.title)?has_content]
     <div class="herobanner-title">
-      <h1>${content.title}</h1>
+      <h1 id="maincontent">${content.title}</h1>
     </div>
     [/#if]
   </div>
