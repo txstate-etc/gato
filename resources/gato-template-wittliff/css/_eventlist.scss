@@ -115,7 +115,7 @@
                   margin-right: 1.5rem;
                   i {
                     vertical-align: middle;
-                    color: $wittliffpeach;
+                    color: $sienna;
                     font-size: 2rem;
                   }
                 }
@@ -135,13 +135,13 @@
 }
 
 body.wittliff-events #gato-share-panel {
-  background-color: $wittliffpeach;
+  background-color: $sienna;
   a {
     color: white;
   }
   &:after, &:before {
-    border-color: rgba($wittliffpeach, 0);
-    border-top-color: $wittliffpeach;
+    border-color: rgba($sienna, 0);
+    border-top-color: $sienna;
   }
 }
 
@@ -171,7 +171,7 @@ body.wittliff-events #gato-share-panel {
       &:before {
         @extend .fa;
         font-size: 3rem;
-        color: $wittliffpeach;
+        color: $sienna;
         content: $fa-var-calendar;
         @include verticalcenter();
         left: 1rem;
