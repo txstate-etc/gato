@@ -1,7 +1,7 @@
 jQuery(document).ready(function($) {
   if ($('[data-gato-share-link]').length == 0) return;
 
-  $('body').after('<div id="gato-share-panel">'+
+  $('body').append('<div id="gato-share-panel">'+
   '<a class="facebook" href="" target="_blank"><i class="fa fa-facebook-square"><span class="visuallyhidden">Share on Facebook</span></i></a>'+
   '<a class="twitter" href="" target="_blank"><i class="fa fa-twitter"><span class="visuallyhidden">Share on Twitter</span></i></a>'+
   '<a class="email" href=""><i class="fa fa-envelope"><span class="visuallyhidden">Share by E-Mail</span></i></a>'+

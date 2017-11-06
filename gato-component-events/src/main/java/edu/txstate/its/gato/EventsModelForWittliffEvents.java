@@ -110,7 +110,7 @@ public class EventsModelForWittliffEvents<RD extends RenderableDefinition> exten
   }
 
   protected String constructCategoryUrl(Node content) throws UnsupportedEncodingException {
-    return constructUrl(content, ""); //cat_any=25
+    return constructUrl(content, "cat_any=25");
   }
 
   protected String constructUrl(Node content, String params) throws UnsupportedEncodingException {
@@ -119,7 +119,7 @@ public class EventsModelForWittliffEvents<RD extends RenderableDefinition> exten
     //Start with the next 30 days of events
     Calendar startDate = Calendar.getInstance();
     Calendar endDate = (Calendar) startDate.clone();
-    endDate.add(Calendar.MONTH, 6);
+    endDate.add(Calendar.MONTH, 12);
 
     url = url + "&year=" + startDate.get( Calendar.YEAR );
     url = url + "&month=" + ( startDate.get( Calendar.MONTH ) + 1 );

@@ -15,7 +15,7 @@
     [@templatehead publisher="The Wittliff Collections"/]
   </head>
 
-  <body class="template-wittliff${(def.parameters.isHomeTemplate!false)?string(' wittliff-home', '')}${(def.parameters.isSpecialTemplate!false)?string(' wittliff-special', '')}${cmsfn.isEditMode()?string(' admin','')}">
+  <body class="template-wittliff${(def.parameters.isHomeTemplate!false)?string(' wittliff-home', '')}${(def.parameters.isSpecialTemplate!false)?string(' wittliff-special', '')}${(def.parameters.isEventsTemplate!false)?string(' wittliff-events', '')}${cmsfn.isEditMode()?string(' admin','')}">
     [@skipnav/]
     [#include "includes/header.ftl"]
     [#if def.parameters.isHomeTemplate!false]

@@ -82,12 +82,16 @@
               </div>
             [/#if]
             <div class="event-icon-links">
+              <a class="share bottom" href="#" aria-haspopup="true" aria-controls="gato-share-panel" data-gato-share-link="${gf.absoluteUrl(item.link)}" data-gato-share-subject="${item.title!}" data-gato-share-text="Event at The Wittliff Collections: ${item.title!}" data-gato-share-image="${gf.filterUrl(item.image)}"><i class="fa fa-share-square-o" aria-hidden="true"></i> Share</a>
               <a title="add ${item.title} to calendar"
                   href="${item.calendarUrl}"
                   class="addtocalendar ${item.image?has_content?string("", "no-image")}">
                   <i class="fa fa-calendar" aria-hidden="true"></i>
                   <span class="linktext">Add to Calendar</span>
               </a>
+              [#if item.locationId == 7]
+                <a class="directions" href="${item.locationUrl}"><i class="fa fa-map-marker" aria-hidden="true"></i> Directions & Parking</a>
+              [/#if]
             </div>
           </div>
         </div>

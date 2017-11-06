@@ -116,6 +116,19 @@ public class EventsItem implements Comparable<EventsItem> {
     return facility;
   }
 
+  public long getLocationId() {
+    Element location = DomUtils.getChildNode(elem, "location");
+    String id = DomUtils.getTextValue(location, "id");
+    return Long.parseLong(id);
+  }
+
+  public String getLocationUrl() {
+    Element location = DomUtils.getChildNode(elem, "location");
+    String url = DomUtils.getTextValue(location, "url");
+    if (StringUtils.isBlank(url)) return "";
+    return url;
+  }
+
   public String getCost() {
     if (cost == null) {
       cost = DomUtils.getTextValue(elem, "cost");
