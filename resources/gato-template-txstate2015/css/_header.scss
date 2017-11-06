@@ -40,7 +40,7 @@
 
 .standard-search{
   button.search-link {
-    padding: 0.5rem; 
+    padding: 0.5rem;
     background: none;
   }
   &.txst_search {
@@ -58,8 +58,8 @@
       display: none;
     }
     .icon {
-      margin-left: 1.5rem; 
-      font-size: 2.4rem; 
+      margin-left: 1.5rem;
+      font-size: 2.4rem;
       top: 0.2rem;
       background: transparent;
       border: none;
@@ -76,88 +76,88 @@
 
 input[type="search"]:focus {outline: none;}
 
-.header_with_image, .header_no_image {
-    position: relative;
-    overflow: hidden !important;
-    background:$maroon;
-}
+.txstate-dept-title {
+  position: relative;
+  overflow: hidden !important;
+  background:$maroon;
 
-.header_no_image{
-  min-height: 120px; padding: 0;
-  @media (max-width: $sm-breakpoint){
-    min-height: 100px; padding: 0;
-  }
-  @media (max-width: $xs-breakpoint){
-    min-height: 70px; padding: 0;
-  }
-}
-
-.header_with_image{
-  min-height: 220px; padding: 0;
-  @media (max-width: $xl-breakpoint){
-    min-height: 180px; padding: 0;
-  }
-  @media (max-width: $xs-breakpoint){
-    min-height: 70px; padding: 0;
-  }
-}
-
-.headerImage_admin {
-  margin: 0px auto 0px auto;
-  width: 60%;
-}
-
-.parentOrg_add{
-  width: 50%;
-}
-
-body.admin .header_no_image {
-  .title{
-    position: relative;
-  }
-}
-
-.bg_container {
-  background: $header-background;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  z-index: 0;
-  width: 100%;
-  height: 100%;
-  #headerImage {
-    position: absolute;
-    top: -25%;
-    top: calc(-65px);
-    left: 0px;
-    height: 150%;
-    height: calc(100% + 130px);
-    width: 100%;
-    overflow: hidden;
-    &.bg_image { opacity: 0; }
-    &.bg_image_none { display: none; }
-    img {
-      display: block;
-      position: absolute;
-      left: 0px;
-      top: 0px;
+  &.header_no_image{
+    min-height: 120px; padding: 0;
+    @media (max-width: $sm-breakpoint){
+      min-height: 100px; padding: 0;
+    }
+    @media (max-width: $xs-breakpoint){
+      min-height: 70px; padding: 0;
     }
   }
-}
 
-.dept_name, .title {position: relative;}
+  &.header_with_image{
+    min-height: 220px; padding: 0;
+    @media (max-width: $xl-breakpoint){
+      min-height: 180px; padding: 0;
+    }
+    @media (max-width: $xs-breakpoint){
+      min-height: 70px; padding: 0;
+    }
+  }
+
+  .headerImage_admin {
+    margin: 0px auto 0px auto;
+    width: 60%;
+  }
+
+  .parentOrg_add{
+    width: 50%;
+  }
+
+  body.admin &.header_no_image {
+    .title{
+      position: relative;
+    }
+  }
+
+  .bg_container {
+    background: $header-background;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    #headerImage {
+      position: absolute;
+      top: -25%;
+      top: calc(-65px);
+      left: 0px;
+      height: 150%;
+      height: calc(100% + 130px);
+      width: 100%;
+      overflow: hidden;
+      &.bg_image { opacity: 0; }
+      &.bg_image_none { display: none; }
+      img {
+        display: block;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+      }
+    }
+  }
+
+  .dept_name, .title {position: relative;}
 
 
-.overlay {position: absolute; height: 100%; width: 100%;}
-.bg_overlay {background: $header-background; position: absolute; width: 100%; height: 100%; opacity: 0;}
+  .overlay {position: absolute; height: 100%; width: 100%;}
+  .bg_overlay {background: $header-background; position: absolute; width: 100%; height: 100%; opacity: 0;}
 
-.title {
-  position: absolute;
-  left: 0px;
-  bottom: 0px;
-  width: 100%;
-  @media (max-width: $xs-breakpoint) {
-    position: relative;
+  .title {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    @media (max-width: $xs-breakpoint) {
+      position: relative;
+    }
   }
   .dept_name {
     margin: auto;
@@ -200,15 +200,15 @@ body.admin .header_no_image {
       }
     }
   }
-}
-.header_no_image .title .dept_name .parent_org {
-  margin-bottom: -18px;
-}
+  &.header_no_image .title .dept_name .parent_org {
+    margin-bottom: -18px;
+  }
 
-.banner_content, .dept_name {
+  .banner_content, .dept_name {
     max-width: 1200px;
     margin: auto;
     @media (max-width: $xl-breakpoint){
       max-width: 1000px;
     }
+  }
 }

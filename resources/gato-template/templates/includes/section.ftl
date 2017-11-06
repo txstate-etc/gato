@@ -1,8 +1,8 @@
-[#macro sectionLabel]
+[#macro sectionLabel editclass='']
   [#local headerlevel = 2]
   [#assign hideSidebar = ctx.getAttribute("hideSidebar")!false]
   [#if cmsfn.isEditMode()]
-    <div cms:edit="bar"></div>
+    <div cms:edit="bar" class="${editclass}"></div>
   [/#if]
   [#if content.title?has_content]
     [#local headerlevel = 3]

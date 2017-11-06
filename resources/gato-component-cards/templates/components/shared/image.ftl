@@ -1,3 +1,4 @@
+[#include "/gato-template/templates/includes/commonmacros.ftl"]
 [#assign indexclass='']
 [#if (ctx.cardindex!0) % 2 == 1][#assign indexclass = indexclass + ' halves-edge'][/#if]
 [#if (ctx.cardindex!0) % 3 == 2][#assign indexclass = indexclass + ' thirds-edge'][/#if]
@@ -20,7 +21,7 @@
     </div>
     [#if content.title?has_content]
       <figcaption>
-        <h3>${content.title}</h3>
+        [@h2 class="title"]${content.title}[/@h2]
         [#if content.subtext?has_content]
           <div class="caption-content">
             ${cmsfn.decode(content).subtext}

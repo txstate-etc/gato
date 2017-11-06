@@ -46,24 +46,10 @@ form:
             - name: 1
               label: Crop image cards to 1:1 square
               value: 1
+    - name: tabTitle
+      label: Section Title/Color
+      fields: !include /gato-component-cards/dialogs/tabs/sectiontitle.yaml
 #    - name: tabFiltering
 #      label: Filtering
-#      fields:
-#        - name: enablefiltering
-#          class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
-#          label: "Enable Filtering"
-#          buttonLabel: Add a tab bar above the grid to filter by tags.
-#          defaultValue: false
-#          type: Boolean
-#        - name: includeallfilter
-#          class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
-#          label: "Include All Filter"
-#          buttonLabel: Add an "All" filter to the tab list.
-#          defaultValue: false
-#          type: Boolean
-#        - name: filterlist
-#          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-#          label: "Tag List"
-#          description: "A comma delimited list of tabs to show for filtering this grid. This is optional. If not defined, all tags used on cards in this grid will be listed in alphabetical order."
-#          type: String
+#      fields: !include /gato-component-cards/dialogs/tabs/filtering.yaml
 actions: !include /gato-template/dialogs/common/actions-block.yaml

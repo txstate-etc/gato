@@ -1,3 +1,4 @@
+[#include "/gato-template/templates/includes/commonmacros.ftl"]
 [#assign oembed = gf.oEmbedCached(content, content.videourl)]
 <div class="gato-card gato-card-video eq-parent ${gf.jsonGetString(oembed, 'provider_name')?lower_case} ${ctx.cardsize} ${content.color!'color1'}" data-tags="${content.tags!''}">
   <figure>
@@ -15,7 +16,7 @@
     </div>
 
     [#if content.title?has_content]
-      <figcaption><h3>${content.title}</h3></figcaption>
+      <figcaption>[@h2]${content.title}[/@h2]</figcaption>
     [/#if]
   </figure>
   <a href="${content.videourl}" class="feature-play-button"

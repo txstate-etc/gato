@@ -1,4 +1,4 @@
 [#include "/gato-template/templates/includes/section.ftl"]
-[@sectionLabel]
-  [@cms.area name="masonrycards" /]
+[@sectionLabel ; headerlevel]
+  [@cms.area name="masonrycards" contextAttributes={"headerlevel":headerlevel}/]
 [/@sectionLabel]

@@ -1,6 +1,5 @@
-[#if cmsfn.isEditMode()]
-  <div class="section-grid-edit" cms:edit></div>
-[/#if]
+[#include "/gato-template/templates/includes/section.ftl"]
+[@sectionLabel editclass='section-grid-edit' ; headerlevel]
 [#if content.enablefiltering!false]
 	<ul class="gato-card-filter" role="tablist">
 		[#if content.includeallfilter!false]
@@ -24,5 +23,6 @@
   <div class="masonry-sizer"></div>
   <div class="masonry-gutter"></div>
   [/#if]
-  [@cms.area name="cards" contextAttributes={"cardsize":cardsize, "sizes":sizes, "aspect":content.aspect!0}/]
+  [@cms.area name="cards" contextAttributes={"cardsize":cardsize, "sizes":sizes, "aspect":content.aspect!0, "headerlevel":headerlevel}/]
 </div>
+[/@sectionLabel]

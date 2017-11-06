@@ -1,5 +1,5 @@
 [#import "/gato-template-txstate2015/templates/includes/headerImageLogic.ftl" as headerLogic]
-<div class="${headerLogic.headerClass}">
+<div class="${headerLogic.headerClass} txstate-dept-title">
 	[@cms.area name="headerImage" /]
 	<div class="title">
     <div class="dept_name">

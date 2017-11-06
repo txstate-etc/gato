@@ -1,0 +1,9 @@
+form:
+  tabs:
+    - name: tabTitle
+      label: Section Title/Color
+      fields: !include /gato-component-cards/dialogs/tabs/sectiontitle.yaml
+#    - name: tabFiltering
+#      label: Filtering
+#      fields: !include /gato-component-cards/dialogs/tabs/filtering.yaml
+actions: !include /gato-template/dialogs/common/actions-block.yaml

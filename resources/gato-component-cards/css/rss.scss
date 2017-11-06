@@ -1,16 +1,15 @@
 .gato-card-rss {
   &-container{
     overflow: hidden;
-      background: $rss-card-background-color;
-      padding: 1rem;
-      box-shadow: $gato-card-shadow;
+    background: $rss-card-background-color;
+    padding: 1rem;
+    box-shadow: $gato-card-shadow;
     .gato-rss-feedinformation {
       .gato-rss-title {
         display: flex;
         align-items: center;
         font-size: 1.8rem;
         line-height: 2.4rem;
-        font-family: 'ProximaNova-Bold', sans-serif;
         text-transform: uppercase;
         color: $rss-card-title-color;
         margin: 1.4rem 1.4rem 2.8rem;
