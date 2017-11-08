@@ -20,13 +20,15 @@
         Permanent Exhibition
       [#elseif content.type == 'ongoing']
         Ongoing
+      [#elseif content.type == 'news']
+        News
       [/#if]
     </div>
     <h2><a href="${gf.filterUrl(content.link)}">
       <span class="title" data-max-lines="3">${content.title!}</span>
       [#if content.subtitle?has_content]<div class="subtitle" data-max-lines="2">${content.subtitle}</div>[/#if]
     </a></h2>
-    [#if content.type == 'event' || content.type == 'exhibition']
+    [#if content.type == 'event' || content.type == 'exhibition' || content.type == 'news']
     <div class="dates" data-max-lines="1">
       [#if content.type == 'exhibition' && content.start?has_content]
         <span class="start">${content.start?string['MMM d']}</span>
@@ -34,14 +36,16 @@
           <span class="separator">-</span>
           <span class="end">${content.end?string['MMM d']}</span>
         [/#if]
-      [#elseif content.type == 'event' && content.start?has_content]
+      [#elseif (content.type == 'event' || content.type == 'news') && content.start?has_content]
         [#if .now > content.start?datetime]
           <span class="date">${content.start?string['MMMM d, YYYY']}</span>
         [#else]
           <span class="date">${content.start?string['MMMM d']}</span>
         [/#if]
-        <span class="separator">/</span>
-        <span class="time">${content.start?string['h:mma']?lower_case}</span>
+        [#if content.type == 'event']
+          <span class="separator">/</span>
+          <span class="time">${content.start?string['h:mma']?lower_case}</span>
+        [/#if]
       [/#if]
     </div>
     [/#if]
@@ -54,7 +58,7 @@
         <a class="add bottom" href="${content.eventlink}.ics"><i class="fa fa-calendar" aria-hidden="true"></i> Add to Calendar</a>
       [/#if]
       <a class="all bottom" href="${gf.filterUrl('/wittliff/events')}">All Events <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
-    [#else]
+    [#elseif content.type == 'exhibition' || content.type == 'permanent' || content.type == 'ongoing']
       <a class="all bottom" href="${gf.filterUrl('/wittliff/exhibitions')}">All Exhibitions <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
     [/#if]
   </div>

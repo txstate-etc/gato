@@ -8,6 +8,9 @@
       .gato-section-centered {
         max-width: 2000px;
         background-color: white;
+        .gato-section {
+          overflow: visible;
+        }
         .gato-card {
           margin-bottom: 0;
         }

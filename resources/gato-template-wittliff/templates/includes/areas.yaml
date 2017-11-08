@@ -44,6 +44,8 @@ home-content:
       id: gato-template-wittliff:components/eventbanner
     exhibition:
       id: gato-template-wittliff:components/exhibition
+    newsbanner:
+      id: gato-template-wittliff:components/newsbanner
     mosaic:
       id: gato-component-cards:components/layouts/grid
 footer-findus:
