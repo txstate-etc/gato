@@ -116,9 +116,12 @@
     .dates {
       font-size: 3em;
       letter-spacing: 2px;
-      margin-bottom: .67em;
+      margin-bottom: .5em;
     }
     a.bottom {
+      display: block;
+      float: left;
+      padding: 0.2em 0;
       white-space: nowrap;
       color: white;
       text-decoration: none;
@@ -137,8 +140,8 @@
       }
     }
     a.all {
-      display: block;
-      margin-top: 0.5em;
+      clear: both;
+      margin-top: 0.3em;
       &:hover {
         text-decoration: underline;
       }
