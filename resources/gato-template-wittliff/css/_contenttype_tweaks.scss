@@ -10,25 +10,36 @@ body ul.gato-faq-hierarchy {
       font-family: $helveticaneue;
     }
     > .gato-faq-header a {
-      line-height: 2.8rem;
-      font-size: 2.2rem;
+      position: relative;
+      font-size: 3.5rem;
+      font-weight: 400;
+      padding-right: 5rem;
       i {
         display: block;
-        float: right;
+        @include verticalcenter();
+        right: 1rem;
         font-size: 5rem;
-        line-height: 2.8rem;
         &:before {
-          content: $fa-var-angle-right;
+          content: $fa-var-angle-down;
         }
       }
     }
-    &.shown > .gato-faq-header i:before {
-      content: $fa-var-angle-down;
+    &.shown > .gato-faq-header {
+      //a { background-color: $faq-item-background-hover-color; color: $faq-item-text-hover-color; }
+      i {
+        padding-bottom: 1rem;
+        &:before {
+          content: $fa-var-angle-up;
+        }
+      }
     }
   }
   .gato-faq-group-children .gato-faqitem-question i {
     display: inline;
   }
+}
+.gato-faq-expand-collapse {
+  font-size: 1.8rem;
 }
 
 /* RSS Card */

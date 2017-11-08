@@ -6,11 +6,11 @@ jQuery(document).ready(function($) {
 
   $('#gato-expand-all-faqs').click(function(e) {
     e.preventDefault();
-    window.accordion.show($('.gato-faqitem-question, .gato-faq-group-title'));
+    window.accordion.show($(':not(.shown) > .gato-faq-header'));
   });
   $('#gato-collapse-all-faqs').click(function(e) {
     e.preventDefault();
-    window.accordion.hide($('.gato-faqitem-question'));
+    window.accordion.hide($('.shown > .gato-faqitem-question'));
   });
 
   // if the url contains an anchor that lives inside an faq, let's open the FAQ to that item
