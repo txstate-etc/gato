@@ -26,7 +26,7 @@
         [@cms.area name="donate-button" content=gf.getOrCreateArea(homepage, 'donate-button') editable=isHomePage /]
       </div>
       [/#if]
-      <img src="${gf.resourcePath()}/gato-template-wittliff/images/txst-logo.svg" class="menu-txst-logo" alt="">
+      <a href="http://www.txstate.edu"><img src="${gf.resourcePath()}/gato-template-wittliff/images/txst-logo.svg" class="menu-txst-logo" alt="Texas State University"></a>
     </nav>
   </div>
   <div class="search-wrapper">
