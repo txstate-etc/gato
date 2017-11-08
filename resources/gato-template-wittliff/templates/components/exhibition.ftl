@@ -14,12 +14,16 @@
     <div class="typeheader" data-max-lines="1">
       [#if content.type == 'exhibition']
         Featured Exhibition
+      [#elseif content.type == 'traveling']
+        Traveling Exhibition
       [#elseif content.type == 'event']
         Featured Event
       [#elseif content.type == 'permanent']
         Permanent Exhibition
       [#elseif content.type == 'ongoing']
         Ongoing
+      [#elseif content.type == 'online']
+        Online Exhibition
       [#elseif content.type == 'news']
         News
       [/#if]
@@ -28,7 +32,7 @@
       <span class="title" data-max-lines="3">${content.title!}</span>
       [#if content.subtitle?has_content]<div class="subtitle" data-max-lines="2">${content.subtitle}</div>[/#if]
     </a></h2>
-    [#if content.type == 'event' || content.type == 'exhibition' || content.type == 'news']
+    [#if content.type == 'event' || content.type == 'exhibition' || content.type == 'traveling' || content.type == 'news']
     <div class="dates" data-max-lines="1">
       [#if content.type == 'exhibition' && content.start?has_content]
         <span class="start">${content.start?string['MMM d']}</span>
@@ -58,7 +62,7 @@
         <a class="add bottom" href="${content.eventlink}.ics"><i class="fa fa-calendar" aria-hidden="true"></i> Add to Calendar</a>
       [/#if]
       <a class="all bottom" href="${gf.filterUrl('/wittliff/events')}">All Events <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
-    [#elseif content.type == 'exhibition' || content.type == 'permanent' || content.type == 'ongoing']
+    [#elseif content.type == 'exhibition' || content.type == 'permanent' || content.type == 'ongoing' || content.type == 'online' || content.type == 'traveling']
       <a class="all bottom" href="${gf.filterUrl('/wittliff/exhibitions')}">All Exhibitions <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
     [#elseif content.type == 'news']
       <a class="all bottom" href="${gf.filterUrl('/wittliff/about/news/news-releases')}">All News <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>

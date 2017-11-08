@@ -1,0 +1,13 @@
+class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
+layout: vertical
+transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+label: ""
+fields:
+  - name: start
+    class: info.magnolia.ui.form.field.definition.DateFieldDefinition
+    label: Start Date
+    type: Date
+  - name: end
+    class: info.magnolia.ui.form.field.definition.DateFieldDefinition
+    label: End Date
+    type: Date
