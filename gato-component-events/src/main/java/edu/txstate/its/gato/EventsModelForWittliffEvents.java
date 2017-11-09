@@ -33,7 +33,7 @@ import org.w3c.dom.NodeList;
 public class EventsModelForWittliffEvents<RD extends RenderableDefinition> extends RenderingModelImpl<RD> {
   private static final Logger log = LoggerFactory.getLogger(EventsModelForWittliffEvents.class);
 
-  public static final String CALENDAR_URL = "http://etcalendar.its.txstate.edu"; //FIXME: put this in the config tree.
+  public static final String CALENDAR_URL = "http://events.txstate.edu"; //FIXME: put this in the config tree.
   private final Exception error;
   private final List<EventsItem> items;
   protected final List<String> categories;
@@ -132,6 +132,10 @@ public class EventsModelForWittliffEvents<RD extends RenderableDefinition> exten
     url = url + "&end_month=" + ( endDate.get( Calendar.MONTH ) + 1 );
     url = url + "&end_day=" + endDate.get( Calendar.DATE );
     return url;
+  }
+
+  public String getCalendarUrlForItem(EventsItem e) {
+    return CALENDAR_URL+"/recurrences/"+e.getRecurrenceId();
   }
 
 }

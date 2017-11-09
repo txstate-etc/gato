@@ -85,7 +85,7 @@
               </div>
             [/#if]
             <div class="event-icon-links">
-              <a class="share bottom" href="#" aria-haspopup="true" aria-controls="gato-share-panel" data-gato-share-link="${gf.absoluteUrl(item.link)}" data-gato-share-subject="${item.title!}" data-gato-share-text="Event at The Wittliff Collections: ${item.title!}" data-gato-share-image="${gf.filterUrl(item.image)}"><i class="fa fa-share-square-o" aria-hidden="true"></i> Share</a>
+              <a class="share bottom" href="#" aria-haspopup="true" aria-controls="gato-share-panel" data-gato-share-link="${model.getCalendarUrlForItem(item)}" data-gato-share-subject="${item.title!}" data-gato-share-text="Event at The Wittliff Collections: ${item.title!}" data-gato-share-image="${gf.filterUrl(item.image)}"><i class="fa fa-share-square-o" aria-hidden="true"></i> Share</a>
               <a title="add ${item.title} to calendar"
                   href="${item.calendarUrl}"
                   class="addtocalendar ${item.image?has_content?string("", "no-image")}">
