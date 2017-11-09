@@ -5,7 +5,7 @@
     [@h2 offset=depth class='gato-faqitem-question gato-faq-header']<a href="#">
       <i class="fa fa-caret-right" aria-hidden="true"></i>
       ${node.question}</a>[/@h2]
-    <div class="gato-faqitem-answer" role="group" aria-hidden="true"><div role="treeitem">${gf.processRichText(node.answer, (ctx.headerlevel!2)+depth+1)}</div></div>
+    <div class="gato-faqitem-answer" role="group" aria-hidden="true"><div role="treeitem" id="${gf.uuidToHtmlId(node.uuid)}">${gf.processRichText(node.answer, (ctx.headerlevel!2)+depth+1)}</div></div>
   </li>
 [/#macro]
 

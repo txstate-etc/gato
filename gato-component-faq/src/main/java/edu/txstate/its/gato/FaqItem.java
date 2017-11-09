@@ -27,6 +27,7 @@ public class FaqItem {
   @Getter public String question;
   @Getter public String answer;
   @Getter public String title;
+  @Getter public String uuid;
   @Getter public List<FaqItem> children = new ArrayList<FaqItem>();
 
   public FaqItem(Node node) {
@@ -34,6 +35,7 @@ public class FaqItem {
 
     try {
       id = node.getName();
+      uuid = node.getIdentifier();
     } catch (RepositoryException e) {
       e.printStackTrace();
     }
