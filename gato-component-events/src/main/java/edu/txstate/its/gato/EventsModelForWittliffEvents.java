@@ -69,19 +69,19 @@ public class EventsModelForWittliffEvents<RD extends RenderableDefinition> exten
   public List<String> getCategories() { return categories; }
   public List<FilterMonth> getMonths() { return months; }
 
-  protected static DateFormat monthyearformat = new SimpleDateFormat("MMMM yyyy");
+  protected static DateFormat monthyearformat = new SimpleDateFormat("MMM ''yy");
   protected List<EventsItem> fetchItems(String url) {
     final List<EventsItem> items = new ArrayList<EventsItem>();
     final Document rssDocument = DomUtils.parseXml(url);
     final SortedSet<String> cats = new TreeSet<String>();
 
-    final SortedMap<String,Boolean> monthmap = new TreeMap<String, Boolean>();
+    final SortedMap<String,Long> monthmap = new TreeMap<String, Long>();
     final Map<String,String> monthnames = new HashMap<String,String>();
     Calendar nextyear = Calendar.getInstance();
     nextyear.add(Calendar.YEAR, 1);
     for (Calendar c = Calendar.getInstance(); !c.after(nextyear); c.add(Calendar.MONTH, 1)) {
       String key = EventsItem.machineMonthFormat.format(c.getTime());
-      monthmap.put(key, Boolean.FALSE);
+      monthmap.put(key, new Long(0));
       monthnames.put(key, monthyearformat.format(c.getTime()));
     }
 
@@ -91,15 +91,18 @@ public class EventsModelForWittliffEvents<RD extends RenderableDefinition> exten
       for ( int i = 0; i < nodes.getLength(); i++ ) {
         EventsItem e = new EventsItem((Element)nodes.item(i));
         cats.addAll(e.getCategories());
-        monthmap.put(e.getMachineMonth(), Boolean.TRUE);
+        String monthkey = e.getMachineMonth();
+        Long monthcount = new Long(0);
+        if (monthmap.containsKey(monthkey)) monthcount = monthmap.get(monthkey) + 1;
+        monthmap.put(monthkey, monthcount);
         items.add(e);
       }
       categories.addAll(cats);
-      while (!monthmap.get(monthmap.lastKey()).booleanValue()) {
+      while (monthmap.size() > 0 && monthmap.get(monthmap.lastKey()).longValue() == 0) {
         monthmap.remove(monthmap.lastKey());
       }
       for (String key : monthmap.keySet()) {
-        months.add(new FilterMonth(key, monthnames.get(key)));
+        months.add(new FilterMonth(key, monthnames.get(key), monthmap.get(key).longValue()));
       }
     }
     return items;

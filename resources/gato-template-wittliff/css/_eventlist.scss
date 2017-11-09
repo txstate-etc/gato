@@ -132,7 +132,11 @@
             }
         }
     }
+  .events-empty {
+    display: none;
+  }
 }
+
 
 body.wittliff-events #gato-share-panel {
   background-color: $sienna;

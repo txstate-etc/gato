@@ -26,7 +26,7 @@
     <select name="month">
       <option value="">All Dates</option>
       [#list model.months as month]
-        <option value="${month.key}">${month.name}</option>
+        <option value="${month.key}">${month.name} (${month.count} Event${(month.count != 1)?string('s','')})</option>
       [/#list]
     </select>
   </div>[#--
@@ -34,8 +34,11 @@
     <select name="category">
       <option value="">All Categories</option>
       [#list model.categories as cat]
-        <option>${cat}</option>
+        [#if cat == "Music" || cat == "Photography" || cat == "Literary"]
+          <option>${cat}</option>
+        [/#if]
       [/#list]
+      <option>Other</option>
     </select>
   </div>
 </div>
@@ -103,9 +106,12 @@
       </div>
     [/#if]
   [/#list]
+  <div class="events-empty">
+    There are currently no events based on your selection. Additional events are always being planned and may be visible here in the near future. Please refine your search and try again.
+  </div>
 </div>
 [#else]
-  <div class="txst-events-empty">
-    No results.
+  <div class="wittliff-events-empty">
+    There are currently no upcoming events. Additional events are always being planned and may be visible here in the near future.
   </div>
 [/#if]

@@ -24,12 +24,24 @@ jQuery(document).ready(function($) {
       var $evt = $(this);
       var filtered = false;
 
-      if (!isBlank($catslct.val()) && !$evt.data('categories').includes($catslct.val())) filtered = true;
+      var specialcats = ['Music','Photography','Literary'];
+      if (!isBlank($catslct.val())) {
+        if ($catslct.val() == "Other") {
+          if ($($evt.data('categories')).filter(specialcats).length > 0) filtered = true;
+        } else {
+          if (!$evt.data('categories').includes($catslct.val())) filtered = true;
+        }
+      }
       if (!isBlank($monthslct.val()) && $evt.data('month-key') != $monthslct.val()) filtered = true;
 
       if (filtered) hide_event($evt);
       else show_event($evt);
     });
+    if ($('.wittliff-event-list .event:visible').length == 0) {
+      $('.wittliff-event-list .events-empty').show();
+    } else {
+      $('.wittliff-event-list .events-empty').hide();
+    }
   }
 
   $('.wittliff-event-filters select').change(function (e) {
