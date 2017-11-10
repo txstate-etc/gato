@@ -18,7 +18,7 @@
     [#list model.items as entry]
       <div class="gato-rss-item">
         [@h2 offset=headeroffset class="gato-rss-item-header"]
-          <a href="${entry.link}">${entry.title!}</a>
+          <a href="${entry.link}" id="${entry.cleanGuid}">${entry.title!}</a>
         [/@h2]
         <div class="rss-item-content">
           [#if !model.hideArticleText]
@@ -27,7 +27,7 @@
                 ${model.fmtItemText(entry)}
               </div>
               <div class="gato-rss-more-link">
-                <a href="${entry.link}">Read more</a>
+                <a href="${entry.link}" aria-labelledby="${entry.cleanGuid}">Read more</a>
               </div>
             </div>
           [/#if]

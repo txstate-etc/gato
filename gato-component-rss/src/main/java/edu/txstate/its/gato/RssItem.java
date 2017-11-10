@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.net.URL;
 import java.util.Calendar;
 
+import org.apache.commons.lang3.StringUtils;
+
 public class RssItem implements Serializable {
   public RssItem() {
   }
@@ -11,6 +13,10 @@ public class RssItem implements Serializable {
   protected String guid;
   public String getGuid() { return guid; }
   public void setGuid(String s) { guid = s; }
+  public String getCleanGuid() {
+    if (StringUtils.isBlank(guid)) return "";
+    return "g"+guid.replaceAll("\\W+", "-");
+  }
 
   protected Calendar publishedDate;
   public Calendar getPublishedDate() { return publishedDate; }
