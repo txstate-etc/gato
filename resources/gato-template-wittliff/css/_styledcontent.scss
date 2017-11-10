@@ -19,17 +19,26 @@
   }
   h2{
     font-family: $garamond;
-    font-size: 5rem;
+    font-size: 4.5rem;
+    margin-top: 3rem;
+    &:first-child {
+      margin-top: 0rem;
+    }
   }
   h3{
-    font-size: 4rem;
-    letter-spacing: 0.2rem;
+    font-size: 3.3rem;
   }
   h4 {
-    font-size: 3rem;
-    letter-spacing: 0.2rem;
+    font-size: 2.8rem;
   }
-  h2, h3, h4 {
+  h5 {
+    font-size: 2.5rem;
+  }
+  h6 {
+    font-size: 2.2rem;
+  }
+  h2, h3, h4, h5, h6 {
+    margin-bottom: 1rem;
     font-weight: 400;
     a:hover{
       text-decoration: none;

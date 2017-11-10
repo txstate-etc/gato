@@ -23,7 +23,6 @@
     text-align: center;
     font-family: $helveticaneue;
     font-size: 4rem;
-    letter-spacing: 0.2rem;
     font-weight: 400;
   }
   .headline {
@@ -31,8 +30,8 @@
     word-wrap: break-word;
     font-family: $garamond;
     font-size: 5.75rem;
-    letter-spacing: 0.3rem;
     font-weight: 400;
     color: $wittliffbrown;
+    font-kerning: auto;
   }
 }

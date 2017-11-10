@@ -1,4 +1,4 @@
-.contentcolumn {
+.column_paragraph {
   line-height: 1.2;
   p, li {
     line-height: 1.8;
@@ -6,11 +6,10 @@
   a{
     text-decoration: underline;
   }
-  h1, h2{
+  h2 {
     font-size: 2.7rem;
     font-weight: 600;
     color: $very-dark;
-    margin: 1.6rem 0;
     a{
       color: $maroon;
     }
@@ -18,7 +17,6 @@
   h3 {
     font-size: 2.2rem;
     color: $gold;
-    margin: 1rem 0;
     a{
       color: $gold; /*may need to be important */
     }
@@ -26,20 +24,17 @@
   h4, h5, h6{
     font-size: 1.8rem;
     color: $charcoal;
-    margin: 1rem 0;
     a{
       color: $charcoal; /*may need to be important */
     }
   }
-  h1, h2, h3, h4, h5, h6{
+  h2, h3, h4, h5, h6{
     a:hover{
       text-decoration: none; /*may need to be important */
       background: transparent ; /*may need to be important */
     }
   }
-}
 
-.column_paragraph {
   img { max-width: 100%; height: auto; }
   table img, .pswp img { max-width: none; }
   figure {
