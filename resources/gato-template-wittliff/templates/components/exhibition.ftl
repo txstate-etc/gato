@@ -34,7 +34,7 @@
     </a></h2>
     [#if content.type == 'event' || content.type == 'exhibition' || content.type == 'traveling' || content.type == 'news']
     <div class="dates" data-max-lines="1">
-      [#if content.type == 'exhibition' && content.start?has_content]
+      [#if (content.type == 'exhibition' || content.type == 'traveling') && content.start?has_content]
         <span class="start">${content.start?string['MMM d']}</span>
         [#if content.end?has_content]
           <span class="separator">-</span>
