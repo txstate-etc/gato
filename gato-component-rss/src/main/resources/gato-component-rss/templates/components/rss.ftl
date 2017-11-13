@@ -1,3 +1,4 @@
+[#include "/gato-template/templates/includes/commonmacros.ftl"]
 [#if model.error?has_content]
 
   <div class="gato-rss-error">
@@ -5,6 +6,7 @@
   </div>
 
 [#else]
+  [#assign offset = (ctx.headerlevel!2)-2]
   [#if !(content.hideFeedInformation!false)]
     <div class="gato-rss-feedinformation">
       [#if model.feed.thumbnail?has_content]
@@ -17,7 +19,8 @@
         [/#if]
       [/#if]
       [#if model.feed.title?has_content]
-        <h2 class="gato-rss-title">${model.feed.title}</h2>
+        [@h2 class="gato-rss-title" offset=offset]${model.feed.title}[/@h2]
+        [#assign offset=offset+1]
       [/#if]
       [#if model.feed.description?has_content]
         ${model.feed.description}<br/>
@@ -35,9 +38,9 @@
   [#list model.items as entry]
     <div class="gato-rss-item ${model.collapsible?string('gato-accordion', '')}"
       data-start-collapsed="${model.collapsed?string('true', 'false')}">
-      <h3 class="${model.collapsible?string('gato-accordion-header', '')}">
+      [@h2 class="${model.collapsible?string('gato-accordion-header', '')}" offset=offset]
         <a href="${entry.link}" id="${entry.cleanGuid}">${entry.title!}</a>
-      </h3>
+      [/@h2]
       <div class="gato-accordion-content">
         [#if (content.showThumbnails!false) && entry.thumbnail?has_content]
           <div class="gato-rss-thumbnail"><img src="${entry.thumbnail}" alt=""></div>
