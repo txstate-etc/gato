@@ -20,7 +20,6 @@ form:
         - name: start
           class: info.magnolia.ui.form.field.definition.DateFieldDefinition
           time: false
-          required: true
           label: Date
           type: Date
         - name: title
