@@ -16,6 +16,10 @@
         config.protectedSource.push(/<i[^>]*><\/i>/g);
 
          // MIRROR info.magnolia.ui.form.field.definition.RichTextFieldDefinition
+         var definition_colors = "222222,501214,6a5638,363534,b30e1b";
+         if(window.cktemplatevars && window.cktemplatevars.definition_colors){
+           definition_colors = window.cktemplatevars.definition_colors;
+         }
          definition = {
                    alignment: false,
                    images: false,
@@ -23,7 +27,7 @@
                    source: true,
                    tables: false,
 
-                   colors: "222222,501214,6a5638,363534,b30e1b",
+                   colors: definition_colors,
                    fonts: null,
                    fontSizes: null
            }

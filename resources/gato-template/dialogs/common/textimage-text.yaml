@@ -1,6 +1,11 @@
         - name: title
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Title
+        - name: script
+          label: ""
+          class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
+          initFunction: setCKEditorVars
+          scripts: [gato-template/js/ckeditorVars.js]
         - name: text
           class: info.magnolia.ui.form.field.definition.RichTextFieldDefinition
           label: Text
