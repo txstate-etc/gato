@@ -62,8 +62,10 @@
         <a class="add bottom" href="${content.eventlink}.ics"><i class="fa fa-calendar" aria-hidden="true"></i> Add to Calendar</a>
       [/#if]
       <a class="all bottom" href="${gf.filterUrl('/wittliff/events')}">All Events <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
-    [#elseif content.type == 'exhibition' || content.type == 'permanent' || content.type == 'ongoing' || content.type == 'online' || content.type == 'traveling']
+    [#elseif content.type == 'exhibition' || content.type == 'permanent' || content.type == 'ongoing' || content.type == 'traveling']
       <a class="all bottom" href="${gf.filterUrl('/wittliff/exhibitions')}">All Exhibitions <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+    [#elseif content.type == 'online']
+      <a class="all bottom" href="${gf.filterUrl('/wittliff/exhibitions/Online_exhibitions')}">Online Exhibitions <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
     [#elseif content.type == 'news']
       <a class="all bottom" href="${gf.filterUrl('/wittliff/about/news/news-releases')}">All News <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
     [/#if]
