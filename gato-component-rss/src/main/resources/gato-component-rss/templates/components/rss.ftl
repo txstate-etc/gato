@@ -39,7 +39,7 @@
         <a href="${entry.link}" id="${entry.cleanGuid}">${entry.title!}</a>
       </h3>
       <div class="gato-accordion-content">
-        [#if content.showThumbnails!false]
+        [#if (content.showThumbnails!false) && entry.thumbnail?has_content]
           <div class="gato-rss-thumbnail"><img src="${entry.thumbnail}" alt=""></div>
         [/#if]
         <div class="gato-rss-published">
