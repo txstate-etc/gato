@@ -213,3 +213,26 @@
     }
   }
 }
+
+.txst-form {
+  button.submit{
+    font-weight: 500;
+    color: $form-submit-text-color;
+    box-shadow: 0 4px $form-submit-box-shadow-color;
+    background: $form-submit-background-color;
+    padding: 1.8rem 4rem;
+    margin-top: 1rem;
+    text-transform: uppercase;
+    border-radius: 3px;
+    @include vendor-prefix(transition, background 0.2s ease-in-out);
+    position: relative;
+    border: none;
+    &:hover{
+      background: $form-submit-hover-background-color;
+    }
+    &:active{
+      box-shadow: 0 0 $form-submit-box-shadow-color;
+      top: 4px;
+    }
+  }
+}

@@ -24,7 +24,7 @@
         [#assign disable = 'disabled']
       [/#if]
       <div class="formelement">
-        <input class="submit" type="submit" value="${content.formproperties.formproperties.buttonText!'Submit'}" ${disable}/>
+        <button class="submit" name="submit" value="${content.formproperties.formproperties.buttonText!'Submit'}" ${disable}><span>${content.formproperties.formproperties.buttonText!'Submit'}</span></button>
       </div>
       <div class="txst-khan-privacypolicylink"><a href="http://www.tr.txstate.edu/privacy-statement.html" target="_blank">Privacy Policy</a></div>
     </form>

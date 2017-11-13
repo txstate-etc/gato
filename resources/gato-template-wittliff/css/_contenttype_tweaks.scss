@@ -274,3 +274,59 @@ body ul.gato-faq-hierarchy {
 .gato-separator hr {
   height: 2px;
 }
+
+.txst-form {
+  button.submit{
+    border-color: $mc1-bg;
+    border-width: 2px;
+    border-radius: 0;
+    line-height: 1.2;
+    text-transform: none;
+    display: inline-flex;
+    align-items: stretch;
+    padding: 0 0 0 2.3rem;
+    font-size: 2.0rem;
+    letter-spacing: 0.05rem;
+    font-weight: 500;
+    transform: perspective(1px) translateZ(0);
+    background: white;
+    color: $mc1-bg;
+    &:after {
+      @extend .fa;
+      display: flex;
+      align-items: center;
+      content: $fa-var-long-arrow-right;
+      margin-left: 2.3rem;
+      padding: 0 2.3rem;
+      font-size: 1.8rem;
+      border-width: 0 0 0 2px;
+      border-style: solid;
+      border-color: inherit;
+      text-align: center;
+    }
+    &:before {
+      content:'';
+      position: absolute;
+      z-index: -1;
+      top: 0px;
+      left: 0px;
+      bottom: 0px;
+      right: 0px;
+      width: 0px;
+      height: 100%;
+      background: $mc1-bg;
+      transition: all 0.15s ease-out;
+    }
+    &:hover {
+      background-color: transparent;
+      color: $mc1-text;
+      &:after { border-color: white; }
+      &:before {
+        width: 100%;
+      }
+    }
+    span {
+      padding: 1.8rem 0;
+    }
+  }
+}
