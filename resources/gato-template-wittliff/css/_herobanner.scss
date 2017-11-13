@@ -61,7 +61,7 @@
   }
 }
 
-.gato-heroslider {
+.hero-slide {
   position: relative;
   height: 40.9em;
   @media (max-width: $xl-breakpoint) {
@@ -70,61 +70,31 @@
   }
   margin-bottom: 1.2rem;
   overflow: hidden;
-  .slides-admin {
-    top: 30px;
-  }
-  .slides, .slide, .slider-admin, .slides-admin {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-  }
-  .slide {
-    overflow: hidden;
-    left: 100%;
-    top: 0;
-    &.active {
-      left: 0;
-    }
-    @include coverimage();
-    .feature-play-button {
-      display: block;
-      @include absolutecenter();
-      color: white;
-      font-size: 3.5rem;
-      border-radius: 100%;
-      width:  8rem;
-      height: 8rem;
-      border: 7px solid white;
-      opacity: 0.9;
-      @media (max-width: $md-breakpoint) {
-        width: 5rem;
-        height: 5rem;
-        font-size: 2.5rem;
-        border: 5px solid white;
-      }
-      i {
-        @include absolutecenter();
-        left: 55%;// looks weird when perfectly centerd or are my eyes playing tricks on me?
-      }
-    }
-  }
-  .back, .forward {
-    @include verticalcenter();
+  @include coverimage();
+  .feature-play-button {
+    display: block;
+    @include absolutecenter();
     color: white;
-    font-size: 8rem;
+    font-size: 3.5rem;
+    border-radius: 100%;
+    width:  8rem;
+    height: 8rem;
+    border: 7px solid white;
+    opacity: 0.9;
     @media (max-width: $md-breakpoint) {
-      font-size: 5rem;
+      width: 5rem;
+      height: 5rem;
+      font-size: 2.5rem;
+      border: 5px solid white;
     }
-  }
-  .back {
-    left: 2%;
-  }
-  .forward {
-    right: 2%;
+    i {
+      @include absolutecenter();
+      left: 55%;// looks weird when perfectly centerd or are my eyes playing tricks on me?
+    }
   }
 }
 
-.gato-herobanner, .gato-heroslider {
+.gato-herobanner, .hero-slide {
   margin-top: -1 * ($header-height + $header-margin);
   .admin & {
     margin-top: -1 * ($header-margin);

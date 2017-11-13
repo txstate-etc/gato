@@ -5,7 +5,7 @@ jQuery(document).ready(function($) {
   magnolialabelchange('.menu-donate-button', '.mgnlEditor.mgnlPlaceholder', 'Add Donate Button');
   magnolialabelchange('.calltoaction-column', '.mgnlEditor.mgnlPlaceholder', 'Add Button');
   magnolialabelchange('.addHeroBanner', '.mgnlEditor.mgnlPlaceholder', 'Add Hero-Banner');
-  magnolialabelchange('.addHeroSlider', '.mgnlEditor.mgnlPlaceholder', 'Add Hero-Slider');
+  magnolialabelchange('.addHeroSlider', '.mgnlEditor.mgnlPlaceholder', 'Add Hero Image or Video');
 
   // Main Menu Hamburger Button
   var header = $('.page-header');

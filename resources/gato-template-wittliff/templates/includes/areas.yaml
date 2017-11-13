@@ -27,8 +27,10 @@ hero-slider:
   type: single
   templateScript: /gato-template-wittliff/templates/areas/heroslider-container.ftl
   availableComponents:
-    heroslider:
-      id: gato-template-wittliff:components/heroslider
+    hero-image:
+      id: gato-template-wittliff:components/heroslide
+    hero-video:
+      id: gato-template-wittliff:components/heroslide-video
 donate-button:
   type: single
   availableComponents:
