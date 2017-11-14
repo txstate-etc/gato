@@ -21,10 +21,6 @@
     font-family: $garamond;
     font-size: 4.5rem;
     letter-spacing: 0.2rem;
-    margin-top: 3rem;
-    &:first-child {
-      margin-top: 0rem;
-    }
   }
   h3{
     font-size: 3.3rem;
@@ -43,7 +39,6 @@
     letter-spacing: normal;
   }
   h2, h3, h4, h5, h6 {
-    margin-bottom: 0.3em;
     font-weight: 400;
     a:hover{
       text-decoration: none;

@@ -1,13 +1,11 @@
 .column_paragraph {
-  line-height: 1.2;
-  p, li {
-    line-height: 1.8;
-  }
+  line-height: 1.8;
   a{
     text-decoration: underline;
   }
   h2 {
     font-size: 2.7rem;
+    line-height: 3.5rem;
     font-weight: 600;
     color: $very-dark;
     a{
@@ -102,11 +100,7 @@
     border-top: 4px solid $charcoal;
     border-bottom: 4px solid $charcoal;
     margin: 5rem 0;
-  }
-
-  sub, sup{
-    line-height: 2rem;
-    display: inline-block;
+    p { line-height: 1.5; }
   }
 
   hr {
@@ -117,8 +111,6 @@
     background: $khaki;
   }
   ul, ol {
-    list-style-position: outside;
-    margin: 2rem 0 2rem 4rem;
     li{
       margin-bottom: 0.75rem;
     }
