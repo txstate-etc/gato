@@ -1,9 +1,15 @@
 jQuery(document).ready(function($) {
+  /** Expand/Collaps details **/
   $('.event-details').click(function(e){
     e.preventDefault();
     window.accordion.toggle($(this));
   });
+  // if the url contains an anchor to an event, let's open that event
+  if (document.location.hash.match(/^#event-\d+$/i)) {
+    window.accordion.show($(document.location.hash).find('.event-details'));
+  }
 
+  /** Filtering **/
   var hide_event = function($evt) {
     animationframe(function() {
       $evt.hide();
@@ -47,4 +53,5 @@ jQuery(document).ready(function($) {
   $('.wittliff-event-filters select').change(function (e) {
     evaluate();
   });
+
 });

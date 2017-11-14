@@ -50,7 +50,7 @@
 
       [#assign eventClass=item.cancelled?string('txst-eventdetail-cancelled','h-event vevent')]
 
-      <div class="event ${eventClass}" data-month-key="${item.machineMonth}" data-categories="${item.categoryJson?html}">
+      <div class="event ${eventClass}" data-month-key="${item.machineMonth}" data-categories="${item.categoryJson?html}" id="event-${item.recurrenceId}">
         <div class="event-datetime">
           <time class="dt-start dtstart" datetime="${item.machineStartDate}">
              [#assign startDate = item.machineStartDate?datetime("yyyy-MM-dd'T'HH:mm:ssZ")]
@@ -74,6 +74,9 @@
             <i class="fa fa-cog"></i>
           </a>
           <div aria-hidden="true" style="display:none">
+            [#if cmsfn.isEditMode()]
+              <div class="txst-khan-notice">Anchor for linking to this event: #event-${item.recurrenceId}</div>
+            [/#if]
             [#if item.description?has_content]
               <div class="event-description">
                 <span class="p-description">${item.description}</span>
