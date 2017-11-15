@@ -63,17 +63,17 @@
 }
 
 // NOTE: will center inside the nearest ancestor with position: relative set
-@mixin absolutecenter() {
+@mixin absolutecenter($offset:0%) {
   position: absolute;
-  top: 50%;
+  top: 50%+$offset;
   left: 50%;
   transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
 }
 
-@mixin verticalcenter() {
+@mixin verticalcenter($offset:0%) {
   position: absolute;
-  top: 50%;
+  top: 50%+$offset;
   transform: translateY(-50%);
   -webkit-transform: translateY(-50%);
 }

@@ -209,6 +209,7 @@ div#homepage-banner {
             @include vendor-prefix(transition, font-size .1s ease);
             a {
               display: block;
+              color: $maroon;
               &[aria-selected=true] { text-decoration: underline; }
               padding: 2.2rem 2.6rem 3.5rem 2.6rem;
               @media (max-width: $xl-breakpoint) {
@@ -251,7 +252,6 @@ div#homepage-banner {
           li {
             font-size: 1.6rem;
             a {
-              color: $maroon;
               padding: 1.6rem 2.6rem;
               @media (max-width: $xl-breakpoint) {
                 padding: 1.6rem 2.4rem;

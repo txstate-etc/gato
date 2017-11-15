@@ -70,34 +70,29 @@ div#top-feature {
   }
 
   .slide-nav-wrap {
-    position: relative;
+    @include absolutecenter(-5%);
     width: 1200px;
-    margin: auto;
   }
 
   .slide-nav {
-    position: absolute;
-    bottom: 5.5rem;
-    right: 0;
-
     .slick-prev, .slick-next {
+      @include verticalcenter();
       text-decoration: none;
-      padding: 1.2rem 1.4rem;
-      margin-left: 0.7rem;
       font-size: 0px;
-      &:before { font-size: 1.9rem; }
+      &:before { font-size: 10rem; }
       cursor: pointer;
       border: none;
       outline: none;
-      background: fade-out($almost-black, 0.4);
-      @include hover-bg($almost-black);
+      background: none;
       color: $white;
     }
     .slick-prev {
-       @include fa(chevron-left);
+      left: 0;
+      @include fa(angle-left);
     }
     .slick-next {
-       @include fa(chevron-right);
+      right: 0;
+      @include fa(angle-right);
     }
   }
 
