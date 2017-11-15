@@ -12,6 +12,19 @@ form:
           required: false
           label: Title
           description: "Enter a title for the section."
+        - name: titleAlign
+          class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
+          multiselect: false
+          label: Title Alignment
+          layout: horizontal
+          type: String
+          sortOptions: false
+          options:
+            - name: left
+              label: Left
+            - name: center
+              label: Center
+              selected: true
         - name: stylesheet
           label: ""
           class: edu.txstate.its.gato.vaadin.GatoCssIncludeDefinition

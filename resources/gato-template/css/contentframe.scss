@@ -11,7 +11,9 @@ $content-width-lg: 1000px !default;
     min-height: 0px !important;
   }
   .headline {
-    margin-top: 0;
+    margin: 0 0 2.5rem 0;
+    padding: 0 $column-padding;
+    word-wrap: break-word;
   }
 }
 

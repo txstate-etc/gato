@@ -5,7 +5,7 @@
   [/#if]
   [#if content.title?has_content]
     [#local headerlevel = 3]
-    <h2 class="section-title">${content.title!}</h2>
+    <h2 class="section-title ${content.titleAlign!'center'}">${content.title!}</h2>
   [/#if]
   [#nested headerlevel]
 [/#macro]

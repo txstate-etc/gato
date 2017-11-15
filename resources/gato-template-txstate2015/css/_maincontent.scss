@@ -37,14 +37,10 @@
   }
 
   .headline {
-    padding: 2rem;
-    padding-top: 0px;
     font-weight: normal;
     font-size: 3.6rem;
     line-height: 4.8rem;
-    margin: 0;
     color: $maroon;
-    word-wrap: break-word;
   }
 
   .column_paragraph {
@@ -56,15 +52,5 @@
   max-width: 1200px;
   @media (max-width: $xl-breakpoint) {
     max-width: 1000px;
-  }
-}
-
-.gato-section {
-  .section-title {
-    display: block;
-    text-align: center;
-    &.hidden {
-      display: none;
-    }
   }
 }

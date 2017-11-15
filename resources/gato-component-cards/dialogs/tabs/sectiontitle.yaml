@@ -7,6 +7,19 @@
   class: info.magnolia.ui.form.field.definition.StaticFieldDefinition
   label: ""
   value: Adding a title to your section is optional.
+- name: titleAlign
+  class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
+  multiselect: false
+  label: Title Alignment
+  layout: horizontal
+  type: String
+  sortOptions: false
+  options:
+    - name: left
+      label: Left
+    - name: center
+      label: Center
+      selected: true
 - name: stylesheet
   label: ""
   class: edu.txstate.its.gato.vaadin.GatoCssIncludeDefinition

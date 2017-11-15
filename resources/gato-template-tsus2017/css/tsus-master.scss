@@ -40,22 +40,12 @@ body {
     max-width: 1000px;
   }
   .section-title {
-    display: block;
-    text-align: center;
     color: $red;
     font-size: 2.5rem;
     text-transform: uppercase;
     @media (max-width: $sm-breakpoint) {
       font-size: 1.7rem;
     }
-
-    &.hidden {
-      display: none;
-    }
-  }
-  .layout-column, .headline {
-    padding: 0px 2rem;
-    word-wrap: break-word;
   }
 }
 
