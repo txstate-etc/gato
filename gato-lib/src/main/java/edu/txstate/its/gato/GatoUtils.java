@@ -95,6 +95,7 @@ public final class GatoUtils {
   private static final Pattern MEDIAFLO_ID_PATTERN = Pattern.compile("contentContainer_([a-f\\d\\-]+)");
   private static final Pattern MEDIAFLO_URL_PATTERN = Pattern.compile("^https?://mediaflo.*$");
   private static final Pattern JSONP_PATTERN = Pattern.compile("^\\s*\\w+\\((.+?)\\);?\\s*$");
+  protected static final Pattern UUID_PATTERN = Pattern.compile("([a-f0-9]{8}-[a-f0-9]{4}-[1-5][a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12})(#[-\\w]+)?");
 
   private final TemplatingFunctions tf;
   private final DamTemplatingFunctions damfn;
@@ -126,9 +127,15 @@ public final class GatoUtils {
     // let's see if it's an id for something in the website tree
     String websiteLink="";
     try{
-      websiteLink = tf.link(RepositoryConstants.WEBSITE, url);
-    }
-    catch(Exception e){
+      Matcher m = UUID_PATTERN.matcher(url);
+      if (m.matches()) {
+        String uid = m.group(1);
+        String hash = m.group(2);
+        if (hash == null) hash = "";
+        String sup = tf.link(RepositoryConstants.WEBSITE, uid);
+        if (!StringUtils.isBlank(sup)) websiteLink = sup+hash;
+      }
+    } catch(Exception e) {
       // we expect this to throw sometimes, it's no big deal
     }
     if (!StringUtils.isBlank(websiteLink)) return websiteLink;
