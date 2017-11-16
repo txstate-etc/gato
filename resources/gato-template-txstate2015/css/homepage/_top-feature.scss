@@ -70,13 +70,16 @@ div#top-feature {
   }
 
   .slide-nav-wrap {
-    @include absolutecenter(-5%);
-    width: 1200px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
   }
 
   .slide-nav {
     .slick-prev, .slick-next {
-      @include verticalcenter();
+      @include verticalcenter(-6%);
       text-decoration: none;
       font-size: 0px;
       &:before { font-size: 10rem; }
@@ -87,11 +90,11 @@ div#top-feature {
       color: $white;
     }
     .slick-prev {
-      left: 0;
+      left: 1rem;
       @include fa(angle-left);
     }
     .slick-next {
-      right: 0;
+      right: 1rem;
       @include fa(angle-right);
     }
   }
@@ -115,13 +118,6 @@ div#top-feature {
         }
       }
     }
-
-    .slide-nav-wrap {
-      width: 1000px;
-      .slide-nav {
-        bottom: 4.5rem;
-      }
-    }
   }
 
   @media (max-width: $md-breakpoint){
@@ -142,13 +138,6 @@ div#top-feature {
         .feature-play-button {
           top: -6.2rem;
         }
-      }
-    }
-    .slide-nav-wrap {
-      width: 100%;
-      .slide-nav {
-        bottom: 3.5rem;
-        right: 2rem;
       }
     }
   }
