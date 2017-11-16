@@ -91,9 +91,11 @@ div#top-feature {
       color: $white;
     }
     .slick-prev {
+      left: 0;
       @include fa(angle-left);
     }
     .slick-next {
+      right: 0;
       @include fa(angle-right);
     }
   }
