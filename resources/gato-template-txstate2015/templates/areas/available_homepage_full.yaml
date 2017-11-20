@@ -1,0 +1,4 @@
+button:
+  id: gato-component-button:components/button
+textimage:
+  id: gato-template:components/textimage

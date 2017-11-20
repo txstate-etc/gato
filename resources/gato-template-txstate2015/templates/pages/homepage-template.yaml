@@ -44,6 +44,17 @@ areas:
     !include /gato-template-txstate2015/templates/areas/textImageContent.yaml
   presUpdates:
     !include /gato-template-txstate2015/templates/areas/textImageContent.yaml
+  spotlight:
+    title: Spotlight
+    maxComponents: 2
+    availableComponents:
+      full:
+        id: gato-template-txstate2015:components/homepage/full
+      halves:
+        id: gato-template-txstate2015:components/homepage/halves
+      thirds:
+        id: gato-template-txstate2015:components/homepage/thirds
+
 parameters:
   sortOrder: 75
   favicon: /gato-template-txstate2015/images/favicon.png

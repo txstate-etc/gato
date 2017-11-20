@@ -46,7 +46,7 @@
         [#include "includes/homepage/top-feature.ftl"]
         [#include "includes/homepage/top-links.ftl"]
         [#include "includes/homepage/news.ftl"]
-        [#include "includes/homepage/spotlight.ftl"]
+        [@cms.area name="spotlight"/]
         [#include "includes/homepage/social.ftl"]
         [#include "includes/homepage/president.ftl"]
 

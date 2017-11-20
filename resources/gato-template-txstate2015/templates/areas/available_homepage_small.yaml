@@ -1,0 +1,10 @@
+button:
+  id: gato-component-button:components/button
+icontext:
+  id: gato-template:components/icontext
+imagecard:
+  id: gato-component-cards:components/regular/image
+feature:
+  id: gato-component-feature:components/feature
+textimage:
+  id: gato-template:components/textimage
