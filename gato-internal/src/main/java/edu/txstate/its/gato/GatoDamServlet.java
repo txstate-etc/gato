@@ -70,7 +70,7 @@ public class GatoDamServlet extends DamDownloadServlet {
 
 	protected Calendar parseHttpDate(String datestr) throws Exception {
 		Calendar ret = Calendar.getInstance();
-	  if (StringUtils.isBlank(datestr)) ret.setTime(0);
+	  if (StringUtils.isBlank(datestr)) ret.setTimeInMillis(0);
 		else ret.setTime(httpDateFormat.parse(datestr));
 		return ret;
 	}
