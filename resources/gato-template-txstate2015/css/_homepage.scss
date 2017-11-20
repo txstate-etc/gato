@@ -13,6 +13,11 @@ body.homepage {
       width: 100%;
       letter-spacing: normal;
     }
+    .content-row-column {
+      padding: 0 1rem;
+      &:first-child { padding-left: 0; }
+      &:last-child { padding-right: 0; }
+    }
   }
 
   div.main-content {
