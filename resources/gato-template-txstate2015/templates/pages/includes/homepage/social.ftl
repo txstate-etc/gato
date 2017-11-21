@@ -17,7 +17,7 @@
 
       <div class="solo-column">
         <div class="solo-title">
-          <h2>Connect with Us</h2>
+          <h2 class="column-title">Connect with Us</h2>
         </div>
       </div>
 

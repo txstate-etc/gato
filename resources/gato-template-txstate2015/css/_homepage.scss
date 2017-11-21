@@ -13,28 +13,20 @@ body.homepage {
       width: 100%;
       letter-spacing: normal;
     }
-    .content-row-column {
-      padding: 0 1rem;
-      &:first-child { padding-left: 0; }
-      &:last-child { padding-right: 0; }
-    }
   }
 
-  div.main-content {
+  .main-content {
 
-    h2 {
+    .column-title {
       font-size: 2.8rem;
       margin-bottom: 3.5rem;
       @media (max-width: $sm-breakpoint){margin-bottom: 2.5rem;}
       margin-top: 0.1rem;
       font-weight: 500;
     }
-    h3 {
-      font-size: 1.6rem;
-    }
 
     @media (max-width: $sm-breakpoint){
-      h2 {
+      .column-title {
         font-size: 2.4rem;
         margin-bottom: 2.5rem;
       }

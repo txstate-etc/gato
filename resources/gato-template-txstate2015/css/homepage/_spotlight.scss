@@ -5,4 +5,7 @@ div#spotlight {
   [data-eq~="1200px"] {
     @include sliderdropbelow();
   }
+  .gato-card {
+    box-shadow: none;
+  }
 }

@@ -30,12 +30,12 @@
           </p>
           <p class="event-date">
             <a href="${gf.filterUrl(component.link)}">
-              
+
             [#if !component.enddate?has_content || '${component.enddate?date}' == '${component.startdate?date}']
               <span class="month">${component.startdate?string['MMM']}</span>
               <span class="day">${component.startdate?string['d']}</span>
             [#else /]
-              [#assign startPeriod = (component.startdate?string['MMM'] == "May")?string("",".")]  
+              [#assign startPeriod = (component.startdate?string['MMM'] == "May")?string("",".")]
               <span class="range-start">${component.startdate?string['MMM${startPeriod} d']}</span>
               <span class="range-to">to</span>
               [#assign endPeriod = (component.enddate?string['MMM'] == "May")?string("",".")]
@@ -49,9 +49,9 @@
             <p class="event-time">
               [@eventTime component.starttimehour!'8'
                 component.starttimeminute!'00'
-                component.starttimeampm!'a.m.' /] – 
-              [@eventTime component.endtimehour!'5' 
-                component.endtimeminute!'00' 
+                component.starttimeampm!'a.m.' /] –
+              [@eventTime component.endtimehour!'5'
+                component.endtimeminute!'00'
                 component.endtimeampm!'p.m.' /]
             </p>
           [/#if]
@@ -63,12 +63,12 @@
 
 <div id="news" class="content-row main two-col">
   <div class="content-row-content">
-    
+
     <div class="content-row-column">
       <div class="col-left news">
-        
-        <h2>News</h2>
-        
+
+        <h2 class="column-title">News</h2>
+
         <div class="news-slider-wrap">
           <div class="slides">
 
@@ -113,7 +113,7 @@
                 </div>
               [/#if]
             [/#list]
-            
+
           </div>
         </div>
 
@@ -129,7 +129,7 @@
         </div>
 
         <div id="news-jump">
-            
+
           <div class="solo-bailout">
             <p>
               <a id="news-service" href="/news-archive" class="solo-bailout-button">
@@ -137,7 +137,7 @@
               </a>
             </p>
           </div>
-  
+
           <div class="solo-bailout">
             <p>
               <a id="ustar" href="http://star.txstate.edu">
@@ -149,20 +149,20 @@
 
       </div>
     </div>
-    
+
     <div class="content-row-column events-wrap">
       <div class="col-right events">
-      
+
         <div id="tabs" >
-            
+
           <ul role="tablist">
             <li role="presentation">
-              <h2>
+              <h2 class="column-title">
                 <a href="#tabpanel-events" role="tab" aria-controls="tabpanel-events" aria-selected="true" tabindex="0" id="tab-events">Events</a>
               </h2>
             </li>
             <li role="presentation">
-              <h2>
+              <h2 class="column-title">
                 <a href="#tabpanel-dates" role="tab" aria-controls="tabpanel-dates" aria-selected="false" tabindex="-1" id="tab-dates">Important Dates</a>
               </h2>
             </li>
@@ -177,11 +177,11 @@
                 More Events<i class="button-chevron fa fa-chevron-right"></i>
               </a>
             </div>
-                
+
             <div id="tabpanel-dates" aria-labelledby="tab-dates" role="tabpanel" aria-hidden="true" style="display:none;">
               [@eventList dates false /]
-                
-              <a class="more-events more-imp-dates" 
+
+              <a class="more-events more-imp-dates"
                 href="http://www.registrar.txstate.edu/persistent-links/academic-calendar">
                 More Important Dates<i class="button-chevron fa fa-chevron-right"></i>
               </a>
@@ -195,12 +195,12 @@
                 <li><a href="http://events.txstate.edu/">Events</a></li>
               </ul>
             </div>
-              
+
           </div>
         </div>
-        
+
       </div>
     </div>
-      
+
   </div>
 </div>
