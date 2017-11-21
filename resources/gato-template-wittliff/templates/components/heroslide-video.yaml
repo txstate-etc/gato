@@ -1,7 +1,0 @@
-templateScript: /gato-template-wittliff/templates/components/heroslide.ftl
-renderType: freemarker
-title: Hero Video
-description: A video for the top of the Wittliff homepage.
-dialog: gato-template-wittliff:components/heroslide-video
-parameters:
-  icon: /gato-component-feature/images/video.png

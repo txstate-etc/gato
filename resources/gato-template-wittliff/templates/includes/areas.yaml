@@ -29,8 +29,6 @@ hero-slider:
   availableComponents:
     hero-image:
       id: gato-template-wittliff:components/heroslide
-    hero-video:
-      id: gato-template-wittliff:components/heroslide-video
 donate-button:
   type: single
   availableComponents:

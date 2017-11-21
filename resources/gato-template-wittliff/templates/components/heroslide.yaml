@@ -1,7 +1,7 @@
 templateScript: /gato-template-wittliff/templates/components/heroslide.ftl
 renderType: freemarker
-title: Hero Image
-description: An image for the top of the Wittliff homepage.
+title: Hero Banner
+description: An image or video for the top of the Wittliff homepage.
 dialog: gato-template-wittliff:components/heroslide
 parameters:
   icon: /gato-component-feature/images/image.png
