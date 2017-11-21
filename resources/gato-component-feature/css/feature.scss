@@ -1,6 +1,85 @@
+@mixin sliderdropbelow() {
+  .gato-slider {
+    .slide{
+      .caption{
+        position: relative;
+        padding: 1.2rem;
+        h3{
+          margin-bottom: 0.6rem;
+          padding: 0.1rem 0.8rem;
+        }
+        p{
+          padding: 0.3rem 0.8rem 0.5rem 0.8rem;
+        }
+        h3, p {
+          background-color: transparent;
+          transition-duration: 0s;
+        }
+      }
+      a:hover, a:focus {
+        .caption {
+          h3, p {
+            background-color: transparent;
+          }
+        }
+      }
+      &.color1 .caption { background-color: $mc1-bg; }
+      &.color2 .caption { background-color: $mc2-bg; }
+      &.color3 .caption { background-color: $mc3-bg; }
+      &.color4 .caption { background-color: $mc4-bg; }
+      &.color5 .caption { background-color: $mc5-bg; }
+      &.color6 .caption { background-color: $mc6-bg; }
+      &.color7 .caption { background-color: $mc7-bg; }
+      &.color1 { a:hover, a:focus { .caption { background-color: $mc1-comp-bg; } } }
+      &.color2 { a:hover, a:focus { .caption { background-color: $mc2-comp-bg; } } }
+      &.color3 { a:hover, a:focus { .caption { background-color: $mc3-comp-bg; } } }
+      &.color4 { a:hover, a:focus { .caption { background-color: $mc4-comp-bg; } } }
+      &.color5 { a:hover, a:focus { .caption { background-color: $mc5-comp-bg; } } }
+      &.color6 { a:hover, a:focus { .caption { background-color: $mc6-comp-bg; } } }
+      &.color7 { a:hover, a:focus { .caption { background-color: $mc7-comp-bg; } } }
+      &.video-slide{
+        .caption{
+          &.no-title{
+            background-color: transparent;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            .feature-play-button{
+              top: -3rem;
+              left: -3rem;
+              a{
+                width: 6rem;
+                height: 6rem;
+                &:after{
+                  border-width: 1.5rem 0 1.5rem 2.4rem;
+                  margin-top: -1.5rem;
+                  left: .6rem;
+                }
+              }
+            }
+          }
+          .feature-play-button{
+            top: -6.5rem;
+            a {
+              width: 5rem;
+              height: 5rem;
+              &:after {
+                border-width: 0.8rem 0 0.8rem 1.4rem;
+                margin-top: -0.8rem;
+              }
+            }
+          }
+        }
+      }
+    }
+    .slick-prev, .slick-next{
+      top: 39%;
+    }
+  }
+}
+
 .gato-slider {
   position: relative;
-  margin-bottom: 7rem;
   .slide {
     position: relative;
     overflow: hidden;
@@ -444,82 +523,8 @@
       }
     }
   }
-  [data-eq~="500px"] & {
-    .slide{
-      .caption{
-        position: relative;
-        padding: 1.2rem;
-        h3{
-          margin-bottom: 0.6rem;
-          padding: 0.1rem 0.8rem;
-        }
-        p{
-          padding: 0.3rem 0.8rem 0.5rem 0.8rem;
-        }
-        h3, p {
-          background-color: transparent;
-          transition-duration: 0s;
-        }
-      }
-      a:hover, a:focus {
-        .caption {
-          h3, p {
-            background-color: transparent;
-          }
-        }
-      }
-      &.color1 .caption { background-color: $mc1-bg; }
-      &.color2 .caption { background-color: $mc2-bg; }
-      &.color3 .caption { background-color: $mc3-bg; }
-      &.color4 .caption { background-color: $mc4-bg; }
-      &.color5 .caption { background-color: $mc5-bg; }
-      &.color6 .caption { background-color: $mc6-bg; }
-      &.color7 .caption { background-color: $mc7-bg; }
-      &.color1 { a:hover, a:focus { .caption { background-color: $mc1-comp-bg; } } }
-      &.color2 { a:hover, a:focus { .caption { background-color: $mc2-comp-bg; } } }
-      &.color3 { a:hover, a:focus { .caption { background-color: $mc3-comp-bg; } } }
-      &.color4 { a:hover, a:focus { .caption { background-color: $mc4-comp-bg; } } }
-      &.color5 { a:hover, a:focus { .caption { background-color: $mc5-comp-bg; } } }
-      &.color6 { a:hover, a:focus { .caption { background-color: $mc6-comp-bg; } } }
-      &.color7 { a:hover, a:focus { .caption { background-color: $mc7-comp-bg; } } }
-      &.video-slide{
-        .caption{
-          &.no-title{
-            background-color: transparent;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            .feature-play-button{
-              top: -3rem;
-              left: -3rem;
-              a{
-                width: 6rem;
-                height: 6rem;
-                &:after{
-                  border-width: 1.5rem 0 1.5rem 2.4rem;
-                  margin-top: -1.5rem;
-                  left: .6rem;
-                }
-              }
-            }
-          }
-          .feature-play-button{
-            top: -6.5rem;
-            a {
-              width: 5rem;
-              height: 5rem;
-              &:after {
-                border-width: 0.8rem 0 0.8rem 1.4rem;
-                margin-top: -0.8rem;
-              }
-            }
-          }
-        }
-      }
-    }
-    .slick-prev, .slick-next{
-      top: 35%;
-    }
+  @at-root [data-eq~="500px"] {
+    @include sliderdropbelow();
   }
   [data-eq~="400px"] & {
     .slide {
