@@ -1,10 +1,4 @@
 div#spotlight {
-
-  .content-row-content {
-    padding-bottom: 4rem;
-    @media (max-width: $sm-breakpoint){ padding-bottom: 4rem; }
-  }
-
   .slick-dots {
     display: none !important;
   }
