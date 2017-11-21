@@ -35,20 +35,20 @@
     [#if content.type == 'event' || content.type == 'exhibition' || content.type == 'traveling' || content.type == 'news']
     <div class="dates" data-max-lines="1">
       [#if (content.type == 'exhibition' || content.type == 'traveling') && content.start?has_content]
-        <span class="start">${content.start?string['MMM d']}</span>
+        [#if .now > content.start?datetime && (!content.end?has_content || content.end?datetime > .now)]
+          <span class="start">Now</span>
+        [#else]
+          <span class="start">${content.start?string['MMM d, YYYY']}</span>
+        [/#if]
         [#if content.end?has_content]
           <span class="separator">-</span>
-          <span class="end">${content.end?string['MMM d']}</span>
+          <span class="end">${content.end?string['MMM d, YYYY']}</span>
         [/#if]
       [#elseif (content.type == 'event' || content.type == 'news') && content.start?has_content]
-        [#if .now > content.start?datetime]
-          <span class="date">${content.start?string['MMMM d, YYYY']}</span>
-        [#else]
-          <span class="date">${content.start?string['MMMM d']}</span>
-        [/#if]
+        <span class="date">${content.start?string['MMM d, YYYY']}</span>
         [#if content.type == 'event']
           <span class="separator">/</span>
-          <span class="time">${content.start?string['h:mma']?lower_case}</span>
+          <span class="time">${gf.formatTime(content.start)}</span>
         [/#if]
       [/#if]
     </div>

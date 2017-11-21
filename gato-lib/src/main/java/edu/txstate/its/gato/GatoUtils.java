@@ -101,6 +101,8 @@ public final class GatoUtils {
   private final DamTemplatingFunctions damfn;
   private final SimpleDateFormat timeformat;
   private final SimpleDateFormat jsonDateFormat;
+  private final SimpleDateFormat timeDispFormat;
+  private final SimpleDateFormat timeDispFormatNoMinutes;
   private final MagnoliaConfigurationProperties mcp;
   private final SystemContext sc;
 
@@ -111,6 +113,8 @@ public final class GatoUtils {
     mcp = magConfigProps;
     sc = syscon;
     timeformat = new SimpleDateFormat("HH:mm");
+    timeDispFormat = new SimpleDateFormat("h:mm a");
+    timeDispFormatNoMinutes = new SimpleDateFormat("h a");
     jsonDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
     jsonDateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
   }
@@ -862,6 +866,20 @@ public final class GatoUtils {
     }
     c.set(o.get(Calendar.YEAR), o.get(Calendar.MONTH), o.get(Calendar.DAY_OF_MONTH));
     return c.getTime();
+  }
+
+  public String formatTime(Date d) {
+    Calendar c = Calendar.getInstance();
+    c.setTime(d);
+    String ret = "";
+    if (c.get(Calendar.MINUTE) == 0) {
+      if (c.get(Calendar.HOUR_OF_DAY) == 0) ret = "Midnight";
+      else if (c.get(Calendar.HOUR_OF_DAY) == 12) ret = "Noon";
+      else ret = timeDispFormatNoMinutes.format(d);
+    } else {
+      ret = timeDispFormat.format(d);
+    }
+    return ret.replaceAll("AM$", "a.m.").replaceAll("PM$", "p.m.");
   }
 
   public Node toNode(Object obj) {

@@ -56,9 +56,7 @@
              [#assign startDate = item.machineStartDate?datetime("yyyy-MM-dd'T'HH:mm:ssZ")]
              <div class="event-dow">${startDate?string["EEE"]}</div>
              <div class="event-day">${startDate?string["MMM d"]}</div>
-             [#assign ampm = startDate?string['a']]
-             [#assign marker = ("AM" == ampm)?string('a.m.', 'p.m')]
-             <div class="event-time">${startDate?string['h:mm']} ${marker}</div>
+             <div class="event-time">${gf.formatTime(startDate)}</div>
           </time>
         </div>
         <div class="event-content" aria-expanded="false">
