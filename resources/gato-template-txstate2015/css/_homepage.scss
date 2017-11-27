@@ -193,7 +193,6 @@ body.homepage {
     }
     &.comp {
       background: $sandstone;
-      .slides, figure.feature { background: $khaki; }
       .solo-bailout a {
         color: $maroon;
         &:hover {
