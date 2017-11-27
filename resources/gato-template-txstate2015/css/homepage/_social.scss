@@ -7,6 +7,7 @@ div#social {
 
     .social-upper {
       height: 38rem;
+      overflow: hidden;
 
       .image > a {
         @extend .hover-blur;
@@ -21,23 +22,23 @@ div#social {
     .social-lower {
       position: relative;
       border-bottom: 3px solid $gold;
-      color: $medium-gray;   
+      color: $medium-gray;
       text-transform: uppercase;
-      font-size: 1.3rem;      
-      font-weight: 500;      
-      p { margin: 4rem 0 0; }  
+      font-size: 1.3rem;
+      font-weight: 500;
+      p { margin: 4rem 0 0; }
       span.timestamp.relative {
         position: relative;
         bottom: 0.5rem;
-      }    
+      }
       span.social-area-icon {
         position: absolute;
         right: 0;
         bottom: 0;
         font-size: 3rem;
-        a { 
+        a {
           display: block;
-          color: $gold; 
+          color: $gold;
         }
       }
     }
@@ -54,7 +55,7 @@ div#social {
           }
         }
       }
-      
+
       .caption {
         padding: 0.5rem 2rem;
         position: absolute;
@@ -66,7 +67,7 @@ div#social {
         color: $white;
         font-size: 1.4rem;
         line-height: 2rem;
-        a { 
+        a {
           color: inherit;
           text-decoration: underline;
           &:hover { background: none; text-decoration: none; }
@@ -78,8 +79,8 @@ div#social {
       }
     }
     .twitter {
-      .social-upper { 
-        text-align: center; 
+      .social-upper {
+        text-align: center;
 
         .twitter-handle {
           font-size: 2.8rem;
@@ -132,6 +133,10 @@ div#social {
         padding: 0 1rem;
         p {
           line-height: 2.2rem;
+          &.desc {
+            max-height: 17rem;
+            overflow: hidden;
+          }
         }
         a {
           padding: 3px 5px;

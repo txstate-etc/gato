@@ -105,7 +105,7 @@
                   <img src="${gf.getImg(image!, 1080, 400, true, false, 0, 0, 0, 0)}" alt="Facebook Post">
                 </a>
                 <figcaption class="fb-content">
-                  <p>${gf.linkify(caption)!}</p>
+                  <p class="desc">${gf.linkify(caption)!}</p>
                   <p><a class="source-link" href="${link!}">(via Facebook)</a></p>
                 </figcaption>
               </figure>
