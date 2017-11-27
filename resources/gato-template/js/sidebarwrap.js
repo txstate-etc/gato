@@ -7,9 +7,11 @@ jQuery(document).ready(function ($) {
       // find the first gato-component paragraph whose top is
       // below the sidebar and expand it to full width
       $('.gato-section').each(function (i, cmp) {
-        cmp = $(cmp);
+        cmp = $(cmp).closest('.gato-section-full');
         if (cmp.offset().top > sidebar.offset().top+sidebar.outerHeight()) {
-          cmp.closest('.gato-section-full').addClass('full-width');
+          cmp.addClass('full-width');
+        } else {
+          cmp.removeClass('full-width');
         }
       });
     };
