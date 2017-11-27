@@ -1,4 +1,4 @@
-.gato-rich-editor {
+.gato-rich-editor, .gato-html {
   img {
     max-width: 100%;
   }
@@ -6,6 +6,27 @@
     padding: 2rem 2rem 0 2rem;
     p {
       margin: 0 0 2rem 0; padding: 0; line-height: inherit;
+    }
+  }
+  figure.caption {
+    margin: 0;
+    max-width: 100%;
+    display:inline-block;
+    img { display: block; }
+    a{
+      margin: 0;
+      padding: 0;
+      color: $text-image-caption-link-color;
+      &:hover{
+        background: transparent;
+        text-decoration: none;
+      }
+    }
+    figcaption{
+      font-size: 0.8em;
+      background: $text-image-caption-background;
+      padding: 1.2rem 1.4rem;
+      text-align: center;
     }
   }
 }

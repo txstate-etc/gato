@@ -35,33 +35,6 @@
 
   img { max-width: 100%; height: auto; }
   table img, .pswp img { max-width: none; }
-  figure {
-    margin: 0;
-    max-width: 100%;
-    display:inline-block;
-    a{
-      margin: 0;
-      padding: 0;
-      &:hover{
-        background: transparent;  /*may need to be important*/
-      }
-    }
-  }
-  figcaption{
-    margin-top: -1rem;
-    font-size: 1.4rem;
-    background: $sandstone;
-    padding: 1.2rem 1.4rem;
-    line-height: 2.2rem;
-    text-align: center;
-    a{
-      color: $maroon; /* may need to be important */
-      &:hover{
-        background: transparent;
-        text-decoration: none;
-      }
-    }
-  }
   a span {
     color: inherit !important;
   }
