@@ -7,5 +7,8 @@ div#spotlight {
   }
   .gato-card {
     box-shadow: none;
+    figcaption {
+      font-size: 1.6rem;
+    }
   }
 }
