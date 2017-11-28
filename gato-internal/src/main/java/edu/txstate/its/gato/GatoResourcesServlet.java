@@ -104,7 +104,10 @@ public class GatoResourcesServlet extends ResourcesServlet {
     for (String file : files) {
       Resource r = this.origin.getByPath(file);
       if (file.endsWith(".cjs")) ret.append(compileCjs(r));
-      else ret.append(IOUtils.toString(r.openReader()));
+      else {
+        ret.append("/*** "+file+" ***/\n");
+        ret.append(IOUtils.toString(r.openReader()));
+      }
     }
     String finalret = ret.toString();
     this.cache.put(path, finalret);
