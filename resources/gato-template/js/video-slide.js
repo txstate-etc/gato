@@ -5,8 +5,7 @@ jQuery(function($) {
     $slides: null,
     $cur: null,
 
-    loadSlide: function($slide) {
-      var $lnk = $slide.find('.feature-play-button a, a.feature-play-button');
+    loadSlide: function($lnk) {
       var dataEmbed = $lnk.data('embed');
 
       // special treatment for youtube and vimeo to autoplay when the modal appears
@@ -18,10 +17,10 @@ jQuery(function($) {
       var $container = $('<div class="gatoEmbedContainer" data-url="' + dataUrl + '" data-embed=\''+ dataEmbed +'\'></div>');
       $('#video-modal .video-container').empty().append($container);
       createPlayer($container, dataUrl, { autoplay: true });
-      this.$cur = $slide;
+      this.$cur = $lnk;
     },
 
-    open: function($slide, $slides) {
+    open: function($lnk, $slides) {
       this.isOpen = true;
       this.$slides = $slides;
       if ($slides.length > 1) {
@@ -29,7 +28,7 @@ jQuery(function($) {
       } else {
         $('.video-nav').hide();
       }
-      this.loadSlide($slide);
+      this.loadSlide($lnk);
       $('#video-modal').fadeIn(150);
     },
 
@@ -41,10 +40,10 @@ jQuery(function($) {
   };
 
   $('.feature-play-button a, a.feature-play-button').blurclick(function(e) {
-    var $slide = $(this).closest('.slide, .gato-card');
+    var $lnk = $(this);
     // get list of siblings that have videos
-    var $slides = $slide.parent().find('.feature-play-button').closest('.slide').not('.slick-cloned');
-    vmodal.open($slide, $slides);
+    var $slides = $lnk.closest('.gato-slider').find('.slide:not(.slick-cloned)').find('.feature-play-button a, a.feature-play-button');
+    vmodal.open($lnk, $slides);
   });
 
   $('.video-nav a').blurclick(function(e) {
@@ -64,7 +63,7 @@ jQuery(function($) {
       }
     }
 
-    vmodal.loadSlide($(vmodal.$slides[idx]));
+    vmodal.loadSlide(vmodal.$slides.eq(idx));
   });
 
   $('#video-modal .video-modal-close').blurclick(vmodal.close);
