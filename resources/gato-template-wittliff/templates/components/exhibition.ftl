@@ -38,14 +38,14 @@
         [#if .now > content.start?datetime && (!content.end?has_content || content.end?datetime > .now)]
           <span class="start">Now</span>
         [#else]
-          <span class="start">${content.start?string['MMM d, YYYY']}</span>
+          <span class="start">${content.start?string['MMM d, yyyy']}</span>
         [/#if]
         [#if content.end?has_content]
           <span class="separator">-</span>
-          <span class="end">${content.end?string['MMM d, YYYY']}</span>
+          <span class="end">${content.end?string['MMM d, yyyy']}</span>
         [/#if]
       [#elseif (content.type == 'event' || content.type == 'news') && content.start?has_content]
-        <span class="date">${content.start?string['MMM d, YYYY']}</span>
+        <span class="date">${content.start?string['MMM d, yyyy']}</span>
         [#if content.type == 'event']
           <span class="separator">/</span>
           <span class="time">${gf.formatTime(content.start)}</span>
