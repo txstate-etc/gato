@@ -26,7 +26,9 @@ jQuery(document).ready(function($) {
   var evaluate = function() {
     $catslct = $('.wittliff-event-filters select[name="category"]');
     $monthslct = $('.wittliff-event-filters select[name="month"]');
-    $('.wittliff-event-list .event').each( function () {
+    var eventlist = $('.wittliff-event-list .event');
+    var eventcount = eventlist.length;
+    eventlist.each( function () {
       var $evt = $(this);
       var filtered = false;
 
@@ -40,10 +42,10 @@ jQuery(document).ready(function($) {
       }
       if (!isBlank($monthslct.val()) && $evt.data('month-key') != $monthslct.val()) filtered = true;
 
-      if (filtered) hide_event($evt);
+      if (filtered) { hide_event($evt); eventcount--; }
       else show_event($evt);
     });
-    if ($('.wittliff-event-list .event:visible').length == 0) {
+    if (eventcount == 0) {
       $('.wittliff-event-list .events-empty').show();
     } else {
       $('.wittliff-event-list .events-empty').hide();
