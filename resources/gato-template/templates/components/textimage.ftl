@@ -5,9 +5,9 @@
 <div class="gato-textimage eq-parent">
   [#-- if there is a title, put it here --]
   [#if (decodedContent.title)?has_content]
-    <h2 class="gato-textimage-title">
+    [@h2 class="gato-textimage-title"]
       ${decodedContent.title}
-    </h2>
+    [/@h2]
   [/#if]
   [#if !decodedContent.text?has_content]
     [#assign float = 'top']
