@@ -103,15 +103,15 @@ body.homepage {
       padding-right: 0;
     }
     .col-middle {
-      padding-left: 2.5rem;
-      padding-right: 2.5rem;
+      padding-left: 1.25rem;
+      padding-right: 1.25rem;
     }
     @media (max-width: $xl-breakpoint){
       .col-left { padding-right: 2rem; }
       .col-right { padding-left: 2rem; }
       .col-middle {
-        padding-left: 2rem;
-        padding-right: 2rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
       }
     }
     @media (max-width: $md-breakpoint){
@@ -119,11 +119,11 @@ body.homepage {
         padding-left: 2rem;
         padding-right: 2rem;
       }
-      .col-left { padding-right: 1.2rem; }
-      .col-right { padding-left: 1.2rem; }
+      .col-left { padding-right: 0.5rem; }
+      .col-right { padding-left: 0.5rem; }
       .col-middle {
-        padding-left: 1.2rem;
-        padding-right: 1.2rem;
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
       }
     }
     @media (max-width: $sm-breakpoint){
