@@ -90,7 +90,7 @@ body.homepage {
       }
     }
 
-    .solo-title, .solo-bailout {
+    .solo-title, .solo-bailout, .col-solo {
       padding-left: 0;
       padding-right: 0;
     }
@@ -115,7 +115,7 @@ body.homepage {
       }
     }
     @media (max-width: $md-breakpoint){
-      .col-left, .col-right, .solo-title, .solo-bailout {
+      .col-left, .col-right, .solo-title, .solo-bailout, .col-solo {
         padding-left: 2rem;
         padding-right: 2rem;
       }
