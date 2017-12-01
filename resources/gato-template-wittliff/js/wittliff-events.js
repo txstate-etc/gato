@@ -37,7 +37,7 @@ jQuery(document).ready(function($) {
         if ($catslct.val() == "Other") {
           if ($($evt.data('categories')).filter(specialcats).length > 0) filtered = true;
         } else {
-          if (!$evt.data('categories').includes($catslct.val())) filtered = true;
+          if ($evt.data('categories').indexOf($catslct.val()) == -1) filtered = true;
         }
       }
       if (!isBlank($monthslct.val()) && $evt.data('month-key') != $monthslct.val()) filtered = true;
