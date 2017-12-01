@@ -6,6 +6,7 @@ import javax.jcr.RepositoryException;
 import javax.jcr.PathNotFoundException;
 import javax.jcr.LoginException;
 
+import info.magnolia.jcr.util.NodeTypes;
 import info.magnolia.module.delta.TaskExecutionException;
 import info.magnolia.module.InstallContext;
 import info.magnolia.repository.RepositoryConstants;
@@ -38,6 +39,7 @@ public class UpdateHeroSliderTask extends GatoBaseUpgradeTask {
             Node slides = component.getNode("slides");
             if (slides.hasNodes()) {
               Node slide = slides.getNodes().nextNode();
+              NodeTypes.Renderable.set(slide, "gato-template-wittliff:components/heroslide");
               s.move(slide.getPath(), area.getPath()+"/imported");
               justzapit = false;
               component.remove();
