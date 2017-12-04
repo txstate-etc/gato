@@ -33,8 +33,8 @@ form:
           maxLength: 45
         - name: link
           class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
-          label: Event Website Link
-          description: This MUST be a link to more details about this specific event.
+          label: News Page Link
+          description: This should be a link to more details about this specific news item.
           appName: pages
           identifierToPathConverter:
             class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
