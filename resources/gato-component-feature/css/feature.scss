@@ -42,15 +42,20 @@
         }
       }
     }
-    .slick-prev, .slick-next{
-      top: 27%;
-    }
   }
 }
 
 .gato-slider {
   position: relative;
   padding-bottom: 3.5rem;
+  .arrow-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding-top: 56.25%;
+    z-index: 1;
+  }
   .slide {
     position: relative;
     overflow: hidden;
@@ -365,23 +370,20 @@
     }
   }
   .slick-prev, .slick-next {
-    position: absolute;
-    top: 35%;
+    @include verticalcenter();
     text-shadow: 0px 0px 1px $feature-arrow-text-shadow-color;
     color: $white;
-    padding: 3rem 1rem;
     background-color: transparent;
-    z-index: 1;
+    padding: 2rem 1rem;
     text-decoration: none;
     font-size: 0px;
-    &:before { font-size: 6.4rem !important; }
-    cursor: pointer;
     border: none;
     outline: none;
     transition: transform .2s ease-in-out;
+    &:before { font-size: 6.4rem !important; }
     &:hover, &:focus {
       color: #fff;
-      transform: scale(1.1);
+      transform: translateY(-50%) scale(1.1);
     }
   }
   .slick-prev {
@@ -473,16 +475,13 @@
   @at-root [data-eq~="700px"] {
     @include sliderdropbelow();
   }
-  [data-eq~="600px"] & {
-    .slick-prev, .slick-next { top: 27%; }
-  }
   [data-eq~="400px"] & {
     .slide {
       .caption {
         font-size: 0.9em;
       }
     }
-    .slick-prev, .slick-next { &:before { font-size: 28px; } top: 15%; }
+    .slick-prev, .slick-next { &:before { font-size: 28px; } }
   }
   [data-eq~="200px"] & {
     .slide {
@@ -491,6 +490,6 @@
         h3 { margin: 0px 0px 4px 0px; }
       }
     }
-    .slick-prev, .slick-next { &:before { font-size: 24px; } top: 10%; }
+    .slick-prev, .slick-next { &:before { font-size: 24px; } }
   }
 }

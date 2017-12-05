@@ -64,6 +64,7 @@ jQuery(document).ready(function ($) {
       autoplay: !isEditMode && (speed > 0),
       autoplaySpeed: speed,
       accessibility: true,
+      appendArrows: $(this).find('.arrow-container'),
       lazyLoad: 'progressive'
     });
 
