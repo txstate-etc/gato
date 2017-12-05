@@ -1,6 +1,9 @@
 .gato-textimage {
   overflow: hidden;
 	position: relative;
+	.gato-textimage-title {
+	  margin-top: 0;
+	}
 	.gato-textimage-imageblock {
 	  width: 100%;
 	  display: block;
@@ -19,11 +22,11 @@
       [data-eq~="400px"] & {
         width: 100%;
         float: none;
-        padding: $text-image-top auto $text-image-bottom auto;
+        padding: 0 auto $text-image-bottom auto;
       }
 		}
-		&.top { margin: $text-image-top auto $text-image-bottom auto; }
-		&.bottom { margin: $text-image-top auto $text-image-bottom auto; }
+		&.top { margin: 0 auto $text-image-bottom auto; }
+		&.bottom { margin: $text-image-top auto 0 auto; }
     &.hascaption { min-width: 100px; }
     a { padding: 0; margin: 0; display: block; }
 		img { display: block; width: 100%; }
