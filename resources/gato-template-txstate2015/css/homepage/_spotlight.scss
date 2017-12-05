@@ -8,12 +8,7 @@ div#spotlight {
   [data-eq~="1200px"] {
     @include sliderdropbelow();
   }
-  .gato-card {
-    box-shadow: none;
-    figcaption {
-      font-size: 1.6rem;
-    }
-  }
+
   .gato-textimage .gato-textimage-caption {
     background: $maroon;
     color: white;

@@ -5,21 +5,19 @@
         position: relative;
         padding: 1.2rem;
         h3{
+          display: block;
           margin-bottom: 0.6rem;
-          padding: 0.1rem 0.8rem;
-        }
-        p{
-          padding: 0.3rem 0.8rem 0.5rem 0.8rem;
         }
         h3, p {
-          background-color: transparent;
+          padding: 0;
+          background-color: transparent !important;
           transition-duration: 0s;
         }
       }
       a:hover, a:focus {
         .caption {
           h3, p {
-            background-color: transparent;
+            background-color: transparent !important;
           }
         }
       }
@@ -96,7 +94,7 @@
         text-transform: none;
         letter-spacing: 0.125rem;
         border: none;
-        line-height: 3rem;
+        line-height: 1.2;
         padding: .3rem 1.2rem;
         font-size: 1.8rem;
         transition: all 0.3s ease-in-out;
@@ -108,7 +106,6 @@
         margin: 0px;
         padding: 0.6rem 1.2rem 0.8rem 1.2rem;
         font-size: 1.6rem;
-        line-height: 2.4rem;
         transition: all 0.3s ease-in-out;
         clear: both;
       }

@@ -10,8 +10,6 @@
       }
     }
     figcaption {
-      padding: 1.2rem;
-      h3 { margin: 0; font-size: 1.8rem; line-height: 1.2; }
       @at-root .color1#{&} { background-color: rgba($mc1-bg, 0.95); }
       @at-root .color2#{&} { background-color: rgba($mc2-bg, 0.95); }
       @at-root .color3#{&} { background-color: rgba($mc3-bg, 0.95); }

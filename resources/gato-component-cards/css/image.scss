@@ -1,4 +1,4 @@
-.gato-card-image, .gato-card-video {
+.gato-card {
   figure {
     margin: 0;
     img {
@@ -77,34 +77,6 @@
     &:hover {
       img {
         opacity: 0.9;
-      }
-    }
-  }
-}
-
-.gato-card-image {
-  figure {
-    figcaption {
-      padding: 2rem;
-      text-decoration: none;
-      @at-root [data-eq~="500px"]#{&} {
-        padding: 1.2rem;
-      }
-      .title {
-        margin: 0 0 0.6rem 0;
-        letter-spacing: 0.125rem;
-        font-size: 1.8rem;
-        line-height: 1.2;
-        @at-root [data-eq~="500px"]#{&} {
-          margin-bottom: 0.6rem;
-        }
-      }
-      p {
-        margin: 0;
-        font-size: 1.6rem;
-        @at-root [data-eq~="500px"]#{&} {
-          padding: 0.3rem 0.8rem 0.5rem 0.8rem;
-        }
       }
     }
   }

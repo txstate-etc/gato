@@ -1,11 +1,25 @@
 .section-grid, .section-masonry {
   margin: 0 0 3rem 0;
+  .gato-card {
+    box-shadow: $gato-card-shadow;
+    &.gato-card-add {
+      box-shadow: none;
+    }
+  }
 }
 
 .gato-card {
-  box-shadow: $gato-card-shadow;
-  &.gato-card-add {
-    box-shadow: none;
+  figcaption {
+    padding: 1.2rem;
+    .title {
+      margin: 0 0 0.6rem 0;
+      font-size: 1.8rem;
+      line-height: 1.2;
+    }
+    p {
+      margin: 0;
+      font-size: 1.6rem;
+    }
   }
 }
 .gato-card-hidden {

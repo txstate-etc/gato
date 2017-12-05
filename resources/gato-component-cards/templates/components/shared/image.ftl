@@ -28,9 +28,9 @@
       <figcaption>
         [@h2 class="title"]${content.title}[/@h2]
         [#if content.subtext?has_content]
-          <div class="caption-content">
+          <p class="caption-content">
             ${cmsfn.decode(content).subtext}
-          </div>
+          </p>
         [/#if]
       </figcaption>
     [/#if]
