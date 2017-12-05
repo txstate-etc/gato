@@ -42,20 +42,13 @@
         }
       }
     }
+    .slick-prev, .slick-next { padding: 2rem 1rem; top: 50%; }
   }
 }
 
 .gato-slider {
   position: relative;
   padding-bottom: 3.5rem;
-  .arrow-container {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    padding-top: 56.25%;
-    z-index: 1;
-  }
   .slide {
     position: relative;
     overflow: hidden;
@@ -369,12 +362,20 @@
       }
     }
   }
+  .arrow-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding-top: 56.25%;
+  }
   .slick-prev, .slick-next {
-    @include verticalcenter();
+    @include verticalcenter(-8%);
     text-shadow: 0px 0px 1px $feature-arrow-text-shadow-color;
     color: $white;
     background-color: transparent;
-    padding: 2rem 1rem;
+    padding: 2rem 2.2rem;
+    z-index: 1;
     text-decoration: none;
     font-size: 0px;
     border: none;
