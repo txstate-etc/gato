@@ -11,7 +11,7 @@
       text-align: left;
       word-wrap: break-word;
     }
-    .forcegrid & .crop-container {
+    .crop-container.cropped {
       position: relative;
       overflow: hidden;
       height: 0;

@@ -1,6 +1,9 @@
 div#spotlight {
-  .slick-dots {
-    display: none !important;
+  .gato-slider {
+    padding-bottom: 0;
+    .slick-dots {
+      display: none !important;
+    }
   }
   [data-eq~="1200px"] {
     @include sliderdropbelow();

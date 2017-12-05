@@ -3,4 +3,33 @@ form:
     - name: tabTexts
       label: Image Card
       fields: !include /gato-component-cards/dialogs/tabs/image.yaml
+    - name: tabAspect
+      label: Cropping
+      fields:
+        - name: aspect
+          class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
+          multiselect: false
+          type: Double
+          label: Image Cropping
+          sortOptions: false
+          options:
+            - name: none
+              label: Do not crop
+              value: 0
+              selected: true
+            - name: 169
+              label: Crop image to 16:9 landscape
+              value: 1.777778
+            - name: 43
+              label: Crop image to 4:3 landscape
+              value: 1.333333
+            - name: 34
+              label: Crop image 3:4 portrait
+              value: 0.75
+            - name: 32
+              label: Crop image 3:2 landscape
+              value: 1.5
+            - name: 1
+              label: Crop image to 1:1 square
+              value: 1.0
 actions: !include /gato-template/dialogs/common/actions-block.yaml

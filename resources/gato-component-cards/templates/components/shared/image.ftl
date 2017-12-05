@@ -9,14 +9,19 @@
   [/#if]
 
   <figure>
-    [#if (ctx.aspect!0) > 0]
+    [#assign ar = ctx.aspect!0]
+    [#if ar == 0 && (content.aspect!0) > 0]
+      [#assign ar = content.aspect]
+    [/#if]
+    [#if ar > 0]
+      [#assign croppingclass = 'cropped']
       [#assign aspectclass = 'tall']
-      [#if gf.getImgAspectRatio(content.image) > ctx.aspect]
+      [#if gf.getImgAspectRatio(content.image) > ar]
         [#assign aspectclass = 'wide']
       [/#if]
-      [#assign padbottom = 100/ctx.aspect]
+      [#assign padbottom = 100/ar]
     [/#if]
-    <div class="crop-container ${aspectclass!}" style="padding-bottom: ${padbottom!0}%;">
+    <div class="crop-container ${aspectclass!} ${croppingclass!}" style="padding-bottom: ${padbottom!0}%;">
       <img src="${gf.getImgDefault(content.image, ctx.sizes)}" sizes="${ctx.sizes}" alt="${content.alttext!}" srcset="${gf.getSrcSet(content.image)}" width="${gf.getImgWidth(content.image)?c}" height="${gf.getImgHeight(content.image)?c}"/>
     </div>
     [#if content.title?has_content]
