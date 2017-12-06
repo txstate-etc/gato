@@ -2,6 +2,7 @@
 //sass variables
 @import "gato-template/css/variables";
 @import "gato-template-txstate2015/css/variables";
+@import "gato-template-txstate2015/css/homepage/variables";
 @import "gato-template-txstate2015/css/contenttypes";
 @import "gato-template/css/includes";
 
@@ -37,6 +38,9 @@
 
 /* Print rules */
 @import "gato-template-txstate2015/css/print";
+
+/* Homepage */
+@import "gato-template-txstate2015/css/homepage";
 
 /* Global Search Template */
 @import "gato-template-txstate2015/css/globalsearch";

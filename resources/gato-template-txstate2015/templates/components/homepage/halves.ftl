@@ -1,4 +1,4 @@
-<div id="spotlight" class="content-row comp two-col">
+<div class="spotlight content-row comp two-col">
   <div class="content-row-content">
     <div class="content-row-column col-left eq-parent">
       [#assign hlevel = 2]

@@ -1,4 +1,4 @@
-div#spotlight {
+.spotlight {
   .gato-slider {
     padding-bottom: 0;
     .slick-dots {
@@ -13,8 +13,8 @@ div#spotlight {
     background: $maroon;
     color: white;
   }
+  .column_paragraph {
+    h3 { color: $very-dark; }
+  }
 }
 
-.column_paragraph {
-  h3 { color: $very-dark; }
-}

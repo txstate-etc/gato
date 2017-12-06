@@ -4,7 +4,7 @@
 <!DOCTYPE HTML>
 <html lang="en">
   <head>
-    <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-txstate2015/css/txstate2015.scss"/>
+    <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-txstate2015/css/homepage2015.scss"/>
     [@templatejs scripts = [
       'gato-template-txstate2015/js/includes.cjs',
       'gato-template-txstate2015/js/home.cjs',

@@ -223,11 +223,6 @@
 
     &.video-slide{
       .caption{
-        h3{
-          padding: 1.3rem 1.2rem;
-          font-weight: 500;
-          line-height: 2.4rem;
-        }
         a:hover{
           background: transparent;
         }
@@ -382,6 +377,10 @@
     outline: none;
     transition: transform .2s ease-in-out;
     &:before { font-size: 6.4rem !important; }
+    [data-eq~="1200px"] &:before { font-size: 36px; }
+    [data-eq~="800px"] &:before { font-size: 32px; }
+    [data-eq~="400px"] &:before { font-size: 28px; }
+    [data-eq~="200px"] &:before { font-size: 24px; }
     &:hover, &:focus {
       color: #fff;
       transform: translateY(-50%) scale(1.1);
@@ -455,42 +454,8 @@
     }
   }
 
-  [data-eq~="1200px"] & {
-    .slide {
-      .caption {
-        font-size: 1.1em;
-      }
-    }
-    .slick-prev, .slick-next { &:before { font-size: 36px; } }
-  }
-
-  [data-eq~="800px"] & {
-    .slide {
-      .caption {
-        font-size: 1em;
-      }
-    }
-    .slick-prev, .slick-next { &:before { font-size: 32px; } }
-  }
-
   @at-root [data-eq~="700px"] {
     @include sliderdropbelow();
   }
-  [data-eq~="400px"] & {
-    .slide {
-      .caption {
-        font-size: 0.9em;
-      }
-    }
-    .slick-prev, .slick-next { &:before { font-size: 28px; } }
-  }
-  [data-eq~="200px"] & {
-    .slide {
-      .caption {
-        font-size: 0.8em;
-        h3 { margin: 0px 0px 4px 0px; }
-      }
-    }
-    .slick-prev, .slick-next { &:before { font-size: 24px; } }
-  }
+
 }
