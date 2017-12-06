@@ -20,7 +20,7 @@ jQuery(function($) {
       if ($grid.is('.forcegrid')) {
         var $captions = $grid.find('figcaption');
         var maxfigureheight = Math.max.apply(null, $captions.map(function() {
-          return $(this).find('h3').outerHeight(true)+$(this).find('.caption-content').outerHeight(true)+$(this).outerHeight()-$(this).height();;
+          return $(this).find('.title').outerHeight(true)+$(this).find('.caption-content').outerHeight(true)+$(this).outerHeight()-$(this).height();;
         }));
         animationframe(function () { $captions.css('min-height', maxfigureheight+'px'); });
         return;
