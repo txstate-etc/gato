@@ -368,7 +368,7 @@ public final class GatoUtils {
     return getSrcSet(assetOrId, 0f, 0f, 0f, 0f);
   }
 
-  public String getSrcSet(Object assetOrId, int quality) {
+  public String getSrcSetWithQuality(Object assetOrId, int quality) {
     return getSrcSet(assetOrId, -1f, quality);
   }
 
