@@ -8,6 +8,7 @@
 [/#if]
 [#assign colorCount = gf.getTemplateColorCount(cmsfn.metaData(cmsfn.root(content, "mgnl:page"), "mgnl:template"))!7]
 <div class="slides">
+  <div class="arrow-container"></div>
   [#assign aspectratio = 16.0/9.0]
   [#list components as slide]
     [#assign colorClass = ctx.colorClass /]
