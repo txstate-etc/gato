@@ -93,7 +93,7 @@ jQuery(function($) {
 					});
 					gatogridlayout($section);
 				}
-				window.dispatchEvent(new Event('resize')); // allow any resize handlers to re-layout the page
+				$(window).trigger('resize'); // allow any resize handlers to re-layout the page
 			}
 		};
 
