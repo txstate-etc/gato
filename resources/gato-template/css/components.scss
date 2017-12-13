@@ -5,6 +5,9 @@
 .column_paragraph {
   margin: 0px 0px 3rem 0px;
   word-wrap: break-word;
+  @extend .clearfix;
+}
+.column_paragraph, .txst-form {
   a {
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
@@ -13,7 +16,6 @@
     color: $content-link-text;
     &:hover { background-color: $content-link-hover; }
   }
-  @extend .clearfix;
   ul, ol {
     li {
       margin-bottom: 0.5rem;
