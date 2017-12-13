@@ -110,7 +110,7 @@ input[type="search"]:focus {outline: none;}
     width: 50%;
   }
 
-  body.admin &.header_no_image {
+  @at-root body.admin .header_no_image {
     .title{
       position: relative;
     }
@@ -204,11 +204,12 @@ input[type="search"]:focus {outline: none;}
     margin-bottom: -18px;
   }
 
-  .banner_content, .dept_name {
-    max-width: 1200px;
-    margin: auto;
-    @media (max-width: $xl-breakpoint){
-      max-width: 1000px;
-    }
+}
+
+.banner_content, .dept_name {
+  max-width: 1200px;
+  margin: auto;
+  @media (max-width: $xl-breakpoint){
+    max-width: 1000px;
   }
 }
