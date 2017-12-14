@@ -67,7 +67,7 @@ public class GatoResourcesServlet extends ResourcesServlet {
     }
   }
 
-  public void initialize() {
+  public synchronized void initialize() {
     this.cache.clear();
     try {
       MgnlContext.doInSystemContext(new JCRSessionOp<Boolean>("config") {
@@ -83,7 +83,7 @@ public class GatoResourcesServlet extends ResourcesServlet {
     }
   }
 
-  protected String compileSass(Resource resource) throws IOException, URISyntaxException, CompilationException {
+  protected synchronized String compileSass(Resource resource) throws IOException, URISyntaxException, CompilationException {
     String path = resource.getPath();
     if (this.cache.containsKey(path)) return this.cache.get(path);
 
@@ -94,7 +94,7 @@ public class GatoResourcesServlet extends ResourcesServlet {
     return ret;
   }
 
-  protected String compileCjs(Resource resource) throws IOException {
+  protected synchronized String compileCjs(Resource resource) throws IOException {
     String path = resource.getPath();
     if (this.cache.containsKey(path)) return this.cache.get(path);
 
