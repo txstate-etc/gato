@@ -637,13 +637,13 @@ public final class GatoUtils {
     return body.html();
   }
 
-  public String processRichText(String str, long headerlevel) {
+  public String processRichTextLevel(String str, long headerlevel) {
     str = richTextFindAndReplaceImages(str);
     str = richTextAdjustHeaders(str, headerlevel);
     return str;
   }
   public String processRichText(String str) {
-    return processRichText(str, 2);
+    return processRichTextLevel(str, 2);
   }
 
   public String convertLinksToAbsolute(String str) {
