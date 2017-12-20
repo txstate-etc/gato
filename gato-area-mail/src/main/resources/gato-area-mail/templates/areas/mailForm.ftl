@@ -9,7 +9,7 @@
         [@cms.area name="formproperties" /]
         [#if cmsfn.isEditMode()]
         <p>
-          You can also download the data from this form using the <a href="${model.dataToolLink}" onclick="window.open(this.href, '_blank')">form data tool</a>.
+          You can also download the data from this form using the <a href="${model.dataToolLink}" onclick="window.open(this.href, '_blank'); return false;" style="cursor: pointer !important; text-decoration: underline;">form data tool</a>.
         </p>
         [/#if]
       </div>
