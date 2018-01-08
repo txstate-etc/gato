@@ -14,7 +14,7 @@
             <div class="top">
                 <div class="copyright">
                     <a class="footer-logo">The Texas State University System</a>
-                    <div>©2017 The Texas State University System All Rights Reserved.</div>
+                    <div>©${.now?string("yyyy")} The Texas State University System All Rights Reserved.</div>
                 </div>
                 <ul class="links">
                     [@cms.area name="footerlinks1" content=gf.getOrCreateArea(homepage, 'footerlinks1') editable=isHomePage /]
