@@ -100,21 +100,23 @@ a, a:link, a:visited {
 }
 
 /*Blockquotes*/
-blockquote p:before {
-  font-family: FontAwesome;
-  content: "\f10d";
-  color :#8e847a;
- font-size: 3.9rem;
-  position: absolute;
-  top: -.5rem;
-  left: -.5rem;
-}
-blockquote p{
-  font-weight: lighter;
-	display: block;
-	position: relative;
-	padding: 0 0 1.1rem 4.6rem;
-
+.gato-rich-editor, .gato-html {
+  blockquote {
+    font-weight: lighter;
+    position: relative;
+    margin: 2rem 0;
+    padding: 0 0 0 5.6rem;
+    min-height: 4rem;
+    &:before {
+      font-family: FontAwesome;
+      content: "\f10d";
+      color :#8e847a;
+      font-size: 3.9rem;
+      position: absolute;
+      top: -.5rem;
+      left: 0;
+    }
+  }
 }
 
 ::-moz-selection {background: $text-selection; text-shadow: none;}
