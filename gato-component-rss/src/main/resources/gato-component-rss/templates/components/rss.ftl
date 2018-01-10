@@ -39,7 +39,11 @@
     <div class="gato-rss-item ${model.collapsible?string('gato-accordion', '')}"
       data-start-collapsed="${model.collapsed?string('true', 'false')}">
       [@h2 class="${model.collapsible?string('gato-accordion-header', '')}" offset=offset]
-        <a href="${entry.link}" id="${entry.cleanGuid}">${entry.title!}</a>
+        [#if entry.link?has_content]
+          <a href="${entry.link}" id="${entry.cleanGuid}">${entry.title!}</a>
+        [#else]
+          ${entry.title!}
+        [/#if]
       [/@h2]
       <div class="gato-accordion-content">
         [#if (content.showThumbnails!false) && entry.thumbnail?has_content]
@@ -62,9 +66,11 @@
             <div class="gato-rss-itemdescription-content">
               ${model.fmtItemText(entry)}
             </div>
+            [#if entry.link?has_content]
             <div class="gato-rss-more-link">
               <a href="${entry.link}" aria-labelledby="${entry.cleanGuid}">Read more</a>
             </div>
+            [/#if]
           </div>
         [/#if]
       </div>
