@@ -8,18 +8,17 @@ div#video-modal {
   padding: 0;
   z-index: 65536;
 
-  a {
-    display: inline-block;
-    min-width: 50px;
-    text-align: center;
-    color: $light-gray;
-    &:hover { color: $white; }
-  }
-
   .video-modal-buttons {
     text-align: right;
     font-size: 3.5rem;
-    a { padding: 1rem 2rem; }
+    a {
+      padding: 1rem 2rem;
+      display: inline-block;
+      min-width: 50px;
+      text-align: center;
+      color: $light-gray;
+      &:hover { color: $white; }
+    }
   }
 
   .video-container {

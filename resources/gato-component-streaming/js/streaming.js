@@ -46,7 +46,7 @@ function getFileExtension(url) {
   return url.substr(dot + 1);
 }
 
-function buildFlowPlayer(el, videoInfo) {
+function buildFlowPlayer(el, videoInfo, opts) {
   var container = jQuery('<div class="functional"></div>');
   jQuery(el).append(container);
   var ext = getFileExtension(videoInfo.url);
@@ -55,6 +55,7 @@ function buildFlowPlayer(el, videoInfo) {
     flowplayer(container, {
       embed: false,
       hlsjs: usehlsjs,
+      autoplay: opts.autoplay ? true : false,
       clip: {
         sources: [{ type: flowPlayerTypes[ext], src: videoInfo.url}]
       }
@@ -105,17 +106,17 @@ function oEmbedGetInfo(el, oembedurl, videourl) {
     .fail(function () { createNonOembedPlayer(el, videourl); });
 }
 
-function oEmbedAutodiscover(el, videourl) {
+function oEmbedAutodiscover(el, videourl, opts) {
   jQuery.ajax(videourl, {dataType: 'xml'})
     .done(function(data) {
       var oembedurl = jQuery('link[type="application/json+oembed"]', data).attr('href');
       if (!isBlank(oembedurl)) oEmbedGetInfo(el, oembedurl, videourl);
       else createNonOembedPlayer(el, videourl);
     })
-    .fail(function () { createNonOembedPlayer(el, videourl); });
+    .fail(function () { createNonOembedPlayer(el, videourl, opts); });
 }
 
-function createPlayer(el, url) {
+function createPlayer(el, url, opts) {
   var urlInfo = urlParser.parse(url);
   var oembedurl;
   var embedcode = jQuery(el).data('embed');
@@ -124,18 +125,18 @@ function createPlayer(el, url) {
   } else if (url.match(/^https?:\/\/mediaflo/)) {
     oEmbedGetInfo(el, "https://secure.its.txstate.edu/mediaflo_oembed/mediaflo_oembed?format=json&url="+encodeURIComponent(url), url);
   } else {
-    oEmbedAutodiscover(el, url);
+    oEmbedAutodiscover(el, url, opts);
   }
 }
 
-function createNonOembedPlayer(el, url) {
+function createNonOembedPlayer(el, url, opts) {
   var videoInfo = getVideoInfo(url);
   switch(videoInfo.playerType) {
     case "embed":
       buildEmbed(el, videoInfo.url);
       break;
     case "flow":
-      buildFlowPlayer(el, videoInfo);
+      buildFlowPlayer(el, videoInfo, opts);
       break;
     case "ustream_recorded":
       buildUstreamRecorded(el, videoInfo);

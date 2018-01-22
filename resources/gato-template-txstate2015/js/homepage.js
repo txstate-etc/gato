@@ -181,13 +181,27 @@ jQuery(function($) {
     animateTopSlider(0, 750);
   }
 
-  // Research Slider
-  $('.research .slides').slick({
-    dots: true,
-    arrows: true,
-    adaptiveHeight: false,
-    autoplay: false,
-    appendArrows: $('.research .slide-nav')
+  // Instagram Slider
+  var instagramanimating = false;
+  $('.instagram .image .slide:not(:first-child)').hide();
+  $('.instagram .image .arrow').click(function (e) {
+    e.preventDefault();
+    if (instagramanimating) return;
+    instagramanimating = true;
+    var slides = $(this).closest('.image').find('.slides .slide');
+    var current = slides.filter(':visible');
+    if (current.length == 0) current = slides.first();
+    if ($(this).is('.prev')) {
+      var prev = current.prev();
+      if (prev.length == 0) prev = slides.last();
+      prev.velocity({left: ['0%','-100%']}, {duration: 150, begin: function () { prev.show(); } });
+      current.velocity({left: ['100%','0%']}, {duration: 150, complete: function () { current.hide(); instagramanimating = false; } });
+    } else {
+      var next = current.next();
+      if (next.length == 0) next = slides.first();
+      next.velocity({left: ['0%','100%']}, {duration: 150, begin: function () { next.show(); } });
+      current.velocity({left: ['-100%','0%']}, {duration: 150, complete: function () { current.hide(); instagramanimating = false; } });
+    }
   });
 
   // twitter

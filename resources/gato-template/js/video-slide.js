@@ -42,7 +42,7 @@ jQuery(function($) {
   $('.feature-play-button a, a.feature-play-button').blurclick(function(e) {
     var $lnk = $(this);
     // get list of siblings that have videos
-    var $slides = $lnk.closest('.gato-slider').find('.slide:not(.slick-cloned)').find('.feature-play-button a, a.feature-play-button');
+    var $slides = $lnk.closest('.gato-slider, .slides').find('.slide:not(.slick-cloned)').find('.feature-play-button a, a.feature-play-button');
     vmodal.open($lnk, $slides);
   });
 
@@ -67,7 +67,9 @@ jQuery(function($) {
   });
 
   $('#video-modal .video-modal-close').blurclick(vmodal.close);
-  $('#video-modal').on('click', vmodal.close);
+  $('#video-modal').on('click', function (e) {
+    if ($(e.target).closest('.video-container').length == 0) vmodal.close();
+  });
   $(window).on('keydown', function(e) {
     if (vmodal.isOpen && e.keyCode == 27) {
       vmodal.close();

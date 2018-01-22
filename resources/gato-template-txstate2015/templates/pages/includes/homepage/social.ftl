@@ -22,7 +22,7 @@
       </div>
 
       <div class="content-row-column">
-        <div class="instagram col-left">
+        <div class="instagram col-left eq-parent">
           [#assign post = response.path("instagram").path(0) /]
           [#if post?has_content]
             [#assign link = post.path('link').asText() /]
@@ -31,9 +31,31 @@
             [#assign time = post.path('posttime').asText() /]
             <div class="social-upper">
               <figure class="image">
-                <a href="${link!}">
-                  <img src="${gf.getImg(image!, 640, 640, true, false, 0, 0, 0, 0)}" alt="Instagram Post">
-                </a>
+                [#if post.get('slides')?has_content && post.get('slides').getElements()?has_content]
+                  <div class="slides">
+                    [#list post.get('slides').getElements() as att]
+                      <div class="slide">
+                        <a href="${link!}" class="linktosmsite">
+                          <img src="${gf.getImg(att.get('url').asText(), 640, 640, true, false, 0, 0, 0, 0)}" alt="Instagram Post">
+                        </a>
+                        [#if att.get('video_url').asText()?has_content]
+                          <a href="${att.get('video_url').asText()}" class="feature-play-button"
+                          data-embed="${gf.jsonGetString(gf.oEmbedAutodiscover(att.get('video_url').asText()), 'html')?html}"><i class="fa fa-play" aria-hidden="true"></i><span class="visuallyhidden">Play Video</span></a>
+                        [/#if]
+                      </div>
+                    [/#list]
+                  </div>
+                  <a href="#" class="arrow prev fa fa-angle-left" aria-hidden="true"></a>
+                  <a href="#" class="arrow next fa fa-angle-right" aria-hidden="true"></a>
+                [#else]
+                  <a href="${link!}" class="linktosmsite">
+                    <img src="${gf.getImg(image!, 640, 640, true, false, 0, 0, 0, 0)}" alt="Instagram Post">
+                  </a>
+                  [#if !post.get('video_url').isNull() && post.get('video_url').asText()?has_content]
+                    <a href="${post.get('video_url').asText()}" class="feature-play-button"
+                    data-embed="${gf.jsonGetString(gf.oEmbedAutodiscover(post.get('video_url').asText()), 'html')?html}"><i class="fa fa-play" aria-hidden="true"></i><span class="visuallyhidden">Play Video</span></a>
+                  [/#if]
+                [/#if]
                 <figcaption class="caption">
                   <p>${gf.linkifyInstagram(caption)!}</p>
                   <p><span class="source-link">(<a href="${link!}">via Instagram</a>)</span></p>
