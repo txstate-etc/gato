@@ -24,9 +24,11 @@
     <div class="crop-container ${aspectclass!} ${croppingclass!}" style="padding-bottom: ${padbottom!0}%;">
       <img src="${gf.getImgDefault(content.image, ctx.sizes)}" sizes="${ctx.sizes}" alt="${content.alttext!}" srcset="${gf.getSrcSet(content.image)}" width="${gf.getImgWidth(content.image)?c}" height="${gf.getImgHeight(content.image)?c}"/>
     </div>
-    [#if content.title?has_content]
+    [#if content.title?has_content || content.subtext?has_content]
       <figcaption>
-        [@h2 class="title"]${content.title}[/@h2]
+        [#if content.title?has_content]
+          [@h2 class="title"]${content.title}[/@h2]
+        [/#if]
         [#if content.subtext?has_content]
           <p class="caption-content">
             ${cmsfn.decode(content).subtext}
