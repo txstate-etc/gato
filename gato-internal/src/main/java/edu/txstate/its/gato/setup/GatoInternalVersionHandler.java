@@ -154,7 +154,6 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       .addTask(new BootstrapSingleModuleResource("config.modules.resources.config.resourceFilter.byType.cjs.xml"))
       .addTask(new BootstrapSingleModuleResource("config.server.MIMEMapping.cjs.xml"))
       .addTask(new BootstrapSingleModuleResource("config.modules.site.config.site.templates.availability.templates.emergency.xml"))
-      .addTask(new SetPropertyTask(RepositoryConstants.CONFIG, "/server/filters/servlets/ResourcesServlet", "servletClass", "edu.txstate.its.gato.GatoResourcesServlet"))
       .addTask(new RssCardShowTimeTask())
       .addTask(new SetPropertyTask("Allow mixed case logins", RepositoryConstants.CONFIG, "/modules/cas/config", "caseSensitiveUserNames", Boolean.FALSE))
       .addTask(new UpdateHeroSliderTask())
@@ -173,6 +172,9 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
     tasks.add(new UpdateTemplateBeneathPathTask("/wittliff-content-examples", Arrays.asList("gato-template-txstate2015:pages/mail-template"), "gato-template-wittliff:pages/mail"));
     tasks.add(new UpdateTemplateBeneathPathTask("/tsus-content-examples", Arrays.asList("gato-template-txstate2015:pages/standard-template"), "gato-template-tsus2017:pages/standard"));
     tasks.add(new UpdateTemplateBeneathPathTask("/tsus-content-examples", Arrays.asList("gato-template-txstate2015:pages/mail-template"), "gato-template-tsus2017:pages/mail"));
+    tasks.add(new SetPropertyTask(RepositoryConstants.CONFIG, "/server/filters/servlets/ResourcesServlet", "servletClass", "edu.txstate.its.gato.GatoResourcesServlet"));
+    tasks.add(new BootstrapSingleModuleResource("config.server.MIMEMapping.scss.xml"));
+    tasks.add(new BootstrapSingleModuleResource("config.server.MIMEMapping.cjs.xml"));
     tasks.add(new RandomizeCacheStrTask());
     return tasks;
   }
