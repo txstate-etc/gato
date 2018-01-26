@@ -13,11 +13,14 @@ div#social {
         top: 0;
         width: 100%;
         height: 100%;
-        @include coverimage();
       }
       .image {
+        position: relative;
+        overflow: hidden;
+        height: 100%;
         a.linktosmsite {
           @extend .hover-blur;
+          @include coverimage();
           height: 100%;
           &, img {
             display: block;
@@ -95,9 +98,6 @@ div#social {
 
     .instagram {
       .image {
-        position: relative;
-        overflow: hidden;
-        height: 100%;
         @at-root html.no-touch &:hover {
           .caption {
             bottom: 0;
@@ -172,13 +172,12 @@ div#social {
     .facebook {
       font-size: 1.6rem;
       padding-bottom: 2.5rem;
-
-      .image > a {
+      .slides { height: 100%; }
+      .noslides {
         position: relative;
+        height: 50%;
         overflow: hidden;
-
       }
-
       .fb-content {
         padding: 0 1rem;
         p {
@@ -192,6 +191,9 @@ div#social {
           padding: 3px 5px;
           margin: -3px -5px;
         }
+      }
+      .social-upper .image {
+        .feature-play-button, .arrow { top: 50%; }
       }
 
       .social-area-icon a {

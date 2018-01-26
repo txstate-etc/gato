@@ -6,6 +6,7 @@ import info.magnolia.dam.api.Asset;
 import info.magnolia.jcr.util.PropertyUtil;
 
 import java.net.URLEncoder;
+import java.util.Base64;
 import javax.inject.Inject;
 
 import javax.jcr.Node;
@@ -42,7 +43,15 @@ public class TxStateResizer extends GatoResizer {
 
   public String createLink(String url) {
     try {
-      String returl = gf.getImageHandlerBase()+gf.getCacheStr(url)+"/imagehandler/scaler/"+url.replaceAll("^\\w{3,15}://", "");
+      String targeturl = url;
+      String returl = gf.getImageHandlerBase()+gf.getCacheStr(url);
+      if (targeturl.contains("?")) {
+        targeturl = Base64.getUrlEncoder().encodeToString(targeturl.getBytes("UTF-8"));
+        returl += "/imagehandler/scaler_base64/"+targeturl;
+      } else {
+        targeturl = targeturl.replaceAll("^\\w{3,15}://", "");
+        returl += "/imagehandler/scaler/"+targeturl;
+      }
       return buildUrl(returl);
     } catch (Exception e) {
       e.printStackTrace();

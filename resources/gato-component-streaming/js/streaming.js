@@ -40,6 +40,7 @@ function getVideoInfo(url) {
 }
 
 function getFileExtension(url) {
+  url = url.split('?', 2)[0];
   var dot = url.lastIndexOf('.');
   if (dot == -1) { return ''; }
 

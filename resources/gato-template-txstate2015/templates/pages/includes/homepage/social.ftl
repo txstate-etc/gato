@@ -123,9 +123,29 @@
             [#assign time = post.path('posttime').asText() /]
             <div class="social-upper">
               <figure class="image">
-                <a href="${link!}">
-                  <img src="${gf.getImg(image!, 1080, 400, true, false, 0, 0, 0, 0)}" alt="Facebook Post">
-                </a>
+                [#if post.get('slides')?has_content && post.get('slides').getElements()?has_content]
+                  <div class="slides">
+                    [#list post.get('slides').getElements() as att]
+                      <div class="slide">
+                        <a href="${link!}" class="linktosmsite">
+                          <img src="${gf.getImg(att.get('url').asText(), 640, 640, true, false, 0, 0, 0, 0)}" alt="Facebook Post">
+                        </a>
+                      </div>
+                    [/#list]
+                  </div>
+                  <a href="#" class="arrow prev fa fa-angle-left" aria-hidden="true"></a>
+                  <a href="#" class="arrow next fa fa-angle-right" aria-hidden="true"></a>
+                [#else]
+                  <div class="noslides">
+                    <a href="${link!}" class="linktosmsite noslides">
+                      <img src="${gf.getImg(image!, 640, 640, true, false, 0, 0, 0, 0)}" alt="Facebook Post">
+                    </a>
+                    [#if !post.get('video_url').isNull() && post.get('video_url').asText()?has_content]
+                      <a href="${post.get('video_url').asText()}" class="feature-play-button"
+                      data-embed="${gf.jsonGetString(gf.oEmbedAutodiscover(post.get('video_url').asText()), 'html')?html}"><i class="fa fa-play" aria-hidden="true"></i><span class="visuallyhidden">Play Video</span></a>
+                    [/#if]
+                  </div>
+                [/#if]
                 <figcaption class="fb-content">
                   <p class="desc">${gf.linkify(caption)!}</p>
                   <p><a class="source-link" href="${link!}">(via Facebook)</a></p>
