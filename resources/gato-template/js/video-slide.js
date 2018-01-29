@@ -9,10 +9,10 @@ jQuery(function($) {
       var dataEmbed = $lnk.data('embed');
 
       // special treatment for youtube and vimeo to autoplay when the modal appears
-      var dataEmbed = dataEmbed.replace(/src="(.*?youtube\.com.*?)"/i, 'src="$1&autoplay=1"');
-      var dataEmbed = dataEmbed.replace(/src="(.*?vimeo\.com.*?)"/i, 'src="$1?autoplay=1"');
-      var dataEmbed = dataEmbed.replace(/src="(.*?mediaflo\.txstate\.edu.*?autoPlay=)\w+(.*?)"/i, 'src="$1true$2"');
-      var dataEmbed = dataEmbed.replace(/src="(.*?facebook\.com.*?)"/i, 'src="$1&autoplay=true"');
+      dataEmbed = dataEmbed.replace(/src="(.*?youtube\.com.*?)"/i, 'src="$1&autoplay=1"');
+      dataEmbed = dataEmbed.replace(/src="(.*?vimeo\.com.*?)"/i, 'src="$1?autoplay=1"');
+      dataEmbed = dataEmbed.replace(/src="(.*?mediaflo\.txstate\.edu.*?autoPlay=)\w+(.*?)"/i, 'src="$1true$2"');
+      dataEmbed = dataEmbed.replace(/src="(.*?facebook\.com.*?)"/i, 'src="$1&autoplay=true"');
 
       var dataUrl = $lnk.attr('href');
       var $container = $('<div class="gatoEmbedContainer" data-url="' + dataUrl + '" data-embed=\''+ dataEmbed +'\'></div>');

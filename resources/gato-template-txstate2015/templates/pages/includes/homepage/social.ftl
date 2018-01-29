@@ -10,7 +10,7 @@
 [/#macro]
 
 [#attempt]
-[#assign response = service.all() /]
+[#assign response = gf.restClientNodeToFreemarker(service.all()) /]
 [#if response?has_content]
 <div id="social" class="content-row main three-col">
   <div class="content-row-content">
@@ -23,24 +23,19 @@
 
       <div class="content-row-column">
         <div class="instagram col-left eq-parent">
-          [#assign post = response.path("instagram").path(0) /]
+          [#assign post = response['instagram'][0] /]
           [#if post?has_content]
-            [#assign link = post.path('link').asText() /]
-            [#assign image = post.path('image_proxy').asText() /]
-            [#assign caption = post.path('caption').asText() /]
-            [#assign time = post.path('posttime').asText() /]
             <div class="social-upper">
               <figure class="image">
-                [#if post.get('slides')?has_content && post.get('slides').getElements()?has_content]
+                [#if post['slides']?has_content]
                   <div class="slides">
-                    [#list post.get('slides').getElements() as att]
+                    [#list post['slides'] as att]
                       <div class="slide">
-                        <a href="${link!}" class="linktosmsite">
-                          <img src="${gf.getImg(att.get('url').asText(), 640, 640, true, false, 0, 0, 0, 0)}" alt="Instagram Post">
+                        <a href="${post['link']!}" class="linktosmsite">
+                          <img src="${gf.getImg(att['url'], 640, 640, true, false, 0, 0, 0, 0)}" alt="Instagram Post">
                         </a>
-                        [#if att.get('video_url').asText()?has_content]
-                          <a href="${att.get('video_url').asText()}" class="feature-play-button"
-                          data-embed="${gf.jsonGetString(gf.oEmbedAutodiscover(att.get('video_url').asText()), 'html')?html}"><i class="fa fa-play" aria-hidden="true"></i><span class="visuallyhidden">Play Video</span></a>
+                        [#if att['video_url']?has_content]
+                          <a href="${att['video_url']}" class="feature-play-button"><i class="fa fa-play" aria-hidden="true"></i><span class="visuallyhidden">Play Video</span></a>
                         [/#if]
                       </div>
                     [/#list]
@@ -48,23 +43,22 @@
                   <a href="#" class="arrow prev fa fa-angle-left" aria-hidden="true"></a>
                   <a href="#" class="arrow next fa fa-angle-right" aria-hidden="true"></a>
                 [#else]
-                  <a href="${link!}" class="linktosmsite">
-                    <img src="${gf.getImg(image!, 640, 640, true, false, 0, 0, 0, 0)}" alt="Instagram Post">
+                  <a href="${post['link']!}" class="linktosmsite">
+                    <img src="${gf.getImg(post['image_url']!, 640, 640, true, false, 0, 0, 0, 0)}" alt="Instagram Post">
                   </a>
-                  [#if !post.get('video_url').isNull() && post.get('video_url').asText()?has_content]
-                    <a href="${post.get('video_url').asText()}" class="feature-play-button"
-                    data-embed="${gf.jsonGetString(gf.oEmbedAutodiscover(post.get('video_url').asText()), 'html')?html}"><i class="fa fa-play" aria-hidden="true"></i><span class="visuallyhidden">Play Video</span></a>
+                  [#if post['video_url']?has_content]
+                    <a href="${post['video_url']}" class="feature-play-button"><i class="fa fa-play" aria-hidden="true"></i><span class="visuallyhidden">Play Video</span></a>
                   [/#if]
                 [/#if]
                 <figcaption class="caption">
-                  <p>${gf.linkifyInstagram(caption)!}</p>
-                  <p><span class="source-link">(<a href="${link!}">via Instagram</a>)</span></p>
+                  <p>${gf.linkifyInstagram(post['caption'])!}</p>
+                  <p><span class="source-link">(<a href="${post['link']!}">via Instagram</a>)</span></p>
                 </figcaption>
               </figure>
             </div>
             <div class="social-lower">
               <p>
-                [@timestamp time /]
+                [@timestamp post['posttime'] /]
                 <span class="social-area-icon">
                   <a href="https://www.instagram.com/txst">
                     <i class="fa fa-instagram"></i>
@@ -81,19 +75,14 @@
         <div class="twitter col-middle">
           <div class="social-upper">
             <div class="slides">
-              [#list response.path("twitter").getElements() as post]
-                [#assign screen_name = post.path('screen_name').asText() /]
-                [#assign display_name = post.path('display_name').asText() /]
-                [#assign link = post.path('link').asText() /]
-                [#assign caption = post.path('html').asText() /]
-                [#assign time = post.path('tweettime').asText() /]
+              [#list response['twitter'] as post]
                 <div class="slide" style="${(post_index == 0)?string('','display:none;')}">
                   <p class="twitter-handle">
-                    <a href="https://twitter.com/${screen_name!}">@${screen_name!}</a>
+                    <a href="https://twitter.com/${post['screen_name']!}">@${post['screen_name']!}</a>
                   </p>
-                  <p class="twitter-name">${display_name!}</p>
-                  <p class="tweet">${caption!}</p>
-                  <p class="twitter-timestamp">[@timestamp time /]</p>
+                  <p class="twitter-name">${post['display_name']!}</p>
+                  <p class="tweet">${post['html']!}</p>
+                  <p class="twitter-timestamp">[@timestamp post['tweettime'] /]</p>
                 </div>
               [/#list]
             </div>
@@ -101,7 +90,7 @@
 
           <div class="social-lower">
             <p>
-              <span class="twitter-timestamp">[@timestamp response.path("twitter").path(0).path('tweettime').asText() /]</span>
+              <span class="twitter-timestamp">[@timestamp response['twitter'][0]['tweettime'] /]</span>
               <span class="social-area-icon">
                 <a href="https://twitter.com/txst">
                   <i class="fa fa-twitter"></i>
@@ -115,19 +104,15 @@
 
     --]<div class="content-row-column">
         <div class="facebook col-right">
-          [#assign post = gf.restClientNodeToFreemarker(response.path("facebook").path(0)) /]
+          [#assign post = response['facebook'][0] /]
           [#if post?has_content]
-            [#assign link = post['link'] /]
-            [#assign image = post['image_url'] /]
-            [#assign caption = post['caption'] /]
-            [#assign time = post['posttime'] /]
             <div class="social-upper">
               <figure class="image">
                 [#if post['slides']?? && post['slides']?size > 0]
                   <div class="slides">
                     [#list post['slides'] as att]
                       <div class="slide">
-                        <a href="${link!}" class="linktosmsite">
+                        <a href="${post['link']!}" class="linktosmsite">
                           <img src="${gf.getImg(att['url'], 640, 640, true, false, 0, 0, 0, 0)}" alt="Facebook Post">
                         </a>
                       </div>
@@ -137,8 +122,8 @@
                   </div>
                 [#else]
                   <div class="noslides">
-                    <a href="${link!}" class="linktosmsite noslides">
-                      <img src="${gf.getImg(image!, 640, 640, true, false, 0, 0, 0, 0)}" alt="Facebook Post">
+                    <a href="${post['link']!}" class="linktosmsite noslides">
+                      <img src="${gf.getImg(post['image_url']!, 640, 640, true, false, 0, 0, 0, 0)}" alt="Facebook Post">
                     </a>
                     [#if !post['video_url']?has_content]
                       <a href="${post['video_url']}" class="feature-play-button"
@@ -147,7 +132,7 @@
                   </div>
                 [/#if]
                 <figcaption class="fb-content">
-                  <p class="desc">${gf.linkify(caption)!}</p>
+                  <p class="desc">${gf.linkify(post['caption'])!}</p>
                   <p><a class="source-link" href="${link!}">(via Facebook)</a></p>
                 </figcaption>
               </figure>
@@ -155,7 +140,7 @@
 
             <div class="social-lower">
               <p>
-                [@timestamp time /]
+                [@timestamp post['posttime'] /]
                 <span class="social-area-icon">
                   <a href="https://www.facebook.com/TXSTATEU">
                     <i class="fa fa-facebook-official"></i>
