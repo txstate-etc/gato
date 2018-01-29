@@ -173,10 +173,9 @@ div#social {
     .facebook {
       font-size: 1.6rem;
       padding-bottom: 2.5rem;
-      .slides { height: 100%; }
-      .noslides {
+      .noslides, .slides {
         position: relative;
-        height: 50%;
+        height: 75%;
         overflow: hidden;
       }
       .fb-content {

@@ -77,6 +77,8 @@ import org.apache.commons.codec.digest.DigestUtils;
 
 import org.apache.jackrabbit.JcrConstants;
 
+import org.codehaus.jackson.JsonNode;
+
 import org.jsoup.Jsoup;
 import org.jsoup.select.Elements;
 import org.w3c.css.sac.CSSException;
@@ -1218,6 +1220,36 @@ public final class GatoUtils {
       return ret;
     } catch (Exception e) {
       return null;
+    }
+  }
+
+  public Object restClientNodeToFreemarker(JsonNode node) {
+    if (node.isObject()) {
+      Map<String,Object> ret = new HashMap<String,Object>();
+      Iterator<String> iter = node.getFieldNames();
+      while (iter.hasNext()) {
+        String next = iter.next();
+        ret.put(next, restClientNodeToFreemarker(node.get(next)));
+      }
+      return ret;
+    } else if (node.isArray()) {
+      List<Object> ret = new ArrayList<Object>();
+      Iterator<JsonNode> iter = node.getElements();
+      while (iter.hasNext()) {
+        JsonNode next = iter.next();
+        ret.add(restClientNodeToFreemarker(next));
+      }
+      return ret;
+    } else if (node.isNull()) {
+      return "";
+    } else if (node.isBoolean()) {
+      return node.asBoolean();
+    } else if (node.isIntegralNumber()) {
+      return node.asLong();
+    } else if (node.isNumber()) {
+      return node.asDouble();
+    } else {
+      return node.asText();
     }
   }
 

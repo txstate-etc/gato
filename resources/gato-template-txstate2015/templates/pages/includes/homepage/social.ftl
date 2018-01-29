@@ -115,34 +115,34 @@
 
     --]<div class="content-row-column">
         <div class="facebook col-right">
-          [#assign post = response.path("facebook").path(0) /]
+          [#assign post = gf.restClientNodeToFreemarker(response.path("facebook").path(0)) /]
           [#if post?has_content]
-            [#assign link = post.path('link').asText() /]
-            [#assign image = post.path('image_proxy').asText() /]
-            [#assign caption = post.path('caption').asText() /]
-            [#assign time = post.path('posttime').asText() /]
+            [#assign link = post['link'] /]
+            [#assign image = post['image_url'] /]
+            [#assign caption = post['caption'] /]
+            [#assign time = post['posttime'] /]
             <div class="social-upper">
               <figure class="image">
-                [#if post.get('slides')?has_content && post.get('slides').getElements()?has_content]
+                [#if post['slides']?? && post['slides']?size > 0]
                   <div class="slides">
-                    [#list post.get('slides').getElements() as att]
+                    [#list post['slides'] as att]
                       <div class="slide">
                         <a href="${link!}" class="linktosmsite">
-                          <img src="${gf.getImg(att.get('url').asText(), 640, 640, true, false, 0, 0, 0, 0)}" alt="Facebook Post">
+                          <img src="${gf.getImg(att['url'], 640, 640, true, false, 0, 0, 0, 0)}" alt="Facebook Post">
                         </a>
                       </div>
                     [/#list]
+                    <a href="#" class="arrow prev fa fa-angle-left" aria-hidden="true"></a>
+                    <a href="#" class="arrow next fa fa-angle-right" aria-hidden="true"></a>
                   </div>
-                  <a href="#" class="arrow prev fa fa-angle-left" aria-hidden="true"></a>
-                  <a href="#" class="arrow next fa fa-angle-right" aria-hidden="true"></a>
                 [#else]
                   <div class="noslides">
                     <a href="${link!}" class="linktosmsite noslides">
                       <img src="${gf.getImg(image!, 640, 640, true, false, 0, 0, 0, 0)}" alt="Facebook Post">
                     </a>
-                    [#if !post.get('video_url').isNull() && post.get('video_url').asText()?has_content]
-                      <a href="${post.get('video_url').asText()}" class="feature-play-button"
-                      data-embed="${post.get('video_embed_html').asText()?html}"><i class="fa fa-play" aria-hidden="true"></i><span class="visuallyhidden">Play Video</span></a>
+                    [#if !post['video_url']?has_content]
+                      <a href="${post['video_url']}" class="feature-play-button"
+                      data-embed="${post['video_embed_html']?html}"><i class="fa fa-play" aria-hidden="true"></i><span class="visuallyhidden">Play Video</span></a>
                     [/#if]
                   </div>
                 [/#if]

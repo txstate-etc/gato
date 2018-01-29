@@ -183,8 +183,8 @@ jQuery(function($) {
 
   // Instagram Slider
   var instagramanimating = false;
-  $('.instagram .image .slide:not(:first-child)').hide();
-  $('.instagram .image .arrow').click(function (e) {
+  $('.instagram, .facebook').find('.image .slide:not(:first-child)').hide();
+  $('.instagram, .facebook').find('.image .arrow').click(function (e) {
     e.preventDefault();
     if (instagramanimating) return;
     instagramanimating = true;
