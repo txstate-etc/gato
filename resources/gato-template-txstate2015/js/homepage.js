@@ -192,12 +192,12 @@ jQuery(function($) {
     var current = slides.filter(':visible');
     if (current.length == 0) current = slides.first();
     if ($(this).is('.prev')) {
-      var prev = current.prev();
+      var prev = current.prev('.slide');
       if (prev.length == 0) prev = slides.last();
       prev.velocity({left: ['0%','-100%']}, {duration: 150, begin: function () { prev.show(); } });
       current.velocity({left: ['100%','0%']}, {duration: 150, complete: function () { current.hide(); instagramanimating = false; } });
     } else {
-      var next = current.next();
+      var next = current.next('.slide');
       if (next.length == 0) next = slides.first();
       next.velocity({left: ['0%','100%']}, {duration: 150, begin: function () { next.show(); } });
       current.velocity({left: ['-100%','0%']}, {duration: 150, complete: function () { current.hide(); instagramanimating = false; } });
