@@ -142,7 +142,7 @@
                     </a>
                     [#if !post.get('video_url').isNull() && post.get('video_url').asText()?has_content]
                       <a href="${post.get('video_url').asText()}" class="feature-play-button"
-                      data-embed="${gf.jsonGetString(gf.oEmbedAutodiscover(post.get('video_url').asText()), 'html')?html}"><i class="fa fa-play" aria-hidden="true"></i><span class="visuallyhidden">Play Video</span></a>
+                      data-embed="${post.get('video_embed_html').asText()?html}"><i class="fa fa-play" aria-hidden="true"></i><span class="visuallyhidden">Play Video</span></a>
                     [/#if]
                   </div>
                 [/#if]
