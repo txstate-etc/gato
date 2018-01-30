@@ -52,7 +52,7 @@
                 [/#if]
                 <figcaption class="caption">
                   <p>${gf.linkifyInstagram(post['caption'])!}</p>
-                  <p><span class="source-link">(<a href="${post['link']!}">via Instagram</a>)</span></p>
+                  <p><span class="source-link"><a href="${post['link']!}">View post on Instagram</a></span></p>
                 </figcaption>
               </figure>
             </div>
@@ -133,7 +133,7 @@
                 [/#if]
                 <figcaption class="fb-content">
                   <p class="desc">${gf.linkify(post['caption'])!}</p>
-                  <p><a class="source-link" href="${link!}">(via Facebook)</a></p>
+                  <p><a class="source-link" href="${link!}">View post on Facebook</a></p>
                 </figcaption>
               </figure>
             </div>
