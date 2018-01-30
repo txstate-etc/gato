@@ -50,7 +50,7 @@
                 [/#if]
               </div>
               <figcaption>
-                ${gf.linkifyInstagram(post['caption'])!}
+                ${gf.linkifyInstagram(gf.textToHtmlWithMaxLines(post['caption'], 4, 45))}
                 <div class="source-link"><a href="${post['link']!}">View post on Instagram</a></div>
               </figcaption>
             </figure>

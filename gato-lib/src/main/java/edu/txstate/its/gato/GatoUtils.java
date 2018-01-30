@@ -1162,7 +1162,6 @@ public final class GatoUtils {
 
   public String linkifyInstagram(String text) {
     if (text != null) {
-      text = LINK_PATTERN.matcher(text).replaceAll("<a href=\"$1\">$1</a>");
       text = IG_USER_PATTERN.matcher(text).replaceAll("<a href=\"//instagram.com/$2\">$0</a>");
       text = HASHTAG_PATTERN.matcher(text).replaceAll("<a href=\"//instagram.com/explore/tags/$2/\">$0</a>");
     }
