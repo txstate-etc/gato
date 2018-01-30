@@ -1176,6 +1176,38 @@ public final class GatoUtils {
     return text;
   }
 
+  public String textToHtmlWithMaxLines(String text, int maxlines, int charsperline) {
+    if (StringUtils.isBlank(text)) return "";
+    StringBuilder ret = new StringBuilder();
+    String[] lines = text.split("\\r?\\n");
+    int linecount = 0;
+    int chars = 0;
+    for (String line : lines) {
+      String[] words = line.split("\\s+");
+      for (String word : words) {
+        if (StringUtils.isBlank(word)) continue;
+        if (word.length() + chars > charsperline) {
+          linecount += 1;
+          chars = 0;
+          if (linecount >= maxlines) return ret.append("...").toString();
+        }
+        if (LINK_PATTERN.matcher(word).matches()) {
+          String longword = word;
+          if (word.length() > charsperline) word = word.substring(0, charsperline-5)+"...";
+          ret.append("<a href=\""+longword+"\">"+word+"</a> ");
+        } else {
+          ret.append(word+" ");
+        }
+        chars += 1 + word.length();
+      }
+      linecount += 1;
+      chars = 0;
+      ret.append("<br>");
+      if (linecount >= maxlines) return ret.toString().replaceAll("(<br>)+$","")+" ...";
+    }
+    return ret.toString();
+  }
+
   // freemarker seems to suck at dates. let's try to parse them in Java
   public Date parseJsonDate(String datestr) {
     try {

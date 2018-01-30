@@ -25,21 +25,19 @@
         <div class="instagram col-left eq-parent">
           [#assign post = response['instagram'][0] /]
           [#if post?has_content]
-            <div class="social-upper">
-              <figure class="image">
+            <figure class="social-upper">
+              <div class="figcontent">
                 [#if post['slides']?has_content]
-                  <div class="slides">
-                    [#list post['slides'] as att]
-                      <div class="slide">
-                        <a href="${post['link']!}" class="linktosmsite">
-                          <img src="${gf.getImg(att['url'], 640, 640, true, false, 0, 0, 0, 0)}" alt="Instagram Post">
-                        </a>
-                        [#if att['video_url']?has_content]
-                          <a href="${att['video_url']}" class="feature-play-button"><i class="fa fa-play" aria-hidden="true"></i><span class="visuallyhidden">Play Video</span></a>
-                        [/#if]
-                      </div>
-                    [/#list]
-                  </div>
+                  [#list post['slides'] as att]
+                    <div class="slide">
+                      <a href="${post['link']!}" class="linktosmsite">
+                        <img src="${gf.getImg(att['url'], 640, 640, true, false, 0, 0, 0, 0)}" alt="Instagram Post">
+                      </a>
+                      [#if att['video_url']?has_content]
+                        <a href="${att['video_url']}" class="feature-play-button"><i class="fa fa-play" aria-hidden="true"></i><span class="visuallyhidden">Play Video</span></a>
+                      [/#if]
+                    </div>
+                  [/#list]
                   <a href="#" class="arrow prev fa fa-angle-left" aria-hidden="true"></a>
                   <a href="#" class="arrow next fa fa-angle-right" aria-hidden="true"></a>
                 [#else]
@@ -50,22 +48,18 @@
                     <a href="${post['video_url']}" class="feature-play-button"><i class="fa fa-play" aria-hidden="true"></i><span class="visuallyhidden">Play Video</span></a>
                   [/#if]
                 [/#if]
-                <figcaption class="caption">
-                  <p>${gf.linkifyInstagram(post['caption'])!}</p>
-                  <p><span class="source-link"><a href="${post['link']!}">View post on Instagram</a></span></p>
-                </figcaption>
-              </figure>
-            </div>
+              </div>
+              <figcaption>
+                ${gf.linkifyInstagram(post['caption'])!}
+                <div class="source-link"><a href="${post['link']!}">View post on Instagram</a></div>
+              </figcaption>
+            </figure>
             <div class="social-lower">
-              <p>
-                [@timestamp post['posttime'] /]
-                <span class="social-area-icon">
-                  <a href="https://www.instagram.com/txst">
-                    <i class="fa fa-instagram"></i>
-                    <span class="visuallyhidden">Instagram</span>
-                  </a>
-                </span>
-              </p>
+              [@timestamp post['posttime'] /]
+              <a href="https://www.instagram.com/txst" class="social-area-icon">
+                <i class="fa fa-instagram"></i>
+                <span class="visuallyhidden">Instagram</span>
+              </a>
             </div>
           [/#if]
         </div>
@@ -89,15 +83,11 @@
           </div>
 
           <div class="social-lower">
-            <p>
-              <span class="twitter-timestamp">[@timestamp response['twitter'][0]['tweettime'] /]</span>
-              <span class="social-area-icon">
-                <a href="https://twitter.com/txst">
-                  <i class="fa fa-twitter"></i>
-                  <span class="visuallyhidden">Twitter</span>
-                </a>
-              </span>
-            </p>
+            <span class="twitter-timestamp">[@timestamp response['twitter'][0]['tweettime'] /]</span>
+            <a href="https://twitter.com/txst" class="social-area-icon">
+              <i class="fa fa-twitter"></i>
+              <span class="visuallyhidden">Twitter</span>
+            </a>
           </div>
         </div>
       </div>[#--
@@ -106,48 +96,40 @@
         <div class="facebook col-right">
           [#assign post = response['facebook'][0] /]
           [#if post?has_content]
-            <div class="social-upper">
-              <figure class="image">
-                [#if post['slides']?? && post['slides']?size > 0]
-                  <div class="slides">
-                    [#list post['slides'] as att]
-                      <div class="slide">
-                        <a href="${post['link']!}" class="linktosmsite">
-                          <img src="${gf.getImg(att['url'], 640, 640, true, false, 0, 0, 0, 0)}" alt="Facebook Post">
-                        </a>
-                      </div>
-                    [/#list]
-                    <a href="#" class="arrow prev fa fa-angle-left" aria-hidden="true"></a>
-                    <a href="#" class="arrow next fa fa-angle-right" aria-hidden="true"></a>
-                  </div>
+            <figure class="social-upper">
+              <div class="figcontent">
+                [#if post['slides']?has_content]
+                  [#list post['slides'] as att]
+                    <div class="slide">
+                      <a href="${post['link']!}" class="linktosmsite">
+                        <img src="${gf.getImg(att['url'], 640, 640, true, false, 0, 0, 0, 0)}" alt="Facebook Post">
+                      </a>
+                    </div>
+                  [/#list]
+                  <a href="#" class="arrow prev fa fa-angle-left" aria-hidden="true"></a>
+                  <a href="#" class="arrow next fa fa-angle-right" aria-hidden="true"></a>
                 [#else]
-                  <div class="noslides">
-                    <a href="${post['link']!}" class="linktosmsite noslides">
-                      <img src="${gf.getImg(post['image_url']!, 640, 640, true, false, 0, 0, 0, 0)}" alt="Facebook Post">
-                    </a>
-                    [#if !post['video_url']?has_content]
-                      <a href="${post['video_url']}" class="feature-play-button"
-                      data-embed="${post['video_embed_html']?html}"><i class="fa fa-play" aria-hidden="true"></i><span class="visuallyhidden">Play Video</span></a>
-                    [/#if]
-                  </div>
+                  <a href="${post['link']!}" class="linktosmsite">
+                    <img src="${gf.getImg(post['image_url']!, 640, 640, true, false, 0, 0, 0, 0)}" alt="Facebook Post">
+                  </a>
+                  [#if !post['video_url']?has_content]
+                    <a href="${post['video_url']}" class="feature-play-button"
+                    data-embed="${post['video_embed_html']?html}"><i class="fa fa-play" aria-hidden="true"></i><span class="visuallyhidden">Play Video</span></a>
+                  [/#if]
                 [/#if]
-                <figcaption class="fb-content">
-                  <p class="desc">${gf.linkify(post['caption'])!}</p>
-                  <p><a class="source-link" href="${link!}">View post on Facebook</a></p>
-                </figcaption>
-              </figure>
-            </div>
+              </div>
+              <figcaption>
+                ${gf.textToHtmlWithMaxLines(post['caption'], 3, 45)}
+                <div class="source-link"><a href="${link!}">View post on Facebook</a><div>
+              </figcaption>
+            </figure>
 
             <div class="social-lower">
-              <p>
-                [@timestamp post['posttime'] /]
-                <span class="social-area-icon">
-                  <a href="https://www.facebook.com/TXSTATEU">
-                    <i class="fa fa-facebook-official"></i>
-                    <span class="visuallyhidden">Facebook</span>
-                  </a>
-                </span>
-              </p>
+              [@timestamp post['posttime'] /]
+              <a href="https://www.facebook.com/TXSTATEU" class="social-area-icon">
+                <i class="fa fa-facebook-official"></i>
+                <span class="visuallyhidden">Facebook</span>
+              </a>
             </div>
           [/#if]
         </div>

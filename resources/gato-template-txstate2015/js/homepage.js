@@ -183,12 +183,12 @@ jQuery(function($) {
 
   // Instagram Slider
   var instagramanimating = false;
-  $('.instagram, .facebook').find('.image .slide:not(:first-child)').hide();
-  $('.instagram, .facebook').find('.image .arrow').click(function (e) {
+  $('.instagram, .facebook').find('.figcontent .slide:not(:first-child)').hide();
+  $('.instagram, .facebook').find('.figcontent .arrow').click(function (e) {
     e.preventDefault();
     if (instagramanimating) return;
     instagramanimating = true;
-    var slides = $(this).closest('.image').find('.slides .slide');
+    var slides = $(this).closest('.figcontent').find('.slide');
     var current = slides.filter(':visible');
     if (current.length == 0) current = slides.first();
     if ($(this).is('.prev')) {
