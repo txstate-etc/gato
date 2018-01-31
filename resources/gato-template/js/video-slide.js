@@ -6,7 +6,7 @@ jQuery(function($) {
     $cur: null,
 
     loadSlide: function($lnk) {
-      var dataEmbed = $lnk.data('embed');
+      var dataEmbed = $lnk.data('embed') || '';
 
       // special treatment for youtube and vimeo to autoplay when the modal appears
       dataEmbed = dataEmbed.replace(/src="(.*?youtube\.com.*?)"/i, 'src="$1&autoplay=1"');
