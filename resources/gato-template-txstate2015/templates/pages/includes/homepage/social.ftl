@@ -120,7 +120,7 @@
               </div>
               <figcaption>
                 ${gf.textToHtmlWithMaxLines(post['caption'], 3, 45)}
-                <div class="source-link"><a href="${link!}">View post on Facebook</a><div>
+                <div class="source-link"><a href="${post['link']!}">View post on Facebook</a><div>
               </figcaption>
             </figure>
 
