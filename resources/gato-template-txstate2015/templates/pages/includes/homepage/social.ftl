@@ -112,7 +112,7 @@
                   <a href="${post['link']!}" class="linktosmsite">
                     <img src="${gf.getImg(post['image_url']!, 640, 640, true, false, 0, 0, 0, 0)}" alt="Facebook Post">
                   </a>
-                  [#if !post['video_url']?has_content]
+                  [#if post['video_url']?has_content]
                     <a href="${post['video_url']}" class="feature-play-button"
                     data-embed="${post['video_embed_html']?html}"><i class="fa fa-play" aria-hidden="true"></i><span class="visuallyhidden">Play Video</span></a>
                   [/#if]
