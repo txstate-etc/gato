@@ -189,10 +189,6 @@ div#social {
     }
   }
 
-  @media (max-width: $xl-breakpoint){
-    .social-upper { height: 35rem; }
-  }
-
   @media (max-width: $sm-breakpoint){
     padding-bottom: 4rem;
     .social-lower { border: none; }

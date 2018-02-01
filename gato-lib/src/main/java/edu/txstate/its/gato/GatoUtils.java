@@ -366,6 +366,15 @@ public final class GatoUtils {
     }
   }
 
+  public String getImgWideOrTall(float imgwidth, float imgheight, float containerwidth, float containerheight) {
+    return getImgWideOrTall(imgwidth, imgheight, containerwidth / containerheight);
+  }
+  public String getImgWideOrTall(float imgwidth, float imgheight, float containerar) {
+    float imgar = imgwidth / imgheight;
+    if (imgar > containerar) return "wide";
+    return "tall";
+  }
+
   public String getSrcSet(Object assetOrId) {
     return getSrcSet(assetOrId, 0f, 0f, 0f, 0f);
   }
