@@ -38,4 +38,10 @@ form:
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           description: A title for this block of links.
           label: Block Title (optional)
+        - name: titlelink
+          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+          label: Block Title Link
+          appName: pages
+          identifierToPathConverter:
+            class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
 actions: !include /gato-template/dialogs/common/actions-block.yaml

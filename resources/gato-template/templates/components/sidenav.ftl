@@ -22,7 +22,13 @@
   [#else]
     [#assign haschildren = gf.hasComponents(content.links) || (content.type! =='auto' && gf.hasNavChildren(page))]
     [#if content.title?has_content]
-      <h3 class="side_nav_header ${haschildren?string('','solo')}">${cmsfn.decode(content).title}</h3>
+      <h3 class="side_nav_header ${haschildren?string('','solo')}">
+        [#if content.titlelink?has_content]
+          <a href="${content.titlelink}">${cmsfn.decode(content).title}</a>
+        [#else]
+          ${cmsfn.decode(content).title}
+        [/#if]
+      </h3>
     [/#if]
     [#if haschildren || cmsfn.isEditMode()]
       <ul class="${className}">
