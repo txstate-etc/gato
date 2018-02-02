@@ -31,7 +31,7 @@
                   [#list post['slides'] as att]
                     <div class="slide">
                       <a href="${post['link']!}" class="linktosmsite ${gf.getImgWideOrTall(att['width']!1.0,att['height']!1.0,1.0)}">
-                        <img src="${gf.getImg(att['url'], 640, 640, true, false, 0, 0, 0, 0)}" width="${att['width']!}" height="${att['height']!}" alt="Instagram Post">
+                        <img src="${gf.getImg(att['url'], 800, 800, false, false, 0, 0, 0, 0)}" width="${att['width']!}" height="${att['height']!}" alt="Instagram Post">
                       </a>
                       [#if att['video_url']?has_content]
                         <a href="${att['video_url']}" class="feature-play-button"><i class="fa fa-play" aria-hidden="true"></i><span class="visuallyhidden">Play Video</span></a>
@@ -42,7 +42,7 @@
                   <a href="#" class="arrow next fa fa-angle-right" aria-hidden="true"></a>
                 [#else]
                   <a href="${post['link']!}" class="linktosmsite ${gf.getImgWideOrTall(post['image_width']!1.0,post['image_height']!1.0,1.0)}">
-                    <img src="${gf.getImg(post['image_url']!, 640, 640, true, false, 0, 0, 0, 0)}" width="${post['image_width']!}" height="${post['image_height']!}" alt="Instagram Post">
+                    <img src="${gf.getImg(post['image_url']!, 800, 800, false, false, 0, 0, 0, 0)}" width="${post['image_width']!}" height="${post['image_height']!}" alt="Instagram Post">
                   </a>
                   [#if post['video_url']?has_content]
                     <a href="${post['video_url']}" class="feature-play-button"><i class="fa fa-play" aria-hidden="true"></i><span class="visuallyhidden">Play Video</span></a>
@@ -102,7 +102,7 @@
                   [#list post['slides'] as att]
                     <div class="slide">
                       <a href="${post['link']!}" class="linktosmsite ${gf.getImgWideOrTall(att['width']!1.0,att['height']!1.0,1.2)}">
-                        <img src="${gf.getImg(att['url'], 640, 640, true, false, 0, 0, 0, 0)}" width="${att['width']!}" height="${att['height']!}" alt="Facebook Post">
+                        <img src="${gf.getImg(att['url'], 800, 800, false, false, 0, 0, 0, 0)}" width="${att['width']!}" height="${att['height']!}" alt="Facebook Post">
                       </a>
                     </div>
                   [/#list]
@@ -110,7 +110,7 @@
                   <a href="#" class="arrow next fa fa-angle-right" aria-hidden="true"></a>
                 [#else]
                   <a href="${post['link']!}" class="linktosmsite ${gf.getImgWideOrTall(post['image_width']!1.0,post['image_height']!1.0,1.2)}">
-                    <img src="${gf.getImg(post['image_url']!, 640, 640, true, false, 0, 0, 0, 0)}" width="${post['image_width']!}" height="${post['image_height']!}" alt="Facebook Post">
+                    <img src="${gf.getImg(post['image_url']!, 800, 800, false, false, 0, 0, 0, 0)}" width="${post['image_width']!}" height="${post['image_height']!}" alt="Facebook Post">
                   </a>
                   [#if post['video_url']?has_content]
                     <a href="${post['video_url']}" class="feature-play-button"
