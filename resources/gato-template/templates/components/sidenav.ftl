@@ -24,7 +24,7 @@
     [#if content.title?has_content]
       <h3 class="side_nav_header ${haschildren?string('','solo')}">
         [#if content.titlelink?has_content]
-          <a href="${content.titlelink}">${cmsfn.decode(content).title}</a>
+          <a href="${gf.filterUrl(content.titlelink)}">${cmsfn.decode(content).title}</a>
         [#else]
           ${cmsfn.decode(content).title}
         [/#if]
