@@ -101,7 +101,7 @@
                 [#if post['slides']?has_content]
                   [#list post['slides'] as att]
                     <div class="slide">
-                      <a href="${post['link']!}" class="linktosmsite ${gf.getImgWideOrTall(att['width']!1.0,att['height']!1.0,1.2)}">
+                      <a href="${post['link']!}" class="linktosmsite ${gf.getImgWideOrTall(att['width']!1.0,att['height']!1.0,1.33)}">
                         <img src="${gf.getImg(att['url'], 800, 800, false, false, 0, 0, 0, 0)}" width="${att['width']!}" height="${att['height']!}" alt="Facebook Post">
                       </a>
                     </div>

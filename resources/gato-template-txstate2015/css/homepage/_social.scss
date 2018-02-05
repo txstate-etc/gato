@@ -6,12 +6,16 @@ div#social {
   .social-upper {
     position: relative;
     margin: 0;
-    height: 38rem;
+    height: 0;
+    padding-top: 110%;
     overflow: hidden;
   }
 
   .figcontent {
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     overflow: hidden;
     .slide {
       position: absolute;
@@ -78,11 +82,15 @@ div#social {
   }
 
   figcaption {
+    position: absolute;
+    width: 100%;
+    left: 0;
     font-size: 1.4rem;
     line-height: 2rem;
     padding: 1rem;
+    word-wrap: break-word;
     .source-link {
-      margin-top: 0.8rem;
+      margin-top: 0.2rem;
     }
   }
 
@@ -110,12 +118,11 @@ div#social {
   }
 
   .instagram {
+    .social-upper { padding-top: 100%; margin-bottom: 10%; }
     .figcontent { height: 100%; }
     figcaption {
-      position: absolute;
       bottom: -30%;
       opacity: 0;
-      width: 100%;
       @include vendor-prefix(transition, all 0.3s ease);
       background: fade-out($gold, 0.1);
       color: $white;
@@ -128,7 +135,7 @@ div#social {
     .social-upper {
       @at-root html.no-touch &:hover {
         figcaption {
-          bottom: 0;
+          bottom: 0%;
           opacity: 1;
         }
       }
@@ -144,6 +151,7 @@ div#social {
       .feature-play-button, .arrow { top: 50%; }
     }
     figcaption {
+      top: 75%;
       a {
         padding: 3px 5px;
         margin: -3px -5px;
@@ -156,7 +164,13 @@ div#social {
 
   .twitter {
     text-align: center;
-
+    .slides {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+    }
     .twitter-handle {
       font-size: 2.8rem;
       font-weight: bold;
@@ -192,21 +206,38 @@ div#social {
     }
   }
 
+  @media (max-width: $lg-breakpoint){
+    .social-upper { padding-top: 120%; }
+    .instagram .social-upper { margin-bottom: 20%; }
+  }
+  @media (max-width: $md-breakpoint){
+    .social-upper { padding-top: 130%; }
+    .instagram .social-upper { margin-bottom: 30%; }
+  }
   @media (max-width: $sm-breakpoint){
-    padding-bottom: 4rem;
-    .social-lower { border: none; }
-    figcaption {
-      font-size: 1.6rem;
-    }
-    .twitter-wrap { background: $sandstone; }
+    .instagram .social-upper { margin-bottom: 0%; }
+    .twitter-wrap { background: $sandstone; margin-bottom: 4rem; }
     .twitter {
       padding: 2rem;
       a { color: $maroon; }
-      .social-upper { min-height: 32rem; }
-      .tweet { padding: 0 2rem; }
+      .social-upper { height: auto; padding-top: 0; }
+      .slides { position: relative; height: 32rem; }
     }
     .facebook {
-      padding-top: 3rem;
+      .social-upper { height: auto; padding-top: 0; }
+      .figcontent {
+        position: relative;
+        height: auto;
+        a.linktosmsite {
+          height: auto;
+          img { position: relative; width: 100%; height: auto; transform: none; top: 0; left: 0; }
+        }
+      }
+      figcaption { position: relative; top: 0; }
+    }
+    .social-lower { border: none; }
+    figcaption {
+      font-size: 1.6rem;
     }
   }
 }

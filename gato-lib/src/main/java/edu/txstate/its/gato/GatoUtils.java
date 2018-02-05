@@ -1186,6 +1186,7 @@ public final class GatoUtils {
 
   public String textToHtmlWithMaxLines(String text, int maxlines, int charsperline) {
     if (StringUtils.isBlank(text)) return "";
+    text = StringUtils.strip(text);
     StringBuilder ret = new StringBuilder();
     String[] lines = text.split("\\r?\\n");
     int linecount = 0;
@@ -1194,26 +1195,27 @@ public final class GatoUtils {
       String[] words = line.split("\\s+");
       for (String word : words) {
         if (StringUtils.isBlank(word)) continue;
-        if (word.length() + chars > charsperline) {
-          linecount += 1;
-          chars = 0;
-          if (linecount >= maxlines) return ret.append("...").toString();
-        }
+        String wordret = word+" ";
         if (LINK_PATTERN.matcher(word).matches()) {
           String longword = word;
           if (word.length() > charsperline) word = word.substring(0, charsperline-5)+"...";
-          ret.append("<a href=\""+longword+"\">"+word+"</a> ");
-        } else {
-          ret.append(word+" ");
+          wordret = "<a href=\""+longword+"\">"+word+"</a> ";
         }
-        chars += 1 + word.length();
+        if (word.length() + chars > charsperline) {
+          linecount += 1;
+          if (linecount >= maxlines) break;
+          chars = Math.max(0, word.length() - charsperline + 1);
+        } else {
+          chars += 1 + word.length();
+        }
+        ret.append(wordret);
       }
       linecount += 1;
       chars = 0;
       ret.append("<br>");
-      if (linecount >= maxlines) return ret.toString().replaceAll("(<br>)+$","")+" ...";
+      if (linecount >= maxlines) break;
     }
-    return ret.toString();
+    return ret.toString().replaceAll("(<br>)+$"," ")+"...";
   }
 
   // freemarker seems to suck at dates. let's try to parse them in Java
