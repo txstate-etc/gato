@@ -50,7 +50,7 @@
                 [/#if]
               </div>
               <figcaption>
-                ${gf.linkifyInstagram(gf.textToHtmlWithMaxLines(post['caption'], 4, 45))}
+                <div data-max-lines="4">${gf.linkifyInstagram(gf.textToHtmlWithMaxLines(post['caption'], 4, 45))}</div>
                 <div class="source-link"><a href="${post['link']!}">View post on Instagram</a></div>
               </figcaption>
             </figure>
@@ -119,7 +119,7 @@
                 [/#if]
               </div>
               <figcaption>
-                ${gf.textToHtmlWithMaxLines(post['caption'], 3, 45)}
+                <div data-max-lines="3">${gf.textToHtmlWithMaxLines(post['caption'], 3, 39)}</div>
                 <div class="source-link"><a href="${post['link']!}">View post on Facebook</a><div>
               </figcaption>
             </figure>

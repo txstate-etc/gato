@@ -602,6 +602,70 @@ jQuery(function($){
     });
   }
   resizeTimeout(checkimageratios);
+
+  // Code to ensure blocks of text never go over a certain number of lines
+  function fontresizer() {
+    this.reads = [];
+  }
+  fontresizer.prototype.queue = function (read) {
+    this.reads.push(read);
+  }
+  fontresizer.prototype.execute = function () {
+    var writes = [];
+    for (var i = 0; i < this.reads.length; i++) writes.push(this.reads[i]());
+    for (var i = 0; i < writes.length; i++) writes[i]();
+    this.reads = [];
+  }
+  var resizer = new fontresizer();
+
+  var optimize = function () {
+    var $watched = $('[data-max-lines]');
+    var done = 0;
+    var target = $watched.length;
+
+    $watched.each(function (idx, itm) {
+      var $itm = $(itm);
+      $itm.css('font-size', '');
+      $itm.data('max-lines-top', parseInt($itm.css('font-size'), 10));
+      $itm.data('max-lines-bottom', 0);
+      $itm.data('max-lines-done', false);
+    });
+    for (var i = 0; i < 20 && done < target; i++) {
+      $watched.each(function (idx, itm) {
+        var $itm = $(itm);
+
+        var iterate = function () {
+          var currentsize = parseInt($itm.css('font-size'), 10);
+          var lineheight = parseInt($itm.css('line-height'), 10) || currentsize*1.14;
+          var currentlines = Math.round($itm.height() / lineheight);
+          var newsize;
+          if (currentlines <= $itm.data('max-lines')) {
+            $itm.data('max-lines-bottom', currentsize);
+            newsize = (currentsize + $itm.data('max-lines-top')) / 2;
+            if (Math.abs(newsize - currentsize) <= 1) {
+              newsize = currentsize;
+            }
+          } else {
+            $itm.data('max-lines-top', currentsize);
+            newsize = (currentsize + $itm.data('max-lines-bottom')) / 2;
+            if (Math.abs(newsize - currentsize) <= 1) newsize = $itm.data('max-lines-bottom');
+          }
+
+          if (newsize != currentsize) return function () {
+            $itm.css('font-size', newsize+'px');
+          }
+          // above us is a 'return'
+          // if we make it this far we have no more work to do
+          $itm.data('max-lines-done', true);
+          done++;
+          return function () { }
+        }
+        if (!$itm.data('max-lines-done')) resizer.queue(iterate);
+      });
+      resizer.execute();
+    }
+  }
+  resizeTimeout(optimize);
 });
 
 
