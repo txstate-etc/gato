@@ -195,6 +195,9 @@ strong {
       width: 32rem;
       padding: 2rem 4rem 2rem 2rem;
       display: none;
+      max-height: 95vh;
+      max-height: calc(100vh - #{$header-height});
+      overflow-y: auto;
 
       .simplemenu {
         &, ul {
