@@ -27,6 +27,9 @@ div#social {
     a.linktosmsite {
       @extend .hover-blur;
       @include coverimage();
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
       &, img {
@@ -46,6 +49,7 @@ div#social {
       font-weight: bold;
       width: auto;
       padding: 0.6rem 1.5rem;
+      margin: 0;
       &:hover { background: none; }
     }
     .prev {
@@ -227,11 +231,7 @@ div#social {
       .social-upper { height: auto; padding-top: 0; }
       .figcontent {
         position: relative;
-        height: auto;
-        a.linktosmsite {
-          height: auto;
-          img { position: relative; width: 100%; height: auto; transform: none; top: 0; left: 0; }
-        }
+        padding-top: 75%;
       }
       figcaption { position: relative; top: 0; }
     }
