@@ -10,8 +10,14 @@ jQuery(document).ready(function($) {
   // Wittliff Reverse buttons have extra hover effect that confuses ios
   $('a.button.reverse, a.linkbutton').on('touchend', function () { console.log($(this)); window.location = $(this).attr('href'); });
 
-  // Main Menu Hamburger Button
+  // Give header a new CSS class when the page is scrolled so we can turn it opaque
   var header = $('.page-header');
+  $(window).scroll(function() {
+    if (header.offset().top > 0) header.addClass('scrolled');
+    else header.removeClass('scrolled');
+  });
+
+  // Main Menu Hamburger Button
   var menucontainer = $('.main-menu');
   var menubtn = $('.main-menu >button');
   var menupanel = $('.main-menu .main-menu-panel');

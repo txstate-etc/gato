@@ -17,6 +17,13 @@ body {
   font-weight: 300;
   letter-spacing: .03rem;
   line-height: 1.2;
+  padding-top: $header-height + $header-margin;
+  @media (max-width: $md-breakpoint) {
+    padding-top: $header-height-tablet + $header-margin-tablet;
+  }
+  @media (max-width: $sm-breakpoint) {
+    padding-top: $header-height-mobile + $header-margin-mobile;
+  }
 }
 
 strong {
@@ -35,20 +42,20 @@ strong {
   align-items: center;
   height: $header-height;
   color: $white;
-  position: relative;
-  margin-bottom: $header-margin;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
   z-index: 3;
   @media (max-width: $md-breakpoint) {
     height: $header-height-tablet;
-    margin-bottom: $header-margin-tablet;
   }
   @media (max-width: $sm-breakpoint) {
     height: $header-height-mobile;
-    margin-bottom: $header-margin-mobile;
   }
   .wittliff-home &, .wittliff-special & {
     background-color: rgba($cactus, 0.9);
-    &.menu-out { background-color: $cactus; }
+    &.menu-out, &.scrolled { background-color: $cactus; }
     @media (max-width: $xs-breakpoint) {
       background-color: $cactus;
     }
