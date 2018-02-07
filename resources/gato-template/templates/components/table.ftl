@@ -33,14 +33,12 @@
           [#assign evenodd = 'even']
           [#list rows as row]
             [#if row?trim?has_content && row_index gte startingRow]
-              [#assign cells = row?replace('\\s+$','','r')?split("\t")]
-              [#assign headerrow = cells?size == 1]
-              [#if cells?size == 1]
+              [#if row?replace('\\s+$','','r')?split("\t")?size == 1 && row?trim?starts_with("*")]
                 </tbody><tbody>
-                <tr class="headerrow"><th colspan="${headers?size}">${cells[0]}</th></tr>
+                <tr class="headerrow"><th colspan="${headers?size}">${row?trim[1..]}</th></tr>
               [#else]
                 <tr class="${evenodd}">
-                  [#list cells as col]
+                  [#list row?split("\t") as col]
                     [#if col?trim?has_content || col_index < headers?size]
                       <td>
                         [#if (content.tableResponsive!false) && content.tableHeader && col_index < headers?size]
