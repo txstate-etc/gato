@@ -28,9 +28,9 @@ function initTableData(def, node, el){
 
             //look for a table tag in the pasted HTML
             var tableElement = $('<div/>').html(pastedHTML).find('table');
-      
+
             if(tableElement.length > 0){
-                tableElement.find('tr').each(function(){ 
+                tableElement.find('tr').each(function(){
                     $(this).children('td, th').each(function(){
                         //remove the spans that contain excel/word formatting
                         if($(this).find('span').length > 0){
@@ -47,17 +47,18 @@ function initTableData(def, node, el){
                         if(!($(this).is(':last-child'))){
                             tableText += "\t";
                         }
+                        if ($(this).attr('colspan') > 1) tableText += "\t".repeat($(this).attr('colspan')-1);
                     });
                     //add a newline after each row (except the last one)
                     if(!($(this).is(':last-child'))){
                         tableText += "\n";
-                    } 
+                    }
                 });
-                $('#pastedData').val(tableText).change(); 
+                $('#pastedData').val(tableText).change();
             }
             else{
                 //no table element found.  use the plain text
-                $('#pastedData').val(event.clipboardData.getData('text/plain')).change();  
+                $('#pastedData').val(event.clipboardData.getData('text/plain')).change();
             }
         }
 
