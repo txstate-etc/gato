@@ -36,6 +36,8 @@
       }
   }
 
+  .headerrow th { text-align: center; }
+  &.table-align-right .headerrow th { text-align: center; }
 
     &.table-linesh{
         td{
