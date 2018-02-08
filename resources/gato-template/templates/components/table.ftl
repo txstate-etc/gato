@@ -12,13 +12,18 @@
 [#if decodedContent.tableData??]
   <div class="table-wrapper ${hScroll}">
     [#assign rows = decodedContent.tableData?split("\n")]
+    [#assign maxwidth = 1]
+    [#list rows as row]
+      [#assign width = row?replace('\\s+$','','r')?split("\t")?size]
+      [#if width > maxwidth][#assign maxwidth = width][/#if]
+    [/#list]
     [#assign startingRow = 0]
     <table cellspacing="0" class="gato-table ${cssClasses}">
       [#if content.tableCaption?has_content]
       <caption><p>${content.tableCaption}</p></caption>
       [/#if]
       [#if content.tableHeader && rows?size > 0]
-          [#assign headers = rows?first?split("\t")]
+          [#assign headers = rows?first?replace('\\s+$','','r')?split("\t")]
           [#assign startingRow = 1]
           <thead>
               <tr>
@@ -35,11 +40,11 @@
             [#if row?trim?has_content && row_index gte startingRow]
               [#if row?replace('\\s+$','','r')?split("\t")?size == 1 && row?trim?starts_with("*")]
                 </tbody><tbody>
-                <tr class="headerrow"><th colspan="${headers?size}">${row?trim[1..]}</th></tr>
+                <tr class="headerrow"><th colspan="${maxwidth}">${row?trim[1..]}</th></tr>
               [#else]
                 <tr class="${evenodd}">
                   [#list row?split("\t") as col]
-                    [#if col?trim?has_content || col_index < headers?size]
+                    [#if col?trim?has_content || col_index < maxwidth]
                       <td>
                         [#if (content.tableResponsive!false) && content.tableHeader && col_index < headers?size]
                           <div class="carded-label">${headers[col_index]}</div>
