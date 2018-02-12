@@ -2,6 +2,7 @@ package edu.txstate.its.gato.setup;
 
 import javax.jcr.Node;
 import javax.jcr.Session;
+import javax.jcr.ItemNotFoundException;
 import javax.jcr.RepositoryException;
 import javax.jcr.PathNotFoundException;
 import javax.jcr.LoginException;
@@ -25,19 +26,21 @@ public class UpdateWittliffBannersTask extends GatoBaseUpgradeTask {
   protected void doExecute(InstallContext ctx) throws RepositoryException, PathNotFoundException, TaskExecutionException, LoginException {
     Session s=ctx.getJCRSession(RepositoryConstants.WEBSITE);
     visitByTemplate(s, "gato-template-wittliff:components/exhibition",
-      n -> { createSlider(n, "gato-template-wittliff:components/eventslider/exhibition") });
+      n -> { createSlider(n, "gato-template-wittliff:components/eventslider/exhibition"); });
     visitByTemplate(s, "gato-template-wittliff:components/eventbanner",
-      n -> { createSlider(n, "gato-template-wittliff:components/eventslider/event") });
+      n -> { createSlider(n, "gato-template-wittliff:components/eventslider/event"); });
     visitByTemplate(s, "gato-template-wittliff:components/newsbanner",
-      n -> { createSlider(n, "gato-template-wittliff:components/eventslider/news") });
+      n -> { createSlider(n, "gato-template-wittliff:components/eventslider/news"); });
   }
 
-  protected void createSlider(Node n, String newtemplate) {
+  protected void createSlider(Node n, String newtemplate) throws RepositoryException, ItemNotFoundException {
     Node parent = n.getParent();
     Node componentNode = NodeUtil.createPath(parent, "imported_"+n.getName(), NodeTypes.Component.NAME);
+    NodeUtil.orderBefore(componentNode, n.getName());
     NodeTypes.Renderable.set(componentNode, "gato-template-wittliff:components/eventslider/slider");
     Node slides = NodeUtil.createPath(componentNode, "slides", NodeTypes.ContentNode.NAME);
     NodeUtil.moveNode(n, slides);
     NodeTypes.Renderable.set(n, newtemplate);
+    parent.save();
   }
 }
