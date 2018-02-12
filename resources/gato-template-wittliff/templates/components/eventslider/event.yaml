@@ -1,7 +1,7 @@
-templateScript: /gato-template-wittliff/templates/components/exhibition.ftl
+templateScript: /gato-template-wittliff/templates/components/eventslider/slide.ftl
 renderType: freemarker
-title: News Banner
+title: Event Banner
 description: A large full-width section for displaying details about a featured event.
-dialog: gato-template-wittliff:components/newsbanner
+dialog: gato-template-wittliff:components/eventslider/event
 parameters:
   icon: /gato-template-wittliff/images/eventbanner.png

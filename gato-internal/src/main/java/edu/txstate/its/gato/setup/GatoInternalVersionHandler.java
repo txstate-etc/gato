@@ -162,6 +162,7 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
 
     register(DeltaBuilder.update("1.1.0", "")
       .addTasks(installOrUpdateTasks())
+      .addTask(new UpdateWittliffBannersTask())
     );
 
   }

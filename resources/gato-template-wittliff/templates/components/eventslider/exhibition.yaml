@@ -1,7 +1,7 @@
-templateScript: /gato-template-wittliff/templates/components/exhibition.ftl
+templateScript: /gato-template-wittliff/templates/components/eventslider/slide.ftl
 renderType: freemarker
 title: Exhibition Banner
 description: A large full-width section for displaying details about an exhibition.
-dialog: gato-template-wittliff:components/exhibition
+dialog: gato-template-wittliff:components/eventslider/exhibition
 parameters:
   icon: /gato-template-wittliff/images/exhibition.png

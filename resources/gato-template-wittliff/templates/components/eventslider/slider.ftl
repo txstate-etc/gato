@@ -1,0 +1,1 @@
+[@cms.area name="slides"/]

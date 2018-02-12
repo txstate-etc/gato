@@ -1,13 +1,8 @@
 [#include "/gato-template/templates/includes/commonmacros.ftl"]
 [#include "/gato-template/templates/includes/section.ftl"]
 
-[#assign aspectclass = 'tall']
-[#if gf.getImgAspectRatio(content.image) > 2.2]
-  [#assign aspectclass = 'wide']
-[/#if]
-
 <div class="gato-eventbanner">
-  <div class="eventbanner-image ${aspectclass}">
+  <div class="eventbanner-image ${gf.getImgWideOrTall(content.image, 2.2)}">
     <img src="${gf.getImgDefault(content.image)}" alt="${content.imageAlt!}" srcset="${gf.getSrcSet(content.image)}" width="${gf.getImgWidth(content.image)?c}" height="${gf.getImgHeight(content.image)?c}" />
   </div>
   <div class="eventbanner-panel ${content.layout!'left'}">

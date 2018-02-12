@@ -374,6 +374,10 @@ public final class GatoUtils {
     if (imgar > containerar) return "wide";
     return "tall";
   }
+  public String getImgWideOrTall(Object assetOrId, float containerar) {
+    if (getImgAspectRatio(assetOrId) > containerar) return "wide";
+    return "tall";
+  }
 
   public String getSrcSet(Object assetOrId) {
     return getSrcSet(assetOrId, 0f, 0f, 0f, 0f);
