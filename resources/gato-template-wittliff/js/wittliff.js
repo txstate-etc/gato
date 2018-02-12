@@ -99,6 +99,15 @@ jQuery(document).ready(function($) {
     }
   });
 
+  $('.eventslider').each(function() {
+    new GatoSlider({
+      container: $(this),
+      slides: '.eventslider-slide',
+      leftarrow: '.arrow.left',
+      rightarrow: '.arrow.right'
+    });
+  });
+
   // Hero Slider
   $('.gato-heroslider').each(function (idx, itm) {
     var slider = $(itm);

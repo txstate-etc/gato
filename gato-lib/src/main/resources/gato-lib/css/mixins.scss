@@ -78,6 +78,14 @@
   -webkit-transform: translateY(-50%);
 }
 
+@mixin absolutefill() {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 // NOTE: requires you to set css class of .wide or .tall on the element you include this on,
 // depending on whether the image is wider than the element or taller than the element
 // javascript can help with this or if you have image dimensions during html render you can

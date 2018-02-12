@@ -19,20 +19,37 @@
   }
 }
 
-.gato-eventbanner {
-  position: relative;
-  overflow: hidden;
+.eventslider {
   line-height: 1.2;
   margin-bottom: 1.2rem;
-  .eventbanner-image {
+  position: relative;
+  .arrow {
+    @include verticalcenter();
+    font-size: 6rem;
+    color: white;
+    width: 6rem;
+    padding: 2rem 0rem;
+    text-align: center;
+    &.left { left: 0; }
+    &.right { right: 0; }
+  }
+  .eventslider-slides {
+    position: relative;
+    overflow: hidden;
     height: 654px;
     @media (max-width: $xl-breakpoint) {
       height: 0;
       padding-bottom: 45.45%;
     }
+  }
+  .eventslider-slide {
+    @include absolutefill();
+    overflow: hidden;
+  }
+  .eventslider-image {
     @include coverimage();
   }
-  .eventbanner-panel {
+  .eventslider-panel {
     background-color: rgba($coffee, 0.8);
     color: white;
     padding: 4.5em 6em;

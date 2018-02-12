@@ -1,11 +1,12 @@
 [#include "/gato-template/templates/includes/commonmacros.ftl"]
 [#include "/gato-template/templates/includes/section.ftl"]
+[#if !(ctx.barsonly!false)]
 
-<div class="gato-eventbanner">
-  <div class="eventbanner-image ${gf.getImgWideOrTall(content.image, 2.2)}">
+<div class="eventslider-slide">
+  <div class="eventslider-image ${gf.getImgWideOrTall(content.image, 2.2)}">
     <img src="${gf.getImgDefault(content.image)}" alt="${content.imageAlt!}" srcset="${gf.getSrcSet(content.image)}" width="${gf.getImgWidth(content.image)?c}" height="${gf.getImgHeight(content.image)?c}" />
   </div>
-  <div class="eventbanner-panel ${content.layout!'left'}">
+  <div class="eventslider-panel ${content.layout!'left'}">
     <div class="typeheader" data-max-lines="1">
       [#if content.type == 'exhibition']
         Featured Exhibition
@@ -66,3 +67,7 @@
     [/#if]
   </div>
 </div>
+
+[#else]
+  <div class="slider-edit-bar" data-title="${content.title!'Slider Image'}" cms:edit></div>
+[/#if]
