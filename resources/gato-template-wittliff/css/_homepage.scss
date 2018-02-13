@@ -30,6 +30,14 @@
     width: 6rem;
     padding: 2rem 0rem;
     text-align: center;
+    @media (max-width: $xl-breakpoint) {
+      width: 5rem;
+      font-size: 5rem;
+    }
+    @media (max-width: $xs-breakpoint) {
+      width: 4rem;
+      font-size: 4rem;
+    }
     &.left { left: 0; }
     &.right { right: 0; }
   }
@@ -52,42 +60,45 @@
   .eventslider-panel {
     background-color: rgba($coffee, 0.8);
     color: white;
-    padding: 4.5em 6em;
+    padding: 4.5em 6rem;
     position: absolute;
     width: 35%;
     height: 100%;
     top: 0;
     font-size: 1rem;
     @media (max-width: $xxl-breakpoint) {
-      padding: 3.5em 5em;
+      padding: 3.5em 6rem;
     }
     @media (max-width: $xl-breakpoint) {
-      padding: 2.5em 3em;
+      width: 38%;
+      padding: 2.5em 5rem;
       font-size: 0.95rem;
     }
     @media (max-width: $lg-breakpoint) {
+      width: 41%;
       font-size: 0.79rem;
     }
     @media (max-width: $md-breakpoint) {
+      width: 45%;
       font-size: 0.58rem;
     }
     @media (max-width: $sm-breakpoint) {
-      width: 40%;
-      padding: 2em 2.5em;
+      width: 49%;
+      padding: 2em 4em 2em 5rem;
       font-size: 0.54rem;
     }
     @media (max-width: $xs-breakpoint) {
-      width: 45%;
-      padding: 1.5em 2em;
+      width: 54%;
+      padding: 1.5em 2.5em 1.5em 4rem;
       font-size: 0.45rem;
     }
     @media (max-width: $mn-breakpoint) {
-      width: 50%;
-      padding: 1em 1.5em;
+      width: 55%;
+      padding: 1em 2em 1em 4rem;
       font-size: 0.37rem;
     }
     @media (max-width: $mc-breakpoint) {
-      width: 52%;
+      width: 60%;
       font-size: 0.35rem;
     }
     &.left { left: 0; }
@@ -95,7 +106,7 @@
     .typeheader {
       text-transform: uppercase;
       font-size: 3em;
-      letter-spacing: 2px;
+      letter-spacing: 0.07em;
     }
     h2 {
       font-size: 1em;
@@ -109,7 +120,7 @@
       .title {
         font-family: $garamond;
         font-size: 8em;
-        letter-spacing: 3px;
+        letter-spacing: 0.04em;
         font-weight: 500;
         line-height: 1;
         @media (max-width: $mn-breakpoint) {
@@ -121,7 +132,7 @@
       }
       .subtitle {
         font-size: 4em;
-        letter-spacing: 2px;
+        letter-spacing: 0.056em;
         font-weight: normal;
       }
       a {
@@ -132,7 +143,7 @@
     }
     .dates {
       font-size: 3em;
-      letter-spacing: 2px;
+      letter-spacing: 0.07em;
       margin-bottom: .5em;
     }
     a.bottom {
@@ -144,7 +155,7 @@
       text-decoration: none;
       font-size: 2em;
       font-weight: 500;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.03em;
       margin-right: 0.7em;
       @media (max-width: $md-breakpoint) {
         font-size: 2.5em;

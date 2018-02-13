@@ -8,7 +8,7 @@
 [/#if]
 <div class="eventslider-slides">
   [#list components as slide]
-    [@cms.component content=slide editable=false /]
+    [@cms.component content=slide editable=false contextAttributes={"isFirst":slide?is_first}/]
   [/#list]
 </div>
 <a class="arrow left" href="#"><i class="fa fa-angle-left" aria-hidden="true"></i><span class="visuallyhidden">Previous Slide</span></a>

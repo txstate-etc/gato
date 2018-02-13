@@ -4,7 +4,11 @@
 
 <div class="eventslider-slide">
   <div class="eventslider-image ${gf.getImgWideOrTall(content.image, 2.2)}">
-    <img src="${gf.getImgDefault(content.image)}" alt="${content.imageAlt!}" srcset="${gf.getSrcSet(content.image)}" width="${gf.getImgWidth(content.image)?c}" height="${gf.getImgHeight(content.image)?c}" />
+    [#if ctx.isFirst]
+      <img src="${gf.getImgDefault(content.image)}" alt="${content.imageAlt!}" srcset="${gf.getSrcSet(content.image)}" width="${gf.getImgWidth(content.image)?c}" height="${gf.getImgHeight(content.image)?c}" />
+    [#else]
+      <img data-src="${gf.getImgDefault(content.image)}" alt="${content.imageAlt!}" data-srcset="${gf.getSrcSet(content.image)}" width="${gf.getImgWidth(content.image)?c}" height="${gf.getImgHeight(content.image)?c}" />
+    [/#if]
   </div>
   <div class="eventslider-panel ${content.layout!'left'}">
     <div class="typeheader" data-max-lines="1">
