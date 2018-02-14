@@ -18,6 +18,7 @@ import io.bit3.jsass.Output;
 import io.bit3.jsass.OutputStyle;
 
 import java.io.IOException;
+import java.io.Reader;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
@@ -105,8 +106,10 @@ public class GatoResourcesServlet extends ResourcesServlet {
       Resource r = this.origin.getByPath(file);
       if (file.endsWith(".cjs")) ret.append(compileCjs(r));
       else {
+        Reader reader = r.openReader();
         ret.append("/*** "+file+" ***/\n");
-        ret.append(IOUtils.toString(r.openReader()));
+        ret.append(IOUtils.toString(reader));
+        reader.close();
       }
     }
     String finalret = ret.toString();

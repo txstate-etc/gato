@@ -6,6 +6,7 @@ import info.magnolia.resourceloader.Resource;
 import io.bit3.jsass.importer.Import;
 import io.bit3.jsass.importer.Importer;
 
+import java.io.Reader;
 import java.net.URI;
 import java.util.Collection;
 import java.util.LinkedList;
@@ -44,11 +45,13 @@ public class GatoSassImporter implements Importer {
       else if (this.origin.hasPath(resourceurl)) actualurl = resourceurl;
       else if (this.origin.hasPath(cssurl)) actualurl = cssurl;
       Resource resource = this.origin.getByPath(actualurl);
+      Reader reader = resource.openReader();
       Import uriImport = new Import(
         new URI(url),
         new URI(resource.getPath()),
-        IOUtils.toString(resource.openReader())
+        IOUtils.toString(reader)
       );
+      reader.close();
       ret.add(uriImport);
     } catch (Exception e) {
       e.printStackTrace();
