@@ -1,4 +1,5 @@
 (function ($) {
+  var $window = $(window);
   window.GatoSlider = function (opts) {
     var slider = this;
     slider.current = opts.current || 0;
@@ -21,14 +22,18 @@
       slider.tracking = typeof(t) != 'undefined';
       if (!slider.tracking) return;
       slider.touchX = t.pageX;
-      slider.touchY = t.pageY;
+      slider.touchY = t.pageY - $window.scrollTop();
     });
     slider.container.on('touchmove', function (e) {
       if (!slider.tracking) return;
       var t = get_single_touch(e);
       slider.xdiff = t.pageX - slider.touchX;
-      slider.ydiff = t.pageY - slider.touchY;
-      if (slider.dragging || (Math.abs(slider.xdiff) > Math.abs(slider.ydiff) && Math.abs(slider.xdiff) > 10 && Math.abs(slider.ydiff) < 50)) {
+      slider.ydiff = t.pageY - $window.scrollTop() - slider.touchY;
+      if (Math.abs(slider.ydiff) > 40) {
+        slider.tracking = false;
+        slider.dragging = false;
+        slider.reset();
+      } else if (slider.dragging || (Math.abs(slider.xdiff) > Math.abs(slider.ydiff) && Math.abs(slider.xdiff) > 10)) {
         slider.dragging = true;
         slider.drag(slider.xdiff);
         e.preventDefault();
@@ -49,7 +54,7 @@
     slider.reset();
     slider.container.find('img[data-src]').each(function () {
       var img = $(this);
-      $(window).load(function () {
+      $window.load(function () {
         img.attr('src', img.data('src'));
         img.attr('srcset', img.data('srcset'));
       });
