@@ -40,12 +40,8 @@ home-content:
   availableComponents:
     calltoaction:
       id: gato-template-wittliff:components/calltoaction-container
-    eventbanner:
-      id: gato-template-wittliff:components/eventbanner
-    exhibition:
-      id: gato-template-wittliff:components/exhibition
-    newsbanner:
-      id: gato-template-wittliff:components/newsbanner
+    eventslider:
+      id: gato-template-wittliff:components/eventslider/slider
     mosaic:
       id: gato-component-cards:components/layouts/grid
 footer-findus:
