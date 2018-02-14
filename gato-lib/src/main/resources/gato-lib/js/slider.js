@@ -19,7 +19,7 @@
     };
     slider.container.on('touchstart', function (e) {
       var t = get_single_touch(e);
-      slider.tracking = typeof(t) != 'undefined';
+      slider.tracking = typeof(t) != 'undefined' && slider.slides.length > 1;
       if (!slider.tracking) return;
       slider.touchX = t.pageX;
       slider.touchY = t.pageY - $window.scrollTop();
@@ -55,8 +55,8 @@
     slider.container.find('img[data-src]').each(function () {
       var img = $(this);
       $window.load(function () {
-        img.attr('src', img.data('src'));
-        img.attr('srcset', img.data('srcset'));
+        img.attr('src', img.data('src')).removeAttr('data-src');
+        img.attr('srcset', img.data('srcset')).removeAttr('data-srcset');
       });
     });
   }

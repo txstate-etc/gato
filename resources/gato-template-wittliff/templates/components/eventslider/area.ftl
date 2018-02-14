@@ -10,6 +10,8 @@
   [#list components as slide]
     [@cms.component content=slide editable=false contextAttributes={"isFirst":slide?is_first}/]
   [/#list]
+  [#if components?size > 1]
+    <a class="arrow left" href="#"><i class="fa fa-angle-left" aria-hidden="true"></i><span class="visuallyhidden">Previous Slide</span></a>
+    <a class="arrow right" href="#"><i class="fa fa-angle-right" aria-hidden="true"></i><span class="visuallyhidden">Next Slide</span></a>
+  [/#if]
 </div>
-<a class="arrow left" href="#"><i class="fa fa-angle-left" aria-hidden="true"></i><span class="visuallyhidden">Previous Slide</span></a>
-<a class="arrow right" href="#"><i class="fa fa-angle-right" aria-hidden="true"></i><span class="visuallyhidden">Next Slide</span></a>
