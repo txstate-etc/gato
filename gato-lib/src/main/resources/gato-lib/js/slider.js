@@ -46,7 +46,7 @@
     });
     slider.leftarrow.click(function(e) { e.preventDefault(); slider.left(); });
     slider.rightarrow.click(function(e) { e.preventDefault(); slider.right(); });
-    slider.slides.not(':eq('+slider.current+')').css('left', '-100%');
+    slider.reset();
     slider.container.find('img[data-src]').each(function () {
       var img = $(this);
       $(window).load(function () {
@@ -79,11 +79,11 @@
     var curr = slider.slides.eq(slider.current);
     var next = slider.slides.eq(index);
     if (slidefromright) { // sliding from the right
-      next.velocity({left: ['0%','100%']}, {duration: 150});
-      curr.velocity({left: ['-100%','0%']}, {duration: 150});
+      next.velocity({translateX: ['0%','100%']}, {duration: 150});
+      curr.velocity({translateX: ['-100%','0%']}, {duration: 150});
     } else { // sliding from the left
-      next.velocity({left: ['0%','-100%']}, {duration: 150});
-      curr.velocity({left: ['100%','0%']}, {duration: 150});
+      next.velocity({translateX: ['0%','-100%']}, {duration: 150});
+      curr.velocity({translateX: ['100%','0%']}, {duration: 150});
     }
     slider.current = index;
   }
@@ -94,8 +94,8 @@
 
     cancelanimationframe(slider.dragtimer);
     slider.dragtimer = animationframe(function () {
-      curr.css('left', xdiff+'px');
-      next.css('left', (xdiff < 0 ? 1 : -1)*next.outerWidth() + xdiff);
+      curr.css('transform', 'translateX('+xdiff+'px)');
+      next.css('transform', 'translateX('+((xdiff < 0 ? 1 : -1)*next.outerWidth() + xdiff)+'px)');
     });
   }
   window.GatoSlider.prototype.finishdrag = function (xdiff) {
@@ -103,8 +103,8 @@
     cancelanimationframe(slider.dragtimer);
     var curr = slider.slides.eq(slider.current);
     var next = slider.next(xdiff);
-    next.velocity({left: 0}, {duration: 150});
-    curr.velocity({left: (xdiff < 0 ? -1 : 1)*100+'%'}, {duration: 150});
+    next.velocity({translateX: [0, ((xdiff < 0 ? 1 : -1)*next.outerWidth() + xdiff)+'px']}, {duration: 150});
+    curr.velocity({translateX: [(xdiff < 0 ? -1 : 1)*next.outerWidth()+'px', xdiff+'px']}, {duration: 150});
     slider.current = slider.nextidx(xdiff)
   }
   window.GatoSlider.prototype.reset = function () {
@@ -112,8 +112,8 @@
     cancelanimationframe(slider.dragtimer);
     var curr = slider.slides.eq(slider.current);
     animationframe(function () {
-      curr.css('left', '0%');
-      slider.slides.not(':eq('+slider.current+')').css('left', '-100%');
+      curr.css('transform', 'translateX(0)');
+      slider.slides.not(':eq('+slider.current+')').css('transform', 'translateX(-100%)');
     });
   }
 })(jQuery);
