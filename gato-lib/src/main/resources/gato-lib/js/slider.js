@@ -11,44 +11,52 @@
     slider.slides = opts.slides instanceof jQuery ? opts.slides : slider.container.find(opts.slides);
     slider.leftarrow = opts.leftarrow instanceof jQuery ? opts.leftarrow : slider.container.find(opts.leftarrow);
     slider.rightarrow = opts.rightarrow instanceof jQuery ? opts.rightarrow : slider.container.find(opts.rightarrow);
-
+    resizeTimeout(function () {
+      slider.verticaldragthreshold = 0.2*slider.container.outerHeight();
+      slider.horizontaldragthreshold = 0.2*slider.container.outerWidth();
+    });
     var get_single_touch = function(e) {
       var oe = e.originalEvent;
-      if (oe.touches.length != 1) return undefined;
-      return oe.touches[0];
+      if (oe.touches && oe.touches.length == 1) return oe.touches[0];
+      if (e.pageX) return e;
+      return undefined;
     };
-    slider.container.on('touchstart', function (e) {
+    slider.container.on('touchstart mousedown', function (e) {
       var t = get_single_touch(e);
       slider.tracking = typeof(t) != 'undefined' && slider.slides.length > 1;
       if (!slider.tracking) return;
       slider.touchX = t.pageX;
       slider.touchY = t.pageY - $window.scrollTop();
+      if (e.type == 'mousedown') e.preventDefault();
     });
-    slider.container.on('touchmove', function (e) {
+    slider.container.on('touchmove mousemove', function (e) {
       if (!slider.tracking) return;
       var t = get_single_touch(e);
       slider.xdiff = t.pageX - slider.touchX;
       slider.ydiff = t.pageY - $window.scrollTop() - slider.touchY;
-      if (Math.abs(slider.ydiff) > 40) {
+      if (Math.abs(slider.ydiff) > slider.verticaldragthreshold) {
         slider.tracking = false;
         slider.dragging = false;
-        slider.reset();
+        if (Math.abs(slider.xdiff) > slider.horizontaldragthreshold) slider.finishdrag(slider.xdiff)
+        else slider.reset();
       } else if (slider.dragging || (Math.abs(slider.xdiff) > Math.abs(slider.ydiff) && Math.abs(slider.xdiff) > 10)) {
         slider.dragging = true;
         slider.drag(slider.xdiff);
         e.preventDefault();
       }
     });
-    slider.container.on('touchend', function (e) {
+    slider.container.on('touchend mouseup', function (e) {
       if (!slider.tracking) return;
       if (slider.dragging) {
+        slider.stopclick = e.type == 'mouseup';
         e.preventDefault();
-        if (Math.abs(slider.xdiff) < 40) slider.reset();
+        if (Math.abs(slider.xdiff) < slider.horizontaldragthreshold) slider.reset();
         else slider.finishdrag(slider.xdiff);
       }
       slider.tracking = false;
       slider.dragging = false;
     });
+    slider.container.click(function(e) { if (slider.stopclick) e.preventDefault(); slider.stopclick = false; });
     slider.leftarrow.click(function(e) { e.preventDefault(); slider.left(); });
     slider.rightarrow.click(function(e) { e.preventDefault(); slider.right(); });
     slider.reset();
