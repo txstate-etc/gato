@@ -126,6 +126,7 @@ public final class GatoUtils {
     if (EXTERNAL_LINK_PATTERN.matcher(url).matches()) return url;
     String cpath = MgnlContext.getContextPath();
     if (!StringUtils.isEmpty(cpath) && url.startsWith(cpath)) return url;
+    if (url.startsWith("mailto:")) return url;
 
     // is it a domain without http? let's fix that for them
     if ( StringUtils.strip(url).matches("[^/]+\\.(com|edu|org|net|gov|us|ca|uk)(/.*?)?") ) return "http://"+StringUtils.strip(url);
