@@ -24,22 +24,33 @@
   margin-bottom: 1.2rem;
   position: relative;
   .arrow {
-    @include verticalcenter();
-    font-size: 6rem;
+    position: absolute;
+    bottom: 1rem;
+    font-size: 5rem;
     color: white;
-    width: 6rem;
-    padding: 2rem 0rem;
+    width: 5rem;
+    line-height: 4rem;
+    padding: 0 0 0.2rem 0;
     text-align: center;
-    @media (max-width: $xl-breakpoint) {
-      width: 5rem;
-      font-size: 5rem;
-    }
-    @media (max-width: $xs-breakpoint) {
-      width: 4rem;
+    background: $coffee;
+    &.left { padding-right: 0.5rem; }
+    &.right { padding-left: 0.5rem; }
+    @at-root .left#{&}.left { left: 1rem; }
+    @at-root .left#{&}.right { left: 7rem; }
+    @at-root .right#{&}.left { right: 7rem; }
+    @at-root .right#{&}.right { right: 1rem; }
+    @media (max-width: $md-breakpoint) {
       font-size: 4rem;
+      line-height: 3.5rem;
+      width: 4.5rem;
+      &.left { padding-right: 0.3rem; }
+      &.right { padding-left: 0.3rem; }
+      @at-root .left#{&}.right { left: 6.3rem; }
+      @at-root .right#{&}.left { right: 6.3rem; }
     }
-    &.left { left: 0; }
-    &.right { right: 0; }
+    @media (max-width: $sm-breakpoint) {
+      display: none;
+    }
   }
   .eventslider-slides {
     position: relative;
@@ -60,49 +71,50 @@
   .eventslider-panel {
     background-color: rgba($coffee, 0.8);
     color: white;
-    padding: 4.5em 6rem;
+    padding: 4.5em 6em;
     position: absolute;
     width: 35%;
     height: 100%;
     top: 0;
     font-size: 1rem;
+    @at-root .left#{&} { left: 0; }
+    @at-root .right#{&} { right: 0; }
     @media (max-width: $xxl-breakpoint) {
-      padding: 3.5em 6rem;
+      padding: 3.5em 5em;
     }
     @media (max-width: $xl-breakpoint) {
       width: 38%;
-      padding: 2.5em 5rem;
+      padding: 2.5em 5em;
       font-size: 0.95rem;
     }
     @media (max-width: $lg-breakpoint) {
-      width: 41%;
-      font-size: 0.79rem;
+      width: 40%;
+      font-size: 0.75rem;
     }
     @media (max-width: $md-breakpoint) {
-      width: 45%;
-      font-size: 0.58rem;
+      width: 42%;
+      padding: 2.5em 3em;
+      font-size: 0.55rem;
     }
     @media (max-width: $sm-breakpoint) {
-      width: 49%;
-      padding: 2em 4em 2em 5rem;
+      width: 45%;
+      padding: 2em 3.5em;
       font-size: 0.54rem;
     }
     @media (max-width: $xs-breakpoint) {
-      width: 54%;
-      padding: 1.5em 2.5em 1.5em 4rem;
+      width: 47%;
+      padding: 1.5em 2.5em;
       font-size: 0.45rem;
     }
     @media (max-width: $mn-breakpoint) {
-      width: 55%;
-      padding: 1em 2em 1em 4rem;
+      width: 50%;
+      padding: 1em 2em;
       font-size: 0.37rem;
     }
     @media (max-width: $mc-breakpoint) {
-      width: 60%;
+      width: 53%;
       font-size: 0.35rem;
     }
-    &.left { left: 0; }
-    &.right { right: 0; }
     .typeheader {
       text-transform: uppercase;
       font-size: 3em;
@@ -111,15 +123,18 @@
     h2 {
       font-size: 1em;
       margin: 2.3em 0;
-      @media (max-width: $md-breakpoint) {
-        margin: 1.9em 0;
+      @media (max-width: $xl-breakpoint) {
+        margin: 2em 0;
+      }
+      @media (max-width: $lg-breakpoint) {
+        margin: 1.7em 0;
       }
       @media (max-width: $mn-breakpoint) {
         margin: 1em 0;
       }
       .title {
         font-family: $garamond;
-        font-size: 8em;
+        font-size: 7.5em;
         letter-spacing: 0.04em;
         font-weight: 500;
         line-height: 1;
@@ -131,8 +146,8 @@
         }
       }
       .subtitle {
-        font-size: 4em;
-        letter-spacing: 0.056em;
+        font-size: 3.75em;
+        letter-spacing: 0.057em;
         font-weight: normal;
       }
       a {

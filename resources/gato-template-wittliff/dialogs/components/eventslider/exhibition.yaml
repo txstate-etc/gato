@@ -52,14 +52,5 @@ form:
           appName: pages
           identifierToPathConverter:
             class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
-        - name: layout
-          class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
-          label: Layout
-          options:
-            - name: left
-              label: Left
-              selected: true
-            - name: right
-              label: Right
 
 actions: !include /gato-template/dialogs/common/actions-block.yaml

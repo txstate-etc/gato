@@ -2,6 +2,7 @@ templateScript: /gato-template-wittliff/templates/components/eventslider/slider.
 renderType: freemarker
 title: Event/News Slider
 description: A large full-width section for displaying details about an exhibition.
+dialog: gato-template-wittliff:components/eventslider/slider
 areas:
   slides:
     title: Slides

@@ -47,14 +47,5 @@ form:
         - name: rsvp
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: RSVP Link
-        - name: layout
-          class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
-          label: Layout
-          options:
-            - name: left
-              label: Left
-              selected: true
-            - name: right
-              label: Right
 
 actions: !include /gato-template/dialogs/common/actions-block.yaml

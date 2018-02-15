@@ -45,7 +45,7 @@
         e.preventDefault();
       }
     });
-    slider.container.on('touchend mouseup', function (e) {
+    $window.on('touchend mouseup', function (e) {
       if (!slider.tracking) return;
       if (slider.dragging) {
         slider.stopclick = e.type == 'mouseup';

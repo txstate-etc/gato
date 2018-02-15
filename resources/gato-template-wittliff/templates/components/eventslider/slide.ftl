@@ -10,7 +10,7 @@
       <img data-src="${gf.getImgDefault(content.image)}" alt="${content.imageAlt!}" data-srcset="${gf.getSrcSet(content.image)}" width="${gf.getImgWidth(content.image)?c}" height="${gf.getImgHeight(content.image)?c}" />
     [/#if]
   </div>
-  <div class="eventslider-panel ${content.layout!'left'}">
+  <div class="eventslider-panel">
     <div class="typeheader" data-max-lines="1">
       [#if content.type == 'exhibition']
         Featured Exhibition

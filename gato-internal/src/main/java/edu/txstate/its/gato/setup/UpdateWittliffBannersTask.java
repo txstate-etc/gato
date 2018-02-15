@@ -9,6 +9,7 @@ import javax.jcr.LoginException;
 
 import info.magnolia.jcr.util.NodeTypes;
 import info.magnolia.jcr.util.NodeUtil;
+import info.magnolia.jcr.util.PropertyUtil;
 import info.magnolia.module.delta.TaskExecutionException;
 import info.magnolia.module.InstallContext;
 import info.magnolia.repository.RepositoryConstants;
@@ -36,6 +37,7 @@ public class UpdateWittliffBannersTask extends GatoBaseUpgradeTask {
   protected void createSlider(Node n, String newtemplate) throws RepositoryException, ItemNotFoundException {
     Node parent = n.getParent();
     Node componentNode = NodeUtil.createPath(parent, "imported_"+n.getName(), NodeTypes.Component.NAME);
+    PropertyUtil.setProperty(componentNode, "layout", PropertyUtil.getString(n, "layout", "left"));
     NodeUtil.orderBefore(componentNode, n.getName());
     NodeTypes.Renderable.set(componentNode, "gato-template-wittliff:components/eventslider/slider");
     Node slides = NodeUtil.createPath(componentNode, "slides", NodeTypes.ContentNode.NAME);
