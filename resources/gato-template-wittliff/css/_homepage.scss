@@ -66,6 +66,7 @@
     overflow: hidden;
   }
   .eventslider-image {
+    @include absolutefill();
     @include coverimage();
   }
   .eventslider-panelcontent {
