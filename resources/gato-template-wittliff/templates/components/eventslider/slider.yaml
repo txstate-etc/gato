@@ -1,6 +1,6 @@
 templateScript: /gato-template-wittliff/templates/components/eventslider/slider.ftl
 renderType: freemarker
-title: Event/News Slider
+title: Showcase Slider
 description: A large full-width section for displaying details about an exhibition.
 dialog: gato-template-wittliff:components/eventslider/slider
 areas:

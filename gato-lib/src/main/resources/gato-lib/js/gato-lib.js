@@ -556,6 +556,20 @@ function relativeTime(time) {
   }
 }
 
+//Object that can be used to synchronize reads and writes and limit thrashing
+function GatoThrasher() {
+  this.reads = [];
+}
+GatoThrasher.prototype.queue = function (read) {
+  this.reads.push(read);
+}
+GatoThrasher.prototype.execute = function () {
+  var writes = [];
+  for (var i = 0; i < this.reads.length; i++) writes.push(this.reads[i]());
+  for (var i = 0; i < writes.length; i++) writes[i]();
+  this.reads = [];
+}
+
 jQuery(function($) {
   $('.timestamp.relative').each(function() {
     // replace timestamps with relative time
@@ -603,21 +617,7 @@ jQuery(function($){
   }
   resizeTimeout(checkimageratios);
 
-  // Code to ensure blocks of text never go over a certain number of lines
-  function fontresizer() {
-    this.reads = [];
-  }
-  fontresizer.prototype.queue = function (read) {
-    this.reads.push(read);
-  }
-  fontresizer.prototype.execute = function () {
-    var writes = [];
-    for (var i = 0; i < this.reads.length; i++) writes.push(this.reads[i]());
-    for (var i = 0; i < writes.length; i++) writes[i]();
-    this.reads = [];
-  }
-  var resizer = new fontresizer();
-
+  var resizer = new GatoThrasher();
   var optimize = function () {
     var $watched = $('[data-max-lines]');
     var done = 0;

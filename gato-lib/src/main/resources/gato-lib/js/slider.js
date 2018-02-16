@@ -32,6 +32,7 @@
     slider.container.on('touchmove mousemove', function (e) {
       if (!slider.tracking) return;
       var t = get_single_touch(e);
+      if (typeof(t) == 'undefined') return;
       slider.xdiff = t.pageX - slider.touchX;
       slider.ydiff = t.pageY - $window.scrollTop() - slider.touchY;
       if (Math.abs(slider.ydiff) > slider.verticaldragthreshold) {

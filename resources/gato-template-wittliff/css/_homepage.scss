@@ -36,8 +36,8 @@
     &.left { padding-right: 0.5rem; }
     &.right { padding-left: 0.5rem; }
     @at-root .left#{&}.left { left: 1rem; }
-    @at-root .left#{&}.right { left: 7rem; }
-    @at-root .right#{&}.left { right: 7rem; }
+    @at-root .left#{&}.right { left: 6.5rem; }
+    @at-root .right#{&}.left { right: 6.5rem; }
     @at-root .right#{&}.right { right: 1rem; }
     @media (max-width: $md-breakpoint) {
       font-size: 4rem;
@@ -45,10 +45,10 @@
       width: 4.5rem;
       &.left { padding-right: 0.3rem; }
       &.right { padding-left: 0.3rem; }
-      @at-root .left#{&}.right { left: 6.3rem; }
-      @at-root .right#{&}.left { right: 6.3rem; }
+      @at-root .left#{&}.right { left: 6rem; }
+      @at-root .right#{&}.left { right: 6rem; }
     }
-    @media (max-width: $sm-breakpoint) {
+    @media (max-width: $xs-breakpoint) {
       display: none;
     }
   }
@@ -68,52 +68,50 @@
   .eventslider-image {
     @include coverimage();
   }
+  .eventslider-panelcontent {
+    overflow: hidden;
+  }
   .eventslider-panel {
     background-color: rgba($coffee, 0.8);
     color: white;
-    padding: 4.5em 6em;
+    padding: 4.5rem 6rem 7rem 6rem;
     position: absolute;
     width: 35%;
     height: 100%;
     top: 0;
-    font-size: 1rem;
+    font-size: 1.3rem;
     @at-root .left#{&} { left: 0; }
     @at-root .right#{&} { right: 0; }
     @media (max-width: $xxl-breakpoint) {
-      padding: 3.5em 5em;
+      padding: 3.5rem 5rem 7rem 5rem;
     }
     @media (max-width: $xl-breakpoint) {
       width: 38%;
-      padding: 2.5em 5em;
-      font-size: 0.95rem;
+      padding: 2rem 3rem 7rem 3rem;
     }
     @media (max-width: $lg-breakpoint) {
       width: 40%;
-      font-size: 0.75rem;
     }
     @media (max-width: $md-breakpoint) {
+      font-size: 1rem;
       width: 42%;
-      padding: 2.5em 3em;
-      font-size: 0.55rem;
+      padding: 1rem 2.5rem 6.5rem 2.5rem;
     }
     @media (max-width: $sm-breakpoint) {
+      font-size: 0.8rem;
       width: 45%;
-      padding: 2em 3.5em;
-      font-size: 0.54rem;
     }
     @media (max-width: $xs-breakpoint) {
+      font-size: 0.7rem;
       width: 47%;
-      padding: 1.5em 2.5em;
-      font-size: 0.45rem;
+      padding: 1.5rem 2rem;
     }
     @media (max-width: $mn-breakpoint) {
       width: 50%;
-      padding: 1em 2em;
-      font-size: 0.37rem;
+      padding: 1rem 1.5rem;
     }
     @media (max-width: $mc-breakpoint) {
       width: 53%;
-      font-size: 0.35rem;
     }
     .typeheader {
       text-transform: uppercase;
