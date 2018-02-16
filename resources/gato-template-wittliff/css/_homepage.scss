@@ -35,18 +35,32 @@
     background: $coffee;
     &.left { padding-right: 0.5rem; }
     &.right { padding-left: 0.5rem; }
-    @at-root .left#{&}.left { left: 1rem; }
-    @at-root .left#{&}.right { left: 6.5rem; }
-    @at-root .right#{&}.left { right: 6.5rem; }
-    @at-root .right#{&}.right { right: 1rem; }
+    @at-root .left#{&}.left { left: 6rem; }
+    @at-root .left#{&}.right { left: 11.5rem; }
+    @at-root .right#{&}.left { right: 11.5rem; }
+    @at-root .right#{&}.right { right: 6rem; }
+    @media (max-width: $xxl-breakpoint) {
+      @at-root .left#{&}.left { left: 5rem; }
+      @at-root .left#{&}.right { left: 10.5rem; }
+      @at-root .right#{&}.left { right: 10.5rem; }
+      @at-root .right#{&}.right { right: 5rem; }
+    }
+    @media (max-width: $xl-breakpoint) {
+      @at-root .left#{&}.left { left: 3rem; }
+      @at-root .left#{&}.right { left: 8.5rem; }
+      @at-root .right#{&}.left { right: 8.5rem; }
+      @at-root .right#{&}.right { right: 3rem; }
+    }
     @media (max-width: $md-breakpoint) {
       font-size: 4rem;
       line-height: 3.5rem;
       width: 4.5rem;
       &.left { padding-right: 0.3rem; }
       &.right { padding-left: 0.3rem; }
-      @at-root .left#{&}.right { left: 6rem; }
-      @at-root .right#{&}.left { right: 6rem; }
+      @at-root .left#{&}.left { left: 2.5rem; }
+      @at-root .left#{&}.right { left: 7.5rem; }
+      @at-root .right#{&}.left { right: 7.5rem; }
+      @at-root .right#{&}.right { right: 2.5rem; }
     }
     @media (max-width: $xs-breakpoint) {
       display: none;
