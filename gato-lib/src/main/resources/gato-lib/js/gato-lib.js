@@ -563,6 +563,7 @@ function relativeTime(time) {
 // init() - run on domloaded (avoid writing to DOM where possible)
 // reset() - get ready to run a new resize (write to DOM to undo previous changes)
 //       do NOT read from DOM
+// prepare() - get ready to run a new resize (read from DOM)
 // process() - run a single iteration and return a function containing DOM writes
 //       if there are no writes remaining to be done, return undefined
 function GatoAntiThrasher() {
@@ -581,7 +582,10 @@ GatoAntiThrasher.prototype.execute = function() {
     var registrant = self.registrants[i];
     if (registrant.reset) registrant.reset();
   }
-
+  for (var i = 0; i < size; i++) {
+    var registrant = self.registrants[i];
+    if (registrant.prepare) registrant.prepare();
+  }
   for (var sanity = 0; sanity < 25; sanity++) {
     var writes = [];
     for (var i = 0; i < size; i++) {
@@ -606,12 +610,11 @@ function GatoFontAdjuster(watched, acceptable) {
   this.watched = watched;
   this.acceptable = acceptable;
 }
-GatoFontAdjuster.prototype.init = function () {
-  this.originalfontsize = parseFloat(this.watched.css('font-size'));
-}
 GatoFontAdjuster.prototype.reset = function () {
   this.watched.css('font-size', '');
-  this.currentsize = this.originalfontsize;
+}
+GatoFontAdjuster.prototype.prepare = function () {
+  this.currentsize = parseFloat(this.watched.css('font-size'));
   this.top = this.currentsize;
   this.bottom = 0;
 }
