@@ -582,8 +582,8 @@ GatoAntiThrasher.prototype.execute = function() {
     if (registrant.reset) registrant.reset();
   }
 
-  var writes = [];
   for (var sanity = 0; sanity < 25; sanity++) {
+    var writes = [];
     for (var i = 0; i < size; i++) {
       var registrant = self.registrants[i];
       var write = registrant.process();
