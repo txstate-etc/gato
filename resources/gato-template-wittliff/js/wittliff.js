@@ -108,54 +108,14 @@ jQuery(document).ready(function($) {
     });
   });
 
-  var resizer = new GatoThrasher();
-  var optimize = function () {
-    var $watched = $('.eventslider-panel');
-    var done = 0;
-    var target = $watched.length;
-
-    $watched.each(function (idx, itm) {
-      var $itm = $(itm);
-      $itm.css('font-size', '');
-      $itm.data('eventslider-top', parseFloat($itm.css('font-size'), 10));
-      $itm.data('eventslider-bottom', 0);
-      $itm.data('eventslider-done', false);
-    });
-    for (var i = 0; i < 20 && done < target; i++) {
-      $watched.each(function (idx, itm) {
-        var $itm = $(itm);
-        var iterate = function () {
-          var currentsize = parseFloat($itm.css('font-size'), 10);
-          var currentheight = $itm.find('.eventslider-panelcontent').outerHeight();
-          var targetheight = $itm.height();
-          var newsize;
-          if (currentheight <= targetheight) {
-            $itm.data('eventslider-bottom', currentsize);
-            newsize = (currentsize + $itm.data('eventslider-top')) / 2.0;
-            if (Math.abs(newsize - currentsize) <= 0.05) {
-              newsize = currentsize;
-            }
-          } else {
-            $itm.data('eventslider-top', currentsize);
-            newsize = (currentsize + $itm.data('eventslider-bottom')) / 2.0;
-            if (Math.abs(newsize - currentsize) <= 0.05) newsize = $itm.data('eventslider-bottom');
-          }
-
-          if (newsize != currentsize) return function () {
-            $itm.css('font-size', newsize+'px');
-          }
-          // above us is a 'return'
-          // if we make it this far we have no more work to do
-          $itm.data('eventslider-done', true);
-          done++;
-          return function () { }
-        }
-        if (!$itm.data('eventslider-done')) resizer.queue(iterate);
-      });
-      resizer.execute();
-    }
+  var acceptable = function ($itm) {
+    var currentheight = $itm.find('.eventslider-panelcontent').outerHeight();
+    var targetheight = $itm.height();
+    return currentheight <= targetheight;
   }
-  resizeTimeout(optimize);
+  $('.eventslider-panel').each(function (idx,itm) {
+    GatoAntiThrasherSingleton.register(new GatoFontAdjuster($(itm), acceptable));
+  });
 
   // Hero Slider
   $('.gato-heroslider').each(function (idx, itm) {

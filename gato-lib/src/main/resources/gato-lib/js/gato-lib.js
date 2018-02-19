@@ -556,18 +556,89 @@ function relativeTime(time) {
   }
 }
 
-//Object that can be used to synchronize reads and writes and limit thrashing
-function GatoThrasher() {
-  this.reads = [];
+// Provide a singleton that can queue up DOM reads and writes on resize to prevent thrashing
+// Invoke by registering a class that can handle the logic with:
+// GatoAntiThrasherSingleton.register(new handler());
+// handler must be an object with the following properties:
+// init() - run on domloaded (avoid writing to DOM where possible)
+// reset() - get ready to run a new resize (write to DOM to undo previous changes)
+//       do NOT read from DOM
+// process() - run a single iteration and return a function containing DOM writes
+//       if there are no writes remaining to be done, return undefined
+function GatoAntiThrasher() {
+  var self = this;
+  this.registrants = [];
+  resizeTimeout(function () { self.execute(); });
 }
-GatoThrasher.prototype.queue = function (read) {
-  this.reads.push(read);
+GatoAntiThrasher.prototype.register = function(registrant) {
+  if (registrant.init) registrant.init();
+  this.registrants.push(registrant);
 }
-GatoThrasher.prototype.execute = function () {
+GatoAntiThrasher.prototype.execute = function() {
+  var self = this;
+  var size = this.registrants.length;
+  for (var i = 0; i < size; i++) {
+    var registrant = self.registrants[i];
+    if (registrant.reset) registrant.reset();
+  }
+
   var writes = [];
-  for (var i = 0; i < this.reads.length; i++) writes.push(this.reads[i]());
-  for (var i = 0; i < writes.length; i++) writes[i]();
-  this.reads = [];
+  for (var sanity = 0; sanity < 25; sanity++) {
+    for (var i = 0; i < size; i++) {
+      var registrant = self.registrants[i];
+      var write = registrant.process();
+      if (write) writes.push(write);
+    }
+    for (var i = 0; i < writes.length; i++) {
+      writes[i]();
+    }
+    if (writes.length == 0) break;
+  }
+}
+var GatoAntiThrasherSingleton = new GatoAntiThrasher();
+
+// This is a class designed to work with GatoAntiThrasherSingleton to dynamically adjust
+// font size to find the perfect size
+// Provide a jQuery object 'watched' and a function 'acceptable'
+// acceptable() simply determines whether the current font size is within bounds
+// GatoFontAdjuster will adjust the font of 'watched' to the largest acceptable size
+function GatoFontAdjuster(watched, acceptable) {
+  this.watched = watched;
+  this.acceptable = acceptable;
+}
+GatoFontAdjuster.prototype.init = function () {
+  this.originalfontsize = parseFloat(this.watched.css('font-size'));
+}
+GatoFontAdjuster.prototype.reset = function () {
+  this.watched.css('font-size', '');
+  this.currentsize = this.originalfontsize;
+  this.top = this.currentsize;
+  this.bottom = 0;
+}
+GatoFontAdjuster.prototype.process = function () {
+  var self = this;
+  var $itm = self.watched;
+
+  var newsize;
+  if (self.acceptable($itm)) {
+    self.bottom = self.currentsize;
+    newsize = (self.currentsize + self.top) / 2;
+    if (Math.abs(newsize - self.currentsize) <= 0.05) {
+      newsize = self.currentsize;
+    }
+  } else {
+    self.top = self.currentsize;
+    newsize = (self.currentsize + self.bottom) / 2;
+    if (Math.abs(newsize - self.currentsize) <= 0.05) newsize = self.bottom;
+  }
+
+  if (newsize != self.currentsize) return function () {
+    self.currentsize = newsize;
+    $itm.css('font-size', newsize+'px');
+  }
+  // above us is a 'return'
+  // if we make it this far we have no more work to do
+  return undefined;
 }
 
 jQuery(function($) {
@@ -617,55 +688,16 @@ jQuery(function($){
   }
   resizeTimeout(checkimageratios);
 
-  var resizer = new GatoThrasher();
-  var optimize = function () {
-    var $watched = $('[data-max-lines]');
-    var done = 0;
-    var target = $watched.length;
-
-    $watched.each(function (idx, itm) {
-      var $itm = $(itm);
-      $itm.css('font-size', '');
-      $itm.data('max-lines-top', parseInt($itm.css('font-size'), 10));
-      $itm.data('max-lines-bottom', 0);
-      $itm.data('max-lines-done', false);
-    });
-    for (var i = 0; i < 20 && done < target; i++) {
-      $watched.each(function (idx, itm) {
-        var $itm = $(itm);
-
-        var iterate = function () {
-          var currentsize = parseInt($itm.css('font-size'), 10);
-          var lineheight = parseInt($itm.css('line-height'), 10) || currentsize*1.14;
-          var currentlines = Math.round($itm.height() / lineheight);
-          var newsize;
-          if (currentlines <= $itm.data('max-lines')) {
-            $itm.data('max-lines-bottom', currentsize);
-            newsize = (currentsize + $itm.data('max-lines-top')) / 2;
-            if (Math.abs(newsize - currentsize) <= 1) {
-              newsize = currentsize;
-            }
-          } else {
-            $itm.data('max-lines-top', currentsize);
-            newsize = (currentsize + $itm.data('max-lines-bottom')) / 2;
-            if (Math.abs(newsize - currentsize) <= 1) newsize = $itm.data('max-lines-bottom');
-          }
-
-          if (newsize != currentsize) return function () {
-            $itm.css('font-size', newsize+'px');
-          }
-          // above us is a 'return'
-          // if we make it this far we have no more work to do
-          $itm.data('max-lines-done', true);
-          done++;
-          return function () { }
-        }
-        if (!$itm.data('max-lines-done')) resizer.queue(iterate);
-      });
-      resizer.execute();
-    }
+  // Use the GatoFontAdjuster to restrict certain content to X number of lines
+  var acceptable = function ($itm) {
+    var currentsize = parseFloat($itm.css('font-size'));
+    var lineheight = parseFloat($itm.css('line-height')) || currentsize*1.14;
+    var currentlines = Math.round($itm.height() / lineheight);
+    return currentlines <= $itm.data('max-lines');
   }
-  resizeTimeout(optimize);
+  $('[data-max-lines]').each(function (idx,itm) {
+    GatoAntiThrasherSingleton.register(new GatoFontAdjuster($(itm), acceptable));
+  });
 });
 
 
