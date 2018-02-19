@@ -561,11 +561,13 @@ function relativeTime(time) {
 // GatoAntiThrasherSingleton.register(new handler());
 // handler must be an object with the following properties:
 // init() - run on domloaded (avoid writing to DOM where possible)
+// skip() - determine whether processing is necessary (read from DOM to see if your situation has actually changed)
 // reset() - get ready to run a new resize (write to DOM to undo previous changes)
 //       do NOT read from DOM
 // prepare() - get ready to run a new resize (read from DOM)
 // process() - run a single iteration and return a function containing DOM writes
 //       if there are no writes remaining to be done, return undefined
+// Only process() is required. Others are optional.
 function GatoAntiThrasher() {
   var self = this;
   this.registrants = [];
@@ -575,24 +577,41 @@ GatoAntiThrasher.prototype.register = function(registrant) {
   if (registrant.init) registrant.init();
   this.registrants.push(registrant);
 }
+GatoAntiThrasher.prototype.loop = function(callback) {
+  for (var i = 0; i < this.registrants.length; i++) {
+    if (!this.registrants[i].GatoAntiThrasher_skip) callback(this.registrants[i]);
+  }
+}
+GatoAntiThrasher.prototype.reset = function() {
+  for (var i = 0; i < this.registrants.length; i++) {
+    var registrant = this.registrants[i]
+    registrant.GatoAntiThrasher_skip = registrant.skip && registrant.skip();
+  }
+}
 GatoAntiThrasher.prototype.execute = function() {
   var self = this;
-  var size = this.registrants.length;
-  for (var i = 0; i < size; i++) {
-    var registrant = self.registrants[i];
+
+  // determine which registrants should be skipped
+  this.reset();
+
+  // reset all unskipped registrants
+  this.loop(function (registrant) {
     if (registrant.reset) registrant.reset();
-  }
-  for (var i = 0; i < size; i++) {
-    var registrant = self.registrants[i];
+  });
+
+  // prepare all unskipped registrants
+  this.loop(function (registrant) {
     if (registrant.prepare) registrant.prepare();
-  }
+  });
+
+  // do read/write iterations for all registrants until none of them are returning writes
+  // or we hit our maximum iteration limit (sanity check)
   for (var sanity = 0; sanity < 25; sanity++) {
     var writes = [];
-    for (var i = 0; i < size; i++) {
-      var registrant = self.registrants[i];
+    this.loop(function (registrant) {
       var write = registrant.process();
       if (write) writes.push(write);
-    }
+    });
     for (var i = 0; i < writes.length; i++) {
       writes[i]();
     }
@@ -609,6 +628,16 @@ var GatoAntiThrasherSingleton = new GatoAntiThrasher();
 function GatoFontAdjuster(watched, acceptable) {
   this.watched = watched;
   this.acceptable = acceptable;
+}
+GatoFontAdjuster.prototype.init = function () {
+  this.lastwidth = 0;
+  this.lastheight = 0;
+}
+GatoFontAdjuster.prototype.skip = function () {
+  var w = this.watched.width(); var h = this.watched.height();
+  var skip = (this.lastwidth == w && this.lastheight == h);
+  this.lastwidth = w; this.lastheight = h;
+  return skip;
 }
 GatoFontAdjuster.prototype.reset = function () {
   this.watched.css('font-size', '');
@@ -641,7 +670,7 @@ GatoFontAdjuster.prototype.process = function () {
   }
   // above us is a 'return'
   // if we make it this far we have no more work to do
-  return undefined;
+  return;
 }
 
 jQuery(function($) {
