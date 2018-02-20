@@ -579,13 +579,17 @@ GatoAntiThrasher.prototype.register = function(registrant) {
 }
 GatoAntiThrasher.prototype.loop = function(callback) {
   for (var i = 0; i < this.registrants.length; i++) {
-    if (!this.registrants[i].GatoAntiThrasher_skip) callback(this.registrants[i]);
+    if (!this.registrants[i].GatoAntiThrasher_skip && !this.registrants[i].GatoAntiThrasher_done) callback(this.registrants[i]);
   }
+}
+GatoAntiThrasher.prototype.markdone = function(registrant) {
+  registrant.GatoAntiThrasher_done = true;
 }
 GatoAntiThrasher.prototype.reset = function() {
   for (var i = 0; i < this.registrants.length; i++) {
     var registrant = this.registrants[i]
     registrant.GatoAntiThrasher_skip = registrant.skip && registrant.skip();
+    registrant.GatoAntiThrasher_done = false;
   }
 }
 GatoAntiThrasher.prototype.execute = function() {
@@ -611,6 +615,7 @@ GatoAntiThrasher.prototype.execute = function() {
     this.loop(function (registrant) {
       var write = registrant.process();
       if (write) writes.push(write);
+      else self.markdone(registrant);
     });
     for (var i = 0; i < writes.length; i++) {
       writes[i]();
