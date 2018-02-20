@@ -654,13 +654,13 @@ GatoFontAdjuster.prototype.process = function () {
   var newsize;
   if (self.acceptable($itm)) {
     self.bottom = self.currentsize;
-    newsize = (self.currentsize + self.top) / 2;
+    newsize = (self.currentsize + self.top) / 2.0;
     if (Math.abs(newsize - self.currentsize) <= 0.05) {
       newsize = self.currentsize;
     }
   } else {
     self.top = self.currentsize;
-    newsize = (self.currentsize + self.bottom) / 2;
+    newsize = (self.currentsize + self.bottom) / 2.0;
     if (Math.abs(newsize - self.currentsize) <= 0.05) newsize = self.bottom;
   }
 
