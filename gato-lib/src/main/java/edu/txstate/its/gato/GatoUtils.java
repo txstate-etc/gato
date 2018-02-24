@@ -1270,6 +1270,10 @@ public final class GatoUtils {
     }
   }
 
+  public String toJSON(Object obj) {
+    return new Gson().toJson(obj);
+  }
+
   public Object restClientNodeToFreemarker(JsonNode node) {
     if (node.isObject()) {
       Map<String,Object> ret = new HashMap<String,Object>();

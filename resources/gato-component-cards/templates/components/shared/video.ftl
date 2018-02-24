@@ -1,6 +1,6 @@
 [#include "/gato-template/templates/includes/commonmacros.ftl"]
 [#assign oembed = gf.oEmbedCached(content, content.videourl)]
-<div class="gato-card gato-card-video eq-parent ${gf.jsonGetString(oembed, 'provider_name')?lower_case} ${ctx.cardsize} ${content.color!'color1'}" data-tags="${content.tags!''}">
+<div class="gato-card gato-card-video eq-parent ${gf.jsonGetString(oembed, 'provider_name')?lower_case} ${ctx.cardsize} ${content.color!'color1'}" data-tags="${gf.toJSON(gf.orderedPropertyValues(content.tags))?html}">
   <figure>
     <div class="gato-card-video-splash">
       [#if content.image?has_content]

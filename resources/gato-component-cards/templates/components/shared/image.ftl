@@ -3,7 +3,7 @@
 [#if (ctx.cardindex!0) % 2 == 1][#assign indexclass = indexclass + ' halves-edge'][/#if]
 [#if (ctx.cardindex!0) % 3 == 2][#assign indexclass = indexclass + ' thirds-edge'][/#if]
 [#if (ctx.cardindex!0) % 4 == 3][#assign indexclass = indexclass + ' fourths-edge'][/#if]
-<div class="gato-card gato-card-image eq-parent ${ctx.cardsize!} ${content.color!'color1'}${indexclass}" data-tags="${content.tags!''}">
+<div class="gato-card gato-card-image eq-parent ${ctx.cardsize!} ${content.color!'color1'}${indexclass}" data-tags="${gf.toJSON(gf.orderedPropertyValues(content.tags))?html}">
   [#if content.link?has_content]
     <a class="gato-card-image-link" href="${gf.filterUrl(content.link!)}">
   [/#if]

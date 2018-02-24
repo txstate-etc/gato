@@ -62,7 +62,7 @@ jQuery(function($) {
 			var changed = false;
 			var appeared = [];
 			$(element).find('div.gato-card[data-tags]:not([data-tags=""])').each(function(i,card){
-				var tags = $(card).data("tags").toLowerCase().split(/ *, */);
+				var tags = $(card).data("tags").map(function (s) { return s.toLowerCase().trim(); });
 				var $card = $(card);
 				if ( tags.indexOf(currentFilter.toLowerCase()) != -1 || currentFilter == "All" ) {
 					if ($card.hasClass('gato-card-hidden')) {
