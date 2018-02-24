@@ -5,7 +5,7 @@
 		[#if content.includeallfilter!false]
 			<li role="presentation"><a href="#" role="tab">All</a></li>
 		[/#if]
-		[#list (content.filterlist!"")?split(",") as tab]
+		[#list gf.orderedPropertyValues(content.filterlist) as tab]
 			<li role="presentation"><a href="#" role="tab">${tab?trim}</a></li>
 		[/#list]
 	</ul>

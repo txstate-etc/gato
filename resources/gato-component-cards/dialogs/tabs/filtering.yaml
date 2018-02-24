@@ -11,7 +11,11 @@
   defaultValue: false
   type: Boolean
 - name: filterlist
-  class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-  label: "Tag List"
-  description: "A comma delimited list of tabs to show for filtering this grid. This is optional. If not defined, all tags used on cards in this grid will be listed in alphabetical order."
-  type: String
+  class: info.magnolia.ui.form.field.definition.MultiValueFieldDefinition
+  transformerClass: info.magnolia.ui.form.field.transformer.multi.MultiValueChildNodeTransformer
+  label: Tag List
+  field:
+    name: title
+    class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+    label: Title
+    description: "The title for the link.  If left empty, it will be automatically titled with the name of the service, e.g. \"Facebook\"."

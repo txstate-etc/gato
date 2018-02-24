@@ -1,5 +1,12 @@
 - name: tags
-  class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-  type: String
-  label: Tags
-  description: "Comma delimited list of tags for this card. These are used for the filtering that can be enabled in the grid's properties."
+  label: Filters
+  description: Select the filters under which this card should appear.
+  class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
+  initFunction: inittags
+  scripts: [gato-lib/js/restful.js,gato-component-cards/js/editor/tags.js]
+  styles: [gato-component-cards/css/editor/tags.css]
+  loadScriptsInOrder: true
+  fields:
+    - name: tags
+      class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+      transformerClass: edu.txstate.its.gato.vaadin.JsonTransformer
