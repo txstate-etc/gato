@@ -14,6 +14,8 @@ import info.magnolia.module.delta.TaskExecutionException;
 import info.magnolia.module.InstallContext;
 import info.magnolia.repository.RepositoryConstants;
 
+import org.apache.commons.lang3.StringUtils;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
