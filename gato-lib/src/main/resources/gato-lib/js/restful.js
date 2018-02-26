@@ -159,6 +159,12 @@ jcrnode.prototype.clearProperties = function () {
   node.prophash = {};
 }
 
+jcrnode.prototype.clearNodes = function () {
+  var node = this;
+  node.nodes = [];
+  node.nodehash = {};
+}
+
 jcrnode.prototype.setProperty = function(key, vals, type) {
   var node = this;
   if (!type) type = 'String';
@@ -187,4 +193,27 @@ jcrnode.prototype.addProperty = function(vals, type) {
   var key = 0;
   while (typeof(node.prophash[key]) != 'undefined') key++;
   return node.setProperty(key, vals, type);
+}
+
+jcrnode.prototype.addNode = function(name, template = 'mgnl:area') {
+  var node = this;
+  if (!name) {
+    name = 0;
+    while (typeof(node.nodehash[name]) != 'undefined') name++;
+  }
+  var newnode = new jcrnode();
+  newnode.name = name;
+  newnode.path = node.path+'/'+name;
+  newnode.type = template;
+  node.nodes.push(newnode);
+  node.nodehash[key] = newnode;
+  return newnode;
+}
+
+jcrnode.prototype.addChild = function(child) {
+  var node = this;
+  child.path = node.path+'/'+child.name;
+  node.nodes.push(child);
+  node.nodehash[key] = child;
+  return child;
 }

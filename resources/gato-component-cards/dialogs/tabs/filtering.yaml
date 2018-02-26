@@ -11,11 +11,14 @@
   defaultValue: false
   type: Boolean
 - name: filterlist
-  class: info.magnolia.ui.form.field.definition.MultiValueFieldDefinition
-  transformerClass: info.magnolia.ui.form.field.transformer.multi.MultiValueChildNodeTransformer
-  label: Tag List
-  field:
-    name: title
-    class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-    label: Title
-    description: "The title for the link.  If left empty, it will be automatically titled with the name of the service, e.g. \"Facebook\"."
+  label: Filter List
+  description: Create up to 5 filters. Cards that you create in this section may be tagged with one or more of your filters.
+  class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
+  initFunction: initfilterlist
+  scripts: [gato-lib/js/restful.js,gato-component-cards/js/editor/filterlist.js]
+  styles: [gato-component-cards/css/editor/filterlist.css]
+  loadScriptsInOrder: true
+  fields:
+    - name: filterlist
+      class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+      transformerClass: edu.txstate.its.gato.vaadin.JsonTransformer
