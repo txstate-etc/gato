@@ -1,0 +1,36 @@
+ul.gato-card-filter {
+  background-color: $mc1-bg;
+  list-style: none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  [data-eq~="800px"] & {
+    flex-wrap: wrap;
+  }
+
+  li {
+    flex-grow: 1;
+    [data-eq~="800px"] & {
+      width: 50%;
+      flex-grow: 0;
+    }
+
+    a {
+      display: block;
+      text-decoration: none;
+      color: white;
+      padding: 2.5rem 0;
+      width: 100%;
+      vertical-align: middle;
+      text-align: center;
+      font-size: 2.3rem;
+      letter-spacing: .3rem;
+      font-weight: 200;
+    }
+
+    a.grid-filter-selected {
+      background-color: $mc2-bg;
+    }
+  }
+}

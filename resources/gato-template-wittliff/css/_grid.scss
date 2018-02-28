@@ -1,14 +1,6 @@
 ul.gato-card-filter {
   background-color: $wittliffbrown;
   border-top: 7px solid $sienna;
-  list-style: none;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  [data-eq~="800px"] & {
-    flex-wrap: wrap;
-  }
   &:before {
     content: "YOU ARE A...";
     display: block;
@@ -26,15 +18,7 @@ ul.gato-card-filter {
   }
 
   li {
-    flex-grow: 1;
-    [data-eq~="800px"] & {
-      width: 50%;
-      flex-grow: 0;
-    }
-
     a {
-      display: block;
-      text-decoration: none;
       color: white;
       padding: 2.5rem 0;
       width: 100%;
@@ -54,47 +38,5 @@ ul.gato-card-filter {
 .section-grid, .section-masonry {
   .gato-card {
     box-shadow: none;
-    /*
-    &.gato-card-image {
-      figure {
-        display: flex;
-        flex-flow: column;
-        [data-eq~="800px"] & {
-          flex-flow: row;
-        }
-
-        img {
-          object-fit: cover;
-          height: 300px;
-          [data-eq~="800px"] & {
-            height: 150px;
-            width: 50%;
-          }
-        }
-
-        figcaption {
-          padding: 2rem;
-          margin: 0;
-          flex: 1;
-          [data-eq~="800px"] & {
-            padding: 1rem;
-            display: flex;
-            text-align: center;
-            align-items: center;
-          }
-
-          h3 {
-            display: block;
-            width: 100%;
-            padding: 0;
-            margin: 0;
-            font-size: 2.3rem;
-            letter-spacing: .3rem;
-            font-weight: 200;
-          }
-        }
-      }
-    }
-    */
   }
 }
