@@ -11,6 +11,7 @@ function jcrnode(workspace, path, data) {
   var node = this;
   node.workspace = workspace;
   node.path = path;
+  node.name = path.split('/').pop();
   node.load(data);
 }
 
@@ -34,9 +35,12 @@ jcrnode.prototype.load = function (data) {
   if (typeof(data) != "undefined" && !jQuery.isEmptyObject(data)) {
     jQuery.extend(true, node, data);
     node.cleanup();
+    node.fetched = typeof(node.properties) != "undefined";
+    node.childrenfetched = typeof(node.nodes) != "undefined";
+  } else {
+    node.clearNodes();
+    node.clearProperties();
   }
-  node.fetched = typeof(node.properties) != "undefined";
-  node.childrenfetched = typeof(node.nodes) != "undefined";
 }
 
 jcrnode.prototype.cleanup = function() {

@@ -1,12 +1,15 @@
 // require jQuery
 window.inittags = function (def, path, parentdiv, templateId) {
   var mynode = new jcrnode("website", path);
+  // 'path' is different depending on whether it's a new card, in that case 'path'
+  // points at the area node since the component node doesn't exist yet
+  var filterlistnode = (mynode.name == 'cards' ? mynode.getParent() : mynode.getParent().getParent()).getChild('filterlist');
   parentdiv = $(parentdiv);
   var hidden = parentdiv.closest('.v-form-field-container').find('input.tags');
   var startval = hidden.val();
   var groupnode = new jcrnode("website", path+'/tags', jQuery.parseJSON(startval));
 
-  mynode.getParent().getParent().getChild('filterlist').fetch().done(function (filterlist) {
+  filterlistnode.fetch().done(function (filterlist) {
     var filters = filterlist.getChildren();
     var preselected = groupnode.getPropertyValues().reduce(function (acc, cur, i) { acc[cur] = true; return acc; }, {});
     html = '<div class="gato-tags">';

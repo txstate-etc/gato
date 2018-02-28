@@ -977,9 +977,6 @@ public final class GatoUtils {
       Node filterlist = n.getParent().getParent().getNode("filterlist");
       Map<String,String> filterhash = new HashMap<String,String>();
       for (Node filter : NodeUtil.getNodes(filterlist)) {
-        System.out.println("hi!");
-        System.out.println(filter.getPath());
-        System.out.println(PropertyUtil.getString(filter, "id","null"));
         filterhash.put(PropertyUtil.getString(filter, "id"), PropertyUtil.getString(filter, "name"));
       }
       if (n.hasNode("tags")) {
