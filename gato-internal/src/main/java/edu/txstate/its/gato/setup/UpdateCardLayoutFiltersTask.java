@@ -36,6 +36,7 @@ public class UpdateCardLayoutFiltersTask extends GatoBaseUpgradeTask {
     Session s=ctx.getJCRSession(RepositoryConstants.WEBSITE);
     visitByTemplate(s, "gato-component-cards:components/layouts/grid", n -> {
       Node page = NodeUtil.getNearestAncestorOfType(n, NodeTypes.Page.NAME);
+      boolean is2015template = NodeTypes.Renderable.getTemplate(page).startsWith("gato-template-txstate2015:");
       if (n.hasProperty("filterlist")) {
         List<String> filters = parseCommas(PropertyUtil.getString(n, "filterlist", ""));
         n.getProperty("filterlist").remove();
@@ -62,7 +63,7 @@ public class UpdateCardLayoutFiltersTask extends GatoBaseUpgradeTask {
               }
             }
             if (card.hasProperty("color")) {
-              if (NodeTypes.Renderable.getTemplate(page).startsWith("gato-template-txstate2015:")) {
+              if (is2015template) {
                 String color = PropertyUtil.getString(card, "color", "color1");
                 if (color.equals("color4")) {
                   color = "color3";
