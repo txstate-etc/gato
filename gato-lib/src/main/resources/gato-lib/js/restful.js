@@ -73,9 +73,14 @@ jcrnode.prototype.getParent = function () {
   return new jcrnode(node.workspace, parentpath);
 }
 
-jcrnode.prototype.fetchParent = function () {
+jcrnode.prototype.getChild = function(name) {
   var node = this;
-  return node.getParent().fetch();
+  return new jcrnode(node.workspace, node.path+'/'+name);
+}
+
+jcrnode.prototype.fetchParent = function (depth = 1) {
+  var node = this;
+  return node.getParent().fetch(depth);
 }
 
 // this is only safe if you KNOW you have pre-fetched to the correct depth
@@ -83,9 +88,7 @@ jcrnode.prototype.fetchParent = function () {
 // if you are unsure whether they need fetching, use jcrnode.fetchChildren()
 jcrnode.prototype.getChildren = function () {
   var node = this;
-  var children = [];
-  for (var i = 0; i < node.nodes.length; i++) children.push(new jcrnode(workspace, path+'/'+node.nodes[i].name, node.nodes[i]));
-  return children;
+  return node.nodes || [];
 }
 
 jcrnode.prototype.fetchChildren = function () {
@@ -175,7 +178,11 @@ jcrnode.prototype.setProperty = function(key, vals, type) {
   if (typeof(node.prophash[key]) != 'undefined') {
     for (var i = 0; i < node.properties.length; i++) {
       var prop = node.properties[i];
-      if (prop.name == key) prop.val = vals;
+      if (prop.name == key) {
+        prop.type = type;
+        prop.values = ensurearrayvals;
+        prop.multiple = multiple;
+      }
     }
   } else {
     node.properties.push({
@@ -202,18 +209,28 @@ jcrnode.prototype.addNode = function(name, template = 'mgnl:area') {
     while (typeof(node.nodehash[name]) != 'undefined') name++;
   }
   var newnode = new jcrnode();
+  newnode.workspace = node.workspace;
   newnode.name = name;
   newnode.path = node.path+'/'+name;
   newnode.type = template;
   node.nodes.push(newnode);
-  node.nodehash[key] = newnode;
+  node.nodehash[name] = newnode;
   return newnode;
 }
 
 jcrnode.prototype.addChild = function(child) {
   var node = this;
+  child.workspace = node.workspace;
   child.path = node.path+'/'+child.name;
   node.nodes.push(child);
-  node.nodehash[key] = child;
+  node.nodehash[name] = child;
   return child;
+}
+
+jcrnode.prototype.json = function() {
+  var node = this;
+  return JSON.stringify(node, function (key, val) {
+    if (key == 'prophash' || key == 'nodehash' || key == 'fetched' || key == 'childrenfetched') return undefined;
+    return val;
+  });
 }

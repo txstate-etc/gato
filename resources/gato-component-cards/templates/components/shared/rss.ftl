@@ -1,5 +1,5 @@
 [#include "/gato-template/templates/includes/commonmacros.ftl"]
-<div class="gato-card gato-card-rss-container eq-parent ${ctx.cardsize}" data-tags="${gf.toJSON(gf.orderedPropertyValues(content.tags))?html}">
+<div class="gato-card gato-card-rss-container eq-parent ${ctx.cardsize}" data-tags="${gf.toJSON(gf.getTags(content))?html}">
   [#if model.error?has_content]
     <div class="gato-rss-error">
       There was an error retrieving the news feed.

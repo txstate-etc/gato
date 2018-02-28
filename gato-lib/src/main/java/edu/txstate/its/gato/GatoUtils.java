@@ -970,6 +970,29 @@ public final class GatoUtils {
     return ret;
   }
 
+  public Collection<String> getTags(Object obj) {
+    Node n = toNode(obj);
+    Collection<String> ret = new ArrayList<String>();
+    try {
+      Node filterlist = n.getParent().getParent().getNode("filterlist");
+      Map<String,String> filterhash = new HashMap<String,String>();
+      for (Node filter : NodeUtil.getNodes(filterlist)) {
+        System.out.println("hi!");
+        System.out.println(filter.getPath());
+        System.out.println(PropertyUtil.getString(filter, "id","null"));
+        filterhash.put(PropertyUtil.getString(filter, "id"), PropertyUtil.getString(filter, "name"));
+      }
+      if (n.hasNode("tags")) {
+        for (String filterid : orderedPropertyValues(n.getNode("tags"))) {
+          ret.add(StringUtils.strip(filterhash.get(filterid)));
+        }
+      }
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+    return ret;
+  }
+
   public ContentMap getOrCreateArea(Object parent, String childName) {
     return getOrCreateNode(parent, childName, "mgnl:area");
   }

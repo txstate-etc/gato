@@ -5,8 +5,8 @@
 		[#if content.includeallfilter!false]
 			<li role="presentation"><a href="#" role="tab">All</a></li>
 		[/#if]
-		[#list gf.orderedPropertyValues(content.filterlist) as tab]
-			<li role="presentation"><a href="#" role="tab">${tab?trim}</a></li>
+		[#list cmsfn.children(content.filterlist) as filter]
+			<li role="presentation"><a href="#" role="tab">${filter.name?trim}</a></li>
 		[/#list]
 	</ul>
 [/#if]

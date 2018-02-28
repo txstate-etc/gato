@@ -1,5 +1,11 @@
 package edu.txstate.its.gato.setup;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
+
 import javax.jcr.Node;
 import javax.jcr.Session;
 import javax.jcr.ItemNotFoundException;
@@ -28,22 +34,45 @@ public class UpdateCardLayoutFiltersTask extends GatoBaseUpgradeTask {
 
   protected void doExecute(InstallContext ctx) throws RepositoryException, PathNotFoundException, TaskExecutionException, LoginException {
     Session s=ctx.getJCRSession(RepositoryConstants.WEBSITE);
-    visitByTemplate(s, "gato-component-cards:components/layouts/grid", n -> { convertToNodeArray(n, "filterlist"); });
-    visitByTemplate(s, "gato-component-cards:components/grid/image", n -> { convertToNodeArray(n, "tags"); });
-    visitByTemplate(s, "gato-component-cards:components/grid/video", n -> { convertToNodeArray(n, "tags"); });
-    visitByTemplate(s, "gato-component-cards:components/grid/rss", n -> { convertToNodeArray(n, "tags"); });
+    visitByTemplate(s, "gato-component-cards:components/layouts/grid", n -> {
+      if (n.hasProperty("filterlist")) {
+        List<String> filters = parseCommas(PropertyUtil.getString(n, "filterlist", ""));
+        n.getProperty("filterlist").remove();
+        Node filterlist = NodeUtil.createPath(n, "filterlist", NodeTypes.Area.NAME);
+        int idx = 0;
+        Map<String,String> filtermap = new HashMap<String,String>();
+        for (String filter : filters) {
+          Node f = filterlist.addNode(String.valueOf(idx++), NodeTypes.ContentNode.NAME);
+          String id = UUID.randomUUID().toString();
+          PropertyUtil.setProperty(f, "id", id);
+          PropertyUtil.setProperty(f, "name", filter);
+          filtermap.put(filter.toLowerCase(), id);
+        }
+
+        if (n.hasNode("cards")) {
+          for (Node card : NodeUtil.getNodes(n.getNode("cards"), NodeTypes.Component.NAME)) {
+            if (card.hasProperty("tags")) {
+              List<String> cardfilters = parseCommas(PropertyUtil.getString(card, "tags", ""));
+              card.getProperty("tags").remove();
+              Node cardfilterlist = NodeUtil.createPath(card, "tags", NodeTypes.Area.NAME);
+              for (int i = 0; i < cardfilters.size(); i++) {
+                String filter = StringUtils.strip(cardfilters.get(i).toLowerCase());
+                PropertyUtil.setProperty(cardfilterlist, String.valueOf(i), filtermap.get(filter));
+              }
+            }
+          }
+        }
+        n.save();
+      }
+    });
   }
 
-  protected void convertToNodeArray(Node n, String propName) throws RepositoryException, ItemNotFoundException {
-    if (n.hasProperty(propName)) {
-      String csvalues = PropertyUtil.getString(n, propName, "");
-      n.getProperty(propName).remove();
-      Node area = NodeUtil.createPath(n, propName, NodeTypes.Area.NAME);
-      String[] vals = csvalues.split("\\s*,\\s*");
-      for (int i = 0; i < vals.length; i++) {
-        PropertyUtil.setProperty(area, String.valueOf(i), StringUtils.strip(vals[i]));
-      }
-      n.save();
+  protected List<String> parseCommas (String csvalues) {
+    List<String> ret = new ArrayList<String>();
+    String[] vals = csvalues.split("\\s*,\\s*");
+    for (int i = 0; i < vals.length; i++) {
+      ret.add(StringUtils.strip(vals[i]));
     }
+    return ret;
   }
 }
