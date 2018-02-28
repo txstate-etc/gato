@@ -35,6 +35,7 @@ public class UpdateCardLayoutFiltersTask extends GatoBaseUpgradeTask {
   protected void doExecute(InstallContext ctx) throws RepositoryException, PathNotFoundException, TaskExecutionException, LoginException {
     Session s=ctx.getJCRSession(RepositoryConstants.WEBSITE);
     visitByTemplate(s, "gato-component-cards:components/layouts/grid", n -> {
+      Node page = NodeUtil.getNearestAncestorOfType(n, NodeTypes.Page.NAME);
       if (n.hasProperty("filterlist")) {
         List<String> filters = parseCommas(PropertyUtil.getString(n, "filterlist", ""));
         n.getProperty("filterlist").remove();
@@ -58,6 +59,19 @@ public class UpdateCardLayoutFiltersTask extends GatoBaseUpgradeTask {
               for (int i = 0; i < cardfilters.size(); i++) {
                 String filter = StringUtils.strip(cardfilters.get(i).toLowerCase());
                 PropertyUtil.setProperty(cardfilterlist, String.valueOf(i), filtermap.get(filter));
+              }
+            }
+            if (card.hasProperty("color")) {
+              if (NodeTypes.Renderable.getTemplate(page).startsWith("gato-template-txstate2015:")) {
+                String color = PropertyUtil.getString(card, "color", "color1");
+                if (color.equals("color4")) {
+                  color = "color3";
+                } else if (color.equals("color5")) {
+                  color = "color3";
+                } else if (color.equals("color7")) {
+                  color = "color2";
+                }
+                PropertyUtil.setProperty(card, "color", color);
               }
             }
           }
