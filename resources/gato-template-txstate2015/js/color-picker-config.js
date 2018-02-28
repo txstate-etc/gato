@@ -23,9 +23,13 @@
         "singleColor": true,
         "colors": ["color1", "color2", "color3", "color4", "color5", "color6", "color7"]
     },
+    "cardFilters": {
+        "singleColor": true,
+        "colors": ["color1", "color2", "color3", "color6"]
+    },
     "imageCard": {
         "singleColor": true,
-        "colors": ["color1", "color2", "color3", "color4", "color5", "color6", "color7"]
+        "colors": ["color1", "color2", "color3", "color6"]
     },
     "slider": {
         "singleColor": false,

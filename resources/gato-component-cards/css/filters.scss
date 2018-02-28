@@ -30,21 +30,67 @@ ul.gato-card-filter {
     }
 
     a.grid-filter-selected {
-      background-color: $mc1-bg;
-      color: $mc1-text;
       &:before {
         content: ' ';
         position: absolute;
         top: 100%;
         left: 50%;
         transform: translateX(-50%);
-        border-top: 20px solid $mc1-bg;
         border-left: 20px solid transparent;
         border-right: 20px solid transparent;
         [data-eq~="800px"] & {
           display: none;
         }
       }
+    }
+  }
+  &.color1 {
+    li a.grid-filter-selected {
+      background-color: $mc1-bg;
+      color: $mc1-text;
+      &:before { border-top: 20px solid $mc1-bg; }
+    }
+  }
+  &.color2 {
+    li a.grid-filter-selected {
+      background-color: $mc2-bg;
+      color: $mc2-text;
+      &:before { border-top: 20px solid $mc2-bg; }
+    }
+  }
+  &.color3 {
+    li a.grid-filter-selected {
+      background-color: $mc3-bg;
+      color: $mc3-text;
+      &:before { border-top: 20px solid $mc3-bg; }
+    }
+  }
+  &.color4 {
+    li a.grid-filter-selected {
+      background-color: $mc4-bg;
+      color: $mc4-text;
+      &:before { border-top: 20px solid $mc4-bg; }
+    }
+  }
+  &.color5 {
+    li a.grid-filter-selected {
+      background-color: $mc5-bg;
+      color: $mc5-text;
+      &:before { border-top: 20px solid $mc5-bg; }
+    }
+  }
+  &.color6 {
+    li a.grid-filter-selected {
+      background-color: $mc6-bg;
+      color: $mc6-text;
+      &:before { border-top: 20px solid $mc6-bg; }
+    }
+  }
+  &.color7 {
+    li a.grid-filter-selected {
+      background-color: $mc7-bg;
+      color: $mc7-text;
+      &:before { border-top: 20px solid $mc7-bg; }
     }
   }
 }

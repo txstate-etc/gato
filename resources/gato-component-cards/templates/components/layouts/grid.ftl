@@ -1,7 +1,7 @@
 [#include "/gato-template/templates/includes/section.ftl"]
 [@sectionLabel editclass='section-grid-edit' ; headerlevel]
 [#if content.enablefiltering!false]
-	<ul class="gato-card-filter" role="tablist">
+	<ul class="gato-card-filter ${content.color!'color1'}" role="tablist">
 		[#if content.includeallfilter!false]
 			<li role="presentation"><a href="#" role="tab">All</a></li>
 		[/#if]

@@ -10,6 +10,18 @@
   buttonLabel: Add an "All" filter to the tab list.
   defaultValue: false
   type: Boolean
+- name: script
+  class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
+  fields:
+    - name: color
+      class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+  transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+  initFunction: initColorPicker
+  scripts: [gato-lib/js/color-picker.js]
+  styleName: single-color
+  label: Background Color
+  parameters:
+    contentType: cardFilters
 - name: filterlist
   label: Filter List
   description: Create up to 5 filters. Cards that you create in this section may be tagged with one or more of your filters.
