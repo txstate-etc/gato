@@ -1,5 +1,4 @@
 ul.gato-card-filter {
-  background-color: $mc1-bg;
   list-style: none;
   width: 100%;
   margin: 0;
@@ -17,9 +16,10 @@ ul.gato-card-filter {
     }
 
     a {
+      position: relative;
       display: block;
       text-decoration: none;
-      color: white;
+      color: black;
       padding: 2.5rem 0;
       width: 100%;
       vertical-align: middle;
@@ -30,7 +30,18 @@ ul.gato-card-filter {
     }
 
     a.grid-filter-selected {
-      background-color: $mc2-bg;
+      background-color: $mc1-bg;
+      color: $mc1-text;
+      &:before {
+        content: ' ';
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        border-top: 20px solid $mc1-bg;
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+      }
     }
   }
 }

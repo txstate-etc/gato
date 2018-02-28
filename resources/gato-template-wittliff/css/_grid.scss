@@ -31,6 +31,9 @@ ul.gato-card-filter {
 
     a.grid-filter-selected {
       background-color: $sienna;
+      &:before {
+        display: none;
+      }
     }
   }
 }
