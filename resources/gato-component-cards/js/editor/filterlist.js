@@ -13,6 +13,7 @@ var filterhtml = function (name, id, value = '') {
 }
 
 window.initfilterlist = function (def, path, parentdiv, templateId) {
+  var maxfilters = def.limit || 5;
   var mynode = new jcrnode("website", path);
   parentdiv = $(parentdiv);
   var hidden = parentdiv.closest('.v-form-field-container').find('input.filterlist');
@@ -27,6 +28,7 @@ window.initfilterlist = function (def, path, parentdiv, templateId) {
     html += filterhtml(0);
   }
   html += '</div>';
+  html += '<div class="gato-filterlist-alert"></div>';
   html += '<button id="filteradd">Add Filter</button>';
 
   var inputchanged = function () {
@@ -86,10 +88,20 @@ window.initfilterlist = function (def, path, parentdiv, templateId) {
   addhandlers($('.gato-filterlist'));
   parentdiv.find('#filteradd').click(function() {
     var $btn = $(this);
-    $filter = $(filterhtml(groupnode.getChildren().length));
-    $filter.appendTo(parentdiv.find('.gato-filterlist'));
-    addhandlers($filter);
-    $filter.find('input[type="text"]').focus();
+    var num = parentdiv.find('.gato-filter').length;
+    if (num < maxfilters) {
+      $filter = $(filterhtml(groupnode.getChildren().length));
+      $filter.appendTo(parentdiv.find('.gato-filterlist'));
+      addhandlers($filter);
+      $filter.find('input[type="text"]').focus();
+    }
+    if (num > maxfilters - 2) {
+      parentdiv.find('.gato-filterlist-alert').html('You have added the maximum number of filters.');
+      parentdiv.find('#filteradd').prop('disabled', true);
+    } else {
+      parentdiv.find('.gato-filterlist-alert').html('');
+      parentdiv.find('#filteradd').prop('disabled', false);
+    }
   });
 }
 
