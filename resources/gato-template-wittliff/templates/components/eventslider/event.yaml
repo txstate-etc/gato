@@ -4,4 +4,4 @@ title: Event Banner
 description: A large full-width section for displaying details about a featured event.
 dialog: gato-template-wittliff:components/eventslider/event
 parameters:
-  icon: /gato-template-wittliff/images/eventbanner.png
+  icon: /gato-template-wittliff/images/event-icon.png

@@ -18,4 +18,4 @@ areas:
         id: gato-template-wittliff:components/eventslider/news
     maxComponents: 4
 parameters:
-  icon: /gato-template-wittliff/images/exhibition.png
+  icon: /gato-template-wittliff/images/eventslider.png

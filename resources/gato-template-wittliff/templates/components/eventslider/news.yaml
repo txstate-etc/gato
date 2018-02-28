@@ -4,4 +4,4 @@ title: News Banner
 description: A large full-width section for displaying details about a featured event.
 dialog: gato-template-wittliff:components/eventslider/news
 parameters:
-  icon: /gato-template-wittliff/images/eventbanner.png
+  icon: /gato-template-wittliff/images/news-icon.png
