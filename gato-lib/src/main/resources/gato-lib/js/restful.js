@@ -11,7 +11,7 @@ function jcrnode(workspace, path, data) {
   var node = this;
   node.workspace = workspace;
   node.path = path;
-  node.name = path.split('/').pop();
+  if (path) node.name = path.split('/').pop();
   node.load(data);
 }
 
@@ -212,10 +212,8 @@ jcrnode.prototype.addNode = function(name, template = 'mgnl:area') {
     name = 0;
     while (typeof(node.nodehash[name]) != 'undefined') name++;
   }
-  var newnode = new jcrnode();
+  var newnode = new jcrnode(node.workspace, node.path+'/'+name);
   newnode.workspace = node.workspace;
-  newnode.name = name;
-  newnode.path = node.path+'/'+name;
   newnode.type = template;
   node.nodes.push(newnode);
   node.nodehash[name] = newnode;
