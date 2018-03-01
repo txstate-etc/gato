@@ -4,16 +4,9 @@ ul.gato-card-filter {
   margin: 0 0 30px 0;
   padding: 0;
   display: flex;
-  [data-eq~="800px"] & {
-    flex-wrap: wrap;
-  }
 
   li {
     flex-grow: 1;
-    [data-eq~="800px"] & {
-      width: 50%;
-      flex-grow: 0;
-    }
 
     a {
       position: relative;
@@ -25,8 +18,14 @@ ul.gato-card-filter {
       vertical-align: middle;
       text-align: center;
       font-size: 2.3rem;
-      letter-spacing: .3rem;
-      font-weight: 200;
+      font-weight: 500;
+      [data-eq~="800px"] & {
+        font-size: 2.1rem;
+        padding: 2rem 0;
+      }
+      [data-eq~="500px"] & {
+        padding: 1.5rem 0;
+      }
     }
 
     a.grid-filter-selected {
@@ -39,12 +38,15 @@ ul.gato-card-filter {
         border-left: 20px solid transparent;
         border-right: 20px solid transparent;
         [data-eq~="800px"] & {
-          display: none;
+          border-left-width: 15px;
+          border-right-width: 15px;
+          border-top-width: 15px !important;
         }
       }
     }
   }
   &.color1 {
+    border-bottom: 1px solid $mc1-border;
     li a.grid-filter-selected {
       background-color: $mc1-bg;
       color: $mc1-text;
@@ -52,6 +54,7 @@ ul.gato-card-filter {
     }
   }
   &.color2 {
+    border-bottom: 1px solid $mc2-border;
     li a.grid-filter-selected {
       background-color: $mc2-bg;
       color: $mc2-text;
@@ -59,6 +62,7 @@ ul.gato-card-filter {
     }
   }
   &.color3 {
+    border-bottom: 1px solid $mc3-border;
     li a.grid-filter-selected {
       background-color: $mc3-bg;
       color: $mc3-text;
@@ -66,6 +70,7 @@ ul.gato-card-filter {
     }
   }
   &.color4 {
+    border-bottom: 1px solid $mc4-border;
     li a.grid-filter-selected {
       background-color: $mc4-bg;
       color: $mc4-text;
@@ -73,6 +78,7 @@ ul.gato-card-filter {
     }
   }
   &.color5 {
+    border-bottom: 1px solid $mc5-border;
     li a.grid-filter-selected {
       background-color: $mc5-bg;
       color: $mc5-text;
@@ -80,6 +86,7 @@ ul.gato-card-filter {
     }
   }
   &.color6 {
+    border-bottom: 1px solid $mc6-border;
     li a.grid-filter-selected {
       background-color: $mc6-bg;
       color: $mc6-text;
@@ -87,6 +94,7 @@ ul.gato-card-filter {
     }
   }
   &.color7 {
+    border-bottom: 1px solid $mc7-border;
     li a.grid-filter-selected {
       background-color: $mc7-bg;
       color: $mc7-text;

@@ -2,6 +2,10 @@ ul.gato-card-filter {
   margin: 0;
   background-color: $wittliffbrown;
   border-top: 7px solid $sienna;
+  border-bottom: 0 !important;
+  [data-eq~="800px"] & {
+    flex-wrap: wrap;
+  }
   &:before {
     content: "YOU ARE A...";
     display: block;
@@ -19,6 +23,10 @@ ul.gato-card-filter {
   }
 
   li {
+    [data-eq~="800px"] & {
+      width: 50%;
+      flex-grow: 0;
+    }
     a {
       color: white;
       padding: 2.5rem 0;
@@ -31,7 +39,7 @@ ul.gato-card-filter {
     }
 
     a.grid-filter-selected {
-      background-color: $sienna;
+      background-color: $sienna !important;
       &:before {
         display: none;
       }

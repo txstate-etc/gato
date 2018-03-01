@@ -981,7 +981,8 @@ public final class GatoUtils {
       }
       if (n.hasNode("tags")) {
         for (String filterid : orderedPropertyValues(n.getNode("tags"))) {
-          ret.add(StringUtils.strip(filterhash.get(filterid)));
+          if (filterhash.containsKey(filterid))
+            ret.add(StringUtils.strip(filterhash.get(filterid)));
         }
       }
     } catch (Exception e) {
