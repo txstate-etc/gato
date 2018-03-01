@@ -5,9 +5,11 @@
 		[#if content.includeallfilter!false]
 			<li role="presentation"><a href="#" role="tab">All</a></li>
 		[/#if]
-		[#list cmsfn.children(content.filterlist) as filter]
-			<li role="presentation"><a href="#" role="tab">${filter.name?trim}</a></li>
-		[/#list]
+		[#if content.filterlist?has_content]
+      [#list cmsfn.children(content.filterlist) as filter]
+        <li role="presentation"><a href="#" role="tab">${filter.name?trim}</a></li>
+      [/#list]
+		[/#if]
 	</ul>
 [/#if]
 [#assign cardsize = content.cardsize!'medium']
