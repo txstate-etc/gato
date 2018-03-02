@@ -14,10 +14,6 @@
       font-size: 2.3rem;
       letter-spacing: .3rem;
       font-weight: 200;
-      [data-eq~="800px"] & {
-        width: 100%;
-        text-align: center;
-      }
     }
 
     li {
@@ -40,9 +36,13 @@
       }
     }
   }
-  [data-eq~="800px"] & {
+  [data-eq~="800px"] {
     ul.gato-card-filter {
       flex-wrap: wrap;
+      &:before {
+        width: 100%;
+        text-align: center;
+      }
       li {
         width: 50%;
         flex-grow: 0;
