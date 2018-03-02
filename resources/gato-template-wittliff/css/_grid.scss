@@ -1,52 +1,55 @@
-ul.gato-card-filter {
-  margin: 0;
-  background-color: $wittliffbrown;
-  border-top: 7px solid $sienna;
-  border-bottom: 0 !important;
-  [data-eq~="800px"] & {
-    flex-wrap: wrap;
-  }
-  &:before {
-    content: "YOU ARE A...";
-    display: block;
-    white-space: nowrap;
-    color: white;
-    padding: 2.5rem 4rem;
-    vertical-align: middle;
-    font-size: 2.3rem;
-    letter-spacing: .3rem;
-    font-weight: 200;
-    [data-eq~="800px"] & {
-      width: 100%;
-      text-align: center;
-    }
-  }
-
-  li {
-    [data-eq~="800px"] & {
-      width: 50%;
-      flex-grow: 0;
-    }
-    a {
+.wittliff-home {
+  ul.gato-card-filter {
+    margin: 0;
+    background-color: $wittliffbrown;
+    border-top: 7px solid $sienna;
+    border-bottom: 0 !important;
+    &:before {
+      content: "YOU ARE A...";
+      display: block;
+      white-space: nowrap;
       color: white;
-      padding: 2.5rem 0;
-      width: 100%;
+      padding: 2.5rem 4rem;
       vertical-align: middle;
-      text-align: center;
       font-size: 2.3rem;
       letter-spacing: .3rem;
       font-weight: 200;
+      [data-eq~="800px"] & {
+        width: 100%;
+        text-align: center;
+      }
     }
 
-    a.grid-filter-selected {
-      background-color: $sienna !important;
-      &:before {
-        display: none;
+    li {
+      a {
+        color: white;
+        padding: 2.5rem 0;
+        width: 100%;
+        vertical-align: middle;
+        text-align: center;
+        font-size: 2.3rem;
+        letter-spacing: .3rem;
+        font-weight: 200;
+      }
+
+      a.grid-filter-selected {
+        background-color: $sienna !important;
+        &:before {
+          display: none;
+        }
+      }
+    }
+  }
+  [data-eq~="800px"] & {
+    ul.gato-card-filter {
+      flex-wrap: wrap;
+      li {
+        width: 50%;
+        flex-grow: 0;
       }
     }
   }
 }
-
 .section-grid, .section-masonry {
   .gato-card {
     box-shadow: none;
