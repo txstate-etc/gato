@@ -82,9 +82,9 @@ jcrnode.prototype.getChild = function(name) {
   return new jcrnode(node.workspace, node.path+'/'+name);
 }
 
-jcrnode.prototype.fetchParent = function (depth = 1) {
+jcrnode.prototype.fetchParent = function (depth) {
   var node = this;
-  return node.getParent().fetch(depth);
+  return node.getParent().fetch(depth || 1);
 }
 
 // this is only safe if you KNOW you have pre-fetched to the correct depth
@@ -206,7 +206,7 @@ jcrnode.prototype.addProperty = function(vals, type) {
   return node.setProperty(key, vals, type);
 }
 
-jcrnode.prototype.addNode = function(name, template = 'mgnl:area') {
+jcrnode.prototype.addNode = function(name, template) {
   var node = this;
   if (!name) {
     name = 0;
@@ -214,7 +214,7 @@ jcrnode.prototype.addNode = function(name, template = 'mgnl:area') {
   }
   var newnode = new jcrnode(node.workspace, node.path+'/'+name);
   newnode.workspace = node.workspace;
-  newnode.type = template;
+  newnode.type = template || 'mgnl:area';
   node.nodes.push(newnode);
   node.nodehash[name] = newnode;
   return newnode;

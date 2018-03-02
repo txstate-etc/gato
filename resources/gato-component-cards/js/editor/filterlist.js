@@ -1,10 +1,10 @@
 // require jQuery
 (function () {
 
-var filterhtml = function (name, id, value = '') {
+var filterhtml = function (name, id, value) {
   if (!id) id = Math.random().toString(16).substring(2);
   return '<div class="gato-filter">'+
-    '<input type="text" name="'+name+'_filtername" id="'+name+'_filtername" value="'+value+'">'+
+    '<input type="text" name="'+name+'_filtername" id="'+name+'_filtername" value="'+(value||'')+'">'+
     '<input type="hidden" name="'+name+'_filterid" value="'+id+'">'+
     '<div tabindex="0" role="button" class="v-button v-widget inline v-button-inline"><span class="v-button-wrap"><span class="v-button-caption"><span class="icon-arrow2_n"></span></span></span></div>'+
     '<div tabindex="0" role="button" class="v-button v-widget inline v-button-inline"><span class="v-button-wrap"><span class="v-button-caption"><span class="icon-arrow2_s"></span></span></span></div>'+
