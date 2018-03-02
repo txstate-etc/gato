@@ -16,7 +16,7 @@
     </div>
 
     [#if content.title?has_content]
-      <figcaption>[@h2]${content.title}[/@h2]</figcaption>
+      <figcaption>[@h2 class="title"]${content.title}[/@h2]</figcaption>
     [/#if]
   </figure>
   <a href="${content.videourl}" class="feature-play-button"
