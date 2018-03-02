@@ -37,6 +37,7 @@ public class UpdateCardLayoutFiltersTask extends GatoBaseUpgradeTask {
     visitByTemplate(s, "gato-component-cards:components/layouts/grid", n -> {
       Node page = NodeUtil.getNearestAncestorOfType(n, NodeTypes.Page.NAME);
       boolean is2015template = NodeTypes.Renderable.getTemplate(page).startsWith("gato-template-txstate2015:");
+      boolean isWittliff = NodeTypes.Renderable.getTemplate(page).startsWith("gato-template-wittliff:");
       if (n.hasProperty("filterlist")) {
         List<String> filters = parseCommas(PropertyUtil.getString(n, "filterlist", ""));
         n.getProperty("filterlist").remove();
@@ -63,8 +64,8 @@ public class UpdateCardLayoutFiltersTask extends GatoBaseUpgradeTask {
               }
             }
             if (card.hasProperty("color")) {
+              String color = PropertyUtil.getString(card, "color", "color1");
               if (is2015template) {
-                String color = PropertyUtil.getString(card, "color", "color1");
                 if (color.equals("color4")) {
                   color = "color3";
                 } else if (color.equals("color5")) {
@@ -72,8 +73,16 @@ public class UpdateCardLayoutFiltersTask extends GatoBaseUpgradeTask {
                 } else if (color.equals("color7")) {
                   color = "color2";
                 }
-                PropertyUtil.setProperty(card, "color", color);
+              } else if (isWittliff) {
+                if (color.equals("color5")) {
+                  color = "color1";
+                } else if (color.equals("color6")) {
+                  color = "color3";
+                } else if (color.equals("color7")) {
+                  color = "color2";
+                }
               }
+              PropertyUtil.setProperty(card, "color", color);
             }
           }
         }
