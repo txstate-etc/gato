@@ -17,14 +17,18 @@ window.inittags = function (def, path, parentdiv, templateId) {
       html += '<input type="checkbox" id="gatofilters_'+filters[i].name+'" name="gatofilters" value="'+filters[i].prophash.id+'"'+(preselected[filters[i].prophash.id] ? 'checked="checked"' : '')+'><label for="gatofilters_'+filters[i].name+'">'+filters[i].prophash.name+'</label><br>';
     }
     html += '</div>';
-    parentdiv.append(html);
-    parentdiv.find('.gato-tags input').change(function (e) {
-      groupnode.clearProperties();
-      parentdiv.find('.gato-tags input:checked').each(function (idx) {
-        var $ipt = $(this);
-        groupnode.setProperty(idx, $ipt.val());
+    if (filters.length) {
+      parentdiv.append(html);
+      parentdiv.find('.gato-tags input').change(function (e) {
+        groupnode.clearProperties();
+        parentdiv.find('.gato-tags input:checked').each(function (idx) {
+          var $ipt = $(this);
+          groupnode.setProperty(idx, $ipt.val());
+        });
+        hidden.val(JSON.stringify(groupnode)).change();
       });
-      hidden.val(JSON.stringify(groupnode)).change();
-    });
+    } else {
+      parentdiv.append("You have not defined any filters for this layout. Once you do, you'll be able to come here to associate this card with the desired filters.<br><br>If you are not using the filtering functionality, you may ignore this tab.");
+    }
   });
 }
