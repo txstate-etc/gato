@@ -11,7 +11,7 @@
     justify-content: flex-start;
     .gato-card {
       position: relative;
-      margin-bottom: $gato-card-gutter;
+      margin-bottom: 6px;
       margin-right: $gato-card-gutter;
       figcaption { margin-top: -1px; }
     }
