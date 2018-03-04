@@ -1,4 +1,4 @@
-templateScript: /gato-component-cards/templates/components/shared/video.ftl
+templateScript: /gato-component-cards/templates/components/shared/image.ftl
 renderType: freemarker
 dialog: gato-component-cards:components/masonry/video
 description: video with a caption

@@ -1357,7 +1357,7 @@ public final class GatoUtils {
 
   public JsonObject oEmbedCached(Object node, String url) {
     Node n = toNode(node);
-    if (n == null) return null;
+    if (n == null || StringUtils.isBlank(url)) return new JsonObject();
     try {
       n = NodeUtil.unwrap(n);
       String embed = PropertyUtil.getString(n, "embed");
