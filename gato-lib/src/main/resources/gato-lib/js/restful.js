@@ -4,7 +4,7 @@ jcrutil.restfulbase = jcrutil.contextpath+"/.rest/";
 jcrutil.resourcepath = jcrutil.contextpath+"/.resources/";
 jcrutil.nodebase = jcrutil.restfulbase+"nodes/v1/";
 jcrutil.getnode = function (workspace, path, depth) {
-  return jQuery.ajax(jcrutil.nodebase+workspace+path+"?depth="+depth);
+  return jQuery.ajax(jcrutil.nodebase+workspace+path+"?depth="+depth, { cache: false });
 };
 
 function jcrnode(workspace, path, data) {
