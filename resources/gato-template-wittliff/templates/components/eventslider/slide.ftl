@@ -68,7 +68,7 @@
       [#elseif content.type == 'online']
         <a class="all bottom" href="${gf.filterUrl('/wittliff/exhibitions/Online_exhibitions')}">Online Exhibitions <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
       [#elseif content.type == 'news']
-        <a class="all bottom" href="${gf.filterUrl('/wittliff/about/news/news-releases')}">All News <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+        <a class="all bottom" href="${gf.filterUrl('/wittliff/about/news')}">All News <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
       [/#if]
     </div>
   </div>
