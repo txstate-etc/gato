@@ -70,6 +70,7 @@
       });
     });
     slider.rotationtime = opts.rotationtime*1000 || 0;
+    slider.rotationminimum = opts.rotationminimum*1000 || 0;
     slider.schedule();
   }
   window.GatoSlider.prototype.cleanindex = function (index) {
@@ -108,9 +109,11 @@
   }
   window.GatoSlider.prototype.schedule = function () {
     var slider = this;
-    if (slider.rotationtime > 0 && !window.isEditMode) {
+    if (slider.slides.length > 1 && slider.rotationtime > 0 && !window.isEditMode) {
+      var delay = slider.rotationtime;
+      if (slider.rotationminimum) delay = Math.floor(Math.random() * (slider.rotationtime - slider.rotationminimum) + slider.rotationminimum);
       clearTimeout(slider.rotationtimer);
-      slider.rotationtimer = setTimeout(function () { slider.right(300); }, slider.rotationtime);
+      slider.rotationtimer = setTimeout(function () { slider.right(300); }, delay);
     }
   }
   window.GatoSlider.prototype.drag = function(xdiff) {
