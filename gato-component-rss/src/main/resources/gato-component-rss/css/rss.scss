@@ -1,6 +1,9 @@
 .gato-rss-feedinformation {
   margin-bottom: 2rem;
   font-size: 1.5rem;
+  .gato-rss-feedimage img {
+    max-width: 15rem;
+  }
 }
 
 .gato-rss-item.gato-accordion {
@@ -20,7 +23,7 @@
 }
 
 .gato-rss-published{
-    font-weight: 600; 
-    margin-top: .5rem; 
+    font-weight: 600;
+    margin-top: .5rem;
     margin-bottom: 1rem;
 }
