@@ -2,6 +2,7 @@
   var $window = $(window);
   window.GatoSlider = function (opts) {
     var slider = this;
+    opts = opts || {};
     slider.current = opts.current || 0;
     slider.container = opts.container instanceof jQuery ? opts.container : $(opts.container);
     if (slider.container.length > 1) {
@@ -68,6 +69,8 @@
         img.attr('srcset', img.data('srcset')).removeAttr('data-srcset');
       });
     });
+    slider.rotationtime = opts.rotationtime*1000 || 0;
+    slider.schedule();
   }
   window.GatoSlider.prototype.cleanindex = function (index) {
     var size = this.slides.length;
@@ -80,10 +83,11 @@
   window.GatoSlider.prototype.next = function (direction) {
     return this.slides.eq(this.nextidx(direction));
   }
-  window.GatoSlider.prototype.left = function () { this.activate(this.current-1); }
-  window.GatoSlider.prototype.right = function () { this.activate(this.current+1); }
-  window.GatoSlider.prototype.activate = function(index) {
+  window.GatoSlider.prototype.left = function (speed) { this.activate(this.current-1, speed); }
+  window.GatoSlider.prototype.right = function (speed) { this.activate(this.current+1, speed); }
+  window.GatoSlider.prototype.activate = function(index, speed) {
     var slider = this;
+    speed = speed || 150;
 
     // figure this out before wrapping so that we still slide from the correct direction
     var slidefromright = index > slider.current;
@@ -93,13 +97,21 @@
     var curr = slider.slides.eq(slider.current);
     var next = slider.slides.eq(index);
     if (slidefromright) { // sliding from the right
-      next.velocity({translateX: ['0%','100%']}, {duration: 150});
-      curr.velocity({translateX: ['-100%','0%']}, {duration: 150});
+      next.velocity({translateX: ['0%','100%']}, {duration: speed});
+      curr.velocity({translateX: ['-100%','0%']}, {duration: speed});
     } else { // sliding from the left
-      next.velocity({translateX: ['0%','-100%']}, {duration: 150});
-      curr.velocity({translateX: ['100%','0%']}, {duration: 150});
+      next.velocity({translateX: ['0%','-100%']}, {duration: speed});
+      curr.velocity({translateX: ['100%','0%']}, {duration: speed});
     }
     slider.current = index;
+    slider.schedule();
+  }
+  window.GatoSlider.prototype.schedule = function () {
+    var slider = this;
+    if (slider.rotationtime > 0 && !window.isEditMode) {
+      clearTimeout(slider.rotationtimer);
+      slider.rotationtimer = setTimeout(function () { slider.right(300); }, slider.rotationtime);
+    }
   }
   window.GatoSlider.prototype.drag = function(xdiff) {
     var slider = this;

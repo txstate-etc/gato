@@ -102,6 +102,7 @@ jQuery(document).ready(function($) {
   $('.eventslider').each(function() {
     new GatoSlider({
       container: $(this),
+      rotationtime: 7.5,
       slides: '.eventslider-slide',
       leftarrow: '.arrow.left',
       rightarrow: '.arrow.right'
