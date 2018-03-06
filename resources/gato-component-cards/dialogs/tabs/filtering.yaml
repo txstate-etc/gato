@@ -1,12 +1,24 @@
+- name: filterlist
+  label: Filter List
+  description: Create up to 5 filters. Cards that you create in this section may be tagged with one or more of your filters.
+  class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
+  initFunction: initfilterlist
+  scripts: [gato-lib/js/restful.js,gato-component-cards/js/editor/filterlist.js]
+  styles: [gato-component-cards/css/editor/filterlist.css]
+  loadScriptsInOrder: true
+  fields:
+    - name: filterlist
+      class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+      transformerClass: edu.txstate.its.gato.vaadin.JsonTransformer
 - name: enablefiltering
   class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
-  label: "Enable Filtering"
-  buttonLabel: Add a tab bar above the grid to filter by tags.
+  label: ""
+  buttonLabel: Enable filter tabs.
   defaultValue: false
   type: Boolean
 - name: includeallfilter
   class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
-  label: "Include All Filter"
+  label: ""
   buttonLabel: Add an "All" filter to the tab list.
   defaultValue: false
   type: Boolean
@@ -22,15 +34,3 @@
   label: Background Color
   parameters:
     contentType: cardFilters
-- name: filterlist
-  label: Filter List
-  description: Create up to 5 filters. Cards that you create in this section may be tagged with one or more of your filters.
-  class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
-  initFunction: initfilterlist
-  scripts: [gato-lib/js/restful.js,gato-component-cards/js/editor/filterlist.js]
-  styles: [gato-component-cards/css/editor/filterlist.css]
-  loadScriptsInOrder: true
-  fields:
-    - name: filterlist
-      class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
-      transformerClass: edu.txstate.its.gato.vaadin.JsonTransformer
