@@ -4,10 +4,14 @@
       max-width: none;
     }
     &.card-layout {
-      background-color: $wittliffstone;
+      &.has-background {
+        background-color: transparent;
+        .gato-section {
+          padding-top: 0;
+        }
+      }
       .gato-section-centered {
         max-width: 2000px;
-        background-color: white;
         .gato-section {
           overflow: visible;
         }
