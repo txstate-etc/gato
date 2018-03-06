@@ -39,8 +39,7 @@ form:
               label: Large (Up to two columns)
               value: large
         - name: aspect
-          class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
-          multiselect: false
+          class: info.magnolia.ui.form.field.definition.SelectFieldDefinition
           type: Double
           label: Image Cropping
           sortOptions: false

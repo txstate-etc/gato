@@ -4,7 +4,7 @@
   class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
   initFunction: inittags
   scripts: [gato-lib/js/restful.js,gato-component-cards/js/editor/tags.js]
-  styles: [gato-component-cards/css/editor/tags.css]
+  #styles: [gato-component-cards/css/editor/tags.css]
   loadScriptsInOrder: true
   fields:
     - name: tags

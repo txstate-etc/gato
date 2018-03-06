@@ -1,0 +1,16 @@
+@import "gato-lib/css/font-awesome";
+
+.gato-filterlist-alert {
+  color: red;
+  &:not(:empty):before {
+    @extend .fa;
+    @extend .fa-exclamation-circle;
+    padding-right: 0.5rem;
+  }
+}
+
+.gato-filter .charcount {
+  padding-left: 3px;
+  color: #666666;
+  font-size: 12px;
+}

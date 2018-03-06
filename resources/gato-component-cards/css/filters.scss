@@ -20,10 +20,11 @@ ul.gato-card-filter {
       font-size: 2.3rem;
       font-weight: 500;
       [data-eq~="800px"] & {
-        font-size: 2.1rem;
+        font-size: 2rem;
         padding: 2rem 0;
       }
       [data-eq~="500px"] & {
+        font-size: 1.8rem;
         padding: 1.5rem 0;
       }
     }

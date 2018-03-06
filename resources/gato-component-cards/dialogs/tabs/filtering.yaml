@@ -4,7 +4,7 @@
   class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
   initFunction: initfilterlist
   scripts: [gato-lib/js/restful.js,gato-component-cards/js/editor/filterlist.js]
-  styles: [gato-component-cards/css/editor/filterlist.css]
+  styles: [gato-component-cards/css/editor/filterlist.scss]
   loadScriptsInOrder: true
   fields:
     - name: filterlist

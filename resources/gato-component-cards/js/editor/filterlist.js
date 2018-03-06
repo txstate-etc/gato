@@ -4,7 +4,7 @@
 var filterhtml = function (name, id, value) {
   if (!id) id = Math.random().toString(16).substring(2);
   return '<div class="gato-filter">'+
-    '<input type="text" name="'+name+'_filtername" id="'+name+'_filtername" value="'+(value||'')+'">'+
+    '<input type="text" maxlength="'+window.initfilterlist.maxcharacterlimit+'" name="'+name+'_filtername" id="'+name+'_filtername" value="'+(value||'')+'"><span class="charcount">('+(value||'').length+'/'+window.initfilterlist.maxcharacterlimit+')</span>'+
     '<input type="hidden" name="'+name+'_filterid" value="'+id+'">'+
     '<div tabindex="0" role="button" class="v-button v-widget inline v-button-inline"><span class="v-button-wrap"><span class="v-button-caption"><span class="icon-arrow2_n"></span></span></span></div>'+
     '<div tabindex="0" role="button" class="v-button v-widget inline v-button-inline"><span class="v-button-wrap"><span class="v-button-caption"><span class="icon-arrow2_s"></span></span></span></div>'+
@@ -14,6 +14,7 @@ var filterhtml = function (name, id, value) {
 
 window.initfilterlist = function (def, path, parentdiv, templateId) {
   var maxfilters = def.limit || 5;
+  window.initfilterlist.maxcharacterlimit = def.characterlimit || 30;
   var mynode = new jcrnode("website", path);
   parentdiv = $(parentdiv);
   var hidden = parentdiv.closest('.v-form-field-container').find('input.filterlist');
@@ -28,17 +29,21 @@ window.initfilterlist = function (def, path, parentdiv, templateId) {
     html += filterhtml(0);
   }
   html += '</div>';
-  html += '<div class="gato-filterlist-alert"></div>';
+  html += '<div class="gato-filterlist-alert max"></div>';
+  html += '<div class="gato-filterlist-alert dupes"></div>';
   html += '<button id="filteradd">Add Filter</button>';
 
   var inputchanged = function () {
     var nh = groupnode.getChildren().reduce(function (acc, curr) { acc[curr.prophash.id] = curr; return acc; }, {});
     groupnode.clearNodes();
     groupnode.clearProperties();
+    var namehash = {};
+    var hasdupe = false;
     parentdiv.find('.gato-filter').each(function (idx) {
       var $filter = $(this);
       var $nameinput = $filter.find('input[type="text"]');
       var $idinput = $filter.find('input[type="hidden"]');
+      $filter.find('.charcount').text('('+$nameinput.val().length+'/'+window.initfilterlist.maxcharacterlimit+')');
       if ($nameinput.val().length) {
         var n = nh[$idinput.val()];
         if (typeof(n) == 'undefined') {
@@ -49,8 +54,15 @@ window.initfilterlist = function (def, path, parentdiv, templateId) {
         }
         n.setProperty('id', $idinput.val());
         n.setProperty('name', $nameinput.val());
+        if (namehash[$nameinput.val()]) hasdupe = true;
+        namehash[$nameinput.val()] = true;
       }
     });
+    if (hasdupe) {
+      parentdiv.find('.gato-filterlist-alert.dupes').html('You have two filters with the same name. This will produce unexpected behavior.');
+    } else {
+      parentdiv.find('.gato-filterlist-alert.dupes').html('');
+    }
     hidden.val(groupnode.json()).change();
   };
 
@@ -72,7 +84,7 @@ window.initfilterlist = function (def, path, parentdiv, templateId) {
   }
 
   var addhandlers = function ($filter) {
-    $filter.find('input[type="text"]').change(inputchanged);
+    $filter.find('input[type="text"]').on('change keyup', inputchanged);
     $filter.find('.icon-arrow2_s').click(function () {
       movedown($(this).closest('.gato-filter'));
     });
@@ -96,10 +108,10 @@ window.initfilterlist = function (def, path, parentdiv, templateId) {
       $filter.find('input[type="text"]').focus();
     }
     if (num > maxfilters - 2) {
-      parentdiv.find('.gato-filterlist-alert').html('You have added the maximum number of filters.');
+      parentdiv.find('.gato-filterlist-alert.max').html('You have added the maximum number of filters.');
       parentdiv.find('#filteradd').prop('disabled', true);
     } else {
-      parentdiv.find('.gato-filterlist-alert').html('');
+      parentdiv.find('.gato-filterlist-alert.max').html('');
       parentdiv.find('#filteradd').prop('disabled', false);
     }
   });
