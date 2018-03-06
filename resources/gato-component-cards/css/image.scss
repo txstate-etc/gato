@@ -11,8 +11,10 @@
       text-align: left;
       word-wrap: break-word;
     }
-    .crop-container.cropped {
+    .crop-container {
       position: relative;
+    }
+    .crop-container.cropped {
       overflow: hidden;
       height: 0;
       @include coverimage();
