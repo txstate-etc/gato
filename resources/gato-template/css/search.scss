@@ -313,10 +313,16 @@
 }
 
 //suggested results
-ul.ui-autocomplete {
+ul.ui-autocomplete.gato-site-search {
     z-index: 1200;
     border: 1px solid $search-dd-suggested-results-border;
     background: $white;
+    .ui-menu-item {
+      padding: 0;
+    }
+    .ui-menu-item-wrapper {
+      padding: 4px;
+    }
     .suggestion-title{
         a{
             font-weight: bold;
@@ -327,11 +333,12 @@ ul.ui-autocomplete {
     }
     .display-link{
         a{
+            text-decoration: underline;
             color: $search-dd-suggested-result-link-color;
             font-size: 1.3rem;
         }
     }
-    .ui-state-focus{
+    .ui-state-active{
         background: $search-dd-suggested-result-hover-color;
         margin: 0px;
         border: none;

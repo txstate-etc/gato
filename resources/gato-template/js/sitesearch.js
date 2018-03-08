@@ -11,6 +11,9 @@ jQuery(document).ready(function($) {
     //in search box
     $('#search-text').autocomplete({
         minLength: 3,
+        classes: {
+          "ui-autocomplete":"gato-site-search"
+        },
         open: function( event, ui ) {
             var dialogZIndex = $('.ui-dialog').css('z-index');
             $('.ui-autocomplete').css('z-index', dialogZIndex + 1);
@@ -39,13 +42,15 @@ jQuery(document).ready(function($) {
         }
     })
     .autocomplete( "instance" )._renderItem = function( ul, item ) {
+      var $result = $('<div>')
+                    .append( '<div class="suggestion-title">' +
+                      '<a href="#">' + item.title + '</a>' +
+                    '</div>')
+                    .append('<div class="display-link">' +
+                        '<a href="#">' + item.url_display + '</a>' +
+                    '</div>');
       return $( '<li class="suggestion">' )
-        .append( '<div class="suggestion-title">' +
-                    '<a href="#">' + item.title + '</a>' +
-                 '</div>')
-        .append('<div class="display-link">' +
-                    '<a href="#">' + item.url_display + '</a>' +
-                '</div>')
+        .append($result)
         .appendTo( ul );
     };
 
