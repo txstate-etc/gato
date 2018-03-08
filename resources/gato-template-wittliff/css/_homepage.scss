@@ -98,7 +98,7 @@
     width: 35%;
     height: 100%;
     top: 0;
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     @at-root .left#{&} { left: 0; }
     @at-root .right#{&} { right: 0; }
     @media (max-width: $xxl-breakpoint) {
@@ -134,8 +134,16 @@
     }
     .typeheader {
       text-transform: uppercase;
-      font-size: 3em;
       letter-spacing: 0.07em;
+      font-size: 3.4rem;
+      @media (max-width: $xxl-breakpoint) { font-size: 3.3rem; }
+      @media (max-width: $xl-breakpoint) { font-size: 3.3rem; }
+      @media (max-width: $lg-breakpoint) { font-size: 2.9rem; }
+      @media (max-width: $md-breakpoint) { font-size: 2.4rem; }
+      @media (max-width: $sm-breakpoint) { font-size: 2rem; }
+      @media (max-width: $xs-breakpoint) { font-size: 1.6rem; }
+      @media (max-width: $mn-breakpoint) { font-size: 1.3rem; }
+      @media (max-width: $mc-breakpoint) { font-size: 1.18rem; }
     }
     h2 {
       font-size: 1em;
@@ -174,8 +182,8 @@
       }
     }
     .dates {
-      font-size: 3em;
-      letter-spacing: 0.05em;
+      font-size: 2.8em;
+      letter-spacing: 0.04em;
       margin-bottom: .5em;
     }
     a.bottom {
