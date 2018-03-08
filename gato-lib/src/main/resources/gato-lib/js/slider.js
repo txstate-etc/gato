@@ -26,6 +26,7 @@
       var t = get_single_touch(e);
       slider.tracking = typeof(t) != 'undefined' && slider.slides.length > 1;
       if (!slider.tracking) return;
+      slider.pauseschedule();
       slider.touchX = t.pageX;
       slider.touchY = t.pageY - $window.scrollTop();
       if (e.type == 'mousedown') e.preventDefault();
@@ -58,6 +59,8 @@
       slider.tracking = false;
       slider.dragging = false;
     });
+    $window.blur(function (e) { slider.pauseschedule(); });
+    $window.focus(function (e) { slider.schedule(); });
     slider.container.click(function(e) { if (slider.stopclick) e.preventDefault(); slider.stopclick = false; });
     slider.leftarrow.click(function(e) { e.preventDefault(); slider.left(); });
     slider.rightarrow.click(function(e) { e.preventDefault(); slider.right(); });
@@ -97,6 +100,7 @@
     if (index == slider.current) return;
     var curr = slider.slides.eq(slider.current);
     var next = slider.slides.eq(index);
+    slider.synchronizestate();
     if (slidefromright) { // sliding from the right
       next.velocity({translateX: ['0%','100%']}, {duration: speed});
       curr.velocity({translateX: ['-100%','0%']}, {duration: speed});
@@ -116,6 +120,19 @@
       slider.rotationtimer = setTimeout(function () { slider.right(300); }, delay);
     }
   }
+  window.GatoSlider.prototype.pauseschedule = function () {
+    var slider = this;
+    clearTimeout(slider.rotationtimer);
+  }
+  window.GatoSlider.prototype.synchronizestate = function () {
+    var slider = this;
+    slider.slides.velocity('stop');
+    var curr = slider.slides.eq(slider.current);
+    animationframe(function () {
+      curr.css('transform', 'translateX(0)');
+      slider.slides.not(':eq('+slider.current+')').css('transform', 'translateX(-100%)');
+    });
+  }
   window.GatoSlider.prototype.drag = function(xdiff) {
     var slider = this;
     var curr = slider.slides.eq(slider.current);
@@ -134,15 +151,13 @@
     var next = slider.next(xdiff);
     next.velocity({translateX: [0, ((xdiff < 0 ? 1 : -1)*next.outerWidth() + xdiff)+'px']}, {duration: 150});
     curr.velocity({translateX: [(xdiff < 0 ? -1 : 1)*next.outerWidth()+'px', xdiff+'px']}, {duration: 150});
-    slider.current = slider.nextidx(xdiff)
+    slider.current = slider.nextidx(xdiff);
+    slider.schedule();
   }
   window.GatoSlider.prototype.reset = function () {
     var slider = this;
     cancelanimationframe(slider.dragtimer);
-    var curr = slider.slides.eq(slider.current);
-    animationframe(function () {
-      curr.css('transform', 'translateX(0)');
-      slider.slides.not(':eq('+slider.current+')').css('transform', 'translateX(-100%)');
-    });
+    slider.synchronizestate();
+    slider.schedule();
   }
 })(jQuery);
