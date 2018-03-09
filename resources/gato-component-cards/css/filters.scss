@@ -4,28 +4,28 @@ ul.gato-card-filter {
   margin: 0 0 30px 0;
   padding: 0;
   display: flex;
+  align-items: stretch;
 
   li {
-    flex-grow: 1;
-
     a {
       position: relative;
       display: block;
       text-decoration: none;
       color: black;
-      padding: 2.5rem 0;
+      padding: 2.5rem;
       width: 100%;
-      vertical-align: middle;
+      height: 100%;
       text-align: center;
       font-size: 2.3rem;
       font-weight: 500;
+      word-wrap: break-word;
       [data-eq~="800px"] & {
         font-size: 2rem;
-        padding: 2rem 0;
+        padding: 2rem;
       }
       [data-eq~="500px"] & {
         font-size: 1.8rem;
-        padding: 1.5rem 0;
+        padding: 1.5rem;
       }
     }
 
@@ -45,6 +45,15 @@ ul.gato-card-filter {
         }
       }
     }
+  }
+  [data-eq~="400px"] &.small {
+    li a.grid-filter-selected:before { display: none; }
+  }
+  [data-eq~="600px"] &.medium {
+    li a.grid-filter-selected:before { display: none; }
+  }
+  [data-eq~="800px"] &.large {
+    li a.grid-filter-selected:before { display: none; }
   }
   &.color1 {
     border-bottom: 1px solid $mc1-border;
