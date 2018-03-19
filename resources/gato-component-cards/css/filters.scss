@@ -24,7 +24,7 @@ ul.gato-card-filter {
         padding: 2rem;
       }
       [data-eq~="500px"] & {
-        font-size: 1.8rem;
+        font-size: 1.7rem;
         padding: 1.5rem;
       }
     }
@@ -46,14 +46,22 @@ ul.gato-card-filter {
       }
     }
   }
-  [data-eq~="400px"] &.small {
-    li a.grid-filter-selected:before { display: none; }
+  [data-eq~="800px"] & {
+    flex-wrap: wrap;
+    li {
+      width: 33.3333%;
+      a.grid-filter-selected:before { display: none; }
+    }
+    &.tabcount4.hasall, &.tabcount2.hasall {
+      li { width: 50%; }
+      li.all { width: 100%; }
+    }
   }
-  [data-eq~="600px"] &.medium {
-    li a.grid-filter-selected:before { display: none; }
-  }
-  [data-eq~="800px"] &.large {
-    li a.grid-filter-selected:before { display: none; }
+  [data-eq~="600px"] & {
+    li { width: 50%; }
+    &.tabcount3:not(.hasall),&.tabcount5.hasall,&tabcount2.hasall {
+     li { width: 33.3333%; }
+    }
   }
   &.color1 {
     border-bottom: 1px solid $mc1-border;
