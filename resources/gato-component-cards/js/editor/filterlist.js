@@ -66,6 +66,17 @@ window.initfilterlist = function (def, path, parentdiv, templateId) {
     hidden.val(groupnode.json()).change();
   };
 
+  var inputadded = function () {
+    var num = parentdiv.find('.gato-filter').length;
+    if (num > maxfilters - 2) {
+      parentdiv.find('.gato-filterlist-alert.max').html('You have added the maximum number of filters.');
+      parentdiv.find('#filteradd').prop('disabled', true);
+    } else {
+      parentdiv.find('.gato-filterlist-alert.max').html('');
+      parentdiv.find('#filteradd').prop('disabled', false);
+    }
+  }
+
   var movedown = function ($filter) {
     var $next = $filter.next('.gato-filter');
     if ($next.length) $filter.insertAfter($next);
@@ -99,7 +110,6 @@ window.initfilterlist = function (def, path, parentdiv, templateId) {
   parentdiv.append(html);
   addhandlers($('.gato-filterlist'));
   parentdiv.find('#filteradd').click(function() {
-    var $btn = $(this);
     var num = parentdiv.find('.gato-filter').length;
     if (num < maxfilters) {
       $filter = $(filterhtml(groupnode.getChildren().length));
@@ -107,14 +117,10 @@ window.initfilterlist = function (def, path, parentdiv, templateId) {
       addhandlers($filter);
       $filter.find('input[type="text"]').focus();
     }
-    if (num > maxfilters - 2) {
-      parentdiv.find('.gato-filterlist-alert.max').html('You have added the maximum number of filters.');
-      parentdiv.find('#filteradd').prop('disabled', true);
-    } else {
-      parentdiv.find('.gato-filterlist-alert.max').html('');
-      parentdiv.find('#filteradd').prop('disabled', false);
-    }
+    inputadded();
   });
+  inputchanged();
+  inputadded();
 }
 
 })();
