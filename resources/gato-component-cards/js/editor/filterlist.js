@@ -14,7 +14,7 @@ var filterhtml = function (name, id, value) {
 
 window.initfilterlist = function (def, path, parentdiv, templateId) {
   var maxfilters = def.limit || 5;
-  window.initfilterlist.maxcharacterlimit = def.characterlimit || 30;
+  window.initfilterlist.maxcharacterlimit = def.characterlimit || 20;
   var mynode = new jcrnode("website", path);
   parentdiv = $(parentdiv);
   var hidden = parentdiv.closest('.v-form-field-container').find('input.filterlist');
