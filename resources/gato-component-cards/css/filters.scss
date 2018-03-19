@@ -1,3 +1,17 @@
+$gato-card-filter-border-match: false !default;
+$gato-card-filter-border-color: $light-gray !default;
+
+@mixin gato-card-filter-multicolor($border, $bg, $text, $arrow) {
+  @if $gato-card-filter-border-match {
+    border-bottom: 1px solid $border;
+  }
+  li a.grid-filter-selected {
+    background-color: $bg;
+    color: $text;
+    &:before { border-top: 20px solid $arrow; }
+  }
+}
+
 ul.gato-card-filter {
   list-style: none;
   width: 100%;
@@ -6,6 +20,9 @@ ul.gato-card-filter {
   display: flex;
   align-items: stretch;
   position: relative;
+  @if not($gato-card-filter-border-match) {
+    border-bottom: 1px solid $gato-card-filter-border-color;
+  }
 
   li {
     a {
@@ -17,15 +34,15 @@ ul.gato-card-filter {
       width: 100%;
       height: 100%;
       text-align: center;
-      font-size: 2.2rem;
+      font-size: 1.8rem;
       font-weight: 500;
       word-wrap: break-word;
       [data-eq~="800px"] & {
-        font-size: 2rem;
+        font-size: 1.7rem;
         padding: 1.6rem 2rem;
       }
       [data-eq~="500px"] & {
-        font-size: 1.7rem;
+        font-size: 1.6rem;
         padding: 1.2rem 1.5rem;
       }
     }
@@ -65,59 +82,24 @@ ul.gato-card-filter {
     }
   }
   &.color1 {
-    border-bottom: 1px solid $mc1-border;
-    li a.grid-filter-selected {
-      background-color: $mc1-bg;
-      color: $mc1-text;
-      &:before { border-top: 20px solid $mc1-bg; }
-    }
+    @include gato-card-filter-multicolor($mc1-border, $mc1-bg, $mc1-text, $mc1-bg);
   }
   &.color2 {
-    border-bottom: 1px solid $mc2-border;
-    li a.grid-filter-selected {
-      background-color: $mc2-bg;
-      color: $mc2-text;
-      &:before { border-top: 20px solid $mc2-bg; }
-    }
+    @include gato-card-filter-multicolor($mc2-border, $mc2-bg, $mc2-text, $mc2-bg);
   }
   &.color3 {
-    border-bottom: 1px solid $mc3-border;
-    li a.grid-filter-selected {
-      background-color: $mc3-bg;
-      color: $mc3-text;
-      &:before { border-top: 20px solid $mc3-bg; }
-    }
+    @include gato-card-filter-multicolor($mc3-border, $mc3-bg, $mc3-text, $mc3-bg);
   }
   &.color4 {
-    border-bottom: 1px solid $mc4-border;
-    li a.grid-filter-selected {
-      background-color: $mc4-bg;
-      color: $mc4-text;
-      &:before { border-top: 20px solid $mc4-bg; }
-    }
+    @include gato-card-filter-multicolor($mc4-border, $mc4-bg, $mc4-text, $mc4-bg);
   }
   &.color5 {
-    border-bottom: 1px solid $mc5-border;
-    li a.grid-filter-selected {
-      background-color: $mc5-bg;
-      color: $mc5-text;
-      &:before { border-top: 20px solid $mc5-bg; }
-    }
+    @include gato-card-filter-multicolor($mc5-border, $mc5-bg, $mc5-text, $mc5-bg);
   }
   &.color6 {
-    border-bottom: 1px solid $mc6-border;
-    li a.grid-filter-selected {
-      background-color: $mc6-bg;
-      color: $mc6-text;
-      &:before { border-top: 20px solid $mc6-bg; }
-    }
+    @include gato-card-filter-multicolor($mc6-border, $mc6-bg, $mc6-text, $mc6-bg);
   }
   &.color7 {
-    border-bottom: 1px solid $mc7-border;
-    li a.grid-filter-selected {
-      background-color: $mc7-bg;
-      color: $mc7-text;
-      &:before { border-top: 20px solid $mc7-bg; }
-    }
+    @include gato-card-filter-multicolor($mc7-border, $mc7-bg, $mc7-text, $mc7-bg);
   }
 }

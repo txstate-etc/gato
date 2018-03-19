@@ -16,10 +16,13 @@
   description: "Descriptive text for users who are unable to see the image."
 - name: title
   class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+  maxLength: 95
   label: Caption Title
   description: "Title for this slide. Appears in the caption area."
 - name: subtext
   class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+  rows: 2
+  maxLength: 206
   label: Caption Text
   description: "Text content for the caption area. Appears below the title."
 - name: link

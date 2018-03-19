@@ -24,6 +24,8 @@
   description: "Title for this slide. Appears in the caption area."
 - name: subtext
   class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+  maxLength: 95
+  rows: 2
   label: Caption Text
   description: "Text content for the caption area. Appears below the title."
 - name: spacing
