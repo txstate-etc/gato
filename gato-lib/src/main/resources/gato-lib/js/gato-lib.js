@@ -678,6 +678,54 @@ GatoFontAdjuster.prototype.process = function () {
   return;
 }
 
+// This is a class designed to work with GatoAntiThrasherSingleton to dynamically adjust
+// width of flexbox items to force them to wrap their text when flex-wrap is set to nowrap
+function GatoFlexAdjuster(container, items) {
+  this.container = container;
+  this.items = items;
+}
+GatoFlexAdjuster.prototype.init = function () {
+  this.lastwidth = 0;
+  this.lastheight = 0;
+}
+GatoFlexAdjuster.prototype.skip = function () {
+  var w = this.container.width(); var h = this.container.height();
+  var skip = (this.lastwidth == w && this.lastheight == h);
+  this.lastwidth = w; this.lastheight = h;
+  return skip;
+}
+GatoFlexAdjuster.prototype.reset = function () {
+  this.items.css('max-width', '');
+}
+GatoFlexAdjuster.prototype.prepare = function () {
+  this.currentsize = parseFloat(this.items.eq(0).css('max-width')) || 100.0;
+  this.top = this.currentsize;
+  this.bottom = 0;
+}
+GatoFlexAdjuster.prototype.process = function () {
+  var self = this;
+  var newsize;
+  if (self.items.eq(-1).position().left + self.items.eq(-1).outerWidth() < self.container.width()) {
+    self.bottom = self.currentsize;
+    newsize = (self.currentsize + self.top) / 2.0;
+    if (Math.abs(newsize - self.currentsize) <= 0.05) {
+      newsize = self.currentsize;
+    }
+  } else {
+    self.top = self.currentsize;
+    newsize = (self.currentsize + self.bottom) / 2.0;
+    if (Math.abs(newsize - self.currentsize) <= 0.05) newsize = self.bottom;
+  }
+
+  if (newsize != self.currentsize) return function () {
+    self.currentsize = newsize;
+    self.items.css('max-width', newsize+'%');
+  }
+  // above us is a 'return'
+  // if we make it this far we have no more work to do
+  return;
+}
+
 jQuery(function($) {
   $('.timestamp.relative').each(function() {
     // replace timestamps with relative time

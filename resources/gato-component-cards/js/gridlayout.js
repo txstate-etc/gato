@@ -114,9 +114,10 @@ jQuery(function($) {
 
 
 	$('.section-grid, .section-masonry').each(function(i,grid){
-		if ( $(grid).prev('ul.gato-card-filter').length ) {
+    var $filters = $(grid).prev('ul.gato-card-filter');
+		if ( $filters.length ) {
 			new filterable_grid(grid);
+      GatoAntiThrasherSingleton.register(new GatoFlexAdjuster($filters, $filters.find('> li')));
 		}
 	});
-
 });
