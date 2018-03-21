@@ -974,15 +974,17 @@ public final class GatoUtils {
     Node n = toNode(obj);
     Collection<String> ret = new ArrayList<String>();
     try {
-      Node filterlist = n.getParent().getParent().getNode("filterlist");
-      Map<String,String> filterhash = new HashMap<String,String>();
-      for (Node filter : NodeUtil.getNodes(filterlist)) {
-        filterhash.put(PropertyUtil.getString(filter, "id"), PropertyUtil.getString(filter, "name"));
-      }
-      if (n.hasNode("tags")) {
-        for (String filterid : orderedPropertyValues(n.getNode("tags"))) {
-          if (filterhash.containsKey(filterid))
-            ret.add(StringUtils.strip(filterhash.get(filterid)));
+      if (n.getParent().getParent().hasNode("filterlist")) {
+        Node filterlist = n.getParent().getParent().getNode("filterlist");
+        Map<String,String> filterhash = new HashMap<String,String>();
+        for (Node filter : NodeUtil.getNodes(filterlist)) {
+          filterhash.put(PropertyUtil.getString(filter, "id"), PropertyUtil.getString(filter, "name"));
+        }
+        if (n.hasNode("tags")) {
+          for (String filterid : orderedPropertyValues(n.getNode("tags"))) {
+            if (filterhash.containsKey(filterid))
+              ret.add(StringUtils.strip(filterhash.get(filterid)));
+          }
         }
       }
     } catch (Exception e) {
