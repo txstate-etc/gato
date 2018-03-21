@@ -68,7 +68,7 @@ window.initfilterlist = function (def, path, parentdiv, templateId) {
 
   var inputadded = function () {
     var num = parentdiv.find('.gato-filter').length;
-    if (num > maxfilters - 2) {
+    if (num > maxfilters - 1) {
       parentdiv.find('.gato-filterlist-alert.max').html('You have added the maximum number of filters.');
       parentdiv.find('#filteradd').prop('disabled', true);
     } else {
