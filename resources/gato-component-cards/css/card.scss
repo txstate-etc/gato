@@ -9,6 +9,7 @@
 }
 
 .gato-card {
+  position: relative;
   figcaption {
     padding: 1.2rem;
     .title {
@@ -20,6 +21,15 @@
       margin: 0;
       font-size: 1.6rem;
     }
+  }
+  .mgnlEditorBar {
+    position: absolute !important;
+    left: 0;
+    top: 0;
+    width: 100% !important;
+  }
+  &.gato-card-add .mgnlEditorBar {
+    position: relative !important;
   }
 }
 .gato-card-hidden {
