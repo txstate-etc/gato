@@ -92,6 +92,7 @@ window.initfilterlist = function (def, path, parentdiv, templateId) {
   var trash = function ($filter) {
     $filter.remove();
     inputchanged();
+    inputadded();
   }
 
   var addhandlers = function ($filter) {
