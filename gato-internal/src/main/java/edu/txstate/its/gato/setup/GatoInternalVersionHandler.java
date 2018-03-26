@@ -182,6 +182,7 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
     tasks.add(new BootstrapSingleModuleResource("config.server.MIMEMapping.scss.xml"));
     tasks.add(new BootstrapSingleModuleResource("config.server.MIMEMapping.cjs.xml"));
     tasks.add(new RandomizeCacheStrTask());
+    tasks.add(new RemoveHotfixesTask());
     return tasks;
   }
 
