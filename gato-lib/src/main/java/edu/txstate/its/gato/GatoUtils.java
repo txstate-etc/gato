@@ -971,7 +971,7 @@ public final class GatoUtils {
   }
 
   public Collection<String> getTags(Object obj) {
-    Node n = toNode(obj);
+    Node n = NodeUtil.unwrap(toNode(obj));
     Collection<String> ret = new ArrayList<String>();
     try {
       if (n.getParent().getParent().hasNode("filterlist")) {
