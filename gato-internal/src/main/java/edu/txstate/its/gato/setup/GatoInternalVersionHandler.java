@@ -166,6 +166,10 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       .addTask(new UpdateCardLayoutFiltersTask())
     );
 
+    register(DeltaBuilder.update("1.1.1", "")
+      .addTasks(installOrUpdateTasks())
+    );
+
   }
 
   protected List<Task> installOrUpdateTasks() {
