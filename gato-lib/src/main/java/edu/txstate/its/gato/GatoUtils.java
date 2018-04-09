@@ -971,9 +971,9 @@ public final class GatoUtils {
   }
 
   public Collection<String> getTags(Object obj) {
-    Node n = NodeUtil.unwrap(toNode(obj));
     Collection<String> ret = new ArrayList<String>();
     try {
+      Node n = NodeUtil.unwrap(toNode(obj));
       if (n.getParent().getParent().hasNode("filterlist")) {
         Node filterlist = n.getParent().getParent().getNode("filterlist");
         Map<String,String> filterhash = new HashMap<String,String>();
