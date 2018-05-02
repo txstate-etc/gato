@@ -1,9 +1,3 @@
-// No delay on mobile tapping
-
-window.addEventListener('load', function() {
-	FastClick.attach(document.body);
-}, false);
-
 jQuery(document).ready(function($) {
   var jqwindow = jQuery(window);
   var headerimage = $(".bg_image, .bg_image_secondary");
