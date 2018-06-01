@@ -20,7 +20,7 @@ import java.util.Map;
 import org.apache.jackrabbit.commons.predicate.NodeTypePredicate;
 
 public class SiteMapModel<RD extends ConfiguredTemplateDefinition> extends RenderingModelImpl<ConfiguredTemplateDefinition> {
-  
+
   private List<Node> sortedNodes = new ArrayList<Node>();
 
   public SiteMapModel(Node content, ConfiguredTemplateDefinition definition, RenderingModel<?> parent) throws PathNotFoundException, RepositoryException {
@@ -41,7 +41,18 @@ public class SiteMapModel<RD extends ConfiguredTemplateDefinition> extends Rende
 
     if (ancestor == null) { return; }
 
-    NodeUtil.visit(ancestor, n -> sortedNodes.add(n), new NodeTypePredicate("mgnl:page", true, startPage + 1, startPage + depth));
+    NodeUtil.visit(ancestor, n -> {
+      boolean hide = PropertyUtil.getBoolean(n, "hideInNav", false);
+      if (!hide) {
+        sortedNodes.add(n);
+      }
+      else {
+        //don't show children either
+        for (Node subpage : NodeUtil.getNodes(n, "mgnl:page")) {
+          PropertyUtil.setProperty(subpage, "hideInNav", true);
+        }
+      }
+    }, new NodeTypePredicate("mgnl:page", true, startPage + 1, startPage + depth));
 
     // Magnolia doesn't check the root node against the predicate in NodeUtil.visit, so the title ends up
     // in the sorted title list even though we don't want it to.
