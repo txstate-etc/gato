@@ -36,7 +36,7 @@
   display: none;
   .admin & {
     display: block;
-    > :not(.mgnlEditorBar) {
+    > :not(.mgnlEditorBar), > a figure {
       -webkit-filter: grayscale(1) brightness(.5);
       filter: grayscale(1) brightness(.5);
       @include ie11() {
