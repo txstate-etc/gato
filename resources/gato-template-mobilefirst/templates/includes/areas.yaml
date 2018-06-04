@@ -1,0 +1,12 @@
+customcss:
+  !include /gato-component-cssjs/templates/areas/customcss.yaml
+customjs:
+  !include /gato-component-cssjs/templates/areas/customjs.yaml
+siteinfo:
+  type: single
+  title: Contact Information
+  availableComponents:
+    miscText:
+      id: gato-template:components/misctext
+footerlinks:
+  !include /gato-template/templates/areas/linklist.yaml
