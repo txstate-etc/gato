@@ -4,7 +4,7 @@ footer {
   font-size: 1.4rem;
   color: $white;
   .top {
-    background-color: $darkgray;
+    background-color: $mediumgray;
     display: flex;
     justify-content: space-between;
     @media (max-width: $sm-breakpoint) {
@@ -13,8 +13,12 @@ footer {
     .footer-column {
       width: 33%;
       padding: 3rem;
+      @media (max-width: $sm-breakpoint) {
+        width: auto;
+        padding: 1rem 3rem;
+      }
       &.contact {
-        border-right: 1px solid $charcoal;
+        border-right: 1px solid $darkgray;
         @media (max-width: $sm-breakpoint) {
           border: none;
         }
@@ -32,16 +36,15 @@ footer {
         }
       }
       .footer-column-content {
-        padding-left: 5rem; //not sure about this...
-        @media (max-width: $sm-breakpoint) {
-          padding-left: 0;
-        }
         .footer-column-title {
           font-size: 2rem;
           font-weight: 400;
           text-transform: uppercase;
+          display: block;
+          text-decoration: none;
+          color: $white;
         }
-        ul {
+        .footer-column-link-list {
           list-style: none;
           margin: 0;
           padding: 1rem 0rem 0rem 0rem;
@@ -52,34 +55,68 @@ footer {
             }
           }
         }
-        .connect-links {
-          display: flex;
-          flex-direction: column;
-          .connect {
-            order: 2;
-            @media (max-width: $sm-breakpoint) {
-              order: 1;
+        @media (max-width: $sm-breakpoint) {
+          .footer-column-title {
+            background-color: $darkgray;
+            padding: 0.5rem 1rem;
+            font-size: 1.8rem;
+            position: relative;
+            &:after {
+              font-family: "FontAwesome";
+              content: "\f107";
+              position: absolute;
+              right: 1rem;
             }
           }
-          .social-media-icons {
-            order: 1;
-            @media (max-width: $sm-breakpoint) {
-              order: 2;
-            }
+          .footer-column-link-list {
+            display: none;
+            background-color: $darkgray;
+            padding: 1rem;
             li {
-              display: inline-block;
-              .gato-sociallink {
-                i { color: $white; }
-                span {
-                  width: 1px;
-                  height: 1px;
-                  overflow: hidden;
-                  margin: -1px;
-                  clip: rect(0,0,0,0);
-                  position: absolute;
-                }
+              padding: 0.5rem 0rem;
+            }
+          }
+          &.expanded {
+            .footer-column-title {
+              border-bottom: 1px solid $lightgray;
+              &:after {
+                content: "\f106";
               }
             }
+            .footer-column-link-list {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+  .social-media-container {
+    display: block;
+    @media (max-width: $sm-breakpoint) {
+      display: none;
+    }
+    &.mobile {
+      display: none;
+      @media (max-width: $sm-breakpoint) {
+        display: block;
+        text-align: center;
+      }
+    }
+    .social-media-icons {
+      margin: 0;
+      padding: 0;
+      li {
+        display: inline-block;
+        .gato-sociallink {
+          i { color: $white;}
+          span {
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            margin: -1px;
+            clip: rect(0,0,0,0);
+            position: absolute;
           }
         }
       }

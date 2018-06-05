@@ -1,7 +1,7 @@
 <footer>
   <div class="top">
     <div class="footer-column contact">
-      <div class="footer-column-content">
+      <div class="footer-contact-column-content">
         <div class="footer-page-title">
           <a href="${cmsfn.link(homepage)}">${gf.nodeTitle(homepage)}</a>
         </div>
@@ -12,22 +12,27 @@
     </div>
     <div class="footer-column">
       <div class="footer-column-content">
-        <div class="footer-column-title">Resources</div>
-        <ul class="resources">
+        <a href="#resource-links" class="footer-column-title" aria-haspopup="true" aria-expanded="false" aria-controls="resource-links">Resources</a>
+        <ul id="resource-links" class="resources footer-column-link-list">
         [@cms.area name="resources" content=gf.getOrCreateArea(homepage, 'resources') editable=isHomePage/]
         </ul>
       </div>
     </div>
     <div class="footer-column">
       <div class="footer-column-content">
-        <div class="footer-column-title">Connect</div>
+        <a href="#connect-links" class="footer-column-title" aria-haspopup="true" aria-expanded="false" aria-controls="connect-links">Connect</a>
         <div class="connect-links">
-          [@cms.area name="socialmedia" content=gf.getOrCreateArea(homepage, "socialmedia") editable=isHomePage/]
-          <ul class="connect">
+          <div class="social-media-container">
+            [@cms.area name="socialmedia" content=gf.getOrCreateArea(homepage, "socialmedia") editable=isHomePage/]
+          </div>
+          <ul id="connect-links" class="connect footer-column-link-list">
           [@cms.area name="connect" content=gf.getOrCreateArea(homepage, 'connect') editable=isHomePage/]
           </ul>
         </div>
       </div>
+    </div>
+    <div class="social-media-container mobile">
+      [@cms.area name="socialmedia" content=gf.getOrCreateArea(homepage, "socialmedia") editable=isHomePage/]
     </div>
   </div>
   <div class="bottom">
