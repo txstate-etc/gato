@@ -1,19 +1,86 @@
 footer {
   font-family: $muli;
-  font-weight: 400;
+  font-weight: 300;
+  font-size: 1.4rem;
   color: $white;
   .top {
     background-color: $darkgray;
-    padding: 3.5rem;
     display: flex;
     justify-content: space-between;
+    @media (max-width: $sm-breakpoint) {
+      display: block;
+    }
     .footer-column {
-      .footer-page-title {
-        font-size: 2.4rem;
-        text-transform: uppercase;
-        a {
-          color: $white;
-          text-decoration: none;
+      width: 33%;
+      padding: 3rem;
+      &.contact {
+        border-right: 1px solid $charcoal;
+        @media (max-width: $sm-breakpoint) {
+          border: none;
+        }
+        .footer-page-title {
+          font-size: 2.4rem;
+          font-weight: 400;
+          text-transform: uppercase;
+          a {
+            color: $white;
+            text-decoration: none;
+          }
+        }
+        .contact-info {
+          padding-top: 2rem;
+        }
+      }
+      .footer-column-content {
+        padding-left: 5rem; //not sure about this...
+        @media (max-width: $sm-breakpoint) {
+          padding-left: 0;
+        }
+        .footer-column-title {
+          font-size: 2rem;
+          font-weight: 400;
+          text-transform: uppercase;
+        }
+        ul {
+          list-style: none;
+          margin: 0;
+          padding: 1rem 0rem 0rem 0rem;
+          li {
+            a {
+              color: $white;
+              text-decoration: none;
+            }
+          }
+        }
+        .connect-links {
+          display: flex;
+          flex-direction: column;
+          .connect {
+            order: 2;
+            @media (max-width: $sm-breakpoint) {
+              order: 1;
+            }
+          }
+          .social-media-icons {
+            order: 1;
+            @media (max-width: $sm-breakpoint) {
+              order: 2;
+            }
+            li {
+              display: inline-block;
+              .gato-sociallink {
+                i { color: $white; }
+                span {
+                  width: 1px;
+                  height: 1px;
+                  overflow: hidden;
+                  margin: -1px;
+                  clip: rect(0,0,0,0);
+                  position: absolute;
+                }
+              }
+            }
+          }
         }
       }
     }
@@ -34,7 +101,6 @@ footer {
       padding: 0;
       li {
         display: inline-block;
-        font-size: 1.4rem;
         &:not(:last-child):after {
           content: " | ";
         }
