@@ -9,50 +9,52 @@ jQuery(document).ready(function($) {
 
     //top 3 search results shown after user types 3 characters
     //in search box
-    $('#search-text').autocomplete({
-        minLength: 3,
-        classes: {
-          "ui-autocomplete":"gato-site-search"
-        },
-        open: function( event, ui ) {
-            var dialogZIndex = $('.ui-dialog').css('z-index');
-            $('.ui-autocomplete').css('z-index', dialogZIndex + 1);
+    if ($('#search-text').length) {
+      $('#search-text').autocomplete({
+          minLength: 3,
+          classes: {
+            "ui-autocomplete":"gato-site-search"
+          },
+          open: function( event, ui ) {
+              var dialogZIndex = $('.ui-dialog').css('z-index');
+              $('.ui-autocomplete').css('z-index', dialogZIndex + 1);
 
-        },
-        source: function(request, response){
-            var options = {num: 3};
-            if($('#this-site').prop('checked')){
-                options.sitesearch = $('#sitesearch').val();
-                if(!isBlank($('#site').val())) options.site = $('#site').val();
-                if(!isBlank($('#client').val())) options.client = $('#client').val();
-            }
-            var search = new Search(options);
-            search.doSearch(request.term)
-            .then(function(results){
-                var data = results.results.slice(0,3).map(function(obj, index){
-                    var result = {title: obj.title, url_display: obj.url_display, url: obj.url};
-                    return result;
-                });
-                response(data);
-            });
-        },
-        select: function(event, ui){
-            event.preventDefault();
-            window.location = ui.item.url;
-        }
-    })
-    .autocomplete( "instance" )._renderItem = function( ul, item ) {
-      var $result = $('<div>')
-                    .append( '<div class="suggestion-title">' +
-                      '<a href="#">' + item.title + '</a>' +
-                    '</div>')
-                    .append('<div class="display-link">' +
-                        '<a href="#">' + item.url_display + '</a>' +
-                    '</div>');
-      return $( '<li class="suggestion">' )
-        .append($result)
-        .appendTo( ul );
-    };
+          },
+          source: function(request, response){
+              var options = {num: 3};
+              if($('#this-site').prop('checked')){
+                  options.sitesearch = $('#sitesearch').val();
+                  if(!isBlank($('#site').val())) options.site = $('#site').val();
+                  if(!isBlank($('#client').val())) options.client = $('#client').val();
+              }
+              var search = new Search(options);
+              search.doSearch(request.term)
+              .then(function(results){
+                  var data = results.results.slice(0,3).map(function(obj, index){
+                      var result = {title: obj.title, url_display: obj.url_display, url: obj.url};
+                      return result;
+                  });
+                  response(data);
+              });
+          },
+          select: function(event, ui){
+              event.preventDefault();
+              window.location = ui.item.url;
+          }
+      })
+      .autocomplete( "instance" )._renderItem = function( ul, item ) {
+        var $result = $('<div>')
+                      .append( '<div class="suggestion-title">' +
+                        '<a href="#">' + item.title + '</a>' +
+                      '</div>')
+                      .append('<div class="display-link">' +
+                          '<a href="#">' + item.url_display + '</a>' +
+                      '</div>');
+        return $( '<li class="suggestion">' )
+          .append($result)
+          .appendTo( ul );
+      };
+  }
 
     //Calls the google search appliance with the appropriate parameters and display
     //results on the current page.  The search results are inserted after the original
