@@ -1,0 +1,10 @@
+templateScript: /gato-template-trumba/templates/pages/trumba.ftl
+renderType: site
+visible: true
+title: Trumba Template
+dialog: gato-template:pages/page-properties
+areas:
+  contentParagraph:
+    !include /gato-template/templates/areas/contentParagraph.yaml
+parameters:
+  sortOrder: 800

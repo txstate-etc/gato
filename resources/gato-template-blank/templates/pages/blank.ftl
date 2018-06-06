@@ -1,6 +1,7 @@
 [#include "/gato-template/templates/includes/head.ftl"]
 
 <!DOCTYPE HTML>
+<html lang="en">
   <head>
     [@templatejs scripts=[
     ]/]
@@ -12,6 +13,6 @@
     <main>
       [@cms.area name="contentParagraph" /]
     </main>
+    [#include "/gato-template/templates/includes/video-modal.ftl"]
   </body>
-  [#include "/gato-template/templates/includes/video-modal.ftl"]
 </html>

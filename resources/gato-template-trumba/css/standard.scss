@@ -1,0 +1,34 @@
+/* Gato Style Sheet txstate-2015 */
+//sass variables
+@import "gato-template/css/variables";
+@import "gato-template-txstate2015/css/variables";
+@import "gato-template-txstate2015/css/contenttypes";
+@import "gato-template/css/includes";
+
+/* General Styles */
+@import "gato-template-txstate2015/css/general";
+@import "gato-template-txstate2015/css/styledcontent";
+
+/* Header Area (super user, logo, search, header image) */
+@import "gato-template-txstate2015/css/header";
+
+/* Main Content Area */
+@import "gato-template-txstate2015/css/maincontent";
+
+/* Footer */
+@import "gato-template-txstate2015/css/footer";
+
+/* Mobile */
+@import "gato-template-txstate2015/css/mobile";
+
+/* Fonts */
+@import "gato-template-txstate2015/css/fonts/univers";
+@import "gato-template-txstate2015/css/fonts/garamond";
+
+/* Print rules */
+@import "gato-template-txstate2015/css/print";
+
+/* Global Search Template */
+@import "gato-template-txstate2015/css/globalsearch";
+
+@import "gato-template-trumba/css/trumba";
