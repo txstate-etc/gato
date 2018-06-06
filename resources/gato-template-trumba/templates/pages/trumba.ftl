@@ -18,9 +18,8 @@
       <div class="header_no_image txstate-dept-title">
         <div class="title">
           <div class="dept_name">
-            <!-- TODO: don't hardcode the event url -->
-            <a class="parent_org" href="${gf.filterUrl('//events.txstate.edu')}">Texas State University</a>
-            <span class="office_name"><a href="#">TODO: Add Calendar Title Here</a></span>
+            <a class="parent_org" href="${cmsfn.link(homepage)}">Texas State University</a>
+            <span class="office_name"><a href="#">[@pagetitle content /]</a></span>
           </div>
         </div>
       </div>
@@ -31,7 +30,6 @@
 
       <div class="page_content">
         <main class="contentcolumn">
-          [@headline hideSidebar /]
           <div class="gato-section-full">
             <div class="gato-section-centered">
               <div class="gato-section eq-parent">
@@ -39,6 +37,10 @@
                   <div class="column_paragraph" id="main_spud">
                     <script type="text/javascript">
                       $Trumba.addSpud({ webName: 'txstate', spudType: 'tabchooser' });
+                    </script>
+                  </div>
+                  <div class="column_paragraph" id="main_spud">
+                    <script type="text/javascript">
                       $Trumba.addSpud({ webName: 'txstate', spudType: 'main' });
                     </script>
                   </div>
@@ -50,10 +52,16 @@
 
         <aside class="sidebar-container">
           <div class="sidebar">
-            <script type="text/javascript">
-              $Trumba.addSpud({ webName: 'txstate', spudType: 'datefinder' });
-              $Trumba.addSpud({ webName: 'txstate', spudType: 'filter' });
-            </script>
+            <div class="side_nav nav-without-title">
+              <script type="text/javascript">
+                $Trumba.addSpud({ webName: 'txstate', spudType: 'datefinder' });
+              </script>
+            </div>
+            <div class="side_nav nav-without-title">
+              <script type="text/javascript">
+                $Trumba.addSpud({ webName: 'txstate', spudType: 'filter' });
+              </script>
+            </div>
           </div>
         </aside>
       </div> <!-- end of page_content -->
