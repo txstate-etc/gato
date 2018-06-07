@@ -2,6 +2,8 @@ customcss:
   !include /gato-component-cssjs/templates/areas/customcss.yaml
 customjs:
   !include /gato-component-cssjs/templates/areas/customjs.yaml
+menulinks:
+  !include /gato-template/templates/areas/linklist.yaml
 socialmedia:
   !include /gato-template/templates/areas/sociallist.yaml
 siteinfo:

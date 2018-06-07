@@ -10,6 +10,9 @@
   </head>
   <body>
     [#include "includes/header.ftl"]
+    <div class="page_content">
+      Main content area
+    </div>
     [#include "includes/footer.ftl"]
     [@cssjsmodals /]
   </body>
