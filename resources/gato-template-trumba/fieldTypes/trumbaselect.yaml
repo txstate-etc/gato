@@ -1,0 +1,2 @@
+definitionClass: edu.txstate.its.gato.GatoTrumbaSelectDefinition
+factoryClass: info.magnolia.ui.form.field.factory.SelectFieldFactory

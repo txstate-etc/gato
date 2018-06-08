@@ -2,7 +2,7 @@ templateScript: /gato-template-trumba/templates/pages/trumba.ftl
 renderType: site
 visible: true
 title: Trumba Template
-dialog: gato-template:pages/page-properties
+dialog: gato-template-trumba:pages/trumba
 areas:
   contentParagraph:
     !include /gato-template/templates/areas/contentParagraph.yaml

@@ -36,12 +36,12 @@
                 <div class="layout-column full eq-parent">
                   <div class="column_paragraph" id="main_spud">
                     <script type="text/javascript">
-                      $Trumba.addSpud({ webName: 'txstate', spudType: 'tabchooser' });
+                      $Trumba.addSpud({ webName: 'calendar.${content.calendar}', spudType: 'tabchooser' });
                     </script>
                   </div>
                   <div class="column_paragraph" id="main_spud">
                     <script type="text/javascript">
-                      $Trumba.addSpud({ webName: 'txstate', spudType: 'main' });
+                      $Trumba.addSpud({ webName: 'calendar.${content.calendar}', spudType: 'main' });
                     </script>
                   </div>
                 </div>
@@ -54,12 +54,12 @@
           <div class="sidebar">
             <div class="side_nav nav-without-title">
               <script type="text/javascript">
-                $Trumba.addSpud({ webName: 'txstate', spudType: 'datefinder' });
+                $Trumba.addSpud({ webName: 'calendar.${content.calendar}', spudType: 'datefinder' });
               </script>
             </div>
             <div class="side_nav nav-without-title">
               <script type="text/javascript">
-                $Trumba.addSpud({ webName: 'txstate', spudType: 'filter' });
+                $Trumba.addSpud({ webName: 'calendar.${content.calendar}', spudType: 'filter' });
               </script>
             </div>
           </div>
