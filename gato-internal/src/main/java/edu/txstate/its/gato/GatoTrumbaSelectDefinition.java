@@ -18,14 +18,15 @@ public class GatoTrumbaSelectDefinition extends SelectFieldDefinition {
     try {
       MagnoliaConfigurationProperties mcp = Components.getComponent(MagnoliaConfigurationProperties.class);
       if (mcp.hasProperty("trumba.user")) {
-      String auth = mcp.getProperty("trumba.user")+":"+mcp.getProperty("trumba.pass");
-      String b64 = new String(Base64.getEncoder().encode(auth.getBytes()));
-      Elements response = Jsoup.connect(mcp.getProperty("trumba.basepath")+"/calendars.asmx/GetCalendarList")
-        .header("Authorization", "Basic "+b64)
-        .get()
-        .select("Response");
+        String auth = mcp.getProperty("trumba.user")+":"+mcp.getProperty("trumba.pass");
+        String b64 = new String(Base64.getEncoder().encode(auth.getBytes()));
+        Elements response = Jsoup.connect(mcp.getProperty("trumba.basepath")+"/calendars.asmx/GetCalendarList")
+          .header("Authorization", "Basic "+b64)
+          .get()
+          .select("Response");
 
-      ret = optionsFromTrumbaResponse(response, "");
+        ret = optionsFromTrumbaResponse(response, "");
+      }
     } catch (Exception e) {
       ret = new ArrayList<SelectFieldOptionDefinition>();
       e.printStackTrace();
