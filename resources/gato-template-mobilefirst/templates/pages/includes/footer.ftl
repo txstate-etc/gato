@@ -37,7 +37,9 @@
   </div>
   <div class="bottom">
     <div class="logo">
-      Texas State University
+    <a href="http://www.txstate.edu">
+      <img src="${ctx.contextPath}/.resources/gato-template-mobilefirst/images/txstate_h_1e_secondary_white_rgb.png" alt="Texas State University" />
+    </a>
     </div>
     <ul class="bottom-footer-links">
       [@cms.area name="footerlinks" content=gf.getOrCreateArea(homepage, 'footerlinks') editable=isHomePage/]
