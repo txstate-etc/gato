@@ -12,6 +12,29 @@
     }
       overflow: hidden;
       @include coverimage();
+      //TODO: copied from Wittliff- will need to tweak this if marketing wants the mobile first button to look different
+      .feature-play-button {
+        display: block;
+        @include absolutecenter();
+        color: white;
+        font-size: 3.5rem;
+        border-radius: 100%;
+        width:  8rem;
+        height: 8rem;
+        border: 7px solid white;
+        opacity: 0.9;
+        @media (max-width: $md-breakpoint) {
+          width: 5rem;
+          height: 5rem;
+          font-size: 2.5rem;
+          border: 5px solid white;
+        }
+        i {
+          @include absolutecenter();
+          left: 55%;// looks weird when perfectly centerd or are my eyes playing tricks on me?
+        }
+      }
+      //end copied from Wittliff
     }
   }
   .page-title {
