@@ -11,6 +11,8 @@ top-banner:
   availableComponents:
     banner:
       id: gato-template-mobilefirst:components/banner
+contentParagraph:
+  !include /gato-template/templates/areas/contentParagraph.yaml
 socialmedia:
   !include /gato-template/templates/areas/sociallist.yaml
 siteinfo:

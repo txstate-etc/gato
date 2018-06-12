@@ -9,13 +9,19 @@
     [@templatehead/]
   </head>
   <body>
+    [@skipnav/]
     [#include "includes/header.ftl"]
+    [@cms.area name="top-banner" content=gf.getOrCreateArea(homepage, 'top-banner')/]
     <div class="page_content">
-      [@cms.area name="top-banner" content=gf.getOrCreateArea(homepage, 'top-banner')/]
-      <div style="min-height: 50rem">
-      </div>
+      <main class="contentcolumn">
+        [#-- Right now, we don't even know if the standard mobile first template has a sidebar. --]
+        [#assign hideSidebar = true /]
+        [@headline hideSidebar /]
+        [@cms.area name="contentParagraph" contextAttributes={"hideSidebar":hideSidebar} /]
+      </main>
     </div>
     [#include "includes/footer.ftl"]
     [@cssjsmodals /]
+    [#include "/gato-template/templates/includes/video-modal.ftl"]
   </body>
 </html>
