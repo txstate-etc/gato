@@ -17,6 +17,10 @@ header {
       &.btn-search {
         top: 6rem;
         left: 0;
+        @media (max-width: $sm-breakpoint) {
+          top: 0 !important;
+          left: 6rem !important;
+        }
       }
     }
   }
@@ -38,6 +42,9 @@ header {
       max-width: 85%;
     }
     &.scrolled {
+      display: none;
+    }
+    @media (max-width: $sm-breakpoint) {
       display: none;
     }
   }
@@ -93,6 +100,16 @@ header {
             text-decoration: none;
             color: $charcoal;
           }
+        }
+      }
+    }
+    @media (max-width: $sm-breakpoint) {
+      display: block;
+      top: 0 !important;
+      .menu {
+        opacity: 0.9;
+        .menulinks {
+          display: none;
         }
       }
     }
