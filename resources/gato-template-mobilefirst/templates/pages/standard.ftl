@@ -11,7 +11,9 @@
   <body>
     [#include "includes/header.ftl"]
     <div class="page_content">
-      Main content area
+      [@cms.area name="top-banner" content=gf.getOrCreateArea(homepage, 'top-banner')/]
+      <div style="min-height: 50rem">
+      </div>
     </div>
     [#include "includes/footer.ftl"]
     [@cssjsmodals /]

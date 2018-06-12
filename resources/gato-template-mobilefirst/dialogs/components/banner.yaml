@@ -1,0 +1,26 @@
+form:
+  tabs:
+    - name: tabMain
+      label: Image
+      fields:
+        - name: image
+          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+          required: true
+          appName: assets
+          targetWorkspace: dam
+          label: Image
+          identifierToPathConverter:
+            class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
+          contentPreviewDefinition:
+            contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
+          description: "Image for this banner. Will be resized to fit the banner area."
+        - name: alttext
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          required: true
+          label: Image Alt Text
+          description: "Descriptive text for users who are unable to see the image."
+        # - name: videourl
+        #   class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+        #   label: Video URL
+        #   description: "Video link. Will play the video in a modal popup."
+actions: !include /gato-template/dialogs/common/actions-block.yaml

@@ -1,0 +1,7 @@
+templateScript: /gato-template-mobilefirst/templates/components/banner.ftl
+renderType: freemarker
+title: Mobile First Banner
+description: A full width image or video with alternate text
+dialog: gato-template-mobilefirst:components/banner
+parameters:
+  icon: /gato-template/images/banner.png

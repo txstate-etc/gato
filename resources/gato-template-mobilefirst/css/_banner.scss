@@ -1,0 +1,63 @@
+.banner-section {
+  .banner {
+    .banner-image {
+      position: relative;
+      height: 25em;
+      @media (max-width: $xl-breakpoint) {
+        height: 0;
+        padding-bottom: 31%;
+     }
+     @media (max-width: $sm-breakpoint) {
+       padding-bottom: 62.5%;
+    }
+      overflow: hidden;
+      @include coverimage();
+    }
+  }
+  .page-title {
+    background-color: $maroon;
+    display: flex;
+    justify-content: center;
+    padding: 1.5rem 0rem;
+    align-items: center;
+    position: relative;
+    font-family: $muli;
+    @media (max-width: $sm-breakpoint) {
+      text-align: center;
+    }
+    &:after {
+      bottom: 100%;
+      left: 50%;
+      border: solid transparent;
+      content: " ";
+      height:0;
+      width: 0;
+      position: absolute;
+      border-color: rgba(0,0,0,0);
+      border-bottom-color: $maroon;
+      border-width: 2.5rem;
+      margin-left: -2.5rem;
+    }
+    a {
+      color: $white;
+      text-decoration: none;
+      font-size: 3rem;
+    }
+  }
+  &.noimage {
+    .banner {
+      background-color: $maroon;
+      min-height: 12rem;
+    }
+    &.scrolled {
+      .banner {
+        min-height: 16rem;
+      }
+    }
+    .page-title {
+      &:after {
+        display: none;
+      }
+    }
+  }
+}

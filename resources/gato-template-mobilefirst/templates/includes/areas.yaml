@@ -4,6 +4,13 @@ customjs:
   !include /gato-component-cssjs/templates/areas/customjs.yaml
 menulinks:
   !include /gato-template/templates/areas/linklist.yaml
+top-banner:
+  type: single
+  title: Mobile First Banner
+  templateScript: /gato-template-mobilefirst/templates/areas/top-banner.ftl
+  availableComponents:
+    banner:
+      id: gato-template-mobilefirst:components/banner
 socialmedia:
   !include /gato-template/templates/areas/sociallist.yaml
 siteinfo:
