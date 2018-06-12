@@ -9,6 +9,15 @@ header {
     left: 0;
     .header-button {
       display: block;
+      position: absolute;
+      &.btn-menu {
+        top: 0;
+        left: 0;
+      }
+      &.btn-search {
+        top: 6rem;
+        left: 0;
+      }
     }
   }
   .logo-block {
@@ -29,6 +38,9 @@ header {
       font-size: 5rem;
       margin-top: 2rem;
     }
+    &.scrolled {
+      display: none;
+    }
   }
   .header-button {
     width:60px;
@@ -48,46 +60,39 @@ header {
   }
   .menubar {
     display: none;
-
-  }
-  &.scrolled {
-    overflow: hidden;
-    .header-buttons {
-      left: -75px;
+    position: absolute;
+    left: 120px;
+    right: 0;
+    top: -60px;
+    &.scrolled {
+      display: block;
     }
-    .logo-block {
-      top: -120px;
-    }
-    .menubar {
+    .menu {
+      background-color: $sandstone;
+      height: 6rem;
+      flex-grow:1;
       display: flex;
       justify-content: space-between;
-      .menu {
-        background-color: $sandstone;
-        height: 6rem;
-        flex-grow:1;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0rem 2.5rem;
-        .logo {
-          width: 200px;
-          img {
-            max-width: 100%;
-          }
+      align-items: center;
+      padding: 0rem 2.5rem;
+      .logo {
+        width: 200px;
+        img {
+          max-width: 100%;
         }
-        .menulinks {
-          list-style: none;
-          li {
-            display: inline-block;
-            text-transform: uppercase;
-            &:not(:last-child):after {
-              content: " | ";
-              padding: 0rem 1rem;
-            }
-            a {
-              text-decoration: none;
-              color: $charcoal;
-            }
+      }
+      .menulinks {
+        list-style: none;
+        li {
+          display: inline-block;
+          text-transform: uppercase;
+          &:not(:last-child):after {
+            content: " | ";
+            padding: 0rem 1rem;
+          }
+          a {
+            text-decoration: none;
+            color: $charcoal;
           }
         }
       }

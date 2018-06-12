@@ -10,18 +10,12 @@
     </button>
   </div>
   <div class="logo-block">
-    <i class="fa fa-university"></i>
-    <p>Placeholder</p>
+    <a href="http://www.txstate.edu">
+      <i class="fa fa-university"></i>
+      <p>Placeholder</p>
+    </a>
   </div>
   <div class="menubar">
-    <button class="header-button btn-menu">
-      <i class="fa fa-bars"></i>
-      <span class="label">Menu</span>
-    </button>
-    <button class="header-button btn-search">
-      <i class="fa fa-search"></i>
-      <span class="label">Search</span>
-    </button>
     <div class="menu">
       <a class="logo" href="http://www.txstate.edu">
         <img src="${ctx.contextPath}/.resources/gato-template-txstate2015/images/txst-secondary.png" alt="Texas State University" />
