@@ -11,14 +11,13 @@
   </div>
   <div class="logo-block">
     <a href="http://www.txstate.edu">
-      <i class="fa fa-university"></i>
-      <p>Placeholder</p>
+      <img src="${ctx.contextPath}/.resources/gato-template-mobilefirst/images/txstate_v_1a_primary_3color_rgb.png" alt="Texas State University" />
     </a>
   </div>
   <div class="menubar">
     <div class="menu">
       <a class="logo" href="http://www.txstate.edu">
-        <img src="${ctx.contextPath}/.resources/gato-template-txstate2015/images/txst-secondary.png" alt="Texas State University" />
+        <img src="${ctx.contextPath}/.resources/gato-template-mobilefirst/images/txst-secondary.png" alt="Texas State University" />
       </a>
       <ul class="menulinks">
         [@cms.area name="menulinks" content=gf.getOrCreateArea(homepage, 'menulinks') editable=isHomePage/]
