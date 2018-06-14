@@ -1,0 +1,7 @@
+templateScript: /gato-template-mobilefirst/templates/components/titlelinks.ftl
+renderType: freemarker
+title: A title and links
+description: A title, subtitle, and links
+dialog: gato-template-mobilefirst:components/titlelinks
+parameters:
+  icon: /gato-template/images/banner.png

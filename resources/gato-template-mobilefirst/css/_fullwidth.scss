@@ -1,0 +1,98 @@
+.fullwidth {
+  display: flex;
+  justify-content: space-between;
+  .fullwidthimage {
+    width: 50%;
+    img {
+      max-width: 100%;
+      display: block;
+    }
+  }
+  .titlebutton {
+    width: 50%;
+    text-align: center;
+    .title {
+      font-size: 3rem;
+    }
+    .subtitle {
+      font-size: 2rem;
+    }
+    .buttons {
+      display: inline-block;
+      .button-wrapper{
+        text-align: center;
+        padding: 1rem 0rem;
+        .button {
+          border: 2px solid #000;
+          border-bottom-width: 4px;
+          background-color: transparent;
+          text-decoration: none;
+          padding: 2rem 3rem;
+          display: inline-block;
+          width: 100%
+        }
+      }
+    }
+  }
+  &.noimage {
+    .titlebutton {
+      width: 100%;
+    }
+  }
+  &.color1 {
+    background-color: $mc1-bg;
+    color: $mc1-text;
+    .buttons .button-wrapper .button {
+      border-color: $mc1-text;
+      color: $mc1-text;
+    }
+  }
+  &.color2 {
+    background-color: $mc2-bg;
+    color: $mc2-text;
+    .buttons .button-wrapper .button {
+      border-color: $mc2-text;
+      color: $mc2-text;
+    }
+  }
+  &.color3 {
+    background-color: $mc3-bg;
+    color: $mc3-text;
+    .buttons .button-wrapper .button {
+      border-color: $mc3-text;
+      color: $mc3-text;
+    }
+  }
+  &.color4 {
+    background-color: $mc4-bg;
+    color: $mc4-text;
+    .buttons .button-wrapper .button {
+      border-color: $mc4-text;
+      color: $mc4-text;
+    }
+  }
+  &.color5 {
+    background-color: $mc5-bg;
+    color: $mc5-text;
+    .buttons .button-wrapper .button {
+      border-color: $mc5-text;
+      color: $mc5-text;
+    }
+  }
+  &.color6 {
+    background-color: $mc6-bg;
+    color: $mc6-text;
+    .buttons .button-wrapper .button {
+      border-color: $mc6-text;
+      color: $mc6-text;
+    }
+  }
+  &.color7 {
+    background-color: $mc7-bg;
+    color: $mc7-text;
+    .buttons .button-wrapper .button {
+      border-color: $mc7-text;
+      color: $mc7-text;
+    }
+  }
+}

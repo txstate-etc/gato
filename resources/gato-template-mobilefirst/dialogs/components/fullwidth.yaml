@@ -1,0 +1,77 @@
+form:
+  tabs:
+    - name: tabMain
+      label: Layout
+      fields:
+        - name: imageposition
+          class: info.magnolia.ui.form.field.definition.SwitchableFieldDefinition
+          transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+          label: Image Position
+          selectionType: select
+          sortOptions: false
+          options:
+            - name: none
+              value: none
+              selected: true
+              label: No Image
+            - name: left
+              value: left
+              label: Image on Left
+            - name: right
+              value: right
+              label: Image on Right
+          fields:
+            - name: none
+              class: info.magnolia.ui.form.field.definition.SwitchableFieldDefinition
+              transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+              label: Background
+              options:
+                - name: color
+                  label: Background Color
+                  selected: true
+                  value: color
+                # - name: texture
+                #   label: Background Texture
+                #   value: texture
+              fields:
+                - name: color
+                  class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
+                  fields:
+                    - name: color
+                      class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+                  transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+                  initFunction: initColorPicker
+                  loadScriptsInOrder: true
+                  scripts: [gato-lib/js/color-picker.js]
+                  label: Background Color
+                  parameters:
+                    contentType: default
+                # - name: texture
+                #   class: info.magnolia.ui.form.field.definition.StaticFieldDefinition
+                #   label: Texture
+                #   value: Coming soon
+            - name: left
+              class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
+              fields:
+                - name: color
+                  class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+              transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+              initFunction: initColorPicker
+              loadScriptsInOrder: true
+              scripts: [gato-lib/js/color-picker.js]
+              label: Background Color
+              parameters:
+                contentType: default
+            - name: right
+              class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
+              fields:
+                - name: color
+                  class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+              transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+              initFunction: initColorPicker
+              loadScriptsInOrder: true
+              scripts: [gato-lib/js/color-picker.js]
+              label: Background Color
+              parameters:
+                contentType: default
+actions: !include /gato-template/dialogs/common/actions-block.yaml
