@@ -18,6 +18,7 @@
         [#assign hideSidebar = true /]
         [@headline hideSidebar /]
         [@cms.area name="contentParagraph" contextAttributes={"hideSidebar":hideSidebar} /]
+        [@cms.area name="fullWidthTest"/]
       </main>
     </div>
     [#include "includes/footer.ftl"]

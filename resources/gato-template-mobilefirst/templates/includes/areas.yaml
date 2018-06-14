@@ -13,6 +13,12 @@ top-banner:
       id: gato-template-mobilefirst:components/banner
 contentParagraph:
   !include /gato-template/templates/areas/contentParagraph.yaml
+fullWidthTest:
+  type: list
+  title: Testing Full Width Content Type
+  availableComponents:
+    fullWidth:
+      id: gato-template-mobilefirst:components/fullwidth
 socialmedia:
   !include /gato-template/templates/areas/sociallist.yaml
 siteinfo:
