@@ -1,5 +1,5 @@
 [#assign hasImage= (content.imageposition == "none")?then(false, true)]
-<div class="fullwidth ${hasImage?string('', 'noimage')} ${content.color!}">
+<div class="fullwidth ${hasImage?string(content.imageposition, 'noimage')} ${content.color!}">
   [#if content.imageposition == "left"]
     [@cms.area name="image" /]
   [/#if]
