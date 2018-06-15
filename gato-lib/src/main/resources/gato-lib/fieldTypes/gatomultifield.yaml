@@ -1,0 +1,3 @@
+name: gatomultifield
+definitionClass: edu.txstate.its.gato.vaadin.GatoMultiValueFieldDefinition
+factoryClass: edu.txstate.its.gato.vaadin.GatoMultiValueFieldFactory

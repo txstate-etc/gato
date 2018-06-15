@@ -4,7 +4,7 @@ form:
       label: Social Link
       fields:
         - name: sociallinks
-          class: info.magnolia.ui.form.field.definition.MultiValueFieldDefinition
+          class: edu.txstate.its.gato.vaadin.GatoMultiValueFieldDefinition
           transformerClass: info.magnolia.ui.form.field.transformer.multi.MultiValueSubChildrenNodePropertiesTransformer
           label: Social Media
           field:

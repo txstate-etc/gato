@@ -83,6 +83,7 @@ public class GatoMultiField extends MultiField {
     private String buttonCaptionMoveUp = "Move Up";
     private String buttonCaptionMoveDown = "Move Down";
     private boolean isOrderable = true;
+    private int maxFields;
 
     public GatoMultiField(MultiValueFieldDefinition definition, FieldFactoryFactory fieldFactoryFactory, ComponentProvider componentProvider, Item relatedFieldItem, I18NAuthoringSupport i18nAuthoringSupport) {
         super(definition, fieldFactoryFactory, componentProvider, relatedFieldItem, i18nAuthoringSupport);
@@ -108,6 +109,9 @@ public class GatoMultiField extends MultiField {
         addButton.addClickListener(new Button.ClickListener() {
             @Override
             public void buttonClick(ClickEvent event) {
+                if (maxFields > 0 && root.getComponentCount() == maxFields) {
+                  addButton.setEnabled(false);
+                }
                 root.addComponent(createNewOption(), root.getComponentCount() - 1);
             }
         });
@@ -119,6 +123,10 @@ public class GatoMultiField extends MultiField {
         //The add button is a component
         if (componentCount == 1) {
             root.addComponent(createNewOption(), root.getComponentCount() - 1);
+        }
+
+        if (maxFields > 0 && root.getComponentCount() == maxFields + 1) {
+          addButton.setEnabled(false);
         }
 
         return root;
@@ -240,6 +248,9 @@ public class GatoMultiField extends MultiField {
             @Override
             public void buttonClick(ClickEvent event) {
                 onDelete(layout, propertyReference);
+                if (maxFields > 0 && root.getComponentCount() < maxFields + 1) {
+                  addButton.setEnabled(true);
+                }
             }
         });
         layout.addComponents(deleteButton);
@@ -259,6 +270,12 @@ public class GatoMultiField extends MultiField {
         this.buttonCaptionRemove = buttonCaptionRemove;
     }
 
+    /**
+    * Maximum number of fields that can be added
+    */
+    public void setMaxFields(int maxFields) {
+      this.maxFields = maxFields;
+    }
     /**
      * Ensure that id of the {@link PropertysetItem} stay coherent.<br>
      * Assume that we have 3 values 0:a, 1:b, 2:c, and 1 is removed <br>
