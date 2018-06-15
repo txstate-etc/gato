@@ -10,11 +10,12 @@ form:
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Subtitle
         - name: buttons
-          class: info.magnolia.ui.form.field.definition.MultiValueFieldDefinition
+          class: edu.txstate.its.gato.vaadin.GatoMultiValueFieldDefinition
           transformerClass: info.magnolia.ui.form.field.transformer.multi.MultiValueSubChildrenNodePropertiesTransformer
           label: Buttons
+          maxFields: 2
           field:
-            name: social
+            name: button
             class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
             transformerClass: info.magnolia.ui.form.field.transformer.composite.NoOpCompositeTransformer
             layout: vertical

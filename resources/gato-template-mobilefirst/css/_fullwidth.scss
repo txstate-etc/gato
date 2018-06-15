@@ -50,13 +50,21 @@
       display: block;
     }
   }
-  .titlebutton {
+  .titlebutton, .titlelinks {
     width: 50%;
     @media (max-width: $sm-breakpoint) {
       width:100%;
     }
     text-align: center;
     position: relative;
+    .title {
+      font-size: 3rem;
+    }
+    .subtitle {
+      font-size: 2rem;
+    }
+  }
+  .titlebutton{
     @at-root .color1#{&} {
       background-color: $mc1-bg;
       color: $mc1-text;
@@ -84,12 +92,6 @@
     @at-root .color7#{&} {
       background-color: $mc7-bg;
       color: $mc7-text;
-    }
-    .title {
-      font-size: 3rem;
-    }
-    .subtitle {
-      font-size: 2rem;
     }
     .buttons {
       display: inline-block;
@@ -132,6 +134,50 @@
             border-color: $mc7-text;
             color: $mc7-text;
           }
+        }
+      }
+    }
+  }
+  .titlelinks {
+    @at-root .color1#{&} {
+      background-color: $mc1-bg;
+      color: $mc1-text;
+    }
+    @at-root .color2#{&} {
+      background-color: $mc2-bg;
+      color: $mc2-text;
+    }
+    @at-root .color3#{&} {
+      background-color: $mc3-bg;
+      color: $mc3-text;
+    }
+    @at-root .color4#{&} {
+      background-color: $mc4-bg;
+      color: $mc4-text;
+    }
+    @at-root .color5#{&} {
+      background-color: $mc5-bg;
+      color: $mc5-text;
+    }
+    @at-root .color6#{&} {
+      background-color: $mc6-bg;
+      color: $mc6-text;
+    }
+    @at-root .color7#{&} {
+      background-color: $mc7-bg;
+      color: $mc7-text;
+    }
+    .links {
+      margin-left: auto;
+      margin-right: auto;
+      display: table;
+      ul {
+        text-align: left;
+        padding: 0;
+        margin: 0;
+        li a {
+          color: inherit;
+          text-decoration: none;
         }
       }
     }
