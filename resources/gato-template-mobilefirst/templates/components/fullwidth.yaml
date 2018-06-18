@@ -14,6 +14,8 @@ areas:
         id: gato-template-mobilefirst:components/titlebutton
       titleAndLinks:
         id: gato-template-mobilefirst:components/titlelinks
+      linksOrButtons:
+        id: gato-template-mobilefirst:components/linksorbuttons
   image:
     type: single
     title: Image
