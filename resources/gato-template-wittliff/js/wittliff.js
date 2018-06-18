@@ -6,6 +6,8 @@ jQuery(document).ready(function($) {
   magnolialabelchange('.calltoaction-column', '.mgnlEditor.mgnlPlaceholder', 'Add Button');
   magnolialabelchange('.addHeroBanner', '.mgnlEditor.mgnlPlaceholder', 'Add Hero-Banner');
   magnolialabelchange('.addHeroSlider', '.mgnlEditor.mgnlPlaceholder', 'Add Hero Image or Video');
+  magnolialabelchange('.footer-column-content', '.mgnlEditor.mgnlPlaceholder', 'Add Column');
+  magnolialabelchange('.footer-button', '.mgnlEditor.mgnlPlaceholder', 'Add Button');
 
   // Wittliff Reverse buttons have extra hover effect that confuses ios
   $('a.button.reverse, a.linkbutton').on('touchend', function () { console.log($(this)); window.location = $(this).attr('href'); });
