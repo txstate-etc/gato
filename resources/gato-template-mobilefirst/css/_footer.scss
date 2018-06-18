@@ -154,3 +154,16 @@ footer {
     }
   }
 }
+
+body.admin {
+  footer {
+    .bottom-footer-links{
+      .listItems_add {
+        width: 120px;
+        &:after {
+          display: none;
+        }
+      }
+    }
+  }
+}

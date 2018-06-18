@@ -1,6 +1,7 @@
 jQuery(document).ready(function($) {
 
   magnolialabelchange('.addBannerImage', '.mgnlEditor.mgnlPlaceholder', 'Add Banner Image');
+  magnolialabelchange('.contact-info', '.mgnlEditor.mgnlPlaceholder', 'Add Contact Information');
 
   function animateHeader() {
     var header = $('header');
