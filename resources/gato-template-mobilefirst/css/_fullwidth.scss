@@ -35,6 +35,12 @@
 }
 
 .fullwidth {
+  .content_add, .image_add {
+    width: 45%;
+  }
+  &.noimage .content_add {
+    width: 100%;
+  }
   display: flex;
   justify-content: space-between;
   @media (max-width: $sm-breakpoint) {
