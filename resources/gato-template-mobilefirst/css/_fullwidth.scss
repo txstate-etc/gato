@@ -71,6 +71,7 @@
   }
   .fullwidthimage {
     width: 50%;
+    order: 2;
     @media (max-width: $sm-breakpoint) {
       width: 100%;
     }
@@ -79,10 +80,21 @@
       display: block;
     }
   }
+  &.left {
+    .titlebutton, .titlelinks, .fullwidthlinks, .quotation, .content_add{
+      order: 3;
+    }
+  }
+  &.right {
+    .titlebutton, .titlelinks, .fullwidthlinks, .quotation, .content_add{
+      order: 1;
+    }
+  }
   .titlebutton, .titlelinks, .fullwidthlinks, .quotation {
     width: 50%;
     @media (max-width: $sm-breakpoint) {
       width: 100%;
+      padding: 3rem 2rem;
     }
     text-align: center;
     position: relative;
@@ -128,6 +140,7 @@
     .quotation-text {
       padding-bottom: 2rem;
       position: relative;
+      //the absolute position of the quotes will change with the padding on .quotation
       &:before {
         font-family: "FontAwesome";
         font-size: 4rem;
@@ -141,6 +154,18 @@
           content: "\f10e";
           top: -4.5rem;
           right: -1.8rem;
+        }
+      }
+    }
+    @media (max-width: $sm-breakpoint) {
+      @at-root .right#{&} {
+        order: 3;
+        .quotation-text:before {
+          content: "\f10d";
+          top: -6.5rem;
+          left: 0;
+          right: unset;
+          font-size: 6rem;
         }
       }
     }
@@ -283,6 +308,9 @@
   }
   &.noimage .content_add {
     width: 100%;
+  }
+  .image_add {
+    order: 2;
   }
 }
 
