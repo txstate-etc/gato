@@ -4,7 +4,7 @@
   <div class="buttons">
     [#list cmsfn.children(content.buttons) as button]
     <div class="button-wrapper">
-      <a class="button" href="${gf.filterUrl(button.link)}">${button.text}</a>
+      <a class="fullwidth-button" href="${gf.filterUrl(button.link)}">${button.text}</a>
     </div>
     [/#list]
   </div>

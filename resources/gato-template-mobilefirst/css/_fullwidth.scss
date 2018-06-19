@@ -36,21 +36,43 @@
 
 .fullwidth {
   font-family: $muli;
-  .content_add, .image_add {
-    width: 45%;
-  }
-  &.noimage .content_add {
-    width: 100%;
-  }
   display: flex;
   justify-content: space-between;
   @media (max-width: $sm-breakpoint) {
-    display: block;
+    flex-direction: column;
+  }
+  &.color1 {
+    background-color: $mc1-bg;
+    color: $mc1-text;
+  }
+  &.color2 {
+    background-color: $mc2-bg;
+    color: $mc2-text;
+  }
+  &.color3 {
+    background-color: $mc3-bg;
+    color: $mc3-text;
+  }
+  &.color4 {
+    background-color: $mc4-bg;
+    color: $mc4-text;
+  }
+  &.color5 {
+    background-color: $mc5-bg;
+    color: $mc5-text;
+  }
+  &.color6 {
+    background-color: $mc6-bg;
+    color: $mc6-text;
+  }
+  &.color7 {
+    background-color: $mc7-bg;
+    color: $mc7-text;
   }
   .fullwidthimage {
     width: 50%;
     @media (max-width: $sm-breakpoint) {
-      width:100%;
+      width: 100%;
     }
     img {
       max-width: 100%;
@@ -60,7 +82,7 @@
   .titlebutton, .titlelinks, .fullwidthlinks, .quotation {
     width: 50%;
     @media (max-width: $sm-breakpoint) {
-      width:100%;
+      width: 100%;
     }
     text-align: center;
     position: relative;
@@ -74,111 +96,17 @@
       font-size: 1.5rem;
     }
   }
-  .titlebutton{
-    @at-root .color1#{&} {
-      background-color: $mc1-bg;
-      color: $mc1-text;
-    }
-    @at-root .color2#{&} {
-      background-color: $mc2-bg;
-      color: $mc2-text;
-    }
-    @at-root .color3#{&} {
-      background-color: $mc3-bg;
-      color: $mc3-text;
-    }
-    @at-root .color4#{&} {
-      background-color: $mc4-bg;
-      color: $mc4-text;
-    }
-    @at-root .color5#{&} {
-      background-color: $mc5-bg;
-      color: $mc5-text;
-    }
-    @at-root .color6#{&} {
-      background-color: $mc6-bg;
-      color: $mc6-text;
-    }
-    @at-root .color7#{&} {
-      background-color: $mc7-bg;
-      color: $mc7-text;
-    }
+  .titlebutton {
     .buttons {
       display: inline-block;
-      .button-wrapper{
+      .button-wrapper {
         text-align: center;
         padding: 1rem 0rem;
         display: inline-block;
-        .button {
-          border: 2px solid #000;
-          border-bottom-width: 4px;
-          background-color: transparent;
-          text-decoration: none;
-          font-size:  2rem;
-          padding: 1rem 2rem;
-          display: inline-block;
-          width: 100%;
-          @at-root .color1#{&} {
-            border-color: $mc1-text;
-            color: $mc1-text;
-          }
-          @at-root .color2#{&} {
-            border-color: $mc2-text;
-            color: $mc2-text;
-          }
-          @at-root .color3#{&} {
-            border-color: $mc3-text;
-            color: $mc3-text;
-          }
-          @at-root .color4#{&} {
-            border-color: $mc4-text;
-            color: $mc4-text;
-          }
-          @at-root .color5#{&} {
-            border-color: $mc5-text;
-            color: $mc5-text;
-          }
-          @at-root .color6#{&} {
-            border-color: $mc6-text;
-            color: $mc6-text;
-          }
-          @at-root .color7#{&} {
-            border-color: $mc7-text;
-            color: $mc7-text;
-          }
-        }
       }
     }
   }
   .titlelinks {
-    @at-root .color1#{&} {
-      background-color: $mc1-bg;
-      color: $mc1-text;
-    }
-    @at-root .color2#{&} {
-      background-color: $mc2-bg;
-      color: $mc2-text;
-    }
-    @at-root .color3#{&} {
-      background-color: $mc3-bg;
-      color: $mc3-text;
-    }
-    @at-root .color4#{&} {
-      background-color: $mc4-bg;
-      color: $mc4-text;
-    }
-    @at-root .color5#{&} {
-      background-color: $mc5-bg;
-      color: $mc5-text;
-    }
-    @at-root .color6#{&} {
-      background-color: $mc6-bg;
-      color: $mc6-text;
-    }
-    @at-root .color7#{&} {
-      background-color: $mc7-bg;
-      color: $mc7-text;
-    }
     .links {
       margin-left: auto;
       margin-right: auto;
@@ -197,34 +125,6 @@
   .quotation {
     font-size: 1.8rem;
     text-align: left;
-    @at-root .color1#{&} {
-      background-color: $mc1-bg;
-      color: $mc1-text;
-    }
-    @at-root .color2#{&} {
-      background-color: $mc2-bg;
-      color: $mc2-text;
-    }
-    @at-root .color3#{&} {
-      background-color: $mc3-bg;
-      color: $mc3-text;
-    }
-    @at-root .color4#{&} {
-      background-color: $mc4-bg;
-      color: $mc4-text;
-    }
-    @at-root .color5#{&} {
-      background-color: $mc5-bg;
-      color: $mc5-text;
-    }
-    @at-root .color6#{&} {
-      background-color: $mc6-bg;
-      color: $mc6-text;
-    }
-    @at-root .color7#{&} {
-      background-color: $mc7-bg;
-      color: $mc7-text;
-    }
     .quotation-text {
       padding-bottom: 2rem;
       position: relative;
@@ -254,8 +154,45 @@
       }
     }
   }
-
-  .arrow:after{
+  .fullwidth-button {
+    border: 2px solid #000;
+    border-bottom-width: 4px;
+    background-color: transparent;
+    text-decoration: none;
+    font-size:  2rem;
+    padding: 1rem 2rem;
+    display: inline-block;
+    width: 100%;
+    @at-root .color1#{&} {
+      border-color: $mc1-text;
+      color: $mc1-text;
+    }
+    @at-root .color2#{&} {
+      border-color: $mc2-text;
+      color: $mc2-text;
+    }
+    @at-root .color3#{&} {
+      border-color: $mc3-text;
+      color: $mc3-text;
+    }
+    @at-root .color4#{&} {
+      border-color: $mc4-text;
+      color: $mc4-text;
+    }
+    @at-root .color5#{&} {
+      border-color: $mc5-text;
+      color: $mc5-text;
+    }
+    @at-root .color6#{&} {
+      border-color: $mc6-text;
+      color: $mc6-text;
+    }
+    @at-root .color7#{&} {
+      border-color: $mc7-text;
+      color: $mc7-text;
+    }
+  }
+  .arrow:after {
     @at-root .right.color1#{&} {
       @include arrow($mc1-bg, "right");
       @media (max-width: $sm-breakpoint) {
@@ -341,41 +278,18 @@
       }
     }
   }
+  .content_add, .image_add {
+    width: 45%;
+  }
+  &.noimage .content_add {
+    width: 100%;
+  }
 }
 
-/* Combined buttons and links */
+// /* Combined buttons and links */
 .fullwidth {
   .fullwidthlinks {
-    @at-root .color1#{&} {
-      background-color: $mc1-bg;
-      color: $mc1-text;
-    }
-    @at-root .color2#{&} {
-      background-color: $mc2-bg;
-      color: $mc2-text;
-    }
-    @at-root .color3#{&} {
-      background-color: $mc3-bg;
-      color: $mc3-text;
-    }
-    @at-root .color4#{&} {
-      background-color: $mc4-bg;
-      color: $mc4-text;
-    }
-    @at-root .color5#{&} {
-      background-color: $mc5-bg;
-      color: $mc5-text;
-    }
-    @at-root .color6#{&} {
-      background-color: $mc6-bg;
-      color: $mc6-text;
-    }
-    @at-root .color7#{&} {
-      background-color: $mc7-bg;
-      color: $mc7-text;
-    }
     .buttons {
-
       ul {
         display: inline-block;
         list-style: none;
@@ -384,44 +298,6 @@
         li {
           text-align: center;
           padding: 1rem 0rem;
-          a {
-            border: 2px solid #000;
-            border-bottom-width: 4px;
-            background-color: transparent;
-            text-decoration: none;
-            padding: 1rem 2rem;
-            font-size: 2rem;
-            display: inline-block;
-            width: 100%;
-            @at-root .color1#{&} {
-              border-color: $mc1-text;
-              color: $mc1-text;
-            }
-            @at-root .color2#{&} {
-              border-color: $mc2-text;
-              color: $mc2-text;
-            }
-            @at-root .color3#{&} {
-              border-color: $mc3-text;
-              color: $mc3-text;
-            }
-            @at-root .color4#{&} {
-              border-color: $mc4-text;
-              color: $mc4-text;
-            }
-            @at-root .color5#{&} {
-              border-color: $mc5-text;
-              color: $mc5-text;
-            }
-            @at-root .color6#{&} {
-              border-color: $mc6-text;
-              color: $mc6-text;
-            }
-            @at-root .color7#{&} {
-              border-color: $mc7-text;
-              color: $mc7-text;
-            }
-          }
         }
       }
     }
