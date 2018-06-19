@@ -35,6 +35,7 @@
 }
 
 .fullwidth {
+  font-family: $muli;
   .content_add, .image_add {
     width: 45%;
   }
@@ -63,11 +64,14 @@
     }
     text-align: center;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     .title {
       font-size: 3rem;
     }
     .subtitle {
-      font-size: 2rem;
+      font-size: 1.5rem;
     }
   }
   .titlebutton{
@@ -104,12 +108,14 @@
       .button-wrapper{
         text-align: center;
         padding: 1rem 0rem;
+        display: inline-block;
         .button {
           border: 2px solid #000;
           border-bottom-width: 4px;
           background-color: transparent;
           text-decoration: none;
-          padding: 2rem 3rem;
+          font-size:  2rem;
+          padding: 1rem 2rem;
           display: inline-block;
           width: 100%;
           @at-root .color1#{&} {
@@ -332,7 +338,8 @@
             border-bottom-width: 4px;
             background-color: transparent;
             text-decoration: none;
-            padding: 2rem 3rem;
+            padding: 1rem 2rem;
+            font-size: 2rem;
             display: inline-block;
             width: 100%;
             @at-root .color1#{&} {
