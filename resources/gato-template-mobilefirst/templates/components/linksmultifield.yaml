@@ -1,0 +1,7 @@
+templateScript: /gato-template-mobilefirst/templates/components/linksmultifield.ftl
+renderType: freemarker
+title: Multiple Links
+description: A list of links
+dialog: gato-template-mobilefirst:components/linksmultifield
+parameters:
+  icon: /gato-template/images/navlink_icon.png
