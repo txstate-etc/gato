@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-trumba/css/standard.scss"/>
     [@templatejs scripts=[
     ]/]
-    <script type="text/javascript" src="http://www.trumba.com/scripts/spuds.js"></script>
+    <script type="text/javascript" src="//www.trumba.com/scripts/spuds.js"></script>
     [@templatehead/]
   </head>
 
