@@ -18,8 +18,9 @@ header {
         top: 6rem;
         left: 0;
         @media (max-width: $sm-breakpoint) {
-          top: 0 !important;
-          left: 6rem !important;
+          top: 0;
+          left: 6rem;
+          transform: none !important;
         }
       }
     }
@@ -41,11 +42,11 @@ header {
     img {
       max-width: 85%;
     }
-    &.scrolled {
-      display: none;
-    }
+    // &.scrolled {
+    //   display: none;
+    // }
     @media (max-width: $sm-breakpoint) {
-      display: none;
+      display: none !important;
     }
   }
   .header-button {
@@ -70,9 +71,9 @@ header {
     left: 120px;
     right: 0;
     top: -60px;
-    &.scrolled {
-      display: block;
-    }
+    // &.scrolled {
+    //   display: block;
+    // }
     .menu {
       background-color: $sandstone;
       height: 6rem;
@@ -104,8 +105,9 @@ header {
       }
     }
     @media (max-width: $sm-breakpoint) {
-      display: block;
-      top: 0 !important;
+      top: 0;
+      display: block !important;
+      transform: none !important;
       .menu {
         opacity: 0.9;
         .menulinks {
