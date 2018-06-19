@@ -1,0 +1,16 @@
+form:
+  tabs:
+    - name: tabMain
+      label: Quotation
+      fields:
+        - name: quotation
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Quotation
+          rows: 5
+        - name: source
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Cited Source
+        - name: sourceTitle
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Cited Source Title
+actions: !include /gato-template/dialogs/common/actions-block.yaml

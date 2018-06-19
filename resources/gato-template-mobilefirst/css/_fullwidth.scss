@@ -57,7 +57,7 @@
       display: block;
     }
   }
-  .titlebutton, .titlelinks, .fullwidthlinks {
+  .titlebutton, .titlelinks, .fullwidthlinks, .quotation {
     width: 50%;
     @media (max-width: $sm-breakpoint) {
       width:100%;
@@ -190,6 +190,57 @@
         li a {
           color: inherit;
           text-decoration: none;
+        }
+      }
+    }
+  }
+  .quotation {
+    font-size: 1.8rem;
+    text-align: left;
+    @at-root .color1#{&} {
+      background-color: $mc1-bg;
+      color: $mc1-text;
+    }
+    @at-root .color2#{&} {
+      background-color: $mc2-bg;
+      color: $mc2-text;
+    }
+    @at-root .color3#{&} {
+      background-color: $mc3-bg;
+      color: $mc3-text;
+    }
+    @at-root .color4#{&} {
+      background-color: $mc4-bg;
+      color: $mc4-text;
+    }
+    @at-root .color5#{&} {
+      background-color: $mc5-bg;
+      color: $mc5-text;
+    }
+    @at-root .color6#{&} {
+      background-color: $mc6-bg;
+      color: $mc6-text;
+    }
+    @at-root .color7#{&} {
+      background-color: $mc7-bg;
+      color: $mc7-text;
+    }
+    .quotation-text {
+      padding-bottom: 2rem;
+      position: relative;
+      &:before {
+        font-family: "FontAwesome";
+        font-size: 4rem;
+        position: absolute;
+        @at-root .left#{&} {
+          content: "\f10d";
+          top: -4.5rem;
+          left: -1.8rem;
+        }
+        @at-root .right#{&} {
+          content: "\f10e";
+          top: -4.5rem;
+          right: -1.8rem;
         }
       }
     }
