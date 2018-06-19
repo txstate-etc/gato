@@ -4,7 +4,7 @@
 <html lang="en">
   <head>
     <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-trumba/css/standard.scss"/>
-    [@templatejs scripts=[
+    [@templatejs scripts=['gato-template-trumba/js/trumba.js'
     ]/]
     <script type="text/javascript" src="//www.trumba.com/scripts/spuds.js"></script>
     [@templatehead/]
@@ -36,12 +36,12 @@
                 <div class="layout-column full eq-parent">
                   <div class="column_paragraph" id="main_spud">
                     <script type="text/javascript">
-                      $Trumba.addSpud({ webName: 'calendar.${content.calendar}', spudType: 'tabchooser' });
+                      addTrumbaSpud({webName:'calendar.${content.calendar}', spudType:'tabchooser'});
                     </script>
                   </div>
                   <div class="column_paragraph" id="main_spud">
                     <script type="text/javascript">
-                      $Trumba.addSpud({ webName: 'calendar.${content.calendar}', spudType: 'main' });
+                      addTrumbaSpud({ webName: 'calendar.${content.calendar}', spudType: 'main' });
                     </script>
                   </div>
                 </div>
@@ -54,12 +54,12 @@
           <div class="sidebar">
             <div class="side_nav nav-without-title">
               <script type="text/javascript">
-                $Trumba.addSpud({ webName: 'calendar.${content.calendar}', spudType: 'datefinder' });
+                addTrumbaSpud({ webName: 'calendar.${content.calendar}', spudType: 'datefinder' });
               </script>
             </div>
             <div class="side_nav nav-without-title">
               <script type="text/javascript">
-                $Trumba.addSpud({ webName: 'calendar.${content.calendar}', spudType: 'filter' });
+                addTrumbaSpud({ webName: 'calendar.${content.calendar}', spudType: 'filter' });
               </script>
             </div>
           </div>

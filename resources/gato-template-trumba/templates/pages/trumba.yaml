@@ -8,3 +8,8 @@ areas:
     !include /gato-template/templates/areas/contentParagraph.yaml
 parameters:
   sortOrder: 800
+variations:
+  js:
+    templateScript: /gato-component-cssjs/templates/pages/jsvariation.ftl
+  rss:
+    templateScript: /gato-template-rss/templates/pages/rssvariation.ftl
