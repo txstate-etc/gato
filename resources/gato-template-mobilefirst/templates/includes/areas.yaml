@@ -3,7 +3,11 @@ customcss:
 customjs:
   !include /gato-component-cssjs/templates/areas/customjs.yaml
 menulinks:
-  !include /gato-template/templates/areas/linklist.yaml
+  type: single
+  title: Menu Links
+  availableComponents:
+    linksmultifield:
+      id: gato-template-mobilefirst:components/linksmultifield
 top-banner:
   type: single
   title: Mobile First Banner

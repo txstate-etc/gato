@@ -42,9 +42,6 @@ header {
     img {
       max-width: 85%;
     }
-    // &.scrolled {
-    //   display: none;
-    // }
     @media (max-width: $sm-breakpoint) {
       display: none !important;
     }
@@ -71,9 +68,6 @@ header {
     left: 120px;
     right: 0;
     top: -60px;
-    // &.scrolled {
-    //   display: block;
-    // }
     .menu {
       background-color: $sandstone;
       height: 6rem;
@@ -88,7 +82,7 @@ header {
           max-width: 100%;
         }
       }
-      .menulinks {
+      .multilinks {
         list-style: none;
         li {
           display: inline-block;
@@ -110,7 +104,38 @@ header {
       transform: none !important;
       .menu {
         opacity: 0.9;
-        .menulinks {
+        .multilinks {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+//css for editing environment
+body.admin {
+  header {
+    .header-buttons .btn-search {
+      top: 0;
+      left: 6rem;
+      transform: none !important;
+    }
+    .logo-block {
+      display: none !important;
+    }
+    .menubar {
+      display: flex !important;
+      top: 0 !important;
+      transform: none !important;
+      .menu {
+        .mgnlEditor.mgnlPlaceholder {
+          width: 125px !important;
+        }
+      }
+      .multilinks {
+        margin: 0;
+        padding: 0;
+        .listItems_add:after {
           display: none;
         }
       }

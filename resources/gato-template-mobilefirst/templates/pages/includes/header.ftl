@@ -19,9 +19,7 @@
       <a class="logo" href="http://www.txstate.edu">
         <img src="${ctx.contextPath}/.resources/gato-template-mobilefirst/images/txst-secondary.png" alt="Texas State University" />
       </a>
-      <ul class="menulinks">
-        [@cms.area name="menulinks" content=gf.getOrCreateArea(homepage, 'menulinks') editable=isHomePage/]
-      </ul>
+      [@cms.area name="menulinks" content=gf.getOrCreateArea(homepage, 'menulinks') editable=isHomePage/]
     </div>
   </div>
 </header>

@@ -35,6 +35,10 @@
         }
       }
       //end copied from Wittliff
+      .editBanner {
+        position: absolute;
+        top: 60px;
+      }
     }
   }
   .page-title {
@@ -68,6 +72,10 @@
     }
   }
   &.noimage {
+    .addBannerImage {
+      padding-top: 60px;
+      width: 25%;
+    }
     .banner {
       background-color: $maroon;
       min-height: 12rem;
