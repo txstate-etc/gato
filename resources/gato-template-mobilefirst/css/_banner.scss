@@ -73,22 +73,9 @@
   }
   &.noimage {
     .addBannerImage {
-      padding-top: 60px;
       width: 25%;
-    }
-    .banner {
-      background-color: $maroon;
-      min-height: 12rem;
-    }
-    &.scrolled {
-      .banner {
-        min-height: 16rem;
-      }
-    }
-    .page-title {
-      &:after {
-        display: none;
-      }
+      position: absolute;
+      top: 60px;
     }
   }
 }

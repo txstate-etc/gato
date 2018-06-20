@@ -1,7 +1,7 @@
 jQuery(document).ready(function($) {
 
   magnolialabelchange('.menubar .menu', '.mgnlEditor.mgnlPlaceholder', 'Add Links');
-  magnolialabelchange('.addBannerImage', '.mgnlEditor.mgnlPlaceholder', 'Add Banner Image');
+  magnolialabelchange('.addBannerImage', '.mgnlEditor.mgnlPlaceholder', 'Edit Banner Image');
   magnolialabelchange('.contact-info', '.mgnlEditor.mgnlPlaceholder', 'Add Contact Information');
   magnolialabelchange('.fullwidth .content_add', '.mgnlEditor.mgnlPlaceholder', 'Add Content');
   magnolialabelchange('.fullwidth .image_add', '.mgnlEditor.mgnlPlaceholder', 'Add Image');
