@@ -1,6 +1,7 @@
 <div class="titlelinks arrow">
   [#if content.title?has_content]<div class="title">${content.title}</div>[/#if]
   [#if content.subtitle?has_content]<div class="subtitle">${content.subtitle}</div>[/#if]
+  [#if content.links?has_content]
   <div class="links">
     <ul>
     [#list cmsfn.children(content.links) as lnk]
@@ -10,4 +11,5 @@
     [/#list]
     </ul>
   </div>
+  [/#if]
 </div>

@@ -108,13 +108,15 @@
       font-size: 1.5rem;
     }
   }
-  .titlebutton {
-    .buttons {
+  .buttons {
+    ul {
+      list-style: none;
       display: inline-block;
-      .button-wrapper {
+      padding: 0;
+      margin: 0;
+      li {
         text-align: center;
         padding: 1rem 0rem;
-        display: inline-block;
       }
     }
   }
@@ -169,17 +171,9 @@
         }
       }
     }
-    .buttons {
-      display: inline-block;
-      .button-wrapper {
-        text-align: center;
-        padding: 1rem 0rem;
-        display: inline-block;
-      }
-    }
   }
   &.noimage {
-    .titlebutton {
+    .titlebutton, .titlelinks, .quotation {
       width: 100%;
       &:after {
         //no arrows if there is no image
@@ -325,18 +319,6 @@
 // /* Combined buttons and links */
 .fullwidth {
   .fullwidthlinks {
-    .buttons {
-      ul {
-        display: inline-block;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        li {
-          text-align: center;
-          padding: 1rem 0rem;
-        }
-      }
-    }
     .links {
       margin-left: auto;
       margin-right: auto;

@@ -1,11 +1,15 @@
 <div class="titlebutton arrow">
   [#if content.title?has_content]<div class="title">${content.title}</div>[/#if]
   [#if content.subtitle?has_content]<div class="subtitle">${content.subtitle}</div>[/#if]
+  [#if content.buttons?has_content]
   <div class="buttons">
-    [#list cmsfn.children(content.buttons) as button]
-    <div class="button-wrapper">
-      <a class="fullwidth-button" href="${gf.filterUrl(button.link)}">${button.text}</a>
-    </div>
-    [/#list]
+    <ul>
+      [#list cmsfn.children(content.buttons) as button]
+      <li>
+        <a class="fullwidth-button" href="${gf.filterUrl(button.link)}">${button.text}</a>
+      </li>
+      [/#list]
+    </ul>
   </div>
+  [/#if]
 </div>
