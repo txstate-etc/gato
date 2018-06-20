@@ -19,6 +19,8 @@ areas:
         id: gato-template-mobilefirst:components/linksorbuttons
       quotation:
         id: gato-template-mobilefirst:components/quotation
+      callout:
+        id: gato-template-mobilefirst:components/callout
   image:
     type: single
     title: Image

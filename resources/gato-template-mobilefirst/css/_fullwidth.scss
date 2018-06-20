@@ -81,16 +81,16 @@
     }
   }
   &.left {
-    .titlebutton, .titlelinks, .fullwidthlinks, .quotation, .content_add{
+    .titlebutton, .titlelinks, .fullwidthlinks, .quotation, .callout, .content_add{
       order: 3;
     }
   }
   &.right {
-    .titlebutton, .titlelinks, .fullwidthlinks, .quotation, .content_add{
+    .titlebutton, .titlelinks, .fullwidthlinks, .quotation, .callout, .content_add{
       order: 1;
     }
   }
-  .titlebutton, .titlelinks, .fullwidthlinks, .quotation {
+  .titlebutton, .titlelinks, .fullwidthlinks, .quotation, .callout {
     width: 50%;
     @media (max-width: $sm-breakpoint) {
       width: 100%;
@@ -183,8 +183,14 @@
       }
     }
   }
+  .callout {
+    .stat {
+      font-size: 7rem;
+    }
+  }
   &.noimage {
-    .titlebutton, .titlelinks, .quotation {
+    padding: 2rem 0rem;
+    .titlebutton, .titlelinks, .quotation, .callout {
       width: 100%;
       &:after {
         //no arrows if there is no image
