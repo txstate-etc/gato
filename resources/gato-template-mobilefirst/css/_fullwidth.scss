@@ -139,6 +139,10 @@
   .quotation {
     font-size: 1.8rem;
     text-align: left;
+    padding: 0rem 4rem;
+    @media (max-width: $sm-breakpoint) {
+      padding: 4rem 4rem;
+    }
     .quotation-text {
       padding-bottom: 2rem;
       position: relative;
@@ -150,12 +154,12 @@
         @at-root .left#{&} {
           content: "\f10d";
           top: -4.5rem;
-          left: -1.8rem;
+          left: -5.8rem;
         }
         @at-root .right#{&} {
           content: "\f10e";
           top: -4.5rem;
-          right: -1.8rem;
+          right: -5.8rem;
         }
       }
     }
@@ -164,9 +168,16 @@
         order: 3;
         .quotation-text:before {
           content: "\f10d";
-          top: -6.5rem;
+          top: -7.5rem;
           left: 0;
           right: unset;
+          font-size: 6rem;
+        }
+      }
+      @at-root .left#{&} {
+        .quotation-text:before {
+          top: -7.5rem;
+          left: 0;
           font-size: 6rem;
         }
       }
