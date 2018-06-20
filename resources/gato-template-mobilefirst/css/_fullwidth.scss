@@ -81,16 +81,16 @@
     }
   }
   &.left {
-    .titlebutton, .titlelinks, .fullwidthlinks, .quotation, .callout, .content_add{
+    .fw-content, .content_add{
       order: 3;
     }
   }
   &.right {
-    .titlebutton, .titlelinks, .fullwidthlinks, .quotation, .callout, .content_add{
+    .fw-content, .content_add{
       order: 1;
     }
   }
-  .titlebutton, .titlelinks, .fullwidthlinks, .quotation, .callout {
+  .fw-content, .callout {
     width: 50%;
     @media (max-width: $sm-breakpoint) {
       width: 100%;
@@ -190,7 +190,7 @@
   }
   &.noimage {
     padding: 2rem 0rem;
-    .titlebutton, .titlelinks, .quotation, .callout {
+    .fw-content{
       width: 100%;
       &:after {
         //no arrows if there is no image

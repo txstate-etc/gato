@@ -1,4 +1,4 @@
-<div class="callout arrow">
+<div class="callout fw-content arrow">
   [#if content.callout?has_content]
   <div class="stat">${content.callout}</div>
   [/#if]

@@ -1,4 +1,4 @@
-<div class="quotation">
+<div class="quotation fw-content">
   [#if content.quotation?has_content]
   <div class="quotation-text">
     ${content.quotation}

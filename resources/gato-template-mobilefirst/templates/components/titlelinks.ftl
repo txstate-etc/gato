@@ -1,4 +1,4 @@
-<div class="titlelinks arrow">
+<div class="titlelinks fw-content arrow">
   [#if content.title?has_content]<div class="title">${content.title}</div>[/#if]
   [#if content.subtitle?has_content]<div class="subtitle">${content.subtitle}</div>[/#if]
   [#if content.links?has_content]
