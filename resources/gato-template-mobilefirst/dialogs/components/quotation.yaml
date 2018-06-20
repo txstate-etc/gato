@@ -34,4 +34,8 @@ form:
                 appName: pages
                 identifierToPathConverter:
                   class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
+        - name: stylesheet
+          label: ""
+          class: edu.txstate.its.gato.vaadin.GatoCssIncludeDefinition
+          styles: [gato-template-mobilefirst/dialogs/css/fix-link-multifield.css]
 actions: !include /gato-template/dialogs/common/actions-block.yaml

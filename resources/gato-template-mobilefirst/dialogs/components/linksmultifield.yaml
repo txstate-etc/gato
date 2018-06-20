@@ -26,5 +26,5 @@ form:
         - name: stylesheet
           label: ""
           class: edu.txstate.its.gato.vaadin.GatoCssIncludeDefinition
-          styles: [gato-template-mobilefirst/dialogs/css/linksmultifield-dialog.css]
+          styles: [gato-template-mobilefirst/dialogs/css/fix-link-multifield.css]
 actions: !include /gato-template/dialogs/common/actions-block.yaml
