@@ -115,6 +115,7 @@ header {
 //css for editing environment
 body.admin {
   header {
+    z-index: 70000;
     .header-buttons .btn-search {
       top: 0;
       left: 6rem;
