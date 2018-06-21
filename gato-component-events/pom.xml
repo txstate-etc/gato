@@ -11,7 +11,7 @@
   <artifactId>gato-component-events</artifactId>
   <packaging>jar</packaging>
   <name>Gato Events Module</name>
-  
+
   <dependencies>
     <dependency>
       <groupId>info.magnolia</groupId>
