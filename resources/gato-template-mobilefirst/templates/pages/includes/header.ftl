@@ -4,7 +4,7 @@
       <i class="fa fa-bars"></i>
       <span class="label">Menu</span>
     </button>
-    <button class="header-button btn-search">
+    <button class="header-button btn-search search-link search-button">
       <i class="fa fa-search"></i>
       <span class="label">Search</span>
     </button>
@@ -21,5 +21,9 @@
       </a>
       [@cms.area name="menulinks" content=gf.getOrCreateArea(homepage, 'menulinks') editable=isHomePage/]
     </div>
+  </div>
+  <div class="search-wrapper">
+      [#import "/gato-template/templates/includes/search-modal.ftl" as search]
+      [@search.searchBar false true false/]
   </div>
 </header>
