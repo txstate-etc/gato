@@ -1,0 +1,33 @@
+.menu-wrap {
+  overflow: hidden;
+  .main-menu {
+    background-color: $charcoal;
+    color: $white;
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 300px;
+    height: 100%;
+    z-index: 20;
+    transition: all 0.4s ease-in-out;
+    padding: 3rem;
+    a.home-link {
+      color: $white;
+      text-decoration: none;
+      &:hover span {
+        text-decoration: underline;
+      }
+    }
+  }
+  .content-wrap {
+    transition: all 0.4s ease-in-out;
+  }
+  &.menuOut {
+    .main-menu {
+      transform: translateX(300px)
+    }
+    .content-wrap {
+      transform: translateX(300px)
+    }
+  }
+}

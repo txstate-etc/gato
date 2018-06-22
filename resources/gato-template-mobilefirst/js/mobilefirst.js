@@ -6,6 +6,7 @@ jQuery(document).ready(function($) {
   magnolialabelchange('.fullwidth .content_add', '.mgnlEditor.mgnlPlaceholder', 'Add Content');
   magnolialabelchange('.fullwidth .image_add', '.mgnlEditor.mgnlPlaceholder', 'Add Image');
 
+  /* Header Animation */
   var header = $('header');
   var banner = $('.banner-section');
   var menubar = $('.menubar');
@@ -91,6 +92,53 @@ jQuery(document).ready(function($) {
     }
   })
 
+  /* Main Menu Open and Close */
+  var menuWrapper = $('.menu-wrap');
+  var page = $('.content-wrap');
+  var menuButton = $('.btn-menu');
+  var menu = $('.main-menu');
+  var body = $('body');
+
+  var menushow = function() {
+    menuWrapper.addClass('menuOut');
+    menuButton.find('i').toggleClass('fa-bars fa-times');
+    menuButton.attr('aria-expanded', true);
+    menuButton.attr('aria-label', "Close main menu");
+    menu.attr('aria-expanded', true);
+    body.css('overflow', "hidden");
+    //TODO: Right now this is the only link in there
+    //but we might want to focus somewhere else once the menu has content
+    menu.find('.home-link').focus();
+  }
+  var menuhide = function() {
+    menuWrapper.removeClass('menuOut');
+    menuButton.find('i').toggleClass('fa-bars fa-times');
+    menuButton.attr('aria-expanded', false);
+    menuButton.attr('aria-label', "Open main menu");
+    menu.attr('aria-expanded', true);
+    body.css('overflow', "visible");
+  }
+
+  menuButton.click(function(e) {
+    if (menuWrapper.hasClass('menuOut')) menuhide();
+    else menushow();
+  })
+  $(document).on('click', function(e) {
+    var targ = $(e.target);
+    if (menuWrapper.is('.menuOut') && !targ.is('.btn-menu') && !targ.closest('#main-menu').length) {
+      e.preventDefault();
+      menuhide();
+    }
+  });
+  // close the menu with the escape key
+  $(document).keyup(function (e) {
+    if (e.keyCode === 27 && menuWrapper.hasClass('menuOut')) {
+      e.preventDefault();
+      menuhide();
+    }
+  });
+
+  /* Footer drop down menus (mobile view only) */
   $('.footer-column-title').click(function(e) {
     e.preventDefault();
     var container = $(this).parent();
