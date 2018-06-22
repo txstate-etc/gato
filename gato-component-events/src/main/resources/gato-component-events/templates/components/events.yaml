@@ -3,7 +3,7 @@ renderType: freemarker
 title: Calendar Events
 description: Displays events pulled from the Texas State Event Calendar.
 dialog: gato-component-events:components/events
-modelClass: edu.txstate.its.gato.EventsModel
+modelClass: edu.txstate.its.gato.TrumbaEventModel
 parameters:
   icon: /gato-component-events/images/calendar.png
 

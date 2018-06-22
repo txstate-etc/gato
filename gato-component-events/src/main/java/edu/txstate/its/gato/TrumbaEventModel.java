@@ -21,6 +21,7 @@ import javax.jcr.Node;
 
 import com.google.gson.*;
 
+import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import org.slf4j.Logger;
@@ -65,7 +66,7 @@ public class TrumbaEventModel<RD extends RenderableDefinition> extends Rendering
       final String url = constructUrl(content);
       log.debug("Using URL: {}", url);
 
-      String json = (String) new URL(url).getContent();
+      String json = IOUtils.toString(new URL(url).openStream());
       JsonArray cal = new JsonParser().parse(json).getAsJsonArray();
 
       for (JsonElement e : cal) {
@@ -106,7 +107,7 @@ public class TrumbaEventModel<RD extends RenderableDefinition> extends Rendering
       }
     }
 
-    url = url + "&startdate=" + trumbaformat.format(startDate.getTime());
+    url = url + "?startdate=" + trumbaformat.format(startDate.getTime());
     url = url + "&enddate=" + trumbaformat.format(endDate.getTime());
 
     return url;
