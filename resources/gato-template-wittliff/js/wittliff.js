@@ -9,6 +9,9 @@ jQuery(document).ready(function($) {
   magnolialabelchange('.footer-column-content', '.mgnlEditor.mgnlPlaceholder', 'Add Column');
   magnolialabelchange('.footer-button', '.mgnlEditor.mgnlPlaceholder', 'Add Button');
 
+  // Set this variable for the anchor scroll fix
+  window.stickynavheight = $('header').height();
+
   // Wittliff Reverse buttons have extra hover effect that confuses ios
   $('a.button.reverse, a.linkbutton').on('touchend', function () { console.log($(this)); window.location = $(this).attr('href'); });
 

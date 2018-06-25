@@ -50,7 +50,6 @@ public class EventsModelForWittliffEvents extends TrumbaEventModel {
     for (EventItem e : (List<EventItem>)getItems()) {
       cats.addAll(e.getCategories());
       String monthkey = e.getMachineMonth();
-      System.out.println("processing an event!"+monthkey);
       Long monthcount = new Long(0);
       if (monthmap.containsKey(monthkey)) monthcount = monthmap.get(monthkey)+1;
       monthmap.put(monthkey, monthcount);

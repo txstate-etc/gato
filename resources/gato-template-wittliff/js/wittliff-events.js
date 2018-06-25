@@ -6,7 +6,7 @@ jQuery(document).ready(function($) {
   });
   // if the url contains an anchor to an event, let's open that event
   if (document.location.hash.match(/^#event-\d+$/i)) {
-    window.accordion.show($(document.location.hash).find('.event-details'));
+    window.accordion.show($(document.location.hash).find('.event-details'), {instant: true});
   }
 
   /** Filtering **/
