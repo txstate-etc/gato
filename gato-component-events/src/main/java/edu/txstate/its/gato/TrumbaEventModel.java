@@ -30,26 +30,20 @@ import org.slf4j.LoggerFactory;
 public class TrumbaEventModel<RD extends RenderableDefinition> extends RenderingModelImpl<RD> {
   private static final Logger log = LoggerFactory.getLogger(TrumbaEventModel.class);
 
-  private static final DateFormat trumbaformat = new SimpleDateFormat("yyyyMMdd");
+  protected static final DateFormat trumbaformat = new SimpleDateFormat("yyyyMMdd");
 
-  private final Exception error;
-  private final List<EventItem> items;
+  protected Exception error;
+  protected List<EventItem> items;
 
   @Inject
   public TrumbaEventModel(Node content, RD definition, RenderingModel<?> parent) {
     super(content, definition, parent);
-
-    Exception error = null;
-    List<EventItem> items = null;
     try {
-      items = initList(content);
+      this.items = initList(content);
     } catch (Exception e) {
-      log.error("Failed to fetch ICS feed.", e);
-      error = e;
+      log.error("Failed to fetch JSON feed.", e);
+      this.error = e;
     }
-
-    this.items = items;
-    this.error = error;
   }
 
   public Exception getError() { return error; }
@@ -59,7 +53,7 @@ public class TrumbaEventModel<RD extends RenderableDefinition> extends Rendering
     return "collapsedlist".equalsIgnoreCase(PropertyUtil.getString(content, "displayStyle", ""));
   }
 
-  private static List<EventItem> initList(Node content) throws UnsupportedEncodingException {
+  protected static List<EventItem> initList(Node content) throws UnsupportedEncodingException {
     final List<EventItem> items = new ArrayList<EventItem>();
 
     try {
@@ -79,11 +73,14 @@ public class TrumbaEventModel<RD extends RenderableDefinition> extends Rendering
     return items;
   }
 
-  private static String constructUrl(Node content) throws UnsupportedEncodingException {
-    final String calendarId = PropertyUtil.getString(content, "calendarId", "1400280");
-
+  protected static String baseUrl(Node content, String calendarId) {
     MagnoliaConfigurationProperties mcp = Components.getComponent(MagnoliaConfigurationProperties.class);
-    String url = mcp.getProperty("trumba.basepath")+"/calendars/calendar."+calendarId+".json";
+    return mcp.getProperty("trumba.basepath")+"/calendars/calendar."+calendarId+".json";
+  }
+
+  protected static String constructUrl(Node content) throws UnsupportedEncodingException {
+    final String calendarId = PropertyUtil.getString(content, "calendarId", "1400280");
+    String url = baseUrl(content, calendarId);
 
     final String rangeType = PropertyUtil.getString(content, "range_type", "days");
 

@@ -16,6 +16,7 @@ public interface EventItem extends Comparable<EventItem> {
   public String getContact();
   public String getUrl();
   public String getCalendarUrl();
+  public String getRsvpUrl();
   public Date getStartDate();
   public String getMachineStartDate();
   public String getHumanStartDate();

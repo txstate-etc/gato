@@ -91,7 +91,11 @@ public class TrumbaEventItem extends AbstractEventItem {
   }
 
   public String getCalendarUrl() {
-    return getUrl().replaceAll("\\?.*$", "");
+    return getPropertyString("eventActionUrl");
+  }
+
+  public String getRsvpUrl() {
+    return getPropertyString("signUpUrl");
   }
 
   protected Date getDate(String propertyname, String tzname) {
@@ -108,7 +112,17 @@ public class TrumbaEventItem extends AbstractEventItem {
   }
 
   public Date getStartDate() {
-    return getDate("startDateTime", "startTimeZoneOffset");
+    Date start = getDate("startDateTime", "startTimeZoneOffset");
+    String startday = getMachineDate(start, false);
+    String today = getMachineDate(new Date(), false);
+    if (today.compareTo(startday) > 0) {
+      try {
+        start = AbstractEventItem.machineDateFormat.parse(today);
+      } catch (ParseException e) {
+        e.printStackTrace();
+      }
+    }
+    return start;
   }
 
   public Date getEndDate() {

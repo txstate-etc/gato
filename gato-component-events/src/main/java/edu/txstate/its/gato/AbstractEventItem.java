@@ -15,20 +15,9 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 abstract class AbstractEventItem implements EventItem {
-  protected String cost;
-  protected String sponsor;
-  protected String contact;
-  protected String calendarUrl;
-  protected String url;
-  protected Date startDate;
-  protected String machineStartDate;
-  protected String humanStartDate;
-  protected Date endDate;
-  protected String machineEndDate;
-  protected String humanEndDate;
-  protected String eventId;
-  protected String recurrenceId;
-  protected List<String> categories;
+  public static DateFormat machineDateFormat = new SimpleDateFormat( "yyyy-MM-dd" );
+  public static DateFormat machineTimeFormat = new SimpleDateFormat( "HH:mm:00Z" );
+  public static DateFormat machineMonthFormat = new SimpleDateFormat("yyyyMM");
 
   public AbstractEventItem() {
 
@@ -38,32 +27,16 @@ abstract class AbstractEventItem implements EventItem {
     return (getEndDate().getTime() > 0l) && !getStartDate().equals(getEndDate());
   }
 
-  public String getCalendarUrl() {
-    if (calendarUrl == null) {
-      calendarUrl = getUrl() + ".ics";
-    }
-    return calendarUrl;
-  }
-
   public String getMachineStartDate() {
-    if (machineStartDate == null) {
-      machineStartDate = getMachineDate(getStartDate(), true);
-    }
-    return machineStartDate;
+    return getMachineDate(getStartDate(), true);
   }
 
   public String getHumanStartDate() {
-    if (humanStartDate == null) {
-      humanStartDate = getHumanDate(getStartDate(), true, true);
-    }
-    return humanStartDate;
+    return getHumanDate(getStartDate(), true, true);
   }
 
   public String getMachineEndDate() {
-    if (machineEndDate == null) {
-      machineEndDate = getMachineDate(getEndDate(), true);
-    }
-    return machineEndDate;
+    return getMachineDate(getEndDate(), true);
   }
 
   public String getHumanEndDate() {
@@ -71,19 +44,15 @@ abstract class AbstractEventItem implements EventItem {
     return getHumanDate(getEndDate(), showEndDate, true);
   }
 
-  public static DateFormat machineMonthFormat = new SimpleDateFormat("yyyyMM");
   public String getMachineMonth() {
     return machineMonthFormat.format(getStartDate());
   }
 
   protected static String getMachineDate(Date date, boolean showTime) {
-    final DateFormat dateFormat = new SimpleDateFormat( "yyyy-MM-dd" );
-    final DateFormat timeFormat = new SimpleDateFormat( "HH:mm:00Z" );
-
-    String dateString = dateFormat.format(date);
+    String dateString = machineDateFormat.format(date);
 
     if (showTime) {
-      dateString += "T" + timeFormat.format(date);
+      dateString += "T" + machineTimeFormat.format(date);
     }
 
     return dateString;

@@ -12,7 +12,7 @@ import java.util.List;
 import org.jsoup.Jsoup;
 import org.jsoup.select.Elements;
 
-public class GatoTrumbaSelectDefinition extends SelectFieldDefinition {
+public class TrumbaSelectDefinition extends SelectFieldDefinition {
   public List<SelectFieldOptionDefinition> getOptions() {
     List<SelectFieldOptionDefinition> ret = null;
     try {
