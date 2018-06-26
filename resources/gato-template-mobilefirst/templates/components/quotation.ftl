@@ -15,7 +15,7 @@
     <ul>
       [#list cmsfn.children(content.buttons) as button]
       <li>
-        <a class="fullwidth-button" href="${gf.filterUrl(button.link)}">${button.text}</a>
+        <a class="fullwidth-button" href="${gf.filterUrl(button.link)}">${button.text!}</a>
       </li>
       [/#list]
     </ul>

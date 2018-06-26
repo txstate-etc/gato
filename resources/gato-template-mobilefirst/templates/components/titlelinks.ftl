@@ -6,7 +6,7 @@
     <ul>
     [#list cmsfn.children(content.links) as lnk]
       <li>
-        <a href="${gf.filterUrl(lnk.link)}">${lnk.text}</a>
+        <a href="${gf.filterUrl(lnk.link)}">${lnk.text!}</a>
       </li>
     [/#list]
     </ul>

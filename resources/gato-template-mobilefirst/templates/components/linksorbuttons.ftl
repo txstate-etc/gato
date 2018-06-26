@@ -14,7 +14,7 @@
       <ul>
       [#list cmsfn.children(items) as lnk]
         <li>
-          <a href="${gf.filterUrl(lnk.link)}" class="${(content.linkDisplay=="buttons")?string('fullwidth-button', '')}">${lnk.text}</a>
+          <a href="${gf.filterUrl(lnk.link)}" class="${(content.linkDisplay=="buttons")?string('fullwidth-button', '')}">${lnk.text!}</a>
         </li>
       [/#list]
       </ul>
