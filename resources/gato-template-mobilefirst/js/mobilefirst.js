@@ -125,7 +125,7 @@ jQuery(document).ready(function($) {
   })
   $(document).on('click', function(e) {
     var targ = $(e.target);
-    if (menuWrapper.is('.menuOut') && !targ.is('.btn-menu') && !targ.closest('#main-menu').length) {
+    if (menuWrapper.is('.menuOut') && !targ.is('.btn-menu, .btn-menu .fa, .btn-menu .label') && !targ.closest('#main-menu').length) {
       e.preventDefault();
       menuhide();
     }
