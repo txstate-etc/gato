@@ -4,7 +4,7 @@ form:
       label: ""
       fields:
         - name: calendarId
-          class: edu.txstate.its.gato.GatoCalendarSelectFieldDefinition
+          class: edu.txstate.its.gato.TrumbaSelectDefinition
           label: Calendar
 #        - name: displayStyle
 #          class: info.magnolia.ui.form.field.definition.SwitchableFieldDefinition
