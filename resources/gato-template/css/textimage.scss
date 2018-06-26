@@ -22,7 +22,7 @@
       [data-eq~="400px"] & {
         width: 100%;
         float: none;
-        padding: 0 auto $text-image-bottom auto;
+        padding: 0 0 $text-image-bottom 0;
       }
 		}
 		&.top { margin: 0 auto $text-image-bottom auto; }
