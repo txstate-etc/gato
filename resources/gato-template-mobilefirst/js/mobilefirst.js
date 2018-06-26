@@ -139,10 +139,22 @@ jQuery(document).ready(function($) {
   });
 
   /* Footer drop down menus (mobile view only) */
-  $('.footer-column-title').click(function(e) {
+  $('.mobile-footer-column-title').click(function(e) {
     e.preventDefault();
     var container = $(this).parent();
-    container.toggleClass('expanded')
-    $(this).attr('aria-expanded', !container.hasClass('collapsed'))
+    var title = $(this);
+    var list = container.find('.footer-column-link-list');
+    if (container.is('.expanded')) {
+      list.velocity("slideUp", {duration: 300, complete: function() {
+        container.removeClass('expanded')
+        title.attr('aria-expanded', false);
+      }})
+    }
+    else {
+      list.velocity("slideDown", { duration: 300, begin: function() {
+        container.addClass('expanded')
+        title.attr('aria-expanded', true);
+      } })
+    }
   })
 });

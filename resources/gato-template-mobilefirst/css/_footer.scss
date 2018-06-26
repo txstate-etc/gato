@@ -45,6 +45,9 @@ footer {
           text-decoration: none;
           color: $white;
         }
+        .mobile-footer-column-title {
+          display: none;
+        }
         .footer-column-link-list {
           list-style: none;
           margin: 0;
@@ -58,6 +61,12 @@ footer {
         }
         @media (max-width: $sm-breakpoint) {
           .footer-column-title {
+            display: none;
+          }
+          .mobile-footer-column-title {
+            text-decoration: none;
+            color: $white;
+            display: block;
             background-color: $darkgray;
             padding: 0.5rem 1rem;
             font-size: 1.8rem;
@@ -78,7 +87,7 @@ footer {
             }
           }
           &.expanded {
-            .footer-column-title {
+            .mobile-footer-column-title {
               border-bottom: 1px solid $lightgray;
               &:after {
                 content: "\f106";
