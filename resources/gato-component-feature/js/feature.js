@@ -66,7 +66,8 @@ jQuery(document).ready(function ($) {
       accessibility: true,
       appendArrows: $(this).find('.arrow-container'),
       slide: '.slide',
-      lazyLoad: 'progressive'
+      lazyLoad: 'progressive',
+      rows: 0
     });
 
   });

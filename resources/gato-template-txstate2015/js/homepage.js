@@ -164,6 +164,7 @@ jQuery(function($) {
     fade: true,
     swipe: false,
     speed: 700,
+    rows: 0,
     responsive: [
       {
         breakpoint: 800, // cf. max-width: $sm-breakpoint
