@@ -15,7 +15,7 @@ header {
         left: 0;
       }
       &.btn-search {
-        top: 6rem;
+        top: 6.25rem;
         left: 0;
         @media (max-width: $sm-breakpoint) {
           top: 0;
@@ -28,14 +28,15 @@ header {
   .logo-block {
     position: absolute;
     top: 0;
-    left: 60px;
-    height: 120px;
-    width: 120px;
+    left: 6.4rem;
+    height: 12.25rem;
+    width: 12.25rem;
     background-color: $sandstone;
     opacity: 0.9;
     display: flex;
     align-items: center;
     text-align: center;
+    transition: opacity 0.2s ease;
     &:hover {
       opacity: 1;
     }
@@ -54,15 +55,22 @@ header {
     height: 60px;
     border: 0px;
     color: $white;
+    transition: background-color 0.2s ease;
     .label {
       text-transform: uppercase;
       font-size: 1rem;
     }
     &.btn-menu {
       background-color: $gold;
+      &:hover {
+        background-color: $dark-gold;
+      }
     }
     &.btn-search {
       background-color: $maroon;
+      &:hover {
+        background-color: $darkest-maroon;
+      }
     }
   }
   .menubar {
@@ -78,7 +86,9 @@ header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0rem 2.5rem;
+      padding: 0rem 1.5rem;
+      border-bottom: 1px solid $sandstone;
+      box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, .25);
       .logo {
         width: 200px;
         img {
@@ -111,6 +121,11 @@ header {
           display: none;
         }
       }
+    }
+  }
+  &.scrolled {
+    .btn-menu, .btn-search {
+      box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, .25);
     }
   }
 }

@@ -16,7 +16,7 @@ jQuery(document).ready(function($) {
 
   function goToScrollState() {
     //search button to top, logo block up, menubar down
-    searchButton.velocity({translateX: "60px", translateY: "-60px"},
+    searchButton.velocity({translateX: "60px", translateY: "-63px"},
      {duration: animationDuration,
      begin: function(){
        header.addClass("animatetoscroll")
