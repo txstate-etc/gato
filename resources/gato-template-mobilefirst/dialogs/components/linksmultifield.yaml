@@ -7,6 +7,7 @@ form:
           class: edu.txstate.its.gato.vaadin.GatoMultiValueFieldDefinition
           transformerClass: info.magnolia.ui.form.field.transformer.multi.MultiValueSubChildrenNodePropertiesTransformer
           label: Links
+          maxFields: 4
           field:
             name: link
             class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
@@ -16,6 +17,7 @@ form:
               - name: text
                 class: info.magnolia.ui.form.field.definition.TextFieldDefinition
                 label: Link Text
+                maxLength: 15
               - name: link
                 class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
                 label: Link Target
