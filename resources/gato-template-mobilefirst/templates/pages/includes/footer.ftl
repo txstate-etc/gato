@@ -44,7 +44,9 @@
     </a>
     </div>
     <ul class="bottom-footer-links">
-      [@cms.area name="footerlinks" content=gf.getOrCreateArea(homepage, 'footerlinks') editable=isHomePage/]
+    [#list cmsfn.children(globalLinks.mobileFirstFooter, "mgnl:component") as component]
+      <li><a href="${gf.filterUrl(component.link)}">${gf.filterLinkTitle(component.text, component.link)}</a></li>
+    [/#list]
     </ul>
   </div>
 </footer>

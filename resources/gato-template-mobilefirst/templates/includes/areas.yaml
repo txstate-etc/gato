@@ -35,5 +35,3 @@ resources:
   !include /gato-template/templates/areas/linklist.yaml
 connect:
   !include /gato-template/templates/areas/linklist.yaml
-footerlinks:
-  !include /gato-template/templates/areas/linklist.yaml
