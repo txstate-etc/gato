@@ -1,4 +1,5 @@
 [#include "/gato-template/templates/includes/head.ftl"]
+[#assign isMainCalendar = (content.calendar == '1400280')]
 
 <!DOCTYPE HTML>
 <html lang="en">
@@ -41,7 +42,11 @@
                   </div>
                   <div class="column_paragraph" id="main_spud">
                     <script type="text/javascript">
-                      addTrumbaSpud({ webName: 'calendar.${content.calendar}', spudType: 'main' });
+                      [#if isMainCalendar]
+                        addTrumbaSpud({ webName: 'calendar.${content.calendar}', spudType: 'main', url: { filterview: "Exclude Long Exhibits" } });
+                      [#else]
+                        addTrumbaSpud({ webName: 'calendar.${content.calendar}', spudType: 'main' });
+                      [/#if]
                     </script>
                   </div>
                 </div>
@@ -52,9 +57,21 @@
 
         <aside class="sidebar-container">
           <div class="sidebar">
+            [#if isMainCalendar]
+              <div class="side_nav nav-without-title">
+                <script type="text/javascript">
+                  addTrumbaSpud({ webName: 'calendar.${content.calendar}', spudType: 'eventslider', spudConfig: 'ExhibitionSlider', url: { filterview: "Long Exhibits Only" } });
+                </script>
+              </div>
+            [/#if]
             <div class="side_nav nav-without-title">
               <script type="text/javascript">
                 addTrumbaSpud({ webName: 'calendar.${content.calendar}', spudType: 'datefinder' });
+              </script>
+            </div>
+            <div class="side_nav nav-without-title">
+              <script type="text/javascript">
+                addTrumbaSpud({ webName: 'calendar.${content.calendar}', spudType: 'searchlabeled' });
               </script>
             </div>
             <div class="side_nav nav-without-title">
