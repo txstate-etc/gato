@@ -13,7 +13,7 @@
     <div class="footer-column">
       <div class="footer-column-content">
         <div class="footer-column-title">Resources</div>
-        <a href="#resource-links" class="mobile-footer-column-title" aria-haspopup="true" aria-expanded="false" aria-controls="resource-links">Resources</a>
+        <a href="#" class="mobile-footer-column-title" aria-haspopup="true" aria-expanded="false" aria-controls="resource-links">Resources</a>
         <ul id="resource-links" class="resources footer-column-link-list">
         [@cms.area name="resources" content=gf.getOrCreateArea(homepage, 'resources') editable=isHomePage/]
         </ul>
@@ -22,7 +22,7 @@
     <div class="footer-column">
       <div class="footer-column-content">
         <div class="footer-column-title">Connect</div>
-        <a href="#connect-links" class="mobile-footer-column-title" aria-haspopup="true" aria-expanded="false" aria-controls="connect-links">Connect</a>
+        <a href="#" class="mobile-footer-column-title" aria-haspopup="true" aria-expanded="false" aria-controls="connect-links">Connect</a>
         <div class="connect-links">
           <div class="social-media-container">
             [@cms.area name="socialmedia" content=gf.getOrCreateArea(homepage, "socialmedia") editable=isHomePage/]

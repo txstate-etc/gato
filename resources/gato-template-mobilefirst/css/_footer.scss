@@ -5,15 +5,16 @@ footer {
   font-size: 1.4rem;
   color: $white;
   .top {
-    background-color: $mediumgray;
+    background-color: $tornadogray;
     display: flex;
     justify-content: space-between;
+    padding: 2rem 0 2.5rem 0;
     @media (max-width: $sm-breakpoint) {
       display: block;
     }
     .footer-column {
       width: 33%;
-      padding: 3rem;
+      padding: 3rem 3rem 6rem 3rem;
       @media (max-width: $sm-breakpoint) {
         width: auto;
         padding: 1rem 3rem;
@@ -34,6 +35,8 @@ footer {
         }
         .contact-info {
           padding-top: 2rem;
+          padding-bottom: 1rem;
+          line-height: 1.8;
         }
       }
       .footer-column-content {
@@ -44,6 +47,7 @@ footer {
           display: block;
           text-decoration: none;
           color: $white;
+          margin-bottom: 1rem;
         }
         .mobile-footer-column-title {
           display: none;
@@ -53,9 +57,15 @@ footer {
           margin: 0;
           padding: 1rem 0rem 0rem 0rem;
           li {
+            line-height: 1.8;
             a {
               color: $white;
               text-decoration: none;
+              transition: all 0.2s ease;
+              &:hover {
+                padding-left: 0.625rem;
+                border-left: 2px solid $white;
+              }
             }
           }
         }
@@ -76,6 +86,8 @@ footer {
               content: "\f107";
               position: absolute;
               right: 1rem;
+              top: 0.3rem;
+              font-size: 2.4rem;
             }
           }
           .footer-column-link-list {
@@ -114,7 +126,7 @@ footer {
       }
     }
     .social-media-icons {
-      margin: 0;
+      margin-top: 1.5rem;
       padding: 0;
       li {
         display: inline-block;
@@ -133,7 +145,7 @@ footer {
     }
   }
   .bottom {
-    padding: 0rem 2rem;
+    padding: 1rem 2rem 3rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -151,6 +163,7 @@ footer {
       padding: 0;
       li {
         display: inline-block;
+        line-height: 2;
         &:not(:last-child):after {
           content: "|";
           padding: 0rem 1rem;
