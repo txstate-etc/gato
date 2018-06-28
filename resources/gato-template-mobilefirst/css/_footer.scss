@@ -96,6 +96,10 @@ footer {
             padding: 1rem;
             li {
               padding: 0.5rem 0rem;
+              a:hover {
+                padding-left: 0;
+                border-width: 0px;
+              }
             }
           }
           &.expanded {
