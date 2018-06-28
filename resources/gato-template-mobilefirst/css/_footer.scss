@@ -134,6 +134,7 @@ footer {
       padding: 0;
       li {
         display: inline-block;
+        padding: 0rem 0.5rem;
         .gato-sociallink {
           i { color: $white;}
           span {
@@ -189,6 +190,85 @@ body.admin {
         &:after {
           display: none;
         }
+      }
+    }
+  }
+}
+
+.social-media-icons {
+  .gato-sociallink {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border: 1px solid white;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    .fa-facebook-square {
+      &:before {
+        font-family: "FontAwesome";
+        content: '\f09a';
+      }
+    }
+    .fa-twitter-square {
+      &:before {
+        font-family: "FontAwesome";
+        content: '\f099';
+      }
+    }
+    .fa-youtube-square {
+      &:before {
+        font-family: "FontAwesome";
+        content: '\f167';
+      }
+    }
+    .fa-vimeo-square {
+      &:before {
+        font-family: "FontAwesome";
+        content: '\f27d';
+      }
+    }
+    .fa-pinterest-square {
+      &:before {
+        font-family: "FontAwesome";
+        content: '\f231';
+      }
+    }
+    .fa-tumblr-square {
+      &:before {
+        font-family: "FontAwesome";
+        content: '\f173';
+      }
+    }
+  	.fa-linkedin-square {
+      &:before {
+        font-family: "FontAwesome";
+        content: '\f0e1';
+      }
+    }
+    .fa-rss-square {
+      &:before {
+        font-family: "FontAwesome";
+        content: '\f09e';
+      }
+    }
+    .fa-snapchat-square {
+      &:before {
+        font-family: "FontAwesome";
+        content: '\f2ac';
+      }
+    }
+    .fa-share-alt-square {
+      &:before {
+        font-family: "FontAwesome";
+        content: '\f1e0';
+      }
+    }
+    .fa-google-plus-square {
+      &:before {
+        font-family: "FontAwesome";
+        content: '\f0d5';
       }
     }
   }
