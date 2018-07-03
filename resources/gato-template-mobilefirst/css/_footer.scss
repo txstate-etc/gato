@@ -5,7 +5,7 @@ footer {
   font-size: 1.4rem;
   color: $white;
   .top {
-    background-color: $tornadogray;
+    background-color: $mediumgray;
     display: flex;
     justify-content: space-between;
     padding: 2rem 0 2.5rem 0;
@@ -77,7 +77,7 @@ footer {
             text-decoration: none;
             color: $white;
             display: block;
-            background-color: $darkgray;
+            background-color: $tornadogray;
             padding: 0.5rem 1rem;
             font-size: 1.8rem;
             position: relative;
@@ -92,7 +92,7 @@ footer {
           }
           .footer-column-link-list {
             display: none;
-            background-color: $darkgray;
+            background-color: $tornadogray;
             padding: 1rem;
             li {
               padding: 0.5rem 0rem;
