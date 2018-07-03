@@ -11,15 +11,16 @@ html {
 }
 
 body {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
+  background-color: $light-sandstone;
   &.admin {
     background-color: $white;
   }
 }
 
-.page_content {
-  flex-grow: 1;
-  min-height: 32rem;
+.page-container {
+  background-color: $white;
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
 }

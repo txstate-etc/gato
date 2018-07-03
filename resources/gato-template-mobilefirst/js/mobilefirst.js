@@ -93,46 +93,49 @@ jQuery(document).ready(function($) {
   })
 
   /* Main Menu Open and Close */
-  var menuWrapper = $('.menu-wrap');
   var page = $('.content-wrap');
   var menuButton = $('.btn-menu');
   var menu = $('.main-menu');
+  var menuContent = $('.main-menu .menu-content');
   var body = $('body');
-
+  var pageContainer = $('.page-container');
+  //
   var menushow = function() {
-    menuWrapper.addClass('menuOut');
+    menu.velocity({width: "300px"}, {duration: "300ms"})
+    page.velocity({translateX: "300px"}, {duration: "300ms"})
+    pageContainer.addClass('menuOut');
     menuButton.find('i').toggleClass('fa-bars fa-times');
     menuButton.attr('aria-expanded', true);
     menuButton.attr('aria-label', "Close main menu");
     menu.attr('aria-expanded', true);
     body.css('overflow', "hidden");
-    //TODO: Right now this is the only link in there
-    //but we might want to focus somewhere else once the menu has content
-    menu.find('.home-link').focus();
   }
   var menuhide = function() {
-    menuWrapper.removeClass('menuOut');
+
+    menu.velocity({width: "0px"}, {duration: "300ms"})
+    page.velocity({translateX: "0px"}, {duration: "300ms"})
+    pageContainer.removeClass('menuOut');
     menuButton.find('i').toggleClass('fa-bars fa-times');
     menuButton.attr('aria-expanded', false);
     menuButton.attr('aria-label', "Open main menu");
     menu.attr('aria-expanded', true);
     body.css('overflow', "visible");
   }
-
+  //
   menuButton.click(function(e) {
-    if (menuWrapper.hasClass('menuOut')) menuhide();
+    if (pageContainer.hasClass('menuOut')) menuhide();
     else menushow();
   })
   $(document).on('click', function(e) {
     var targ = $(e.target);
-    if (menuWrapper.is('.menuOut') && !targ.is('.btn-menu, .btn-menu .fa, .btn-menu .label') && !targ.closest('#main-menu').length) {
+    if (pageContainer.is('.menuOut') && !targ.is('.btn-menu, .btn-menu .fa, .btn-menu .label') && !targ.closest('#main-menu').length) {
       e.preventDefault();
       menuhide();
     }
   });
   // close the menu with the escape key
   $(document).keyup(function (e) {
-    if (e.keyCode === 27 && menuWrapper.hasClass('menuOut')) {
+    if (e.keyCode === 27 && pageContainer.hasClass('menuOut')) {
       e.preventDefault();
       menuhide();
     }

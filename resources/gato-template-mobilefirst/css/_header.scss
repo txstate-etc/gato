@@ -79,6 +79,7 @@ header {
     left: 120px;
     right: 0;
     top: -60px;
+    max-width: 1280px;
     .menu {
       background-color: $sandstone;
       height: 6rem;
@@ -88,7 +89,7 @@ header {
       align-items: center;
       padding: 0rem 1.5rem;
       border-bottom: 1px solid $sandstone;
-      box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, .25);
+      box-shadow: -1px 1px 3px 0 rgba(0, 0, 0, .25);
       .logo {
         width: 200px;
         img {

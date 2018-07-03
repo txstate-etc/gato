@@ -9,27 +9,29 @@
     [@templatehead/]
   </head>
   <body class="${cmsfn.isEditMode()?string('admin','')}">
-    [@skipnav/]
-    <div class="menu-wrap">
-      [#include "includes/menu.ftl"]
-      <div class="content-wrap">
-          <div class="page">
-          [#include "includes/header.ftl"]
-          [@cms.area name="top-banner" content=gf.getOrCreateArea(homepage, 'top-banner')/]
-          <div class="page_content">
-            <main class="contentcolumn">
-              [#-- Right now, we don't even know if the standard mobile first template has a sidebar. --]
-              [#assign hideSidebar = true /]
-              [@headline hideSidebar /]
-              [@cms.area name="contentParagraph" contextAttributes={"hideSidebar":hideSidebar} /]
-              [@cms.area name="fullWidthTest"/]
-            </main>
-          </div>
-          [#include "includes/footer.ftl"]
+    <div class="page-container">
+      [@skipnav/]
+      <nav id="main-menu" class="main-menu">
+        <div class="menu-content">
+            Here is the menu
         </div>
+      </nav>
+      <div class="content-wrap">
+        [#include "includes/header.ftl"]
+        [@cms.area name="top-banner" content=gf.getOrCreateArea(homepage, 'top-banner')/]
+        <div class="page_content">
+          <main class="contentcolumn">
+            [#-- Right now, we don't even know if the standard mobile first template has a sidebar. --]
+            [#assign hideSidebar = true /]
+            [@headline hideSidebar /]
+            [@cms.area name="contentParagraph" contextAttributes={"hideSidebar":hideSidebar} /]
+            [@cms.area name="fullWidthTest"/]
+          </main>
+        </div>
+        [#include "includes/footer.ftl"]
       </div>
+      [@cssjsmodals /]
+      [#include "/gato-template/templates/includes/video-modal.ftl"]
     </div>
-    [@cssjsmodals /]
-    [#include "/gato-template/templates/includes/video-modal.ftl"]
   </body>
 </html>
