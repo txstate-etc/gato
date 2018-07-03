@@ -111,9 +111,10 @@ jQuery(document).ready(function($) {
     body.css('overflow', "hidden");
   }
   var menuhide = function() {
-
     menu.velocity({width: "0px"}, {duration: "300ms"})
-    page.velocity({translateX: "0px"}, {duration: "300ms"})
+    page.velocity({translateX: "0px"}, {duration: "300ms", complete: function() {
+      page.css('transform', 'none');
+    }})
     pageContainer.removeClass('menuOut');
     menuButton.find('i').toggleClass('fa-bars fa-times');
     menuButton.attr('aria-expanded', false);
