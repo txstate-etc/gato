@@ -1,6 +1,10 @@
 /* Gato Style Sheet Mobile First */
 @import "gato-template-mobilefirst/css/variables";
 
+/* Fonts */
+@import "gato-template-txstate2015/css/fonts/univers";
+@import "gato-template-txstate2015/css/fonts/garamond";
+
 /* Component styles */
 @import "gato-template/css/includes";
 @import "gato-template-mobilefirst/css/search";
