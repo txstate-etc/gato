@@ -82,7 +82,11 @@
           </div>
         </aside>
       </div> <!-- end of page_content -->
-      [#include "/gato-template-txstate2015/templates/pages/includes/footer.ftl"]
+      <footer>
+        <div class="social-icons">
+          [@cms.area name="optional-social"]
+        </div>
+      </footer>
     </div> <!-- end of the container -->
   </body>
 </html>

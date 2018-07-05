@@ -6,6 +6,12 @@ dialog: gato-template-trumba:pages/trumba
 areas:
   contentParagraph:
     !include /gato-template/templates/areas/contentParagraph.yaml
+  optional-social:
+    type: single
+    templateScript: optional-social
+    availableComponents:
+      sociallink:
+        id: gato-template:components/sociallink
 parameters:
   sortOrder: 800
 variations:
