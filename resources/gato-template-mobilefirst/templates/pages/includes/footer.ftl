@@ -2,9 +2,9 @@
   <div class="top">
     <div class="footer-column contact">
       <div class="footer-contact-column-content">
-        <div class="footer-page-title">
+        <h2 class="footer-page-title">
           <a href="${cmsfn.link(homepage)}">${gf.nodeTitle(homepage)}</a>
-        </div>
+        </h2>
         <div class="contact-info">
           [@cms.area name="siteinfo" content=gf.getOrCreateArea(homepage, 'siteinfo') editable=isHomePage/]
         </div>
@@ -12,7 +12,7 @@
     </div>
     <div class="footer-column">
       <div class="footer-column-content">
-        <div class="footer-column-title">Resources</div>
+        <h2 class="footer-column-title">Resources</h2>
         <a href="#" class="mobile-footer-column-title" aria-haspopup="true" aria-expanded="false" aria-controls="resource-links">Resources</a>
         <ul id="resource-links" class="resources footer-column-link-list">
         [@cms.area name="resources" content=gf.getOrCreateArea(homepage, 'resources') editable=isHomePage/]
@@ -21,7 +21,7 @@
     </div>
     <div class="footer-column">
       <div class="footer-column-content">
-        <div class="footer-column-title">Connect</div>
+        <h2 class="footer-column-title">Connect</h2>
         <a href="#" class="mobile-footer-column-title" aria-haspopup="true" aria-expanded="false" aria-controls="connect-links">Connect</a>
         <div class="connect-links">
           <div class="social-media-container">

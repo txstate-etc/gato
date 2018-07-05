@@ -24,3 +24,50 @@ body {
   position: relative;
   overflow: hidden;
 }
+
+h1,h2,h3,h4,h5,h6 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-family: $univers;
+  font-weight: 700;
+  font-size: 3rem;
+  line-height: 3.6rem;
+}
+
+h2 {
+  font-family: $garamond;
+  font-weight: 400;
+  font-size: 3.2rem;
+  line-height: 3.8rem;
+}
+
+h3 {
+  font-family: $univers;
+  font-weight: 400;
+  font-size: 2.4rem;
+  line-height: 3rem;
+}
+
+h4 {
+  font-family: $univers;
+  font-weight: 400;
+  font-size: 2.2rem;
+  line-height: 2.8rem;
+}
+
+h5 {
+  font-family: $univers;
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 2.6rem;
+}
+
+h6 {
+  font-family: $univers;
+  font-weight: 400;
+  font-size: 1.8rem;
+  line-height: 2.4rem;
+}

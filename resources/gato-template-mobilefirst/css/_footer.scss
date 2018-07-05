@@ -24,7 +24,8 @@ footer {
           border: none;
         }
         .footer-page-title {
-          font-size: 2.4rem;
+          font-family: $univers;
+          font-size: 2.2rem;
           font-weight: 700;
           text-transform: uppercase;
           a {
@@ -41,6 +42,7 @@ footer {
       }
       .footer-column-content {
         .footer-column-title {
+          font-family: $univers;
           font-size: 2rem;
           font-weight: 700;
           text-transform: uppercase;
@@ -148,6 +150,7 @@ footer {
             margin: -1px;
             clip: rect(0,0,0,0);
             position: absolute;
+            font-size: 1rem;
           }
         }
       }

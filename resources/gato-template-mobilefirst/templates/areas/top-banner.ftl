@@ -16,7 +16,7 @@
     </div>
     [/#if]
   </div>
-  <div class="page-title">
+  <h1 class="page-title">
     <a href="${cmsfn.link(homepage)}">${gf.nodeTitle(homepage)}</a>
-  </div>
+  </h1>
 </div>
