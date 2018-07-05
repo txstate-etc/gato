@@ -1,0 +1,33 @@
+// Rich Editor Tables
+.rich-editor-table{
+  table{
+    &.header-color-maroon th{
+      background: $maroon;
+      color: $white;
+      a{
+        color: $white;
+      }
+    }
+    &.header-color-gold th{
+      background: $gold;
+      color: $white;
+      a{
+        color: $white;
+      }
+    }
+    &.header-color-charcoal th{
+      background: $charcoal;
+      color: $white;
+      a{
+        color: $white;
+      }
+    }
+    &.header-color-sandstone th{
+      background: $sandstone;
+      color: $black;
+      a{
+        color: $black;
+      }
+    }
+  }
+}
