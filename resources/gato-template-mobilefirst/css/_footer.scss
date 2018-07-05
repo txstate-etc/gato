@@ -1,7 +1,6 @@
 footer {
   flex: none;
-  font-family: $muli;
-  font-weight: 300;
+  font-family: $univers;
   font-size: 1.4rem;
   color: $white;
   .top {
@@ -26,7 +25,7 @@ footer {
         }
         .footer-page-title {
           font-size: 2.4rem;
-          font-weight: 400;
+          font-weight: 700;
           text-transform: uppercase;
           a {
             color: $white;
@@ -37,12 +36,13 @@ footer {
           padding-top: 2rem;
           padding-bottom: 1rem;
           line-height: 1.8;
+          font-weight: 500;
         }
       }
       .footer-column-content {
         .footer-column-title {
           font-size: 2rem;
-          font-weight: 400;
+          font-weight: 700;
           text-transform: uppercase;
           display: block;
           text-decoration: none;
@@ -63,6 +63,7 @@ footer {
               text-decoration: none;
               transition: all 0.2s ease;
               display: inline-block;
+              font-weight: 500;
               &:hover {
                 transform: translate(0px, -3px);
                 box-shadow: inset 0 -1px 0 0 $white;
@@ -82,6 +83,7 @@ footer {
             padding: 0.5rem 1rem;
             font-size: 1.8rem;
             position: relative;
+            font-weight: 500;
             &:after {
               font-family: "FontAwesome";
               content: "\f107";

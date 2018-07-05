@@ -10,6 +10,8 @@ header {
     .header-button {
       display: block;
       position: absolute;
+      font-family: $univers;
+      font-weight: 500;
       &.btn-menu {
         top: 0;
         left: 0;
@@ -98,6 +100,8 @@ header {
       }
       .multilinks {
         list-style: none;
+        font-family: $univers;
+        font-weight: 500;
         li {
           display: inline-block;
           text-transform: uppercase;
