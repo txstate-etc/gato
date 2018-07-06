@@ -172,6 +172,7 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       .addTask(new BootstrapSingleModuleResource("config.modules.ui-framework.fieldTypes.multiField.xml"))
       .addTask(new BootstrapSingleModuleResource("config.modules.dam-app.apps.assets.subApps.detail.editor.form.tabs.asset.fields.resource.xml"))
       .addTask(new BootstrapSingleModuleResource("gatoapps.homepage-data.global-links.mobileFirstFooter.xml"))
+      .addTask(new BootstrapSingleModuleResource("gatoapps.homepage-data.global-links.defaultSocial.xml"))
       .addTasks(installOrUpdateTasks())
     );
 

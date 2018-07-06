@@ -84,7 +84,7 @@
       </div> <!-- end of page_content -->
       <footer>
         <div class="social-icons">
-          [@cms.area name="optional-social"/]
+          [@cms.area name="socialmedia"/]
         </div>
       </footer>
     </div> <!-- end of the container -->

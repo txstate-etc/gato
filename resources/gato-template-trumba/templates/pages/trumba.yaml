@@ -4,11 +4,9 @@ visible: true
 title: Trumba Template
 dialog: gato-template-trumba:pages/trumba
 areas:
-  contentParagraph:
-    !include /gato-template/templates/areas/contentParagraph.yaml
-  optional-social:
+  socialmedia:
     type: single
-    templateScript: optional-social
+    templateScript: /gato-template-txstate2015/templates/pages/areas/optional-social.ftl
     availableComponents:
       sociallink:
         id: gato-template:components/sociallink

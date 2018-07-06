@@ -1,5 +1,5 @@
 [#if component??]
-  custom links
+  [@cms.component content=component/]
 [#else]
-  default links
+  [@cms.component content=cmsfn.contentByPath('/homepage-data/global-links/defaultSocial', 'gatoapps')/]
 [/#if]
