@@ -993,26 +993,6 @@ public final class GatoUtils {
     return ret;
   }
 
-  public ContentMap getAreaWithGlobalDefault(Object parent, String childName, String defaultrepo, String defaultpath) {
-    Node n = toNode(parent);
-    ContentMap child = null;
-    try {
-      if (n.hasNode(childName)) {
-        child = tf.asContentMap(n.getNode(childName));
-      } else {
-        Session gs = sc.getJCRSession(defaultrepo);
-        child = tf.asContentMap(gs.getNode(defaultpath));
-      }
-    } catch (Exception e) {
-      try {
-        System.out.println("getAreaWithGlobalDefault page: "+n.getPath());
-        System.out.println("getAreaWithGlobalDefault user: "+MgnlContext.getUser().getName());
-      } catch (Exception se) {  }
-      e.printStackTrace();
-    }
-    return child;
-  }
-
   public ContentMap getOrCreateArea(Object parent, String childName) {
     return getOrCreateNode(parent, childName, "mgnl:area");
   }
