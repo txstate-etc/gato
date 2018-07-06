@@ -2,10 +2,10 @@
   .banner {
     .banner-image {
       position: relative;
-      height: 25em;
+      height: 31em;
       @media (max-width: $xl-breakpoint) {
         height: 0;
-        padding-bottom: 31%;
+        padding-bottom: 36.2%;
      }
      @media (max-width: $sm-breakpoint) {
        padding-bottom: 62.5%;

@@ -1,5 +1,5 @@
 [#assign aspectclass = 'tall']
-[#if gf.getImgAspectRatio(content.image) > 3.3]
+[#if gf.getImgAspectRatio(content.image) > 2.8]
   [#assign aspectclass = 'wide']
 [/#if]
 [#assign src = gf.getImgDefault(content.image)]
