@@ -1,4 +1,7 @@
 .banner-section {
+  @media (max-width: $sm-breakpoint) {
+    padding-top: 6rem;
+  }
   .banner {
     .banner-image {
       position: relative;
