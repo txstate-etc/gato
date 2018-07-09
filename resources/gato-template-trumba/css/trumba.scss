@@ -7,3 +7,12 @@
 .standard-search.gato-search {
   display: none;
 }
+.btn-submit-event {
+  color: white;
+  background: $maroon;
+  border: 0;
+  padding: 0.5rem 2rem;
+  &:hover {
+    background-color: $darkest-maroon;
+  }
+}

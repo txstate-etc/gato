@@ -6,3 +6,9 @@ function addTrumbaSpud(options) {
     jQuery(doc).find('head').append('<link rel="stylesheet" type="text/css" href="'+magnolia_assets_url+'/gato-template-trumba/css/iframe.scss">');
   });
 }
+
+jQuery(document).ready(function($) {
+  $('.btn-submit-event').click(function() {
+    eventSubmissionModal.show();
+  })
+});

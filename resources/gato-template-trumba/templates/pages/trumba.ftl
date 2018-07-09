@@ -70,6 +70,9 @@
               </script>
             </div>
             <div class="side_nav nav-without-title">
+              <button class="btn-submit-event">Submit Event</button>
+            </div>
+            <div class="side_nav nav-without-title">
               <script type="text/javascript">
                 addTrumbaSpud({ webName: 'calendar.${content.calendar}', spudType: 'searchlabeled' });
               </script>
@@ -88,5 +91,11 @@
         </div>
       </footer>
     </div> <!-- end of the container -->
+    <div id="submit-event-modal">
+      Modal Content
+    </div>
+    <script type="text/javascript">
+      var eventSubmissionModal = new modal($('submit-event-modal'));
+    </script>
   </body>
 </html>
