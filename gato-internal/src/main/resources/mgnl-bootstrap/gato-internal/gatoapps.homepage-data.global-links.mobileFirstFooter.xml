@@ -29,7 +29,7 @@
       <sv:value>71baa9a5-989c-4c44-b4ee-373d995da8dd</sv:value>
     </sv:property>
     <sv:property sv:name="link" sv:type="String">
-      <sv:value>#</sv:value>
+      <sv:value>http://www.txstate.edu/about/about-this-site</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:created" sv:type="Date">
       <sv:value>2018-06-27T13:42:44.232-05:00</sv:value>
@@ -38,7 +38,7 @@
       <sv:value>a_f269</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-      <sv:value>2018-06-27T13:47:33.411-05:00</sv:value>
+      <sv:value>2018-07-09T10:42:24.433-05:00</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
       <sv:value>a_f269</sv:value>
