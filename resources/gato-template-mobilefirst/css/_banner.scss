@@ -11,6 +11,9 @@
         padding-bottom: 36.2%;
      }
      @media (max-width: $sm-breakpoint) {
+       padding-bottom: 50%;
+     }
+     @media (max-width: $xs-breakpoint) {
        padding-bottom: 62.5%;
     }
       overflow: hidden;
