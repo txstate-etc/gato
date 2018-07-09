@@ -40,7 +40,7 @@
   <div class="bottom">
     <div class="logo">
     <a href="http://www.txstate.edu">
-      <img src="${ctx.contextPath}/.resources/gato-template-mobilefirst/images/txstate_h_1e_secondary_white_rgb.png" alt="Texas State University" />
+      <img src="${ctx.contextPath}/.resources/gato-template-mobilefirst/images/TXSTATE_H_1e_Secondary_White.png" alt="Texas State University" />
     </a>
     </div>
     <ul class="bottom-footer-links">
