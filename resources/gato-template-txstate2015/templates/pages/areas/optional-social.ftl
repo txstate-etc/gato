@@ -7,4 +7,5 @@
   </div>
 [#else]
   [@cms.component content=cmsfn.contentByPath('/homepage-data/global-links/defaultSocial', 'gatoapps') editable=false /]
+  <div class="optionalsocial_add" cms:add="box"></div>
 [/#if]

@@ -2,6 +2,7 @@ jQuery( document ).ready(function($) {
   magnolialabelchange('.mainContent_add', '.mgnlEditor.mgnlPlaceholder', 'Add Section');
   magnolialabelchange('.navBlocks_add', '.mgnlEditor.mgnlPlaceholder', 'Add Link Group');
   magnolialabelchange('.socallist_add', '.mgnlEditor.mgnlPlaceholder', 'Add Social Media Links');
+  magnolialabelchange('.optionalsocial_add', '.mgnlEditor.mgnlPlaceholder', "Customize Social Media Links");
   magnolialabelchange('.listItems_add', '.mgnlEditor.mgnlPlaceholder', 'Add Link');
   magnolialabelchange('.txst-gallery-image.add', '.mgnlEditor.mgnlPlaceholder', 'Add Image');
   magnolialabelchange('.feature_add', '.mgnlEditor.mgnlPlaceholder', 'Add Slide');
