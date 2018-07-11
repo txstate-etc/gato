@@ -52,6 +52,16 @@ body.admin {
       text-decoration: underline;
     }
   }
+  div.mgnlEditorBar.mgnlEditor.component.moveTarget.moveOver {
+    background-color: $edit-bar-move !important;
+    .mgnlEditorBarLabel {
+      text-decoration: underline;
+    }
+  }
+
+  div.mgnlEditorBar.mgnlEditor.component.moveSource {
+    background-color: $edit-bar-teal !important;
+  }
 
   div.mgnlEditorBar.area.init {
     ~ * div.mgnlPlaceholder div.mgnlEditorBar.component,
