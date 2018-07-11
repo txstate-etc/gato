@@ -24,12 +24,7 @@ fullWidthTest:
     fullWidth:
       id: gato-template-mobilefirst:components/fullwidth
 socialmedia:
-  type: list
-  maxComponents: 1
-  templateScript: /gato-template-txstate2015/templates/pages/areas/optional-social.ftl
-  availableComponents:
-    sociallink:
-      id: gato-template:components/sociallink
+  !include /gato-template/templates/areas/optional-social.yaml
 siteinfo:
   type: single
   title: Contact Information

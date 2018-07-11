@@ -87,7 +87,7 @@
       </div> <!-- end of page_content -->
       <footer>
         <div class="social-icons">
-          [@cms.area name="socialmedia"/]
+          [@cms.area name="socialmedia" contextAttributes={"icononly": true}/]
         </div>
       </footer>
     </div> <!-- end of the container -->

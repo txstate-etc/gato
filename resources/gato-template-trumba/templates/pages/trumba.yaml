@@ -5,12 +5,7 @@ title: Trumba Template
 dialog: gato-template-trumba:pages/trumba
 areas:
   socialmedia:
-    type: list
-    maxComponents: 1
-    templateScript: /gato-template-txstate2015/templates/pages/areas/optional-social.ftl
-    availableComponents:
-      sociallink:
-        id: gato-template:components/sociallink
+    !include /gato-template/templates/areas/optional-social.yaml
 parameters:
   sortOrder: 800
 variations:

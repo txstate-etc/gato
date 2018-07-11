@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sv:node xmlns:sv="http://www.jcp.org/jcr/sv/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" sv:name="defaultSocial">
   <sv:property sv:name="jcr:primaryType" sv:type="Name">
-    <sv:value>mgnl:component</sv:value>
+    <sv:value>mgnl:content</sv:value>
   </sv:property>
   <sv:property sv:name="jcr:uuid" sv:type="String">
     <sv:value>519ec192-c4e0-4270-88e8-78698318e943</sv:value>
@@ -24,124 +24,101 @@
   <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
     <sv:value>nw13</sv:value>
   </sv:property>
-  <sv:node sv:name="sociallinks">
-    <sv:property sv:name="jcr:primaryType" sv:type="Name">
-      <sv:value>mgnl:content</sv:value>
-    </sv:property>
-    <sv:property sv:name="jcr:uuid" sv:type="String">
-      <sv:value>f29da640-e987-4836-ba69-e1622cfd0def</sv:value>
-    </sv:property>
-    <sv:property sv:name="mgnl:created" sv:type="Date">
-      <sv:value>2018-07-06T17:09:52.239-05:00</sv:value>
-    </sv:property>
-    <sv:property sv:name="mgnl:createdBy" sv:type="String">
-      <sv:value>nw13</sv:value>
-    </sv:property>
-    <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-      <sv:value>2018-07-06T17:09:52.239-05:00</sv:value>
-    </sv:property>
-    <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
-      <sv:value>nw13</sv:value>
-    </sv:property>
-		<sv:property sv:name="text" sv:type="String">
-			<sv:value>Links</sv:value>
+	<sv:node sv:name="facebook">
+		<sv:property sv:name="jcr:primaryType" sv:type="Name">
+			<sv:value>mgnl:component</sv:value>
 		</sv:property>
-    <sv:node sv:name="facebook">
-      <sv:property sv:name="jcr:primaryType" sv:type="Name">
-        <sv:value>mgnl:component</sv:value>
-      </sv:property>
-      <sv:property sv:name="jcr:uuid" sv:type="String">
-        <sv:value>bf6480f8-bc15-40f7-b236-dec3ad1eae44</sv:value>
-      </sv:property>
-      <sv:property sv:name="link" sv:type="String">
-        <sv:value>http://www.facebook.com</sv:value>
-      </sv:property>
-      <sv:property sv:name="mgnl:created" sv:type="Date">
-        <sv:value>2018-07-06T16:41:41.766-05:00</sv:value>
-      </sv:property>
-      <sv:property sv:name="mgnl:createdBy" sv:type="String">
-        <sv:value>nw13</sv:value>
-      </sv:property>
-      <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-        <sv:value>2018-07-06T17:09:56.356-05:00</sv:value>
-      </sv:property>
-      <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
-        <sv:value>nw13</sv:value>
-      </sv:property>
-      <sv:property sv:name="text" sv:type="String">
-        <sv:value>Facebook</sv:value>
-      </sv:property>
-    </sv:node>
-    <sv:node sv:name="instagram">
-      <sv:property sv:name="jcr:primaryType" sv:type="Name">
-        <sv:value>mgnl:component</sv:value>
-      </sv:property>
-      <sv:property sv:name="jcr:uuid" sv:type="String">
-        <sv:value>5cd6f6e4-6b4b-47bc-80df-b887b33d52e4</sv:value>
-      </sv:property>
-      <sv:property sv:name="link" sv:type="String">
-        <sv:value>http://www.instagram.com</sv:value>
-      </sv:property>
-      <sv:property sv:name="mgnl:activationStatus" sv:type="Boolean">
-        <sv:value>false</sv:value>
-      </sv:property>
-      <sv:property sv:name="mgnl:created" sv:type="Date">
-        <sv:value>2018-07-06T16:42:21.305-05:00</sv:value>
-      </sv:property>
-      <sv:property sv:name="mgnl:createdBy" sv:type="String">
-        <sv:value>nw13</sv:value>
-      </sv:property>
-      <sv:property sv:name="mgnl:lastActivated" sv:type="Date">
-        <sv:value>2018-07-06T16:42:21.306-05:00</sv:value>
-      </sv:property>
-      <sv:property sv:name="mgnl:lastActivatedBy" sv:type="String">
-        <sv:value>nw13</sv:value>
-      </sv:property>
-      <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-        <sv:value>2018-07-06T17:10:00.139-05:00</sv:value>
-      </sv:property>
-      <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
-        <sv:value>nw13</sv:value>
-      </sv:property>
-      <sv:property sv:name="text" sv:type="String">
-        <sv:value>Instagram</sv:value>
-      </sv:property>
-    </sv:node>
-    <sv:node sv:name="twitter">
-      <sv:property sv:name="jcr:primaryType" sv:type="Name">
-        <sv:value>mgnl:component</sv:value>
-      </sv:property>
-      <sv:property sv:name="jcr:uuid" sv:type="String">
-        <sv:value>d6e66246-25b9-4296-9709-03c76d1c4611</sv:value>
-      </sv:property>
-      <sv:property sv:name="link" sv:type="String">
-        <sv:value>http://www.twitter.com</sv:value>
-      </sv:property>
-      <sv:property sv:name="mgnl:activationStatus" sv:type="Boolean">
-        <sv:value>false</sv:value>
-      </sv:property>
-      <sv:property sv:name="mgnl:created" sv:type="Date">
-        <sv:value>2018-07-06T16:42:23.111-05:00</sv:value>
-      </sv:property>
-      <sv:property sv:name="mgnl:createdBy" sv:type="String">
-        <sv:value>nw13</sv:value>
-      </sv:property>
-      <sv:property sv:name="mgnl:lastActivated" sv:type="Date">
-        <sv:value>2018-07-06T16:42:23.111-05:00</sv:value>
-      </sv:property>
-      <sv:property sv:name="mgnl:lastActivatedBy" sv:type="String">
-        <sv:value>nw13</sv:value>
-      </sv:property>
-      <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-        <sv:value>2018-07-06T17:10:02.242-05:00</sv:value>
-      </sv:property>
-      <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
-        <sv:value>nw13</sv:value>
-      </sv:property>
-      <sv:property sv:name="text" sv:type="String">
-        <sv:value>Twitter</sv:value>
-      </sv:property>
-    </sv:node>
-  </sv:node>
+		<sv:property sv:name="jcr:uuid" sv:type="String">
+			<sv:value>bf6480f8-bc15-40f7-b236-dec3ad1eae44</sv:value>
+		</sv:property>
+		<sv:property sv:name="link" sv:type="String">
+			<sv:value>http://www.facebook.com</sv:value>
+		</sv:property>
+		<sv:property sv:name="mgnl:created" sv:type="Date">
+			<sv:value>2018-07-06T16:41:41.766-05:00</sv:value>
+		</sv:property>
+		<sv:property sv:name="mgnl:createdBy" sv:type="String">
+			<sv:value>nw13</sv:value>
+		</sv:property>
+		<sv:property sv:name="mgnl:lastModified" sv:type="Date">
+			<sv:value>2018-07-06T17:09:56.356-05:00</sv:value>
+		</sv:property>
+		<sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
+			<sv:value>nw13</sv:value>
+		</sv:property>
+		<sv:property sv:name="text" sv:type="String">
+			<sv:value>Facebook</sv:value>
+		</sv:property>
+	</sv:node>
+	<sv:node sv:name="instagram">
+		<sv:property sv:name="jcr:primaryType" sv:type="Name">
+			<sv:value>mgnl:component</sv:value>
+		</sv:property>
+		<sv:property sv:name="jcr:uuid" sv:type="String">
+			<sv:value>5cd6f6e4-6b4b-47bc-80df-b887b33d52e4</sv:value>
+		</sv:property>
+		<sv:property sv:name="link" sv:type="String">
+			<sv:value>http://www.instagram.com</sv:value>
+		</sv:property>
+		<sv:property sv:name="mgnl:activationStatus" sv:type="Boolean">
+			<sv:value>false</sv:value>
+		</sv:property>
+		<sv:property sv:name="mgnl:created" sv:type="Date">
+			<sv:value>2018-07-06T16:42:21.305-05:00</sv:value>
+		</sv:property>
+		<sv:property sv:name="mgnl:createdBy" sv:type="String">
+			<sv:value>nw13</sv:value>
+		</sv:property>
+		<sv:property sv:name="mgnl:lastActivated" sv:type="Date">
+			<sv:value>2018-07-06T16:42:21.306-05:00</sv:value>
+		</sv:property>
+		<sv:property sv:name="mgnl:lastActivatedBy" sv:type="String">
+			<sv:value>nw13</sv:value>
+		</sv:property>
+		<sv:property sv:name="mgnl:lastModified" sv:type="Date">
+			<sv:value>2018-07-06T17:10:00.139-05:00</sv:value>
+		</sv:property>
+		<sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
+			<sv:value>nw13</sv:value>
+		</sv:property>
+		<sv:property sv:name="text" sv:type="String">
+			<sv:value>Instagram</sv:value>
+		</sv:property>
+	</sv:node>
+	<sv:node sv:name="twitter">
+		<sv:property sv:name="jcr:primaryType" sv:type="Name">
+			<sv:value>mgnl:component</sv:value>
+		</sv:property>
+		<sv:property sv:name="jcr:uuid" sv:type="String">
+			<sv:value>d6e66246-25b9-4296-9709-03c76d1c4611</sv:value>
+		</sv:property>
+		<sv:property sv:name="link" sv:type="String">
+			<sv:value>http://www.twitter.com</sv:value>
+		</sv:property>
+		<sv:property sv:name="mgnl:activationStatus" sv:type="Boolean">
+			<sv:value>false</sv:value>
+		</sv:property>
+		<sv:property sv:name="mgnl:created" sv:type="Date">
+			<sv:value>2018-07-06T16:42:23.111-05:00</sv:value>
+		</sv:property>
+		<sv:property sv:name="mgnl:createdBy" sv:type="String">
+			<sv:value>nw13</sv:value>
+		</sv:property>
+		<sv:property sv:name="mgnl:lastActivated" sv:type="Date">
+			<sv:value>2018-07-06T16:42:23.111-05:00</sv:value>
+		</sv:property>
+		<sv:property sv:name="mgnl:lastActivatedBy" sv:type="String">
+			<sv:value>nw13</sv:value>
+		</sv:property>
+		<sv:property sv:name="mgnl:lastModified" sv:type="Date">
+			<sv:value>2018-07-06T17:10:02.242-05:00</sv:value>
+		</sv:property>
+		<sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
+			<sv:value>nw13</sv:value>
+		</sv:property>
+		<sv:property sv:name="text" sv:type="String">
+			<sv:value>Twitter</sv:value>
+		</sv:property>
+	</sv:node>
 </sv:node>
 
