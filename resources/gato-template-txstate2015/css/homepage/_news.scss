@@ -3,6 +3,14 @@ div#news {
     margin-bottom: 0;
   }
 
+  .news .column-title a {
+    color: inherit;
+    text-decoration: underline;
+    &:hover {
+      background-color: transparent;
+    }
+  }
+
   .news-slider-wrap {
     position: relative;
     .feature-play-button {
@@ -34,11 +42,10 @@ div#news {
     padding: 0 2rem;
     margin-top: -1.5rem;
     @media (max-width: $md-breakpoint){ padding: 0 1.5rem; }
-    @media (max-width: $sm-breakpoint){ 
-      padding: 0; 
+    @media (max-width: $sm-breakpoint){
+      padding: 0;
       margin-top: 0.5rem;
     }
-    direction: rtl;
 
    .solo-bailout {
       direction: ltr;
@@ -46,11 +53,11 @@ div#news {
       width: 50%;
       letter-spacing: normal;
       padding: 0;
-      &:last-child { 
+      &:last-child {
         margin-top: 2rem;
-        text-align: left; 
+        text-align: left;
       }
-      @media (max-width: $sm-breakpoint) { 
+      @media (max-width: $sm-breakpoint) {
         width: 100%;
         &:last-child { text-align: center; }
       }
@@ -75,11 +82,11 @@ div#news {
   ul[role=tablist] {
     li {
       display: inline-block;
-      &:not(:last-child) { 
-        margin-right: 5rem; 
+      &:not(:last-child) {
+        margin-right: 5rem;
         @media (max-width: $sm-breakpoint){ margin-right: 3rem; }
       }
-      a[role=tab] { 
+      a[role=tab] {
         color: $medium-light-gray;
         &:hover { color: inherit; }
         &[aria-selected=true] {
@@ -104,7 +111,7 @@ div#news {
       position: relative;
       min-height: 9rem;
       margin-bottom: 3.8rem;
-    
+
       .event-title {
         position: relative;
         top: -1rem;
@@ -125,7 +132,7 @@ div#news {
         background: $light-maroon;
         text-align: center;
         a { display: block; }
-        
+
         .month {
           display: block;
           text-transform: uppercase;
@@ -167,7 +174,7 @@ div#news {
     #tabpanel-dates {
       .event-title {
         position: relative;
-        top: 1rem; 
+        top: 1rem;
       }
     }
 
@@ -192,12 +199,12 @@ div#news {
       font-size: 1.4rem;
       padding: 0 2.5rem 4rem;
       margin-top: -0.7rem;
-      @media (max-width: $md-breakpoint) { 
-        padding-top: 1.5rem; 
-        padding-bottom: 3.5rem; 
+      @media (max-width: $md-breakpoint) {
+        padding-top: 1.5rem;
+        padding-bottom: 3.5rem;
       }
 
-      h3 { 
+      h3 {
         display: inline-block;
         margin: 0;
         font-size: 1.4rem;

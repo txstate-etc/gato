@@ -67,7 +67,9 @@
     <div class="content-row-column">
       <div class="col-left news">
 
-        <h2 class="column-title">News</h2>
+        <h2 class="column-title">
+        [@cms.area name="newsHeader"/]
+        </h2>
 
         <div class="news-slider-wrap">
           <div class="slides">
@@ -133,15 +135,7 @@
           <div class="solo-bailout">
             <p>
               <a id="news-service" href="/news-archive" class="solo-bailout-button">
-                News Archive<i class="button-chevron fa fa-chevron-right"></i>
-              </a>
-            </p>
-          </div>
-
-          <div class="solo-bailout">
-            <p>
-              <a id="ustar" href="http://star.txstate.edu">
-                University Star<i class="button-chevron fa fa-chevron-right"></i>
+                Newsroom<i class="button-chevron fa fa-chevron-right"></i>
               </a>
             </p>
           </div>

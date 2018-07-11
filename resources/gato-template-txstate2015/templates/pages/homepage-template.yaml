@@ -27,6 +27,13 @@ areas:
     availableComponents:
       footerLinkGroup:
         id: gato-template-txstate2015:components/footer-link-group
+  newsHeader:
+    renderType: freemarker
+    type: single
+    title: News Header
+    availableComponents:
+      link:
+        id: gato-template:components/link
   siteinfo:
     renderType: freemarker
     type: single
