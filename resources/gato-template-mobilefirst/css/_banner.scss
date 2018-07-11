@@ -3,6 +3,7 @@
     padding-top: 6rem;
   }
   .banner {
+    position: relative;
     .banner-image {
       position: relative;
       height: 31em;
@@ -43,7 +44,10 @@
       //end copied from Wittliff
       .editBanner {
         position: absolute;
+        width: 33%;
         top: 60px;
+        left: 50%;
+        transform: translate(-50%, 0);
       }
     }
   }
@@ -81,7 +85,12 @@
     .addBannerImage {
       width: 25%;
       position: absolute;
-      top: 60px;
+      left: 50%;
+      top: calc(50% + 30px);
+      transform: translate(-50%, -50%);
+      .mgnlEditorBar.mgnlEditor.component {
+        margin-bottom: 0px !important;
+      }
     }
   }
 }

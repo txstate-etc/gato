@@ -153,7 +153,10 @@ body.admin {
       transform: none !important;
       .menu {
         .mgnlEditor.mgnlPlaceholder {
-          width: 125px !important;
+          width: 40% !important;
+          .mgnlEditorBar.mgnlEditor.component {
+            margin-bottom: 0px !important;
+          }
         }
       }
       .multilinks {

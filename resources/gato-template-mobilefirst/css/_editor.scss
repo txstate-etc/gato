@@ -33,13 +33,23 @@ body.admin {
     ~ * div.mgnlEditorBar.component.moveTarget {
       border-width: 1px !important;
       &.moveOver {
-        background-color: hotpink !important;
+        background-color: $edit-bar-move !important;
+        .mgnlEditorBarLabel {
+          text-decoration: underline;
+        }
       }
     }
 
     ~ div.mgnlEditorBar.component.moveOver,
     ~ * div.mgnlEditorBar.component.moveOver {
-      background-color: yellow !important;
+      @extend %bar;
+    }
+  }
+
+  #mgnlEditorMoveDiv {
+    background-color: $edit-bar-teal !important;
+    .mgnlEditorBarLabel {
+      text-decoration: underline;
     }
   }
 
