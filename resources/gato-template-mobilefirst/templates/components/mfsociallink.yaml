@@ -1,0 +1,3 @@
+#Duplicate the sociallink component but use a different dialog so we can hide the option to choose an image
+!inherit:gato-template:components/sociallink
+dialog: gato-template-mobilefirst:components/mfsociallink

@@ -1,0 +1,15 @@
+#Duplicate the sociallink dialog but change the image field to a blank static field
+!inherit:gato-template:components/sociallink
+form:
+  tabs:
+    - name: tabMain
+      fields:
+        - name: sociallinks
+          field:
+            name: social
+            fields:
+              - name: icon
+                class: info.magnolia.ui.form.field.definition.StaticFieldDefinition
+                styleName: emptyStatic
+                label: ""
+                value: ""
