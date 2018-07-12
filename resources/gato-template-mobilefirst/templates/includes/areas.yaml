@@ -37,6 +37,10 @@ siteinfo:
     miscText:
       id: gato-template:components/misctext
 resources:
-  !include /gato-template/templates/areas/linklist.yaml
+  type: list
+  templateScript: /gato-template-mobilefirst/templates/areas/resources.ftl
+  availableComponents:
+    link:
+      id: gato-template:components/link
 connect:
   !include /gato-template/templates/areas/linklist.yaml
