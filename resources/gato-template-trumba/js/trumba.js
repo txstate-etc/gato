@@ -11,4 +11,7 @@ jQuery(document).ready(function($) {
   $('.btn-submit-event').click(function() {
     eventSubmissionModal.show();
   })
+  $('.btn-close-modal').click(function() {
+    eventSubmissionModal.hide();
+  })
 });

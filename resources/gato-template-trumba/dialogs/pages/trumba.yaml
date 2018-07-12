@@ -10,5 +10,8 @@ form:
           class: edu.txstate.its.gato.TrumbaSelectDefinition
           label: Calendar
           sortOptions: false
+        - name: code
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Submission Form Code
 actions: !include /gato-template/dialogs/common/actions-block.yaml
 label: Page Properties

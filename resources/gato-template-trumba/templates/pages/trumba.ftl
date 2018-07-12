@@ -69,9 +69,11 @@
                 addTrumbaSpud({ webName: 'calendar.${content.calendar}', spudType: 'datefinder' });
               </script>
             </div>
+            [#if content.code?hasContent]
             <div class="side_nav nav-without-title">
               <button class="btn-submit-event">Submit Event</button>
             </div>
+            [/#if]
             <div class="side_nav nav-without-title">
               <script type="text/javascript">
                 addTrumbaSpud({ webName: 'calendar.${content.calendar}', spudType: 'searchlabeled' });
@@ -92,7 +94,14 @@
       </footer>
     </div> <!-- end of the container -->
     <div id="submit-event-modal">
-      Modal Content
+    <button class="btn-close-modal">Close</button>
+    <script id="trumbaSubmitEventJS" type="text/javascript" src="//www.trumba.com/ea/scripts/submitevent.js"></script>
+    <script type="text/javascript">trumbaInsertSubmitEventForm({
+    code: "${content.code!}",
+    width: 385,
+    height: 775,
+    backgroundColor: "white" });
+    </script>
     </div>
     <script type="text/javascript">
       var eventSubmissionModal = new modal($('submit-event-modal'));
