@@ -5,3 +5,11 @@
 .v-caption-social-url .v-required-field-indicator {
    float: none;
 }
+
+.gato-social-link {
+  margin-bottom: 10px;
+}
+
+.emptyStatic {
+  display: none;
+}

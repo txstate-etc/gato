@@ -12,6 +12,7 @@ form:
             class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
             transformerClass: info.magnolia.ui.form.field.transformer.composite.NoOpCompositeTransformer
             layout: vertical
+            styleName: gato-social-link
             fields:
               - name: link
                 required: true
@@ -22,7 +23,6 @@ form:
                 identifierToPathConverter:
                   class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
                 description: "Enter the link to your social media presence."
-
               - name: title
                 class: info.magnolia.ui.form.field.definition.TextFieldDefinition
                 label: Title
@@ -37,10 +37,6 @@ form:
                 contentPreviewDefinition:
                   contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
                 description: "We have pre-loaded icons for many popular social media sites.  If you want something different, or no icon appears, you can choose an image from Assets. It should be at least 32x32."
-              - name: information
-                class: info.magnolia.ui.form.field.definition.StaticFieldDefinition
-                label: ""
-                value: ""
         - name: stylesheet
           label: ""
           class: edu.txstate.its.gato.vaadin.GatoCssIncludeDefinition
