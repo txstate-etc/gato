@@ -2,6 +2,10 @@ customcss:
   !include /gato-component-cssjs/templates/areas/customcss.yaml
 customjs:
   !include /gato-component-cssjs/templates/areas/customjs.yaml
+templatecss:
+  type: noComponent
+  title: Template CSS
+  templateScript: /gato-template-mobilefirst/templates/areas/templatecss.ftl
 menulinks:
   type: single
   title: Menu Links
