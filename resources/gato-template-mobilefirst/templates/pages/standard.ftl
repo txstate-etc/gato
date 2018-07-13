@@ -23,8 +23,7 @@
             [#-- Right now, we don't even know if the standard mobile first template has a sidebar. --]
             [#assign hideSidebar = true /]
             [@headline hideSidebar /]
-            [@cms.area name="contentParagraph" contextAttributes={"hideSidebar":hideSidebar} /]
-            [@cms.area name="fullWidthTest"/]
+            [@cms.area name="mobileFirstContent"/]
           </main>
         </div>
         [#include "includes/footer.ftl"]

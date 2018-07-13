@@ -21,6 +21,12 @@ top-banner:
       id: gato-template-mobilefirst:components/banner
 contentParagraph:
   !include /gato-template/templates/areas/contentParagraph.yaml
+mobileFirstContent:
+  type: list
+  title: Main Content Area
+  availableComponents:
+    twoCallouts:
+      id: gato-component-patterns:components/twocallouts
 fullWidthTest:
   type: list
   title: Testing Full Width Content Type

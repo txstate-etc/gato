@@ -1,0 +1,124 @@
+.mobilefirst-pattern {
+  display: flex;
+  justify-content: space-between;
+  @media (max-width: $sm-breakpoint) {
+    flex-direction: column;
+  }
+}
+.pattern-content {
+  width: 50%;
+  @media (max-width: $sm-breakpoint) {
+    width: 100%;
+  }
+  padding: 4rem;
+  &.left {
+    text-align: left;
+  }
+  &.center {
+    text-align: center;
+  }
+  &.color1 {
+    background-color: $mc1-bg;
+    color: $mc1-text;
+  }
+  &.color2 {
+    background-color: $mc2-bg;
+    color: $mc2-text;
+  }
+  &.color3 {
+    background-color: $mc3-bg;
+    color: $mc3-text;
+  }
+  &.color4 {
+    background-color: $mc4-bg;
+    color: $mc4-text;
+  }
+  &.color5 {
+    background-color: $mc5-bg;
+    color: $mc5-text;
+  }
+  &.color6 {
+    background-color: $mc6-bg;
+    color: $mc6-text;
+  }
+  &.color7 {
+    background-color: $mc7-bg;
+    color: $mc7-text;
+  }
+  .buttons {
+    padding-top: 2rem;
+    ul {
+      list-style: none;
+      display: inline-block;
+      padding: 0;
+      margin: 0;
+      li {
+        text-align: center;
+        padding: 1rem 0rem;
+      }
+    }
+  }
+  .button {
+    border: 2px solid #000;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    font-family: $univers;
+    font-weight: 700;
+    line-height: 2.4rem;
+    display: inline-block;
+    transition: all 200ms ease;
+    @at-root .color1#{&} {
+      border-color: $mc1-text;
+      color: $mc1-text;
+    }
+    @at-root .color2#{&} {
+      border-color: $mc2-text;
+      color: $mc2-text;
+    }
+    @at-root .color3#{&} {
+      border-color: $mc3-text;
+      color: $mc3-text;
+    }
+    @at-root .color4#{&} {
+      border-color: $maroon;
+      color: $maroon;
+    }
+    @at-root .color5#{&} {
+      border-color: $mc5-text;
+      color: $mc5-text;
+    }
+    @at-root .color6#{&} {
+      border-color: $mc6-text;
+      color: $mc6-text;
+    }
+    @at-root .color7#{&} {
+      border-color: $mc7-text;
+      color: $mc7-text;
+    }
+    &:hover {
+      transform: translate(0px, -3px);
+      box-shadow: inset 0 -2px 0 0;
+    }
+  }
+}
+.callout {
+  .stat {
+    font-family: $garamond;
+    font-weight: 400;
+    font-size: 5rem;
+    line-height: 5rem;
+  }
+  .title {
+    font-family: $garamond;
+    font-weight: 400;
+    font-size: 2rem;
+    line-height: 2.8rem;
+    padding: 1rem 0rem;
+  }
+  .text {
+    font-family: $univers;
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+  }
+}

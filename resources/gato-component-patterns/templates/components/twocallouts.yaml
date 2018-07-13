@@ -1,0 +1,7 @@
+templateScript: /gato-component-patterns/templates/components/twocallouts.ftl
+renderType: freemarker
+title: Side by Side Callouts
+description: Two content areas with callout text, a title, a subtitle, and button
+dialog: gato-component-patterns:components/twocallouts
+parameters:
+  icon: /gato-template/images/banner.png

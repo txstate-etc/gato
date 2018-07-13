@@ -1,0 +1,137 @@
+form:
+  tabs:
+    - name: tabCalloutOne
+      label: Left Callout
+      fields:
+        - name: calloutLeft
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Callout
+          required: true
+          maxLength: 6
+        - name: titleLeft
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Title
+          maxLength: 65
+          rows: 5
+        - name: textLeft
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Text
+          maxLength: 65
+          rows: 5
+        - name: alignContentLeft
+          class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
+          label: Align Text
+          multiselect: false
+          sortOptions: false
+          options:
+            - name: left
+              label: Align Left
+              value: left
+            - name: center
+              label: Align Center
+              value: center
+        - name: colorLeft
+          class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
+          fields:
+            - name: colorLeft
+              class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+          transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+          initFunction: initColorPicker
+          loadScriptsInOrder: true
+          scripts: [gato-lib/js/color-picker.js]
+          label: Background Color
+          parameters:
+            contentType: default
+            fieldName: colorLeft
+        - name: buttonsLeft
+          class: edu.txstate.its.gato.vaadin.GatoMultiValueFieldDefinition
+          transformerClass: info.magnolia.ui.form.field.transformer.multi.MultiValueSubChildrenNodePropertiesTransformer
+          label: Buttons
+          maxFields: 1
+          field:
+            name: button
+            class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
+            transformerClass: info.magnolia.ui.form.field.transformer.composite.NoOpCompositeTransformer
+            layout: vertical
+            fields:
+              - name: text
+                class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                label: Button Text
+                maxLength: 26
+              - name: link
+                class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+                label: Button Target
+                required: true
+                appName: pages
+                identifierToPathConverter:
+                  class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
+        - name: stylesheet
+          label: ""
+          class: edu.txstate.its.gato.vaadin.GatoCssIncludeDefinition
+          styles: [gato-template-mobilefirst/dialogs/css/fix-link-multifield.css]
+    - name: tabCalloutTwo
+      label: Right Callout
+      fields:
+        - name: calloutRight
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Callout
+          required: true
+          maxLength: 6
+        - name: titleRight
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Title
+          maxLength: 65
+          rows: 5
+        - name: textRight
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Text
+          maxLength: 65
+          rows: 5
+        - name: alignContentRight
+          class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
+          label: Align Text
+          multiselect: false
+          sortOptions: false
+          options:
+            - name: left
+              label: Align Left
+              value: left
+            - name: center
+              label: Align Center
+              value: center
+        - name: colorRight
+          class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
+          fields:
+            - name: colorRight
+              class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+          transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+          initFunction: initColorPicker
+          loadScriptsInOrder: true
+          scripts: [gato-lib/js/color-picker.js]
+          label: Background Color
+          parameters:
+            contentType: default
+            fieldName: colorRight
+        - name: buttonsRight
+          class: edu.txstate.its.gato.vaadin.GatoMultiValueFieldDefinition
+          transformerClass: info.magnolia.ui.form.field.transformer.multi.MultiValueSubChildrenNodePropertiesTransformer
+          label: Buttons
+          maxFields: 1
+          field:
+            name: button
+            class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
+            transformerClass: info.magnolia.ui.form.field.transformer.composite.NoOpCompositeTransformer
+            layout: vertical
+            fields:
+              - name: text
+                class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                label: Button Text
+                maxLength: 26
+              - name: link
+                class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+                label: Button Target
+                required: true
+                appName: pages
+                identifierToPathConverter:
+                  class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
+actions: !include /gato-template/dialogs/common/actions-block.yaml
