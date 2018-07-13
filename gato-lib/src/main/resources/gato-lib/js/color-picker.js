@@ -20,6 +20,11 @@ function initColorPicker(def, node, el, tmpl) {
   if (!fileExists(configfile)) {
     configfile = "./../.resources/"+"gato-template-txstate2015"+"/js/color-picker-config.js";
   }
+
+  var fieldName = "color";
+  if (def.parameters.fieldName) {
+    fieldName = def.parameters.fieldName;
+  }
   $.getJSON(configfile, function(data, status, xhr){
     var colorConfig = data;
     if (def.parameters.contentType) {
@@ -44,11 +49,11 @@ function initColorPicker(def, node, el, tmpl) {
     // Register the change event on the radio buttons to update the hidden field,
     // which will ultimately update the JCR.
     $('input[type=radio][name=colorsel]').change(function() {
-      $('input[type=hidden].color').val($(this).val()).change();
+      $('input[type=hidden].' + fieldName).val($(this).val()).change();
     });
 
     // Get the initial value out of the hidden field and check the associated radio button.
-    var val = $('input[type=hidden].color').val();
+    var val = $('input[type=hidden].' + fieldName).val();
     //if val has been set and either all colors are available or it is one of the available colors
     if (val && availableColors.indexOf(val) > -1) {
       $('input[type=radio][name=colorsel][value='+val+']').prop('checked', true);
@@ -56,7 +61,7 @@ function initColorPicker(def, node, el, tmpl) {
       // auto-select the first choice.
       $('input[type=radio][name=colorsel]').first().prop('checked', true);
       var firstVal = $('input[type=radio][name=colorsel]').first().val();
-      $('input[type=hidden].color').val(firstVal).change();
+      $('input[type=hidden].' + fieldName).val(firstVal).change();
     }
   })
   .fail(function(){
