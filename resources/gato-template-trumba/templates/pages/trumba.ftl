@@ -4,6 +4,7 @@
 <!DOCTYPE HTML>
 <html lang="en">
   <head>
+    [@googletagmanager /]
     <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-trumba/css/standard.scss"/>
     [@templatejs scripts=['gato-template-trumba/js/trumba.js'
     ]/]
@@ -13,6 +14,7 @@
 
   <body>
     [@skipnav/]
+    [@googletagmanagerbody /]
     <div id="panel" class="container">
       [#include "/gato-template-txstate2015/templates/pages/includes/top-banner.ftl"]
 
