@@ -1,0 +1,16 @@
+form:
+  tabs:
+    - name: tabTexts
+      label: Miscellaneous Text
+      fields:
+        - name: text
+          class: info.magnolia.ui.form.field.definition.RichTextFieldDefinition
+          label: Text
+          source: false
+          alignment: false
+          images: false
+          lists: false
+          tables: false
+          height: 500
+          configJsFile: /.resources/gato-template/js/richeditor/minimal-config.js
+actions: !include /gato-template/dialogs/common/actions-block.yaml

@@ -45,7 +45,7 @@ siteinfo:
   title: Contact Information
   availableComponents:
     miscText:
-      id: gato-template:components/misctext
+      id: gato-template:components/minrichtext
 resources:
   type: list
   templateScript: /gato-template-mobilefirst/templates/areas/resources.ftl
