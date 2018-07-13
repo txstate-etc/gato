@@ -87,9 +87,29 @@
           </div>
         </aside>
       </div> <!-- end of page_content -->
-      <footer>
-        <div class="social-icons">
-          [@cms.area name="socialmedia" contextAttributes={"icononly": true}/]
+      <footer class="footer">
+        <div class="footer_content">
+          <div class="footer_column footer_column_1">
+            <div class="social-tagline">Connect with Us:</div>
+            <div class="social-icons">
+              [@cms.area name="socialmedia" contextAttributes={"icononly": true}/]
+            </div>
+          </div>
+          <div class="footer_column footer_column_2">
+            <div class="txst_logo">
+              <a class="image_link" href="http://www.txstate.edu">
+                <!--[if lt IE 9]>
+                <img alt="Texas State University - The Rising Star of Texas" src="${gf.resourcePath()}/gato-template-txstate2015/images/txst_logo.png">
+                <![endif]-->
+                <!--[if gte IE 9]><!-->
+                <img alt="Texas State University - The Rising Star of Texas" src="${gf.resourcePath()}/gato-template-txstate2015/images/txst_logo.svg">
+                <!--<![endif]-->
+              </a>
+            </div>
+          </div>
+          <div class="footer_column footer_column_3">
+            <a class="apply_now about_txstate" href="http://www.txstate.edu/about">About Texas State</a>
+          </div>
         </div>
       </footer>
     </div> <!-- end of the container -->

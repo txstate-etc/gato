@@ -33,3 +33,40 @@
     }
   }
 }
+
+footer {
+  position: relative;
+  overflow: hidden;
+  background: $gold;
+  .footer_content {
+    padding: 2em 0em;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+  .footer_column {
+    position: relative;
+  }
+  .txst_logo {
+    margin: 0;
+  }
+  .social-icons {
+    ul { list-style-type: none; margin: 0; padding: 0; }
+    li {
+      float: left;
+    }
+    a {
+      border-radius: 0.5rem !important;
+      font-size: 1.6rem !important;
+      margin: -2px -4px !important;
+      padding: 2px 4px !important;
+      margin-right: 0.8rem !important;
+      i.fa {
+        color: white;
+      }
+    }
+    a:hover { background: rgb(80, 18, 20) !important }
+  }
+  .about_txstate {
+  }
+}
