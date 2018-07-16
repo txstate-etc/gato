@@ -27,6 +27,8 @@ mobileFirstContent:
   availableComponents:
     twoCallouts:
       id: gato-component-patterns:components/twocallouts
+    quoteImage:
+      id: gato-component-patterns:components/quoteimage
 fullWidthTest:
   type: list
   title: Testing Full Width Content Type

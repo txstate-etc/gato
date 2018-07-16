@@ -1,0 +1,7 @@
+templateScript: /gato-component-patterns/templates/components/quoteimage.ftl
+renderType: freemarker
+title: Quotation and Image
+description: A quotation and source with an image
+dialog: gato-component-patterns:components/quoteimage
+parameters:
+  icon: /gato-template/images/banner.png
