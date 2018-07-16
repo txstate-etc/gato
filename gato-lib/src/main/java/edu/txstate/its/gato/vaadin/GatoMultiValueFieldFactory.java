@@ -39,7 +39,7 @@ public class GatoMultiValueFieldFactory extends AbstractFieldFactory<GatoMultiVa
     field.setOrderable(!isUnOrderable);
 
     field.setMaxFields(definition.getMaxFields());
-
+    field.setMinFields(definition.getMinFields());
 
     return field;
   }

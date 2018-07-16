@@ -66,6 +66,8 @@ import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.NativeButton;
 import com.vaadin.ui.VerticalLayout;
 
+import java.util.Iterator;
+
 /**
  * The is a version of magnolia's multi field that starts with one empty field visible to be more user friendly. (Ticket #7865)
  * Most of this code comes from info.magnolia.ui.form.field.MultiField.
@@ -84,6 +86,7 @@ public class GatoMultiField extends MultiField {
     private String buttonCaptionMoveDown = "Move Down";
     private boolean isOrderable = true;
     private int maxFields;
+    private int minFields;
 
     public GatoMultiField(MultiValueFieldDefinition definition, FieldFactoryFactory fieldFactoryFactory, ComponentProvider componentProvider, Item relatedFieldItem, I18NAuthoringSupport i18nAuthoringSupport) {
         super(definition, fieldFactoryFactory, componentProvider, relatedFieldItem, i18nAuthoringSupport);
@@ -113,6 +116,7 @@ public class GatoMultiField extends MultiField {
                   addButton.setEnabled(false);
                 }
                 root.addComponent(createNewOption(), root.getComponentCount() - 1);
+                updateDeleteButtons();
             }
         });
 
@@ -121,13 +125,16 @@ public class GatoMultiField extends MultiField {
 
         int componentCount = root.getComponentCount();
         //The add button is a component
-        if (componentCount == 1) {
+        if (componentCount == 1 && minFields > 0) {
+          for (int i=0; i<minFields; i++)
             root.addComponent(createNewOption(), root.getComponentCount() - 1);
         }
 
         if (maxFields > 0 && root.getComponentCount() == maxFields + 1) {
           addButton.setEnabled(false);
         }
+
+        updateDeleteButtons();
 
         return root;
     }
@@ -251,12 +258,29 @@ public class GatoMultiField extends MultiField {
                 if (maxFields > 0 && root.getComponentCount() < maxFields + 1) {
                   addButton.setEnabled(true);
                 }
+                updateDeleteButtons();
             }
         });
         layout.addComponents(deleteButton);
         layout.setComponentAlignment(deleteButton, Alignment.BOTTOM_RIGHT);
 
         return layout;
+    }
+
+    private void updateDeleteButtons() {
+      int componentCount = root.getComponentCount();
+      if (minFields > 0) {
+        //the add button counts as a component
+        boolean enable = componentCount <= minFields + 1 ? false : true;
+        Iterator<Component> iterate = root.iterator();
+        while (iterate.hasNext()) {
+          Component c = iterate.next();
+          if (c instanceof HorizontalLayout) {
+            HorizontalLayout hl = (HorizontalLayout) c;
+            hl.getComponent(hl.getComponentCount() - 1).setEnabled(enable);
+          }
+        }
+      }
     }
 
     /**
@@ -275,6 +299,13 @@ public class GatoMultiField extends MultiField {
     */
     public void setMaxFields(int maxFields) {
       this.maxFields = maxFields;
+    }
+
+    /**
+    * Minimum number of fields
+    */
+    public void setMinFields(int minFields) {
+      this.minFields = minFields;
     }
     /**
      * Ensure that id of the {@link PropertysetItem} stay coherent.<br>
