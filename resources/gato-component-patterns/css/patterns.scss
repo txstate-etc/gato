@@ -9,6 +9,9 @@
   .pattern-content {
     width: 50%;
     padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     @media (max-width:$sm-breakpoint) {
       width: 100%;
       max-height: 400px;
@@ -191,20 +194,47 @@
   }
 }
 
-.quotation {
-  .quotation-text {
-    font-family: $garamond;
-    font-size: 2.4rem;
-    font-weight: 400;
-    line-height: 3rem;
-    padding-bottom: 2rem;
-  }
-  .quotation-source {
-    .source-name, .source-title {
-      font-family: $univers;
-      font-size: 1.6rem;
-      font-weight: 500;
-      line-height: 2.4rem;
+.mobilefirst-pattern {
+  .quotation {
+    .quotation-text {
+      font-family: $garamond;
+      font-size: 2.4rem;
+      font-weight: 400;
+      line-height: 3rem;
+      padding-bottom: 2rem;
+      position: relative;
+      &:before {
+        font-family: "FontAwesome";
+        font-size: 4rem;
+        position: absolute;
+        @at-root .image-left#{&} {
+          content: "\f10d";
+          top: -4.5rem;
+          left: -5.8rem;
+          @media (max-width: $sm-breakpoint) {
+            top: -5.5rem;
+            left: 0;
+          }
+        }
+        @at-root .image-right#{&} {
+          content: "\f10e";
+          top: -4.5rem;
+          right: -5.8rem;
+          @media (max-width: $sm-breakpoint) {
+            content: "\f10d";
+            top: -5.5rem;
+            left: 0;
+          }
+        }
+      }
+    }
+    .quotation-source {
+      .source-name, .source-title {
+        font-family: $univers;
+        font-size: 1.6rem;
+        font-weight: 500;
+        line-height: 2.4rem;
+      }
     }
   }
 }
