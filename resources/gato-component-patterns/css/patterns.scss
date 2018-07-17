@@ -6,9 +6,14 @@
     flex-direction: column;
     max-height: none;
   }
+  .centered {
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
   .pattern-content {
     width: 50%;
-    padding: 4rem;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
