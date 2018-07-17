@@ -1,235 +1,174 @@
-@mixin arrow($color, $position) {
-  border: solid transparent;
-  content: ' ';
-  height: 0;
-  width: 0;
-  position: absolute;
-  border-color: transparent;
-  border-width: 2.5rem;
-  margin: 0;
-  @if $position == top {
-    bottom: 100%;
-    top: auto;
-    left: 50%;
-    border-bottom-color: $color;
-    margin-left: -2.5rem;
-  }
-  @else if $position == right {
-    left: 100%;
-    top: 50%;
-    border-left-color: $color;
-    margin-top: -2.5rem;
-  }
-  @else if $position == bottom {
-    top: 100%;
-    left: 50%;
-    border-top-color: $color;
-    margin-left: -2.5rem;
-  }
-  @else if $position == left {
-    right: 100%;
-    top: 50%;
-    border-right-color: $color;
-    margin-top: -2.5rem;
-  }
-}
-
 .mobilefirst-pattern {
+  max-height: 400px;
   display: flex;
   justify-content: space-between;
-  @media (max-width: $sm-breakpoint) {
+  @media (max-width:$sm-breakpoint) {
     flex-direction: column;
-  }
-  max-height: 400px;
-  @media (max-width: $sm-breakpoint) {
     max-height: none;
   }
-}
-.pattern-content {
-  width: 50%;
-  @media (max-width: $sm-breakpoint) {
-    width: 100%;
-    max-height: 400px;
-  }
-  padding: 4rem;
-  &.text-left {
-    text-align: left;
-  }
-  &.text-center {
-    text-align: center;
-  }
-  &.color1 {
-    background-color: $mc1-bg;
-    color: $mc1-text;
-  }
-  &.color2 {
-    background-color: $mc2-bg;
-    color: $mc2-text;
-  }
-  &.color3 {
-    background-color: $mc3-bg;
-    color: $mc3-text;
-  }
-  &.color4 {
-    background-color: $mc4-bg;
-    color: $mc4-text;
-  }
-  &.color5 {
-    background-color: $mc5-bg;
-    color: $mc5-text;
-  }
-  &.color6 {
-    background-color: $mc6-bg;
-    color: $mc6-text;
-  }
-  &.color7 {
-    background-color: $mc7-bg;
-    color: $mc7-text;
-  }
-  .buttons {
-    padding-top: 2rem;
-    ul {
-      list-style: none;
-      display: inline-block;
-      padding: 0;
-      margin: 0;
-      li {
-        text-align: center;
-        padding: 1rem 0rem;
+  .pattern-content {
+    width: 50%;
+    padding: 4rem;
+    @media (max-width:$sm-breakpoint) {
+      width: 100%;
+      max-height: 400px;
+    }
+    &.text-left {
+      text-align: left;
+    }
+    &.text-center {
+      text-align: center;
+    }
+    &.color1 {
+      background-color: $mc1-bg;
+      color: $mc1-text;
+      a {
+        border-color: $mc1-text;
+        color: $mc1-text;
       }
     }
-  }
-  .button {
-    border: 2px solid #000;
-    padding: 1rem 2rem;
-    text-decoration: none;
-    font-family: $univers;
-    font-weight: 700;
-    line-height: 2.4rem;
-    display: inline-block;
-    transition: all 200ms ease;
-    @at-root .color1#{&} {
-      border-color: $mc1-text;
-      color: $mc1-text;
-    }
-    @at-root .color2#{&} {
-      border-color: $mc2-text;
+    &.color2 {
+      background-color: $mc2-bg;
       color: $mc2-text;
+      a {
+        border-color: $mc2-text;
+        color: $mc2-text;
+      }
     }
-    @at-root .color3#{&} {
-      border-color: $mc3-text;
+    &.color3 {
+      background-color: $mc3-bg;
       color: $mc3-text;
+      a {
+        border-color: $mc3-text;
+        color: $mc3-text;
+      }
     }
-    @at-root .color4#{&} {
-      border-color: $maroon;
-      color: $maroon;
+    &.color4 {
+      background-color: $mc4-bg;
+      color: $mc4-text;
+      a {
+        //color 4 is sandstone in this template. Use maroon buttons/links
+        border-color: $maroon;
+        color: $maroon;
+      }
     }
-    @at-root .color5#{&} {
-      border-color: $mc5-text;
+    &.color5 {
+      background-color: $mc5-bg;
       color: $mc5-text;
+      a {
+        border-color: $mc5-text;
+        color: $mc5-text;
+      }
     }
-    @at-root .color6#{&} {
-      border-color: $mc6-text;
+    &.color6 {
+      background-color: $mc6-bg;
       color: $mc6-text;
+      a {
+        border-color: $mc6-text;
+        color: $mc6-text;
+      }
     }
-    @at-root .color7#{&} {
-      border-color: $mc7-text;
+    &.color7 {
+      background-color: $mc7-bg;
       color: $mc7-text;
+      a {
+        border-color: $mc7-text;
+        color: $mc7-text;
+      }
     }
-    &:hover {
-      transform: translate(0px, -3px);
-      box-shadow: inset 0 -2px 0 0;
+    .buttons {
+      padding-top: 2rem;
+      ul {
+        list-style: none;
+        display: inline-block;
+        padding: 0;
+        margin: 0;
+        li {
+          text-align: center;
+          padding: 1rem 0rem;
+        }
+      }
+      .button {
+        border-width: 2px;
+        border-style: solid;
+        padding: 1rem 2rem;
+        text-decoration: none;
+        font-family: $univers;
+        font-weight: 700;
+        line-height: 2.4rem;
+        display: inline-block;
+        transition: all 200ms ease;
+        &:hover {
+          transform: translate(0px, -3px);
+          box-shadow: inset 0 -2px 0 0;
+        }
+      }
     }
-  }
-  .links {
-    display: flex;
-    flex-direction: column;
-    @at-root .text-center#{&} {
-      align-items: center;
-    }
-    ul {
-      list-style: none;
-      margin: 0;
-      padding-left: 0;
-      text-align: left;
-      li {
-        a {
-          text-decoration: none;
-          font-family: $univers;
-          font-size: 1.6rem;
-          font-weight: 500;
-          line-height: 2.4rem;
-          padding-bottom: 3px;
-          margin-bottom: 1rem;
-          border-bottom: 1px solid black;
-          transition: all 0.2s ease;
-          display: inline-block;
-          @at-root .color1#{&} {
-            color: $mc1-text;
-            border-color: $mc1-text;
-          }
-          @at-root .color2#{&} {
-            color: $mc2-text;
-            border-color: $mc2-text;
-          }
-          @at-root .color3#{&} {
-            color: $mc3-text;
-            border-color: $mc3-text;
-          }
-          @at-root .color4#{&} {
-            color: $maroon;
-            border-color: $maroon;
-          }
-          @at-root .color5#{&} {
-            color: $mc5-text;
-            border-color: $mc5-text;
-          }
-          @at-root .color6#{&} {
-            color: $mc6-text;
-            border-color: $mc6-text;
-          }
-          @at-root .color7#{&} {
-            color: $mc7-text;
-            border-color: $mc7-text;
-          }
-          &:hover {
-            box-shadow: inset 0 -1px 0 0;
-            transform: translate(0px, -2px);
+    .links {
+      display: flex;
+      flex-direction: column;
+      @at-root .pattern-content.text-center .links{
+        align-items: center;
+      }
+      ul {
+        list-style: none;
+        margin: 0;
+        padding-left: 0;
+        text-align: left;
+        li {
+          a {
+            text-decoration: none;
+            font-family: $univers;
+            font-size: 1.6rem;
+            font-weight: 500;
+            line-height: 2.4rem;
+            padding-bottom: 3px;
+            margin-bottom: 1rem;
+            border-width: 0px 0px 1px 0px;
+            border-style:  solid;
+            transition: all 0.2s ease;
+            display: inline-block;
+            &:hover {
+              box-shadow: inset 0 -1px 0 0;
+              transform: translate(0px, -2px);
+            }
           }
         }
       }
     }
   }
+
+
+  .pattern-image {
+    width: 50%;
+    @media (max-width:$sm-breakpoint) {
+      width: 100%;
+      max-height: 400px;
+      order: 2;
+    }
+    &.with-quotation {
+      @at-root .image-right#{&} {
+        order: 2;
+        @media (max-width: $sm-breakpoint) {
+          order: 0;
+        }
+      }
+      @at-root .image-left#{&} {
+        @media (max-width: $sm-breakpoint) {
+          order: 0;
+        }
+      }
+    }
+    img {
+      max-width: 100%;
+      width: 100%;
+      height: 100%;
+      display: block;
+      @include object-fit-poly(cover);
+    }
+  }
 }
 
-.pattern-image {
-  width: 50%;
-  @media (max-width: $sm-breakpoint) {
-    width: 100%;
-    max-height: 400px;
-    order: 2;
-  }
-  &.with-quotation {
-    &.image-right {
-      order: 2;
-      @media (max-width: $sm-breakpoint) {
-        order: 0;
-      }
-    }
-    &.image-left {
-      @media (max-width: $sm-breakpoint) {
-        order: 0;
-      }
-    }
-  }
-  img {
-    max-width: 100%;
-    width: 100%;
-    height: 100%;
-    display: block;
-    @include object-fit-poly(cover);
-  }
-}
 .callout {
   .stat {
     font-family: $garamond;
@@ -284,5 +223,86 @@
     font-weight: 500;
     line-height: 2.4rem;
     padding-bottom: 2rem;
+  }
+}
+
+
+//arrows
+
+@mixin arrow($color, $position) {
+  border: solid transparent;
+  content: ' ';
+  height: 0;
+  width: 0;
+  position: absolute;
+  border-color: transparent;
+  border-width: 2.5rem;
+  margin: 0;
+  @if $position == top {
+    bottom: 100%;
+    top: auto;
+    left: 50%;
+    border-bottom-color: $color;
+    margin-left: -2.5rem;
+  }
+  @else if $position == right {
+    left: 100%;
+    top: 50%;
+    border-left-color: $color;
+    margin-top: -2.5rem;
+  }
+  @else if $position == bottom {
+    top: 100%;
+    left: 50%;
+    border-top-color: $color;
+    margin-left: -2.5rem;
+  }
+  @else if $position == left {
+    right: 100%;
+    top: 50%;
+    border-right-color: $color;
+    margin-top: -2.5rem;
+  }
+}
+
+@mixin pattern-content-arrows($color) {
+  @at-root .image-left#{&} {
+    @include arrow($color, "left");
+    @media (max-width: $sm-breakpoint) {
+      @include arrow($color, "bottom");
+    }
+  }
+  @at-root .image-right#{&} {
+    @include arrow($color, "right");
+    @media (max-width: $sm-breakpoint) {
+      @include arrow($color, "bottom");
+    }
+  }
+}
+
+.mobilefirst-pattern {
+  .arrow {
+    position: relative;
+  }
+  .color1.arrow:after {
+    @include pattern-content-arrows($mc1-bg);
+  }
+  .color2.arrow:after {
+    @include pattern-content-arrows($mc2-bg);
+  }
+  .color3.arrow:after{
+    @include pattern-content-arrows($mc3-bg);
+  }
+  .color4.arrow:after{
+    @include pattern-content-arrows($mc4-bg);
+  }
+  .color5.arrow:after{
+    @include pattern-content-arrows($mc5-bg);
+  }
+  .color6.arrow:after{
+    @include pattern-content-arrows($mc6-bg);
+  }
+  .color7.arrow:after{
+    @include pattern-content-arrows($mc7-bg);
   }
 }
