@@ -1,0 +1,97 @@
+form:
+  tabs:
+    - name: tabmain
+      label: Quote and Image
+      fields:
+        - name: image
+          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+          appName: assets
+          required: true
+          targetWorkspace: dam
+          label: Image
+          identifierToPathConverter:
+            class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
+          contentPreviewDefinition:
+            contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
+          description: "You may upload an image, or choose one from the Digital Asset Manager. If you upload an image, the DAM image will be ignored."
+        - name: imageAlt
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Alt. Text
+          required: true
+        - name: imageAlignment
+          class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
+          label: Alignment
+          multiSelect: false
+          sortOptions: false
+          options:
+            - name: left
+              value: left
+              label: Image left of text
+            - name: right
+              value: right
+              label: Image right of text
+              selected: true
+        - name: color
+          class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
+          fields:
+            - name: color
+              class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+          transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+          initFunction: initColorPicker
+          loadScriptsInOrder: true
+          scripts: [gato-lib/js/color-picker.js]
+          label: Background Color
+          parameters:
+            contentType: default
+        - name: title
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Title
+          maxLength: 26
+          required: true
+        - name: text
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Text
+          maxLength: 65
+          rows: 3
+        - name: alignContent
+          class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
+          label: Align Text
+          multiselect: false
+          sortOptions: false
+          options:
+            - name: left
+              label: Left align text
+              value: left
+            - name: center
+              label: Center align text
+              value: center
+              selected: true
+        - name: links
+          class: edu.txstate.its.gato.vaadin.GatoMultiValueFieldDefinition
+          transformerClass: info.magnolia.ui.form.field.transformer.multi.MultiValueSubChildrenNodePropertiesTransformer
+          label: Links
+          styleName: linksMultiField
+          maxFields: 3
+          minFields: 1
+          field:
+            name: link
+            class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
+            transformerClass: info.magnolia.ui.form.field.transformer.composite.NoOpCompositeTransformer
+            layout: vertical
+            fields:
+              - name: text
+                class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                label: Link Text
+                maxLength: 34
+              - name: link
+                class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+                label: Link Target
+                required: true
+                appName: pages
+                identifierToPathConverter:
+                  class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
+        - name: stylesheet
+          label: ""
+          class: edu.txstate.its.gato.vaadin.GatoCssIncludeDefinition
+          styles: [gato-component-patterns/dialogs/css/fix-link-multifield.css]
+actions: !include /gato-template/dialogs/common/actions-block.yaml

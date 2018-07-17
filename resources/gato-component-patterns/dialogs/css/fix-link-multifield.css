@@ -1,0 +1,11 @@
+.v-caption-linkfield {
+    white-space: normal;
+}
+
+.v-caption-linkfield .v-required-field-indicator {
+   float: none;
+}
+
+.v-spacing {
+  height: 30px;
+}

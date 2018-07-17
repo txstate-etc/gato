@@ -25,6 +25,8 @@ mobileFirstContent:
   type: list
   title: Main Content Area
   availableComponents:
+    linksimage:
+      id: gato-component-patterns:components/linksimage
     twoCallouts:
       id: gato-component-patterns:components/twocallouts
     quoteImage:

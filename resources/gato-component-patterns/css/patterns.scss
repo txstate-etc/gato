@@ -1,3 +1,39 @@
+@mixin arrow($color, $position) {
+  border: solid transparent;
+  content: ' ';
+  height: 0;
+  width: 0;
+  position: absolute;
+  border-color: transparent;
+  border-width: 2.5rem;
+  margin: 0;
+  @if $position == top {
+    bottom: 100%;
+    top: auto;
+    left: 50%;
+    border-bottom-color: $color;
+    margin-left: -2.5rem;
+  }
+  @else if $position == right {
+    left: 100%;
+    top: 50%;
+    border-left-color: $color;
+    margin-top: -2.5rem;
+  }
+  @else if $position == bottom {
+    top: 100%;
+    left: 50%;
+    border-top-color: $color;
+    margin-left: -2.5rem;
+  }
+  @else if $position == left {
+    right: 100%;
+    top: 50%;
+    border-right-color: $color;
+    margin-top: -2.5rem;
+  }
+}
+
 .mobilefirst-pattern {
   display: flex;
   justify-content: space-between;
@@ -100,6 +136,63 @@
       box-shadow: inset 0 -2px 0 0;
     }
   }
+  .links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    ul {
+      list-style: none;
+      margin: 0;
+      padding-left: 0;
+      text-align: left;
+      li {
+        a {
+          text-decoration: none;
+          font-family: $univers;
+          font-size: 1.6rem;
+          font-weight: 500;
+          line-height: 2.4rem;
+          padding-bottom: 3px;
+          margin-bottom: 1rem;
+          border-bottom: 1px solid black;
+          transition: all 0.2s ease;
+          display: inline-block;
+          @at-root .color1#{&} {
+            color: $mc1-text;
+            border-color: $mc1-text;
+          }
+          @at-root .color2#{&} {
+            color: $mc2-text;
+            border-color: $mc2-text;
+          }
+          @at-root .color3#{&} {
+            color: $mc3-text;
+            border-color: $mc3-text;
+          }
+          @at-root .color4#{&} {
+            color: $maroon;
+            border-color: $maroon;
+          }
+          @at-root .color5#{&} {
+            color: $mc5-text;
+            border-color: $mc5-text;
+          }
+          @at-root .color6#{&} {
+            color: $mc6-text;
+            border-color: $mc6-text;
+          }
+          @at-root .color7#{&} {
+            color: $mc7-text;
+            border-color: $mc7-text;
+          }
+          &:hover {
+            box-shadow: inset 0 -1px 0 0;
+            transform: translate(0px, -2px);
+          }
+        }
+      }
+    }
+  }
 }
 
 .pattern-image {
@@ -158,5 +251,22 @@
       font-weight: 500;
       line-height: 2.4rem;
     }
+  }
+}
+
+.links-image {
+  .title {
+    font-family: $garamond;
+    font-size: 3.2rem;
+    font-weight: 400;
+    line-height: 3.8rem;
+    padding-bottom: 2rem;
+  }
+  .text {
+    font-family: $univers;
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 2.4rem;
+    padding-bottom: 2rem;
   }
 }
