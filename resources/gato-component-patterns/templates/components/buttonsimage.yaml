@@ -1,0 +1,7 @@
+templateScript: /gato-component-patterns/templates/components/buttonsimage.ftl
+renderType: freemarker
+title: Title, Buttons, and Image
+description: A title, text, and buttons beside an image
+dialog: gato-component-patterns:components/buttonsimage
+parameters:
+  icon: /gato-template/images/banner.png

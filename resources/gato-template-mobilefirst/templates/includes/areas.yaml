@@ -25,11 +25,13 @@ mobileFirstContent:
   type: list
   title: Main Content Area
   availableComponents:
+    buttonsimage:
+      id: gato-component-patterns:components/buttonsimage
     linksimage:
       id: gato-component-patterns:components/linksimage
-    twoCallouts:
+    twocallouts:
       id: gato-component-patterns:components/twocallouts
-    quoteImage:
+    quoteimage:
       id: gato-component-patterns:components/quoteimage
 fullWidthTest:
   type: list
