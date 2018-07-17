@@ -1,11 +1,11 @@
 <div cms:edit="bar"></div>
 <div class="mobilefirst-pattern">
-  [#if content.imageAlignment == 'left']
-    <div class="pattern-image ${content.imageAlignment!right}">
+  [#if content.imageAlignment == 'image-left']
+    <div class="pattern-image ${content.imageAlignment!'image-left'}">
       <img src="${gf.getImgDefault(content.image)}" alt="${content.imageAlt!}" srcset="${gf.getSrcSet(content.image)}" />
     </div>
   [/#if]
-  <div class="pattern-content arrow links-image ${content.color!color1} ${content.alignContent!center}">
+  <div class="pattern-content arrow links-image ${content.color!color1} ${content.alignContent!'text-center'}">
   <div class="title">${content.title}</div>
   [#if content.text?has_content]<div class="text">${content.text}</div>[/#if]
   [#if content.links?has_content]
@@ -20,8 +20,8 @@
   </div>
   [/#if]
   </div>
-  [#if content.imageAlignment == 'right']
-    <div class="pattern-image ${content.imageAlignment!right}">
+  [#if content.imageAlignment == 'image-right']
+    <div class="pattern-image ${content.imageAlignment!'image-right'}">
       <img src="${gf.getImgDefault(content.image)}" alt="${content.imageAlt!}" srcset="${gf.getSrcSet(content.image)}" />
     </div>
   [/#if]

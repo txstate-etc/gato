@@ -25,10 +25,10 @@ form:
           sortOptions: false
           options:
             - name: left
-              value: left
+              value: image-left
               label: Image left of text
             - name: right
-              value: right
+              value: image-right
               label: Image right of text
               selected: true
         - name: color
@@ -61,10 +61,10 @@ form:
           options:
             - name: left
               label: Left align text
-              value: left
+              value: text-left
             - name: center
               label: Center align text
-              value: center
+              value: text-center
               selected: true
         - name: links
           class: edu.txstate.its.gato.vaadin.GatoMultiValueFieldDefinition

@@ -25,10 +25,10 @@ form:
           sortOptions: false
           options:
             - name: left
-              value: left
+              value: image-left
               label: Image left of text
             - name: right
-              value: right
+              value: image-right
               label: Image right of text
               selected: true
         - name: color

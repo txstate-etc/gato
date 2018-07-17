@@ -25,11 +25,12 @@ form:
           sortOptions: false
           options:
             - name: left
-              label: Align Left
-              value: left
+              label: Left align text
+              value: text-left
             - name: center
-              label: Align Center
-              value: center
+              label: Center align text
+              value: text-center
+              selected: true
         - name: colorLeft
           class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
           fields:
@@ -68,7 +69,7 @@ form:
         - name: stylesheet
           label: ""
           class: edu.txstate.its.gato.vaadin.GatoCssIncludeDefinition
-          styles: [gato-template-mobilefirst/dialogs/css/fix-link-multifield.css]
+          styles: [gato-component-patterns/dialogs/css/fix-link-multifield.css]
     - name: tabCalloutTwo
       label: Right Callout
       fields:
@@ -87,18 +88,6 @@ form:
           label: Text
           maxLength: 65
           rows: 5
-        - name: alignContentRight
-          class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
-          label: Align Text
-          multiselect: false
-          sortOptions: false
-          options:
-            - name: left
-              label: Align Left
-              value: left
-            - name: center
-              label: Align Center
-              value: center
         - name: colorRight
           class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
           fields:
