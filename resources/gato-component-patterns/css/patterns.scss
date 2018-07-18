@@ -13,6 +13,12 @@
   }
   .pattern-content {
     width: 50%;
+    &.single {
+      width: 100%;
+      .centered {
+        max-width: none;
+      }
+    }
     padding: 1rem;
     display: flex;
     flex-direction: column;
