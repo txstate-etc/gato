@@ -2,7 +2,7 @@
 <div class="centered">
   <div class="stat">${lead}</div>
   <div class="title">${title}</div>
-  [#if content.text?has_content]<div class="text">${text}</div>[/#if]
+  [#if text?has_content]<div class="text">${text}</div>[/#if]
   [#if buttons?has_content]
   <div class="buttons">
     <ul>
