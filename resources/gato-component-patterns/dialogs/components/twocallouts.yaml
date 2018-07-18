@@ -12,6 +12,7 @@ form:
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Title
           maxLength: 65
+          required: true
           rows: 5
         - name: textLeft
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
@@ -82,6 +83,7 @@ form:
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Title
           maxLength: 65
+          required: true
           rows: 5
         - name: textRight
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition

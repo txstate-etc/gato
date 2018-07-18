@@ -1,39 +1,10 @@
+[#include "/gato-component-patterns/templates/components/common/callout.ftl"]
 <div cms:edit="bar"></div>
 <div class="mobilefirst-pattern">
   <div class="callout pattern-content ${content.colorLeft!color1} ${content.alignContentLeft!'text-center'}">
-    <div class="centered">
-      <div class="stat">${content.calloutLeft}</div>
-      <div class="title">${content.titleLeft!}</div>
-      [#if content.textLeft?has_content]<div class="text">${content.textLeft}</div>[/#if]
-      [#if content.buttonsLeft?has_content]
-      <div class="buttons">
-        <ul>
-          [#list cmsfn.children(content.buttonsLeft) as button]
-          <li>
-            <a class="button" href="${gf.filterUrl(button.link)}">${button.text!}</a>
-          </li>
-          [/#list]
-        </ul>
-      </div>
-      [/#if]
-    </div>
+    [@callout content.calloutLeft content.titleLeft content.textLeft content.buttonsLeft/]
   </div>
   <div class="callout pattern-content ${content.colorRight!color2} text-center">
-    <div class="centered">
-      <div class="stat">${content.calloutRight}</div>
-      <div class="title">${content.titleRight!}</div>
-      [#if content.textRight?has_content]<div class="text">${content.textRight}</div>[/#if]
-      [#if content.buttonsRight?has_content]
-      <div class="buttons">
-        <ul>
-          [#list cmsfn.children(content.buttonsRight) as button]
-          <li>
-            <a class="button" href="${gf.filterUrl(button.link)}">${button.text!}</a>
-          </li>
-          [/#list]
-        </ul>
-      </div>
-      [/#if]
-    </div>
+    [@callout content.calloutRight content.titleRight content.textRight content.buttonsRight/]
   </div>
 </div>
