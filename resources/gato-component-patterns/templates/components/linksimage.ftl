@@ -6,21 +6,7 @@
     </div>
   [/#if]
   <div class="pattern-content arrow title-type ${content.color!color1} ${content.alignContent!'text-center'}">
-    <div class="centered">
-      <div class="title">${content.title}</div>
-      [#if content.text?has_content]<div class="text">${content.text}</div>[/#if]
-      [#if content.links?has_content]
-      <div class="links">
-        <ul>
-        [#list cmsfn.children(content.links) as lnk]
-          <li>
-            <a href="${gf.filterUrl(lnk.link)}">${lnk.text!}</a>
-          </li>
-        [/#list]
-        </ul>
-      </div>
-      [/#if]
-    </div>
+    [#include "/gato-component-patterns/templates/components/common/titlelinks.ftl"]
   </div>
   [#if content.imageAlignment == 'image-right']
     <div class="pattern-image">
