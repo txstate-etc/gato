@@ -1,3 +1,16 @@
 #search-results {
   padding-top: 2rem;
+  min-height: 25rem;
+  .global-search {
+    .button {
+      background-color: $mc4-bg;
+      box-shadow: 0 4px $mc4-shadow;
+      span {
+        color: $mc4-text;
+      }
+      &:hover {
+        background-color: $mc4-comp-bg;
+      }
+    }
+  }
 }
