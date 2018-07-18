@@ -49,7 +49,7 @@ form:
           class: edu.txstate.its.gato.vaadin.GatoMultiValueFieldDefinition
           transformerClass: info.magnolia.ui.form.field.transformer.multi.MultiValueSubChildrenNodePropertiesTransformer
           label: Buttons
-          maxFields: 1
+          maxFields: 2
           field:
             name: button
             class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
@@ -107,7 +107,7 @@ form:
           class: edu.txstate.its.gato.vaadin.GatoMultiValueFieldDefinition
           transformerClass: info.magnolia.ui.form.field.transformer.multi.MultiValueSubChildrenNodePropertiesTransformer
           label: Buttons
-          maxFields: 1
+          maxFields: 2
           field:
             name: button
             class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition

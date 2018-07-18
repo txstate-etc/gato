@@ -1,7 +1,7 @@
 form:
   tabs:
     - name: tabmain
-      label: Quote and Image
+      label: Quotation and Image
       fields:
         - name: image
           class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
@@ -48,6 +48,7 @@ form:
           maxLength: 114
           rows: 5
           label: Quotation
+          required: true
         - name: source
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Cited Source

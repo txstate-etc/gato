@@ -31,7 +31,7 @@ form:
           label: Buttons
           styleName: linksMultiField
           maxFields: 2
-          minFields: 0
+          minFields: 1
           field:
             name: button
             class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
@@ -41,7 +41,7 @@ form:
               - name: text
                 class: info.magnolia.ui.form.field.definition.TextFieldDefinition
                 label: Button Text
-                maxLength: 20
+                maxLength: 26
               - name: link
                 class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
                 label: Button Target

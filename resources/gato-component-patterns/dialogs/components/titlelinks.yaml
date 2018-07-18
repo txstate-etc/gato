@@ -30,8 +30,8 @@ form:
           transformerClass: info.magnolia.ui.form.field.transformer.multi.MultiValueSubChildrenNodePropertiesTransformer
           label: Links
           styleName: linksMultiField
-          maxFields: 3
-          minFields: 0
+          maxFields: 4
+          minFields: 1
           field:
             name: link
             class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
@@ -41,7 +41,7 @@ form:
               - name: text
                 class: info.magnolia.ui.form.field.definition.TextFieldDefinition
                 label: Link Text
-                maxLength: 20
+                maxLength: 34
               - name: link
                 class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
                 label: Link Target
