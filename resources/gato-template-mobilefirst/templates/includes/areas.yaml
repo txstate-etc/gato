@@ -29,6 +29,8 @@ mobileFirstContent:
       id: gato-component-patterns:components/buttonsimage
     linksimage:
       id: gato-component-patterns:components/linksimage
+    calloutimage:
+      id: gato-component-patterns:components/calloutimage
     titlebuttons:
       id: gato-component-patterns:components/titlebuttons
     titlelinks:
