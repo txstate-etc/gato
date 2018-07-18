@@ -299,6 +299,9 @@
 }
 
 .title-type {
+  @media (max-width:$sm-breakpoint) {
+    padding: 3rem 0rem;
+  }
   .title {
     font-family: $garamond;
     font-size: 3.2rem;
