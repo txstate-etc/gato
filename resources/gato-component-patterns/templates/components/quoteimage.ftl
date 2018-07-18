@@ -1,6 +1,8 @@
 <div cms:edit="bar"></div>
 <div class="mobilefirst-pattern ${content.imageAlignment!'image-right'}">
+  [#assign overlay = (content.imageAlignment == "image-right")?then('overlay-left', 'overlay-right')]
   <div class="pattern-image with-quotation">
+    <div class="${overlay} overlay-bottom"></div>
     <img src="${gf.getImgDefault(content.image)}" alt="${content.alttext!}" srcset="${gf.getSrcSet(content.image)}" />
   </div>
   <div class="pattern-content quotation ${content.color!color1}">

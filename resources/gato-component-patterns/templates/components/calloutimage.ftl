@@ -3,6 +3,7 @@
 <div class="mobilefirst-pattern ${content.imageAlignment!'image-right'}">
   [#if content.imageAlignment == 'image-left']
     <div class="pattern-image">
+      <div class="overlay-right"></div>
       <img src="${gf.getImgDefault(content.image)}" alt="${content.imageAlt!}" srcset="${gf.getSrcSet(content.image)}" />
     </div>
   [/#if]
@@ -11,6 +12,7 @@
   </div>
   [#if content.imageAlignment == 'image-right']
     <div class="pattern-image">
+      <div class="overlay-left"></div>
       <img src="${gf.getImgDefault(content.image)}" alt="${content.imageAlt!}" srcset="${gf.getSrcSet(content.image)}" />
     </div>
   [/#if]
