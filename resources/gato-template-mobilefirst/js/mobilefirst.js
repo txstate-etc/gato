@@ -169,6 +169,12 @@ jQuery(document).ready(function($) {
     if (window.matchMedia && !window.matchMedia("(max-width: 50em)").matches) {
       $('.footer-column-link-list').show();
     }
+    //fallback for IE 9
+    if (!window.matchMedia) {
+      if ($(window).width() > 799) {
+        $('.footer-column-link-list').show();
+      }
+    }
   }
   resizeTimeout(checkFooterLinkDisplay);
 });
