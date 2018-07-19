@@ -161,4 +161,14 @@ jQuery(document).ready(function($) {
       } })
     }
   })
+
+  //Velocity will hide the footer links on mobile by adding an inline
+  //display:none. This also hides the links on larger screens, when they should
+  //always be visible. This function makes sure that the links are visible on desktop.
+  var checkFooterLinkDisplay = function() {
+    if (window.matchMedia && !window.matchMedia("(max-width: 50em)").matches) {
+      $('.footer-column-link-list').show();
+    }
+  }
+  resizeTimeout(checkFooterLinkDisplay);
 });
