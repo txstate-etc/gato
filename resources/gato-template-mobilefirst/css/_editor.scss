@@ -11,8 +11,10 @@ body.admin {
     border:  2px solid $edit-bar-teal !important;
   }
 
-  .editorIcon {
-    font-size: 21px;
+  .mgnlEditor.mgnlPlaceholder {
+    .editorIcon {
+      font-size: 21px !important;
+    }
   }
 
   div.mgnlEditorBar.area.childFocus {
