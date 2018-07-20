@@ -28,12 +28,14 @@
     <div class="footer-column">
       <div class="footer-column-content">
         <h2 class="footer-column-title">Connect</h2>
-        <a href="#" class="mobile-footer-column-title" aria-haspopup="true" aria-expanded="false" aria-controls="connect-links">Connect</a>
+        [#assign connections = gf.getOrCreateArea(homepage, 'connect')]
+        [#assign hasConnections = gf.hasComponents(connections)]
+        <a href="#" class="mobile-footer-column-title ${hasConnections?then('', 'empty')}" aria-haspopup="true" aria-expanded="false" aria-controls="connect-links">Connect</a>
         <div class="connect-links">
           <div class="social-media-container">
             [@cms.area name="socialmedia" content=gf.getOrCreateArea(homepage, "socialmedia") editable=isHomePage/]
           </div>
-          <ul id="connect-links" class="connect footer-column-link-list">
+          <ul id="connect-links" class="connect footer-column-link-list ${hasConnections?then('', 'empty')}">
           [@cms.area name="connect" content=gf.getOrCreateArea(homepage, 'connect') editable=isHomePage/]
           </ul>
         </div>

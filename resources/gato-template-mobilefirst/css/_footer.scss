@@ -105,6 +105,9 @@ footer {
               top: 0.3rem;
               font-size: 2.4rem;
             }
+            &.empty {
+              display: none;
+            }
           }
           .footer-column-link-list {
             display: none;
@@ -127,6 +130,9 @@ footer {
             }
             .footer-column-link-list {
               display: block;
+              &.empty {
+                display: none;
+              }
             }
           }
         }
