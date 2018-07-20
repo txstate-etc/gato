@@ -8,8 +8,13 @@ form:
           field:
             name: social
             fields:
-              - name: icon
-                class: info.magnolia.ui.form.field.definition.StaticFieldDefinition
-                styleName: emptyStatic
-                label: ""
-                value: ""
+              - name: link
+                required: true
+                class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                label: Link
+                styleName: social-url
+                description: "Enter the link to your social media presence."
+              - name: title
+                class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                label: Title
+                description: "The title for the link.  If left empty, it will be automatically titled with the name of the service, e.g. \"Facebook\"."

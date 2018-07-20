@@ -19,9 +19,6 @@ form:
                 class: info.magnolia.ui.form.field.definition.TextFieldDefinition
                 label: Link
                 styleName: social-url
-                appName: pages
-                identifierToPathConverter:
-                  class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
                 description: "Enter the link to your social media presence."
               - name: title
                 class: info.magnolia.ui.form.field.definition.TextFieldDefinition
