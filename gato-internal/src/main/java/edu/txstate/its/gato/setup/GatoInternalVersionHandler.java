@@ -174,6 +174,7 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       .addTask(new BootstrapSingleModuleResource("gatoapps.homepage-data.global-links.mobileFirstFooter.xml"))
       .addTask(new BootstrapSingleModuleResource("gatoapps.homepage-data.global-links.defaultSocial.xml"))
       .addTask(new BootstrapSingleModuleResource("gatoapps.homepage-data.global-links.mobileFirstResources.xml"))
+      .addTask(new BootstrapSingleModuleResource("config.modules.site.config.site.templates.availability.templates.admissions-home.xml"))
       .addTasks(installOrUpdateTasks())
     );
 
