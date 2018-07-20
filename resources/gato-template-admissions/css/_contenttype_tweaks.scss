@@ -1,0 +1,63 @@
+//Patterns
+.mobilefirst-pattern {
+  .pattern-content {
+    .buttons .button {
+      font-family: $muli;
+    }
+    .links ul li a {
+      font-family: $muli;
+      font-weight: 600;
+    }
+    //Callout
+    &.callout {
+      .stat {
+        font-family: $adamina;
+        font-size: 4rem;
+        line-height: 4rem;
+      }
+      .title {
+        font-family: $adamina;
+        font-size: 1.8rem;
+        line-height: 2.6rem;
+      }
+      .text {
+        font-family: $muli;
+      }
+    }
+    //Quotation
+    &.quotation {
+      .quotation-text {
+        font-family: $adamina;
+        font-size: 1.8rem;
+        line-height: 2.6rem;
+      }
+      .quotation-source {
+        .source-name, .source-title {
+          font-family: $muli;
+          line-height: 2.6rem;
+        }
+      }
+    }
+    //title and buttons, title and links
+    &.title-type {
+      .title, .text {
+        font-family: $muli;
+      }
+    }
+    //color adjustments
+    //blue needs white links and buttons
+    &.color4 {
+      a {
+        border-color: $white;
+        color: $white;
+      }
+    }
+    //sandstone and old gold need maroon links and buttons
+    &.color6, &.color7 {
+      a {
+        border-color: $maroon;
+        color: $maroon;
+      }
+    }
+  }
+}

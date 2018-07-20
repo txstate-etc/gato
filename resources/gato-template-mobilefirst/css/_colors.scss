@@ -3,9 +3,9 @@ $gold:                #6A5638; // (80, 18, 20)
 
 $charcoal:            #363534; // (54, 53, 52)
 $blue:                #005481; // (0, 84, 129)
-$river:               #8BAEA1; // (140, 175, 161)
+$river:               #A1C1B5; // (161, 193, 181) //new river for mobile first template
 $sandstone:           #E8E3DB; // (232, 227, 219)
-$oldgold:             #DEB407; // (222, 180, 7)
+$oldgold:             #E1C242; // (225, 194, 66) //new old gold for mobile first template
 
 /* Neutral Colors */
 $white:               #FFFFFF;
@@ -46,22 +46,24 @@ $dark-charcoal:        #31302F; //10% darker than charcoal
 $darker-charcoal:      #2B2A2A; //20% darker than charcoal
 $darkest-charcoal:     #262524; //30% darker than charcoal
 
-$lightest-river:       #A2BEB4; //20% lighter than river
-$light-river:          #97B6AA; //10% lighter than river
-$dark-river:           #7D9D91; //10% darker than river
-$darker-river:         #6F8B81; //20% darker than river
-$river-shadow:         #617A71; //30% darker than river
+//tints and shades based on mobile-first river
+$lightest-river:       #B4CDC4; //20% lighter than river
+$light-river:          #AAC7BC; //10% lighter than river
+$dark-river:           #91AEA3; //10% darker than river
+$darker-river:         #819A91; //20% darker than river
+$river-shadow:         #71877F; //30% darker than river
 
 $light-sandstone:      #F4F1ED; //50% lighter than sandstone
 $khaki:                #D1C7B7; //khaki is another color slightly, about 10% darker than sandstone
 $darkest-sandstone:    #BBAB92; //40% darker than sandstone
 $dark-sandstone:       #DDD5C9; //10% darker than sandstone
 
-$lightest-oldgold:     #E5C339; //20% lighter than oldgold
-$light-oldgold:        #E1BC20; //10% lighter than oldgold
-$dark-oldgold:         #C8A106; //10% darker than oldgold
-$darker-oldgold:       #B29006; //20% darker than oldgold
-$oldgold-shadow:       #9B7E05; //30% darker than oldgold
+//tints and shades based on mobile-first old gold
+$lightest-oldgold:     #E7CE68; //20% lighter than oldgold
+$light-oldgold:        #E4C855; //10% lighter than oldgold
+$dark-oldgold:         #CBAF3B; //10% darker than oldgold
+$darker-oldgold:       #B49B35; //20% darker than oldgold
+$oldgold-shadow:       #9E882E; //30% darker than oldgold
 
 $template-color-count:      4;
 
