@@ -10,17 +10,12 @@
   <body class="${cmsfn.isEditMode()?string('admin','')}">
     <div class="page-container">
       [@skipnav/]
-      <nav id="main-menu" class="main-menu">
-        <div class="menu-content">
-            Here is the menu
-        </div>
-      </nav>
-      <div class="content-wrap">
+      <div class="page">
+        [#include "includes/menu.ftl"]
         [#include "includes/header.ftl"]
         [@cms.area name="top-banner" content=gf.getOrCreateArea(homepage, 'top-banner')/]
         <div class="page_content">
           <main class="contentcolumn">
-            [#-- Right now, we don't even know if the standard mobile first template has a sidebar. --]
             [#assign hideSidebar = true /]
             [@headline hideSidebar /]
             [@cms.area name="mobileFirstContent"/]

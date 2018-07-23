@@ -1,11 +1,12 @@
 nav.main-menu {
-  background-color: $charcoal;
-  color: $white;
   width: 300px;
-  position: absolute;
-  z-index: 6;
   height: 100%;
-  width: 0;
+  position: absolute;
+  left: -300px;
+  background-color: $light-sandstone;
+  color: $very-dark;
+  z-index: 6;
+  display: none;
   .menu-content {
     overflow:hidden;
     margin: 2rem;
