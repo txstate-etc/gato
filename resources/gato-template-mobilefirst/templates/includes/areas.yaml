@@ -38,6 +38,7 @@ contentParagraph:
 mobileFirstContent:
   type: list
   title: Main Content Area
+  templateScript: /gato-template-mobilefirst/templates/areas/mobilefirst-content.ftl
   availableComponents:
     buttonsimage:
       id: gato-component-patterns:components/buttonsimage
