@@ -1,0 +1,18 @@
+templateScript: /gato-template/templates/components/rows/halves.ftl
+renderType: freemarker
+title: Two Columns
+dialog: gato-template:components/rows/section
+description: This paragraph creates a row containing 2 columns of equal size.
+areas:
+  column1:
+    type: list
+    templateScript: /gato-template/templates/components/rows/column.ftl
+    availableComponents:
+      !include /gato-template-mobilefirst/templates/areas/availableComponentsSmallColumns.yaml
+  column2:
+    type: list
+    templateScript: /gato-template/templates/components/rows/column.ftl
+    availableComponents:
+      !include /gato-template-mobilefirst/templates/areas/availableComponentsSmallColumns.yaml
+parameters:
+  icon: /gato-template/images/2column.png

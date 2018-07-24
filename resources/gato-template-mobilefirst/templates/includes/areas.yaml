@@ -34,7 +34,10 @@ organization-info:
     parentOrg:
       id: gato-template-mobilefirst:components/parentOrganization
 contentParagraph:
-  !include /gato-template/templates/areas/contentParagraph.yaml
+  title: Main Content Area
+  templateScript: /gato-template/templates/areas/main-content.ftl
+  availableComponents:
+    !include /gato-template-mobilefirst/templates/areas/layouts.yaml
 mobileFirstContent:
   type: list
   title: Main Content Area

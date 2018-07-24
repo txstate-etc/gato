@@ -24,7 +24,11 @@
           <main class="contentcolumn">
             [#assign hideSidebar = true /]
             [@headline hideSidebar /]
-            [@cms.area name="mobileFirstContent"/]
+            [#if def.parameters.isHomeTemplate!false]
+              [@cms.area name="mobileFirstContent"/]
+            [#else]
+              [@cms.area name="contentParagraph"/]
+            [/#if]
           </main>
         </div>
         [#include "includes/footer.ftl"]

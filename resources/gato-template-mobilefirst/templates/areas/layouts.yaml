@@ -1,0 +1,14 @@
+full:
+  id: gato-template-mobilefirst:components/rows/full
+halves:
+  id: gato-template-mobilefirst:components/rows/halves
+onethirdtwothirds:
+  id: gato-template-mobilefirst:components/rows/onethirdtwothirds
+twothirdsonethird:
+  id: gato-template-mobilefirst:components/rows/twothirdsonethird
+thirds:
+  id: gato-template-mobilefirst:components/rows/thirds
+quarters:
+  id: gato-template-mobilefirst:components/rows/quarters
+cardlayoutgrid:
+  id: gato-component-cards:components/layouts/grid
