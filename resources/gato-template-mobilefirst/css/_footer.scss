@@ -220,6 +220,12 @@ body.admin {
 }
 
 .social-media-icons {
+  li {
+    transition: all 0.2s ease;
+    &:hover {
+      transform: translate(0px, -3px);
+    }
+  }
   .gato-sociallink {
     display: flex;
     justify-content: center;

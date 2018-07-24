@@ -8,13 +8,9 @@ form:
           field:
             name: social
             fields:
-              - name: link
-                required: true
-                class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-                label: Link
-                styleName: social-url
-                description: "Enter the link to your social media presence."
-              - name: title
-                class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-                label: Title
-                description: "The title for the link.  If left empty, it will be automatically titled with the name of the service, e.g. \"Facebook\"."
+              - name: icon
+                styleName: hide-image-field
+        - name: mfstylesheet
+          label: ""
+          class: edu.txstate.its.gato.vaadin.GatoCssIncludeDefinition
+          styles: [gato-template-mobilefirst/dialogs/css/mfsociallink-dialog.css]
