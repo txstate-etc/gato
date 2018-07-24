@@ -40,7 +40,10 @@
     }
     //title and buttons, title and links
     &.title-type {
-      .title, .text {
+      .title {
+        font-family: $adamina;
+      }
+      .text {
         font-family: $muli;
       }
     }
