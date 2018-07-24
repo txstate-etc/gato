@@ -1,7 +1,0 @@
-templateScript: /gato-template-mobilefirst/templates/components/fullwidthimage.ftl
-renderType: freemarker
-title: Image
-description: An image for the full width content type
-dialog: gato-template-mobilefirst:components/fullwidthimage
-parameters:
-  icon: /gato-template/images/banner.png

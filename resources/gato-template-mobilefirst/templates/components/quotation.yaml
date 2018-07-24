@@ -1,7 +1,0 @@
-templateScript: /gato-template-mobilefirst/templates/components/quotation.ftl
-renderType: freemarker
-title: Quotation
-description: A quotation with a source and optional source title
-dialog: gato-template-mobilefirst:components/quotation
-parameters:
-  icon: /gato-template/images/banner.png

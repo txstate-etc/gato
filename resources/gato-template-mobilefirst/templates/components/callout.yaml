@@ -1,7 +1,0 @@
-templateScript: /gato-template-mobilefirst/templates/components/callout.ftl
-renderType: freemarker
-title: Callout
-description: Larger callout text with a title, subtitle, and button
-dialog: gato-template-mobilefirst:components/callout
-parameters:
-  icon: /gato-template/images/banner.png

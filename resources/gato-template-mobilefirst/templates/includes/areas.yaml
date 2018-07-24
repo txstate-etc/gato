@@ -46,12 +46,6 @@ mobileFirstContent:
       id: gato-component-patterns:components/twocallouts
     quoteimage:
       id: gato-component-patterns:components/quoteimage
-fullWidthTest:
-  type: list
-  title: Testing Full Width Content Type
-  availableComponents:
-    fullWidth:
-      id: gato-template-mobilefirst:components/fullwidth
 socialmedia:
   type: single
   templateScript: /gato-template/templates/areas/optional-social.ftl
