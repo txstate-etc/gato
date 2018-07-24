@@ -8,6 +8,9 @@
     [@cms.component content=component /]
   </div>
   [/#if]
+  [#if cmsfn.isEditMode()]
+    <div class="addParentOrg" cms:add="box"></div>
+  [/#if]
   <div class="department-title">
    <a href="${cmsfn.link(homepage)}">${gf.nodeTitle(homepage)}</a>
   </div>
