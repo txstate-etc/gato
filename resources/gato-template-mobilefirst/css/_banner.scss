@@ -44,9 +44,14 @@
       left: 50%;
       top: calc(50% + 30px);
       transform: translate(-50%, -50%);
-      .mgnlEditorBar.mgnlEditor.component {
-        margin-bottom: 0px !important;
-      }
+    }
+  }
+}
+
+body.admin {
+  .addBannerImage {
+    .mgnlEditorBar.mgnlEditor.component {
+      margin-bottom: 0px !important;
     }
   }
 }
