@@ -13,7 +13,11 @@
       <div class="page">
         [#include "includes/menu.ftl"]
         [#include "includes/header.ftl"]
-        [@cms.area name="top-banner" content=gf.getOrCreateArea(homepage, 'top-banner')/]
+        [#if isHomePage]
+          [@cms.area name="home-banner" content=gf.getOrCreateArea(homepage, 'home-banner')/]
+        [#else]
+          [@cms.area name="subpage-banner" content=gf.getOrCreateArea(page, 'subpage-banner')/]
+        [/#if]
         <div class="page_content">
           <main class="contentcolumn">
             [#assign hideSidebar = true /]

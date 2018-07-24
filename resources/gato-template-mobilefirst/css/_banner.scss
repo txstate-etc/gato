@@ -17,31 +17,17 @@
      @media (max-width: $xs-breakpoint) {
        padding-bottom: 62.5%;
     }
+    &.interior {
+      height: 10em;
+      @media (max-width: $xl-breakpoint) {
+        padding-bottom: 0;
+     }
+     @media (max-width: $sm-breakpoint) {
+       height: 6em;
+     }
+    }
       overflow: hidden;
       @include coverimage();
-      //TODO: copied from Wittliff- will need to tweak this if marketing wants the mobile first button to look different
-      .feature-play-button {
-        display: block;
-        @include absolutecenter();
-        color: white;
-        font-size: 3.5rem;
-        border-radius: 100%;
-        width:  8rem;
-        height: 8rem;
-        border: 7px solid white;
-        opacity: 0.9;
-        @media (max-width: $md-breakpoint) {
-          width: 5rem;
-          height: 5rem;
-          font-size: 2.5rem;
-          border: 5px solid white;
-        }
-        i {
-          @include absolutecenter();
-          left: 55%;// looks weird when perfectly centerd or are my eyes playing tricks on me?
-        }
-      }
-      //end copied from Wittliff
       .editBanner {
         position: absolute;
         width: 33%;
@@ -93,5 +79,38 @@
         margin-bottom: 0px !important;
       }
     }
+  }
+}
+
+.site-title {
+  background-color: $maroon;
+  text-align: center;
+  font-family: $univers;
+  font-weight: 700;
+  padding: 1rem 0rem;
+  &.no-image {
+    height: 122.5px;
+    margin-left: 186.5px;
+    display: flex;
+    align-items: center;
+    padding-left: 4rem;
+    @media (max-width: $sm-breakpoint) {
+      margin-left: 0;
+      height: 75px;
+    }
+  }
+  a {
+    color: $white;
+    text-decoration: none;
+    font-size: 3.5rem;
+    @media (max-width: $sm-breakpoint) {
+      font-size: 2.5rem;
+    }
+  }
+}
+
+.title-no-image {
+  .site-title {
+
   }
 }

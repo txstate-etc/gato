@@ -1,0 +1,42 @@
+form:
+  tabs:
+    - name: tabMain
+      label: Image
+      fields:
+        - name: visible
+          class: info.magnolia.ui.form.field.definition.SwitchableFieldDefinition
+          transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+          layout: vertical
+          label: Show Banner Image
+          options:
+            - label: Use parent banner image (if available).
+              value: inherit
+              selected: true
+            - label: Upload a new banner image.
+              value: shown
+            - label: Do not show banner image.
+              value: hidden
+          fields:
+            - name: shown
+              class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
+              transformerClass:  info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+              label: ""
+              layout: vertical
+              fields:
+                - name: image
+                  class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+                  required: true
+                  appName: assets
+                  targetWorkspace: dam
+                  label: Image
+                  identifierToPathConverter:
+                    class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
+                  contentPreviewDefinition:
+                    contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
+                  description: "Image for this banner. Will be resized to fit the banner area."
+                - name: alttext
+                  class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                  required: true
+                  label: Image Alt Text
+                  description: "Descriptive text for users who are unable to see the image."
+actions: !include /gato-template/dialogs/common/actions-block.yaml
