@@ -1,20 +1,5 @@
 [#include "/gato-template/templates/includes/component.ftl"]
-[#assign mypage = cmsfn.page(content)]
-[#assign inheritancelist = [mypage]+cmsfn.ancestors(mypage)?reverse]
-
-[#list inheritancelist as page]
-  [#assign himg = gf.singleComponent(page, 'subpage-banner')!]
-  [#if himg?has_content]
-    [#if himg?has_content && (himg.visible=='hidden' || (himg.visible=='shown' && himg.image?has_content))]
-      [#break]
-    [/#if]
-  [#else]
-    [#-- TODO: I'm not sure if the designers want to inherit the banner from the home page --]
-    [#assign himg = gf.singleComponent(page, 'home-banner')!]
-  [/#if]
-[/#list]
-
-[#assign defaultSrc = gf.getImgDefault(himg.image)]
+[#import "/gato-template-mobilefirst/templates/includes/headerImageLogic.ftl" as headerLogic]
 
 <div class="banner-section">
   <div class="banner">
@@ -25,18 +10,15 @@
     [/#if]
   </div>
   [/#if]
-  [#if himg?has_content && himg.visible?? && himg.visible == 'shown' && defaultSrc?has_content]
-    [#assign hasImage = true]
-    [#assign srcset = gf.getSrcSet(content.image)]
+  [#if headerLogic.hasImage]
+    [#assign himg = headerLogic.himg]
     <div class="banner-image interior tall">
-      <img src="${defaultSrc}" alt="${content.alttext!}" srcset="${srcset}" width="${gf.getImgWidth(content.image)?c}" height="${gf.getImgHeight(content.image)?c}">
+      <img src="${headerLogic.defaultSrc}" alt="${himg.alttext!}" srcset="${headerLogic.srcset!}" width="${gf.getImgWidth(himg.image)?c}" height="${gf.getImgHeight(himg.image)?c}">
     </div>
-  [#else]
-    [#assign hasImage = false]
   [/#if]
   </div>
 </div>
 
-<div class="site-title ${hasImage?then('', 'no-image')}">
+<div class="site-title ${headerLogic.hasImage?then('', 'no-image')}">
   <a href="${cmsfn.link(homepage)}">${gf.nodeTitle(homepage)}</a>
 </div>
