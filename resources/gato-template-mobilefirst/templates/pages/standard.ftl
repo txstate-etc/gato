@@ -18,6 +18,8 @@
         [#else]
           [@cms.area name="subpage-banner" content=gf.getOrCreateArea(page, 'subpage-banner')/]
         [/#if]
+        [#import "/gato-template-mobilefirst/templates/includes/headerImageLogic.ftl" as headerLogic]
+        [@cms.area name="organization-info" content=gf.getOrCreateArea(homepage, 'organization-info') editable=isHomePage contextAttributes={"isHome":isHomePage, "hasImage":headerLogic.hasImage}/]
         <div class="page_content">
           <main class="contentcolumn">
             [#assign hideSidebar = true /]

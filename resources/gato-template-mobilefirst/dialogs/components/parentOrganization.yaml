@@ -1,0 +1,18 @@
+form:
+  tabs:
+    - name: tabText
+      label: Parent Organization
+      fields:
+        - name: parentOrganization
+          class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
+          transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+          label: ""
+          layout: vertical
+          fields:
+            - name: "parent_name"
+              class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+              label: Name
+            - name: url
+              class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+              label: URL
+actions: !include /gato-template/dialogs/common/actions-block.yaml

@@ -1,0 +1,58 @@
+.organization-info {
+  background-color: $maroon;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding: 1.5rem 0rem;
+  &.arrow:after {
+    bottom: 100%;
+    left: 50%;
+    border: solid transparent;
+    content: " ";
+    height:0;
+    width: 0;
+    position: absolute;
+    border-color: rgba(0,0,0,0);
+    border-bottom-color: $maroon;
+    border-width: 2.5rem;
+    margin-left: -2.5rem;
+  }
+  a {
+    color: $white;
+    text-decoration: none;
+  }
+  .parent-org {
+    font-size: 1.5rem;
+    padding-bottom: 1rem;
+    @media (max-width: $sm-breakpoint) {
+      padding-bottom: 0.7rem;
+    }
+  }
+  .department-title {
+    margin-bottom: 0;
+    font-family: $univers;
+    font-size: 3rem;
+    @media (max-width: $sm-breakpoint) {
+      font-size: 2rem;
+    }
+  }
+  &.no-image {
+    height: 122.5px;
+    margin-left: 186.5px;
+    align-items: flex-start;
+    justify-content: center;
+    padding-left: 4rem;
+    @media (max-width: $sm-breakpoint) {
+      margin-left: 0;
+      height: 75px;
+      padding-left: 1rem;
+    }
+  }
+}
+
+body.admin {
+  .organization-info.no-image {
+    margin-left: 0;
+  }
+}

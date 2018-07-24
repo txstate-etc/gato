@@ -18,7 +18,3 @@
   [/#if]
   </div>
 </div>
-
-<div class="site-title ${headerLogic.hasImage?then('', 'no-image')}">
-  <a href="${cmsfn.link(homepage)}">${gf.nodeTitle(homepage)}</a>
-</div>

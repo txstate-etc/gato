@@ -1,0 +1,5 @@
+templateScript: /gato-template-mobilefirst/templates/components/parentOrganization.ftl
+dialog: gato-template-mobilefirst:components/parentOrganization
+description: The Parent Organization for a Page
+title: Parent Organization
+renderType: freemarker

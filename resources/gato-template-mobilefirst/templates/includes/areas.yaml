@@ -26,6 +26,13 @@ subpage-banner:
   availableComponents:
     banner:
       id: gato-template-mobilefirst:components/subpage-banner
+organization-info:
+  type: single
+  title: Organization Information
+  templateScript: /gato-template-mobilefirst/templates/areas/org-info.ftl
+  availableComponents:
+    parentOrg:
+      id: gato-template-mobilefirst:components/parentOrganization
 contentParagraph:
   !include /gato-template/templates/areas/contentParagraph.yaml
 mobileFirstContent:
