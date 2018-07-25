@@ -27,6 +27,14 @@
             [#if def.parameters.isHomeTemplate!false]
               [@cms.area name="mobileFirstContent"/]
             [#else]
+              <div class="gato-section-full">
+                <div class="gato-section-centered">
+                  <div class="gato-section">
+                    [@breadcrumbs/]
+                    <div class="line-under-breadcrumbs"></div>
+                  </div>
+                </div>
+              </div>
               [@cms.area name="contentParagraph"/]
             [/#if]
           </main>
