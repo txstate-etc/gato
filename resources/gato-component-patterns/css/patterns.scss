@@ -103,11 +103,14 @@
           display: inline-block;
           &:not(:last-child) {
             margin-right: 1.375rem;
+            @media (max-width:$sm-breakpoint) {
+              margin-right: 0px;
+            }
           }
         }
       }
       .button {
-        border-width: 2px;
+        border-width: 1px;
         border-style: solid;
         padding: 1rem 2rem;
         text-decoration: none;
@@ -116,6 +119,7 @@
         line-height: 2.4rem;
         display: inline-block;
         transition: all 200ms ease;
+        border-radius: 2px;
         &:hover {
           transform: translate(0px, -3px);
           box-shadow: inset 0 -2px 0 0;
@@ -253,7 +257,7 @@
 
 .mobilefirst-pattern {
   .centered {
-    padding: 3rem;
+    padding: 3rem 2rem;
   }
   .quotation {
     position: relative;
