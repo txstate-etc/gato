@@ -136,7 +136,6 @@
         list-style: none;
         margin: 0;
         padding-left: 0;
-        text-align: left;
         li {
           a {
             text-decoration: none;
@@ -260,32 +259,6 @@
     padding: 3rem 2rem;
   }
   .quotation {
-    position: relative;
-    &:before {
-      font-family: "FontAwesome";
-      font-size: 4rem;
-      position: absolute;
-      z-index: 2;
-      content: "\f10d";
-      @at-root .image-left#{&} {
-        top: 1.5rem;
-        left: -2rem;
-        @media (max-width: $sm-breakpoint) {
-          top: -2.5rem;
-          left: 3rem;
-        }
-      }
-      @at-root .image-right#{&} {
-        content: "\f10e";
-        top: 1.5rem;
-        right: -2rem;
-        @media (max-width: $sm-breakpoint) {
-          content: "\f10d";
-          top: -2.5rem;
-          left: 3rem;
-        }
-      }
-    }
     .quotation-text {
       font-family: $garamond;
       font-size: 2.4rem;
@@ -293,6 +266,13 @@
       line-height: 3rem;
       padding-bottom: 2.2rem;
       position: relative;
+      &:before {
+        font-family: "FontAwesome";
+        font-size: 3rem;
+        position: absolute;
+        content: "\f10d";
+        top: -4rem;
+      }
     }
     .quotation-source {
       padding-bottom: 2.2rem;
