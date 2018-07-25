@@ -1,0 +1,7 @@
+templateScript: /gato-component-patterns/templates/components/callout.ftl
+renderType: freemarker
+title: Callout
+description: A callout with a title, text, and buttons
+dialog: gato-component-patterns:components/callout
+parameters:
+  icon: /gato-template/images/banner.png

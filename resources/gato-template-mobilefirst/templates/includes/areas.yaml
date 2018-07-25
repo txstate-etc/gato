@@ -53,6 +53,8 @@ mobileFirstContent:
       id: gato-component-patterns:components/titlebuttons
     titlelinks:
       id: gato-component-patterns:components/titlelinks
+    callout:
+      id: gato-component-patterns:components/callout
     twocallouts:
       id: gato-component-patterns:components/twocallouts
     quoteimage:
