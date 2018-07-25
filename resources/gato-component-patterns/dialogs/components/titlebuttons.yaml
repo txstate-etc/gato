@@ -11,7 +11,7 @@ form:
         - name: text
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Text
-          maxLength: 65
+          maxLength: 100
           rows: 3
         - name: color
           class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
