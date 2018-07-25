@@ -19,7 +19,7 @@ form:
           label: Text
           maxLength: 65
           rows: 5
-        - name: alignContentLeft
+        - name: alignContent
           class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
           label: Align Text
           multiselect: false
