@@ -1,3 +1,7 @@
 .v-slot.v-slot-hide-image-field {
   display: none;
 }
+
+.v-slot.v-slot-hide-title-field {
+  display: none;
+}

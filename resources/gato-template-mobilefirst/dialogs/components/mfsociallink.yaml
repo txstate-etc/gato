@@ -5,11 +5,14 @@ form:
     - name: tabMain
       fields:
         - name: sociallinks
+          minFields: 1
           field:
             name: social
             fields:
               - name: icon
                 styleName: hide-image-field
+              - name: title
+                styleName: hide-title-field
         - name: mfstylesheet
           label: ""
           class: edu.txstate.its.gato.vaadin.GatoCssIncludeDefinition
