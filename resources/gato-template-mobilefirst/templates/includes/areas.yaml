@@ -34,13 +34,13 @@ organization-info:
     parentOrg:
       id: gato-template-mobilefirst:components/parentOrganization
 contentParagraph:
-  title: Main Content Area
+  title: Interior Page Main Content Area
   templateScript: /gato-template/templates/areas/main-content.ftl
   availableComponents:
-    !include /gato-template-mobilefirst/templates/areas/interiorComponents.yaml
+    !include /gato-template-mobilefirst/templates/areas/available-components/interiorComponents.yaml
 mobileFirstContent:
   type: list
-  title: Main Content Area
+  title: Home Page Main Content Area
   templateScript: /gato-template-mobilefirst/templates/areas/mobilefirst-content.ftl
   availableComponents:
     buttonsimage:
