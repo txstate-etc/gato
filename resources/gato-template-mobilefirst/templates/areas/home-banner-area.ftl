@@ -7,7 +7,7 @@
         [@cms.component content=component /]
     [#else]
     <div class="banner-image wide">
-      <img src="${ctx.contextPath}/.resources/gato-template-mobilefirst/images/default_banner.jpg" alt="Texas State University Campus"  width="1600" height="595">
+      <img src="${ctx.contextPath}/.resources/gato-template-mobilefirst/images/default_banner.jpg" alt="View of Old Main on Texas State University's Campus"  width="1600" height="595">
     </div>
     [/#if]
     [#if cmsfn.isEditMode()]
