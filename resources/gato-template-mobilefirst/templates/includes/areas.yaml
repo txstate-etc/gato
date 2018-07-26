@@ -43,22 +43,7 @@ mobileFirstContent:
   title: Home Page Main Content Area
   templateScript: /gato-template-mobilefirst/templates/areas/mobilefirst-content.ftl
   availableComponents:
-    buttonsimage:
-      id: gato-component-patterns:components/buttonsimage
-    linksimage:
-      id: gato-component-patterns:components/linksimage
-    calloutimage:
-      id: gato-component-patterns:components/calloutimage
-    titlebuttons:
-      id: gato-component-patterns:components/titlebuttons
-    titlelinks:
-      id: gato-component-patterns:components/titlelinks
-    callout:
-      id: gato-component-patterns:components/callout
-    twocallouts:
-      id: gato-component-patterns:components/twocallouts
-    quoteimage:
-      id: gato-component-patterns:components/quoteimage
+    !include /gato-template-mobilefirst/templates/areas/available-components/homeComponents.yaml
 socialmedia:
   type: single
   templateScript: /gato-template/templates/areas/optional-social.ftl

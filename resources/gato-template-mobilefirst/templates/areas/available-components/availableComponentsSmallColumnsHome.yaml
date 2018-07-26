@@ -1,0 +1,24 @@
+articlelink:
+  id: gato-template:components/articlelink
+button:
+  id: gato-component-button:components/button
+events:
+  id: gato-component-events:components/events
+streaming:
+  id: gato-component-streaming:components/streaming
+icontext:
+  id: gato-template:components/icontext
+imagecard:
+  id: gato-component-cards:components/regular/image
+gallery:
+  id: gato-component-gallery:components/gallery
+html:
+  id: gato-template:components/html
+richeditor:
+  id: gato-template:components/richeditor
+separator:
+  id: gato-template:components/separator
+feature:
+  id: gato-component-feature:components/feature
+textimage:
+  id: gato-template:components/textimage
