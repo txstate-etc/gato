@@ -175,13 +175,14 @@ footer {
     }
   }
   .bottom {
-    padding: 1.5rem 3rem;;
+    padding: 1.5rem 3rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     @media (max-width: $sm-breakpoint) {
       display: block;
       text-align: center;
+      padding: 2rem 3rem;
     }
     img {
       height: 40px;
