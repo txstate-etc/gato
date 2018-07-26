@@ -5,6 +5,9 @@
   align-items: center;
   position: relative;
   padding: 1.5rem 2rem;
+  @media (max-width: $sm-breakpoint) {
+    align-items: flex-start;
+  }
   a {
     color: $white;
     text-decoration: none;
