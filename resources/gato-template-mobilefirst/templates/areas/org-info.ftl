@@ -2,7 +2,7 @@
 
 [#assign imgClass = (!(ctx.isHome || ctx.hasImage))?then('no-image', '')]
 
-<div class="organization-info ${ctx.isHome?then('arrow', '')} ${imgClass}">
+<div class="organization-info ${imgClass}">
   [#if component?has_content]
   <div class="parent-org">
     [@cms.component content=component /]
