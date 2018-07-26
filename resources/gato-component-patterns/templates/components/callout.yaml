@@ -4,4 +4,4 @@ title: Callout
 description: A callout with a title, text, and buttons
 dialog: gato-component-patterns:components/callout
 parameters:
-  icon: /gato-template/images/banner.png
+  icon: /gato-component-patterns/images/callout.png

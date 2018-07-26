@@ -4,4 +4,4 @@ title: Title and Links
 description: A title, text, and links
 dialog: gato-component-patterns:components/titlelinks
 parameters:
-  icon: /gato-template/images/banner.png
+  icon: /gato-component-patterns/images/title-links.png

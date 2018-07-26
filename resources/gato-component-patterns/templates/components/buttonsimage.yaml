@@ -4,4 +4,4 @@ title: Title, Buttons, and Image
 description: A title, text, and buttons beside an image
 dialog: gato-component-patterns:components/buttonsimage
 parameters:
-  icon: /gato-template/images/banner.png
+  icon: /gato-component-patterns/images/title-buttons-image.png
