@@ -62,9 +62,8 @@
       background-color: $mc4-bg;
       color: $mc4-text;
       a {
-        //color 4 is sandstone in this template. Use maroon buttons/links
-        border-color: $maroon;
-        color: $maroon;
+        border-color: $mc4-text;
+        color: $mc4-text;
       }
     }
     &.color5 {
