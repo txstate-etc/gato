@@ -36,11 +36,13 @@
       [#if rows?size > startingRow]
         <tbody>
           [#assign evenodd = 'even']
+          [#assign tbodyhascontent = false]
           [#list rows as row]
             [#if row?trim?has_content && row_index gte startingRow]
               [#if row?replace('\\s+$','','r')?split("\t")?size == 1 && row?trim?starts_with("*")]
-                </tbody><tbody>
+                [#if tbodyhascontent]</tbody><tbody>[/#if]
                 <tr class="headerrow"><th colspan="${maxwidth}">${row?trim[1..]}</th></tr>
+                [#assign tbodyhascontent = true]
               [#else]
                 <tr class="${evenodd}">
                   [#list row?split("\t") as col]
@@ -51,6 +53,7 @@
                         [/#if]
                         ${(col?trim?has_content)?string(col, "&nbsp;")}
                       </td>
+                      [#assign tbodyhascontent = true]
                     [/#if]
                   [/#list]
                 </tr>
