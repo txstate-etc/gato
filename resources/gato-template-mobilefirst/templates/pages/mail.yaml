@@ -1,0 +1,15 @@
+templateScript: /gato-template-mobilefirst/templates/pages/standard.ftl
+renderType: site
+visible: true
+title: Mobile First Mail
+dialog: gato-template:pages/page-properties
+areas: !include /gato-template-mobilefirst/templates/includes/areas.yaml
+parameters:
+  isMailTemplate: true
+  sortOrder: 307
+  favicon: /gato-template-mobilefirst/images/favicon.png
+variations:
+  js:
+    templateScript: /gato-component-cssjs/templates/pages/jsvariation.ftl
+  rss:
+    templateScript: /gato-template-rss/templates/pages/rssvariation.ftl

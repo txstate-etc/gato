@@ -2,6 +2,8 @@ customcss:
   !include /gato-component-cssjs/templates/areas/customcss.yaml
 customjs:
   !include /gato-component-cssjs/templates/areas/customjs.yaml
+mail:
+  !include /gato-area-mail/templates/areas/mailForm.yaml
 templatecss:
   type: noComponent
   title: Template CSS

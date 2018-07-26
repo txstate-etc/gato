@@ -35,7 +35,11 @@
                   </div>
                 </div>
               </div>
-              [@cms.area name="contentParagraph"/]
+              [#if def.parameters.isMailTemplate!false]
+                [@cms.area name="mail"/]
+              [#else]
+                [@cms.area name="contentParagraph"/]
+              [/#if]
             [/#if]
           </main>
         </div>
