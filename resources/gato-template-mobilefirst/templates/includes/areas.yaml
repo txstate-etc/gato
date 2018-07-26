@@ -37,7 +37,7 @@ contentParagraph:
   title: Main Content Area
   templateScript: /gato-template/templates/areas/main-content.ftl
   availableComponents:
-    !include /gato-template-mobilefirst/templates/areas/layouts.yaml
+    !include /gato-template-mobilefirst/templates/areas/interiorComponents.yaml
 mobileFirstContent:
   type: list
   title: Main Content Area
