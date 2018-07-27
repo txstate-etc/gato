@@ -22,6 +22,7 @@
         [@cms.area name="organization-info" content=gf.getOrCreateArea(homepage, 'organization-info') editable=isHomePage contextAttributes={"isHome":def.parameters.isHomeTemplate!false, "hasImage":headerLogic.hasImage}/]
         <div class="page_content">
           <main class="contentcolumn">
+            [#if !def.parameters.isHomeTemplate!false]
             <div class="gato-section-full">
               <div class="gato-section-centered">
                 <div class="gato-section">
@@ -29,6 +30,7 @@
                 </div>
               </div>
             </div>
+            [/#if]
             [#assign hideSidebar = true /]
             [@headline hideSidebar /]
             [#if def.parameters.isHomeTemplate!false]
