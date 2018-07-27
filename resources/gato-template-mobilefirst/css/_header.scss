@@ -141,6 +141,7 @@ header {
     background-color: $sandstone;
     padding-left: 0.3rem;
     padding-top: 0.3rem;
+    box-shadow: -1px 1px 3px 0 rgba(0, 0, 0, .25);
     .header-buttons {
       position: relative;
       .header-button {
