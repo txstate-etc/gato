@@ -1,14 +1,14 @@
 nav.main-menu {
-  width: 300px;
-  height: 100%;
   position: absolute;
-  left: -300px;
+  left: 0;
+  top: 0;
   background-color: $light-sandstone;
-  color: $very-dark;
+  color: $verydark;
+  width: 300px;
   z-index: 6;
-  display: none;
-  .menu-content {
-    overflow:hidden;
-    margin: 2rem;
-  }
+  height: 100%;
+  overflow:hidden;
+  padding: 2rem;
+  transform: translateX(-100%);
+  a { color: $verydark; text-decoration: none; }
 }
