@@ -50,6 +50,19 @@ body {
   font-size: 3.2rem;
 }
 
+.gato-section-full.has-background {
+  margin-bottom: 0;
+}
+
+.gato-section-full:not(.has-background) {
+  .section-title {
+    padding-top: 3rem;
+  }
+}
+.layout-column.add-space {
+  padding-top: 3rem;
+}
+
 .breadcrumbs {
   padding: 0 2rem;
   font-weight: 700;
