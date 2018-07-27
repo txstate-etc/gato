@@ -1170,6 +1170,18 @@ public final class GatoUtils {
     }
   }
 
+  public boolean isPattern(Object node) {
+    if (node == null) return false;
+    Node n = toNode(node);
+    try {
+      String template = NodeTypes.Renderable.getTemplate(n);
+      return (!StringUtils.isEmpty(template) && template.indexOf("gato-component-patterns") > -1);
+    } catch (Exception e) {
+      return false;
+    }
+
+  }
+
   public String replaceExtension(String url, String newextension) {
     return url.replaceAll("\\.[^/\\.]+$", "."+newextension);
   }

@@ -37,7 +37,7 @@ organization-info:
       id: gato-template-mobilefirst:components/parentOrganization
 contentParagraph:
   title: Interior Page Main Content Area
-  templateScript: /gato-template/templates/areas/main-content.ftl
+  templateScript: /gato-template-mobilefirst/templates/areas/mobilefirst-content.ftl
   availableComponents:
     !include /gato-template-mobilefirst/templates/areas/available-components/interiorComponents.yaml
 mobileFirstContent:

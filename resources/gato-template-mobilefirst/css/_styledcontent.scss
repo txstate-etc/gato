@@ -55,6 +55,12 @@ body {
   }
 }
 
+.gato-section-full.pattern {
+  .gato-section-centered {
+    max-width: none;
+  }
+}
+
 .gato-section-full.has-background {
   margin-bottom: 0;
 }
