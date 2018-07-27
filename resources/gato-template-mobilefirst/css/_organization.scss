@@ -23,6 +23,11 @@
     margin-bottom: 0;
     font-family: $univers;
     font-size: 3.4rem;
+    font-weight: 700;
+    @media (max-width: $sm-breakpoint) {
+      font-size: 2.6rem;
+      line-height: 3.2rem;
+    }
   }
   &.no-image {
     height: 122.5px;
@@ -32,7 +37,7 @@
     padding-left: 4rem;
     @media (max-width: $sm-breakpoint) {
       margin-left: 0;
-      height: 75px;
+      height: 125px;
       padding-left: 1rem;
     }
   }

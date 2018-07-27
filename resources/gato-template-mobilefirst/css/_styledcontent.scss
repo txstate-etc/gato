@@ -12,6 +12,7 @@ html {
 
 body {
   background-color: $light-sandstone;
+  font-family: $univers;
   &.admin {
     background-color: $white;
   }
@@ -48,6 +49,10 @@ body {
   font-weight: 500;
   margin: 2.4rem 0rem 1rem 0rem;
   font-size: 3.2rem;
+  text-align: center;
+  @media (max-width: $sm-breakpoint) {
+    text-align: left;
+  }
 }
 
 .gato-section-full.has-background {
@@ -64,7 +69,7 @@ body {
 }
 
 .breadcrumbs {
-  padding: 0 2rem;
+  padding: 1rem 2rem;
   font-weight: 700;
   font-size: 1.4rem;
   line-height: 2rem;
