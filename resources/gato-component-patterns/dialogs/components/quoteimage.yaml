@@ -45,18 +45,18 @@ form:
             contentType: default
         - name: quotation
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-          maxLength: 114
+          #maxLength: 114
           rows: 5
           label: Quotation
           required: true
         - name: source
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Cited Source
-          maxLength: 40
+          #maxLength: 40
         - name: sourceTitle
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Cited Source Title
-          maxLength: 40
+          #maxLength: 40
         - name: buttons
           class: edu.txstate.its.gato.vaadin.GatoMultiValueFieldDefinition
           transformerClass: info.magnolia.ui.form.field.transformer.multi.MultiValueSubChildrenNodePropertiesTransformer
@@ -71,7 +71,7 @@ form:
               - name: text
                 class: info.magnolia.ui.form.field.definition.TextFieldDefinition
                 label: Button Text
-                maxLength: 26
+                #maxLength: 26
               - name: link
                 class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
                 label: Button Target

@@ -47,17 +47,17 @@ form:
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Callout
           required: true
-          maxLength: 6
+          #maxLength: 6
         - name: title
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Title
-          maxLength: 65
+          #maxLength: 65
           required: true
           rows: 5
         - name: text
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Text
-          maxLength: 65
+          #maxLength: 65
           rows: 5
         - name: alignContent
           class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
@@ -86,7 +86,7 @@ form:
               - name: text
                 class: info.magnolia.ui.form.field.definition.TextFieldDefinition
                 label: Button Text
-                maxLength: 26
+                #maxLength: 26
               - name: link
                 class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
                 label: Button Target
