@@ -27,15 +27,19 @@ jQuery(document).ready(function($) {
     animating = 3;
     var menuwidth = menu.width();
     var pagewidth = page.width();
+    var headerwidth = header.width();
     menuButton.removeClass('open');
     menuButton.attr('aria-expanded', false);
     var hidecomplete = function () {
       complete();
-      if (!animating) menu.hide();
+      if (!animating) {
+        menu.hide();
+        header.css('width', '');
+      }
     }
     menuContent.velocity({translateX: ['-100%', '0%']}, {duration: 300, complete: hidecomplete});
     page.velocity({translateX: ['0px', menuwidth+'px']}, {duration: 300, complete: hidecomplete});
-    header.velocity({translateX: ['0px', menuwidth+'px'], width: pagewidth+'px'}, {duration: 300, complete: hidecomplete});
+    header.velocity({translateX: ['0px', menuwidth+'px'], width: [pagewidth+'px', headerwidth+'px']}, {duration: 300, complete: hidecomplete});
   }
 
   // be prepared for the menu to change width on resize since we set a max-width
@@ -47,8 +51,10 @@ jQuery(document).ready(function($) {
     else resizetimer = animationframe(function () {
       if (menuButton.hasClass('open')) {
         var menuwidth = menu.width();
+        var pagewidth = page.width();
         page.css('transform', 'translateX('+menuwidth+'px)');
         header.css('transform', 'translateX('+menuwidth+'px)');
+        header.css('width', (pagewidth-menuwidth)+'px');
       }
     });
   }
