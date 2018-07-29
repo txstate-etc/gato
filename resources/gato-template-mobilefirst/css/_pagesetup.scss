@@ -14,10 +14,13 @@ html {
 body {
   position: relative;
   margin: 0 auto;
-  background-color: $white;
   font-family: $univers;
   max-width: 1400px;
   overflow-x: hidden;
+}
+
+.page-container {
+  background-color: $white;
 }
 
 .contentcolumn {
