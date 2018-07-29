@@ -1,8 +1,8 @@
 header {
-  flex: none;
   position: fixed;
+  z-index: 2;
   width: 100%;
-  z-index: 5;
+  max-width: 1400px;
   .header-buttons {
     position: absolute;
     top: 0;
@@ -63,6 +63,12 @@ header {
       font-size: 1rem;
     }
     &.btn-menu {
+      i {
+        @extend .fa-bars;
+      }
+      &.open i {
+        @extend .fa-times;
+      }
       background-color: $gold;
       &:hover {
         background-color: $dark-gold;
@@ -76,12 +82,10 @@ header {
     }
   }
   .menubar {
-    display: none;
-    position: absolute;
-    left: 120px;
-    right: 0;
-    top: -60px;
+    margin-left: 120px;
     max-width: 1280px;
+    transform: translateY(-60px);
+    transition: transform 300ms;
     .menu {
       background-color: $sandstone;
       height: 6rem;
@@ -129,6 +133,9 @@ header {
     }
   }
   &.scrolled {
+    .menubar {
+      transform: translateY(0px);
+    }
     .btn-menu, .btn-search {
       box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, .25);
     }

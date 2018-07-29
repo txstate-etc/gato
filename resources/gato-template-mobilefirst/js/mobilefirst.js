@@ -31,12 +31,6 @@ jQuery(document).ready(function($) {
        complete: function() {
          logoblock.css('display', 'none')
        }})
-
-     menubar.velocity({translateY: "60px"},
-      {duration: animationDuration,
-       begin: function() {
-         menubar.css('display', 'block')
-       }})
   }
 
   function goToTopState() {
@@ -55,12 +49,6 @@ jQuery(document).ready(function($) {
          begin: function() {
            logoblock.css('display', 'flex')
          }})
-
-       menubar.velocity({translateY: "0px"},
-        {duration: animationDuration,
-         complete: function() {
-           menubar.css('display', 'none')
-         }})
   }
 
   function stopHeaderAnimation() {
@@ -70,8 +58,9 @@ jQuery(document).ready(function($) {
     header.removeClass('animatetotop').removeClass('animatetoscroll')
   }
 
-  $(window).scroll(function() {
-    if (header.offset().top > 0 ) {
+  $(window).scroll(function(e) {
+    var scrolltop = $(window).scrollTop();
+    if (scrolltop > 0 ) {
       banner.addClass('scrolled');
       if (header.is('.animatetotop')) {
         stopHeaderAnimation();
@@ -92,58 +81,6 @@ jQuery(document).ready(function($) {
       }
     }
   })
-
-   /* Main Menu Open and Close */
-   var menuButton = $('.btn-menu');
-   var pageContainer = $('.page-container');
-   var page = $('.page');
-   var menu = $('.main-menu');
-
-   var menushow = function() {
-     page.velocity({
-       translateX: "300px"
-     }, {duration: 300, begin: function() {
-       pageContainer.addClass('show-nav');
-       menuButton.find('i').toggleClass('fa-bars fa-times');
-       menuButton.attr('aria-expanded', true);
-       menuButton.attr('aria-label', "Close main menu");
-       menu.attr('aria-expanded', true);
-     }})
-
-   }
-
-   var menuhide = function() {
-     page.velocity({
-       translateX: "0px"
-     }, {duration: 300, complete: function(){
-       pageContainer.removeClass('show-nav');
-       page.css('transform', 'none');
-       menuButton.find('i').toggleClass('fa-bars fa-times');
-       menuButton.attr('aria-expanded', false);
-       menuButton.attr('aria-label', "Open main menu");
-       menu.attr('aria-expanded', false);
-     }})
-   }
-
-   menuButton.click(function(e) {
-     if (pageContainer.hasClass('show-nav')) menuhide();
-     else menushow();
-   })
-
-   $(document).on('click', function(e) {
-     var targ = $(e.target);
-     if (pageContainer.is('.show-nav') && !targ.is('.btn-menu, .btn-menu .fa, .btn-menu .label') && !targ.closest('#main-menu').length) {
-       e.preventDefault();
-       menuhide();
-     }
-   });
-
-   $(document).keyup(function (e) {
-     if (e.keyCode === 27 && pageContainer.hasClass('show-nav')) {
-       e.preventDefault();
-       menuhide();
-     }
-   });
 
   /* Footer drop down menus (mobile view only) */
   $('.mobile-footer-column-title').click(function(e) {

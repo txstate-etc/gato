@@ -1,14 +1,19 @@
 nav.main-menu {
-  position: absolute;
-  left: 0;
-  top: 0;
-  background-color: $light-sandstone;
-  color: $verydark;
+  display: none;
+  position: fixed;
   width: 300px;
-  z-index: 6;
-  height: 100%;
+  max-width: calc(100vw - 62px);
+  height: 100vh;
   overflow:hidden;
-  padding: 2rem;
-  transform: translateX(-100%);
+  z-index: 2;
   a { color: $verydark; text-decoration: none; }
+  .menu-content {
+    width: 100%;
+    height: 100%;
+    transform: translateX(-100%);
+    overflow-y: auto;
+    background-color: $light-sandstone;
+    color: $verydark;
+    padding: 2rem;
+  }
 }
