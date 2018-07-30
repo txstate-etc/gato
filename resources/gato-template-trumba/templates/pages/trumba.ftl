@@ -4,7 +4,7 @@
 <!DOCTYPE HTML>
 <html lang="en">
   <head>
-    [@googletagmanager /]
+    [@googletagmanager account=gf.getConfigProperty('trumba.tagmanager')/]
     <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-trumba/css/standard.scss"/>
     [@templatejs scripts=['gato-template-trumba/js/trumba.js'
     ]/]
