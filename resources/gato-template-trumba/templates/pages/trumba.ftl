@@ -83,7 +83,11 @@
             </div>
             <div class="side_nav nav-without-title">
               <script type="text/javascript">
-                addTrumbaSpud({ webName: 'calendar.${content.calendar}', spudType: 'filter' });
+                [#if isMainCalendar]
+                  addTrumbaSpud({ webName: 'calendar.${content.calendar}', spudType: 'filter', url: { filterview: "Exclude Long Exhibits" } });
+                [#else]
+                  addTrumbaSpud({ webName: 'calendar.${content.calendar}', spudType: 'filter' });
+                [/#if]
               </script>
             </div>
           </div>
