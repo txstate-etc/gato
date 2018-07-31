@@ -7,7 +7,9 @@ nav.main-menu {
   overflow:hidden;
   z-index: 2;
   line-height: 1.4;
-  a { color: $verydark; text-decoration: none; }
+  ul { list-style-type: none; }
+  a { color: $verydark; text-decoration: none; font-weight: 500; font-size: 1.5rem; }
+  i.arrow { font-weight: bold; color: $maroon; }
   .menu-content {
     width: 100%;
     height: 100%;
@@ -40,6 +42,48 @@ nav.main-menu {
   .navigation-children {
     list-style-type: none;
     padding-left: 2rem;
-    font-size: 1.5rem;
+    a {
+      display: block;
+      padding: 0.5rem 0;
+      font-weight: 500;
+      i {
+        margin-left: 1rem;
+      }
+    }
+  }
+  .multilinks {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    li { width: 49%; margin-bottom:0.5rem;}
+    a {
+      display: block;
+      padding: 1rem 0;
+      border-radius: 2px;
+      background-color: $maroon;
+      color: white;
+      text-align: center;
+      font-size: 1.3rem;
+    }
+    .editMultiLinks {
+      display: none;
+    }
+  }
+  .super-list {
+    margin: 0 0 1rem 0;
+    padding: 0 0 1rem 0;
+    border-bottom: 1px solid $dark-sandstone;
+    &.columns {
+      display: flex;
+      flex-wrap: wrap;
+      li { width: 50%; }
+    }
+  }
+  a.more-tools {
+    display: block;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid $dark-sandstone;
   }
 }
