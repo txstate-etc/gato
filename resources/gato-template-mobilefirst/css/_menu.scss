@@ -6,6 +6,7 @@ nav.main-menu {
   height: 100vh;
   overflow:hidden;
   z-index: 2;
+  line-height: 1.4;
   a { color: $verydark; text-decoration: none; }
   .menu-content {
     width: 100%;
@@ -15,5 +16,30 @@ nav.main-menu {
     background-color: $light-sandstone;
     color: $verydark;
     padding: 2rem;
+  }
+  .navigation-up {
+    border-top: 1px solid $dark-sandstone;
+    border-bottom: 1px solid $dark-sandstone;
+    margin: 0 -2rem 2rem -2rem;
+    overflow: hidden;
+    a {
+      display: block;
+      float: left;
+      width: 50%;
+      padding: 1rem;
+      &.top {
+        border-left: 1px solid $dark-sandstone;
+      }
+    }
+  }
+  .navigation-current {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: $maroon;
+  }
+  .navigation-children {
+    list-style-type: none;
+    padding-left: 2rem;
+    font-size: 1.5rem;
   }
 }
