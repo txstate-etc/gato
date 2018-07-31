@@ -19,19 +19,19 @@
     [/@navloop]
     </ul>
     [@cms.area name="menulinks" content=gf.getOrCreateArea(homepage, 'menulinks') editable=false/]
-    <ul class="super-list columns">
+    <ul class="super-list columns first">
       [#list cmsfn.children(globalLinks.superGroup1, "mgnl:component") as component]
         <li><a href="${gf.filterUrl(component.link)}">${gf.filterLinkTitle(component.text, component.link)}</a></li>
       [/#list]
     </ul>
-    <ul class="super-list columns">
+    <ul class="super-list columns second">
       [#list cmsfn.children(globalLinks.superGroup2, "mgnl:component") as component]
         <li><a href="${gf.filterUrl(component.link)}">${gf.filterLinkTitle(component.text, component.link)}</a></li>
       [/#list]
     </ul>
-    <a href="#" class="more-tools">
+    <a href="#" class="more-tools" aria-expanded="false">
       ${globalLinks.superGroup3.text!'Online Services'}
-      <i class="fa fa-caret-down"></i>
+      <i class="fa fa-angle-down"></i>
     </a>
     <ul class="super-list more-tools">
       [#list cmsfn.children(globalLinks.superGroup3, "mgnl:component") as component]

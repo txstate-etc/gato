@@ -80,4 +80,16 @@ jQuery(document).ready(function($) {
       menuhide();
     }
   });
+
+  $('a.more-tools').click(function () {
+    var lnk = $(this);
+    var list = $('ul.more-tools');
+    if (lnk.is('[aria-expanded="true"]')) {
+      lnk.attr('aria-expanded', false);
+      list.velocity('slideUp', { duration: 300 });
+    } else {
+      lnk.attr('aria-expanded', true);
+      list.velocity('slideDown', { duration: 300 });
+    }
+  })
 });
