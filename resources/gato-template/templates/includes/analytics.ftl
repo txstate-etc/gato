@@ -46,7 +46,7 @@
   [/#if]
 [/#macro]
 
-[#macro googletagmanager account=globalData.tagmanager.global_account]
+[#macro googletagmanager account=gf.getConfigProperty('gato.tagmanager')]
   [#if cacheEnvironment]
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
