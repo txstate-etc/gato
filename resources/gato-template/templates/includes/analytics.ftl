@@ -46,7 +46,7 @@
   [/#if]
 [/#macro]
 
-[#macro googletagmanager account=gf.getConfigProperty('gato.tagmanager')]
+[#macro googletagmanager account=gf.getConfigProperty('gato.tagmanager')!]
   [#if cacheEnvironment]
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -57,7 +57,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
   [/#if]
 [/#macro]
-[#macro googletagmanagerbody]
+[#macro googletagmanagerbody account=gf.getConfigProperty('gato.tagmanager')!]
   [#if cacheEnvironment]
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=${account}"
