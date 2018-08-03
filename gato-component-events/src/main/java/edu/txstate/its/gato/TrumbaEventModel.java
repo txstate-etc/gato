@@ -34,12 +34,15 @@ public class TrumbaEventModel<RD extends RenderableDefinition> extends Rendering
 
   protected Exception error;
   protected List<EventItem> items;
+  protected String defaultCalendarId = "1400280";
+  protected String calendarId;
 
   @Inject
   public TrumbaEventModel(Node content, RD definition, RenderingModel<?> parent) {
     super(content, definition, parent);
     try {
-      this.items = initList(content);
+      this.calendarId = PropertyUtil.getString(content, "calendarId", defaultCalendarId);
+      this.items = initList();
     } catch (Exception e) {
       log.error("Failed to fetch JSON feed.", e);
       this.error = e;
@@ -53,11 +56,11 @@ public class TrumbaEventModel<RD extends RenderableDefinition> extends Rendering
     return "collapsedlist".equalsIgnoreCase(PropertyUtil.getString(content, "displayStyle", ""));
   }
 
-  protected static List<EventItem> initList(Node content) throws UnsupportedEncodingException {
+  protected List<EventItem> initList() throws UnsupportedEncodingException {
     final List<EventItem> items = new ArrayList<EventItem>();
 
     try {
-      final String url = constructUrl(content);
+      final String url = constructUrl();
       log.debug("Using URL: {}", url);
 
       String json = IOUtils.toString(new URL(url).openStream());
@@ -73,14 +76,13 @@ public class TrumbaEventModel<RD extends RenderableDefinition> extends Rendering
     return items;
   }
 
-  protected static String baseUrl(Node content, String calendarId) {
+  protected String baseUrl() {
     MagnoliaConfigurationProperties mcp = Components.getComponent(MagnoliaConfigurationProperties.class);
-    return mcp.getProperty("trumba.basepath")+"/calendars/calendar."+calendarId+".json";
+    return mcp.getProperty("trumba.basepath")+"/calendars/calendar."+this.calendarId+".json";
   }
 
-  protected static String constructUrl(Node content) throws UnsupportedEncodingException {
-    final String calendarId = PropertyUtil.getString(content, "calendarId", "1400280");
-    String url = baseUrl(content, calendarId);
+  protected String constructUrl() throws UnsupportedEncodingException {
+    String url = baseUrl();
 
     final String rangeType = PropertyUtil.getString(content, "range_type", "days");
 

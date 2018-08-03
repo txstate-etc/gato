@@ -103,8 +103,7 @@ public class TrumbaEventItem extends AbstractEventItem {
     final String tz = getPropertyString(tzname);
 
     try {
-      inputFormatTimed.setTimeZone(TimeZone.getTimeZone(tz));
-      return inputFormatTimed.parse(dateString);
+      return inputFormatTimed.parse(dateString+tz);
     } catch (ParseException e) {
       // couldn't parse with a date
     }

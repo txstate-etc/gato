@@ -2,7 +2,7 @@
   <div class="menu-content">
     [#if !isHomePage]
     <div class="navigation-up">
-    <a class="back" href="${cmsfn.link(cmsfn.parent(page))}#navopen">
+    <a class="back" href="${cmsfn.link(cmsfn.parent(page))}">
       <i class="fa fa-angle-left arrow" aria-hidden="true"></i>
       <span>Back</span>
     </a>

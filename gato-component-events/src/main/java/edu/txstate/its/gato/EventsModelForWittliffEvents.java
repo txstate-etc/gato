@@ -30,6 +30,7 @@ public class EventsModelForWittliffEvents extends TrumbaEventModel {
   protected final List<FilterMonth> months;
 
   protected static DateFormat monthyeardisplay = new SimpleDateFormat("MMM ''yy");
+  protected String defaultCalendarId = "1411153";
 
   @Inject
   public EventsModelForWittliffEvents(Node content, RenderableDefinition definition, RenderingModel parent) {
@@ -68,8 +69,8 @@ public class EventsModelForWittliffEvents extends TrumbaEventModel {
   public List<String> getCategories() { return categories; }
   public List<FilterMonth> getMonths() { return months; }
 
-  protected String constructUrl(Node content, String params) throws UnsupportedEncodingException {
-    String url = baseUrl(content, "1411153");
+  protected String constructUrl() throws UnsupportedEncodingException {
+    String url = baseUrl();
 
     Calendar startDate = Calendar.getInstance();
     Calendar endDate = (Calendar) startDate.clone();

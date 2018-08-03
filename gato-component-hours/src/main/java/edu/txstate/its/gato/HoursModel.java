@@ -1,29 +1,30 @@
 package edu.txstate.its.gato;
 
+import info.magnolia.jcr.util.PropertyUtil;
 import info.magnolia.rendering.model.RenderingModel;
 import info.magnolia.rendering.template.RenderableDefinition;
-import javax.inject.Inject;
-import javax.jcr.Node;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.NodeList;
 import java.util.Calendar;
 import java.text.SimpleDateFormat;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.List;
-import java.util.TimeZone;
 import java.util.Locale;
+import javax.inject.Inject;
+import javax.jcr.Node;
 import org.apache.commons.lang3.time.DateUtils;
 import org.apache.commons.lang3.StringUtils;
 
-
 public class HoursModel extends TrumbaEventModel {
   protected final DateFormat jsonFormat = new SimpleDateFormat( "yyyy-MM-dd'T'HH:mm:ss" );
+  protected String defaultCalendarId = "1411151";
+  protected String specialTitle;
+  protected String displayTitle;
 
   @Inject
   public HoursModel(Node content, RenderableDefinition definition, RenderingModel parent) {
     super(content, definition, parent);
+    this.specialTitle = PropertyUtil.getString(content, "caltitle", "Alkek Library");
+    this.displayTitle = PropertyUtil.getString(content, "displaytitle", "");
   }
 
   public String itemHtml( EventItem item ) {
@@ -110,14 +111,15 @@ public class HoursModel extends TrumbaEventModel {
   }
 
   private String formatOpen(Date dateClose, Date nextOpen) {
+    String html = "<span class=\"open-closed\">";
     if (nextOpen != null && dateClose.equals(nextOpen)) {
-      return "Open 24hrs";
+      return html+"Open</span> 24hrs";
     }
-    return "Open until " + formatTime(dateClose);
+    return html+"Open</span> until " + formatTime(dateClose);
   }
 
   private String formatClosed(Date nextOpen) {
-    String time = "Closed";
+    String time = "<span class=\"open-closed\">Closed</span>";
     if (nextOpen != null) {
       time += " until " + formatTime(nextOpen);
       Calendar cutoff = Calendar.getInstance();
@@ -132,6 +134,36 @@ public class HoursModel extends TrumbaEventModel {
     return time;
   }
 
+  protected String constructUrl () {
+    String url = baseUrl();
+
+    Calendar startDate = Calendar.getInstance();
+    Calendar endDate = Calendar.getInstance();
+    startDate.add( Calendar.DATE, -1 );
+    endDate.add( Calendar.DATE, 94 );
+    endDate.set( Calendar.DAY_OF_MONTH, 1 );
+    endDate.add( Calendar.DATE, -1);
+
+    url = url + "?startdate=" + trumbaformat.format(startDate.getTime());
+    url = url + "&enddate=" + trumbaformat.format(endDate.getTime());
+    return url;
+  }
+
+  public boolean itemIsApplicable(EventItem item) {
+    return !item.isCancelled() &&
+        // if we are looking for a special title and this item does not match, skip it
+        (StringUtils.isBlank(this.specialTitle) || item.getTitle().equalsIgnoreCase(this.specialTitle));
+  }
+
+  public boolean isOpen() {
+    for ( EventItem item : (List<EventItem>)this.items ) {
+      if (itemIsApplicable(item)
+        && isBetween(new Date(), item.getStartDate(), item.getEndDate()))
+          return true;
+    }
+    return false;
+  }
+
   // Examples:
   // "Open until 3am"
   // "Open 24hrs"
@@ -139,7 +171,8 @@ public class HoursModel extends TrumbaEventModel {
   // "Closed until 7am Monday"
   // "Closed until 7am, January 3"
   // "Closed" (Shouldn't ever happen)
-  private String mobileHoursHtml(List<EventItem> items) {
+  public String getAbbreviated() {
+    if (this.items.size() == 0) return "No hours data.";
     String html = "";
     Date now = Calendar.getInstance().getTime();
     Date firstOpen = null;
@@ -149,12 +182,13 @@ public class HoursModel extends TrumbaEventModel {
     Date thirdOpen = null;
     Date thirdClose = null;
 
+    if (!StringUtils.isBlank(this.displayTitle)) {
+      html += this.displayTitle + " is ";
+    }
+
     // Find the next three open/close times (starting yesterday)
-    for ( EventItem item : items ) {
-      // FIXME: don't hardcode the title, put it in the JCR (but default it to this)
-      if (!item.getTitle().equalsIgnoreCase("Alkek Library") || item.isCancelled()) {
-        continue;
-      }
+    for ( EventItem item : (List<EventItem>)this.items ) {
+      if (!itemIsApplicable(item)) continue;
 
       if (firstOpen == null) {
         firstOpen = item.getStartDate();
@@ -184,27 +218,27 @@ public class HoursModel extends TrumbaEventModel {
 
     if (firstOpen.after(now)) {
       // a. closed now, return next opening
-      return formatClosed(firstOpen);
+      return html+formatClosed(firstOpen);
     }
 
     if (firstOpen.before(now) && firstClose.after(now)) {
       // b. open now. return "Open until hh:mm p"
-      return formatOpen(firstClose, secondOpen);
+      return html+formatOpen(firstClose, secondOpen);
     }
 
     if (secondOpen == null || secondOpen.after(now)) {
       // c. closed now, return next opening
-      return formatClosed(secondOpen);
+      return html+formatClosed(secondOpen);
     }
 
     if (secondOpen.before(now) && secondClose.after(now)) {
       // d. open now. return "Open until hh:mm p"
-      return formatOpen(secondClose, thirdOpen);
+      return html+formatOpen(secondClose, thirdOpen);
     }
 
     if (thirdOpen == null || thirdOpen.after(now)) {
       // e. closed now, return next opening
-      return formatClosed(thirdOpen);
+      return html+formatClosed(thirdOpen);
     }
 
     // The next two states should never happen?
@@ -212,50 +246,30 @@ public class HoursModel extends TrumbaEventModel {
 
     if (thirdOpen.before(now) && thirdClose.after(now)) {
       // f. open now. return "Open until hh:mm p"
-      return formatOpen(thirdClose, null);
+      return html+formatOpen(thirdClose, null);
     }
 
     if (thirdClose.before(now)) {
       // g. return 'closed'
-      return formatClosed(null);
+      return html+formatClosed(null);
     }
 
     // really should never happen
     return "";
   }
 
-  private String constructUrl (Boolean mobileDevice, String calendarId) {
-    String url = baseUrl(content, "1411153");
-
-    Calendar startDate = Calendar.getInstance();
-    Calendar endDate = Calendar.getInstance();
-    startDate.add( Calendar.DATE, -1 );
-    endDate.add( Calendar.DATE, 94 );
-    endDate.set( Calendar.DAY_OF_MONTH, 1 );
-    endDate.add( Calendar.DATE, -1);
-
-    url = url + "?startdate=" + trumbaformat.format(startDate.getTime());
-    url = url + "&enddate=" + trumbaformat.format(endDate.getTime());
-    return url;
-  }
-
-  public String getEvents(Boolean isMobile){
+  public String getFull() {
     if (this.items.size() == 0) return "No hours data.";
     String out="";
-    if(isMobile){
-      out = mobileHoursHtml(this.items);
-    } else {
-      Date now = new Date();
-      for ( EventItem item : (List<EventItem>) this.items) {
-        if (isToday(item.getStartDate())) {
-          out += itemHtml( item );
-        }
+    for ( EventItem item : (List<EventItem>) this.items) {
+      if (isToday(item.getStartDate())) {
+        out += itemHtml( item );
       }
     }
     return out;
   }
 
-  public String getFullCalendar(String calendarId){
+  public String getData(){
     String out = "[";
     boolean firstrun = true;
     for ( EventItem item : (List<EventItem>) this.items ) {

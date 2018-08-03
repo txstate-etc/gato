@@ -20,34 +20,20 @@
   height: 90vh;
 }
 
-.page_content .gato-hours {
-  background-color: $lightbg;
-  color: $lighttext;
-  border-top: 2px solid $lightdarker;
-  padding: 1rem;
-  .hours {
-    padding-bottom: 1rem;
-    h4 {
-      margin: 0;
-    }
-    &, h4 {
-      font-size: 1.5rem;
-      line-height: 2.0rem;
-    }
-  }
-  .hours-full {
-    display: block;
+.gato-component-hours {
+  .words, a.full {display: inline-block;}
+  .words {margin-right: 1.2rem;}
+  a.full {
+    font-size: 90%;
     text-decoration: none;
-    text-transform: uppercase;
-    background-color: $primarybg;
-    color: $primarytext;
-    margin: 0rem -1rem -1rem -1rem;
-    padding: 0.8rem 0.5rem;
-    font-size: 1.4rem;
+    color: $hours-button-text;
+    background-color: $hours-button-bg;
+    border: 1px solid $hours-button-border;
+    border-radius: 3px;
+    padding: 0.2rem 0.8rem;
     font-weight: 500;
-    text-align: center;
     &:hover {
-      background-color: $primaryhover;
+      background-color: $hours-button-hover;
     }
   }
 }
