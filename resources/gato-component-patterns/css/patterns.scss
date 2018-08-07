@@ -99,9 +99,12 @@
         li {
           text-align: center;
           padding: 1rem 0rem;
+          @media (max-width:$sm-breakpoint) {
+            padding: 0.7rem 0rem;
+          }
           display: inline-block;
           &:not(:last-child) {
-            margin-right: 1.375rem;
+            margin-right: 2.2rem;
             @media (max-width:$sm-breakpoint) {
               margin-right: 0px;
             }
