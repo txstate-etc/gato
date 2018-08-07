@@ -2,15 +2,13 @@
 @import "gato-template-mobilefirst/css/colors";
 @import "gato-template-mobilefirst/css/contenttypes";
 
-$adamina:   'Adamina', serif;
-$muli:      'Muli', sans-serif;
 $univers: 'Univers W01', Helvetica, Calibri, Arial, sans-serif;
 $garamond: 'Adobe Garamond W01', Garamond, 'Goudy Old Style', 'Times New Roman', serif;
 
 //Search Drop Down
 $search-dd-overlay-background-color:  $gold;
 $search-dd-dropdown-background-color: $sandstone;
-$search-dd-dialog-font-family:        $muli;
+$search-dd-dialog-font-family:        $univers;
 $search-dd-input-line-color:        $gold;
 $search-dd-input-color:               $very-dark;
 $search-dd-input-placeholder-color:   $gold;
@@ -34,6 +32,6 @@ $sitesearch-results-page-title-color:  $maroon;
 $sitesearch-result-search-input:       $gold;
 $sitesearch-result-search-color:       $gold;
 $sitesearch-help-text-color:           $gold;
-$sitesearch-font-family:               $muli;
+$sitesearch-font-family:               $univers;
 
 $content-link-hover: $sandstone;
