@@ -2,7 +2,7 @@
   <div class="header-buttons">
     <button class="header-button btn-menu" id="main-menu-toggle" aria-expanded="false" aria-controls="main-menu" aria-label="navigation menu">
       <i class="fa" aria-hidden="true"></i>
-      <span class="label">Menu</span>
+      <span class="label"></span>
     </button>
     <button class="header-button btn-search search-link search-button">
       <i class="fa fa-search" aria-hidden="true"></i>

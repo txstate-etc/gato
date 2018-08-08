@@ -66,8 +66,16 @@ header {
       i {
         @extend .fa-bars;
       }
-      &.open i {
-        @extend .fa-times;
+      .label:after {
+        content: 'Menu';
+      }
+      &.open {
+        i {
+          @extend .fa-times;
+        }
+        .label:after {
+          content: 'Close';
+        }
       }
       background-color: $gold;
       &:hover {
