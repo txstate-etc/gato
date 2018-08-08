@@ -7,7 +7,7 @@
 }
 
 html {
-  background-color: $light-sandstone;
+  background-color: $white;
   overflow: auto;
 }
 
@@ -17,6 +17,7 @@ body {
   font-family: $univers;
   max-width: 1400px;
   overflow-x: hidden;
+  box-shadow: 1px 1px 5px #cfcfcf;
 }
 
 .page-container {
