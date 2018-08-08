@@ -1,5 +1,7 @@
+$pattern-max-height: 400px;
+
 .mobilefirst-pattern {
-  max-height: 400px;
+  max-height: $pattern-max-height;
   display: flex;
   justify-content: space-between;
   position: relative;
@@ -11,6 +13,7 @@
     max-width: 500px;
     margin-left: auto;
     margin-right: auto;
+    width: 100%;
   }
   .pattern-content {
     width: 50%;
@@ -26,7 +29,6 @@
     justify-content: center;
     @media (max-width:$sm-breakpoint) {
       width: 100%;
-      max-height: 400px;
     }
     &.text-left {
       text-align: left;
@@ -167,9 +169,9 @@
   .pattern-image {
     width: 50%;
     position: relative;
+    max-height: $pattern-max-height;
     @media (max-width:$sm-breakpoint) {
       width: 100%;
-      max-height: 400px;
       order: 2;
     }
     &.with-quotation {
@@ -186,6 +188,7 @@
       }
       img {
         object-position: 50% 0;
+        font-family: 'object-fit: cover; object-position: 50% 0;';
       }
     }
     img {
@@ -193,7 +196,10 @@
       width: 100%;
       height: 100%;
       display: block;
-      @include object-fit-poly(cover);
+      //@include object-fit-poly(cover);
+      object-fit: cover;
+      object-position: 50% 50%;
+      font-family: 'object-fit: cover; object-position: 50% 50%;';
     }
     .overlay-left {
       background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.47), rgba(255, 255, 255, 0));
@@ -266,9 +272,12 @@
 
 .mobilefirst-pattern {
   .centered {
-    padding: 3rem 2rem;
+    padding: 0rem 2rem;
   }
   .quotation {
+    @media (max-width:$sm-breakpoint) {
+      padding: 3rem 0rem;
+    }
     .quotation-text {
       font-family: $garamond;
       font-size: 2.4rem;
@@ -276,6 +285,9 @@
       line-height: 3rem;
       padding-bottom: 2.2rem;
       position: relative;
+      @media (max-width:$md-breakpoint) {
+        margin-top: 4rem;
+      }
       &:before {
         font-family: "FontAwesome";
         font-size: 3rem;
@@ -303,6 +315,9 @@
   .title {
     font-family: $garamond;
     font-size: 3.2rem;
+    @media (max-width:$sm-breakpoint) {
+      font-size: 2.9rem;
+    }
     font-weight: 400;
     line-height: 3.8rem;
     padding-bottom: 1rem;
