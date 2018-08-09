@@ -1,0 +1,7 @@
+templateScript: /gato-template-mobilefirst/templates/components/button.ftl
+renderType: freemarker
+title: Button
+description: Mobile First Button
+dialog: gato-template-mobilefirst:components/button
+parameters:
+  icon: /gato-component-button/images/button.png
