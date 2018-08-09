@@ -92,6 +92,7 @@ header {
   .menubar {
     margin-left: 120px;
     max-width: 1280px;
+    width: 100%;
     transform: translateY(-60px);
     transition: transform 300ms;
     .menu {
@@ -104,6 +105,10 @@ header {
       padding: 0rem 1.5rem;
       border-bottom: 1px solid $sandstone;
       box-shadow: -1px 1px 3px 0 rgba(0, 0, 0, .25);
+      @media (max-width: $mc-breakpoint) {
+        padding: 0rem;
+        justify-content: center;
+      }
       .logo {
         width: 180px;
         img {
