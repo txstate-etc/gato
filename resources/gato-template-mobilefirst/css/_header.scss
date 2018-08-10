@@ -12,6 +12,7 @@ header {
       position: absolute;
       font-family: $univers;
       font-weight: 500;
+      padding: 0;
       &.btn-menu {
         top: 0;
         left: 0;
@@ -24,6 +25,9 @@ header {
           left: 6rem;
           transform: none !important;
         }
+      }
+      i {
+        display: block;
       }
     }
   }
