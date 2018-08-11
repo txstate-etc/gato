@@ -178,6 +178,7 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       .addTask(new BootstrapSingleModuleResource("config.modules.site.config.site.templates.availability.templates.mobilefirst-standard.xml"))
       .addTask(new BootstrapSingleModuleResource("config.modules.site.config.site.templates.availability.templates.admissions-standard.xml"))
       .addTask(new BootstrapSingleModuleResource("config.modules.site.config.site.templates.availability.templates.mobilefirst-mail.xml"))
+      .addTask new MigrateToTrumbaTask())
       .addTasks(installOrUpdateTasks())
     );
 
