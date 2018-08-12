@@ -7,14 +7,18 @@ import java.util.Date;
 import java.util.TimeZone;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 
 import com.google.gson.*;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
 
 public class TrumbaEventItem extends AbstractEventItem {
   private static final DateFormat inputFormatTimed = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
   protected JsonObject event;
+  protected static final Pattern LINK_PATTERN = Pattern.compile(".*href=\"([^\"]*)\".*", Pattern.CASE_INSENSITIVE);
 
   public TrumbaEventItem(JsonObject event) {
     this.event = event;
@@ -61,14 +65,18 @@ public class TrumbaEventItem extends AbstractEventItem {
   }
 
   public String getLink() {
-    return getPropertyString("webLink");
+    String linkhtml = getPropertyString("webLink");
+    Matcher m = LINK_PATTERN.matcher(linkhtml);
+    if (m.matches()) return StringEscapeUtils.unescapeHtml4(m.group(1));
+    return "";
   }
 
   public String getFacility() {
     String facility = getPropertyString("location");
     String room = getCustomProperty("Room");
-    if (!StringUtils.isEmpty(room)) {
-      facility += "; " + room;
+    if (!StringUtils.isBlank(room)) {
+      if (!StringUtils.isBlank(facility)) facility += "; ";
+      facility += room;
     }
 
     return facility;
