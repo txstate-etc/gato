@@ -10,7 +10,8 @@ jQuery(function($) {
 
       // special treatment for youtube and vimeo to autoplay when the modal appears
       dataEmbed = dataEmbed.replace(/src="(.*?youtube\.com.*?)"/i, 'src="$1&autoplay=1"');
-      dataEmbed = dataEmbed.replace(/src="(.*?vimeo\.com.*?)"/i, 'src="$1?autoplay=1"');
+      if (dataEmbed.indexOf('?') !== -1) dataEmbed = dataEmbed.replace(/src="(.*?vimeo\.com.*?)"/i, 'src="$1&autoplay=1"');
+      else dataEmbed = dataEmbed.replace(/src="(.*?vimeo\.com.*?)"/i, 'src="$1?autoplay=1"');
       dataEmbed = dataEmbed.replace(/src="(.*?mediaflo\.txstate\.edu.*?autoPlay=)\w+(.*?)"/i, 'src="$1true$2"');
       dataEmbed = dataEmbed.replace(/src="(.*?facebook\.com.*?)"/i, 'src="$1&autoplay=true"');
 
