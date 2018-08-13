@@ -112,18 +112,18 @@
             </dl>
           </div>
 
+          [#assign itemlink = item.link]
+          [#if !itemlink?has_content][#assign itemlink = item.url][/#if]
           [#if item.description?has_content]
             <div class="txst-eventdetail-description">
               <span class="p-description">${item.description}</span>
-              [#if item.link?has_content]
-                <a href="${item.link}" class="u-url url">
-                  Click here for more information
-                </a>
-              [/#if]
+              <a href="${itemlink}" class="u-url url">
+                Click here for more information
+              </a>
             </div>
           [/#if]
 
-          <a class="txst-eventdetail-morelink" href="${item.url}">
+          <a class="txst-eventdetail-morelink" href="${itemlink}">
             <span class="linktext">more about event</span>
             <i class="fa fa-angle-right" aria-hidden="true"></i>
           </a>
