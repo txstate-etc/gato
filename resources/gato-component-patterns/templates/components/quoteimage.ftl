@@ -1,5 +1,5 @@
 <div cms:edit="bar"></div>
-<div class="mobilefirst-pattern ${content.imageAlignment!'image-right'}">
+<div class="mobilefirst-pattern has-image ${content.imageAlignment!'image-right'}">
   <div class="pattern-image with-quotation">
     <img src="${gf.getImgDefault(content.image)}" alt="${content.alttext!}" srcset="${gf.getSrcSet(content.image)}" />
   </div>

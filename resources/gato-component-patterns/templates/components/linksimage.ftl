@@ -1,5 +1,5 @@
 <div cms:edit="bar"></div>
-<div class="mobilefirst-pattern ${content.imageAlignment!'image-right'}">
+<div class="mobilefirst-pattern has-image ${content.imageAlignment!'image-right'}">
   [#if content.imageAlignment == 'image-left']
     <div class="pattern-image ${content.color!color1}">
       <div class="overlay-right"></div>
