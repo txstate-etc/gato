@@ -18,7 +18,8 @@ import org.apache.commons.lang3.StringEscapeUtils;
 public class TrumbaEventItem extends AbstractEventItem {
   private static final DateFormat inputFormatTimed = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
   protected JsonObject event;
-  protected static final Pattern LINK_PATTERN = Pattern.compile(".*href=\"([^\"]*)\".*", Pattern.CASE_INSENSITIVE);
+  protected static final Pattern HREF_PATTERN = Pattern.compile(".*href=\"([^\"]*)\".*", Pattern.CASE_INSENSITIVE);
+  protected static final Pattern LINK_PATTERN = Pattern.compile("(https?://\\S+)", Pattern.CASE_INSENSITIVE);
 
   public TrumbaEventItem(JsonObject event) {
     this.event = event;
@@ -66,8 +67,9 @@ public class TrumbaEventItem extends AbstractEventItem {
 
   public String getLink() {
     String linkhtml = getPropertyString("webLink");
-    Matcher m = LINK_PATTERN.matcher(linkhtml);
+    Matcher m = HREF_PATTERN.matcher(linkhtml);
     if (m.matches()) return StringEscapeUtils.unescapeHtml4(m.group(1));
+    else if (LINK_PATTERN.matcher(linkhtml).matches()) return linkhtml;
     return "";
   }
 
