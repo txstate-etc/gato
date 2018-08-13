@@ -95,7 +95,7 @@ public class TrumbaEventItem extends AbstractEventItem {
   }
 
   public String getUrl() {
-    return getPropertyString("trumbaLink");
+    return getPropertyString("permaLinkUrl");
   }
 
   public String getCalendarUrl() {
