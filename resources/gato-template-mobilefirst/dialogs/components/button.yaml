@@ -43,7 +43,7 @@ form:
               scripts: [gato-lib/js/color-picker.js]
               styleName: single-color color1 color2 color3 color4
               parameters:
-                contentType: default
+                contentType: reverseButton
             - name: rollover
               class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
               transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
