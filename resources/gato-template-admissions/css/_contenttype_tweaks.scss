@@ -16,6 +16,12 @@
         color: $maroon;
       }
     }
+    //all of the text should be maroon for the old gold patterns
+    &.color7 {
+      .title, .text, .stat, .quotation-text, .quotation-source {
+        color: $maroon;
+      }
+    }
   }
   //image next to blue content should have light overlay
   .pattern-image.color4 {
