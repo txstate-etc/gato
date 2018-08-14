@@ -34,6 +34,21 @@
   }
 }
 
+.calendar-util {
+  list-style: none;
+  padding-left: 0;
+  padding-top: 0.4rem;
+  border-top: 1px solid $light-gray;
+  li {
+    padding: 0.2rem 0;
+  }
+  a {
+    color: $maroon;
+    font-size: 1.4rem;
+    font-weight: 500;
+  }
+}
+
 footer {
   position: relative;
   overflow: hidden;
