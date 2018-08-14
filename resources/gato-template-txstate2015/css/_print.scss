@@ -1,39 +1,23 @@
 body.print {
   background-color: white;
   width: 535pt;
-  .sidebar,
+  .sidebar-container,
   .super-user-menu,
   .top_nav,
-  .top_nav + div,
   .footer,
-  .gato-search,
-  .header_no_image {
+  .banner,
+  .header_no_image,
+  .header_with_image,
+  .ui-helper-hidden-accessible,
+  .trail {
     display: none !important;
   }
 
-  .page_content {
-    min-height: 0px !important;
-  }
-
-  .banner {
-    background: none;
-  }
-
-  .trail .breadcrumbs {
-    margin-left: 0px;
-  }
-
-  .gato-section {
-    width: 100%;
-  }
-
-  .layout-column {
-    display: block;
-    float: left;
-  }
-
-  .gato-section {
-    width: 100%;
+  @-moz-document url-prefix() {
+    .layout-column {
+      width: 100% !important;
+      display: block !important;
+    }
   }
 
   .column_paragraph {
