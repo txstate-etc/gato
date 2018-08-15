@@ -57,9 +57,69 @@
   }
 }
 
-//Icon and Text. TODO: Set the font family in the content type instead.
+//Icon and Text
 .icontext {
   .icontext-title {
     font-family: $univers;
+  }
+}
+
+//Events
+h2.event-list-title {
+  font-family: $univers;
+  font-weight: 600;
+  font-size: 2.7rem;
+  line-height: 3.5rem
+}
+
+//embed video
+.gatoStreamingWrapper {
+  h2.streaming-title {
+    font-family: $univers;
+    font-size: 2.7rem;
+    line-height: 3.5rem;
+    font-weight: 600;
+  }
+}
+
+//faq
+.gato-faq-hierarchy {
+  h2.gato-faq-header a {
+    font-family: $univers;
+  }
+}
+
+//image card
+.gato-card {
+  figcaption {
+    h2.title {
+      font-family: $univers;
+      font-weight: 600;
+    }
+  }
+}
+
+//image gallery
+.image-gallery-title {
+  font-family: $univers;
+  font-weight: 600;
+  font-size: 2.7rem;
+}
+
+//text and image
+.gato-textimage {
+  .gato-textimage-title {
+    font-family: $univers;
+    font-weight: 600;
+    font-size: 2.7rem;
+  }
+  .gato-textimage-caption {
+    font-size: 1.4rem;
+    padding: 1.2rem 1.4rem;
+    line-height: 2.2rem;
+    text-align: center;
+    a:hover{
+      text-decoration: none;
+    }
   }
 }

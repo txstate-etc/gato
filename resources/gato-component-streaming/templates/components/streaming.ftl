@@ -1,6 +1,6 @@
 <div class="gatoStreamingWrapper">
   [#if content.title?has_content]
-    <h2>${content.title}</h2>
+    <h2 class="streaming-title">${content.title}</h2>
   [/#if]
   [#assign embedinfo=gf.oEmbedCached(content, content.videourl)!]
   [#if embedinfo?has_content]

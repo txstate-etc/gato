@@ -1,5 +1,5 @@
 [#if content.title?has_content]
-  <h2>${content.title}</h2>
+  <h2 class="event-list-title">${content.title}</h2>
 [/#if]
 
 [#if !model.error?has_content && model.items?has_content]
