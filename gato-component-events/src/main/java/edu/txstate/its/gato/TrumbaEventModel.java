@@ -104,6 +104,8 @@ public class TrumbaEventModel<RD extends RenderableDefinition> extends Rendering
       } else {
         endDate.add( Calendar.DATE, Integer.parseInt( days ) );
       }
+    } else {
+      endDate.add(Calendar.DATE, 1); // make end date inclusive
     }
 
     url = url + "?startdate=" + trumbaformat.format(startDate.getTime());
