@@ -1,0 +1,187 @@
+$button-padding: 1rem 2rem 0.9rem 2rem;
+
+@mixin hoverShadow($color) {
+  box-shadow: inset 0 -2px 0 0 $color;
+}
+
+.mf-button-container {
+  a.button {
+    padding: $button-padding;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 2px;
+    transition: all 0.2s ease;
+    font-weight: 700;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    &:hover {
+      transform: translate(0px, -3px);
+      &.color1 {
+        @include hoverShadow($mc1-bg);
+      }
+      &.color2 {
+        @include hoverShadow($mc2-bg);
+      }
+      &.color3 {
+        @include hoverShadow($mc3-bg);
+      }
+      &.color4 {
+        @include hoverShadow($mc4-bg);
+      }
+      &.color5 {
+        @include hoverShadow($mc5-bg);
+      }
+      &.color6 {
+        @include hoverShadow($mc6-bg);
+      }
+      &.color7 {
+        @include hoverShadow($mc7-bg);
+      }
+    }
+    &.solid, &.rollover {
+      &.color1 {
+        background-color: $mc1-bg;
+        color: $mc1-text;
+        border-color: $mc1-bg;
+      }
+      &.color2 {
+        background-color: $mc2-bg;
+        color: $mc2-text;
+        border-color: $mc2-bg;
+      }
+      &.color3 {
+        background-color: $mc3-bg;
+        color: $mc3-text;
+        border-color: $mc3-bg;
+      }
+      &.color4 {
+        background-color: $mc4-bg;
+        color: $mc4-text;
+        border-color: $mc4-bg;
+      }
+      &.color5 {
+        background-color: $mc5-bg;
+        color: $mc5-text;
+        border-color: $mc5-bg;
+      }
+      &.color6 {
+        background-color: $mc6-bg;
+        color: $mc6-text;
+        border-color: $mc6-bg;
+      }
+      &.color7 {
+        background-color: $mc7-bg;
+        color: $maroon;
+        border-color: $mc7-bg;
+      }
+    }
+    &.reverse {
+      &:hover {
+        background-color: transparent;
+      }
+      &.color1 {
+        border-color: $mc1-bg;
+        color: $mc1-bg;
+      }
+      &.color2 {
+        color: $mc2-bg;
+        border-color: $mc2-bg;
+      }
+      &.color3 {
+        color: $mc3-bg;
+        border-color: $mc3-bg;
+      }
+      &.color4 {
+        color: $mc4-bg;
+        border-color: $mc4-bg;
+      }
+      &.color5 {
+        color: $mc5-bg;
+        border-color: $mc5-bg;
+      }
+      &.color6 {
+        color: $mc6-bg;
+        border-color: $mc6-bg;
+      }
+      &.color7 {
+        color: $mc7-bg;
+        border-color: $mc7-bg;
+      }
+    }
+    &.rollover {
+      background-repeat: no-repeat;
+      padding: 0px;
+      background-position: 100% 50%;
+      background-size: cover;
+      border: 0px;
+      span {
+        display: block;
+        padding: $button-padding;
+        border-radius: 2px;
+        transition: all 0.2s ease;
+      }
+      &.color1 {
+        span {
+          background-color: $mc1-bg;
+          &:hover {
+            background-color: rgba($mc1-bg, .65);
+          }
+        }
+      }
+      &.color2 {
+        span {
+          background-color: $mc2-bg;
+          &:hover {
+            background-color: rgba($mc2-bg, .65);
+          }
+        }
+      }
+      &.color3 {
+        span {
+          background-color: $mc3-bg;
+          &:hover {
+            background-color: rgba($mc3-bg, .65);
+          }
+        }
+      }
+      &.color4 {
+        span {
+          background-color: $mc4-bg;
+          &:hover {
+            background-color: rgba($mc4-bg, .65);
+          }
+        }
+      }
+      &.color5 {
+        span {
+          background-color: $mc5-bg;
+          &:hover {
+            background-color: rgba($mc5-bg, .65);
+          }
+        }
+      }
+      &.color6 {
+        span {
+          background-color: $mc6-bg;
+          &:hover {
+            background-color: rgba($mc6-bg, .65);
+          }
+        }
+      }
+      &.color7 {
+        span {
+          background-color: $mc7-bg;
+          &:hover {
+            background-color: rgba($mc7-bg, .65);
+          }
+        }
+      }
+    }
+  }
+  &.center {
+    text-align: center;
+  }
+}

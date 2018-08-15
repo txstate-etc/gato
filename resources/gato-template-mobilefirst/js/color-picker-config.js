@@ -19,10 +19,6 @@
         "singleColor": true,
         "colors": ["color1", "color2", "color3"]
     },
-    "threeDButton": {
-        "singleColor": true,
-        "colors": ["color1", "color2", "color3", "color4"]
-    },
     "cardFilters": {
         "singleColor": true,
         "colors": ["color1", "color2", "color3", "color4"]

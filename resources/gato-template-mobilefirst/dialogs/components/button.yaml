@@ -1,0 +1,89 @@
+form:
+  tabs:
+    - name: tabMain
+      label: Button
+      fields:
+        - name: buttonType
+          label: Button Type
+          layout: vertical
+          class: info.magnolia.ui.form.field.definition.SwitchableFieldDefinition
+          transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+          options:
+            - name: solid
+              label: Solid
+              selected: true
+              value: solid
+            - name: reverse
+              label: Reverse
+              value: reverse
+            - name: rollover
+              label: Image Rollover
+              value: rollover
+          fields:
+            - name: solid
+              transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+              label: Color
+              class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
+              fields:
+                - name: color
+                  class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+              initFunction: initColorPicker
+              scripts: [gato-lib/js/color-picker.js]
+              styleName: single-color
+              parameters:
+                contentType: default
+            - name: reverse
+              transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+              label: Color
+              class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
+              fields:
+                - name: color
+                  class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+              initFunction: initColorPicker
+              scripts: [gato-lib/js/color-picker.js]
+              styleName: single-color color1 color2 color3 color4
+              parameters:
+                contentType: reverseButton
+            - name: rollover
+              class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
+              transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+              layout: vertical
+              label: ""
+              fields:
+                - name: color
+                  transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+                  label: Color
+                  class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
+                  fields:
+                    - name: color
+                      class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+                  initFunction: initColorPicker
+                  scripts: [gato-lib/js/color-picker.js]
+                  styleName: single-color color1 color2 color3 color4 color7
+                  parameters:
+                    contentType: default
+                - name: image
+                  class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+                  label: Image
+                  appName: assets
+                  targetWorkspace: dam
+                  identifierToPathConverter:
+                    class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
+        - name: text
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Button Text
+          styleName: gato-button-text
+        - name: url
+          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+          label: Link
+          appName: pages
+          identifierToPathConverter:
+            class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
+          targetWorkspace: website
+          description: "Enter a full URL to an external site (http://www.google.com/) or use the \"Internal Link\" button to link to another page in this site."
+          buttonSelectNewLabel: "Internal Link..."
+        - name: centered
+          class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+          buttonLabel: Center Button in Column
+          label: ""
+actions: !include /gato-template/dialogs/common/actions-block.yaml

@@ -1,7 +1,7 @@
 articlelink:
   id: gato-template:components/articlelink
 button:
-  id: gato-component-button:components/button
+  id: gato-template-mobilefirst:components/button
 events:
   id: gato-component-events:components/events
 documents:
