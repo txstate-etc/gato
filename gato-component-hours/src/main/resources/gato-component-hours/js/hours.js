@@ -61,13 +61,13 @@ jQuery(document).ready(function ($) {
         },
         eventAfterAllRender: function(){
           $(".canceled .fc-content").html('Closed');
-          if (linkfull.attr('href').length) {
-            var otherlink = $('<a href=""><button id="all_hours" type="button" class=" fc-button fc-state-default fc-corner-left fc-corner-right mybutton "> Other Hours</button></a>');
+          if (linkfull.attr('href').length && !$('#all_hours').length) {
+            var otherlink = $('<a href=""><button id="all_hours" type="button" class="fc-button fc-state-default fc-corner-left fc-corner-right mybutton "> Other Hours</button></a>');
             otherlink.attr('href', linkfull.attr('href'));
             $('.fc-today-button').after(otherlink);
           }
-          if (data.pdf_link.length) {
-            var pdflink = $(' <a href=""><button  type="button" class=" fc-button fc-state-default fc-corner-left fc-corner-right mybutton "> <i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF </button></a>');
+          if (data.pdf_link.length && !$('#all_pdf').length) {
+            var pdflink = $(' <a href=""><button id="all_pdf" type="button" class="fc-button fc-state-default fc-corner-left fc-corner-right mybutton "> <i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF </button></a>');
             pdflink.attr('href', data.pdf_link);
             $('.fc-today-button').after(pdflink);
           }
