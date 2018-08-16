@@ -167,6 +167,42 @@ $pattern-max-height: 400px;
         }
       }
     }
+    .icontextmulti {
+      display: flex;
+      justify-content: center;
+      a {
+        text-decoration: none;
+        .icontext-pattern-icon {
+          font-size: 4rem;
+        }
+        .icontext-pattern-title {
+          font-size: 1.6rem;
+          line-height: 2.2rem;
+          font-family: $univers;
+        }
+        &.color1 {
+          color: $mc1-bg;
+        }
+        &.color2 {
+          color: $mc2-bg;
+        }
+        &.color3 {
+          color: $mc3-bg;
+        }
+        &.color4 {
+          color: $mc4-bg;
+        }
+        &.color5 {
+          color: $mc5-bg;
+        }
+        &.color6 {
+          color: $mc6-bg;
+        }
+        &.color7 {
+          color: $mc7-bg;
+        }
+      }
+    }
   }
 
 

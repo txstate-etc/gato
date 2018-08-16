@@ -1,0 +1,45 @@
+form:
+  tabs:
+    - name: tabTexts
+      label: Icon and Text
+      fields:
+        - name: script
+          label: Icon
+          required: true
+          class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
+          fields:
+            - name: icon
+              class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+          initFunction: initIconPicker
+          loadScriptsInOrder: true
+          scripts: [gato-lib/js/jquery-ui/jquery-ui.min.js, gato-template/js/icon-list.js, gato-template/js/icon-picker-modal.js]
+          styles: [gato-lib/js/jquery-ui/jquery-ui.min.css, gato-lib/css/font-awesome.scss, gato-template/css/icon-picker.css]
+          description: Select an icon from the Font Awesome Icon library
+        - name: title
+          label: Title
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          maxLength: 24
+          description: Add a title under your icon, 24 characters or less.
+          required: true
+        - name: link
+          label: Link
+          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+          targetWorkspace: website
+          appName: pages
+          identifierToPathConverter:
+            class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
+          description: "Enter a full URL to an external site (http://www.google.com/) or use the \"Internal Link\" button to link to another page in this site."
+          buttonSelectNewLabel: "Internal Link..."
+          required: true
+        - name: color
+          label: Color
+          class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
+          fields:
+            - name: color
+              class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+          initFunction: initColorPicker
+          scripts: [gato-lib/js/color-picker.js]
+          styleName: single-color color1 color2 color3
+          parameters:
+            contentType: iconText
+actions: !include /gato-template/dialogs/common/actions-block.yaml

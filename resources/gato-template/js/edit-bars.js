@@ -32,5 +32,6 @@ jQuery( document ).ready(function($) {
   magnolialabelchange('.contact-info .social-media', '.mgnlEditor.mgnlPlaceholder', 'Social Media Links');
   magnolialabelchange('footer .link-footer .top .listItems_add', '.mgnlEditor.mgnlPlaceholder', 'Add Footer Nav Link');
   magnolialabelchange('footer .link-footer .bottom .listItems_add', '.mgnlEditor.mgnlPlaceholder', 'Add Footer Link');
+  magnolialabelchange('.icontextmulti .addIcon', '.mgnlEditor.mgnlPlaceholder', 'Add Icon');
   titledlabelchange('.slider-edit-bar');
 });

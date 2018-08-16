@@ -1,0 +1,7 @@
+templateScript: /gato-component-patterns/templates/components/icontext.ftl
+renderType: freemarker
+title: Icon and Title
+description: An icon with a title
+dialog: gato-component-patterns:components/icontext
+parameters:
+  icon: /gato-component-patterns/images/callout-image.png

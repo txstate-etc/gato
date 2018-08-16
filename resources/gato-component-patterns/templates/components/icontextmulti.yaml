@@ -1,0 +1,32 @@
+templateScript: /gato-component-patterns/templates/components/icontextmulti.ftl
+renderType: freemarker
+title: Icons With Titles
+description: 2-4 icon links with accompanying text
+parameters:
+  icon: /gato-component-patterns/images/icont-text.png
+areas:
+  iconList:
+    templateScript: /gato-component-patterns/templates/areas/icontextmulti-area.ftl
+    type: list
+    title: Icons
+    maxComponents: 4
+    availableComponents:
+      icontext:
+        id: gato-component-patterns:components/icontext
+    autoGeneration:
+      content:
+        iconText1:
+          nodeType: mgnl:component
+          templateId: gato-component-patterns:components/icontext
+          icon: fa-apple
+          title: Default Icon
+          link: www.txstate.edu
+          color: color1
+        iconText2:
+          nodeType: mgnl:component
+          templateId: gato-component-patterns:components/icontext
+          icon: fa-themeisle
+          title: Default Icon
+          link: www.txstate.edu
+          color: color1
+      generatorClass: info.magnolia.rendering.generator.CopyGenerator
