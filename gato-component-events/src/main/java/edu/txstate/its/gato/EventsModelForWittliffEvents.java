@@ -30,7 +30,7 @@ public class EventsModelForWittliffEvents extends TrumbaEventModel {
   protected final List<FilterMonth> months;
 
   protected static DateFormat monthyeardisplay = new SimpleDateFormat("MMM ''yy");
-  protected String defaultCalendarId = "1411153";
+  protected String defaultCalendarId = "1420563";
 
   @Inject
   public EventsModelForWittliffEvents(Node content, RenderableDefinition definition, RenderingModel parent) {
