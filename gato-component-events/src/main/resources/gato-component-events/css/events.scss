@@ -33,9 +33,11 @@
         margin: 0;
         padding: 1rem;
       }
-      h3 {
-        margin: 0 0 0.5rem;
+      .txst-eventdetail-title {
+        margin: 0 0 0.3rem;
         color: $event-header-title-color;
+        font-weight: normal;
+        font-size: 2rem;
       }
     }
     div.gato-accordion-content {

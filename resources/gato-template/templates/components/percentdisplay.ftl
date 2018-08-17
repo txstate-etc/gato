@@ -1,3 +1,4 @@
+[#include "/gato-template/templates/includes/commonmacros.ftl"]
 [#assign progress_radius="42"/]
 [#assign center_x="50"/]
 [#assign center_y="50"/]
@@ -13,7 +14,7 @@
         <div class="percent">${(content.percent_complete!0)?number?string['##0.#']}%</div>
     </div><!--
   --><div class="content">
-        <h3 class="progress-title">${content.title}</h3>
+        [@h2 class="progress-title"]${content.title}[/@h2]
         <p class="progress-text">${content.text}</p>
     </div>
 </div>

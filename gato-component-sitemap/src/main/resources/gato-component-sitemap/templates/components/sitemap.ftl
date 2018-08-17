@@ -1,3 +1,4 @@
+[#include "/gato-template/templates/includes/commonmacros.ftl"]
 [#macro processPage node depth]
   [#local pagePublished = true]
   [#if cmsfn.metaData(node, "mgnl:activationStatus")?number < 1]
@@ -23,7 +24,7 @@
 [/#macro]
 
 [#if (content.title!"")?length > 0]
-  <h2>${content.title}</h2>
+  [@h2 class="level1header"]${content.title}[/@h2]
 [/#if]
 [#if cmsfn.isAuthorInstance()]
   <div class="txst-khan-notice">
@@ -57,4 +58,3 @@
     [/#list]
   </ul>
 [/#if]
-

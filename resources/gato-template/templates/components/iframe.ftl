@@ -1,7 +1,8 @@
+[#include "/gato-template/templates/includes/commonmacros.ftl"]
 <div class="txst-iframe-container">
 
   [#if content.title?has_content]
-    <h2>${content.title}</h2>
+    [@h2 class="level1header"]${content.title}[/@h2]
   [/#if]
 
   <iframe class="txst-iframe"

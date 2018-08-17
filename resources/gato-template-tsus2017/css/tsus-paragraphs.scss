@@ -126,6 +126,15 @@
   }
 }
 
+// Events
+.gato-events {
+  .gato-accordion-header {
+    .txst-eventdetail-title {
+      text-transform: uppercase;
+    }
+  }
+}
+
 .txst-form {
   button.submit{
     font-weight: 500;

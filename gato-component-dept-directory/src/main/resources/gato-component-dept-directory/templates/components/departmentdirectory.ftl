@@ -1,3 +1,4 @@
+[#include "/gato-template/templates/includes/commonmacros.ftl"]
 [#macro directoryEntry person]
     [#if !(person?is_string)]
         <div class="dd-entry vcard">
@@ -29,7 +30,7 @@
 [/#macro]
 
 [#if content.title??]
-    <h2>${content.title}</h2>
+    [@h2 class="level1header"]${content.title}[/@h2]
 [/#if]
 [#assign filter = 'All']
 [#if content.filter??]
