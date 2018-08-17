@@ -15,5 +15,8 @@
 
     .global-search {
         display: none;
+        &.global-search-mobile {
+          display: none !important;
+        }
     }
 }

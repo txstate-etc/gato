@@ -226,9 +226,15 @@
     .global-search{
         margin-top: 4.4rem;
         @media screen and (max-width: $sm-breakpoint) {
-            margin: 2rem 0rem 2.5rem 0rem;
+            display: none;
         }
-
+      &.global-search-mobile {
+        display: none;
+        @media screen and (max-width: $sm-breakpoint) {
+          display: block;
+          margin: 2rem 0rem 2.5rem 0rem;
+        }
+      }
     }
 
     .no-results{
@@ -252,6 +258,9 @@
         color: $sitesearch-result-search-color;
         padding-bottom: 0.5rem;
         width: 66%;
+        @media screen and (max-width: $mn-breakpoint) {
+          width: 100%;
+        }
         margin-top: 2.8rem;
         label.hidden{
             position:absolute;

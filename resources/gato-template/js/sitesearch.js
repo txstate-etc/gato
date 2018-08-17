@@ -305,6 +305,10 @@ jQuery(document).ready(function($) {
                                         '<button class="icon reset"><i class="fa fa-times" aria-label="Reset Search"></i></button>' +
                                     '</form>' +
                                 '</div>' +
+                                '<div class="global-search global-search-mobile">' +
+                                    '<div class="all-results-help-text">Didn\'t find what you were looking for?</div>' +
+                                    window.txstsearch.buildButton(globalSearchUrl) +
+                                '</div>' +
                                 (searchResults.length > 0 ? '<div class="results-count">Results ' + range + ' of about ' + total + ' for ' + query + '.</div>' : "") +
                                 (searchResults.length > 0 ? sorting : "") +
                                 window.txstsearch.formatResults(searchResults) +

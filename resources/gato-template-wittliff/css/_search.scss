@@ -1,5 +1,8 @@
 .global-search {
 	display: none;
+	&.global-search-mobile {
+		display: none !important;
+	}
 }
 .ui-dialog .searchbar .searchbar-content input.search {
   font-weight: 300;

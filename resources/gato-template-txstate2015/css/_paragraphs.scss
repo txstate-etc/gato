@@ -236,3 +236,11 @@
     }
   }
 }
+
+//site search
+.global-search-mobile {
+  width: 50%;
+  @media screen and (max-width: $mn-breakpoint) {
+    width: 100%;
+  }
+}
