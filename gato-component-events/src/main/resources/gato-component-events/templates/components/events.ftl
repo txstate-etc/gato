@@ -1,6 +1,8 @@
 [#include "/gato-template/templates/includes/commonmacros.ftl"]
+[#assign offset = 0]
 [#if content.title?has_content]
-  [@h2 class="level1header event-list-title"]${content.title}[/@h2]
+  [@h2 class="level1header event-list-title" offset=offset]${content.title}[/@h2]
+  [#assign offset=offset + 1]
 [/#if]
 
 [#if !model.error?has_content && model.items?has_content]
@@ -52,12 +54,12 @@
           data-start-collapsed="${model.collapsed?string('true', 'false')}">
 
         <div class="gato-accordion-header">
-          [@h3 class="txst-eventdetail-title"]
+          [@h2 class="txst-eventdetail-title" offset=offset]
             ${item.cancelled?string('CANCELLED - ','')}
             <span class="p-name summary">
               ${item.title}
             </span>
-          [/@h3]
+          [/@h2]
           <div class="txst-eventdetail-dates">
             <time class="dt-start dtstart" datetime="${item.machineStartDate}">
               ${item.humanStartDate}
