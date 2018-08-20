@@ -28,3 +28,5 @@ table:
   id: gato-template:components/table
 textimage:
   id: gato-template:components/textimage
+videocard:
+  id: gato-component-cards:components/regular/video

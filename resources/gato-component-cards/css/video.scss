@@ -10,13 +10,13 @@
     height: 7rem;
     border: 2px solid white;
     opacity: 0.9;
-    @at-root .color1#{&} { background-color: $mc1-bg; }
-    @at-root .color2#{&} { background-color: $mc2-bg; }
-    @at-root .color3#{&} { background-color: $mc3-bg; }
-    @at-root .color4#{&} { background-color: $mc4-bg; }
-    @at-root .color5#{&} { background-color: $mc5-bg; }
-    @at-root .color6#{&} { background-color: $mc6-bg; }
-    @at-root .color7#{&} { background-color: $mc7-bg; }
+    @at-root .color1#{&} { background-color: $mc1-bg; &:hover { background-color: $mc1-bg; } }
+    @at-root .color2#{&} { background-color: $mc2-bg; &:hover { background-color: $mc2-bg; } }
+    @at-root .color3#{&} { background-color: $mc3-bg; &:hover { background-color: $mc3-bg; } }
+    @at-root .color4#{&} { background-color: $mc4-bg; &:hover { background-color: $mc4-bg; } }
+    @at-root .color5#{&} { background-color: $mc5-bg; &:hover { background-color: $mc5-bg; } }
+    @at-root .color6#{&} { background-color: $mc6-bg; &:hover { background-color: $mc6-bg; } }
+    @at-root .color7#{&} { background-color: $mc7-bg; &:hover { background-color: $mc7-bg; } }
     @at-root [data-eq~="300px"]#{&} {
       width: 5rem;
       height: 5rem;

@@ -40,3 +40,5 @@ textimage:
   id: gato-template:components/textimage
 twitter:
   id: gato-component-twitter:components/twitter
+videocard:
+  id: gato-component-cards:components/regular/video

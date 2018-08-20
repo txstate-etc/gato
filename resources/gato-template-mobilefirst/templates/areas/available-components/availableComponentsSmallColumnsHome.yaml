@@ -22,3 +22,5 @@ feature:
   id: gato-component-feature:components/feature
 textimage:
   id: gato-template:components/textimage
+videocard:
+  id: gato-component-cards:components/regular/video
