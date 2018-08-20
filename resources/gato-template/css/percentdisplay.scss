@@ -33,7 +33,9 @@
             font-size: 3.5rem;
             width: 100%;
             text-align: center;
-            top: 40%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             [data-eq~="300px"] & {
                 font-size: 3rem;
             }
