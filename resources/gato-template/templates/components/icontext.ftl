@@ -4,7 +4,7 @@
 
 [#macro buildIconText]
     <div class="icontext-icon ${iconColor}">
-        <i class="fa ${content.icon!'fa-paw'}" aria-hidden="true"></i>
+        <i class="fa ${content.icon!'fa-graduation-cap'}" aria-hidden="true"></i>
     </div>
     [#if content.title?has_content]
         [@h2 class="icontext-title"]${content.title}[/@h2]

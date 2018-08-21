@@ -3,10 +3,10 @@ function initIconPicker(def, node, el, tmpl) {
     var selectedIcon;
 
     //if there is an icon saved already, return its name
-    //if not, return the default paw icon
+    //if not, return the default graduation cap icon
     function getSelectedIcon(){
         var val = selectedIcon || $('input[type=hidden].icon').val();
-        return (val ? val : "fa-paw");
+        return (val ? val : "fa-graduation-cap");
     }
 
     //update the preview in the icon/text dialog
@@ -40,7 +40,7 @@ function initIconPicker(def, node, el, tmpl) {
         return '<label for="'+id+'" title="'+id+'" class="icon-picker-item">'+
           '<input type="radio" name="iconselect" class="iconselect" value="'+id+'" id="'+id+'"/>'+
           '<div><span class="fa ' + id +'"></span></div>'+
-        '</label>'; 
+        '</label>';
     }
 
     //save the icon selection when an icon is clicked
@@ -87,7 +87,7 @@ function initIconPicker(def, node, el, tmpl) {
         createIconGrid(icons);
         //show the current icon as selected
         $('input[type=radio][name=iconselect][value='+ getSelectedIcon() +']').prop('checked', true);
-      
+
         //build the preview at the bottom of the icon picker
         var previewHTML = '<div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">';
         previewHTML += '<div class="preview">';
