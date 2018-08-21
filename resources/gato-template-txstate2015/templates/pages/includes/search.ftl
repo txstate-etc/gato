@@ -4,7 +4,7 @@
   [#assign mobileSearch = isMobile?string('mobile_search', '')]
   [#assign mobileIcon = isMobile?string('mobile_icon', '')]
   [#assign placeholder = sitesearch?string('Search this site', 'Search people and pages')]
-  <form action="http://search.txstate.edu/search" class="gato-search ${searchClass}">
+  <form action="//search.txstate.edu/search" class="gato-search ${searchClass}">
     <div class="search_bar ${mobileSearchBar}">
       <input type="hidden" name="site" value="txstate_no_users" />
       <input type="hidden" name="client" value="txstate" />
