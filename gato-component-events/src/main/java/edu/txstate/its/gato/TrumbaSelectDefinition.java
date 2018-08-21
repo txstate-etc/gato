@@ -5,27 +5,25 @@ import info.magnolia.objectfactory.Components;
 import info.magnolia.ui.form.field.definition.SelectFieldDefinition;
 import info.magnolia.ui.form.field.definition.SelectFieldOptionDefinition;
 
+import com.google.gson.*;
+
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
 
-import org.jsoup.Jsoup;
-import org.jsoup.select.Elements;
+import org.apache.commons.io.IOUtils;
 
 public class TrumbaSelectDefinition extends SelectFieldDefinition {
   public List<SelectFieldOptionDefinition> getOptions() {
     List<SelectFieldOptionDefinition> ret = null;
     try {
       MagnoliaConfigurationProperties mcp = Components.getComponent(MagnoliaConfigurationProperties.class);
-      if (mcp.hasProperty("trumba.user")) {
-        String auth = mcp.getProperty("trumba.user")+":"+mcp.getProperty("trumba.pass");
-        String b64 = new String(Base64.getEncoder().encode(auth.getBytes()));
-        Elements response = Jsoup.connect(mcp.getProperty("trumba.basepath")+"/service/calendars.asmx/GetCalendarList")
-          .header("Authorization", "Basic "+b64)
-          .get()
-          .select("Response");
-
-        ret = optionsFromTrumbaResponse(response, "");
+      if (mcp.hasProperty("trumba.bridge.basepath")) {
+        String url = mcp.getProperty("trumba.bridge.basepath")+"/calendars";
+        String json = IOUtils.toString(new URL(url).openStream());
+        JsonArray cals = new JsonParser().parse(json).getAsJsonArray();
+        ret = optionsFromTrumba(cals, "");
       }
     } catch (Exception e) {
       ret = new ArrayList<SelectFieldOptionDefinition>();
@@ -34,22 +32,26 @@ public class TrumbaSelectDefinition extends SelectFieldDefinition {
     return ret;
   }
 
-  protected List<SelectFieldOptionDefinition> optionsFromTrumbaResponse(Elements response, String prefix) {
+  protected List<SelectFieldOptionDefinition> optionsFromTrumba(JsonArray calendars, String prefix) {
     List<SelectFieldOptionDefinition> ret = new ArrayList<SelectFieldOptionDefinition>();
-    Elements calendars = response.select("> Calendar");
     int length = calendars.size();
-    for (int i = 0; i < length; i++) {
-      Elements calendar = calendars.eq(i);
+    for (JsonElement calendar : calendars) {
+      JsonObject cal = calendar.getAsJsonObject();
+      String prefix_to_use;
+      if (cal.get("published").getAsBoolean()) {
+        SelectFieldOptionDefinition option = new SelectFieldOptionDefinition();
+        String label = prefix;
+        if (prefix.length() > 0) label += " ";
+        label += cal.get("name").getAsString();
+        option.setLabel(label);
+        option.setValue(cal.get("id").getAsString());
 
-      SelectFieldOptionDefinition option = new SelectFieldOptionDefinition();
-      String label = prefix;
-      if (prefix.length() > 0) label += " ";
-      label += calendar.attr("Name");
-      option.setLabel(label);
-      option.setValue(calendar.attr("ID"));
-
-      ret.add(option);
-      ret.addAll(optionsFromTrumbaResponse(calendar, prefix+"--"));
+        ret.add(option);
+        prefix_to_use = prefix+"--";
+      } else {
+        prefix_to_use = prefix+" "+cal.get("name").getAsString()+" >";
+      }
+      ret.addAll(optionsFromTrumba(cal.get("calendars").getAsJsonArray(), prefix_to_use));
     }
     return ret;
   }
