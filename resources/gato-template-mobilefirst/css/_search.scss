@@ -16,7 +16,7 @@
       border-radius: 2px;
       transition: all 0.2s ease;
       font-weight: 700;
-      font-size: 1.4rem;
+      font-size: 1.6rem;
       line-height: 2rem;
       text-align: center;
       text-decoration: none;
@@ -26,6 +26,18 @@
       &:hover {
         box-shadow: inset 0 -2px 0 0 $sandstone;
         transform: translate(0px, -3px);
+      }
+    }
+  }
+  .pagination {
+    .pagination-link[aria-selected="true"] {
+      background-color: $maroon;
+      color: $white;
+    }
+    .pagination-link, .pagination-link.next.enabled, .pagination-link.previous.enabled {
+      &:hover {
+        background-color: $maroon;
+        color: $white;
       }
     }
   }
