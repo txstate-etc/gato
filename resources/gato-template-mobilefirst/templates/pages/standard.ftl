@@ -11,7 +11,7 @@
     [@skipnav/]
     [#include "includes/menu.ftl"]
     [#include "includes/header.ftl"]
-    <div class="page-container">
+    <div class="page-container" id="panel">
       [#if def.parameters.isHomeTemplate!false]
         [@cms.area name="home-banner" content=gf.getOrCreateArea(homepage, 'home-banner')/]
       [#else]
@@ -19,16 +19,16 @@
       [/#if]
       [#import "/gato-template-mobilefirst/templates/includes/headerImageLogic.ftl" as headerLogic]
       [@cms.area name="organization-info" content=gf.getOrCreateArea(homepage, 'organization-info') editable=isHomePage contextAttributes={"isHome":def.parameters.isHomeTemplate!false, "hasImage":headerLogic.hasImage}/]
-      <main class="contentcolumn">
-        [#if !def.parameters.isHomeTemplate!false]
-        <div class="gato-section-full">
-          <div class="gato-section-centered">
-            <div class="gato-section">
-              [@breadcrumbs/]
-            </div>
+      [#if !def.parameters.isHomeTemplate!false]
+      <div class="gato-section-full">
+        <div class="gato-section-centered">
+          <div class="gato-section">
+            [@breadcrumbs/]
           </div>
         </div>
-        [/#if]
+      </div>
+      [/#if]
+      <main class="contentcolumn">
         [#assign hideSidebar = true /]
         [@headline hideSidebar /]
         [#if def.parameters.isHomeTemplate!false]

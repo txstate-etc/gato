@@ -1,6 +1,30 @@
+@media (max-width: $sm-breakpoint) {
+  .searchbreadcrumbs {
+    display: none;
+  }
+}
+
+
+
 #search-results {
   padding-top: 2rem;
   min-height: 25rem;
+  .layout-column.search-title {
+    width: 100%;
+    text-align: center;
+    @media (max-width: $sm-breakpoint) {
+      text-align: left;
+    }
+    h1 {
+      font-size: 3.2rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+  }
+  .line-under-breadcrumbs {
+    margin-left: 0;
+    margin-right: 0;
+  }
   .global-search .all-results-button {
     text-align: right;
     @media (max-width: $sm-breakpoint) {
@@ -34,7 +58,7 @@
       background-color: $maroon;
       color: $white;
     }
-    .pagination-link, .pagination-link.next.enabled, .pagination-link.previous.enabled {
+    .pagination-link, .pagination-link.next.enabled, .pagination-link.previous, .pagination-link.previous.enabled, .pagination-link[aria-selected="true"] {
       &:hover {
         background-color: $maroon;
         color: $white;

@@ -68,7 +68,7 @@ body {
   font-size: 1.4rem;
   line-height: 2rem;
   @media (max-width: $sm-breakpoint) {
-    display: none;
+    display: none !important;
   }
   a {
     text-decoration: none;

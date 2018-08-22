@@ -206,7 +206,7 @@ jQuery(document).ready(function($) {
                     url += createHashQuery(params);
                 }
             }
-            searchbreadcrumbs.append('<a href="' + url + '">' + $('#maincontent').text() + '</a>');
+            searchbreadcrumbs.append('<a href="' + url + '"> ' + $('#maincontent').text() + ' </a>');
             searchbreadcrumbs.append('<span class="separator"><i class="fa fa-angle-right"></i></span>');
             searchbreadcrumbs.append(document.createTextNode(' Search Results'));
             breadcrumbs.after(searchbreadcrumbs);
@@ -293,8 +293,11 @@ jQuery(document).ready(function($) {
             var searchResults = results.results;
 
             var html =  '<div id="search-results">' +
-                            '<div class="layout-column twothirds">' +
+                            '<div class="layout-column twothirds search-title">' +
                                 '<h1 class="search-results-title" id="maincontent">Search</h1>' +
+                            '</div>' +
+                            '<div class="layout-column full line">' +
+                              '<div class="line-under-breadcrumbs"></div>' +
                             '</div>' +
                             '<div class="layout-column twothirds">' +
                                 '<div id="search-info" data-site="' + site + '" data-query="' + query + '" data-sort="' + sort + '"></div>' +
