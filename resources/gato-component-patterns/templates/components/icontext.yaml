@@ -1,6 +1,6 @@
 templateScript: /gato-component-patterns/templates/components/icontext.ftl
 renderType: freemarker
-title: Icon and Title
+title: Icon and Text
 description: An icon with a title
 dialog: gato-component-patterns:components/icontext
 parameters:

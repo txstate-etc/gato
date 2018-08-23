@@ -489,3 +489,13 @@ $pattern-max-height: 400px;
     @include pattern-content-arrows($mc7-bg);
   }
 }
+
+body.admin {
+  .mobilefirst-pattern .pattern-content .icontextmulti {
+    max-width: none;
+    .icontext-container, .addIcon {
+      width: 18%;
+      margin: 0rem 0.2rem;
+    }
+  }
+}
