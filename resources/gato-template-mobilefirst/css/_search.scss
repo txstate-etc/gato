@@ -58,7 +58,8 @@
       background-color: $maroon;
       color: $white;
     }
-    .pagination-link, .pagination-link.next.enabled, .pagination-link.previous, .pagination-link.previous.enabled, .pagination-link[aria-selected="true"] {
+    .pagination-link, .pagination-link.next.enabled, .pagination-link.next,
+    .pagination-link.previous, .pagination-link.previous.enabled, .pagination-link[aria-selected="true"] {
       &:hover {
         background-color: $maroon;
         color: $white;
