@@ -31,15 +31,4 @@ form:
           description: "Enter a full URL to an external site (http://www.google.com/) or use the \"Internal Link\" button to link to another page in this site."
           buttonSelectNewLabel: "Internal Link..."
           required: true
-        - name: color
-          label: Color
-          class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
-          fields:
-            - name: color
-              class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
-          initFunction: initColorPicker
-          scripts: [gato-lib/js/color-picker.js]
-          styleName: single-color color1 color2 color3
-          parameters:
-            contentType: iconText
 actions: !include /gato-template/dialogs/common/actions-block.yaml

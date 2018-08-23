@@ -1,6 +1,7 @@
 templateScript: /gato-component-patterns/templates/components/icontextmulti.ftl
 renderType: freemarker
 title: Icons With Titles
+dialog: gato-component-patterns:components/icontextmulti
 description: 2-4 icon links with accompanying text
 parameters:
   icon: /gato-component-patterns/images/icont-text.png
@@ -18,15 +19,13 @@ areas:
         iconText1:
           nodeType: mgnl:component
           templateId: gato-component-patterns:components/icontext
-          icon: fa-apple
+          icon: fa-graduation-cap
           title: Default Icon
           link: www.txstate.edu
-          color: color1
         iconText2:
           nodeType: mgnl:component
           templateId: gato-component-patterns:components/icontext
-          icon: fa-themeisle
+          icon: fa-university
           title: Default Icon
           link: www.txstate.edu
-          color: color1
       generatorClass: info.magnolia.rendering.generator.CopyGenerator

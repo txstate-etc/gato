@@ -1,0 +1,16 @@
+form:
+  tabs:
+    - name: tabMain
+      label: Icon and Text Row
+      fields:
+        - name: color
+          label: Icon Color
+          class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
+          fields:
+            - name: color
+              class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+          initFunction: initColorPicker
+          scripts: [gato-lib/js/color-picker.js]
+          parameters:
+            contentType: iconText
+actions: !include /gato-template/dialogs/common/actions-block.yaml
