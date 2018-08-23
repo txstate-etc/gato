@@ -181,47 +181,58 @@ $pattern-max-height: 400px;
       max-width: 700px;
       margin: 0 auto;
       width: 100%;
-      a {
-        text-decoration: none;
-        margin: 0 8rem;
-        display: inline-block;
-        transition: all 0.2s ease;
-        .icontext-pattern-icon {
-          font-size: 5.5rem;
-        }
-        .icontext-pattern-title {
-          font-size: 1.6rem;
-          line-height: 2.2rem;
-          font-family: $univers;
-          color: $maroon;
-          white-space: nowrap;
-          padding-bottom: 0.3rem;
-          margin-top: 0.8rem;
-        }
-        &.color1 {
-          color: $mc1-bg;
-        }
-        &.color2 {
-          color: $mc2-bg;
-        }
-        &.color3 {
-          color: $mc3-bg;
-        }
-        &.color4 {
-          color: $mc4-bg;
-        }
-        &.color5 {
-          color: $mc5-bg;
-        }
-        &.color6 {
-          color: $mc6-bg;
-        }
-        &.color7 {
-          color: $mc7-bg;
-        }
-        &:hover {
-          box-shadow: inset 0 -1px 0 0 $maroon;
-          transform: translate(0px, -3px);
+      .icontext-container{
+        width: 25%;
+        a {
+          text-decoration: none;
+          display: inline-block;
+          transition: all 0.2s ease;
+          .icontext-pattern-icon {
+            font-size: 5.5rem;
+            @media (max-width:$sm-breakpoint) {
+              font-size: 5rem;
+            }
+            @media (max-width:$mn-breakpoint) {
+              font-size: 5rem;
+            }
+          }
+          .icontext-pattern-title {
+            font-size: 1.6rem;
+            line-height: 2.2rem;
+            font-family: $univers;
+            color: $maroon;
+            padding-bottom: 0.3rem;
+            margin-top: 0.8rem;
+            @media (max-width:$sm-breakpoint) {
+              font-size: 1.3rem;
+              line-height: 1.8rem;
+            }
+          }
+          &.color1 {
+            color: $mc1-bg;
+          }
+          &.color2 {
+            color: $mc2-bg;
+          }
+          &.color3 {
+            color: $mc3-bg;
+          }
+          &.color4 {
+            color: $mc4-bg;
+          }
+          &.color5 {
+            color: $mc5-bg;
+          }
+          &.color6 {
+            color: $mc6-bg;
+          }
+          &.color7 {
+            color: $mc7-bg;
+          }
+          &:hover {
+            box-shadow: inset 0 -1px 0 0 $maroon;
+            transform: translate(0px, -3px);
+          }
         }
       }
     }

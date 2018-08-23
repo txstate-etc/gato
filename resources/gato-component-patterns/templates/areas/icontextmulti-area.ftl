@@ -1,6 +1,6 @@
 <div class="icontextmulti">
 [#list components as component ]
-  <div>
+  <div class="icontext-container">
     [@cms.component content=component contextAttributes={"colorClass": ctx.colorClass}/]
   </div>
 [/#list]
