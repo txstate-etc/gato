@@ -1,0 +1,17 @@
+form:
+  tabs:
+    - name: tabGeneral
+      label: Link
+      fields:
+        - name: text
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Link Text
+        - name: link
+          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+          label: Link Target
+          required: true
+          appName: pages
+          identifierToPathConverter:
+            class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
+actions: !include /gato-template/dialogs/common/actions-block.yaml
+label: Link

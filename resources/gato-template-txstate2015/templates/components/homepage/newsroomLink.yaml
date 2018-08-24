@@ -1,0 +1,5 @@
+templateScript: /gato-template-txstate2015/templates/components/homepage/newsroomLink.ftl
+renderType: freemarker
+title: Link to Newsroom
+dialog: gato-template-txstate2015:components/homepage/newsroomLink
+description: This is a link with a chevron button

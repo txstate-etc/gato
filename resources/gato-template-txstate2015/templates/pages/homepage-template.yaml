@@ -34,6 +34,13 @@ areas:
     availableComponents:
       link:
         id: gato-template:components/link
+  newsroomLink:
+    renderType: freemarker
+    type: single
+    title: Newsroom Link
+    availableComponents:
+      link:
+        id: gato-template-txstate2015:components/homepage/newsroomLink
   siteinfo:
     renderType: freemarker
     type: single

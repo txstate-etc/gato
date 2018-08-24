@@ -134,9 +134,7 @@
 
           <div class="solo-bailout">
             <p>
-              <a id="news-service" href="/news-archive" class="solo-bailout-button">
-                Newsroom<i class="button-chevron fa fa-chevron-right"></i>
-              </a>
+              [@cms.area name="newsroomLink"/]
             </p>
           </div>
         </div>
