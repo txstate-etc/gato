@@ -5,6 +5,7 @@ jQuery(document).ready(function($) {
   var menu = $('.main-menu');
   var menuContent = menu.find('.menu-content');
   var header = $('header');
+  var menuDynamic = menu.find('.menu-dynamic-navigation');
 
   var animating = 0;
   var complete = function () {
@@ -81,7 +82,7 @@ jQuery(document).ready(function($) {
     }
   });
 
-  $('a.more-tools').click(function () {
+  $('a.more-tools').click(function (e) {
     var lnk = $(this);
     var list = $('ul.more-tools');
     if (lnk.is('[aria-expanded="true"]')) {
@@ -91,5 +92,80 @@ jQuery(document).ready(function($) {
       lnk.attr('aria-expanded', true);
       list.velocity('slideDown', { duration: 300 });
     }
+    e.preventDefault();
   })
+
+  /** Full Site Navigation **/
+  gatonavigationdata.isHomePage = true;
+  var getnavbypath = function (data) {
+    var ret = {};
+    ret[data.path] = data;
+    for (var i = 0; i < data.children.length; i++) {
+      Object.assign(ret, getnavbypath(data.children[i]));
+    }
+    return ret;
+  }
+  var navbypath = getnavbypath(gatonavigationdata);
+
+  var generatenavhtml = function (data) {
+    var html = '<div class="slide">';
+    if (!data.isHomePage) {
+      var parent = navbypath[data.path.split('/').slice(0,-1).join('/')];
+      html += '<div class="navigation-up">'+
+        '<a class="back" href="'+parent.href+'" data-path="'+parent.path+'">'+
+        '<i class="fa fa-angle-left arrow" aria-hidden="true"></i> '+
+        '<span>Back</span>'+
+      '</a>'+
+      '<a class="top" href="'+gatonavigationdata.href+'" data-path="'+gatonavigationdata.path+'">'+
+        '<i class="fa fa-angle-double-left arrow" aria-hidden="true"></i> '+
+        '<span>Main Menu</span>'+
+      '</a>'+
+      '</div>';
+    }
+    html += '<div class="navigation-tree">'+
+      '<a class="navigation-current" href="'+data.href+'">'+data.title+'</a>'+
+      '<ul class="navigation-children">';
+    for (var i = 0; i < data.children.length; i++) {
+      var subpage = data.children[i];
+      html += '<li><a href="'+subpage.href+'" data-path="'+subpage.path+'">'+
+        subpage.title+(subpage.children.length?'<i class="fa fa-angle-right arrow" aria-hidden="true"></i>':'')+
+      '</a></li>';
+    }
+    html += '</ul></div></div>';
+    return html;
+  }
+
+  var activate_nav_slide = function (e, lnk, infromtheright) {
+    var path = lnk.data('path');
+    var data = navbypath[path];
+    if (data.children.length) {
+      var slide = $(generatenavhtml(data));
+      var oldslide = menuDynamic.find('.slide');
+      menuDynamic.append(slide);
+      slide.css({position: 'absolute', left: '0', top: '0', width: '100%'});
+
+      var newslidepos = ['0%', '100%'], oldslidepos = ['-100%', '0%'];
+      if (!infromtheright) {
+        newslidepos = ['0%','-100%'];
+        oldslidepos = ['100%','0%'];
+      }
+      slide.velocity({translateX: newslidepos}, {duration: 300});
+      oldslide.velocity({translateX: oldslidepos}, {duration: 300, complete: function() {
+        oldslide.remove();
+        apply_actions(slide);
+      }});
+      menuDynamic.velocity({height: [slide.height()+'px',oldslide.height()+'px']}, {duration: 300});
+      e.preventDefault();
+    }
+  }
+
+  var apply_actions = function (slide) {
+    slide.find('.navigation-children a').click(function (e) {
+      activate_nav_slide(e, $(this), true);
+    });
+    slide.find('.navigation-up .back, .navigation-up .top').click(function (e) {
+      activate_nav_slide(e, $(this), false);
+    });
+  }
+  apply_actions(menuDynamic.find('.slide'));
 });

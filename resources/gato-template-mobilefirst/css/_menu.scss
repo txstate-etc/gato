@@ -17,13 +17,23 @@ nav.main-menu {
     overflow-y: auto;
     background-color: $light-sandstone;
     color: $verydark;
-    padding: 2rem;
+    padding: 2rem 0;
     border-left: 1px solid #ded6cb;
+  }
+  .menu-dynamic-navigation {
+    position: relative;
+    overflow: hidden;
+  }
+  .menu-static-navigation {
+    padding: 0 2rem;
+  }
+  .navigation-tree {
+    padding: 0 2rem;
   }
   .navigation-up {
     border-top: 1px solid $dark-sandstone;
     border-bottom: 1px solid $dark-sandstone;
-    margin: 0 -2rem 1.5rem -2rem;
+    margin: 0 0 1.5rem 0;
     overflow: hidden;
     a {
       display: block;
@@ -47,8 +57,12 @@ nav.main-menu {
       display: block;
       padding: 0.5rem 0;
       font-weight: 500;
+      transition: padding 0.1s;
       i {
         margin-left: 1rem;
+      }
+      &:hover {
+        padding-left: 1rem;
       }
     }
   }
