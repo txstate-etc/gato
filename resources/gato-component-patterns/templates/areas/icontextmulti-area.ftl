@@ -1,4 +1,4 @@
-<div class="icontextmulti">
+<div class="icontextmulti" data-count="${components?size}">
 [#list components as component ]
   <div class="icontext-container">
     [@cms.component content=component contextAttributes={"colorClass": ctx.colorClass}/]
