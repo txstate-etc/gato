@@ -91,4 +91,8 @@ body.admin {
   div.mgnlPlaceholder div.mgnlEditorBar{
     padding: 1rem 0rem !important;
   }
+
+  div#modal_outer {
+    z-index: 80000 !important;
+  }
 }
