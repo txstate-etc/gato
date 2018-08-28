@@ -4,7 +4,10 @@
     path: "${page['@path']}",
     href: "${cmsfn.link(page)}",
     children: [
+      [#local first = true]
       [@navloop cmsfn.children(page, 'mgnl:page') ; subpage]
+        [#if !first],[/#if]
+        [#local first = false]
         [@gatonavigationdata subpage /]
       [/@navloop]
     ]
