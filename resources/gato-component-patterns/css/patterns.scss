@@ -25,7 +25,10 @@ $pattern-max-height: 400px;
     width: 50%;
     &.single {
       width: 100%;
-      padding: 3rem 0rem;
+      padding: 7rem 0rem;
+      @media (max-width:$sm-breakpoint) {
+        padding: 3rem 0rem;
+      }
       .centered {
         max-width: none;
       }
@@ -178,11 +181,12 @@ $pattern-max-height: 400px;
     .icontextmulti {
       display: flex;
       justify-content: center;
-      max-width: 700px;
+      max-width: 800px;
       margin: 0 auto;
       width: 100%;
       .icontext-container{
         width: 25%;
+        padding: 0 1.5rem;
         a {
           text-decoration: none;
           display: inline-block;
@@ -203,6 +207,7 @@ $pattern-max-height: 400px;
             color: $maroon;
             padding-bottom: 0.3rem;
             margin-top: 0.8rem;
+            font-weight: 500;
             @media (max-width:$sm-breakpoint) {
               font-size: 1.3rem;
               line-height: 1.8rem;
@@ -286,8 +291,7 @@ $pattern-max-height: 400px;
       z-index: 1;
       @media (max-width: $sm-breakpoint) {
         width: 100%;
-        min-height: 100px;
-        height: inherit;
+        height: 95px;
         background-image: linear-gradient(0deg, rgba(255, 255, 255, 0), rgba(0, 0, 0, .47));
       }
     }
@@ -300,8 +304,7 @@ $pattern-max-height: 400px;
       z-index: 1;
       @media (max-width: $sm-breakpoint) {
         width: 100%;
-        min-height: 100px;
-        height: inherit;
+        height: 95px;
         background-image: linear-gradient(0deg, rgba(255, 255, 255, 0), rgba(0, 0, 0, .47));
       }
     }
@@ -322,8 +325,11 @@ $pattern-max-height: 400px;
   }
 }
 
-.callout {
-  padding: 3rem 0rem;
+.mobilefirst-pattern .pattern-content.callout {
+  padding: 5rem 0rem;
+  @media (max-width:$sm-breakpoint) {
+    padding: 3rem 0rem;
+  }
   .stat {
     font-family: $garamond;
     font-weight: 400;
@@ -357,7 +363,7 @@ $pattern-max-height: 400px;
     }
     .quotation-text {
       font-family: $garamond;
-      font-size: 2.4rem;
+      font-size: 2.2rem;
       font-weight: 400;
       line-height: 3rem;
       padding-bottom: 2.2rem;
@@ -405,6 +411,8 @@ $pattern-max-height: 400px;
     font-weight: 400;
     line-height: 2.4rem;
     padding-bottom: 2.2rem;
+    max-width: 500px;
+    margin: 0 auto;
   }
 }
 
