@@ -40,8 +40,12 @@ nav.main-menu {
       float: left;
       width: 50%;
       padding: 1rem;
+      transition: padding 0.1s;
       &.top {
         border-left: 1px solid $dark-sandstone;
+      }
+      &:hover {
+        padding-left: 0.7rem;
       }
     }
   }
@@ -52,10 +56,12 @@ nav.main-menu {
   }
   .navigation-children {
     list-style-type: none;
-    padding-left: 2rem;
+    padding-left: 0rem;
+    margin-top: 0.6rem;
     a {
       display: block;
       padding: 0.5rem 0;
+      margin-bottom: 0.1rem;
       font-weight: 500;
       transition: padding 0.1s;
       i {
@@ -63,6 +69,7 @@ nav.main-menu {
       }
       &:hover {
         padding-left: 1rem;
+        font-weight: bold;
       }
     }
   }
@@ -93,10 +100,23 @@ nav.main-menu {
       padding-bottom: 1rem;
       border-bottom: 1px solid $dark-sandstone;
     }
+    &.second {
+      margin-bottom: 1.0rem;
+    }
     &.columns {
       display: flex;
       flex-wrap: wrap;
       li { width: 50%; }
+    }
+    a {
+      transition: all 0.1s;
+      display: inline-block;
+      margin-bottom: 0.8rem;
+      padding-bottom: 0.2rem;
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: inset 0 -3px 0 0 $maroon;
+      }
     }
   }
   a.more-tools {
@@ -105,6 +125,8 @@ nav.main-menu {
     border-top: 1px solid $dark-sandstone;
     border-bottom: 1px solid $dark-sandstone;
     margin-bottom: 1rem;
+    font-size: 1.3rem;
+    padding: 0.9rem 0;
     i {
       font-weight: bold;
       margin-left: 0.5rem;
