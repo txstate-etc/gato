@@ -31,7 +31,6 @@ form:
           label: Buttons
           styleName: linksMultiField
           maxFields: 2
-          minFields: 1
           field:
             name: button
             class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
