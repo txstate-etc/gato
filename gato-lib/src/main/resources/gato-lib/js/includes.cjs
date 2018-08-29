@@ -3,6 +3,7 @@
 /gato-lib/js/velocity.js
 /gato-lib/js/elementqueries.js
 /gato-lib/js/gato-lib.js
+/gato-lib/js/object-assign-polyfill.js
 /gato-lib/js/modal.js
 /gato-lib/js/slider.js
 /gato-lib/js/flowplayer/flowplayer.min.js
