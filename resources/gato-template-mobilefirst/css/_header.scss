@@ -100,7 +100,9 @@ header {
     right: 0;
     top: -60px;
     max-width: 1280px;
-    width: 100%;
+    @media (max-width: $mc-breakpoint) {
+      width: calc(100vw - 122px);
+    }
     .menu {
       background-color: $sandstone;
       height: 6rem;
@@ -114,7 +116,7 @@ header {
       @media (max-width: $mc-breakpoint) {
         padding: 0rem;
         justify-content: center;
-      }
+       }
       .logo {
         width: 180px;
         img {
