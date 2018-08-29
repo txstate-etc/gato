@@ -94,11 +94,13 @@ header {
     }
   }
   .menubar {
-    margin-left: 120px;
+    display: none;
+    position: absolute;
+    left: 120px;
+    right: 0;
+    top: -60px;
     max-width: 1280px;
     width: 100%;
-    transform: translateY(-60px);
-    transition: transform 300ms;
     .menu {
       background-color: $sandstone;
       height: 6rem;
@@ -150,9 +152,6 @@ header {
     }
   }
   &.scrolled {
-    .menubar {
-      transform: translateY(0px);
-    }
     .btn-menu, .btn-search {
       box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, .25);
     }

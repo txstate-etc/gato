@@ -31,6 +31,12 @@ jQuery(document).ready(function($) {
        complete: function() {
          logoblock.css('display', 'none')
        }})
+
+       menubar.velocity({translateY: "60px"},
+       {duration: animationDuration,
+        begin: function() {
+          menubar.css('display', 'block')
+        }})
   }
 
   function goToTopState() {
@@ -49,6 +55,12 @@ jQuery(document).ready(function($) {
          begin: function() {
            logoblock.css('display', 'flex')
          }})
+
+       menubar.velocity({translateY: "0px"},
+         {duration: animationDuration,
+          complete: function() {
+            menubar.css('display', 'none')
+          }})
   }
 
   function stopHeaderAnimation() {
