@@ -133,9 +133,9 @@ jQuery(document).ready(function($) {
 
   var generatenavhtml = function (data) {
     var html = '<div class="slide">';
-    html += '<div class="navigation-tree">'+
-      '<a class="navigation-current" href="'+data.href+'">'+data.title+'</a>'+
-      '<ul class="navigation-children">';
+    html += '<div class="navigation-tree">';
+    if (!data.isHomePage) html += '<a class="navigation-current" href="'+data.href+'">'+data.title+'</a>';
+    html += '<ul class="navigation-children">';
     for (var i = 0; i < data.children.length; i++) {
       var subpage = data.children[i];
       html += '<li><a href="'+subpage.href+'" data-path="'+subpage.path+'">'+
