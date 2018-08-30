@@ -25,6 +25,12 @@ form:
             - name: center
               label: Center
               selected: true
+        - name: text
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          required: false
+          label: Text
+          description: This text will appear below the title
+          rows: 3
         - name: stylesheet
           label: ""
           class: edu.txstate.its.gato.vaadin.GatoCssIncludeDefinition
