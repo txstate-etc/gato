@@ -6,6 +6,7 @@ jQuery(document).ready(function($) {
   var menuContent = menu.find('.menu-content');
   var header = $('header');
   var menuDynamic = menu.find('.menu-dynamic-navigation');
+  var menuUp = menu.find('.navigation-up');
 
   var animating = 0;
   var complete = function () {
@@ -107,21 +108,31 @@ jQuery(document).ready(function($) {
   }
   var navbypath = getnavbypath(gatonavigationdata);
 
-  var generatenavhtml = function (data) {
-    var html = '<div class="slide">';
-    if (!data.isHomePage) {
+  var generatenavmeta = function (data) {
+    var html = '';
+    if (data.isHomePage) {
+      html +=
+      '<a class="home" href="//www.txstate.edu">'+
+        '<i class="fa fa-home arrow" aria-hidden="true"></i>'+
+        '<span>Home</span>'+
+      '</a>';
+    } else {
       var parent = navbypath[data.path.split('/').slice(0,-1).join('/')];
-      html += '<div class="navigation-up">'+
-        '<a class="back" href="'+parent.href+'" data-path="'+parent.path+'">'+
+      html +=
+      '<a class="back" href="'+parent.href+'" data-path="'+parent.path+'">'+
         '<i class="fa fa-angle-left arrow" aria-hidden="true"></i> '+
         '<span>Back</span>'+
       '</a>'+
       '<a class="top" href="'+gatonavigationdata.href+'" data-path="'+gatonavigationdata.path+'">'+
         '<i class="fa fa-angle-double-left arrow" aria-hidden="true"></i> '+
         '<span>Main Menu</span>'+
-      '</a>'+
-      '</div>';
+      '</a>';
     }
+    return html;
+  }
+
+  var generatenavhtml = function (data) {
+    var html = '<div class="slide">';
     html += '<div class="navigation-tree">'+
       '<a class="navigation-current" href="'+data.href+'">'+data.title+'</a>'+
       '<ul class="navigation-children">';
@@ -139,10 +150,21 @@ jQuery(document).ready(function($) {
     var path = lnk.data('path');
     var data = navbypath[path];
     if (data.children.length) {
+      setTimeout(function () {
+        menuUp.html(generatenavmeta(data));
+        apply_up_actions();
+      }, 0);
       var slide = $(generatenavhtml(data));
       var oldslide = menuDynamic.find('.slide');
+      var oldheight = menuDynamic.height();
       menuDynamic.append(slide);
       slide.css({position: 'absolute', left: '0', top: '0', width: '100%'});
+      var newheight = slide.height();
+      if (newheight > oldheight) {
+        menuDynamic.velocity({height: [newheight+'px',oldheight+'px']}, {duration: 300});
+      } else {
+        menuDynamic.css('height', oldheight+'px');
+      }
 
       var newslidepos = ['0%', '100%'], oldslidepos = ['-100%', '0%'];
       if (!infromtheright) {
@@ -154,7 +176,6 @@ jQuery(document).ready(function($) {
         oldslide.remove();
         apply_actions(slide);
       }});
-      menuDynamic.velocity({height: [slide.height()+'px',oldslide.height()+'px']}, {duration: 300});
       e.preventDefault();
     }
   }
@@ -163,9 +184,13 @@ jQuery(document).ready(function($) {
     slide.find('.navigation-children a').click(function (e) {
       activate_nav_slide(e, $(this), true);
     });
-    slide.find('.navigation-up .back, .navigation-up .top').click(function (e) {
+  }
+  apply_actions(menuDynamic.find('.slide'));
+
+  var apply_up_actions = function () {
+    menuUp.find('.back, .top').click(function (e) {
       activate_nav_slide(e, $(this), false);
     });
   }
-  apply_actions(menuDynamic.find('.slide'));
+  apply_up_actions();
 });

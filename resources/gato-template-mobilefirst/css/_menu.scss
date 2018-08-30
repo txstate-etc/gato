@@ -47,17 +47,42 @@ nav.main-menu {
       &:hover {
         padding-left: 0.7rem;
       }
+      &.home {
+        padding-left: 2rem;
+        border-right: 1px solid $dark-sandstone;
+        i {
+          font-size: 1.9rem;
+          margin-right: 0.3rem;
+        }
+        &:hover {
+          padding-left: 2rem;
+        }
+      }
     }
   }
-  .navigation-current {
+  .navigation-root {
+    display: block;
+    margin-bottom: 1rem;
+    margin-left: 2rem;
     font-size: 1.8rem;
     font-weight: bold;
     color: $maroon;
   }
+  .navigation-current {
+    display: block;
+    color: $maroon;
+    font-weight: bold;
+    padding: 0.5rem 0 0.5rem 1rem;
+    margin-bottom: 0.1rem;
+    transition: padding 0.1s;
+    &:hover {
+      padding-left: 2rem;
+    }
+  }
   .navigation-children {
     list-style-type: none;
-    padding-left: 0rem;
-    margin-top: 0.6rem;
+    padding-left: 1rem;
+    margin-top: 0;
     a {
       display: block;
       padding: 0.5rem 0;
