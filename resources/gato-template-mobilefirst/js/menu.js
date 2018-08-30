@@ -147,10 +147,14 @@ jQuery(document).ready(function($) {
   }
 
   var activate_nav_slide = function (e, lnk, infromtheright) {
+    if (animating) return;
+    var accessibilityMode = e.clientX == 0 && e.clientY == 0;
     var path = lnk.data('path');
     var data = navbypath[path];
     if (data.children.length) {
+      animating = 1;
       setTimeout(function () {
+        // need to do this after all the other work finishes or the menu will close
         menuUp.html(generatenavmeta(data));
         apply_up_actions();
       }, 0);
@@ -175,6 +179,8 @@ jQuery(document).ready(function($) {
       oldslide.velocity({translateX: oldslidepos}, {duration: 300, complete: function() {
         oldslide.remove();
         apply_actions(slide);
+        animating = 0;
+        if (accessibilityMode && lnk.not('.back,.top')) slide.find('a').eq(0).focus();
       }});
       e.preventDefault();
     }
