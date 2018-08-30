@@ -15,7 +15,7 @@
 [/#macro]
 
 <script type="text/javascript">[@compress single_line=true]
-  var gatonavigationdata = [@gatonavigationdata page /]
+  var gatonavigationdata = [@gatonavigationdata homepage /]
 [/@compress]</script>
 <nav id="main-menu" class="main-menu" role="navigation" aria-expanded="false">
   <div class="menu-content">
