@@ -5,7 +5,6 @@ form:
       fields:
         - name: script
           label: Icon
-          required: true
           class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
           fields:
             - name: icon
