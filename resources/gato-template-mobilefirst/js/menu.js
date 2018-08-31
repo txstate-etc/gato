@@ -1,4 +1,7 @@
 jQuery(document).ready(function($) {
+  var detectAccessibilityClick = function (e) {
+    return e.clientX == 0 && e.clientY == 0;
+  }
   /* Main Menu Open and Close */
   var page = $('.page-container');
   var menuButton = $('.btn-menu');
@@ -12,7 +15,7 @@ jQuery(document).ready(function($) {
   var complete = function () {
     animating -= 1;
   }
-  var menushow = function() {
+  var menushow = function(accessibilityMode) {
     if (animating) return;
     animating = 3;
     var menuwidth = menu.width();
@@ -23,8 +26,9 @@ jQuery(document).ready(function($) {
     menuContent.velocity({translateX: ['0%', '-100%']}, {duration: 300, complete: complete});
     page.velocity({translateX: [menuwidth+'px', '0px']}, {duration: 300, complete: complete});
     header.velocity({translateX: [menuwidth+'px', '0px'], width: (pagewidth-menuwidth)+'px'}, {duration: 300, complete: complete});
+    if (accessibilityMode) menuUp.find('a').eq(0).focus();
   }
-  var menuhide = function() {
+  var menuhide = function(accessibilityMode) {
     if (animating) return;
     animating = 3;
     var menuwidth = menu.width();
@@ -42,6 +46,7 @@ jQuery(document).ready(function($) {
     menuContent.velocity({translateX: ['-100%', '0%']}, {duration: 300, complete: hidecomplete});
     page.velocity({translateX: ['0px', menuwidth+'px']}, {duration: 300, complete: hidecomplete});
     header.velocity({translateX: ['0px', menuwidth+'px'], width: [pagewidth+'px', headerwidth+'px']}, {duration: 300, complete: hidecomplete});
+    if (accessibilityMode) menuButton.focus();
   }
 
   // be prepared for the menu to change width on resize since we set a max-width
@@ -64,34 +69,95 @@ jQuery(document).ready(function($) {
 
   // menu button, open and close
   menuButton.click(function(e) {
-    if (menuButton.hasClass('open')) menuhide();
-    else menushow();
+    if (menuButton.hasClass('open')) menuhide(detectAccessibilityClick(e));
+    else menushow(detectAccessibilityClick(e));
+  })
+  menuButton.keyup(function(e) {
+    if (e.which == KeyCodes.DOWN) {
+      menushow(true);
+      e.preventDefault();
+    }
+    if (e.which == KeyCodes.UP) {
+      menushow(false);
+      showmoretools();
+      setTimeout(function() {
+        menuContent.find('a').eq(-1).focus();
+      }, 0);
+      e.preventDefault();
+    }
   })
   // close menu if they click outside the menu
   $(document).on('click', function(e) {
     var targ = $(e.target);
     if (menuButton.hasClass('open') && !targ.is('.btn-menu, .btn-menu .fa, .btn-menu .label') && !targ.closest('#main-menu').length) {
       e.preventDefault();
-      menuhide();
+      menuhide(false);
     }
   });
   // close menu with the escape key
   $(document).keyup(function (e) {
-    if (e.keyCode === 27 && menuButton.hasClass('open')) {
+    if (e.keyCode === KeyCodes.ESCAPE && menuButton.hasClass('open')) {
       e.preventDefault();
-      menuhide();
+      menuhide(true);
     }
   });
+  // navigate menu with arrow and letter keys
+  var apply_arrowkey_actions = function (container) {
+    container.find('a').keydown(function (e) {
+      if (e.ctrlKey || e.altKey || e.shiftKey || e.metaKey) return;
+      var lnk = $(this);
+      var lnks = menuContent.find('a:visible');
+      var idx = lnks.index(lnk.get(0));
+      if (e.which === KeyCodes.UP) {
+        lnks.eq(idx-1).focus();
+        e.preventDefault();
+      } else if (e.which === KeyCodes.DOWN || e.which === KeyCodes.SPACE) {
+        lnks.eq((idx+1)%lnks.length).focus();
+        e.preventDefault();
+      } else if (e.which === KeyCodes.HOME) {
+        lnks.eq(0).focus();
+        e.preventDefault();
+      } else if (e.which === KeyCodes.END) {
+        lnks.eq(-1).focus();
+        e.preventDefault();
+      } else if (e.which >= KeyCodes.A && e.which <= KeyCodes.Z) {
+        // rotate through links that begin with the entered letter
+        var found = false;
+        var findletter = function (slice) {
+          lnks.slice(slice).each(function () {
+            var l = $(this);
+            if (l.text().substring(0,1) === String.fromCharCode(e.which)) {
+              l.focus();
+              found = true;
+              return false; // in jquery this breaks the loop
+            }
+          });
+        }
+        findletter(idx+1);
+        if (!found) findletter(0);
+        e.preventDefault();
+      }
+    });
+  }
+  apply_arrowkey_actions(menuContent);
+
+  var moretoolslink = menuContent.find('a.more-tools');
+  var moretoolslist = menuContent.find('ul.more-tools');
+  var showmoretools = function () {
+    moretoolslink.attr('aria-expanded', true);
+    moretoolslist.velocity('slideDown', { duration: 300 });
+  }
+
+  var hidemoretools = function () {
+    moretoolslink.attr('aria-expanded', false);
+    moretoolslist.velocity('slideUp', { duration: 300 });
+  }
 
   $('a.more-tools').click(function (e) {
-    var lnk = $(this);
-    var list = $('ul.more-tools');
-    if (lnk.is('[aria-expanded="true"]')) {
-      lnk.attr('aria-expanded', false);
-      list.velocity('slideUp', { duration: 300 });
+    if (moretoolslink.is('[aria-expanded="true"]')) {
+      hidemoretools();
     } else {
-      lnk.attr('aria-expanded', true);
-      list.velocity('slideDown', { duration: 300 });
+      showmoretools();
     }
     e.preventDefault();
   })
@@ -148,7 +214,7 @@ jQuery(document).ready(function($) {
 
   var activate_nav_slide = function (e, lnk, infromtheright) {
     if (animating) return;
-    var accessibilityMode = e.clientX == 0 && e.clientY == 0;
+    var accessibilityMode = detectAccessibilityClick(e);
     var path = lnk.data('path');
     var data = navbypath[path];
     if (data.children.length) {
@@ -190,6 +256,7 @@ jQuery(document).ready(function($) {
     slide.find('.navigation-children a').click(function (e) {
       activate_nav_slide(e, $(this), true);
     });
+    apply_arrowkey_actions(slide);
   }
   apply_actions(menuDynamic.find('.slide'));
 
@@ -197,6 +264,7 @@ jQuery(document).ready(function($) {
     menuUp.find('.back, .top').click(function (e) {
       activate_nav_slide(e, $(this), false);
     });
+    apply_arrowkey_actions(menuUp);
   }
   apply_up_actions();
 });

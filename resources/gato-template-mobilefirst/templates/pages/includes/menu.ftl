@@ -61,11 +61,11 @@
         <li><a href="${gf.filterUrl(component.link)}">${gf.filterLinkTitle(component.text, component.link)}</a></li>
       [/#list]
     </ul>
-    <a href="#" class="more-tools" aria-expanded="false">
+    <a href="#" class="more-tools" aria-expanded="false" aria-haspopup="true" aria-controls="gato-navigation-moretools">
       ${globalLinks.superGroup3.text!'Online Services'}
       <i class="fa fa-angle-down"></i>
     </a>
-    <ul class="super-list more-tools">
+    <ul class="super-list more-tools" id="gato-navigation-moretools">
       [#list cmsfn.children(globalLinks.superGroup3, "mgnl:component") as component]
         <li><a href="${gf.filterUrl(component.link)}">${gf.filterLinkTitle(component.text, component.link)}</a></li>
       [/#list]
