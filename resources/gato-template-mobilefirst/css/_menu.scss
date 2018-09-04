@@ -114,7 +114,7 @@ nav.main-menu {
       text-align: center;
       font-size: 1.3rem;
       font-weight: bold;
-      transition: all 0.2s;
+      transition: background 0.2s, color 0.2s;
       &:hover {
         margin-top: -4px;
         background-color: transparent;
