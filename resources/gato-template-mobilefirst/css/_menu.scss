@@ -113,6 +113,15 @@ nav.main-menu {
       color: white;
       text-align: center;
       font-size: 1.3rem;
+      font-weight: bold;
+      transition: all 0.2s;
+      &:hover {
+        margin-top: -4px;
+        background-color: transparent;
+        color: $maroon;
+        border: 1px solid $maroon;
+        border-bottom: 3px solid $maroon;
+      }
     }
     .editMultiLinks {
       display: none;
