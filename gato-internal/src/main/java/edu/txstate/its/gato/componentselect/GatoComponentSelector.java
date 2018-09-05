@@ -6,6 +6,7 @@ import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.GridLayout;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.Label;
+import com.vaadin.ui.TabSheet;
 import com.vaadin.ui.Component;
 import com.vaadin.data.Property;
 import com.vaadin.annotations.StyleSheet;
@@ -15,24 +16,29 @@ import com.vaadin.ui.Image;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.Set;
 import org.apache.commons.lang3.StringUtils;
 
 import com.vaadin.event.LayoutEvents.LayoutClickEvent;
 import com.vaadin.event.LayoutEvents.LayoutClickListener;
+
+import com.vaadin.ui.TabSheet.SelectedTabChangeEvent;
 
 @StyleSheet("vaadin://css/componentselect.css")
 public class GatoComponentSelector extends CustomField<String>{
 
     private static final String ICON_HEIGHT = "108px";
 
-    private List<GatoComponentSelectOption> templates;
+    private LinkedHashMap<String,ArrayList<GatoComponentSelectOption>> templates;
 
     private VerticalLayout rootLayout = new VerticalLayout();
-    private GridLayout grid = new GridLayout();
     private TextField hidden = new TextField();
 
+    private ArrayList<VerticalLayout> allTiles = new ArrayList<VerticalLayout>();
 
-    public GatoComponentSelector(ArrayList<GatoComponentSelectOption> templates){
+
+    public GatoComponentSelector(LinkedHashMap<String,ArrayList<GatoComponentSelectOption>> templates){
         this.templates = templates;
     }
 
@@ -40,49 +46,57 @@ public class GatoComponentSelector extends CustomField<String>{
     //component because the GridLayout sometimes overlaps the components.
     @Override
     protected Component initContent() {
-        int numColumns = 3;
-        // grid.setColumns(2);  
-        // grid.setSpacing(true);
-        // grid.setSizeFull();
-        int numTemplates = templates.size();
-        int numRows = (numTemplates + (numColumns -1)) / numColumns;
+      TabSheet tabsheet = new TabSheet();
+      rootLayout.addComponent(tabsheet);
+
+      Set<String> keys = templates.keySet();
+      for (String k : keys) {
+        ArrayList contentTypes = templates.get(k);
+        int numTemplates = contentTypes.size();
+        int columns = 3;
+        int rows =(int) Math.ceil(numTemplates/3.0);
         int templateIndex = 0;
-
-        for(int i=0; i<numRows; i++){
-            HorizontalLayout hl = new HorizontalLayout();
-            hl.setSpacing(true);
-            hl.setSizeFull();
-            hl.addStyleName("component-row");
-            for(int j=0; j<numColumns && templateIndex < numTemplates; j++){
-                VerticalLayout tile = buildGridComponent(templates.get(templateIndex));
-                //if there is only one component, select it
-                if(numTemplates == 1){
-                    hidden.setValue(templates.get(templateIndex).getComponentId());
-                    tile.addStyleName("selected-component");
-                }
-                hl.addComponent(tile);
-                templateIndex++;
+        VerticalLayout tab = new VerticalLayout();
+        for ( int i=0; i< rows; i++) {
+          HorizontalLayout hl = new HorizontalLayout();
+          hl.setSpacing(true);
+          hl.setSizeFull();
+          hl.addStyleName("component-row");
+          for (int j=0; j<columns && templateIndex < numTemplates; j++) {
+            GatoComponentSelectOption option = (GatoComponentSelectOption) contentTypes.get(templateIndex);
+            VerticalLayout tile = buildGridComponent(option);
+            //if there is only one component, select it
+            if (keys.size() == 1 && numTemplates == 1) {
+              hidden.setValue(option.getComponentId());
+              tile.addStyleName("selected-component");
             }
-            //add empty labels to make sure last row elements are not extra wide
-            if(i == numRows-1 && numTemplates % numColumns > 0){
-                int emptySpaces = numColumns - (numTemplates % numColumns);
-                for(int k=0; k<emptySpaces; k++){
-                    hl.addComponent(new Label("&nbsp;", Label.CONTENT_XHTML));
-                }
-            }
-            rootLayout.addComponent(hl);
+            hl.addComponent(tile);
+            templateIndex++;
+          }
+          //add empty labels to make sure last row elements are not extra wide
+          if(i == rows-1 && numTemplates % columns > 0){
+              int emptySpaces = columns - (numTemplates % columns);
+              for(int m=0; m<emptySpaces; m++){
+                  hl.addComponent(new Label("&nbsp;", Label.CONTENT_XHTML));
+              }
+          }
+          tab.addComponent(hl);
         }
+        tabsheet.addTab(tab, k);
+      }
+      tabsheet.addSelectedTabChangeListener(
+        new TabSheet.SelectedTabChangeListener() {
+          public void selectedTabChange(SelectedTabChangeEvent event) {
+            //get which tab changed
+            //get the heights of the tiles on that tab
+            //make sure they have the same height
+          }
+        }
+      );
 
-        //keeping this just in case the gridlayout, although broken, is better
-        // for (GatoComponentSelectOption template : templates) {
-        //     grid.addComponent(buildGridComponent(template));
-        //     //rootLayout.addComponent(buildGridComponent(template));
-        // }
-        // System.out.println("*** The Grid has " + grid.getComponentCount() + " components.");
-        // rootLayout.addComponent(grid);
-        hidden.setVisible(false);
-        rootLayout.addComponent(hidden);
-        return rootLayout;
+      hidden.setVisible(false);
+      rootLayout.addComponent(hidden);
+      return rootLayout;
     }
 
     //build an individual "cell."  Each cell has a title
@@ -117,11 +131,6 @@ public class GatoComponentSelector extends CustomField<String>{
         textContent.setSizeFull();
         tile.addComponent(textContent);
 
-        // Label descriptionLabel = new Label(template.getDescription()+ "\n");
-        // descriptionLabel.addStyleName("component-description");
-        // descriptionLabel.setSizeFull();
-        // tile.addComponent(descriptionLabel);
-        
         tile.addLayoutClickListener(new LayoutClickListener() {
             public void layoutClick(final LayoutClickEvent event) {
                 //set hidden field value to the ID of the clicked component/paragraph
@@ -132,42 +141,21 @@ public class GatoComponentSelector extends CustomField<String>{
                 tile.addStyleName("selected-component");
             }
         });
+        allTiles.add(tile);
         return tile;
     }
 
     //remove the "selected-component" style name from all components
     //so only one appears selected at a time
     private void removeSelectedStyleFromComponents(){
-        Iterator<Component> rootIterator = rootLayout.iterator();
-        while(rootIterator.hasNext()){
-            Component c = rootIterator.next();
-            if(c instanceof HorizontalLayout){
-                HorizontalLayout h = (HorizontalLayout) c;
-                Iterator<Component> rowIterator = h.iterator();
-                while(rowIterator.hasNext()){
-                    Component rc = rowIterator.next();
-                    if(rc instanceof VerticalLayout){
-                        VerticalLayout v = (VerticalLayout) rc;
-                        v.removeStyleName("selected-component");
-                    }
-                    
-                }
-            }
-        }
-        // keeping this for now
-        // Iterator<Component> iter = grid.iterator();
-        // while(iter.hasNext()){
-        //     Component c = iter.next();
-        //     if(c instanceof VerticalLayout){
-        //         VerticalLayout h = (VerticalLayout) c;
-        //         h.removeStyleName("selected-component");
-        //         //Label l = (Label) h.getComponent(0);
-        //         //l.removeStyleName("selected-component");
-        //     }
-        // }
-
+      for (VerticalLayout tile : allTiles) {
+        tile.removeStyleName("selected-component");
+      }
     }
 
+    private void resizeTiles(VerticalLayout tab) {
+
+    }
 
     @Override
     public void setPropertyDataSource(Property property) {

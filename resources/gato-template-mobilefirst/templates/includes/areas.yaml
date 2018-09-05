@@ -38,6 +38,8 @@ organization-info:
 contentParagraph:
   title: Interior Page Main Content Area
   templateScript: /gato-template-mobilefirst/templates/areas/mobilefirst-content.ftl
+  parameters:
+    tabs: true
   availableComponents:
     !include /gato-template-mobilefirst/templates/areas/available-components/interiorComponents.yaml
 mobileFirstContent:

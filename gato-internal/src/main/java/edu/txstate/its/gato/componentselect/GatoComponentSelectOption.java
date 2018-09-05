@@ -8,6 +8,7 @@ public class GatoComponentSelectOption{
     private String title;
     private String description;
     private String iconPath;
+    private String tabName;
 
     public String getComponentId(){
         return componentId;
@@ -39,5 +40,13 @@ public class GatoComponentSelectOption{
 
     public void setIconPath(String path){
         this.iconPath = path;
+    }
+
+    public String getTabName() {
+      return this.tabName;
+    }
+
+    public void setTabName(String tabName) {
+      this.tabName = tabName;
     }
 }
