@@ -312,20 +312,6 @@ $pattern-max-height: 400px;
         background-image: linear-gradient(0deg, rgba(255, 255, 255, 0), rgba(0, 0, 0, .47));
       }
     }
-    &.color1, &.color2, &.color3, &.color4 {
-      .overlay-left {
-        background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0));
-        @media (max-width: $sm-breakpoint) {
-          background-image: linear-gradient(0deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.4));
-        }
-      }
-      .overlay-right {
-        background-image: linear-gradient(-90deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0));
-        @media (max-width: $sm-breakpoint) {
-          background-image: linear-gradient(0deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.4));
-        }
-      }
-    }
   }
 }
 
