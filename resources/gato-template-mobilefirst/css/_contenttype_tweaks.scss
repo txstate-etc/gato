@@ -32,6 +32,15 @@
   }
 }
 
+//rich editor
+.gato-rich-editor {
+  h2 {
+    @media (max-width: $sm-breakpoint) {
+      font-size: 2.9rem;
+    }
+  }
+}
+
 //patterns
 .mobilefirst-pattern {
   .pattern-content.color4 {
