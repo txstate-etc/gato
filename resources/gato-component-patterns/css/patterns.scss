@@ -244,6 +244,18 @@ $pattern-max-height: 400px;
           }
         }
       }
+      @media (max-width:$mn-breakpoint) {
+        &[data-count="2"] {
+          .icontext-container {
+            width: 50%;
+          }
+        }
+        &[data-count="3"] {
+          .icontext-container {
+            width: 33%;
+          }
+        }
+      }
     }
   }
 
