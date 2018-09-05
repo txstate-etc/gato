@@ -95,8 +95,11 @@ jQuery(document).ready(function($) {
   })
 
   /* Footer drop down menus (mobile view only) */
+  var animating = 0;
   $('.mobile-footer-column-title').click(function(e) {
     e.preventDefault();
+    if (animating) return;
+    animating = 1;
     var container = $(this).parent();
     var title = $(this);
     var list = container.find('.footer-column-link-list');
@@ -104,12 +107,14 @@ jQuery(document).ready(function($) {
       list.velocity("slideUp", {duration: 300, complete: function() {
         container.removeClass('expanded')
         title.attr('aria-expanded', false);
+        animating = 0;
       }})
     }
     else {
-      list.velocity("slideDown", { duration: 300, begin: function() {
+      list.velocity("slideDown", { duration: 300, complete: function() {
         container.addClass('expanded')
         title.attr('aria-expanded', true);
+        animating = 0;
       } })
     }
   })
