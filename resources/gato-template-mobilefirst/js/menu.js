@@ -2,6 +2,24 @@ jQuery(document).ready(function($) {
   var detectAccessibilityClick = function (e) {
     return e.clientX == 0 && e.clientY == 0;
   }
+  var $body = $('body');
+  var isTouch = false;
+  var isTouchTimer;
+  var classApplied = false;
+  $body.on('touchstart', function () {
+    clearTimeout(isTouchTimer);
+    isTouch = true;
+    isTouchTimer = setTimeout(function () { isTouch = false; }, 100);
+    if (classApplied) {
+      $body.removeClass('no-touch');
+      classApplied = false;
+    }
+  }).on('mouseover', function () {
+    if (!isTouch && !classApplied) {
+      $(this).addClass('no-touch');
+      classApplied = true;
+    }
+  });
   /* Main Menu Open and Close */
   var page = $('.page-container');
   var menuButton = $('.btn-menu');
@@ -71,6 +89,7 @@ jQuery(document).ready(function($) {
   menuButton.click(function(e) {
     if (menuButton.hasClass('open')) menuhide(detectAccessibilityClick(e));
     else menushow(detectAccessibilityClick(e));
+    e.preventDefault();
   })
   menuButton.keyup(function(e) {
     if (e.which == KeyCodes.DOWN) {
@@ -87,9 +106,9 @@ jQuery(document).ready(function($) {
     }
   })
   // close menu if they click outside the menu
-  $(document).on('click', function(e) {
+  $('body > *').on('click', function(e) {
     var targ = $(e.target);
-    if (menuButton.hasClass('open') && !targ.is('.btn-menu, .btn-menu .fa, .btn-menu .label') && !targ.closest('#main-menu').length) {
+    if (menuButton.hasClass('open') && !targ.closest('#main-menu-toggle').length && !targ.closest('#main-menu').length) {
       e.preventDefault();
       menuhide(false);
     }
@@ -224,9 +243,10 @@ jQuery(document).ready(function($) {
         menuUp.html(generatenavmeta(data));
         apply_up_actions();
       }, 0);
-      var slide = $(generatenavhtml(data));
       var oldslide = menuDynamic.find('.slide');
       var oldheight = menuDynamic.height();
+      lnk.blur();
+      var slide = $(generatenavhtml(data));
       menuDynamic.append(slide);
       slide.css({position: 'absolute', left: '0', top: '0', width: '100%'});
       var newheight = slide.height();
