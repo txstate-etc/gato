@@ -55,15 +55,7 @@ public class GatoComponentSelector extends CustomField<String>{
           VerticalLayout tab = buildTabContent(contentTypes);
           tabsheet.addTab(tab, k);
         }
-        tabsheet.addSelectedTabChangeListener(
-          new TabSheet.SelectedTabChangeListener() {
-            public void selectedTabChange(SelectedTabChangeEvent event) {
-              //get which tab changed
-              //get the heights of the tiles on that tab
-              //make sure they have the same height
-            }
-          }
-        );
+
         rootLayout.addComponent(tabsheet);
       }
       else {
@@ -74,8 +66,6 @@ public class GatoComponentSelector extends CustomField<String>{
         VerticalLayout tab = buildTabContent(contentTypes);
         rootLayout.addComponent(tab);
       }
-
-
 
       hidden.setVisible(false);
       rootLayout.addComponent(hidden);
