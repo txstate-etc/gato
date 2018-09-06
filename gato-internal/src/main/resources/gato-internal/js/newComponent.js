@@ -3,7 +3,6 @@
 //longer descriptions than others
 
 function initNewComponent(def, node, el) {
-  console.log("initnewcomponents")
     //hide script field
     $(el).closest('.v-form-field-section').hide();
 
