@@ -46,57 +46,74 @@ public class GatoComponentSelector extends CustomField<String>{
     //component because the GridLayout sometimes overlaps the components.
     @Override
     protected Component initContent() {
-      TabSheet tabsheet = new TabSheet();
-      rootLayout.addComponent(tabsheet);
 
       Set<String> keys = templates.keySet();
-      for (String k : keys) {
-        ArrayList contentTypes = templates.get(k);
-        int numTemplates = contentTypes.size();
-        int columns = 3;
-        int rows =(int) Math.ceil(numTemplates/3.0);
-        int templateIndex = 0;
-        VerticalLayout tab = new VerticalLayout();
-        for ( int i=0; i< rows; i++) {
-          HorizontalLayout hl = new HorizontalLayout();
-          hl.setSpacing(true);
-          hl.setSizeFull();
-          hl.addStyleName("component-row");
-          for (int j=0; j<columns && templateIndex < numTemplates; j++) {
-            GatoComponentSelectOption option = (GatoComponentSelectOption) contentTypes.get(templateIndex);
-            VerticalLayout tile = buildGridComponent(option);
-            //if there is only one component, select it
-            if (keys.size() == 1 && numTemplates == 1) {
-              hidden.setValue(option.getComponentId());
-              tile.addStyleName("selected-component");
+      if (keys.size() > 1) {
+        TabSheet tabsheet = new TabSheet();
+        for (String k : keys) {
+          ArrayList contentTypes = templates.get(k);
+          VerticalLayout tab = buildTabContent(contentTypes);
+          tabsheet.addTab(tab, k);
+        }
+        tabsheet.addSelectedTabChangeListener(
+          new TabSheet.SelectedTabChangeListener() {
+            public void selectedTabChange(SelectedTabChangeEvent event) {
+              //get which tab changed
+              //get the heights of the tiles on that tab
+              //make sure they have the same height
             }
-            hl.addComponent(tile);
-            templateIndex++;
           }
-          //add empty labels to make sure last row elements are not extra wide
-          if(i == rows-1 && numTemplates % columns > 0){
-              int emptySpaces = columns - (numTemplates % columns);
-              for(int m=0; m<emptySpaces; m++){
-                  hl.addComponent(new Label("&nbsp;", Label.CONTENT_XHTML));
-              }
-          }
-          tab.addComponent(hl);
-        }
-        tabsheet.addTab(tab, k);
+        );
+        rootLayout.addComponent(tabsheet);
       }
-      tabsheet.addSelectedTabChangeListener(
-        new TabSheet.SelectedTabChangeListener() {
-          public void selectedTabChange(SelectedTabChangeEvent event) {
-            //get which tab changed
-            //get the heights of the tiles on that tab
-            //make sure they have the same height
-          }
+      else {
+        ArrayList contentTypes = new ArrayList<GatoComponentSelectOption>();
+        for (String k : keys) {
+          contentTypes = templates.get(k);
         }
-      );
+        VerticalLayout tab = buildTabContent(contentTypes);
+        rootLayout.addComponent(tab);
+      }
+
+
 
       hidden.setVisible(false);
       rootLayout.addComponent(hidden);
       return rootLayout;
+    }
+
+    private VerticalLayout buildTabContent(ArrayList contentTypes) {
+      int numTemplates = contentTypes.size();
+      int columns = 3;
+      int rows =(int) Math.ceil(numTemplates/3.0);
+      int templateIndex = 0;
+      VerticalLayout tab = new VerticalLayout();
+      for ( int i=0; i< rows; i++) {
+        HorizontalLayout hl = new HorizontalLayout();
+        hl.setSpacing(true);
+        hl.setSizeFull();
+        hl.addStyleName("component-row");
+        for (int j=0; j<columns && templateIndex < numTemplates; j++) {
+          GatoComponentSelectOption option = (GatoComponentSelectOption) contentTypes.get(templateIndex);
+          VerticalLayout tile = buildGridComponent(option);
+          //if there is only one component, select it
+          // if (keys.size() == 1 && numTemplates == 1) {
+          //   hidden.setValue(option.getComponentId());
+          //   tile.addStyleName("selected-component");
+          // }
+          hl.addComponent(tile);
+          templateIndex++;
+        }
+        //add empty labels to make sure last row elements are not extra wide
+        if(i == rows-1 && numTemplates % columns > 0){
+            int emptySpaces = columns - (numTemplates % columns);
+            for(int m=0; m<emptySpaces; m++){
+                hl.addComponent(new Label("&nbsp;", Label.CONTENT_XHTML));
+            }
+        }
+        tab.addComponent(hl);
+      }
+      return tab;
     }
 
     //build an individual "cell."  Each cell has a title
