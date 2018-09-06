@@ -23,9 +23,42 @@
     display: inline-block;
     vertical-align: middle;
     text-align: center;
-    
+
 }
 
 .gato-grid-component.selected-component{
     border: 2px solid #6A9600;
+}
+
+.v-verticallayout .v-slot-component-row:first-child {
+  margin-top: 5px;
+}
+
+/* tabsheet styles */
+.v-tabsheet-spacertd div {
+  border-left: 0;
+  border-bottom: 0;
+}
+
+.v-tabsheet-content {
+  border: 0;
+}
+
+.v-tabsheet-tabs {
+  border-bottom: 1px solid #666666;
+}
+
+.v-tabsheet-deco {
+  background: none;
+}
+
+.v-tabsheet-tabitem {
+  border: 0;
+  margin-right: 3px;
+}
+
+
+.v-tabsheet-tabitem-selected, .v-tabsheet-tabitem:hover {
+  background-color: #595959;
+  color: #fff;
 }
