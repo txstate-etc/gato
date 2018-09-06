@@ -29,7 +29,7 @@
         <span>Back</span>
       </a>
       <a class="top" href="${cmsfn.link(homepage)}" data-path="${homepage['@path']}">
-        <i class="fa fa-angle-double-left arrow" aria-hidden="true"></i>
+        <i class="fa fa-angle-left arrow" aria-hidden="true"></i><i class="fa fa-angle-left arrow" aria-hidden="true"></i>
         <span>Main Menu</span>
       </a>
     [/#if]

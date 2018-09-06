@@ -43,6 +43,7 @@ nav.main-menu {
       transition: padding 0.1s;
       &.top {
         border-left: 1px solid $dark-sandstone;
+        i { margin-right: 0.2rem; }
       }
       &.home {
         padding-left: 2rem;
