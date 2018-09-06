@@ -5,6 +5,7 @@ dialog: gato-component-patterns:components/icontextmulti
 description: 2-4 icon links with accompanying text
 parameters:
   icon: /gato-component-patterns/images/icont-text.png
+  tab: Patterns
 areas:
   iconList:
     templateScript: /gato-component-patterns/templates/areas/icontextmulti-area.ftl

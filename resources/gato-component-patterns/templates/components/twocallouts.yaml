@@ -5,3 +5,4 @@ description: Two content areas with callout text, a title, a subtitle, and butto
 dialog: gato-component-patterns:components/twocallouts
 parameters:
   icon: /gato-component-patterns/images/2callouts.png
+  tab: Patterns

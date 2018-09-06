@@ -5,3 +5,4 @@ description: A quotation and source with an image
 dialog: gato-component-patterns:components/quoteimage
 parameters:
   icon: /gato-component-patterns/images/quote.png
+  tab: Patterns
