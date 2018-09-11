@@ -127,7 +127,7 @@ jQuery(document).ready(function($) {
     'touch': false
   });
   var toplevelitems = $('body > #panel, body > .skip-nav');
-  var tabbables = toplevelitems.find(':tabbable');
+  var tabbables = toplevelitems.find('a, input, textarea');
   tabbables.each(function (idx, itm) {
     itm.slideout_save_tabindex = $(itm).attr('tabindex');
   });
