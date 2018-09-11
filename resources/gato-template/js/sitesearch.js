@@ -192,8 +192,8 @@ jQuery(document).ready(function($) {
         var searchbreadcrumbs = breadcrumbs.clone().addClass('searchbreadcrumbs');
         var contents = searchbreadcrumbs.contents();
         if(contents.length > 0) {
-            contents.eq(contents.size() -1).remove();  //remove last text element
-            contents.eq(searchbreadcrumbs.size() -1).remove();
+            contents.eq(contents.length -1).remove();  //remove last text element
+            contents.eq(searchbreadcrumbs.length -1).remove();
             var url = window.location.href;
             if(url.indexOf("sitesearch") != -1){
                 var params = getHashParameters();

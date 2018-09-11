@@ -1,7 +1,7 @@
 jQuery(document).ready(function($) {
   var jqwindow = jQuery(window);
   var headerimage = $(".bg_image, .bg_image_secondary");
-  if (headerimage.size() > 0) {
+  if (headerimage.length > 0) {
     // Parallax scrolling effect
     var headerbg = headerimage.get(0);
     var topoffset = headerimage.position().top;

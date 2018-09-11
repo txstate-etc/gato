@@ -317,8 +317,8 @@ function resizeTimeout(callback) {
     to = setTimeout(callback, 100);
 	};
 	setTimeout(myfunc, 0);
-	jQuery(window).load(myfunc);
-	jQuery(window).resize(myfunc);
+	jQuery(window).on('load', myfunc);
+	jQuery(window).on('resize', myfunc);
 }
 
 // the same thing we do for resizeTimeout can be used to observe dom mutations
@@ -405,13 +405,13 @@ function waitforselector(parentselector, selector, callback) {
 
   // parent must exist at the time of the call so that we can
   // use waitforselector on all pages without fear of creating a javascript error
-  if (parent.size() == 0) return;
+  if (parent.length == 0) return;
 
-  if (parent.find(selector).size() > 0) return callback(parent.find(selector));
+  if (parent.find(selector).length > 0) return callback(parent.find(selector));
   if (typeof(MutationObserver) != "undefined") {
     var observer = new MutationObserver(function(mutations, observer) {
       sanitycount++;
-      if (parent.find(selector).size() > 0) {
+      if (parent.find(selector).length > 0) {
         observer.disconnect();
         return setTimeout(function () { callback(parent.find(selector)); }, 0);
       } else if (sanitycount > 200) {
@@ -422,7 +422,7 @@ function waitforselector(parentselector, selector, callback) {
   } else {
     var observer = function() {
       sanitycount++;
-      if (parent.find(selector).size() > 0) return callback(parent.find(selector));
+      if (parent.find(selector).length > 0) return callback(parent.find(selector));
       else if (sanitycount < 200) setTimeout(observer, 100);
     }
     setTimeout(observer, 100);
