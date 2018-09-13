@@ -34,11 +34,6 @@
         [#if def.parameters.isHomeTemplate!false]
           [@cms.area name="mobileFirstContent"/]
         [#else]
-          <div class="gato-section-full">
-            <div class="gato-section-centered">
-              <div class="line-under-breadcrumbs"></div>
-            </div>
-          </div>
           [#if def.parameters.isMailTemplate!false]
             [@cms.area name="mail"/]
           [#else]
