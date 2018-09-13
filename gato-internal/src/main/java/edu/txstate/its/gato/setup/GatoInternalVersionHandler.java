@@ -182,6 +182,14 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       .addTasks(installOrUpdateTasks())
     );
 
+    register(DeltaBuilder.update("1.1.2", "")
+      .addTask(new BootstrapSingleModuleResource("config.modules.site.config.site.templates.availability.templates.mobilefirst-standard.xml"))
+      .addTask(new BootstrapSingleModuleResource("config.modules.site.config.site.templates.availability.templates.admissions-standard.xml"))
+      .addTask(new BootstrapSingleModuleResource("config.modules.site.config.site.templates.availability.templates.mobilefirst-mail.xml"))
+      .addTask(new BootstrapSingleModuleResource("config.modules.site.config.site.templates.availability.templates.admissions-mail.xml"))
+      .addTasks(installOrUpdateTasks())
+    );
+
   }
 
   protected List<Task> installOrUpdateTasks() {
