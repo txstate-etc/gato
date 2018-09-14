@@ -156,24 +156,24 @@ body.no-touch {
   nav.main-menu {
     .navigation-up {
       a {
-        &:hover {
+        &:hover, &:focus {
           padding-left: 0.7rem;
         }
         &.home {
-          &:hover {
+          &:hover, &:focus {
             padding-left: 2rem;
           }
         }
       }
     }
     .navigation-current {
-      &:hover {
+      &:hover, &:focus {
         padding-left: 2rem;
       }
     }
     .navigation-children {
       a {
-        &:hover {
+        &:hover, &:focus {
           padding-left: 1rem;
           font-weight: bold;
         }
@@ -181,7 +181,7 @@ body.no-touch {
     }
     .multilinks {
       a {
-        &:hover {
+        &:hover, &:focus {
           margin-top: -4px;
           background-color: transparent;
           color: $maroon;
@@ -192,7 +192,7 @@ body.no-touch {
     }
     .super-list {
       a {
-        &:hover {
+        &:hover, &:focus {
           transform: translateY(-3px);
           box-shadow: inset 0 -3px 0 0 $maroon;
         }

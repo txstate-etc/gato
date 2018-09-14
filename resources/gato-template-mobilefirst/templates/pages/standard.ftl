@@ -9,8 +9,8 @@
   </head>
   <body class="${cmsfn.isEditMode()?string('admin','')}">
     [@skipnav/]
-    [#include "includes/menu.ftl"]
     [#include "includes/header.ftl"]
+    [#include "includes/menu.ftl"]
     <div class="page-container" id="panel">
       [#if def.parameters.isHomeTemplate!false]
         [@cms.area name="home-banner" content=gf.getOrCreateArea(homepage, 'home-banner')/]
