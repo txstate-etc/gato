@@ -6,7 +6,7 @@
 [#assign srcset = gf.getSrcSet(content.image)]
 
 <div class="banner-image ${aspectclass}">
-  <img src="${src}" alt="${content.alttext!}" srcset="${srcset}" width="${gf.getImgWidth(content.image)?c}" height="${gf.getImgHeight(content.image)?c}">
+  <img src="${src}" alt="" srcset="${srcset}" width="${gf.getImgWidth(content.image)?c}" height="${gf.getImgHeight(content.image)?c}">
 
   [#if content.videourl?has_content]
     <a href="${content.videourl}" class="feature-play-button"

@@ -1,7 +1,4 @@
 jQuery(document).ready(function($) {
-  var detectAccessibilityClick = function (e) {
-    return e.clientX == 0 && e.clientY == 0;
-  }
   var $body = $('body');
   var isTouch = false;
   var isTouchTimer;
@@ -33,7 +30,7 @@ jQuery(document).ready(function($) {
   var complete = function () {
     animating -= 1;
   }
-  var menushow = function(accessibilityMode) {
+  var menushow = function() {
     if (animating) return;
     animating = 3;
     var menuwidth = menu.width();
@@ -44,9 +41,9 @@ jQuery(document).ready(function($) {
     menuContent.velocity({translateX: ['0%', '-100%']}, {duration: 300, complete: complete});
     page.velocity({translateX: [menuwidth+'px', '0px']}, {duration: 300, complete: complete});
     header.velocity({translateX: [menuwidth+'px', '0px'], width: (pagewidth-menuwidth)+'px'}, {duration: 300, complete: complete});
-    if (accessibilityMode) menuUp.find('a').eq(0).focus();
+    menuUp.find('a').eq(0).focus();
   }
-  var menuhide = function(accessibilityMode) {
+  var menuhide = function() {
     if (animating) return;
     animating = 3;
     var menuwidth = menu.width();
@@ -64,7 +61,6 @@ jQuery(document).ready(function($) {
     menuContent.velocity({translateX: ['-100%', '0%']}, {duration: 300, complete: hidecomplete});
     page.velocity({translateX: ['0px', menuwidth+'px']}, {duration: 300, complete: hidecomplete});
     header.velocity({translateX: ['0px', menuwidth+'px'], width: [pagewidth+'px', headerwidth+'px']}, {duration: 300, complete: hidecomplete});
-    if (accessibilityMode) menuButton.focus();
   }
 
   // be prepared for the menu to change width on resize since we set a max-width
@@ -87,8 +83,8 @@ jQuery(document).ready(function($) {
 
   // menu button, open and close
   menuButton.click(function(e) {
-    if (menuButton.hasClass('open')) menuhide(detectAccessibilityClick(e));
-    else menushow(detectAccessibilityClick(e));
+    if (menuButton.hasClass('open')) menuhide();
+    else menushow();
     e.preventDefault();
   })
   menuButton.keyup(function(e) {
@@ -106,11 +102,11 @@ jQuery(document).ready(function($) {
     }
   })
   // close menu if they click outside the menu
-  $('body > *').on('click', function(e) {
+  $('body > *').on('click focusin', function(e) {
     var targ = $(e.target);
     if (menuButton.hasClass('open') && !targ.closest('#main-menu-toggle').length && !targ.closest('#main-menu').length) {
-      e.preventDefault();
-      menuhide(false);
+      if (e.type == 'click') e.preventDefault();
+      menuhide();
     }
   });
   // close menu with the escape key
@@ -118,6 +114,7 @@ jQuery(document).ready(function($) {
     if (e.keyCode === KeyCodes.ESCAPE && menuButton.hasClass('open')) {
       e.preventDefault();
       menuhide(true);
+      menuButton.focus();
     }
   });
   // navigate menu with arrow and letter keys
@@ -233,7 +230,6 @@ jQuery(document).ready(function($) {
 
   var activate_nav_slide = function (e, lnk, infromtheright) {
     if (animating) return;
-    var accessibilityMode = detectAccessibilityClick(e);
     var path = lnk.data('path');
     var data = navbypath[path];
     if (data.children.length) {
@@ -266,7 +262,7 @@ jQuery(document).ready(function($) {
         oldslide.remove();
         apply_actions(slide);
         animating = 0;
-        if (accessibilityMode && lnk.not('.back,.top')) slide.find('a').eq(0).focus();
+        if (lnk.not('.back,.top')) slide.find('a').eq(0).focus();
       }});
       e.preventDefault();
     }
