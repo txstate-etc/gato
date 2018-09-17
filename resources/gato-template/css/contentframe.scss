@@ -2,6 +2,19 @@ $content-width-max: 1200px !default;
 $content-width-xl: 1000px !default;
 $content-width-lg: 1000px !default;
 
+.skip-nav {
+  display: block;
+  position: absolute;
+  top: -2rem;
+  left: 0rem;
+  height: 2rem;
+  background: white;
+  z-index: 50000;
+  &:focus {
+    top: 0rem;
+  }
+}
+
 .page_content {
   position: relative;
 }
