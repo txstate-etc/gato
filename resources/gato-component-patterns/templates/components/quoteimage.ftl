@@ -6,6 +6,7 @@
   <div class="pattern-content quotation ${content.color!color1}">
     <div class="centered">
       <div class="quotation-text">
+        <div class="quote-icon"><i class="fa fa-quote-left" aria-hidden="true"></i><span class="visuallyhidden">quotation</span></div>
         ${content.quotation}
       </div>
       [#if content.source?has_content]

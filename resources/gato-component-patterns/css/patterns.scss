@@ -373,12 +373,16 @@ $pattern-max-height: 400px;
       @media (max-width:$md-breakpoint) {
         margin-top: 4rem;
       }
-      &:before {
-        font-family: "FontAwesome";
-        font-size: 3rem;
+      .quote-icon {
         position: absolute;
-        content: "\f10d";
         top: -4rem;
+        left: 0;
+        i {
+          font-size: 3rem;
+        }
+        span {
+          left: 0;
+        }
       }
     }
     .quotation-source {
