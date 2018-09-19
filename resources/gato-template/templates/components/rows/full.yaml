@@ -11,3 +11,4 @@ areas:
       !include /gato-template/templates/areas/availableComponents.yaml
 parameters:
   icon: /gato-template/images/onecolumn.png
+  tab: Layouts
