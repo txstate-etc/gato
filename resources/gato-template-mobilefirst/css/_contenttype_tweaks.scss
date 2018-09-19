@@ -32,6 +32,15 @@
   }
 }
 
+//rich editor
+.gato-rich-editor {
+  h2 {
+    @media (max-width: $sm-breakpoint) {
+      font-size: 2.9rem;
+    }
+  }
+}
+
 //patterns
 .mobilefirst-pattern {
   .pattern-content.color4 {
@@ -72,6 +81,12 @@ h2.event-list-title {
   line-height: 3.5rem
 }
 
+.has-background {
+  .gato-events .gato-accordion.shown {
+    background-color: $white;
+  }
+}
+
 //embed video
 .gatoStreamingWrapper {
   h2.streaming-title {
@@ -86,6 +101,13 @@ h2.event-list-title {
 .gato-faq-hierarchy {
   h2.gato-faq-header a {
     font-family: $univers;
+  }
+}
+.has-background {
+  ul.gato-faq-hierarchy {
+    & > .gato-faqitem, & > .gato-faq-group {
+      background-color: $white;
+    }
   }
 }
 
@@ -142,4 +164,9 @@ h2.event-list-title {
       box-shadow: inset 0 -2px 0 0 $gold;
     }
   }
+}
+
+//separator
+.has-background .gato-separator hr {
+  background: #ADADAD;
 }

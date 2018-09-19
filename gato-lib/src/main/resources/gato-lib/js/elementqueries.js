@@ -27,7 +27,7 @@
       watchlist = [];
       $('.eq-parent').each(function () {
         var eqparent = $(this);
-        var depth = eqparent.parents('.eq-parent').size();
+        var depth = eqparent.parents('.eq-parent').length;
         if (typeof(watchlist[depth]) == 'undefined') watchlist[depth] = [eqparent.get(0)];
         else watchlist[depth].push(eqparent.get(0));
       });

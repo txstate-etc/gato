@@ -244,6 +244,18 @@ $pattern-max-height: 400px;
           }
         }
       }
+      @media (max-width:$mn-breakpoint) {
+        &[data-count="2"] {
+          .icontext-container {
+            width: 50%;
+          }
+        }
+        &[data-count="3"] {
+          .icontext-container {
+            width: 33%;
+          }
+        }
+      }
     }
   }
 
@@ -312,20 +324,6 @@ $pattern-max-height: 400px;
         background-image: linear-gradient(0deg, rgba(255, 255, 255, 0), rgba(0, 0, 0, .47));
       }
     }
-    &.color1, &.color2, &.color3, &.color4 {
-      .overlay-left {
-        background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0));
-        @media (max-width: $sm-breakpoint) {
-          background-image: linear-gradient(0deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.4));
-        }
-      }
-      .overlay-right {
-        background-image: linear-gradient(-90deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0));
-        @media (max-width: $sm-breakpoint) {
-          background-image: linear-gradient(0deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.4));
-        }
-      }
-    }
   }
 }
 
@@ -375,12 +373,16 @@ $pattern-max-height: 400px;
       @media (max-width:$md-breakpoint) {
         margin-top: 4rem;
       }
-      &:before {
-        font-family: "FontAwesome";
-        font-size: 3rem;
+      .quote-icon {
         position: absolute;
-        content: "\f10d";
         top: -4rem;
+        left: 0;
+        i {
+          font-size: 3rem;
+        }
+        span {
+          left: 0;
+        }
       }
     }
     .quotation-source {

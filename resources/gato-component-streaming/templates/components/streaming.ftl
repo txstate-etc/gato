@@ -3,7 +3,7 @@
   [#if content.title?has_content]
     [@h2 class="level1header streaming-title"]${content.title}[/@h2]
   [/#if]
-  [#assign embedinfo=gf.oEmbedCached(content, content.videourl)!]
+  [#assign embedinfo=gf.oEmbedCached(content, cmsfn.decode(content).videourl)!]
   [#if embedinfo?has_content]
     [#assign embedhtml=gf.jsonGetString(embedinfo, 'html')?html]
     [#assign embedtitle=gf.jsonGetString(embedinfo, 'title')?html]

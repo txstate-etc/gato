@@ -96,6 +96,8 @@ public final class GatoUtils {
   private static final Pattern EXTERNAL_LINK_PATTERN = Pattern.compile("^(\\w+:)?//.*$");
   private static final Pattern MEDIAFLO_ID_PATTERN = Pattern.compile("contentContainer_([a-f\\d\\-]+)");
   private static final Pattern MEDIAFLO_URL_PATTERN = Pattern.compile("^https?://mediaflo.*$");
+  private static final Pattern DACAST_URL_PATTERN = Pattern.compile("https?://.*dacast\\.com.*(\\d+[_/][a-z][_/]\\d+)");
+  private static final Pattern DACAST_SCRIPT_PATTERN = Pattern.compile("id=\"(\\d+[_/][a-z][_/]\\d+)\".*dacast\\.com");
   private static final Pattern JSONP_PATTERN = Pattern.compile("^\\s*\\w+\\((.+?)\\);?\\s*$");
   protected static final Pattern UUID_PATTERN = Pattern.compile("([a-f0-9]{8}-[a-f0-9]{4}-[1-5][a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12})(#[-\\w]+)?");
 
@@ -1373,6 +1375,8 @@ public final class GatoUtils {
     Node n = toNode(node);
     if (n == null || StringUtils.isBlank(url)) return new JsonObject();
     try {
+      String json = getDaCastEmbedJson(url);
+      if (!StringUtils.isBlank(json)) return parseJSON(json);
       n = NodeUtil.unwrap(n);
       String embed = PropertyUtil.getString(n, "embed");
       Calendar saved = PropertyUtil.getDate(n, "embedsaved", Calendar.getInstance());
@@ -1394,6 +1398,21 @@ public final class GatoUtils {
       e.printStackTrace();
       return null;
     }
+  }
+
+  public String getDaCastEmbedJson(String url) {
+    String daCastId = "";
+    Matcher d = DACAST_URL_PATTERN.matcher(url);
+    if (d.find()) {
+      daCastId = d.group(1);
+    }
+    Matcher s = DACAST_SCRIPT_PATTERN.matcher(url);
+    if (s.find()) {
+      daCastId = s.group(1);
+    }
+    daCastId = daCastId.replaceAll("_", "/");
+    if (StringUtils.isBlank(daCastId)) return "";
+    return "{\"title\":\"Video Stream\",\"html\":\"<iframe allowfullscreen=\\\"\\\" frameborder=\\\"0\\\" mozallowfullscreen=\\\"\\\" msallowfullscreen=\\\"\\\" oallowfullscreen=\\\"\\\" scrolling=\\\"no\\\" src=\\\"//iframe.dacast.com/b/"+daCastId+"\\\" webkitallowfullscreen=\\\"\\\" style=\\\"width: 100%; height: 100%\\\"></iframe>\"}";
   }
 
   public JsonObject oEmbedAutodiscover(String url) {

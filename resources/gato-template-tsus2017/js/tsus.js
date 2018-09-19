@@ -46,7 +46,7 @@ jQuery(document).ready(function($) {
     function evaluate_tsus_logos() {
       var container = $('.gato-flex-container');
       var logos = container.find('li');
-      var logocount = logos.size();
+      var logocount = logos.length;
       var minwidth = 100;
       var maxwidth = 300;
       var absolutemaxcols = Math.min(logocount, 12);

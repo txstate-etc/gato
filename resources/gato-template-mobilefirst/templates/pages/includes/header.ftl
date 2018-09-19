@@ -1,6 +1,6 @@
 <header>
   <div class="header-buttons">
-    <button class="header-button btn-menu" id="main-menu-toggle" aria-expanded="false" aria-controls="main-menu" aria-label="navigation menu">
+    <button class="header-button btn-menu" id="main-menu-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="main-menu" aria-label="navigation menu">
       <i class="fa" aria-hidden="true"></i>
       <span class="label"></span>
     </button>

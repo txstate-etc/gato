@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sv:node xmlns:sv="http://www.jcp.org/jcr/sv/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" sv:name="mobilefirst-mail">
+<sv:node xmlns:sv="http://www.jcp.org/jcr/sv/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" sv:name="admissions-mail">
   <sv:property sv:name="jcr:primaryType" sv:type="Name">
     <sv:value>mgnl:contentNode</sv:value>
   </sv:property>
   <sv:property sv:name="extends" sv:type="String">
-    <sv:value>/modules/site/config/site/templates/availability/templates/mobilefirst-home</sv:value>
+    <sv:value>/modules/site/config/site/templates/availability/templates/admissions-home</sv:value>
   </sv:property>
   <sv:property sv:name="id" sv:type="String">
-    <sv:value>gato-template-mobilefirst:pages/mail</sv:value>
+    <sv:value>gato-template-admissions:pages/mail</sv:value>
   </sv:property>
 </sv:node>
 

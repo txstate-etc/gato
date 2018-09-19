@@ -7,6 +7,7 @@
     .banner-image {
       position: relative;
       height: 31em;
+      background-color: $maroon;
       @media (max-width: $xl-breakpoint) {
         height: 0;
         padding-bottom: 36.2%;

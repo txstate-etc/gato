@@ -4,7 +4,7 @@ jQuery(document).ready(function ($) {
   // so we'll use a min-height to push down the page as needed
   var sb = $('.sidebar-container .sidebar');
   var contentcol = $('.contentcolumn');
-  if (sb.size() > 0 && contentcol.size() > 0) {
+  if (sb.length > 0 && contentcol.length > 0) {
     var sidebarheightfix = function () {
       contentcol.css('min-height', sb.outerHeight() - contentcol.offset().top + sb.offset().top + 50);
     }

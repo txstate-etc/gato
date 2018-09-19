@@ -3,16 +3,11 @@
   <sv:property sv:name="jcr:primaryType" sv:type="Name">
     <sv:value>mgnl:contentNode</sv:value>
   </sv:property>
+  <sv:property sv:name="extends" sv:type="String">
+    <sv:value>/modules/site/config/site/templates/availability/templates/mobilefirst-home</sv:value>
+  </sv:property>
   <sv:property sv:name="id" sv:type="String">
     <sv:value>gato-template-mobilefirst:pages/standard</sv:value>
   </sv:property>
-  <sv:node sv:name="roles">
-    <sv:property sv:name="jcr:primaryType" sv:type="Name">
-      <sv:value>mgnl:contentNode</sv:value>
-    </sv:property>
-    <sv:property sv:name="superuser" sv:type="String">
-      <sv:value>superuser</sv:value>
-    </sv:property>
-  </sv:node>
 </sv:node>
 
