@@ -121,17 +121,7 @@ public class TrumbaEventItem extends AbstractEventItem {
   }
 
   public Date getStartDate() {
-    Date start = getDate("startDateTime", "startTimeZoneOffset");
-    String startday = getMachineDate(start, false);
-    String today = getMachineDate(new Date(), false);
-    if (today.compareTo(startday) > 0) {
-      try {
-        start = AbstractEventItem.machineDateFormat.parse(today);
-      } catch (ParseException e) {
-        e.printStackTrace();
-      }
-    }
-    return start;
+    return getDate("startDateTime", "startTimeZoneOffset");
   }
 
   public Date getEndDate() {
