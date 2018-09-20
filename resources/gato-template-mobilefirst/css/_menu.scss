@@ -10,6 +10,11 @@ nav.main-menu {
   ul { list-style-type: none; }
   a { color: $verydark; text-decoration: none; font-weight: 500; font-size: 1.5rem; }
   i.arrow { font-weight: bold; color: $maroon; }
+  .invisible-focus {
+    height: 0px;
+    overflow: hidden;
+    &:focus { outline: 0; }
+  }
   .menu-content {
     width: 100%;
     height: 100%;

@@ -41,7 +41,6 @@ jQuery(document).ready(function($) {
     menuContent.velocity({translateX: ['0%', '-100%']}, {duration: 300, complete: complete});
     page.velocity({translateX: [menuwidth+'px', '0px']}, {duration: 300, complete: complete});
     header.velocity({translateX: [menuwidth+'px', '0px'], width: (pagewidth-menuwidth)+'px'}, {duration: 300, complete: complete});
-    menuUp.find('a').eq(0).focus();
   }
   var menuhide = function() {
     if (animating) return;
@@ -84,12 +83,17 @@ jQuery(document).ready(function($) {
   // menu button, open and close
   menuButton.click(function(e) {
     if (menuButton.hasClass('open')) menuhide();
-    else menushow();
+    else {
+      menushow();
+      menuUp.find('a').eq(0).focus();
+    }
+
     e.preventDefault();
   })
   menuButton.keyup(function(e) {
     if (e.which == KeyCodes.DOWN) {
       menushow(true);
+      menuUp.find('a').eq(0).focus();
       e.preventDefault();
     }
     if (e.which == KeyCodes.UP) {
@@ -110,31 +114,38 @@ jQuery(document).ready(function($) {
     }
   });
   // close menu with the escape key
-  $(document).keyup(function (e) {
+  // navigate menu with arrow and letter keys
+  $(document).keydown(function (e) {
+    if (e.ctrlKey || e.altKey || e.shiftKey || e.metaKey) return;
     if (e.keyCode === KeyCodes.ESCAPE && menuButton.hasClass('open')) {
       e.preventDefault();
       menuhide(true);
       menuButton.focus();
+      return;
     }
-  });
-  // navigate menu with arrow and letter keys
-  var apply_arrowkey_actions = function (container) {
-    container.find('a').keydown(function (e) {
-      if (e.ctrlKey || e.altKey || e.shiftKey || e.metaKey) return;
-      var lnk = $(this);
-      var lnks = menuContent.find('a:visible');
-      var idx = lnks.index(lnk.get(0));
-      if (e.which === KeyCodes.UP) {
-        lnks.eq(idx-1).focus();
-        e.preventDefault();
-      } else if (e.which === KeyCodes.DOWN || e.which === KeyCodes.SPACE) {
-        lnks.eq((idx+1)%lnks.length).focus();
-        e.preventDefault();
-      } else if (e.which === KeyCodes.HOME) {
+    var targ = $(e.target);
+    if (targ.is('#main-menu *')) {
+      var lnks = menuContent.find('a:visible,.invisible-focus');
+      if (e.which == KeyCodes.HOME) {
         lnks.eq(0).focus();
         e.preventDefault();
       } else if (e.which === KeyCodes.END) {
         lnks.eq(-1).focus();
+        e.preventDefault();
+      } else if (e.which === KeyCodes.UP) {
+        var idx = lnks.index(targ.get(0))-1;
+        while (idx >= 0 && !lnks.eq(idx).is('a')) {
+          idx -= 1;
+        }
+        lnks.eq(idx).focus();
+        e.preventDefault();
+      } else if (e.which === KeyCodes.DOWN || e.which === KeyCodes.SPACE) {
+        var idx = lnks.index(targ.get(0))+1;
+        while (idx < lnks.length && !lnks.eq(idx).is('a')) {
+          idx += 1;
+        }
+        var down = idx < lnks.length ? lnks.eq(idx) : lnks.eq(0);
+        down.focus();
         e.preventDefault();
       } else if (e.which >= KeyCodes.A && e.which <= KeyCodes.Z) {
         // rotate through links that begin with the entered letter
@@ -149,13 +160,12 @@ jQuery(document).ready(function($) {
             }
           });
         }
-        findletter(idx+1);
+        findletter(idxs.down);
         if (!found) findletter(0);
         e.preventDefault();
       }
-    });
-  }
-  apply_arrowkey_actions(menuContent);
+    }
+  });
 
   var moretoolslink = menuContent.find('a.more-tools');
   var moretoolslist = menuContent.find('ul.more-tools');
@@ -215,6 +225,7 @@ jQuery(document).ready(function($) {
 
   var generatenavhtml = function (data) {
     var html = '<div class="slide">';
+    html += '<div class="invisible-focus" tabindex="-1"></div>';
     html += '<div class="navigation-tree">';
     if (!data.isHomePage) html += '<a class="navigation-current" href="'+data.href+'">'+data.title+'</a>';
     html += '<ul class="navigation-children">';
@@ -229,19 +240,20 @@ jQuery(document).ready(function($) {
   }
 
   var activate_nav_slide = function (e, lnk, infromtheright) {
-    if (animating) return;
     var path = lnk.data('path');
     var data = navbypath[path];
     if (data.children.length) {
+      e.preventDefault();
+      if (animating) return;
       animating = 1;
       setTimeout(function () {
         // need to do this after all the other work finishes or the menu will close
         menuUp.html(generatenavmeta(data));
         apply_up_actions();
+        if (lnk.is('.back,.top')) menuUp.find('a').eq(0).focus();
       }, 0);
       var oldslide = menuDynamic.find('.slide');
       var oldheight = menuDynamic.height();
-      lnk.blur();
       var slide = $(generatenavhtml(data));
       menuDynamic.append(slide);
       slide.css({position: 'absolute', left: '0', top: '0', width: '100%'});
@@ -262,9 +274,8 @@ jQuery(document).ready(function($) {
         oldslide.remove();
         apply_actions(slide);
         animating = 0;
-        if (lnk.not('.back,.top')) slide.find('a').eq(0).focus();
       }});
-      e.preventDefault();
+      if (!lnk.is('.back,.top')) { slide.find('.invisible-focus').focus(); }
     }
   }
 
@@ -272,7 +283,6 @@ jQuery(document).ready(function($) {
     slide.find('.navigation-children a').click(function (e) {
       activate_nav_slide(e, $(this), true);
     });
-    apply_arrowkey_actions(slide);
   }
   apply_actions(menuDynamic.find('.slide'));
 
@@ -280,7 +290,6 @@ jQuery(document).ready(function($) {
     menuUp.find('.back, .top').click(function (e) {
       activate_nav_slide(e, $(this), false);
     });
-    apply_arrowkey_actions(menuUp);
   }
   apply_up_actions();
 });
