@@ -85,6 +85,32 @@
   }
 }
 
+// Rich Editor Headers
+.gato-rich-editor {
+  .richtext-h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-transform: none;
+  }
+  .richtext-h3 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+  }
+  .richtext-h4 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+  .richtext-h5 {
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+  }
+  .richtext-h6 {
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+  }
+}
+
 // Text and Image
 .gato-textimage-caption {
   text-align: center;

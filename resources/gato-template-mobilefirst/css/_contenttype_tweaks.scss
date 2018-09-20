@@ -34,10 +34,30 @@
 
 //rich editor
 .gato-rich-editor {
-  h2 {
+  .richtext-h2 {
+    font-family: $garamond;
+    font-size: 3.2rem;
+    line-height: 3.8rem;
     @media (max-width: $sm-breakpoint) {
       font-size: 2.9rem;
     }
+  }
+  .richtext-h3 {
+    font-family: $univers;
+    font-size: 2.4rem;
+    line-height: 3rem;
+  }
+  .richtext-h4 {
+    font-size: 2.2rem;
+    line-height: 2.8rem;
+  }
+  .richtext-h5 {
+    font-size: 2rem;
+    line-height: 2.6rem;
+  }
+  .richtext-h6 {
+    font-size: 1.8rem;
+    line-height: 2.4rem;
   }
 }
 

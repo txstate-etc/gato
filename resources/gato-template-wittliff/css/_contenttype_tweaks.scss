@@ -258,6 +258,26 @@ body ul.gato-faq-hierarchy {
   }
 }
 
+/* Rich Editor Headers */
+.gato-rich-editor {
+  .richtext-h2 {
+    font-family: $garamond;
+    font-size: 4.5rem;
+  }
+  .richtext-h3 {
+    font-size: 3.3rem;
+  }
+  .richtext-h4 {
+    font-size: 2.8rem;
+  }
+  .richtext-h5 {
+    font-size: 2.5rem;
+  }
+  .richtext-h6 {
+    font-size: 2.2rem;
+  }
+}
+
 /* Text and Image */
 .gato-textimage-caption {
   font-size: 1.4rem;
