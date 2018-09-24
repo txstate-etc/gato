@@ -83,8 +83,11 @@ body {
   }
 }
 
-.line-under-breadcrumbs {
-  height: 1px;
-  margin: 1rem 2rem 3rem 2rem;
-  background-color: $barelygray;
+.page-intro-text {
+  padding: 0 2rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  @media (max-width: $sm-breakpoint) {
+    text-align: left;
+  }
 }

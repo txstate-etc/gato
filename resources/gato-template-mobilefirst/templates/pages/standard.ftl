@@ -31,6 +31,11 @@
       <main class="contentcolumn">
         [#assign hideSidebar = true /]
         [@headline hideSidebar /]
+        [#if content.intro?has_content]
+          <div class="page-intro-text">
+            ${content.intro}
+          </div>
+        [/#if]
         [#if def.parameters.isHomeTemplate!false]
           [@cms.area name="mobileFirstContent"/]
         [#else]
