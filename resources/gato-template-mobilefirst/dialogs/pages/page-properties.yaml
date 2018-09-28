@@ -1,0 +1,9 @@
+!inherit:gato-template:pages/page-properties
+form:
+  tabs:
+    - name: tabGeneral
+      fields:
+        - name: intro
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Intro. Text
+          rows: 4
