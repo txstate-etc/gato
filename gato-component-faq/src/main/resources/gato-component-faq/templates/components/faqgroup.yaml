@@ -1,15 +1,16 @@
 renderType: freemarker
-templateScript: /gato-component-faq/templates/components/faq-hierarchy.ftl
-title: FAQ Hierarchy
-description: Used to organize a large number of FAQs.
+templateScript: /gato-component-faq/templates/components/faqgroup.ftl
+dialog: gato-component-faq:components/faqgroup
+title: FAQ Group
+description: A container for FAQs
+parameters:
+  icon: /gato-component-faq/images/faq.png
 areas:
-  faqTree:
+  faqgroup:
     type: list
     templateScript: /gato-component-faq/templates/areas/faq-area.ftl
     availableComponents:
       question:
         id: gato-component-faq:components/question
-      faqgroup:
+      group:
         id: gato-component-faq:components/faqgroup
-parameters:
-  icon: /gato-component-faq/images/faq.png

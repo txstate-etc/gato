@@ -1,0 +1,7 @@
+renderType: freemarker
+templateScript: /gato-component-faq/templates/components/question.ftl
+dialog: gato-component-faq:components/question
+title: Question and Answer
+description: A question and the answer to that question
+parameters:
+  icon: /gato-component-faq/images/faq.png
