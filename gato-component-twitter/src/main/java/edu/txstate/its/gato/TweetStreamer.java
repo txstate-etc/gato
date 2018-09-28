@@ -3,20 +3,12 @@ package edu.txstate.its.gato;
 import info.magnolia.context.Context;
 import info.magnolia.context.MgnlContext;
 import info.magnolia.repository.RepositoryConstants;
+import info.magnolia.jcr.util.NodeTypes;
 import info.magnolia.jcr.util.NodeUtil;
 import info.magnolia.jcr.util.PropertyUtil;
 import info.magnolia.cms.util.QueryUtil;
 import info.magnolia.cms.core.MgnlNodeType;
 import info.magnolia.cms.security.SilentSessionOp;
-
-import info.magnolia.cms.util.ContentUtil;
-import info.magnolia.cms.util.NodeDataUtil;
-import info.magnolia.cms.util.NodeTypeFilter;
-import info.magnolia.cms.core.Content;
-import info.magnolia.cms.core.NodeData;
-import info.magnolia.cms.core.MetaData;
-import info.magnolia.cms.core.HierarchyManager;
-import info.magnolia.cms.core.ItemType;
 
 import java.util.Iterator;
 import java.util.ArrayList;
@@ -95,12 +87,13 @@ public class TweetStreamer {
 
   private void buildSearchList(final SortedSet<String> tracks, final SortedSet<String> follows) throws InvalidQueryException, RepositoryException {
     log.debug("Running paragraph lookup query...");
-    Collection<Content> nodes = QueryUtil.query(RepositoryConstants.WEBSITE, SEARCH_QUERY, javax.jcr.query.Query.XPATH);
-    log.debug("Found " + nodes.size() + " twitter paragraphs");
 
-    for(Content node : nodes) {
-      log.debug("node: " + node.getHandle());
-      String[] terms = NodeDataUtil.getString(node, "query", "").split("[\\s,]");
+    NodeIterator iter = QueryUtil.search(RepositoryConstants.WEBSITE, SEARCH_QUERY, javax.jcr.query.Query.XPATH);
+
+    while (iter.hasNext()) {
+      Node node = iter.nextNode();
+      log.debug("node: " + node.getPath());
+      String[] terms = PropertyUtil.getString(node, "query", "").split("[\\s,]");
       log.debug(terms.length + " terms");
 
       for (int i = 0; i < terms.length; i++) {
@@ -130,7 +123,7 @@ public class TweetStreamer {
     }
   }
 
-  private Long findUserInJCR(Content parent, String name, Calendar lastModified) {
+  private Long findUserInJCR(Node parent, String name, Calendar lastModified) {
     Long id = null;
 
     if (lastModified != null)
@@ -138,13 +131,13 @@ public class TweetStreamer {
 
     name = name.toLowerCase();
     try {
-      if (parent.hasContent(name)) {
-        Content node = parent.getContent(name);
-        if (node.hasNodeData("user_id")) {
-          id = node.getNodeData("user_id").getLong();
+      if (parent.hasNode(name)) {
+        Node node = parent.getNode(name);
+        if (node.hasProperty("user_id") ) {
+          id = node.getProperty("user_id").getLong();
         }
         if (lastModified != null)
-          lastModified.setTimeInMillis(node.getMetaData().getModificationDate().getTimeInMillis());
+          lastModified = NodeTypes.LastModified.getLastModified(node);
       }
     } catch (Exception e) {
       log.error("Failed to find user " + name + " in JCR", e);
@@ -152,40 +145,40 @@ public class TweetStreamer {
     return id;
   }
 
-  private void storeUserInJCR(Content parent, String name, Long id, TwitterException te) throws RepositoryException {
+  private void storeUserInJCR(Node parent, String name, Long id, TwitterException te) throws RepositoryException {
     name = name.toLowerCase();
-    Content node = ContentUtil.createPath(parent, name, ItemType.CONTENTNODE);
+    Node node = NodeUtil.createPath(parent, name, NodeTypes.ContentNode.NAME);
     if (id != null) {
-      node.setNodeData("user_id", id);
+      PropertyUtil.setProperty(node, "user_id", id);
     }
 
     if (te != null) {
-      node.setNodeData("error_status", te.getStatusCode());
-      node.setNodeData("error_code", te.getErrorCode());
+      PropertyUtil.setProperty(node, "error_status", te.getStatusCode());
+      PropertyUtil.setProperty(node, "error_code", te.getErrorCode());
     } else {
-      if (node.hasNodeData("error_status")) {
-        node.deleteNodeData("error_status");
+      if (node.hasProperty("error_status")) {
+        node.getProperty("error_status").remove();
       }
-      if (node.hasNodeData("error_code")) {
-        node.deleteNodeData("error_code");
+      if (node.hasProperty("error_code")) {
+        node.getProperty("error_code").remove();
       }
     }
 
-    MetaData md = node.getMetaData();
-    if (md.getCreationDate() == null) {
-      md.setCreationDate();
+    Calendar creationDate = NodeTypes.Created.getCreated(node);
+    if (creationDate == null) {
+      NodeTypes.Created.set(node);
     }
-    md.setModificationDate();
+    NodeTypes.LastModified.update(node);
   }
 
-  private boolean findTweetsForUser(Content parent, String name) {
+  private boolean findTweetsForUser(Node parent, String name) {
       // tweets are stored at /global-data/twitter/tweets/{name}
     name = name.toLowerCase();
     try {
-      if (parent.hasContent(name)) {
-          // check that the node has children that are tweets
-        Content node = parent.getContent(name);
-        return node.hasChildren(MgnlNodeType.NT_CONTENTNODE);
+      if (parent.hasNode(name)) {
+        // check that the node has children that are tweets
+        Node node = parent.getNode(name);
+        return NodeUtil.asList(NodeUtil.getNodes(node, NodeTypes.ContentNode.NAME)).size() > 0;
       }
     } catch (Exception e) {
       log.debug("Error finding Tweets for user " + name, e);
@@ -225,11 +218,11 @@ public class TweetStreamer {
     boolean dirty = false;
     Calendar cutoff = new GregorianCalendar(TimeZone.getDefault());
     cutoff.add(Calendar.MINUTE, -1 * LOOKUP_FREQ);
-    //Session ws = MgnlContext.getJCRSession(RepositoryConstants.WEBSITE);
-    HierarchyManager hm = MgnlContext.getHierarchyManager(RepositoryConstants.WEBSITE);
-    Content global_data = hm.getContent("/global-data");
-    Content userMapNode = ContentUtil.createPath(global_data, "twitter/user_map",  ItemType.CONTENTNODE);
-    Content tweetsNode = ContentUtil.createPath(global_data, "twitter/tweets", ItemType.CONTENTNODE);
+
+    Session ws = MgnlContext.getJCRSession(RepositoryConstants.WEBSITE);
+    Node global_data = ws.getNode("/global-data");
+    Node userMapNode = NodeUtil.createPath(global_data, "twitter/user_map", NodeTypes.ContentNode.NAME);
+    Node tweetsNode = NodeUtil.createPath(global_data, "twitter/tweets", NodeTypes.ContentNode.NAME);
 
     for(String name : follows) {
       Long id = null;
@@ -284,7 +277,6 @@ public class TweetStreamer {
           storeUserInJCR(userMapNode, name, id, twitterException);
           dirty = true;
         }
-
       }
 
       if (id != null) {
@@ -314,11 +306,11 @@ public class TweetStreamer {
     //      use Search API to preload MAX_TWEETS tweets for that hashtag
     final SortedSet<String> allTags = new TreeSet<String>();
     log.debug("Running hashtag lookup query...");
-    Collection<Content> nodes = QueryUtil.query(RepositoryConstants.WEBSITE, HASHTAG_QUERY, javax.jcr.query.Query.XPATH);
-    log.debug("Found " + nodes.size() + " tweets with hashtags");
+    NodeIterator iter = QueryUtil.search(RepositoryConstants.WEBSITE, HASHTAG_QUERY, javax.jcr.query.Query.XPATH);
 
-    for(Content node : nodes) {
-      String[] tags = NodeDataUtil.getString(node, "hashtags", "").split("[\\s,]");
+    while (iter.hasNext()) {
+      Node node = iter.nextNode();
+      String[] tags = PropertyUtil.getString(node, "hashtags", "").split("[\\s,]");
       for(int i = 0; i < tags.length; i++) {
         allTags.add("#" + tags[i].toLowerCase());
       }
@@ -326,10 +318,9 @@ public class TweetStreamer {
 
     Twitter twitter = new TwitterFactory(config).getInstance();
     boolean dirty = false;
-    //Session ws = MgnlContext.getJCRSession(RepositoryConstants.WEBSITE);
-    HierarchyManager hm = MgnlContext.getHierarchyManager(RepositoryConstants.WEBSITE);
-    Content global_data = hm.getContent("/global-data");
-    Content tweetsNode = ContentUtil.createPath(global_data, "twitter/tweets", ItemType.CONTENTNODE);
+    Session ws = MgnlContext.getJCRSession(RepositoryConstants.WEBSITE);
+    Node global_data = ws.getNode("/global-data");
+    Node tweetsNode = NodeUtil.createPath(global_data, "twitter/tweets", NodeTypes.ContentNode.NAME);
 
     for(String hashtag : tracks) {
       if (!allTags.contains(hashtag)) {
@@ -351,70 +342,77 @@ public class TweetStreamer {
     }
   }
 
-  private void cleanupFollow(Content parent, String username) throws RepositoryException {
-    if (parent.hasContent(username)) {
-      Content node = parent.getContent(username);
-      // if there are more than 10 tweets, delete the oldest ones (smallest id)
-      Collection<Content> children = node.getChildren(new NodeTypeFilter(ItemType.CONTENTNODE),
-        new Comparator<Content>(){
-          public int compare(Content c1, Content c2) {
-            // descending order by ID = oldest first
-            return Long.signum(NodeDataUtil.getLong(c1, "tweet_id", 0) - NodeDataUtil.getLong(c2, "tweet_id", 0));
-
+  private void cleanupFollow(Node parent, String username) throws RepositoryException {
+    if (parent.hasNode(username)) {
+      Node node = parent.getNode(username);
+      // if there are more than 100 tweets, delete the oldest ones (smallest id)
+      List<Node> childNodes = NodeUtil.asList(NodeUtil.getNodes(node, NodeTypes.ContentNode.NAME));
+      Collections.sort(childNodes, new Comparator<Node>() {
+        public int compare(Node n1, Node n2) {
+          //descending order by ID = oldest First
+          try {
+            int comp = Long.signum(n1.getProperty("tweet_id").getLong() - n2.getProperty("tweet_id").getLong());
+            return comp;
+          } catch(Exception e) {
+            e.printStackTrace();
+            return 0;
           }
+        }
       });
 
-      int size = children.size();
-      Iterator<Content> it = children.iterator();
+      int size = childNodes.size();
+      Iterator<Node> it = childNodes.iterator();
       while(size > MAX_TWEETS && it.hasNext()) {
-        it.next().delete();
+        it.next().remove();
         --size;
       }
     }
   }
 
-  private void cleanupNonFollow(Content node) throws RepositoryException {
+  private void cleanupNonFollow(Node node) throws RepositoryException {
     // We are not following this user. Delete the node if it hasn't been modified in 30 days.
-    Calendar mod = node.getMetaData().getModificationDate();
+    Calendar mod = NodeTypes.LastModified.getLastModified(node);
     Calendar cutoff = new GregorianCalendar(TimeZone.getDefault());
     cutoff.add(Calendar.DAY_OF_MONTH, -1 * MAX_AGE);
     if (mod.before(cutoff)) {
-      node.delete();
+      node.remove();
     }
   }
 
-  private void cleanupUserMap(Content userMapNode, SortedSet<String> follows) throws RepositoryException {
+  private void cleanupUserMap(Node userMapNode, SortedSet<String> follows) throws RepositoryException {
     // Delete username to id mappings that are no longer needed.
-    Iterator childNodesIterator = userMapNode.getChildren(ItemType.CONTENTNODE).iterator();
+    List<Node> childNodes = NodeUtil.asList(NodeUtil.getNodes(userMapNode, NodeTypes.ContentNode.NAME));
+    Iterator childNodesIterator = childNodes.iterator();
     while (childNodesIterator.hasNext()) {
-      Content node = (Content) childNodesIterator.next();
+      Node node = (Node) childNodesIterator.next();
       if (!follows.contains(node.getName())) {
-        node.delete();
+        node.remove();
       }
     }
   }
 
   private void cleanup(SortedSet<String> follows) throws RepositoryException {
     Long id = null;
-    HierarchyManager hm = MgnlContext.getHierarchyManager(RepositoryConstants.WEBSITE);
-    Content userMapNode = null;
-    if (hm.isExist("/global-data/twitter/user_map")) {
-      userMapNode = hm.getContent("/global-data/twitter/user_map");
+    Session session = MgnlContext.getJCRSession(RepositoryConstants.WEBSITE);
+    Node userMapNode = null;
+
+    if (session.itemExists("/global-data/twitter/user_map")) {
+      userMapNode = session.getNode("/global-data/twitter/user_map");
     }
 
     // Delete old tweets and those that no longer
     // meet our criteria
-    if (hm.isExist("/global-data/twitter/tweets")) {
-      Content rootNode = hm.getContent("/global-data/twitter/tweets");
-      Iterator childNodesIterator = rootNode.getChildren(ItemType.CONTENTNODE).iterator();
+    if (session.itemExists("/global-data/twitter/tweets")) {
+      Node rootNode = session.getNode("/global-data/twitter/tweets");
+      List<Node> childNodes = NodeUtil.asList(NodeUtil.getNodes(rootNode, NodeTypes.ContentNode.NAME));
+      Iterator childNodesIterator = childNodes.iterator();
       while (childNodesIterator.hasNext()) {
-        Content node = (Content) childNodesIterator.next();
+        Node node = (Node) childNodesIterator.next();
         id = findUserInJCR(userMapNode, node.getName(), null);
         if (id == null || Arrays.binarySearch(follow, id) < 0) {
           cleanupNonFollow(node);
         }
       }
-      rootNode.save();
     }
 
     if (userMapNode != null) {
@@ -449,18 +447,17 @@ public class TweetStreamer {
     return false;
   }
 
-  private void storeTweetInJCR(Content parent, Status tweet) throws RepositoryException {
+  private void storeTweetInJCR(Node parent, Status tweet) throws RepositoryException {
     String name = tweet.getUser().getScreenName();
     long id = tweet.getId();
+    Node node = NodeUtil.createPath(parent, name.toLowerCase() + "/" + id, NodeTypes.ContentNode.NAME);
 
-    Content node = ContentUtil.createPath(parent, name.toLowerCase() + "/" + id, ItemType.CONTENTNODE);
-
-    node.setNodeData("tweet_id", id);
-    node.setNodeData("created_at", tweet.getCreatedAt().toString());
-    node.setNodeData("screen_name", name);
-    node.setNodeData("text", tweet.getText());
-    node.setNodeData("icon", tweet.getUser().getBiggerProfileImageURLHttps());
-    node.setNodeData("reply", (tweet.getInReplyToStatusId() > 0));
+    PropertyUtil.setProperty(node, "tweet_id", id);
+    PropertyUtil.setProperty(node, "created_at", tweet.getCreatedAt().toString());
+    PropertyUtil.setProperty(node, "screen_name", name);
+    PropertyUtil.setProperty(node, "text", tweet.getText());
+    PropertyUtil.setProperty(node, "icon", tweet.getUser().getBiggerProfileImageURLHttps());
+    PropertyUtil.setProperty(node, "reply", (tweet.getInReplyToStatusId() > 0));
 
     StringBuilder hashtags = new StringBuilder();
     HashtagEntity[] hashtagArray = tweet.getHashtagEntities();
@@ -470,25 +467,24 @@ public class TweetStreamer {
       hashtags.append(hashtagArray[i].getText());
     }
     if (hashtags.length() > 0)
-      node.setNodeData("hashtags", hashtags.toString());
+      node.setProperty("hashtags", hashtags.toString());
 
     // update the user's modification date. Any node that hasn't
     // been touched in 30 days gets deleted.
-    MetaData md = node.getParent().getMetaData();
-    if (md.getCreationDate() == null) {
-      md.setCreationDate();
+    Calendar creationDate = NodeTypes.Created.getCreated(node);
+    if (creationDate == null) {
+      NodeTypes.Created.set(node);
     }
-    md.setModificationDate();
+    NodeTypes.LastModified.update(node);
   }
 
   private void storeTweetInJCR(Status tweet) throws RepositoryException {
-      //Session ws = MgnlContext.getJCRSession(RepositoryConstants.WEBSITE);
-      HierarchyManager hm = MgnlContext.getHierarchyManager(RepositoryConstants.WEBSITE);
-      Content global_data = hm.getContent("/global-data");
-      Content tweetsNode = ContentUtil.createPath(global_data, "twitter/tweets", ItemType.CONTENTNODE, false);
+      Session ws = MgnlContext.getJCRSession(RepositoryConstants.WEBSITE);
+      Node global_data = ws.getNode("/global-data");
+      Node tweetsNode = NodeUtil.createPath(global_data, "twitter/tweets", NodeTypes.ContentNode.NAME);
       storeTweetInJCR(tweetsNode, tweet);
 
-      // if there are 10 or more tweets for this user, delete the oldest ones.
+      // if there are 100 or more tweets for this user, delete the oldest ones.
       cleanupFollow(tweetsNode, tweet.getUser().getScreenName());
 
       global_data.save();
@@ -497,13 +493,12 @@ public class TweetStreamer {
   private void deleteTweetFromJCR(long tweetId) throws RepositoryException {
     String query = "//global-data/twitter/tweets//element(*,mgnl:contentNode)[@tweet_id="+tweetId+"]";
     log.debug("Running lookup query for tweet id "+ tweetId);
-    Collection<Content> nodes = QueryUtil.query(RepositoryConstants.WEBSITE, query, javax.jcr.query.Query.XPATH);
-    log.debug("Found " + nodes.size() + " tweets with tweet_id " + tweetId);
-    Iterator<Content> it = nodes.iterator();
-    while(it.hasNext()) {
-      Content node = it.next();
-      Content parent = node.getParent();
-      node.delete();
+    NodeIterator iter = QueryUtil.search(RepositoryConstants.WEBSITE, query, javax.jcr.query.Query.XPATH);
+    log.debug("Found " + iter.getSize() + " tweets with tweet_id " + tweetId);
+    while (iter.hasNext()) {
+      Node node = iter.nextNode();
+      Node parent = node.getParent();
+      node.remove();
       parent.save();
     }
   }
