@@ -15,6 +15,9 @@ jQuery(document).ready(function($) {
   var searchButton = $('.btn-search')
   var animationDuration = 300
 
+  //set this variable for the anchor scroll fix
+  window.stickynavheight = $('.menubar').height();
+
   function goToScrollState() {
     //search button to top, logo block up, menubar down
     searchButton.velocity({translateX: "60px", translateY: "-63px"},

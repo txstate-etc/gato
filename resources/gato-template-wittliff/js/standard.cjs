@@ -1,2 +1,2 @@
 /gato-template-wittliff/js/wittliff.js
-/gato-template-wittliff/js/anchorscrollfix.js
+/gato-template/js/anchorscrollfix.js
