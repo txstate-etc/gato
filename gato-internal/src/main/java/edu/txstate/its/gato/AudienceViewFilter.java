@@ -61,7 +61,7 @@ public class AudienceViewFilter extends AbstractMgnlFilter {
 		String headerValue = "";
 
 		try {
-    		Node thisPage = MgnlContext.getAggregationState().getMainContent().getJCRNode();
+    		Node thisPage = MgnlContext.getAggregationState().getMainContentNode();
     		log.debug("Main Content: " + thisPage.getPath() );
 				headerValue = StringUtils.join(getProtectedGroups(thisPage), ",");
 		} catch ( Exception e ) {

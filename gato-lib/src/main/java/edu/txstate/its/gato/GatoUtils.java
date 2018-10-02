@@ -159,7 +159,7 @@ public final class GatoUtils {
         //If the url is internal and relative, we need to get the content node for the current
         //page and prepend its handle to the url.
         try {
-            Node n = MgnlContext.getAggregationState().getCurrentContent().getJCRNode();
+            Node n = MgnlContext.getAggregationState().getCurrentContentNode();
 
             while (!n.isNodeType(NodeTypes.Page.NAME)) {
                 n = n.getParent();
