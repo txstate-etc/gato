@@ -98,10 +98,10 @@
       <groupId>com.vaadin</groupId>
       <artifactId>vaadin-shared</artifactId>
     </dependency>
-    <dependency>
+    <!-- <dependency>
       <groupId>org.vaadin.addons</groupId>
       <artifactId>ckeditor-wrapper-for-vaadin</artifactId>
-    </dependency>
+    </dependency> -->
   </dependencies>
 
   <build>

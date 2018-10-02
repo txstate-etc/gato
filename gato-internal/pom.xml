@@ -85,6 +85,7 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>groovy-maven-plugin</artifactId>
+        <version>1.5</version>
         <executions>
           <execution>
             <phase>process-resources</phase>

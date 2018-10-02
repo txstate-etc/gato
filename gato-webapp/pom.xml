@@ -218,6 +218,7 @@
     <plugins>
       <plugin>
         <artifactId>maven-war-plugin</artifactId>
+        <version>3.2.2</version>
         <configuration>
           <!-- exclude jars copied "physically" from the webapp overlay - so we only get those resolved by Maven's dependency management -->
           <dependentWarExcludes>WEB-INF/lib/*.jar</dependentWarExcludes>
