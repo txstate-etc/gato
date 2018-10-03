@@ -1,4 +1,5 @@
 (function($) {
+var featured_url = 'https://mwsfeaturedsearchqa1.tr.qual.txstate.edu/search';
 window.Search = function(opts) {
   opts = opts || {};
   if (!(this instanceof Search)) {
@@ -6,83 +7,83 @@ window.Search = function(opts) {
   }
   this.opts = {
     num: opts.num || 5,
-    start: opts.start || 0,
-    url: opts.url || '//search.txstate.edu/search',
+    start: opts.start || 1,
+    url: opts.url || 'https://www.googleapis.com/customsearch/v1',
     sitesearch: opts.sitesearch || 'txstate.edu',
     sort: opts.sort || 'relevance',
     site: opts.site || 'txstate_no_users',
     client: opts.client || 'txstate'
   }
+  var cxMap = {
+    'txstate_no_users': '004527626732577828901:1rcpwk8svkk'
+  }
+  this.opts.cx = cxMap[this.opts.site];
 }
 
 Search.prototype.doSearch = function(query) {
   var self = this;
   self.query = query;
   var params = {
-    url: self.opts.url,
-    site: self.opts.site,
-    client: self.opts.client,
-    output: 'xml_no_dtd',
-    sitesearch: self.opts.sitesearch,
+    cx: self.opts.cx,
+    key: 'AIzaSyAmrKoaQqaobY1foPLpmsDwOQrdCyIpyvs',
+    siteSearch: self.opts.sitesearch,
     start: self.opts.start,
     num: self.opts.num,
     q: self.query,
-    sort: (self.opts.sort == 'date' ? 'date:D:S:d1' : 'date:D:L:d1')
+    sort: (self.opts.sort == 'date' ? 'date:a:s' : '')
   };
 
   var dfd = $.Deferred();
-  $.ajax({
-    url: params.url,
-    data: params,
-    success: function(data, textStatus, jqXHR) {
-      var result = {};
-      result.total = parseInt($(data).find('M').text()) || 0;
-      result.start = params.start + 1;
-      result.end = (params.start + params.num) > result.total ? result.total : (params.start + params.num);
-      result.type = "web";
-      if(params.start == 0){
-        var featuredResults = $(data).find('GM').map(function() {
-          var url = $(this).find('GL').text();
-          var url_display = url.replace(/^\w+:\/\//, '');
-          if (url_display.length > 40) url_display = url_display.substr(0,40)+"...";
-          var title = $(this).find('GD').text();
-          return {
-            title: title,
+  $.get(self.opts.url, params).then(function (data) {
+    var result = {};
+    result.total = parseInt(data.queries.request[0].totalResults, 10);
+    result.start = params.start;
+    result.end = (params.start + params.num - 1) > result.total ? result.total : (params.start + params.num - 1);
+    result.type = "web";
+    result.results = [];
+    var seen = {};
+    for (var i = 0; data.items && i < data.items.length; i++) {
+      var item = data.items[i];
+      var itemobj = {
+        title: item.title,
+        summary_html: item.htmlSnippet,
+        url: item.link,
+        url_display: item.displayLink,
+        date: "",
+        featured: false
+      };
+      try {
+        itemobj.date = item.pagemap.metatags[0]['dc.date'];
+      } catch (e) {
+        // no date
+      }
+      seen[item.link] = true;
+      result.results.push(itemobj);
+    }
+    $.get(featured_url, {q: params.q}).then(function (featured) {
+      for (var i = 0; i < featured.length; i++) {
+        var item = featured[i];
+        if (!seen[item.url]) {
+          result.results.push({
+            title: item.title,
             summary_html: "",
-            url: url,
-            url_display: url_display,
+            url: item.url,
+            url_display: item.url,
             date: "",
             featured: true
-          }
-        }).get();
-      }
-      result.results = $(data).find('R').map(function() {
-        var url = $(this).find('U').text();
-        var url_display = url.replace(/^\w+:\/\//, '');
-        if (url_display.length > 40) url_display = url_display.substr(0,40)+"...";
-        var title = $(this).find('T').text() || url;
-        var summary = $(this).find('S').text() || 'No summary available.';
-        var date = $(this).find('FS[NAME="date"]').attr('VALUE');
-        return {
-          title: title,
-          summary_html: summary,
-          url: url,
-          url_display: url_display,
-          date: date,
-          featured: false
+          });
         }
-      }).get();
-      if(params.start == 0 && featuredResults.length > 0){
-        result.results = featuredResults.concat(result.results);
       }
+    }).fail(function (e) {
+      console.log(e);
+    }).always(function () {
       dfd.resolve(result);
-    },
-    error: function(jqXHR, textStatus) {
-      dfd.reject({
-        pages: [],
-        error: textStatus
-      });
-    }
+    });
+  }).fail(function (e) {
+    dfd.reject({
+      pages: [],
+      error: e
+    });
   });
 
   return dfd.promise();
