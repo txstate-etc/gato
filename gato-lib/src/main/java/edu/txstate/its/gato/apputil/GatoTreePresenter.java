@@ -7,7 +7,7 @@ import info.magnolia.ui.workbench.tree.TreeView;
 
 import javax.inject.Inject;
 
-import com.vaadin.data.Container;
+import com.vaadin.v7.data.Container;
 
 public class GatoTreePresenter extends TreePresenter {
   

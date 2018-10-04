@@ -7,8 +7,8 @@ import info.magnolia.ui.vaadin.integration.jcr.DefaultProperty;
 
 import java.util.regex.Matcher;
 
-import com.vaadin.data.Item;
-import com.vaadin.data.Property;
+import com.vaadin.v7.data.Item;
+import com.vaadin.v7.data.Property;
 
 import edu.txstate.its.gato.UstreamUtils;
 

@@ -12,8 +12,8 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import com.vaadin.data.Item;
-import com.vaadin.data.Property;
+import com.vaadin.v7.data.Item;
+import com.vaadin.v7.data.Property;
 
 /**
  * MultiValueTransformer for use with OrderableMultiValueField.

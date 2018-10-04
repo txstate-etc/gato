@@ -4,9 +4,9 @@ import info.magnolia.dam.api.Asset;
 import info.magnolia.jcr.util.PropertyUtil;
 
 import com.vaadin.ui.Component;
-import com.vaadin.ui.CustomField;
-import com.vaadin.ui.Label;
-import com.vaadin.ui.VerticalLayout;
+import com.vaadin.v7.ui.CustomField;
+import com.vaadin.v7.ui.Label;
+import com.vaadin.v7.ui.VerticalLayout;
 
 import edu.txstate.its.gato.GatoUtils;
 

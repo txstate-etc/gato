@@ -4,7 +4,7 @@ import info.magnolia.dam.api.Asset;
 import info.magnolia.dam.templating.functions.DamTemplatingFunctions;
 
 import com.google.common.net.MediaType;
-import com.vaadin.data.validator.AbstractStringValidator;
+import com.vaadin.v7.data.validator.AbstractStringValidator;
 
 import java.util.ArrayList;
 import java.util.List;

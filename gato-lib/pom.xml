@@ -51,7 +51,15 @@
     </dependency>
     <dependency>
       <groupId>com.vaadin</groupId>
+      <artifactId>vaadin-compatibility-server</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.vaadin</groupId>
       <artifactId>vaadin-shared</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.vaadin</groupId>
+      <artifactId>vaadin-compatibility-shared</artifactId>
     </dependency>
     <dependency>
       <groupId>org.projectlombok</groupId>

@@ -3,7 +3,7 @@ package edu.txstate.its.gato.dialog.field.validator;
 import info.magnolia.dam.templating.functions.DamTemplatingFunctions;
 import info.magnolia.ui.form.validator.factory.AbstractFieldValidatorFactory;
 
-import com.vaadin.data.Validator;
+import com.vaadin.v7.data.Validator;
 
 public class DamChooserImageValidatorFactory extends AbstractFieldValidatorFactory<DamChooserImageValidatorDefinition> {
 

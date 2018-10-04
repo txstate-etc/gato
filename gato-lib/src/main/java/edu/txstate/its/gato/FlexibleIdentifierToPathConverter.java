@@ -6,6 +6,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.apache.commons.lang3.StringUtils;
 
+import com.vaadin.v7.data.util.converter.Converter.ConversionException;
+
 /**
  * Like Magnolia's BaseIdentifierToPathConverter, but does not return null
  * when the path doesn't match something, just leaves it alone.
