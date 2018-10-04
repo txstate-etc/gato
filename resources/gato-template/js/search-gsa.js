@@ -60,20 +60,8 @@ Search.prototype.doSearch = function(query) {
       seen[item.link] = true;
       result.results.push(itemobj);
     }
-    $.get(featured_url, {q: params.q}).then(function (featured) {
-      for (var i = 0; i < featured.length; i++) {
-        var item = featured[i];
-        if (!seen[item.url]) {
-          result.results.push({
-            title: item.title,
-            summary_html: "",
-            url: item.url,
-            url_display: item.url,
-            date: "",
-            featured: true
-          });
-        }
-      }
+    self.featured(params.q).then(function (featuredresults) {
+      result.results = featuredresults.concat(result.results)
     }).fail(function (e) {
       console.log(e);
     }).always(function () {
@@ -86,6 +74,30 @@ Search.prototype.doSearch = function(query) {
     });
   });
 
+  return dfd.promise();
+}
+
+Search.prototype.featured = function (query) {
+  var dfd = $.Deferred();
+  $.get(featured_url, {q: query}).then(function (featured) {
+    var results = [];
+    for (var i = 0; i < featured.length; i++) {
+      var item = featured[i];
+      if (!seen[item.url]) {
+        results.push({
+          title: item.title,
+          summary_html: "",
+          url: item.url,
+          url_display: item.url,
+          date: "",
+          featured: true
+        });
+      }
+    }
+    dfd.resolve(results);
+  }).fail(function (e) {
+    dfd.reject(e);
+  })
   return dfd.promise();
 }
 })(jQuery);

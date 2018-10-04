@@ -28,7 +28,7 @@ jQuery(document).ready(function($) {
                   if(!isBlank($('#client').val())) options.client = $('#client').val();
               }
               var search = new Search(options);
-              search.doSearch(request.term)
+              search.featured(request.term)
               .then(function(results){
                   var data = results.results.slice(0,3).map(function(obj, index){
                       var result = {title: obj.title, url_display: obj.url_display, url: obj.url};
