@@ -60,7 +60,7 @@ Search.prototype.doSearch = function(query) {
       seen[item.link] = true;
       result.results.push(itemobj);
     }
-    self.featured(params.q).then(function (featuredresults) {
+    self.featured(params.q, seen).then(function (featuredresults) {
       result.results = featuredresults.concat(result.results)
     }).fail(function (e) {
       console.log(e);
@@ -77,7 +77,8 @@ Search.prototype.doSearch = function(query) {
   return dfd.promise();
 }
 
-Search.prototype.featured = function (query) {
+Search.prototype.featured = function (query, seen) {
+  if (!seen) seen = {};
   var dfd = $.Deferred();
   $.get(featured_url, {q: query}).then(function (featured) {
     var results = [];
