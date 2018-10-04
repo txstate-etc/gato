@@ -9,8 +9,8 @@ import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
 
-import com.vaadin.data.Item;
-import com.vaadin.data.util.PropertysetItem;
+import com.vaadin.v7.data.Item;
+import com.vaadin.v7.data.util.PropertysetItem;
 
 //Store the button color as "color"
 public class ButtonTypeTransformer extends BasicTransformer{

@@ -19,7 +19,7 @@ import lombok.Getter;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.vaadin.data.util.ObjectProperty;
+import com.vaadin.v7.data.util.ObjectProperty;
 
 public class FaqItem {
   @Getter public String id;
