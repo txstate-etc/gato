@@ -3,7 +3,7 @@ package edu.txstate.its.gato.vaadin.server;
 import edu.txstate.its.gato.vaadin.shared.HiddenFieldState;
 import edu.txstate.its.gato.vaadin.shared.ValueChangeServerRpc;
 
-import com.vaadin.ui.AbstractField;
+import com.vaadin.v7.ui.AbstractField;
 
 public class HiddenField extends AbstractField<String> {
 

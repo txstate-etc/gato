@@ -10,7 +10,7 @@ import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.ui.Hidden;
 
 import com.vaadin.client.communication.StateChangeEvent;
-import com.vaadin.client.ui.AbstractFieldConnector;
+import com.vaadin.v7.client.ui.AbstractFieldConnector;
 import com.vaadin.shared.ui.Connect;
 import com.vaadin.shared.ui.Connect.LoadStyle;
 

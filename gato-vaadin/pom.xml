@@ -10,6 +10,11 @@
   <artifactId>gato-vaadin</artifactId>
   <name>gato-vaadin</name>
 
+  <properties>
+    <magnoliaUiVersion>5.6.7</magnoliaUiVersion>
+    <magnoliaPagesVersion>5.6.4</magnoliaPagesVersion>
+  </properties>
+
   <dependencies>
     <dependency>
       <groupId>info.magnolia.widgetset</groupId>
@@ -22,7 +27,12 @@
     <dependency>
       <groupId>info.magnolia.pages</groupId>
       <artifactId>magnolia-pages-editor-widget</artifactId>
-      <version>5.5</version>
+      <version>${magnoliaPagesVersion}</version>
+    </dependency>
+    <dependency>
+      <groupId>info.magnolia.vaadin.addons</groupId>
+      <artifactId>vaadin-compatibility-aceeditor</artifactId>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>com.vaadin</groupId>
