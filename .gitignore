@@ -41,3 +41,6 @@ resources/*
 
 # set up an ignored file to store global variables for the rebuild script
 rebuild_vars.pl
+
+# ignore vscode workspace
+.vscode
