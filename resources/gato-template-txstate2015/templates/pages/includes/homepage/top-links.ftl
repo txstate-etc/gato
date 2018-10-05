@@ -3,7 +3,7 @@
     
       <div class="content-row-column">
         <div class="top-links-link">
-          <a href="http://txstate.edu/admissions">
+          <a href="http://www.admissions.txstate.edu">
             Admissions &amp; Aid<i class="fa fa-chevron-right"></i>
           </a>
         </div>
