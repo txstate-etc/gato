@@ -40,8 +40,7 @@ Search.prototype.doSearch = function(query) {
     result.start = params.start;
     result.end = (params.start + params.num - 1) > result.total ? result.total : (params.start + params.num - 1);
     result.type = "web";
-    result.results = [];
-    var seen = {};
+    var googleresults = [];
     for (var i = 0; data.items && i < data.items.length; i++) {
       var item = data.items[i];
       var itemobj = {
@@ -57,12 +56,19 @@ Search.prototype.doSearch = function(query) {
       } catch (e) {
         // no date
       }
-      seen[item.link] = true;
-      result.results.push(itemobj);
+      googleresults.push(itemobj);
     }
-    self.featured(params.q, seen).then(function (featuredresults) {
-      result.results = featuredresults.concat(result.results)
+    self.featured(params.q, true).then(function (featuredresults) {
+      var seen = {}
+      for (var i = 0; i < featuredresults.length; i++) {
+        seen[featuredresults[i].url] = true;
+      }
+      for (var i = 0; i < googleresults.length; i++) {
+        if (!seen[googleresults[i].url]) featuredresults.push(googleresults[i]);
+      }
+      result.results = featuredresults;
     }).fail(function (e) {
+      result.results = googleresults;
       console.log(e);
     }).always(function () {
       dfd.resolve(result);
@@ -77,23 +83,22 @@ Search.prototype.doSearch = function(query) {
   return dfd.promise();
 }
 
-Search.prototype.featured = function (query, seen) {
-  if (!seen) seen = {};
+Search.prototype.featured = function (query, complete) {
   var dfd = $.Deferred();
-  $.get(featured_url, {q: query}).then(function (featured) {
+  var opts = {q: query};
+  if (!complete) opts.asyoutype = 1;
+  $.get(featured_url, opts).then(function (featured) {
     var results = [];
     for (var i = 0; i < featured.length; i++) {
       var item = featured[i];
-      if (!seen[item.url]) {
-        results.push({
-          title: item.title,
-          summary_html: "",
-          url: item.url,
-          url_display: item.url,
-          date: "",
-          featured: true
-        });
-      }
+      results.push({
+        title: item.title,
+        summary_html: "",
+        url: item.url,
+        url_display: item.url,
+        date: "",
+        featured: true
+      });
     }
     dfd.resolve(results);
   }).fail(function (e) {
