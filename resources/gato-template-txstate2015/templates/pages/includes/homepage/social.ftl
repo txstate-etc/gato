@@ -138,7 +138,7 @@
     --]<div class="solo-column">
         <div class="solo-bailout">
           <p>
-            <a href="http://www.txstate.edu/social" class="solo-bailout-button">
+            <a href="https://www.txstate.edu/social" class="solo-bailout-button">
               Social Media Directory<i class="button-chevron fa fa-chevron-right"></i>
             </a>
           </p>

@@ -165,7 +165,7 @@
             <div id="tabpanel-events" aria-labelledby="tab-events" role="tabpanel" aria-hidden="false">
               [@eventList events true /]
 
-              <a class="more-events" href="http://events.txstate.edu/">
+              <a class="more-events" href="https://events.txstate.edu/">
                 More Events<i class="button-chevron fa fa-chevron-right"></i>
               </a>
             </div>
@@ -174,7 +174,7 @@
               [@eventList dates false /]
 
               <a class="more-events more-imp-dates"
-                href="http://www.registrar.txstate.edu/persistent-links/academic-calendar">
+                href="https://www.registrar.txstate.edu/persistent-links/academic-calendar">
                 More Important Dates<i class="button-chevron fa fa-chevron-right"></i>
               </a>
             </div>
@@ -182,9 +182,9 @@
             <div class="cal-jumps">
               <h3>Jump to a calendar:</h3>
               <ul>
-                <li><a href="http://www.registrar.txstate.edu/persistent-links/academic-calendar.html">Academic</a></li>
-                <li><a href="http://www.txstatebobcats.com/calendar.aspx?vtype=list">Athletics</a></li>
-                <li><a href="http://events.txstate.edu/">Events</a></li>
+                <li><a href="https://www.registrar.txstate.edu/persistent-links/academic-calendar.html">Academic</a></li>
+                <li><a href="https://www.txstatebobcats.com/calendar.aspx?vtype=list">Athletics</a></li>
+                <li><a href="https://events.txstate.edu/">Events</a></li>
               </ul>
             </div>
 

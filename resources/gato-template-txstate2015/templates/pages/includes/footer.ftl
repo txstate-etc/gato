@@ -11,7 +11,7 @@
     </div>
     <div class="footer_column footer_column_2" >
       <div class="txst_logo">
-        <a class="image_link" href="http://www.txstate.edu">
+        <a class="image_link" href="https://www.txstate.edu">
           <!--[if lt IE 9]>
           <img alt="Texas State University - The Rising Star of Texas" src="${gf.resourcePath()}/gato-template-txstate2015/images/txst_logo.png">
           <![endif]-->

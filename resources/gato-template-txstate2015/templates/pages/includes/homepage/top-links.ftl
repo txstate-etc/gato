@@ -3,7 +3,7 @@
     
       <div class="content-row-column">
         <div class="top-links-link">
-          <a href="http://www.admissions.txstate.edu">
+          <a href="https://www.admissions.txstate.edu">
             Admissions &amp; Aid<i class="fa fa-chevron-right"></i>
           </a>
         </div>
@@ -11,7 +11,7 @@
 
       <div class="content-row-column">
         <div class="top-links-link">
-          <a href="http://www.admissions.txstate.edu/academics/undergraduate-degree-list.html">
+          <a href="https://www.admissions.txstate.edu/academics/undergraduate-degree-list.html">
             Majors<i class="fa fa-chevron-right"></i>
           </a>
         </div>
@@ -19,7 +19,7 @@
 
       <div class="content-row-column">
         <div class="top-links-link">
-          <a href="http://www.gradcollege.txstate.edu/programs.html">
+          <a href="https://www.gradcollege.txstate.edu/programs.html">
             Graduate Programs<i class="fa fa-chevron-right"></i>
           </a>
         </div>

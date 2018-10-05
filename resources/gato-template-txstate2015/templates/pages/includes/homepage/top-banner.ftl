@@ -10,7 +10,7 @@
     <div class="homepage-banner-toprow">
 
       <div class="homepage-banner-logo">
-        <a href="http://www.txstate.edu">
+        <a href="https://www.txstate.edu">
           <img src="${ctx.contextPath}/.resources/gato-template-txstate2015/images/txst-primary.png" alt="Texas State University" />
         </a>
       </div>
@@ -39,7 +39,7 @@
         <div class="homepage-banner-nav-content">
 
           <div class="homepage-banner-nav-logo">
-            <a href="http://www.txstate.edu">
+            <a href="https://www.txstate.edu">
               <img src="${ctx.contextPath}/.resources/gato-template-txstate2015/images/txst-secondary.png" alt="Texas State University" />
             </a>
           </div>

@@ -1,7 +1,7 @@
 <div class="banner">
 	<div class="banner_content">
 		<div class="banner_logo">
-			    <a href="http://www.txstate.edu">
+			    <a href="https://www.txstate.edu">
 			    	<img src="${gf.resourcePath()}/gato-template-txstate2015/images/txst-secondary.png" alt="Texas State University Logo"/>
 			    </a>
 		</div>

@@ -30,7 +30,7 @@
     [#-- <div class="solo-column">
       <div class="solo-bailout">
         <p>
-          <a href="http://www.president.txstate.edu/questions/ask-a-question.html" class="solo-bailout-button">
+          <a href="https://www.president.txstate.edu/questions/ask-a-question.html" class="solo-bailout-button">
             Ask A Question<i class="button-chevron fa fa-chevron-right"></i>
           </a>
         </p>

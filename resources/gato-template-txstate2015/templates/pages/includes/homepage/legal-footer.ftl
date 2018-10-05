@@ -31,7 +31,7 @@
 
     <div class="solo-column">
       <div class="member-statement">
-        <a class="image-link" href="http://www.tsus.edu">
+        <a class="image-link" href="https://www.tsus.edu">
           <img src="${ctx.contextPath}/.resources/gato-template/images/tsus-member.png" alt="University System Logo"/>
         </a>
       </div>

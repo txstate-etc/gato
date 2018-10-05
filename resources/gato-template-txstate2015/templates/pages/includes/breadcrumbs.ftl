@@ -2,7 +2,7 @@
 [#assign mobileBreadcrumbs = isMobile?string('mobile_breadcrumbs', '')]
 <p class="breadcrumbs ${mobileBreadcrumbs}">
 	[#if !hidetxstate]
-		<a href="http://www.txstate.edu">Texas State</a>
+		<a href="https://www.txstate.edu">Texas State</a>
 	[/#if]
 	[#-- need to check for missing parent org here --]
 	[#assign parentUrl = (ctx.getAttribute('homePageContent').parentOrganization.url)!]
