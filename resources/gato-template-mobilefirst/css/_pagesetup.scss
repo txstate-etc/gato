@@ -86,8 +86,12 @@ body {
 .page-intro-text {
   padding: 0 2rem;
   text-align: center;
-  margin-bottom: 3rem;
+  max-width: 600px;
+  margin: 0 auto;
+  padding-bottom: 2rem;
   @media (max-width: $sm-breakpoint) {
     text-align: left;
+    max-width: none;
+    margin: unset;
   }
 }
