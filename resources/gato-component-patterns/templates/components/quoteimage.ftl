@@ -1,5 +1,6 @@
+[#assign hasBorder = content.border!false]
 <div cms:edit="bar"></div>
-<div class="mobilefirst-pattern has-image ${content.imageAlignment!'image-right'}">
+<div class="mobilefirst-pattern has-image ${content.imageAlignment!'image-right'} ${hasBorder?then('border', '')}">
   <div class="pattern-image with-quotation">
     <img src="${gf.getImgDefault(content.image)}" alt="${content.alttext!}" srcset="${gf.getSrcSet(content.image)}" />
   </div>

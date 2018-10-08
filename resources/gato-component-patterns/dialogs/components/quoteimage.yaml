@@ -43,6 +43,11 @@ form:
           label: Background Color
           parameters:
             contentType: default
+        - name: border
+          class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+          label: Border
+          buttonLabel: Select to add border around content
+          defaultValue: false
         - name: quotation
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           #maxLength: 114
