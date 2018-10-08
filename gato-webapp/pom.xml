@@ -37,8 +37,17 @@
       <artifactId>magnolia-dam-imaging</artifactId>
     </dependency>
     <dependency>
-      <groupId>info.magnolia</groupId>
+      <groupId>info.magnolia.imaging</groupId>
+      <artifactId>magnolia-imaging</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>info.magnolia.imaging</groupId>
       <artifactId>magnolia-imaging-support</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>info.magnolia.passwordmanager</groupId>
+      <artifactId>magnolia-module-password-manager</artifactId>
+      <version>1.2</version>
     </dependency>
     <dependency>
       <groupId>info.magnolia</groupId>
