@@ -1,0 +1,8 @@
+templateScript: /gato-component-patterns/templates/components/imageoverlay.ftl
+renderType: freemarker
+title: Image with Overlay
+description: A background image with a text overlay
+dialog: gato-component-patterns:components/imageoverlay
+parameters:
+  icon: /gato-component-patterns/images/title-link-image.png
+  tab: Patterns

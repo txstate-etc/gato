@@ -29,5 +29,7 @@ twocallouts:
   id: gato-component-patterns:components/twocallouts
 quoteimage:
   id: gato-component-patterns:components/quoteimage
+imageoverlay:
+  id: gato-component-patterns:components/imageoverlay
 icontextmulti:
   id: gato-component-patterns:components/icontextmulti
