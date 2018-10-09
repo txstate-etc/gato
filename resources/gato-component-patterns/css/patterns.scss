@@ -430,6 +430,9 @@ $pattern-max-height: 400px;
   @media (max-width:$sm-breakpoint) {
     padding: 3rem 0rem;
   }
+  &.twocolcta {
+    padding: 7rem 0rem;
+  }
   .stat {
     font-family: $garamond;
     font-weight: 400;
@@ -443,6 +446,11 @@ $pattern-max-height: 400px;
     font-size: 2rem;
     line-height: 2.8rem;
     padding-bottom: 2.2rem;
+    &.cta {
+      font-size: 3.2rem;
+      line-height: 5rem;
+      padding-bottom: 0.4rem;
+    }
   }
   .text {
     font-family: $univers;
