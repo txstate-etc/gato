@@ -14,10 +14,6 @@ form:
           contentPreviewDefinition:
             contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
           description: "You may upload an image, or choose one from the Digital Asset Manager. If you upload an image, the DAM image will be ignored."
-        - name: imageAlt
-          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-          label: Alt. Text
-          required: true
         - name: color
           class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
           fields:
@@ -30,6 +26,23 @@ form:
           label: Overlay Color
           parameters:
             contentType: default
+        - name: overlayPosition
+          class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
+          label: Overlay Position
+          multiselect: false
+          sortOptions: false
+          layout: horizontal
+          options:
+            - name: left
+              label: Left
+              value: left
+            - name: center
+              label: Center
+              value: center
+              selected: true
+            - name: right
+              label: Right
+              value: right
         - name: title
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Title
@@ -44,22 +57,6 @@ form:
           tables: false
           height: 500
           configJsFile: /.resources/gato-template/js/richeditor/minimal-config.js
-        - name: overlayPosition
-          class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
-          label: Overlay Position
-          multiselect: false
-          sortOptions: false
-          options:
-            - name: left
-              label: Left
-              value: left
-            - name: center
-              label: Center
-              value: center
-              selected: true
-            - name: right
-              label: Right
-              value: right
         - name: buttons
           class: edu.txstate.its.gato.vaadin.GatoMultiValueFieldDefinition
           transformerClass: info.magnolia.ui.form.field.transformer.multi.MultiValueSubChildrenNodePropertiesTransformer
