@@ -48,3 +48,11 @@ h6 {
 p {
   line-height: 1.6;
 }
+
+a[name]:not([href]), a[name][href=""] {
+  &, &:hover {
+    color: inherit;
+    background: transparent;
+    text-decoration: none;
+  }
+}
