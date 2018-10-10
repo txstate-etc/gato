@@ -25,6 +25,9 @@ jQuery(document).ready(function($) {
         myOverlay.fadeOut(600, function(){
             $(this).remove();
         });
+      },
+      close: function() {
+        $('#search-text').blur();
       }
     });
   });
