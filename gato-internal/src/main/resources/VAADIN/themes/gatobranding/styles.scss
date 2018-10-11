@@ -1,7 +1,7 @@
 @import "../admincentral/styles";
 
 #main-launcher {
-  div:first-child {
+  div:first-child:not(.v-sticker) {
     position: absolute;
     top: 7px;
     left: 17px;
@@ -61,4 +61,3 @@ body{
   }
 
 }
-
