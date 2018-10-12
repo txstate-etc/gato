@@ -44,3 +44,4 @@ rebuild_vars.pl
 
 # ignore vscode workspace
 .vscode
+.factorypath
