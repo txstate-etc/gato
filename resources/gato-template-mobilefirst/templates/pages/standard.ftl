@@ -28,7 +28,7 @@
         </div>
       </div>
       [/#if]
-      <main class="contentcolumn">
+      <main class="contentcolumn ${content.intro?has_content?then('', 'no-intro')}">
         [#assign hideSidebar = true /]
         [@headline hideSidebar /]
         [#if content.intro?has_content]
