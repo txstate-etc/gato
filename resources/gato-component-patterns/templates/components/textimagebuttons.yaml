@@ -1,0 +1,8 @@
+templateScript: /gato-component-patterns/templates/components/textimagebuttons.ftl
+renderType: freemarker
+title: Text Image/Video and Buttons
+description: An image or video with text and buttons
+dialog: gato-component-patterns:components/textimagebuttons
+parameters:
+  icon: /gato-component-patterns/images/title-buttons-image.png
+  tab: Patterns

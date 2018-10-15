@@ -35,3 +35,5 @@ imageoverlay:
   id: gato-component-patterns:components/imageoverlay
 icontextmulti:
   id: gato-component-patterns:components/icontextmulti
+textimagebuttons:
+  id: gato-component-patterns:components/textimagebuttons
