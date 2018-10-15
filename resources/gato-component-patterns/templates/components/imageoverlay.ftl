@@ -2,7 +2,7 @@
   <div cms:edit="bar"></div>
 [/#if]
 [#assign textAlign = (content.overlayPosition == "center")?then('text-center', 'text-left')]
-<div class="mobilefirst-pattern image-overlay" style='background-image: url("${gf.getImgDefault(content.image)}")'>
+<div class="mobilefirst-pattern image-overlay" style='background-image: linear-gradient(180deg, rgba(43,46,52, 0.4), rgba(43,46,52, 0.4)), url("${gf.getImgDefault(content.image)}")'>
   <div class="overlay-block title-type pattern-content ${content.color!color1} ${content.overlayPosition!'center'} ${textAlign}">
     <div class="title">${content.title}</div>
     <div class="text">
