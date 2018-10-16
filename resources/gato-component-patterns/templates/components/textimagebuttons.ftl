@@ -6,6 +6,13 @@
 [#if content.imageAlignment == 'image-left']
   <div class="pattern-image">
     <img src="${gf.getImgDefault(content.image)}" alt="${content.imageAlt!}" srcset="${gf.getSrcSet(content.image)}" />
+    [#if content.videourl?has_content]
+      <a href="${content.videourl}" class="feature-play-button video-left"
+      data-embed="${gf.jsonGetString(gf.oEmbedAutodiscover(content.videourl), 'html')?html}">
+        <i class="fa fa-play" aria-hidden="true"></i>
+        <span class="visuallyhidden">Play Video</span>
+      </a>
+    [/#if]
   </div>
 [/#if]
 <div class="pattern-content title-type">
@@ -26,6 +33,13 @@
   [#if content.imageAlignment == 'image-right']
     <div class="pattern-image">
       <img src="${gf.getImgDefault(content.image)}" alt="${content.imageAlt!}" srcset="${gf.getSrcSet(content.image)}" />
+      [#if content.videourl?has_content]
+        <a href="${content.videourl}" class="feature-play-button video-right"
+        data-embed="${gf.jsonGetString(gf.oEmbedAutodiscover(content.videourl), 'html')?html}">
+          <i class="fa fa-play" aria-hidden="true"></i>
+          <span class="visuallyhidden">Play Video</span>
+        </a>
+      [/#if]
     </div>
   [/#if]
 </div>
