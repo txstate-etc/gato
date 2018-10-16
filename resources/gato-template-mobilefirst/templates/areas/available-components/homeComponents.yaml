@@ -37,3 +37,5 @@ icontextmulti:
   id: gato-component-patterns:components/icontextmulti
 textimagebuttons:
   id: gato-component-patterns:components/textimagebuttons
+textimagelinks:
+  id: gato-component-patterns:components/textimagelinks

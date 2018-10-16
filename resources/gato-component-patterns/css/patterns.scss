@@ -459,6 +459,11 @@ $pattern-max-height: 400px;
           margin-right: 2.2rem;
         }
       }
+      .links {
+        a {
+          color: $maroon;
+        }
+      }
       @media (max-width:$sm-breakpoint) {
         order: 2;
       }

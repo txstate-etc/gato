@@ -1,0 +1,82 @@
+form:
+  tabs:
+    - name: tabmain
+      label: Text, Image, and Links
+      fields:
+        - name: image
+          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+          appName: assets
+          required: true
+          targetWorkspace: dam
+          label: Image
+          identifierToPathConverter:
+            class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
+          contentPreviewDefinition:
+            contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
+          description: "You may upload an image, or choose one from the Digital Asset Manager. If you upload an image, the DAM image will be ignored."
+        - name: imageAlt
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Alt. Text
+          required: true
+        - name: imageAlignment
+          class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
+          label: Alignment
+          multiSelect: false
+          sortOptions: false
+          options:
+            - name: left
+              value: image-left
+              label: Image left of text
+            - name: right
+              value: image-right
+              label: Image right of text
+              selected: true
+        - name: videourl
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Video Url
+          styleName: videoUrl
+        - name: hasBackground
+          class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+          label: Background Color
+          buttonLabel: Select to add background color
+        - name: title
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Title
+          required: true
+        - name: text
+          class: info.magnolia.ui.form.field.definition.RichTextFieldDefinition
+          label: Text
+          source: false
+          alignment: false
+          images: false
+          lists: false
+          tables: false
+          height: 500
+          configJsFile: /.resources/gato-template/js/richeditor/minimal-config.js
+        - name: links
+          class: edu.txstate.its.gato.vaadin.GatoMultiValueFieldDefinition
+          transformerClass: info.magnolia.ui.form.field.transformer.multi.MultiValueSubChildrenNodePropertiesTransformer
+          label: Links
+          styleName: linksMultiField
+          maxFields: 3
+          field:
+            name: link
+            class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
+            transformerClass: info.magnolia.ui.form.field.transformer.composite.NoOpCompositeTransformer
+            layout: vertical
+            fields:
+              - name: text
+                class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                label: Link Text
+              - name: link
+                class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+                label: Link Target
+                required: true
+                appName: pages
+                identifierToPathConverter:
+                  class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
+        - name: stylesheet
+          label: ""
+          class: edu.txstate.its.gato.vaadin.GatoCssIncludeDefinition
+          styles: [gato-component-patterns/dialogs/css/fix-link-multifield.css]
+actions: !include /gato-template/dialogs/common/actions-block.yaml

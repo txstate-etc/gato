@@ -1,0 +1,8 @@
+templateScript: /gato-component-patterns/templates/components/textimagelinks.ftl
+renderType: freemarker
+title: Text Image/Video and Links
+description: An image or video with text and links
+dialog: gato-component-patterns:components/textimagelinks
+parameters:
+  icon: /gato-component-patterns/images/title-link-image.png
+  tab: Patterns
