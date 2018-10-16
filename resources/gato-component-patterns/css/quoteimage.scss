@@ -1,0 +1,99 @@
+.mobilefirst-pattern {
+  .quotation {
+    @media (max-width:$sm-breakpoint) {
+      padding: 3rem 0rem;
+    }
+    .quotation-text {
+      font-family: $garamond;
+      font-size: 2.2rem;
+      font-weight: 400;
+      line-height: 3rem;
+      padding-bottom: 2.2rem;
+      position: relative;
+      @media (max-width:$md-breakpoint) {
+        margin-top: 4rem;
+      }
+      .quote-icon {
+        position: absolute;
+        top: -4rem;
+        left: 0;
+        i {
+          font-size: 3rem;
+        }
+        span {
+          left: 0;
+        }
+      }
+    }
+    .quotation-source {
+      padding-bottom: 2.2rem;
+      .source-name, .source-title {
+        font-family: $univers;
+        font-size: 1.6rem;
+        font-weight: 500;
+        line-height: 2.4rem;
+      }
+    }
+  }
+  .pattern-image {
+    &.with-quotation {
+      @at-root .image-right#{&} {
+        order: 2;
+        @media (max-width: $sm-breakpoint) {
+          order: 0;
+        }
+      }
+      @at-root .image-left#{&} {
+        @media (max-width: $sm-breakpoint) {
+          order: 0;
+        }
+      }
+      img {
+        object-position: 50% 0;
+        font-family: 'object-fit: cover; object-position: 50% 0;';
+        max-height: 100%;
+      }
+    }
+  }
+  $quote-border-radius: 2px;
+  &.border {
+    background-color: $section-background-color;
+    min-height: 450px;
+    &.image-right {
+      .pattern-image {
+        margin: 3.5rem 3.5rem 3.5rem 0;
+        img {
+          border-top-right-radius: $quote-border-radius;
+          border-bottom-right-radius: $quote-border-radius;
+        }
+      }
+      .pattern-content {
+        margin: 3.5rem 0 3.5rem 3.5rem;
+        border-top-left-radius: $quote-border-radius;
+        border-bottom-left-radius: $quote-border-radius;
+      }
+    }
+    &.image-left {
+      .pattern-image {
+        margin: 3.5rem 0 3.5rem 3.5rem;
+        img {
+          border-top-left-radius: $quote-border-radius;
+          border-bottom-left-radius: $quote-border-radius;
+        }
+      }
+      .pattern-content {
+        margin: 3.5rem 3.5rem 3.5rem 0;
+        border-top-right-radius: $quote-border-radius;
+        border-bottom-right-radius: $quote-border-radius;
+      }
+    }
+    @media (max-width: $sm-breakpoint) {
+      min-height: auto;
+      &.image-right, &.image-left {
+        .pattern-image, .pattern-content {
+          margin: unset;
+        }
+      }
+    }
+  }
+}

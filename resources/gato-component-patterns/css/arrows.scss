@@ -1,0 +1,78 @@
+@mixin arrow($color, $position) {
+  border: solid transparent;
+  content: ' ';
+  height: 0;
+  width: 0;
+  position: absolute;
+  border-color: transparent;
+  border-width: 2.5rem;
+  margin: 0;
+  z-index: 2;
+  @if $position == top {
+    bottom: 100%;
+    top: auto;
+    left: 50%;
+    border-bottom-color: $color;
+    margin-left: -2.5rem;
+  }
+  @else if $position == right {
+    left: 100%;
+    top: 50%;
+    border-left-color: $color;
+    margin-top: -2.5rem;
+  }
+  @else if $position == bottom {
+    top: 100%;
+    left: 50%;
+    border-top-color: $color;
+    margin-left: -2.5rem;
+  }
+  @else if $position == left {
+    right: 100%;
+    top: 50%;
+    border-right-color: $color;
+    margin-top: -2.5rem;
+  }
+}
+
+@mixin pattern-content-arrows($color) {
+  @at-root .image-left#{&} {
+    @include arrow($color, "left");
+    @media (max-width: $sm-breakpoint) {
+      @include arrow($color, "bottom");
+    }
+  }
+  @at-root .image-right#{&} {
+    @include arrow($color, "right");
+    @media (max-width: $sm-breakpoint) {
+      @include arrow($color, "bottom");
+    }
+  }
+}
+
+.mobilefirst-pattern {
+  .arrow {
+    position: relative;
+  }
+  .color1.arrow:after {
+    @include pattern-content-arrows($mc1-bg);
+  }
+  .color2.arrow:after {
+    @include pattern-content-arrows($mc2-bg);
+  }
+  .color3.arrow:after{
+    @include pattern-content-arrows($mc3-bg);
+  }
+  .color4.arrow:after{
+    @include pattern-content-arrows($mc4-bg);
+  }
+  .color5.arrow:after{
+    @include pattern-content-arrows($mc5-bg);
+  }
+  .color6.arrow:after{
+    @include pattern-content-arrows($mc6-bg);
+  }
+  .color7.arrow:after{
+    @include pattern-content-arrows($mc7-bg);
+  }
+}

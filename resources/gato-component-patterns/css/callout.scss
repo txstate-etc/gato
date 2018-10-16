@@ -1,0 +1,37 @@
+.mobilefirst-pattern {
+  .pattern-content.callout {
+    padding: 5rem 0rem;
+    @media (max-width:$sm-breakpoint) {
+      padding: 3rem 0rem;
+    }
+    &.twocolcta {
+      padding: 7rem 0rem;
+    }
+    .stat {
+      font-family: $garamond;
+      font-weight: 400;
+      font-size: 5rem;
+      line-height: 5rem;
+      padding-bottom: 0.4rem;
+    }
+    .title {
+      font-family: $garamond;
+      font-weight: 400;
+      font-size: 2rem;
+      line-height: 2.8rem;
+      padding-bottom: 2.2rem;
+      &.cta {
+        font-size: 3.2rem;
+        line-height: 5rem;
+        padding-bottom: 0.4rem;
+      }
+    }
+    .text {
+      font-family: $univers;
+      font-weight: 400;
+      font-size: 1.6rem;
+      line-height: 2.4rem;
+      padding-bottom: 2.2rem;
+    }
+  }
+}

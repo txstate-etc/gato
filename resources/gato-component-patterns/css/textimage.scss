@@ -1,0 +1,95 @@
+.mobilefirst-pattern {
+  &.textImageCTA {
+    &.background {
+      background-color: $section-background-color;
+    }
+    .pattern-content {
+      justify-content: flex-start;
+      .text {
+        margin: 0;
+        p {
+          margin: 0;
+        }
+        a, a:active, a:visited {
+          color: $blue;
+        }
+      }
+      .buttons {
+        a {
+          color: $maroon;
+        }
+        ul li {
+          margin-right: 2.2rem;
+        }
+      }
+      .links {
+        a {
+          color: $maroon;
+        }
+      }
+      @media (max-width:$sm-breakpoint) {
+        order: 2;
+      }
+    }
+    .pattern-image {
+      @media (max-width:$sm-breakpoint) {
+        order: 1;
+        padding: 4rem 4rem 0 4rem !important;
+      }
+      .feature-play-button {
+        display: block;
+        position: absolute;
+        top: 50%;
+        &.video-left {
+          left: calc(50% + 2rem); //TODO: 2rem is half of the 4 rem padding I used, which could change
+        }
+        &.video-right {
+          left: calc(50% - 2rem); //TODO: 2rem is half of the 4 rem padding I used, which could change
+        }
+        @media (max-width:$sm-breakpoint) {
+          left: 50% !important;
+          top: calc(50% + 2rem); //TODO: 2rem is half of the 4 rem padding I used, which could change
+        }
+        transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        margin:0;
+        font-size: 4rem;
+        color: white;
+        border-radius: 100%;
+        width:  7rem;
+        height: 7rem;
+        border: 2px solid white;
+        opacity: 0.9;
+        background-color: $maroon;
+        @media (max-width:$mn-breakpoint) {
+          width: 5rem;
+          height: 5rem;
+          font-size: 2.5rem;
+        }
+        i {
+          position: absolute;
+          top:50%;
+          left: 55%;
+          transform: translate(-50%, -50%);
+          -webkit-transform: translate(-50%, -50%);
+        }
+      }
+    }
+    &.image-right {
+      .pattern-image {
+        padding: 4rem 4rem 4rem 0;
+      }
+      .pattern-content {
+        padding: 4rem 2rem 4rem 4rem;
+      }
+    }
+    &.image-left {
+      .pattern-image {
+        padding: 4rem 0rem 4rem 4rem;
+      }
+      .pattern-content {
+        padding: 4rem 4rem 4rem 4rem;
+      }
+    }
+  }
+}
