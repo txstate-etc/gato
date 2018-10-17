@@ -39,3 +39,5 @@ textimagebuttons:
   id: gato-component-patterns:components/textimagebuttons
 textimagelinks:
   id: gato-component-patterns:components/textimagelinks
+insettextimage:
+  id: gato-component-patterns:components/insettextimage

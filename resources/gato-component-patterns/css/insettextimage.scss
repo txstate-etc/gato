@@ -1,0 +1,95 @@
+.mobilefirst-pattern {
+  &.insettextimage {
+    &.background {
+      background-color: $section-background-color;
+    }
+    &.image-right {
+      .pattern-image {
+        padding: 4rem 4rem 4rem 0;
+        order: 2;
+      }
+      .pattern-content {
+        order: 1;
+        .inset {
+          right: -4rem;
+          z-index: 1;
+        }
+      }
+    }
+    &.image-left {
+      .pattern-image {
+        padding: 4rem 0rem 4rem 4rem;
+      }
+      .pattern-content {
+        .inset {
+          left: -4rem;
+        }
+      }
+    }
+    .pattern-content {
+      position: relative;
+      .inset {
+        position: absolute;
+        padding: 3.5rem 2.5rem;
+        .text {
+          margin: 0;
+          p {
+            margin: 0;
+          }
+          a, a:active, a:visited {
+            color: $blue;
+          }
+        }
+        &.color1 {
+          background-color: $mc1-bg;
+          color: $mc1-text;
+          a {
+            color: $mc1-text;
+          }
+        }
+        &.color2 {
+          background-color: $mc2-bg;
+          color: $mc2-text;
+          a {
+            color: $mc2-text;
+          }
+        }
+        &.color3 {
+          background-color: $mc3-bg;
+          color: $mc3-text;
+          a {
+            color: $mc3-text;
+          }
+        }
+        &.color4 {
+          background-color: $mc4-bg;
+          color: $mc4-text;
+          a {
+            color: $mc4-text;
+          }
+        }
+        &.color5 {
+          background-color: $mc5-bg;
+          color: $mc5-text;
+          a {
+            color: $mc5-text;
+          }
+        }
+        &.color6 {
+          background-color: $mc6-bg;
+          color: $mc6-text;
+          a {
+            color: $mc6-text;
+          }
+        }
+        &.color7 {
+          background-color: $mc7-bg;
+          color: $mc7-text;
+          a {
+            color: $mc7-text;
+          }
+        }
+      }
+    }
+  }
+}
