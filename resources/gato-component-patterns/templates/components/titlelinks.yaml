@@ -1,6 +1,6 @@
 templateScript: /gato-component-patterns/templates/components/titlelinkscomponent.ftl
 renderType: freemarker
-title: Title and Links
+title: Call to Action-Links
 description: A title, text, and links
 dialog: gato-component-patterns:components/titlelinks
 parameters:

@@ -1,6 +1,6 @@
 templateScript: /gato-component-patterns/templates/components/icontextmulti.ftl
 renderType: freemarker
-title: Icons With Titles
+title: Call to Action-Icons
 dialog: gato-component-patterns:components/icontextmulti
 description: 2-4 icon links with accompanying text
 parameters:

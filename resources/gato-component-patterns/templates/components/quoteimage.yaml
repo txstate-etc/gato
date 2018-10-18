@@ -1,6 +1,6 @@
 templateScript: /gato-component-patterns/templates/components/quoteimage.ftl
 renderType: freemarker
-title: Quotation and Image
+title: Quote + Image
 description: A quotation and source with an image
 dialog: gato-component-patterns:components/quoteimage
 parameters:

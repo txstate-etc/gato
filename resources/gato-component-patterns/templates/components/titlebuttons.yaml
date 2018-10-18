@@ -1,6 +1,6 @@
 templateScript: /gato-component-patterns/templates/components/titlebuttonscomponent.ftl
 renderType: freemarker
-title: Title and Buttons
+title: Call to Action-Buttons
 description: A title, text, and buttons
 dialog: gato-component-patterns:components/titlebuttons
 parameters:

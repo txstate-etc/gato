@@ -1,6 +1,6 @@
 templateScript: /gato-component-patterns/templates/components/callout.ftl
 renderType: freemarker
-title: Callout
+title: Facts/Figures
 description: A callout with a title, text, and buttons
 dialog: gato-component-patterns:components/callout
 parameters:

@@ -1,6 +1,6 @@
 templateScript: /gato-component-patterns/templates/components/insettextimage.ftl
 renderType: freemarker
-title: Call to Action with Margin, Buttons & Image
+title: Call to Action-Margin-Buttons + Image
 description: An image with an overlapping text block
 dialog: gato-component-patterns:components/insettextimage
 parameters:

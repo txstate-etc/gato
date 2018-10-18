@@ -1,6 +1,6 @@
 templateScript: /gato-component-patterns/templates/components/imageoverlay.ftl
 renderType: freemarker
-title: Image with Overlay
+title: Background Image-Text
 description: A background image with a text overlay
 dialog: gato-component-patterns:components/imageoverlay
 parameters:
