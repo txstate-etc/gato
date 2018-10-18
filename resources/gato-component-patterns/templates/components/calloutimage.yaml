@@ -5,4 +5,4 @@ description: A callout and an image
 dialog: gato-component-patterns:components/calloutimage
 parameters:
   icon: /gato-component-patterns/images/callout-image.png
-  tab: Patterns
+  tab: PreBuilt Layouts

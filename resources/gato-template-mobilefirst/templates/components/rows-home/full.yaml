@@ -11,4 +11,4 @@ areas:
       !include /gato-template-mobilefirst/templates/areas/available-components/availableComponentsHome.yaml
 parameters:
   icon: /gato-template/images/onecolumn.png
-  tab: Layouts
+  tab: Build Sections

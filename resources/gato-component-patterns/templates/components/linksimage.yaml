@@ -5,4 +5,4 @@ description: A title, text, and links beside an image
 dialog: gato-component-patterns:components/linksimage
 parameters:
   icon: /gato-component-patterns/images/title-link-image.png
-  tab: Patterns
+  tab: PreBuilt Layouts

@@ -1,17 +1,3 @@
-full:
-  id: gato-template-mobilefirst:components/rows-interior/full
-halves:
-  id: gato-template-mobilefirst:components/rows-interior/halves
-onethirdtwothirds:
-  id: gato-template-mobilefirst:components/rows-interior/onethirdtwothirds
-twothirdsonethird:
-  id: gato-template-mobilefirst:components/rows-interior/twothirdsonethird
-thirds:
-  id: gato-template-mobilefirst:components/rows-interior/thirds
-quarters:
-  id: gato-template-mobilefirst:components/rows-interior/quarters
-cardlayoutgrid:
-  id: gato-component-cards:components/layouts/grid
 #patterns
 buttonsimage:
   id: gato-component-patterns:components/buttonsimage
@@ -41,3 +27,18 @@ textimagelinks:
   id: gato-component-patterns:components/textimagelinks
 insettextimage:
   id: gato-component-patterns:components/insettextimage
+#layouts
+full:
+  id: gato-template-mobilefirst:components/rows-interior/full
+halves:
+  id: gato-template-mobilefirst:components/rows-interior/halves
+onethirdtwothirds:
+  id: gato-template-mobilefirst:components/rows-interior/onethirdtwothirds
+twothirdsonethird:
+  id: gato-template-mobilefirst:components/rows-interior/twothirdsonethird
+thirds:
+  id: gato-template-mobilefirst:components/rows-interior/thirds
+quarters:
+  id: gato-template-mobilefirst:components/rows-interior/quarters
+cardlayoutgrid:
+  id: gato-component-cards:components/layouts/grid

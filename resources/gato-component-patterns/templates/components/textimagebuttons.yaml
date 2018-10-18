@@ -5,4 +5,4 @@ description: An image or video with text and buttons
 dialog: gato-component-patterns:components/textimagebuttons
 parameters:
   icon: /gato-component-patterns/images/title-buttons-image.png
-  tab: Patterns
+  tab: PreBuilt Layouts
