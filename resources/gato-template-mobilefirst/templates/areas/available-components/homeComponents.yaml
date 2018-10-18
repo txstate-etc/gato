@@ -1,30 +1,31 @@
 #patterns
-buttonsimage:
-  id: gato-component-patterns:components/buttonsimage
-linksimage:
-  id: gato-component-patterns:components/linksimage
-calloutimage:
-  id: gato-component-patterns:components/calloutimage
 titlebuttons:
   id: gato-component-patterns:components/titlebuttons
 titlelinks:
   id: gato-component-patterns:components/titlelinks
-callout:
-  id: gato-component-patterns:components/callout
-twocallouts:
-  id: gato-component-patterns:components/twocallouts
+buttonsimage:
+  id: gato-component-patterns:components/buttonsimage
+linksimage:
+  id: gato-component-patterns:components/linksimage
 twocolcta:
   id: gato-component-patterns:components/twocolcta
-quoteimage:
-  id: gato-component-patterns:components/quoteimage
-imageoverlay:
-  id: gato-component-patterns:components/imageoverlay
 icontextmulti:
   id: gato-component-patterns:components/icontextmulti
 textimagebuttons:
   id: gato-component-patterns:components/textimagebuttons
 textimagelinks:
   id: gato-component-patterns:components/textimagelinks
+imageoverlay:
+  id: gato-component-patterns:components/imageoverlay
+callout:
+  id: gato-component-patterns:components/callout
+calloutimage:
+  id: gato-component-patterns:components/calloutimage
+twocallouts:
+  id: gato-component-patterns:components/twocallouts
+quoteimage:
+  id: gato-component-patterns:components/quoteimage
+
 #layouts
 full:
   id: gato-template-mobilefirst:components/rows-home/full
