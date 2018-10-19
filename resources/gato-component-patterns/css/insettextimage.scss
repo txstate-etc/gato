@@ -1,5 +1,9 @@
 .mobilefirst-pattern {
   &.insettextimage {
+    @media (max-width:$md-breakpoint) {
+      display: block;
+      max-height: unset;
+    }
     &.background {
       background-color: $section-background-color;
     }
@@ -7,6 +11,10 @@
       .pattern-image {
         padding: 4rem 4rem 4rem 0;
         order: 2;
+        @media (max-width:$md-breakpoint) {
+          padding: 4rem 4rem 0rem 4rem;
+          order: 1;
+        }
       }
       .pattern-content {
         order: 1;
@@ -14,23 +22,50 @@
           right: -4rem;
           z-index: 1;
         }
+        @media (max-width:$md-breakpoint) {
+          order: 2;
+          padding: 0rem 4rem 4rem 4rem;
+          .inset {
+            right: 0;
+          }
+        }
       }
     }
     &.image-left {
       .pattern-image {
         padding: 4rem 0rem 4rem 4rem;
+        @media (max-width:$md-breakpoint) {
+          padding: 4rem 4rem 0rem 4rem;
+        }
       }
       .pattern-content {
         .inset {
           left: -4rem;
         }
+        @media (max-width:$md-breakpoint) {
+          padding: 0rem 4rem 4rem 4rem;
+          .inset {
+            left: 0;
+          }
+        }
+      }
+    }
+    .pattern-image {
+      @media (max-width:$md-breakpoint) {
+        width: 100%;
       }
     }
     .pattern-content {
       position: relative;
+      @media (max-width:$md-breakpoint) {
+        width: 100%;
+      }
       .inset {
         position: absolute;
         padding: 3.5rem 2.5rem;
+        @media (max-width:$md-breakpoint) {
+          position: relative;
+        }
         .text {
           margin: 0;
           p {
