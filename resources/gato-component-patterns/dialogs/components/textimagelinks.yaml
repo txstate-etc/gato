@@ -49,10 +49,10 @@ form:
           source: false
           alignment: false
           images: false
-          lists: false
+          lists: true
           tables: false
           height: 500
-          configJsFile: /.resources/gato-template/js/richeditor/minimal-config.js
+          configJsFile: /.resources/gato-template/js/richeditor/minimal-config-with-lists.js
         - name: links
           class: edu.txstate.its.gato.vaadin.GatoMultiValueFieldDefinition
           transformerClass: info.magnolia.ui.form.field.transformer.multi.MultiValueSubChildrenNodePropertiesTransformer
