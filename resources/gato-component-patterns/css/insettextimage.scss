@@ -2,10 +2,10 @@
   background-color: $section-background-color;
 }
 .mobilefirst-pattern {
-  max-width: 1200px;
-  width: 90%;
-  margin: 0 auto;
   &.insettextimage {
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
     @media (max-width:$md-breakpoint) {
       display: block;
       max-height: unset;
