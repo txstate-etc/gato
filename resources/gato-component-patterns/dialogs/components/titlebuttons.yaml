@@ -1,7 +1,7 @@
 form:
   tabs:
     - name: tabmain
-      label: Title and Buttons
+      label: Call to Action- Buttons
       fields:
         - name: title
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition

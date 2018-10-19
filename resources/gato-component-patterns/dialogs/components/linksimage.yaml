@@ -1,7 +1,7 @@
 form:
   tabs:
     - name: tabmain
-      label: Title, Links, and Image
+      label: Call to Action- Links + Image
       fields:
         - name: image
           class: info.magnolia.ui.form.field.definition.LinkFieldDefinition

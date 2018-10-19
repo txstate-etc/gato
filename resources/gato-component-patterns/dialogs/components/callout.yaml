@@ -1,7 +1,7 @@
 form:
   tabs:
     - name: tabMain
-      label: Callout
+      label: Facts/Figures
       fields:
         - name: callout
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition

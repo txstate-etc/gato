@@ -1,7 +1,7 @@
 form:
   tabs:
     - name: tabCalloutOne
-      label: Left Callout
+      label: Left Fact
       fields:
         - name: calloutLeft
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
@@ -72,7 +72,7 @@ form:
           class: edu.txstate.its.gato.vaadin.GatoCssIncludeDefinition
           styles: [gato-component-patterns/dialogs/css/fix-link-multifield.css]
     - name: tabCalloutTwo
-      label: Right Callout
+      label: Right Fact
       fields:
         - name: calloutRight
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
