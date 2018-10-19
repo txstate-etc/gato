@@ -1,44 +1,46 @@
 [#if cmsfn.isEditMode()]
 <div cms:edit="bar"></div>
 [/#if]
-<div class="mobilefirst-pattern textImageCTA ${content.imageAlignment!'image-right'} ${(content.hasBackground!false)?then('background', '')}">
-  [#if content.imageAlignment == 'image-left']
-    <div class="pattern-image">
-      <img src="${gf.getImgDefault(content.image)}" alt="${content.imageAlt!}" srcset="${gf.getSrcSet(content.image)}" />
-      [#if content.videourl?has_content]
-        <a href="${content.videourl}" class="feature-play-button video-left"
-        data-embed="${gf.jsonGetString(gf.oEmbedAutodiscover(content.videourl), 'html')?html}">
-          <i class="fa fa-play" aria-hidden="true"></i>
-          <span class="visuallyhidden">Play Video</span>
-        </a>
+<div class="textImagePatternWrapper ${(content.hasBackground!false)?then('background', '')}">
+  <div class="mobilefirst-pattern textImageCTA ${content.imageAlignment!'image-right'}">
+    [#if content.imageAlignment == 'image-left']
+      <div class="pattern-image">
+        <img src="${gf.getImgDefault(content.image)}" alt="${content.imageAlt!}" srcset="${gf.getSrcSet(content.image)}" />
+        [#if content.videourl?has_content]
+          <a href="${content.videourl}" class="feature-play-button video-left"
+          data-embed="${gf.jsonGetString(gf.oEmbedAutodiscover(content.videourl), 'html')?html}">
+            <i class="fa fa-play" aria-hidden="true"></i>
+            <span class="visuallyhidden">Play Video</span>
+          </a>
+        [/#if]
+      </div>
+    [/#if]
+    <div class="pattern-content title-type">
+      <div class="title">${content.title}</div>
+      [#if content.text?has_content]<div class="text">${gf.processRichText(cmsfn.decode(content).text)}</div>[/#if]
+      [#if content.links?has_content]
+        <div class="links">
+          <ul>
+          [#list cmsfn.children(content.links) as lnk]
+            <li>
+              <a href="${gf.filterUrl(lnk.link)}">${lnk.text!}</a>
+            </li>
+          [/#list]
+          </ul>
+        </div>
       [/#if]
     </div>
-  [/#if]
-  <div class="pattern-content title-type">
-    <div class="title">${content.title}</div>
-    [#if content.text?has_content]<div class="text">${gf.processRichText(cmsfn.decode(content).text)}</div>[/#if]
-    [#if content.links?has_content]
-      <div class="links">
-        <ul>
-        [#list cmsfn.children(content.links) as lnk]
-          <li>
-            <a href="${gf.filterUrl(lnk.link)}">${lnk.text!}</a>
-          </li>
-        [/#list]
-        </ul>
+    [#if content.imageAlignment == 'image-right']
+      <div class="pattern-image">
+        <img src="${gf.getImgDefault(content.image)}" alt="${content.imageAlt!}" srcset="${gf.getSrcSet(content.image)}" />
+        [#if content.videourl?has_content]
+          <a href="${content.videourl}" class="feature-play-button video-right"
+          data-embed="${gf.jsonGetString(gf.oEmbedAutodiscover(content.videourl), 'html')?html}">
+            <i class="fa fa-play" aria-hidden="true"></i>
+            <span class="visuallyhidden">Play Video</span>
+          </a>
+        [/#if]
       </div>
     [/#if]
   </div>
-  [#if content.imageAlignment == 'image-right']
-    <div class="pattern-image">
-      <img src="${gf.getImgDefault(content.image)}" alt="${content.imageAlt!}" srcset="${gf.getSrcSet(content.image)}" />
-      [#if content.videourl?has_content]
-        <a href="${content.videourl}" class="feature-play-button video-right"
-        data-embed="${gf.jsonGetString(gf.oEmbedAutodiscover(content.videourl), 'html')?html}">
-          <i class="fa fa-play" aria-hidden="true"></i>
-          <span class="visuallyhidden">Play Video</span>
-        </a>
-      [/#if]
-    </div>
-  [/#if]
 </div>

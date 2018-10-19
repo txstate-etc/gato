@@ -1,8 +1,10 @@
+.textImagePatternWrapper.background {
+  background-color: $section-background-color;
+}
 .mobilefirst-pattern {
   &.textImageCTA {
-    &.background {
-      background-color: $section-background-color;
-    }
+    max-width: 1200px;
+    margin: 0 auto;
     .pattern-content {
       justify-content: flex-start;
       .text {
@@ -34,7 +36,11 @@
     .pattern-image {
       @media (max-width:$sm-breakpoint) {
         order: 1;
-        padding: 4rem 4rem 0 4rem !important;
+        padding: 4rem 2rem 0 2rem !important;
+        height: 320px;
+        img {
+          width: auto;
+        }
       }
       .feature-play-button {
         display: block;
@@ -77,10 +83,13 @@
     }
     &.image-right {
       .pattern-image {
-        padding: 4rem 4rem 4rem 0;
+        padding: 0 2rem 0 0;
       }
       .pattern-content {
-        padding: 4rem 2rem 4rem 4rem;
+        padding: 4rem 2rem 4rem 2rem;
+        @media (max-width:$sm-breakpoint) {
+          padding-top: 2rem;
+        }
       }
     }
     &.image-left {
@@ -88,7 +97,10 @@
         padding: 4rem 0rem 4rem 4rem;
       }
       .pattern-content {
-        padding: 4rem 4rem 4rem 4rem;
+        padding: 4rem 4rem 4rem 2rem;
+        @media (max-width:$sm-breakpoint) {
+          padding-top: 2rem;
+        }
       }
     }
   }
