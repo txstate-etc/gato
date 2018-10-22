@@ -12,10 +12,10 @@
     }
     &.image-right {
       .pattern-image {
-        padding: 0rem 2rem 0rem 0;
+        padding: 4rem 2rem 4rem 0;
         order: 2;
         @media (max-width:$md-breakpoint) {
-          padding: 4rem 4rem 0rem 4rem;
+          padding: 4rem 2rem 0rem 2rem;
           order: 1;
         }
       }
@@ -27,7 +27,7 @@
         }
         @media (max-width:$md-breakpoint) {
           order: 2;
-          padding: 0rem 4rem 4rem 4rem;
+          padding: 0rem 2rem 4rem 2rem;
           .inset {
             right: 0;
           }
@@ -46,7 +46,7 @@
           left: -4rem;
         }
         @media (max-width:$md-breakpoint) {
-          padding: 0rem 4rem 4rem 4rem;
+          padding: 0rem 2rem 4rem 2rem;
           .inset {
             left: 0;
           }
@@ -60,6 +60,7 @@
       }
       @media (max-width:$md-breakpoint) {
         width: 100%;
+        max-height: unset;
       }
     }
     .pattern-content {
@@ -81,6 +82,14 @@
           }
           a, a:active, a:visited {
             color: $blue;
+            &:hover {
+              background: $sandstone;
+            }
+          }
+        }
+        .buttons {
+          ul li {
+            margin-right: 2.2rem;
           }
         }
         &.color1 {
