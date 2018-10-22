@@ -74,8 +74,8 @@ public class GatoComponentSelector extends CustomField<String>{
 
     private VerticalLayout buildTabContent(ArrayList contentTypes) {
       int numTemplates = contentTypes.size();
-      int columns = 3;
-      int rows =(int) Math.ceil(numTemplates/3.0);
+      int columns = 2;
+      int rows =(int) Math.ceil(numTemplates/2.0);
       int templateIndex = 0;
       VerticalLayout tab = new VerticalLayout();
       for ( int i=0; i< rows; i++) {
