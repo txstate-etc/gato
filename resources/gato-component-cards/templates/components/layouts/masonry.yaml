@@ -10,4 +10,4 @@ areas:
     availableComponents: !include /gato-component-cards/templates/areas/availableMasonryComponents.yaml
 parameters:
   icon: /gato-component-cards/images/masonry.png
-  tab: Build Sections
+  tab: Build a Section

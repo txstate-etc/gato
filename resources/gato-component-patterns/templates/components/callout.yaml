@@ -5,4 +5,4 @@ description: A callout with a title, text, and buttons
 dialog: gato-component-patterns:components/callout
 parameters:
   icon: /gato-component-patterns/images/callout.png
-  tab: PreBuilt Layouts
+  tab: Prebuilt Sections

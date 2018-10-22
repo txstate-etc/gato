@@ -5,4 +5,4 @@ description: Two content areas with a title, text, and a button
 dialog: gato-component-patterns:components/twocolcta
 parameters:
   icon: /gato-component-patterns/images/2callouts.png
-  tab: PreBuilt Layouts
+  tab: Prebuilt Sections
