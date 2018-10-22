@@ -31,7 +31,7 @@ public class ClusterableActivationCommand extends PublicationCommand {
     if (!("true".equals(mcp.getProperty("gato.skipscheduler")))) {
       Sender sender = getComponentProvider().newInstance(Sender.class, ctx, getComponentProvider());
       Node toPublish = getJCRNode(ctx);
-      for (int i = 1; i < toPublish.getDepth(); i++) {
+      for (int i = 1; i <= toPublish.getDepth(); i++) {
         List<Node> ancestor = new ArrayList<>();
         Node a = (Node) toPublish.getAncestor(i);
         ancestor.add(a);
