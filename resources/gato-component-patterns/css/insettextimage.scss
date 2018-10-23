@@ -4,7 +4,6 @@
 .mobilefirst-pattern {
   &.insettextimage {
     max-width: 1200px;
-    width: 90%;
     margin: 0 auto;
     @media (max-width:$md-breakpoint) {
       display: block;
@@ -38,7 +37,7 @@
       .pattern-image {
         padding: 4rem 0rem 4rem 4rem;
         @media (max-width:$md-breakpoint) {
-          padding: 4rem 4rem 0rem 4rem;
+          padding: 4rem 2rem 0rem 2rem;
         }
       }
       .pattern-content {
@@ -57,6 +56,10 @@
       img {
         min-height: 315px;
         border-radius: 2px;
+        @media (max-width:$md-breakpoint) {
+          height: 300px;
+          min-height: unset;
+        }
       }
       @media (max-width:$md-breakpoint) {
         width: 100%;
@@ -74,6 +77,8 @@
         border-radius: 2px;
         @media (max-width:$md-breakpoint) {
           position: relative;
+          border-top-left-radius: 0px;
+          border-top-right-radius: 0px;
         }
         .text {
           margin: 0;
