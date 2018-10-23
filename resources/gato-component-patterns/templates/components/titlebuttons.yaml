@@ -4,5 +4,5 @@ title: "Call to Action: Buttons"
 description: A title, text, and buttons
 dialog: gato-component-patterns:components/titlebuttons
 parameters:
-  icon: /gato-component-patterns/images/title-buttons.png
+  icon: /gato-component-patterns/images/calltoaction-buttons.png
   tab: Prebuilt Sections

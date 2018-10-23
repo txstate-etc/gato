@@ -4,5 +4,5 @@ title: "Background Image: Text"
 description: A background image with a text overlay
 dialog: gato-component-patterns:components/imageoverlay
 parameters:
-  icon: /gato-component-patterns/images/title-link-image.png
+  icon: /gato-component-patterns/images/backgroundimage-text.png
   tab: Prebuilt Sections

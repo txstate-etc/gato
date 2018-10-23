@@ -4,5 +4,5 @@ title: Text + Image/Video-Links
 description: An image or video with text and links
 dialog: gato-component-patterns:components/textimagelinks
 parameters:
-  icon: /gato-component-patterns/images/title-link-image.png
+  icon: /gato-component-patterns/images/textimage-link.png
   tab: Prebuilt Sections

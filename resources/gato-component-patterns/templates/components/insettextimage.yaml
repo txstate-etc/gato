@@ -4,5 +4,5 @@ title: "Call to Action: Margin-Buttons + Image"
 description: An image with an overlapping text block
 dialog: gato-component-patterns:components/insettextimage
 parameters:
-  icon: /gato-component-patterns/images/title-link-image.png
+  icon: /gato-component-patterns/images/calltoaction-margin-buttons-image.png
   tab: Prebuilt Sections

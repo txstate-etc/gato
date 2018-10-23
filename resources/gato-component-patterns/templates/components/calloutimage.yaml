@@ -4,5 +4,5 @@ title: Facts/Figures + Image
 description: A callout and an image
 dialog: gato-component-patterns:components/calloutimage
 parameters:
-  icon: /gato-component-patterns/images/callout-image.png
+  icon: /gato-component-patterns/images/fact-figures-image.png
   tab: Prebuilt Sections

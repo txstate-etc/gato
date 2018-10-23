@@ -4,5 +4,5 @@ title: "Facts/Figures: Two"
 description: Two content areas with callout text, a title, a subtitle, and button
 dialog: gato-component-patterns:components/twocallouts
 parameters:
-  icon: /gato-component-patterns/images/2callouts.png
+  icon: /gato-component-patterns/images/facts-figures-two.png
   tab: Prebuilt Sections

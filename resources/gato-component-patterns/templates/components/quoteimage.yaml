@@ -4,5 +4,5 @@ title: Quote + Image
 description: A quotation and source with an image
 dialog: gato-component-patterns:components/quoteimage
 parameters:
-  icon: /gato-component-patterns/images/quote.png
+  icon: /gato-component-patterns/images/quote-image.png
   tab: Prebuilt Sections
