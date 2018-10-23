@@ -1,6 +1,6 @@
 templateScript: /gato-component-patterns/templates/components/twocolcta.ftl
 renderType: freemarker
-title: Call to Action-Two w/Button
+title: "Call to Action: Two w/Button"
 description: Two content areas with a title, text, and a button
 dialog: gato-component-patterns:components/twocolcta
 parameters:

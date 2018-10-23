@@ -1,7 +1,7 @@
 form:
   tabs:
     - name: tabMain
-      label: Call to Action- Icons
+      label: "Call to Action: Icons"
       fields:
         - name: color
           label: Icon Color

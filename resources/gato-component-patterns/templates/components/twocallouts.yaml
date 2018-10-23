@@ -1,6 +1,6 @@
 templateScript: /gato-component-patterns/templates/components/twocallouts.ftl
 renderType: freemarker
-title: Facts/Figures-Two
+title: "Facts/Figures: Two"
 description: Two content areas with callout text, a title, a subtitle, and button
 dialog: gato-component-patterns:components/twocallouts
 parameters:

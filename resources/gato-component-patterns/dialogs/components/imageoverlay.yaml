@@ -1,7 +1,7 @@
 form:
   tabs:
     - name: tabMain
-      label: Background Image- Text
+      label: "Background Image: Text"
       fields:
         - name: image
           class: info.magnolia.ui.form.field.definition.LinkFieldDefinition

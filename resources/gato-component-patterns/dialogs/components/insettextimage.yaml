@@ -1,7 +1,7 @@
 form:
   tabs:
     - name: tabmain
-      label: Call to Action-Margin-Buttons + Image
+      label: "Call to Action: Margin-Buttons + Image"
       fields:
         - name: image
           class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
