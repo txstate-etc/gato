@@ -5,10 +5,14 @@
   &.textImageCTA {
     max-width: 1200px;
     margin: 0 auto;
+    max-height: unset;
     .pattern-content {
       justify-content: flex-start;
       .text {
         margin: 0;
+        @media (max-width:$sm-breakpoint) {
+          max-width: unset;
+        }
         p {
           margin: 0;
         }
@@ -37,10 +41,13 @@
       }
     }
     .pattern-image {
+      img {
+        border-radius: 2px;
+      }
       @media (max-width:$sm-breakpoint) {
         order: 1;
         padding: 4rem 2rem 0 2rem !important;
-        height: 320px;
+        height: 280px;
         img {
           width: auto;
         }
@@ -97,12 +104,13 @@
     }
     &.image-left {
       .pattern-image {
-        padding: 4rem 0rem 4rem 4rem;
+        padding: 4rem 0rem 4rem 2rem;
       }
       .pattern-content {
-        padding: 4rem 4rem 4rem 2rem;
+        padding: 4rem 2rem 4rem 4rem;
         @media (max-width:$sm-breakpoint) {
           padding-top: 2rem;
+          padding: 4rem 2rem;
         }
       }
     }

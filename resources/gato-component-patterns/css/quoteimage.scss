@@ -2,6 +2,9 @@
   .quotation {
     @media (max-width:$sm-breakpoint) {
       padding: 3rem 0rem;
+      .centered {
+        max-width: unset;
+      }
     }
     .quotation-text {
       font-family: $garamond;

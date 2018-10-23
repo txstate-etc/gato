@@ -42,6 +42,11 @@ $pattern-max-height: 400px;
     }
     &.text-left {
       text-align: left;
+      .centered {
+        @media (max-width:$sm-breakpoint) {
+          max-width: unset;
+        }
+      }
     }
     &.text-center {
       text-align: center;
@@ -253,6 +258,13 @@ $pattern-max-height: 400px;
     padding-bottom: 2.2rem;
     max-width: 500px;
     margin: 0 auto;
+  }
+  &.text-left {
+    @media (max-width:$sm-breakpoint) {
+      .text {
+        max-width: unset;
+      }
+    }
   }
 }
 
