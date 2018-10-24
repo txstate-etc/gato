@@ -84,6 +84,24 @@
       }
     }
   }
+
+  //Call to Action: Margin-Buttons + Image
+  &.insettextimage {
+    //sandstone inset
+    .inset.color4 {
+      a.button {
+        color: $maroon;
+      }
+    }
+    //white inset
+    .inset.color5 {
+      border: 1px solid #d8d8d8;
+      box-shadow: 0 0 6px 0 #fafafa;
+      a.button {
+        color: $maroon;
+      }
+    }
+  }
 }
 
 //Icon and Text

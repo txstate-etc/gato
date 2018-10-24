@@ -1,7 +1,7 @@
 label.colorsel {
   display: inline-block;
   padding: 0 1rem;
-  margin: 0.25rem; 
+  margin: 0.25rem;
   width: 15%;
 
   &.color1 > span { background-color: $mc1-bg; color: $mc1-text; &:before { content: $mc1-name; } }
@@ -11,16 +11,17 @@ label.colorsel {
   &.color5 > span { background-color: $mc5-bg; color: $mc5-text; &:before { content: $mc5-name; } }
   &.color6 > span { background-color: $mc6-bg; color: $mc6-text; &:before { content: $mc6-name; } }
   &.color7 > span { background-color: $mc7-bg; color: $mc7-text; &:before { content: $mc7-name; } }
-  
+  &.color8 > span { background-color: $mc8-bg; color: $mc8-text; &:before { content: $mc8-name; } }
+
   input[type=radio] {
-    border: 0; 
-    clip: rect(0 0 0 0); 
-    height: 1px; margin: -1px; 
-    overflow: hidden; 
-    padding: 0; 
-    position: absolute; 
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px; margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
     width: 1px;
-    
+
     & + span {
       display: inline-block;
       font-weight: bold;
@@ -30,7 +31,7 @@ label.colorsel {
       white-space: nowrap;
       border: 1px solid $mgnl-fld-border;
     }
-    
+
     &:checked + span {
       outline: 5px solid $mgnl-outline;
     }
@@ -84,7 +85,7 @@ label.colorsel {
 
     background-repeat:no-repeat;
     background-position: unquote(getBackgroundPosition($template-color-count));
-    
+
     background-size: unquote(getBackgroundSize($template-color-count));
   }
 

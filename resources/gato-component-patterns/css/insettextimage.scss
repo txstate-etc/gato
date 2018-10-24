@@ -146,6 +146,13 @@
             color: $mc7-text;
           }
         }
+        &.color8 {
+          background-color: $mc8-bg;
+          color: $mc8-text;
+          a {
+            color: $mc8-text;
+          }
+        }
       }
     }
   }

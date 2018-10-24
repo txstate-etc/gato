@@ -23,4 +23,38 @@
       }
     }
   }
+  &.insettextimage {
+    .pattern-content {
+      .inset.color4 {
+        a.button {
+          color: $mc4-text;
+        }
+      }
+      .inset.color5 {
+        border: 0px;
+        box-shadow: none;
+        a.button {
+          color: $mc5-text;;
+        }
+      }
+      .inset.color6 {
+        a.button {
+          color: $maroon;
+        }
+      }
+      .inset.color7 {
+        color: $maroon;
+        a.button {
+          color: $maroon;
+        }
+      }
+      .inset.color8 {
+        border: 1px solid #d8d8d8;
+        box-shadow: 0 0 6px 0 #fafafa;
+        a.button {
+          color: $maroon;
+        }
+      }
+    }
+  }
 }

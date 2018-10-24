@@ -46,7 +46,7 @@ form:
           scripts: [gato-lib/js/color-picker.js]
           label: Inset Color
           parameters:
-            contentType: default
+            contentType: insetTextPattern
         - name: title
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Title

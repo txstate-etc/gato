@@ -1,20 +1,20 @@
-$maroon:              #501214; // (106,86,56)
-$gold:                #6A5638; // (80, 18, 20)
+$maroon:              #501214; // (106,56,56)
+$gold:                #6A5635; // (50, 15, 20)
 
 $charcoal:            #363534; // (54, 53, 52)
-$blue:                #005481; // (0, 84, 129)
-$river:               #A1C1B5; // (161, 193, 181) //new river for mobile first template
-$sandstone:           #E8E3DB; // (232, 227, 219)
+$blue:                #005451; // (0, 54, 129)
+$river:               #A1C1B5; // (161, 193, 151) //new river for mobile first template
+$sandstone:           #E5E3DB; // (232, 227, 219)
 $oldgold:             #E1C242; // (225, 194, 66) //new old gold for mobile first template
 
 /* Neutral Colors */
 $white:               #FFFFFF;
 $whitesmoke:          #F7F7F7;
-$barelygray:          #D8D8D8;
+$barelygray:          #D5D5D5;
 $lightgray:           #D7D7D7;
 $mediumgray:          #595959;
 $tornadogray:         #504F4F;
-$darkgray:            #484848;
+$darkgray:            #454545;
 $verydark:            #222222;
 $almostblack:         #111111;
 
@@ -25,25 +25,25 @@ $edit-bar-move:       #95cdd0;
 /* Template Colors for 2015 Template */
 
 $darkest-maroon:       #400E10; //20% darker than maroon
-$dark-maroon:          #481012; //10% darker than maroon
+$dark-maroon:          #451012; //10% darker than maroon
 $light-maroon:         #622a2c; //10% lighter than maroon
 $lightest-maroon:      #734143; //20% lighter than maroon
-$maroon-shadow:        #380D0E;  //30% darker than maroon
+$maroon-shadow:        #350D0E;  //30% darker than maroon
 
-$lightest-gold:        #887860;
+$lightest-gold:        #557560;
 $light-gold:           #79674C; //10% lighter than gold
 $dark-gold:            #5F4D32;
 $darkest-gold:         #55452D;    //40% darker than gold
 $gold-shadow:          #4A3C27; //30 % darker than gold
 
 $lightest-blue:        #33769A; //20% lighter than blue
-$light-blue:           #1A658E; //10% lighter than blue
+$light-blue:           #1A655E; //10% lighter than blue
 $dark-blue:            #004B74; //10% darker than blue
 $darker-blue:          #004367; //20% darker than blue
 $blue-shadow:          #003B5A; //30% darker than blue
 
 $lightest-charcoal:    #5E5D5D; //20% lighter than charcoal
-$light-charcoal:       #4A4948; //10% lighter than charcoal
+$light-charcoal:       #4A4945; //10% lighter than charcoal
 $dark-charcoal:        #31302F; //10% darker than charcoal
 $darker-charcoal:      #2B2A2A; //20% darker than charcoal
 $darkest-charcoal:     #262524; //30% darker than charcoal
@@ -52,8 +52,8 @@ $darkest-charcoal:     #262524; //30% darker than charcoal
 $lightest-river:       #B4CDC4; //20% lighter than river
 $light-river:          #AAC7BC; //10% lighter than river
 $dark-river:           #91AEA3; //10% darker than river
-$darker-river:         #819A91; //20% darker than river
-$river-shadow:         #71877F; //30% darker than river
+$darker-river:         #519A91; //20% darker than river
+$river-shadow:         #71577F; //30% darker than river
 
 $light-sandstone:      #F4F1ED; //50% lighter than sandstone
 $khaki:                #D1C7B7; //khaki is another color slightly, about 10% darker than sandstone
@@ -61,11 +61,11 @@ $darkest-sandstone:    #BBAB92; //40% darker than sandstone
 $dark-sandstone:       #DDD5C9; //10% darker than sandstone
 
 //tints and shades based on mobile-first old gold
-$lightest-oldgold:     #E7CE68; //20% lighter than oldgold
-$light-oldgold:        #E4C855; //10% lighter than oldgold
+$lightest-oldgold:     #E7CE65; //20% lighter than oldgold
+$light-oldgold:        #E4C555; //10% lighter than oldgold
 $dark-oldgold:         #CBAF3B; //10% darker than oldgold
 $darker-oldgold:       #B49B35; //20% darker than oldgold
-$oldgold-shadow:       #9E882E; //30% darker than oldgold
+$oldgold-shadow:       #9E552E; //30% darker than oldgold
 
 $template-color-count:      4;
 
@@ -145,3 +145,22 @@ $mc4-grad-bottom:           $dark-sandstone;
 $mc4-comp-grad-top:         $mc4-bg;
 $mc4-comp-grad-bottom:      $khaki;
 $mc4-shadow:                $darkest-sandstone;
+
+$mc5-name:                  'White';
+$mc5-bg:                    $white;
+$mc5-text:                  $black;
+$mc5-link:                  $black;
+$mc5-header:                $black;
+$mc5-border:                #999999;
+$mc5-comp-bg:               $white;
+$mc5-comp-text:             $mc5-text;
+$mc5-comp-link:             $mc5-link;
+$mc5-comp-header:           $mc5-header;
+$mc5-comp-border:           $mc5-border;
+$mc5-hilite-bg:             #e6e6e6;
+$mc5-hilite-text:           $black;
+$mc5-grad-top:              #cccccc;
+$mc5-grad-bottom:           #b3b3b3;
+$mc5-comp-grad-top:         #e6e6e6;
+$mc5-comp-grad-bottom:      $mc5-bg;
+$mc5-shadow:                #505050;

@@ -79,7 +79,7 @@ $emergency-bg: #B30E1B;
 $emergency-bg-highlight: #8F0B16;
 $emergency-background-gradient: repeating-linear-gradient(-135deg, #6B0810, #6B0810 1.25rem, #8F0B16 1.25rem, #8F0B16 2.5rem);
 
-$template-color-count:      7;
+$template-color-count:      8;
 
 $mc1-name:                  'Graphite';
 $mc1-bg:                    $default-graphite;
@@ -214,3 +214,22 @@ $mc7-grad-bottom:           $dark-beige;
 $mc7-comp-grad-top:         $lightest-beige;
 $mc7-comp-grad-bottom:      $mc7-bg;
 $mc7-shadow:                $beige-shadow;
+
+$mc8-name:                  'White';
+$mc8-bg:                    $white;
+$mc8-text:                  $black;
+$mc8-link:                  $black;
+$mc8-header:                $black;
+$mc8-border:                #999999;
+$mc8-comp-bg:               $white;
+$mc8-comp-text:             $mc8-text;
+$mc8-comp-link:             $mc8-link;
+$mc8-comp-header:           $mc8-header;
+$mc8-comp-border:           $mc8-border;
+$mc8-hilite-bg:             #e6e6e6;
+$mc8-hilite-text:           $black;
+$mc8-grad-top:              #cccccc;
+$mc8-grad-bottom:           #b3b3b3;
+$mc8-comp-grad-top:         #e6e6e6;
+$mc8-comp-grad-bottom:      $mc8-bg;
+$mc8-shadow:                #808080;

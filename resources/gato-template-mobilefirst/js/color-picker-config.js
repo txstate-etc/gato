@@ -34,5 +34,9 @@
     "txstateHomeTopSlider": {
         "singleColor": true,
         "colors": ["color1", "color2", "color3", "color4"]
+    },
+    "insetTextPattern": {
+      "singleColor": true,
+      "colors": ["color1", "color2", "color3", "color4", "color5"]
     }
 }
