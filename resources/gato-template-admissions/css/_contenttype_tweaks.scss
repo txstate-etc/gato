@@ -51,6 +51,9 @@
       .inset.color8 {
         border: 1px solid #d8d8d8;
         box-shadow: 0 0 6px 0 #fafafa;
+        @media (max-width:$sm-breakpoint) {
+          box-shadow: none
+        }
         a.button {
           color: $maroon;
         }
