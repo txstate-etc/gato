@@ -64,28 +64,28 @@
     min-height: 450px;
     &.image-right {
       .pattern-image {
-        margin: 3.5rem 3.5rem 3.5rem 0;
+        margin: 4rem 4rem 4rem 0;
         img {
           border-top-right-radius: $quote-border-radius;
           border-bottom-right-radius: $quote-border-radius;
         }
       }
       .pattern-content {
-        margin: 3.5rem 0 3.5rem 3.5rem;
+        margin: 4rem 0 4rem 4rem;
         border-top-left-radius: $quote-border-radius;
         border-bottom-left-radius: $quote-border-radius;
       }
     }
     &.image-left {
       .pattern-image {
-        margin: 3.5rem 0 3.5rem 3.5rem;
+        margin: 4rem 0 4rem 4rem;
         img {
           border-top-left-radius: $quote-border-radius;
           border-bottom-left-radius: $quote-border-radius;
         }
       }
       .pattern-content {
-        margin: 3.5rem 3.5rem 3.5rem 0;
+        margin: 4rem 4rem 4rem 0;
         border-top-right-radius: $quote-border-radius;
         border-bottom-right-radius: $quote-border-radius;
       }
