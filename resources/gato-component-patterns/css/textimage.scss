@@ -41,9 +41,6 @@
       }
     }
     .pattern-image {
-      img {
-        border-radius: 2px;
-      }
       @media (max-width:$sm-breakpoint) {
         order: 1;
         padding: 4rem 2rem 0 2rem !important;
@@ -52,42 +49,52 @@
           width: auto;
         }
       }
-      .feature-play-button {
-        display: block;
-        position: absolute;
-        top: 50%;
-        &.video-left {
-          left: calc(50% + 2rem); //TODO: 2rem is half of the 4 rem padding I used, which could change
+      .video-wrapper {
+        //@media (max-width:$sm-breakpoint) {
+          height: 100%;
+          position: relative;
+          float: left;
+        //}
+        img {
+          border-radius: 2px;
         }
-        &.video-right {
-          left: calc(50% - 2rem); //TODO: 2rem is half of the 4 rem padding I used, which could change
-        }
-        @media (max-width:$sm-breakpoint) {
-          left: 50% !important;
-          top: calc(50% + 2rem); //TODO: 2rem is half of the 4 rem padding I used, which could change
-        }
-        transform: translate(-50%, -50%);
-        -webkit-transform: translate(-50%, -50%);
-        margin:0;
-        font-size: 4rem;
-        color: white;
-        border-radius: 100%;
-        width:  7rem;
-        height: 7rem;
-        border: 2px solid white;
-        opacity: 0.9;
-        background-color: $maroon;
-        @media (max-width:$mn-breakpoint) {
-          width: 5rem;
-          height: 5rem;
-          font-size: 2.5rem;
-        }
-        i {
+
+        .feature-play-button {
+          display: block;
           position: absolute;
-          top:50%;
-          left: 55%;
+          top: 50%;
+          &.video-left {
+            left: 50%;
+          }
+          &.video-right {
+            left: 50%;
+          }
+          @media (max-width:$sm-breakpoint) {
+            left: 50% !important;
+          }
           transform: translate(-50%, -50%);
           -webkit-transform: translate(-50%, -50%);
+          margin:0;
+          font-size: 2rem;
+          color: white;
+          border-radius: 100%;
+          width:  5.5rem;
+          height: 5.5rem;
+          border: 2px solid white;
+          opacity: 0.9;
+          background-color: $maroon;
+          @media (max-width:$mn-breakpoint) {
+            width: 5rem;
+            height: 5rem;
+            font-size: 2.5rem;
+          }
+          i {
+            position: absolute;
+            top:50%;
+            left: 55%;
+            transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+          }
         }
       }
     }
