@@ -46,9 +46,10 @@ $insetwidth:    4rem;
           }
         }
         @media (max-width:$sm-breakpoint) {
-          padding: 4rem 2rem;
+          padding: 0rem 2rem 4rem 2rem;
           .inset {
             border-bottom-right-radius: 2px;
+            border-top-left-radius: 0px;
           }
         }
       }
@@ -65,9 +66,10 @@ $insetwidth:    4rem;
           }
         }
         @media (max-width: $sm-breakpoint) {
-          padding: 4rem 2rem 4rem 2rem;
+          padding: 4rem 2rem 0rem 2rem;
           img {
             border-top-right-radius: 2px;
+            border-bottom-left-radius: 0px;
           }
         }
       }
@@ -84,9 +86,10 @@ $insetwidth:    4rem;
           }
         }
         @media (max-width: $sm-breakpoint) {
-          padding: 4rem 2rem;
+          padding: 0rem 2rem 4rem 2rem;
           .inset {
             border-bottom-left-radius: 2px;
+            border-top-right-radius: 0px;
           }
         }
       }
@@ -96,8 +99,9 @@ $insetwidth:    4rem;
         min-height: 315px;
         border-radius: 2px;
         @media (max-width: $sm-breakpoint) {
-          height: 300px;
-          min-height: unset;
+          // height: 300px;
+          // min-height: unset;
+          min-height: 240px;
         }
       }
     }
