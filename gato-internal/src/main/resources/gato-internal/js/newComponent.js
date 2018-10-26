@@ -5,15 +5,15 @@
 function initNewComponent(def, node, el) {
     //hide script field
     $(el).closest('.v-form-field-section').hide();
-    resizeTiles();
-    var observer = new MutationObserver(function(mutations) {
-      mutations.forEach(function(mutation) {
-        resizeTiles();
-      })
-    })
-
-    var tabsheetpanel = $('.v-tabsheet-tabsheetpanel');
-    observer.observe(tabsheetpanel[0], {childList: true})
+    // resizeTiles();
+    // var observer = new MutationObserver(function(mutations) {
+    //   mutations.forEach(function(mutation) {
+    //     resizeTiles();
+    //   })
+    // })
+    //
+    // var tabsheetpanel = $('.v-tabsheet-tabsheetpanel');
+    // observer.observe(tabsheetpanel[0], {childList: true})
 }
 
 function resizeTiles() {

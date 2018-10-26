@@ -8,6 +8,10 @@
     margin-bottom: 5px;
 }
 
+.component-text {
+  height: 2.5rem;
+}
+
 .component-title{
     font-weight: bold;
     padding-bottom: 3px;
