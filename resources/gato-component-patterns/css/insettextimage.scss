@@ -125,12 +125,6 @@ $insetwidth:    4rem;
           p {
             margin: 0;
           }
-          a, a:active, a:visited {
-            color: $blue;
-            &:hover {
-              background: $sandstone;
-            }
-          }
         }
         .buttons {
           ul li {
