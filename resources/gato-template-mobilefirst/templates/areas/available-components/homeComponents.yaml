@@ -11,6 +11,8 @@ twocolcta:
   id: gato-component-patterns:components/twocolcta
 icontextmulti:
   id: gato-component-patterns:components/icontextmulti
+insettextimage:
+  id: gato-component-patterns:components/insettextimage
 textimagebuttons:
   id: gato-component-patterns:components/textimagebuttons
 textimagelinks:
