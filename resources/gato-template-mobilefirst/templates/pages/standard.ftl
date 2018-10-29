@@ -3,12 +3,14 @@
 <!DOCTYPE HTML>
 <html lang="en">
   <head>
+    [@googletagmanager /]
     [@templatejs scripts=['gato-template-mobilefirst/js/standard.cjs']/]
     [@templatehead/]
     [@cms.area name="templatecss"/]
   </head>
   <body class="${cmsfn.isEditMode()?string('admin','')}">
     [@skipnav/]
+    [@googletagmanagerbody /]
     [#include "includes/header.ftl"]
     [#include "includes/menu.ftl"]
     <div class="page-container" id="panel">

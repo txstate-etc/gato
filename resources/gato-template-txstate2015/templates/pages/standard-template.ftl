@@ -3,6 +3,7 @@
 <!DOCTYPE HTML>
 <html lang="en">
 	<head>
+		[@googletagmanager /]
 		<link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-txstate2015/css/txstate2015.scss"/>
     [@templatejs scripts = [
       'gato-template-txstate2015/js/includes.cjs',
@@ -13,6 +14,7 @@
 	</head>
 	<body class="${cmsfn.isEditMode()?string('admin','')}">
     [@skipnav/]
+		[@googletagmanagerbody /]
 		<nav id="menu" class="mobile_nav" role="dialog">
 			<div class="mobile_nav_container">
 				<div class="mobile_trail">

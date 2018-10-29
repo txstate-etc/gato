@@ -4,7 +4,7 @@
 <!DOCTYPE HTML>
 <html lang="en">
   <head>
-    [@googletagmanager account=gf.getConfigProperty('trumba.tagmanager')!/]
+    [@googletagmanager /]
     <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-trumba/css/standard.scss"/>
     [@templatejs scripts=['gato-template-trumba/js/trumba.js'
     ]/]
@@ -14,7 +14,7 @@
 
   <body>
     [@skipnav/]
-    [@googletagmanagerbody account=gf.getConfigProperty('trumba.tagmanager')!/]
+    [@googletagmanagerbody /]
     <div id="panel" class="container">
       [#include "/gato-template-txstate2015/templates/pages/includes/top-banner.ftl"]
 
