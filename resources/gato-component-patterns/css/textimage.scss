@@ -49,6 +49,11 @@
           width: auto;
         }
       }
+      @media (max-width: $mn-breakpoint) {
+        img {
+          width: 100%;
+        }
+      }
       .video-wrapper {
         //@media (max-width:$sm-breakpoint) {
           height: 100%;
@@ -58,7 +63,9 @@
         img {
           border-radius: 2px;
         }
-
+        @media (max-width:$mn-breakpoint) {
+          float: none;
+        }
         .feature-play-button {
           display: block;
           position: absolute;
