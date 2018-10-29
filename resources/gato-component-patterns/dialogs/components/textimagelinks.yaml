@@ -1,7 +1,7 @@
 form:
   tabs:
     - name: tabmain
-      label: Text + Image/Video- Links
+      label: "Text + Image/Video: Links"
       fields:
         - name: image
           class: info.magnolia.ui.form.field.definition.LinkFieldDefinition

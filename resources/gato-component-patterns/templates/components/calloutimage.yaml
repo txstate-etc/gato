@@ -1,6 +1,6 @@
 templateScript: /gato-component-patterns/templates/components/calloutimage.ftl
 renderType: freemarker
-title: Facts/Figures + Image
+title: "Facts/Figures: Image"
 description: A callout and an image
 dialog: gato-component-patterns:components/calloutimage
 parameters:
