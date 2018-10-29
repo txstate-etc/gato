@@ -4,7 +4,7 @@ dialog: gato-component-faq:components/faqgroup
 title: FAQ Group
 description: A container for FAQs
 parameters:
-  icon: /gato-component-faq/images/faq.png
+  icon: /gato-component-faq/images/groupsfaq.png
 areas:
   faqgroup:
     type: list

@@ -4,4 +4,4 @@ dialog: gato-component-faq:components/question
 title: Question and Answer
 description: A question and the answer to that question
 parameters:
-  icon: /gato-component-faq/images/faq.png
+  icon: /gato-component-faq/images/qaicon.png
