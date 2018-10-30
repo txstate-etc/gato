@@ -11,6 +11,7 @@ jQuery(document).ready(function($) {
     //in search box
     if ($('#search-text').length) {
       $('#search-text').autocomplete({
+          delay: 600,
           minLength: 3,
           classes: {
             "ui-autocomplete":"gato-site-search"
@@ -30,7 +31,7 @@ jQuery(document).ready(function($) {
               var search = new Search(options);
               search.featured(request.term)
               .then(function(results){
-                  var data = results.results.slice(0,3).map(function(obj, index){
+                  var data = results.slice(0,3).map(function(obj, index){
                       var result = {title: obj.title, url_display: obj.url_display, url: obj.url};
                       return result;
                   });
