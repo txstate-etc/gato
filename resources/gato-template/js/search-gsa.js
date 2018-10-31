@@ -1,5 +1,5 @@
 (function($) {
-var featured_url = 'https://mwsfeaturedsearchqa1.tr.qual.txstate.edu/search';
+var featured_url = 'https://featured.search.txstate.edu/search';
 window.Search = function(opts) {
   opts = opts || {};
   if (!(this instanceof Search)) {
