@@ -86,6 +86,9 @@ body.admin {
 
   div.mgnlEditorBar.component {
     @extend %bar;
+    &.focus {
+      background-color: $edit-bar-teal !important;
+    }
   }
 
   div.mgnlPlaceholder div.mgnlEditorBar{
