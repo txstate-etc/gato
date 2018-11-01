@@ -203,10 +203,14 @@ $pattern-max-height: 400px;
       max-width: 100%;
       width: 100%;
       height: 100%;
+      min-height: 100%;
       display: block;
       object-fit: cover;
       object-position: 50% 50%;
       font-family: 'object-fit: cover; object-position: 50% 50%;';
+      @media (max-width: $sm-breakpoint) {
+        min-height: unset;
+      }
     }
     .overlay-left {
       background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.47), rgba(255, 255, 255, 0));
