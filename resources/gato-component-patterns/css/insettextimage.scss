@@ -107,8 +107,11 @@ $insetwidth:    4rem;
     }
     .pattern-content {
       position: relative;
+      display: block;
       .inset {
         position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
         padding: 3.5rem 2.5rem;
         border-radius: 2px;
         width: calc(100% + #{$insetwidth}/2);
@@ -119,6 +122,8 @@ $insetwidth:    4rem;
         }
         @media (max-width:$sm-breakpoint) {
           min-height: unset;
+          top: auto;
+          transform: none;
         }
         .text {
           margin: 0;
