@@ -27,7 +27,8 @@
     display: inline-block;
     vertical-align: middle;
     text-align: center;
-
+    width: 90%;
+    height: auto;
 }
 
 .gato-grid-component.selected-component{

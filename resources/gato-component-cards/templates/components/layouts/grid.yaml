@@ -9,5 +9,5 @@ areas:
     type: list
     availableComponents: !include /gato-component-cards/templates/areas/availableGridComponents.yaml
 parameters:
-  icon: /gato-component-cards/images/mosaic.png
+  icon: /gato-component-cards/images/mosaic.svg
   tab: Build a Section

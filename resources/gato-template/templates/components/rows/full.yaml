@@ -10,5 +10,5 @@ areas:
     availableComponents:
       !include /gato-template/templates/areas/availableComponents.yaml
 parameters:
-  icon: /gato-template/images/onecolumn.png
+  icon: /gato-template/images/onecolumn.svg
   tab: Build a Section

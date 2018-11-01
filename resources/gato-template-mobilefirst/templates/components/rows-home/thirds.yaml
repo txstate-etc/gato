@@ -20,5 +20,5 @@ areas:
     availableComponents:
       !include /gato-template-mobilefirst/templates/areas/available-components/availableComponentsSmallColumnsHome.yaml
 parameters:
-  icon: /gato-template/images/3column.png
+  icon: /gato-template/images/3column.svg
   tab: Build a Section
