@@ -13,7 +13,7 @@
   [#if headerLogic.hasImage]
     [#assign himg = headerLogic.himg]
     <div class="banner-image interior tall">
-      <img src="${headerLogic.defaultSrc}" alt="" srcset="${headerLogic.srcset!}" width="${gf.getImgWidth(himg.image)?c}" height="${gf.getImgHeight(himg.image)?c}">
+      <img src="${headerLogic.defaultSrc}" alt="" srcset="${headerLogic.srcset!}" sizes="(max-width: 800px) 800px, 100vw"width="${gf.getImgWidth(himg.image)?c}" height="${gf.getImgHeight(himg.image)?c}">
     </div>
   [/#if]
   </div>
