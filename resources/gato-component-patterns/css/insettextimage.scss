@@ -119,11 +119,11 @@ $insetwidth:    4rem;
           position: relative;
           min-height: 315px;
           width: 100%;
+          transform: none;
+          top: auto;
         }
         @media (max-width:$sm-breakpoint) {
           min-height: unset;
-          top: auto;
-          transform: none;
         }
         .text {
           margin: 0;

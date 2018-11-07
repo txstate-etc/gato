@@ -65,6 +65,7 @@
         //}
         img {
           border-radius: 2px;
+          min-height: unset;
         }
         @media (max-width:$mn-breakpoint) {
           float: none;
