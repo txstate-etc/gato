@@ -107,6 +107,12 @@ $pattern-max-height: 400px;
         color: $mc7-text;
       }
     }
+    //to fix text pasted in the rich editor in Edge
+    font, span {
+      color: inherit !important;
+      font-size: inherit !important;
+      font-family: inherit !important;
+    }
     .buttons {
       ul {
         list-style: none;
