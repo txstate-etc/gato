@@ -8,16 +8,17 @@ window.Search = function(opts) {
   this.opts = {
     num: opts.num || 5,
     start: opts.start || 1,
-    url: opts.url || 'https://www.googleapis.com/customsearch/v1',
+    url: opts.url || 'https://www.googleapis.com/customsearch/v1/siterestrict',
     sitesearch: opts.sitesearch || 'txstate.edu',
     sort: opts.sort || 'relevance',
     site: opts.site || 'txstate_no_users',
     client: opts.client || 'txstate'
   }
   var cxMap = {
-    'txstate_no_users': '004527626732577828901:1rcpwk8svkk'
+    'txstate_no_users': '004527626732577828901:1rcpwk8svkk',
+    'support_sites': '004527626732577828901:eevz8v8a43c'
   }
-  this.opts.cx = cxMap[this.opts.site];
+  this.opts.cx = cxMap[this.opts.site] || opts.cx;
 }
 
 Search.prototype.doSearch = function(query) {
