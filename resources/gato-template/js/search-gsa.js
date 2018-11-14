@@ -8,7 +8,7 @@ window.Search = function(opts) {
   this.opts = {
     num: opts.num || 5,
     start: opts.start || 1,
-    url: opts.url || 'https://www.googleapis.com/customsearch/v1/siterestrict',
+    url: opts.url || 'https://www.googleapis.com/customsearch/v1' + opts.site !== 'support_sites' ? '/siterestrict' : '',
     sitesearch: opts.sitesearch || 'txstate.edu',
     sort: opts.sort || 'relevance',
     site: opts.site || 'txstate_no_users',
