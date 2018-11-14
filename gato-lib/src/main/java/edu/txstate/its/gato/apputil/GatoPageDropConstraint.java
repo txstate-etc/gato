@@ -11,7 +11,7 @@ import javax.jcr.RepositoryException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.vaadin.data.Item;
+import com.vaadin.v7.data.Item;
 
 // Don't allow a top level page to be moved under another page.
 // Dont allow a sub page to become a top level page.

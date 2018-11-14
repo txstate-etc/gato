@@ -26,7 +26,7 @@
 
     <entry-point class="edu.txstate.its.gato.vaadin.client.GatoWidgetSet" />
 
-    <inherits name="org.vaadin.openesignforms.ckeditor.widgetset.VaadinCKEditorWidgetset" />
+    
 
 
 
@@ -38,9 +38,9 @@
 
     
 
-    <inherits name="org.vaadin.aceeditor.AceEditorWidgetSet" />
+    
 
-    <inherits name="org.vaadin.cssinject.Cssinject_addonWidgetset" />
+    
 
     <inherits name="info.magnolia.ui.vaadin.gwt.CommonWidgetSet" />
 
@@ -49,4 +49,8 @@
 
 
     <inherits name="com.vaadin.DefaultWidgetSet" />
+
+    <inherits name="com.vaadin.v7.Vaadin7WidgetSet" />
+
+    <inherits name="org.vaadin.easyuploads.Widgetset" />
 </module>

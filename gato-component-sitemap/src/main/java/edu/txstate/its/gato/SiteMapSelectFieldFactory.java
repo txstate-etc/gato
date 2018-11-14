@@ -5,7 +5,7 @@ import info.magnolia.ui.form.field.factory.SelectFieldFactory;
 import info.magnolia.ui.form.field.definition.SelectFieldOptionDefinition;
 import info.magnolia.ui.vaadin.integration.jcr.JcrNodeAdapter;
 
-import com.vaadin.data.Item;
+import com.vaadin.v7.data.Item;
 
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;

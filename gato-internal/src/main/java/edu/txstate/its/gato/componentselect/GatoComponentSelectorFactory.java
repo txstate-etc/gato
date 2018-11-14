@@ -4,8 +4,8 @@ import info.magnolia.context.MgnlContext;
 
 import info.magnolia.ui.form.field.definition.FieldDefinition;
 import info.magnolia.ui.form.field.factory.AbstractFieldFactory;
-import com.vaadin.data.Item;
-import com.vaadin.ui.Field;
+import com.vaadin.v7.data.Item;
+import com.vaadin.v7.ui.Field;
 
 import info.magnolia.pages.app.editor.PageEditorPresenter;
 import info.magnolia.pages.app.field.TemplateSelectorFieldFactory;

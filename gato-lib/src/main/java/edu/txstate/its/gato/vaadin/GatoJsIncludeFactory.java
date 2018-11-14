@@ -1,8 +1,8 @@
 package edu.txstate.its.gato.vaadin;
 
-import com.vaadin.data.Item;
-import com.vaadin.data.util.PropertysetItem;
-import com.vaadin.ui.Field;
+import com.vaadin.v7.data.Item;
+import com.vaadin.v7.data.util.PropertysetItem;
+import com.vaadin.v7.ui.Field;
 
 import javax.inject.Inject;
 

@@ -1,7 +1,7 @@
 package edu.txstate.its.gato.vaadin;
 
-import com.vaadin.data.Item;
-import com.vaadin.ui.Field;
+import com.vaadin.v7.data.Item;
+import com.vaadin.v7.ui.Field;
 
 import edu.txstate.its.gato.vaadin.server.HiddenField;
 

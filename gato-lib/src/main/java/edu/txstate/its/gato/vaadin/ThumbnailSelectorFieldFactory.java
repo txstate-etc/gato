@@ -4,9 +4,9 @@ import info.magnolia.ui.form.field.definition.FieldDefinition;
 import info.magnolia.ui.form.field.factory.AbstractFieldFactory;
 import info.magnolia.ui.vaadin.integration.jcr.JcrNodeAdapter;
 
-import com.vaadin.data.Item;
-import com.vaadin.data.util.PropertysetItem;
-import com.vaadin.ui.Field;
+import com.vaadin.v7.data.Item;
+import com.vaadin.v7.data.util.PropertysetItem;
+import com.vaadin.v7.ui.Field;
 
 import edu.txstate.its.gato.GatoUtils;
 

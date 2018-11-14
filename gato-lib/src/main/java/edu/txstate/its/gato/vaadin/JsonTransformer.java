@@ -16,7 +16,7 @@ import javax.jcr.RepositoryException;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 
-import com.vaadin.data.Item;
+import com.vaadin.v7.data.Item;
 
 public class JsonTransformer implements Transformer<String> {
   protected ConfiguredFieldDefinition definition;

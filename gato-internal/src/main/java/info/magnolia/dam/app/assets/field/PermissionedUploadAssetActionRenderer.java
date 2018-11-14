@@ -65,16 +65,16 @@ import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.CssLayout;
 import com.vaadin.ui.NativeButton;
 import com.vaadin.ui.UI;
-import com.vaadin.ui.Upload;
-import com.vaadin.ui.Upload.FailedEvent;
-import com.vaadin.ui.Upload.FailedListener;
-import com.vaadin.ui.Upload.FinishedEvent;
-import com.vaadin.ui.Upload.FinishedListener;
-import com.vaadin.ui.Upload.ProgressListener;
-import com.vaadin.ui.Upload.StartedEvent;
-import com.vaadin.ui.Upload.StartedListener;
-import com.vaadin.ui.Upload.SucceededEvent;
-import com.vaadin.ui.Upload.SucceededListener;
+import com.vaadin.v7.ui.Upload;
+import com.vaadin.v7.ui.Upload.FailedEvent;
+import com.vaadin.v7.ui.Upload.FailedListener;
+import com.vaadin.v7.ui.Upload.FinishedEvent;
+import com.vaadin.v7.ui.Upload.FinishedListener;
+import com.vaadin.v7.ui.Upload.ProgressListener;
+import com.vaadin.v7.ui.Upload.StartedEvent;
+import com.vaadin.v7.ui.Upload.StartedListener;
+import com.vaadin.v7.ui.Upload.SucceededEvent;
+import com.vaadin.v7.ui.Upload.SucceededListener;
 
 /**
  * Renders and upload instead of a mere button.

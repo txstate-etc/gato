@@ -1,14 +1,14 @@
 package edu.txstate.its.gato.componentselect;
 
-import com.vaadin.ui.CustomField;
-import com.vaadin.ui.VerticalLayout;
-import com.vaadin.ui.HorizontalLayout;
+import com.vaadin.v7.ui.CustomField;
+import com.vaadin.v7.ui.VerticalLayout;
+import com.vaadin.v7.ui.HorizontalLayout;
 import com.vaadin.ui.GridLayout;
-import com.vaadin.ui.TextField;
-import com.vaadin.ui.Label;
+import com.vaadin.v7.ui.TextField;
+import com.vaadin.v7.ui.Label;
 import com.vaadin.ui.TabSheet;
 import com.vaadin.ui.Component;
-import com.vaadin.data.Property;
+import com.vaadin.v7.data.Property;
 import com.vaadin.annotations.StyleSheet;
 import com.vaadin.server.ExternalResource;
 import com.vaadin.ui.Image;

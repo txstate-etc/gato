@@ -11,7 +11,7 @@
   <dependencies>
     <dependency>
       <name>core</name>
-      <version>${magnoliaVersion}/*</version>
+      <version>5.5.7/*</version>
     </dependency>
   <!-- Add other dependencies here, e.g the standard-templating-kit, or the multisite module with the enterprise edition. -->
   <!--

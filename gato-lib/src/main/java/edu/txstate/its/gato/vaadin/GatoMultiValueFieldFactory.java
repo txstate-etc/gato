@@ -6,12 +6,12 @@ import info.magnolia.ui.api.i18n.I18NAuthoringSupport;
 import info.magnolia.ui.form.field.factory.FieldFactoryFactory;
 import info.magnolia.ui.form.field.factory.AbstractFieldFactory;
 import info.magnolia.ui.form.field.transformer.multi.DelegatingMultiValueFieldTransformer;
-import com.vaadin.data.util.PropertysetItem;
+import com.vaadin.v7.data.util.PropertysetItem;
 
 import javax.inject.Inject;
 
-import com.vaadin.data.Item;
-import com.vaadin.ui.Field;
+import com.vaadin.v7.data.Item;
+import com.vaadin.v7.ui.Field;
 
 public class GatoMultiValueFieldFactory extends AbstractFieldFactory<GatoMultiValueFieldDefinition, PropertysetItem> {
 

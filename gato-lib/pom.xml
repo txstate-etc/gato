@@ -51,7 +51,15 @@
     </dependency>
     <dependency>
       <groupId>com.vaadin</groupId>
+      <artifactId>vaadin-compatibility-server</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.vaadin</groupId>
       <artifactId>vaadin-shared</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.vaadin</groupId>
+      <artifactId>vaadin-compatibility-shared</artifactId>
     </dependency>
     <dependency>
       <groupId>org.projectlombok</groupId>
@@ -83,7 +91,7 @@
     <dependency>
       <groupId>info.magnolia.restclient</groupId>
       <artifactId>magnolia-rest-client-app</artifactId>
-      <version>1.1.1</version>
+      <version>1.5.2</version>
     </dependency>
     <dependency>
       <groupId>com.google.code.gson</groupId>

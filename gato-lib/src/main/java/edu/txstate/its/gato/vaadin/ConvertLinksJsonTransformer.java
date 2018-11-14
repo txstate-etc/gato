@@ -13,7 +13,7 @@ import javax.inject.Inject;
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 
-import com.vaadin.data.Item;
+import com.vaadin.v7.data.Item;
 
 /**
  * Json Transformer that converts image links to/from absolute/uuid format for rich editor.

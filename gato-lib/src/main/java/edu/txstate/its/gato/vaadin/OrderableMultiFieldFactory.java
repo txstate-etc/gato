@@ -9,9 +9,9 @@ import info.magnolia.ui.form.field.transformer.Transformer;
 
 import javax.inject.Inject;
 
-import com.vaadin.data.Item;
-//import com.vaadin.data.util.PropertysetItem;
-import com.vaadin.ui.Field;
+import com.vaadin.v7.data.Item;
+//import com.vaadin.v7.data.util.PropertysetItem;
+import com.vaadin.v7.ui.Field;
 
 public class OrderableMultiFieldFactory extends AbstractFieldFactory<OrderableMultiFieldDefinition, OrderablePropertysetItem> {
 

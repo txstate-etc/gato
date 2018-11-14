@@ -29,10 +29,10 @@ import org.slf4j.LoggerFactory;
 
 import com.google.gson.Gson;
 import com.google.inject.Inject;
-import com.vaadin.data.Item;
-import com.vaadin.data.util.converter.Converter;
+import com.vaadin.v7.data.Item;
+import com.vaadin.v7.data.util.converter.Converter;
 import com.vaadin.server.Sizeable.Unit;
-import com.vaadin.ui.Field;
+import com.vaadin.v7.ui.Field;
 import com.vaadin.ui.UI;
 
 import edu.txstate.its.gato.vaadin.server.FaqTextField;

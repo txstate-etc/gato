@@ -7,8 +7,8 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-import com.vaadin.data.Item;
-import com.vaadin.data.Property;
+import com.vaadin.v7.data.Item;
+import com.vaadin.v7.data.Property;
 
 /**
  * A reorderable PropertysetItem. Most of this code comes from com.vaadin.data.PropertysetItem. See https://github.com/vaadin/vaadin

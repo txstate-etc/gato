@@ -44,9 +44,9 @@ import javax.inject.Inject;
 
 import org.apache.commons.lang3.time.FastDateFormat;
 
-import com.vaadin.data.Item;
-import com.vaadin.data.Property;
-import com.vaadin.ui.Table;
+import com.vaadin.v7.data.Item;
+import com.vaadin.v7.data.Property;
+import com.vaadin.v7.ui.Table;
 
 /**
  * Formats a column's value as a date in a compact form. 
