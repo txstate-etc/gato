@@ -48,7 +48,7 @@ Search.prototype.doSearch = function(query) {
         title: item.title,
         summary_html: item.htmlSnippet,
         url: item.link,
-        url_display: item.displayLink,
+        url_display: item.htmlFormattedUrl,
         date: "",
         featured: false
       };
