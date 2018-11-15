@@ -37,7 +37,7 @@ Search.prototype.doSearch = function(query) {
   var dfd = $.Deferred();
   $.get(self.opts.url, params).then(function (data) {
     var result = {};
-    result.total = parseInt(data.queries.request[0].totalResults, 10);
+    result.total = Math.min(100, parseInt(data.queries.request[0].totalResults, 10));
     result.start = params.start;
     result.end = (params.start + params.num - 1) > result.total ? result.total : (params.start + params.num - 1);
     result.type = "web";
