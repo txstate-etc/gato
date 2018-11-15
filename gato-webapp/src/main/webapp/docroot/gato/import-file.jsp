@@ -5,15 +5,12 @@
 <jsp:output doctype-root-element="html"
 	doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN"
 	doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" />
-<jsp:directive.page import="info.magnolia.cms.core.Content" />
 <jsp:directive.page import="info.magnolia.importexport.DataTransporter" />
-<jsp:directive.page import="info.magnolia.cms.beans.config.ContentRepository" />
-<jsp:directive.page import="info.magnolia.cms.core.HierarchyManager" />
+<jsp:directive.page import="info.magnolia.repository.RepositoryConstants" />
 <jsp:directive.page import="info.magnolia.context.MgnlContext" />
 <jsp:directive.page import="java.util.Iterator" />
 <jsp:directive.page import="java.io.File" />
 <jsp:directive.page import="java.io.IOException" />
-<jsp:directive.page import="info.magnolia.cms.core.ItemType" />
 <jsp:directive.page import="org.apache.commons.lang.StringUtils" />
 <jsp:directive.page import="java.util.Arrays" />
 
@@ -36,7 +33,7 @@
 		return ret;
 	}
 
-	public void importPage (JspWriter out, HierarchyManager hm, String path, String repo, String fs, String timestamp) throws IOException {
+	public void importPage (JspWriter out, String path, String repo, String fs, String timestamp) throws IOException {
 		try {
 			String basepath = path.replaceAll("/[^/]+/?$", "/");
 			out.print("Restoring "+path+" into "+basepath+" ... ");
@@ -50,7 +47,6 @@
 					true);
 			out.println("import-succeeded!");
 			out.flush();
-			Content c = hm.getContent(path);
 		} catch (Exception e) {
 			out.println("import-failed!");
 			e.printStackTrace(new java.io.PrintWriter((java.io.Writer) out));
@@ -66,7 +62,7 @@
 	if (!StringUtils.startsWith(path, "/")) path = "/"+path;
 
 	String repo = request.getParameter("repo");
-	if (StringUtils.isEmpty(repo)) repo = ContentRepository.WEBSITE;
+	if (StringUtils.isEmpty(repo)) repo = RepositoryConstants.WEBSITE;
 
 	String fs = request.getParameter("fs");
 	if (StringUtils.isEmpty(fs)) fs = "/var/backup";
@@ -77,13 +73,12 @@
 
 	String[] workspaces = {"config", "dam", "dms", "gatoapps", "usergroups", "userroles", "users", "website"};
 	if (Arrays.asList(workspaces).contains(repo)) {
-		HierarchyManager hm=MgnlContext.getHierarchyManager( repo );
 		out.println("Restoring from backup files...<br/>");
 		out.println("repository: "+repo+"<br/>");
 		out.println("path: "+path+"<br/>");
 		out.println("base file path: "+fs+"<br/>");
 		out.flush();
-		importPage(out, hm, path, repo, fs, timestamp);
+		importPage(out, path, repo, fs, timestamp);
 	} else {
 		out.println("Unknown repo ... import-failed!");
 		out.flush();
