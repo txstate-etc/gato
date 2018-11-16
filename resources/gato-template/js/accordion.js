@@ -1,13 +1,13 @@
 (function($) {
   var accordion_dur = 150;
   window.accordion = {
-    show : function ($lnk, options) {
+    show : function ($hdr, options) {
       options = options || {};
-      var $parent = $lnk.parent();
-      var $panel = $lnk.next();
+      var $parent = $hdr.parent();
+      var $panel = $hdr.next();
+      var $lnk = $hdr.find('a');
       $parent.addClass('shown');
-      $parent.attr('aria-expanded', true);
-      $panel.attr('aria-hidden', false);
+      $lnk.attr('aria-expanded', true);
       if (options.instant) {
         $panel.show();
       } else {
@@ -15,13 +15,13 @@
       }
     },
 
-    hide : function($lnk, options) {
+    hide : function($hdr, options) {
       options = options || {};
-      var $parent = $lnk.parent();
-      var $panel = $lnk.next();
+      var $parent = $hdr.parent();
+      var $panel = $hdr.next();
+      var $lnk = $hdr.find('a');
       $parent.removeClass('shown');
-      $parent.attr('aria-expanded', false);
-      $panel.attr('aria-hidden', true);
+      $lnk.attr('aria-expanded', false);
       if (options.instant) {
         $panel.hide();
       } else {
@@ -29,10 +29,10 @@
       }
     },
 
-    toggle : function($lnk) {
-      var $parent = $lnk.parent();
-      if ($parent.hasClass('shown')) window.accordion.hide($lnk);
-      else window.accordion.show($lnk);
+    toggle : function($hdr) {
+      var $parent = $hdr.parent();
+      if ($parent.hasClass('shown')) window.accordion.hide($hdr);
+      else window.accordion.show($hdr);
     }
   }
 

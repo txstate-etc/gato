@@ -56,9 +56,9 @@
         <div class="gato-accordion-header">
           [@h2 class="txst-eventdetail-title" offset=offset]
             ${item.cancelled?string('CANCELLED - ','')}
-            <span class="p-name summary">
+            <a href="#" class="p-name summary" aria-haspopup="true" aria-expanded="${model.collapsed?string('false', 'true')}">
               ${item.title}
-            </span>
+            </a>
           [/@h2]
           <div class="txst-eventdetail-dates">
             <time class="dt-start dtstart" datetime="${item.machineStartDate}">

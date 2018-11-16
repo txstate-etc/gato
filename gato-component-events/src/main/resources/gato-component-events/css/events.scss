@@ -23,9 +23,11 @@
     }
 
     .gato-accordion-header {
-      color: $event-header-color;
       background: $event-header-background;
       box-shadow: 0px 0px 0px 1px $event-header-box-shadow-color;
+      &, a {
+        color: $event-header-color;
+      }
       &:hover, &:active {
         background: $event-header-background-hover;
       }

@@ -5,7 +5,7 @@
   <li>
     <div class="gato-accordion" data-start-collapsed="true">
       <div class="gato-accordion-header">
-        <a href="#">${globalLinks.superGroup3.text!'Online Services'} <i class="fa fa-caret-down"></i></a>
+        <a href="#" aria-haspopup="true" aria-expanded="false">${globalLinks.superGroup3.text!'Online Services'} <i class="fa fa-caret-down"></i></a>
       </div>
       <div class="gato-accordion-content">
         <ul>

@@ -5,6 +5,6 @@
   </div>
   ${ctx.request.setAttribute('faqButtonsAdded', true)}
 [/#if]
-<ul class="gato-faq-hierarchy" role="tree">
+<ul class="gato-faq-hierarchy">
 [@cms.area name="faqTree" contextAttributes={"depth": 0}/]
 </ul>
