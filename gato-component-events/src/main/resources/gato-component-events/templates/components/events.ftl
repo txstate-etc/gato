@@ -49,6 +49,7 @@
     [#if (!content.hideRepeats?? || !content.hideRepeats) || (content.hideRepeats && recurrenceIdHash[item.eventId] == item.recurrenceId)]
 
       [#assign eventClass=item.cancelled?string('txst-eventdetail-cancelled','h-event vevent')]
+      [#assign eventDomId]e${item.recurrenceId}[/#assign]
 
       <div class="txst-eventdetail gato-accordion ${eventClass}"
           data-start-collapsed="${model.collapsed?string('true', 'false')}">
@@ -56,7 +57,7 @@
         <div class="gato-accordion-header">
           [@h2 class="txst-eventdetail-title" offset=offset]
             ${item.cancelled?string('CANCELLED - ','')}
-            <a href="#" class="p-name summary" aria-haspopup="true" aria-expanded="${model.collapsed?string('false', 'true')}">
+            <a href="#" class="p-name summary" aria-haspopup="true" aria-expanded="${model.collapsed?string('false', 'true')}" aria-controls="${eventDomId}">
               ${item.title}
             </a>
           [/@h2]
@@ -80,7 +81,7 @@
           </div>
         </div>
 
-        <div class="gato-accordion-content">
+        <div class="gato-accordion-content" id="${eventDomId}">
 
           <div class="thumb-container">
             [#if item.image?has_content]

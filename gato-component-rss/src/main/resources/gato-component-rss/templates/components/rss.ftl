@@ -36,16 +36,17 @@
   [/#if]
 
   [#list model.items as entry]
+    [#assign entryDomId]r${gf.md5(entry.cleanGuid)[0..8]}[/#assign]
     <div class="gato-rss-item ${model.collapsible?string('gato-accordion', '')}"
       data-start-collapsed="${model.collapsed?string('true', 'false')}">
       [@h2 class="${model.collapsible?string('gato-accordion-header', '')}" offset=offset]
         [#if model.collapsible]
-          <a href="#" aria-haspopup="true" aria-expanded="${model.collapsed?string('false', 'true')}">${entry.title!}</a>
+          <a href="#" aria-haspopup="true" aria-expanded="${model.collapsed?string('false', 'true')}" aria-controls="${entryDomId}">${entry.title!}</a>
         [#else]
           <a href="${entry.link}" id="${entry.cleanGuid}">${entry.title!}</a>
         [/#if]
       [/@h2]
-      <div class="gato-accordion-content">
+      <div class="gato-accordion-content" id="${entryDomId}">
         [#if (content.showThumbnails!false) && entry.thumbnail?has_content]
           <div class="gato-rss-thumbnail"><img src="${entry.thumbnail}" alt=""></div>
         [/#if]
