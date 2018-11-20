@@ -4,6 +4,8 @@ customjs:
   !include /gato-component-cssjs/templates/areas/customjs.yaml
 mail:
   !include /gato-area-mail/templates/areas/mailForm.yaml
+filterable-search:
+  !include /gato-area-filterable-search/templates/areas/filterablesearch.yaml
 templatecss:
   type: noComponent
   title: Template CSS

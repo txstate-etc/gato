@@ -1,0 +1,5 @@
+templateScript: /gato-area-filterable-search/templates/components/basiclistitem.ftl
+renderType: freemarker
+dialog: gato-area-filterable-search:components/basiclistitem
+description: "A Title/Link and Description"
+title: Basic List Item

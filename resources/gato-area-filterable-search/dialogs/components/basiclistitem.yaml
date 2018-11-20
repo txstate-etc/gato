@@ -1,0 +1,20 @@
+form:
+  tabs:
+    - name: tabMain
+      label: Basic List Item
+      fields:
+        - name: title
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Title
+          required: true
+        - name: link
+          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+          label: Link
+          appName: pages
+          identifierToPathConverter:
+            class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
+        - name: description
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Description
+          rows: 3
+actions: !include /gato-template/dialogs/common/actions-block.yaml

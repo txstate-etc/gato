@@ -4,7 +4,11 @@
 <html lang="en">
   <head>
     [@googletagmanager /]
-    [@templatejs scripts=['gato-template-mobilefirst/js/standard.cjs']/]
+    [#assign scripts = ['gato-template-mobilefirst/js/standard.cjs']]
+    [#if def.parameters.isFilterableSearchTemplate!false]
+      [#assign scripts = scripts + ['gato-area-filterable-search/js/filterablesearch.js']]
+    [/#if]
+    [@templatejs scripts/]
     [@templatehead/]
     [@cms.area name="templatecss"/]
   </head>
@@ -43,6 +47,8 @@
         [#else]
           [#if def.parameters.isMailTemplate!false]
             [@cms.area name="mail"/]
+          [#elseif def.parameters.isFilterableSearchTemplate!false]
+            [@cms.area name="filterable-search"/]
           [#else]
             [@cms.area name="contentParagraph"/]
           [/#if]

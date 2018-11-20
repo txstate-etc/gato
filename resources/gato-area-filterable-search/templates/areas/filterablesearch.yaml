@@ -1,0 +1,7 @@
+renderType: freemarker
+templateScript: /gato-area-filterable-search/templates/areas/filterablesearch.ftl
+type: single
+title: Filterable Search Content
+availableComponents:
+  basiclist:
+    id: gato-area-filterable-search:components/basiclist

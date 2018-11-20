@@ -1,0 +1,11 @@
+form:
+  tabs:
+    - name: tabMain
+      label: Basic List
+      fields:
+        - name: includeAlpha
+          class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+          label: ""
+          buttonLabel: Show Alphabetical Filters
+          defaultValue: true
+actions: !include /gato-template/dialogs/common/actions-block.yaml
