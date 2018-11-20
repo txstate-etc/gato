@@ -1,0 +1,26 @@
+.filtered-results {
+  ul {
+    list-style: none;
+    padding-left: 0;
+    & > li:nth-of-type(even) {
+      background-color: $filterable-search-results-bg-color;
+    }
+    li {
+      padding: 1rem;
+      border-top: 1px solid $filterable-search-divider-color;
+      &:last-child {
+        border-bottom: 1px solid $filterable-search-divider-color;
+      }
+      a {
+        text-decoration: none;  //hover effect?
+        color: $filterable-search-result-title-color;
+        &:active, &:visited {
+          color: inherit;
+        }
+        .listitem-title {
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}

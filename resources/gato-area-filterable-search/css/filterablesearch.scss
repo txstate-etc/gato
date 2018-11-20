@@ -1,0 +1,116 @@
+.filterable-search-container {
+  .controls {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid $filterable-search-divider-color;
+    @media (max-width:$sm-breakpoint) {
+      display: block;
+    }
+    .btn-toggle-filters {
+      @media (max-width:$sm-breakpoint) {
+        width: 100%;
+      }
+      i {
+        @extend .fa-filter;
+      }
+      .label:after {
+        content: 'Filter/Search';
+      }
+    }
+    .toggle-view {
+      @media (max-width: $sm-breakpoint) {
+        display :flex;
+        justify-content: space-between;
+      }
+    }
+  }
+  .search-separator {
+    height: 0;
+    border-bottom: 1px solid $filterable-search-divider-color;
+    padding-top: 2rem;
+  }
+  .filterable-search {
+     display: flex;
+    .filter-container {
+      display: none;
+      width: 30%;
+      ul {
+        list-style: none;
+        padding-left: 0;
+        li {
+          padding-bottom: 1.5rem;
+        }
+      }
+      .select-filters {
+        width: 100%;
+        .header {
+          padding: 1rem;
+          display: flex;
+          justify-content: space-between;
+          border: 1px solid black;
+          border-radius: 2px;
+        }
+        .body {
+          display: none;
+          padding: 1rem;
+          border: 1px solid black;
+          border-radius: 2px;
+          span.filter-cbx {
+            width: 25px;
+            height: 25px;
+            display: inline-block;
+            border: 1px solid red;
+            border-radius: 2px;
+            vertical-align: middle;
+            position: relative;
+            &.is-checked {
+              border-width: 2px;
+              &:before {
+                font-family: FontAwesome;
+                content: "\f00c";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+              }
+            }
+          }
+          label {
+            display: inline-block;
+            vertical-align: middle;
+          }
+        }
+      }
+    }
+    .filtered-results {
+      width: 100%;
+    }
+  }
+  &.filters-open {
+    .controls {
+      .btn-toggle-filters {
+        i {
+          @extend .fa-eye-slash;
+        }
+        .label:after {
+          content: 'Hide';
+        }
+      }
+    }
+    .filtered-results {
+      width: 70%;
+      .results-header {
+        justify-content: flex-end;
+        .btn-show-filters {
+          display: none;
+        }
+      }
+    }
+    .filter-container {
+      display: block;
+    }
+  }
+}
+
+@import "gato-area-filterable-search/css/basiclist";
