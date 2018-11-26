@@ -4,7 +4,7 @@ dialog: gato-area-filterable-search:components/basiclist
 description: "A Title/Link and Description"
 title: Basic List
 areas:
-  filters:
+  filtergroups:
     type: list
     templateScript: /gato-area-filterable-search/templates/areas/filterarea.ftl
     availableComponents:

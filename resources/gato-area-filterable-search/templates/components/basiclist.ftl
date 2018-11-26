@@ -12,6 +12,6 @@
   </div>
 </div>
 <div class="filterable-search">
-  [@cms.area name="filters"/]
+  [@cms.area name="filtergroups"/]
   [@cms.area name="listitems"/]
 </div>
