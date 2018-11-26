@@ -7,10 +7,12 @@
     <ul>
       [#list cmsfn.children(content.filterlist) as tag]
         <li>
-          <span class="filter-cbx" id="${tag.id}" tabindex="0" role="checkbox" aria-checked="false" aria-labelledby="${"label" + tag.id}"></span>
-          <label id="${"label" + tag.id}">${tag.name}</label>
+          <span class="filter-cbx" id="${tag.id}" tabindex="0" role="checkbox" aria-checked="false" aria-labelledby="${'label' + tag.id}" data-name="${tag.name}"></span>
+          <div class="filter-label" id="${'label' + tag.id}">${tag.name}</div>
         </li>
       [/#list]
     </ul>
   </div>
+  <ul class="active-filters">
+  </ul>
 </div>
