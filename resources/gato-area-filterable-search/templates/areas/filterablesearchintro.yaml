@@ -1,0 +1,8 @@
+renderType: freemarker
+type: single
+title: Content Above the Search and Filters
+availableComponents:
+  onecolumn:
+    id: gato-area-filterable-search:components/rows/full
+  twocolumns:
+    id: gato-area-filterable-search:components/rows/halves

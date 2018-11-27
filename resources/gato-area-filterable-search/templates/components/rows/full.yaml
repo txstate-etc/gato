@@ -1,0 +1,8 @@
+!inherit:gato-template:components/rows/full
+areas:
+  column1:
+    availableComponents: !override
+      textimage:
+        id: gato-template:components/textimage
+      separator:
+        id: gato-template:components/separator

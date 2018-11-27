@@ -48,6 +48,7 @@
           [#if def.parameters.isMailTemplate!false]
             [@cms.area name="mail"/]
           [#elseif def.parameters.isFilterableSearchTemplate!false]
+            [@cms.area name="filterable-search-intro"/]
             [@cms.area name="filterable-search"/]
           [#else]
             [@cms.area name="contentParagraph"/]
