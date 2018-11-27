@@ -10,6 +10,9 @@
     - name: filterlist
       class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
       transformerClass: edu.txstate.its.gato.vaadin.JsonTransformer
+  parameters:
+    limit: 5
+    characterlimit: 20
 - name: enablefiltering
   class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
   label: ""
