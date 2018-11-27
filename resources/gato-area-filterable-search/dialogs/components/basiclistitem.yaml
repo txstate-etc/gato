@@ -26,6 +26,7 @@ form:
           initFunction: initTagSelector
           scripts: [gato-lib/js/restful.js,gato-area-filterable-search/js/editor/tags.js]
           loadScriptsInOrder: true
+          styles: [gato-area-filterable-search/css/editor/tags.css]
           fields:
             - name: tags
               class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition

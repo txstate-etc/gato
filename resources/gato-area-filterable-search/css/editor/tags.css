@@ -1,0 +1,10 @@
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.group-title {
+  font-weight: bold;
+  font-size: 15px;
+  padding: 5px 0px;
+}

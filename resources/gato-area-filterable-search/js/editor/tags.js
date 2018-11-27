@@ -11,9 +11,12 @@ function initTagSelector(def, node, el, tmpl) {
       html += '<li>';
       html += '<div class="group-title">' + groupTitle + '</div>';
       html += '<ul>';
-      for (var tag of tags) {
+      for (var i=0; i<tags.length; i++) {
+        var tag = tags[i];
+        var inputId = "filter-" + groupTitle + "-" + tag.prophash.name;
         html += '<li>';
-        html += tag.prophash.name;
+        html += '<input id="' + inputId + '" name="filter-' + groupTitle + '" type="checkbox" value="' + tag.prophash.id +'">';
+        html += '<label for=' + inputId + '>' + tag.prophash.name + '</label>';
         html += '</li>';
       }
       html += '</ul>';
