@@ -1,9 +1,9 @@
 <div class="select-filters">
-  <div class="header" tabindex="0" aria-haspopup="true" aria-expanded="false">
+  <div class="header" tabindex="0" aria-haspopup="true" aria-expanded="false" aria-controls="${gf.uuidToHtmlId(content.@id)}">
     <span>All ${content.title!""}</span>
     <i class="fa fa-angle-down"></i>
   </div>
-  <div class="body">
+  <div class="body" id="${gf.uuidToHtmlId(content.@id)}">
     <ul>
       [#list cmsfn.children(content.filterlist) as tag]
         <li>
