@@ -197,6 +197,7 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
 
     register(DeltaBuilder.update("1.2.0", "")
       .addTask(new SetPropertyTask("Disable Magnolia default publishing receiver", RepositoryConstants.CONFIG, "/modules/publishing-core/config/receivers/magnoliaPublic8080", "enabled", Boolean.FALSE ))
+      .addTask(new BootstrapSingleModuleResource("config.modules.site.config.site.templates.availability.templates.mobilefirst-filterablesearch.xml"))
     );
   }
 
