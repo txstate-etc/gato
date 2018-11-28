@@ -18,7 +18,7 @@ window.Search = function(opts) {
     'txstate_no_users': '004527626732577828901:1rcpwk8svkk',
     'support_sites': '004527626732577828901:eevz8v8a43c'
   }
-  this.opts.cx = cxMap[this.opts.site] || opts.cx;
+  this.opts.cx = cxMap[this.opts.site] || opts.cx || cxMap['txstate_no_users'];
 }
 
 Search.prototype.doSearch = function(query) {

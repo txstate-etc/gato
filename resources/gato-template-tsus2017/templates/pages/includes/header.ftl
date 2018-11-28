@@ -7,7 +7,7 @@
       </button>
       <div id="tsus-main-menu" class="main-menu">
         <button class="btn-menu" aria-label="Menu - hit enter to open dialog" aria-haspopup="true" aria-expanded="false" aria-controls="tsus-main-menu">
-          Menu 
+          Menu
           <i class="fa fa-bars" aria-hidden="true"></i>
         </button>
         <nav id="main-menu-panel" class="main-menu-panel" role="navigation">
@@ -17,6 +17,6 @@
     </div>
     <div class="search-wrapper">
         [#import "/gato-template/templates/includes/search-modal.ftl" as search]
-        [@search.searchBar false true false 'tsus' 'tsus_frontend'/]
+        [@search.searchBar false true false /]
     </div>
 </header>
