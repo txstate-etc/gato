@@ -13,6 +13,6 @@
       [/#list]
     </ul>
   </div>
-  <ul class="active-filters">
+  <ul class="active-filters" aria-hidden="true">
   </ul>
 </div>
