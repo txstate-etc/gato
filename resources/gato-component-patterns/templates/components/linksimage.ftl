@@ -1,4 +1,6 @@
+[#if cmsfn.isEditMode()]
 <div cms:edit="bar"></div>
+[/#if]
 <div class="mobilefirst-pattern has-image ${content.imageAlignment!'image-right'}">
   [#if content.imageAlignment == 'image-left']
     <div class="pattern-image ${content.color!color1}">
