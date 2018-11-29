@@ -11,7 +11,7 @@ jQuery(document).ready(function($) {
     //in search box
     if ($('#search-text').length) {
       $('#search-text').autocomplete({
-          delay: 600,
+          delay: 300,
           minLength: 3,
           classes: {
             "ui-autocomplete":"gato-site-search"
