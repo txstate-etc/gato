@@ -59,21 +59,25 @@ Search.prototype.doSearch = function(query) {
       }
       googleresults.push(itemobj);
     }
-    self.featured(params.q, true).then(function (featuredresults) {
-      var seen = {}
-      for (var i = 0; i < featuredresults.length; i++) {
-        seen[featuredresults[i].url] = true;
-      }
-      for (var i = 0; i < googleresults.length; i++) {
-        if (!seen[googleresults[i].url]) featuredresults.push(googleresults[i]);
-      }
-      result.results = featuredresults;
-    }).fail(function (e) {
-      result.results = googleresults;
-      console.log(e);
-    }).always(function () {
-      dfd.resolve(result);
-    });
+
+    if (params.start === 1) {
+      self.featured(params.q, true).then(function (featuredresults) {
+        var seen = {}
+        for (var i = 0; i < featuredresults.length; i++) {
+          seen[featuredresults[i].url] = true;
+        }
+        for (var i = 0; i < googleresults.length; i++) {
+          if (!seen[googleresults[i].url]) featuredresults.push(googleresults[i]);
+        }
+        result.results = featuredresults;
+      }).fail(function (e) {
+        result.results = googleresults;
+        console.log(e);
+      });
+    } else {
+      result.results = googleresults
+    }
+    dfd.resolve(result)
   }).fail(function (e) {
     dfd.reject({
       pages: [],
