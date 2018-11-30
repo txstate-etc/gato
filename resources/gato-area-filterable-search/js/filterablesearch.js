@@ -166,4 +166,15 @@ jQuery(document).ready(function($) {
       toggleFilterList(e.target);
     }
   })
+
+  //Clear all Filters
+  $('.btn-clear-filters').click(function(e) {
+    $('.filter-container .filter-cbx').each(function(index, value) {
+      var checkbox = $(value);
+      if (checkbox.hasClass('is-checked')) {
+        toggleCheckbox(checkbox);
+        updateFilterableSearch();
+      }
+    })
+  })
 })

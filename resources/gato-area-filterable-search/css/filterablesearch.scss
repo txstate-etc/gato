@@ -35,9 +35,13 @@
     .filter-container {
       display: none;
       width: 30%;
+      .filter-by {
+        font-size: 2.5rem;
+      }
       ul {
         list-style: none;
         padding-left: 0;
+        margin-bottom: 0;
         li {
           padding-bottom: 1.5rem;
         }
