@@ -21,6 +21,9 @@
           font-weight: 700;
         }
       }
+      &.listitem-hidden {
+        display: none;
+      }
     }
   }
 }

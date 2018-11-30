@@ -1,3 +1,4 @@
+<div class="listitem" data-tags="${gf.propertyValues(content.tags)?join(",")}">
 [#if content.link?has_content]
   <a href="${gf.filterUrl(content.link)}">
 [/#if]
@@ -12,3 +13,4 @@
     ${content.description}
   </div>
 [/#if]
+</div>
