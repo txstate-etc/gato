@@ -7,7 +7,7 @@
     <ul>
       [#list cmsfn.children(content.filterlist) as tag]
         <li>
-          <span class="filter-cbx" id="${tag.id}" tabindex="0" role="checkbox" aria-checked="false" aria-labelledby="${'label' + tag.id}" data-name="${tag.name}"></span>
+          <span class="filter-cbx" id="${tag.id}" tabindex="0" role="checkbox" aria-checked="false" aria-labelledby="${'label' + tag.id}" data-name="${tag.name}" data-group="${gf.uuidToHtmlId(content.@id)}"></span>
           <div class="filter-label" id="${'label' + tag.id}">${tag.name}</div>
         </li>
       [/#list]

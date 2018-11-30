@@ -1,9 +1,8 @@
 //TODO: Can an effect be added to show that an active filter has focus?
 
 jQuery(document).ready(function($) {
-  var searchArea = $('.filterable-search-container');
-  var filterToggleButton = $('.btn-toggle-filters');
-  var selectedFilters = {};
+
+  var activeFilters = {};
 
   var buildActiveFilter = function(name, id) {
     var html = '<li id="active_' + id +'">' +
@@ -14,12 +13,19 @@ jQuery(document).ready(function($) {
     return html;
   }
 
+  var updateFilterableSearch = function() {
+    var arrFilters = getSelectedFilters();
+    updateUrlParameters(arrFilters);
+    updateActiveFilters(arrFilters);
+    updateSelectedResults();
+  }
+
   var toggleCheckbox = function(cb) {
     var id = cb.attr('id');
     var activeFilters = cb.closest('.select-filters').find('.active-filters');
     if (cb.hasClass('is-checked')) {
       cb.attr('aria-checked', false);
-      removeFilter(id);
+      $('#active_' + id).remove();
     }
     else {
       cb.attr('aria-checked', true);
@@ -28,11 +34,39 @@ jQuery(document).ready(function($) {
         //get the checkbox with this id
         var checkbox = $('#' + id);
         toggleCheckbox(checkbox);
-        updateUrl();
-        updateSelectedResults();
+        updateFilterableSearch();
       });
     }
     cb.toggleClass('is-checked');
+  }
+
+  var updateUrlParameters = function(filters) {
+    var params = getUrlParameters();
+    params.filters = filters.join(',');
+    history.pushState(null, null, createUrlQuery(params));
+  }
+
+  var getSelectedFilters = function() {
+    var selected = [];
+    $('.filter-container .filter-cbx').each(function(index, value) {
+      var checkbox = $(value);
+      if (checkbox.hasClass('is-checked')) {
+        selected.push(checkbox.attr('id'));
+      }
+    })
+    return selected;
+  }
+
+  var updateActiveFilters = function(filterIds) {
+    activeFilters = {};
+    for (var i=0; i<filterIds.length; i++) {
+      var id = filterIds[i];
+      var groupId = $('#' + id).data('group');
+      if (!activeFilters[groupId]) {
+        activeFilters[groupId] = [];
+      }
+      activeFilters[groupId].push(id);
+    }
   }
 
   var updateSelectedResults = function() {
@@ -40,9 +74,9 @@ jQuery(document).ready(function($) {
       item = $(item);
       var tags = item.data('tags').split(',');
       var isRelevant = true;
-      for (var group in selectedFilters) {
-        if (selectedFilters.hasOwnProperty(group)) {
-          var selectedTags = selectedFilters[group];
+      for (var group in activeFilters) {
+        if (activeFilters.hasOwnProperty(group)) {
+          var selectedTags = activeFilters[group];
           var hasTag = selectedTags.some(function(v) {
             return tags.indexOf(v) >= 0;
           })
@@ -60,43 +94,40 @@ jQuery(document).ready(function($) {
         item.closest('li').removeClass('listitem-hidden')
         item.closest('li').attr('aria-hidden', false);
       }
-    })
+    });
   }
 
-  var updateUrl = function() {
-    var params = getUrlParameters();
-    var selected = [];
-    selectedFilters = {};
-    $('.filter-container .filter-cbx').each(function(index, value) {
-      var checkbox = $(value);
-      if (checkbox.hasClass('is-checked')) {
-        selected.push(checkbox.attr('id'));
-        var groupId = checkbox.closest('.body').attr('id');
-        if (!selectedFilters[groupId]) {
-          selectedFilters[groupId] = [];
-        }
-        selectedFilters[groupId].push(checkbox.attr('id'));
-      }
-    })
-    params.filters = selected.join(',');
-    history.pushState(null, null, createUrlQuery(params));
-  }
+  $('.filter-cbx').click(function(e) {
+    var checkbox = $(this);
+    toggleCheckbox(checkbox);
+    updateFilterableSearch();
+  })
 
-  //get filters from url
+  $('.filter-cbx').keydown(function(e) {
+    if (e.which == 32 || e.which == 13) {
+      e.preventDefault();
+      toggleCheckbox($(e.target));
+      updateFilterableSearch();
+    }
+  })
+
+
+  //on initial page load
   var urlParams = getUrlParameters();
   if (urlParams.filters) {
     var filterList = urlParams.filters.split(',');
-    for (var i=0; i<filterList.length; i++) {
-      var checkbox = $('#' + filterList[i]);
-      var groupId = checkbox.closest('.body').attr('id');
-      if (!selectedFilters[groupId]) {
-        selectedFilters[groupId] = [];
-      }
-      selectedFilters[groupId].push(filterList[i]);
+    updateActiveFilters(filterList);
+    filterList.map(function(filterId) {
+      var checkbox = $('#' + filterId);
       toggleCheckbox(checkbox);
-    }
-    updateSelectedResults();
+    })
+    updateSelectedResults(filterList);
   }
+
+
+
+  var searchArea = $('.filterable-search-container');
+  var filterToggleButton = $('.btn-toggle-filters');
 
   //open and close filter panel
   filterToggleButton.click(function(e) {
@@ -110,7 +141,7 @@ jQuery(document).ready(function($) {
     }
   })
 
-  //filter lists
+  //open and close filter lists
   var toggleFilterList = function(target) {
     var dropdown = $(target);
     var panel = dropdown.parent().find('.body');
@@ -133,28 +164,6 @@ jQuery(document).ready(function($) {
     if (e.which == 32 || e.which == 13) {
       e.preventDefault();
       toggleFilterList(e.target);
-    }
-  })
-
-
-  var removeFilter = function(id) {
-    $('#active_' + id).remove();
-  }
-
-
-  $('.filter-cbx').click(function(e) {
-    var checkbox = $(this);
-    toggleCheckbox(checkbox);
-    updateUrl();
-    updateSelectedResults();
-  })
-
-  $('.filter-cbx').keydown(function(e) {
-    if (e.which == 32 || e.which == 13) {
-      e.preventDefault();
-      toggleCheckbox($(e.target));
-      updateUrl();
-      updateSelectedResults();
     }
   })
 })
