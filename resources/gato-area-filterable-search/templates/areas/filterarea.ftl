@@ -6,7 +6,7 @@
     [#list letters as letter]
     <li>
       <label for="filter-${letter}">
-        <input class="radio-letter" id="filter-${letter}" type="radio" name="alpha-filter" value="${letter}" aria-checked="false" data-group="alphabet">
+        <input class="radio-letter" id="filter-${letter}" type="radio" name="alpha-filter" value="${letter}" aria-checked="false" data-group="alphabet" disabled="disabled">
         <span>${letter}</span>
       </label>
     </li>

@@ -11,7 +11,7 @@
     <button class="btn-grid-view"><i class="fa fa-th"></i>Grid View</button>
   </div>
 </div>
-<div class="filterable-search">
+<div class="filterable-search" [#if content.includeAlpha]data-enabled-alphabet-filters="${gf.getEnabledAlphabetFilters(content.listitems, "title")}"[/#if]>
   [@cms.area name="filtergroups" contextAttributes={"includeAlphabetFilters":content.includeAlpha}/]
   [@cms.area name="listitems" contextAttributes={"includeAlphabetFilters":content.includeAlpha}/]
 </div>

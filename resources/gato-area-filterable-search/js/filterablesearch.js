@@ -164,6 +164,12 @@ jQuery(document).ready(function($) {
     })
     updateSelectedResults(filterList);
   }
+  if ($('.filterable-search').data('enabled-alphabet-filters')) {
+    var enabledLetters = $('.filterable-search').data('enabled-alphabet-filters');
+    for (var i=0; i < enabledLetters.length; i++) {
+      $('#filter-' + enabledLetters.charAt(i)).prop("disabled", false);
+    }
+  }
 
 
 

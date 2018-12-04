@@ -1473,4 +1473,31 @@ public final class GatoUtils {
       return 7;
     }
   }
+
+  public String getEnabledAlphabetFilters(Object obj, String alphabetFilterProperty) {
+    HashSet<String> startingLetters = new HashSet<String>();
+    String ret = "";
+    try {
+      Node n = toNode(obj);
+      NodeIterator iter = n.getNodes();
+      while (iter.hasNext()) {
+        Node item = iter.nextNode();
+        String filterProperty = PropertyUtil.getString(item, alphabetFilterProperty, "");
+        if (filterProperty.length() > 0) {
+          String startingLetter = filterProperty.substring(0,1).toUpperCase();
+          if (Character.isLetter(startingLetter.charAt(0)))
+            startingLetters.add(startingLetter);
+        }
+      }
+      Iterator<String> i = startingLetters.iterator();
+      while (i.hasNext()) {
+        ret += i.next();
+      }
+      return ret;
+    }
+    catch(Exception e) {
+      e.printStackTrace();
+      return "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    }
+  }
 }
