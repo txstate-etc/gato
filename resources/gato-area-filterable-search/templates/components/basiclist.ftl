@@ -12,6 +12,6 @@
   </div>
 </div>
 <div class="filterable-search">
-  [@cms.area name="filtergroups"/]
-  [@cms.area name="listitems"/]
+  [@cms.area name="filtergroups" contextAttributes={"includeAlphabetFilters":content.includeAlpha}/]
+  [@cms.area name="listitems" contextAttributes={"includeAlphabetFilters":content.includeAlpha}/]
 </div>

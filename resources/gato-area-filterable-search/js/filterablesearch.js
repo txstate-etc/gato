@@ -22,14 +22,14 @@ jQuery(document).ready(function($) {
 
   var toggleCheckbox = function(cb) {
     var id = cb.attr('id');
-    var activeFilters = cb.closest('.select-filters').find('.active-filters');
+    var activeFilterArea = cb.closest('.select-filters').find('.active-filters');
     if (cb.hasClass('is-checked')) {
       cb.attr('aria-checked', false);
       $('#active_' + id).remove();
     }
     else {
       cb.attr('aria-checked', true);
-      activeFilters.append(buildActiveFilter(cb.data('name'), id));
+      activeFilterArea.append(buildActiveFilter(cb.data('name'), id));
       $('#active_' + id).find('button').click(function(e) {
         //get the checkbox with this id
         var checkbox = $('#' + id);
@@ -54,6 +54,10 @@ jQuery(document).ready(function($) {
         selected.push(checkbox.attr('id'));
       }
     })
+    //see if an alphabet filter is selected
+    if ($('.radio-letter.letter-selected').length > 0) {
+      selected.push($('.radio-letter.letter-selected').attr('id'));
+    }
     return selected;
   }
 
@@ -111,6 +115,40 @@ jQuery(document).ready(function($) {
     }
   })
 
+  var buildActiveLetter = function(letter) {
+    return '<div class="current-active-letter" id="active-letter-' + letter + '">' +
+        '<span class="active-filter">' + letter +
+          '<button class="remove-filter" aria-label="remove filter letter -' +  letter + '"><i class="fa fa-times" aria-hidden="true"></i></button>' +
+        '</span>' +
+      '</div>';
+  }
+
+  var toggleLetterFilter = function(radio) {
+    var letter = radio.val();
+    if (radio.is('.letter-selected')) {
+      radio.prop("checked", false);
+      radio.removeClass("letter-selected");
+      $('#active-letter-' + letter).remove();
+    }
+    else {
+      $('.radio-letter.letter-selected').removeClass('letter-selected');
+      $('.current-active-letter').remove();
+      radio.addClass('letter-selected');
+
+      $('.active-letters').append(buildActiveLetter(letter))
+      $('#active-letter-' + letter).find('button').click(function(e) {
+        var rdo = $('#filter-' + letter);
+        toggleLetterFilter(rdo);
+        updateFilterableSearch();
+      })
+    }
+  }
+
+  $('.radio-letter').click(function(e) {
+    var radio = $(this);
+    toggleLetterFilter(radio);
+    updateFilterableSearch();
+  });
 
   //on initial page load
   var urlParams = getUrlParameters();
@@ -118,8 +156,11 @@ jQuery(document).ready(function($) {
     var filterList = urlParams.filters.split(',');
     updateActiveFilters(filterList);
     filterList.map(function(filterId) {
-      var checkbox = $('#' + filterId);
-      toggleCheckbox(checkbox);
+      var field = $('#' + filterId);
+      if (field.is('.radio-letter'))
+        toggleLetterFilter(field);
+      else
+        toggleCheckbox(field);
     })
     updateSelectedResults(filterList);
   }
@@ -173,8 +214,13 @@ jQuery(document).ready(function($) {
       var checkbox = $(value);
       if (checkbox.hasClass('is-checked')) {
         toggleCheckbox(checkbox);
-        updateFilterableSearch();
+
       }
     })
+    if ($('.radio-letter.letter-selected').length > 0) {
+      toggleLetterFilter($('.radio-letter.letter-selected'));
+    }
+
+    updateFilterableSearch();
   })
 })

@@ -1,4 +1,9 @@
-<div class="listitem" data-tags="${gf.propertyValues(content.tags)?join(",")}">
+[#assign tags = gf.propertyValues(content.tags![])]
+[#if ctx.includeAlphabetFilters]
+  [#assign letterFilter = "filter-" + content.title[0]?capitalize ]
+  [#assign tags = tags + [letterFilter]]
+[/#if]
+<div class="listitem" data-tags="${tags?join(",")}">
 [#if content.link?has_content]
   <a href="${gf.filterUrl(content.link)}">
 [/#if]

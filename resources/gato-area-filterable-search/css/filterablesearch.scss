@@ -1,3 +1,16 @@
+%active-filter {
+  background-color: darkgreen;
+  color: white;
+  font-size: 1.4rem;
+  padding: 0.6rem;
+  border-radius: 2px;
+  margin-right: 1rem;
+  button.remove-filter {
+    border: 0px;
+    background-color: transparent;
+  }
+}
+
 .filterable-search-container {
   .controls {
     display: flex;
@@ -37,6 +50,36 @@
       width: 30%;
       .filter-by {
         font-size: 2.5rem;
+      }
+      ul.alpha-filters {
+        display: flex;
+        flex-wrap: wrap;
+        font-size:2.2rem;
+        color: $light-gray; //TODO: This looks right but it is not accessbile
+        li {
+          margin-right: 1rem;
+          padding-bottom: 0;
+          input[type=radio] {
+            border: 0;
+            clip: rect(0 0 0 0);
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+            padding: 0;
+            position: absolute;
+            width: 1px;
+            &.letter-selected + span{
+              text-decoration: underline;
+              color: $black;
+            }
+          }
+        }
+      }
+      .active-letters {
+        margin-top: 1rem;
+        .active-filter {
+          @extend %active-filter;
+        }
       }
       ul {
         list-style: none;
@@ -90,16 +133,7 @@
           flex-wrap: wrap;
           margin-top: 1.5rem;
           .active-filter {
-            background-color: darkgreen;
-            color: white;
-            font-size: 1.4rem;
-            padding: 0.6rem;
-            border-radius: 2px;
-            margin-right: 1rem;
-             button.remove-filter {
-               border: 0px;
-               background-color: transparent;
-             }
+            @extend %active-filter;
           }
         }
       }
