@@ -14,11 +14,6 @@ form:
           contentPreviewDefinition:
             contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
           description: "Image for this banner. Will be resized to fit the banner area."
-        - name: alttext
-          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-          required: true
-          label: Image Alt Text
-          description: "Descriptive text for users who are unable to see the image."
         - name: visible
           class: info.magnolia.ui.form.field.definition.HiddenFieldDefinition
           defaultValue: 'shown'
