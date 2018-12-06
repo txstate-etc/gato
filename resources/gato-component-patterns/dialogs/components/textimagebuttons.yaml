@@ -42,7 +42,6 @@ form:
         - name: title
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Title
-          required: true
         - name: text
           class: info.magnolia.ui.form.field.definition.RichTextFieldDefinition
           label: Text
