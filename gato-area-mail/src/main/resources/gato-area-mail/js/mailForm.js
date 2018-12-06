@@ -252,7 +252,11 @@ txstValidate.prototype.checkNetIdOrANumber = function(inputToCheck) {
   this.curMessage = '';
   this.curPassed = false;
 
-  if (!inputToCheck.match(/^\s*([a-z]{2}\d{2,5}|[a-z]{3}\d+|[a-z]_[a-z]\d+)\s*$/i) && !inputToCheck.match(/A\d{8}$/i)) {
+  if (this.type == "netid" && !inputToCheck.match(/^\s*([a-z]{2}\d{2,5}|[a-z]{3}\d+|[a-z]_[a-z]\d+)\s*$/i)) {
+    return false;
+  }
+
+  if (this.type == "anumber" && !inputToCheck.match(/A\d{8}$/i)) {
     return false;
   }
 
