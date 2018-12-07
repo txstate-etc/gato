@@ -38,6 +38,7 @@ jQuery(document).ready(function($) {
       });
     }
     cb.toggleClass('is-checked');
+    updateScreenReaderFilterGroupText(cb.closest('.select-filters'));
   }
 
   var updateUrlParameters = function(filters) {
@@ -150,6 +151,13 @@ jQuery(document).ready(function($) {
     updateFilterableSearch();
   });
 
+  var updateScreenReaderFilterGroupText = function(group) {
+    var numSelectedFilters = group.find('.filter-cbx.is-checked').length;
+    var text = numSelectedFilters;
+    text += (numSelectedFilters == 1) ? " filter selected." : " filters selected.";
+    group.find('.header .sr-filters-selected').text(text);
+  }
+
   //on initial page load
   var urlParams = getUrlParameters();
   if (urlParams.filters) {
@@ -170,6 +178,11 @@ jQuery(document).ready(function($) {
       $('#filter-' + enabledLetters.charAt(i)).prop("disabled", false);
     }
   }
+
+  $('.select-filters').each(function() {
+    var group = $(this);
+    updateScreenReaderFilterGroupText(group);
+  })
 
 
 
