@@ -15,7 +15,7 @@
         text-decoration: none;  //hover effect?
         color: $filterable-search-result-title-color;
         &:active, &:visited {
-          color: inherit;
+          color: $filterable-search-result-title-color;
         }
         .listitem-title {
           font-weight: 700;

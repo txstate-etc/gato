@@ -7,8 +7,8 @@
     <span class="label"></span>
   </button>
   <div class="toggle-view">
-    <button class="btn-list-view"><i class="fa fa-list"></i>List View</button>
-    <button class="btn-grid-view"><i class="fa fa-th"></i>Grid View</button>
+    <button class="btn-list-view fs-button"><i class="fa fa-list"></i>List View</button>
+    <button class="btn-grid-view fs-button"><i class="fa fa-th"></i>Grid View</button>
   </div>
 </div>
 <div class="filterable-search" [#if content.includeAlpha]data-enabled-alphabet-filters="${gf.getEnabledAlphabetFilters(content.listitems, "title")}"[/#if]>
