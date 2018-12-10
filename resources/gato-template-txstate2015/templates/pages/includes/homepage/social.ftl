@@ -38,8 +38,8 @@
                       [/#if]
                     </div>
                   [/#list]
-                  <a href="#" class="arrow prev fa fa-angle-left" aria-hidden="true"></a>
-                  <a href="#" class="arrow next fa fa-angle-right" aria-hidden="true"></a>
+                  <a href="#" class="arrow prev fa fa-angle-left" aria-hidden="true"><span class="visuallyhidden">Previous</span></a>
+                  <a href="#" class="arrow next fa fa-angle-right" aria-hidden="true"><span class="visuallyhidden">Next</span></a>
                 [#else]
                   <a href="${post['link']!}" class="linktosmsite ${gf.getImgWideOrTall(post['image_width']!1.0,post['image_height']!1.0,1.0)}">
                     <img src="${gf.getImg(post['image_url']!, 800, 800, false, false, 0, 0, 0, 0)}" width="${post['image_width']!}" height="${post['image_height']!}" alt="Instagram Post">
@@ -106,8 +106,8 @@
                       </a>
                     </div>
                   [/#list]
-                  <a href="#" class="arrow prev fa fa-angle-left" aria-hidden="true"></a>
-                  <a href="#" class="arrow next fa fa-angle-right" aria-hidden="true"></a>
+                  <a href="#" class="arrow prev fa fa-angle-left" aria-hidden="true"><span class="visuallyhidden">Previous</span></a>
+                  <a href="#" class="arrow next fa fa-angle-right" aria-hidden="true"><span class="visuallyhidden">Next</span></a>
                 [#else]
                   <a href="${post['link']!}" class="linktosmsite ${gf.getImgWideOrTall(post['image_width']!1.0,post['image_height']!1.0,1.2)}">
                     <img src="${gf.getImg(post['image_url']!, 800, 800, false, false, 0, 0, 0, 0)}" width="${post['image_width']!}" height="${post['image_height']!}" alt="Facebook Post">
