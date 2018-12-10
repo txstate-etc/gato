@@ -106,6 +106,10 @@
             &:last-child {
               margin-bottom: 0;
             }
+            &.selected {
+              background-color: #501214;
+              color: $white;
+            }
           }
           span.filter-cbx {
             width: 25px;
@@ -117,6 +121,7 @@
             position: relative;
             &.is-checked {
               border-width: 2px;
+              border-color: $white;
               &:before {
                 font-family: FontAwesome;
                 content: "\f00c";

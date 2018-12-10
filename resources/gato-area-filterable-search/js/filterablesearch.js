@@ -38,6 +38,7 @@ jQuery(document).ready(function($) {
       });
     }
     cb.toggleClass('is-checked');
+    cb.parent().toggleClass('selected');
     updateScreenReaderFilterGroupText(cb.closest('.select-filters'));
   }
 
