@@ -97,6 +97,13 @@ jQuery(document).ready(function($) {
         item.closest('li').attr('aria-hidden', false);
       }
     });
+    //add stripes to results
+    $('.result:not(".listitem-hidden")').each(function(i,v) {
+      $(v).removeClass('has-background');
+      if (i % 2 == 1) {
+        $(v).addClass('has-background');
+      }
+    });
   }
 
   $('.filter-cbx').click(function(e) {
@@ -137,6 +144,12 @@ jQuery(document).ready(function($) {
       $('#filter-' + enabledLetters.charAt(i)).prop("disabled", false);
     }
   }
+
+  $('li.result').each(function(i,v) {
+    if (i % 2 == 1) {
+      $(v).addClass('has-background');
+    }
+  });
 
   $('.select-filters').each(function() {
     var group = $(this);

@@ -2,9 +2,6 @@
   ul {
     list-style: none;
     padding-left: 0;
-    & > li:nth-of-type(even) {
-      background-color: $filterable-search-results-bg-color;
-    }
     li {
       padding: 1rem;
       border-top: 1px solid $filterable-search-divider-color;
@@ -23,6 +20,9 @@
       }
       &.listitem-hidden {
         display: none;
+      }
+      &.has-background {
+        background-color: $filterable-search-results-bg-color;
       }
     }
   }
