@@ -188,6 +188,7 @@ public class HoursModel extends TrumbaEventModel {
     // Find the next three open/close times (starting yesterday)
     for ( EventItem item : (List<EventItem>)this.items ) {
       if (!itemIsApplicable(item)) continue;
+      if (item.getEndDate().before(now)) continue;
 
       if (firstOpen == null) {
         firstOpen = item.getStartDate();
