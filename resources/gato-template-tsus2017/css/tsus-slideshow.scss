@@ -3,6 +3,9 @@
     .slick-prev, .slick-next{
         display: none !important;
     }
+    .arrow-container {
+      padding-top: 0;
+    }
     .slick-dots {
         margin: 0;
         padding: 0;
@@ -139,7 +142,7 @@
                 background-color: rgba($mc1-bg, 0.9);
                 h3, p {color: $mc1-text};
                 .feature-play-button {
-                  a { 
+                  a {
                     border-color: $mc1-text;
                     background-color: transparent;
                   }
@@ -255,7 +258,7 @@
             }
         }
     }
-    
+
     .moving-image-caption {
         p {
           font-style: italic;
