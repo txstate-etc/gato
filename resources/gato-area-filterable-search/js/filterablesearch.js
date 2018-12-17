@@ -163,13 +163,29 @@ jQuery(document).ready(function($) {
 
   //open and close filter panel
   filterToggleButton.click(function(e) {
-    if (searchArea.hasClass('filters-open')) {
-      searchArea.removeClass('filters-open');
-      filterToggleButton.attr('aria-expanded', false);
+    var isMobile = false;
+    if (window.matchMedia) {
+      if (window.matchMedia("(max-width: 50em)").matches) {
+        isMobile = true;
+      }
     }
     else {
-      searchArea.addClass('filters-open');
-      filterToggleButton.attr('aria-expanded', true);
+      if ($(window).width() < 801) {
+        isMobile = true;
+      }
+    }
+    if (isMobile) {
+      mobileFilterModal.show();
+    }
+    else {
+      if (searchArea.hasClass('filters-open')) {
+        searchArea.removeClass('filters-open');
+        filterToggleButton.attr('aria-expanded', false);
+      }
+      else {
+        searchArea.addClass('filters-open');
+        filterToggleButton.attr('aria-expanded', true);
+      }
     }
   })
 
