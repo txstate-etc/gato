@@ -15,6 +15,7 @@ import info.magnolia.module.delta.FindAndChangeTemplateIdTask;
 import info.magnolia.module.delta.IsAuthorInstanceDelegateTask;
 import info.magnolia.module.delta.MoveNodeTask;
 import info.magnolia.module.delta.NodeExistsDelegateTask;
+import info.magnolia.module.delta.OrderFilterBeforeTask;
 import info.magnolia.module.delta.OrderNodeBeforeTask;
 import info.magnolia.module.delta.RemoveNodeTask;
 import info.magnolia.module.delta.RemovePermissionTask;
@@ -212,6 +213,10 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
     tasks.add(new BootstrapSingleModuleResource("config.server.MIMEMapping.cjs.xml"));
     tasks.add(new RandomizeCacheStrTask());
     tasks.add(new RemoveHotfixesTask());
+    // make sure legacy links filter comes before aggregator, aggregator will terminate chain
+    tasks.add(new OrderNodeBeforeTask("legacylinks", "Put legacy links filter before aggregator filter in the cms chain.", RepositoryConstants.CONFIG, "/server/filters/cms/legacylinks", "aggregator"));
+    // must be after aggregator but before rendering
+    tasks.add(new OrderNodeBeforeTask("gatoSecurity", "Put our protected pages filter before the rendering filter.", RepositoryConstants.CONFIG, "/server/filters/cms/gatoSecurity", "rendering"));
     return tasks;
   }
 
@@ -223,9 +228,6 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
     tasks.add(new NodeExistsDelegateTask("Global Data", "Create global-data node if it does not exist yet.", RepositoryConstants.WEBSITE, "/global-data", null,
         new CreateNodeTask("","",RepositoryConstants.WEBSITE,"/","global-data",NodeTypes.Component.NAME)
     ));
-
-    // make sure legacy links filter comes before aggregator, aggregator will terminate chain
-    tasks.add(new OrderNodeBeforeTask("legacylinks", "Put legacy links filter before aggregator filter in the cms chain.", RepositoryConstants.CONFIG, "/server/filters/cms/legacylinks", "aggregator"));
 
     // config tree changes that we don't want to bootstrap
     tasks.add(new SetPropertyTask(RepositoryConstants.CONFIG, "/server/filters/logout", "class", "info.magnolia.cms.security.auth.logout.CASLogoutFilter"));
