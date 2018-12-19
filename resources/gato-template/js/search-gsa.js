@@ -70,14 +70,16 @@ Search.prototype.doSearch = function(query) {
           if (!seen[googleresults[i].url]) featuredresults.push(googleresults[i]);
         }
         result.results = featuredresults;
+        dfd.resolve(result)
       }).fail(function (e) {
         result.results = googleresults;
+        dfd.resolve(result)
         console.log(e);
       });
     } else {
       result.results = googleresults
+      dfd.resolve(result)
     }
-    dfd.resolve(result)
   }).fail(function (e) {
     dfd.reject({
       pages: [],
