@@ -238,10 +238,34 @@ jQuery(document).ready(function($) {
 
   $('.btn-close-modal').click(function(e) {
     mobileFilterModal.hide();
+    resetModalFilters();
   });
 
   $('.btn-apply-filters').click(function(e) {
     updateFilterableSearch();
     mobileFilterModal.hide();
   });
+
+  //TODO: This should happen if they close the modal with ESC or tap outside of it too
+  //But it looks like the modal should take up the full screen.
+  var resetModalFilters = function() {
+    console.log("resetting filters to initial values")
+    var urlParams = getUrlParameters();
+    if (urlParams.filters) {
+      var filterList = urlParams.filters.split(',');
+      $('.filter-container .filter-cbx').each(function(index, value) {
+        var checkbox = $(value);
+        if (filterList.includes(checkbox.attr('id'))) {
+          if (!checkbox.hasClass('is-checked')) {
+            toggleCheckbox(checkbox);
+          }
+        }
+        else {
+          if (checkbox.hasClass('is-checked')) {
+            toggleCheckbox(checkbox);
+          }
+        }
+      });
+    }
+  }
 })
