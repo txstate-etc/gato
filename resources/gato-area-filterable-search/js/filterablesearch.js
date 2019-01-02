@@ -249,7 +249,6 @@ jQuery(document).ready(function($) {
   //TODO: This should happen if they close the modal with ESC or tap outside of it too
   //But it looks like the modal should take up the full screen.
   var resetModalFilters = function() {
-    console.log("resetting filters to initial values")
     var urlParams = getUrlParameters();
     if (urlParams.filters) {
       var filterList = urlParams.filters.split(',');
