@@ -2,6 +2,23 @@
 
 jQuery(document).ready(function($) {
 
+  //TODO: The mobile-first template goes to mobile layout below 800 px but is that
+  //true for all templates?
+  var isMobile = function() {
+    var isMobile = false;
+    if (window.matchMedia) {
+      if (window.matchMedia("(max-width: 50em)").matches) {
+        isMobile = true;
+      }
+    }
+    else {
+      if ($(window).width() < 801) {
+        isMobile = true;
+      }
+    }
+    return isMobile;
+  }
+
   var activeFilters = {};
 
   var buildActiveFilter = function(name, id) {
@@ -34,7 +51,8 @@ jQuery(document).ready(function($) {
         //get the checkbox with this id
         var checkbox = $('#' + id);
         toggleCheckbox(checkbox);
-        updateFilterableSearch();
+        if (!isMobile())
+          updateFilterableSearch();
       });
     }
     cb.toggleClass('is-checked');
@@ -109,14 +127,16 @@ jQuery(document).ready(function($) {
   $('.filter-cbx').click(function(e) {
     var checkbox = $(this);
     toggleCheckbox(checkbox);
-    updateFilterableSearch();
+    if (!isMobile())
+      updateFilterableSearch();
   })
 
   $('.filter-cbx').keydown(function(e) {
     if (e.which == 32 || e.which == 13) {
       e.preventDefault();
       toggleCheckbox($(e.target));
-      updateFilterableSearch();
+      if (!isMobile())
+        updateFilterableSearch();
     }
   })
 
@@ -163,18 +183,7 @@ jQuery(document).ready(function($) {
 
   //open and close filter panel
   filterToggleButton.click(function(e) {
-    var isMobile = false;
-    if (window.matchMedia) {
-      if (window.matchMedia("(max-width: 50em)").matches) {
-        isMobile = true;
-      }
-    }
-    else {
-      if ($(window).width() < 801) {
-        isMobile = true;
-      }
-    }
-    if (isMobile) {
+    if (isMobile()) {
       mobileFilterModal.show();
     }
     else {
@@ -223,6 +232,16 @@ jQuery(document).ready(function($) {
         toggleCheckbox(checkbox);
       }
     })
-    updateFilterableSearch();
+    if (!isMobile())
+      updateFilterableSearch();
   })
+
+  $('.btn-close-modal').click(function(e) {
+    mobileFilterModal.hide();
+  });
+
+  $('.btn-apply-filters').click(function(e) {
+    updateFilterableSearch();
+    mobileFilterModal.hide();
+  });
 })

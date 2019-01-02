@@ -12,6 +12,8 @@
   </div>
 </div>
 <div class="filterable-search" [#if content.includeAlpha]data-enabled-alphabet-filters="${gf.getEnabledAlphabetFilters(content.listitems, "title")}"[/#if]>
-  [@cms.area name="filtergroups" /]
+  <div id="filter-modal">
+    [@cms.area name="filtergroups" /]
+  </div>
   [@cms.area name="listitems" contextAttributes={"includeAlphabetFilters":content.includeAlpha}/]
 </div>
