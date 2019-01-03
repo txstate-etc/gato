@@ -90,6 +90,7 @@ jQuery(document).ready(function($) {
   }
 
   var updateSelectedResults = function() {
+    var resultCount = 0;
     $('.filtered-results .listitem').each(function(index, item) {
       item = $(item);
       var tags = item.data('tags').split(',');
@@ -113,8 +114,11 @@ jQuery(document).ready(function($) {
       else {
         item.closest('li').removeClass('listitem-hidden')
         item.closest('li').attr('aria-hidden', false);
+        resultCount++;
       }
     });
+    var resultCountText = "Showing " + resultCount + (resultCount == 1 ? " Result" : " Results");
+    $('#result-count').text(resultCountText);
     //add stripes to results
     $('.result:not(".listitem-hidden")').each(function(i,v) {
       $(v).removeClass('has-background');
@@ -158,6 +162,12 @@ jQuery(document).ready(function($) {
     })
     updateSelectedResults(filterList);
   }
+  else {
+    var listItemCount = $('li.result').length;
+    var resultCountText = "Showing " + listItemCount + (listItemCount == 1 ? " Result" : " Results");
+    $('#result-count').text(resultCountText);
+  }
+
   if ($('.filterable-search').data('enabled-alphabet-filters')) {
     var enabledLetters = $('.filterable-search').data('enabled-alphabet-filters');
     for (var i=0; i < enabledLetters.length; i++) {
