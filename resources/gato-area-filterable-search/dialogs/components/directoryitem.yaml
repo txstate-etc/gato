@@ -1,0 +1,57 @@
+form:
+  tabs:
+    - name: tabMain
+      label: Directory Listing
+      fields:
+        - name: header
+          class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
+          transformerClass:  info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+          label: Name
+          fields:
+            - name: title
+              class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+              label: Title
+            - name: firstname
+              class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+              label: First Name
+            - name: lastname
+              class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+              label: Last Name
+        - name: link
+          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+          label: Link
+          appName: pages
+          identifierToPathConverter:
+            class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
+        - name: description
+          class: info.magnolia.ui.form.field.definition.RichTextFieldDefinition
+          label: Description
+          configJsFile: /.resources/gato-template/js/richeditor/minimal-config.js
+        - name: email
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Email
+          validators:
+            - name: validemail
+              class: info.magnolia.ui.form.validator.definition.EmailValidatorDefinition
+              errorMessage: Please enter a valid email address
+        - name: office
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Office
+        - name: phone
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Phone
+    - name: tabTags
+      label: tags
+      fields:
+        - name: tags
+          label: Filters
+          class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
+          initFunction: initTagSelector
+          scripts: [gato-lib/js/restful.js,gato-area-filterable-search/js/editor/tags.js]
+          loadScriptsInOrder: true
+          styles: [gato-area-filterable-search/css/editor/tags.css]
+          fields:
+            - name: tags
+              class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+              transformerClass: edu.txstate.its.gato.vaadin.JsonTransformer
+actions: !include /gato-template/dialogs/common/actions-block.yaml
