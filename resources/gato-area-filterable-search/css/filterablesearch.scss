@@ -79,7 +79,17 @@
      }
     .filtered-results {
       width: 100%;
-
+      #no-results-message {
+        text-align: center;
+        div {
+          font-size: 2rem;
+          font-weight: 500;
+          padding: 1rem 0;
+        }
+        &.message-hidden {
+          display: none;
+        }
+      }
     }
   }
   &.filters-open {

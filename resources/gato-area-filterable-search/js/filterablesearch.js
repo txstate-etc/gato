@@ -119,6 +119,12 @@ jQuery(document).ready(function($) {
     });
     var resultCountText = "Showing " + resultCount + (resultCount == 1 ? " Result" : " Results");
     $('#result-count').text(resultCountText);
+    if (resultCount == 0) {
+      $('#no-results-message').removeClass("message-hidden")
+    }
+    else {
+      $('#no-results-message').addClass("message-hidden")
+    }
     //add stripes to results
     $('.result:not(".listitem-hidden")').each(function(i,v) {
       $(v).removeClass('has-background');
