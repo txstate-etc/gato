@@ -130,6 +130,38 @@
     }
   }
 }
+
+.search-container {
+  @media (max-width:$sm-breakpoint) {
+    display: none;
+  }
+  position: relative;
+  .fs-search {
+    border: 1px solid #cbcbcb;
+    display: block;
+    padding: 1rem;
+    margin: 2rem 0rem;
+    box-sizing: border-box;
+    width: 100%;
+    -webkit-appearance: none;
+    border-radius: 0;
+  }
+  button {
+    background-color: transparent;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    border: 0px;
+    padding: 0;
+  }
+  &.mobile {
+    display: none;
+    @media (max-width:$sm-breakpoint) {
+      display: block;
+    }
+  }
+}
+
 #filter-modal {
   width: 30%;
   order: 1;
