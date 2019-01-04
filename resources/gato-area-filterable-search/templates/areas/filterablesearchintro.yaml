@@ -1,6 +1,7 @@
 renderType: freemarker
 type: single
 title: Content Above the Search and Filters
+templateScript: /gato-area-filterable-search/templates/areas/filterablesearchintro.ftl
 availableComponents:
   onecolumn:
     id: gato-area-filterable-search:components/rows/full
