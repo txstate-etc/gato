@@ -32,6 +32,7 @@ jQuery(document).ready(function($) {
 
   var updateFilterableSearch = function() {
     var arrFilters = getSelectedFilters();
+    $('.filter-count').text("(" + arrFilters.length + ")")
     updateUrlParameters(arrFilters);
     updateActiveFilters(arrFilters);
     updateSelectedResults();
@@ -166,6 +167,7 @@ jQuery(document).ready(function($) {
       var field = $('#' + filterId);
       toggleCheckbox(field);
     })
+    $('.filter-count').text("(" + filterList.length + ")")
     updateSelectedResults(filterList);
   }
   else {
@@ -265,22 +267,23 @@ jQuery(document).ready(function($) {
   //TODO: This should happen if they close the modal with ESC or tap outside of it too
   //But it looks like the modal should take up the full screen.
   var resetModalFilters = function() {
+    var filterList= [];
     var urlParams = getUrlParameters();
     if (urlParams.filters) {
-      var filterList = urlParams.filters.split(',');
-      $('.filter-container .filter-cbx').each(function(index, value) {
-        var checkbox = $(value);
-        if (filterList.includes(checkbox.attr('id'))) {
-          if (!checkbox.hasClass('is-checked')) {
-            toggleCheckbox(checkbox);
-          }
-        }
-        else {
-          if (checkbox.hasClass('is-checked')) {
-            toggleCheckbox(checkbox);
-          }
-        }
-      });
+      filterList = urlParams.filters.split(',');
     }
+    $('.filter-container .filter-cbx').each(function(index, value) {
+      var checkbox = $(value);
+      if (filterList.includes(checkbox.attr('id'))) {
+        if (!checkbox.hasClass('is-checked')) {
+          toggleCheckbox(checkbox);
+        }
+      }
+      else {
+        if (checkbox.hasClass('is-checked')) {
+          toggleCheckbox(checkbox);
+        }
+      }
+    });
   }
 })

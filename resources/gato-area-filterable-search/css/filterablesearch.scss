@@ -55,6 +55,12 @@
           content: 'Filter';
         }
       }
+      .filter-count {
+        display: none;
+        @media (max-width: $sm-breakpoint) {
+          display: inline;
+        }
+      }
     }
     .toggle-view {
       @media (max-width: $sm-breakpoint) {
