@@ -3,9 +3,8 @@ form:
     - name: tabMain
       label: Basic List
       fields:
-        - name: includeAlpha
-          class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+        - name: placeholder
+          class: info.magnolia.ui.form.field.definition.StaticFieldDefinition
           label: ""
-          buttonLabel: Show Alphabetical Filters
-          defaultValue: true
+          value: Properties that need to be set for the whole filterable search. The bulk editor might be launched from here. Maybe placeholder text for the search field.
 actions: !include /gato-template/dialogs/common/actions-block.yaml

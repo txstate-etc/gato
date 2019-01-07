@@ -176,13 +176,6 @@ jQuery(document).ready(function($) {
     $('#result-count').text(resultCountText);
   }
 
-  if ($('.filterable-search').data('enabled-alphabet-filters')) {
-    var enabledLetters = $('.filterable-search').data('enabled-alphabet-filters');
-    for (var i=0; i < enabledLetters.length; i++) {
-      $('#filter-' + enabledLetters.charAt(i)).prop("disabled", false);
-    }
-  }
-
   $('li.result').each(function(i,v) {
     if (i % 2 == 1) {
       $(v).addClass('has-background');
