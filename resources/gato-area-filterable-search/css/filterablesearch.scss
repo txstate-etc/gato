@@ -2,7 +2,7 @@
   background-color: $filterable-search-active-filter-bg-color;
   color: $filterable-search-active-filter-color;
   font-size: 1.4rem;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1rem 0.8rem 1rem;
   border-radius: 2px;
   margin-right: 1rem;
   button.remove-filter {
@@ -31,6 +31,7 @@
   .controls {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding-bottom: 2rem;
     border-bottom: 1px solid $filterable-search-divider-color;
     @media (max-width:$sm-breakpoint) {
@@ -42,6 +43,7 @@
       font-weight: 600;
       background-color: transparent;
       border: 1px solid $filterable-search-toggle-filters-button-color;
+      border-radius: 2px;
       @media (max-width:$sm-breakpoint) {
         width: 100%;
       }
@@ -218,6 +220,7 @@
         padding: 1rem;
         display: flex;
         justify-content: space-between;
+        align-items: center;
         border: 1px solid #c9c9c9;
         border-radius: 2px;
         background-color: $filterable-search-results-bg-color;

@@ -1,9 +1,10 @@
 .filtered-results {
+  padding-top: 3rem;
   ul {
     list-style: none;
     padding-left: 0;
     li {
-      padding: 1rem;
+      padding: 1.5rem;
       border-top: 1px solid $filterable-search-divider-color;
       &:last-child {
         border-bottom: 1px solid $filterable-search-divider-color;
@@ -16,6 +17,7 @@
         }
         .listitem-title {
           font-weight: 700;
+          margin-bottom: 1rem;
         }
       }
       &.listitem-hidden {
