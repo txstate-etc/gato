@@ -200,6 +200,10 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       .addTask(new SetPropertyTask("Disable Magnolia default publishing receiver", RepositoryConstants.CONFIG, "/modules/publishing-core/config/receivers/magnoliaPublic8080", "enabled", Boolean.FALSE ))
       .addTask(new BootstrapSingleModuleResource("config.modules.site.config.site.templates.availability.templates.mobilefirst-filterablesearch.xml"))
     );
+
+    register(DeltaBuilder.update("1.2.1", "")
+      .addTask(new SetPropertyTask("Automatically open the Add Component dialog in wide mode", RepositoryConstants.CONFIG, "/modules/pages/dialogs/newComponent", "wide", Boolean.TRUE ))
+    );
   }
 
   protected List<Task> installOrUpdateTasks() {
