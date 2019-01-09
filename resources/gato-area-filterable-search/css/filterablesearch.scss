@@ -210,9 +210,6 @@
       list-style: none;
       padding-left: 0;
       margin-bottom: 0;
-      li {
-        padding-bottom: 1.5rem;
-      }
     }
     .select-filters {
       width: 100%;
@@ -278,6 +275,9 @@
         display: flex;
         flex-wrap: wrap;
         margin-top: 1.5rem;
+        li {
+          padding-bottom: 1.5rem;
+        }
         .active-filter {
           @extend %active-filter;
         }
