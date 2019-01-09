@@ -18,7 +18,7 @@ form:
           label: Description
           rows: 3
     - name: tabTags
-      label: tags
+      label: Filter Tags
       fields:
         - name: tags
           label: Filters
@@ -31,4 +31,16 @@ form:
             - name: tags
               class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
               transformerClass: edu.txstate.its.gato.vaadin.JsonTransformer
+    - name: tabKeywords
+      label: Keywords
+      #values will be stored as an array [keyword1, keyword2, keyword3] by default. The JSON transformer will store them without the brackets
+      #transformer: info.magnolia.ui.form.field.transformer.multi.MultiValueJSONTransformer
+      fields:
+        - name: keywords
+          label: Add search keywords
+          class: info.magnolia.ui.form.field.definition.MultiValueFieldDefinition
+          field:
+            name: keyword
+            class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+            label: ""
 actions: !include /gato-template/dialogs/common/actions-block.yaml
