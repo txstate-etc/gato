@@ -195,7 +195,7 @@ jQuery(document).ready(function($) {
   //open and close filter panel
   filterToggleButton.click(function(e) {
     if (isMobile()) {
-      mobileFilterModal.show();
+      //mobileFilterModal.show();
     }
     else {
       if (searchArea.hasClass('filters-open')) {
@@ -247,14 +247,9 @@ jQuery(document).ready(function($) {
       updateFilterableSearch();
   })
 
-  $('.btn-close-modal').click(function(e) {
-    mobileFilterModal.hide();
-    resetModalFilters();
-  });
-
   $('.btn-apply-filters').click(function(e) {
     updateFilterableSearch();
-    mobileFilterModal.hide();
+    //mobileFilterModal.hide();
   });
 
   //TODO: This should happen if they close the modal with ESC or tap outside of it too

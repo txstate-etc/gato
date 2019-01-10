@@ -121,14 +121,12 @@
         }
       }
     }
-    #filter-modal {
-      display: block !important;
+    .filter-container {
+      display: block;
+      padding-right: 3rem;
       @media (max-width:$sm-breakpoint) {
         display: block;
       }
-    }
-    .filter-container {
-      padding-right: 3rem;
     }
   }
 }
@@ -156,149 +154,119 @@
     border: 0px;
     padding: 0;
   }
-  &.mobile {
+}
+
+.filter-container {
+  display: none;
+  width: 30%;
+  .filter-groups {
+    @media (max-width:$sm-breakpoint) {
+      padding: 2rem;
+    }
+  }
+  
+  .filter-by {
+    font-size: 2.5rem;
+    @media (max-width:$sm-breakpoint) {
+      display: block;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid $filterable-search-divider-color;
+    }
+
+  }
+  ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+  }
+  .select-filters {
+    width: 100%;
+    .header {
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid #c9c9c9;
+      border-radius: 2px;
+      background-color: $filterable-search-results-bg-color;
+      i {
+        font-weight: bold;
+      }
+    }
+    .body {
+      display: none;
+      padding: 0.5rem;
+      border: 1px solid $filterable-search-divider-color;
+      border-radius: 2px;
+      li {
+        border: 1px solid $filterable-search-divider-color;
+        padding: 0.6rem 0rem 0.6rem 1rem;
+        border-radius: 2px;
+        margin-bottom: 0.5rem;
+        &:last-child {
+          margin-bottom: 0;
+        }
+        &.selected {
+          background-color: $filterable-search-selected-filter-bg-color;
+          color: $filterable-search-selected-filter-color;
+        }
+      }
+      span.filter-cbx {
+        width: 25px;
+        height: 25px;
+        display: inline-block;
+        border: 1px solid #cbcbcb;
+        border-radius: 2px;
+        vertical-align: middle;
+        position: relative;
+        &.is-checked {
+          border-width: 2px;
+          border-color: $filterable-search-selected-filter-color;
+          &:before {
+            font-family: FontAwesome;
+            content: "\f00c";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+          }
+        }
+      }
+      div.filter-label {
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 0.5rem;
+        font-weight: 500;
+      }
+    }
+    .active-filters {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+      li {
+        padding-bottom: 1.5rem;
+      }
+      .active-filter {
+        @extend %active-filter;
+      }
+    }
+  }
+  .apply-filters {
     display: none;
+    box-shadow: -1px 1px 3px 0 rgba(0,0,0,0.75);
     @media (max-width:$sm-breakpoint) {
       display: block;
     }
-  }
-}
-
-#filter-modal {
-  width: 30%;
-  order: 1;
-  @media (max-width:$sm-breakpoint) {
-    width: 100%;
-  }
-  .filter-container {
-    .filter-groups {
-      @media (max-width:$sm-breakpoint) {
-        padding: 2rem;
-      }
-    }
-    .mobile-close-modal {
-      display: none;
-      @media (max-width:$sm-breakpoint) {
-        display: flex;
-        justify-content: flex-end;
-      }
-      .btn-close-modal {
-        color: $filterable-search-toggle-filters-button-color;
-        border: 0;
-        display: flex;
-        flex-direction: column;
-        background-color: transparent;
-        i.fa-close {
-          font-size: 2rem;
-        }
-        span {
-          font-size: 1.2rem;
-          font-weight: 500;
-        }
-      }
-    }
-    .filter-by {
-      font-size: 2.5rem;
-      @media (max-width:$sm-breakpoint) {
-        display: block;
-        padding-bottom: 1.5rem;
-        border-bottom: 1px solid $filterable-search-divider-color;
-      }
-
-    }
-    ul {
-      list-style: none;
-      padding-left: 0;
-      margin-bottom: 0;
-    }
-    .select-filters {
+    padding: 2rem;
+    .btn-apply-filters {
       width: 100%;
-      .header {
-        padding: 1rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border: 1px solid #c9c9c9;
-        border-radius: 2px;
-        background-color: $filterable-search-results-bg-color;
-        i {
-          font-weight: bold;
-        }
-      }
-      .body {
-        display: none;
-        padding: 0.5rem;
-        border: 1px solid $filterable-search-divider-color;
-        border-radius: 2px;
-        li {
-          border: 1px solid $filterable-search-divider-color;
-          padding: 0.6rem 0rem 0.6rem 1rem;
-          border-radius: 2px;
-          margin-bottom: 0.5rem;
-          &:last-child {
-            margin-bottom: 0;
-          }
-          &.selected {
-            background-color: $filterable-search-selected-filter-bg-color;
-            color: $filterable-search-selected-filter-color;
-          }
-        }
-        span.filter-cbx {
-          width: 25px;
-          height: 25px;
-          display: inline-block;
-          border: 1px solid #cbcbcb;
-          border-radius: 2px;
-          vertical-align: middle;
-          position: relative;
-          &.is-checked {
-            border-width: 2px;
-            border-color: $filterable-search-selected-filter-color;
-            &:before {
-              font-family: FontAwesome;
-              content: "\f00c";
-              position: absolute;
-              top: 50%;
-              left: 50%;
-              transform: translate(-50%,-50%);
-            }
-          }
-        }
-        div.filter-label {
-          display: inline-block;
-          vertical-align: middle;
-          margin-left: 0.5rem;
-          font-weight: 500;
-        }
-      }
-      .active-filters {
-        display: flex;
-        flex-wrap: wrap;
-        margin-top: 1.5rem;
-        li {
-          padding-bottom: 1.5rem;
-        }
-        .active-filter {
-          @extend %active-filter;
-        }
-      }
-    }
-    .apply-filters {
-      display: none;
-      box-shadow: -1px 1px 3px 0 rgba(0,0,0,0.75);
-      @media (max-width:$sm-breakpoint) {
-        display: block;
-      }
-      padding: 2rem;
-      .btn-apply-filters {
-        width: 100%;
-        border: 1px solid #501214; //TODO: Use a variable for the color
-        padding: 1rem;
-        background-color: transparent;
-        color: #501214; //TODO: Use a variable for the color
-        font-weight: 600;
-      }
+      border: 1px solid #501214; //TODO: Use a variable for the color
+      padding: 1rem;
+      background-color: transparent;
+      color: #501214; //TODO: Use a variable for the color
+      font-weight: 600;
     }
   }
 }
+
 @import "gato-area-filterable-search/css/basiclist";

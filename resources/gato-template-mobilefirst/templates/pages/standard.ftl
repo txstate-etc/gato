@@ -59,10 +59,5 @@
     </div>
     [@cssjsmodals /]
     [#include "/gato-template/templates/includes/video-modal.ftl"]
-    [#if def.parameters.isFilterableSearchTemplate!false]
-    <script type="text/javascript">
-      var mobileFilterModal = new modal($('filter-modal'));
-    </script>
-    [/#if]
   </body>
 </html>
