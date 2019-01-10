@@ -49,6 +49,10 @@ contentParagraph:
   !include /gato-template/templates/areas/contentParagraph.yaml
 mail:
   !include /gato-area-mail/templates/areas/mailForm.yaml
+filterable-search-intro:
+  !include /gato-area-filterable-search/templates/areas/filterablesearchintro.yaml
+filterable-search:
+  !include /gato-area-filterable-search/templates/areas/filterablesearch.yaml
 navBlocks:
   !include /gato-template/templates/areas/navBlocks.yaml
 socialmedia:
