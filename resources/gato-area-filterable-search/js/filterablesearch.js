@@ -249,6 +249,8 @@ jQuery(document).ready(function($) {
   });
 
   $('.btn-apply-filters').click(function(e) {
+    searchArea.removeClass('filters-open');
+    filterToggleButton.attr('aria-expanded', false);
     updateFilterableSearch();
   });
 
