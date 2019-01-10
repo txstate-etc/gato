@@ -194,18 +194,13 @@ jQuery(document).ready(function($) {
 
   //open and close filter panel
   filterToggleButton.click(function(e) {
-    if (isMobile()) {
-      //mobileFilterModal.show();
+    if (searchArea.hasClass('filters-open')) {
+      searchArea.removeClass('filters-open');
+      filterToggleButton.attr('aria-expanded', false);
     }
     else {
-      if (searchArea.hasClass('filters-open')) {
-        searchArea.removeClass('filters-open');
-        filterToggleButton.attr('aria-expanded', false);
-      }
-      else {
-        searchArea.addClass('filters-open');
-        filterToggleButton.attr('aria-expanded', true);
-      }
+      searchArea.addClass('filters-open');
+      filterToggleButton.attr('aria-expanded', true);
     }
   })
 
@@ -247,9 +242,14 @@ jQuery(document).ready(function($) {
       updateFilterableSearch();
   })
 
+  $('.btn-close-modal').click(function(e) {
+    searchArea.removeClass('filters-open');
+    filterToggleButton.attr('aria-expanded', false);
+    resetModalFilters();
+  });
+
   $('.btn-apply-filters').click(function(e) {
     updateFilterableSearch();
-    //mobileFilterModal.hide();
   });
 
   //TODO: This should happen if they close the modal with ESC or tap outside of it too

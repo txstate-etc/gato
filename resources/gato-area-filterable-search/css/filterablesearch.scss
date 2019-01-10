@@ -126,6 +126,15 @@
       padding-right: 3rem;
       @media (max-width:$sm-breakpoint) {
         display: block;
+        position: fixed;
+        background-color: white;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 10;
+        padding-right: 0;
+        overflow: scroll;
       }
     }
   }
@@ -159,12 +168,37 @@
 .filter-container {
   display: none;
   width: 30%;
+  @media (max-width:$sm-breakpoint) {
+    width: 100vw;
+  }
   .filter-groups {
     @media (max-width:$sm-breakpoint) {
       padding: 2rem;
     }
+    .mobile-close-modal {
+      display: none;
+      @media (max-width:$sm-breakpoint) {
+        display: flex;
+      }
+      justify-content: flex-end;
+      .btn-close-modal {
+        color: $filterable-search-toggle-filters-button-color;
+        border: 0;
+        display: flex;
+        flex-direction: column;
+        background-color: transparent;
+        padding: 0;
+        i.fa-close {
+          font-size: 2rem;
+        }
+        span {
+          font-size: 1.2rem;
+          font-weight: 500;
+        }
+      }
+    }
   }
-  
+
   .filter-by {
     font-size: 2.5rem;
     @media (max-width:$sm-breakpoint) {
@@ -251,8 +285,16 @@
       }
     }
   }
+  .apply-filters-spacer {
+    min-height: 8rem;
+  }
   .apply-filters {
     display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
     box-shadow: -1px 1px 3px 0 rgba(0,0,0,0.75);
     @media (max-width:$sm-breakpoint) {
       display: block;
