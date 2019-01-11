@@ -12,7 +12,7 @@
       </button>
     </div>
     <span class="filter-by">Filter by:</span>
-    <ul>
+    <ul class= "filter-group-list">
     [#list components as component]
       <li>[@cms.component content=component /]</li>
     [/#list]
