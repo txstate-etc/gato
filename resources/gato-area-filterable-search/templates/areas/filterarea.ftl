@@ -2,7 +2,7 @@
   <div class="search-container">
     <label for="search-field" class="visuallyhidden">Search List Items</label>
     <input id="search-field" type="search" class="fs-search" placeholder="Search"/>
-    <button><i class="fa fa-search"></i></button>
+    <button class="btn-search-list-items"><i class="fa fa-search"></i><span class="visuallyhidden">Start Search</span></button>
   </div>
   <div class="filter-groups">
     <div class="mobile-close-modal">

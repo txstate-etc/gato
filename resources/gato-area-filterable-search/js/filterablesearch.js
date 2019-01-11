@@ -284,4 +284,16 @@ jQuery(document).ready(function($) {
       }
     });
   }
+  //TODO: It should do the search when the user hits enter after typing a search term too.
+  $('.btn-search-list-items').click(function(e) {
+    searchListItems();
+  })
+
+  var searchListItems = function() {
+    var query = $('#search-field').val();
+    if (isMobile()) {
+      query = $('#mobile-search-field').val();
+    }
+
+  }
 })
