@@ -2,7 +2,7 @@
   background-color: $filterable-search-active-filter-bg-color;
   color: $filterable-search-active-filter-color;
   font-size: 1.4rem;
-  padding: 0.5rem 1rem 0.8rem 1rem;
+  padding: 0.5rem 1rem 0.6rem 1rem;
   border-radius: 2px;
   margin-right: 1rem;
   button.remove-filter {
@@ -285,7 +285,7 @@
       flex-wrap: wrap;
       margin-top: 1.5rem;
       li {
-        padding-bottom: 1.5rem;
+        padding-bottom: 3.5rem;
       }
       .active-filter {
         @extend %active-filter;
@@ -319,3 +319,4 @@
 }
 
 @import "gato-area-filterable-search/css/basiclist";
+@import "gato-area-filterable-search/css/filterablesearchintro";
