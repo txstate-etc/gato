@@ -163,6 +163,12 @@
     border: 0px;
     padding: 0;
   }
+  &.mobile {
+    display: none;
+    @media (max-width:$sm-breakpoint) {
+      display: block;
+    }
+  }
 }
 
 .filter-container {
