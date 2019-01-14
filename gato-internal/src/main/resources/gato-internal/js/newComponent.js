@@ -5,6 +5,7 @@
 function initNewComponent(def, node, el) {
     //hide script field
     $(el).closest('.v-form-field-section').hide();
+    $(el).closest('.dialog-root').addClass('gato-new-component-dialog-root');
     // resizeTiles();
     // var observer = new MutationObserver(function(mutations) {
     //   mutations.forEach(function(mutation) {
