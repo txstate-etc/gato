@@ -15,5 +15,7 @@
       <span class="visuallyhidden">Play Video</span>
     </a>
   [/#if]
+  [#if cmsfn.isEditMode()]
   <div cms:edit="bar" class="editBanner"></div>
+  [/#if]
 </div>

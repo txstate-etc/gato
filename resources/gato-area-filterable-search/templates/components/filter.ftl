@@ -2,7 +2,7 @@
   <div class="header" tabindex="0" aria-haspopup="true" aria-expanded="false" aria-controls="${gf.uuidToHtmlId(content.@id)}">
     <span>All ${content.title!""}</span>
     <span class="sr-filters-selected visuallyhidden"></span>
-    <i class="fa fa-angle-down"></i>
+    <i class="fa fa-angle-down" aria-hidden="true"></i>
   </div>
   <div class="body" id="${gf.uuidToHtmlId(content.@id)}">
     <ul>

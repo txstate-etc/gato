@@ -1,3 +1,6 @@
+.gato-new-component-dialog-root {
+  width: 80% !important;
+}
 .gato-grid-component{
     height: 100%;
     border: 2px solid white;

@@ -39,9 +39,10 @@
 
       <div class="search-container global web" id="search-results">
 				<form class="search-form">
-					<input type="text" class="search" name="q" value=""></input>
-					<button class="icon magnify"><i class="fa fa-search" aria-label="Start Search"></i></button>
-					<button class="icon reset"><i class="fa fa-times" aria-label="Reset Search"></i></button>
+          <label for="gato-search-input" class="visuallyhidden">Search Terms</label>
+					<input type="text" class="search" name="q" value="" id="gato-search-input"></input>
+					<button class="icon magnify"><i class="fa fa-search" aria-label="Start Search" aria-hidden="true"></i><span class="visuallyhidden">Start Search</span></button>
+					<button class="icon reset"><i class="fa fa-times" aria-label="Reset Search" aria-hidden="true"></i><span class="visuallyhidden">Reset Search</span></button>
 				</form>
         <div class="search-column-main eq-parent">
           <ul class="search-tabs" role="tablist">
