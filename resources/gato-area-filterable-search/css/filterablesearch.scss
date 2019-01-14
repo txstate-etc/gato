@@ -25,9 +25,7 @@
 }
 
 .filterable-search-container {
-  @media (max-width:$sm-breakpoint) {
-    padding: 0 2rem;
-  }
+  padding: 0 2rem;
   .controls {
     display: flex;
     justify-content: space-between;
@@ -319,4 +317,3 @@
 }
 
 @import "gato-area-filterable-search/css/basiclist";
-@import "gato-area-filterable-search/css/filterablesearchintro";
