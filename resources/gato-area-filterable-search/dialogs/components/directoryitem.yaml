@@ -8,9 +8,9 @@ form:
           transformerClass:  info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
           label: Name
           fields:
-            - name: title
+            - name: prefix
               class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-              label: Title
+              label: Form-of-address
             - name: firstname
               class: info.magnolia.ui.form.field.definition.TextFieldDefinition
               label: First Name
@@ -23,6 +23,9 @@ form:
           appName: pages
           identifierToPathConverter:
             class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
+        - name: position
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Position
         - name: description
           class: info.magnolia.ui.form.field.definition.RichTextFieldDefinition
           label: Description
