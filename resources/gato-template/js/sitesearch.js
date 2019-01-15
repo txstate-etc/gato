@@ -302,8 +302,8 @@ jQuery(document).ready(function($) {
                                 '<div class="search-again">' +
                                     '<form class="searchbar-form">' +
                                         '<label class="hidden" for="s">Search Terms</label>' +
-                                        '<input id="s" type="text" class="search" name="q" value="'+ query +'"></input><button class="icon magnify"><i class="fa fa-search" aria-label="Start Search"></i></button>' +
-                                        '<button class="icon reset"><i class="fa fa-times" aria-label="Reset Search"></i></button>' +
+                                        '<input id="s" type="text" class="search" name="q" value="'+ query +'"></input><button class="icon magnify"><i class="fa fa-search" aria-label="Start Search"></i><span class="visuallyhidden">Start Search</span></button>' +
+                                        '<button class="icon reset"><i class="fa fa-times" aria-label="Reset Search"></i><span class="visuallyhidden">Reset Search</span></button>' +
                                     '</form>' +
                                 '</div>' +
                                 '<div class="global-search global-search-mobile">' +
