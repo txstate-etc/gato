@@ -90,21 +90,31 @@ jQuery(document).ready(function($) {
     }
   }
 
+  var queryPresent = function() {
+    var params = getUrlParameters();
+    return params.q
+  }
+
   var updateSelectedResults = function() {
     var resultCount = 0;
     $('.filtered-results .listitem').each(function(index, item) {
       item = $(item);
       var tags = item.data('tags').split(',');
       var isRelevant = true;
-      for (var group in activeFilters) {
-        if (activeFilters.hasOwnProperty(group)) {
-          var selectedTags = activeFilters[group];
-          var hasTag = selectedTags.some(function(v) {
-            return tags.indexOf(v) >= 0;
-          })
-          if (!hasTag) {
-            isRelevant = false;
-            continue;
+      if (queryPresent() && !item.data('matches-query')) {
+        isRelevant = false;
+      }
+      if (isRelevant) {
+        for (var group in activeFilters) {
+          if (activeFilters.hasOwnProperty(group)) {
+            var selectedTags = activeFilters[group];
+            var hasTag = selectedTags.some(function(v) {
+              return tags.indexOf(v) >= 0;
+            })
+            if (!hasTag) {
+              isRelevant = false;
+              continue;
+            }
           }
         }
       }
@@ -225,6 +235,15 @@ jQuery(document).ready(function($) {
     dropdown.parent().toggleClass('open');
   }
 
+  var clearFilters = function() {
+    $('.filter-container .filter-cbx').each(function(index, value) {
+      var checkbox = $(value);
+      if (checkbox.hasClass('is-checked')) {
+        toggleCheckbox(checkbox);
+      }
+    })
+  }
+
   $('.select-filters .header').click(function(e) {
     toggleFilterList(this);
   })
@@ -238,12 +257,7 @@ jQuery(document).ready(function($) {
 
   //Clear all Filters
   $('.btn-clear-filters').click(function(e) {
-    $('.filter-container .filter-cbx').each(function(index, value) {
-      var checkbox = $(value);
-      if (checkbox.hasClass('is-checked')) {
-        toggleCheckbox(checkbox);
-      }
-    })
+    clearFilters();
     if (!isMobile())
       updateFilterableSearch();
   })
@@ -290,10 +304,37 @@ jQuery(document).ready(function($) {
   })
 
   var searchListItems = function() {
+    clearFilters();
+    updateFilterableSearch();
     var query = $('#search-field').val();
     if (isMobile()) {
       query = $('#mobile-search-field').val();
     }
+    var params = getUrlParameters();
+    params.q = query;
+    history.pushState(null, null, createUrlQuery(params));
+    //loop through list items and look for query in items with data-searchable=true and keywords
+    $('.filtered-results .listitem').each(function(index, item) {
+      var item = $(item);
+      var found = false;
+      var searchables = item.find("*[data-searchable='true']");
+      $.each(searchables, function(idx, elem) {
+        if ($(elem).text().indexOf(query) > -1) {
+          found = true;
+          return false;
+        }
+      })
+      if (!found && item.data('keywords').indexOf(query) > -1) {
+        found = true;
+      }
 
+      if (found) {
+        item.attr("data-matches-query", "true");
+      }
+      else {
+        item.closest('li').addClass('listitem-hidden')
+        item.closest('li').attr('aria-hidden', true);
+      }
+    })
   }
 })
