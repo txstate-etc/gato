@@ -36,7 +36,7 @@
       [#include "includes/top-banner.ftl"]
       <!--header image, parent organization, department name -->
       [#include "includes/header.ftl"]
-
+      <h1 class="visuallyhidden" id="maincontent">Search Texas State</h1>
       <div class="search-container global web" id="search-results">
 				<form class="search-form">
           <label for="gato-search-input" class="visuallyhidden">Search Terms</label>
