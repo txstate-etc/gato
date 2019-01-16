@@ -128,21 +128,11 @@ jQuery(document).ready(function($) {
         resultCount++;
       }
     });
-    var resultCountText = "Showing " + resultCount + (resultCount == 1 ? " Result" : " Results");
-    $('#result-count').text(resultCountText);
-    if (resultCount == 0) {
-      $('#no-results-message').removeClass("message-hidden")
-    }
-    else {
-      $('#no-results-message').addClass("message-hidden")
-    }
+
+    updateResultsShown();
+
     //add stripes to results
-    $('.result:not(".listitem-hidden")').each(function(i,v) {
-      $(v).removeClass('has-background');
-      if (i % 2 == 1) {
-        $(v).addClass('has-background');
-      }
-    });
+    updateStripes();
   }
 
   $('.filter-cbx').click(function(e) {
@@ -168,8 +158,67 @@ jQuery(document).ready(function($) {
     group.find('.header .sr-filters-selected').text(text);
   }
 
+  var updateResultsShown = function() {
+    var itemsShown = $('.result:not(".listitem-hidden")');
+    var resultCountText = "Showing " + itemsShown.length + (itemsShown.length == 1 ? " Result" : " Results");
+    $('#result-count').text(resultCountText);
+    if (itemsShown.length == 0) {
+      $('#no-results-message').removeClass("message-hidden")
+    }
+    else {
+      $('#no-results-message').addClass("message-hidden")
+    }
+  }
+
+  var updateStripes = function() {
+    $('.result:not(".listitem-hidden")').each(function(i,v) {
+      $(v).removeClass('has-background');
+      if (i % 2 == 1) {
+        $(v).addClass('has-background');
+      }
+    });
+  }
+
+  var searchListItems = function() {
+    var query = $('#search-field').val();
+    if (isMobile()) {
+      query = $('#mobile-search-field').val();
+    }
+    var params = getUrlParameters();
+    params.q = query;
+    history.pushState(null, null, createUrlQuery(params));
+    //loop through list items and look for query in items with data-searchable=true and keywords
+    $('.filtered-results .listitem').each(function(index, item) {
+      var item = $(item);
+      var found = false;
+      var searchables = item.find("*[data-searchable='true']");
+      $.each(searchables, function(idx, elem) {
+        if ($(elem).text().indexOf(query) > -1) {
+          found = true;
+          return false;
+        }
+      })
+      if (!found && item.data('keywords').indexOf(query) > -1) {
+        found = true;
+      }
+
+      if (found) {
+        item.attr("data-matches-query", "true");
+      }
+      else {
+        item.closest('li').addClass('listitem-hidden')
+        item.closest('li').attr('aria-hidden', true);
+      }
+    })
+    updateResultsShown();
+  }
+
   //on initial page load
   var urlParams = getUrlParameters();
+  if (urlParams.q) {
+    $('#search-field,#mobile-search-field').val(urlParams.q);
+    searchListItems();
+  }
   if (urlParams.filters) {
     var filterList = urlParams.filters.split(',');
     updateActiveFilters(filterList);
@@ -181,23 +230,15 @@ jQuery(document).ready(function($) {
     updateSelectedResults(filterList);
   }
   else {
-    var listItemCount = $('li.result').length;
-    var resultCountText = "Showing " + listItemCount + (listItemCount == 1 ? " Result" : " Results");
-    $('#result-count').text(resultCountText);
+    updateResultsShown();
   }
 
-  $('li.result').each(function(i,v) {
-    if (i % 2 == 1) {
-      $(v).addClass('has-background');
-    }
-  });
+  updateStripes();
 
   $('.select-filters').each(function() {
     var group = $(this);
     updateScreenReaderFilterGroupText(group);
   })
-
-
 
   var searchArea = $('.filterable-search-container');
   var filterToggleButton = $('.btn-toggle-filters');
@@ -300,41 +341,10 @@ jQuery(document).ready(function($) {
   }
   //TODO: It should do the search when the user hits enter after typing a search term too.
   $('.btn-search-list-items').click(function(e) {
+    clearFilters();
+    updateFilterableSearch();
     searchListItems();
   })
 
-  var searchListItems = function() {
-    clearFilters();
-    updateFilterableSearch();
-    var query = $('#search-field').val();
-    if (isMobile()) {
-      query = $('#mobile-search-field').val();
-    }
-    var params = getUrlParameters();
-    params.q = query;
-    history.pushState(null, null, createUrlQuery(params));
-    //loop through list items and look for query in items with data-searchable=true and keywords
-    $('.filtered-results .listitem').each(function(index, item) {
-      var item = $(item);
-      var found = false;
-      var searchables = item.find("*[data-searchable='true']");
-      $.each(searchables, function(idx, elem) {
-        if ($(elem).text().indexOf(query) > -1) {
-          found = true;
-          return false;
-        }
-      })
-      if (!found && item.data('keywords').indexOf(query) > -1) {
-        found = true;
-      }
 
-      if (found) {
-        item.attr("data-matches-query", "true");
-      }
-      else {
-        item.closest('li').addClass('listitem-hidden')
-        item.closest('li').attr('aria-hidden', true);
-      }
-    })
-  }
 })
