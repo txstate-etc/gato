@@ -184,21 +184,24 @@ jQuery(document).ready(function($) {
     if (isMobile()) {
       query = $('#mobile-search-field').val();
     }
+    query = query.toLowerCase();
     var params = getUrlParameters();
     params.q = query;
     history.pushState(null, null, createUrlQuery(params));
     //loop through list items and look for query in items with data-searchable=true and keywords
     $('.filtered-results .listitem').each(function(index, item) {
       var item = $(item);
+      item.closest('li').removeClass('listitem-hidden')
+      item.closest('li').attr('aria-hidden', false);
       var found = false;
       var searchables = item.find("*[data-searchable='true']");
       $.each(searchables, function(idx, elem) {
-        if ($(elem).text().indexOf(query) > -1) {
+        if ($(elem).text().toLowerCase().indexOf(query) > -1) {
           found = true;
           return false;
         }
       })
-      if (!found && item.data('keywords').indexOf(query) > -1) {
+      if (!found && item.data('keywords').toLowerCase().indexOf(query) > -1) {
         found = true;
       }
 
@@ -211,6 +214,7 @@ jQuery(document).ready(function($) {
       }
     })
     updateResultsShown();
+    updateStripes();
   }
 
   //on initial page load
@@ -345,6 +349,5 @@ jQuery(document).ready(function($) {
     updateFilterableSearch();
     searchListItems();
   })
-
 
 })
