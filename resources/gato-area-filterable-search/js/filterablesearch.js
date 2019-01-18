@@ -142,6 +142,13 @@ jQuery(document).ready(function($) {
       updateFilterableSearch();
   })
 
+  $('.filter-label').click(function(e) {
+    var checkbox = $(this).parent().find('.filter-cbx');
+    toggleCheckbox(checkbox);
+    if (!isMobile())
+      updateFilterableSearch();
+  })
+
   $('.filter-cbx').keydown(function(e) {
     if (e.which == 32 || e.which == 13) {
       e.preventDefault();
