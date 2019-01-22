@@ -203,6 +203,7 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
 
     register(DeltaBuilder.update("1.2.1", "")
       .addTask(new SetPropertyTask("Automatically open the Add Component dialog in wide mode", RepositoryConstants.CONFIG, "/modules/pages/dialogs/newComponent", "wide", Boolean.TRUE ))
+      .addTask(new BootstrapSingleModuleResource("config.modules.site.config.site.templates.availability.templates.2015-filterablesearch.xml"))
     );
   }
 
