@@ -357,4 +357,11 @@ jQuery(document).ready(function($) {
     searchListItems();
   })
 
+  $('#search-field').keydown(function(e) {
+    if (e.keyCode == 13) {
+      clearFilters();
+      updateFilterableSearch();
+      searchListItems();
+    }
+  })
 })
