@@ -5,11 +5,15 @@
 	<head>
 		[@googletagmanager /]
 		<link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-txstate2015/css/txstate2015.scss"/>
-    [@templatejs scripts = [
+		[#assign scripts = [
       'gato-template-txstate2015/js/includes.cjs',
       'gato-template-txstate2015/js/standard.cjs',
       'gato-template-txstate2015/js/fontsdotcom.js'
     ]/]
+		[#if def.parameters.isFilterableSearchTemplate!false]
+      [#assign scripts = scripts + ['gato-area-filterable-search/js/filterablesearch.js']]
+    [/#if]
+    [@templatejs scripts /]
 		[@templatehead/]
 	</head>
 	<body class="${cmsfn.isEditMode()?string('admin','')}">
@@ -49,11 +53,16 @@
         [#if !cmsfn.isEditMode() && !gf.areaHasChildrenIncludingInheritance(content.navBlocks) && !gf.hasChildren(homepage.socialmedia)]
            [#assign hideSidebar = true]
         [/#if]
-
+				[#if def.parameters.isFilterableSearchTemplate!false]
+		      [#assign hideSidebar = true]
+		    [/#if]
         <main class="contentcolumn">
           [@headline hideSidebar /]
           [#if def.parameters.isMailTemplate!false]
             [@cms.area name="mail" contextAttributes={"hideSidebar":hideSidebar} /]
+          [#elseif def.parameters.isFilterableSearchTemplate!false]
+	            [@cms.area name="filterable-search-intro"/]
+	            [@cms.area name="filterable-search"/]
           [#else]
             [@cms.area name="contentParagraph" contextAttributes={"hideSidebar":hideSidebar} /]
           [/#if]
