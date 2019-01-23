@@ -133,7 +133,7 @@ jQuery(document).ready(function($) {
 
     //add stripes to results
     updateStripes();
-
+    updateAlphaHeaders();
   }
 
   $('.filter-cbx').click(function(e) {
@@ -187,6 +187,17 @@ jQuery(document).ready(function($) {
     });
   }
 
+  var updateAlphaHeaders = function() {
+    if ($('.filtered-results').data('headers')) {
+      if ( $('.result.listitem-hidden').length > 0) {
+        $('.alpha-header').hide();
+      }
+      else {
+        $('.alpha-header').show();
+      }
+    }
+  }
+
   var searchListItems = function() {
     var query = $('#search-field').val();
     if (isMobile()) {
@@ -223,6 +234,7 @@ jQuery(document).ready(function($) {
     })
     updateResultsShown();
     updateStripes();
+    updateAlphaHeaders();
   }
 
   //on initial page load
