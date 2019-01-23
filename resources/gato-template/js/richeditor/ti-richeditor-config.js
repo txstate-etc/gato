@@ -85,7 +85,6 @@
            config.toolbar_Magnolia = [
                    { name: "basicstyles",   items: [ "Bold", "Italic", "HorizontalRule", "Blockquote", "RemoveFormat", "SpecialChar" ] },
                    { name: "links",         items: [ "Link", "InternalLink", "DamLink", "Unlink", "Anchor" ] },
-                   { name: "clipboard",     items: [ "Copy", "Paste", "PasteText", "PasteFromWord" ] },
                    { name: "undo",          items: [ "Undo", "Redo" ] },
                    { name: "tools",         items: [ "Source" ] },
                    { name: "paragraph",     items: [ "NumberedList", "BulletedList","Indent", "Outdent"] },
@@ -111,4 +110,3 @@
               internalLinkButton.attr('title', 'Link to Gato Page');
             });
    };
-

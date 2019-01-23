@@ -99,7 +99,6 @@
            config.toolbar_Magnolia = [
                    { name: "basicstyles",   items: [ "Bold", "Italic", "HorizontalRule", "Blockquote", "RemoveFormat", "SpecialChar" ] },
                    { name: "links",         items: [ "Link", "InternalLink", "DamLink", "Unlink", "Anchor" ] },
-                   { name: "clipboard",     items: [ "Copy", "Paste", "PasteText", "PasteFromWord" ] },
                    { name: "tables",        items: [ "Table" ] },
                    { name: "images",        items: ["Image", "Flash"]},
                    { name: "undo",          items: [ "Undo", "Redo" ] },
