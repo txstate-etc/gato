@@ -1,4 +1,4 @@
-<div class="filtered-results">
+<div class="filtered-results" data-headers=${(ctx.alphabetize == "alphaheaders")?then("true", "false")}>
   <span id="result-count" class="result-count">Showing ## Results</span>
   [#if ctx.alphabetize == "none"]
     [#assign items = components]
@@ -7,7 +7,7 @@
   [/#if]
   <ul>
   [#list items as component]
-    <li class="result">[@cms.component content=component /]</li>
+    <li class="result">[@cms.component content=component/]</li>
   [/#list]
   </ul>
   <div id="no-results-message" class="message-hidden">

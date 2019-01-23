@@ -96,6 +96,11 @@
           display: none;
         }
       }
+      .alpha-header {
+        font-size: 3.2rem;
+        font-family: $garamond; //USE A VARIABLE
+        padding: 2rem 0rem;
+      }
     }
   }
   &.filters-open {

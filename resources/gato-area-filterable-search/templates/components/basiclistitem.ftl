@@ -3,7 +3,7 @@
 [#if content.link?has_content]
   <a href="${gf.filterUrl(content.link)}">
 [/#if]
-<div class="listitem-title" data-searchable="true">
+<div class="listitem-title" data-searchable="true" data-alpha="true">
   ${content.title}
 </div>
 [#if content.link?has_content]

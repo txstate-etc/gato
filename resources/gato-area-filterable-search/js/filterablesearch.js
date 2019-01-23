@@ -133,6 +133,7 @@ jQuery(document).ready(function($) {
 
     //add stripes to results
     updateStripes();
+
   }
 
   $('.filter-cbx').click(function(e) {
@@ -242,6 +243,20 @@ jQuery(document).ready(function($) {
   }
   else {
     updateResultsShown();
+    if ($('.filtered-results').data('headers')) {
+      var firstItem = $('.filtered-results .listitem').first();
+      var firstItemText = firstItem.find("*[data-alpha='true']").text().trim();
+      var currentLetter = firstItemText.charAt().toUpperCase();
+      firstItem.parent().before('<div class="alpha-header">'+ currentLetter +'</div>')
+      $('.filtered-results .listitem').each(function(index, item) {
+        var text = $(item).find("*[data-alpha='true']").text().trim().toUpperCase();
+        var firstLetter = text.charAt();
+        if (firstLetter != currentLetter) {
+          currentLetter = firstLetter;
+          $(item).parent().before('<div class="alpha-header">'+ currentLetter +'</div>')
+        }
+      });
+    }
   }
 
   updateStripes();
