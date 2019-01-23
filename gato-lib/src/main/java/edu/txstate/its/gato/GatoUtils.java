@@ -1474,30 +1474,24 @@ public final class GatoUtils {
     }
   }
 
-  public String getEnabledAlphabetFilters(Object obj, String alphabetFilterProperty) {
-    HashSet<String> startingLetters = new HashSet<String>();
-    String ret = "";
-    try {
-      Node n = toNode(obj);
-      NodeIterator iter = n.getNodes();
-      while (iter.hasNext()) {
-        Node item = iter.nextNode();
-        String filterProperty = PropertyUtil.getString(item, alphabetFilterProperty, "");
-        if (filterProperty.length() > 0) {
-          String startingLetter = filterProperty.substring(0,1).toUpperCase();
-          if (Character.isLetter(startingLetter.charAt(0)))
-            startingLetters.add(startingLetter);
+  //TODO: the alphabetizeBy parameter should probably take an array or list of fields. For example,
+  //we might want to alphabetize by lastname firstname for the directory type.
+  public List<ContentMap> sortFilterableSearchItems(List<ContentMap> listItems, String alphabetizeBy) {
+    List<ContentMap> modifiableList = new ArrayList<ContentMap>(listItems);
+    modifiableList.sort(new Comparator<ContentMap>() {
+      public int compare(ContentMap a, ContentMap b) {
+        try {
+          Node nodeA = a.getJCRNode();
+          String aSortBy = PropertyUtil.getString(nodeA, alphabetizeBy, "");
+          Node nodeB = b.getJCRNode();
+          String bSortBy = PropertyUtil.getString(nodeB, alphabetizeBy, "");
+          return aSortBy.compareToIgnoreCase(bSortBy);
+        } catch(Exception e) {
+          e.printStackTrace();
         }
+        return 0;
       }
-      Iterator<String> i = startingLetters.iterator();
-      while (i.hasNext()) {
-        ret += i.next();
-      }
-      return ret;
-    }
-    catch(Exception e) {
-      e.printStackTrace();
-      return "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    }
+    });
+    return modifiableList;
   }
 }

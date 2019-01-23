@@ -3,8 +3,20 @@ form:
     - name: tabMain
       label: Basic List
       fields:
-        - name: placeholder
-          class: info.magnolia.ui.form.field.definition.StaticFieldDefinition
-          label: ""
-          value: Properties that need to be set for the whole filterable search. The bulk editor might be launched from here. Maybe placeholder text for the search field.
+        - name: alphabetize
+          class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
+          label: Alphabetize List Items?
+          multiselect: false
+          sortOptions: false
+          options:
+            - name: alpha
+              label: Alphabetize
+              value: alphabetize
+            - name: alphaheaders
+              label: Alphabetize and add headers
+              value: alphaheaders
+              selected: true
+            - name: none
+              label: Do not alphabetize
+              value: none
 actions: !include /gato-template/dialogs/common/actions-block.yaml

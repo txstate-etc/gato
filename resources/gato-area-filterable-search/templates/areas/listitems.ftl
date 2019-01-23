@@ -1,7 +1,12 @@
 <div class="filtered-results">
   <span id="result-count" class="result-count">Showing ## Results</span>
+  [#if ctx.alphabetize == "none"]
+    [#assign items = components]
+  [#else]
+    [#assign items = gf.sortFilterableSearchItems(components, ctx.alphaBy)]
+  [/#if]
   <ul>
-  [#list components as component]
+  [#list items as component]
     <li class="result">[@cms.component content=component /]</li>
   [/#list]
   </ul>
