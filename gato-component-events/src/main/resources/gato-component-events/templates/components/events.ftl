@@ -117,13 +117,14 @@
           </div>
 
           [#assign itemlink = item.link]
-          [#if !itemlink?has_content][#assign itemlink = item.url][/#if]
           [#if item.description?has_content]
             <div class="txst-eventdetail-description">
               <span class="p-description">${item.description}</span>
+              [#if itemlink?has_content]
               <a href="${itemlink}" class="u-url url">
                 Click here for more information
               </a>
+              [/#if]
             </div>
           [/#if]
 
