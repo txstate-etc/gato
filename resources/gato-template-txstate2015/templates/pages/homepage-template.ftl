@@ -44,7 +44,7 @@
       </div>
 
       <div class="main-content">
-        <h2 id="maincontent" class="visuallyhidden">Main Content</h2>
+        <h1 id="maincontent" class="visuallyhidden">Main Content</h1>
         [#include "includes/homepage/top-feature.ftl"]
         [#include "includes/homepage/top-links.ftl"]
         [#include "includes/homepage/news.ftl"]
