@@ -1,7 +1,7 @@
 <div class="filter-container" id="filter-container">
   <div class="search-container">
-    <label for="search-field" class="visuallyhidden">Search List Items</label>
-    <input id="search-field" type="search" class="fs-search" placeholder="Search"/>
+    <label for="search-field" class="visuallyhidden">Search ${ctx.description?has_content?then(ctx.description, "List Items")}</label>
+    <input id="search-field" type="search" class="fs-search" placeholder="Search ${ctx.description?has_content?then(ctx.description, "")}"/>
     <button class="btn-search-list-items"><i class="fa fa-search"></i><span class="visuallyhidden">Start Search</span></button>
   </div>
   <div class="filter-groups">

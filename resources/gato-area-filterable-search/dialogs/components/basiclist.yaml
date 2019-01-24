@@ -19,4 +19,8 @@ form:
             - name: none
               label: Do not alphabetize
               value: none
+        - name: description
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Description
+          description: What does this list contain? Examples might be degrees or faculty
 actions: !include /gato-template/dialogs/common/actions-block.yaml
