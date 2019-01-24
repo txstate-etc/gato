@@ -259,13 +259,13 @@ jQuery(document).ready(function($) {
       var firstItem = $('.filtered-results .listitem').first();
       var firstItemText = firstItem.find("*[data-alpha='true']").text().trim();
       var currentLetter = firstItemText.charAt().toUpperCase();
-      firstItem.parent().before('<div class="alpha-header">'+ currentLetter +'</div>')
+      firstItem.parent().before('<div class="alpha-header" aria-hidden="true">'+ currentLetter +'</div>')
       $('.filtered-results .listitem').each(function(index, item) {
         var text = $(item).find("*[data-alpha='true']").text().trim().toUpperCase();
         var firstLetter = text.charAt();
         if (firstLetter != currentLetter) {
           currentLetter = firstLetter;
-          $(item).parent().before('<div class="alpha-header">'+ currentLetter +'</div>')
+          $(item).parent().before('<div class="alpha-header" aria-hidden="true">'+ currentLetter +'</div>')
         }
       });
     }
