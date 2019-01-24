@@ -54,6 +54,10 @@ jQuery(document).ready(function($) {
         toggleCheckbox(checkbox);
         if (!isMobile())
           updateFilterableSearch();
+        else {
+          if ($('.apply-filters').css('display') == "none")
+            $('.apply-filters').velocity("slideDown", {duration: 300});
+        }
       });
     }
     cb.toggleClass('is-checked');
@@ -141,6 +145,11 @@ jQuery(document).ready(function($) {
     toggleCheckbox(checkbox);
     if (!isMobile())
       updateFilterableSearch();
+    else {
+      $('.btn-apply-filters').text('Apply Filters');
+      if ($('.apply-filters').css('display') == "none")
+        $('.apply-filters').velocity("slideDown", {duration: 300});
+    }
   })
 
   $('.filter-label').click(function(e) {
@@ -321,6 +330,11 @@ jQuery(document).ready(function($) {
         toggleCheckbox(checkbox);
       }
     })
+    if (isMobile()) {
+      $('.btn-apply-filters').text('Apply Reset');
+      if ($('.apply-filters').css('display') == "none")
+        $('.apply-filters').velocity("slideDown", {duration: 300});
+    }
   }
 
   $('.select-filters .header').click(function(e) {
@@ -343,6 +357,7 @@ jQuery(document).ready(function($) {
 
   $('.btn-close-modal').click(function(e) {
     searchArea.removeClass('filters-open');
+    $('.apply-filters').css("display", "none");
     filterToggleButton.attr('aria-expanded', false);
     resetModalFilters();
     filterToggleButton.focus();
@@ -350,6 +365,7 @@ jQuery(document).ready(function($) {
 
   $('.btn-apply-filters').click(function(e) {
     searchArea.removeClass('filters-open');
+    $('.apply-filters').css("display", "none");
     filterToggleButton.attr('aria-expanded', false);
     updateFilterableSearch();
     filterToggleButton.focus();
