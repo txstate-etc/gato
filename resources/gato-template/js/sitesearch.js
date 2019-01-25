@@ -155,6 +155,8 @@ jQuery(document).ready(function($) {
         }
     }
 
+
+
     //handles submit from search modal
     $('.searchbar-form').submit(function(e){
         e.preventDefault();
@@ -226,6 +228,12 @@ jQuery(document).ready(function($) {
     }
 
     load_from_state();
+
+    $('.btn-close-search-dialog').click(function(e) {
+      e.preventDefault();
+      $('#search-modal-content').dialog('close');
+      $('.search-link.search-button').focus();
+    })
 
     //This handles the case where the user navigates to/from the search results page using the
     //back and forward buttons in the browser

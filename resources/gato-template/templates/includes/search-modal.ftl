@@ -38,6 +38,7 @@
             </span>
             </fieldset>
           </div>
+          <button class="btn-close-search-dialog">Close Search Dialog</button>
           <script>
             jQuery( "input[name=txst-search]:radio" ).on('change', function(e){
               var searchField = jQuery('#search-text');

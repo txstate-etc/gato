@@ -92,6 +92,16 @@
                 }
             }
         }
+        .btn-close-search-dialog {
+          height: 5px;
+          overflow: hidden;
+          padding: 0;
+          border: 0;
+          line-height: 0;
+          background-color: transparent;
+          color: transparent;
+          position: absolute;
+        }
     }
 }
 
