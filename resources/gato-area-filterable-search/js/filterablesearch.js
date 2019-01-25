@@ -308,6 +308,17 @@ jQuery(document).ready(function($) {
     }
   })
 
+  //close filter panel if they click outside it
+  $('body > *').on('click focusin', function(e) {
+    var target = $(e.target);
+    if (!isMobile() && searchArea.hasClass('filters-open') && !target.closest('#filter-container').length && !target.closest('.btn-toggle-filters').length) {
+      if (e.type == 'click') e.preventDefault();
+      searchArea.removeClass('filters-open');
+      filterToggleButton.attr('aria-expanded', false);
+      filterToggleButton.focus();
+    }
+  });
+
   //open and close filter lists
   var toggleFilterList = function(target) {
     var dropdown = $(target);
@@ -371,8 +382,6 @@ jQuery(document).ready(function($) {
     filterToggleButton.focus();
   });
 
-  //TODO: This should happen if they close the modal with ESC or tap outside of it too
-  //But it looks like the modal should take up the full screen.
   var resetModalFilters = function() {
     var filterList= [];
     var urlParams = getUrlParameters();
