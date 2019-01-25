@@ -56,7 +56,6 @@
 
         <div class="gato-accordion-header">
           [@h2 class="txst-eventdetail-title" offset=offset]
-            ${item.cancelled?string('CANCELLED - ','')}
             <a href="#" class="p-name summary" aria-haspopup="true" aria-expanded="${model.collapsed?string('false', 'true')}" aria-controls="${eventDomId}">
               ${item.title}
             </a>
