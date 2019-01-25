@@ -97,7 +97,6 @@ CKEDITOR.editorConfig = function( config ) {
   config.toolbar_Gato = [
     { name: "basicstyles",   items: [ "Bold", "Italic", "RemoveFormat", "SpecialChar" ] },
     { name: "links",         items: [ "Link", "InternalLink", "DamLink", "Unlink" ] },
-    { name: "clipboard",     items: [ "PasteText" ] },
     { name: "undo",          items: [ "Undo", "Redo" ] },
     { name: "paragraph",     items: [ "NumberedList", "BulletedList"] },
     { name: "tools",         items: [ "Source" ] },
