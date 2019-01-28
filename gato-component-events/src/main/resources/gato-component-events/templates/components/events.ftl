@@ -109,9 +109,10 @@
 
               <dt>Contact:</dt>
               <dd>${item.contact}</dd>
-
-              <dt>Campus Sponsor:</dt>
-              <dd>${item.sponsor}</dd>
+              [#if item.sponsor?has_content]
+                <dt>Campus Sponsor:</dt>
+                <dd>${item.sponsor}</dd>
+              [/#if]
             </dl>
           </div>
 
