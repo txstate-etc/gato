@@ -1,6 +1,6 @@
-//TODO: Can an effect be added to show that an active filter has focus?
-
 jQuery(document).ready(function($) {
+
+  var activeFilters = {};
 
   //TODO: The mobile-first template goes to mobile layout below 800 px but is that
   //true for all templates?
@@ -19,56 +19,65 @@ jQuery(document).ready(function($) {
     return isMobile;
   }
 
-  var activeFilters = {};
+  var searchArea = $('.filterable-search-container');
+  var filterToggleButton = $('.btn-toggle-filters');
 
-  var buildActiveFilter = function(name, id) {
-    var html = '<li id="active_' + id +'">' +
-      '<span class="active-filter">' + name +
-        '<button class="remove-filter" aria-label="remove filter ' +  name + '"><i class="fa fa-times" aria-hidden="true"></i></button>' +
-      '</span>' +
-    '</li>';
-    return html;
-  }
-
-  var updateFilterableSearch = function() {
-    var arrFilters = getSelectedFilters();
-    $('.filter-count').text("(" + arrFilters.length + ")")
-    updateUrlParameters(arrFilters);
-    updateActiveFilters(arrFilters);
-    updateSelectedResults();
-  }
-
-  var toggleCheckbox = function(cb) {
-    var id = cb.attr('id');
-    var activeFilterArea = cb.closest('.select-filters').find('.active-filters');
-    if (cb.hasClass('is-checked')) {
-      cb.attr('aria-checked', false);
-      $('#active_' + id).remove();
+  //open and close filter panel
+  filterToggleButton.click(function(e) {
+    if (searchArea.hasClass('filters-open')) {
+      searchArea.removeClass('filters-open');
+      filterToggleButton.attr('aria-expanded', false);
+      filterToggleButton.focus();
     }
     else {
-      cb.attr('aria-checked', true);
-      activeFilterArea.append(buildActiveFilter(cb.data('name'), id));
-      $('#active_' + id).find('button').click(function(e) {
-        //get the checkbox with this id
-        var checkbox = $('#' + id);
-        toggleCheckbox(checkbox);
-        if (!isMobile())
-          updateFilterableSearch();
-        else {
-          if ($('.apply-filters').css('display') == "none")
-            $('.apply-filters').velocity("slideDown", {duration: 300});
-        }
-      });
+      searchArea.addClass('filters-open');
+      filterToggleButton.attr('aria-expanded', true);
+      if (isMobile())
+        $('.filter-group-list').find('li').eq(0).find('.header').focus();
+      else {
+        $('#search-field').focus();
+      }
     }
-    cb.toggleClass('is-checked');
-    cb.parent().toggleClass('selected');
-    updateScreenReaderFilterGroupText(cb.closest('.select-filters'));
+  })
+
+  //open and close filter lists
+  var toggleFilterList = function(target) {
+    var dropdown = $(target);
+    var panel = dropdown.parent().find('.body');
+    if (dropdown.parent().hasClass('open')) {
+      dropdown.attr('aria-expanded', false);
+      panel.velocity("slideUp", {duration: 300});
+    }
+    else {
+      dropdown.attr('aria-expanded', true);
+      panel.velocity("slideDown", {duration: 300});
+    }
+    dropdown.parent().toggleClass('open');
   }
 
-  var updateUrlParameters = function(filters) {
-    var params = getUrlParameters();
-    params.filters = filters.join(',');
-    history.pushState(null, null, createUrlQuery(params));
+  $('.select-filters .header').click(function(e) {
+    toggleFilterList(this);
+  })
+
+  $('.select-filters .header').keydown(function(e) {
+    if (e.which == 32 || e.which == 13) {
+      e.preventDefault();
+      toggleFilterList(e.target);
+    }
+  })
+
+  var clearFilters = function() {
+    $('.filter-container .filter-cbx').each(function(index, value) {
+      var checkbox = $(value);
+      if (checkbox.hasClass('is-checked')) {
+        toggleCheckbox(checkbox);
+      }
+    })
+    if (isMobile()) {
+      $('.btn-apply-filters').text('Apply Reset');
+      if ($('.apply-filters').css('display') == "none")
+        $('.apply-filters').velocity("slideDown", {duration: 300});
+    }
   }
 
   var getSelectedFilters = function() {
@@ -94,79 +103,14 @@ jQuery(document).ready(function($) {
     }
   }
 
-  var queryPresent = function() {
+  var updateUrlParameters = function(filters, query) {
     var params = getUrlParameters();
-    return params.q
-  }
-
-  var updateSelectedResults = function() {
-    var resultCount = 0;
-    $('.filtered-results .listitem').each(function(index, item) {
-      item = $(item);
-      var tags = item.data('tags').split(',');
-      var isRelevant = true;
-      if (queryPresent() && !item.data('matches-query')) {
-        isRelevant = false;
-      }
-      if (isRelevant) {
-        for (var group in activeFilters) {
-          if (activeFilters.hasOwnProperty(group)) {
-            var selectedTags = activeFilters[group];
-            var hasTag = selectedTags.some(function(v) {
-              return tags.indexOf(v) >= 0;
-            })
-            if (!hasTag) {
-              isRelevant = false;
-              continue;
-            }
-          }
-        }
-      }
-      if (!isRelevant) {
-        item.closest('li').addClass('listitem-hidden')
-        item.closest('li').attr('aria-hidden', true);
-      }
-      else {
-        item.closest('li').removeClass('listitem-hidden')
-        item.closest('li').attr('aria-hidden', false);
-        resultCount++;
-      }
-    });
-
-    updateResultsShown();
-
-    //add stripes to results
-    updateStripes();
-    updateAlphaHeaders();
-  }
-
-  $('.filter-cbx').click(function(e) {
-    var checkbox = $(this);
-    toggleCheckbox(checkbox);
-    if (!isMobile())
-      updateFilterableSearch();
-    else {
-      $('.btn-apply-filters').text('Apply Filters');
-      if ($('.apply-filters').css('display') == "none")
-        $('.apply-filters').velocity("slideDown", {duration: 300});
+    params.filters = filters.join(',');
+    if (query.length > 0) {
+      params.q = query
     }
-  })
-
-  $('.filter-label').click(function(e) {
-    var checkbox = $(this).parent().find('.filter-cbx');
-    toggleCheckbox(checkbox);
-    if (!isMobile())
-      updateFilterableSearch();
-  })
-
-  $('.filter-cbx').keydown(function(e) {
-    if (e.which == 32 || e.which == 13) {
-      e.preventDefault();
-      toggleCheckbox($(e.target));
-      if (!isMobile())
-        updateFilterableSearch();
-    }
-  })
+    history.pushState(null, null, createUrlQuery(params));
+  }
 
   var updateScreenReaderFilterGroupText = function(group) {
     var numSelectedFilters = group.find('.filter-cbx.is-checked').length;
@@ -175,11 +119,43 @@ jQuery(document).ready(function($) {
     group.find('.header .sr-filters-selected').text(text);
   }
 
-  var updateResultsShown = function() {
-    var itemsShown = $('.result:not(".listitem-hidden")');
-    var resultCountText = "Showing " + itemsShown.length + (itemsShown.length == 1 ? " Result" : " Results");
+  var itemContainsQuery = function(item, query) {
+    var found = false;
+    var searchables = item.find("*[data-searchable='true']");
+    $.each(searchables, function(idx, elem) {
+      if ($(elem).text().toLowerCase().indexOf(query) > -1) {
+          found = true;
+          return false;
+        }
+    });
+    if (!found && item.data('keywords').toLowerCase().indexOf(query) > -1) {
+      found = true;
+    }
+    return found;
+  }
+
+  var itemMatchesFilters = function(item) {
+    var isRelevant = true;
+    var tags = item.data('tags').split(',');
+    for (var group in activeFilters) {
+      if (activeFilters.hasOwnProperty(group)) {
+        var selectedTags = activeFilters[group];
+        var hasTag = selectedTags.some(function(v) {
+          return tags.indexOf(v) >= 0;
+        });
+        if (!hasTag) {
+          isRelevant = false;
+          continue;
+        }
+      }
+    }
+    return isRelevant;
+  }
+
+  var updateResultsShown = function(count) {
+    var resultCountText = "Showing " + count + (count == 1 ? " Result" : " Results");
     $('#result-count').text(resultCountText);
-    if (itemsShown.length == 0) {
+    if (count == 0) {
       $('#no-results-message').removeClass("message-hidden")
     }
     else {
@@ -196,191 +172,81 @@ jQuery(document).ready(function($) {
     });
   }
 
-  var updateAlphaHeaders = function() {
-    if ($('.filtered-results').data('headers')) {
-      if ( $('.result.listitem-hidden').length > 0) {
-        $('.alpha-header').hide();
-      }
-      else {
-        $('.alpha-header').show();
-      }
-    }
-  }
-
-  var searchListItems = function() {
+  var updateSearchResults = function() {
     var query = $('#search-field').val();
     if (isMobile()) {
       query = $('#mobile-search-field').val();
     }
     query = query.toLowerCase();
-    var params = getUrlParameters();
-    params.q = query;
-    history.pushState(null, null, createUrlQuery(params));
-    //loop through list items and look for query in items with data-searchable=true and keywords
-    $('.filtered-results .listitem').each(function(index, item) {
-      var item = $(item);
-      item.closest('li').removeClass('listitem-hidden')
-      item.closest('li').attr('aria-hidden', false);
-      var found = false;
-      var searchables = item.find("*[data-searchable='true']");
-      $.each(searchables, function(idx, elem) {
-        if ($(elem).text().toLowerCase().indexOf(query) > -1) {
-          found = true;
-          return false;
-        }
-      })
-      if (!found && item.data('keywords').toLowerCase().indexOf(query) > -1) {
-        found = true;
-      }
+    var arrFilters = getSelectedFilters();
+    $('.filter-count').text("(" + arrFilters.length + ")")
+    updateUrlParameters(arrFilters, query);
+    updateActiveFilters(arrFilters);
 
-      if (found) {
-        item.attr("data-matches-query", "true");
+    var resultCount = 0;
+    $('.filtered-results .listitem').each(function(index, item) {
+      item = $(item);
+      var isRelevant = true;
+      if (query.length > 0) {
+        isRelevant = itemContainsQuery(item, query);
+        if (isRelevant) {
+          isRelevant = itemMatchesFilters(item);
+        }
       }
       else {
+        isRelevant = itemMatchesFilters(item);
+      }
+
+      if (!isRelevant) {
         item.closest('li').addClass('listitem-hidden')
         item.closest('li').attr('aria-hidden', true);
       }
-    })
-    updateResultsShown();
+      else {
+        item.closest('li').removeClass('listitem-hidden')
+        item.closest('li').attr('aria-hidden', false);
+        resultCount++;
+      }
+    });
+
+    updateResultsShown(resultCount);
     updateStripes();
     updateAlphaHeaders();
   }
 
-  //on initial page load
-  var urlParams = getUrlParameters();
-  if (urlParams.q) {
-    $('#search-field,#mobile-search-field').val(urlParams.q);
-    searchListItems();
+  var buildActiveFilter = function(name, id) {
+    var html = '<li id="active_' + id +'">' +
+      '<span class="active-filter">' + name +
+        '<button class="remove-filter" aria-label="remove filter ' +  name + '"><i class="fa fa-times" aria-hidden="true"></i></button>' +
+      '</span>' +
+    '</li>';
+    return html;
   }
-  if (urlParams.filters) {
-    var filterList = urlParams.filters.split(',');
-    updateActiveFilters(filterList);
-    filterList.map(function(filterId) {
-      var field = $('#' + filterId);
-      toggleCheckbox(field);
-    })
-    $('.filter-count').text("(" + filterList.length + ")")
-    updateSelectedResults(filterList);
-  }
-  else {
-    updateResultsShown();
-    if ($('.filtered-results').data('headers')) {
-      var firstItem = $('.filtered-results .listitem').first();
-      var firstItemText = firstItem.find("*[data-alpha='true']").text().trim();
-      var currentLetter = firstItemText.charAt().toUpperCase();
-      firstItem.parent().before('<div class="alpha-header" aria-hidden="true">'+ currentLetter +'</div>')
-      $('.filtered-results .listitem').each(function(index, item) {
-        var text = $(item).find("*[data-alpha='true']").text().trim().toUpperCase();
-        var firstLetter = text.charAt();
-        if (firstLetter != currentLetter) {
-          currentLetter = firstLetter;
-          $(item).parent().before('<div class="alpha-header" aria-hidden="true">'+ currentLetter +'</div>')
+
+  var toggleCheckbox = function(cb) {
+    var id = cb.attr('id');
+    var activeFilterArea = cb.closest('.select-filters').find('.active-filters');
+    if (cb.hasClass('is-checked')) {
+      cb.attr('aria-checked', false);
+      $('#active_' + id).remove();
+    }
+    else {
+      cb.attr('aria-checked', true);
+      activeFilterArea.append(buildActiveFilter(cb.data('name'), id));
+      $('#active_' + id).find('button').click(function(e) {
+        var checkbox = $('#' + id);
+        toggleCheckbox(checkbox);
+        if (!isMobile())
+          updateSearchResults();
+        else {
+          if ($('.apply-filters').css('display') == "none")
+            $('.apply-filters').velocity("slideDown", {duration: 300});
         }
       });
     }
+    cb.toggleClass('is-checked');
+    cb.parent().toggleClass('selected');
+    updateScreenReaderFilterGroupText(cb.closest('.select-filters'));
   }
-
-  updateStripes();
-
-  $('.select-filters').each(function() {
-    var group = $(this);
-    updateScreenReaderFilterGroupText(group);
-  })
-
-  var searchArea = $('.filterable-search-container');
-  var filterToggleButton = $('.btn-toggle-filters');
-
-  //open and close filter panel
-  filterToggleButton.click(function(e) {
-    if (searchArea.hasClass('filters-open')) {
-      searchArea.removeClass('filters-open');
-      filterToggleButton.attr('aria-expanded', false);
-      filterToggleButton.focus();
-    }
-    else {
-      searchArea.addClass('filters-open');
-      filterToggleButton.attr('aria-expanded', true);
-      if (isMobile())
-        $('.filter-group-list').find('li').eq(0).find('.header').focus();
-      else {
-        $('#search-field').focus();
-      }
-    }
-  })
-
-  //close filter panel if they click outside it
-  $('body > *').on('click focusin', function(e) {
-    var target = $(e.target);
-    if (!isMobile() && searchArea.hasClass('filters-open') && !target.closest('#filter-container').length && !target.closest('.btn-toggle-filters').length) {
-      if (e.type == 'click') e.preventDefault();
-      searchArea.removeClass('filters-open');
-      filterToggleButton.attr('aria-expanded', false);
-      filterToggleButton.focus();
-    }
-  });
-
-  //open and close filter lists
-  var toggleFilterList = function(target) {
-    var dropdown = $(target);
-    var panel = dropdown.parent().find('.body');
-    if (dropdown.parent().hasClass('open')) {
-      dropdown.attr('aria-expanded', false);
-      panel.velocity("slideUp", {duration: 300});
-    }
-    else {
-      dropdown.attr('aria-expanded', true);
-      panel.velocity("slideDown", {duration: 300});
-    }
-    dropdown.parent().toggleClass('open');
-  }
-
-  var clearFilters = function() {
-    $('.filter-container .filter-cbx').each(function(index, value) {
-      var checkbox = $(value);
-      if (checkbox.hasClass('is-checked')) {
-        toggleCheckbox(checkbox);
-      }
-    })
-    if (isMobile()) {
-      $('.btn-apply-filters').text('Apply Reset');
-      if ($('.apply-filters').css('display') == "none")
-        $('.apply-filters').velocity("slideDown", {duration: 300});
-    }
-  }
-
-  $('.select-filters .header').click(function(e) {
-    toggleFilterList(this);
-  })
-
-  $('.select-filters .header').keydown(function(e) {
-    if (e.which == 32 || e.which == 13) {
-      e.preventDefault();
-      toggleFilterList(e.target);
-    }
-  })
-
-  //Clear all Filters
-  $('.btn-clear-filters').click(function(e) {
-    clearFilters();
-    if (!isMobile())
-      updateFilterableSearch();
-  })
-
-  $('.btn-close-modal').click(function(e) {
-    searchArea.removeClass('filters-open');
-    $('.apply-filters').css("display", "none");
-    filterToggleButton.attr('aria-expanded', false);
-    resetModalFilters();
-    filterToggleButton.focus();
-  });
-
-  $('.btn-apply-filters').click(function(e) {
-    searchArea.removeClass('filters-open');
-    $('.apply-filters').css("display", "none");
-    filterToggleButton.attr('aria-expanded', false);
-    updateFilterableSearch();
-    filterToggleButton.focus();
-  });
 
   var resetModalFilters = function() {
     var filterList= [];
@@ -402,18 +268,141 @@ jQuery(document).ready(function($) {
       }
     });
   }
-  //TODO: It should do the search when the user hits enter after typing a search term too.
-  $('.btn-search-list-items').click(function(e) {
-    clearFilters();
-    updateFilterableSearch();
-    searchListItems();
-  })
 
-  $('#search-field').keydown(function(e) {
-    if (e.keyCode == 13) {
-      clearFilters();
-      updateFilterableSearch();
-      searchListItems();
+  var updateAlphaHeaders = function() {
+    if ($('.filtered-results').data('headers')) {
+      if ( $('.result.listitem-hidden').length > 0) {
+        $('.alpha-header').hide();
+      }
+      else {
+        $('.alpha-header').show();
+      }
+    }
+  }
+
+  $('.filter-cbx').click(function(e) {
+    var checkbox = $(this);
+    toggleCheckbox(checkbox);
+    if (!isMobile())
+      updateSearchResults();
+    else {
+      $('.btn-apply-filters').text('Apply Filters');
+      if ($('.apply-filters').css('display') == "none")
+        $('.apply-filters').velocity("slideDown", {duration: 300});
     }
   })
-})
+
+  $('.filter-label').click(function(e) {
+    var checkbox = $(this).parent().find('.filter-cbx');
+    toggleCheckbox(checkbox);
+    if (!isMobile())
+      updateSearchResults();
+  })
+
+  $('.filter-cbx').keydown(function(e) {
+    if (e.which == 32 || e.which == 13) {
+      e.preventDefault();
+      toggleCheckbox($(e.target));
+      if (!isMobile())
+        updateSearchResults();
+    }
+  })
+
+  $('.btn-search-list-items').click(function(e) {
+    updateSearchResults();
+  })
+
+  $('#search-field, #mobile-search-field').keyup(function(e) {
+    if (e.keyCode == 13) {
+      updateSearchResults();
+    }
+    else {
+      if ($(this).val().length > 0) {
+        $('.btn-clear-search-field').show();
+      }
+      else {
+        $('.btn-clear-search-field').hide();
+        var params = getUrlParameters();
+        params.q="";
+        history.pushState(null, null, createUrlQuery(params));
+        updateSearchResults();
+      }
+    }
+  })
+
+  //Clear all Filters
+  $('.btn-clear-filters').click(function(e) {
+    clearFilters();
+    if (!isMobile())
+      updateSearchResults();
+  })
+
+  $('.btn-close-modal').click(function(e) {
+    searchArea.removeClass('filters-open');
+    $('.apply-filters').css("display", "none");
+    filterToggleButton.attr('aria-expanded', false);
+    resetModalFilters();
+    filterToggleButton.focus();
+  });
+
+  $('.btn-apply-filters').click(function(e) {
+    searchArea.removeClass('filters-open');
+    $('.apply-filters').css("display", "none");
+    filterToggleButton.attr('aria-expanded', false);
+    updateSearchResults();
+    filterToggleButton.focus();
+  });
+
+  $('.btn-clear-search-field').click(function(e) {
+    $('#search-field, #mobile-search-field').val("");
+    $('.btn-clear-search-field').hide();
+    updateSearchResults();
+    var params = getUrlParameters();
+    params.q="";
+    history.pushState(null, null, createUrlQuery(params));
+    $(this).prev('input').focus();
+  })
+
+  //on initial page load
+  var urlParams = getUrlParameters();
+  if (!(urlParams.q && urlParams.q.length > 0) && !urlParams.filters) {
+    updateResultsShown($('.filtered-results .listitem').length);
+    if ($('.filtered-results').data('headers')) {
+      var firstItem = $('.filtered-results .listitem').first();
+      var firstItemText = firstItem.find("*[data-alpha='true']").text().trim();
+      var currentLetter = firstItemText.charAt().toUpperCase();
+      firstItem.parent().before('<div class="alpha-header" aria-hidden="true">'+ currentLetter +'</div>');
+      $('.filtered-results .listitem').each(function(index, item) {
+        var text = $(item).find("*[data-alpha='true']").text().trim().toUpperCase();
+        var firstLetter = text.charAt();
+        if (firstLetter != currentLetter) {
+          currentLetter = firstLetter;
+          $(item).parent().before('<div class="alpha-header" aria-hidden="true">'+ currentLetter +'</div>')
+        }
+      });
+    }
+    updateStripes();
+  }
+  else {
+    var query = urlParams.q || "";
+    $('#search-field,#mobile-search-field').val(query);
+    if (query.length > 0) {
+      $('.btn-clear-search-field').show();
+    }
+    if (urlParams.filters) {
+      var filterList = urlParams.filters.split(',');
+      updateActiveFilters(filterList);
+      filterList.map(function(filterId) {
+        var field = $('#' + filterId);
+        toggleCheckbox(field);
+        $('.filter-count').text("(" + filterList.length + ")")
+      })
+    }
+    updateSearchResults();
+  }
+  $('.select-filters').each(function() {
+    var group = $(this);
+    updateScreenReaderFilterGroupText(group);
+  })
+
+});

@@ -1,7 +1,8 @@
 <div class="filter-container" id="filter-container">
   <div class="search-container">
     <label for="search-field" class="visuallyhidden">Search ${ctx.description?has_content?then(ctx.description, "List Items")}</label>
-    <input id="search-field" type="search" class="fs-search" placeholder="Search ${ctx.description?has_content?then(ctx.description, "")}"/>
+    <input id="search-field" type="search" class="fs-search" placeholder="Search ${ctx.description?has_content?then(ctx.description, "")}" autocomplete="off"/>
+    <button class="btn-clear-search-field"><i class="fa fa-times" aria-hidden="true"></i><span class="visuallyhidden">Clear Search Text</span></button>
     <button class="btn-search-list-items"><i class="fa fa-search"></i><span class="visuallyhidden">Start Search</span></button>
   </div>
   <div class="filter-groups">

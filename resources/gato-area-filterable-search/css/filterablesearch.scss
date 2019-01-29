@@ -158,13 +158,25 @@
     -webkit-appearance: none;
     border-radius: 0;
   }
-  button {
-    background-color: transparent;
+  button.btn-clear-search-field {
+    display: none;
     position: absolute;
-    right: 10px;
-    top: 10px;
+    top: 0;
+    right: 35px;
+    border: 0;
+    background-color: transparent;
+    height: 100%;
+    color: #6d6d6d;
+  }
+  button.btn-search-list-items {
+    background-color: #501214; //TODO: Use variable
+    color: #fff; //TODO: Use variable
+    position: absolute;
+    right: 0;
+    top: 0;
     border: 0px;
-    padding: 0;
+    height: 100%;
+    padding: 1rem;
   }
   &.mobile {
     display: none;
