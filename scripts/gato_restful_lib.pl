@@ -11,7 +11,8 @@ our $default_repo = 'website';
 sub query {
 	my $query = shift;
 	my $repository = shift || $default_repo;
-	$ret = get('/query/v1/'.$repository.'/JCR-SQL2?query='.uri_escape($query));
+	my $includemeta = shift;
+	$ret = get('/query/v1/'.$repository.'/JCR-SQL2?query='.uri_escape($query).($includemeta ? '&includeMetadata=true' : ''));
 	if (ref($ret) eq "ARRAY") { return $ret; }
 	return [];
 }

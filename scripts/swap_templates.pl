@@ -17,11 +17,11 @@ sub main {
 		'/texas-justice-court-training-center-sandbox' => 1
 	};
 
-	swaptemplates('gato-template-txstate2009:pages/standard', 
-		'gato-template-txstate2015:pages/standard-template', 
+	swaptemplates('gato-template-txstate2009:pages/standard',
+		'gato-template-txstate2015:pages/standard-template',
 		$exceptions);
-	swaptemplates('gato-template-txstate2009:pages/mail', 
-		'gato-template-txstate2015:pages/mail-template', 
+	swaptemplates('gato-template-txstate2009:pages/mail',
+		'gato-template-txstate2015:pages/mail-template',
 		$exceptions);
 
 	print "finished!\n";
@@ -31,7 +31,7 @@ sub swaptemplates {
 	my $oldtemplate = shift;
 	my $newtemplate = shift;
 	my $exceptions = shift;
-	
+
 	my $json = query("select * from [mgnl:page] where [mgnl:template] = '".$oldtemplate."'");
 
 	for my $node ( @{$json} ) {
