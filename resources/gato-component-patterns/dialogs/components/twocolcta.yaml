@@ -7,11 +7,13 @@ form:
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Title
           required: true
+          maxLength: 32
           rows: 2
         - name: textLeft
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Text
           rows: 3
+          maxLength: 265
         - name: alignContent
           class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
           label: Align Text
@@ -53,7 +55,7 @@ form:
               - name: text
                 class: info.magnolia.ui.form.field.definition.TextFieldDefinition
                 label: Button Text
-                #maxLength: 26
+                maxLength: 30
               - name: link
                 class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
                 label: Button Target
@@ -72,11 +74,13 @@ form:
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Title
           required: true
+          maxLength: 32
           rows: 2
         - name: textRight
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Text
           rows: 3
+          maxLength: 265
         - name: colorRight
           class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
           fields:
@@ -105,7 +109,7 @@ form:
               - name: text
                 class: info.magnolia.ui.form.field.definition.TextFieldDefinition
                 label: Button Text
-                #maxLength: 26
+                maxLength: 30
               - name: link
                 class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
                 label: Button Target

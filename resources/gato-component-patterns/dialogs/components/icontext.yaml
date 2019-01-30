@@ -17,7 +17,7 @@ form:
         - name: title
           label: Title
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-          maxLength: 24
+          maxLength: 25
           description: Add a title under your icon, 24 characters or less.
           required: true
         - name: link

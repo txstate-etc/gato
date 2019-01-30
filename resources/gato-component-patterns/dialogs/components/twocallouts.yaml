@@ -7,17 +7,17 @@ form:
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Callout
           required: true
-          #maxLength: 6
+          maxLength: 10
         - name: titleLeft
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Title
-          #maxLength: 65
+          maxLength: 50
           required: true
           rows: 5
         - name: textLeft
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Text
-          #maxLength: 65
+          maxLength: 160
           rows: 5
         - name: alignContent
           class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
@@ -59,7 +59,7 @@ form:
               - name: text
                 class: info.magnolia.ui.form.field.definition.TextFieldDefinition
                 label: Button Text
-                #maxLength: 26
+                maxLength: 20
               - name: link
                 class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
                 label: Button Target
@@ -78,17 +78,17 @@ form:
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Callout
           required: true
-          #maxLength: 6
+          maxLength: 10
         - name: titleRight
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Title
-          #maxLength: 65
+          maxLength: 50
           required: true
           rows: 5
         - name: textRight
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Text
-          #maxLength: 65
+          maxLength: 160
           rows: 5
         - name: colorRight
           class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
@@ -117,7 +117,7 @@ form:
               - name: text
                 class: info.magnolia.ui.form.field.definition.TextFieldDefinition
                 label: Button Text
-                #maxLength: 26
+                maxLength: 20
               - name: link
                 class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
                 label: Button Target

@@ -51,6 +51,7 @@ form:
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Title
           required: true
+          maxLength: 25
         - name: text
           class: info.magnolia.ui.form.field.definition.RichTextFieldDefinition
           label: Text
@@ -77,6 +78,7 @@ form:
               - name: text
                 class: info.magnolia.ui.form.field.definition.TextFieldDefinition
                 label: Button Text
+                maxLength: 20
               - name: link
                 class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
                 label: Button Target

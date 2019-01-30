@@ -46,12 +46,12 @@ form:
         - name: title
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Title
-          #maxLength: 26
+          maxLength: 32
           required: true
         - name: text
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Text
-          #maxLength: 100
+          maxLength: 265
           rows: 3
         - name: alignContent
           class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
@@ -82,7 +82,7 @@ form:
               - name: text
                 class: info.magnolia.ui.form.field.definition.TextFieldDefinition
                 label: Link Text
-                #maxLength: 34
+                maxLength: 40
               - name: link
                 class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
                 label: Link Target

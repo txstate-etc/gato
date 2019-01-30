@@ -42,6 +42,7 @@ form:
         - name: title
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Title
+          maxLength: 32
         - name: text
           class: info.magnolia.ui.form.field.definition.RichTextFieldDefinition
           label: Text
@@ -67,6 +68,7 @@ form:
               - name: text
                 class: info.magnolia.ui.form.field.definition.TextFieldDefinition
                 label: Link Text
+                maxLength: 40
               - name: link
                 class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
                 label: Link Target

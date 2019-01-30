@@ -6,12 +6,12 @@ form:
         - name: title
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Title
-          #maxLength: 26
+          maxLength: 50
           required: true
         - name: text
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Text
-          #maxLength: 100
+          maxLength: 300
           rows: 3
         - name: color
           class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
@@ -40,7 +40,7 @@ form:
               - name: text
                 class: info.magnolia.ui.form.field.definition.TextFieldDefinition
                 label: Button Text
-                #maxLength: 26
+                maxLength: 30
               - name: link
                 class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
                 label: Button Target
