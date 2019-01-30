@@ -1,6 +1,6 @@
 templateScript: /gato-area-filterable-search/templates/components/directory.ftl
 renderType: freemarker
-title: Faculty/Staff Directory
+title: List of People
 areas:
   filtergroups:
     type: list

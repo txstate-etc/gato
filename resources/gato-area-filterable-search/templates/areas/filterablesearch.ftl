@@ -1,4 +1,7 @@
 <div class="gato-section-full">
+[#if cmsfn.isEditMode()]
+  <div class="filterable-search-add" cms:add="box"></div>
+[/#if]
   <div class="gato-section-centered">
     <div class="filterable-search-container [#if cmsfn.isEditMode()]filters-open[/#if]">
     <div class="search-container mobile">

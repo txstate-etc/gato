@@ -18,7 +18,7 @@
       <li>[@cms.component content=component /]</li>
     [/#list]
     [#if cmsfn.isEditMode()]
-    <li><div cms:add="bar"></div></li>
+    <li><div class="filter-group-add" cms:add="bar"></div></li>
     [/#if]
     </ul>
     <button class="btn-clear-filters fs-button"><i class="fa fa-refresh" aria-hidden="true"></i>Reset</button>

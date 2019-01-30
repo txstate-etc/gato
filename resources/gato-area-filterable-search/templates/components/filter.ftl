@@ -1,6 +1,6 @@
 <div class="select-filters">
   <div class="header" tabindex="0" aria-haspopup="true" aria-expanded="false" aria-controls="${gf.uuidToHtmlId(content.@id)}">
-    <span>All ${content.title!""}</span>
+    <span>All ${content.category!""}</span>
     <span class="sr-filters-selected visuallyhidden"></span>
     <i class="fa fa-angle-down" aria-hidden="true"></i>
   </div>

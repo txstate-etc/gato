@@ -3,9 +3,9 @@ form:
     - name: tabMain
       label: Search Filter
       fields:
-        - name: title
+        - name: category
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-          label: Title
+          label: Category
           required: true
         - name: filterlist
           label: Filter List

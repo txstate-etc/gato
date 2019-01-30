@@ -2,4 +2,4 @@ templateScript: /gato-area-filterable-search/templates/components/directoryitem.
 renderType: freemarker
 dialog: gato-area-filterable-search:components/directoryitem
 description: "A Directory Listing"
-title: Directory Entry
+title: Person

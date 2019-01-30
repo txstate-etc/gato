@@ -34,5 +34,12 @@ jQuery( document ).ready(function($) {
   magnolialabelchange('footer .link-footer .bottom .listItems_add', '.mgnlEditor.mgnlPlaceholder', 'Add Footer Link');
   magnolialabelchange('.icontextmulti .addIcon', '.mgnlEditor.mgnlPlaceholder', 'Add Icon');
   magnolialabelchange('.faq_add', '.mgnlEditor.mgnlPlaceholder', 'Add Question or Group');
+  magnolialabelchange('.filterable-search-intro-add', '.mgnlEditor.mgnlPlaceholder', 'Add Introductory Content Section');
+  magnolialabelchange('.filterable-search-add', '.mgnlEditor.mgnlPlaceholder', 'Add Filterable Search Section');
+  magnolialabelchange('.fs-item-list', '.mgnlEditor.component', 'Filterable Search: List of Items');
+  magnolialabelchange('.fs-people-list', '.mgnlEditor.component', 'Filterable Search: List of People');
+  magnolialabelchange('.filter-group-add', '.mgnlEditor.mgnlPlaceholder', 'Add Filter Category');
+  magnolialabelchange('.fs-item-add', '.mgnlEditor.mgnlPlaceholder', 'Add Item to List');
+  magnolialabelchange('.fs-person-add', '.mgnlEditor.mgnlPlaceholder', 'Add Person to List');
   titledlabelchange('.slider-edit-bar');
 });

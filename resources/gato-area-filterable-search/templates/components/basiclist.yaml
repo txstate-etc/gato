@@ -2,7 +2,7 @@ templateScript: /gato-area-filterable-search/templates/components/basiclist.ftl
 renderType: freemarker
 dialog: gato-area-filterable-search:components/basiclist
 description: "A Title/Link and Description"
-title: Basic List
+title: List of Items
 parameters:
   alphaBy: title
 areas:

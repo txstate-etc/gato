@@ -2,4 +2,4 @@ templateScript: /gato-area-filterable-search/templates/components/filter.ftl
 renderType: freemarker
 dialog: gato-area-filterable-search:components/filter
 description: "A filter title and associated list of filters"
-title: Filter List
+title: Filter Category
