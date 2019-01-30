@@ -152,10 +152,19 @@ jQuery(document).ready(function($) {
     return isRelevant;
   }
 
-  var updateResultsShown = function(count) {
-    var resultCountText = "Showing " + count + (count == 1 ? " Result" : " Results");
+  var updateResultsShown = function() {
+    var totalItems = $('.filtered-results .listitem').length;
+    var itemsHidden = $('.result.listitem-hidden').length;
+    var resultCountText = "";
+    if (itemsHidden == 0) {
+      resultCountText = "Showing " + totalItems + (totalItems == 1 ? " Result" : " Results");
+    }
+    else {
+      var itemsShown = totalItems - itemsHidden;
+      resultCountText = "Showing " + itemsShown + (itemsShown == 1 ? " result" : " results of " + totalItems);
+    }
     $('#result-count').text(resultCountText);
-    if (count == 0) {
+    if (itemsHidden == totalItems) {
       $('#no-results-message').removeClass("message-hidden")
     }
     else {
@@ -183,7 +192,6 @@ jQuery(document).ready(function($) {
     updateUrlParameters(arrFilters, query);
     updateActiveFilters(arrFilters);
 
-    var resultCount = 0;
     $('.filtered-results .listitem').each(function(index, item) {
       item = $(item);
       var isRelevant = true;
@@ -204,11 +212,10 @@ jQuery(document).ready(function($) {
       else {
         item.closest('li').removeClass('listitem-hidden')
         item.closest('li').attr('aria-hidden', false);
-        resultCount++;
       }
     });
 
-    updateResultsShown(resultCount);
+    updateResultsShown();
     updateStripes();
     updateAlphaHeaders();
   }
@@ -366,7 +373,7 @@ jQuery(document).ready(function($) {
   //on initial page load
   var urlParams = getUrlParameters();
   if (!(urlParams.q && urlParams.q.length > 0) && !urlParams.filters) {
-    updateResultsShown($('.filtered-results .listitem').length);
+    updateResultsShown();
     if ($('.filtered-results').data('headers')) {
       var firstItem = $('.filtered-results .listitem').first();
       var firstItemText = firstItem.find("*[data-alpha='true']").text().trim();
