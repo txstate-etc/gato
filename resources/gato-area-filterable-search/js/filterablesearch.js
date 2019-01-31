@@ -21,6 +21,7 @@ jQuery(document).ready(function($) {
 
   var searchArea = $('.filterable-search-container');
   var filterToggleButton = $('.btn-toggle-filters');
+  var mobileUrlParams = {};
 
   //open and close filter panel
   filterToggleButton.click(function(e) {
@@ -32,8 +33,11 @@ jQuery(document).ready(function($) {
     else {
       searchArea.addClass('filters-open');
       filterToggleButton.attr('aria-expanded', true);
-      if (isMobile())
+      if (isMobile()) {
         $('.filter-group-list').find('li').eq(0).find('.header').focus();
+        //save current url parameters
+        mobileUrlParams = getUrlParameters();
+      }
       else {
         $('#search-field').focus();
       }
@@ -78,6 +82,7 @@ jQuery(document).ready(function($) {
       if ($('.apply-filters').css('display') == "none")
         $('.apply-filters').velocity("slideDown", {duration: 300});
     }
+    updateSearchResults();
   }
 
   var getSelectedFilters = function() {
@@ -157,13 +162,14 @@ jQuery(document).ready(function($) {
     var itemsHidden = $('.result.listitem-hidden').length;
     var resultCountText = "";
     if (itemsHidden == 0) {
-      resultCountText = "Showing " + totalItems + (totalItems == 1 ? " Result" : " Results");
+      resultCountText = totalItems + (totalItems == 1 ? " Result" : " Results");
     }
     else {
       var itemsShown = totalItems - itemsHidden;
-      resultCountText = "Showing " + itemsShown + (itemsShown == 1 ? " result" : " results of " + totalItems);
+      resultCountText = itemsShown + (itemsShown == 1 ? " result" : " results of " + totalItems);
     }
-    $('#result-count').text(resultCountText);
+    $('#result-count').text("Showing " + resultCountText);
+    $('#mobile-result-count').text(resultCountText);
     if (itemsHidden == totalItems) {
       $('#no-results-message').removeClass("message-hidden")
     }
@@ -242,12 +248,11 @@ jQuery(document).ready(function($) {
       $('#active_' + id).find('button').click(function(e) {
         var checkbox = $('#' + id);
         toggleCheckbox(checkbox);
-        if (!isMobile())
-          updateSearchResults();
-        else {
+        if (isMobile()) {
           if ($('.apply-filters').css('display') == "none")
             $('.apply-filters').velocity("slideDown", {duration: 300});
         }
+        updateSearchResults();
       });
     }
     cb.toggleClass('is-checked');
@@ -290,9 +295,8 @@ jQuery(document).ready(function($) {
   $('.filter-cbx').click(function(e) {
     var checkbox = $(this);
     toggleCheckbox(checkbox);
-    if (!isMobile())
-      updateSearchResults();
-    else {
+    updateSearchResults()
+    if (isMobile()) {
       $('.btn-apply-filters').text('Apply Filters');
       if ($('.apply-filters').css('display') == "none")
         $('.apply-filters').velocity("slideDown", {duration: 300});
@@ -340,15 +344,17 @@ jQuery(document).ready(function($) {
   //Clear all Filters
   $('.btn-clear-filters').click(function(e) {
     clearFilters();
-    if (!isMobile())
-      updateSearchResults();
   })
 
   $('.btn-close-modal').click(function(e) {
     searchArea.removeClass('filters-open');
     $('.apply-filters').css("display", "none");
     filterToggleButton.attr('aria-expanded', false);
+    //reset url parameters to what they were when the filter panel was opened
+    history.pushState(null, null, createUrlQuery(mobileUrlParams));
+    mobileUrlParams = {};
     resetModalFilters();
+    updateSearchResults();
     filterToggleButton.focus();
   });
 
@@ -356,7 +362,6 @@ jQuery(document).ready(function($) {
     searchArea.removeClass('filters-open');
     $('.apply-filters').css("display", "none");
     filterToggleButton.attr('aria-expanded', false);
-    updateSearchResults();
     filterToggleButton.focus();
   });
 

@@ -21,7 +21,10 @@
     <li><div class="filter-group-add" cms:add="bar"></div></li>
     [/#if]
     </ul>
-    <button class="btn-clear-filters fs-button"><i class="fa fa-refresh" aria-hidden="true"></i>Reset</button>
+    <div class="reset-and-resultcount">
+      <button class="btn-clear-filters fs-button"><i class="fa fa-refresh" aria-hidden="true"></i>Reset</button>
+      <div id="mobile-result-count">14 of 101 results</div>
+    </div>
     <div class="apply-filters-spacer"></div>
     <div class="apply-filters">
       <button class="btn-apply-filters">Apply Filters</button>

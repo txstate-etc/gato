@@ -219,6 +219,10 @@
         }
       }
     }
+    .reset-and-resultcount {
+      display: flex;
+      justify-content: space-between;
+    }
   }
 
   .filter-by {
