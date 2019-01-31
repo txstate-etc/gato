@@ -42,6 +42,15 @@ jQuery(document).ready(function($) {
         $('#search-field').focus();
       }
     }
+    //close filter lists
+    $('.select-filters').each(function(index, element) {
+      var element = $(element);
+      if (element.hasClass('open')) {
+        element.find('.header').attr('aria-expanded', false);
+        element.find('.body').css('display', 'none');
+        element.removeClass('open');
+      }
+    })
   })
 
   //open and close filter lists
