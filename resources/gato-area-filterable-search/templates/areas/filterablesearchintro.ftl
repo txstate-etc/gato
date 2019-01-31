@@ -1,4 +1,4 @@
-<div class="gato-section-full full-width filterable-search-intro">
+<div class="gato-section-full full-width filterable-search-intro [#if component?has_content]${(component.showBackgroundColor!false)?then(' has-background','')}[/#if]">
   <div class="gato-section-centered">
     <div class="gato-section eq-parent">
     [#if component?has_content]
