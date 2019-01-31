@@ -204,6 +204,8 @@ jQuery(document).ready(function($) {
     query = query.toLowerCase();
     var arrFilters = getSelectedFilters();
     $('.filter-count').text("(" + arrFilters.length + ")")
+    var filterButtonAriaLabel = "Search Filters: " + arrFilters.length + ((arrFilters.length == 1) ? " filter " : " filters ") + "currently selected";
+    $('.btn-toggle-filters').attr('aria-label', filterButtonAriaLabel)
     updateUrlParameters(arrFilters, query);
     updateActiveFilters(arrFilters);
 
@@ -417,6 +419,8 @@ jQuery(document).ready(function($) {
         var field = $('#' + filterId);
         toggleCheckbox(field);
         $('.filter-count').text("(" + filterList.length + ")")
+        var filterButtonAriaLabel = "Search Filters: " + filterList.length + ((filterList.length == 1) ? " filter " : " filters ") + "currently selected";
+        $('.btn-toggle-filters').attr('aria-label', filterButtonAriaLabel)
       })
     }
     updateSearchResults();
