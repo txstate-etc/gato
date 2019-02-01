@@ -1,4 +1,4 @@
-var GATO_MOVINGIMAGE_TIMINGS = { 'none':0, 'slow':20000, 'medium':20000, 'fast':20000};
+var GATO_MOVINGIMAGE_TIMINGS = { 'none':20000, 'slow':20000, 'medium':20000, 'fast':20000};
 jQuery(document).ready(function ($) {
   var NONE = 0, SLOW = 10000, MEDIUM = 7500, FAST = 5000;
 
