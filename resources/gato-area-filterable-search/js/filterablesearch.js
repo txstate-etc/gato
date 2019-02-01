@@ -325,8 +325,12 @@ jQuery(document).ready(function($) {
     if (e.which == 32 || e.which == 13) {
       e.preventDefault();
       toggleCheckbox($(e.target));
-      if (!isMobile())
-        updateSearchResults();
+      updateSearchResults();
+      if (isMobile()) {
+        $('.btn-apply-filters').text('Apply Filters');
+        if ($('.apply-filters').css('display') == "none")
+          $('.apply-filters').velocity("slideDown", {duration: 300});
+      }
     }
   })
 
