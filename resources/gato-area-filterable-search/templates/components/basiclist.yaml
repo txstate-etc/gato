@@ -5,6 +5,7 @@ description: "A Title/Link and Description"
 title: List of Items
 parameters:
   alphaBy: title
+  icon: /gato-area-filterable-search/images/list-icon.svg
 areas:
   filtergroups:
     type: list
