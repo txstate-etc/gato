@@ -318,6 +318,11 @@
         @extend %active-filter;
       }
     }
+    &.open {
+      .header i{
+        @extend .fa-angle-up;
+      }
+    }
   }
   .apply-filters-spacer {
     min-height: 8rem;
