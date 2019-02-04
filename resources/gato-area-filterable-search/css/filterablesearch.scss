@@ -156,13 +156,14 @@
     box-sizing: border-box;
     width: 100%;
     -webkit-appearance: none;
-    border-radius: 0;
+    border-radius: 2px;
+    padding-right: 7.5rem;
   }
   button.btn-clear-search-field {
     display: none;
     position: absolute;
     top: 0;
-    right: 35px;
+    right: 45px;
     border: 0;
     background-color: transparent;
     height: 100%;
@@ -176,7 +177,8 @@
     top: 0;
     border: 0px;
     height: 100%;
-    padding: 1rem;
+    padding: 1rem 1.5rem;
+    border-radius: 0 2px 2px 0;
   }
   &.mobile {
     display: none;
@@ -222,6 +224,12 @@
     .reset-and-resultcount {
       display: flex;
       justify-content: space-between;
+      #mobile-result-count {
+        display: none;
+        @media (max-width: $sm-breakpoint) {
+          display: block;
+        }
+      }
     }
   }
 
@@ -332,6 +340,10 @@
       font-weight: 600;
     }
   }
+}
+
+.filterable-search-intro.has-background.gato-section-full {
+  margin-bottom: 5rem;
 }
 
 @import "gato-area-filterable-search/css/basiclist";

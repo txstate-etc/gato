@@ -177,7 +177,7 @@ jQuery(document).ready(function($) {
       var itemsShown = totalItems - itemsHidden;
       resultCountText = itemsShown + (itemsShown == 1 ? " result" : " results of " + totalItems);
     }
-    $('#result-count').text("Showing " + resultCountText);
+    $('#result-count').text(resultCountText);
     $('#mobile-result-count').text(resultCountText);
     if (itemsHidden == totalItems) {
       $('#no-results-message').removeClass("message-hidden")
