@@ -97,7 +97,7 @@ CKEDITOR.editorConfig = function( config ) {
   config.toolbar_Gato = [
     { name: "basicstyles",   items: [ "Bold", "Italic", "RemoveFormat", "SpecialChar" ] },
     { name: "links",         items: [ "Link", "InternalLink", "DamLink", "Unlink" ] },
-    { name: "undo",          items: [ "Undo", "Redo" ] },
+    // { name: "undo",          items: [ "Undo", "Redo" ] },
     { name: "tools",         items: [ "Source" ] },
   ];
   config.removeDialogTabs = 'image:advanced;link:advanced;link:target';

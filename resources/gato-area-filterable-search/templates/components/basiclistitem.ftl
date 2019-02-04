@@ -11,7 +11,7 @@
 [/#if]
 [#if content.description?has_content]
   <div class="listitem-description" data-searchable="true">
-    ${content.description}
+    ${cmsfn.decode(content).description}
   </div>
 [/#if]
 </div>

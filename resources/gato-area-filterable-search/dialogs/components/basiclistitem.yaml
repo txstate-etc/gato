@@ -14,9 +14,15 @@ form:
           identifierToPathConverter:
             class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
         - name: description
-          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          class: info.magnolia.ui.form.field.definition.RichTextFieldDefinition
           label: Description
-          rows: 3
+          source: false
+          alignment: false
+          images: false
+          lists: false
+          tables: false
+          height: 500
+          configJsFile: /.resources/gato-template/js/richeditor/minimal-config.js
     - name: tabTags
       label: Filter Tags
       fields:

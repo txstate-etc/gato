@@ -20,6 +20,14 @@
           margin-bottom: 1rem;
         }
       }
+      .listitem-description {
+        a {
+          color: $content-link-text;
+          &:hover {
+            background-color: $content-link-hover;
+          }
+        }
+      }
       &.listitem-hidden {
         display: none;
       }
