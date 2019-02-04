@@ -53,15 +53,10 @@ form:
           required: true
           maxLength: 25
         - name: text
-          class: info.magnolia.ui.form.field.definition.RichTextFieldDefinition
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          maxLength: 160
           label: Text
-          source: false
-          alignment: false
-          images: false
-          lists: false
-          tables: false
-          height: 500
-          configJsFile: /.resources/gato-template/js/richeditor/minimal-config.js
+          rows: 3
         - name: buttons
           class: edu.txstate.its.gato.vaadin.GatoMultiValueFieldDefinition
           transformerClass: info.magnolia.ui.form.field.transformer.multi.MultiValueSubChildrenNodePropertiesTransformer
