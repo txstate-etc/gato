@@ -201,7 +201,7 @@ jQuery(document).ready(function($) {
     if (isMobile()) {
       query = $('#mobile-search-field').val();
     }
-    query = query.toLowerCase();
+    query = query.toLowerCase().trim();
     var arrFilters = getSelectedFilters();
     $('.filter-count').text("(" + arrFilters.length + ")")
     var filterButtonAriaLabel = "Search Filters: " + arrFilters.length + ((arrFilters.length == 1) ? " filter " : " filters ") + "currently selected";
