@@ -159,6 +159,9 @@
     border-radius: 2px;
     padding-right: 7.5rem;
   }
+  #search-field::-ms-clear {
+    display: none;
+  }
   button.btn-clear-search-field {
     display: none;
     position: absolute;
