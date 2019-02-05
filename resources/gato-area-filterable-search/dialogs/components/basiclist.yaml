@@ -21,6 +21,9 @@ form:
               value: none
         - name: description
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-          label: Description
-          description: What does this list contain? Examples might be degrees or faculty
+          label: Search Bar Placeholder
+        - name: explanation
+          class: info.magnolia.ui.form.field.definition.StaticFieldDefinition
+          label: ""
+          value: "Suggested: Use this field to display specific language in the search box. For example: if \"degrees\" is input here, the search bar will read \"Search degrees.\" If this field is left blank, the search bar will simply read \"Search.\""
 actions: !include /gato-template/dialogs/common/actions-block.yaml
