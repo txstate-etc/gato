@@ -33,13 +33,10 @@ jQuery(document).ready(function($) {
     else {
       searchArea.addClass('filters-open');
       filterToggleButton.attr('aria-expanded', true);
+      $('.invisible-focus').focus();
       if (isMobile()) {
-        $('.filter-group-list').find('li').eq(0).find('.header').focus();
         //save current url parameters
         mobileUrlParams = getUrlParameters();
-      }
-      else {
-        $('#search-field').focus();
       }
     }
     //close filter lists

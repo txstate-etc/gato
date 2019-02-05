@@ -1,4 +1,5 @@
 <div class="filter-container" id="filter-container">
+  <h2 class="invisible-focus visuallyhidden" tabindex="-1">Filter Panel</h2>
   <div class="search-container">
     <label for="search-field" class="visuallyhidden">Search ${ctx.description?has_content?then(ctx.description, "List Items")}</label>
     <input id="search-field" type="search" class="fs-search" placeholder="Search ${ctx.description?has_content?then(ctx.description, "")}" autocomplete="off"/>
