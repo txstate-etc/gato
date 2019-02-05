@@ -41,7 +41,7 @@
       data-start-collapsed="${model.collapsed?string('true', 'false')}">
       [@h2 class="${model.collapsible?string('gato-accordion-header', '')}" offset=offset]
         [#if model.collapsible]
-          <a href="#" aria-haspopup="true" aria-expanded="${model.collapsed?string('false', 'true')}" aria-controls="${entryDomId}">${entry.title!}</a>
+          <a href="#" aria-haspopup="true" id="${entry.cleanGuid}" aria-expanded="${model.collapsed?string('false', 'true')}" aria-controls="${entryDomId}">${entry.title!}</a>
         [#else]
           <a href="${entry.link}" id="${entry.cleanGuid}">${entry.title!}</a>
         [/#if]
