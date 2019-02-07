@@ -53,14 +53,22 @@
   [#if page.metaNoIndex?has_content]
     <meta name="ROBOTS" content="NOINDEX">
   [/#if]
-  [#if page.metaDescription?has_content]
-    <meta name="description" content="${page.metaDescription}">
-    <meta name="DC.description" content="${page.metaDescription}">
+
+  [#assign ogtitle = page.socialtitle!]
+  [#if !ogtitle?has_content][#assign ogtitle = gf.nodeTitle(page)][/#if]
+  <meta property="og:title" content="${ogtitle}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="${gf.absoluteUrl(cmsfn.link(page))}">
+  [#if page.socialimage?has_content && page.socialimagealt?has_content]
+    <meta property="og:image" content="${gf.absoluteUrl(page.socialimage)}">
+    <meta property="og:image:width" content="${gf.getImgWidth(page.socialimage)}">
+    <meta property="og:image:height" content="${gf.getImgHeight(page.socialimage)}">
+    <meta property="og:image:alt" content="${page.socialimagealt}">
   [/#if]
-  [#if page.metaKeywords?has_content]
-    <meta name="keywords" content="${page.metaKeywords}">
-    <meta name="DC.subject" content="${page.metaKeywords}">
+  [#if page.socialdescription?has_content]
+    <meta property="og:description" content="${page.socialdescription}">
   [/#if]
+
   <meta name="DC.publisher" content="${publisher}">
   <meta name="DC.creator" content="${page}">
   <meta name="DC.date" content="${cmsfn.metaData(page, 'mgnl:lastModified')}">

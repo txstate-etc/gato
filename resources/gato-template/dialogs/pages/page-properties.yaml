@@ -72,5 +72,34 @@ form:
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           description: Website Domain ID<br/><br/>This account id is assigned by Google Analytics when you create an account or add a new site.  It looks like UA-1234567-1.  Enter that code here to enable Google Analytics for this page and all subpages.<br/><br/>You can learn more about Google Analytics and sign up for a free account at <a href="http://www.google.com/analytics/">http://www.google.com/analytics/</a>
           label: Google Analytics
+    - name: tabAlternateContent
+      label: Social Sharing
+      fields:
+        - name: socialinfo
+          class: info.magnolia.ui.form.field.definition.StaticFieldDefinition
+          label: ''
+          value: If someone makes a Facebook post about this page, the below details will be used for the post.
+        - name: socialtitle
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Title
+          description: Leave this blank if page title is good enough.
+        - name: socialimage
+          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+          appName: assets
+          targetWorkspace: dam
+          label: Image
+          identifierToPathConverter:
+            class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
+          description: "When this page is shared on Facebook, what image should represent it?"
+        - name: socialimagealt
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Alt. Text*
+          description: If left blank, above image will NOT be used.
+        - name: socialdescription
+          class: info.magnolia.ui.form.field.definition.RichTextFieldDefinition
+          label: Description
+          source: true
+          height: 400
+          configJsFile: /.resources/gato-template/js/richeditor/minimal-config.js
 actions: !include /gato-template/dialogs/common/actions-block.yaml
 label: Page Properties
