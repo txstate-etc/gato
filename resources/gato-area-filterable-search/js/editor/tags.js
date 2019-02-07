@@ -11,8 +11,9 @@ function initTagSelector(def, node, el, tmpl) {
     var preselected = tagsnode.getPropertyValues().reduce(function (acc, cur, i) { acc[cur] = true; return acc; }, {});
     var html = '<ul class="filter-groups">';
     var tagsExist = false;
-    for (var group of groups) {
-      var groupTitle = group.prophash.title;
+    for (var j=0; j< groups.length; j++) {
+      var group = groups[j];
+      var groupTitle = group.prophash.category;
       var tags = group.nodehash.filterlist.getChildren();
       html += '<li>';
       html += '<div class="group-title">' + groupTitle + '</div>';
