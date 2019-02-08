@@ -162,6 +162,9 @@
   #search-field::-ms-clear {
     display: none;
   }
+  #search-field:-ms-input-placeholder {
+    color: #777;
+  }
   button.btn-clear-search-field {
     display: none;
     position: absolute;
