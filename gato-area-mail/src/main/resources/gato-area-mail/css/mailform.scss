@@ -153,6 +153,14 @@
   .picker__select--year,.picker__select--month{
     height: 2.2em;
   }
+	.picker__weekday {
+		font-weight: bold;
+		color: $form-datepicker-weekday-color;
+	}
+	.picker__day.picker__day--outfocus {
+		color: $black;
+		background-color: $form-datepicker-inactive-month;
+	}
   a.link-with-children:hover{
     background-color: transparent;
   }
