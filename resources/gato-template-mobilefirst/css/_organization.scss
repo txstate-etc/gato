@@ -41,6 +41,11 @@
       height: 70px;
       padding-left: 1rem;
     }
+    &.has-parent-org {
+      @media (max-width: $sm-breakpoint) {
+        height: 90px;
+      }
+    }
   }
 }
 
