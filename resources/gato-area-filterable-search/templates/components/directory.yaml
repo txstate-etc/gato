@@ -1,6 +1,9 @@
 templateScript: /gato-area-filterable-search/templates/components/directory.ftl
 renderType: freemarker
+dialog: gato-area-filterable-search:components/directory
 title: List of People
+parameters:
+  alphaBy: lastname
 areas:
   filtergroups:
     type: list
@@ -13,22 +16,4 @@ areas:
     templateScript: /gato-area-filterable-search/templates/areas/listitems.ftl
     availableComponents:
       directorylisting:
-        id: gato-area-filterable-search:components/directoryitem #NOT WORKING
-# templateScript: /gato-area-filterable-search/templates/components/basiclist.ftl
-# renderType: freemarker
-# dialog: gato-area-filterable-search:components/basiclist
-# description: "A Title/Link and Description"
-# title: Basic List
-# areas:
-#   filtergroups:
-#     type: list
-#     templateScript: /gato-area-filterable-search/templates/areas/filterarea.ftl
-#     availableComponents:
-#       filter:
-#         id: gato-area-filterable-search:components/filter
-#   listitems:
-#     type: list
-#     templateScript: /gato-area-filterable-search/templates/areas/listitems.ftl
-#     availableComponents:
-#       basiclistitem:
-#         id: gato-area-filterable-search:components/basiclistitem
+        id: gato-area-filterable-search:components/directoryitem

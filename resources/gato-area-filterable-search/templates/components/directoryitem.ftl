@@ -5,6 +5,9 @@
 <div class="listitem-title">
   ${content.title!} ${content.firstname!} ${content.lastname!}
 </div>
+<div class="listitem-alpha" data-alpha="true">
+  ${content.lastname!}${content.firstname!}
+</div>
 [#if content.link?has_content]
   </a>
 [/#if]
