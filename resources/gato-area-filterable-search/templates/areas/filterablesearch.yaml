@@ -5,5 +5,5 @@ title: Filterable Search Content
 availableComponents:
   basiclist:
     id: gato-area-filterable-search:components/basiclist
-  # directory:
-  #   id: gato-area-filterable-search:components/directory
+  directory:
+    id: gato-area-filterable-search:components/directory
