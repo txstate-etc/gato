@@ -1,4 +1,5 @@
-<div class="listitem">
+[#assign tags = gf.propertyValues(content.tags![])]
+<div class="listitem" data-tags="${tags?join(",")}" data-keywords="[#if content.keywords?has_content]${content.keywords?join(',')}[/#if]">
 [#if content.link?has_content]
   <a href="${gf.filterUrl(content.link)}">
 [/#if]
