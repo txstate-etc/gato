@@ -160,6 +160,9 @@
 	.picker__day.picker__day--outfocus {
 		color: $black;
 		background-color: $form-datepicker-inactive-month;
+		&[aria-disabled=true] {
+			color: #dddddd;
+		}
 	}
   a.link-with-children:hover{
     background-color: transparent;
