@@ -164,6 +164,9 @@ jQuery(document).ready(function($) {
     })
     .fail(function(error) {
       console.log(error);
+      $('.search-side-people').css('display', '');
+      $('.search-people').html('There was an error connecting to the peoplesearch server. Please try again later.');
+      $('.search-side-people .search-side-results').html('There was an error connecting to the peoplesearch server. Please try again later.');
     })
   }
 
