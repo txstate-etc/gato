@@ -3,7 +3,7 @@ renderType: freemarker
 dialog: gato-area-filterable-search:components/directory
 title: List of People
 parameters:
-  alphaBy: lastname
+  alphaBy: lastname,firstname #comma separated list of properties because Magnolia wouldn't read a sequence
 areas:
   filtergroups:
     type: list

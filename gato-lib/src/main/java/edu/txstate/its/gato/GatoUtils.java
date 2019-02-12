@@ -1474,17 +1474,21 @@ public final class GatoUtils {
     }
   }
 
-  //TODO: the alphabetizeBy parameter should probably take an array or list of fields. For example,
-  //we might want to alphabetize by lastname firstname for the directory type.
+  //alphabetizeBy can be one property or a comma separated list of properties
   public List<ContentMap> sortFilterableSearchItems(List<ContentMap> listItems, String alphabetizeBy) {
     List<ContentMap> modifiableList = new ArrayList<ContentMap>(listItems);
+    String[] fields = alphabetizeBy.split(",");
     modifiableList.sort(new Comparator<ContentMap>() {
       public int compare(ContentMap a, ContentMap b) {
         try {
           Node nodeA = a.getJCRNode();
-          String aSortBy = PropertyUtil.getString(nodeA, alphabetizeBy, "");
           Node nodeB = b.getJCRNode();
-          String bSortBy = PropertyUtil.getString(nodeB, alphabetizeBy, "");
+          String aSortBy = "";
+          String bSortBy = "";
+          for (int i=0; i<fields.length; i++) {
+            aSortBy += PropertyUtil.getString(nodeA, fields[i], "");
+            bSortBy += PropertyUtil.getString(nodeB, fields[i], "");
+          }
           return aSortBy.compareToIgnoreCase(bSortBy);
         } catch(Exception e) {
           e.printStackTrace();
