@@ -12,18 +12,29 @@
 [#if content.link?has_content]
   </a>
 [/#if]
+[#if content.position?has_content]
+  <div class="listitem-position" data-searchable="true">
+    ${content.position}
+  </div>
+[/#if]
+[#if content.email?has_content]
+  <div class="listitem-email">
+    Email: ${content.email}
+  </div>
+[/#if]
+[#if content.office?has_content]
+  <div class="listitem-office">
+    Office: ${content.office}
+  </div>
+[/#if]
+[#if content.phone?has_content]
+  <div class="listitem-phone">
+    Phone: ${content.phone}
+  </div>
+[/#if]
 [#if content.description?has_content]
   <div class="listitem-description" data-searchable="true">
     ${cmsfn.decode(content).description}
   </div>
-[/#if]
-[#if content.email?has_content]
-  Email: ${content.email}
-[/#if]
-[#if content.office?has_content]
-  Office: ${content.office}
-[/#if]
-[#if content.phone?has_content]
-  Phone: ${content.phone}
 [/#if]
 </div>
