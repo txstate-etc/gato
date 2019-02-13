@@ -3,8 +3,8 @@
 [#if content.link?has_content]
   <a href="${gf.filterUrl(content.link)}">
 [/#if]
-<div class="listitem-title">
-  ${content.title!} ${content.firstname!} ${content.lastname!}
+<div class="listitem-title" data-searchable="true">
+  ${content.prefix!} ${content.firstname!} ${content.lastname!}
 </div>
 <div class="listitem-alpha" data-alpha="true">
   ${content.lastname!}${content.firstname!}
@@ -13,7 +13,7 @@
   </a>
 [/#if]
 [#if content.description?has_content]
-  <div class="listitem-description">
+  <div class="listitem-description" data-searchable="true">
     ${cmsfn.decode(content).description}
   </div>
 [/#if]
