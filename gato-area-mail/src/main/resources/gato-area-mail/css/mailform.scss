@@ -150,18 +150,33 @@
     padding: 1.8rem 4rem;
     margin-top: 1rem;
   }
+
+	.picker__button--today[disabled] {
+		color: #707070;
+	}
   .picker__select--year,.picker__select--month{
     height: 2.2em;
+		option[disabled=""] {
+			color: #6b6b6b;
+		}
   }
 	.picker__weekday {
 		font-weight: bold;
 		color: $form-datepicker-weekday-color;
 	}
-	.picker__day.picker__day--outfocus {
-		color: $black;
+
+	//current month, disabled
+	.picker__day--disabled {
+		color: #707070;
 		background-color: $form-datepicker-inactive-month;
+		font-weight: 200;
+	}
+	//not current month
+	.picker__day.picker__day--outfocus {
+		color: black;
+		//not current month and also disabled
 		&[aria-disabled=true] {
-			color: #dddddd;
+			color: #707070;
 		}
 	}
   a.link-with-children:hover{
