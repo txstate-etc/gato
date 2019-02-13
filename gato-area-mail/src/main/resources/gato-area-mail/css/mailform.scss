@@ -168,12 +168,14 @@
 	//current month, disabled
 	.picker__day--disabled {
 		color: #707070;
-		background-color: $form-datepicker-inactive-month;
+		background-color: #fff;
+		border-color: transparent;
 		font-weight: 200;
 	}
 	//not current month
 	.picker__day.picker__day--outfocus {
 		color: black;
+		background-color: $form-datepicker-inactive-month;
 		//not current month and also disabled
 		&[aria-disabled=true] {
 			color: #707070;
