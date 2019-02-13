@@ -143,53 +143,55 @@
   }
 }
 
-.search-container {
-  @media (max-width:$sm-breakpoint) {
-    display: none;
-  }
-  position: relative;
-  .fs-search {
-    border: 1px solid #cbcbcb;
-    display: block;
-    padding: 1rem;
-    margin: 2rem 0rem;
-    box-sizing: border-box;
-    width: 100%;
-    -webkit-appearance: none;
-    border-radius: 2px;
-    padding-right: 7.5rem;
-  }
-  #search-field::-ms-clear {
-    display: none;
-  }
-  #search-field:-ms-input-placeholder {
-    color: #777;
-  }
-  button.btn-clear-search-field {
-    display: none;
-    position: absolute;
-    top: 0;
-    right: 45px;
-    border: 0;
-    background-color: transparent;
-    height: 100%;
-    color: #6d6d6d;
-  }
-  button.btn-search-list-items {
-    background-color: #501214; //TODO: Use variable
-    color: #fff; //TODO: Use variable
-    position: absolute;
-    right: 0;
-    top: 0;
-    border: 0px;
-    height: 100%;
-    padding: 1rem 1.5rem;
-    border-radius: 0 2px 2px 0;
-  }
-  &.mobile {
-    display: none;
+.filterable-search-container, .filter-container {
+  .search-container {
     @media (max-width:$sm-breakpoint) {
+      display: none;
+    }
+    position: relative;
+    .fs-search {
+      border: 1px solid #cbcbcb;
       display: block;
+      padding: 1rem;
+      margin: 2rem 0rem;
+      box-sizing: border-box;
+      width: 100%;
+      -webkit-appearance: none;
+      border-radius: 2px;
+      padding-right: 7.5rem;
+    }
+    #search-field::-ms-clear {
+      display: none;
+    }
+    #search-field:-ms-input-placeholder {
+      color: #777;
+    }
+    button.btn-clear-search-field {
+      display: none;
+      position: absolute;
+      top: 0;
+      right: 45px;
+      border: 0;
+      background-color: transparent;
+      height: 100%;
+      color: #6d6d6d;
+    }
+    button.btn-search-list-items {
+      background-color: #501214; //TODO: Use variable
+      color: #fff; //TODO: Use variable
+      position: absolute;
+      right: 0;
+      top: 0;
+      border: 0px;
+      height: 100%;
+      padding: 1rem 1.5rem;
+      border-radius: 0 2px 2px 0;
+    }
+    &.mobile {
+      display: none;
+      @media (max-width:$sm-breakpoint) {
+        display: block;
+      }
     }
   }
 }
