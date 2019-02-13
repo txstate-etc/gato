@@ -1,9 +1,13 @@
-<div class="listitem">
+[#assign tags = gf.propertyValues(content.tags![])]
+<div class="listitem" data-tags="${tags?join(",")}" data-keywords="[#if content.keywords?has_content]${content.keywords?join(',')}[/#if]">
 [#if content.link?has_content]
   <a href="${gf.filterUrl(content.link)}">
 [/#if]
 <div class="listitem-title">
   ${content.title!} ${content.firstname!} ${content.lastname!}
+</div>
+<div class="listitem-alpha" data-alpha="true">
+  ${content.lastname!}${content.firstname!}
 </div>
 [#if content.link?has_content]
   </a>

@@ -57,4 +57,14 @@ form:
             - name: tags
               class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
               transformerClass: edu.txstate.its.gato.vaadin.JsonTransformer
+    - name: tabKeywords
+      label: Keywords
+      fields:
+        - name: keywords
+          label: Add search keywords
+          class: info.magnolia.ui.form.field.definition.MultiValueFieldDefinition
+          field:
+            name: keyword
+            class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+            label: ""
 actions: !include /gato-template/dialogs/common/actions-block.yaml
