@@ -80,6 +80,7 @@ import org.apache.jackrabbit.JcrConstants;
 import org.codehaus.jackson.JsonNode;
 
 import org.jsoup.Jsoup;
+import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.w3c.css.sac.CSSException;
 import org.w3c.css.sac.CSSParseException;
@@ -655,8 +656,30 @@ public final class GatoUtils {
     return body.html();
   }
 
+  public String richTextRemoveEmptyHeaders(String rawhtml) {
+    if (StringUtils.isBlank(rawhtml)) return "";
+    Elements body = Jsoup.parse("<!DOCTYPE html><html><head></head><body>"+rawhtml+"</body></html>").select("body");
+    int emptyHeadersFound;
+    //Jsoup will only find the first empty header at any given level in a rich editor
+    //looping makes sure that they are all found
+    do {
+      Elements headers = body.select("h1,h2,h3,h4,h5,h6");
+      emptyHeadersFound = 0;
+      for (Element header : headers) {
+        //trim won't remove &nbsp; and that's what CKEditor puts in the empty headers
+        String text = header.text().replace('\u00A0', ' ').trim();
+        if (text.length() < 1) {
+          header.remove();
+          emptyHeadersFound++;
+        }
+      }
+    } while (emptyHeadersFound > 0);
+    return body.html();
+  }
+
   public String processRichTextLevel(String str, long headerlevel) {
     str = richTextFindAndReplaceImages(str);
+    str = richTextRemoveEmptyHeaders(str);
     str = richTextAdjustHeaders(str, headerlevel);
     return str;
   }
