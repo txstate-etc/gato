@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sv:node xmlns:sv="http://www.jcp.org/jcr/sv/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" sv:name="ram146">
+  <sv:property sv:name="jcr:primaryType" sv:type="Name">
+    <sv:value>mgnl:user</sv:value>
+  </sv:property>
+  <sv:property sv:name="jcr:uuid" sv:type="String">
+    <sv:value>90d515ee-8f15-4925-b122-54ed49deec00</sv:value>
+  </sv:property>
+  <sv:property sv:name="email" sv:type="String">
+    <sv:value>ram146@txstate.edu</sv:value>
+  </sv:property>
+  <sv:property sv:name="enabled" sv:type="Boolean">
+    <sv:value>true</sv:value>
+  </sv:property>
+  <sv:property sv:name="jcrName" sv:type="String">
+    <sv:value>ram146</sv:value>
+  </sv:property>
+  <sv:property sv:name="language" sv:type="String">
+    <sv:value>en</sv:value>
+  </sv:property>
+  <sv:property sv:name="mgnl:activationStatus" sv:type="Boolean">
+    <sv:value>false</sv:value>
+  </sv:property>
+  <sv:property sv:name="mgnl:created" sv:type="Date">
+    <sv:value>2019-02-18T13:52:32.141-06:00</sv:value>
+  </sv:property>
+  <sv:property sv:name="mgnl:createdBy" sv:type="String">
+    <sv:value>nw13</sv:value>
+  </sv:property>
+  <sv:property sv:name="mgnl:lastActivated" sv:type="Date">
+    <sv:value>2019-02-18T13:52:32.157-06:00</sv:value>
+  </sv:property>
+  <sv:property sv:name="mgnl:lastActivatedBy" sv:type="String">
+    <sv:value>nw13</sv:value>
+  </sv:property>
+  <sv:property sv:name="mgnl:lastModified" sv:type="Date">
+    <sv:value>2019-02-18T13:53:17.089-06:00</sv:value>
+  </sv:property>
+  <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
+    <sv:value>nw13</sv:value>
+  </sv:property>
+  <sv:property sv:name="mgnl:template" sv:type="String">
+    <sv:value />
+  </sv:property>
+  <sv:property sv:name="name" sv:type="String">
+    <sv:value>ram146</sv:value>
+  </sv:property>
+  <sv:property sv:name="title" sv:type="String">
+    <sv:value>Ross McEwen</sv:value>
+  </sv:property>
+  <sv:node sv:name="groups">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>mgnl:contentNode</sv:value>
+    </sv:property>
+    <sv:property sv:name="jcr:uuid" sv:type="String">
+      <sv:value>08105489-cb8e-4e65-9fea-cb99d5439fd4</sv:value>
+    </sv:property>
+    <sv:property sv:name="mgnl:activationStatus" sv:type="Boolean">
+      <sv:value>false</sv:value>
+    </sv:property>
+    <sv:property sv:name="mgnl:created" sv:type="Date">
+      <sv:value>2019-02-18T13:52:32.141-06:00</sv:value>
+    </sv:property>
+    <sv:property sv:name="mgnl:createdBy" sv:type="String">
+      <sv:value>nw13</sv:value>
+    </sv:property>
+    <sv:property sv:name="mgnl:lastActivated" sv:type="Date">
+      <sv:value>2019-02-18T13:52:32.158-06:00</sv:value>
+    </sv:property>
+    <sv:property sv:name="mgnl:lastActivatedBy" sv:type="String">
+      <sv:value>nw13</sv:value>
+    </sv:property>
+    <sv:property sv:name="mgnl:lastModified" sv:type="Date">
+      <sv:value>2019-02-18T13:53:17.089-06:00</sv:value>
+    </sv:property>
+    <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
+      <sv:value>nw13</sv:value>
+    </sv:property>
+  </sv:node>
+  <sv:node sv:name="roles">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>mgnl:contentNode</sv:value>
+    </sv:property>
+    <sv:property sv:name="jcr:uuid" sv:type="String">
+      <sv:value>82faabde-ec3c-489c-a985-a7c9bea12693</sv:value>
+    </sv:property>
+    <sv:property sv:name="0" sv:type="String">
+      <sv:value>bc2046da-b3d5-4cf5-9847-c2b6dbe145ff</sv:value>
+    </sv:property>
+    <sv:property sv:name="mgnl:activationStatus" sv:type="Boolean">
+      <sv:value>false</sv:value>
+    </sv:property>
+    <sv:property sv:name="mgnl:created" sv:type="Date">
+      <sv:value>2019-02-18T13:52:32.141-06:00</sv:value>
+    </sv:property>
+    <sv:property sv:name="mgnl:createdBy" sv:type="String">
+      <sv:value>nw13</sv:value>
+    </sv:property>
+    <sv:property sv:name="mgnl:lastActivated" sv:type="Date">
+      <sv:value>2019-02-18T13:52:32.159-06:00</sv:value>
+    </sv:property>
+    <sv:property sv:name="mgnl:lastActivatedBy" sv:type="String">
+      <sv:value>nw13</sv:value>
+    </sv:property>
+    <sv:property sv:name="mgnl:lastModified" sv:type="Date">
+      <sv:value>2019-02-18T13:53:17.089-06:00</sv:value>
+    </sv:property>
+    <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
+      <sv:value>nw13</sv:value>
+    </sv:property>
+  </sv:node>
+  <sv:node sv:name="acl_users">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>mgnl:contentNode</sv:value>
+    </sv:property>
+    <sv:property sv:name="jcr:uuid" sv:type="String">
+      <sv:value>c35bb5e1-5c22-425c-9eab-faed3180944b</sv:value>
+    </sv:property>
+    <sv:property sv:name="mgnl:activationStatus" sv:type="Boolean">
+      <sv:value>false</sv:value>
+    </sv:property>
+    <sv:property sv:name="mgnl:created" sv:type="Date">
+      <sv:value>2019-02-18T13:52:32.141-06:00</sv:value>
+    </sv:property>
+    <sv:property sv:name="mgnl:createdBy" sv:type="String">
+      <sv:value>nw13</sv:value>
+    </sv:property>
+    <sv:property sv:name="mgnl:lastActivated" sv:type="Date">
+      <sv:value>2019-02-18T13:52:32.160-06:00</sv:value>
+    </sv:property>
+    <sv:property sv:name="mgnl:lastActivatedBy" sv:type="String">
+      <sv:value>nw13</sv:value>
+    </sv:property>
+    <sv:property sv:name="mgnl:lastModified" sv:type="Date">
+      <sv:value>2019-02-18T13:53:17.089-06:00</sv:value>
+    </sv:property>
+    <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
+      <sv:value>nw13</sv:value>
+    </sv:property>
+    <sv:node sv:name="0">
+      <sv:property sv:name="jcr:primaryType" sv:type="Name">
+        <sv:value>mgnl:contentNode</sv:value>
+      </sv:property>
+      <sv:property sv:name="jcr:uuid" sv:type="String">
+        <sv:value>f4ed9504-d728-4d80-a28d-a463c62ccb9b</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:activationStatus" sv:type="Boolean">
+        <sv:value>false</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:created" sv:type="Date">
+        <sv:value>2019-02-18T13:52:32.141-06:00</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:createdBy" sv:type="String">
+        <sv:value>nw13</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:lastActivated" sv:type="Date">
+        <sv:value>2019-02-18T13:52:32.160-06:00</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:lastActivatedBy" sv:type="String">
+        <sv:value>nw13</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:lastModified" sv:type="Date">
+        <sv:value>2019-02-18T13:53:17.089-06:00</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
+        <sv:value>nw13</sv:value>
+      </sv:property>
+      <sv:property sv:name="path" sv:type="String">
+        <sv:value>/nw13/*</sv:value>
+      </sv:property>
+      <sv:property sv:name="permissions" sv:type="Long">
+        <sv:value>63</sv:value>
+      </sv:property>
+    </sv:node>
+  </sv:node>
+  <sv:node sv:name="acl_userroles">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>mgnl:contentNode</sv:value>
+    </sv:property>
+    <sv:property sv:name="jcr:uuid" sv:type="String">
+      <sv:value>d0444cd5-d5f5-4950-b03c-25428e988845</sv:value>
+    </sv:property>
+    <sv:property sv:name="mgnl:activationStatus" sv:type="Boolean">
+      <sv:value>false</sv:value>
+    </sv:property>
+    <sv:property sv:name="mgnl:created" sv:type="Date">
+      <sv:value>2019-02-18T13:52:32.141-06:00</sv:value>
+    </sv:property>
+    <sv:property sv:name="mgnl:createdBy" sv:type="String">
+      <sv:value>nw13</sv:value>
+    </sv:property>
+    <sv:property sv:name="mgnl:lastActivated" sv:type="Date">
+      <sv:value>2019-02-18T13:52:32.161-06:00</sv:value>
+    </sv:property>
+    <sv:property sv:name="mgnl:lastActivatedBy" sv:type="String">
+      <sv:value>nw13</sv:value>
+    </sv:property>
+    <sv:property sv:name="mgnl:lastModified" sv:type="Date">
+      <sv:value>2019-02-18T13:53:17.089-06:00</sv:value>
+    </sv:property>
+    <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
+      <sv:value>nw13</sv:value>
+    </sv:property>
+  </sv:node>
+  <sv:node sv:name="acl_config">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>mgnl:contentNode</sv:value>
+    </sv:property>
+    <sv:property sv:name="jcr:uuid" sv:type="String">
+      <sv:value>02dd1bed-3eee-48e4-b53a-8b961340b5e4</sv:value>
+    </sv:property>
+    <sv:property sv:name="mgnl:activationStatus" sv:type="Boolean">
+      <sv:value>false</sv:value>
+    </sv:property>
+    <sv:property sv:name="mgnl:created" sv:type="Date">
+      <sv:value>2019-02-18T13:52:32.141-06:00</sv:value>
+    </sv:property>
+    <sv:property sv:name="mgnl:createdBy" sv:type="String">
+      <sv:value>nw13</sv:value>
+    </sv:property>
+    <sv:property sv:name="mgnl:lastActivated" sv:type="Date">
+      <sv:value>2019-02-18T13:52:32.162-06:00</sv:value>
+    </sv:property>
+    <sv:property sv:name="mgnl:lastActivatedBy" sv:type="String">
+      <sv:value>nw13</sv:value>
+    </sv:property>
+    <sv:property sv:name="mgnl:lastModified" sv:type="Date">
+      <sv:value>2019-02-18T13:53:17.089-06:00</sv:value>
+    </sv:property>
+    <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
+      <sv:value>nw13</sv:value>
+    </sv:property>
+  </sv:node>
+</sv:node>
+
