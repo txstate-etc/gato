@@ -1,6 +1,14 @@
 .gato-new-component-dialog-root {
-  width: 80% !important;
+  max-width: 1000px !important;
 }
+.gato-new-component-dialog-root .v-form-field-container {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.gato-new-component-dialog-root .v-form-field-label {
+  display: none;
+}
+
 .gato-grid-component{
     height: 100%;
     border: 2px solid white;
@@ -30,7 +38,7 @@
     display: inline-block;
     vertical-align: middle;
     text-align: center;
-    width: 90%;
+    width: 100%;
     height: auto;
 }
 
