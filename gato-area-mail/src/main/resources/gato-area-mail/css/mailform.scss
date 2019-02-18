@@ -165,6 +165,13 @@
 		color: $form-datepicker-weekday-color;
 	}
 
+	.picker__day.picker__day--infocus {
+		font-weight: 500;
+		&.picker__day--disabled {
+			font-weight: 200;
+		}
+	}
+
 	//current month, disabled
 	.picker__day--disabled {
 		color: #707070;
@@ -176,9 +183,11 @@
 	.picker__day.picker__day--outfocus {
 		color: black;
 		background-color: $form-datepicker-inactive-month;
+		font-weight: 500;
 		//not current month and also disabled
 		&[aria-disabled=true] {
 			color: #707070;
+			font-weight: 200;
 		}
 	}
   a.link-with-children:hover{
