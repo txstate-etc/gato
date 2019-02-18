@@ -13,17 +13,6 @@ our @heavymodules = ('gato-lib', 'gato-internal', 'gato-component-cssjs', 'gato-
   'gato-component-faq', 'gato-component-gallery', 'gato-component-documents', 'gato-area-mail', 'gato-component-button',
   'gato-component-twitter', 'gato-component-rss', 'gato-component-events', 'gato-component-sitemap',
   'gato-component-hours');
-our @sassfiles = ('resources/gato-template-blank/css/blank.scss',
-                  'resources/gato-template-wittliff/css/standard.scss',
-                  'resources/gato-template-wittliff/css/color-picker.scss',
-                  'resources/gato-template-txstate2015/css/txstate2015.scss',
-                  'resources/gato-template-txstate2015/css/color-picker.scss',
-                  'resources/gato-template-txstate2015/css/fonts.scss',
-                  'resources/gato-lib/css/font-awesome.scss',
-                  'resources/gato-template-tsus2017/css/tsus-home.scss',
-                  'resources/gato-template-tsus2017/css/tsus-standard.scss',
-                  'resources/gato-template-tsus2017/css/color-picker.scss');
-our $sasscompressed = 1;
 our $module = "";
 
 # place your local overrides in the root gato directory in a file named "rebuild_vars.pl"
@@ -46,12 +35,6 @@ if ($ARGV[0] eq '--module') {
   if (setmagnoliaresourcespath()) {
     symlinkheavyresources();
   }
-} elsif ($ARGV[0] eq '--sass') {
-  symlinkheavyresources();
-  sass();
-} elsif ($ARGV[0] eq '--sasswatch') {
-  symlinkheavyresources();
-  sass(1);
 } elsif ($ARGV[0] eq '--reset') {
   resetdata();
 } elsif ($ARGV[0] eq '--backup') {
@@ -147,7 +130,6 @@ sub cleanwebapp {
 
 sub buildedge {
   symlinkheavyresources();
-  #sass();
   print "building full war...\n";
   chdir($gatodir);
   buildany();
@@ -211,23 +193,4 @@ sub restoremagrepositories {
 sub restoremysql {
   print "restoring mysql data...\n";
   `mysql -u root magnolia < $backupdir/magnolia.sql`;
-}
-
-# assumes `sass` is available on your system
-sub sass {
-  my $watch = shift;
-  if ($watch) {
-    print "Now watching for SASS changes...\n";
-  } else {
-    print "Compiling SASS files...\n";
-  }
-  my $loadpaths = '--load-path '.$gatodir.'/resources';
-  my $cmd = "sass --precision 6 --sourcemap=none $loadpaths ".($sasscompressed ? '--style compressed ': '--line-comments ').($watch ? '--watch ':'--force ');
-  foreach my $file (@sassfiles) {
-    my $input = "$gatodir/$file";
-    my $output = $input;
-    $output =~ s/.scss$/.compiled.css/i;
-    $cmd .= "\"$input\":\"$output\" ";
-  }
-  `$cmd`;
 }
