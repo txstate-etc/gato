@@ -11,7 +11,7 @@
     <gatoVersion>1.2.1</gatoVersion>
     <magnoliaBundleVersion>5.6.8</magnoliaBundleVersion>
     <vaadinVersion>8.1.5</vaadinVersion>
-    <gwtVersion>2.8.0</gwtVersion>
+    <gwtVersion>2.8.2</gwtVersion>
     <javaVersion>1.8</javaVersion>
   </properties>
 
