@@ -110,6 +110,7 @@ footer {
                     float: left;
                     font-size: 0;
                     line-height: 0;
+                    color: $white;
                     @media (max-width: $md-breakpoint){
                         flex-direction: column;
                     }

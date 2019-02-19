@@ -19,6 +19,7 @@ header{
       background-size: 100% auto;
       font-size: 0;
       line-height: 0;
+      color: $white;
       @media (max-width: $sm-breakpoint){
         width: 74px;
         height: 25px;
