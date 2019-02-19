@@ -10,15 +10,15 @@
         border-bottom: 1px solid $filterable-search-divider-color;
       }
       a {
-        text-decoration: none;  //hover effect?
+        text-decoration: underline; 
         color: $filterable-search-result-title-color;
         &:active, &:visited {
           color: $filterable-search-result-title-color;
         }
-        .listitem-title {
-          font-weight: 700;
-          margin-bottom: 1rem;
-        }
+      }
+      .listitem-title {
+        font-weight: 700;
+        margin-bottom: 1rem;
       }
       .listitem-description {
         a {
