@@ -1,13 +1,16 @@
 jQuery(document).ready(function ($) {
 
 function scrollToAnchor(hash, header) {
-  var target = $(hash);
-  var headerHeight = window.stickynavheight + 5;
-
-  target = target.length ? target : $('[name=' + hash.slice(1) +']');
-
-  if (target.length) {
-    $('html').velocity('scroll', { duration: 400, offset: (target.offset().top-headerHeight)+'px' });
+  var elementExists = !!document.getElementById(hash)
+  if (elementExists) {
+    var target = $(hash);
+    var headerHeight = window.stickynavheight + 5;
+  
+    target = target.length ? target : $('[name=' + hash.slice(1) +']');
+  
+    if (target.length) {
+      $('html').velocity('scroll', { duration: 400, offset: (target.offset().top-headerHeight)+'px' });
+    }
   }
 }
 
