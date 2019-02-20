@@ -68,6 +68,11 @@
         justify-content: space-between;
         padding-top: 2rem;
       }
+      .btn-list-view, .btn-grid-view {
+        &:disabled, &[disabled] {
+          color: #757575;
+        }
+      }
       .btn-list-view {
         margin-right: 1rem;
       }
