@@ -1,7 +1,7 @@
 jQuery(document).ready(function ($) {
 
 function scrollToAnchor(hash, header) {
-  var elementExists = !!document.getElementById(hash)
+  var elementExists = !!document.getElementById(hash);
   if (elementExists) {
     var target = $(hash);
     var headerHeight = window.stickynavheight + 5;
