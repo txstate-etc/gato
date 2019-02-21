@@ -17,6 +17,14 @@ CKEDITOR.editorConfig = function( config ) {
 
   //Don't allow spans inside links
   CKEDITOR.dtd.a.span = 1;
+  
+  //Don't allow empty headers
+  CKEDITOR.dtd.$removeEmpty.h1 = 1;
+  CKEDITOR.dtd.$removeEmpty.h2 = 1;
+  CKEDITOR.dtd.$removeEmpty.h3 = 1;
+  CKEDITOR.dtd.$removeEmpty.h4 = 1;
+  CKEDITOR.dtd.$removeEmpty.h5 = 1;
+  CKEDITOR.dtd.$removeEmpty.h6 = 1;
 
   //Allow <i></i> to make it easier to include font awesome icons
   config.protectedSource.push(/<i[^>]*><\/i>/g);
