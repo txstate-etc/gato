@@ -5,10 +5,7 @@
   </div>
   ${ctx.request.setAttribute('faqButtonsAdded', true)}
 [#else]
-  <div class="gato-faq-expand-collapse">
-    <div style=visibility:hidden>
-      space
-    </div>
+  <div class="gato-faq-spacer">
   </div>
 [/#if]
 <ul class="gato-faq-hierarchy">
