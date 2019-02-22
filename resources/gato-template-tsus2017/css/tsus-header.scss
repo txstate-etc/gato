@@ -12,11 +12,10 @@ header{
     flex-wrap: nowrap;
     .tsus-homelink {
       margin-right: auto;
-      width: 353px;
-      height: 36px;
+      width: 450px;
+      height: 66px;
       background: url(../images/logo.png) no-repeat;
-      -webkit-background-size: 100% auto;
-      background-size: 100% auto;
+      background-size: auto 100%;
       font-size: 0;
       line-height: 0;
       color: $white;
