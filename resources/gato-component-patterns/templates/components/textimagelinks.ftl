@@ -18,8 +18,12 @@
       </div>
     [/#if]
     <div class="pattern-content title-type">
-      [#if content.title?has_content]<div class="title">${content.title}</div>[/#if]
-      [#if content.text?has_content]<div class="text">${gf.processRichText(cmsfn.decode(content).text)}</div>[/#if]
+      [#assign headerLevel = 2]
+      [#if content.title?has_content]
+        <h2 class="title">${content.title}</h2>
+        [#assign headerLevel = 3]
+      [/#if]
+      [#if content.text?has_content]<div class="text">${gf.processRichTextLevel(cmsfn.decode(content).text, headerLevel)}</div>[/#if]
       [#if content.links?has_content]
         <div class="links">
           <ul>

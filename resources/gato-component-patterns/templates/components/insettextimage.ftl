@@ -8,7 +8,7 @@
     </div>
     <div class="pattern-content title-type">
       <div class="inset ${content.color!color1}">
-        <div class="title">${content.title}</div>
+        <h2 class="title">${content.title}</h2>
         [#if content.text?has_content]<div class="text">${gf.processRichText(cmsfn.decode(content).text)}</div>[/#if]
         [#if content.buttons?has_content]
         <div class="buttons">
