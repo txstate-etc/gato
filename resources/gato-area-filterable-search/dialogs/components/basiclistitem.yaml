@@ -23,6 +23,40 @@ form:
           tables: false
           height: 500
           configJsFile: /.resources/gato-template/js/richeditor/minimal-config.js
+        - name: includeImage
+          class: info.magnolia.ui.form.field.definition.SwitchableFieldDefinition
+          transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+          label: Include Image?
+          options:
+            - name: hasImage
+              label: Add Image to Entry
+              value: hasImage
+            - name: noImage
+              label: No Image
+              value: noImage
+              selected: true
+          fields:
+            - name: hasImage
+              class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
+              transformerClass:  info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+              label: ""
+              layout: vertical
+              fields:
+                - name: image
+                  class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+                  appName: assets
+                  required: true
+                  targetWorkspace: dam
+                  label: Image
+                  identifierToPathConverter:
+                    class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
+                  contentPreviewDefinition:
+                    contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
+                  description: "You may upload an image, or choose one from the Digital Asset Manager. If you upload an image, the DAM image will be ignored."
+                - name: imageAlt
+                  class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                  label: Alt. Text
+                  required: true
     - name: tabTags
       label: Filter Tags
       fields:
