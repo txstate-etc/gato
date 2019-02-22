@@ -387,6 +387,22 @@ jQuery(document).ready(function($) {
     $(this).prev('input').focus();
   })
 
+  $('.btn-grid-view').click(function(e) {
+    var filterableSearch = $('.filterable-search')
+    filterableSearch.removeClass('list-view');
+    filterableSearch.addClass('grid-view');
+    $('.btn-grid-view').prop('disabled', true);
+    $('.btn-list-view').prop('disabled', false);
+  });
+
+  $('.btn-list-view').click(function(e) {
+    var filterableSearch = $('.filterable-search')
+    filterableSearch.removeClass('grid-view');
+    filterableSearch.addClass('list-view');
+    $('.btn-list-view').prop('disabled', true);
+    $('.btn-grid-view').prop('disabled', false);
+  })
+
   //on initial page load
   var urlParams = getUrlParameters();
   if (!(urlParams.q && urlParams.q.length > 0) && !urlParams.filters) {
