@@ -4,8 +4,16 @@
 [/#if]
 <div class="listitem" data-tags="${tags?join(",")}" data-keywords="[#if content.keywords?has_content]${content.keywords?join(',')}[/#if]">
   <div class="image-container">
-    [#if content.includeImage == "hasImage"]
-      <img src="${gf.getImgDefault(content.image)}" alt="${content.imageAlt!}" srcset="${gf.getSrcSet(content.image)}" />
+    [#if content.includeImage == "hasImage" && content.image?has_content]
+      [#assign srcset = gf.getSrcSet(
+          content.image,
+          (content.imagecropleft!0)?number!0,
+          (content.imagecropright!0)?number!0,
+          (content.imagecroptop!0)?number!0,
+          (content.imagecropbottom!0)?number!0,
+          true
+        )]
+      <img src="${gf.getImgDefault(content.image)}" alt="${content.imageAlt!}" srcset="${srcset}" />
     [#else]
       <!-- Default image goes here, don't display if the editor said not to -->
     [/#if]
