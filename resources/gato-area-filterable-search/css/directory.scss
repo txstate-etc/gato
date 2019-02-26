@@ -1,12 +1,11 @@
-.listitem-alpha {
-  display: none;
-}
-
-.listitem-position {
-  margin-bottom: 1rem;
-}
-
 .filterable-search.directory {
+  .listitem-alpha {
+    display: none;
+  }
+
+  .listitem-position {
+    margin-bottom: 1rem;
+  }
   &.list-view {
     .filtered-results {
       ul {
