@@ -173,6 +173,11 @@
         }
       }
     }
+    &.no-default-img {
+      .default-image {
+        visibility: hidden;
+      }
+    }
   }
   &.filters-open {
     .controls {

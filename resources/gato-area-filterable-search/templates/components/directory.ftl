@@ -6,7 +6,8 @@
 [#if content.view == "grid" || (content.view == "both" && content.both == "grid")]
   [#assign view="grid-view"]
 [/#if]
-<div class="filterable-search ${view}">
+[#assign defaultImgClass = (content.useDefaultImage?then('', 'no-default-img'))]
+<div class="filterable-search directory ${view} ${defaultImgClass}">
   [@cms.area name="filtergroups" /]
   [@cms.area name="listitems" contextAttributes={"itemLabelClass": "person", "alphabetize": content.alphabetize!"alphaheaders", "alphaBy" : def.parameters.alphaBy!""}/]
 </div>

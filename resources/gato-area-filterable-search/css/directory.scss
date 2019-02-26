@@ -6,13 +6,28 @@
   margin-bottom: 1rem;
 }
 
-.filterable-search.grid-view {
-  .filtered-results {
-    ul {
-      .result {
-        .info-container {
-          .listitem-email, .listitem-office, .listitem-phone, .listitem-description {
-            display: none;
+.filterable-search.directory {
+  &.list-view {
+    .filtered-results {
+      ul {
+        li {
+          .listitem {
+            .image-container {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+  &.grid-view {
+    .filtered-results {
+      ul {
+        .result {
+          .info-container {
+            .listitem-email, .listitem-office, .listitem-phone, .listitem-description {
+              display: none;
+            }
           }
         }
       }

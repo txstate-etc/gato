@@ -57,6 +57,30 @@ form:
                   class: info.magnolia.ui.form.field.definition.TextFieldDefinition
                   label: Alt. Text
                   required: true
+                - name: thumbnail
+                  class: edu.txstate.its.gato.vaadin.ThumbnailSelectorFieldDefinition
+                  label: Crop Image
+                  controlName: image
+                - name: script
+                  class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
+                  fields:
+                    - name: imagecropleft
+                      class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+                    - name: imagecropright
+                      class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+                    - name: imagecroptop
+                      class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+                    - name: imagecropbottom
+                      class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+                  transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+                  initFunction: initThumbnailSelector
+                  scripts: [gato-lib/js/cropper/js/jQuery.Cropper.js, gato-lib/js/thumbnail-selector.js]
+                  styles: [gato-lib/js/cropper/css/jquery.cropper.css]
+                  loadScriptsInOrder: true
+                  label: ''
+                  parameters:
+                    aspect: 1
+                    controlName: image
     - name: tabTags
       label: Filter Tags
       fields:

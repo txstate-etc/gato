@@ -15,7 +15,7 @@
         )]
       <img src="${gf.getImgDefault(content.image)}" alt="${content.imageAlt!}" srcset="${srcset}" />
     [#else]
-      <!-- Default image goes here, don't display if the editor said not to -->
+      <img class="default-image" src="${ctx.contextPath}/.resources/gato-area-filterable-search/images/star-placeholder.jpg" alt="No Image Provided for ${content.prefix!} ${content.firstname!} ${content.lastname!}" aria-hidden="true" />
     [/#if]
   </div>
   <div class="info-container">
