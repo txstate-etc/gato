@@ -11,14 +11,16 @@
     </div>
     [/#if]
   [/#if]
-  <ul>
-  [#list items as component]
-    <li class="result">[@cms.component content=component/]</li>
-  [/#list]
-  [#if cmsfn.isEditMode()]
-  <li><div class='fs-${ctx.itemLabelClass!"item"}-add' cms:add="box"></div></li>
-  [/#if]
-  </ul>
+  <div id="result-list">
+    <ul>
+    [#list items as component]
+      <li class="result">[@cms.component content=component/]</li>
+    [/#list]
+    [#if cmsfn.isEditMode()]
+    <li><div class='fs-${ctx.itemLabelClass!"item"}-add' cms:add="box"></div></li>
+    [/#if]
+    </ul>
+  </div>
   <div id="no-results-message" class="message-hidden">
     <div>Your filters produced no results</div>
     Try adjusting or clearing your filters to display more results

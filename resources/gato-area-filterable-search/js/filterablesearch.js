@@ -292,10 +292,12 @@ jQuery(document).ready(function($) {
   var updateAlphaHeaders = function() {
     if ($('.filtered-results').data('headers')) {
       if ( $('.result.listitem-hidden').length > 0) {
-        $('.alpha-header').hide();
+        //$('.alpha-header').hide();
+        removeAlphaHeaders();
       }
       else {
-        $('.alpha-header').show();
+        //$('.alpha-header').show();
+        groupListItemsByHeader();
       }
     }
   }
@@ -403,23 +405,45 @@ jQuery(document).ready(function($) {
     $('.btn-grid-view').prop('disabled', false);
   })
 
+  var groupListItemsByHeader = function() {
+    var html = "";
+    var fullList = $('#result-list ul');
+    var firstItem = $('.filtered-results .listitem').first();
+    var firstItemText = firstItem.find("*[data-alpha='true']").text().trim();
+    var currentLetter = firstItemText.charAt().toUpperCase();
+    html += '<div class="alpha-header" aria-hidden="true">'+ currentLetter +'</div>';
+    html += '<ul>';
+    fullList.find('li').each(function(index, item) {
+      var text = $(item).find("*[data-alpha='true']").text().trim().toUpperCase();
+      var firstLetter = text.charAt();
+      if (firstLetter != currentLetter) {
+        html += '</ul>';
+        currentLetter = firstLetter;
+        html += '<div class="alpha-header" aria-hidden="true">'+ currentLetter +'</div>';
+        html += '<ul>';
+      }
+      html += $(item).prop('outerHTML');
+    })
+    html += '</ul>';
+    $('#result-list').html(html);
+  }
+
+  var removeAlphaHeaders = function() {
+    var html = '<ul>';
+    var results = $('#result-list .result');
+    results.each(function(index, item) {
+      html +=  $(item).prop('outerHTML');
+    })
+    html += '</ul>';
+    $('#result-list').html(html);
+  }
+
   //on initial page load
   var urlParams = getUrlParameters();
   if (!(urlParams.q && urlParams.q.length > 0) && !urlParams.filters) {
     updateResultsShown();
     if ($('.filtered-results').data('headers')) {
-      var firstItem = $('.filtered-results .listitem').first();
-      var firstItemText = firstItem.find("*[data-alpha='true']").text().trim();
-      var currentLetter = firstItemText.charAt().toUpperCase();
-      firstItem.parent().before('<div class="alpha-header" aria-hidden="true">'+ currentLetter +'</div>');
-      $('.filtered-results .listitem').each(function(index, item) {
-        var text = $(item).find("*[data-alpha='true']").text().trim().toUpperCase();
-        var firstLetter = text.charAt();
-        if (firstLetter != currentLetter) {
-          currentLetter = firstLetter;
-          $(item).parent().before('<div class="alpha-header" aria-hidden="true">'+ currentLetter +'</div>')
-        }
-      });
+      groupListItemsByHeader();
     }
     updateStripes();
   }
