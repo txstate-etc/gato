@@ -284,9 +284,7 @@
           }
         }
         &:last-child {
-          li:last-child {
-            border-bottom: 1px solid $filterable-search-divider-color;
-          }
+          border-bottom: 1px solid $filterable-search-divider-color;
         }
       }
       #no-results-message {
