@@ -26,11 +26,6 @@ form:
           class: info.magnolia.ui.form.field.definition.StaticFieldDefinition
           label: ""
           value: "Suggested: Use this field to display specific language in the search box. For example: if \"degrees\" is input here, the search bar will read \"Search degrees.\" If this field is left blank, the search bar will simply read \"Search.\""
-        - name: useDefaultImage
-          class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
-          label: Default Image
-          buttonLabel: Select to use default image for list items with no image
-          defaultValue: true
         - name: view
           label: View(s)
           class: info.magnolia.ui.form.field.definition.SwitchableFieldDefinition
