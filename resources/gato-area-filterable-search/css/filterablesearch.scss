@@ -364,6 +364,7 @@
                 width: 200px;
                 height: 200px;
                 flex: none;
+                position: relative;
                 @media (max-width:$sm-breakpoint) {
                   width: 100%;
                   height: 100%;
@@ -371,6 +372,23 @@
                 img {
                   width: 100%;
                   height: 100%;
+                }
+                .btnShowMoreContent {
+                  position: absolute;
+                  right: 8px;
+                  bottom: 8px;
+                  background-color: $white;
+                  border: 0px;
+                  border-radius: 2px;
+                  padding: 0;
+                  width: 2.5rem;
+                  height: 2.5rem;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  i {
+                    color: $filterable-search-toggle-filters-button-color;
+                  }
                 }
               }
               .listitem-title {
