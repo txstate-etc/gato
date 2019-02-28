@@ -25,4 +25,12 @@
     <div>Your filters produced no results</div>
     Try adjusting or clearing your filters to display more results
   </div>
+  <div id="more-content-popup">
+    <button id="btn-close-more-content-popup">
+      <i class="fa fa-close" aria-hidden="true" aria-label="Close Popup"></i>
+      <span>CLOSE</span>
+    </button>
+    <div class="popup-content">
+    </div>
+  </div>
 </div>
