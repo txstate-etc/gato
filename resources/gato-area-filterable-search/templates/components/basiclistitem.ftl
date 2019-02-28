@@ -13,9 +13,13 @@
         (content.imagecropbottom!0)?number!0,
         true
       )]
-    <img src="${gf.getImgDefault(content.image)}" alt="${content.imageAlt!}" srcset="${srcset}" />
+    [#assign altText = content.imageAlt!]
+    [#if content.imageAlt?? && content.imageAlt == content.title]
+      [#assign altText = ""]
+    [/#if]
+    <img src="${gf.getImgDefault(content.image)}" alt="${altText}" srcset="${srcset}" />
   [#else]
-    <img class="default-image" src="${ctx.contextPath}/.resources/gato-area-filterable-search/images/star-placeholder.jpg" alt="No Image Provided for ${content.title}" aria-hidden="true" />
+    <img class="default-image" src="${ctx.contextPath}/.resources/gato-area-filterable-search/images/star-placeholder.jpg" alt="" aria-hidden="true" />
   [/#if]
   </div>
   <div class="info-container">
