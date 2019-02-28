@@ -26,12 +26,12 @@ public class RenameMobileFirstResourcesAreaTask extends GatoBaseUpgradeTask {
     protected void doExecute(InstallContext ctx) throws RepositoryException {
         Session session = ctx.getJCRSession(RepositoryConstants.WEBSITE);
         NodeIterator nodes = session.getWorkspace().getQueryManager().
-            createQuery("SELECT * FROM nt:base WHERE jcr:primaryType = 'mgnl:area' AND jcr:path like '%/resources'", "sql").
+            createQuery("SELECT * from [mgnl:area] WHERE NAME() = 'resources'", "JCR-SQL2").
             execute().getNodes();
         
         while(nodes.hasNext()) {
             Node node = nodes.nextNode();
-            NodeUtil.renameNode(node, "resource-links");
+            NodeUtil.renameNode(node, "gato-footer-resources");
         }
     }
 }

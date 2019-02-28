@@ -65,9 +65,9 @@ siteinfo:
   availableComponents:
     miscText:
       id: gato-template:components/minrichtext
-resources:
+gato-footer-resources:
   type: list
-  templateScript: /gato-template-mobilefirst/templates/areas/resources.ftl
+  templateScript: /gato-template-mobilefirst/templates/areas/gato-footer-resources.ftl
   availableComponents:
     link:
       id: gato-template:components/link

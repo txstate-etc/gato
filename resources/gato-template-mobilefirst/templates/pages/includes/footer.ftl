@@ -15,13 +15,13 @@
         <h2 class="footer-column-title">Resources</h2>
         <a href="#" class="mobile-footer-column-title" aria-haspopup="true" aria-expanded="false" aria-controls="resource-links">Resources</a>
         <ul id="resource-links" class="resources footer-column-link-list">
-        [#assign resources = gf.getOrCreateArea(homepage, 'resources-links')]
+        [#assign resources = gf.getOrCreateArea(homepage, 'gato-footer-resources')]
         [#if !gf.hasComponents(resources)]
           [#list cmsfn.children(globalLinks.mobileFirstResources, "mgnl:component") as component]
             <li><a href="${gf.filterUrl(component.link)}">${gf.filterLinkTitle(component.text, component.link)}</a></li>
           [/#list]
         [/#if]
-        [@cms.area name="resource-links" content=gf.getOrCreateArea(homepage, 'resource-links') editable=isHomePage/]
+        [@cms.area name="gato-footer-resources" content=gf.getOrCreateArea(homepage, 'gato-footer-resources') editable=isHomePage/]
         </ul>
       </div>
     </div>
