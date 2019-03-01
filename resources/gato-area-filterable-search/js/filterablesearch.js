@@ -301,16 +301,34 @@ jQuery(document).ready(function($) {
   }
 
   var gridViewShowMore = function(listitem) {
+    var popup = $('#more-content-popup');
     $('.listitem .image-container').removeClass('arrow');
     var containerOffset = $('.filterable-search').offset().top;
     var listitemOffset = listitem.offset().top;
     var imageHeight = listitem.find('.image-container').height();
     var popupOffset = (listitemOffset - containerOffset + imageHeight + 3) + "px";
-    $('#more-content-popup').css("top", popupOffset);
+    popup.css("top", popupOffset);
     var content = listitem.find('.info-container').html();
-    $('#more-content-popup').find('.popup-content').html(content);
-    $('#more-content-popup').show();
+    popup.find('.popup-content').html(content);
+    popup.show();
     listitem.find('.image-container').addClass('arrow')
+    //expand result area if the popup overlaps the footer
+    var fSearchContainer = $('.filterable-search-container');
+    var footerTopOffset = Math.ceil($('footer').offset().top);
+    var popupBottom = Math.ceil(popup.offset().top + popup.outerHeight());
+    if (popupBottom > footerTopOffset) {
+      var initialBottomPadding = fSearchContainer.css('padding-bottom');
+      var adjustedBottomPadding = parseInt(initialBottomPadding) + (popupBottom - footerTopOffset) + "px";
+      fSearchContainer.attr('data-initial-bottom-padding', fSearchContainer.css('padding-bottom'));
+      fSearchContainer.css('padding-bottom', adjustedBottomPadding);
+    }
+    else {
+      if (fSearchContainer.data('initial-bottom-padding')) {
+        var initialBottomPadding = fSearchContainer.data('initial-bottom-padding');
+        fSearchContainer.css('padding-bottom', initialBottomPadding);
+        fSearchContainer.removeAttr('data-initial-bottom-padding');
+      }
+    }
   }
 
   $('.filter-cbx').click(function(e) {
@@ -419,6 +437,12 @@ jQuery(document).ready(function($) {
   $('#btn-close-more-content-popup').click(function() {
     $('#more-content-popup').hide();
     $('.listitem .image-container').removeClass('arrow');
+    var fSearchContainer = $('.filterable-search-container');
+    if (fSearchContainer.data('initial-bottom-padding')) {
+      var initialBottomPadding = fSearchContainer.data('initial-bottom-padding');
+      fSearchContainer.css('padding-bottom', initialBottomPadding);
+      fSearchContainer.removeAttr('data-initial-bottom-padding');
+    }
   });
 
   var groupListItemsByHeader = function() {
