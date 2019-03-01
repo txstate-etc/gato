@@ -301,6 +301,7 @@ jQuery(document).ready(function($) {
   }
 
   var gridViewShowMore = function(listitem) {
+    $('.listitem .image-container').removeClass('arrow');
     var containerOffset = $('.filterable-search').offset().top;
     var listitemOffset = listitem.offset().top;
     var imageHeight = listitem.find('.image-container').height();
@@ -309,6 +310,7 @@ jQuery(document).ready(function($) {
     var content = listitem.find('.info-container').html();
     $('#more-content-popup').find('.popup-content').html(content);
     $('#more-content-popup').show();
+    listitem.find('.image-container').addClass('arrow')
   }
 
   $('.filter-cbx').click(function(e) {
@@ -416,6 +418,7 @@ jQuery(document).ready(function($) {
 
   $('#btn-close-more-content-popup').click(function() {
     $('#more-content-popup').hide();
+    $('.listitem .image-container').removeClass('arrow');
   });
 
   var groupListItemsByHeader = function() {
