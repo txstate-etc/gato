@@ -21,10 +21,12 @@
   [#else]
     <img class="default-image" src="${ctx.contextPath}/.resources/gato-area-filterable-search/images/star-placeholder.jpg" alt="" aria-hidden="true" />
   [/#if]
+  [#if content.description?has_content]
   <button class="btnShowMoreContent">
     <i class="fa fa-arrows-alt" aria-hidden="true"></i>
     <span class="visuallyhidden">Show more about ${content.title}</span>
   </button>
+  [/#if]
   </div>
   <div class="info-container">
     [#if content.link?has_content]
