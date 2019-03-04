@@ -2,7 +2,7 @@
 [#if cmsfn.isEditMode()]
 <div cms:edit="bar"></div>
 [/#if]
-<div class="listitem" data-tags="${tags?join(",")}" data-keywords="[#if content.keywords?has_content]${content.keywords?join(',')}[/#if]">
+<div class="listitem" data-tags="${tags?join(",")}" data-keywords="[#if content.keywords?has_content]${content.keywords?join(',')}[/#if]" id="${gf.uuidToHtmlId(content.@id)}">
   <div class="image-container">
     [#if content.includeImage == "hasImage" && content.image?has_content]
       [#assign srcset = gf.getSrcSet(
@@ -18,7 +18,7 @@
       <img class="default-image" src="${ctx.contextPath}/.resources/gato-area-filterable-search/images/star-placeholder.jpg" alt="" aria-hidden="true" />
     [/#if]
     [#if content.email?has_content || content.office?has_content || content.phone?has_content || content.description?has_content]
-    <button class="btnShowMoreContent">
+    <button class="btnShowMoreContent" aria-haspopup="true" aria-expanded="false" aria-controls="more-content-popup" data-item-id="${gf.uuidToHtmlId(content.@id)}">
       <i class="fa fa-arrows-alt" aria-hidden="true"></i>
       <span class="visuallyhidden">Show more about ${content.prefix!} ${content.firstname!} ${content.lastname!}</span>
     </button>

@@ -302,6 +302,7 @@ jQuery(document).ready(function($) {
 
   var gridViewShowMore = function(listitem) {
     var popup = $('#more-content-popup');
+    $('.btnShowMoreContent').attr('aria-expanded', false);
     $('.listitem .image-container').removeClass('arrow');
     var containerOffset = $('.filterable-search').offset().top;
     var listitemOffset = listitem.offset().top;
@@ -310,8 +311,12 @@ jQuery(document).ready(function($) {
     popup.css("top", popupOffset);
     var content = listitem.find('.info-container').html();
     popup.find('.popup-content').html(content);
+    popup.find('#btn-close-more-content-popup').attr('data-item-id', listitem.attr('id'))
+    popup.find('#btn-close-more-content-popup .hidden-title').text(listitem.find('.listitem-title').text())
     popup.show();
-    listitem.find('.image-container').addClass('arrow')
+    listitem.find('.btnShowMoreContent').attr('aria-expanded', true);
+    listitem.find('.image-container').addClass('arrow');
+    $('#more-content-popup #btn-close-more-content-popup').focus();
     //expand result area if the popup overlaps the footer
     var fSearchContainer = $('.filterable-search-container');
     var footerTopOffset = Math.ceil($('footer').offset().top);
@@ -438,6 +443,9 @@ jQuery(document).ready(function($) {
     $('#more-content-popup').hide();
     $('.listitem .image-container').removeClass('arrow');
     var fSearchContainer = $('.filterable-search-container');
+    var itemId = $(this).attr('data-item-id');
+    $(this).removeAttr('data-item-id');
+    $('#' + itemId).find('.btnShowMoreContent').focus();
     if (fSearchContainer.data('initial-bottom-padding')) {
       var initialBottomPadding = fSearchContainer.data('initial-bottom-padding');
       fSearchContainer.css('padding-bottom', initialBottomPadding);
