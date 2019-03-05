@@ -33,6 +33,7 @@
 
       <div class="page_content">
         <main class="contentcolumn">
+          <h1 id="maincontent" class="visuallyhidden">${gf.nodeTitle(content)}</h1>
           <div class="gato-section-full">
             <div class="gato-section-centered">
               <div class="gato-section eq-parent">
