@@ -4,7 +4,7 @@
 [/#if]
 <div class="mobilefirst-pattern has-image ${content.imageAlignment!'image-right'} ${hasBorder?then('border', '')}">
   <div class="pattern-image with-quotation">
-    <img src="${gf.getImgDefault(content.image)}" alt="${content.alttext!}" srcset="${gf.getSrcSet(content.image)}" />
+    <img src="${gf.getImgDefault(content.image)}" alt="${content.alttext!}" srcset="${gf.getSrcSet(content.image)}" sizes="(max-width: 50em) 50vw, 100vw"/>
   </div>
   <div class="pattern-content quotation ${content.color!color1}">
     <div class="centered">

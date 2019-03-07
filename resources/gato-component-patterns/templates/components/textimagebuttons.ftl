@@ -7,7 +7,7 @@
   [#if content.imageAlignment == 'image-left']
     <div class="pattern-image">
       <div class="video-wrapper">
-        <img src="${gf.getImgDefault(content.image)}" alt="${content.imageAlt!}" srcset="${gf.getSrcSet(content.image)}" />
+        <img src="${gf.getImgDefault(content.image)}" alt="${content.imageAlt!}" srcset="${gf.getSrcSet(content.image)}" sizes="(max-width: 50em) 50vw, 100vw"/>
         [#if content.videourl?has_content]
           <a href="${content.videourl}" class="feature-play-button video-left"
           data-embed="${gf.jsonGetString(gf.oEmbedAutodiscover(content.videourl), 'html')?html}">
@@ -40,7 +40,7 @@
     [#if content.imageAlignment == 'image-right']
       <div class="pattern-image">
         <div class="video-wrapper">
-          <img src="${gf.getImgDefault(content.image)}" alt="${content.imageAlt!}" srcset="${gf.getSrcSet(content.image)}" />
+          <img src="${gf.getImgDefault(content.image)}" alt="${content.imageAlt!}" srcset="${gf.getSrcSet(content.image)}" sizes="(max-width: 50em) 50vw, 100vw"/>
           [#if content.videourl?has_content]
             <a href="${content.videourl}" class="feature-play-button video-right"
             data-embed="${gf.jsonGetString(gf.oEmbedAutodiscover(content.videourl), 'html')?html}">

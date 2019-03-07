@@ -4,7 +4,7 @@
 <div class="textImagePatternWrapper ${(content.hasBackground!false)?then('background', '')}">
   <div class="mobilefirst-pattern insettextimage ${content.imageAlignment!'image-right'}">
     <div class="pattern-image">
-      <img src="${gf.getImgDefault(content.image)}" alt="${content.imageAlt!}" srcset="${gf.getSrcSet(content.image)}" />
+      <img src="${gf.getImgDefault(content.image)}" alt="${content.imageAlt!}" srcset="${gf.getSrcSet(content.image)}" sizes="(max-width: 50em) 50vw, 100vw"/>
     </div>
     <div class="pattern-content title-type">
       <div class="inset ${content.color!color1}">
