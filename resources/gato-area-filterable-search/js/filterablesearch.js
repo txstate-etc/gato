@@ -497,6 +497,12 @@ jQuery(document).ready(function($) {
     if ($('.filtered-results').data('headers')) {
       groupListItemsByHeader();
     }
+    else {
+      $('.btnShowMoreContent').click(function() {
+        var listitem = $(this).closest('.listitem')
+        gridViewShowMore(listitem)
+      })
+    }
     updateStripes();
   }
   else {
