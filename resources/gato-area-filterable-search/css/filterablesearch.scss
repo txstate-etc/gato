@@ -349,16 +349,20 @@
         ul {
           display: flex;
           flex-wrap: wrap;
+          margin: 0 -10px;
           .result {
             border: 0;
-            flex: 0 1 25%;
             padding: 0;
+            width: calc((100%/4) - 20px);
+            margin: 0 10px 20px 10px;
+            @at-root .filters-open#{&} {
+              width: calc((100%/3) - 20px);
+            }
             @media (max-width:$sm-breakpoint) {
-              flex: 0 1 50%;
-              padding: 1.5rem;
+              width: calc((100%/2) - 20px);
             }
             @media (max-width:$xs-breakpoint) {
-              flex: 0 1 100%;
+              width: 100%;
             }
             &.has-background {
               background-color: $white;
@@ -366,8 +370,6 @@
             .listitem {
               display: block;
               .image-container {
-                width: 200px;
-                height: 200px;
                 flex: none;
                 position: relative;
                 @media (max-width:$sm-breakpoint) {

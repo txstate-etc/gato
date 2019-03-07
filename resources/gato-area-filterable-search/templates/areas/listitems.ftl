@@ -28,7 +28,7 @@
   <div id="more-content-popup">
     <button id="btn-close-more-content-popup">
       <i class="fa fa-close" aria-hidden="true" aria-label="Close Popup"></i>
-      <span>CLOSE<span class="visuallyhidden hidden-title"></span>
+      <span>CLOSE<span class="visuallyhidden hidden-title"></span></span>
     </button>
     <div class="popup-content">
     </div>
