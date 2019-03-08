@@ -42,6 +42,15 @@
             ${content.intro}
           </div>
         [/#if]
+        [#if content.addTitleSeparator?has_content && content.addTitleSeparator == true]
+        <div class="gato-section-full">
+          <div class="gato-section-centered">
+            <div class="gato-section">
+                <div class="intro-title-border"></div>
+            </div>
+          </div>
+        </div>
+        [/#if]
         [#if def.parameters.isHomeTemplate!false]
           [@cms.area name="mobileFirstContent"/]
         [#else]

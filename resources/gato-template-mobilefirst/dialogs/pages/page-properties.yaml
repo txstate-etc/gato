@@ -7,3 +7,8 @@ form:
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Intro. Text
           rows: 4
+        - name: addTitleSeparator
+          class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+          label: ""
+          buttonLabel: Add Separator Under Page Title
+          defaultValue: true
