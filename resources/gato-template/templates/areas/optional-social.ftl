@@ -9,5 +9,7 @@
     <div class="gato-editor-notice">These are default Texas State social media links. To show your own, click "Customize Social Media Links".</div>
   [/#if]
   [@sociallinks cmsfn.contentByPath('/homepage-data/global-links/defaultSocial', 'gatoapps') ctx.icononly!false/]
+  [#if cmsfn.isEditMode()]
   <div class="optionalsocial_add" cms:add="box"></div>
+  [/#if]
 [/#if]
