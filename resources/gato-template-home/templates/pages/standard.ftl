@@ -13,8 +13,9 @@
     [@skipnav/]
     [#include "/gato-template-mobilefirst/templates/pages/includes/header.ftl"]
     [#include "/gato-template-mobilefirst/templates/pages/includes/menu.ftl"]
-
-
+    <main>
+    </main>
+    [#include "/gato-template-mobilefirst/templates/pages/includes/footer.ftl"]
     [@cssjsmodals /]
     [#include "/gato-template/templates/includes/video-modal.ftl"]
   </body>

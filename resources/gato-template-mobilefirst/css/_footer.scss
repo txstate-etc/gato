@@ -5,80 +5,50 @@ footer {
   color: $white;
   .top {
     background-color: $mediumgray;
-    display: flex;
-    justify-content: space-between;
-    @media (max-width: $sm-breakpoint) {
-      display: block;
-      padding: 2rem 0 2.5rem 0;
-    }
-    .footer-column {
-      width: 33%;
-      padding: 4rem 3rem 5rem 3rem;
+    .top-footer-content {
+      display: flex;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
       @media (max-width: $sm-breakpoint) {
-        width: auto;
-        padding: 1rem 3rem;
+        display: block;
+        padding: 2rem 0 2.5rem 0;
       }
-      &.contact {
-        border-right: 1px solid $darkgray;
+      .footer-column {
+        width: 33%;
+        padding: 4rem 3rem 5rem 3rem;
         @media (max-width: $sm-breakpoint) {
-          border: none;
+          width: auto;
+          padding: 1rem 3rem;
         }
-        .footer-page-title {
-          font-family: $univers;
-          font-size: 2.2rem;
-          line-height: 2.8rem;
-          font-weight: 700;
-          a {
-            color: $white;
-            text-decoration: none;
+        &.contact {
+          border-right: 1px solid $darkgray;
+          @media (max-width: $sm-breakpoint) {
+            border: none;
           }
-        }
-        .contact-info {
-          padding-top: 0.5rem;
-          padding-bottom: 1rem;
-          line-height: 1.8;
-          font-weight: 500;
-          p {
-            margin: 0;
-          }
-          a {
-            color: $white;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.2s ease;
-            &:hover {
-              transform: translate(0px, -3px);
-              box-shadow: inset 0 -1px 0 0 $white;
-            }
-          }
-        }
-      }
-      .footer-column-content {
-        .footer-column-title {
-          font-family: $univers;
-          font-size: 2rem;
-          font-weight: 700;
-          display: block;
-          text-decoration: none;
-          color: $white;
-          margin-bottom: 1rem;
-        }
-        .mobile-footer-column-title {
-          display: none;
-        }
-        .footer-column-link-list {
-          list-style: none;
-          margin: 0;
-          padding: 1rem 0rem 0rem 0rem;
-          li {
-            line-height: 1.8;
-            margin-bottom: 0.5rem;
+          .footer-page-title {
+            font-family: $univers;
+            font-size: 2.2rem;
+            line-height: 2.8rem;
+            font-weight: 700;
             a {
               color: $white;
               text-decoration: none;
-              transition: all 0.2s ease;
+            }
+          }
+          .contact-info {
+            padding-top: 0.5rem;
+            padding-bottom: 1rem;
+            line-height: 1.8;
+            font-weight: 500;
+            p {
+              margin: 0;
+            }
+            a {
+              color: $white;
+              text-decoration: none;
               display: inline-block;
-              font-weight: 500;
+              transition: all 0.2s ease;
               &:hover {
                 transform: translate(0px, -3px);
                 box-shadow: inset 0 -1px 0 0 $white;
@@ -86,54 +56,88 @@ footer {
             }
           }
         }
-        @media (max-width: $sm-breakpoint) {
+        .footer-column-content {
           .footer-column-title {
-            display: none;
-          }
-          .mobile-footer-column-title {
+            font-family: $univers;
+            font-size: 2rem;
+            font-weight: 700;
+            display: block;
             text-decoration: none;
             color: $white;
-            display: block;
-            background-color: $tornadogray;
-            padding: 0.5rem 1rem;
-            font-size: 1.8rem;
-            position: relative;
-            font-weight: 500;
-            &:after {
-              font-family: "FontAwesome";
-              content: "\f107";
-              position: absolute;
-              right: 1rem;
-              top: 0.3rem;
-              font-size: 2.4rem;
-            }
-            &.empty {
-              display: none;
-            }
+            margin-bottom: 1rem;
+          }
+          .mobile-footer-column-title {
+            display: none;
           }
           .footer-column-link-list {
-            display: none;
-            background-color: $tornadogray;
-            padding: 1rem;
+            list-style: none;
+            margin: 0;
+            padding: 1rem 0rem 0rem 0rem;
             li {
-              padding: 0.5rem 0rem;
-              a:hover {
-                transform: none;
-                box-shadow: unset;
+              line-height: 1.8;
+              margin-bottom: 0.5rem;
+              a {
+                color: $white;
+                text-decoration: none;
+                transition: all 0.2s ease;
+                display: inline-block;
+                font-weight: 500;
+                &:hover {
+                  transform: translate(0px, -3px);
+                  box-shadow: inset 0 -1px 0 0 $white;
+                }
               }
             }
           }
-          &.expanded {
+          @media (max-width: $sm-breakpoint) {
+            .footer-column-title {
+              display: none;
+            }
             .mobile-footer-column-title {
-              border-bottom: 1px solid $lightgray;
+              text-decoration: none;
+              color: $white;
+              display: block;
+              background-color: $tornadogray;
+              padding: 0.5rem 1rem;
+              font-size: 1.8rem;
+              position: relative;
+              font-weight: 500;
               &:after {
-                content: "\f106";
+                font-family: "FontAwesome";
+                content: "\f107";
+                position: absolute;
+                right: 1rem;
+                top: 0.3rem;
+                font-size: 2.4rem;
+              }
+              &.empty {
+                display: none;
               }
             }
             .footer-column-link-list {
-              display: block;
-              &.empty {
-                display: none;
+              display: none;
+              background-color: $tornadogray;
+              padding: 1rem;
+              li {
+                padding: 0.5rem 0rem;
+                a:hover {
+                  transform: none;
+                  box-shadow: unset;
+                }
+              }
+            }
+            &.expanded {
+              .mobile-footer-column-title {
+                border-bottom: 1px solid $lightgray;
+                &:after {
+                  content: "\f106";
+                }
+              }
+              .footer-column-link-list {
+                display: block;
+                &.empty {
+                  display: none;
+                }
               }
             }
           }
@@ -166,37 +170,41 @@ footer {
     }
   }
   .bottom {
-    padding: 1.5rem 3rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    @media (max-width: $sm-breakpoint) {
-      display: block;
-      text-align: center;
-      padding: 2rem 3rem;
-    }
-    img {
-      height: 40px;
-    }
     background-color: $maroon;
-    .bottom-footer-links {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      @media (max-width:$sm-breakpoint) {
-        margin-top: 1rem;
+    .bottom-footer-content {
+      padding: 1.5rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      @media (max-width: $sm-breakpoint) {
+        display: block;
+        text-align: center;
+        padding: 2rem 3rem;
       }
-      li {
-        display: inline-block;
-        line-height: 2;
-        &:not(:last-child):after {
-          content: "|";
-          padding: 0rem 1rem;
+      img {
+        height: 40px;
+      }
+      .bottom-footer-links {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        @media (max-width:$sm-breakpoint) {
+          margin-top: 1rem;
         }
-      }
-      a {
-        color: $white;
-        text-decoration: none;
+        li {
+          display: inline-block;
+          line-height: 2;
+          &:not(:last-child):after {
+            content: "|";
+            padding: 0rem 1rem;
+          }
+        }
+        a {
+          color: $white;
+          text-decoration: none;
+        }
       }
     }
   }

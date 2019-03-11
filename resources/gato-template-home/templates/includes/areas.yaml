@@ -1,0 +1,17 @@
+customcss:
+  !include /gato-component-cssjs/templates/areas/customcss.yaml
+customjs:
+  !include /gato-component-cssjs/templates/areas/customjs.yaml
+socialmedia:
+  type: single
+  templateScript: /gato-template/templates/areas/optional-social.ftl
+  createAreaNode: false
+  availableComponents:
+    sociallink:
+      id: gato-template-mobilefirst:components/mfsociallink
+siteinfo:
+  type: single
+  title: Contact Information
+  availableComponents:
+    miscText:
+      id: gato-template:components/minrichtext
