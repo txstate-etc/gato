@@ -1,0 +1,16 @@
+templateScript: /gato-template-home/templates/pages/standard.ftl
+renderType: site
+visible: true
+title: Texas State Home Landing
+dialog: gato-template:pages/page-properties
+areas: !include /gato-template-home/templates/includes/areas.yaml
+parameters:
+  isLandingTemplate: true
+  sortOrder: 402
+  favicon: /gato-template-txstate2015/images/favicon.png
+  touchicon: /gato-template-txstate2015/images/touchicon.png
+variations:
+  js:
+    templateScript: /gato-component-cssjs/templates/pages/jsvariation.ftl
+  rss:
+    templateScript: /gato-template-rss/templates/pages/rssvariation.ftl
