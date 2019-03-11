@@ -143,17 +143,6 @@ footer {
   }
   .social-media-container {
     display: block;
-    @media (max-width: $sm-breakpoint) {
-      display: none;
-    }
-    &.mobile {
-      display: none;
-      @media (max-width: $sm-breakpoint) {
-        display: block;
-        text-align: center;
-        padding: 0rem 3rem;
-      }
-    }
     .social-media-icons {
       margin-top: 1.5rem;
       padding: 0;

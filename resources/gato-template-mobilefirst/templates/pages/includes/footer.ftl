@@ -8,6 +8,9 @@
         <div class="contact-info">
           [@cms.area name="siteinfo" content=gf.getOrCreateArea(homepage, 'siteinfo') editable=isHomePage/]
         </div>
+        <div class="social-media-container">
+          [@cms.area name="socialmedia" content=gf.getOrCreateArea(homepage, "socialmedia") editable=isHomePage contextAttributes={"shownotice":isHomePage}/]
+        </div>
       </div>
     </div>
     <div class="footer-column">
@@ -32,17 +35,11 @@
         [#assign hasConnections = gf.hasComponents(connections)]
         <a href="#" class="mobile-footer-column-title ${hasConnections?then('', 'empty')}" aria-haspopup="true" aria-expanded="false" aria-controls="connect-links">Connect</a>
         <div class="connect-links">
-          <div class="social-media-container">
-            [@cms.area name="socialmedia" content=gf.getOrCreateArea(homepage, "socialmedia") editable=isHomePage contextAttributes={"shownotice":isHomePage}/]
-          </div>
           <ul id="connect-links" class="connect footer-column-link-list ${hasConnections?then('', 'empty')}">
           [@cms.area name="connect" content=gf.getOrCreateArea(homepage, 'connect') editable=isHomePage/]
           </ul>
         </div>
       </div>
-    </div>
-    <div class="social-media-container mobile">
-      [@cms.area name="socialmedia" content=gf.getOrCreateArea(homepage, "socialmedia") editable=isHomePage contextAttributes={"shownotice":isHomePage}/]
     </div>
   </div>
   <div class="bottom">
