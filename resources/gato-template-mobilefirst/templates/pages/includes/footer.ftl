@@ -3,9 +3,15 @@
     <div class="top-footer-content">
       <div class="footer-column contact">
         <div class="footer-contact-column-content">
-          <h2 class="footer-page-title">
-            <a href="${cmsfn.link(homepage)}">${gf.nodeTitle(homepage)}</a>
-          </h2>
+          [#if isTXSTHome!false]
+            <a href="http://www.txstate.edu">
+              <img class="txst-logo" src="${ctx.contextPath}/.resources/gato-template-mobilefirst/images/txst-footer-logo.svg" alt="Texas State University" />
+            </a>
+          [#else]
+            <h2 class="footer-page-title">
+              <a href="${cmsfn.link(homepage)}">${gf.nodeTitle(homepage)}</a>
+            </h2>
+          [/#if]
           <div class="contact-info">
             [@cms.area name="siteinfo" content=gf.getOrCreateArea(homepage, 'siteinfo') editable=isHomePage/]
           </div>
@@ -46,11 +52,15 @@
   </div>
   <div class="bottom">
     <div class="bottom-footer-content">
-      <div class="logo">
-      <a href="http://www.txstate.edu">
-        <img src="${ctx.contextPath}/.resources/gato-template-mobilefirst/images/txst-footer-logo.svg" alt="Texas State University" />
-      </a>
-      </div>
+      [#if !isTXSTHome!false]
+        <div class="logo">
+        <a href="http://www.txstate.edu">
+          <img src="${ctx.contextPath}/.resources/gato-template-mobilefirst/images/txst-footer-logo.svg" alt="Texas State University" />
+        </a>
+        </div>
+      [#else]
+        <img class="tsus-logo" src="${ctx.contextPath}/.resources/gato-template-mobilefirst/images/tsus-logo-horizontal.svg" alt="Texas State University System" />
+      [/#if]
       <ul class="bottom-footer-links">
       [#list cmsfn.children(globalLinks.mobileFirstFooter, "mgnl:component") as component]
         <li><a href="${gf.filterUrl(component.link)}">${gf.filterLinkTitle(component.text, component.link)}</a></li>

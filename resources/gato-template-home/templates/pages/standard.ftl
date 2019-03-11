@@ -15,6 +15,7 @@
     [#include "/gato-template-mobilefirst/templates/pages/includes/menu.ftl"]
     <main>
     </main>
+    [#assign isTXSTHome = true]
     [#include "/gato-template-mobilefirst/templates/pages/includes/footer.ftl"]
     [@cssjsmodals /]
     [#include "/gato-template/templates/includes/video-modal.ftl"]
