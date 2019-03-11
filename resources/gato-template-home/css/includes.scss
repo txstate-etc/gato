@@ -1,4 +1,14 @@
-@import "gato-template-home/css/variables";
+/* Fonts */
+@import "gato-template-txstate2015/css/fonts/univers";
+@import "gato-template-txstate2015/css/fonts/garamond";
 
+/* Component styles */
+@import "gato-template/css/includes";
+// @import "gato-component-patterns/css/patterns";
+//
 /* General Styles */
+@import "gato-template-home/css/pagesetup";
 @import "gato-template-home/css/styledcontent";
+
+/* Header */
+@import "gato-template-mobilefirst/css/header";

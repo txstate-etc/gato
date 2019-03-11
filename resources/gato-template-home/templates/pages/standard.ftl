@@ -3,14 +3,15 @@
 <!DOCTYPE HTML>
 <html lang="en">
   <head>
-    <!-- Add JS files with templatejs macro in gato-template/templates/includes/head.ftl -->
+    [#assign scripts = ['gato-template-home/js/standard.cjs']]
+    [@templatejs scripts /]
 
     <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-home/css/standard.scss"/>
     [@templatehead publisher="Texas State"/]
   </head>
-  <body class=${cmsfn.isEditMode()?then(' admin','')}">
+  <body class="${cmsfn.isEditMode()?then(' admin','')}">
     [@skipnav/]
-
+    [#include "/gato-template-mobilefirst/templates/pages/includes/header.ftl"]
 
     [@cssjsmodals /]
     [#include "/gato-template/templates/includes/video-modal.ftl"]
