@@ -15,6 +15,7 @@ $gato-card-filter-border-color: $light-gray !default;
 ul.gato-card-filter {
   list-style: none;
   width: 100%;
+  overflow: hidden;
   margin: 0 0 30px 0;
   padding: 0;
   display: flex;
@@ -25,6 +26,7 @@ ul.gato-card-filter {
   }
 
   li {
+    width: 100%;
     a {
       position: relative;
       display: block;
