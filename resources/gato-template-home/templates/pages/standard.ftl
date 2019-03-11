@@ -12,6 +12,8 @@
   <body class="${cmsfn.isEditMode()?then(' admin','')}">
     [@skipnav/]
     [#include "/gato-template-mobilefirst/templates/pages/includes/header.ftl"]
+    [#include "/gato-template-mobilefirst/templates/pages/includes/menu.ftl"]
+
 
     [@cssjsmodals /]
     [#include "/gato-template/templates/includes/video-modal.ftl"]
