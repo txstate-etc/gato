@@ -67,18 +67,18 @@ ul.gato-card-filter {
   [data-eq~="800px"] & {
     flex-wrap: wrap;
     li {
-      width: 33.3333%;
+      max-width: 33.3333%;
       a.grid-filter-selected:before { display: none; }
     }
-    &.tabcount4.hasall, &.tabcount2.hasall {
-      li { width: 50%; }
+    &.tabcount4, &.tabcount2 {
+      li { max-width: 50%; }
       li.all { width: 100%; }
     }
   }
   [data-eq~="600px"] & {
-    li { width: 50%; }
+    li { max-width: 50%; }
     &.tabcount3:not(.hasall),&.tabcount5.hasall,&tabcount2.hasall {
-     li { width: 33.3333%; }
+     li { max-width: 33.3333%; }
     }
   }
   &.color1 {

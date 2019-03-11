@@ -704,6 +704,7 @@ GatoFlexAdjuster.prototype.prepare = function () {
 }
 GatoFlexAdjuster.prototype.process = function () {
   var self = this;
+  if (self.container.css('flex-wrap') !== 'nowrap') return; // bail out if flex is wrapping
   var newsize;
   if (self.items.eq(-1).position().left + self.items.eq(-1).outerWidth() < self.container.width()) {
     self.bottom = self.currentsize;
