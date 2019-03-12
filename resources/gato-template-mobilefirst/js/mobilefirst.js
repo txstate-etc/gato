@@ -139,14 +139,14 @@ jQuery(document).ready(function($) {
   resizeTimeout(checkFooterLinkDisplay);
 
   //fix spacing in layout content types with no title or background color
-  $('.gato-section-full:not(.has-background)').each(function() {
-    var section = $(this);
-    if (section.find('.section-title').length == 0) {
-      section.find('.layout-column').each(function() {
-        $(this).addClass('add-space')
-      })
-    }
-  })
+  // $('.gato-section-full:not(.has-background)').each(function() {
+  //   var section = $(this);
+  //   if (section.find('.section-title').length == 0) {
+  //     section.find('.layout-column').each(function() {
+  //       $(this).addClass('add-space')
+  //     })
+  //   }
+  // })
 
   $(document).ready(function() {
     var $patternImages = $('.mobilefirst-pattern .pattern-image img')

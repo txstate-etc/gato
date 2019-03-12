@@ -43,7 +43,7 @@
           </div>
         [/#if]
         [#if content.addTitleSeparator?has_content && content.addTitleSeparator == true]
-        <div class="gato-section-full">
+        <div class="gato-section-full gato-section-title-separator">
           <div class="gato-section-centered">
             <div class="gato-section">
                 <div class="intro-title-border"></div>

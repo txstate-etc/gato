@@ -13,22 +13,25 @@ h1 {
 h2 {
   font-family: $garamond;
   font-weight: 400;
-  font-size: 3.2rem;
-  line-height: 3.8rem;
+  font-size: 3rem;
+  line-height: 3.6rem;
+  color: $verydark;
 }
 
 h3 {
   font-family: $univers;
-  font-weight: 400;
-  font-size: 2.4rem;
-  line-height: 3rem;
+  font-weight: 500;
+  font-size: 2.2rem;
+  line-height: 2.8rem;
+  color: $dark-gold;
 }
 
 h4 {
   font-family: $univers;
-  font-weight: 400;
-  font-size: 2.2rem;
-  line-height: 2.8rem;
+  font-weight: 500;
+  font-size: 1.8rem;
+  line-height: 2.4rem;
+  color: $verydark;
 }
 
 h5 {
@@ -45,8 +48,20 @@ h6 {
   line-height: 2.4rem;
 }
 
-p, ol, ul {
-  line-height: 1.6;
+p {
+  font-family: $univers;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 2.8rem;
+  color: $verydark;
+}
+
+ol, ul {
+  font-family: $univers;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 2.8rem;
+  color: $verydark;
 }
 
 a[name]:not([href]), a[name][href=""] {

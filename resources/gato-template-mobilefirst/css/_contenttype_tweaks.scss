@@ -33,23 +33,33 @@
 }
 
 //rich editor
-.gato-rich-editor {
+.gato-rich-editor, .gato-textimage {
   .richtext-h2 {
     font-family: $garamond;
-    font-size: 3.2rem;
-    line-height: 3.8rem;
-    @media (max-width: $sm-breakpoint) {
-      font-size: 2.9rem;
-    }
+    font-size: 3rem;
+    line-height: 3.6rem;
+    color: $verydark;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
   }
   .richtext-h3 {
     font-family: $univers;
-    font-size: 2.4rem;
-    line-height: 3rem;
-  }
-  .richtext-h4 {
     font-size: 2.2rem;
     line-height: 2.8rem;
+    font-weight: 500;
+    color: $dark-gold;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+
+  }
+  .richtext-h4 {
+    font-family: $univers;
+    font-size: 1.8rem;
+    font-weight: 500;
+    line-height: 2.4rem;
+    color: #222;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
   }
   .richtext-h5 {
     font-size: 2rem;
@@ -58,6 +68,14 @@
   .richtext-h6 {
     font-size: 1.8rem;
     line-height: 2.4rem;
+  }
+  p {
+    margin-top: 0rem;
+    margin-bottom: 3rem;
+  }
+  ul, ol {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
   }
 }
 

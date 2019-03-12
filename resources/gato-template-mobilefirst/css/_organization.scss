@@ -23,12 +23,13 @@
   .department-title {
     margin-bottom: 0;
     font-family: $univers;
-    font-size: 3.4rem;
-    font-weight: 700;
-    @media (max-width: $sm-breakpoint) {
-      font-size: 2.6rem;
-      line-height: 3.2rem;
-    }
+    font-size: 2.8rem;
+    font-weight: 600;
+    line-height: 3.4rem;
+    // @media (max-width: $sm-breakpoint) {
+    //   font-size: 2.6rem;
+    //   line-height: 3.2rem;
+    // }
   }
   &.no-image {
     height: 122.5px;

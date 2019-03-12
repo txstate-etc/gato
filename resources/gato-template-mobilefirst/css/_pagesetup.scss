@@ -28,16 +28,22 @@ body {
   min-height: 32rem;
 }
 
+ .contentcolumn .gato-section-full:not(.gato-section-headline) {
+  padding: 4rem 0rem;
+}
+
 .gato-section-full .gato-section {
   margin-right: 0px;
 }
 
 .contentcolumn .headline {
-  color: $maroon;
-  font-weight: 500;
-  margin: 2.4rem 0rem 1rem 0rem;
-  font-size: 3.2rem;
+  font-family: $garamond;
+  color: $verydark;
+  font-weight: 400;
+  margin: 3rem 0rem 1.5rem 0rem;
+  font-size: 3.6rem;
   text-align: center;
+  line-height: 4.2rem;
   @media (max-width: $sm-breakpoint) {
     text-align: left;
   }
@@ -45,7 +51,7 @@ body {
 
 .contentcolumn.no-intro {
   .headline {
-    padding-bottom: 4rem;
+    margin-bottom: 4rem;
   }
 }
 
@@ -63,17 +69,20 @@ body {
   margin-bottom: 0;
 }
 
-.gato-section-full:not(.has-background) {
+.gato-section-full {
   .section-title {
-    padding-top: 3rem;
+    margin-bottom: 1.5rem;
   }
 }
-.layout-column.add-space {
-  padding-top: 3rem;
+.layout-column {
+  padding: 2rem;
+  .column_paragraph {
+    margin: 0;
+  }
 }
 
 .breadcrumbs {
-  padding: 1rem 2rem;
+  padding: 1rem 2rem 0rem 2rem;
   font-weight: 700;
   font-size: 1.4rem;
   line-height: 2rem;
@@ -92,11 +101,13 @@ body {
     content: '/';
   }
 }
-
-.intro-title-border {
-  height: 1px;
-  background-color: $light-gray;
-  margin: 0 2rem;
+.contentcolumn .gato-section-full.gato-section-title-separator {
+  padding: 0;
+  .intro-title-border {
+    height: 1px;
+    background-color: $light-gray;
+    margin: 0 2rem;
+  }
 }
 
 .page-intro-text {
@@ -105,7 +116,8 @@ body {
   max-width: 600px;
   margin: 0 auto;
   padding-bottom: 4rem;
-  line-height: 1.6;
+  line-height: 2.8rem;
+  color: $verydark;
   @media (max-width: $sm-breakpoint) {
     text-align: left;
     max-width: none;
