@@ -14,6 +14,11 @@
     [#include "/gato-template-mobilefirst/templates/pages/includes/header.ftl"]
     [#include "/gato-template-mobilefirst/templates/pages/includes/menu.ftl"]
     <main>
+      [#if def.parameters.isHomeTemplate!false]
+        [@cms.area name="homecontent"/]
+      [#else]
+        [@cms.area name="landingcontent"/]
+      [/#if]
     </main>
     [#assign isTXSTHome = true]
     [#include "/gato-template-mobilefirst/templates/pages/includes/footer.ftl"]

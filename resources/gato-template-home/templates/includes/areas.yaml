@@ -2,6 +2,16 @@ customcss:
   !include /gato-component-cssjs/templates/areas/customcss.yaml
 customjs:
   !include /gato-component-cssjs/templates/areas/customjs.yaml
+homecontent: #add home page content types here. textImage is a placeholder
+  type: list
+  availableComponents:
+    textImage:
+      id: gato-template:components/textimage
+landingcontent: #add landing page content types here. textImage is a placeholder
+  type: list
+  availableComponents:
+    textImage:
+      id: gato-template:components/textimage
 socialmedia:
   type: single
   templateScript: /gato-template/templates/areas/optional-social.ftl
