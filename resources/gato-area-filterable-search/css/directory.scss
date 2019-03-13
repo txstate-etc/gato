@@ -8,8 +8,8 @@
   }
   &.list-view {
     .filtered-results {
-      ul {
-        li {
+      ul.results {
+        & > li {
           .listitem {
             .image-container {
               display: block;
@@ -21,7 +21,7 @@
   }
   &.grid-view {
     .filtered-results {
-      ul {
+      ul.results {
         .result {
           .info-container {
             .listitem-email, .listitem-office, .listitem-phone, .listitem-description {

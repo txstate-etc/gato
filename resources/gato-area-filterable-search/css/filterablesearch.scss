@@ -251,11 +251,11 @@
       #result-list {
         margin: 1.6rem 0rem;
       }
-      ul {
+      ul.results {
         list-style: none;
         padding-left: 0;
         margin: 0;
-        li {
+        & > li {
           padding: 1.5rem;
           border-top: 1px solid $filterable-search-divider-color;
           a {
@@ -275,6 +275,9 @@
               &:hover {
                 background-color: $content-link-hover;
               }
+            }
+            ul, ol {
+              list-style-type: disc;
             }
           }
           &.listitem-hidden {
@@ -346,7 +349,7 @@
           border-bottom: 1px solid $filterable-search-divider-color;
           margin-bottom: 3rem;
         }
-        ul {
+        ul.results {
           display: flex;
           flex-wrap: wrap;
           margin: 0 -10px;

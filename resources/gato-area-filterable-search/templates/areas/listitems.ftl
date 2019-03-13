@@ -12,7 +12,7 @@
     [/#if]
   [/#if]
   <div id="result-list">
-    <ul>
+    <ul class="results">
     [#list items as component]
       <li class="result">[@cms.component content=component/]</li>
     [/#list]

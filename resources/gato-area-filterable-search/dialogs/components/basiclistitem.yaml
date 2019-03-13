@@ -22,7 +22,7 @@ form:
           lists: false
           tables: false
           height: 500
-          configJsFile: /.resources/gato-template/js/richeditor/minimal-config.js
+          configJsFile: /.resources/gato-template/js/richeditor/minimal-config-with-lists.js
         - name: includeImage
           class: info.magnolia.ui.form.field.definition.SwitchableFieldDefinition
           transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer

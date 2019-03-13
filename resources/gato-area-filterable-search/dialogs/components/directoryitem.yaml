@@ -29,7 +29,7 @@ form:
         - name: description
           class: info.magnolia.ui.form.field.definition.RichTextFieldDefinition
           label: Description
-          configJsFile: /.resources/gato-template/js/richeditor/minimal-config.js
+          configJsFile: /.resources/gato-template/js/richeditor/minimal-config-with-lists.js
         - name: email
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Email
