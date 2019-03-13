@@ -76,6 +76,10 @@
   ul, ol {
     margin-top: 1rem;
     margin-bottom: 1rem;
+    li {
+      margin-top: 0rem;
+      margin-bottom: 3rem;
+    }
   }
   blockquote {
     padding: 0 0 0 2rem;
