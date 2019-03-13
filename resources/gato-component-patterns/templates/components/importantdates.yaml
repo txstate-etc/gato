@@ -1,0 +1,8 @@
+templateScript: /gato-component-patterns/templates/components/importantdates.ftl
+renderType: freemarker
+title: "Important Dates"
+description: List important dates
+dialog: gato-component-patterns:components/importantdates
+parameters:
+  icon: /gato-component-patterns/images/backgroundimage-text.png
+  tab: Prebuilt Sections

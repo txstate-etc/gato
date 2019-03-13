@@ -1,0 +1,44 @@
+form:
+  tabs:
+    - name: tabMain
+      label: Important Dates
+      fields:
+        - name: title
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Title
+          required: true
+          maxLength: 20
+        - name: events
+          class: edu.txstate.its.gato.vaadin.GatoMultiValueFieldDefinition
+          transformerClass: info.magnolia.ui.form.field.transformer.multi.MultiValueSubChildrenNodePropertiesTransformer
+          label: Events
+          maxFields: 5
+          field:
+            name: event
+            class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
+            transformerClass: info.magnolia.ui.form.field.transformer.composite.NoOpCompositeTransformer
+            layout: vertical
+            fields:
+              - name: title
+                class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                label: Event Title
+                requred: true
+                maxLength: 20
+              - name: link
+                class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+                label: Target
+                appName: pages
+                identifierToPathConverter:
+                  class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
+              - name: date
+                required: true
+                type: Date
+                class: info.magnolia.ui.form.field.definition.DateFieldDefinition
+                label: Date
+                dateFormat: yyyy-MM-dd  
+        - name: stylesheet
+          label: ""
+          class: edu.txstate.its.gato.vaadin.GatoCssIncludeDefinition
+          styles: [gato-component-patterns/dialogs/css/fix-link-multifield.css]
+
+actions: !include /gato-template/dialogs/common/actions-block.yaml

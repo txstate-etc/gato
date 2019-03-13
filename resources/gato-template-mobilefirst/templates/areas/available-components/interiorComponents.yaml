@@ -27,6 +27,8 @@ twocallouts:
   id: gato-component-patterns:components/twocallouts
 quoteimage:
   id: gato-component-patterns:components/quoteimage
+#importantdates:
+#  id: gato-component-patterns:components/importantdates
 
 #layouts
 full:
