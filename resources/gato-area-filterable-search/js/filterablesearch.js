@@ -445,6 +445,7 @@ jQuery(document).ready(function($) {
     var fSearchContainer = $('.filterable-search-container');
     var itemId = $(this).attr('data-item-id');
     $(this).removeAttr('data-item-id');
+    $('#' + itemId).find('.btnShowMoreContent').attr('aria-expanded', false);
     $('#' + itemId).find('.btnShowMoreContent').focus();
     if (fSearchContainer.data('initial-bottom-padding')) {
       var initialBottomPadding = fSearchContainer.data('initial-bottom-padding');
@@ -456,7 +457,8 @@ jQuery(document).ready(function($) {
   var addMoreContentEventHandlers = function() {
     $('.btnShowMoreContent').click(function() {
       var listitem = $(this).closest('.listitem')
-      gridViewShowMore(listitem)
+      if("false" == $(this).attr('aria-expanded'))
+        gridViewShowMore(listitem)
     })
   }
 
