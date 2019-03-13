@@ -453,6 +453,13 @@ jQuery(document).ready(function($) {
     }
   });
 
+  var addMoreContentEventHandlers = function() {
+    $('.btnShowMoreContent').click(function() {
+      var listitem = $(this).closest('.listitem')
+      gridViewShowMore(listitem)
+    })
+  }
+
   var groupListItemsByHeader = function() {
     var html = "";
     var fullList = $('#result-list ul.results');
@@ -474,10 +481,7 @@ jQuery(document).ready(function($) {
     })
     html += '</ul>';
     $('#result-list').html(html);
-    $('.btnShowMoreContent').click(function() {
-      var listitem = $(this).closest('.listitem')
-      gridViewShowMore(listitem)
-    })
+    addMoreContentEventHandlers();
   }
 
   var removeAlphaHeaders = function() {
@@ -488,6 +492,7 @@ jQuery(document).ready(function($) {
     })
     html += '</ul>';
     $('#result-list').html(html);
+    addMoreContentEventHandlers();
   }
 
   //on initial page load
@@ -498,10 +503,7 @@ jQuery(document).ready(function($) {
       groupListItemsByHeader();
     }
     else {
-      $('.btnShowMoreContent').click(function() {
-        var listitem = $(this).closest('.listitem')
-        gridViewShowMore(listitem)
-      })
+      addMoreContentEventHandlers();
     }
     updateStripes();
   }
