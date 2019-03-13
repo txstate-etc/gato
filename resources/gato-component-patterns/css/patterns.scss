@@ -58,12 +58,18 @@ $pattern-max-height: 400px;
         border-color: $mc1-text;
         color: $mc1-text;
       }
+      h2,h3,h4,h5,h6 {
+        color: $mc1-text;
+      }
     }
     &.color2 {
       background-color: $mc2-bg;
       color: $mc2-text;
       a {
         border-color: $mc2-text;
+        color: $mc2-text;
+      }
+      h2,h3,h4,h5,h6 {
         color: $mc2-text;
       }
     }
@@ -74,12 +80,18 @@ $pattern-max-height: 400px;
         border-color: $mc3-text;
         color: $mc3-text;
       }
+      h2,h3,h4,h5,h6 {
+        color: $mc3-text;
+      }
     }
     &.color4 {
       background-color: $mc4-bg;
       color: $mc4-text;
       a {
         border-color: $mc4-text;
+        color: $mc4-text;
+      }
+      h2,h3,h4,h5,h6 {
         color: $mc4-text;
       }
     }
@@ -90,6 +102,9 @@ $pattern-max-height: 400px;
         border-color: $mc5-text;
         color: $mc5-text;
       }
+      h2,h3,h4,h5,h6 {
+        color: $mc5-text;
+      }
     }
     &.color6 {
       background-color: $mc6-bg;
@@ -98,12 +113,18 @@ $pattern-max-height: 400px;
         border-color: $mc6-text;
         color: $mc6-text;
       }
+      h2,h3,h4,h5,h6 {
+        color: $mc6-text;
+      }
     }
     &.color7 {
       background-color: $mc7-bg;
       color: $mc7-text;
       a {
         border-color: $mc7-text;
+        color: $mc7-text;
+      }
+      h2,h3,h4,h5,h6 {
         color: $mc7-text;
       }
     }
