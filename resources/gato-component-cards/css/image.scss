@@ -24,49 +24,49 @@
   &.color1 {
     figcaption {
       background: $mc1-bg;
-      &, .title { color: $mc1-text; }
+      &, .title, p { color: $mc1-text; }
     }
     a:hover figcaption { background: $mc1-comp-bg; }
   }
   &.color2 {
     figcaption {
       background: $mc2-bg;
-      &, .title { color: $mc2-text; }
+      &, .title, p { color: $mc2-text; }
     }
     a:hover figcaption { background: $mc2-comp-bg; }
   }
   &.color3 {
     figcaption {
       background: $mc3-bg;
-      &, .title { color: $mc3-text; }
+      &, .title, p { color: $mc3-text; }
     }
     a:hover figcaption { background: $mc3-comp-bg; }
   }
   &.color4 {
     figcaption {
       background: $mc4-bg;
-      &, .title { color: $mc4-text; }
+      &, .title, p { color: $mc4-text; }
     }
     a:hover figcaption { background: $mc4-comp-bg; }
   }
   &.color5 {
     figcaption {
       background: $mc5-bg;
-      &, .title { color: $mc5-text; }
+      &, .title, p { color: $mc5-text; }
     }
     a:hover figcaption { background: $mc5-comp-bg; }
   }
   &.color6 {
     figcaption {
       background: $mc6-bg;
-      &, .title { color: $mc6-text; }
+      &, .title, p { color: $mc6-text; }
     }
     a:hover figcaption { background: $mc6-comp-bg; }
   }
   &.color7 {
     figcaption {
       background: $mc7-bg;
-      &, .title { color: $mc7-text; }
+      &, .title, p { color: $mc7-text; }
     }
     a:hover figcaption { background: $mc7-comp-bg; }
   }
