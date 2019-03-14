@@ -29,6 +29,8 @@ quoteimage:
   id: gato-component-patterns:components/quoteimage
 #importantdates:
 #  id: gato-component-patterns:components/importantdates
+#aboutintro:
+#  id: gato-component-patterns:components/about-intro
 
 #layouts
 full:

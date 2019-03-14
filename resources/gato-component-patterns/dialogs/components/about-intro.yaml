@@ -1,0 +1,50 @@
+form:
+  tabs:
+    - name: tabMain
+      label: About / Introduction
+      fields:
+        - name: subheading
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Subheading
+          maxLength: 50
+          
+        - name: title
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Title
+          maxLength: 25
+
+        - name: subtitle
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Sub-title
+          maxLength: 45
+
+        - name: buttons
+          class: edu.txstate.its.gato.vaadin.GatoMultiValueFieldDefinition
+          transformerClass: info.magnolia.ui.form.field.transformer.multi.MultiValueSubChildrenNodePropertiesTransformer
+          label: Buttons
+          styleName: linksMultiField
+          maxFields: 1
+          field:
+            name: button
+            class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
+            transformerClass: info.magnolia.ui.form.field.transformer.composite.NoOpCompositeTransformer
+            layout: vertical
+            fields:
+              - name: text
+                class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                label: Button Text
+                maxLength: 30
+              - name: link
+                class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+                label: Button Target
+                required: true
+                appName: pages
+                identifierToPathConverter:
+                  class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
+
+        - name: stylesheet
+          label: ""
+          class: edu.txstate.its.gato.vaadin.GatoCssIncludeDefinition
+          styles: [gato-component-patterns/dialogs/css/fix-link-multifield.css]
+
+actions: !include /gato-template/dialogs/common/actions-block.yaml      
