@@ -3,26 +3,33 @@ form:
     - name: tabMain
       label: About / Introduction
       fields:
-        - name: subheading
-          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-          label: Subheading
-          maxLength: 50
-          
         - name: title
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Title
-          maxLength: 25
-
+          maxLength: 25                      
+        - name: subheading
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Subheading
+          maxLength: 150
         - name: subtitle
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Sub-title
-          maxLength: 45
-
+          maxLength: 150
+        - name: image
+          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+          appName: assets
+          required: true
+          targetWorkspace: dam
+          label: Background Image
+          identifierToPathConverter:
+            class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
+          contentPreviewDefinition:
+            contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
+          description: "You may upload an image, or choose one from the Digital Asset Manager. If you upload an image, the DAM image will be ignored."
         - name: buttons
           class: edu.txstate.its.gato.vaadin.GatoMultiValueFieldDefinition
           transformerClass: info.magnolia.ui.form.field.transformer.multi.MultiValueSubChildrenNodePropertiesTransformer
           label: Buttons
-          styleName: linksMultiField
           maxFields: 1
           field:
             name: button
@@ -33,7 +40,7 @@ form:
               - name: text
                 class: info.magnolia.ui.form.field.definition.TextFieldDefinition
                 label: Button Text
-                maxLength: 30
+                maxLength: 20
               - name: link
                 class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
                 label: Button Target
@@ -42,9 +49,39 @@ form:
                 identifierToPathConverter:
                   class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
 
+    - name: tabCornerImage
+      label: Corner Image
+      fields:      
+        - name: image
+          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+          appName: assets
+          required: true
+          targetWorkspace: dam
+          label: Image
+          identifierToPathConverter:
+            class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
+          contentPreviewDefinition:
+            contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
+          description: "You may upload an image, or choose one from the Digital Asset Manager. If you upload an image, the DAM image will be ignored."
+        - name: imageAlt
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Alt. Text
+          required: true
+        - name: color
+          class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
+          fields:
+            - name: color
+              class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+          transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+          initFunction: initColorPicker
+          loadScriptsInOrder: true
+          scripts: [gato-lib/js/color-picker.js]
+          label: Background Color
+          parameters:
+            contentType: default
+
         - name: stylesheet
           label: ""
           class: edu.txstate.its.gato.vaadin.GatoCssIncludeDefinition
           styles: [gato-component-patterns/dialogs/css/fix-link-multifield.css]
-
 actions: !include /gato-template/dialogs/common/actions-block.yaml      
