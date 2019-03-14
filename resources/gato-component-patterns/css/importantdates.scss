@@ -24,9 +24,6 @@
       .flex-child {
           text-align: left;
           flex: 1 1 calc(33.33% - 20px);
-          @media (max-width: $sm-breakpoint) {
-              text-align: center;
-          }
       }
       .day {
           font-weight: 500;
