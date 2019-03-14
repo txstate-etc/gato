@@ -1,0 +1,16 @@
+.header-bars {
+  background-color: $white;
+  @media (max-width: $sm-breakpoint) {
+    display: none;
+  }
+  .top-bar {
+    height: 4rem;
+    background-color: $gold;
+    margin-left: 187px;
+  }
+  .bottom-bar {
+    background-color: #501214;
+    height: 82.5px;
+    margin-left: 187px;
+  }
+}
