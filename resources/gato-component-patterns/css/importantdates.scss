@@ -9,8 +9,8 @@
         float: left;
         flex: 1 0 0;
         width:33%;
-        @media (max-width: $sm-breakpoint) {
-            text-align: center;
+
+        [data-eq~="800px"] & {
             float: none;
             margin-bottom: 1rem;
             float: none;
@@ -41,7 +41,7 @@
           display: flex;
           justify-content: space-around;
           flex-flow: row wrap;
-          @media (max-width: $sm-breakpoint) {
+          [data-eq~="800px"] & {
             flex-flow: column wrap;
           }
       //push wrapped componenets to the left so they are in line with those above
