@@ -53,7 +53,7 @@ class ElementUtil {
               }
             }
             
-            parent = new AreaElement(element.getWorkspace(), element.getPath(), null, availableComponents);
+            parent = new AreaElement(element.getWorkspace(), parentNode.getPath(), null, availableComponents);
             parent.setAddible(isAddible(areaDef, parentNode));
           }
           catch (RepositoryException e) {
