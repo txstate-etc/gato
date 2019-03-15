@@ -1,0 +1,5 @@
+templateScript: /gato-template-mobilefirst/templates/components/footerlinksheader.ftl
+renderType: freemarker
+title: Footer Links Header
+description: A title for a list of links in the mobile first footer
+dialog: gato-template-mobilefirst:components/footerlinksheader

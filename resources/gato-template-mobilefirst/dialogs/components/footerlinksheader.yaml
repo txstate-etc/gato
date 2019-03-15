@@ -1,0 +1,10 @@
+form:
+  tabs:
+    - name: tabGeneral
+      label: Footer Links Header
+      fields:
+        - name: text
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Header Text
+          required: true
+actions: !include /gato-template/dialogs/common/actions-block.yaml
