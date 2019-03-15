@@ -65,6 +65,18 @@ siteinfo:
   availableComponents:
     miscText:
       id: gato-template:components/minrichtext
+left-footer-links-header:
+  type: single
+  title: Left Footer Links Header
+  availableComponents:
+    header:
+      id: gato-template-mobilefirst:components/footerlinksheader
+right-footer-links-header:
+  type: single
+  title: Right Footer Links Header
+  availableComponents:
+    header:
+      id: gato-template-mobilefirst:components/footerlinksheader
 gato-footer-resources:
   type: list
   templateScript: /gato-template-mobilefirst/templates/areas/gato-footer-resources.ftl

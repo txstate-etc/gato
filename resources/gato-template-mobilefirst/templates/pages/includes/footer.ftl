@@ -1,7 +1,11 @@
+[#assign leftLinksHeader = gf.getOrCreateArea(homepage, 'left-footer-links-header')]
+[#assign rightLinksHeader = gf.getOrCreateArea(homepage, 'right-footer-links-header')]
+[#assign leftLinksHaveHeader = gf.hasComponents(leftLinksHeader)]
+[#assign rightLinksHaveHeader = gf.hasComponents(rightLinksHeader)]
 <footer>
   <div class="top">
     <div class="top-footer-content">
-      <div class="footer-column contact">
+      <div class="footer-column contact left">
         <div class="footer-contact-column-content">
           [#if isTXSTHome!false]
             <a href="http://www.txstate.edu">
@@ -20,10 +24,21 @@
           </div>
         </div>
       </div>
-      <div class="footer-column">
+      <div class="footer-column center">
         <div class="footer-column-content">
-          <h2 class="footer-column-title">Resources</h2>
-          <a href="#" class="mobile-footer-column-title" aria-haspopup="true" aria-expanded="false" aria-controls="resource-links">Resources</a>
+          <h2 class="footer-column-title">
+          [@cms.area name="left-footer-links-header" content=leftLinksHeader editable=isHomePage/]
+          [#if !leftLinksHaveHeader]
+            Resources
+          [/#if]
+          </h2>
+          <a href="#" class="mobile-footer-column-title" aria-haspopup="true" aria-expanded="false" aria-controls="resource-links">
+          [#if !leftLinksHaveHeader]
+            Resources
+          [#else]
+            [@cms.area name="left-footer-links-header" content=leftLinksHeader editable=false/]
+          [/#if]
+          </a>
           <ul id="resource-links" class="resources footer-column-link-list">
           [#assign resources = gf.getOrCreateArea(homepage, 'gato-footer-resources')]
           [#if !gf.hasComponents(resources)]
@@ -32,16 +47,26 @@
             [/#list]
           [/#if]
           [@cms.area name="gato-footer-resources" content=gf.getOrCreateArea(homepage, 'gato-footer-resources') editable=isHomePage/]
+          [#if !rightLinksHaveHeader]
+            [#assign rightLinks = gf.getOrCreateArea(homepage, 'connect')]
+            [#list cmsfn.children(rightLinks) as rightLink]
+              <li class="right-link"><a href="${gf.filterUrl(rightLink.link)}">${gf.filterLinkTitle(rightLink.text, rightLink.link)}</a></li>
+            [/#list]
+          [/#if]
           </ul>
         </div>
       </div>
-      <div class="footer-column">
+      <div class="footer-column right">
         <div class="footer-column-content">
-          <h2 class="footer-column-title">Connect</h2>
+          [#if rightLinksHaveHeader]<h2 class="footer-column-title">[#else]<div class="add-links-title">[/#if]
+          [@cms.area name="right-footer-links-header" content=rightLinksHeader editable=isHomePage/]
+          [#if rightLinksHaveHeader]</h2>[#else]</div>[/#if]
           [#assign connections = gf.getOrCreateArea(homepage, 'connect')]
           [#assign hasConnections = gf.hasComponents(connections)]
-          <a href="#" class="mobile-footer-column-title ${hasConnections?then('', 'empty')}" aria-haspopup="true" aria-expanded="false" aria-controls="connect-links">Connect</a>
-          <div class="connect-links">
+          [#if rightLinksHaveHeader]<a href="#" class="mobile-footer-column-title ${hasConnections?then('', 'empty')}" aria-haspopup="true" aria-expanded="false" aria-controls="connect-links">[/#if]
+          [@cms.area name="right-footer-links-header" content=rightLinksHeader editable=false/]
+          [#if rightLinksHaveHeader]</a>[/#if]
+          <div class="connect-links [#if !rightLinksHaveHeader]no-header[/#if]" >
             <ul id="connect-links" class="connect footer-column-link-list ${hasConnections?then('', 'empty')}">
             [@cms.area name="connect" content=gf.getOrCreateArea(homepage, 'connect') editable=isHomePage/]
             </ul>
