@@ -1,54 +1,54 @@
 .mobilefirst-pattern {
-    .pattern-content.importantdates {
-      h2.title {
-        text-align: left;
-        padding-bottom: 0;
-        padding-left:15%;
-        padding-right: 7rem;
-        height: 100%;
-        float: left;
-        flex: 1 0 0;
-        width:33%;
+  .pattern-content.importantdates {
+    margin: 0 auto;
 
-        [data-eq~="800px"] & {
-            float: none;
-            margin-bottom: 1rem;
-            float: none;
-            width: 100%;
-            padding: 0;
-        }
-      }
-      h2 {
-        margin-bottom: 0;
-      }
-      .flex-child {
-          text-align: left;
-          flex: 1 1 calc(33.33% - 20px);
-      }
-      .day {
-          font-weight: 500;
-          display: inline;
-      }
-      .month {
-          display: inline;
-          font-size: 1.5rem;
-      }
-      .links  {
-          align-items: inherit;
-      }
-      .events {
-          flex: 2 0 0;
-          display: flex;
-          justify-content: space-around;
-          flex-flow: row wrap;
-          [data-eq~="800px"] & {
-            flex-flow: column wrap;
-          }
-      //push wrapped componenets to the left so they are in line with those above
-      .events::after {
-        content: '';
-        flex: 1 1 calc(33.33% - 20px);
+    h2.title {
+      text-align: left;
+      padding-bottom: 0;
+      height: 100%;
+      float: left;
+      flex: 1 0 0;
+      width:33%;
+
+      [data-eq~="800px"] & {
+          float: none;
+          margin-bottom: 1rem;
+          float: none;
+          width: 100%;
+          padding: 0;
       }
     }
+    h2 {
+      margin-bottom: 0;
+    }
+    .flex-child {
+        text-align: left;
+        flex: 1 1 calc(33.33% - 20px);
+    }
+    .day {
+        font-weight: 500;
+        display: inline;
+    }
+    .month {
+        display: inline;
+        font-size: 1.5rem;
+    }
+    .links  {
+        align-items: inherit;
+    }
+    .events {
+        flex: 2 0 0;
+        display: flex;
+        justify-content: space-around;
+        flex-flow: row wrap;
+        [data-eq~="800px"] & {
+          flex-flow: column wrap;
+        }
+    //push wrapped componenets to the left so they are in line with those above
+    .events::after {
+      content: '';
+      flex: 1 1 calc(33.33% - 20px);
+    }
   }
+}
 }
