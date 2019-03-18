@@ -4,6 +4,7 @@ customjs:
   !include /gato-component-cssjs/templates/areas/customjs.yaml
 homecontent: #add home page content types here. textImage is a placeholder
   type: list
+  templateScript: /gato-template-mobilefirst/templates/areas/mobilefirst-content.ftl
   availableComponents:
     textImage:
       id: gato-template:components/textimage
@@ -11,6 +12,7 @@ homecontent: #add home page content types here. textImage is a placeholder
       id: gato-template-home:components/about-intro
 landingcontent: #add landing page content types here. textImage is a placeholder
   type: list
+  templateScript: /gato-template-mobilefirst/templates/areas/mobilefirst-content.ftl
   availableComponents:
     textImage:
       id: gato-template:components/textimage
