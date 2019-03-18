@@ -7,6 +7,8 @@ homecontent: #add home page content types here. textImage is a placeholder
   availableComponents:
     textImage:
       id: gato-template:components/textimage
+    aboutintro:
+      id: gato-template-home:components/about-intro
 landingcontent: #add landing page content types here. textImage is a placeholder
   type: list
   availableComponents:

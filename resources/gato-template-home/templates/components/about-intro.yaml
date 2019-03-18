@@ -1,8 +1,8 @@
-templateScript: /gato-component-patterns/templates/components/about-intro.ftl
+templateScript: /gato-template-home/templates/components/about-intro.ftl
 renderType: freemarker
 title: "About / Introduction"
 description: One column layout used for short introduction
-dialog: gato-component-patterns:components/about-intro
+dialog: gato-template-home:components/about-intro
 parameters:
   icon: /gato-component-patterns/images/backgroundimage-text.png
   tab: Prebuilt Sections

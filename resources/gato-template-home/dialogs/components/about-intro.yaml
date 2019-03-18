@@ -55,7 +55,6 @@ form:
         - name: image
           class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
           appName: assets
-          required: true
           targetWorkspace: dam
           label: Image
           identifierToPathConverter:
@@ -66,7 +65,6 @@ form:
         - name: imageAlt
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Alt. Text
-          required: true
         - name: color
           class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
           fields:
