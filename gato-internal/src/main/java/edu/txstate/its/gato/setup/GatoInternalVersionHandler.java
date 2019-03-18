@@ -210,6 +210,7 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       .addTask(new RenameMobileFirstResourcesAreaTask())
       .addTask(new BootstrapSingleModuleResource("config.modules.site.config.site.templates.availability.templates.txst-home.xml"))
       .addTask(new BootstrapSingleModuleResource("config.modules.site.config.site.templates.availability.templates.txst-landing.xml"))
+      .addTask(new AddMobileFirstFooterLinkHeadersTask())
       .addTasks(installOrUpdateTasks())
     );
   }
