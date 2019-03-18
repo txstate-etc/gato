@@ -25,3 +25,11 @@ siteinfo:
   availableComponents:
     miscText:
       id: gato-template:components/minrichtext
+gato-footer-resources:
+  type: list
+  templateScript: /gato-template-mobilefirst/templates/areas/gato-footer-resources.ftl
+  availableComponents:
+    link:
+      id: gato-template:components/link
+connect:
+  !include /gato-template/templates/areas/linklist.yaml
