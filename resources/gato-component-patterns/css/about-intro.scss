@@ -1,0 +1,68 @@
+.mobilefirst-pattern {
+    .corner-image {
+        position: relative;
+        max-width: 85px;
+        //min-height: 110px;
+        height: 100%;
+        float: left;
+        padding: 0;
+        width: 100%;
+        img {
+            position: absolute;
+            width: 100%;
+            &.color1 {
+                background-color: $mc1-bg;
+            }
+            &.color2 {
+                background-color: $mc2-bg;
+            }
+            &.color3 {
+                background-color: $mc3-bg;
+            }
+            &.color4 {
+                background-color: $mc4-bg;
+            }
+            &.color5 {
+                background-color: $mc5-bg;
+            }
+            &.color6 {
+                background-color: $mc6-bg;
+            }
+            &.color7 {
+                background-color: $mc7-bg;
+            }                   
+        }
+    } 
+    .button {
+        margin-top: 22px;
+        padding: 10px 20px 9px;
+        border: 1px solid #501214;
+        border-radius: 2px;
+        background-color: transparent;
+        -webkit-transition: all 200ms ease;
+        transition: all 200ms ease;
+        color: #501214;
+        font-size: 16px;
+        font-weight: 700;
+        text-align: center;
+    }
+    .pattern-content.about-intro {
+        margin: 0 auto;
+        width:100%;
+    }
+    .content {
+        position: relative;
+        z-index: 100;
+        max-width: 600px;
+        padding-top: 50px;
+        padding-left: 145px;
+        float: left;
+        height: 100%;
+    }
+    .subheading {
+        margin-bottom: 20px;
+        color: #79674c;
+    }
+
+
+}

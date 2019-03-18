@@ -3,19 +3,19 @@ form:
     - name: tabMain
       label: About / Introduction
       fields:
-        - name: title
-          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-          label: Title
-          maxLength: 25                      
         - name: subheading
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Subheading
-          maxLength: 150
-        - name: subtitle
+          maxLength: 150      
+        - name: title
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Title
+          maxLength: 150                      
+        - name: text
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Sub-title
           maxLength: 150
-        - name: image
+        - name: backgroundimage
           class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
           appName: assets
           required: true
