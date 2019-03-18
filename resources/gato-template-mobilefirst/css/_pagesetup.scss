@@ -30,14 +30,30 @@ body {
 
  .contentcolumn .gato-section-full:not(.gato-section-headline) {
   padding: 4rem 0rem;
+  @media (max-width: $sm-breakpoint) {
+    padding: 2rem 0rem;
+  }
 }
 
 .contentcolumn .gato-section-full.pattern {
   padding: 0rem;
 }
 
-.gato-section-full .gato-section {
-  margin-right: 0px;
+.gato-section-full {
+  .gato-section {
+    margin-right: 0px;
+  }
+  &.has-background {
+    .gato-section {
+      padding-top: 0;
+    }
+  }
+  .section-title.has-text {
+    margin-bottom: 1.5rem;
+  }
+  .section-text {
+    margin-bottom: 2rem;
+  }
 }
 
 .contentcolumn .headline {
@@ -85,6 +101,12 @@ body {
   }
 }
 
+.column_paragraph {
+  ul:last-child, ol:last-child, li:last-child {
+    margin-bottom: 0rem;
+  }
+}
+
 .breadcrumbs {
   padding: 1rem 2rem 0rem 2rem;
   font-weight: 700;
@@ -109,7 +131,7 @@ body {
   padding: 0;
   .intro-title-border {
     height: 1px;
-    background-color: $light-gray;
+    background-color: $almondmilk;
     margin: 0 2rem;
   }
 }

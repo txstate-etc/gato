@@ -75,10 +75,10 @@
   }
   ul, ol {
     margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 3rem;
     li {
       margin-top: 0rem;
-      margin-bottom: 3rem;
+      margin-bottom: 1rem;
     }
   }
   blockquote {
@@ -238,6 +238,10 @@ h2.event-list-title {
 //separator
 .has-background .gato-separator hr {
   background: #ADADAD;
+}
+
+.gato-separator hr {
+  margin: 0;
 }
 
 //raw html

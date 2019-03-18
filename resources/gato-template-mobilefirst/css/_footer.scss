@@ -222,6 +222,7 @@ footer {
           &:not(:last-child):after {
             content: "|";
             padding: 0rem 1rem;
+            color: $white;
           }
         }
         a {
