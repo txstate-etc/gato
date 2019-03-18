@@ -30,7 +30,10 @@
             }
             &.color7 {
                 background-color: $mc7-bg;
-            }                   
+            }
+            [data-eq~="800px"] & {
+                max-width: 60px;
+            }                     
         }
     } 
     .button {
@@ -50,14 +53,23 @@
         margin: 0 auto;
         width:100%;
     }
+    .pattern-content {
+        [data-eq~="800px"] & {
+            padding-top: 0;
+        }      
+    }
     .content {
         position: relative;
-        z-index: 100;
         max-width: 600px;
         padding-top: 50px;
         padding-left: 145px;
         float: left;
         height: 100%;
+        [data-eq~="800px"] & {
+            padding-top: 100px;
+            padding-left: 0;
+            
+        }
     }
     .subheading {
         margin-bottom: 20px;
