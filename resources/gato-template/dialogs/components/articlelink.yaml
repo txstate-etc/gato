@@ -6,21 +6,11 @@ form:
         - name: title
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Title
-          required: true
-          validators:
-            - name: whitespace
-              class: edu.txstate.its.gato.WhitespaceValidatorDefinition
-              errorMessage: This field is required
-              factoryClass: edu.txstate.its.gato.WhitespaceValidatorFactory            
+          required: true   
         - name: link
           class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
           label: Link
-          required: true
-          validators:
-            - name: whitespace
-              class: edu.txstate.its.gato.WhitespaceValidatorDefinition
-              errorMessage: This field is required
-              factoryClass: edu.txstate.its.gato.WhitespaceValidatorFactory            
+          required: true 
           appName: pages
           identifierToPathConverter:
             class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter

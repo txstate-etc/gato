@@ -34,12 +34,7 @@ form:
                 label: Alternate Text
                 required: true
                 styleName: image-alt-text
-                description: "Text to Display When Graphics aren't enabled. Required for Section 508 compliance."
-                validators:
-                  - name: whitespace
-                    class: edu.txstate.its.gato.WhitespaceValidatorDefinition
-                    errorMessage: This field is required
-                    factoryClass: edu.txstate.its.gato.WhitespaceValidatorFactory                       
+                description: "Text to Display When Graphics aren't enabled. Required for Section 508 compliance."                   
               - name: link
                 class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
                 label: Link

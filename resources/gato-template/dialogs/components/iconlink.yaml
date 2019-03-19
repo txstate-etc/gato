@@ -17,22 +17,12 @@ form:
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Title
           required: true
-          description: The text for the link
-          validators:
-            - name: whitespace
-              class: edu.txstate.its.gato.WhitespaceValidatorDefinition
-              errorMessage: This field is required
-              factoryClass: edu.txstate.its.gato.WhitespaceValidatorFactory     
+          description: The text for the link 
         - name: subtitle
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Subtitle
           required: true
-          description: The text to be displayed beneath the link
-          validators:
-            - name: whitespace
-              class: edu.txstate.its.gato.WhitespaceValidatorDefinition
-              errorMessage: This field is required
-              factoryClass: edu.txstate.its.gato.WhitespaceValidatorFactory                           
+          description: The text to be displayed beneath the link                       
         - name: image
           class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
           appName: assets

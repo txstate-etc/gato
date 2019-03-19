@@ -14,6 +14,6 @@ public class WhitespaceValidator extends AbstractStringValidator {
 
     @Override
     protected boolean isValidValue(String value) {
-        return value != null && !StringUtils.isBlank(value);
+        return !StringUtils.isBlank(value);
     }
 }
