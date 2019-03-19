@@ -9,7 +9,9 @@
                 <img src="${gf.getImgDefault(content.image)}" alt="${content.imageAlt!''}" class="${content.color}" position="absolute"/>
             </div>
             <div class="content">
-                <div class="subheading centered">${content.subheading}</div>
+                [#if content.subheading?has_content]
+                    <div class="subheading centered">${content.subheading}</div>
+                [/#if]
                 [#include "/gato-component-patterns/templates/components/common/titlebuttons.ftl"]
             </div>
         </div>
