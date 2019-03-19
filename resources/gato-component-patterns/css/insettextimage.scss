@@ -1,7 +1,10 @@
 $insetwidth:    4rem;
 
-.textImagePatternWrapper.background {
-  background-color: $section-background-color;
+.textImagePatternWrapper {
+  padding: 4rem 0;
+  &.background {
+    background-color: $section-background-color;
+  }
 }
 .mobilefirst-pattern {
   &.insettextimage {
@@ -13,7 +16,7 @@ $insetwidth:    4rem;
     }
     &.image-right {
       .pattern-image {
-        padding: 4rem 2rem 4rem 0;
+        padding: 2rem 2rem 2rem 0;
         order: 2;
         @media (max-width:$md-breakpoint) {
           padding: 4rem 4rem 4rem 0rem;
@@ -57,7 +60,7 @@ $insetwidth:    4rem;
 
     &.image-left {
       .pattern-image {
-        padding: 4rem 0rem 4rem 2rem;
+        padding: 2rem 0rem 2rem 2rem;
         @media (max-width:$md-breakpoint) {
           padding: 4rem 0rem 4rem 4rem;
           img {
@@ -96,7 +99,7 @@ $insetwidth:    4rem;
     }
     .pattern-image {
       img {
-        min-height: 315px;
+        min-height: 350px;
         border-radius: 2px;
         @media (max-width: $sm-breakpoint) {
           // height: 300px;
@@ -117,7 +120,7 @@ $insetwidth:    4rem;
         width: calc(100% + #{$insetwidth}/2);
         @media (max-width:$md-breakpoint) {
           position: relative;
-          min-height: 315px;
+          min-height: 350px;
           width: 100%;
           transform: none;
           top: auto;

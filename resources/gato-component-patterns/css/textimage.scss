@@ -1,5 +1,8 @@
-.textImagePatternWrapper.background {
-  background-color: $section-background-color;
+.textImagePatternWrapper {
+  padding: 4rem 0;
+  &.background {
+    background-color: $section-background-color;
+  }
 }
 .mobilefirst-pattern {
   &.textImageCTA {
@@ -111,24 +114,24 @@
     }
     &.image-right {
       .pattern-image {
-        padding: 4rem 2rem 4rem 0;
+        padding: 2rem 2rem 2rem 0;
       }
       .pattern-content {
-        padding: 4rem 2rem 4rem 2rem;
-        @media (max-width:$sm-breakpoint) {
-          padding-top: 2rem;
-        }
+        padding: 2rem;
+        // @media (max-width:$sm-breakpoint) {
+        //   padding-top: 2rem;
+        // }
       }
     }
     &.image-left {
       .pattern-image {
-        padding: 4rem 0rem 4rem 2rem;
+        padding: 2rem 0rem 2rem 2rem;
       }
       .pattern-content {
-        padding: 4rem 2rem 4rem 4rem;
-        @media (max-width:$sm-breakpoint) {
-          padding: 2rem 2rem 4rem 2rem;
-        }
+        padding: 2rem;
+        // @media (max-width:$sm-breakpoint) {
+        //   padding: 2rem 2rem 4rem 2rem;
+        // }
       }
     }
   }

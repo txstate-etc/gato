@@ -1,11 +1,8 @@
 .mobilefirst-pattern {
   .pattern-content.callout {
-    padding: 5rem 0rem;
+    padding: 6rem 0rem;
     @media (max-width:$sm-breakpoint) {
-      padding: 3rem 0rem;
-    }
-    &.twocolcta {
-      padding: 7rem 0rem;
+      padding: 4rem 0rem;
     }
     .stat {
       font-family: $garamond;
