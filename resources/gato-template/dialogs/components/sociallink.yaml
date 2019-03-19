@@ -20,6 +20,11 @@ form:
                 label: Link
                 styleName: social-url
                 description: "Enter the link to your social media presence."
+                validators:
+                  - name: whitespace
+                    class: edu.txstate.its.gato.WhitespaceValidatorDefinition
+                    errorMessage: This field is required
+                    factoryClass: edu.txstate.its.gato.WhitespaceValidatorFactory                           
               - name: title
                 class: info.magnolia.ui.form.field.definition.TextFieldDefinition
                 label: Title

@@ -7,10 +7,20 @@ form:
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Title
           required: true
+          validators:
+            - name: whitespace
+              class: edu.txstate.its.gato.WhitespaceValidatorDefinition
+              errorMessage: This field is required
+              factoryClass: edu.txstate.its.gato.WhitespaceValidatorFactory             
         - name: text
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Text
           required: true
+          validators:
+            - name: whitespace
+              class: edu.txstate.its.gato.WhitespaceValidatorDefinition
+              errorMessage: This field is required
+              factoryClass: edu.txstate.its.gato.WhitespaceValidatorFactory               
         - name: percent_complete
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Percentage
@@ -21,6 +31,10 @@ form:
               class: info.magnolia.ui.form.validator.definition.RegexpValidatorDefinition
               pattern: ^\d{1,2}$|^100$
               errorMessage: Please enter a number between 0 and 100
+            - name: whitespace
+              class: edu.txstate.its.gato.WhitespaceValidatorDefinition
+              errorMessage: This field is required
+              factoryClass: edu.txstate.its.gato.WhitespaceValidatorFactory                
         - name: mobile_layout
           class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
           label: Mobile Layout
