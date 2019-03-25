@@ -653,11 +653,10 @@ public final class GatoUtils {
     Elements h4 = body.select("h4");
     Elements h5 = body.select("h5");
     Elements h6 = body.select("h6");
-    h2.tagName("h"+Long.toString(Math.min(6, 2+offset))).addClass("richtext-h2");
-    h3.tagName("h"+Long.toString(Math.min(6, 3+offset))).addClass("richtext-h3");
-    h4.tagName("h"+Long.toString(Math.min(6, 4+offset))).addClass("richtext-h4");
-    h5.tagName("h"+Long.toString(Math.min(6, 5+offset))).addClass("richtext-h5");
-    h6.addClass("richtext-h6");
+    h2.tagName("h"+Long.toString(Math.min(6, 2+offset)));
+    h3.tagName("h"+Long.toString(Math.min(6, 3+offset)));
+    h4.tagName("h"+Long.toString(Math.min(6, 4+offset)));
+    h5.tagName("h"+Long.toString(Math.min(6, 5+offset)));
     return body.html();
   }
 
