@@ -243,7 +243,8 @@ public final class GatoUtils {
   }
 
   public String filterLinkTitle(String title, String url) {
-    if (!StringUtils.isEmpty(title)) return title;
+    if (!StringUtils.isBlank(title)) return title;
+    if (StringUtils.isBlank(url)) return "";
     String furl = filterUrl(url);
     String cpath = MgnlContext.getContextPath();
 
