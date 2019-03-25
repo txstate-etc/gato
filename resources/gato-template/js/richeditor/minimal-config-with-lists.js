@@ -14,6 +14,7 @@ CKEDITOR.editorConfig = function( config ) {
   CKEDITOR.plugins.addExternal("lineutils", CKEDITOR.vaadinDirUrl + "js/richeditorplugins/lineutils/", 'plugin.js');
   CKEDITOR.plugins.addExternal("widget", CKEDITOR.vaadinDirUrl + "js/richeditorplugins/widget/", 'plugin.js');
   CKEDITOR.plugins.addExternal("magnolialink", CKEDITOR.vaadinDirUrl + "js/magnolialink/", 'plugin.js');
+  CKEDITOR.config.colorButton_enableMore = false;
 
   //Don't allow spans inside links
   CKEDITOR.dtd.a.span = 1;
@@ -51,8 +52,7 @@ CKEDITOR.editorConfig = function( config ) {
   // CONFIGURATION FROM DEFINITION
 
   if (definition.colors != null) {
-  config.colorButton_colors = definition.colors;
-  config.colorButton_enableMore = true;
+    config.colorButton_colors = definition.colors;
   } else {
     removePlugins.push("colorbutton");
     removePlugins.push("colordialog");

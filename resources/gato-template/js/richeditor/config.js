@@ -16,6 +16,8 @@
         CKEDITOR.plugins.addExternal("widget", CKEDITOR.vaadinDirUrl + "js/richeditorplugins/widget/", 'plugin.js');
         CKEDITOR.plugins.addExternal("image2", CKEDITOR.vaadinDirUrl + "js/richeditorplugins/image2/", 'plugin.js');
         CKEDITOR.plugins.addExternal("magnolialink", CKEDITOR.vaadinDirUrl + "js/magnolialink/", 'plugin.js');
+        CKEDITOR.config.colorButton_enableMore = false;
+
 
         //Don't allow spans inside links
         CKEDITOR.dtd.a.span = 1;
@@ -54,7 +56,6 @@
 
           if (definition.colors != null) {
                    config.colorButton_colors = definition.colors;
-                   config.colorButton_enableMore = true;
            } else {
                    removePlugins.push("colorbutton");
                    removePlugins.push("colordialog");
@@ -83,6 +84,7 @@
                 config.stylesSet.push({ name: "Paragraph", element: "p"});
                 config.stylesSet.push({ name: "Title", element: "h2"});
                 config.stylesSet.push({ name: "Subtitle", element: "h3"});
+                config.stylesSet.push({ name: "Subsubtitle", element: "h4"});
                 config.stylesSet.push({ name: "Preformatted Text", element: "pre"});
                 config.stylesSet.push({ name: "Superscript", element: "sup"});
                 config.stylesSet.push({ name: "Subscript", element: "sub"});
