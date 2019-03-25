@@ -20,6 +20,7 @@
 
         </div>
         <div class="bottom-bar">
+          [@simplemenu/]
         </div>
       </div>
       <main>

@@ -12,5 +12,23 @@
     background-color: #501214;
     height: 82.5px;
     margin-left: 187px;
+
+    ul.simplemenu {
+      list-style: none;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin: 0;
+      height: 100%;
+      li {
+        a {
+          text-decoration: none;
+          color: $white;
+          font-size: 1.8rem;
+          line-height: 1.8rem;
+          font-weight: 700;
+        }
+      }
+    }
   }
 }
