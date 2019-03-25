@@ -3,7 +3,7 @@
   [#assign content][@cms.component content=component /][/#assign]
   [#if !cmsfn.isEditMode() && component?parent == "links"]
     [#--Filter out empty links--]
-    [#if !gf.isEmptyLink(component.link)]
+    [#if !gf.isEmptyString(component.link)]
       <li>${content}</li>
     [/#if]  
   [#else]

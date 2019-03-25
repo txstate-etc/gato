@@ -22,6 +22,13 @@
   )
 ]
 
+<!--Check for whitespace in alt text-->
+[#if gf.isEmptyString(content.imageAlt)]
+  [#assign altText = ""]
+  [#else]
+  [#assign altText = content.imageAlt]
+[/#if]
+
 <a href="${gf.getImgDefault(content.image)}" title="${content.caption!''}" data-size="${imageSize}" data-srcset="${gf.getSrcSet(content.image)}">
-  <img src="${thumb}" srcset="${thumbsrcset}" sizes="225px" alt="${content.imageAlt!''}" />
+  <img src="${thumb}" srcset="${thumbsrcset}" sizes="225px" alt="${altText}" />
 </a>

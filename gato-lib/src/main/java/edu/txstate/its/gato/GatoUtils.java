@@ -184,10 +184,10 @@ public final class GatoUtils {
     return cpath+url;
   }
 
-  public Boolean isEmptyLink(String link) {
-    return StringUtils.isBlank(link);
+  public Boolean isEmptyString(String string) {
+    return StringUtils.isBlank(string);
   }
-
+  
   public String serverNameAndPort() {
     HttpServletRequest request = MgnlContext.getWebContext().getRequest();
     String serverbase = request.getServerName();
