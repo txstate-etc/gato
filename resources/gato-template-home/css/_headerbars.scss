@@ -7,6 +7,22 @@
     height: 4rem;
     background-color: $gold;
     margin-left: 187px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0rem 3rem;
+    .left-links, .right-links {
+      display: flex;
+      padding: 0;
+      list-style: none;
+      li {
+        padding-right: 3rem;
+        a {
+          color: $white;
+          text-decoration: none;
+          font-size: 1.3rem;
+        }
+      }
+    }
   }
   .bottom-bar {
     background-color: #501214;

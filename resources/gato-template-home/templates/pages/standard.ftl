@@ -17,7 +17,15 @@
     <div class="page-container" id="panel">
       <div class="header-bars">
         <div class="top-bar">
-
+          <ul class="left-links">
+            [#list cmsfn.children(globalLinks.superGroup1, "mgnl:component") as component]
+              <li><a href="${gf.filterUrl(component.link)}">${gf.filterLinkTitle(component.text, component.link)}</a></li>
+            [/#list]
+          </ul>
+          <ul class="right-links">
+            [#list cmsfn.children(globalLinks.superGroup2, "mgnl:component") as component]
+              <li><a href="${gf.filterUrl(component.link)}">${gf.filterLinkTitle(component.text, component.link)}</a></li>
+            [/#list]
         </div>
         <div class="bottom-bar">
           [@simplemenu/]
