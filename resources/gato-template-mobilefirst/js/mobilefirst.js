@@ -14,7 +14,9 @@ jQuery(document).ready(function($) {
   var banner = $('.banner-section');
   var menubar = $('.menubar');
   var logoblock = $('.logo-block');
-  var searchButton = $('.btn-search')
+  var searchButton = $('.btn-search');
+  var orgInfo = $('.organization-info.no-image');
+  var headerBars = $('.header-bars');
   var animationDuration = 300
 
   //set this variable for the anchor scroll fix
@@ -30,6 +32,9 @@ jQuery(document).ready(function($) {
      complete: function() {
        header.removeClass("animatetoscroll")
      }})
+
+     orgInfo.velocity({translateY: "-120px"}, {duration: animationDuration});
+     headerBars.velocity({translateY: "-120px"}, {duration: animationDuration});
 
      logoblock.velocity({translateY: "-120px"},
       {duration: animationDuration,
@@ -55,6 +60,9 @@ jQuery(document).ready(function($) {
            header.removeClass('animatetotop')
          }})
 
+      orgInfo.velocity({translateY: "0px"}, {duration: animationDuration});
+      headerBars.velocity({translateY: "0px"}, {duration: animationDuration});
+
       logoblock.velocity({translateY: "0px"},
         {duration: animationDuration,
          begin: function() {
@@ -72,6 +80,8 @@ jQuery(document).ready(function($) {
     searchButton.velocity("stop")
     logoblock.velocity("stop")
     menubar.velocity("stop")
+    orgInfo.velocity("stop")
+    headerBars.velocity("stop")
     header.removeClass('animatetotop').removeClass('animatetoscroll')
   }
 
