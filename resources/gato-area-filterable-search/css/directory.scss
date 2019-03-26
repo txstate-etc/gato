@@ -6,6 +6,9 @@
   .listitem-position {
     margin-bottom: 1rem;
   }
+  .listitem-email, .listitem-office, .listitem-phone {
+    margin-bottom: 0.5rem;
+  }
   &.list-view {
     .filtered-results {
       ul.results {

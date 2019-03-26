@@ -288,10 +288,10 @@
             ul, ol {
               list-style-type: disc;
               margin-top: 1rem;
-              margin-bottom: 1rem;
+              margin-bottom: 3rem;
               li {
                 margin-top: 0rem;
-                margin-bottom: 3rem;
+                margin-bottom: 1rem;
                 &:last-child {
                   margin-bottom: 0rem;
                 }
@@ -338,7 +338,7 @@
                 .listitem-title {
                   margin-top: -0.8rem;
                   @media (max-width:$mn-breakpoint) {
-                    margin-top: 0;
+                    margin-top: 2rem;
                   }
                 }
               }
@@ -351,6 +351,7 @@
                 img {
                   width: 100%;
                   height: 100%;
+                  border-radius: 2px;
                 }
                 .btnShowMoreContent {
                   display: none;
@@ -382,6 +383,9 @@
           .result {
             border: 0;
             padding: 3rem 0rem;
+            @media (max-width:$xs-breakpoint) {
+              padding: 0rem;
+            }
             width: calc((100%/4) - 20px);
             margin: 0 10px 20px 10px;
             @at-root .filters-open#{&} {
@@ -409,6 +413,7 @@
                   width: 100%;
                   height: 100%;
                   display: block;
+                  border-radius: 2px;
                 }
                 .btnShowMoreContent {
                   position: absolute;
@@ -508,6 +513,7 @@
         .listitem-title {
           font-weight: 700;
           font-size: 1.8rem;
+          padding-bottom: 2rem;
         }
         a .listitem-title {
           text-decoration: underline;
@@ -526,10 +532,10 @@
           }
           ol, ul {
             margin-top: 1rem;
-            margin-bottom: 1rem;
+            margin-bottom: 3rem;
             li {
               margin-top: 0rem;
-              margin-bottom: 3rem;
+              margin-bottom: 1rem;
               &:last-child {
                 margin-bottom: 0rem;
               }
@@ -627,6 +633,9 @@
       display: none;
       @media (max-width:$sm-breakpoint) {
         display: block;
+        #mobile-search-field {
+          margin-top: 0;
+        }
       }
     }
   }
