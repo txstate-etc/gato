@@ -15,8 +15,8 @@ jQuery(document).ready(function($) {
   var menubar = $('.menubar');
   var logoblock = $('.logo-block');
   var searchButton = $('.btn-search');
-  var orgInfo = $('.organization-info.no-image');
-  var headerBars = $('.header-bars');
+  var orgInfo = $('body:not(.admin) .organization-info.no-image');
+  var headerBars = $('body:not(.admin) .header-bars');
   var animationDuration = 300
 
   //set this variable for the anchor scroll fix
