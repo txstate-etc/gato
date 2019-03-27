@@ -60,7 +60,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="${gf.absoluteUrl(cmsfn.link(page))}">
   [#if page.socialimage?has_content && page.socialimagealt?has_content]
-    <meta property="og:image" content="${gf.absoluteUrl(page.socialimage)}">
+    <meta property="og:image" content="${gf.absoluteDamUrl(page.socialimage)}">
     <meta property="og:image:width" content="${gf.getImgWidth(page.socialimage)}">
     <meta property="og:image:height" content="${gf.getImgHeight(page.socialimage)}">
     <meta property="og:image:alt" content="${page.socialimagealt}">

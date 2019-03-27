@@ -187,7 +187,7 @@ public final class GatoUtils {
   public Boolean isEmptyString(String string) {
     return StringUtils.isBlank(string);
   }
-  
+
   public String serverNameAndPort() {
     HttpServletRequest request = MgnlContext.getWebContext().getRequest();
     String serverbase = request.getServerName();
@@ -201,8 +201,7 @@ public final class GatoUtils {
   public String absoluteUrl(String url) {
     String relUrl = filterUrl(url);
     if (relUrl.matches("^(\\w{3,15}:)?//.*")) return relUrl;
-    HttpServletRequest request = MgnlContext.getWebContext().getRequest();
-    String serverpath = request.getScheme()+"://"+serverNameAndPort();
+    String serverpath = "//"+serverNameAndPort();
     return serverpath+relUrl;
   }
 
