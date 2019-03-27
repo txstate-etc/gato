@@ -2,6 +2,9 @@ $insetwidth:    4rem;
 
 .textImagePatternWrapper {
   padding: 4rem 0;
+  @media (max-width:$sm-breakpoint) {
+    padding: 2rem 0;
+  }
   &.background {
     background-color: $section-background-color;
   }
@@ -69,7 +72,7 @@ $insetwidth:    4rem;
           }
         }
         @media (max-width: $sm-breakpoint) {
-          padding: 4rem 2rem 0rem 2rem;
+          padding: 2rem 2rem 0rem 2rem;
           img {
             border-top-right-radius: 2px;
             border-bottom-left-radius: 0px;

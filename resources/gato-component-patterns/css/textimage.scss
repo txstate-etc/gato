@@ -1,5 +1,8 @@
 .textImagePatternWrapper {
   padding: 4rem 0;
+  @media (max-width:$sm-breakpoint) {
+    padding: 2rem 0;
+  }
   &.background {
     background-color: $section-background-color;
   }
@@ -50,7 +53,7 @@
     .pattern-image {
       @media (max-width:$sm-breakpoint) {
         order: 1;
-        padding: 4rem 2rem 0 2rem !important;
+        padding: 2rem 2rem 0 2rem !important;
         height: 280px;
         img {
           width: auto;
