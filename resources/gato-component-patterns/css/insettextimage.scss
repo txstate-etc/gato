@@ -22,7 +22,7 @@ $insetwidth:    4rem;
         padding: 2rem 2rem 2rem 0;
         order: 2;
         @media (max-width:$md-breakpoint) {
-          padding: 4rem 4rem 4rem 0rem;
+          padding: 4rem 2rem 4rem 0rem;
           img {
             border-top-left-radius: 0px;
             border-bottom-left-radius: 0px;
@@ -44,7 +44,7 @@ $insetwidth:    4rem;
           z-index: 1;
         }
         @media (max-width:$md-breakpoint) {
-          padding: 4rem 0rem 4rem 4rem;
+          padding: 4rem 0rem 4rem 2rem;
           .inset {
             right: 0;
             border-top-right-radius: 0px;
@@ -65,7 +65,7 @@ $insetwidth:    4rem;
       .pattern-image {
         padding: 2rem 0rem 2rem 2rem;
         @media (max-width:$md-breakpoint) {
-          padding: 4rem 0rem 4rem 4rem;
+          padding: 4rem 0rem 4rem 2rem;
           img {
             border-top-right-radius: 0px;
             border-bottom-right-radius: 0px;
@@ -84,7 +84,7 @@ $insetwidth:    4rem;
           left: -4rem;
         }
         @media (max-width:$md-breakpoint) {
-          padding: 4rem 4rem 4rem 0;
+          padding: 4rem 2rem 4rem 0;
           .inset {
             left: 0;
             border-top-left-radius: 0px;
