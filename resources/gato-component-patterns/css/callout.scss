@@ -31,6 +31,9 @@
       line-height: 1.6;
       padding-bottom: 2.2rem;
       max-width: 500px;
+      @media (max-width:$sm-breakpoint) {
+        max-width: none;
+      }
       margin: 0 auto;
     }
   }

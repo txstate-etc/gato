@@ -101,9 +101,14 @@
 }
 
 //Icon and Text
-.icontext {
-  .icontext-title {
-    font-family: $univers;
+.column_paragraph {
+  .icontext {
+    .icontext-title {
+      font-family: $univers;
+    }
+    .icontext-text {
+      margin: 0 0 3rem 0;
+    }
   }
 }
 
@@ -203,10 +208,6 @@ h2.event-list-title {
 //separator
 .has-background .gato-separator hr {
   background: #ADADAD;
-}
-
-.gato-separator hr {
-  margin: 0;
 }
 
 //raw html
