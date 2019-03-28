@@ -14,5 +14,5 @@ form:
         - name: addTitleSeparator
           class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
           label: ""
-          buttonLabel: Add Separator Under Page Title
+          buttonLabel: Horizontal Separator Below Title
           defaultValue: true
