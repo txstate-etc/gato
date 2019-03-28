@@ -12,7 +12,7 @@ form:
           class: edu.txstate.its.gato.vaadin.GatoMultiValueFieldDefinition
           transformerClass: info.magnolia.ui.form.field.transformer.multi.MultiValueSubChildrenNodePropertiesTransformer
           label: Events
-          maxFields: 5
+          maxFields: 3
           field:
             name: event
             class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
