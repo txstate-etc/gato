@@ -5,9 +5,11 @@
 <div class="mobilefirst-pattern">
     <div class="pattern-content arrow title-type about-intro">
         <div style='background-image: url("${gf.getImgDefault(content.backgroundimage)}")'>
+            [#if content.image?has_content]
             <div class="corner-image">
                 <img src="${gf.getImgDefault(content.image)}" alt="${content.imageAlt!''}" class="${content.color}" position="absolute"/>
             </div>
+            [/#if]
             <div class="content">
                 [#if content.subheading?has_content]
                     <div class="subheading centered">${content.subheading}</div>
