@@ -12,7 +12,7 @@
   [#if !decodedContent.text?has_content]
     [#assign float = 'top']
   [/#if]
-  [#if float == 'bottom']${gf.processRichText(decodedContent.text)}[/#if]
+  [#if float == 'bottom']${gf.processRichTextLevel(decodedContent.text, ctx.headerlevel!2 + 1)}[/#if]
   [#if (content.image)?has_content]
     [#assign fullwidth = (float == 'top' || float == 'bottom')]
     [#assign defaultmaxwidth = fullwidth?string('100vw', '400px')]
@@ -28,5 +28,5 @@
       [/#if]
     </div>
   [/#if]
-  [#if float != 'bottom']${gf.processRichText(decodedContent.text)}[/#if]
+  [#if float != 'bottom']${gf.processRichTextLevel(decodedContent.text, ctx.headerlevel!2 + 1)}[/#if]
 </div>
