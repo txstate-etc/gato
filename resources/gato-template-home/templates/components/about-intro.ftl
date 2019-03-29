@@ -4,7 +4,7 @@
 
 <div class="mobilefirst-pattern">
     <div class="pattern-content arrow title-type about-intro">
-        <div style='background-image: url("${gf.getImgDefault(content.backgroundimage)}")'>
+        <div class="background-image" style='background-image: url("${gf.getImgDefault(content.backgroundimage)}")'>
             [#if content.image?has_content]
             <div class="corner-image">
                 <img src="${gf.getImgDefault(content.image)}" alt="${content.imageAlt!''}" class="${content.color}" position="absolute"/>
