@@ -3,5 +3,8 @@
 [#if content.title?has_content]
   [@h2 class="level1header image-gallery-title"]${content.title}[/@h2]
 [/#if]
+[#if content.caption?has_content]
+  <p>${content.caption}</p>
+[/#if]
 [@cms.area name="images"/]
 [#include "/gato-lib/templates/includes/pswpmodal.ftl"]
