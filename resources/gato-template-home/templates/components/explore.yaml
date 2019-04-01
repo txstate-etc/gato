@@ -1,0 +1,8 @@
+templateScript: /gato-template-home/templates/components/explore.ftl
+renderType: freemarker
+title: "Explore"
+description: Mosaic card tile
+dialog: gato-template-home:components/explore
+parameters:
+  icon: /gato-component-patterns/images/backgroundimage-text.png
+  tab: Prebuilt Sections
