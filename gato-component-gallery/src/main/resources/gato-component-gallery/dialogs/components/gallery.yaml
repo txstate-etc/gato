@@ -6,7 +6,11 @@ form:
         - name: title
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Title (optional)
-          rows: 3
+        - name: caption
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Caption (optional)
+          rows: 3         
+          maxLength: 265 
         - name: help
           class: info.magnolia.ui.form.field.definition.StaticFieldDefinition
           label: Note
