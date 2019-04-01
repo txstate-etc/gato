@@ -99,7 +99,7 @@ body {
 }
 .layout-column {
   padding: 2rem;
-  .column_paragraph {
+  .column_paragraph:last-of-type {
     margin: 0;
   }
 }
