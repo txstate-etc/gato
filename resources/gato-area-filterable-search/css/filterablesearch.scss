@@ -248,9 +248,12 @@
     }
     .filtered-results {
       width: 100%;
-      padding-top: 3rem;
+      padding-top: 4rem;
+      @media (max-width:$sm-breakpoint) {
+        padding-top: 2rem;
+      }      
       #result-list {
-        margin: 1.6rem 0rem;
+        margin: 2rem 0rem;
       }
       ul.results {
         list-style: none;
@@ -341,6 +344,9 @@
                     margin-top: 2rem;
                   }
                 }
+                .no-margin {
+                  margin: 0;
+                }                
               }
               .image-container {
                 display: none;
@@ -382,7 +388,7 @@
           margin: 0 -10px;
           .result {
             border: 0;
-            padding: 3rem 0rem;
+            padding: 0;
             @media (max-width:$xs-breakpoint) {
               padding: 0rem;
             }
