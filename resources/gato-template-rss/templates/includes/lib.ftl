@@ -1,4 +1,4 @@
-[#macro rssitem node moddate='' body='' author='' title='' link='' guid='' enclosure={} thumbnail={}]
+[#macro rssitem node moddate='' body='' author='' title='' link='' guid='' asset='' enclosure={} thumbnail={}]
   <item>
     <pubDate>
       [#if !moddate?has_content]
@@ -35,25 +35,30 @@
     [/#if]
     <description><![CDATA[${gf.convertLinksToAbsolute(body)}]]></description>
 
-    [#if enclosure?has_content]
-      [#if enclosure.mime?has_content]
-        [#local mime = enclosure.mime]
-      [#elseif enclosure.extension?has_content]
-        [#local mime = gf.getMimeType(enclosure.extension)]
-      [#else]
-        [#local extension = enclosure.url?replace('[#\\?].*$','','r')?replace('.*\\.','','r')]
-        [#if extension?has_content]
-          [#local mime = gf.getMimeType(extension)]
+    [#if asset?has_content]
+      <media:thumbnail url="${gf.absoluteDamUrl(asset)}" width="${gf.getImgWidth(asset)}" height="${gf.getImgHeight(asset)}" time="${gf.toAsset(asset).getLastModified()}" />
+      <enclosure url="${gf.absoluteDamUrl(asset)}" length="${gf.toAsset(asset).getFileSize()}" type="${gf.toAsset(asset).getMimeType()}" />
+    [#else]
+      [#if enclosure?has_content]
+        [#if enclosure.mime?has_content]
+          [#local mime = enclosure.mime]
+        [#elseif enclosure.extension?has_content]
+          [#local mime = gf.getMimeType(enclosure.extension)]
+        [#else]
+          [#local extension = enclosure.url?replace('[#\\?].*$','','r')?replace('.*\\.','','r')]
+          [#if extension?has_content]
+            [#local mime = gf.getMimeType(extension)]
+          [/#if]
         [/#if]
+        [#if !mime?has_content]
+          [#local mime = 'application/octet-stream']
+        [/#if]
+        <enclosure url="${gf.absoluteUrl(enclosure.url)}" length="${enclosure.size!0}" type="${mime}" />
       [/#if]
-      [#if !mime?has_content]
-        [#local mime = 'application/octet-stream']
-      [/#if]
-      <enclosure url="${gf.absoluteUrl(enclosure.url)}" length="${enclosure.size!0}" type="${mime}" />
-    [/#if]
 
-    [#if thumbnail?has_content]
-      <media:thumbnail url="${gf.absoluteUrl(thumbnail.url!)}" width="${thumbnail.width!100}" height="${thumbnail.height!100}"[#if thumbnail.time?has_content] time="${thumbnail.time}"[/#if] />
+      [#if thumbnail?has_content]
+        <media:thumbnail url="${gf.absoluteUrl(thumbnail.url!)}" width="${thumbnail.width!100}" height="${thumbnail.height!100}"[#if thumbnail.time?has_content] time="${thumbnail.time}"[/#if] />
+      [/#if]
     [/#if]
 
     [#if !guid?has_content]

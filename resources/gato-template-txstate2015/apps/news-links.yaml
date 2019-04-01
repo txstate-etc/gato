@@ -267,6 +267,14 @@ subApps:
                 class: info.magnolia.ui.form.field.definition.TextFieldDefinition
                 label: Title
                 description: "Title for this article."
+              - name: image
+                class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+                appName: assets
+                targetWorkspace: dam
+                label: Image
+                identifierToPathConverter:
+                  class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
+                description: "Choose an image from Assets. You may also upload an image to Assets from here."
               - name: link
                 class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
                 label: Link

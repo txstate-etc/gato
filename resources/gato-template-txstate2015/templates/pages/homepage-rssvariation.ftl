@@ -28,10 +28,10 @@ ${ctx.response.setContentType('application/rss+xml;charset=UTF-8')}
 <lastBuildDate>${.now?string["EEE, dd MMM yyyy HH:mm:ss Z"]}</lastBuildDate>
 
 [#-- FIXME: sort by mod date --]
+[#assign imageurl=gf.resourcePath()+'/gato-template-txstate2015/images/news_feed.png']
 [#list news as component]
   [#if isEnabled(component)]
-    [#assign imageurl=gf.resourcePath()+'/gato-template-txstate2015/images/news_feed.png']
-    [@rssitem node=component moddate=gf.getModificationDate(component) enclosure={'url': imageurl, 'size':'3764'} thumbnail={'url': imageurl, 'width': 300, 'height':224}]
+    [@rssitem node=component moddate=gf.getModificationDate(component) asset=component.image enclosure={'url': imageurl, 'size':'3764'} thumbnail={'url': imageurl, 'width': 300, 'height':224}]
       ${gf.processRichText(cmsfn.decode(component).rsscontent)}
     [/@rssitem]
   [/#if]
