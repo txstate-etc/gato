@@ -10,7 +10,6 @@ form:
         - name: title
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Title
-          required: true
           maxLength: 150                      
         - name: text
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
