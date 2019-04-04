@@ -646,21 +646,19 @@ public final class GatoUtils {
   public String richTextAdjustHeaders(String rawhtml, long headerlevel) {
     if (StringUtils.isBlank(rawhtml)) return "";
     Elements body = Jsoup.parse("<!DOCTYPE html><html><head></head><body>"+rawhtml+"</body></html>").select("body");
-
+    long offset = headerlevel-2;
     Elements h2 = body.select("h2");
     Elements h3 = body.select("h3");
     Elements h4 = body.select("h4");
     Elements h5 = body.select("h5");
     Elements h6 = body.select("h6");
-    h2.tagName("h"+Long.toString(Math.min(6, headerlevel)));
-    h3.tagName("h"+Long.toString(Math.min(6, headerlevel+1)));
-    h4.tagName("h"+Long.toString(Math.min(6, headerlevel+2)));
-    h5.tagName("h"+Long.toString(Math.min(6, headerlevel+3)));
-    h6.tagName("h"+Long.toString(Math.min(6, headerlevel+4)));
+    h2.tagName("h"+Long.toString(Math.min(6, 2+offset)));
+    h3.tagName("h"+Long.toString(Math.min(6, 3+offset)));
+    h4.tagName("h"+Long.toString(Math.min(6, 4+offset)));
+    h5.tagName("h"+Long.toString(Math.min(6, 5+offset)));
+    h6.tagName("h"+Long.toString(Math.min(6, 6+offset)));
 
-    //First header in the rich editor must be at the current header level. 
-    Element firstHeader = body.select("h2, h3, h4, h5, h6").first();
-    firstHeader.tagName("h"+Long.toString(headerlevel));
+
 
     return body.html();
   }
