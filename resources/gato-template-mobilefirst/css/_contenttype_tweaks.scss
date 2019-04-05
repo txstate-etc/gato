@@ -115,6 +115,9 @@
     .icontext-text {
       margin: 0 0 3rem 0;
     }
+    .icontext-text:last-of-type{
+      margin-bottom: 0;
+    }
   }
 }
 
