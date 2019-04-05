@@ -658,8 +658,6 @@ public final class GatoUtils {
     h5.tagName("h"+Long.toString(Math.min(6, 5+offset)));
     h6.tagName("h"+Long.toString(Math.min(6, 6+offset)));
 
-
-
     return body.html();
   }
 
@@ -684,6 +682,23 @@ public final class GatoUtils {
     return body.html();
   }
 
+  //Sets first header to current header level
+  public String setFirstHeader(String rawhtml, long headerlevel) {
+    if (StringUtils.isBlank(rawhtml)) return "";
+    Elements body = Jsoup.parse("<!DOCTYPE html><html><head></head><body>"+rawhtml+"</body></html>").select("body");
+    //First header in the rich editor must be at the current header level. 
+    Elements headers = body.select("h2, h3, h4, h5, h6");
+    if (!headers.isEmpty()) {
+      Element firstHeader = headers.first();
+      firstHeader.tagName("h"+Long.toString(headerlevel));
+    }
+    return body.html();
+  }
+  public String processRichTextLevel(String str, long headerlevel, Boolean setFirstHeader) {
+    str = processRichTextLevel(str, headerlevel);
+    str = setFirstHeader(str, headerlevel);
+    return str;
+  }
   public String processRichTextLevel(String str, long headerlevel) {
     str = richTextFindAndReplaceImages(str);
     str = richTextRemoveEmptyHeaders(str);
@@ -693,6 +708,8 @@ public final class GatoUtils {
   public String processRichText(String str) {
     return processRichTextLevel(str, 2);
   }
+  
+
 
   public String convertLinksToAbsolute(String str) {
     if (StringUtils.isBlank(str)) return "";

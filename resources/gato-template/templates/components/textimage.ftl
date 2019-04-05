@@ -2,6 +2,8 @@
 
 [#assign decodedContent = cmsfn.decode(content)]
 [#assign float = content.imageFloat!'left']
+[#assign headerlevel = ctx.headerlevel!2+1]
+[#assign setFirstHeader = true]
 <div class="gato-textimage eq-parent">
   [#-- if there is a title, put it here --]
   [#if (decodedContent.title)?has_content]
@@ -12,7 +14,7 @@
   [#if !decodedContent.text?has_content]
     [#assign float = 'top']
   [/#if]
-  [#if float == 'bottom']${gf.processRichTextLevel(decodedContent.text, ctx.headerlevel!2 + 1)}[/#if]
+  [#if float == 'bottom']${gf.processRichTextLevel(decodedContent.text, headerlevel, setFirstHeader)}[/#if]
   [#if (content.image)?has_content]
     [#assign fullwidth = (float == 'top' || float == 'bottom')]
     [#assign defaultmaxwidth = fullwidth?string('100vw', '400px')]
@@ -25,8 +27,8 @@
       [/@linkifdefined]
       [#if (content.imageCaption)?has_content]
         <div class="gato-textimage-caption">${decodedContent.imageCaption}</div>
-      [/#if]
     </div>
   [/#if]
-  [#if float != 'bottom']${gf.processRichTextLevel(decodedContent.text, ctx.headerlevel!2 + 1)}[/#if]
+      [/#if]
+  [#if float != 'bottom']${gf.processRichTextLevel(decodedContent.text, headerlevel, setFirstHeader)}[/#if]
 </div>
