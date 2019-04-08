@@ -22,10 +22,22 @@
               <li><a href="${gf.filterUrl(component.link)}">${gf.filterLinkTitle(component.text, component.link)}</a></li>
             [/#list]
           </ul>
+
           <ul class="right-links">
             [#list cmsfn.children(globalLinks.superGroup2, "mgnl:component") as component]
               <li><a href="${gf.filterUrl(component.link)}">${gf.filterLinkTitle(component.text, component.link)}</a></li>
             [/#list]
+          </ul>          
+            
+
+          <ul class="right-links dropdown">
+              <li><a href="http://www.google.com/">Info For   &#8964</a></li>
+              <div class="dropdown-content">
+                [#list cmsfn.children(globalLinks.superGroup2, "mgnl:component") as component]
+                  <li><a href="${gf.filterUrl(component.link)}">${gf.filterLinkTitle(component.text, component.link)}</a></li>
+                [/#list]
+              <div>
+          </ul>
         </div>
         <div class="bottom-bar">
           [@simplemenu/]
