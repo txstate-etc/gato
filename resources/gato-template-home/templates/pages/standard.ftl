@@ -31,7 +31,9 @@
             
 
           <ul class="right-links dropdown">
-              <li><a href="http://www.google.com/">Info For   &#8964</a></li>
+              <li class="centered"><a href="#">Info For
+                <i class="fa fa-angle-down" aria-hidden="true"></i>
+              </a></li>
               <div class="dropdown-content">
                 [#list cmsfn.children(globalLinks.superGroup2, "mgnl:component") as component]
                   <li><a href="${gf.filterUrl(component.link)}">${gf.filterLinkTitle(component.text, component.link)}</a></li>

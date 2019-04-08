@@ -39,9 +39,11 @@
       @media (max-width: 1600px) {
         display: flex;
       }
-      li {
-        margin: 0 auto;
+      i {
+        color:$white; 
+        padding-left: 1rem;
       }
+      li {margin: 0 auto;}
     }    
 
     .dropdown-content {
