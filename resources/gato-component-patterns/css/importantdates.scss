@@ -21,13 +21,15 @@
     h2 {
       margin-bottom: 0;
     }
-    .flex-child {
+    .event {
         text-align: left;
         flex: 1 1 calc(33.33% - 20px);
     }
     .day {
-        font-weight: 500;
+        font-weight: 900;
         display: inline;
+        font-size: 4rem;
+        vertical-align: super;
     }
     .month {
         display: inline;
@@ -35,6 +37,8 @@
     }
     .links  {
         align-items: inherit;
+        padding-top: 1rem;
+
     }
     .events {
         flex: 2 0 0;
