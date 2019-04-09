@@ -27,8 +27,8 @@
       [/@linkifdefined]
       [#if (content.imageCaption)?has_content]
         <div class="gato-textimage-caption">${decodedContent.imageCaption}</div>
-    </div>
-  [/#if]
       [/#if]
+    </div>
+    [/#if]
   [#if float != 'bottom']${gf.processRichTextLevel(decodedContent.text, headerlevel, setFirstHeader)}[/#if]
 </div>
