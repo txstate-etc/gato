@@ -211,6 +211,7 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       .addTask(new BootstrapSingleModuleResource("config.modules.site.config.site.templates.availability.templates.txst-home.xml"))
       .addTask(new BootstrapSingleModuleResource("config.modules.site.config.site.templates.availability.templates.txst-landing.xml"))
       .addTask(new AddMobileFirstFooterLinkHeadersTask())
+      .addTask(new SetPropertyTask("REVERT - Automatically open the Add Component dialog in wide mode", RepositoryConstants.CONFIG, "/modules/pages/dialogs/newComponent", "wide", Boolean.FALSE ))
       .addTasks(installOrUpdateTasks())
     );
   }
