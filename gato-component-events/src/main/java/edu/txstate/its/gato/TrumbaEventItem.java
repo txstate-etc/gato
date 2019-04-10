@@ -27,9 +27,11 @@ public class TrumbaEventItem extends AbstractEventItem {
 
   /* X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=4;TYPE=Image:https://www.trumba.com/i/DgBeZ7jZpug65L6HHgEeg4fh.jpg */
   public String getCustomProperty(String customName) {
-    for (JsonElement f : event.getAsJsonArray("customFields")) {
-      JsonObject field = f.getAsJsonObject();
-      if (customName.equals(field.getAsJsonPrimitive("label").getAsString())) return field.getAsJsonPrimitive("value").getAsString();
+    if (event.getAsJsonArray("customFields") != null) {
+      for (JsonElement f : event.getAsJsonArray("customFields")) {
+        JsonObject field = f.getAsJsonObject();
+        if (customName.equals(field.getAsJsonPrimitive("label").getAsString())) return field.getAsJsonPrimitive("value").getAsString();
+      }
     }
     return "";
   }
