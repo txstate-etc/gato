@@ -3,6 +3,7 @@ package edu.txstate.its.gato;
 import info.magnolia.event.EventBus;
 import info.magnolia.i18nsystem.SimpleTranslator;
 import info.magnolia.pages.app.editor.ComponentContentClipboard;
+import info.magnolia.templating.elements.ComponentElement;
 import info.magnolia.ui.api.action.ActionExecutionException;
 import info.magnolia.ui.api.app.SubAppEventBus;
 import info.magnolia.ui.api.context.UiContext;
@@ -58,11 +59,14 @@ public class GatoPasteComponentAction extends PasteContentAction {
 
             Session session = MgnlContext.getJCRSession(areaElement.getWorkspace());
             Collections.reverse(pastedItems); //preserve order if multiple components are being pasted
-            for (AbstractElement pastedNode : pastedItems) {
-                String nodePath = pastedNode.getPath();
-                Node sourceComponent = session.getNode(nodePath);
-                NodeUtil.orderAfter(sourceComponent, node.getName());
+            if(NodeUtil.isNodeType(node, "mgnl:component")) {
+                for (AbstractElement pastedNode : pastedItems) {
+                    String nodePath = pastedNode.getPath();
+                    Node sourceComponent = session.getNode(nodePath);
+                    NodeUtil.orderAfter(sourceComponent, node.getName());
+                }
             }
+
             session.save();
 
             getUiContext().openNotification(MessageStyleTypeEnum.INFO, true, getI18n().translate("actions.pasteComponent.success", pastedItems.size()));
