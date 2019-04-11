@@ -20,9 +20,9 @@ header{
       line-height: 0;
       color: $white;
       @media (max-width: $sm-breakpoint){
-        width: 74px;
-        height: 25px;
-        background: url(../images/footer-logo.png) no-repeat;
+        width: 175px;
+        height: 30px;
+        background: url(../images/logo.png) no-repeat;
         -webkit-background-size: 100% auto;
         background-size: 100% auto;
       }
