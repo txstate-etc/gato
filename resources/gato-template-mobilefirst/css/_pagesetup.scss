@@ -108,6 +108,13 @@ body {
   ul:last-child, ol:last-child, li:last-child {
     margin-bottom: 0rem;
   }
+  h2, h3, h4, h5, h6 {
+    margin-bottom: 1.5rem;
+    margin-top: 1rem;
+    &:first-child {
+      margin-top: 0;
+    }
+  }
 }
 
 .breadcrumbs {
