@@ -225,6 +225,7 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
     tasks.add(new SetPropertyTask(RepositoryConstants.CONFIG, "/server/filters/servlets/ResourcesServlet", "servletClass", "edu.txstate.its.gato.GatoResourcesServlet"));
     tasks.add(new BootstrapSingleModuleResource("config.server.MIMEMapping.scss.xml"));
     tasks.add(new BootstrapSingleModuleResource("config.server.MIMEMapping.cjs.xml"));
+    tasks.add(new BootstrapSingleModuleResource("config.modules.pages.apps.pages.subApps.detail.actions.pasteComponents.xml"));
     tasks.add(new RandomizeCacheStrTask());
     tasks.add(new RemoveHotfixesTask());
     // make sure legacy links filter comes before aggregator, aggregator will terminate chain
