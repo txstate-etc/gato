@@ -81,6 +81,7 @@ CKEDITOR.editorConfig = function( config ) {
   config.stylesSet.push({ name: "Paragraph", element: "p"});
   config.stylesSet.push({ name: "Title", element: "h2"});
   config.stylesSet.push({ name: "Subtitle", element: "h3"});
+  config.stylesSet.push({ name: "Subsubtitle", element: "h4"});
   config.stylesSet.push({ name: "Preformatted Text", element: "pre"});
   config.stylesSet.push({ name: "Superscript", element: "sup"});
   config.stylesSet.push({ name: "Subscript", element: "sub"});
