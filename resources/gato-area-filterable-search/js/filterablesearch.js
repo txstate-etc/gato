@@ -320,10 +320,10 @@ jQuery(document).ready(function($) {
     //expand result area if the popup overlaps the footer
     var fSearchContainer = $('.result').last();
     var footerTopOffset = Math.ceil($('.footer').offset().top);
-    var popupBottom = Math.ceil(popup.offset().top + popup.outerHeight());
-    if (popupBottom > footerTopOffset) {
+    var popupBottom = Math.ceil(popup.offset().top + popup.outerHeight()) + 2;
+    if (popupBottom >= footerTopOffset) {
       var initialBottomPadding = fSearchContainer.css('padding-bottom');
-      var adjustedBottomPadding = parseInt(initialBottomPadding) + (popupBottom - footerTopOffset) + 60 + "px";
+      var adjustedBottomPadding = parseInt(initialBottomPadding) + (popupBottom - footerTopOffset) + $('#more-content-popup').height() + "px";
       fSearchContainer.attr('data-initial-bottom-padding', fSearchContainer.css('padding-bottom'));
       fSearchContainer.css('padding-bottom', adjustedBottomPadding);
     }
