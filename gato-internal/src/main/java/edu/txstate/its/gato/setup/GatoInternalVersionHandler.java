@@ -223,9 +223,11 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
     tasks.add(new UpdateTemplateBeneathPathTask("/tsus-content-examples", Arrays.asList("gato-template-txstate2015:pages/standard-template"), "gato-template-tsus2017:pages/standard"));
     tasks.add(new UpdateTemplateBeneathPathTask("/tsus-content-examples", Arrays.asList("gato-template-txstate2015:pages/mail-template"), "gato-template-tsus2017:pages/mail"));
     tasks.add(new SetPropertyTask(RepositoryConstants.CONFIG, "/server/filters/servlets/ResourcesServlet", "servletClass", "edu.txstate.its.gato.GatoResourcesServlet"));
+    tasks.add(new SetPropertyTask(RepositoryConstants.CONFIG, "/modules/pages/apps/pages/subApps/detail/actions/pasteComponents/availability/rules/acceptsClipboardContent", "implementationClass", "edu.txstate.its.gato.GatoPasteComponentAvailability"));
+    tasks.add(new SetPropertyTask(RepositoryConstants.CONFIG, "/modules/pages/apps/pages/subApps/detail/actions/pasteComponents/availability/rules/isComponentAddible", "implementationClass", "edu.txstate.its.gato.GatoIsElementAddibleRule"));
+    tasks.add(new SetPropertyTask(RepositoryConstants.CONFIG, "/modules/pages/apps/pages/subApps/detail/actions/pasteComponents", "class", "edu.txstate.its.gato.GatoPasteComponentActionDefinition"));    
     tasks.add(new BootstrapSingleModuleResource("config.server.MIMEMapping.scss.xml"));
     tasks.add(new BootstrapSingleModuleResource("config.server.MIMEMapping.cjs.xml"));
-    tasks.add(new BootstrapSingleModuleResource("config.modules.pages.apps.pages.subApps.detail.actions.pasteComponents.xml"));
     tasks.add(new RandomizeCacheStrTask());
     tasks.add(new RemoveHotfixesTask());
     // make sure legacy links filter comes before aggregator, aggregator will terminate chain
