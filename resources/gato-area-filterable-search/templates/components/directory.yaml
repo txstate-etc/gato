@@ -4,6 +4,8 @@ dialog: gato-area-filterable-search:components/directory
 title: List of People
 parameters:
   alphaBy: lastname,firstname #comma separated list of properties because Magnolia wouldn't read a sequence
+  icon: /gato-area-filterable-search/images/people-list-icon.svg
+  
 areas:
   filtergroups:
     type: list
