@@ -3,7 +3,7 @@
 [/#if]
 [#include "/gato-area-filterable-search/templates/includes/viewsettings.ftl"]
 [#assign view="list-view"]
-[#if content.view == "grid" || (content.view == "both" && content.both == "grid")]
+[#if content.view! == "grid" || (content.view! == "both" && content.both == "grid")]
   [#assign view="grid-view"]
 [/#if]
 <div class="filterable-search directory ${view}">
