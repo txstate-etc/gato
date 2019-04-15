@@ -5,7 +5,7 @@ form:
       fields:
         - name: alphabetize
           class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
-          label: Alphabetize List Items?
+          label: Alphabetize List?
           multiselect: false
           sortOptions: false
           options:
@@ -21,7 +21,7 @@ form:
               value: none
         - name: description
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-          label: Search Bar Placeholder
+          label: Search Placeholder
         - name: explanation
           class: info.magnolia.ui.form.field.definition.StaticFieldDefinition
           label: ""
