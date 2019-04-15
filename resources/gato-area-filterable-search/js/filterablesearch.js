@@ -318,12 +318,12 @@ jQuery(document).ready(function($) {
     listitem.find('.image-container').addClass('arrow');
     $('#more-content-popup #btn-close-more-content-popup').focus();
     //expand result area if the popup overlaps the footer
-    var fSearchContainer = $('.filterable-search-container');
-    var footerTopOffset = Math.ceil($('footer').offset().top);
+    var fSearchContainer = $('.result').last();
+    var footerTopOffset = Math.ceil($('.footer').offset().top);
     var popupBottom = Math.ceil(popup.offset().top + popup.outerHeight());
     if (popupBottom > footerTopOffset) {
       var initialBottomPadding = fSearchContainer.css('padding-bottom');
-      var adjustedBottomPadding = parseInt(initialBottomPadding) + (popupBottom - footerTopOffset) + "px";
+      var adjustedBottomPadding = parseInt(initialBottomPadding) + (popupBottom - footerTopOffset) + 60 + "px";
       fSearchContainer.attr('data-initial-bottom-padding', fSearchContainer.css('padding-bottom'));
       fSearchContainer.css('padding-bottom', adjustedBottomPadding);
     }
@@ -442,7 +442,7 @@ jQuery(document).ready(function($) {
   $('#btn-close-more-content-popup').click(function() {
     $('#more-content-popup').hide();
     $('.listitem .image-container').removeClass('arrow');
-    var fSearchContainer = $('.filterable-search-container');
+    var fSearchContainer = $('.result').last();
     var itemId = $(this).attr('data-item-id');
     $(this).removeAttr('data-item-id');
     $('#' + itemId).find('.btnShowMoreContent').attr('aria-expanded', false);
