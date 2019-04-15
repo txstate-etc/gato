@@ -1,3 +1,3 @@
 # Gato
-The Texas State University implementation of Magnolia CMS.
+The Texas State University implementation of Magnolia CMS. 
 
