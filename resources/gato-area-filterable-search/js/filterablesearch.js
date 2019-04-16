@@ -327,13 +327,6 @@ jQuery(document).ready(function($) {
       fSearchContainer.attr('data-initial-bottom-padding', fSearchContainer.css('padding-bottom'));
       fSearchContainer.css('padding-bottom', adjustedBottomPadding);
     }
-    else {
-      if (fSearchContainer.data('initial-bottom-padding')) {
-        var initialBottomPadding = fSearchContainer.data('initial-bottom-padding');
-        fSearchContainer.css('padding-bottom', initialBottomPadding);
-        fSearchContainer.removeAttr('data-initial-bottom-padding');
-      }
-    }
   }
 
   $('.filter-cbx').click(function(e) {
