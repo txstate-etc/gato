@@ -30,6 +30,7 @@ form:
           label: View(s)
           class: info.magnolia.ui.form.field.definition.SwitchableFieldDefinition
           transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+          layout: vertical
           options:
             - name: list
               label: List View Only
@@ -43,7 +44,7 @@ form:
               value: both
           fields:
             - name: both #this needs to match the value from the both option above
-              class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
+              class: info.magnolia.ui.form.field.definition.SelectFieldDefinition
               label: Default View
               options:
                 - name: list
