@@ -710,15 +710,15 @@ public final class GatoUtils {
   }
   public String processRichTextLevel(Object str, long headerlevel, Boolean setFirstHeader) {
     if (str == null) return "";
-    return processRichText((String)str, headerlevel, setFirstHeader)
+    return processRichTextLevel((String)str, headerlevel, setFirstHeader);
   }
   public String processRichTextLevel(Object str, long headerlevel) {
     if (str == null) return "";
-    return processRichText((String)str, headerlevel)
+    return processRichTextLevel((String)str, headerlevel);
   }
   public String processRichText(Object str) {
     if (str == null) return "";
-    return processRichText((String)str)
+    return processRichText((String)str);
   }
 
 
