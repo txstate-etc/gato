@@ -686,7 +686,7 @@ public final class GatoUtils {
   public String setFirstHeader(String rawhtml, long headerlevel) {
     if (StringUtils.isBlank(rawhtml)) return "";
     Elements body = Jsoup.parse("<!DOCTYPE html><html><head></head><body>"+rawhtml+"</body></html>").select("body");
-    //First header in the rich editor must be at the current header level. 
+    //First header in the rich editor must be at the current header level.
     Elements headers = body.select("h2, h3, h4, h5, h6");
     if (!headers.isEmpty()) {
       Element firstHeader = headers.first();
@@ -708,7 +708,18 @@ public final class GatoUtils {
   public String processRichText(String str) {
     return processRichTextLevel(str, 2);
   }
-  
+  public String processRichTextLevel(Object str, long headerlevel, Boolean setFirstHeader) {
+    if (str == null) return "";
+    return processRichText((String)str, headerlevel, setFirstHeader)
+  }
+  public String processRichTextLevel(Object str, long headerlevel) {
+    if (str == null) return "";
+    return processRichText((String)str, headerlevel)
+  }
+  public String processRichText(Object str) {
+    if (str == null) return "";
+    return processRichText((String)str)
+  }
 
 
   public String convertLinksToAbsolute(String str) {
