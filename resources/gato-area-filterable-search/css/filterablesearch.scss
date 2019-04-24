@@ -166,6 +166,8 @@
           border: 1px solid $filterable-search-divider-color;
           border-radius: 2px;
           li {
+            display: flex;
+            align-items: center;
             border: 1px solid $filterable-search-divider-color;
             padding: 0.6rem 0rem 0.6rem 1rem;
             border-radius: 2px;
@@ -179,6 +181,7 @@
             }
           }
           span.filter-cbx {
+            min-width: 25px;
             width: 25px;
             height: 25px;
             display: inline-block;
@@ -203,6 +206,7 @@
             display: inline-block;
             vertical-align: middle;
             margin-left: 0.5rem;
+            margin-right: 0.5rem;
             font-weight: 500;
             font-size: 1.3rem;
           }
