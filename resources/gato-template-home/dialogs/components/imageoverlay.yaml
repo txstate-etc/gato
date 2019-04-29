@@ -73,42 +73,6 @@ form:
           label: ""
           class: edu.txstate.its.gato.vaadin.GatoCssIncludeDefinition
           styles: [gato-component-patterns/dialogs/css/fix-link-multifield.css]
-
-    - name: bacgkroundTab
-      label: Background
-      fields: 
-      - name: background
-        class: info.magnolia.ui.form.field.definition.SwitchableFieldDefinition
-        label: Background type
-        options:
-          - name: image
-            label: Image
-            selected: true
-          - name: color2
-            label: Color    
-        fields: 
-          - name: image
-            class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
-            appName: assets
-            required: true
-            targetWorkspace: dam
-            label: Image
-            identifierToPathConverter:
-              class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
-            contentPreviewDefinition:
-              contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
-            description: "You may upload an image, or choose one from the Digital Asset Manager. If you upload an image, the DAM image will be ignored."     
-          - name: color2
-            class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
-            fields:
-              - name: color
-                class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
-            transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
-            initFunction: initColorPicker
-            loadScriptsInOrder: true
-            scripts: [gato-lib/js/color-picker.js]
-            label: Overlay Color
-            parameters:
-              contentType: default                
+       
 
 actions: !include /gato-template/dialogs/common/actions-block.yaml
