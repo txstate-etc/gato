@@ -1,0 +1,8 @@
+templateScript: /gato-template-home/templates/components/imageoverlay.ftl
+renderType: freemarker
+title: "Background Image: Text"
+description: A background image with a text overlay
+dialog: gato-template-home:components/imageoverlay
+parameters:
+  icon: /gato-component-patterns/images/backgroundimage-text.png
+  tab: Prebuilt Sections

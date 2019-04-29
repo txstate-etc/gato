@@ -10,6 +10,10 @@ homecontent: #add home page content types here. textImage is a placeholder
       id: gato-template:components/textimage
     aboutintro:
       id: gato-template-home:components/about-intro
+    explore:
+      id: gato-template-home:components/explore
+    imageoverlay:
+      id: gato-template-home:components/imageoverlay        
 landingcontent: #add landing page content types here. textImage is a placeholder
   type: list
   templateScript: /gato-template-mobilefirst/templates/areas/mobilefirst-content.ftl

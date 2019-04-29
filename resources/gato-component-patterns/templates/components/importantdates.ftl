@@ -8,12 +8,10 @@
       [#if content.events?has_content]
       <div class="events">
           [#list cmsfn.children(content.events) as lnk]
-            <div class="flex-child">
+            <div class="event">
               <!--Get day of the month-->
-              <h2>
-                <div class="day">${lnk.date?string["dd"]}</div> 
+                <div class="day">${lnk.date?string["d"]}</div> 
                 <div class="month">${lnk.date?string["MMM"]?upper_case}</div>
-              </h2>
               <div class="links">
                 <ul>
                   <li><a href="${gf.filterUrl(lnk.link)}">${lnk.title!}</a></li>
