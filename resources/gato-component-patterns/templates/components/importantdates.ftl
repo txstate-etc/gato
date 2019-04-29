@@ -9,9 +9,11 @@
       <div class="events">
           [#list cmsfn.children(content.events) as lnk]
             <div class="event">
+              <div class="date">
               <!--Get day of the month-->
-                <div class="day">${lnk.date?string["d"]}</div> 
-                <div class="month">${lnk.date?string["MMM"]?upper_case}</div>
+                  <div class="day">${lnk.date?string["d"]}</div> 
+                  <div class="month">${lnk.date?string["MMM"]?upper_case}</div>
+                </div>
               <div class="links">
                 <ul>
                   <li><a href="${gf.filterUrl(lnk.link)}">${lnk.title!}</a></li>

@@ -27,18 +27,20 @@
     }
     .day {
         font-weight: 900;
-        display: inline;
         font-size: 4rem;
-        vertical-align: super;
     }
     .month {
-        display: inline;
         font-size: 1.5rem;
+        margin-left: 1rem;
     }
     .links  {
         align-items: inherit;
         padding-top: 1rem;
 
+    }
+    .date {
+      display: flex;
+      align-items: center;
     }
     .events {
         flex: 2 0 0;
