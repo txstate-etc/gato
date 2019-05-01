@@ -40,7 +40,7 @@
         [#if !(content.hideTitle!false)]
           [#if content.intro?has_content]
             <div class="page-intro-text">
-              ${content.intro}
+              ${gf.processRichText(cmsfn.decode(content).intro)}
             </div>
           [/#if]
           [#if content.addTitleSeparator?has_content && content.addTitleSeparator == true]
