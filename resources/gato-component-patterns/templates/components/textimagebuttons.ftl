@@ -25,7 +25,7 @@
       [#assign headerLevel = 3]
     [/#if]
     [#if content.text?has_content]<div class="text">${gf.processRichTextLevel(cmsfn.decode(content).text, headerLevel)}</div>[/#if]
-    [#if content.buttons?has_content]
+    [#if content.buttons?has_content && gf.hasChildren(content.buttons)]
     <div class="buttons">
       <ul>
       [#list cmsfn.children(content.buttons) as lnk]
