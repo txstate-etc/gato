@@ -3,6 +3,7 @@ renderType: freemarker
 title: "Important Dates"
 description: List important dates
 dialog: gato-component-patterns:components/importantdates
+modelClass: edu.txstate.its.gato.TrumbaEventModel
 parameters:
   icon: /gato-component-patterns/images/backgroundimage-text.png
   tab: Prebuilt Sections

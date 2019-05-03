@@ -8,34 +8,49 @@ form:
           label: Title
           required: true
           maxLength: 20
-        - name: events
-          class: edu.txstate.its.gato.vaadin.GatoMultiValueFieldDefinition
-          transformerClass: info.magnolia.ui.form.field.transformer.multi.MultiValueSubChildrenNodePropertiesTransformer
-          label: Events
-          maxFields: 3
-          field:
-            name: event
-            class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
-            transformerClass: info.magnolia.ui.form.field.transformer.composite.NoOpCompositeTransformer
-            layout: vertical
-            fields:
-              - name: title
-                class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-                label: Event Title
-                requred: true
-                maxLength: 20
-              - name: link
-                class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
-                label: Target
-                appName: pages
-                identifierToPathConverter:
-                  class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
-              - name: date
-                required: true
-                type: Date
-                class: info.magnolia.ui.form.field.definition.DateFieldDefinition
-                label: Date
-                dateFormat: yyyy-MM-dd  
+        - name: input
+          label: Event Entry
+          class: info.magnolia.ui.form.field.definition.SwitchableFieldDefinition
+          transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+          options:
+            - name: calendarId
+              label: Calendar
+            - name: events
+              label: Events
+          fields:
+            - name: calendarId
+              class: edu.txstate.its.gato.TrumbaSelectDefinition
+              label: Calendar
+              sortOptions: false   
+            - name: events
+              class: edu.txstate.its.gato.vaadin.GatoMultiValueFieldDefinition
+              transformerClass: info.magnolia.ui.form.field.transformer.multi.MultiValueSubChildrenNodePropertiesTransformer
+              label: Events
+              maxFields: 3
+              field:
+                name: event
+                class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
+                transformerClass: info.magnolia.ui.form.field.transformer.composite.NoOpCompositeTransformer
+                layout: vertical
+                fields:
+                  - name: title
+                    required: true
+                    class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                    label: Event Title
+                    maxLength: 20
+                  - name: date
+                    required: true
+                    type: Date
+                    class: info.magnolia.ui.form.field.definition.DateFieldDefinition
+                    label: Date
+                    dateFormat: yyyy-MM-dd                  
+                  - name: link
+                    class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+                    label: Target
+                    appName: pages
+                    identifierToPathConverter:
+                      class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
+          
         - name: stylesheet
           label: ""
           class: edu.txstate.its.gato.vaadin.GatoCssIncludeDefinition
