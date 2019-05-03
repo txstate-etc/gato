@@ -24,6 +24,7 @@
     .event {
         text-align: left;
         flex: 1 1 calc(33.33% - 20px);
+        max-width: 180px
     }
     .day {
         font-weight: 900;
