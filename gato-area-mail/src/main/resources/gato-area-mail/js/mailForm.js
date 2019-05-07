@@ -531,7 +531,10 @@ function checkMandatories(theForm, alertText) {
     }
   }
   theForm.failedMandatories = !ok;
-  if (ok) return true;
+  if (ok) {
+    injectDummies();
+    return true;
+  }
   else return false;
 }
 
@@ -605,3 +608,27 @@ Event.observe(document, 'dom:loaded', function(){
 jQuery(document).ready(function($){
   $('.txst-form a').not('.txstate-khan-notice a').attr('target', '_blank');
 });
+
+
+function injectDummies() {
+  var numSelectionGroups = document.getElementsByClassName("txst-form-selectiongroup").length;
+
+  for (var i=0;i<numSelectionGroups;i++) {
+    var element = document.getElementsByClassName("txst-form-selectiongroup")[i];
+    var name = element.id;
+    var id = element.id + "-dummy-item";
+    var type = element.children[0].type    
+    var dummyInput = document.createElement('input');
+    dummyInput.setAttribute('name', name);
+    dummyInput.setAttribute('id', id);
+    dummyInput.setAttribute('type', type);
+    dummyInput.setAttribute('style', 'display:none');
+    dummyInput.setAttribute('aria-hidden', 'true');
+    dummyInput.setAttribute('aria-label', 'hidden');
+    dummyInput.setAttribute('title', 'hidden');
+    dummyInput.setAttribute('value', '');
+    dummyInput.setAttribute('checked', 'checked');
+    element.appendChild(dummyInput);
+    
+  }
+}

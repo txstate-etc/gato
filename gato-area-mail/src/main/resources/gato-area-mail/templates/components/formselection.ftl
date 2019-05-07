@@ -30,7 +30,6 @@
     </legend>
   [/#if]
   <div class="txst-form-selectiongroup" id="${title}">
-  <input name="${title}" id="${title}-dummy-item" type="${content.type}" style="display:none" aria-hidden="true" aria-label="hidden" title="hidden" value="" checked="checked" />
   [#assign i = 0]
   [#list gf.orderedPropertyValues(content.options) as option]
     <div class="txst-form-selection-item">
