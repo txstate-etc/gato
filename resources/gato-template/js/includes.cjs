@@ -5,8 +5,6 @@
 /gato-template/js/easter-egg.js
 /gato-lib/js/moment.js
 /gato-lib/js/jsonp.js
-/gato-lib/js/pickadate/picker.js
-/gato-lib/js/pickadate/picker.date.js
 /gato-lib/js/photoswipe/photoswipe.js
 /gato-lib/js/photoswipe/photoswipe-ui-default.js
 /gato-lib/js/photoswipe-util.js
