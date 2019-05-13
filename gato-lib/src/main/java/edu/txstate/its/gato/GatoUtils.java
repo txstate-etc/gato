@@ -661,6 +661,41 @@ public final class GatoUtils {
     return body.html();
   }
 
+  public void updateTag(Element h, long level) {
+    h.tagName("h"+Long.toString(level));
+  }
+
+  public String fixHeaders(String rawhtml, int highestLevel) {
+    Elements body = Jsoup.parse("<!DOCTYPE html><html><head></head><body>"+rawhtml+"</body></html>").select("body");
+    Elements allHeaders = body.select("h1,h2,h3,h4,h5,h6");
+
+    processHeaders(true, highestLevel, highestLevel-1, 0, allHeaders, highestLevel);
+    return body.html();
+  }
+
+  public int processHeaders (Boolean isRoot, int currentLevel, int parentLevel, int headerIndex, Elements allHeaders, int highestLevel) {
+    while (headerIndex < allHeaders.size()) {
+      Element h = allHeaders.get(headerIndex);
+      int headerLevel = Integer.parseInt(h.tagName().substring(h.tagName().length()-1));
+      if (headerLevel > parentLevel) {
+        updateTag(h, currentLevel);
+        headerIndex = processHeaders(false, currentLevel + 1, headerLevel, headerIndex + 1, allHeaders, highestLevel);
+      }
+      else if (isRoot) {
+        updateTag(h, highestLevel);
+        headerIndex = processHeaders(false, highestLevel + 1, headerLevel, headerIndex + 1, allHeaders, highestLevel);
+      }
+      else if (headerLevel == parentLevel) {
+        updateTag(h, currentLevel - 1);
+        headerIndex++;
+      }
+      else {
+        break;
+      }
+    }
+    return headerIndex;
+  }
+
   public String richTextRemoveEmptyHeaders(String rawhtml) {
     if (StringUtils.isBlank(rawhtml)) return "";
     Elements body = Jsoup.parse("<!DOCTYPE html><html><head></head><body>"+rawhtml+"</body></html>").select("body");
@@ -694,9 +729,8 @@ public final class GatoUtils {
     }
     return body.html();
   }
-  public String processRichTextLevel(String str, long headerlevel, Boolean setFirstHeader) {
-    str = processRichTextLevel(str, headerlevel);
-    str = setFirstHeader(str, headerlevel);
+  public String processRichTextLevel(String str, int headerlevel, Boolean fixHeaders) {
+    str = fixHeaders(str, headerlevel);
     return str;
   }
   public String processRichTextLevel(String str, long headerlevel) {
@@ -708,9 +742,9 @@ public final class GatoUtils {
   public String processRichText(String str) {
     return processRichTextLevel(str, 2);
   }
-  public String processRichTextLevel(Object str, long headerlevel, Boolean setFirstHeader) {
+  public String processRichTextLevel(Object str, long headerlevel, Boolean fixHeaders) {
     if (str == null) return "";
-    return processRichTextLevel((String)str, headerlevel, setFirstHeader);
+    return processRichTextLevel((String)str, headerlevel, fixHeaders);
   }
   public String processRichTextLevel(Object str, long headerlevel) {
     if (str == null) return "";
