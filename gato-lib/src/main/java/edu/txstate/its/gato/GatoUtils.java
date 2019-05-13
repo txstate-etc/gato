@@ -667,7 +667,7 @@ public final class GatoUtils {
 
   public String fixHeaders(String rawhtml, int highestLevel) {
     Elements body = Jsoup.parse("<!DOCTYPE html><html><head></head><body>"+rawhtml+"</body></html>").select("body");
-    Elements allHeaders = body.select("h1,h2,h3,h4,h5,h6");
+    Elements allHeaders = body.first().select("h1,h2,h3,h4,h5,h6");
 
     processHeaders(true, highestLevel, highestLevel-1, 0, allHeaders, highestLevel);
     return body.html();
@@ -699,21 +699,17 @@ public final class GatoUtils {
   public String richTextRemoveEmptyHeaders(String rawhtml) {
     if (StringUtils.isBlank(rawhtml)) return "";
     Elements body = Jsoup.parse("<!DOCTYPE html><html><head></head><body>"+rawhtml+"</body></html>").select("body");
-    int emptyHeadersFound;
     //Jsoup will only find the first empty header at any given level in a rich editor
-    //looping makes sure that they are all found
-    do {
-      Elements headers = body.select("h1,h2,h3,h4,h5,h6");
-      emptyHeadersFound = 0;
-      for (Element header : headers) {
-        //trim won't remove &nbsp; and that's what CKEditor puts in the empty headers
-        String text = header.text().replace('\u00A0', ' ').trim();
-        if (text.length() < 1) {
-          header.remove();
-          emptyHeadersFound++;
-        }
+    //looping makes sure that they are all found 
+    //**Update: body.first().select will find all, not just the first */
+    Elements headers = body.first().select("h1,h2,h3,h4,h5,h6");
+    for (Element header : headers) {
+      //trim won't remove &nbsp; and that's what CKEditor puts in the empty headers
+      String text = header.text().replace('\u00A0', ' ').trim();
+      if (text.length() < 1) {
+        header.remove();
       }
-    } while (emptyHeadersFound > 0);
+    }
     return body.html();
   }
 
