@@ -665,7 +665,7 @@ public final class GatoUtils {
     h.tagName("h"+Long.toString(level));
   }
 
-  public String fixHeaders(String rawhtml, int highestLevel) {
+  public String fixHeaders(String rawhtml, long highestLevel) {
     Elements body = Jsoup.parse("<!DOCTYPE html><html><head></head><body>"+rawhtml+"</body></html>").select("body");
     Elements allHeaders = body.first().select("h1,h2,h3,h4,h5,h6");
 
@@ -673,7 +673,7 @@ public final class GatoUtils {
     return body.html();
   }
 
-  public int processHeaders (Boolean isRoot, int currentLevel, int parentLevel, int headerIndex, Elements allHeaders, int highestLevel) {
+  public int processHeaders (Boolean isRoot, long currentLevel, long parentLevel, int headerIndex, Elements allHeaders, long highestLevel) {
     while (headerIndex < allHeaders.size()) {
       Element h = allHeaders.get(headerIndex);
       int headerLevel = Integer.parseInt(h.tagName().substring(h.tagName().length()-1));
@@ -713,44 +713,19 @@ public final class GatoUtils {
     return body.html();
   }
 
-  //Sets first header to current header level
-  public String setFirstHeader(String rawhtml, long headerlevel) {
-    if (StringUtils.isBlank(rawhtml)) return "";
-    Elements body = Jsoup.parse("<!DOCTYPE html><html><head></head><body>"+rawhtml+"</body></html>").select("body");
-    //First header in the rich editor must be at the current header level.
-    Elements headers = body.select("h2, h3, h4, h5, h6");
-    if (!headers.isEmpty()) {
-      Element firstHeader = headers.first();
-      firstHeader.tagName("h"+Long.toString(headerlevel));
-    }
-    return body.html();
-  }
-  public String processRichTextLevel(String str, int headerlevel, Boolean fixHeaders) {
-    str = fixHeaders(str, headerlevel);
-    return str;
-  }
-  public String processRichTextLevel(String str, long headerlevel) {
-    str = richTextFindAndReplaceImages(str);
-    str = richTextRemoveEmptyHeaders(str);
-    str = richTextAdjustHeaders(str, headerlevel);
-    return str;
-  }
-  public String processRichText(String str) {
-    return processRichTextLevel(str, 2);
-  }
-  public String processRichTextLevel(Object str, long headerlevel, Boolean fixHeaders) {
-    if (str == null) return "";
-    return processRichTextLevel((String)str, headerlevel, fixHeaders);
-  }
   public String processRichTextLevel(Object str, long headerlevel) {
     if (str == null) return "";
-    return processRichTextLevel((String)str, headerlevel);
-  }
-  public String processRichText(Object str) {
-    if (str == null) return "";
-    return processRichText((String)str);
+    String string = (String)str;
+    str = richTextFindAndReplaceImages(string);
+    str = richTextRemoveEmptyHeaders(string);
+    if (headerlevel > 0) {str = fixHeaders(string, headerlevel);}
+    return string;
   }
 
+  public String processRichText(Object str) {
+    if (str == null) return "";
+    return processRichTextLevel((String)str, 2);
+  }
 
   public String convertLinksToAbsolute(String str) {
     if (StringUtils.isBlank(str)) return "";
