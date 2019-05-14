@@ -2,7 +2,7 @@ templateScript: /gato-template-mobilefirst/templates/pages/standard.ftl
 renderType: site
 visible: true
 title: Mobile First Home
-dialog: gato-template:pages/page-properties
+dialog: gato-template-mobilefirst:pages/page-properties
 areas: !include /gato-template-mobilefirst/templates/includes/areas.yaml
 parameters:
   isHomeTemplate: true
