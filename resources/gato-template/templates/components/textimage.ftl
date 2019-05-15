@@ -3,7 +3,6 @@
 [#assign decodedContent = cmsfn.decode(content)]
 [#assign float = content.imageFloat!'left']
 [#assign headerlevel = ctx.headerlevel!2]
-[#assign fixHeaders = true]
 <div class="gato-textimage eq-parent">
   [#-- if there is a title, put it here --]
   [#if (decodedContent.title)?has_content]
