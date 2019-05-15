@@ -8,7 +8,7 @@
 
   <div id="search-modal-content" class="hidden">
     <div class="searchbar">
-      <form class="searchbar-form" action="http://search.txstate.edu/search">
+      <form class="searchbar-form" action="//www.txstate.edu/search">
         <div class="searchbar-content">
           [#if sitesearch]
             <input type="hidden" id="sitesearch" name="sitesearch" value="${ctx.request.serverName}" />

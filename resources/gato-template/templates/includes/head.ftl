@@ -197,7 +197,7 @@
 [/#macro]
 
 [#macro search image='gato-template/images/x.gif' ]
-  <form action="http://search.txstate.edu/search" class="gato-search">
+  <form action="//www.txstate.edu/search" class="gato-search">
     <input type="hidden" name="site" value="txstate_no_users" />
     <input type="hidden" name="client" value="txstate" />
     <input type="hidden" name="output" value="xml_no_dtd" />

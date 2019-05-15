@@ -13,7 +13,7 @@
 		<div class="social-media-icons">
 			[@cms.area name="socialmedia" content=gf.getOrCreateArea(homepage, 'socialmedia') editable=isHomePage contextAttributes={"icononly": true} /]
 		</div>
-		<form action="http://search.txstate.edu/search" class="tsus-searchform">
+		<form action="//www.txstate.edu/search" class="tsus-searchform">
 			<input type="text" name="q" id="q" value="Search" class="research search-default"><jsp:text /></input>
 			<input type="image" src="${gf.resourcePath()}/gato-template-tsus/images/mag.png" id="tsus-searchform-searchbutton" alt="Search Site" title="Search Site"/>
 			<input type="hidden" name="site" value="tsus" />
