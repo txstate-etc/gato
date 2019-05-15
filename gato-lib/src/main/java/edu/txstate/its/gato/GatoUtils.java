@@ -715,16 +715,17 @@ public final class GatoUtils {
 
   public String processRichTextLevel(Object str, long headerlevel) {
     if (str == null) return "";
-    String string = (String)str;
-    str = richTextFindAndReplaceImages(string);
-    str = richTextRemoveEmptyHeaders(string);
-    if (headerlevel > 0) {str = fixHeaders(string, headerlevel);}
-    return string;
+    String rawhtml = (String)str;
+    rawhtml = richTextFindAndReplaceImages(rawhtml);
+    rawhtml = richTextRemoveEmptyHeaders(rawhtml);
+    if (headerlevel > 0) {rawhtml = fixHeaders(rawhtml, headerlevel);}
+    return rawhtml;
   }
 
   public String processRichText(Object str) {
     if (str == null) return "";
-    return processRichTextLevel((String)str, 2);
+    String rawhtml = (String)str;
+    return processRichTextLevel(rawhtml, 2);
   }
 
   public String convertLinksToAbsolute(String str) {
