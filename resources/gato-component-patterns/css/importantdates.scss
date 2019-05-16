@@ -12,7 +12,7 @@
       color: $maroon;
       margin: 0;
 
-      [data-eq~="800px"] & {
+      [data-eq~="600px"] & {
           float: none;
           margin-bottom: 1rem;
           float: none;
@@ -26,7 +26,12 @@
     .event {
         text-align: left;
         flex: 1 1 calc(33.33% - 20px);
-        max-width: 180px
+        max-width: 180px;
+        [data-eq~="600px"] & {
+          max-width: none;
+        }        
+    }:only-child {
+      max-width: none;
     }
     .day {
         font-weight: 900;
@@ -51,7 +56,7 @@
         display: flex;
         justify-content: space-around;
         flex-flow: row wrap;
-        [data-eq~="800px"] & {
+        [data-eq~="600px"] & {
           flex-flow: column wrap;
         }
     //push wrapped componenets to the left so they are in line with those above
