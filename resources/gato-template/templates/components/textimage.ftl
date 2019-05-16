@@ -9,6 +9,7 @@
     [@h2 class="gato-textimage-title"]
       ${decodedContent.title}
     [/@h2]
+    [#assign headerlevel = headerlevel + 1]
   [/#if]
   [#if !decodedContent.text?has_content]
     [#assign float = 'top']
