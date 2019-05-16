@@ -4,8 +4,8 @@
 
 /* Component styles */
 @import "gato-template/css/includes";
-@import "gato-template-home/css/about-intro";
 @import "gato-component-patterns/css/patterns";
+@import "gato-template-home/css/about-intro";
 //
 /* General Styles */
 @import "gato-template-home/css/pagesetup";
@@ -19,3 +19,6 @@
 /* Footer */
 @import "gato-template-mobilefirst/css/footer";
 @import "gato-template-home/css/footer";
+
+/* Homepage */
+@import "gato-template-home/css/homepage";

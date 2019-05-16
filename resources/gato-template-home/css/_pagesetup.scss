@@ -16,3 +16,10 @@ body {
   font-family: $univers;
   overflow-x: hidden;
 }
+
+.gato-section-full {
+  .gato-section-centered {
+    margin: 0 auto;
+    max-width: 1200px;
+  }
+}
