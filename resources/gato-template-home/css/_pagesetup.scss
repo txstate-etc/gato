@@ -10,3 +10,12 @@
 main {
   min-height: 500px;
 }
+
+body {
+  position: relative;
+  margin: 0 auto;
+  font-family: $univers;
+  max-width: 1600px;
+  overflow-x: hidden;
+  box-shadow: 1px 1px 5px #cfcfcf;
+}

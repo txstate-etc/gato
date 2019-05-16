@@ -19,7 +19,11 @@
                     </div>
                   <div class="links">
                     <ul>
-                      <li><a href="${gf.filterUrl(event.link)}">${event.title!}</a></li>
+                      [#if event.title?length &gt; 50]
+                        <li><a href="${gf.filterUrl(event.link)}">${event.title?substring(0, 50)}...</a></li>
+                      [#else]
+                        <li><a href="${gf.filterUrl(event.link)}">${event.title}</a></li>
+                      [/#if]
                     </ul>
                   </div>
                 </div>
@@ -37,7 +41,11 @@
                     </div>
                   <div class="links">
                     <ul>
-                      <li><a href="${gf.filterUrl(event.link)}">${event.title!}</a></li>
+                      [#if event.title?length &gt; 50]
+                        <li><a href="${gf.filterUrl(event.link)}">${event.title?substring(0, 50)}...</a></li>
+                      [#else]
+                        <li><a href="${gf.filterUrl(event.link)}">${event.title}</a></li>
+                      [/#if]
                     </ul>
                   </div>
                 </div>

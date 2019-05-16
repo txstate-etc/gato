@@ -8,7 +8,9 @@
       height: 100%;
       float: left;
       flex: 1 0 0;
-      width:33%;
+      width: 33%;
+      color: $maroon;
+      margin: 0;
 
       [data-eq~="800px"] & {
           float: none;
@@ -32,6 +34,7 @@
     }
     .month {
         font-size: 1.5rem;
+        color: $gold;
         margin-left: 1rem;
     }
     .links  {
