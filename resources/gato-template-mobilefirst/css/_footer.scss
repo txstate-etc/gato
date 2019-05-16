@@ -22,7 +22,7 @@ footer {
         }
         @media (max-width: $sm-breakpoint) {
           width: auto;
-          padding: 1rem 3rem;
+          padding: 1rem 2rem;
         }
         &.contact {
           border-right: 1px solid $darkgray;
@@ -41,6 +41,7 @@ footer {
           }
           .txst-logo {
             height: 35px;
+            margin-bottom: 2.5rem;
           }
           .contact-info {
             padding-top: 0.5rem;
@@ -85,7 +86,7 @@ footer {
             padding: 1rem 0rem 0rem 0rem;
             li {
               line-height: 1.8;
-              margin-bottom: 0.5rem;
+              margin-bottom: 2.5rem;
               a {
                 color: $white;
                 text-decoration: none;
@@ -171,7 +172,7 @@ footer {
   .social-media-container {
     display: block;
     .social-media-icons {
-      margin-top: 1.5rem;
+      margin-top: 3.5rem;
       padding: 0;
       li {
         display: inline-block;
