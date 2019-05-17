@@ -2,11 +2,20 @@
 <div cms:edit="bar"></div>
 [/#if]
 <div class="gato-section-centered">
-
   <div class="mobilefirst-pattern">
     <div class="pattern-content single arrow title-type text-center importantdates">
-      <div class="centered">
-        <h2 class="title">${content.title}</h2>
+      <div class="centered content-flex">
+        <div class="left-col">
+          <h2 class="title">${content.title}</h2>
+          <div class="links">
+            <ul>
+              <li>
+              [#include "/gato-template/templates/components/link.ftl"]
+              </li>
+            </ul>
+          </div>
+        </div>
+          
         [#if content.input == "events"]
           [#if content.events?has_content]
           <div class="events">

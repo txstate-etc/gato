@@ -8,6 +8,16 @@ form:
           label: Title
           required: true
           maxLength: 20
+        - name: text
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Link Text
+        - name: link
+          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+          label: Link Target
+          required: true
+          appName: pages
+          identifierToPathConverter:
+            class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter            
         - name: input
           label: Event Entry
           class: info.magnolia.ui.form.field.definition.SwitchableFieldDefinition
@@ -50,26 +60,7 @@ form:
                     appName: pages
                     identifierToPathConverter:
                       class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
-
-
-        - name: link
-          label: Link
-          class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
-          transformerClass: info.magnolia.ui.form.field.transformer.composite.NoOpCompositeTransformer
-          layout: vertical
-          fields:
-            - name: text
-              class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-              label: Link Text
-              maxLength: 40
-            - name: link
-              class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
-              label: Link Target
-              required: true
-              appName: pages
-              identifierToPathConverter:
-                class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter          
-          
+              
         - name: stylesheet
           label: ""
           class: edu.txstate.its.gato.vaadin.GatoCssIncludeDefinition
