@@ -3,7 +3,7 @@
   [#if cmsfn.isEditMode()]
     <div cms:edit="bar" class="${editclass}"></div>
   [/#if]
-  [#if content.title?has_content]
+  [#if !gf.isEmptyString(content.title)]
     [#local headerlevel = 3]
     [#assign marginClass = content.text?has_content?then('has-text', '')]
     <h2 class="section-title ${content.titleAlign!'center'} ${marginClass}">${content.title!}</h2>
