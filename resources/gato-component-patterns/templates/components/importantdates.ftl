@@ -15,7 +15,6 @@
             </ul>
           </div>
         </div>
-          
         [#if content.input == "events"]
           [#if content.events?has_content]
           <div class="events">
