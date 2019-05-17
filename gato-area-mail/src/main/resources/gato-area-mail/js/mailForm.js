@@ -178,6 +178,7 @@ txstValidate.prototype.showProgress = function() {
 txstValidate.prototype.showPassed = function() {
   this.icon.removeClassName('txst-form-fail');
   this.icon.removeClassName('txst-form-prog');
+  this.icon.setAttribute('aria-hidden', 'true');
   this.icon.addClassName('txst-form-pass');
   if (this.curMessage) {
     this.icon.innerHTML = this.curMessage;
@@ -195,6 +196,7 @@ txstValidate.prototype.showFailed = function() {
   this.icon.removeClassName('txst-form-prog');
   this.icon.removeClassName('txst-form-pass');
   this.icon.addClassName('txst-form-fail');
+  this.icon.setAttribute('aria-hidden', 'false');
   this.icon.innerHTML = this.getErrorMsg();
   this.elem.setAttribute('aria-invalid', 'true');
   this.elem.setAttribute('aria-describedby', this.elem.getAttribute('data-aria-describedby'));
