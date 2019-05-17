@@ -1,7 +1,7 @@
 templateScript: /gato-template-mobilefirst/templates/pages/standard.ftl
 renderType: site
 visible: true
-title: Mobile First Filterable Search
+title: Calico Filterable Search #Formerly "Mobile First Filterable Search"
 dialog: gato-template-mobilefirst:pages/page-properties
 areas: !include /gato-template-mobilefirst/templates/includes/areas.yaml
 parameters:
