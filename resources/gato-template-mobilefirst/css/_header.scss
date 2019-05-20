@@ -2,7 +2,7 @@ header {
   position: fixed;
   z-index: 3;
   width: 100%;
-  max-width: 1600px;
+  max-width: 2000px;
   .header-buttons {
     position: absolute;
     top: 0;
@@ -99,7 +99,7 @@ header {
     left: 120px;
     right: 0;
     top: -60px;
-    max-width: 1480px;
+    max-width: 1880;
     @media (max-width: $mc-breakpoint) {
       width: calc(100vw - 122px);
     }
