@@ -11,6 +11,11 @@ html {
   overflow: auto;
 }
 
+main {
+  min-height: 500px;
+  padding-top: 123px;
+}
+
 body {
   position: relative;
   margin: 0 auto;

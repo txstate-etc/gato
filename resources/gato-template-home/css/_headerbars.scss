@@ -1,5 +1,9 @@
 .header-bars {
   background-color: $white;
+  position: fixed;
+  z-index: 2;
+  left: 0;
+  right: 0;
   @media (max-width: $sm-breakpoint) {
     display: none;
   }

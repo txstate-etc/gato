@@ -87,7 +87,7 @@ jQuery(document).ready(function($) {
 
   $(window).scroll(function(e) {
     var scrolltop = $(window).scrollTop();
-    if (scrolltop > 0 ) {
+    if (scrolltop > 40 ) {
       banner.addClass('scrolled');
       if (header.is('.animatetotop')) {
         stopHeaderAnimation();
