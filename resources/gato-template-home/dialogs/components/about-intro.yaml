@@ -7,14 +7,17 @@ form:
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Subheading
           maxLength: 150      
+          rows: 3
         - name: title
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Title
           maxLength: 150                      
+          rows: 3
         - name: text
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Sub-title
           maxLength: 150
+          rows: 3
         - name: backgroundimage
           class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
           appName: assets
