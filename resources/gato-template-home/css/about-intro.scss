@@ -42,14 +42,13 @@
         background-size: contain;
     }
     .button {
-        margin-top: 22px;
         padding: 10px 20px 9px;
-        border: 1px solid #501214;
+        border: 1px solid $maroon;
         border-radius: 2px;
         background-color: transparent;
         -webkit-transition: all 200ms ease;
         transition: all 200ms ease;
-        color: #501214;
+        color: $maroon;
         font-size: 16px;
         font-weight: 700;
         text-align: center;
