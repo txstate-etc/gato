@@ -1,6 +1,6 @@
 [#include "/gato-template/templates/includes/commonmacros.ftl"]
 <div class="gatoStreamingWrapper">
-  [#if content.title?has_content]
+  [#if !gf.isEmptyString(content.title)]
     [@h2 class="level1header streaming-title"]${content.title}[/@h2]
   [/#if]
   [#assign embedinfo=gf.oEmbedCached(content, cmsfn.decode(content).videourl)!]

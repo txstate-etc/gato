@@ -1,5 +1,5 @@
 <div class="centered">
-  [#if content.title?has_content]
+  [#if !gf.isEmptyString(content.title)]
   <h2 class="title">${content.title}</h2>
   [/#if]
   [#if content.text?has_content]<div class="text">${content.text}</div>[/#if]

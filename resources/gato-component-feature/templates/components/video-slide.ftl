@@ -1,5 +1,5 @@
 [#if !(ctx.barsonly!false)]
-  [#assign notitle = (content.title?has_content || content.subtext?has_content)?string("","no-title")]
+  [#assign notitle = (!gf.isEmptyString(content.title) || content.subtext?has_content)?string("","no-title")]
   <div class="slide video-slide ${ctx.slideactive!''} ${ctx.colorClass!} ${notitle}">
 
     [#assign left = (content.imagecropleft!0.0)?number]
@@ -15,9 +15,9 @@
         </div>
       [/#if]
     </div>
-    [#if content.title?has_content || content.subtext?has_content]
+    [#if !gf.isEmptyString(content.title) || !gf.isEmptyString(content.subtext)]
       <div class="caption">
-        [#if content.title?has_content]
+        [#if !gf.isEmptyString(content.title)]
           [#if content.link?has_content]
             <a href="${gf.filterUrl(content.link!)}">
           [/#if]
@@ -26,7 +26,7 @@
             </a>
           [/#if]
         [/#if]
-        [#if content.subtext?has_content]
+        [#if !gf.isEmptyString(content.subtext)]
           [#assign tidysubtext = gf.tidyHTML(cmsfn.decode(content).subtext!'')]
           <p data-orig-text="${tidysubtext?html}" data-skip-truncation="${ctx.skiptruncation!'false'}">${tidysubtext}</p>[/#if]
         [#if content.videourl?has_content]

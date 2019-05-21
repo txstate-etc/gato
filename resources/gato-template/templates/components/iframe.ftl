@@ -1,7 +1,7 @@
 [#include "/gato-template/templates/includes/commonmacros.ftl"]
 <div class="txst-iframe-container">
 
-  [#if content.title?has_content]
+  [#if !gf.isEmptyString(content.title)]
     [@h2 class="level1header"]${content.title}[/@h2]
   [/#if]
 

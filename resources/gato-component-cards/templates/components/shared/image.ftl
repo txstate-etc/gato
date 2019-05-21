@@ -43,12 +43,12 @@
         </a>
       [/#if]
     </div>
-    [#if content.title?has_content || content.subtext?has_content]
+    [#if !gf.isEmptyString(content.title) || !gf.isEmptyString(content.subtext)]
       <figcaption>
-        [#if content.title?has_content]
+        [#if !gf.isEmptyString(content.title)]
           [@h2 class="title"]${content.title}[/@h2]
         [/#if]
-        [#if content.subtext?has_content]
+        [#if !gf.isEmptyString(content.subtext)]
           <p class="caption-content">
             ${cmsfn.decode(content).subtext}
           </p>

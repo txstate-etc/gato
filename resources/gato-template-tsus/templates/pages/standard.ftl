@@ -19,7 +19,7 @@
       [/#if]
 
       <main class="tsus-contentcolumn txst-styledcontent">
-				[#if content.title?has_content && !isHomePage && !(content.hideTitle!false)]
+				[#if !gf.isEmptyString(content.title) && !isHomePage && !(content.hideTitle!false)]
 					<h1 id="maincontent" class="tsus-page-title">${content.title}</h1>
         [#else]
           <h1 id="maincontent" class="visuallyhidden">Main content</h1>

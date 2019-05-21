@@ -20,7 +20,7 @@
   [/#if]
   <div class="pattern-content title-type">
     [#assign headerLevel = 2]
-    [#if content.title?has_content]
+    [#if !gf.isEmptyString(content.title)]
       <h2 class="title">${content.title}</h2>
       [#assign headerLevel = 3]
     [/#if]

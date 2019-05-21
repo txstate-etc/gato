@@ -6,7 +6,7 @@
     <div class="icontext-icon ${iconColor}">
         <i class="fa ${content.icon!'fa-graduation-cap'}" aria-hidden="true"></i>
     </div>
-    [#if content.title?has_content]
+    [#if !gf.isEmptyString(content.title)]
         [@h2 class="icontext-title"]${content.title}[/@h2]
     [/#if]
     [#if content.text?has_content]
