@@ -1235,9 +1235,6 @@ public final class GatoUtils {
     Node n = toNode(node);
     try {
       String template = NodeTypes.Renderable.getTemplate(n);
-      System.out.println("Template: " + template);
-      System.out.println("template.indexOf.patterns" + template.indexOf("gato-component-patterns"));
-      System.out.println("template.indexOf.home" + template.indexOf("gato-template-home"));
       return (!StringUtils.isEmpty(template) && ((template.indexOf("gato-component-patterns") > -1) || (template.indexOf("gato-template-home") > -1)));
     } catch (Exception e) {
       return false;
