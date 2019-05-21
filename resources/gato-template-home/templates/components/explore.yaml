@@ -1,8 +1,22 @@
 templateScript: /gato-template-home/templates/components/explore.ftl
 renderType: freemarker
-title: "Explore"
-description: Mosaic card tile
-dialog: gato-template-home:components/explore
+title: Explore
+description: Displays multiple images that users can view as a slideshow.
+dialog: gato-component-gallery:components/gallery
+areas:
+  exploreLeft:
+    type: list
+    templateScript: /gato-component-gallery/templates/components/images.ftl
+    title: Explore (left)
+    availableComponents:
+      image:
+        id: gato-component-gallery:components/image
+  exploreRight:
+    type: list
+    templateScript: /gato-component-gallery/templates/components/images.ftl
+    title: Explore (right)
+    availableComponents:
+      image:
+        id: gato-component-gallery:components/image        
 parameters:
-  icon: /gato-component-patterns/images/backgroundimage-text.png
-  tab: Prebuilt Sections
+  icon: /gato-component-gallery/images/image_gallery.png
