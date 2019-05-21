@@ -1,6 +1,6 @@
 [#include "/gato-template/templates/includes/commonmacros.ftl"]
 [#assign offset = 0]
-[#if content.title?has_content]
+[#if !gf.isEmptyString(content.title)]
   [@h2 class="level1header event-list-title" offset=offset]${content.title}[/@h2]
   [#assign offset=offset + 1]
 [/#if]

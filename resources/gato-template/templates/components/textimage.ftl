@@ -5,7 +5,7 @@
 [#assign headerlevel = ctx.headerlevel!2]
 <div class="gato-textimage eq-parent">
   [#-- if there is a title, put it here --]
-  [#if (decodedContent.title)?has_content]
+  [#if !gf.isEmptyString(decodedContent.title)]
     [@h2 class="gato-textimage-title"]
       ${decodedContent.title}
     [/@h2]
