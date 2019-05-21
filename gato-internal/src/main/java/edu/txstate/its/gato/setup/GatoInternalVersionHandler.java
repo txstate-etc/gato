@@ -213,7 +213,12 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       .addTask(new AddMobileFirstFooterLinkHeadersTask())
       .addTask(new SetPropertyTask("REVERT - Automatically open the Add Component dialog in wide mode", RepositoryConstants.CONFIG, "/modules/pages/dialogs/newComponent", "wide", Boolean.FALSE ))
       .addTasks(installOrUpdateTasks())
-    );
+    );    
+    
+    register(DeltaBuilder.update("1.2.3", "")
+      .addTask(new BootstrapSingleModuleResource("config.modules.site.config.site.templates.availability.templates.calico-informational.xml"))
+      .addTasks(installOrUpdateTasks())
+  );
   }
 
   protected List<Task> installOrUpdateTasks() {
