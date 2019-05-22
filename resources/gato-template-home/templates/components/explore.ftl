@@ -14,4 +14,3 @@
 [@cms.area name="exploreLeft"/]
 [@cms.area name="exploreRight"/]
 </div>
-[#include "/gato-lib/templates/includes/pswpmodal.ftl"]

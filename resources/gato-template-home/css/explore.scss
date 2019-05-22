@@ -38,34 +38,5 @@
       }
     }
   }
-
-
-
-  /* Photoswipe overrides (Should these go in gato-lib? or gato-template-2015? */
-  .pswp__ui {
-    .pswp__caption {background-color: transparent;}
-    .pswp__caption__center {text-align: center; font-size: 1.4rem; color: $gallery-caption-text-color;}
-    .pswp__top-bar {background: $gallery-top-bar-background-color; border-bottom: 4px solid $gallery-top-bar-border-color;}
-    .pswp__share-tooltip a {
-      padding: 1rem; margin: 0;
-      &:hover {color: $gallery-tooltip-link-color; text-decoration: underline;}
-      &.pswp__share--facebook:hover:before {border-bottom-color: $gallery-facebook-border-color;}
-    }
-  
-    .pswp__button--arrow--left:before,
-    .pswp__button--arrow--right:before {
-      background: none;
-      background-image: none;
-      font-size: 5rem;
-      color: $gallery-arrow-color;
-    }
-    .pswp__button--arrow--left:before {
-      @include fa('angle-left');
-    }
-    .pswp__button--arrow--right:before {
-      @include fa('angle-right');
-    }
-      
-  }
 }
 
