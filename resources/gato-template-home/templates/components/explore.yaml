@@ -6,17 +6,19 @@ dialog: gato-component-gallery:components/gallery
 areas:
   exploreLeft:
     type: list
-    templateScript: /gato-component-gallery/templates/components/images.ftl
+    templateScript: /gato-template-home/templates/components/cards.ftl
     title: Explore (left)
+    maxComponents: 4
     availableComponents:
       image:
-        id: gato-component-gallery:components/image
+        id: gato-template-home:components/card
   exploreRight:
     type: list
-    templateScript: /gato-component-gallery/templates/components/images.ftl
+    templateScript: /gato-template-home/templates/components/cards.ftl
     title: Explore (right)
+    maxComponents: 4
     availableComponents:
       image:
-        id: gato-component-gallery:components/image        
+        id: gato-template-home:components/card
 parameters:
   icon: /gato-component-gallery/images/image_gallery.png

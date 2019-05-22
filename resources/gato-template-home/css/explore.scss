@@ -21,8 +21,9 @@
   }
   .explore-flex {
     display: flex;
+    max-height: 900px;
   }
-  .explore-background {
+  .explore {
     background-color: $maroon;
     .explore-bar {
       max-width: 1200px;

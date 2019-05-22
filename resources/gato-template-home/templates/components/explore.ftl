@@ -1,7 +1,7 @@
 [#include "/gato-template/templates/includes/commonmacros.ftl"]
 [#if cmsfn.isEditMode()]<div cms:edit></div>[/#if]
 [#if content.title?has_content]
-<div class="explore-background">
+<div class="explore">
   <div class="explore-bar">
     [@h2 class="explore-title"]${content.title}[/@h2]
   </div>
