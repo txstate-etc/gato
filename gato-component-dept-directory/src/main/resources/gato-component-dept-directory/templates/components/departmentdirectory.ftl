@@ -29,7 +29,7 @@
     [/#if]
 [/#macro]
 
-[#if content.title??]
+[#if !gf.isEmptyString(content.title)]
     [@h2 class="level1header"]${content.title}[/@h2]
 [/#if]
 [#assign filter = 'All']

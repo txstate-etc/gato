@@ -23,7 +23,7 @@
   [/#if]
 [/#macro]
 
-[#if (content.title!"")?length > 0]
+[#if !gf.isEmptyString(content.title)]
   [@h2 class="level1header"]${content.title}[/@h2]
 [/#if]
 [#if cmsfn.isAuthorInstance()]
