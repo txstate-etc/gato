@@ -6,6 +6,16 @@
   [/#if]
 [/#macro]
 
+[#function hasTallComponent components]
+  [#list components as component]
+    [#if component.orientation == 'tall']
+      [#return true]
+      [#break]
+    [/#if]
+  [/#list]    
+ [#return false]  
+[/#function]
+
 [#macro navloop items]
 	[#list items as item]
 		[#if !(item.hideInNav!false)]
