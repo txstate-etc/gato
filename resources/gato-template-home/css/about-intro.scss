@@ -1,5 +1,8 @@
 .mobilefirst-pattern {
     max-height: none;
+    img {
+        width: 50%;
+    }
     .corner-image {
         position: relative;
         max-width: 85px;
@@ -36,11 +39,7 @@
             }                     
         }
     } 
-    .background-image {
-        background-repeat: no-repeat;
-        background-position-x: right;
-        background-size: contain;
-    }
+
     .button {
         padding: 10px 20px 9px;
         border: 1px solid $maroon;

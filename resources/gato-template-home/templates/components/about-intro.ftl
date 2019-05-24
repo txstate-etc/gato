@@ -4,7 +4,7 @@
 <div class="gato-section-centered">
     <div class="mobilefirst-pattern centered">
         <div class="pattern-content arrow title-type about-intro">
-            <div class="background-image" style='background-image: url("${gf.getImgDefault(content.backgroundimage)}")'>
+            <div class="about">
                 [#if content.image?has_content]
                 <div class="corner-image">
                     <img src="${gf.getImgDefault(content.image)}" alt="${content.imageAlt!''}" class="${content.color}" position="absolute"/>
@@ -15,6 +15,9 @@
                         <div class="subheading centered">${content.subheading}</div>
                     [/#if]
                     [#include "/gato-component-patterns/templates/components/common/titlebuttons.ftl"]
+                </div>
+                <div class="image">
+                    <img src="${gf.getImgDefault(content.backgroundimage)}"/>
                 </div>
             </div>
         </div>
