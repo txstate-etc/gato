@@ -1,10 +1,24 @@
-<ul class="gato-gallery txst-gallery">
+[#include "/gato-template/templates/includes/commonmacros.ftl"]
+[#if hasTallComponent(components)]
+  [#assign flexDirection = 'flex-direction: column']
+  [#assign maxWidth = 'max-width: 50%']
+[#else]
+  [#assign flexDirection = 'flex-direction: inherit']
+  [#assign maxWidth = 'max-width: inherit']  
+[/#if]  
+<div class="gato-gallery txst-gallery" style="${flexDirection}">
   [#list components as component ]
-    <li class="gato-gallery-image txst-gallery-image">
+    [#if component.orientation == 'wide']
+      [#assign flexBasis = 'flex-basis: 100%']
+    [#else]
+      [#assign flexBasis = 'flex-basis: 45%']      
+    [/#if]
+
+    <div class="gato-gallery-image txst-gallery-image" style="${flexBasis}; ${maxWidth}">
       [@cms.component content=component /]
-    </li>
+    </div>
   [/#list]
   [#if cmsfn.isEditMode()]
     <li class="add gato-gallery-image txst-gallery-image" cms:add="box"></li>
   [/#if]
-</ul>
+</div>

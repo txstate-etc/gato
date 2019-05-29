@@ -45,30 +45,30 @@ form:
               label: Normal
               value: normal
               selected: true
-            - name: horizontal
-              label: Horizontal
-              value: horizontal
-            - name: vertical
-              label: Vertical
-              value: vertical
+            - name: wide
+              label: Wide
+              value: wide
+            - name: tall
+              label: Tall
+              value: tall
 
     - name: tabThumbnail
       label: Crops
       fields:
         - name: square
           class: edu.txstate.its.gato.vaadin.ThumbnailSelectorFieldDefinition
-          label: Square crop
-          controlName: sqare
-        - name: script
+          label: Square Crop
+          controlName: square
+        - name: squarescript
           class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
           fields:
-            - name: imagecropleft
+            - name: squarecropleft
               class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
-            - name: imagecropright
+            - name: squarecropright
               class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
-            - name: imagecroptop
+            - name: squarecroptop
               class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
-            - name: imagecropbottom
+            - name: squarecropbottom
               class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
           transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
           initFunction: initThumbnailSelector
@@ -77,11 +77,11 @@ form:
           loadScriptsInOrder: true
           label: ''
           parameters:
-            aspect: 1
-            controlName: sqare
+            aspect: 1.3333
+            controlName: square
         - name: wide
           class: edu.txstate.its.gato.vaadin.ThumbnailSelectorFieldDefinition
-          label: Horizontal Crop
+          label: Wide Crop
           controlName: wide
         - name: widescript
           class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
@@ -101,11 +101,11 @@ form:
           loadScriptsInOrder: true
           label: ''
           parameters:
-            aspect: 1.5
+            aspect: 2.66667
             controlName: wide
         - name: tall
           class: edu.txstate.its.gato.vaadin.ThumbnailSelectorFieldDefinition
-          label: Horizontal Crop
+          label: Tall Crop
           controlName: tall
         - name: tallscript
           class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
@@ -125,6 +125,6 @@ form:
           loadScriptsInOrder: true
           label: ''
           parameters:
-            aspect: .5
+            aspect: .666667
             controlName: tall               
 actions: !include /gato-template/dialogs/common/actions-block.yaml

@@ -5,12 +5,12 @@
   <div class="explore-bar">
     [@h2 class="explore-title"]${content.title}[/@h2]
   </div>
-</div>
-[/#if]
-[#if content.caption?has_content]
-  <p>${content.caption}</p>
-[/#if]
-<div class="explore-flex">
-[@cms.area name="exploreLeft"/]
-[@cms.area name="exploreRight"/]
+  [/#if]
+  [#if content.caption?has_content]
+    <p>${content.caption}</p>
+  [/#if]
+  <div class="explore-flex">
+  [@cms.area name="exploreLeft"/]
+  [@cms.area name="exploreRight"/]
+  </div>
 </div>

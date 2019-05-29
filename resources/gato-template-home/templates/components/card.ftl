@@ -2,92 +2,36 @@
 [#assign imageSize = "${assetMap.metadata.mgnl.width?c}x${assetMap.metadata.mgnl.height?c}"]
 [#switch content.orientation]
   [#case "normal"]
-    [#assign thumb =
-      gf.getImgDefault(
-        content.image,
-        (content.imagecropleft!0)?number!0,
-        (content.imagecropright!0)?number!0,
-        (content.imagecroptop!0)?number!0,
-        (content.imagecropbottom!0)?number!0,
-        true
-      )
-    ]    
-    [#assign thumbsrcset =
-      gf.getSrcSet(
-        content.image,
-        (content.imagecropleft!0)?number!0,
-        (content.imagecropright!0)?number!0,
-        (content.imagecroptop!0)?number!0,
-        (content.imagecropbottom!0)?number!0,
-        true
-      )
-    ]    
+    [#assign left = (content.squarecropleft!0.0)?number]
+    [#assign right = (content.squarecropright!0.0)?number]
+    [#assign top = (content.squarecroptop!0.0)?number]
+    [#assign bottom = (content.squarecropbottom!0.0)?number]
+    [#assign aspectratio = 1.3333]
     [#break]
-  [#case "horizontal"]
-    [#assign thumb =
-      gf.getImgDefault(
-        content.image,
-        (content.widecropleft!0)?number!0,
-        (content.widecropright!0)?number!0,
-        (content.widecroptop!0)?number!0,
-        (content.widecropbottom!0)?number!0,
-        true
-      )
-    ]    
-    [#assign thumbsrcset =
-      gf.getSrcSet(
-        content.image,
-        (content.widecropleft!0)?number!0,
-        (content.widecropright!0)?number!0,
-        (content.widecroptop!0)?number!0,
-        (content.widecropbottom!0)?number!0,
-        true
-      )
-    ]      
+
+  [#case "wide"]
+    [#assign left = (content.widecropleft!0.0)?number]
+    [#assign right = (content.widecropright!0.0)?number]
+    [#assign top = (content.widecroptop!0.0)?number]
+    [#assign bottom = (content.widecropbottom!0.0)?number]
+    [#assign aspectratio = 2.6667]
     [#break]
-  [#case "vertical"]
-    [#assign thumb =
-      gf.getImgDefault(
-        content.image,
-        (content.tallcropleft!0)?number!0,
-        (content.tallcropright!0)?number!0,
-        (content.tallcroptop!0)?number!0,
-        (content.tallcropbottom!0)?number!0,
-        true
-      )
-    ]    
-    [#assign thumbsrcset =
-      gf.getSrcSet(
-        content.image,
-        (content.tallcropleft!0)?number!0,
-        (content.tallcropright!0)?number!0,
-        (content.tallcroptop!0)?number!0,
-        (content.tallcropbottom!0)?number!0,
-        true
-      )
-    ]      
+
+  [#case "tall"]
+    [#assign left = (content.tallcropleft!0.0)?number]
+    [#assign right = (content.tallcropright!0.0)?number]
+    [#assign top = (content.tallcroptop!0.0)?number]
+    [#assign bottom = (content.tallcropbottom!0.0)?number]  
+    [#assign aspectratio = 0.666667]
     [#break]
+
   [#default]
-    [#assign thumb =
-      gf.getImgDefault(
-        content.image,
-        (content.imagecropleft!0)?number!0,
-        (content.imagecropright!0)?number!0,
-        (content.imagecroptop!0)?number!0,
-        (content.imagecropbottom!0)?number!0,
-        true
-      )
-    ]    
-    [#assign thumbsrcset =
-      gf.getSrcSet(
-        content.image,
-        (content.imagecropleft!0)?number!0,
-        (content.imagecropright!0)?number!0,
-        (content.imagecroptop!0)?number!0,
-        (content.imagecropbottom!0)?number!0,
-        true
-      )
-    ]        
+    [#assign left = (content.imagecropleft!0.0)?number]
+    [#assign right = (content.imagecropright!0.0)?number]
+    [#assign top = (content.imagecroptop!0.0)?number]
+    [#assign bottom = (content.imagecropbottom!0.0)?number]  
+    [#assign aspectratio = 1.3333]
+
   [/#switch]
 
 <!--Check for whitespace in alt text-->
@@ -97,6 +41,4 @@
   [#assign altText = content.imageAlt]
 [/#if]
 
-<a href="${gf.getImgDefault(content.image)}" title="${content.caption!''}" data-size="${imageSize}" data-srcset="${gf.getSrcSet(content.image)}">
-  <img src="${thumb}" srcset="${thumbsrcset}" sizes="225px" alt="${altText}" />
-</a>
+<img src="${gf.getImgDefault(content.image, left, right, top, bottom, aspectratio)}" srcset="${gf.getImgDefault(content.image, left, right, top, bottom, aspectratio)}" />
