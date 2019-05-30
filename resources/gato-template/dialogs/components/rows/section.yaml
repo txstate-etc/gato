@@ -25,6 +25,7 @@ form:
             - name: center
               label: Center
               selected: true
+
         - name: text
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           required: false
@@ -34,7 +35,14 @@ form:
         - name: stylesheet
           label: ""
           class: edu.txstate.its.gato.vaadin.GatoCssIncludeDefinition
-          styles: [gato-template/dialogs/css/section-dialog.css]
+          styles: [gato-template/dialogs/css/section-dialog.css]  
+        - name: attachSection
+          class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+          label: Attach Section
+          type: Boolean
+          buttonLabel: "The content in this section is related to the content in the previous section."
+          description: This setting affects the appearance of titles and subtitles, and the visual space between sections.
+
     - name: tabBackground
       label: Background Color
       fields:

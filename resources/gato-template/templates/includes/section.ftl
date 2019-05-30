@@ -1,3 +1,4 @@
+[#include "/gato-template/templates/includes/commonmacros.ftl"]
 [#macro sectionLabel editclass='section-bar']
   [#local headerlevel = 2]
   [#if cmsfn.isEditMode()]
@@ -6,7 +7,11 @@
   [#if !gf.isEmptyString(content.title)]
     [#local headerlevel = 3]
     [#assign marginClass = content.text?has_content?then('has-text', '')]
-    <h2 class="section-title ${content.titleAlign!'center'} ${marginClass}">${content.title!}</h2>
+    [#if content.attachSection!false]
+      [#assign offset=1]
+      [#local headerlevel++]
+    [/#if]
+    [@h2 offset=offset class="section-title content.titleAlign!'center' marginClass"]${content.title!}[/@h2]
   [/#if]
   [#if content.text?has_content]
     <p class="section-text ${content.titleAlign!'center'}">${content.text}</p>

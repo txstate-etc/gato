@@ -1248,6 +1248,16 @@ public final class GatoUtils {
 
   }
 
+  public boolean isAttached(Object node) {
+    if (node == null) return false;
+    Node n = toNode(node);
+    try {
+      return n.getProperty("attachSection").getBoolean();
+    } catch (Exception e) {
+      return false;
+    }
+  }
+
   public String replaceExtension(String url, String newextension) {
     return url.replaceAll("\\.[^/\\.]+$", "."+newextension);
   }
