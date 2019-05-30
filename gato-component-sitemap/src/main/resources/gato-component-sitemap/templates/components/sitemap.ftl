@@ -24,7 +24,7 @@
 [/#macro]
 
 [#if !gf.isEmptyString(content.title)]
-  [@h2 class="level1header"]${content.title}[/@h2]
+  [@h2]${content.title}[/@h2]
 [/#if]
 [#if cmsfn.isAuthorInstance()]
   <div class="txst-khan-notice">

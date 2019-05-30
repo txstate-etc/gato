@@ -2,7 +2,7 @@
 <div class="txst-iframe-container">
 
   [#if !gf.isEmptyString(content.title)]
-    [@h2 class="level1header"]${content.title}[/@h2]
+    [@h2]${content.title}[/@h2]
   [/#if]
 
   <iframe class="txst-iframe"

@@ -1,7 +1,7 @@
 [#include "/gato-template/templates/includes/commonmacros.ftl"]
 <div class="gato-twitter-feed">
   [#if !gf.isEmptyString(content.title)]
-    [@h2 class="level1header"]${content.title}[/@h2]
+    [@h2]${content.title}[/@h2]
   [/#if]
 
   <div class="gato-twitter-list">

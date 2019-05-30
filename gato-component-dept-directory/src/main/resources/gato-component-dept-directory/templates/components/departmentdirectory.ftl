@@ -30,7 +30,7 @@
 [/#macro]
 
 [#if !gf.isEmptyString(content.title)]
-    [@h2 class="level1header"]${content.title}[/@h2]
+    [@h2]${content.title}[/@h2]
 [/#if]
 [#assign filter = 'All']
 [#if content.filter??]
