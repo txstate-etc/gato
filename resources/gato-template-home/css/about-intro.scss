@@ -1,7 +1,7 @@
 .mobilefirst-pattern {
     max-height: none;
     img {
-        width: 50%;
+        width: 100%;
     }
     .corner-image {
         position: relative;
@@ -35,8 +35,14 @@
                 background-color: $mc7-bg;
             }
             [data-eq~="800px"] & {
-                max-width: 60px;
-            }                     
+                max-width: none;
+            }         
+            [data-eq~="600px"] & {
+                max-width: 6rem;
+            }                               
+        }
+        [data-eq~="800px"] & {
+            float: none;
         }
     } 
 
@@ -53,6 +59,7 @@
         text-align: center;
     }
     .pattern-content.about-intro {
+        display: block;
         margin: 0 auto;
         width:100%;
     }
@@ -69,16 +76,45 @@
         padding-bottom: 6rem;
         float: left;
         height: 100%;
+        z-index: 2;
         [data-eq~="800px"] & {
-            padding-top: 100px;
-            padding-left: 0;
-            
+            width: 100%;
+            float: none;
+            max-width: none;
+            padding-top: 16rem !important;
         }
     }
     .subheading {
         margin-bottom: 20px;
         color: $gold;
     }
+    .image {
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 1;
+        width: 60%;
+        [data-eq~="1000px"] & {
+            opacity: 0.5;
+        }
+        [data-eq~="800px"] & {
+            width: 100%;
+            opacity: 1;
+            text-align: center;
 
+            img {
+                width: 80%;
+            }
+        }
+        [data-eq="600px"] & {
+            width: 100%;
+        }
 
+    }
+    @media (max-width: 50em) {
+        .title-type {
+            padding:0rem;
+        }
+    }
 }
