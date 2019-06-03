@@ -1,3 +1,4 @@
+[#include "/gato-template/templates/includes/commonmacros.ftl"]
 [#assign hideSidebar = ctx.getAttribute("hideSidebar")!false]
 [#assign mainContentClass = hideSidebar?string(' full-width','')]
 [#list components as component]
@@ -12,7 +13,7 @@
             Background color will not show up if this section is next to the sidebar.
           </div>
         [/#if]
-        [@cms.component content=component /]
+        [@cms.component content=component contextAttributes={"firstSectionWithTitle": firstSectionWithTitle(components, component?counter)}/]
       </div>
     </div>
   </div>
