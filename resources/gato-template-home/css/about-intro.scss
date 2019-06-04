@@ -11,6 +11,7 @@
         float: left;
         padding: 0;
         width: 100%;
+        z-index:2;
         img {
             width: 100%;
             &.color1 {
@@ -82,6 +83,8 @@
             float: none;
             max-width: none;
             padding-top: 16rem !important;
+            padding-left: 0;
+            padding-bottom: 4rem;
         }
     }
     .subheading {
@@ -99,12 +102,12 @@
             opacity: 0.5;
         }
         [data-eq~="800px"] & {
-            width: 100%;
+            width: 90%;
             opacity: 1;
             text-align: center;
 
             img {
-                width: 80%;
+                width: 90%;
             }
         }
         [data-eq="600px"] & {
@@ -112,9 +115,20 @@
         }
 
     }
+
+    .centered {
+        [data-eq~="800px"] & {
+            max-width: none;
+        }
+    }    
     @media (max-width: 50em) {
         .title-type {
             padding:0rem;
+        }
+    }
+    @media (max-width: 320px) {
+        .content {
+            padding-top: 11rem;
         }
     }
 }
