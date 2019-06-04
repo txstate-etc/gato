@@ -8,7 +8,7 @@
   <div class="gato-section-full full-width ${hasBackgroundClass}${cardLayoutClass}${patternClass}${attached}">
     <div class="gato-section-centered">
       <div class="gato-section eq-parent">
-        [@cms.component content=component contextAttributes={"firstSectionWithTitle": firstSectionWithTitle(components, component?counter)!false}/]
+        [@cms.component content=component contextAttributes={"hasThereBeenSectionWithTitleBefore": hasThereBeenSectionWithTitleBefore(components, component?counter)!false}/]
       </div>
     </div>
   </div>

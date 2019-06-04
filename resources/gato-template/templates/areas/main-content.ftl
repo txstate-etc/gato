@@ -13,7 +13,7 @@
             Background color will not show up if this section is next to the sidebar.
           </div>
         [/#if]
-        [@cms.component content=component contextAttributes={"firstSectionWithTitle": firstSectionWithTitle(components, component?counter)}/]
+        [@cms.component content=component contextAttributes={"hasThereBeenSectionWithTitleBefore": hasThereBeenSectionWithTitleBefore(components, component?counter)!false}/]
       </div>
     </div>
   </div>
