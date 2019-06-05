@@ -10,7 +10,7 @@ form:
           fields:
             - name: prefix
               class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-              label: Form-of-address
+              label: Prefix
             - name: firstname
               class: info.magnolia.ui.form.field.definition.TextFieldDefinition
               label: First Name
