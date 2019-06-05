@@ -1,10 +1,19 @@
-footer .top .top-footer-content {
-  .footer-column .footer-column-content {
-    .footer-column-title {
-      display: none;
+footer {
+  .top .top-footer-content {
+    .footer-column .footer-column-content {
+      .footer-column-title {
+        display: none;
+      }
+      .connect-links.no-header {
+        margin-top: 0;
+      }
     }
-    .connect-links.no-header {
-      margin-top: 0;
+  }
+  .bottom .bottom-footer-content {
+    img {
+      @media (max-width:$xs-breakpoint) {
+        width: 100%;
+      }
     }
   }
 }
