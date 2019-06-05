@@ -3,6 +3,9 @@
     img {
         width: 100%;
     }
+    .text{
+        max-width: none;
+    }
     .corner-image {
         position: relative;
         max-width: 85px;
@@ -11,7 +14,7 @@
         float: left;
         padding: 0;
         width: 100%;
-        z-index:2;
+        z-index: 1;
         img {
             width: 100%;
             &.color1 {
@@ -77,15 +80,19 @@
         padding-bottom: 6rem;
         float: left;
         height: 100%;
-        z-index: 2;
+        z-index: 1;
+
         [data-eq~="800px"] & {
             width: 100%;
             float: none;
             max-width: none;
-            padding-top: 16rem !important;
+            padding-top: 20rem;
             padding-left: 0;
             padding-bottom: 4rem;
         }
+        [data-eq~="400px"] & {
+            padding-top: 11rem;
+        }                
     }
     .subheading {
         margin-bottom: 20px;
@@ -96,18 +103,17 @@
         position: absolute;
         top: 0;
         right: 0;
-        z-index: 1;
         width: 60%;
         [data-eq~="1000px"] & {
             opacity: 0.5;
         }
         [data-eq~="800px"] & {
-            width: 90%;
+            width: 100%;
             opacity: 1;
             text-align: center;
 
             img {
-                width: 90%;
+                width: 80%;
             }
         }
         [data-eq="600px"] & {
@@ -126,9 +132,5 @@
             padding:0rem;
         }
     }
-    @media (max-width: 320px) {
-        .content {
-            padding-top: 11rem;
-        }
-    }
+
 }
