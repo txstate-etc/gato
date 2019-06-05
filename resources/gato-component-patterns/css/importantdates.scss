@@ -41,7 +41,7 @@
       margin-bottom: 0;
     }
     .events {
-      flex: 2 0 0;
+      flex: 3 0 0;
       display: flex;
       justify-content: space-around;
       flex-flow: row wrap;
@@ -51,9 +51,9 @@
     .event {
       text-align: left;
       flex: 1 1 calc(33.33% - 20px);
-      max-width: 180px;
+      padding: 0 2rem;
       [data-eq~="600px"] & {
-        max-width: none;
+        padding: 0;
       }
       .links  {
         align-items: inherit;
