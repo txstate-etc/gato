@@ -45,6 +45,17 @@ body ul.gato-faq-hierarchy {
       margin: 1rem 0 2rem 0;
       font-size: 1.3em;
     }
+
+    //force faq headers to look like they start at h3
+    .h3styles {
+      @extend h3;
+    }
+    .h4styles {
+      @extend h4;
+    }
+    .h5styles {
+      @extend h5;
+    }
   }
 
   .gato-faq-group-children {

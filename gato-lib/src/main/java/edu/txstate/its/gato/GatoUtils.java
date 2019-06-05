@@ -665,6 +665,10 @@ public final class GatoUtils {
     h.tagName("h"+Long.toString(level));
   }
 
+  public void addHeaderClass(Element h, long level, long difference) {
+    h.addClass("h"+Long.toString(level-difference)+"styles");
+  }
+
   public String fixHeaders(String rawhtml, long highestLevel) {
     Elements body = Jsoup.parse("<!DOCTYPE html><html><head></head><body>"+rawhtml+"</body></html>").select("body");
     Elements allHeaders = body.first().select("h1,h2,h3,h4,h5,h6");
@@ -677,16 +681,20 @@ public final class GatoUtils {
     while (headerIndex < allHeaders.size()) {
       Element h = allHeaders.get(headerIndex);
       int headerLevel = Integer.parseInt(h.tagName().substring(h.tagName().length()-1));
+      long difference = highestLevel-3;
       if (headerLevel > parentLevel) {
         updateTag(h, currentLevel);
+        addHeaderClass(h, currentLevel, difference);
         headerIndex = processHeaders(false, currentLevel + 1, headerLevel, headerIndex + 1, allHeaders, highestLevel);
       }
       else if (isRoot) {
         updateTag(h, highestLevel);
+        addHeaderClass(h, currentLevel, difference);
         headerIndex = processHeaders(false, highestLevel + 1, headerLevel, headerIndex + 1, allHeaders, highestLevel);
       }
       else if (headerLevel == parentLevel) {
         updateTag(h, currentLevel - 1);
+        addHeaderClass(h, currentLevel-1, difference);
         headerIndex++;
       }
       else {
