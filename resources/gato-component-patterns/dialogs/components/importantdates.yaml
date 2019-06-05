@@ -14,7 +14,6 @@ form:
         - name: link
           class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
           label: Link Target
-          required: true
           appName: pages
           identifierToPathConverter:
             class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter            
@@ -47,7 +46,7 @@ form:
                     required: true
                     class: info.magnolia.ui.form.field.definition.TextFieldDefinition
                     label: Event Title
-                    maxLength: 20
+                    maxLength: 50
                   - name: date
                     required: true
                     type: Date
