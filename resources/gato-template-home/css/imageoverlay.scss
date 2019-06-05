@@ -1,0 +1,25 @@
+.image-overlay{
+    .overlay-block{
+        max-width: 800px;
+    }
+    
+    li {
+        width: 33.333%;
+        margin: 0;
+        padding: 1.5rem;
+
+        [data-eq~="600px"] & {
+            width: 100%;
+            padding: 1.5rem 0 0 0;
+        }
+    }
+    a {
+        width: 100%;
+    }
+
+    .text-center {
+        [data-eq~="600px"] & {
+            text-align: left;
+        }
+    }
+}
