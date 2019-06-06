@@ -49,12 +49,15 @@ body ul.gato-faq-hierarchy {
     //force faq headers to look like they start at h3
     .h3styles {
       @extend h3;
+      display: block;
     }
     .h4styles {
       @extend h4;
+      display: block;
     }
     .h5styles {
       @extend h5;
+      display: block;
     }
   }
 
