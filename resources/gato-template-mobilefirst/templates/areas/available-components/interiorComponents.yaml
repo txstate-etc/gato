@@ -17,6 +17,14 @@ textimagelinks:
   id: gato-component-patterns:components/textimagelinks
 imageoverlay:
   id: gato-component-patterns:components/imageoverlay
+callout:
+  id: gato-component-patterns:components/callout
+calloutimage:
+  id: gato-component-patterns:components/calloutimage
+twocallouts:
+  id: gato-component-patterns:components/twocallouts
+quoteimage:
+  id: gato-component-patterns:components/quoteimage
 
 
 #layouts
