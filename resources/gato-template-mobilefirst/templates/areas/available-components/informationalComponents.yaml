@@ -5,10 +5,6 @@ titlebuttons:
   id: gato-component-patterns:components/titlebuttons
 titlelinks:
   id: gato-component-patterns:components/titlelinks
-buttonsimage:
-  id: gato-component-patterns:components/buttonsimage
-linksimage:
-  id: gato-component-patterns:components/linksimage
 twocolcta:
   id: gato-component-patterns:components/twocolcta
 icontextmulti:
@@ -19,30 +15,22 @@ textimagebuttons:
   id: gato-component-patterns:components/textimagebuttons
 textimagelinks:
   id: gato-component-patterns:components/textimagelinks
-imageoverlay:
-  id: gato-component-patterns:components/imageoverlay
-callout:
-  id: gato-component-patterns:components/callout
-calloutimage:
-  id: gato-component-patterns:components/calloutimage
-twocallouts:
-  id: gato-component-patterns:components/twocallouts
 quoteimage:
   id: gato-component-patterns:components/quoteimage
 
 
 #layouts
 full:
-  id: gato-template-mobilefirst:components/rows-interior/full
+  id: gato-template-mobilefirst:components/rows-informational/full
 halves:
-  id: gato-template-mobilefirst:components/rows-interior/halves
+  id: gato-template-mobilefirst:components/rows-informational/halves
 onethirdtwothirds:
-  id: gato-template-mobilefirst:components/rows-interior/onethirdtwothirds
+  id: gato-template-mobilefirst:components/rows-informational/onethirdtwothirds
 twothirdsonethird:
-  id: gato-template-mobilefirst:components/rows-interior/twothirdsonethird
+  id: gato-template-mobilefirst:components/rows-informational/twothirdsonethird
 thirds:
-  id: gato-template-mobilefirst:components/rows-interior/thirds
+  id: gato-template-mobilefirst:components/rows-informational/thirds
 quarters:
-  id: gato-template-mobilefirst:components/rows-interior/quarters
+  id: gato-template-mobilefirst:components/rows-informational/quarters
 cardlayoutgrid:
   id: gato-component-cards:components/layouts/grid

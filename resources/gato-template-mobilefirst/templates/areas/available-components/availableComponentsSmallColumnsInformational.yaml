@@ -1,14 +1,11 @@
-#feature
-articlelink:
-  id: gato-template:components/articlelink
 button:
   id: gato-template-mobilefirst:components/button
-events:
-  id: gato-component-events:components/events
+documents:
+  id: gato-component-documents:components/documents
 streaming:
   id: gato-component-streaming:components/streaming
-icontext:
-  id: gato-template:components/icontext
+faqhierarchy:
+  id: gato-component-faq:components/faq-hierarchy
 imagecard:
   id: gato-component-cards:components/regular/image
 gallery:
@@ -21,6 +18,8 @@ separator:
   id: gato-template:components/separator
 feature:
   id: gato-component-feature:components/feature
+table:
+  id: gato-template:components/table
 textimage:
   id: gato-template:components/textimage
 videocard:
