@@ -61,8 +61,10 @@
           [#elseif def.parameters.isFilterableSearchTemplate!false]
             [@cms.area name="filterable-search-intro"/]
             [@cms.area name="filterable-search"/]
-          [#else]
+          [#elseif def.parameters.isVariableTemplate!false]
             [@cms.area name="contentParagraph"/]
+          [#else]
+            [@cms.area name="calicoInformational"/]
           [/#if]
         [/#if]
       </main>

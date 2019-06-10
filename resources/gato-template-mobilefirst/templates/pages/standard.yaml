@@ -5,6 +5,7 @@ title: Calico Variable #formerly "Mobile First"
 dialog: gato-template-mobilefirst:pages/page-properties
 areas: !include /gato-template-mobilefirst/templates/includes/areas.yaml
 parameters:
+  isVariableTemplate: true
   sortOrder: 306
   favicon: /gato-template-mobilefirst/images/favicon.png
 variations:

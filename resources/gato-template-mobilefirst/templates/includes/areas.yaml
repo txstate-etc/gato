@@ -39,19 +39,26 @@ organization-info:
   availableComponents:
     parentOrg:
       id: gato-template-mobilefirst:components/parentOrganization
-contentParagraph:
-  title: Interior Page Main Content Area
+mobileFirstContent: #feature
+  type: list
+  title: Home Page Main Content Area
+  templateScript: /gato-template-mobilefirst/templates/areas/mobilefirst-content.ftl
+  availableComponents:
+    !include /gato-template-mobilefirst/templates/areas/available-components/homeComponents.yaml      
+contentParagraph: #variable
+  title: Variable Page Main Content Area
   templateScript: /gato-template-mobilefirst/templates/areas/mobilefirst-content.ftl
   parameters:
     tabs: true
   availableComponents:
     !include /gato-template-mobilefirst/templates/areas/available-components/interiorComponents.yaml
-mobileFirstContent:
-  type: list
-  title: Home Page Main Content Area
+calicoInformational:  #informational
+  title: Informational Page Main Content Area
   templateScript: /gato-template-mobilefirst/templates/areas/mobilefirst-content.ftl
+  parameters:
+    tabs: true
   availableComponents:
-    !include /gato-template-mobilefirst/templates/areas/available-components/homeComponents.yaml
+    !include /gato-template-mobilefirst/templates/areas/available-components/informationalComponents.yaml    
 socialmedia:
   type: single
   templateScript: /gato-template/templates/areas/optional-social.ftl
