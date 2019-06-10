@@ -14,8 +14,10 @@
     line-height: 0;
     max-height: 900px;
 
+    [data-eq~="1600px"] & { max-height: 600px; }
     [data-eq~="1200px"] & { max-height: 500px; }
-    [data-eq~="900px"] & { max-height: 300px; }
+    [data-eq~="900px"] & { max-height: 400px; }
+    [data-eq~="800px"] & { max-height: 300px; }
 
 
     .gato-gallery-image {
