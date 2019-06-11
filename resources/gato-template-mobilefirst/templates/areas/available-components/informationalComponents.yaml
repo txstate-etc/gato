@@ -15,8 +15,12 @@ textimagebuttons:
   id: gato-component-patterns:components/textimagebuttons
 textimagelinks:
   id: gato-component-patterns:components/textimagelinks
-quoteimage:
-  id: gato-component-patterns:components/quoteimage
+callout:
+  id: gato-component-patterns:components/callout
+calloutimage:
+  id: gato-component-patterns:components/calloutimage
+twocallouts:
+  id: gato-component-patterns:components/twocallouts  
 
 
 #layouts
