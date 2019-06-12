@@ -22,7 +22,7 @@ footer {
         }
         @media (max-width: $sm-breakpoint) {
           width: auto;
-          padding: 0;
+          padding: 1rem 2rem;
         }
         &.contact {
           border-right: 1px solid $darkgray;
