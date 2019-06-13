@@ -11,12 +11,13 @@
         
         .explore-title {
           color: $white;
-          padding: 3rem;       
+          padding: 3rem 0 3rem 3rem;       
           margin-bottom: 0;
         }
         
         .links  {
           display: flex;
+          padding: 3rem 3rem 3rem 0;       
           align-items: inherit;
           margin: auto 0;
           ul {
@@ -43,6 +44,8 @@
       
       .explore-flex {
         display: flex;
+        overflow-x: auto;
+        flex-flow: nowrap;
       
         .gato-gallery {
           display: flex;
@@ -60,9 +63,22 @@
           [data-eq~="1600px"] & { max-height: 600px; }
           [data-eq~="1200px"] & { max-height: 500px; }
           [data-eq~="900px"] & { max-height: 400px; }
-          [data-eq~="800px"] & { max-height: 300px; }
-      
-      
+          [data-eq~="800px"] & {
+            flex: 0 0 auto;
+            max-height: 700px;
+          }
+          [data-eq~="700px"] & {
+            max-height: 600px;
+          }          
+          [data-eq~="600px"] & {
+            max-height: 500px;
+          }                
+          [data-eq~="500px"] & {
+            max-height: 400px;
+          }        
+          [data-eq~="400px"] & {
+            max-height: 300px;
+          }                              
           .gato-gallery-image {
             flex: 1 0 45%;
             img {
