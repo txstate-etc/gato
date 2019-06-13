@@ -2,7 +2,7 @@ templateScript: /gato-template-home/templates/components/explore.ftl
 renderType: freemarker
 title: Explore
 description: Displays multiple images that users can view as a slideshow.
-dialog: gato-component-gallery:components/gallery
+dialog: gato-template-home:components/explore
 areas:
   exploreLeft:
     type: list
