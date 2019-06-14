@@ -92,17 +92,18 @@
 
           .caption {
             position: absolute;
-            background-color: $maroon;
+            background-color: $darkest-charcoal;
+            opacity: .9;
             bottom: 30px;
-            left: 0;
-            right: 0;
+            left: 20px;
+            right: 20px;
             margin: 0 auto;
-            width: 90%;
 
             p{
               line-height: 0;
               color: $white;
               padding: 0 1rem;
+              font-weight: 500;
             }
           }
         }
