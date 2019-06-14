@@ -25,7 +25,6 @@ form:
             - name: center
               label: Center
               selected: true
-
         - name: text
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           required: false
@@ -42,7 +41,11 @@ form:
           type: Boolean
           buttonLabel: "The content in this section is related to the content in the previous section."
           description: This setting affects the appearance of titles and subtitles, and the visual space between sections.
-
+        - name: anchor
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          required: false
+          label: Anchor
+          description: "Enter anchor name here."
     - name: tabBackground
       label: Background Color
       fields:

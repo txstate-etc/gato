@@ -9,7 +9,10 @@
       [#assign offset=1]
       [#local headerlevel++]
     [/#if]
-  [/#if]  
+  [/#if]
+  [#if content.anchor?has_content]
+    <div id=${content.anchor}></div>
+  [/#if]    
   [#if !gf.isEmptyString(content.title)]
     [#local headerlevel++]
     [#assign marginClass = content.text?has_content?then('has-text', '')]
