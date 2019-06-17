@@ -415,7 +415,6 @@ Event.observe(document, 'dom:loaded', function() {
           selectMonths: true,
           onClose: function() { vld.registerChange(); }
         };
-        jQuery(ipt).pickadate(dateOpts);
       }
     }
     itm.up('.formelement').setStyle({
