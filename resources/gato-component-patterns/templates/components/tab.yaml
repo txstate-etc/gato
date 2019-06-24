@@ -1,0 +1,7 @@
+templateScript: /gato-component-patterns/templates/components/tab.ftl
+renderType: freemarker
+title: Tab
+description: Individual tab in a tabbed section
+dialog: gato-component-patterns:components/tab
+parameters:
+  icon: /gato-component-gallery/images/image.png

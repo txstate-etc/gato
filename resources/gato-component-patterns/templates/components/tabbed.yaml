@@ -1,0 +1,17 @@
+templateScript: /gato-component-patterns/templates/components/tabbed.ftl
+renderType: freemarker
+title: "Attributes Tabbed"
+description: Tabbed list of attributes
+dialog: gato-component-patterns:components/tabbed
+areas:
+  tabs:
+    type: list
+    templateScript: /gato-component-patterns/templates/components/tabs.ftl
+    title: Tabs
+    maxComponents: 4
+    availableComponents:
+      image:
+        id: gato-component-patterns:components/tab
+parameters:
+  icon: /gato-component-patterns/images/backgroundimage-text.png
+  tab: Prebuilt Sections

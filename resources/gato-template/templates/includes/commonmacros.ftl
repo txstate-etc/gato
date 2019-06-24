@@ -53,3 +53,9 @@
   [/#list]
   [#return false]
 [/#function]
+
+[#function getFirstObject objects]
+  [#list objects as object]
+    [#return object]
+  [/#list]
+[/#function]

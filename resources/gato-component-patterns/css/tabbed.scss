@@ -1,0 +1,84 @@
+
+.tabbed { 
+    width: 100%;
+    .left {
+        left: 0;
+    }
+    .right {
+        right: 0;
+    }
+
+    .overlay-block {
+        flex-flow: row;
+        width: 100%;
+        opacity: 100;
+        padding: 3rem 2rem !important;
+        max-width: 650px;
+        position: absolute;
+        bottom: 6rem;
+        margin: auto 2rem;
+
+        [data-eq~="1000px"] & {
+            max-width: none;
+            position: relative;
+            margin: 0;
+            flex-flow: column;
+        }
+    }
+
+    .overlay-tabs {
+        display: inline-block;
+        width: 30%;
+        .links ul li {
+            width: auto;
+            padding: 0;                    
+            a {
+                margin-bottom: 25px;
+                cursor: pointer;
+                display: inline;
+            }
+        }
+        [data-eq~="1000px"] & {
+            width: 100%;
+            white-space: nowrap;
+            overflow-x: scroll;
+            .links ul {
+                .tab {
+                    padding-right: 3rem;
+                }
+                li a {
+                margin-left: 0 !important;
+                }
+            }
+        }        
+    }    
+
+    .overlay-content {
+        display: none;
+        width: 70%;
+        float: right;
+    }
+    .image-overlay {
+        width: 100%;
+        height: 500px;
+        background-size: cover;
+        background-repeat: no-repeat;        
+        padding: 4rem 0rem     
+
+    }
+
+
+
+    .buttons li {
+        width: auto;
+    }
+
+    .tab {
+        text-align: left;
+        display: inline-block;
+        white-space: nowrap;
+        .selected-tab {
+            font-weight: 700 !important;
+        }
+    }
+}

@@ -1,0 +1,36 @@
+form:
+  tabs:
+    - name: tabMain
+      label: Attributes Tabbed
+      fields:
+        - name: color
+          class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
+          fields:
+            - name: color
+              class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+          transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+          initFunction: initColorPicker
+          loadScriptsInOrder: true
+          scripts: [gato-lib/js/color-picker.js]
+          label: Overlay Color
+          parameters:
+            contentType: default
+        - name: overlayPosition
+          class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
+          label: Overlay Position
+          multiselect: false
+          sortOptions: false
+          layout: horizontal
+          options:
+            - name: left
+              label: Left
+              value: left
+              selected: true
+            - name: right
+              label: Right
+              value: right
+        # - name: carousel
+        #   class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+        #   buttonLabel: Use the carousel style whenever possible.
+        #   label: ""
+actions: !include /gato-template/dialogs/common/actions-block.yaml

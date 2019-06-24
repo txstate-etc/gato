@@ -2,3 +2,4 @@
 /gato-template-mobilefirst/js/menu.js
 /gato-template-mobilefirst/js/mobilefirst.js
 /gato-template/js/anchorscrollfix.js
+/gato-lib/js/tabbed.js

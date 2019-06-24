@@ -1,0 +1,60 @@
+form:
+  tabs:
+    - name: tabImage
+      label: Image Information
+      fields:
+        - name: title
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Title
+          required: true      
+        - name: tabLink
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Tab Link
+          required: true               
+        - name: image
+          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+          appName: assets
+          targetWorkspace: dam
+          label: Background Image
+          description: "Background image for this Tab."
+          identifierToPathConverter:
+            class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
+          contentPreviewDefinition:
+            contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
+          required: true
+          validators:
+            - name: image
+              class: edu.txstate.its.gato.dialog.field.validator.DamChooserImageValidatorDefinition
+              errorMessage: Must be an image file.
+        - name: caption
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Caption
+          rows: 3
+          description: >
+            Any additional text you might want to include with this image.
+            Will be used for a mouseover on the thumbnail and displayed below the full-size image.
+
+        - name: buttons
+          class: edu.txstate.its.gato.vaadin.GatoMultiValueFieldDefinition
+          transformerClass: info.magnolia.ui.form.field.transformer.multi.MultiValueSubChildrenNodePropertiesTransformer
+          label: Button
+          maxFields: 1
+          minFields: 1
+          field:
+            name: button
+            class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
+            transformerClass: info.magnolia.ui.form.field.transformer.composite.NoOpCompositeTransformer
+            layout: vertical
+            fields:
+              - name: text
+                class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                label: Button Text
+                maxLength: 30
+              - name: link
+                class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+                label: Button Target
+                required: true
+                appName: pages
+                identifierToPathConverter:
+                  class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter            
+actions: !include /gato-template/dialogs/common/actions-block.yaml
