@@ -1,6 +1,11 @@
 [#if cmsfn.isEditMode()]
 <div cms:edit="bar"></div>
 [/#if]
+[#if !content.mobileImage?has_content]
+[#assign mobileImage = content.desktopImage]
+[#else] 
+[#assign mobileImage = content.mobileImage]
+[/#if]
 <div class="gato-section-centered">
     <div class="mobilefirst-pattern centered">
         <div class="pattern-content arrow title-type about-intro">
@@ -16,11 +21,9 @@
                     [/#if]
                     [#include "/gato-component-patterns/templates/components/common/titlebuttons.ftl"]
                 </div>
-                <div class="image desktop">
-                    <img src="${gf.getImgDefault(content.desktopImage)}"/>
-                </div>
-                <div class="image mobile">
-                    <img src="${gf.getImgDefault(content.mobileImage)}"/>
+                <div class="image">
+                    <img class="desktop" src="${gf.getImgDefault(content.desktopImage)}"/>
+                    <img class="mobile" src="${gf.getImgDefault(mobileImage)}"/>
                 </div>                
             </div>
         </div>
