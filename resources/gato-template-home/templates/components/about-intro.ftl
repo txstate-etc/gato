@@ -16,9 +16,12 @@
                     [/#if]
                     [#include "/gato-component-patterns/templates/components/common/titlebuttons.ftl"]
                 </div>
-                <div class="image">
-                    <img src="${gf.getImgDefault(content.backgroundimage)}"/>
+                <div class="image desktop">
+                    <img src="${gf.getImgDefault(content.desktopImage)}"/>
                 </div>
+                <div class="image mobile">
+                    <img src="${gf.getImgDefault(content.mobileImage)}"/>
+                </div>                
             </div>
         </div>
     </div>

@@ -133,4 +133,17 @@
         }
     }
 
+    .desktop {
+        display: block;
+        [data-eq~="800px"] & {
+            display: none;
+        }           
+    }    
+    
+    .mobile {
+        display: none;
+        [data-eq~="800px"] & {
+            display: block;
+        }           
+    }
 }

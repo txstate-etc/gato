@@ -15,20 +15,30 @@ form:
           rows: 3
         - name: text
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-          label: Sub-title
+          label: Subtitle
           maxLength: 150
           rows: 3
-        - name: backgroundimage
+        - name: desktopImage
           class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
           appName: assets
           required: true
           targetWorkspace: dam
-          label: Background Image
+          label: Desktop Background
           identifierToPathConverter:
             class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
           contentPreviewDefinition:
             contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
           description: "You may upload an image, or choose one from the Digital Asset Manager. If you upload an image, the DAM image will be ignored."
+        - name: mobileImage
+          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+          appName: assets
+          targetWorkspace: dam
+          label: Mobile Background
+          identifierToPathConverter:
+            class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
+          contentPreviewDefinition:
+            contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
+          description: "You may upload an image, or choose one from the Digital Asset Manager. If you upload an image, the DAM image will be ignored."          
         - name: buttons
           class: edu.txstate.its.gato.vaadin.GatoMultiValueFieldDefinition
           transformerClass: info.magnolia.ui.form.field.transformer.multi.MultiValueSubChildrenNodePropertiesTransformer
