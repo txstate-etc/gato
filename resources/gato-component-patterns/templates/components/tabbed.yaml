@@ -6,7 +6,7 @@ dialog: gato-component-patterns:components/tabbed
 areas:
   tabs:
     type: list
-    templateScript: /gato-component-patterns/templates/components/tabs.ftl
+    templateScript: /gato-component-patterns/templates/areas/tabs.ftl
     title: Tabs
     maxComponents: 4
     availableComponents:
