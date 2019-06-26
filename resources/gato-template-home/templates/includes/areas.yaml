@@ -17,7 +17,9 @@ homecontent: #add home page content types here. textImage is a placeholder
     importantdates:
       id: gato-component-patterns:components/importantdates
     tabbed:
-      id: gato-component-patterns:components/tabbed      
+      id: gato-component-patterns:components/tabbed
+    flexible:
+      id: gato-component-patterns:components/flexible
 landingcontent: #add landing page content types here. textImage is a placeholder
   type: list
   templateScript: /gato-template-home/templates/areas/homepage-content.ftl

@@ -1,0 +1,19 @@
+.flexible {
+    background-color: $section-background-color;
+
+    .flex-row {
+        width: 90%;
+        margin: 0 auto;        
+    }
+
+    .content-item {
+        display: inline-block;
+        width: 33%;
+        a img {
+            width: 100%
+        }
+    }
+
+
+
+}
