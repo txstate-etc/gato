@@ -45,10 +45,10 @@
       .explore-flex {
         display: flex;
         overflow-x: scroll;
-        overflow-y: inherit;
+        overflow-y: hidden;
         flex-flow: nowrap;
       
-        .gato-gallery {
+        .gato-explore {
           display: flex;
           flex-flow: row wrap;
           list-style: none inside;
@@ -79,7 +79,7 @@
           [data-eq~="400px"] & {
             max-height: 300px;
           }                              
-          .gato-gallery-image {
+          .gato-explore-image {
             flex: 1 0 45%;
             position: relative;
             img {

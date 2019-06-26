@@ -6,7 +6,7 @@
   [#assign flexDirection = 'flex-direction: inherit']
   [#assign maxWidth = 'max-width: inherit']  
 [/#if]  
-<div class="gato-gallery txst-gallery" style="${flexDirection}">
+<div class="gato-explore txst-explore" style="${flexDirection}">
   [#list components as component ]
     [#if component.orientation == 'wide']
       [#assign flexBasis = 'flex-basis: 100%']
@@ -14,7 +14,7 @@
       [#assign flexBasis = 'flex-basis: 45%']      
     [/#if]
 
-    <div class="gato-gallery-image txst-gallery-image" style="${flexBasis}; ${maxWidth}">
+    <div class="gato-explore-image txst-explore-image" style="${flexBasis}; ${maxWidth}">
       [@cms.component content=component /]
     </div>
   [/#list]
