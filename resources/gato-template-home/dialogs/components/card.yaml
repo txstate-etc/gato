@@ -22,6 +22,13 @@ form:
             - name: image
               class: edu.txstate.its.gato.dialog.field.validator.DamChooserImageValidatorDefinition
               errorMessage: Must be an image file.
+        - name: link
+          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+          label: Link
+          required: true
+          appName: pages
+          identifierToPathConverter:
+            class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter              
         - name: imageAlt
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Alt. Text
