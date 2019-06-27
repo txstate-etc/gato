@@ -11,7 +11,7 @@ areas:
     maxComponents: 3
     availableComponents:
       image:
-        id: gato-component-gallery:components/image        
+        id: gato-component-patterns:components/flexible/card        
       quoteimage: 
         id: gato-template:components/richeditor        
   flex-bottom:
@@ -21,7 +21,7 @@ areas:
     maxComponents: 3
     availableComponents:
       image:
-        id: gato-component-gallery:components/image        
+        id: gato-component-patterns:components/flexible/card        
       quoteimage: 
         id: gato-template:components/richeditor        
 parameters:
