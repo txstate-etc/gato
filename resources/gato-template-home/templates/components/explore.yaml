@@ -12,6 +12,8 @@ areas:
     availableComponents:
       image:
         id: gato-template-home:components/card
+      video:
+        id: gato-component-cards:components/regular/video     
   exploreRight:
     type: list
     templateScript: /gato-template-home/templates/components/cards.ftl
@@ -20,5 +22,7 @@ areas:
     availableComponents:
       image:
         id: gato-template-home:components/card
+      video:
+        id: gato-component-cards:components/regular/video     
 parameters:
   icon: /gato-component-gallery/images/image_gallery.png

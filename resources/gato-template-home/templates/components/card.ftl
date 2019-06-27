@@ -6,7 +6,7 @@
     [#assign right = (content.squarecropright!0.0)?number]
     [#assign top = (content.squarecroptop!0.0)?number]
     [#assign bottom = (content.squarecropbottom!0.0)?number]
-    [#assign aspectratio = 1.3333]
+    [#assign aspectratio = 1]
     [#break]
 
   [#case "wide"]
@@ -14,7 +14,7 @@
     [#assign right = (content.widecropright!0.0)?number]
     [#assign top = (content.widecroptop!0.0)?number]
     [#assign bottom = (content.widecropbottom!0.0)?number]
-    [#assign aspectratio = 2.6667]
+    [#assign aspectratio = 2]
     [#break]
 
   [#case "tall"]
@@ -22,7 +22,7 @@
     [#assign right = (content.tallcropright!0.0)?number]
     [#assign top = (content.tallcroptop!0.0)?number]
     [#assign bottom = (content.tallcropbottom!0.0)?number]  
-    [#assign aspectratio = 0.666667]
+    [#assign aspectratio = 0.5]
     [#break]
 
   [#default]
@@ -30,7 +30,7 @@
     [#assign right = (content.imagecropright!0.0)?number]
     [#assign top = (content.imagecroptop!0.0)?number]
     [#assign bottom = (content.imagecropbottom!0.0)?number]  
-    [#assign aspectratio = 1.3333]
+    [#assign aspectratio = 1]
 
   [/#switch]
 
@@ -41,13 +41,12 @@
   [#assign altText = content.imageAlt]
 [/#if]
 
-<div class="card">
-  <a href="${gf.filterUrl(content.link)}">
-    <img src="${gf.getImgDefault(content.image, left, right, top, bottom, aspectratio)}" srcset="${gf.getImgDefault(content.image, left, right, top, bottom, aspectratio)}" />
+<a href="${gf.filterUrl(content.link)}">
+  <div class="card" style='background-image: url("${gf.getImgDefault(content.image, left, right, top, bottom, aspectratio)}")'>
     [#if content.caption?has_content]
     <div class="caption">
       <p>${content.caption!''}</p>
     </div>
     [/#if]
-  </a>
-</div>
+  </div>
+</a>
