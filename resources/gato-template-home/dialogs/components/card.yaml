@@ -84,7 +84,7 @@ form:
           loadScriptsInOrder: true
           label: ''
           parameters:
-            aspect: 1.3333
+            aspect: 1
             controlName: square
         - name: wide
           class: edu.txstate.its.gato.vaadin.ThumbnailSelectorFieldDefinition
@@ -108,7 +108,7 @@ form:
           loadScriptsInOrder: true
           label: ''
           parameters:
-            aspect: 2.66667
+            aspect: 2
             controlName: wide
         - name: tall
           class: edu.txstate.its.gato.vaadin.ThumbnailSelectorFieldDefinition
@@ -132,6 +132,6 @@ form:
           loadScriptsInOrder: true
           label: ''
           parameters:
-            aspect: .666667
+            aspect: .5
             controlName: tall               
 actions: !include /gato-template/dialogs/common/actions-block.yaml
