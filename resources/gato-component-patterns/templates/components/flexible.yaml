@@ -13,7 +13,7 @@ areas:
       image:
         id: gato-component-gallery:components/image        
       quoteimage: 
-        id: gato-component-patterns:components/quoteimage
+        id: gato-template:components/richeditor        
   flex-bottom:
     type: list
     templateScript: /gato-component-patterns/templates/areas/flex-rows.ftl
@@ -23,7 +23,7 @@ areas:
       image:
         id: gato-component-gallery:components/image        
       quoteimage: 
-        id: gato-component-patterns:components/quoteimage        
+        id: gato-template:components/richeditor        
 parameters:
   icon: /gato-component-patterns/images/backgroundimage-text.png
   tab: Prebuilt Sections
