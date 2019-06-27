@@ -9,11 +9,11 @@
       <span class="label">Search</span>
     </button>
   </div>
-  <div class="logo-block">
-    <a href="http://www.txstate.edu">
+  <a href="http://www.txstate.edu">
+    <div class="logo-block">
       <img src="${ctx.contextPath}/.resources/gato-template-mobilefirst/images/txst-header-logo.svg" alt="Texas State University" />
-    </a>
-  </div>
+    </div>
+  </a>
   <div class="menubar">
     <div class="menu">
       <a class="logo" href="http://www.txstate.edu">

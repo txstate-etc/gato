@@ -51,6 +51,7 @@ header {
     }
     img {
       width: 75%;
+      margin: 0 auto;
     }
     @media (max-width: $sm-breakpoint) {
       display: none !important;
