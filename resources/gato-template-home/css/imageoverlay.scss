@@ -1,25 +1,29 @@
 .image-overlay{
+    padding: 6rem 0 !important;
+    [data-eq~="800px"] & {padding: 4rem 0 !important;}
     .overlay-block{
-        max-width: 800px;
+        max-width: 800px !important;
+        [data-eq~="600px"] & {
+            &.text-center {
+                text-align: left !important;
+            }        
+        }
+        [data-eq~="800px"] & {padding-top: 4rem !important}
     }
     
     li {
-        width: 33.333%;
+        width: calc(33.333%-30px);
         margin: 0;
         padding: 1.5rem;
 
         [data-eq~="600px"] & {
             width: 100%;
-            padding: 1.5rem 0 0 0;
+            padding: 1.5rem 0 0 0 !important;
         }
     }
     a {
         width: 100%;
     }
 
-    .text-center {
-        [data-eq~="600px"] & {
-            text-align: left;
-        }
-    }
+
 }

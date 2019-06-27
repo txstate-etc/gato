@@ -42,10 +42,12 @@
 [/#if]
 
 <div class="card">
-  <img src="${gf.getImgDefault(content.image, left, right, top, bottom, aspectratio)}" srcset="${gf.getImgDefault(content.image, left, right, top, bottom, aspectratio)}" />
-  [#if content.caption?has_content]
-  <div class="caption">
-    <p>${content.caption!''}</p>
-  </div>
-  [/#if]
+  <a href="${gf.filterUrl(content.link)}">
+    <img src="${gf.getImgDefault(content.image, left, right, top, bottom, aspectratio)}" srcset="${gf.getImgDefault(content.image, left, right, top, bottom, aspectratio)}" />
+    [#if content.caption?has_content]
+    <div class="caption">
+      <p>${content.caption!''}</p>
+    </div>
+    [/#if]
+  </a>
 </div>
