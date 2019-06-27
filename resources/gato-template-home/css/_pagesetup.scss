@@ -10,6 +10,9 @@
 main {
   min-height: 500px;
   padding-top: 123px;
+  @media (max-width: $sm-breakpoint) {
+    padding-top: 0;
+  }
 }
 
 body {
