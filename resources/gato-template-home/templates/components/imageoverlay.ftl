@@ -4,8 +4,8 @@
 [#assign textAlign = (content.overlayPosition == "center")?then('text-center', 'text-left')]
 <div class="mobilefirst-pattern image-overlay" style='background-image: linear-gradient(180deg, rgba(43,46,52, 0.4), rgba(43,46,52, 0.4)), url("${gf.getImgDefault(content.image)}")'>
   <div class="overlay-block title-type pattern-content ${content.color!color1} ${content.overlayPosition!'center'} ${textAlign}">
-    <h2>${content.title}</h2>
     <div class="text">
+      <h2>${content.title}</h2>
       ${gf.processRichTextLevel(cmsfn.decode(content).text, 3)}
     </div>
     [#if content.buttons?has_content]
