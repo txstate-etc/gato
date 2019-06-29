@@ -16,6 +16,7 @@
         position: absolute;
         bottom: 6rem;
         margin: auto 8rem;
+        border-radius: 2px;
 
         [data-eq~="1000px"] & {
             max-width: none;
@@ -32,30 +33,52 @@
             width: auto;
             padding: 0;                    
             a {
-                margin-bottom: 25px;
                 cursor: pointer;
                 display: inline;
+                font-size: 1.4rem;
+                border-width: 0;
             }
         }
         [data-eq~="1000px"] & {
             width: 100%;
             white-space: nowrap;
             overflow-x: scroll;
-            .links ul {
-                .tab {
-                    padding-right: 3rem;
-                }
-                li a {
-                margin-left: 0 !important;
+            .links {
+                margin-bottom: 2rem; 
+                ul {
+                    border-bottom: 1px solid rgb(216, 216, 216);
+                    .tab {
+                        padding-right: 2rem;
+                    }
+                    li {
+                        margin-bottom: 0;
+                        a {
+                        margin-left: 0 !important;
+                        }
+                    }
                 }
             }
         }        
+        .tab {
+            text-align: left;
+            display: inline-block;
+            white-space: nowrap;
+    
+            .selected-tab {
+                font-weight: 700;
+                border-bottom-width: 1px;
+            }
+        }
     }    
 
     .overlay-content {
         display: none;
         width: 70%;
         float: right;
+        [data-eq~="1000px"] & {
+            width: 100%;
+        }
+
     }
     .image-overlay {
         width: 100%;
@@ -74,12 +97,5 @@
         width: auto;
     }
 
-    .tab {
-        text-align: left;
-        display: inline-block;
-        white-space: nowrap;
-        .selected-tab {
-            font-weight: 700 !important;
-        }
-    }
+
 }

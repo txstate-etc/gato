@@ -27,6 +27,7 @@ jQuery(document).ready(function($) {
             $('.overlay-content.selected-content').removeClass('selected-content');
             $('.tab').eq(indexOfElem).find('a').first().addClass('selected-tab');
             $('.overlay-content').eq(indexOfElem).addClass('selected-content');
+
           });
 
         $(tabs).eq(indexOfElem).find('a').first().animate({
