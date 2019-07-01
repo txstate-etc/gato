@@ -1,0 +1,49 @@
+.flexible {
+    display: flex;
+    flex-direction: column;
+    background-color: $section-background-color;
+    padding: 60px 0;
+    max-height: 750px;
+
+    .flex-row {
+        display: flex;
+        width: 90%;
+        min-height: 300px;
+        margin: 0 auto;        
+        padding-bottom: 2rem;
+    }
+
+    .content-item {
+        flex: 1 0 0;
+        display: inline-block;
+        padding: 0 1rem;
+        a img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    
+    .card {
+        position: relative;
+        background-size: cover;
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+      }
+      .caption {
+        position: absolute;
+        background-color: $darkest-charcoal;
+        opacity: .9;
+        bottom: 30px;
+        left: 20px;
+        margin-right: 20px;
+
+        p {
+          margin: 0 auto;
+          color: $white;
+          padding: 0 1rem;
+          font-weight: 500;
+        }
+      }      
+}

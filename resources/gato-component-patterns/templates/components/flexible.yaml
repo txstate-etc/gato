@@ -1,0 +1,29 @@
+templateScript: /gato-component-patterns/templates/components/flexible.ftl
+renderType: freemarker
+title: "Flexible Section"
+description: Flexible content area
+dialog: gato-component-patterns:components/flexible
+areas:
+  flex-top:
+    type: list
+    templateScript: /gato-component-patterns/templates/areas/flex-rows.ftl
+    title: Flexible Content (Top Row)
+    maxComponents: 3
+    availableComponents:
+      image:
+        id: gato-component-patterns:components/flexible/card        
+      quoteimage: 
+        id: gato-template:components/richeditor        
+  flex-bottom:
+    type: list
+    templateScript: /gato-component-patterns/templates/areas/flex-rows.ftl
+    title: Flexible Content (Bottom Row)
+    maxComponents: 3
+    availableComponents:
+      image:
+        id: gato-component-patterns:components/flexible/card        
+      quoteimage: 
+        id: gato-template:components/richeditor        
+parameters:
+  icon: /gato-component-patterns/images/backgroundimage-text.png
+  tab: Prebuilt Sections

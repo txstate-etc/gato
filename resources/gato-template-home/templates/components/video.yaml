@@ -1,0 +1,7 @@
+templateScript: /gato-component-cards/templates/components/shared/image.ftl
+renderType: freemarker
+dialog: gato-component-cards:components/regular/video
+description: video with a caption
+title: Video Card
+parameters:
+  icon: /gato-component-streaming/images/stream_media.png
