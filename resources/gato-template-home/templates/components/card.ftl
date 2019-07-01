@@ -1,4 +1,5 @@
 [#assign assetMap = damfn.getAssetMap(content.image)]
+[#assign oembed = gf.oEmbedCached(content, content.videourl)]
 [#assign imageSize = "${assetMap.metadata.mgnl.width?c}x${assetMap.metadata.mgnl.height?c}"]
 [#switch content.orientation]
   [#case "normal"]
@@ -42,11 +43,18 @@
 [/#if]
 
 <a href="${gf.filterUrl(content.link)}">
-  <div class="card" style='background-image: url("${gf.getImgDefault(content.image, left, right, top, bottom, aspectratio)}")'>
+  <div class="card ${content.videourl?has_content?string('gato-card-video','gato-card-image')} ${gf.jsonGetString(oembed, 'provider_name')?lower_case}" style='background-image: url("${gf.getImgDefault(content.image, left, right, top, bottom, aspectratio)}")'>
     [#if content.caption?has_content]
     <div class="caption">
       <p>${content.caption!''}</p>
     </div>
     [/#if]
+    [#if content.videourl?has_content]
+      <a href="${content.videourl}" class="feature-play-button"
+      data-embed="${gf.jsonGetString(oembed, 'html')?html}">
+        <i class="fa fa-play" aria-hidden="true"></i>
+        <span class="visuallyhidden">Play Video</span>
+      </a>
+    [/#if]      
   </div>
 </a>

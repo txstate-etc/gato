@@ -44,13 +44,14 @@
       
       .explore-flex {
         display: flex;
-        overflow-x: scroll;
-        overflow-y: scroll;
-        flex-flow: nowrap;
+        [data-eq~='1000px'] & {
+          overflow-x: scroll;
+          overflow-y: hidden;
+          flex-flow: nowrap;
+        }
       
         .gato-explore {
           display: flex;
-          min-width: 600px;
           flex-flow: row wrap;
           list-style: none inside;
           margin: 0;
@@ -60,16 +61,16 @@
           letter-spacing: 0;
           height: 600px !important;
           line-height: 0;
+
+          [data-eq~='1000px'] & {
+            min-width: 600px;
+          }          
                            
           .gato-explore-image {
             flex: 1 0 45%;
             max-height: 50%;
             position: relative;
             
-            a {
-              width: 100%;
-              padding-top: 100%;
-            }
             li {
               position: absolute;
             }

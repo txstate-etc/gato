@@ -11,9 +11,9 @@ areas:
     maxComponents: 4
     availableComponents:
       image:
-        id: gato-template-home:components/card
+        id: gato-template-home:components/cards/image
       video:
-        id: gato-component-cards:components/regular/video     
+        id: gato-template-home:components/cards/video
   exploreRight:
     type: list
     templateScript: /gato-template-home/templates/components/cards.ftl
@@ -21,8 +21,8 @@ areas:
     maxComponents: 4
     availableComponents:
       image:
-        id: gato-template-home:components/card
+        id: gato-template-home:components/cards/image
       video:
-        id: gato-component-cards:components/regular/video     
+        id: gato-template-home:components/cards/video
 parameters:
   icon: /gato-component-gallery/images/image_gallery.png

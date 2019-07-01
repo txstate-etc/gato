@@ -23,7 +23,7 @@
       [@cms.component content=component /]
     </div>
   [/#list]
-</div>
 [#if cmsfn.isEditMode()]
   <li class="add gato-explore-image" cms:add="box"></li>
-[/#if]
+[/#if]  
+</div>
