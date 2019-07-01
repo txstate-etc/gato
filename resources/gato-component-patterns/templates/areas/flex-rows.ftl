@@ -1,16 +1,12 @@
-<div class="flex-row">
+<div class="flex-row gato-section-centered">
 [#list components as component ]
-  [#if cmsfn.metaData(component, "mgnl:template") == "gato-template:components/richeditor"]
-    [#assign flexGrow = 'flex-grow: 2']
-  [#else]
-    [#assign flexGrow = 'flex-grow: 1']
-  [/#if]
+[#include "/gato-component-patterns/templates/includes/flexible-logic.ftl"]
   <div class="content-item" style="${flexGrow}">
-    [@cms.component content=component contextAttributes={"colorClass": ctx.colorClass}/]
+    [@cms.component content=component contextAttributes={"colorClass": ctx.colorClass, "orientation" : orientation}/]
   </div>
 [/#list]
 </div>
 
 [#if cmsfn.isEditMode()]
-  <li class="add content-item" cms:add="box"></li>
+  <li class="add" cms:add="box"></li>
 [/#if]

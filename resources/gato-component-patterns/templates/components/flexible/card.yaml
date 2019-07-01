@@ -1,0 +1,7 @@
+templateScript: /gato-component-patterns/templates/components/flexible/card.ftl
+renderType: freemarker
+title: Image
+description: Individual photo in a gallery
+dialog: gato-component-patterns:components/card
+parameters:
+  icon: /gato-component-gallery/images/image.png
