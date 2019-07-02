@@ -35,7 +35,7 @@
 <!--Check for whitespace in alt text-->
 [#if gf.isEmptyString(content.imageAlt)]
   [#assign altText = ""]
-  [#else]
+[#else]
   [#assign altText = content.imageAlt]
 [/#if]
 <a href="${gf.filterUrl(content.link)}">
