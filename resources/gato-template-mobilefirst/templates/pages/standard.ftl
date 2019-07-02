@@ -63,6 +63,8 @@
             [@cms.area name="filterable-search"/]
           [#elseif def.parameters.isVariableTemplate!false]
             [@cms.area name="contentParagraph"/]
+          [#elseif def.parameters.isPassthroughTemplate!false]
+						${gf.httpGetContentWithParameters(content.url)}
           [#else]
             [@cms.area name="calicoInformational"/]
           [/#if]

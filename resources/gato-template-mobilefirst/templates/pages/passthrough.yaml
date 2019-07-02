@@ -1,0 +1,16 @@
+templateScript: /gato-template-mobilefirst/templates/pages/standard.ftl
+renderType: site
+visible: true
+title: Passthrough Template
+dialog: gato-template:pages/passthrough
+areas: !include /gato-template-mobilefirst/templates/includes/areas.yaml
+parameters:
+  sortOrder: 803
+  isPassthroughTemplate: true
+variations:
+  js:
+    templateScript: /gato-component-cssjs/templates/pages/jsvariation.ftl
+  rss:
+    templateScript: /gato-template-rss/templates/pages/rssvariation.ftl
+
+    

@@ -53,7 +53,7 @@
         [#if !cmsfn.isEditMode() && !gf.areaHasChildrenIncludingInheritance(content.navBlocks) && !gf.hasChildren(homepage.socialmedia)]
            [#assign hideSidebar = true]
         [/#if]
-				[#if def.parameters.isFilterableSearchTemplate!false]
+				[#if def.parameters.isFilterableSearchTemplate!false || def.parameters.isPassthroughTemplate!false]
 		      [#assign hideSidebar = true]
 		    [/#if]
         <main class="contentcolumn">
@@ -61,8 +61,10 @@
           [#if def.parameters.isMailTemplate!false]
             [@cms.area name="mail" contextAttributes={"hideSidebar":hideSidebar} /]
           [#elseif def.parameters.isFilterableSearchTemplate!false]
-	            [@cms.area name="filterable-search-intro"/]
-	            [@cms.area name="filterable-search"/]
+	          [@cms.area name="filterable-search-intro"/]
+	          [@cms.area name="filterable-search"/]
+					[#elseif def.parameters.isPassthroughTemplate!false]
+						${gf.httpGetContentWithParameters(content.url)}
           [#else]
             [@cms.area name="contentParagraph" contextAttributes={"hideSidebar":hideSidebar} /]
           [/#if]
