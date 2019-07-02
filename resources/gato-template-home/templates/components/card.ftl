@@ -1,6 +1,4 @@
-[#assign assetMap = damfn.getAssetMap(content.image)]
 [#assign oembed = gf.oEmbedCached(content, content.videourl)]
-[#assign imageSize = "${assetMap.metadata.mgnl.width?c}x${assetMap.metadata.mgnl.height?c}"]
 [#switch content.orientation]
   [#case "normal"]
     [#assign left = (content.squarecropleft!0.0)?number]
@@ -41,9 +39,15 @@
   [#else]
   [#assign altText = content.imageAlt]
 [/#if]
-
+[#if content.image?has_content]
+  [#assign cardImage = gf.getImgDefault(content.image, left, right, top, bottom, aspectratio)]
+[#elseif gf.jsonGetString(oembed, 'thumbnail_url')?has_content]
+  [#assign cardImage = gf.getImg(gf.jsonGetString(oembed, 'thumbnail_url'), 1280, 720, true, false, 0, 0, 0, 0)]
+[#else]
+  [#assign cardImage = gf.getImage(gf.resourcePath() + "/gato-component-cards/images/video-default.png")]
+[/#if]
 <a href="${gf.filterUrl(content.link)}">
-  <div class="card ${content.videourl?has_content?string('gato-card-video','gato-card-image')} ${gf.jsonGetString(oembed, 'provider_name')?lower_case}" style='background-image: url("${gf.getImgDefault(content.image, left, right, top, bottom, aspectratio)}")'>
+  <div class="card ${content.videourl?has_content?string('gato-card-video','gato-card-image')} ${gf.jsonGetString(oembed, 'provider_name')?lower_case}" style='background-image: url("${cardImage}")'>
     [#if content.caption?has_content]
     <div class="caption">
       <p>${content.caption!''}</p>
