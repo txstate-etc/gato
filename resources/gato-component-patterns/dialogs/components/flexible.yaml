@@ -3,18 +3,6 @@ form:
     - name: tabMain
       label: Flexible Section
       fields:
-        - name: color
-          class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
-          fields:
-            - name: color
-              class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
-          transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
-          initFunction: initColorPicker
-          loadScriptsInOrder: true
-          scripts: [gato-lib/js/color-picker.js]
-          label: Overlay Color
-          parameters:
-            contentType: default
         - name: overlayPosition
           class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
           label: Overlay Position
@@ -29,6 +17,27 @@ form:
             - name: right
               label: Right
               value: right
+    - name: tabBackground
+      label: Background Color
+      fields:
+        - name: info
+          class: info.magnolia.ui.form.field.definition.StaticFieldDefinition
+          label: ""
+          value: Background color will only show up if this section is not next to the sidebar.
+        - name: showBackgroundColor
+          class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
+          multiselect: false
+          label: Background Color
+          type: Boolean
+          sortOptions: false
+          options:
+            - name: noBackground
+              label: No Background Color
+              selected: true
+              value: false
+            - name: addBackground
+              label: Add Background Color
+              value: true              
         # - name: carousel
         #   class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
         #   buttonLabel: Use the carousel style whenever possible.
