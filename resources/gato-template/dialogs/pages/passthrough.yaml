@@ -13,6 +13,7 @@ form:
         - name: url
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Target URL          
+          required: true
 
 actions: !include /gato-template/dialogs/common/actions-block.yaml
 label: Page Properties

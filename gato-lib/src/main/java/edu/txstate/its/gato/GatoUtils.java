@@ -211,6 +211,8 @@ public final class GatoUtils {
                                   .replaceAll("^/dam", "");
   }
 
+
+
   public String resourcePath() {
     String propKey = "gato.assetsbaseurl";
     if (isCacheEnvironment()) propKey += ".cache";
@@ -1377,6 +1379,26 @@ public final class GatoUtils {
     }
     return output;
   }
+
+  public String httpGetContentWithParameters(String url) {    
+    if (MgnlContext.getParameters().isEmpty()) {
+      return httpGetContent(url);
+    }
+    else {
+      String parameters = "";
+      for (String key : MgnlContext.getParameters().keySet()) {
+        if (key.toCharArray()[0] == 'q') {
+          parameters = key + "=" + "&" + parameters;
+        }
+        else {
+          parameters += key + "=" + URLEncoder.encode(MgnlContext.getParameters().get(key)) + "&";
+        }
+      }
+      parameters = "?" + parameters;
+      System.out.println("Requesting HTML from: " + url + parameters);
+      return httpGetContent(url + parameters);
+    }
+  }  
 
   public JsonObject parseJSON(String json) {
     Matcher m = JSONP_PATTERN.matcher(json);
