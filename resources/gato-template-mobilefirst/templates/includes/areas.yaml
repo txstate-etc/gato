@@ -59,6 +59,11 @@ calicoInformational:  #informational
     tabs: true
   availableComponents:
     !include /gato-template-mobilefirst/templates/areas/available-components/informationalComponents.yaml    
+siteMap:  #informational
+  title: Site Map Content Area
+  templateScript: /gato-template-mobilefirst/templates/areas/sitemap.ftl
+  parameters:
+    tabs: true
 socialmedia:
   type: single
   templateScript: /gato-template/templates/areas/optional-social.ftl

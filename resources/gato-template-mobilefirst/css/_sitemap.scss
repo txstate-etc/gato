@@ -1,0 +1,61 @@
+.sitemap {
+    ul {
+        list-style: none;
+        li {
+          background-color: $white;
+          border-top: 1px solid #d8d8d8;
+          border-bottom: 1px solid #d8d8d8;
+          margin: -1px 0;
+          padding: 1.2rem 0;
+
+          a {
+            text-decoration: underline;
+            margin-left: 2rem;
+            font-weight: 400;
+            color: $maroon;
+          }
+        }
+      }
+      
+
+      ul.topLevel>li {
+        background-color: $white;
+      }
+      
+      ul.topLevel>ul>ul {
+        margin-bottom: 3rem;
+      }
+
+      ul>ul>ul>li{
+        background-color: $whitesmoke;
+      }
+      
+      ul>ul>ul>ul>li {
+        background-color: $white;
+      }
+      
+      ul>ul>ul>ul>ul>li {
+        background-color: $whitesmoke;
+      }
+      
+      ul>ul>ul>ul>ul>ul>li {
+        background-color: $white;
+      }
+      ul>ul>ul>ul>ul>ul>ul>li {
+        background-color: $whitesmoke;
+      }
+    
+      ul>ul>ul>ul>ul>ul>ul>ul>li {
+        background-color: $white;
+      }
+    
+      ul>ul>ul>ul>ul>ul>ul>ul>ul>li {
+        background-color: $whitesmoke;
+      }
+    
+      ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>li {
+        background-color: $white;
+      }  
+}
+
+

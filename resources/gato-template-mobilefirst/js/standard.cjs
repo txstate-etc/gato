@@ -3,3 +3,4 @@
 /gato-template-mobilefirst/js/mobilefirst.js
 /gato-template/js/anchorscrollfix.js
 /gato-lib/js/tabbed.js
+/gato-template-mobilefirst/js/sitemap.js
