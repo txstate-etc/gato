@@ -1,5 +1,4 @@
-[#assign rootNode = cmsfn.nodeByPath("/psychology")]
-[#assign rootMap = cmsfn.asContentMap(rootNode)]
+[#assign root = cmsfn.root(content, "mgnl:page")! ] 
 [#macro listNodes node rootNode]
     [#if cmsfn.parent(node) == rootNode]
         [#if node.title?has_content]
@@ -21,6 +20,6 @@
 
 <div class="sitemap">
     <ul class="topLevel">
-        [@listNodes rootMap rootMap][/@listNodes]
+        [@listNodes root rootMap][/@listNodes]
     </ul>
 </div>
