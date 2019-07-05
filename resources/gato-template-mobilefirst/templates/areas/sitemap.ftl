@@ -20,6 +20,6 @@
 
 <div class="sitemap">
     <ul class="topLevel">
-        [@listNodes root rootMap][/@listNodes]
+        [@listNodes root root][/@listNodes]
     </ul>
 </div>
