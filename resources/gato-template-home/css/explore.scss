@@ -1,107 +1,135 @@
 .mobilefirst-pattern {
-  .pattern-content {
-    .explore {
+  .explore {
+    background-color: $maroon;
+    width: 100%;
+    display: block;
+    padding: 0;
+
+    .explore-bar {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
       background-color: $maroon;
-      .explore-bar {
-        max-width: 1200px;
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-between;
-        background-color: $maroon;
-        
-        .explore-title {
-          color: $white;
-          padding: 3rem 0 3rem 3rem;       
-          margin-bottom: 0;
-        }
-        
-        .links  {
-          display: flex;
-          padding: 3rem 3rem 3rem 0;       
-          align-items: inherit;
-          margin: auto 0;
-          ul {
-            display: flex;
-          }
-          li {
-            margin: 0;
-            padding: 0 2rem;
-          }
-          a {
-            color: $white;
-            text-decoration: none;
-            border: none;
-            font-weight: 700;
-            &:hover {
-              box-shadow: none;
-            }        
-          }
-          i {
-            border-color: $white;
-          }
-        }     
+      
+      .explore-title {
+        color: $white;
+        padding: 3rem 0 3rem 3rem;       
+        margin-bottom: 0;
       }
       
-      .explore-flex {
+      .links  {
         display: flex;
-        [data-eq~='1000px'] & {
-          overflow-x: scroll;
-          overflow-y: hidden;
-          flex-flow: nowrap;
-        }
-      
-        .gato-explore {
+        padding: 3rem 3rem 3rem 0;       
+        align-items: inherit;
+        margin: auto 0;
+        ul {
           display: flex;
-          flex-flow: row wrap;
-          list-style: none inside;
+        }
+        li {
           margin: 0;
-          padding: 0;
-          width: calc(100% + 24px);
-          box-sizing: border-box;
-          letter-spacing: 0;
-          height: 600px !important;
-          line-height: 0;
+          padding: 0 2rem;
+        }
+        a {
+          color: $white;
+          text-decoration: none;
+          border: none;
+          font-weight: 700;
+          &:hover {
+            box-shadow: none;
+          }        
+        }
+        i {
+          border-color: $white;
+        }
+      }     
+    }
+    
+    .explore-flex {
+      display: flex;
+      [data-eq~='1000px'] & {
+        overflow-x: scroll;
+        overflow-y: hidden;
+        flex-flow: nowrap;
+      }
+      
+      .bars {
+        flex: 1 1 100%;
+      }
 
-          [data-eq~='1000px'] & {
-            min-width: 600px;
-          }          
-                           
-          .gato-explore-image {
-            flex: 1 0 45%;
-            max-height: 50%;
-            position: relative;
-            
-            li {
-              position: absolute;
-            }
-            .card {
-              position: relative;
-              width: 100%;
-              height: 100%;
-              background-size: cover;
-              background-repeat: no-repeat;
-              background-position: 50% 50%;
+      .gato-explore {
+        display: flex;
+        flex-flow: row wrap;
+        list-style: none inside;
+        margin: 0;
+        padding: 0;
+        width: calc(100% + 24px);
+        box-sizing: border-box;
+        letter-spacing: 0;
+        height: 600px !important;
+        line-height: 0;
+        overflow: hidden;
 
-            }
-          }
+        [data-eq~='1000px'] & {
+          min-width: 600px;
+        }          
 
-          .caption {
+        .mgnlEditor {
+          display: none !important;
+        }          
+                          
+        .gato-explore-image {
+          flex: 1 0 45%;
+          max-height: 50%;
+          position: relative;
+          overflow: hidden;
+          
+          li {
             position: absolute;
-            background-color: $darkest-charcoal;
-            opacity: .9;
-            bottom: 30px;
-            left: 20px;
-            margin-right: 20px;
-
-            p {
-              margin: 0 auto;
-              color: $white;
-              padding: 0 1rem;
-              font-weight: 500;
-            }
+          }
+          .card {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+          }
+          .mgnlEditorBar {
+            display: none !important;
           }
         }
-      }  
-    }    
-  }
+        .gato-card-image {
+          transform: scale(1.1);
+        }
+        .gato-card-image:hover {
+          transform: scale(1.0);          
+          transition: all 400ms ease;
+        }
+        .gato-card-video {
+          transform: scale(1.1);
+        }
+        .gato-card-video:hover {
+          transform: scale(1.0);          
+          transition: all 400ms ease;
+        }        
+
+        .caption {
+          position: absolute;
+          background-color: $darkest-charcoal;
+          opacity: .9;
+          bottom: 30px;
+          left: 20px;
+          margin-right: 20px;
+
+          p {
+            margin: 0 auto;
+            color: $white;
+            padding: 0 1rem;
+            font-weight: 500;
+          }
+        }
+      }
+    }  
+  }    
 }

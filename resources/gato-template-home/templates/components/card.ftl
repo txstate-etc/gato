@@ -36,7 +36,7 @@
 <!--Check for whitespace in alt text-->
 [#if gf.isEmptyString(content.imageAlt)]
   [#assign altText = ""]
-  [#else]
+[#else]
   [#assign altText = content.imageAlt]
 [/#if]
 [#if content.image?has_content]
@@ -46,6 +46,8 @@
 [#else]
   [#assign cardImage = gf.getImage(gf.resourcePath() + "/gato-component-cards/images/video-default.png")]
 [/#if]
+
+[#if !(ctx.barsonly!false)]
 <a href="${gf.filterUrl(content.link)}">
   <div class="card ${content.videourl?has_content?string('gato-card-video','gato-card-image')} ${gf.jsonGetString(oembed, 'provider_name')?lower_case}" style='background-image: url("${cardImage}")'>
     [#if content.caption?has_content]
@@ -62,3 +64,6 @@
     [/#if]      
   </div>
 </a>
+[#else]
+    <div class="slider-edit-bar" data-title="-${content.title!'Explore Card'}" cms:edit></div>
+[/#if]
