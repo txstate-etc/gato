@@ -12,7 +12,7 @@
     [#list components as component]
       [@cms.component content=component contextAttributes={"barsonly": true} /]
     [/#list]
-    <div class="${(components?size < 4)?string('feature_add','feature_max')}" data-title="test"cms:add="bar"></div>
+    <div class="${(components?size < 4)?string('feature_add','feature_max')}" cms:add="bar"></div>
   </div>  
 [/#if]
 
@@ -21,10 +21,8 @@
   [#list components as component ]
     [#if component.orientation == 'wide']
       [#assign flexBasis = 'flex-basis: 100%']
-    [#else]
-      [#assign flexBasis = 'flex-basis: 45%']      
-    [/#if]
-    [#if component.orientation == 'tall']
+      [#assign maxHeight = 'max-height: 50%']
+    [#elseif component.orientation == 'tall']
       [#assign flexBasis = 'flex-basis: 100%']
       [#assign maxHeight = 'max-height: 100%']
     [#else]
