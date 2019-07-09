@@ -17,7 +17,7 @@ if (window.location.hash) scrollToAnchor(window.location.hash);
 
 $("a[href*=\\#]:not([href=\\#])").click(function(e) {
   if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
-    || location.hostname == this.hostname) {
+    && location.hostname == this.hostname) {
     e.preventDefault();
     scrollToAnchor(this.hash);
   }
