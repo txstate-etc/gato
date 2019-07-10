@@ -12,7 +12,7 @@
             <div class="about">
                 [#if content.image?has_content]
                 <div class="corner-image">
-                    <img src="${gf.getImgDefault(content.image)}" alt="${content.imageAlt!''}" class="${content.color}" position="absolute"/>
+                    <img src="${gf.getImgDefault(content.image)}" alt="" class="${content.color}" position="absolute"/>
                 </div>
                 [/#if]
                 <div class="content">

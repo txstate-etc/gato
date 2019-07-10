@@ -75,9 +75,6 @@ form:
           contentPreviewDefinition:
             contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
           description: "You may upload an image, or choose one from the Digital Asset Manager. If you upload an image, the DAM image will be ignored."
-        - name: imageAlt
-          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-          label: Alt. Text
         - name: color
           class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
           fields:
