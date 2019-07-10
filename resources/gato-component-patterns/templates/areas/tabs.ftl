@@ -1,4 +1,4 @@
-[#include "/gato-template/templates/includes/commonmacros.ftl"]
+[#include "/gato-component-patterns/templates/includes/tabbed-logic.ftl"]
 [#if cmsfn.isEditMode()]
     [#list components as component]
       [@cms.component content=component contextAttributes={"barsonly": true} /]

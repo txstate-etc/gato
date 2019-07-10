@@ -1,0 +1,5 @@
+[#function getFirstObject objects]
+  [#list objects as object]
+    [#return object]
+  [/#list]
+[/#function]

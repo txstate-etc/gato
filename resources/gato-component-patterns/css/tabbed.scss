@@ -8,10 +8,11 @@
         right: 0;
     }
 
+
     .overlay-block {
         flex-flow: row;
         width: 100%;
-        padding: 3rem 2rem !important;
+        padding: 3rem !important;
         max-width: 650px;
         position: absolute;
         bottom: 6rem;
@@ -23,7 +24,36 @@
             position: relative;
             margin: 0;
             flex-flow: column;
+            padding: 3rem 2rem !important;
         }
+
+        &.color1 .overlay-tabs .links ul {
+            border-bottom-color: #85595b
+        }
+
+        &.color2 .overlay-tabs .links ul {
+            border-bottom-color: #978974
+        }
+
+        &.color3 .overlay-tabs .links ul {
+            border-bottom-color: #727271
+        }
+
+        &.color4 .overlay-tabs .links ul {
+            border-bottom-color: #4d87a7
+        }
+
+        &.color5 .overlay-tabs .links ul {
+            border-bottom-color: #222222
+        }
+
+        &.color6 .overlay-tabs .links ul {
+            border-bottom-color: #bab6af
+        } 
+        &.color7 .overlay-tabs .links ul {
+            border-bottom-color: #b49b35
+        }                                                            
+
     }
 
     .overlay-tabs {
@@ -41,11 +71,12 @@
         }
         [data-eq~="1000px"] & {
             width: 100%;
-            white-space: nowrap;
             overflow-x: scroll;
             .links {
+                flex-direction: row;
                 margin-bottom: 2rem; 
                 ul {
+                    flex: 1 0 auto;
                     border-bottom: 1px solid rgb(216, 216, 216);
                     .tab {
                         padding-right: 2rem;
@@ -86,11 +117,11 @@
         background-size: cover;
         background-repeat: no-repeat;        
         padding: 4rem 0rem;
+        background-position: center;
 
         [data-eq~="1000px"] & {
             height:400px;
-        }        
-
+        }
     }
 
     .buttons li {
