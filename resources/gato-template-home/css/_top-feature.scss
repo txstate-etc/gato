@@ -1,0 +1,184 @@
+div#top-feature {
+  position: relative;
+  background: $charcoal;
+
+  figure {
+    position: relative;
+    overflow: hidden;
+    height: 600px;
+    margin: 0;
+    background: $maroon;
+
+    .image-container {
+      display: none;
+
+      &.activated {
+        display: inline;
+      }
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      @include object-fit-poly(cover);
+    }
+
+    p { margin: 0; }
+
+    figcaption {
+      width: 100%;
+      height: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0;
+      display: none;
+      &.activated {
+        display: block;
+      }
+
+      .caption-wrap {
+        position: absolute;
+        bottom: 5.5rem;
+
+        &.leftmiddle {bottom: 40%;}
+        &.leftbottom {bottom: 15%;}
+        &.middle {
+          left: 0; 
+          right: 0;
+          bottom: 10%;
+          display: flex;
+          justify-content: center;
+        }
+
+        &.rightbottom {right: 10%; bottom: 15%;}
+        &.rightmiddle {right: 10%; bottom: 40%;}
+      }
+
+      .feature-headline {
+        a {
+          display: block;
+          background: $maroon;
+          color: $white;
+          @include hover-bg($light-maroon);
+          text-decoration: none;
+          font-weight: 500;
+          font-size: 3.2rem;
+          line-height: 4.5rem;
+          padding: 1.4rem 2.5rem 1.4rem 2rem;
+          max-width: 700px;
+        }
+      }
+      .feature-play-button {
+        top: -7.5rem;
+      }
+    }
+  }
+
+  .slides {
+    z-index: 1;
+  }
+  
+  .slide-nav-wrap {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .slide-nav {
+    .slick-prev, .slick-next {
+      @include verticalcenter(-6%);
+      text-decoration: none;
+      font-size: 0px;
+      &:before { font-size: 8rem; }
+      padding: 0 1rem;
+      cursor: pointer;
+      border: none;
+      outline: none;
+      background: none;
+      color: $white;
+      z-index: 2;
+    }
+    .slick-prev {
+      left: 0;
+      @include fa(angle-left);
+    }
+    .slick-next {
+      right: 0;
+      @include fa(angle-right);
+    }
+  }
+
+
+  @media (max-width: $xl-breakpoint){
+    figure {
+      height: 500px;
+
+      figcaption {
+        max-width: 1000px;
+        display: none;
+
+        .feature-headline {
+          a {
+            max-width: 600px;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: $md-breakpoint){
+    figure {
+      height: 450px;
+
+      figcaption {
+        padding: 0 2rem;
+
+        .feature-headline a {
+          font-size: 2.8rem;
+          line-height: 3.6rem;
+        }
+        .feature-play-button {
+          top: -6.2rem;
+        }
+      }
+    }
+  }
+
+  @media (max-width: $sm-breakpoint){
+    .slide-nav-wrap { display: none; }
+    figure {
+      .activated {
+        .desktop {
+          display: none;
+        }
+        .mobile {
+          display: inline;
+        }
+      }
+      figcaption {
+        padding: 0;
+        .caption-wrap {
+          bottom: 0 !important;
+          left: 0 !important;
+          right: 0 !important;
+          display: block !important;
+          text-align: center;
+          opacity: 1;
+ 
+          .feature-headline a {
+            max-width: 100%;
+            font-size: 2.4rem;
+            line-height: 3.4rem;
+          }
+          .feature-play-button {
+            top: -7rem;
+            left: 2rem;
+          }
+        }
+      }
+    }
+    .slide:first-child img, .slide-nav { opacity: 1; }
+  }
+}

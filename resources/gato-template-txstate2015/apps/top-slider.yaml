@@ -275,6 +275,16 @@ subApps:
                 contentPreviewDefinition:
                   contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
                 description: "Background image for this slide. Will be resized to fit the slideshow area."
+              - name: mobileImage
+                class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+                appName: assets
+                targetWorkspace: dam
+                label: Mobile Image
+                identifierToPathConverter:
+                  class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
+                contentPreviewDefinition:
+                  contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
+                description: "Mobile Background image for this slide. Will be resized to fit the slideshow area."                
               - name: alttext
                 class: info.magnolia.ui.form.field.definition.TextFieldDefinition
                 label: Image Alt Text
@@ -308,6 +318,30 @@ subApps:
                 label: Background Color
                 parameters:
                   contentType: txstateHomeTopSlider
+              - name: overlayPosition
+                class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
+                label: Overlay Position
+                multiselect: false
+                sortOptions: false
+                layout: horizontal
+                options:
+                  - name: leftmiddle
+                    label: Left Middle
+                    value: leftmiddle
+                    selected: true
+                  - name: leftbottom
+                    label: Left Bottom
+                    value: leftbottom                   
+                  - name: middle
+                    label: Middle
+                    value: middle                    
+                  - name: rightbottom
+                    label: Right Bottom
+                    value: rightbottom
+                  - name: rightmiddle
+                    label: Right Middle
+                    value: rightmiddle                    
+
               - name: scheduling
                 class: info.magnolia.ui.form.field.definition.StaticFieldDefinition
                 label: ""
@@ -327,6 +361,76 @@ subApps:
                 label: To
                 time: true
                 description: "Item will not be displayed after this time."
+
+          - name: buttonsTab
+            label: Buttons
+            fields:              
+              - name: buttons
+                class: edu.txstate.its.gato.vaadin.GatoMultiValueFieldDefinition
+                transformerClass: info.magnolia.ui.form.field.transformer.multi.MultiValueSubChildrenNodePropertiesTransformer
+                label: Buttons
+                maxFields: 2
+                field:
+                  name: button
+                  class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
+                  transformerClass: info.magnolia.ui.form.field.transformer.composite.NoOpCompositeTransformer
+                  layout: vertical
+                  fields:
+                    - name: text
+                      class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                      label: Button Text
+                      maxLength: 20
+                    - name: link
+                      class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+                      label: Button Target
+                      required: true
+                      appName: pages
+                      identifierToPathConverter:
+                        class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter  
+                    - name: buttonFill
+                      class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
+                      label: Button Fill
+                      multiselect: false
+                      sortOptions: false
+                      layout: horizontal
+                      options:
+                        - name: solid
+                          label: Solid
+                          value: solid
+                          selected: true
+                        - name: outline
+                          label: Outline
+                          value: outline                      
+                    - name: color
+                      class: info.magnolia.ui.form.field.definition.SelectFieldDefinition
+                      label: Solid Color
+                      sortOptions: false
+                      options:
+                        - name: maroon
+                          value: maroon
+                          label: Maroon
+                          selected: true
+                        - name: gold
+                          value: gold
+                          label: Gold
+                        - name: charcoal
+                          value: charcoal
+                          label: Charcoal
+                        - name: blue
+                          value: blue
+                          label: Blue
+                        - name: river
+                          value: river
+                          label: River
+                        - name: sandstone
+                          value: sandstone
+                          label: Sandstone
+                        - name: oldgold
+                          value: oldgold
+                          label: Old Gold
+  
+                      
+
       nodeType:
         icon: icon-file-video
         name: mgnl:component

@@ -2,6 +2,12 @@ customcss:
   !include /gato-component-cssjs/templates/areas/customcss.yaml
 customjs:
   !include /gato-component-cssjs/templates/areas/customjs.yaml
+hero-banner:
+  type: single
+  templateScript: /gato-template-home/templates/areas/herobanner-container.ftl
+  availableComponents:
+    herobanner:
+      id: gato-template-wittliff:components/herobanner  
 homecontent: #add home page content types here. textImage is a placeholder
   type: list
   templateScript: /gato-template-home/templates/areas/homepage-content.ftl

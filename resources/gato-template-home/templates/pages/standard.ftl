@@ -45,7 +45,11 @@
           [@simplemenu/]
         </div>
       </div>
+      
       <main>
+        [#if def.parameters.isHomeTemplate!false]
+          [#include "includes/top-feature.ftl"]
+        [/#if]          
         [#if def.parameters.isHomeTemplate!false]
           [@cms.area name="homecontent"/]
         [#else]

@@ -1,10 +1,10 @@
 [#if cmsfn.isEditMode()]
 <div cms:edit="bar"></div>
 [/#if]
-[#if !content.mobileImage?has_content]
-[#assign mobileImage = content.desktopImage]
+[#if content.mobileImage?has_content]
+    [#assign mobileImage = content.mobileImage]
 [#else] 
-[#assign mobileImage = content.mobileImage]
+    [#assign mobileImage = content.desktopImage]
 [/#if]
 <div class="gato-section-centered">
     <div class="mobilefirst-pattern centered">
