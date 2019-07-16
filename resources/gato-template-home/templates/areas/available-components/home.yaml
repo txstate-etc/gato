@@ -1,16 +1,26 @@
-#landing
+#home
+aboutintro:
+  id: gato-template-home:components/about-intro
+explore:
+  id: gato-template-home:components/explore
+imageoverlay:
+  id: gato-template-home:components/imageoverlay
 importantdates:
   id: gato-component-patterns:components/importantdates
 tabbed:
   id: gato-component-patterns:components/tabbed
 flexible:
   id: gato-component-patterns:components/flexible
-  
+
 #patterns
 titlebuttons:
   id: gato-component-patterns:components/titlebuttons
 titlelinks:
   id: gato-component-patterns:components/titlelinks
+buttonsimage:
+  id: gato-component-patterns:components/buttonsimage
+linksimage:
+  id: gato-component-patterns:components/linksimage
 twocolcta:
   id: gato-component-patterns:components/twocolcta
 icontextmulti:
@@ -32,19 +42,18 @@ twocallouts:
 quoteimage:
   id: gato-component-patterns:components/quoteimage
 
-
 #layouts
 full:
-  id: gato-template-mobilefirst:components/rows-interior/full
+  id: gato-template-mobilefirst:components/rows-home/full
 halves:
-  id: gato-template-mobilefirst:components/rows-interior/halves
+  id: gato-template-mobilefirst:components/rows-home/halves
 onethirdtwothirds:
-  id: gato-template-mobilefirst:components/rows-interior/onethirdtwothirds
+  id: gato-template-mobilefirst:components/rows-home/onethirdtwothirds
 twothirdsonethird:
-  id: gato-template-mobilefirst:components/rows-interior/twothirdsonethird
+  id: gato-template-mobilefirst:components/rows-home/twothirdsonethird
 thirds:
-  id: gato-template-mobilefirst:components/rows-interior/thirds
+  id: gato-template-mobilefirst:components/rows-home/thirds
 quarters:
-  id: gato-template-mobilefirst:components/rows-interior/quarters
+  id: gato-template-mobilefirst:components/rows-home/quarters
 cardlayoutgrid:
   id: gato-component-cards:components/layouts/grid

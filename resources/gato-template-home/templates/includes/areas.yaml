@@ -12,26 +12,12 @@ homecontent: #add home page content types here. textImage is a placeholder
   type: list
   templateScript: /gato-template-home/templates/areas/homepage-content.ftl
   availableComponents:
-    textImage:
-      id: gato-template:components/textimage
-    aboutintro:
-      id: gato-template-home:components/about-intro
-    explore:
-      id: gato-template-home:components/explore
-    imageoverlay:
-      id: gato-template-home:components/imageoverlay
-    importantdates:
-      id: gato-component-patterns:components/importantdates
-    tabbed:
-      id: gato-component-patterns:components/tabbed
-    flexible:
-      id: gato-component-patterns:components/flexible
+    !include /gato-template-home/templates/areas/available-components/home.yaml
 landingcontent: #add landing page content types here. textImage is a placeholder
   type: list
   templateScript: /gato-template-home/templates/areas/homepage-content.ftl
   availableComponents:
-    textImage:
-      id: gato-template:components/textimage
+    !include /gato-template-home/templates/areas/available-components/landing.yaml
 socialmedia:
   type: single
   templateScript: /gato-template/templates/areas/optional-social.ftl

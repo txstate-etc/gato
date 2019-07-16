@@ -26,3 +26,4 @@ areas:
         id: gato-template-home:components/cards/video
 parameters:
   icon: /gato-component-gallery/images/image_gallery.png
+  tab: Prebuilt Sections
