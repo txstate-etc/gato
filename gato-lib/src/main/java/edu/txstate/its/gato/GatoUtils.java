@@ -1504,6 +1504,11 @@ public final class GatoUtils {
     }
   }
 
+  public String isVideoOrLink(String url) {
+    if (url.contains("vimeo")) return "video";
+    else return "link";
+  }
+
   public String getDaCastEmbedJson(String url) {
     String daCastId = "";
     Matcher d = DACAST_URL_PATTERN.matcher(url);

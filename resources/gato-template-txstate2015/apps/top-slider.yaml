@@ -220,6 +220,13 @@ subApps:
               sortable: true
               propertyName: enabled
               class: info.magnolia.ui.workbench.column.definition.BooleanPropertyColumnDefinition
+            - name: preview
+              label: Preview
+              width: 70
+              editable: true
+              sortable: true
+              propertyName: preview
+              class: info.magnolia.ui.workbench.column.definition.BooleanPropertyColumnDefinition              
             - name: status
               width: 60
               sortable: true
@@ -292,6 +299,7 @@ subApps:
               - name: title
                 class: info.magnolia.ui.form.field.definition.TextFieldDefinition
                 label: Caption Title
+                rows: 3
                 description: "Title for this slide. Appears in the caption area."
               - name: link
                 class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
@@ -361,6 +369,11 @@ subApps:
                 label: To
                 time: true
                 description: "Item will not be displayed after this time."
+              - name: preview
+                class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+                label: Preview
+                defaultValue: false
+                buttonLabel: Force this image to be selected when in edit / preview modes.                
 
           - name: buttonsTab
             label: Buttons
@@ -387,48 +400,36 @@ subApps:
                       appName: pages
                       identifierToPathConverter:
                         class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter  
-                    - name: buttonFill
-                      class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
-                      label: Button Fill
-                      multiselect: false
-                      sortOptions: false
-                      layout: horizontal
-                      options:
-                        - name: solid
-                          label: Solid
-                          value: solid
-                          selected: true
-                        - name: outline
-                          label: Outline
-                          value: outline                      
                     - name: color
                       class: info.magnolia.ui.form.field.definition.SelectFieldDefinition
                       label: Solid Color
                       sortOptions: false
                       options:
                         - name: maroon
-                          value: maroon
+                          value: color1
                           label: Maroon
                           selected: true
                         - name: gold
-                          value: gold
+                          value: color2
                           label: Gold
                         - name: charcoal
-                          value: charcoal
+                          value: color3
                           label: Charcoal
                         - name: blue
-                          value: blue
+                          value: color4
                           label: Blue
                         - name: river
-                          value: river
+                          value: color5
                           label: River
                         - name: sandstone
-                          value: sandstone
+                          value: color6
                           label: Sandstone
                         - name: oldgold
-                          value: oldgold
+                          value: color7
                           label: Old Gold
-  
+                        - name: white
+                          value: white
+                          label: White
                       
 
       nodeType:
