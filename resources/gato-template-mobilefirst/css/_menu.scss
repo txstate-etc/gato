@@ -137,25 +137,6 @@ nav.main-menu {
       padding-bottom: 0.2rem;
     }
   }
-  a.more-tools {
-    display: block;
-    padding: 0.5rem 0;
-    border-top: 1px solid $dark-sandstone;
-    border-bottom: 1px solid $dark-sandstone;
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
-    padding: 0.9rem 0;
-    i {
-      font-weight: bold;
-      margin-left: 0.5rem;
-    }
-    &[aria-expanded="true"] i {
-      @extend .fa-angle-up;
-    }
-  }
-  ul.more-tools {
-    display: none;
-  }
 }
 
 body.no-touch {

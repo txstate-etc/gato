@@ -167,26 +167,7 @@ jQuery(document).ready(function($) {
     }
   });
 
-  var moretoolslink = menuContent.find('a.more-tools');
-  var moretoolslist = menuContent.find('ul.more-tools');
-  var showmoretools = function () {
-    moretoolslink.attr('aria-expanded', true);
-    moretoolslist.velocity('slideDown', { duration: 300 });
-  }
 
-  var hidemoretools = function () {
-    moretoolslink.attr('aria-expanded', false);
-    moretoolslist.velocity('slideUp', { duration: 300 });
-  }
-
-  $('a.more-tools').click(function (e) {
-    if (moretoolslink.is('[aria-expanded="true"]')) {
-      hidemoretools();
-    } else {
-      showmoretools();
-    }
-    e.preventDefault();
-  })
 
   /** Full Site Navigation **/
   gatonavigationdata.isHomePage = true;
