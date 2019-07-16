@@ -301,6 +301,12 @@ subApps:
                 label: Caption Title
                 rows: 3
                 description: "Title for this slide. Appears in the caption area."
+              - name: titleWidth
+                class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                label: Caption Title Width
+                placeholder: 300px
+                description: "Enter a max width (in pixels) for the caption title."            
+                type: Integer
               - name: link
                 class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
                 label: Link

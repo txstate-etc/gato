@@ -33,10 +33,6 @@ div#top-feature {
           top: 50%;
           margin-top: -.4rem;
           left: .2rem;
-          @media (max-width: $sm-breakpoint) {
-            border-width: 0.8rem 0 0.8rem 1.4rem;
-            margin-top: -0.8rem;
-          }
         }
         &:hover {
           @include vendor-prefix(transform, scale(1.15));
@@ -51,10 +47,17 @@ div#top-feature {
 
       &.activated {
         display: inline;
+        .mobile {
+          display: none;
+        }        
       }
       &.preview {
         display: inline;
+        .mobile {
+          display: none;
+        }              
       }
+
     }
 
     img {
@@ -78,6 +81,9 @@ div#top-feature {
       &.preview {
         display: flex;
       }      
+      &.mobile {
+        display: none;
+      }
 
       .caption-wrap {
         position: absolute;
@@ -200,14 +206,17 @@ div#top-feature {
   @media (max-width: $sm-breakpoint){
     .slide-nav-wrap { display: none; }
     figure {
-      .activated {
-        .desktop {
-          display: none;
-        }
-        .mobile {
-          display: inline;
+      .image-container {
+        &.activated {
+          .desktop {
+            display: none;
+          }
+          .mobile {
+            display: inline;
+          }
         }
       }
+
       figcaption {
         padding: 0;
         .caption-wrap {

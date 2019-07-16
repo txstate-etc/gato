@@ -28,7 +28,7 @@
             <figcaption class="${preview}">
               <div class="caption-wrap ${component.overlayPosition!''}" id="${gf.uuidToHtmlId(component.@id)}">
                 [#if component.title?has_content]
-                  <p class="feature-headline">
+                  <p class="feature-headline" style="max-width: ${component.titleWidth!}">
                     [#assign link = component.link!component.videourl!]
                     [#if link?has_content]
                       <a href="${gf.filterUrl(link)}">
