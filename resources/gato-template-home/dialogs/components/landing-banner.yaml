@@ -1,0 +1,44 @@
+form:
+  tabs:
+    - name: tabMain
+      label: Image
+      fields:
+        - name: image
+          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+          required: true
+          appName: assets
+          targetWorkspace: dam
+          label: Image
+          identifierToPathConverter:
+            class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
+          contentPreviewDefinition:
+            contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
+          description: "Image for this banner. Will be resized to fit the banner area."
+        - name: mobileImage
+          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+          appName: assets
+          targetWorkspace: dam
+          label: Image
+          identifierToPathConverter:
+            class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
+          contentPreviewDefinition:
+            contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
+          description: "Mobile image for this banner. Will be resized to fit the banner area."          
+        - name: visible
+          class: info.magnolia.ui.form.field.definition.HiddenFieldDefinition
+          defaultValue: 'shown'
+        - name: size
+          class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
+          label: Banner Size
+          multiselect: false
+          sortOptions: false
+          layout: horizontal
+          options:
+            - name: large
+              label: Large
+              value: large
+              selected: true
+            - name: small
+              label: Small
+              value: small          
+actions: !include /gato-template/dialogs/common/actions-block.yaml

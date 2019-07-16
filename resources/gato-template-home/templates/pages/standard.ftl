@@ -11,6 +11,7 @@
   </head>
   <body class="${cmsfn.isEditMode()?then(' admin','')}">
     [#assign isTXSTHome = true]
+    [#include "/gato-template-home/templates/pages/includes/emergency.ftl"]
     [@skipnav/]
     [#include "/gato-template-mobilefirst/templates/pages/includes/header.ftl"]
     [#include "/gato-template-mobilefirst/templates/pages/includes/menu.ftl"]
@@ -46,16 +47,44 @@
         </div>
       </div>
       
-      <main>
         [#if def.parameters.isHomeTemplate!false]
           [#include "includes/top-feature.ftl"]
+        [#elseif def.parameters.isLandingTemplate!false]
+          [@cms.area name="landing-banner" content=gf.getOrCreateArea(homepage, 'home-banner')/]
         [/#if]          
         [#if def.parameters.isHomeTemplate!false]
           [@cms.area name="homecontent"/]
         [#else]
+      [#if !def.parameters.isHomeTemplate!false]
+        <div class="gato-section-full">
+          <div class="gato-section-centered">
+            <div class="gato-section">
+              [@breadcrumbs/]
+            </div>
+          </div>
+        </div>
+        [/#if]
+        <main class="contentcolumn ${content.intro?has_content?then('', 'no-intro')}">
+          [#assign hideSidebar = true /]
+          [@headline hideSidebar /]
+          [#if !(content.hideTitle!false)]
+            [#if content.intro?has_content]
+              <div class="page-intro-text">
+                ${gf.processRichText(cmsfn.decode(content).intro)}
+              </div>
+            [/#if]
+            [#if content.addTitleSeparator?has_content && content.addTitleSeparator == true]
+            <div class="gato-section-full gato-section-title-separator">
+              <div class="gato-section-centered">
+                <div class="gato-section">
+                    <div class="intro-title-border"></div>
+                </div>
+              </div>
+            </div>
+            [/#if]
+          [/#if]        
           [@cms.area name="landingcontent"/]
         [/#if]
-      </main>
     </div>
     [#include "/gato-template-mobilefirst/templates/pages/includes/footer.ftl"]
     [@cssjsmodals /]

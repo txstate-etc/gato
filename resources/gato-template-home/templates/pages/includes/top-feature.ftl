@@ -29,14 +29,7 @@
               <div class="caption-wrap ${component.overlayPosition!''}" id="${gf.uuidToHtmlId(component.@id)}">
                 [#if component.title?has_content]
                   <p class="feature-headline" style="max-width: ${component.titleWidth!}">
-                    [#assign link = component.link!component.videourl!]
-                    [#if link?has_content]
-                      <a href="${gf.filterUrl(link)}">
-                    [/#if]
                         ${component.title}
-                    [#if link?has_content]
-                      </a>
-                    [/#if]
                   </p>
                 [/#if]
               </div>

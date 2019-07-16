@@ -2,12 +2,25 @@ customcss:
   !include /gato-component-cssjs/templates/areas/customcss.yaml
 customjs:
   !include /gato-component-cssjs/templates/areas/customjs.yaml
+menulinks:
+  type: single
+  title: Menu Links
+  availableComponents:
+    linksmultifield:
+      id: gato-template-mobilefirst:components/linksmultifield  
 hero-banner:
   type: single
   templateScript: /gato-template-home/templates/areas/herobanner-container.ftl
   availableComponents:
     herobanner:
       id: gato-template-wittliff:components/herobanner  
+landing-banner:
+  type: single
+  title: Mobile First Banner
+  templateScript: /gato-template-home/templates/areas/landing-banner-area.ftl
+  availableComponents:
+    banner:
+      id: gato-template-home:components/landing-banner      
 homecontent: #add home page content types here. textImage is a placeholder
   type: list
   templateScript: /gato-template-home/templates/areas/homepage-content.ftl

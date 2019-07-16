@@ -1,0 +1,66 @@
+.banner-section {
+  padding-top: 123px;
+  @media (max-width: $sm-breakpoint) {
+    padding-top: 6rem;
+  }
+  .banner {
+    position: relative;
+    .banner-image {
+      position: relative;
+      height: 450px;
+      background-color: $maroon;
+      &.large {
+        @media (max-width: $lg-breakpoint) {
+          height: 0;
+          min-height: 360px;
+          padding-bottom: 36.2%;
+        }
+      }
+
+      &.small {
+        height: 160px;
+      }
+
+      .desktop {
+        @media (max-width: $sm-breakpoint) {
+          display: none;
+        }
+      }
+      .mobile {
+        display: none;
+        @media (max-width: $sm-breakpoint) {
+          display: block;
+        }
+      }
+      overflow: hidden;
+      @include coverimage();
+      .editBanner {
+        position: absolute;
+        width: 33%;
+        top: 60px;
+        left: 50%;
+        transform: translate(-50%, 0);
+      }
+    }
+  }
+  &.noimage {
+    .addBannerImage {
+      width: 25%;
+      position: absolute;
+      left: 50%;
+      top: calc(50% + 30px);
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+body.admin {
+  .addBannerImage {
+    .mgnlEditorBar.mgnlEditor.component {
+      margin-bottom: 0px !important;
+    }
+  }
+  .banner-image {
+    width: 100%;
+  }
+}

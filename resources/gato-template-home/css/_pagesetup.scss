@@ -9,7 +9,6 @@
 //temporary until there is some content
 main {
   min-height: 500px;
-  padding-top: 123px;
   @media (max-width: $sm-breakpoint) {
     padding-top: 0;
   }
@@ -33,4 +32,71 @@ body {
 
 .page-container {
   background-color: $white;
+}
+
+.breadcrumbs {
+  padding: 1rem 2rem 0rem 2rem;
+  font-weight: 700;
+  font-size: 1.4rem;
+  line-height: 2rem;
+  @media (max-width: $sm-breakpoint) {
+    display: none !important;
+  }
+  a {
+    text-decoration: none;
+    color: $charcoal;
+    font-weight: 400;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  .separator i:before{
+    content: '/';
+  }
+}
+
+.contentcolumn {
+  min-height: 32rem;
+}
+
+ .contentcolumn .gato-section-full:not(.gato-section-headline) {
+  padding: 4rem 0rem;
+  @media (max-width: $sm-breakpoint) {
+    padding: 2rem 0rem;
+  }
+  &.attached {
+    padding-top: 0;
+  }  
+}
+
+.contentcolumn .gato-section-full.pattern {
+  padding: 0rem;
+}
+
+.contentcolumn .headline {
+  font-family: $garamond;
+  color: $verydark;
+  font-weight: 400;
+  margin: 3rem 0rem 1.5rem 0rem;
+  font-size: 3.6rem;
+  text-align: center;
+  line-height: 4.2rem;
+  @media (max-width: $sm-breakpoint) {
+    text-align: left;
+  }
+}
+
+.contentcolumn.no-intro {
+  .headline {
+    margin-bottom: 4rem;
+  }
+}
+
+.contentcolumn .gato-section-full.gato-section-title-separator {
+  padding: 0;
+  .intro-title-border {
+    height: 1px;
+    background-color: $almondmilk;
+    margin: 0 2rem;
+  }
 }
