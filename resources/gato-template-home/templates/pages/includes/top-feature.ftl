@@ -1,7 +1,7 @@
 [#assign slides = cmsfn.asContentMap(cmsfn.nodeByPath('/homepage-data/features/top-feature', 'gatoapps'))]
 [#assign slides = cmsfn.children(slides, "mgnl:component")]
 [#assign aspectratio = 1750.0/600.0]
-
+[#assign count = 0]
 <div id="top-feature" class="feature">
     <div class="slides">
       <div class="hero color1">
@@ -21,9 +21,10 @@
               [/#if]
             [/#if]            
             [#if isEnabled(component)]
+            [#assign count++]
             <div class="image-container ${preview}">
-              <img class="slide-image desktop" src="${gf.getImgDefault(component.image, aspectratio)}" srcset="${gf.getSrcSet(component.image, aspectratio, 80)}" alt="${component.alttext!}">
-              <img class="slide-image mobile" src="${gf.getImgDefault(mobileImage, aspectratio)}" srcset="${gf.getSrcSet(component.mobileImage, aspectratio, 80)}" alt="${component.alttext!}">
+              <div class="slide-image desktop" style="background-image: url(${gf.getImgDefault(component.image, aspectratio)})"></div>
+              <div class="slide-image mobile" style="background-image: url(${gf.getImgDefault(mobileImage, aspectratio)})"></div>
             </div>
             <figcaption class="${preview}">
               <div class="caption-wrap ${component.overlayPosition!''}" id="${gf.uuidToHtmlId(component.@id)}">
@@ -51,6 +52,10 @@
                 [/#if]
               </div>
             </figcaption>
+            [/#if]
+            [#if count == 10]
+              <h2>${count}</h2>
+              [#break]
             [/#if]
           [/#list]
         </figure>
