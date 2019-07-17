@@ -25,6 +25,7 @@ jQuery(document).ready(function($) {
   var header = $('header');
   var menuDynamic = menu.find('.menu-dynamic-navigation');
   var menuUp = menu.find('.navigation-up');
+  var panel = $('#panel');
 
   var animating = 0;
   var complete = function () {
@@ -55,6 +56,7 @@ jQuery(document).ready(function($) {
       if (!animating) {
         menu.hide();
         header.css('width', '');
+        panel.css('transform', '');
       }
     }
     menuContent.velocity({translateX: ['-100%', '0%']}, {duration: 300, complete: hidecomplete});
