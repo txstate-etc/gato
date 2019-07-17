@@ -5,12 +5,26 @@
   <head>
     [@googletagmanager /]
     [#assign scripts = ['gato-template-mobilefirst/js/standard.cjs']]
+    [#assign customscripts = []]
     [#if def.parameters.isFilterableSearchTemplate!false]
       [#assign scripts = scripts + ['gato-area-filterable-search/js/filterablesearch.js']]
     [/#if]
+    [#if def.parameters.isPassthroughTemplate!false]
+      [#if content.javascript?has_content]
+        [#list cmsfn.children(content.javascript) as import]
+          <script type="text/javascript" src="${import.text}"></script>
+        [/#list]
+      [/#if]
+      [#if content.css?has_content]
+        [#list cmsfn.children(content.css) as import]
+          <style type="text/css" src="${import.text}"></style>
+        [/#list]
+      [/#if]
+    [/#if]    
     [@templatejs scripts/]
     [@templatehead/]
     [@cms.area name="templatecss"/]
+
   </head>
   <body class="${cmsfn.isEditMode()?string('admin','')}">
     [@skipnav/]
