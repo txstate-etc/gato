@@ -9,6 +9,10 @@
     [#if def.parameters.isFilterableSearchTemplate!false]
       [#assign scripts = scripts + ['gato-area-filterable-search/js/filterablesearch.js']]
     [/#if]
+   
+    [@templatejs scripts/]
+    [@templatehead/]
+    [@cms.area name="templatecss"/]
     [#if def.parameters.isPassthroughTemplate!false]
       [#if content.javascript?has_content]
         [#list cmsfn.children(content.javascript) as import]
@@ -17,14 +21,10 @@
       [/#if]
       [#if content.css?has_content]
         [#list cmsfn.children(content.css) as import]
-          <style type="text/css" src="${import.text}"></style>
+          <link rel="stylesheet" type="text/css" href="${import.text}">
         [/#list]
       [/#if]
-    [/#if]    
-    [@templatejs scripts/]
-    [@templatehead/]
-    [@cms.area name="templatecss"/]
-
+    [/#if] 
   </head>
   <body class="${cmsfn.isEditMode()?string('admin','')}">
     [@skipnav/]
