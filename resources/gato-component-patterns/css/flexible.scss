@@ -1,11 +1,10 @@
 .flexible {
     display: flex;
+    width: 100%;
     flex-direction: column;
-    background-color: $section-background-color;
     padding: 6rem 0;
-    max-height: 750px;
 
-    [data-eq~='800px'] & {
+    [data-eq~='1000px'] & {
       max-height: none;
       padding: 4rem 0;
     }    
@@ -13,30 +12,44 @@
     .flex-row {
         display: flex;
         width: 90%;
-        min-height: 300px;
+        min-height: 350px;
         margin: 0 auto;        
-        padding-bottom: 2rem;
 
-        [data-eq~='800px'] & {
+        [data-eq~='1000px'] & {
           flex-direction: column;
-          min-height: 500px;
           padding: 0;
           width: 95%;
         }
+    }
+    .flex-row:not(:first-of-type):last-of-type {
+      margin-top: 2rem;
+      [data-eq~='1000px'] & {
+        margin-top: 0;
+      }    
     }
 
     .content-item {
         flex: 1 0 0;
         display: inline-block;
-        padding: 0 1rem;
-        margin: 1rem 0;
+        padding-right: 2rem;
+        .text-link {
+          padding: 2rem;
+          height: 100%;
+          width: 100%;
+          justify-content: unset;
+          [data-eq~='1000px'] & {
+          }
+          
+        }
         a img {
             width: 100%;
             height: 100%;
         }
-        [data-eq~='800px'] & {
+        [data-eq~='1000px'] & {
           flex-grow: 1 !important;
-        }        
+          margin-top: 1rem;
+          padding-right: 0;
+        }     
     }
     
     .card {
@@ -46,6 +59,7 @@
         height: 100%;
         background-repeat: no-repeat;
         background-position: 50% 50%;
+        min-height: 250px;
       }
       .caption {
         position: absolute;

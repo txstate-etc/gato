@@ -1,6 +1,6 @@
 [#function rowHasRTE components]
     [#list components as component]
-        [#if cmsfn.metaData(component, "mgnl:template") == "gato-template:components/richeditor"]
+        [#if cmsfn.metaData(component, "mgnl:template") == "gato-component-patterns:components/textlink"]
             [#return true]
         [/#if]
     [/#list]
@@ -40,7 +40,7 @@
   [#assign orientation = 'wide']
 [/#if]
 
-[#if cmsfn.metaData(component, "mgnl:template") == "gato-template:components/richeditor" || orientation == "wide"]
+[#if cmsfn.metaData(component, "mgnl:template") == "gato-component-patterns:components/textlink" || orientation == "wide"]
   [#assign flexGrow = 'flex-grow: 2']
 [#elseif orientation == "full"]
   [#assign flexGrow = 'flex-grow: 3']

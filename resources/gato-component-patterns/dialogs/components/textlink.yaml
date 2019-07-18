@@ -1,0 +1,59 @@
+form:
+  tabs:
+    - name: tabmain
+      label: "Text + Link W/Background Color"
+      fields:
+        - name: title
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Title
+          maxLength: 50  
+        - name: background
+          class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
+          fields:
+            - name: color
+              class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+          transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+          initFunction: initColorPicker
+          loadScriptsInOrder: true
+          scripts: [gato-lib/js/color-picker.js]
+          label: Background Color
+          parameters:
+            contentType: default
+        - name: text
+          class: info.magnolia.ui.form.field.definition.RichTextFieldDefinition
+          label: Text
+          source: false
+          alignment: false
+          images: false
+          lists: true
+          tables: false
+          height: 500
+          configJsFile: /.resources/gato-template/js/richeditor/minimal-config-with-lists.js
+        - name: links
+          class: edu.txstate.its.gato.vaadin.GatoMultiValueFieldDefinition
+          transformerClass: info.magnolia.ui.form.field.transformer.multi.MultiValueSubChildrenNodePropertiesTransformer
+          label: Links
+          styleName: linksMultiField
+          maxFields: 1
+          field:
+            name: link
+            class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
+            transformerClass: info.magnolia.ui.form.field.transformer.composite.NoOpCompositeTransformer
+            layout: vertical
+            fields:
+              - name: text
+                class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                label: Link Text
+                maxLength: 40
+              - name: link
+                class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+                label: Link Target
+                required: true
+                appName: pages
+                identifierToPathConverter:
+                  class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
+        - name: stylesheet
+          label: ""
+          class: edu.txstate.its.gato.vaadin.GatoCssIncludeDefinition
+          styles: [gato-component-patterns/dialogs/css/fix-link-multifield.css]
+actions: !include /gato-template/dialogs/common/actions-block.yaml

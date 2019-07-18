@@ -1,0 +1,7 @@
+templateScript: /gato-component-patterns/templates/components/common/textlink.ftl
+renderType: freemarker
+title: Text + Link
+description: Individual photo in a gallery
+dialog: gato-component-patterns:components/textlink
+parameters:
+  icon: /gato-template/images/rtexteditor.png

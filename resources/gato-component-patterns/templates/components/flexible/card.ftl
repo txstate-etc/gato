@@ -32,7 +32,6 @@
 
   [/#switch]
 
-<!--Check for whitespace in alt text-->
 [#if gf.isEmptyString(content.imageAlt)]
   [#assign altText = ""]
 [#else]

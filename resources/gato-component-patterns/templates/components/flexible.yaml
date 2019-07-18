@@ -12,8 +12,8 @@ areas:
     availableComponents:
       image:
         id: gato-component-patterns:components/flexible/card        
-      quoteimage: 
-        id: gato-template:components/richeditor        
+      textlink: 
+        id: gato-component-patterns:components/textlink
   flex-bottom:
     type: list
     templateScript: /gato-component-patterns/templates/areas/flex-rows.ftl
@@ -22,8 +22,8 @@ areas:
     availableComponents:
       image:
         id: gato-component-patterns:components/flexible/card        
-      quoteimage: 
-        id: gato-template:components/richeditor        
+      textlink: 
+        id: gato-component-patterns:components/textlink
 parameters:
   icon: /gato-component-patterns/images/backgroundimage-text.png
   tab: Prebuilt Sections
