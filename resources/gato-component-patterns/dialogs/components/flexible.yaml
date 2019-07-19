@@ -3,23 +3,6 @@ form:
     - name: tabMain
       label: Flexible Section
       fields:
-        - name: overlayPosition
-          class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
-          label: Overlay Position
-          multiselect: false
-          sortOptions: false
-          layout: horizontal
-          options:
-            - name: left
-              label: Left
-              value: left
-              selected: true
-            - name: right
-              label: Right
-              value: right
-    - name: tabBackground
-      label: Background Color
-      fields:
         - name: info
           class: info.magnolia.ui.form.field.definition.StaticFieldDefinition
           label: ""

@@ -11,7 +11,9 @@ areas:
     maxComponents: 3
     availableComponents:
       image:
-        id: gato-component-patterns:components/flexible/card        
+        id: gato-component-patterns:components/flexible/image   
+      video:
+        id: gato-component-patterns:components/flexible/video                 
       textlink: 
         id: gato-component-patterns:components/textlink
   flex-bottom:
@@ -21,7 +23,9 @@ areas:
     maxComponents: 3
     availableComponents:
       image:
-        id: gato-component-patterns:components/flexible/card        
+        id: gato-component-patterns:components/flexible/image    
+      video:
+        id: gato-component-patterns:components/flexible/video                
       textlink: 
         id: gato-component-patterns:components/textlink
 parameters:

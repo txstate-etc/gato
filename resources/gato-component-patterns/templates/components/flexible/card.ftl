@@ -1,3 +1,4 @@
+[#assign oembed = gf.oEmbedCached(content, content.videourl)]
 [#switch ctx.orientation]
   [#case "normal"]
     [#assign left = (content.squarecropleft!0.0)?number]
@@ -37,12 +38,52 @@
 [#else]
   [#assign altText = content.imageAlt]
 [/#if]
-<a href="${gf.filterUrl(content.link)}">
-  <div class="card" style='background-image: url("${gf.getImgDefault(content.image, left, right, top, bottom, aspectratio)}")'>
-    [#if content.caption?has_content]
-    <div class="caption">
-      <p>${content.caption!''}</p>
+[#if content.image?has_content]
+  [#assign cardImage = gf.getImgDefault(content.image, left, right, top, bottom, aspectratio)]
+  [#assign cardImageMobile = gf.getImgDefault(content.image, (content.fullcropleft!0.0)?number, (content.fullcropright!0.0)?number, (content.fullcroptop!0.0)?number, (content.fullcropbottom!0.0)?number, 1.777)]
+[#elseif gf.jsonGetString(oembed, 'thumbnail_url')?has_content]
+  [#assign cardImage = gf.getImg(gf.jsonGetString(oembed, 'thumbnail_url'), 1280, 720, true, false, 0, 0, 0, 0)]
+[#else]
+  [#assign cardImage = gf.getImg(gf.resourcePath() + "/gato-component-cards/images/video-default.png")]
+[/#if]
+
+
+<div class="desktop ${content.image?has_content?string('mobile-image', 'no-mobile-image')}">
+  <a href="${gf.filterUrl(content.link)}">
+    <div class="card ${content.videourl?has_content?string('gato-card-video','gato-card-image')} ${gf.jsonGetString(oembed, 'provider_name')?lower_case}" style='background-image: url("${cardImage}")'>
+      [#if content.caption?has_content]
+      <div class="caption">
+        <p>${content.caption!''}</p>
+      </div>
+      [/#if]
+      [#if content.videourl?has_content]
+        <a href="${content.videourl}" class="feature-play-button"
+        data-embed="${gf.jsonGetString(oembed, 'html')?html}">
+          <i class="fa fa-play" aria-hidden="true"></i>
+          <span class="visuallyhidden">Play Video</span>
+        </a>
+      [/#if]      
     </div>
-    [/#if]
-  </div>
-</a>
+  </a>
+</div>
+
+[#if cardImageMobile?has_content]
+<div class="mobile">
+  <a href="${gf.filterUrl(content.link)}">
+    <div class="card ${content.videourl?has_content?string('gato-card-video','gato-card-image')} ${gf.jsonGetString(oembed, 'provider_name')?lower_case} ${ctx.orientation!}" style='background-image: url("${cardImageMobile}")'>
+      [#if content.caption?has_content]
+      <div class="caption">
+        <p>${content.caption!''}</p>
+      </div>
+      [/#if]
+      [#if content.videourl?has_content]
+        <a href="${content.videourl}" class="feature-play-button"
+        data-embed="${gf.jsonGetString(oembed, 'html')?html}">
+          <i class="fa fa-play" aria-hidden="true"></i>
+          <span class="visuallyhidden">Play Video</span>
+        </a>
+      [/#if]      
+    </div>
+  </a>
+</div>
+[/#if]

@@ -39,7 +39,9 @@
 [#if component.isWide?has_content && component.isWide]
   [#assign orientation = 'wide']
 [/#if]
-
+[#if cmsfn.metaData(component, "mgnl:template") == "gato-component-patterns:components/textlink"]
+  [#assign type = "text"]
+[/#if]
 [#if cmsfn.metaData(component, "mgnl:template") == "gato-component-patterns:components/textlink" || orientation == "wide"]
   [#assign flexGrow = 'flex-grow: 2']
 [#elseif orientation == "full"]
