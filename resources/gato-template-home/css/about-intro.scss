@@ -1,146 +1,136 @@
 .mobilefirst-pattern {
-    max-height: none;
-    img {
-        width: 100%;
-    }
-    .text{
-        max-width: none;
-    }
-    .corner-image {
-        position: relative;
-        max-width: 85px;
-        //min-height: 110px;
-        height: 100%;
-        float: left;
-        padding: 0;
-        width: 100%;
-        z-index: 1;
-        img {
-            width: 100%;
-            &.color1 {
-                background-color: $mc1-bg;
-            }
-            &.color2 {
-                background-color: $mc2-bg;
-            }
-            &.color3 {
-                background-color: $mc3-bg;
-            }
-            &.color4 {
-                background-color: $mc4-bg;
-            }
-            &.color5 {
-                background-color: $mc5-bg;
-            }
-            &.color6 {
-                background-color: $mc6-bg;
-            }
-            &.color7 {
-                background-color: $mc7-bg;
-            }
-            [data-eq~="800px"] & {
-                max-width: none;
-            }         
-            [data-eq~="600px"] & {
-                max-width: 6rem;
-            }                               
-        }
-        [data-eq~="800px"] & {
-            float: none;
-        }
-    } 
-
-    .button {
-        padding: 10px 20px 9px;
-        border: 1px solid $maroon;
-        border-radius: 2px;
-        background-color: transparent;
-        -webkit-transition: all 200ms ease;
-        transition: all 200ms ease;
-        color: $maroon;
-        font-size: 16px;
-        font-weight: 700;
-        text-align: center;
-    }
-    .pattern-content.about-intro {
+    .about-intro {
         display: block;
         margin: 0 auto;
         width:100%;
-    }
-
-    .content {
-        position: relative;
-        max-width: 500px;
-        padding-top: 6rem;
-        padding-left: 2rem;
-        padding-bottom: 6rem;
-        float: left;
-        height: 100%;
-        z-index: 1;
-
-        [data-eq~="800px"] & {
+        .corner-image {
+            position: relative;
+            max-width: 85px;
+            //min-height: 110px;
+            height: 100%;
+            float: left;
+            padding: 0;
             width: 100%;
-            float: none;
-            max-width: none;
-            padding-top: 20rem;
-            padding-left: 0;
-            padding-bottom: 4rem;
-        }
-        [data-eq~="500px"] & {
-            padding-top: 11rem;
-        }                
-    }
-    .subheading {
-        margin-bottom: 20px;
-        color: $gold;
-    }
-    .image {
-        display: inline-block;
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 60%;
-        [data-eq~="1100px"] & {
-            opacity: 0.5;
-        }
-        [data-eq~="800px"] & {
-            width: 100%;
-            opacity: 1;
-            text-align: center;
-
+            z-index: 1;
             img {
-                width: 80%;
-                margin: 0 auto;
+                width: 100%;
+                &.color1 {
+                    background-color: $mc1-bg;
+                }
+                &.color2 {
+                    background-color: $mc2-bg;
+                }
+                &.color3 {
+                    background-color: $mc3-bg;
+                }
+                &.color4 {
+                    background-color: $mc4-bg;
+                }
+                &.color5 {
+                    background-color: $mc5-bg;
+                }
+                &.color6 {
+                    background-color: $mc6-bg;
+                }
+                &.color7 {
+                    background-color: $mc7-bg;
+                }
+                [data-eq~="800px"] & {
+                    max-width: none;
+                }         
+                [data-eq~="600px"] & {
+                    max-width: 6rem;
+                }                               
             }
+            [data-eq~="800px"] & {
+                float: none;
+            }
+        } 
+
+        .content {
+            position: relative;
+            max-width: 500px;
+            padding-top: 6rem;
+            padding-left: 2rem;
+            padding-bottom: 6rem;
+            float: left;
+            height: 100%;
+            z-index: 1;
+
+            .subheading {
+                margin-bottom: 20px;
+                color: $gold;
+            }
+
+            .text{
+                max-width: none;
+            }
+
+            .button {
+                border: 1px solid $maroon;
+                color: $maroon;
+            }
+            
+            [data-eq~="800px"] & {
+                width: 100%;
+                float: none;
+                max-width: none;
+                padding-top: 20rem;
+                padding-left: 0;
+                padding-bottom: 4rem;                
+                .centered {
+                    max-width: none;
+                }   
+            }
+            [data-eq~="500px"] & {
+                padding-top: 11rem;
+            }                
         }
-        [data-eq="600px"] & {
-            width: 100%;
-        }
+
+        .image {
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60%;
+            img {
+                width: 100%;
+            }
+            [data-eq~="1100px"] & {
+                opacity: 0.5;
+            }
+            [data-eq~="800px"] & {
+                width: 100%;
+                opacity: 1;
+                text-align: center;
+
+                img {
+                    width: 80%;
+                    margin: 0 auto;
+                }
+            }
+            [data-eq="600px"] & {
+                width: 100%;
+            }
+
+            .desktop {
+                display: block;
+                [data-eq~="800px"] & {
+                    display: none;
+                }           
+            }    
+            .mobile {
+                display: none;
+                [data-eq~="800px"] & {
+                    display: block;
+                }           
+            }
+        } 
 
     }
-
-    .centered {
-        [data-eq~="800px"] & {
-            max-width: none;
-        }
-    }    
     @media (max-width: 50em) {
         .title-type {
             padding:0rem;
         }
-    }
-
-    .desktop {
-        display: block;
-        [data-eq~="800px"] & {
-            display: none;
-        }           
     }    
-    
-    .mobile {
-        display: none;
-        [data-eq~="800px"] & {
-            display: block;
-        }           
-    }
 }
