@@ -6,7 +6,7 @@
   padding:1em;
 }
 
-body ul.gato-faq-hierarchy {
+ul.gato-faq-hierarchy {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -48,16 +48,25 @@ body ul.gato-faq-hierarchy {
 
     //force faq headers to look like they start at h3
     .h3styles {
-      @extend h3;
-      display: block;
+      font-size: 2.2rem;
+      color: $gold;
+      a{
+        color: $gold; /*may need to be important */
+      }
     }
     .h4styles {
-      @extend h4;
-      display: block;
+      font-size: 1.8rem;
+      color: $charcoal;
+      a{
+        color: $charcoal; /*may need to be important */
+      }
     }
     .h5styles {
-      @extend h5;
-      display: block;
+      font-size: 1.8rem;
+      color: $charcoal;
+      a{
+        color: $charcoal; /*may need to be important */
+      }
     }
   }
 

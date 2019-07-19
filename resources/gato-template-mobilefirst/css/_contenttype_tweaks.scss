@@ -149,12 +149,35 @@ h2.event-list-title {
 }
 
 //faq
-.gato-faq-hierarchy {
+ul.gato-faq-hierarchy {
   h2.gato-faq-header a {
     font-family: $univers;
   }
-  .gato-faqitem-answer p{
-    margin-bottom: 3rem;
+  .gato-faqitem-answer {
+    p {
+      margin-bottom: 3rem;
+    }
+    //force faq headers to look like they start at h3
+    .h3styles {
+      font-family: $univers;
+      font-weight: 500;
+      font-size: 2.2rem;
+      line-height: 2.8rem;
+      color: $dark-gold;
+    }
+    .h4styles {
+      font-family: $univers;
+      font-weight: 500;
+      font-size: 1.8rem;
+      line-height: 2.4rem;
+      color: $verydark;
+    }
+    .h5styles {
+      font-family: $univers;
+      font-weight: 500;
+      font-size: 1.6rem;
+      line-height: 2.2rem;
+    }  
   }
 }
 .has-background {
