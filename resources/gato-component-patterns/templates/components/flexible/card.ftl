@@ -51,11 +51,7 @@
 <div class="desktop ${content.image?has_content?string('mobile-image', 'no-mobile-image')}">
   <a href="${gf.filterUrl(content.link)}">
     <div class="card ${content.videourl?has_content?string('gato-card-video','gato-card-image')} ${gf.jsonGetString(oembed, 'provider_name')?lower_case}" style='background-image: url("${cardImage}")'>
-      [#if content.caption?has_content]
-      <div class="caption">
-        <p>${content.caption!''}</p>
-      </div>
-      [/#if]
+
       [#if content.videourl?has_content]
         <a href="${content.videourl}" class="feature-play-button"
         data-embed="${gf.jsonGetString(oembed, 'html')?html}">
@@ -64,6 +60,11 @@
         </a>
       [/#if]      
     </div>
+    [#if content.caption?has_content]
+    <div class="caption">
+      <p>${content.caption!''}</p>
+    </div>
+    [/#if]    
   </a>
 </div>
 
