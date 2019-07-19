@@ -65,6 +65,12 @@
       <p>${content.caption!''}</p>
     </div>
     [/#if]    
+    [#if content.callout?has_content]
+    <div class="callout">
+      <div class="title">${content.calloutTitle!}</div>
+      <p>${content.callout!}</p>
+    </div>
+    [/#if]
   </a>
 </div>
 

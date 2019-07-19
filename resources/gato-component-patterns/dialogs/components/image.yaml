@@ -41,6 +41,15 @@ form:
           description: >
             Any additional text you might want to include with this image.
             Will be used for a mouseover on the thumbnail and displayed below the full-size image.
+        - name: calloutTitle
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Callout Title
+        - name: callout
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Callout Text
+          description: >
+            Any additional text you might want to include with this image.
+            Will be displayed on top of the image.               
         - name: isWide
           class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
           label: Orientation
