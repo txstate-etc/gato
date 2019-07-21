@@ -1,7 +1,7 @@
-templateScript: /gato-template-home/templates/components/card.ftl
+templateScript: /gato-template-home/templates/components/cards/card.ftl
 renderType: freemarker
 dialog: gato-template-home:components/video
-description: video with a caption
+description: Video with a caption
 title: Video Card
 parameters:
   icon: /gato-component-streaming/images/stream_media.png

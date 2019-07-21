@@ -57,6 +57,13 @@
         flex: 1 1 100%;
       }
 
+      .arrow-svg {
+        position: absolute;
+        right: 0;
+        z-index: 1000;
+        bottom: 300px;
+        margin-right: 1rem;
+      }
       .gato-explore {
         display: flex;
         flex-flow: row wrap;
@@ -99,28 +106,22 @@
             display: none !important;
           }
         }
-        .gato-card-image {
+        .gato-card-image, .gato-card-video {
           transform: scale(1.1);
+          transition: all 400ms ease;
         }
-        .gato-card-image:hover {
+        .gato-card-image:hover, .gato-card-video:hover {
           transform: scale(1.0);          
           transition: all 400ms ease;
         }
-        .gato-card-video {
-          transform: scale(1.1);
-        }
-        .gato-card-video:hover {
-          transform: scale(1.0);          
-          transition: all 400ms ease;
-        }        
 
         .caption {
           position: absolute;
           background-color: $darkest-charcoal;
           opacity: .9;
-          bottom: 30px;
-          left: 20px;
-          margin-right: 20px;
+          bottom: 3rem;;
+          left: 2rem;
+          margin-right: 2rem;
 
           p {
             margin: 0 auto;

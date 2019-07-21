@@ -1,4 +1,4 @@
-templateScript: /gato-template-home/templates/components/card.ftl
+templateScript: /gato-template-home/templates/components/cards/card.ftl
 renderType: freemarker
 title: Image
 description: Individual photo in a gallery

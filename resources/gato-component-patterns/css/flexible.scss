@@ -48,6 +48,7 @@
         overflow: hidden;
         .gato-card-image, .gato-card-video {
           transform: scale(1.1);
+          transition: all 400ms ease;
         }
 
         .gato-card-image:hover, .gato-card-video:hover{

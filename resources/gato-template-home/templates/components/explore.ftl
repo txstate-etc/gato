@@ -21,9 +21,6 @@
     </div>
     [/#if]
     <div class="explore-flex">
-    [#if content.caption?has_content]
-      <p>${content.caption}</p>
-    [/#if]
     [#if cmsfn.isEditMode()]
       [@cms.area name="exploreLeft" contextAttributes={"barsonly": true} /]
       [@cms.area name="exploreRight" contextAttributes={"barsonly": true} /]
@@ -32,7 +29,6 @@
     <div class="explore-flex">
     [@cms.area name="exploreLeft" /]
     [@cms.area name="exploreRight" /]      
-    [#include "/gato-template-home/templates/includes/arrows.ftl"]   
     </div>
   </div>
 </div>

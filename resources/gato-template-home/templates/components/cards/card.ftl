@@ -44,17 +44,12 @@
 [#elseif gf.jsonGetString(oembed, 'thumbnail_url')?has_content]
   [#assign cardImage = gf.getImg(gf.jsonGetString(oembed, 'thumbnail_url'), 1280, 720, true, false, 0, 0, 0, 0)]
 [#else]
-  [#assign cardImage = gf.getImage(gf.resourcePath() + "/gato-component-cards/images/video-default.png")]
+  [#assign cardImage = gf.getImgDefault(gf.resourcePath() + "/gato-component-cards/images/video-default.png")]
 [/#if]
 
 [#if !(ctx.barsonly!false)]
 <a href="${gf.filterUrl(content.link)}">
   <div class="card ${content.videourl?has_content?string('gato-card-video','gato-card-image')} ${gf.jsonGetString(oembed, 'provider_name')?lower_case}" style='background-image: url("${cardImage}")'>
-    [#if content.caption?has_content]
-    <div class="caption">
-      <p>${content.caption!''}</p>
-    </div>
-    [/#if]
     [#if content.videourl?has_content]
       <a href="${content.videourl}" class="feature-play-button"
       data-embed="${gf.jsonGetString(oembed, 'html')?html}">
@@ -63,6 +58,11 @@
       </a>
     [/#if]      
   </div>
+  [#if content.caption?has_content]
+  <div class="caption">
+    <p>${content.caption!''}</p>
+  </div>
+  [/#if]  
 </a>
 [#else]
     <div class="slider-edit-bar" data-title="-${content.title!'Explore Card'}" cms:edit></div>

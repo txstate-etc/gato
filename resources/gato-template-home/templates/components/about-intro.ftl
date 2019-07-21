@@ -8,7 +8,7 @@
 [/#if]
 <div class="gato-section-centered">
     <div class="mobilefirst-pattern centered">
-        <div class="pattern-content arrow title-type about-intro">
+        <div class="pattern-content title-type about-intro">
             <div class="about">
                 [#if content.image?has_content]
                 <div class="corner-image">
