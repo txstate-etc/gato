@@ -21,6 +21,12 @@ landing-banner:
   availableComponents:
     banner:
       id: gato-template-home:components/landing-banner      
+bannerAnnouncement:
+  type: single
+  title: Banner Announcement
+  availableComponents:
+    announcement:
+      id: gato-template-home:components/announcement        
 homecontent: #add home page content types here. textImage is a placeholder
   type: list
   templateScript: /gato-template-home/templates/areas/homepage-content.ftl

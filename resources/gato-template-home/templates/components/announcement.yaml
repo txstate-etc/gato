@@ -1,0 +1,7 @@
+templateScript: /gato-template-home/templates/components/announcement.ftl
+renderType: freemarker
+title: Announcement
+description: Homepage Hero Announcement
+dialog: gato-template-home:components/announcement
+parameters:
+  icon: /gato-template/images/navlink_icon.png

@@ -1,6 +1,8 @@
 [#assign slides = cmsfn.asContentMap(cmsfn.nodeByPath('/homepage-data/features/top-feature', 'gatoapps'))]
 [#assign slides = cmsfn.children(slides, "mgnl:component")]
 [#assign aspectratio = 1750.0/600.0]
+[#assign mobileaspectratio = 4.0/3.0]
+
 [#assign count = 0]
 <div id="top-feature" class="feature">
     <div class="slides">
@@ -23,8 +25,8 @@
             [#if isEnabled(component)]
             [#assign count++]
             <div class="image-container ${preview}">
-              <div class="slide-image desktop" style="background-image: url(${gf.getImgDefault(component.image, aspectratio)})"></div>
-              <div class="slide-image mobile" style="background-image: url(${gf.getImgDefault(mobileImage, aspectratio)})"></div>
+              <div class="slide-image desktop" style="background-image: url(${gf.getImgDefault(component.image)})"></div>
+              <div class="slide-image mobile" style="background-image: url(${gf.getImgDefault(mobileImage)})"></div>
             </div>
             <figcaption class="${preview}">
               <div class="caption-wrap ${component.overlayPosition!''}" id="${gf.uuidToHtmlId(component.@id)}">
@@ -61,4 +63,5 @@
         </figure>
       </div>
     </div>
+  [@cms.area name="bannerAnnouncement"/]
 </div>

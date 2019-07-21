@@ -6,6 +6,59 @@ div#top-feature {
     padding-top: 6rem;
   }
 
+  .banner-announcement {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    right: 2%;
+    bottom: 4%;
+    z-index: 1;
+    background-color: $white;
+    max-width: 225px;   
+    border-radius: 2px; 
+    border: solid 1px $white;
+    text-decoration: none;
+
+    @media(max-width: 800px) {
+      position: relative;
+      width: 100%;
+      text-align: center;   
+      max-width: none;
+      background-color: $sandstone;
+      right: 0;
+    }    
+
+    p {
+      flex: 1 0 60%;
+      margin: 1rem 1.5rem;
+      color: $maroon;
+      line-height: 2.3rem;
+    }
+    .arrow-container {
+      flex: 1 0 10%;
+      background-color:$maroon;
+      width: 100%;
+      display: flex;
+      min-width: 45px;
+
+      @media (max-width: 800px) {
+        display: none;  
+      }
+      .circle {
+        margin: auto;
+        height: 2.3rem;
+        width: 2.3rem;
+        background-color: $white;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+
+        svg {align-self: center;}
+      }      
+    }
+  }
+
   figure {
     position: relative;
     overflow: hidden;
