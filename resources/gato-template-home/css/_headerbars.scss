@@ -100,17 +100,18 @@
         height: 100%;
         margin: 0 1.5rem;
 
-        &.active {
-          border-bottom: 4px solid $sandstone;
-        }
         a {
-          width: 100%;
-          padding: 3.3rem 0;
+          margin: 0 auto;
+          padding: 3.3rem 3rem;
           text-decoration: none;
           color: $white;
           font-size: 1.8rem;
           line-height: 1.8rem;
           font-weight: 700;
+
+          &.active {
+            border-bottom: 4px solid $sandstone;
+          }
         }
       }
     }
