@@ -141,7 +141,7 @@
 [#macro simplemenu arrows=false]
   <ul class="simplemenu">
     [@navloop cmsfn.children(homepage, 'mgnl:page') ; page]
-      <li class="${gf.hasNavChildren(page)?string('haschildren', '')}">
+      <li class="${gf.hasNavChildren(page)?string('haschildren', '')} ${navfn.isActive(content, page)?string('active', '')}">
         <a href="${cmsfn.link(page)}">${gf.nodeTitle(page)}</a>
         [#if gf.hasNavChildren(page)]
           [#assign submenuid = gf.uuidToHtmlId(page.@id)]
