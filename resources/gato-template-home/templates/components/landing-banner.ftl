@@ -4,8 +4,13 @@
 [/#if]
 [#assign src = gf.getImgDefault(content.image)]
 [#assign srcset = gf.getSrcSet(content.image)]
-[#assign mobilesrc = gf.getImgDefault(content.mobileImage)]
-[#assign mobilesrcset = gf.getSrcSet(content.mobileImage)]
+[#if content.mobileImage?has_content]
+  [#assign mobilesrc = gf.getImgDefault(content.mobileImage)]
+  [#assign mobilesrcset = gf.getSrcSet(content.mobileImage)]
+[#else]
+  [#assign mobilesrc = src]
+  [#assign mobilesrcset = srcset]
+[/#if]
 [#assign size = content.size!]
 
 <div class="banner-image ${aspectclass} ${size}">

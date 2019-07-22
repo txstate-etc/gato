@@ -48,7 +48,7 @@
 [/#if]
 
 
-<div class="desktop ${content.image?has_content?string('mobile-image', 'no-mobile-image')}">
+<div class="item desktop ${content.image?has_content?string('mobile-image', 'no-mobile-image')}">
   <a href="${gf.filterUrl(content.link)}">
     <div class="card ${content.videourl?has_content?string('gato-card-video','gato-card-image')} ${gf.jsonGetString(oembed, 'provider_name')?lower_case}" style='background-image: url("${cardImage}")'>
 
@@ -77,7 +77,7 @@
 [#if cardImageMobile?has_content]
 <div class="mobile">
   <a href="${gf.filterUrl(content.link)}">
-    <div class="card ${content.videourl?has_content?string('gato-card-video','gato-card-image')} ${gf.jsonGetString(oembed, 'provider_name')?lower_case} ${ctx.orientation!}" style='background-image: url("${cardImageMobile}")'>
+    <div class="item card ${content.videourl?has_content?string('gato-card-video','gato-card-image')} ${gf.jsonGetString(oembed, 'provider_name')?lower_case} ${ctx.orientation!}" style='background-image: url("${cardImageMobile}")'>
       [#if content.caption?has_content]
       <div class="caption">
         <p>${content.caption!''}</p>

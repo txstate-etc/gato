@@ -18,7 +18,7 @@
         [data-eq~='800px'] & {
           flex-direction: column;
           padding: 0;
-          width: 95%;
+          width: 100%;
         }
     }
     .flex-row:not(:first-of-type):last-of-type {
@@ -35,11 +35,17 @@
       &.text {
         padding: 0;
       }
+      .text {
+        margin-bottom: 3rem;
+      }
+      .item {
+        border-radius: 2px;
+      }
       .text-link {
         padding: 2rem;
         height: 100%;
         width: 100%;
-        justify-content: unset;
+        justify-content: center;
       }
       .desktop, .mobile {
         width: 100%;
@@ -120,7 +126,11 @@
       [data-eq~='800px'] & {
         flex-grow: 1 !important;
         margin-top: 1rem;
-        padding-right: 0;
+        padding: 0 2rem;
+        min-height: 320px;
+        &.text{
+          padding: 0;
+        }
       }     
     }
     

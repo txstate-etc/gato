@@ -34,7 +34,7 @@ homecontent: #add home page content types here. textImage is a placeholder
     !include /gato-template-home/templates/areas/available-components/home.yaml
 landingcontent: #add landing page content types here. textImage is a placeholder
   type: list
-  templateScript: /gato-template-home/templates/areas/homepage-content.ftl
+  templateScript: /gato-template-home/templates/areas/landing-content.ftl
   availableComponents:
     !include /gato-template-home/templates/areas/available-components/landing.yaml
 socialmedia:

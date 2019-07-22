@@ -26,12 +26,17 @@ body {
 .gato-section-full {
   &.has-background {
     margin: 0;
+    .gato-section {
+      padding-top: 0;
+    }    
   }
 
   .gato-section-centered {
     margin: 0 auto;
     max-width: 1200px;
   }
+  
+
 }
 
 .page-container {

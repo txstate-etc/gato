@@ -14,8 +14,10 @@
       
       .explore-title {
         color: $white;
-        padding: 3rem 0 3rem 3rem;       
+        padding: 3rem 2rem;       
         margin-bottom: 0;
+
+
       }
       
       .links  {
@@ -25,10 +27,20 @@
         margin: auto 0;
         ul {
           display: flex;
+          [data-eq~='1000px'] & {
+            flex-direction: column;
+            align-items: end;
+            li {
+              padding-right: 0;
+            }
+          }
         }
         li {
           margin: 0;
           padding: 0 2rem;
+        }
+        li:last-of-type {
+          padding-right: 0;
         }
         a {
           color: $white;

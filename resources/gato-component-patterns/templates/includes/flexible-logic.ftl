@@ -41,6 +41,8 @@
 [/#if]
 [#if cmsfn.metaData(component, "mgnl:template") == "gato-component-patterns:components/textlink"]
   [#assign type = "text"]
+[#else]
+  [#assign type = '']
 [/#if]
 [#if cmsfn.metaData(component, "mgnl:template") == "gato-component-patterns:components/textlink" || orientation == "wide"]
   [#assign flexGrow = 'flex-grow: 2']

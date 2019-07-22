@@ -11,7 +11,7 @@ form:
           transformerClass: info.magnolia.ui.form.field.transformer.multi.MultiValueSubChildrenNodePropertiesTransformer
           label: Links
           styleName: linksMultiField
-          maxFields: 3
+          maxFields: 2
           minFields: 1
           field:
             name: link
