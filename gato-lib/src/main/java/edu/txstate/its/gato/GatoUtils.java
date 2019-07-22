@@ -1365,7 +1365,7 @@ public final class GatoUtils {
         BufferedReader in = new BufferedReader(new InputStreamReader(c.getInputStream()));
         String inputLine;
         while ((inputLine = in.readLine()) != null)
-            output += inputLine.trim() + "/n";
+            output += inputLine.trim() + "\n";
         in.close();
       }
     } catch (Exception e) {
