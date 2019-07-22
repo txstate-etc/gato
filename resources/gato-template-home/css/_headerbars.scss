@@ -101,8 +101,9 @@
         margin: 0 1.5rem;
 
         a {
+          width: 75%;
           margin: 0 auto;
-          padding: 3.3rem 3rem;
+          padding: 3.3rem 0rem;
           text-decoration: none;
           color: $white;
           font-size: 1.8rem;
@@ -112,6 +113,10 @@
           &.active {
             border-bottom: 4px solid $sandstone;
           }
+        }
+        a:hover {
+          border-bottom: 4px solid $sandstone;
+          transition: all 100ms ease;
         }
       }
     }

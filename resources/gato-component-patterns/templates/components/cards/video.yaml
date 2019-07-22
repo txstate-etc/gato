@@ -1,6 +1,6 @@
-templateScript: /gato-template-home/templates/components/cards/card.ftl
+templateScript: /gato-component-patterns/templates/components/cards/card.ftl
 renderType: freemarker
-dialog: gato-template-home:components/video
+dialog: gato-component-patterns:components/video
 description: Video with a caption
 title: Video Card
 parameters:

@@ -1,0 +1,29 @@
+templateScript: /gato-component-patterns/templates/components/explore.ftl
+renderType: freemarker
+title: Explore
+description: Displays multiple images that users can view as a slideshow.
+dialog: gato-component-patterns:components/explore
+areas:
+  exploreLeft:
+    type: list
+    templateScript: /gato-component-patterns/templates/components/cards.ftl
+    title: Explore (left)
+    maxComponents: 4
+    availableComponents:
+      image:
+        id: gato-component-patterns:components/cards/image
+      video:
+        id: gato-component-patterns:components/cards/video
+  exploreRight:
+    type: list
+    templateScript: /gato-component-patterns/templates/components/cards.ftl
+    title: Explore (right)
+    maxComponents: 4
+    availableComponents:
+      image:
+        id: gato-component-patterns:components/cards/image
+      video:
+        id: gato-component-patterns:components/cards/video
+parameters:
+  icon: /gato-component-gallery/images/image_gallery.png
+  tab: Prebuilt Sections

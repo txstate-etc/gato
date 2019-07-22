@@ -1,8 +1,8 @@
 #home
 aboutintro:
-  id: gato-template-home:components/about-intro
+  id: gato-component-patterns:components/about-intro
 explore:
-  id: gato-template-home:components/explore
+  id: gato-component-patterns:components/explore
 imageoverlay:
   id: gato-template-home:components/imageoverlay
 importantdates:
