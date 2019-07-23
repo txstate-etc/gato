@@ -2,7 +2,7 @@ templateScript: /gato-template-home/templates/pages/standard.ftl
 renderType: site
 visible: true
 title: Texas State Home Landing
-dialog: gato-template:pages/page-properties
+dialog: gato-template-mobilefirst:pages/page-properties
 areas: !include /gato-template-home/templates/includes/areas.yaml
 parameters:
   isLandingTemplate: true
