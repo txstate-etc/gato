@@ -9,7 +9,7 @@
     [#if def.parameters.isFilterableSearchTemplate!false]
       [#assign scripts = scripts + ['gato-area-filterable-search/js/filterablesearch.js']]
     [/#if]
-   
+
     [@templatejs scripts/]
     [@templatehead/]
     [@cms.area name="templatecss"/]
@@ -24,7 +24,7 @@
           <link rel="stylesheet" type="text/css" href="${import.text}">
         [/#list]
       [/#if]
-    [/#if] 
+    [/#if]
   </head>
   <body class="${cmsfn.isEditMode()?string('admin','')}">
     [@skipnav/]
@@ -39,7 +39,7 @@
       [/#if]
       [#import "/gato-template-mobilefirst/templates/includes/headerImageLogic.ftl" as headerLogic]
       [@cms.area name="organization-info" content=gf.getOrCreateArea(homepage, 'organization-info') editable=isHomePage contextAttributes={"isHome":def.parameters.isHomeTemplate!false, "hasImage":headerLogic.hasImage}/]
-      [#if !def.parameters.isHomeTemplate!false]
+      [#if !(def.parameters.isHomeTemplate!false) && !(def.parameters.isPassthroughTemplate!false)]
       <div class="gato-section-full">
         <div class="gato-section-centered">
           <div class="gato-section">
