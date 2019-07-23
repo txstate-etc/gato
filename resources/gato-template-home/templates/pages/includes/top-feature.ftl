@@ -37,19 +37,17 @@
             </div>
             <div class="button-wrap ${component.overlayPosition!''}">
               [#if component.buttons?has_content]
-              <div class="buttons mf-button-container">
-                [#list cmsfn.children(component.buttons) as button]
-                <div class="button solid ${button.color} ${gf.isVideoOrLink(button.link)}">
-                  <span>${button.text}</span>
-                  [#if gf.isVideoOrLink(button.link) == "video"]
-                  <p class="feature-play-button">
-                    <a href="${button.link}"
-                    data-embed="${gf.jsonGetString(gf.oEmbedAutodiscover(button.link), 'html')?html}"><span class="visuallyhidden">Play Video</span></a>
-                  </p>
-                  [/#if]     
-                </div>
-                [/#list]
+              [#list cmsfn.children(component.buttons) as button]
+              <div class="mf-button-container">
+                <a class="button solid ${button.color} ${gf.isVideoOrLink(button.link)}">${button.text}</a>
+                [#if gf.isVideoOrLink(button.link) == "video"]
+                <p class="feature-play-button">
+                  <a href="${button.link}"
+                  data-embed="${gf.jsonGetString(gf.oEmbedAutodiscover(button.link), 'html')?html}"><span class="visuallyhidden">Play Video</span></a>
+                </p>
+                [/#if]             
               </div>
+              [/#list]
               [/#if]
             </div>
           </figcaption>

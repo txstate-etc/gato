@@ -29,42 +29,10 @@ div#top-feature {
     figure {
       position: relative;
       overflow: hidden;
-      height: 600px;
+      height: 650px;
       margin: 0;
       background: $maroon;
-      .feature-play-button {
-        position: relative;
-        margin-left: 1rem;
-        a {
-          @include vendor-prefix(border-radius, 50%);
-          border-radius: 8rem;
-          background: $maroon;
-          position: absolute;
-          width: 2rem;
-          height: 2rem;
-          &:after {
-            left: 0;
-            right: 0;
-            margin: 0 auto;
-            position: absolute;
-            border: solid transparent;
-            border-left-color: $white;
-            border-width: .4rem 0 .4rem .8rem;
-            content: "";
-            height: 0;
-            width: 0;
-            position: absolute;
-            top: 50%;
-            margin-top: -.4rem;
-            left: .2rem;
-          }
-          &:hover {
-            @include vendor-prefix(transform, scale(1.15));
-            background: $light-maroon;
-          }
-          @include vendor-prefix(transition, all 0.2s cubic-bezier(0, 0.5, 0.25, 1));
-        }
-      }
+
 
       .image-container {
         display: none;
@@ -86,7 +54,7 @@ div#top-feature {
           height: 100%;
           background-size: cover;
           background-position-x: 50%;
-          background-position-y: 50%;
+          background-position-y: top;
         }
       }
 
@@ -161,16 +129,13 @@ div#top-feature {
               margin-left: 2rem;
             }
           }        
-          .buttons {
-            .button{ 
-              @extend a.button;
-            }
-          }
+
         }
         .mf-button-container {
           display: flex;
+          position: relative;
           .button {
-            @extend a.button;
+            min-width: 60px;
             display: flex;
             margin-right: 2rem;
             &.white {
@@ -180,20 +145,58 @@ div#top-feature {
             &.video {
               padding-right: 4rem;
             }
+            &.color1 {
+              border-color: #612426;
+            }
           }
+          .feature-play-button {
+            position: absolute;
+            top: 1.1rem;
+            right: 5.2rem;
+            margin-left: 1rem;
+            a {
+              @include vendor-prefix(border-radius, 50%);
+              border-radius: 8rem;
+              background: $maroon;
+              position: absolute;
+              width: 2rem;
+              height: 2rem;
+              &:after {
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+                position: absolute;
+                border: solid transparent;
+                border-left-color: $white;
+                border-width: .4rem 0 .4rem .8rem;
+                content: "";
+                height: 0;
+                width: 0;
+                position: absolute;
+                top: 50%;
+                margin-top: -.4rem;
+                left: .2rem;
+              }
+              &:hover {
+                @include vendor-prefix(transform, scale(1.15));
+                background: $light-maroon;
+              }
+              @include vendor-prefix(transition, all 0.2s cubic-bezier(0, 0.5, 0.25, 1));
+            }
+          }          
         }
 
 
         .feature-headline {
-          font-family: $univers;
+          font-family: $garamond;
           font-weight: 700;
-          font-size: 3rem;
-          line-height: 3.6rem;
+          font-size: 4.2rem;
+          line-height: 4.8rem;
           display: inline;
           border-style: solid;
           border-width: 5px;
           border-color: rgba(80, 18, 20, 0);
-          background-color: rgba(80, 18, 20, .9);
+          background-color: rgba(80, 18, 20, .8);
           color: #fff;
           line-height: 60px;
           font-weight: 500;
@@ -203,11 +206,10 @@ div#top-feature {
     
     @media (max-width: $xl-breakpoint){
       figure {
-        height: 500px;
-
         figcaption {
-          max-width: 1000px;
+          max-width: 1200px;
           display: none;
+          padding: 0 2rem;
 
           .feature-headline {
             a {
@@ -222,32 +224,12 @@ div#top-feature {
       figure {
         height: 450px;
         figcaption {
-          padding: 0 2rem;
+          padding: 0;
 
           .feature-headline a {
             font-size: 2.8rem;
             line-height: 3.6rem;
           }
-        }
-      }
-    }
-
-    @media (max-width: $sm-breakpoint){
-      .slide-nav-wrap { display: none; }
-      figure {
-        .image-container {
-          &.activated {
-            .desktop {
-              display: none;
-            }
-            .mobile {
-              display: block;
-            }
-          }
-        }
-
-        figcaption {
-          padding: 0;
           .caption-wrap {
             left: 5% !important; 
             justify-content: center;
@@ -269,8 +251,26 @@ div#top-feature {
               margin-left: 0;
               margin-right: 2rem;
             }          
+          }          
+        }
+      }
+    }
+
+    @media (max-width: $sm-breakpoint){
+      .slide-nav-wrap { display: none; }
+      figure {
+        .image-container {
+          &.activated {
+            .desktop {
+              display: none;
+            }
+            .mobile {
+              display: block;
+            }
           }
         }
+
+
       }
       .slide:first-child img, .slide-nav { opacity: 1; }
     }
