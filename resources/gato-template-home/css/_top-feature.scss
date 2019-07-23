@@ -87,6 +87,8 @@ div#top-feature {
           position: absolute;
           bottom: 5.5rem;
           display: flex;
+          max-width: 60%;
+          margin: 0 auto;
 
           &.leftmiddle {bottom: 45%;}
           &.leftbottom {bottom: 20%;}
@@ -302,7 +304,9 @@ div#top-feature {
         flex: 1 0 60%;
         margin: 1rem 1.5rem;
         color: $maroon;
-        line-height: 2.3rem;
+        font-size: 1.4rem;
+        line-height: 2rem;
+        margin: 2rem 1.5rem;        
       }
       .arrow-container {
         flex: 1 0 10%;
@@ -310,9 +314,9 @@ div#top-feature {
         width: 100%;
         display: flex;
         min-width: 45px;
+        max-width: 50px;
 
         @media (max-width: 800px) {
-          display: none;  
         }
         .circle {
           margin: auto;

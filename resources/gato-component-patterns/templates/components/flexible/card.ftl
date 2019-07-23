@@ -92,6 +92,18 @@
         </a>
       [/#if]      
     </div>
+    [#if content.caption?has_content]
+    <div class="caption">
+      <p>${content.caption!''}</p>
+    </div>
+    [/#if]    
+    [#if content.callout?has_content]
+    <div class="overlay ${content.color!}"></div>
+    <div class="callout ${content.color!}">
+      <div class="title">${content.calloutTitle!}</div>
+      <p>${content.callout!}</p>
+    </div>
+    [/#if]    
   </a>
 </div>
 [/#if]
