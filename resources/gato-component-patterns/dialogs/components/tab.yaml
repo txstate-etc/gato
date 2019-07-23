@@ -11,21 +11,6 @@ form:
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Tab Link
           required: true               
-        - name: image
-          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
-          appName: assets
-          targetWorkspace: dam
-          label: Background Image
-          description: "Background image for this Tab."
-          identifierToPathConverter:
-            class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
-          contentPreviewDefinition:
-            contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
-          required: true
-          validators:
-            - name: image
-              class: edu.txstate.its.gato.dialog.field.validator.DamChooserImageValidatorDefinition
-              errorMessage: Must be an image file.
         - name: caption
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Caption

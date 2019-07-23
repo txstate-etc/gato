@@ -10,7 +10,8 @@
 [#assign firstComponent = getFirstObject(components)]
 <div class="mobilefirst-pattern fixed-height bottom">
   <div class="tabbed">
-    <div class="image-overlay" style='background-image:  url(${gf.getImgDefault(firstComponent.image)})'></div>
+    <div class="image-overlay desktop" style='background-image:  url(${gf.getImgDefault(ctx.desktopImage)})'></div>
+    <div class="image-overlay mobile" style='background-image:  url(${gf.getImgDefault(ctx.mobileImage)})'></div>
     <div class="overlay-block title-type pattern-content ${ctx.overlayColor!color1} ${ctx.overlayPosition!'center'} ${textAlign}">
       <div class="overlay-tabs">
         <div class="links">

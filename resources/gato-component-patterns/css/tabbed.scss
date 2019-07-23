@@ -108,19 +108,28 @@
         float: right;
         [data-eq~="1000px"] & {
             width: 100%;
+
         }
+        .text {
+            max-width: unset;
+        }        
 
     }
     .image-overlay {
         width: 100%;
-        height: 600px;
+        height: 550px;
         background-size: cover;
         background-repeat: no-repeat;        
         padding: 4rem 0rem;
         background-position: center;
 
+        &.mobile {display: none;}
+
         [data-eq~="1000px"] & {
             height:400px;
+
+            &.desktop {display: none;}
+            &.mobile {display: block;}
         }
     }
 

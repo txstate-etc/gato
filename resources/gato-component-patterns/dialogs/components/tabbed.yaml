@@ -15,6 +15,35 @@ form:
           label: Overlay Color
           parameters:
             contentType: default
+        - name: image
+          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+          appName: assets
+          targetWorkspace: dam
+          label: Background Image
+          description: "Background image for this Tab."
+          identifierToPathConverter:
+            class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
+          contentPreviewDefinition:
+            contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
+          required: true
+          validators:
+            - name: image
+              class: edu.txstate.its.gato.dialog.field.validator.DamChooserImageValidatorDefinition
+              errorMessage: Must be an image file.            
+        - name: mobileImage
+          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+          appName: assets
+          targetWorkspace: dam
+          label: Mobile Image
+          description: "Background image for this Tab on mobile."
+          identifierToPathConverter:
+            class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
+          contentPreviewDefinition:
+            contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
+          validators:
+            - name: image
+              class: edu.txstate.its.gato.dialog.field.validator.DamChooserImageValidatorDefinition
+              errorMessage: Must be an image file.                  
         - name: overlayPosition
           class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
           label: Overlay Position

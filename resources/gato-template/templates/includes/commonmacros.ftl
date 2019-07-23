@@ -6,6 +6,15 @@
   [/#if]
 [/#macro]
 
+[#function getMobileImage desktopImage mobileImage]
+  [#if mobileImage?has_content]
+    [#assign image = mobileImage]
+  [#else]
+    [#assign image = desktopImage]
+  [/#if]
+  [#return image]
+[/#function]
+
 [#function hasTallComponent components]
   [#list components as component]
     [#if component.orientation == 'tall']
