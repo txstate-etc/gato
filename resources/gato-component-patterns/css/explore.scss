@@ -70,11 +70,21 @@
       }
 
       .arrow-svg {
+        display: none;
         position: absolute;
         right: 0;
         z-index: 1000;
         bottom: 300px;
         margin-right: 1rem;
+        animation: rock .4s infinite alternate-reverse;
+        [data-eq~='1000px'] & {
+          display: block;
+        }
+      }
+      @keyframes rock {
+        100% {
+          transform: translateX(5px);
+        }
       }
       .gato-explore {
         display: flex;

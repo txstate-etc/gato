@@ -13,4 +13,18 @@ form:
           scripts: [gato-lib/js/color-picker.js]
           parameters:
             contentType: iconText
+        - name: showBackgroundColor
+          class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
+          multiselect: false
+          label: Background Color
+          type: Boolean
+          sortOptions: false
+          options:
+            - name: noBackground
+              label: No Background Color
+              selected: true
+              value: false
+            - name: addBackground
+              label: Add Background Color
+              value: true            
 actions: !include /gato-template/dialogs/common/actions-block.yaml
