@@ -7,6 +7,7 @@
       <div class="centered content-flex">
         <div class="left-col">
           <h2 class="title">${content.title}</h2>
+          [#if content.link?has_content]
           <div class="links">
             <ul>
               <li>
@@ -14,6 +15,7 @@
               </li>
             </ul>
           </div>
+          [/#if]
         </div>
         [#if content.input == "events"]
           [#if content.events?has_content]
