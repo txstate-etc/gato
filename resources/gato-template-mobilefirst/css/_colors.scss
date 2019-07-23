@@ -22,6 +22,7 @@ $edit-bar-bg:         rgba(235, 232, 232, 0.59);
 $edit-bar-teal:       #72bdc0;
 $edit-bar-move:       #95cdd0;
 
+$transparent:         rgba(0, 0, 0, 0);
 /* Template Colors for 2015 Template */
 
 $darkest-maroon:       #400E10; //20% darker than maroon
@@ -202,3 +203,22 @@ $mc7-grad-bottom:           $dark-oldgold;
 $mc7-comp-grad-top:         $lightest-oldgold;
 $mc7-comp-grad-bottom:      $mc7-bg;
 $mc7-shadow:                $oldgold-shadow;
+
+$mc8-name:                  'Transparent';
+$mc8-bg:                    $transparent;
+$mc8-text:                  $very-dark;
+$mc8-link:                  $very-dark;
+$mc8-header:                $very-dark;
+$mc8-border:                $transparent;
+$mc8-comp-bg:               $transparent;
+$mc8-comp-text:             $mc8-text;
+$mc8-comp-link:             $mc8-link;
+$mc8-comp-header:           $mc8-header;
+$mc8-comp-border:           $mc8-border;
+$mc8-hilite-bg:             $transparent;
+$mc8-hilite-text:           $very-dark;
+$mc8-grad-top:              $transparent;
+$mc8-grad-bottom:           $transparent;
+$mc8-comp-grad-top:         $transparent;
+$mc8-comp-grad-bottom:      $mc8-bg;
+$mc8-shadow:                $transparent;

@@ -74,6 +74,8 @@ $editor-notice-text:  #222;
 $editor-warning-bg:   #ffaaaa;
 $editor-warning-text: #222;
 
+$transparent:         rgba(0, 0, 0, 0);
+
 // Emergency colors
 $emergency-color: $white;
 $emergency-bg: #B30E1B;
@@ -234,3 +236,22 @@ $mc8-grad-bottom:           #b3b3b3;
 $mc8-comp-grad-top:         #e6e6e6;
 $mc8-comp-grad-bottom:      $mc8-bg;
 $mc8-shadow:                #808080;
+
+$mc9-name:                  'Transparent';
+$mc9-bg:                    $transparent;
+$mc9-text:                  $very-dark;
+$mc9-link:                  $very-dark;
+$mc9-header:                $very-dark;
+$mc9-border:                $transparent;
+$mc9-comp-bg:               $transparent;
+$mc9-comp-text:             $mc9-text;
+$mc9-comp-link:             $mc9-link;
+$mc9-comp-header:           $mc9-header;
+$mc9-comp-border:           $mc9-border;
+$mc9-hilite-bg:             $transparent;
+$mc9-hilite-text:           $very-dark;
+$mc9-grad-top:              $transparent;
+$mc9-grad-bottom:           $transparent;
+$mc9-comp-grad-top:         $transparent;
+$mc9-comp-grad-bottom:      $mc9-bg;
+$mc9-shadow:                $transparent;
