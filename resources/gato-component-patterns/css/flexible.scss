@@ -40,6 +40,7 @@
       }
       .item {
         border-radius: 2px;
+        .a {position: relative;}
       }
       .text-link {
         padding: 2rem;
@@ -60,6 +61,23 @@
         .gato-card-image:hover, .gato-card-video:hover{
           transform: scale(1.0);          
           transition: all 400ms ease;
+        }
+
+        .overlay {
+          position: absolute;
+          height: 100%;
+          left: 0;
+          right: 0;
+          top: 0;
+          opacity: .9;
+
+          &.color1 { background-color: $mc1-bg; color: $mc1-text; } 
+          &.color2 { background-color: $mc2-bg; color: $mc2-text; }
+          &.color3 { background-color: $mc3-bg; color: $mc3-text; }
+          &.color4 { background-color: $mc4-bg; color: $mc4-text; }
+          &.color5 { background-color: $mc5-bg; color: $mc5-text; }
+          &.color6 { background-color: $mc6-bg; color: $mc6-text; }
+          &.color7 { background-color: $mc7-bg; color: $mc7-text; }
         }
 
         .callout {

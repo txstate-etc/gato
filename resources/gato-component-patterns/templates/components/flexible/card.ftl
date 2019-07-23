@@ -66,7 +66,8 @@
     </div>
     [/#if]    
     [#if content.callout?has_content]
-    <div class="callout">
+    <div class="overlay ${content.color!}"></div>
+    <div class="callout ${content.color!}">
       <div class="title">${content.calloutTitle!}</div>
       <p>${content.callout!}</p>
     </div>

@@ -49,7 +49,19 @@ form:
           label: Callout Text
           description: >
             Any additional text you might want to include with this image.
-            Will be displayed on top of the image.               
+            Will be displayed on top of the image.    
+        - name: color
+          class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
+          fields:
+            - name: color
+              class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+          transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+          initFunction: initColorPicker
+          loadScriptsInOrder: true
+          scripts: [gato-lib/js/color-picker.js]
+          label: Background Color
+          parameters:
+            contentType: default
         - name: isWide
           class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
           label: Orientation
