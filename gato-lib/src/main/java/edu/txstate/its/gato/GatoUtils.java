@@ -710,7 +710,7 @@ public final class GatoUtils {
     if (StringUtils.isBlank(rawhtml)) return "";
     Elements body = Jsoup.parse("<!DOCTYPE html><html><head></head><body>"+rawhtml+"</body></html>").select("body");
     //Jsoup will only find the first empty header at any given level in a rich editor
-    //looping makes sure that they are all found 
+    //looping makes sure that they are all found
     //**Update: body.first().select will find all, not just the first */
     Elements headers = body.first().select("h1,h2,h3,h4,h5,h6");
     for (Element header : headers) {
@@ -1380,7 +1380,7 @@ public final class GatoUtils {
     return output;
   }
 
-  public String httpGetContentWithParameters(String url) {    
+  public String httpGetContentWithParameters(String url) {
     if (MgnlContext.getParameters().isEmpty()) {
       return httpGetContent(url);
     }
@@ -1398,7 +1398,7 @@ public final class GatoUtils {
       System.out.println("Requesting HTML from: " + url + parameters);
       return httpGetContent(url + parameters);
     }
-  }  
+  }
 
   public JsonObject parseJSON(String json) {
     Matcher m = JSONP_PATTERN.matcher(json);
@@ -1556,6 +1556,17 @@ public final class GatoUtils {
     String ret = uuid.substring(0,8);
     if (ret.matches("^[^a-zA-Z].*")) ret = "f"+ret;
     return ret;
+  }
+
+  public String htmlId(Object content) {
+    Node n = toNode(content);
+    String id = "";
+    try {
+      id = n.getIdentifier();
+    } catch (Exception e) {
+      return "";
+    }
+    return uuidToHtmlId(id);
   }
 
   public int getTemplateColorCount(String templateId) {

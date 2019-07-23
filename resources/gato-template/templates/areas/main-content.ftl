@@ -5,7 +5,7 @@
   [#assign hasBackgroundClass = (component.showBackgroundColor!false)?string(' has-background','')]
   [#assign cardLayoutClass = gf.isCardSection(component)?string(' card-layout', '')]
   [#assign attached = gf.isAttached(component)?then(' attached', '')]
-  <div class="gato-section-full${mainContentClass}${hasBackgroundClass}${cardLayoutClass}${attached}">
+  <div id="${gf.htmlId(component)}" class="gato-section-full${mainContentClass}${hasBackgroundClass}${cardLayoutClass}${attached}">
     <div class="gato-section-centered">
       <div class="gato-section eq-parent">
         [#if cmsfn.isEditMode() && hasBackgroundClass == " has-background"]

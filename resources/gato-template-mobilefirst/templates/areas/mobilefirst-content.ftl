@@ -4,8 +4,8 @@
   [#assign cardLayoutClass = gf.isCardSection(component)?string(' card-layout', '')]
   [#assign patternClass = gf.isPattern(component)?then(' pattern', '')]
   [#assign attached = gf.isAttached(component)?then(' attached', '')]
-  
-  <div class="gato-section-full full-width ${hasBackgroundClass}${cardLayoutClass}${patternClass}${attached}">
+
+  <div id="${gf.htmlId(component)}" class="gato-section-full full-width ${hasBackgroundClass}${cardLayoutClass}${patternClass}${attached}">
     <div class="gato-section-centered">
       <div class="gato-section eq-parent">
         [@cms.component content=component contextAttributes={"hasThereBeenSectionWithTitleBefore": hasThereBeenSectionWithTitleBefore(components, component?counter)!false}/]
