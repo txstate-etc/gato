@@ -12,11 +12,12 @@
     }
     
     li {
-        width: calc(33.333%-30px);
+        flex: 1 0 28%;
         margin: 0;
         padding: 1.5rem;
 
         [data-eq~="600px"] & {
+            flex: 1 0 100%;
             width: 100%;
             padding: 1.5rem 0 0 0 !important;
         }
