@@ -79,11 +79,6 @@
 <div class="mobile">
   <a href="${gf.filterUrl(content.link)}">
     <div class="item card ${content.videourl?has_content?string('gato-card-video','gato-card-image')} ${gf.jsonGetString(oembed, 'provider_name')?lower_case} ${ctx.orientation!}" style='background-image: url("${cardImageMobile}")'>
-      [#if content.caption?has_content]
-      <div class="caption">
-        <p>${content.caption!''}</p>
-      </div>
-      [/#if]
       [#if content.videourl?has_content]
         <a href="${content.videourl}" class="feature-play-button"
         data-embed="${gf.jsonGetString(oembed, 'html')?html}">
