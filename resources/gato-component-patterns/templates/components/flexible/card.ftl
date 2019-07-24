@@ -13,7 +13,7 @@
     [#assign right = (content.widecropright!0.0)?number]
     [#assign top = (content.widecroptop!0.0)?number]
     [#assign bottom = (content.widecropbottom!0.0)?number]
-    [#assign aspectratio = 1.333]
+    [#assign aspectratio = 2.21]
     [#break]
 
   [#case "full"]
@@ -21,7 +21,7 @@
     [#assign right = (content.fullcropright!0.0)?number]
     [#assign top = (content.fullcroptop!0.0)?number]
     [#assign bottom = (content.fullcropbottom!0.0)?number]  
-    [#assign aspectratio = 1.777]
+    [#assign aspectratio = 3.37]
     [#break]
 
   [#default]
