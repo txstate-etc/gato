@@ -20,6 +20,11 @@ footer {
         &.left {
           padding-left: 2rem;
         }
+        &.empty {
+          @media (max-width: $sm-breakpoint) {
+            display: none;
+          }
+        }
         @media (max-width: $sm-breakpoint) {
           width: auto;
           padding: 1rem 2rem;

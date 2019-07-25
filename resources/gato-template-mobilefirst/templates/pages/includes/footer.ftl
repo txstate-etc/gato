@@ -56,7 +56,7 @@
           </ul>
         </div>
       </div>
-      <div class="footer-column right">
+      <div class="footer-column right ${rightLinksHaveHeader?then('', 'empty')}">
         <div class="footer-column-content">
           [#if rightLinksHaveHeader]<h2 class="footer-column-title">[#else]<div class="add-links-title">[/#if]
           [@cms.area name="right-footer-links-header" content=rightLinksHeader editable=isHomePage/]
