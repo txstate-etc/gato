@@ -140,6 +140,7 @@ div#top-feature {
             min-width: 60px;
             display: flex;
             margin-right: 2rem;
+            cursor: pointer;
             &.white {
               background-color: $white; 
               color: $maroon;
@@ -147,45 +148,47 @@ div#top-feature {
             &.video {
               padding-right: 4rem;
             }
-            &.color1 {
-              border-color: #612426;
-            }
-          }
-          .feature-play-button {
-            position: absolute;
-            top: 1.1rem;
-            right: 5.2rem;
-            margin-left: 1rem;
-            a {
-              @include vendor-prefix(border-radius, 50%);
-              border-radius: 8rem;
-              background: $maroon;
-              position: absolute;
-              width: 2rem;
-              height: 2rem;
-              &:after {
-                left: 0;
-                right: 0;
-                margin: 0 auto;
+            
+            &.color1 > .feature-play-button a {background-color: $white; &:after {border-left-color: $maroon}}
+            &.color2 > .feature-play-button a {background-color: $white; &:after {border-left-color: $gold}}
+            &.color3 > .feature-play-button a {background-color: $white; &:after {border-left-color: $charcoal}}
+            &.color4 > .feature-play-button a {background-color: $white; &:after {border-left-color: $blue}}
+            &.color5 > .feature-play-button a {background-color: $white; &:after {border-left-color: $river}}
+            &.color7 > .feature-play-button a {background-color: $maroon; &:after {border-left-color: $oldgold}}
+            &.white > .feature-play-button a {background-color: $maroon; &:after {border-left-color: $white}}
+
+            .feature-play-button {
+              position: relative;
+              margin-left: 1rem;
+              a {
+                @include vendor-prefix(border-radius, 50%);
+                border-radius: 8rem;
                 position: absolute;
-                border: solid transparent;
-                border-left-color: $white;
-                border-width: .4rem 0 .4rem .8rem;
-                content: "";
-                height: 0;
-                width: 0;
-                position: absolute;
-                top: 50%;
-                margin-top: -.4rem;
-                left: .2rem;
+                width: 2rem;
+                height: 2rem;
+                &:after {
+                  left: 0;
+                  right: 0;
+                  margin: 0 auto;
+                  position: absolute;
+                  border: solid transparent;
+                  border-left-color: $white;
+                  border-width: .4rem 0 .4rem .8rem;
+                  content: "";
+                  height: 0;
+                  width: 0;
+                  position: absolute;
+                  top: 50%;
+                  margin-top: -.4rem;
+                  left: .2rem;
+                }
+                &:hover {
+                  @include vendor-prefix(transform, scale(1.15));
+                }
+                @include vendor-prefix(transition, all 0.2s cubic-bezier(0, 0.5, 0.25, 1));
               }
-              &:hover {
-                @include vendor-prefix(transform, scale(1.15));
-                background: $light-maroon;
-              }
-              @include vendor-prefix(transition, all 0.2s cubic-bezier(0, 0.5, 0.25, 1));
-            }
-          }          
+            }  
+          }        
         }
 
 
