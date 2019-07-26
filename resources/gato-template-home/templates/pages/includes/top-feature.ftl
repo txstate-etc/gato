@@ -4,7 +4,7 @@
 [#assign mobileaspectratio = 4.0/3.0]
 
 [#assign count = 0]
-<div id="top-feature" class="feature">
+<div id="top-feature" class="feature ${cmsfn.isEditMode()?then(' admin','')}">
     <div class="hero">
       <figure class="feature top-slider" >
 

@@ -5,6 +5,9 @@ div#top-feature {
   @media (max-width: $sm-breakpoint) {
     padding-top: 6rem;
   }
+  &.admin {
+    padding-top: 60px;
+  }
   .hero {
     p.feature-headline {
       &.color1, .feature-play-button a { background-color: $mc1-bg; color: $mc1-text; } 

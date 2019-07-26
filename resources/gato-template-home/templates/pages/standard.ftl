@@ -16,6 +16,7 @@
     [#include "/gato-template-mobilefirst/templates/pages/includes/header.ftl"]
     [#include "/gato-template-mobilefirst/templates/pages/includes/menu.ftl"]
     <div class="page-container" id="panel">
+    [#if !cmsfn.isEditMode()]
       <div class="header-bars">
         <div class="top-bar">
           <ul class="left-links">
@@ -46,6 +47,7 @@
           [@simplemenu/]
         </div>
       </div>
+      [/#if]
       
         [#if def.parameters.isHomeTemplate!false]
           [#include "includes/top-feature.ftl"]
