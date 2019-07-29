@@ -59,7 +59,9 @@
     &.table-alt tr.odd td {
         background-color: $table-altrow-bg;
     }
-
+    &.table-alt tr.even td {
+      background-color: $white;
+  }
     &.table-fontsm {
       th { font-size: 0.9em; }
       td { font-size: 0.8em; }
