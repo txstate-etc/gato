@@ -19,11 +19,13 @@ form:
             class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter            
         - name: input
           label: Event Entry
+          required: true
           class: info.magnolia.ui.form.field.definition.SwitchableFieldDefinition
           transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
           options:
             - name: calendarId
               label: Calendar
+              selected: true
             - name: events
               label: Events
           fields:
