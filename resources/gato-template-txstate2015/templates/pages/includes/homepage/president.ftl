@@ -22,7 +22,7 @@
     <div class="content-row-column">
       <div class="pres-updates col-right">
         <div class="pres-updates-content">
-          [@cms.area name="presUpdates" /]
+          [@cms.area name="presUpdates" contextAttributes={"headerlevel":3} /]
         </div>
       </div>
     </div>

@@ -3,6 +3,35 @@
   a{
     text-decoration: underline;
   }
+  h2 {
+    font-size: 2.7rem;
+    line-height: 3.5rem;
+    font-weight: 600;
+    color: $very-dark;
+    a{
+      color: $maroon;
+    }
+  }
+  h3 {
+    font-size: 2.2rem;
+    color: $gold;
+    a{
+      color: $gold; /*may need to be important */
+    }
+  }
+  h4, h5, h6{
+    font-size: 1.8rem;
+    color: $charcoal;
+    a{
+      color: $charcoal; /*may need to be important */
+    }
+  }
+  h2, h3, h4, h5, h6{
+    a:hover{
+      text-decoration: none; /*may need to be important */
+      background: transparent ; /*may need to be important */
+    }
+  }
 
   img { max-width: 100%; height: auto; }
   table img, .pswp img { max-width: none; }
@@ -79,35 +108,6 @@
   }
 }
 
-h2 {
-  font-size: 2.7rem;
-  line-height: 3.5rem;
-  font-weight: 600;
-  color: $very-dark;
-  a{
-    color: $maroon;
-  }
-}
-h3 {
-  font-size: 2.2rem;
-  color: $gold;
-  a{
-    color: $gold; /*may need to be important */
-  }
-}
-h4, h5, h6{
-  font-size: 1.8rem;
-  color: $charcoal;
-  a{
-    color: $charcoal; /*may need to be important */
-  }
-}
-h2, h3, h4, h5, h6{
-  a:hover{
-    text-decoration: none; /*may need to be important */
-    background: transparent ; /*may need to be important */
-  }
-}
 .masonry-section {
   a.link-with-children:hover{
     background-color: transparent;

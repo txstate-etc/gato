@@ -157,3 +157,14 @@
     }
   }
 }
+
+// FAQ
+.column_paragraph .gato-faqitem-answer {
+  //force faq headers to look like they start at h3
+  .h3styles {
+    color: $midnight;
+    a{
+      color: $midnight;
+    }
+  }
+}
