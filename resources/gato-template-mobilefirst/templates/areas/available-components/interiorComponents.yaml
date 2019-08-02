@@ -1,10 +1,4 @@
-#landing
-importantdates:
-  id: gato-component-patterns:components/importantdates
-tabbed:
-  id: gato-component-patterns:components/tabbed
-flexible:
-  id: gato-component-patterns:components/flexible
+#variable
   
 #patterns
 titlebuttons:
