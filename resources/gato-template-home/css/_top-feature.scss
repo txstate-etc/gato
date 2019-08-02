@@ -93,17 +93,18 @@ div#top-feature {
           max-width: 60%;
           margin: 0 auto;
 
-          &.leftmiddle {bottom: 45%;}
-          &.leftbottom {bottom: 20%;}
+          &.leftmiddle {bottom: 45%; text-align: left;}
+          &.leftbottom {bottom: 20%; text-align: left;}
           &.middle {
             left: 0; 
             right: 0;
             bottom: 20%;
             justify-content: center;
+            text-align: center;
           }
 
-          &.rightbottom {right: 10%; bottom: 20%;}
-          &.rightmiddle {right: 10%; bottom: 45%;}
+          &.rightbottom {right: 10%; bottom: 20%; text-align: right;}
+          &.rightmiddle {right: 10%; bottom: 45%; text-align: right;}
         }
         
         .button-wrap {
@@ -199,14 +200,13 @@ div#top-feature {
           font-family: $garamond;
           font-weight: 700;
           font-size: 4.2rem;
-          line-height: 4.8rem;
           display: inline;
           border-style: solid;
           border-width: 5px;
           border-color: rgba(80, 18, 20, 0);
           background-color: rgba(80, 18, 20, .8);
           color: #fff;
-          line-height: 60px;
+          line-height: 6.4rem;
           font-weight: 500;
         }
       }
@@ -218,6 +218,7 @@ div#top-feature {
           max-width: 1200px;
           display: none;
           padding: 0 2rem;
+          
 
           .feature-headline {
             a {
