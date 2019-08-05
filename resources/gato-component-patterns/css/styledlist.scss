@@ -3,20 +3,18 @@
   justify-content: space-between;
   width: 100%;
   .gato-styled-list {
-    padding: 0rem 2rem;
     border-bottom: 0px;
     &.columns-1 {
       flex: 1 0 100%;
     }
     &.columns-2 {
-      flex: 1 0 50%;
+      width: calc(50% - (2rem));
     }
     &.columns-3 {
-      flex: 1 0 33.33%;
-      flex: 1 0 calc(100%/3);
+      width: calc(100%/3 - 2rem);
     }
     &.columns-4 {
-      flex: 1 0 25%;
+      width: calc(25% - 2rem);
     }
   }
   li:last-child {

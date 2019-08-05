@@ -9,5 +9,8 @@
 [/#if]
 [/#if]
 <div class="mobilefirst-pattern">
-  [@cms.area name="list" contextAttributes={"alphabetize": content.alphabetize!false, "columns": columns}/]
+  <div class="pattern-content single title-type">
+    <h2 class="title">${content.title}</h2>
+    [@cms.area name="list" contextAttributes={"alphabetize": content.alphabetize!false, "columns": columns}/]
+  </div>
 </div>
