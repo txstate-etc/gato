@@ -1,0 +1,16 @@
+templateScript: /gato-component-patterns/templates/components/styledlist.ftl
+renderType: freemarker
+title: Styled List
+description: 1-4 Columns of List Items
+dialog: gato-component-patterns:components/styledlist
+areas:
+  list:
+    type: list
+    templateScript: /gato-component-patterns/templates/areas/styledlistarea.ftl
+    title: List Items
+    availableComponents:
+      styledlistitem:
+        id: gato-template:components/styledlistitem
+parameters:
+  icon: /gato-area-filterable-search/images/list-icon.svg
+  tab: Prebuilt Sections

@@ -20,7 +20,9 @@ callout:
 calloutimage:
   id: gato-component-patterns:components/calloutimage
 twocallouts:
-  id: gato-component-patterns:components/twocallouts  
+  id: gato-component-patterns:components/twocallouts
+styledlist:
+  id: gato-component-patterns:components/styledlist 
 
 
 #layouts

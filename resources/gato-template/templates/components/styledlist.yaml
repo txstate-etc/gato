@@ -1,0 +1,15 @@
+templateScript: /gato-template/templates/components/styledlist.ftl
+renderType: freemarker
+dialog: gato-template:components/styledlist
+description: List with Styles Applied
+title: Styled List
+areas:
+  list:
+    type: list
+    templateScript: /gato-template/templates/areas/styledlistarea.ftl
+    title: List Items
+    availableComponents:
+      styledlistitem:
+        id: gato-template:components/styledlistitem
+parameters:
+  icon: /gato-template/images/list-icon.svg

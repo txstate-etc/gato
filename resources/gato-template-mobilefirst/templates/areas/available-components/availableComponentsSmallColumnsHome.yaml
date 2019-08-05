@@ -21,6 +21,8 @@ separator:
   id: gato-template:components/separator
 feature:
   id: gato-component-feature:components/feature
+styledlist:
+  id: gato-template:components/styledlist
 textimage:
   id: gato-template:components/textimage
 videocard:

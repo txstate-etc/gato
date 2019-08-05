@@ -1,0 +1,7 @@
+templateScript: /gato-template/templates/components/styledlistitem.ftl
+renderType: freemarker
+dialog: gato-template:components/styledlistitem
+description: An Item in a Styled List
+title: Styled List Item
+parameters:
+  icon: /gato-template/images/navlink_icon.png

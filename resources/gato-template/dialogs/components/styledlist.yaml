@@ -1,0 +1,11 @@
+form:
+  tabs:
+    - name: tabGeneral
+      label: ""
+      fields:
+        - name: alphabetize
+          class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+          label: Alphabetize
+          buttonLabel: Select to alphabetize list items
+actions: !include /gato-template/dialogs/common/actions-block.yaml
+label: Styled List

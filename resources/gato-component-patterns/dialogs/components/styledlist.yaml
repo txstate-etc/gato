@@ -1,0 +1,110 @@
+form:
+  tabs:
+    - name: tabGeneral
+      label: ""
+      fields:
+        - name: title
+          label: Title
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+        - name: alphabetize
+          class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+          label: Alphabetize
+          buttonLabel: Select to alphabetize list items
+        - name: includeImage
+          class: info.magnolia.ui.form.field.definition.SwitchableFieldDefinition
+          transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+          label: Include Image?
+          options:
+            - name: hasImage
+              label: Add Image
+              value: hasImage
+            - name: noImage
+              label: No Image
+              value: noImage
+              selected: true
+          fields:
+            - name: noImage
+              class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
+              transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+              label: ""
+              layout: vertical
+              fields:
+                - name: columnsNoImage
+                  class: info.magnolia.ui.form.field.definition.SelectFieldDefinition
+                  label: Number of Columns
+                  sortOptions: false
+                  defaultValue: 1
+                  options:
+                    - name: one
+                      value: 1
+                      selected: true
+                      label: One Column
+                    - name: two
+                      value: 2
+                      label: Two Columns
+                    - name: three
+                      value: 3
+                      label: Three Columns
+                    - name: four
+                      value: 4
+                      label: Four Columns
+            - name: hasImage
+              class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
+              transformerClass:  info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+              label: ""
+              layout: vertical
+              fields:
+                - name: columnsWithImage
+                  class: info.magnolia.ui.form.field.definition.SelectFieldDefinition
+                  label: Number of Columns
+                  sortOptions: false
+                  defaultValue: 1
+                  options:
+                    - name: one
+                      value: 1
+                      selected: true
+                      label: One Column
+                    - name: two
+                      value: 2
+                      label: Two Columns
+                - name: image
+                  class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+                  appName: assets
+                  required: true
+                  targetWorkspace: dam
+                  label: Image
+                  identifierToPathConverter:
+                    class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
+                  contentPreviewDefinition:
+                    contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
+                  description: "You may upload an image, or choose one from the Digital Asset Manager. If you upload an image, the DAM image will be ignored."
+                - name: imageAlt
+                  class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                  label: Alt. Text
+                  required: true
+                - name: thumbnail
+                  class: edu.txstate.its.gato.vaadin.ThumbnailSelectorFieldDefinition
+                  label: Crop Image
+                  controlName: image
+                - name: script
+                  class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
+                  fields:
+                    - name: imagecropleft
+                      class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+                    - name: imagecropright
+                      class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+                    - name: imagecroptop
+                      class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+                    - name: imagecropbottom
+                      class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+                  transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+                  initFunction: initThumbnailSelector
+                  scripts: [gato-lib/js/cropper/js/jQuery.Cropper.js, gato-lib/js/thumbnail-selector.js]
+                  styles: [gato-lib/js/cropper/css/jquery.cropper.css]
+                  loadScriptsInOrder: true
+                  label: ''
+                  parameters:
+                    aspect: 1
+                    controlName: image
+actions: !include /gato-template/dialogs/common/actions-block.yaml
+label: Styled List

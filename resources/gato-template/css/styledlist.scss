@@ -1,0 +1,23 @@
+.gato-styled-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+
+  li:nth-child(even) {background-color: $whitesmoke};
+  border-bottom: 1px solid $almondmilk;
+
+
+  .styled-list-item {
+    font-weight: 500;
+    padding: 1.2rem 1.2rem 1rem;
+    margin: 0;
+    border-top: 1px solid $almondmilk;
+    a {
+      color: #501214; //DO WE NEED THIS CONTENT TYPE FOR OTHER TEMPLATES
+    }
+  }
+}
+
+.has-background .gato-styled-list li.styled-list-item {
+  background-color: transparent;
+}

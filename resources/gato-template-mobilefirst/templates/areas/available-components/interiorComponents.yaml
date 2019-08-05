@@ -1,5 +1,5 @@
 #variable
-  
+
 #patterns
 titlebuttons:
   id: gato-component-patterns:components/titlebuttons
@@ -25,6 +25,8 @@ twocallouts:
   id: gato-component-patterns:components/twocallouts
 quoteimage:
   id: gato-component-patterns:components/quoteimage
+styledlist:
+  id: gato-component-patterns:components/styledlist
 
 
 #layouts

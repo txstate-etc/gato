@@ -34,6 +34,8 @@ sitemap:
   id: gato-component-sitemap:components/sitemap
 feature:
   id: gato-component-feature:components/feature
+styledlist:
+  id: gato-template:components/styledlist
 table:
   id: gato-template:components/table
 textimage:
