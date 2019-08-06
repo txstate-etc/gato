@@ -19,5 +19,25 @@
   }
   li:last-child {
     border-bottom: 1px solid $almondmilk;
+    @media (max-width: $sm-breakpoint) {
+      border-bottom: 0px;
+    }
   }
+
+  //mobile
+  @media (max-width: $sm-breakpoint) {
+    display: block;
+    .gato-styled-list {
+      &.columns-1, &.columns-2, &.columns-3, &.columns-4 {
+        width: 100%;
+      }
+      li:nth-child(2n) {
+        background-color: transparent;
+      }
+      .styled-list-item.odd {
+        background-color: $whitesmoke;
+      }
+    }
+  }
+
 }

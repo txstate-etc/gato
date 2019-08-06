@@ -17,10 +17,11 @@
 
   <ul class="gato-styled-list columns-${ctx.columns?number}">
   [#list items[i..*itemsInColumn] as component]
-      [@cms.component content=component /]
+      [@cms.component content=component contextAttributes={"index": i}/]
+      [#assign i = i + 1]
   [/#list]
   </ul>
-  [#assign i = i + itemsInColumn]
+
 [/#list]
 </div>
 
