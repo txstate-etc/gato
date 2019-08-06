@@ -10,13 +10,13 @@
     <sv:value>35431714-94a6-431e-9e0b-0e8118465c25</sv:value>
   </sv:property>
   <sv:property sv:name="casLoginURL" sv:type="String">
-    <sv:value>https://login.its.txstate.edu/login/</sv:value>
+    <sv:value>https://authentic.txstate.edu/idp/profile/cas/login</sv:value>
   </sv:property>
   <sv:property sv:name="casLogoutURL" sv:type="String">
-    <sv:value>https://login.its.txstate.edu/logout?url=${casServiceURL}</sv:value>
+    <sv:value>https://authentic.txstate.edu/idp/profile/cas/logout?url=${casServiceURL}</sv:value>
   </sv:property>
   <sv:property sv:name="casValidateURL" sv:type="String">
-    <sv:value>https://login.its.txstate.edu/</sv:value>
+    <sv:value>https://authentic.txstate.edu/idp/profile/cas/</sv:value>
   </sv:property>
   <sv:property sv:name="caseSensitiveUserNames" sv:type="Boolean">
     <sv:value>false</sv:value>
