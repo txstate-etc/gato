@@ -6,10 +6,16 @@
 <div cms:edit="bar"></div>
 [/#if]
 [#if !gf.isEmptyString(content.link)]
-  <a href="${gf.filterUrl(content.link)}">
+  [#if gf.filterUrl(content.link)?matches("^(\\w+:)?//.*$") && !content.link?lower_case?contains("txstate.edu")]
+    [#assign isExternal = true]
+  [#else]
+    [#assign isExternal = false]
+  [/#if]
+  <a class="styled-link" href="${gf.filterUrl(content.link)}">
 [/#if]
 
 ${content.text}
+[#if isExternal!false] <i class="fa fa-external-link external-link-icon" aria-hidden="true"></i>[/#if]
 
 [#if !gf.isEmptyString(content.link)]
   </a>
