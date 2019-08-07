@@ -20,7 +20,7 @@
 <div class="mobilefirst-pattern">
   <div class="pattern-content single title-type">
     <div class="centered">
-      <h2 class="title">${content.title}</h2>
+      <h2 class="title styled-list-title">${content.title}</h2>
       <div class="styled-list-content">
         [#if content.includeImage == "hasImage" && content.imageAlignment == "image-left"]
           <div class="styled-list-image left">

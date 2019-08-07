@@ -1,7 +1,16 @@
+.title.styled-list-title {
+  margin-bottom: 3.5rem;
+}
 .styled-list-content {
   display: flex;
+  @media (max-width: $sm-breakpoint) {
+    flex-direction: column;
+  }
   .styled-list-image {
     flex: 1 0 20%;
+    @media (max-width: $sm-breakpoint) {
+      order: 1;
+    }
     img {
       max-width: 100%;
       height: auto;
@@ -12,8 +21,19 @@
     &.right {
       margin-left: 4rem;
     }
+    @media (max-width: $sm-breakpoint) {
+      &.left {
+        margin-right: 0;
+      }
+      &.right {
+        margin-left: 0;
+      }
+    }
   }
   .styled-list-flex-container {
+    @media (max-width: $sm-breakpoint) {
+      order: 2;
+    }
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -42,6 +62,7 @@
     //mobile
     @media (max-width: $sm-breakpoint) {
       display: block;
+      margin-top: 2rem;
       .gato-styled-list {
         &.columns-1, &.columns-2, &.columns-3, &.columns-4 {
           width: 100%;
