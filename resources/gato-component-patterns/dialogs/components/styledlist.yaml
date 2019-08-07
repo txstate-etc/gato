@@ -82,6 +82,20 @@ form:
                   class: info.magnolia.ui.form.field.definition.TextFieldDefinition
                   label: Alt. Text
                   required: true
+                - name: imageAlignment
+                  class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
+                  label: Alignment
+                  multiSelect: false
+                  sortOptions: false
+                  options:
+                    - name: left
+                      value: image-left
+                      label: Image left of text
+                      selected: true
+                    - name: right
+                      value: image-right
+                      label: Image right of text
+                      selected: true
                 - name: thumbnail
                   class: edu.txstate.its.gato.vaadin.ThumbnailSelectorFieldDefinition
                   label: Crop Image
