@@ -19,12 +19,12 @@
   [#list items[i..*itemsInColumn] as component]
       [@cms.component content=component contextAttributes={"index": i}/]
       [#assign i = i + 1]
+      [#if cmsfn.isEditMode() && i == total]
+        <div class="styled-list-item-add" cms:add="box"></div>
+      [/#if]
   [/#list]
   </ul>
 
 [/#list]
-</div>
 
-[#if cmsfn.isEditMode()]
-  <div class="styled-list-item-add" cms:add="box"></div>
-[/#if]
+</div>
