@@ -59,7 +59,10 @@
     .overlay-tabs {
         display: inline-block;
         width: 30%;
-        .links ul li {
+        .links ul {
+          display: flex;
+          flex-direction: column;
+          li {
             width: auto;
             padding: 0;                    
             a {
@@ -68,14 +71,15 @@
                 font-size: 1.4rem;
                 border-width: 0;
             }
+          }
         }
         [data-eq~="1000px"] & {
             width: 100%;
             overflow-x: scroll;
             .links {
-                flex-direction: row;
                 margin-bottom: 2rem; 
                 ul {
+                    flex-direction: row;
                     flex: 1 0 auto;
                     border-bottom: 1px solid rgb(216, 216, 216);
                     .tab {
