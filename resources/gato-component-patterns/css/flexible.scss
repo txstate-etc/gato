@@ -7,13 +7,13 @@
     [data-eq~='800px'] & {
       max-height: none;
       padding: 4rem 0;
-    }    
+    }
 
     .flex-row {
         display: flex;
         width: 90%;
         min-height: 350px;
-        margin: 0 auto;        
+        margin: 0 auto;
 
         [data-eq~='800px'] & {
           flex-direction: column;
@@ -25,7 +25,7 @@
       margin-top: 2rem;
       [data-eq~='800px'] & {
         margin-top: 0;
-      }    
+      }
     }
 
     .content-item {
@@ -59,7 +59,7 @@
         }
 
         .gato-card-image:hover, .gato-card-video:hover{
-          transform: scale(1.0);          
+          transform: scale(1.0);
           transition: all 400ms ease;
         }
 
@@ -71,7 +71,7 @@
           top: 0;
           opacity: .9;
 
-          &.color1 { background-color: $mc1-bg; color: $mc1-text; } 
+          &.color1 { background-color: $mc1-bg; color: $mc1-text; }
           &.color2 { background-color: $mc2-bg; color: $mc2-text; }
           &.color3 { background-color: $mc3-bg; color: $mc3-text; }
           &.color4 { background-color: $mc4-bg; color: $mc4-text; }
@@ -88,24 +88,44 @@
           width: 100%;
           height: 100%;
           top: 0;
-          padding: 10%;       
+          padding: 10%;
           text-align: center;
 
           .title {
             font-family: "Adobe Garamond W01",Garamond,"Goudy Old Style","Times New Roman",serif;
             font-weight: 400;
             font-size: 3.6rem;
-            color: $white;
             width: 100%;
             flex: 0 0 100%;
           }
 
           p {
             font-size: 1.6rem;
-            color: $white;
             font-weight: 500;
             width: 100%;
-            flex: 0 0 100%;            
+            flex: 0 0 100%;
+          }
+
+          &.color1 {
+            .title, p {color: $mc1-text;}
+          }
+          &.color2 {
+            .title, p {color: $mc2-text;}
+          }
+          &.color3 {
+            .title, p {color: $mc3-text;}
+          }
+          &.color4 {
+            .title, p {color: $mc4-text;}
+          }
+          &.color5 {
+            .title, p {color: $mc5-text;}
+          }
+          &.color6 {
+            .title, p {color: $mc6-text;}
+          }
+          &.color7 {
+            .title, p {color: $mc7-text;}
           }
         }
         .caption {
@@ -115,20 +135,20 @@
           bottom: 30px;
           left: 20px;
           margin-right: 20px;
-  
+
           p {
             margin: 0 auto;
             color: $white;
             padding: 0 1rem;
             font-weight: 500;
           }
-        }      
+        }
       }
       .desktop {
         &.mobile-image{
           [data-eq~='800px'] & {
             display: none;
-          }  
+          }
         }
       }
       .mobile {
@@ -137,7 +157,7 @@
           display: block;
         }
       }
-  
+
 
 
 
@@ -149,9 +169,9 @@
         &.text{
           padding: 0;
         }
-      }     
+      }
     }
-    
+
     .card {
         position: relative;
         background-size: cover;
@@ -160,5 +180,5 @@
         background-repeat: no-repeat;
         background-position: 50% 50%;
         min-height: 250px;
-      }    
+      }
 }
