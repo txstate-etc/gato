@@ -3,7 +3,7 @@
     [#list components as component]
       [@cms.component content=component contextAttributes={"barsonly": true} /]
     [/#list]
-    <div class="${(components?size < 4)?string('feature_add','feature_max')}" cms:add="bar"></div>
+    <div class="${(components?size < 4)?string('tabbed_add','tabbed_max')}" cms:add="bar"></div>
 [/#if]
 [#assign textAlign = (ctx.overlayPosition == "center")?then('text-center', 'text-left')]
 [#if !(ctx.barsonly!false) && components?has_content]
