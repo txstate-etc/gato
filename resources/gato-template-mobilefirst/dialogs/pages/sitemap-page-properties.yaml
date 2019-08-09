@@ -1,0 +1,26 @@
+!inherit:gato-template:pages/page-properties
+form:
+  tabs:
+    - name: tabGeneral
+      fields:
+        - name: title
+          class: info.magnolia.ui.form.field.definition.HiddenFieldDefinition
+          defaultValue: "Site Map"
+        - name: hideTitle
+          class: info.magnolia.ui.form.field.definition.HiddenFieldDefinition
+          type: Boolean
+          defaultValue: false
+        - name: intro
+          class: info.magnolia.ui.form.field.definition.RichTextFieldDefinition
+          label: Intro. Text
+          source: false
+          alignment: false
+          images: false
+          lists: false
+          tables: false
+          height: 500
+          configJsFile: /.resources/gato-template/js/richeditor/minimal-config.js
+        - name: addTitleSeparator
+          class: info.magnolia.ui.form.field.definition.HiddenFieldDefinition
+          type: Boolean
+          defaultValue: true

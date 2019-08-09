@@ -7,7 +7,7 @@
         [/#if]
     [/#if]
     [#if node.title?has_content && node != rootNode]
-        <li class="${(depth % 2 == 0)?then('grey', 'white')}"><a href="${cmsfn.link(node)}">${node.title}</li></a>
+        <li class="${(depth % 2 == 0)?then('grey', 'white')}"><a href="${cmsfn.link(node)}">${node.title}</a></li>
     [/#if]
 
     [#if cmsfn.children(node, "mgnl:page")?size > 0]
@@ -21,9 +21,12 @@
         </ul>
     [/#if]
 [/#macro]
-
-<div class="sitemap">
-    <ul class="topLevel">
-        [@listNodes root root depth][/@listNodes]
-    </ul>
+<div class="gato-section-full">
+  <div class="gato-section-centered">
+    <div class="sitemap">
+        <ul class="topLevel">
+            [@listNodes root root depth][/@listNodes]
+        </ul>
+    </div>
+  </div>
 </div>

@@ -1,7 +1,7 @@
 templateScript: /gato-template-mobilefirst/templates/pages/standard.ftl
 renderType: site
 title: Calico Site Map 
-dialog: gato-template-mobilefirst:pages/page-properties
+dialog: gato-template-mobilefirst:pages/sitemap-page-properties
 areas: !include /gato-template-mobilefirst/templates/includes/areas.yaml
 parameters:
   isSiteMapTemplate: true

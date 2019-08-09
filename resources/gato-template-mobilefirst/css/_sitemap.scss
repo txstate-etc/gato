@@ -1,4 +1,8 @@
 .sitemap {
+  padding: 0 2rem;
+  ul.topLevel, ul.topLevel > ul {
+    padding-left: 0;
+  }
     ul {
         list-style: none;
         li {
@@ -20,15 +24,5 @@
       ul.topLevel>ul>ul {
         margin-bottom: 3rem;
       }
-
-      li.grey{
-        background-color: $whitesmoke;
-      }
-      
-      li.white {
-        background-color: $white;
-      }
-
 }
-
 
