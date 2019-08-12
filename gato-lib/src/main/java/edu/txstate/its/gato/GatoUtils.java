@@ -152,7 +152,7 @@ public final class GatoUtils {
 
     // let's see if it's an item key for something in DAM
     if (ITEMKEY_PATTERN.matcher(url).matches()) {
-      String assetLink = damfn.getAssetLink(url);
+      String assetLink = damUrl(url);
       if (!StringUtils.isBlank(assetLink)) return assetLink;
     }
 
@@ -205,9 +205,16 @@ public final class GatoUtils {
     return serverpath+relUrl;
   }
 
-  public String absoluteDamUrl(String itemKey) {
-    Asset asset = toAsset(itemKey);
-    return absoluteUrl(damPath())+"/"+itemKey+"/"+asset.getFileName();
+  public String damUrl(Object assetOrId) {
+    Asset asset = toAsset(assetOrId);
+    if (asset == null) return "";
+    return MgnlContext.getContextPath()+"/dam/"+asset.getItemKey()+"/"+asset.getFileName();
+  }
+
+  public String absoluteDamUrl(Object assetOrId) {
+    Asset asset = toAsset(assetOrId);
+    if (asset == null) return "";
+    return absoluteUrl(damPath())+"/"+asset.getItemKey()+"/"+asset.getFileName();
   }
 
   public String resourcePath() {
