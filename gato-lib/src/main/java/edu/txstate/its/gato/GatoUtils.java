@@ -205,16 +205,30 @@ public final class GatoUtils {
     return serverpath+relUrl;
   }
 
+  public String rawAssetFileName(Object assetOrId) {
+    Asset asset = toAsset(assetOrId);
+    if (asset == null) return "";
+    return StringEscapeUtils.unescapeHtml4(asset.getFileName());
+  }
+
+  public String damUrlShared(Asset asset) {
+    try {
+      return "/dam/"+asset.getItemKey()+"/"+StringEscapeUtils.escapeHtml4(URLEncoder.encode(rawAssetFileName(asset), "UTF-8"));
+    } catch (Exception e) {
+      return "";
+    }
+  }
+
   public String damUrl(Object assetOrId) {
     Asset asset = toAsset(assetOrId);
     if (asset == null) return "";
-    return MgnlContext.getContextPath()+"/dam/"+asset.getItemKey()+"/"+asset.getFileName();
+    return MgnlContext.getContextPath()+damUrlShared(asset);
   }
 
   public String absoluteDamUrl(Object assetOrId) {
     Asset asset = toAsset(assetOrId);
     if (asset == null) return "";
-    return absoluteUrl(damPath())+"/"+asset.getItemKey()+"/"+asset.getFileName();
+    return absoluteUrl(damPath())+damUrlShared(asset);
   }
 
   public String resourcePath() {
