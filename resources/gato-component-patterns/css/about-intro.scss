@@ -3,6 +3,13 @@
         display: block;
         margin: 0 auto;
         width:100%;
+
+        &.title-type {
+            [data-eq~="600px"] & {
+                padding: 0;
+            }   
+        }
+            
         .corner-image {
             position: relative;
             max-width: 85px;
@@ -131,11 +138,5 @@
                 }           
             }
         } 
-
-    }
-    @media (max-width: 50em) {
-        .title-type {
-            padding:0rem;
-        }
-    }    
+    } 
 }
