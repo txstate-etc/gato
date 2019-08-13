@@ -1,22 +1,19 @@
 [#assign root = cmsfn.root(content, "mgnl:page")! ] 
 [#assign depth = 0]
 [#macro listNodes node rootNode depth]
-    [#if cmsfn.parent(node) == rootNode]
-        [#if node.title?has_content]
-            <h2>${node.title}</h2>
-        [/#if]
-    [/#if]
     [#if node.title?has_content && node != rootNode]
-        <li class="${(depth % 2 == 0)?then('grey', 'white')}"><a href="${cmsfn.link(node)}">${node.title}</a></li>
+      <div class="${(cmsfn.children(node, "mgnl:page")?size > 1)?then("has-children", "")}"><a href="${cmsfn.link(node)}">${node.title}</a></div>
     [/#if]
 
     [#if cmsfn.children(node, "mgnl:page")?size > 0]
-        <ul>
+        <ul class="nested">
         [#list cmsfn.children(node, "mgnl:page") as childNode ]
+          <li>
             [#if !childNode.hideInNav!false]
                 [#assign newdepth = depth+1]
                 [@listNodes childNode rootNode newdepth/]
             [/#if]
+          </li>
         [/#list]
         </ul>
     [/#if]
@@ -25,7 +22,14 @@
   <div class="gato-section-centered">
     <div class="sitemap">
         <ul class="topLevel">
-            [@listNodes root root depth][/@listNodes]
+        [#list cmsfn.children(root, "mgnl:page") as child]
+          <li>
+            [#if child.title?has_content]
+                <h2>${child.title}</h2>
+            [/#if]
+            [@listNodes child root 1][/@listNodes]
+          </li>
+        [/#list]
         </ul>
     </div>
   </div>

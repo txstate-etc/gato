@@ -3,26 +3,46 @@
   ul.topLevel, ul.topLevel > ul {
     padding-left: 0;
   }
-    ul {
-        list-style: none;
-        li {
-          background-color: $white;
-          border-top: 1px solid #d8d8d8;
-          border-bottom: 1px solid #d8d8d8;
-          margin: -1px 0;
-          padding: 1.2rem 0;
-
-          a {
-            text-decoration: underline;
-            margin-left: 2rem;
-            font-weight: 400;
-            color: $maroon;
-          }
+  h2 {
+    padding-bottom: 3rem;
+    border-bottom: 1px solid #d8d8d8;
+    margin-bottom: 0;
+  }
+  ul {
+    list-style: none;
+    li {
+      margin: -1px 0;
+      div {
+        padding: 1.2rem 0;
+        a {
+          text-decoration: underline;
+          margin-left: 2rem;
+          font-weight: 400;
+          color: $maroon;
         }
       }
-            
-      ul.topLevel>ul>ul {
-        margin-bottom: 3rem;
-      }
+    }
+  }
+
+  ul.topLevel>ul>ul {
+  margin-bottom: 3rem;
+  }
+  
+  ul.topLevel > li:not(:last-child) {
+    margin-bottom: 7rem;
+  }
+
+  ul.nested li {
+  border-top: 1px solid #d8d8d8;
+  }
+  
+  ul.nested li:last-child {
+    border-bottom: 1px solid #d8d8d8;
+  }
+  
+  ul.nested li div.has-children {
+    border-bottom: 1px solid #d8d8d8;
+  }
+
 }
 
