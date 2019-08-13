@@ -13,9 +13,7 @@ form:
           contentPreviewDefinition:
             contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
           description: >
-            The image you would like included in the photo gallery. 
-            This image will be automatically resized to create a thumbnail version 
-            and to fit on site visitors' screens. You may upload an image, or choose
+            The image you would like on the card. You may upload an image, or choose
             one from the Digital Asset Manager.
           required: true
           validators:
@@ -35,39 +33,56 @@ form:
           description: >
             Text describing the content of the image for users with visual impairments.
             Required for Section 508 compliance.
-        - name: caption
-          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-          label: Caption
-          description: >
-            Any additional text you might want to include with this image.
-            Will be used for a mouseover on the thumbnail and displayed below the full-size image.
-        - name: calloutTitle
-          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-          label: Callout Title
-        - name: callout
-          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-          label: Callout Text
-          description: >
-            Any additional text you might want to include with this image.
-            Will be displayed on top of the image.    
-        - name: color
-          class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
-          fields:
-            - name: color
-              class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
-          transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
-          initFunction: initColorPicker
-          loadScriptsInOrder: true
-          scripts: [gato-lib/js/color-picker.js]
-          label: Background Color
-          parameters:
-            contentType: default
         - name: isWide
           class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
           label: Orientation
           buttonLabel: Wide
-
-
+        - name: textStyle
+          class:  info.magnolia.ui.form.field.definition.SwitchableFieldDefinition
+          transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+          label: Text Style
+          options:
+            - name: hasCaption
+              label: Caption
+              value: caption
+              selected: true
+            - name: overlay
+              label: Overlay with Text
+              value: overlay
+            - name: none
+              label: None
+              value: none
+          fields:
+            - name: caption
+              class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+              label: Caption
+            - name: overlay
+              label: ""
+              class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
+              transformerClass:  info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+              layout: vertical
+              fields:
+                - name: calloutTitle
+                  class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                  label: Title
+                - name: callout
+                  class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                  label: Text
+                  description: >
+                    Any additional text you might want to include with this image.
+                    Will be displayed on top of the image.
+                - name: color
+                  class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
+                  fields:
+                    - name: color
+                      class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+                  transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+                  initFunction: initColorPicker
+                  loadScriptsInOrder: true
+                  scripts: [gato-lib/js/color-picker.js]
+                  label: Overlay
+                  parameters:
+                    contentType: default
 
     - name: tabThumbnail
       label: Crops

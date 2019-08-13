@@ -60,12 +60,12 @@
         </a>
       [/#if]      
     </div>
-    [#if content.caption?has_content]
+    [#if content.textStyle == "caption" && content.caption?has_content]
     <div class="caption">
       <p>${content.caption!''}</p>
     </div>
     [/#if]    
-    [#if content.callout?has_content]
+    [#if content.textStyle == "overlay" && content.callout?has_content]
     <div class="overlay ${content.color!}"></div>
     <div class="callout ${content.color!}">
       <div class="title">${content.calloutTitle!}</div>
@@ -87,12 +87,12 @@
         </a>
       [/#if]      
     </div>
-    [#if content.caption?has_content]
+    [#if content.textStyle == "caption" && content.caption?has_content]
     <div class="caption">
       <p>${content.caption!''}</p>
     </div>
     [/#if]    
-    [#if content.callout?has_content]
+    [#if content.textStyle == "overlay" && content.callout?has_content]
     <div class="overlay ${content.color!}"></div>
     <div class="callout ${content.color!}">
       <div class="title">${content.calloutTitle!}</div>
