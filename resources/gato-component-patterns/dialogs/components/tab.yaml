@@ -24,7 +24,6 @@ form:
           transformerClass: info.magnolia.ui.form.field.transformer.multi.MultiValueSubChildrenNodePropertiesTransformer
           label: Button
           maxFields: 1
-          minFields: 1
           field:
             name: button
             class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
