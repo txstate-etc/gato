@@ -120,5 +120,19 @@ form:
                   parameters:
                     aspect: 1
                     controlName: image
+        - name: showBackgroundColor
+          class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
+          multiselect: false
+          label: Background Color
+          type: Boolean
+          sortOptions: false
+          options:
+            - name: noBackground
+              label: No Background Color
+              value: false
+              selected: true
+            - name: addBackground
+              value: true
+              label: Add Background Color
 actions: !include /gato-template/dialogs/common/actions-block.yaml
 label: Styled List
