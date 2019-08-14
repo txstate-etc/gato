@@ -49,7 +49,9 @@
 
 
 <div class="item desktop ${content.image?has_content?string('mobile-image', 'no-mobile-image')}">
+  [#if !gf.isEmptyString(content.link)]
   <a href="${gf.filterUrl(content.link)}">
+  [/#if]
     <div class="card ${content.videourl?has_content?string('gato-card-video','gato-card-image')} ${gf.jsonGetString(oembed, 'provider_name')?lower_case}" style='background-image: url("${cardImage}")'>
 
       [#if content.videourl?has_content]
@@ -72,7 +74,9 @@
       <p>${content.callout!}</p>
     </div>
     [/#if]
-  </a>
+    [#if !gf.isEmptyString(content.link)]
+    </a>
+    [/#if]
 </div>
 
 [#if cardImageMobile?has_content]
