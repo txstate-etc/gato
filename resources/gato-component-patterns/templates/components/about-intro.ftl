@@ -22,8 +22,8 @@
                     [#include "/gato-component-patterns/templates/components/common/titlebuttons.ftl"]
                 </div>
                 <div class="image">
-                    <img class="desktop" src="${gf.getImgDefault(content.desktopImage)}"/>
-                    <img class="mobile" src="${gf.getImgDefault(mobileImage)}"/>
+                    <img class="desktop" src="${gf.getImgDefault(content.desktopImage)}" alt=""/>
+                    <img class="mobile" src="${gf.getImgDefault(mobileImage)}" alt=""/>
                 </div>                
             </div>
         </div>
