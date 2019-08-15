@@ -4,3 +4,17 @@ $garamond: 'Adobe Garamond W01', Garamond, 'Goudy Old Style', 'Times New Roman',
 @import "gato-template/css/variables";
 @import "gato-template-home/css/colors";
 @import "gato-template-mobilefirst/css/contenttypes";
+
+//Search Drop Down
+$search-dd-overlay-background-color:  $gold;
+$search-dd-dropdown-background-color: $sandstone;
+$search-dd-dialog-font-family:        $univers;
+$search-dd-input-line-color:        $gold;
+$search-dd-input-color:               $very-dark;
+$search-dd-input-placeholder-color:   $gold;
+$search-dd-icon-color:                $gold;
+$search-dd-radio-label-color:         $darkest-gold;
+$search-dd-suggested-results-border:  $gold;
+$search-dd-suggested-result-title-color: $gold;
+$search-dd-suggested-result-link-color: $blue;
+$search-dd-suggested-result-hover-color: $light-sandstone;
