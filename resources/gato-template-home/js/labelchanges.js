@@ -6,4 +6,7 @@ jQuery(document).ready(function($) {
   
   magnolialabelchange('.tabbed_add', '.mgnlEditor.mgnlPlaceholder', 'Add Tab');
   magnolialabelchange('.tabbed_max', '.mgnlEditor.mgnlPlaceholder', 'Maximum tabs added');
+
+  magnolialabelchange('.explore_add', '.mgnlEditor.mgnlPlaceholder', 'Add Card');
+  magnolialabelchange('.explore_max', '.mgnlEditor.mgnlPlaceholder', 'Maximum cards added');
 });

@@ -12,7 +12,7 @@
     [#list components as component]
       [@cms.component content=component contextAttributes={"barsonly": true} /]
     [/#list]
-    <div class="${(components?size < 4)?string('feature_add','feature_max')}" cms:add="bar"></div>
+    <div class="${(components?size < 4)?string('explore_add','explore_max')}" cms:add="bar"></div>
   </div>  
 [/#if]
 
