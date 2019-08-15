@@ -18,7 +18,7 @@
 
 [#if !(ctx.barsonly!false)]
 <div class="gato-explore" style="${flexDirection}">
-[#include "/gato-component-patterns/templates/includes/arrows.ftl"]   
+ 
 
   [#list components as component ]
     [#if component.orientation == 'wide']

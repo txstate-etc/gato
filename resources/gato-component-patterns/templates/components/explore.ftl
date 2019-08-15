@@ -28,7 +28,8 @@
     </div>
     <div class="explore-flex">
     [@cms.area name="exploreLeft" /]
-    [@cms.area name="exploreRight" /]      
+    [@cms.area name="exploreRight" /]
+    [#include "/gato-component-patterns/templates/includes/arrows.ftl"]  
     </div>
   </div>
 </div>
