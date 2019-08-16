@@ -4,3 +4,4 @@
 /gato-lib/js/tabbed.js
 /gato-template-home/js/labelchanges.js
 /gato-template-home/js/hero.js
+/gato-template-home/js/landing.js
