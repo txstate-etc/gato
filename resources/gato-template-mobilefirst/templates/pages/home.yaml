@@ -5,7 +5,7 @@ title: Calico Feature #Formerly "Mobile First Home"
 dialog: gato-template-mobilefirst:pages/page-properties
 areas: !include /gato-template-mobilefirst/templates/includes/areas.yaml
 parameters:
-  isHomeTemplate: true
+  isFeatureTemplate: true
   sortOrder: 305
   favicon: /gato-template-mobilefirst/images/favicon.png
 variations:
