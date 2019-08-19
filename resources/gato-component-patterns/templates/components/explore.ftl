@@ -2,7 +2,7 @@
 [#if cmsfn.isEditMode()]<div cms:edit></div>[/#if]
 <div class="mobilefirst-pattern">
   <div class="pattern-content explore">
-  [#if content.title?has_content]
+  [#if content.includeTitle?? && content.includeTitle == "hasTitle"]
     <div class="explore-bar">
       <div class="left">
       [@h2 class="explore-title"]${content.title}[/@h2]

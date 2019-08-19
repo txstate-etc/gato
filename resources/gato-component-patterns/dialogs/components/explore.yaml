@@ -3,33 +3,52 @@ form:
     - name: tabGallery
       label: Explore Section Settings
       fields:
-        - name: title
-          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-          label: Title (optional)
-        - name: links
-          class: edu.txstate.its.gato.vaadin.GatoMultiValueFieldDefinition
-          transformerClass: info.magnolia.ui.form.field.transformer.multi.MultiValueSubChildrenNodePropertiesTransformer
-          label: Links
-          styleName: linksMultiField
-          maxFields: 2
-          minFields: 1
-          field:
-            name: link
-            class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
-            transformerClass: info.magnolia.ui.form.field.transformer.composite.NoOpCompositeTransformer
-            layout: vertical
-            fields:
-              - name: text
-                class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-                label: Link Text
-                maxLength: 40
-              - name: link
-                class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
-                label: Link Target
-                required: true
-                appName: pages
-                identifierToPathConverter:
-                  class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
+        - name: includeTitle
+          class: info.magnolia.ui.form.field.definition.SwitchableFieldDefinition
+          transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+          label: Include Title?
+          options:
+            - name: hasTitle
+              label: Add Title
+              value: hasTitle
+              selected: true
+            - name: noTitle
+              label: No Title
+              value: noTitle
+          fields:
+            - name: hasTitle
+              class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
+              transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+              label: ""
+              layout: vertical
+              fields:
+                - name: title
+                  class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                  label: Title
+                  required: true
+                - name: links
+                  class: edu.txstate.its.gato.vaadin.GatoMultiValueFieldDefinition
+                  transformerClass: info.magnolia.ui.form.field.transformer.multi.MultiValueSubChildrenNodePropertiesTransformer
+                  label: Links
+                  styleName: linksMultiField
+                  maxFields: 2
+                  field:
+                    name: link
+                    class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
+                    transformerClass: info.magnolia.ui.form.field.transformer.composite.NoOpCompositeTransformer
+                    layout: vertical
+                    fields:
+                      - name: text
+                        class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                        label: Link Text
+                        maxLength: 40
+                      - name: link
+                        class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+                        label: Link Target
+                        required: true
+                        appName: pages
+                        identifierToPathConverter:
+                          class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
         - name: help
           class: info.magnolia.ui.form.field.definition.StaticFieldDefinition
           label: Note
