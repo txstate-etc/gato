@@ -1,7 +1,7 @@
 [#if cmsfn.isEditMode()]<div cms:edit></div>[/#if]
 <div class="mobilefirst-pattern">
   <div class="flexible">
-  [@cms.area name="flex-top" contextAttributes={"colorClass":content.color!}/]
-  [@cms.area name="flex-bottom" contextAttributes={"colorClass":content.color!}/]
+  [@cms.area name="flex-top"/]
+  [@cms.area name="flex-bottom"/]
   </div>
 </div>
