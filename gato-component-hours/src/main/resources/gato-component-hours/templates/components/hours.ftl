@@ -1,13 +1,11 @@
 <script type="text/javascript">
-  var gato_hours_data = {
-    "calendars" : [ {id: "${content.calendarId?json_string}"} ],
-    "${content.calendarId?json_string}" : {
-      "today_abbreviated" : "${model.getAbbreviated()?json_string}",
-      "today_full" : "${model.getFull()?json_string}",
-      "currently_open" : ${model.isOpen()?string('true','false')},
-      "pdf_link" : "${gf.filterUrl(content.pdflink!)?json_string}",
-      "fullcalendar_data" : ${model.getData()}
-    }
+  if (!window.gato_hours_data) window.gato_hours_data = {};
+  window.gato_hours_data['${content.calendarId?json_string}'] = {
+    "today_abbreviated" : "${model.getAbbreviated()?json_string}",
+    "today_full" : "${model.getFull()?json_string}",
+    "currently_open" : ${model.isOpen()?string('true','false')},
+    "pdf_link" : "${gf.filterUrl(content.pdflink!)?json_string}",
+    "fullcalendar_data" : ${model.getData()}
   };
 </script>
 <div class="gato-component-hours">
