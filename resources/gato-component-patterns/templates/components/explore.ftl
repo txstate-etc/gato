@@ -1,8 +1,8 @@
 [#include "/gato-template/templates/includes/commonmacros.ftl"]
 [#if cmsfn.isEditMode()]<div cms:edit></div>[/#if]
-[#if content.title?has_content]
 <div class="mobilefirst-pattern">
   <div class="pattern-content explore">
+  [#if content.title?has_content]
     <div class="explore-bar">
       <div class="left">
       [@h2 class="explore-title"]${content.title}[/@h2]
