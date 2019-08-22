@@ -31,9 +31,74 @@
     .content-item {
       flex: 1 0 0;
       display: inline-block;
-      padding-right: 2rem;
+      max-width: calc((100% - 40px) / 3);
+      [data-eq~='800px'] & {
+        max-width: none;
+      }
+      &:not(:last-of-type) {
+        margin-right: 2rem;
+        [data-eq~='800px'] & {
+          margin-right: 0;
+        }
+      }
       &.text {
         padding: 0;
+        max-width: calc((100% / 3) * 2);
+        [data-eq~='800px'] & {
+          max-width: none;
+        }
+        &.image-left, &.image-right {
+          display: flex;
+          max-width: 100%;
+          .mobile-textlink-image {
+            display: none;
+            height: 100%;
+            width: auto;
+            min-height: 250px;
+            [data-eq~='800px'] & {
+              display: block;
+              order: 1;
+            }
+          }
+          
+          .textlink-image, .mobile-textlink-image {
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            background-size: cover;
+          }
+          
+          .textlink-image {
+            flex-basis: calc(100% / 3);
+            [data-eq~='800px'] & {
+              display: none;
+            }
+          }
+          .text-link {
+            flex-basis: calc((100% / 3) * 2);
+            [data-eq~='800px'] & {
+              order: 2;
+              min-height: 320px;
+            }
+          }
+          &.wide {
+            .textlink-image {
+              flex-basis: 50%;
+            }
+            .text-link {
+              flex-basis: 50%;
+            }
+          }
+          [data-eq~='800px'] & {
+            flex-direction: column;
+            min-height: unset;
+          }
+        }
+      }
+      &.wide {
+        max-width: calc((100% - 20px) / 2);
+        [data-eq~='800px'] & {
+          max-width: none;
+        }
       }
       .text {
         margin-bottom: 3rem;
@@ -181,4 +246,8 @@
         background-position: 50% 50%;
         min-height: 250px;
       }
+}
+
+.edit-textlink {
+  position: absolute;
 }

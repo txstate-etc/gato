@@ -52,6 +52,141 @@ form:
                 appName: pages
                 identifierToPathConverter:
                   class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
+    - name: tabimage
+      label: Image
+      fields:
+        - name: includeImage
+          class: info.magnolia.ui.form.field.definition.SwitchableFieldDefinition
+          transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+          label: Include Image?
+          options:
+            - name: hasImage
+              label: Add Image
+              value: hasImage
+            - name: noImage
+              label: No Image
+              value: noImage
+              selected: true
+          fields:
+            - name: hasImage
+              class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
+              transformerClass:  info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+              label: ""
+              layout: vertical
+              required: true
+              fields:
+                - name: image
+                  class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+                  appName: assets
+                  required: true
+                  targetWorkspace: dam
+                  label: Image
+                  identifierToPathConverter:
+                    class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
+                  contentPreviewDefinition:
+                    contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
+                  description: "You may upload an image, or choose one from the Digital Asset Manager. If you upload an image, the DAM image will be ignored."
+                - name: imageAlt
+                  class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                  label: Alt. Text
+                  required: true
+                - name: imageAlignment
+                  class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
+                  label: Alignment
+                  multiSelect: false
+                  sortOptions: false
+                  options:
+                    - name: left
+                      value: image-left
+                      label: Image left of text
+                    - name: right
+                      value: image-right
+                      label: Image right of text
+                      selected: true
+                - name: isWide
+                  class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+                  label: Orientation
+                  buttonLabel: Wide
+                - name: staticspacer
+                  class: info.magnolia.ui.form.field.definition.StaticFieldDefinition
+                  label: ""
+                  value: " "
+                - name: staticlabel
+                  class: info.magnolia.ui.form.field.definition.StaticFieldDefinition
+                  label: ""
+                  value: Crop Image
+                - name: square
+                  class: edu.txstate.its.gato.vaadin.ThumbnailSelectorFieldDefinition
+                  label: Square Crop
+                  controlName: square
+                - name: squarescript
+                  class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
+                  fields:
+                    - name: squarecropleft
+                      class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+                    - name: squarecropright
+                      class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+                    - name: squarecroptop
+                      class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+                    - name: squarecropbottom
+                      class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+                  transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+                  initFunction: initThumbnailSelector
+                  scripts: [gato-lib/js/cropper/js/jQuery.Cropper.js, gato-lib/js/thumbnail-selector.js]
+                  styles: [gato-lib/js/cropper/css/jquery.cropper.css]
+                  loadScriptsInOrder: true
+                  label: ''
+                  parameters:
+                    aspect: 1
+                    controlName: square
+                - name: wide
+                  class: edu.txstate.its.gato.vaadin.ThumbnailSelectorFieldDefinition
+                  label: Wide Crop
+                  controlName: wide
+                - name: widescript
+                  class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
+                  fields:
+                    - name: widecropleft
+                      class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+                    - name: widecropright
+                      class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+                    - name: widecroptop
+                      class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+                    - name: widecropbottom
+                      class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+                  transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+                  initFunction: initThumbnailSelector
+                  scripts: [gato-lib/js/cropper/js/jQuery.Cropper.js, gato-lib/js/thumbnail-selector.js]
+                  styles: [gato-lib/js/cropper/css/jquery.cropper.css]
+                  loadScriptsInOrder: true
+                  label: ''
+                  parameters:
+                    aspect: 2.21
+                    controlName: wide
+                - name: full
+                  class: edu.txstate.its.gato.vaadin.ThumbnailSelectorFieldDefinition
+                  label: Full Width Crop
+                  controlName: full
+                - name: fullscript
+                  class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
+                  fields:
+                    - name: fullcropleft
+                      class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+                    - name: fullcropright
+                      class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+                    - name: fullcroptop
+                      class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+                    - name: fullcropbottom
+                      class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+                  transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+                  initFunction: initThumbnailSelector
+                  scripts: [gato-lib/js/cropper/js/jQuery.Cropper.js, gato-lib/js/thumbnail-selector.js]
+                  styles: [gato-lib/js/cropper/css/jquery.cropper.css]
+                  loadScriptsInOrder: true
+                  label: ''
+                  parameters:
+                    aspect: 3.37
+                    controlName: full
         - name: stylesheet
           label: ""
           class: edu.txstate.its.gato.vaadin.GatoCssIncludeDefinition
