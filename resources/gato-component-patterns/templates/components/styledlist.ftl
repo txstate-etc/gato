@@ -17,10 +17,12 @@
   [#assign srcset = gf.getSrcSet( content.image, left, right, top, bottom, true)]
   [#assign imageClass="with-image"]
 [/#if]
-<div class="mobilefirst-pattern">
+<div class="mobilefirst-pattern styled-list">
   <div class="pattern-content single title-type">
     <div class="centered">
+      [#if !gf.isEmptyString(content.title)]
       <h2 class="styled-list-title">${content.title}</h2>
+      [/#if]
       <div class="styled-list-content">
         [#if content.includeImage == "hasImage" && content.imageAlignment == "image-left"]
           <div class="styled-list-image left">

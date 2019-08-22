@@ -1,3 +1,9 @@
+.mobilefirst-pattern.styled-list {
+  max-width: 1200px;
+  margin: 0 auto;
+  max-height: unset;
+}
+
 .styled-list-title {
   margin-bottom: 3.5rem;
   font-size: 3rem;
@@ -79,4 +85,8 @@
     }
 
   }
+}
+
+.styled-list-item-add {
+  width: 200px;
 }

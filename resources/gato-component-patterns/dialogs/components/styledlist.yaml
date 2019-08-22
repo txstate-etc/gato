@@ -72,6 +72,7 @@ form:
                   appName: assets
                   required: true
                   targetWorkspace: dam
+                  styleName: image-field
                   label: Image
                   identifierToPathConverter:
                     class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
@@ -82,11 +83,13 @@ form:
                   class: info.magnolia.ui.form.field.definition.TextFieldDefinition
                   label: Alt. Text
                   required: true
+                  styleName: alt-text-field
                 - name: imageAlignment
                   class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
                   label: Alignment
                   multiSelect: false
                   sortOptions: false
+                  styleName: alignment-field
                   options:
                     - name: left
                       value: image-left
@@ -100,6 +103,7 @@ form:
                   class: edu.txstate.its.gato.vaadin.ThumbnailSelectorFieldDefinition
                   label: Crop Image
                   controlName: image
+                  styleName: crop-field
                 - name: script
                   class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
                   fields:
@@ -134,5 +138,9 @@ form:
             - name: addBackground
               value: true
               label: Add Background Color
+        - name: stylesheet
+          label: ""
+          class: edu.txstate.its.gato.vaadin.GatoCssIncludeDefinition
+          styles: [gato-component-patterns/dialogs/css/styled-list.css]
 actions: !include /gato-template/dialogs/common/actions-block.yaml
 label: Styled List

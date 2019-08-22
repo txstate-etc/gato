@@ -2,6 +2,7 @@
 [#if ctx.alphabetize]
   [#assign items = gf.sortFilterableSearchItems(components, 'text')]
 [/#if]
+
 <div class="styled-list-flex-container">
 [#assign total = items?size]
 [#assign minColumnSize = (total/(ctx.columns?number))?floor]
@@ -19,12 +20,11 @@
   [#list items[i..*itemsInColumn] as component]
       [@cms.component content=component contextAttributes={"index": i}/]
       [#assign i = i + 1]
-      [#if cmsfn.isEditMode() && i == total]
-        <div class="styled-list-item-add" cms:add="box"></div>
-      [/#if]
   [/#list]
+  [#if cmsfn.isEditMode() && column == ctx.columns?number]
+    <div class="styled-list-item-add" cms:add="box"></div>
+  [/#if]
   </ul>
-
 [/#list]
 
 </div>

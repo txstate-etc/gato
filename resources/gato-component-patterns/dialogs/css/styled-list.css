@@ -1,0 +1,4 @@
+.v-slot-image-field, .v-slot-alt-text-field, 
+.v-slot-alignment-field, .v-slot-crop-field {
+  margin-top: 10px;
+}
