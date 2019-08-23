@@ -2,7 +2,7 @@
 <div class="edit-textlink" cms:edit="bar"></div>
 [/#if]
 [#assign hasImage = false]
-[#if content.includeImage == "hasImage"]
+[#if content.includeImage?? && content.includeImage == "hasImage"]
   [#assign hasImage = true]
   [#if content.isWide!false]
     [#assign left = (content.widecropleft!0.0)?number]
