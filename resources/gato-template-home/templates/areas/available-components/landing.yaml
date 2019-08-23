@@ -26,7 +26,7 @@ textimagebuttons:
 textimagelinks:
   id: gato-component-patterns:components/textimagelinks
 imageoverlay:
-  id: gato-component-patterns:components/imageoverlay
+  id: gato-template-home:components/imageoverlay
 callout:
   id: gato-component-patterns:components/callout
 calloutimage:
