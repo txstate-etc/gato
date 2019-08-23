@@ -1,0 +1,87 @@
+.mobilefirst-pattern {
+  .pattern-content {
+    &.color6, &.color7 {
+      a {
+        border-color: $maroon;
+        color: $maroon;
+      }
+    }
+    
+    &.color7 {
+      .title, .text, .stat, .quotation-text, .quotation-source {
+        color: $maroon;
+      }
+    }
+  }
+  
+  &.insettextimage {
+    .pattern-content {
+      .inset.color6 {
+        a.button {
+          color: $maroon;
+        }
+      }
+      .inset.color7 {
+        color: $maroon;
+        a, h2 {
+          color: $maroon;
+        }
+      }
+      .inset.color8 {
+        border: 1px solid #d8d8d8;
+        a.button {
+          color: $maroon;
+        }
+      }
+    }
+  }
+}
+
+//Icon and Text
+.column_paragraph {
+  .icontext {
+    .icontext-title {
+      font-family: $univers;
+    }
+    .icontext-text {
+      margin: 0 0 3rem 0;
+    }
+    .icontext-text:last-of-type{
+      margin-bottom: 0;
+    }
+  }
+}
+
+//image card
+.gato-card {
+  figcaption {
+    h2.title {
+      font-family: $univers;
+      font-weight: 600;
+    }
+  }
+}
+
+//Events
+h2.event-list-title {
+  font-family: $univers;
+  font-weight: 600;
+  font-size: 2.7rem;
+  line-height: 3.5rem
+}
+
+.has-background {
+  .gato-events .gato-accordion.shown {
+    background-color: $white;
+  }
+}
+
+//embed video
+.gatoStreamingWrapper {
+  h2.streaming-title {
+    font-family: $univers;
+    font-size: 2.7rem;
+    line-height: 3.5rem;
+    font-weight: 600;
+  }
+}
