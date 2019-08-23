@@ -10,6 +10,9 @@
     &.color7 {
       .title, .text, .stat, .quotation-text, .quotation-source {
         color: $maroon;
+        a, p, h2 {
+          color: $maroon;
+        }
       }
     }
   }
