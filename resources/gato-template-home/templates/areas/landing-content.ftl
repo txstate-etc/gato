@@ -1,3 +1,4 @@
+[#include "/gato-template/templates/includes/commonmacros.ftl"]
 [#list components as component]
   [#assign hasBackgroundClass = (component.showBackgroundColor!false)?string(' has-background','')]
   [#assign cardLayoutClass = gf.isCardSection(component)?string(' card-layout', '')]
@@ -6,7 +7,7 @@
   <div id="${gf.htmlId(component)}" class="gato-section-full full-width ${hasBackgroundClass}${cardLayoutClass}${patternClass}${attached}">
       <div class="gato-section-centered">
         <div class="gato-section eq-parent">
-          [@cms.component content=component /]
+          [@cms.component content=component contextAttributes={"hasThereBeenSectionWithTitleBefore": hasThereBeenSectionWithTitleBefore(components, component?counter)!false}/]
         </div>
       </div>
   </div>
