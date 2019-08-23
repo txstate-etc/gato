@@ -52,7 +52,7 @@
       [#if def.parameters.isHomeTemplate!false]
         [#include "includes/top-feature.ftl"]
       [#elseif def.parameters.isLandingTemplate!false]
-        [@cms.area name="landing-banner" content=gf.getOrCreateArea(homepage, 'home-banner')/]
+        [@cms.area name="landing-banner"/]
       [/#if]
       [#if def.parameters.isHomeTemplate!false]
         [@cms.area name="homecontent"/]

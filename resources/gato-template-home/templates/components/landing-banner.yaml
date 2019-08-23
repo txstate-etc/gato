@@ -1,6 +1,6 @@
 templateScript: /gato-template-home/templates/components/landing-banner.ftl
 renderType: freemarker
-title: Mobile First Banner
+title: Banner Image
 description: A full width image or video with alternate text
 dialog: gato-template-home:components/landing-banner
 parameters:
