@@ -38,6 +38,12 @@ body {
   background-color: $white;
 }
 
+.gato-section-full.pattern {
+  .gato-section-centered {
+    max-width: none;
+  }
+}
+
 .breadcrumbs {
   padding: 1rem 2rem 0rem 2rem;
   font-weight: 700;
