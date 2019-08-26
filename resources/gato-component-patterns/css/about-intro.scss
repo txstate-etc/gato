@@ -1,4 +1,8 @@
 .mobilefirst-pattern {
+  &.about {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
     .about-intro {
         display: block;
         margin: 0 auto;

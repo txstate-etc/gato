@@ -7,7 +7,7 @@
     [#assign mobileImage = content.desktopImage]
 [/#if]
 <div class="gato-section-centered">
-    <div class="mobilefirst-pattern centered">
+    <div class="mobilefirst-pattern about centered">
         <div class="pattern-content title-type about-intro">
             <div class="about">
                 [#if content.image?has_content]
