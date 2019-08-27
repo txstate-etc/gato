@@ -43,7 +43,7 @@
       }
       &.text {
         padding: 0;
-        max-width: calc((100% / 3) * 2);
+        max-width: none;
         [data-eq~='800px'] & {
           max-width: none;
         }
@@ -95,7 +95,7 @@
         }
       }
       &.wide {
-        max-width: calc((100% - 20px) / 2);
+        max-width: none;
         [data-eq~='800px'] & {
           max-width: none;
         }
