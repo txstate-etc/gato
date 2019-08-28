@@ -1,5 +1,8 @@
 package edu.txstate.its.gato;
 
+import info.magnolia.init.MagnoliaConfigurationProperties;
+import info.magnolia.objectfactory.Components;
+
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -18,9 +21,22 @@ abstract class AbstractEventItem implements EventItem {
   public static DateFormat machineDateFormat = new SimpleDateFormat( "yyyy-MM-dd" );
   public static DateFormat machineTimeFormat = new SimpleDateFormat( "HH:mm:00Z" );
   public static DateFormat machineMonthFormat = new SimpleDateFormat("yyyyMM");
+  public static DateFormat humanMonthFormat = new SimpleDateFormat("MMMM");
+  public static DateFormat humanDateTimeFormat = new SimpleDateFormat(" dd, h:mma");
+  public static DateFormat humanDateFormat = new SimpleDateFormat(" dd");
+  public static DateFormat humanTimeFormat = new SimpleDateFormat("h:mma");
+
+  private TimeZone defaultTZ;
 
   public AbstractEventItem() {
-
+    MagnoliaConfigurationProperties mcp = Components.getComponent(MagnoliaConfigurationProperties.class);
+    String tz = mcp.getProperty("gato.timezone.default");
+    if (StringUtils.isBlank(tz)) tz = "America/Chicago";
+    defaultTZ = TimeZone.getTimeZone(tz);
+    humanMonthFormat.setTimeZone(defaultTZ);
+    humanDateTimeFormat.setTimeZone(defaultTZ);
+    humanDateFormat.setTimeZone(defaultTZ);
+    humanTimeFormat.setTimeZone(defaultTZ);
   }
 
   public boolean getShowEndDate() {
@@ -59,23 +75,21 @@ abstract class AbstractEventItem implements EventItem {
   }
 
   protected static String getHumanDate(Date date, boolean showDate, boolean showTime) {
-    DateFormat dateFormat;
     String abbrMonth = "";
-
     if(showDate){
-      abbrMonth = abbreviateMonth(new SimpleDateFormat("MMMM").format(date));
+      abbrMonth = abbreviateMonth(humanMonthFormat.format(date));
     }
 
+    DateFormat dateFormat;
     if (showDate && showTime) {
-      dateFormat = new SimpleDateFormat(" dd, h:mma");
+      dateFormat = humanDateTimeFormat;
     } else if (showDate) {
-      dateFormat = new SimpleDateFormat (" dd");
+      dateFormat = humanDateFormat;
     } else if (showTime) {
-      dateFormat = new SimpleDateFormat("h:mma");
+      dateFormat = humanTimeFormat;
     } else {
       return "";
     }
-
     return abbrMonth + dateFormat.format(date);
   }
 

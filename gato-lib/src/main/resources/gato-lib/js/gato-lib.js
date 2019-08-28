@@ -785,5 +785,3 @@ jQuery(function($){
     GatoAntiThrasherSingleton.register(new GatoFontAdjuster($(itm), acceptable));
   });
 });
-
-

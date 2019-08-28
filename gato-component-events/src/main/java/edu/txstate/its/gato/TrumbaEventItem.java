@@ -16,7 +16,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.StringEscapeUtils;
 
 public class TrumbaEventItem extends AbstractEventItem {
-  private static final DateFormat inputFormatTimed = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+  private static final DateFormat inputFormatTimed = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ");
   protected JsonObject event;
   protected static final Pattern HREF_PATTERN = Pattern.compile(".*href=\"([^\"]*)\".*", Pattern.CASE_INSENSITIVE);
   protected static final Pattern LINK_PATTERN = Pattern.compile("(https?://\\S+)", Pattern.CASE_INSENSITIVE);

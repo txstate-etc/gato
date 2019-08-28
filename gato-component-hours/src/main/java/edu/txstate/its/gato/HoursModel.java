@@ -1,21 +1,28 @@
 package edu.txstate.its.gato;
 
+import info.magnolia.init.MagnoliaConfigurationProperties;
 import info.magnolia.jcr.util.PropertyUtil;
 import info.magnolia.rendering.model.RenderingModel;
 import info.magnolia.rendering.template.RenderableDefinition;
+import info.magnolia.objectfactory.Components;
 import java.util.Calendar;
 import java.text.SimpleDateFormat;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.TimeZone;
 import javax.inject.Inject;
 import javax.jcr.Node;
 import org.apache.commons.lang3.time.DateUtils;
 import org.apache.commons.lang3.StringUtils;
 
 public class HoursModel extends TrumbaEventModel {
-  protected final DateFormat jsonFormat = new SimpleDateFormat( "yyyy-MM-dd'T'HH:mm:ss" );
+  protected final DateFormat jsonFormat = new SimpleDateFormat( "yyyy-MM-dd'T'HH:mm:ssZ" );
+  protected final DateFormat fullDateFormat = new SimpleDateFormat( "MMMM d" );
+  protected final DateFormat shortDateFormat = new SimpleDateFormat( "EEEE" );
+  protected final DateFormat fullTimeFormat = new SimpleDateFormat( "h:mma" );
+  protected final DateFormat shortTimeFormat = new SimpleDateFormat( "ha" );
   protected String defaultCalendarId = "1411151";
   protected String specialTitle;
   protected String displayTitle;
@@ -25,6 +32,15 @@ public class HoursModel extends TrumbaEventModel {
     super(content, definition, parent);
     this.specialTitle = PropertyUtil.getString(content, "caltitle", "Alkek Library");
     this.displayTitle = PropertyUtil.getString(content, "displaytitle", "");
+    MagnoliaConfigurationProperties mcp = Components.getComponent(MagnoliaConfigurationProperties.class);
+    String tz = mcp.getProperty("gato.timezone.default");
+    if (StringUtils.isBlank(tz)) tz = "America/Chicago";
+    TimeZone defaulttz = TimeZone.getTimeZone(tz);
+    jsonFormat.setTimeZone(defaulttz);
+    fullDateFormat.setTimeZone(defaulttz);
+    shortDateFormat.setTimeZone(defaulttz);
+    fullTimeFormat.setTimeZone(defaulttz);
+    shortTimeFormat.setTimeZone(defaulttz);
   }
 
   public String itemHtml( EventItem item ) {
@@ -91,22 +107,14 @@ public class HoursModel extends TrumbaEventModel {
   }
 
   private String formatDate(Date date, boolean fullDate) {
-    SimpleDateFormat df;
-    if (fullDate) {
-      df = new SimpleDateFormat("MMMM d");
-    } else {
-      df = new SimpleDateFormat("EEEE");
-    }
-    return df.format(date);
+    if (fullDate) return fullDateFormat.format(date);
+    return shortDateFormat.format(date);
   }
 
   private String formatTime(Date date) {
-    SimpleDateFormat df;
-    if (date.getMinutes() > 0) {
-      df = new SimpleDateFormat("h:mma");
-    } else {
-      df = new SimpleDateFormat("ha");
-    }
+    DateFormat df;
+    if (date.getMinutes() > 0) df = fullTimeFormat;
+    else df = shortTimeFormat;
     return df.format(date).toLowerCase(Locale.ENGLISH);
   }
 
