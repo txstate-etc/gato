@@ -21,12 +21,12 @@
         height: 160px;
       }
 
-      .desktop {
+      &.desktop-banner-image {
         @media (max-width: $sm-breakpoint) {
           display: none;
         }
       }
-      .mobile {
+      &.mobile-banner-image {
         display: none;
         @media (max-width: $sm-breakpoint) {
           display: block;
