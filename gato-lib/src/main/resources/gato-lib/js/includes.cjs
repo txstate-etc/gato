@@ -8,3 +8,4 @@
 /gato-lib/js/modal.js
 /gato-lib/js/slider.js
 /gato-lib/js/flowplayer/flowplayer.min.js
+/gato-lib/js/find.polyfill.js
