@@ -89,7 +89,8 @@ jQuery(document).ready(function ($) {
       modalcontainer.empty();
 
       var headercontainer = $('<div class="hours-header-container">');
-      headercontainer.append('<h2>' + (data.title || data.fullcalendar_data[0].title) + '</h2>');
+      var firstgooddata = (data.fullcalendar_data || []).find(entry => !entry.canceled) || { title: 'Hours' }
+      headercontainer.append('<h2>' + (data.title || firstgooddata.title) + '</h2>');
 
       if (data.pdf_link.length && !$('#all_pdf').length) {
         var pdflink = $('<a href="'+data.pdf_link+'" class="hours-pdf"> <i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF Version</a>');
