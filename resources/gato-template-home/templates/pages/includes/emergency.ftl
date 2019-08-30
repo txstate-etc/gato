@@ -1,34 +1,33 @@
-[#assign emergency = page.emergency! /]
-[#if emergency?has_content]
-  [#list gf.searchComponentsOnPageInJcrOrder(emergency.contentParagraph, [
-      'gato-template:components/textimage'
-  ]) as component]
-    [#if component.title?has_content]
-      [#assign emergencyTitle = component.title /]
-      [#break /]
-    [/#if]
-  [/#list]
-
-  [#if emergencyTitle?has_content]
-    <div class="emergency">
-      <a class="emergency-link" href="${cmsfn.link(emergency)}">
-        <div class="emergency-wrap">
-
-          <div class="alert-top">
-            <p><i class="fa fa-exclamation-triangle"></i> Texas State Alert</p>
-          </div>
-
-          <div class="alert-message">
-            <p>${emergencyTitle}</p>
-          </div>
-
-          <div class="alert-timestamp">
-            [#-- <p>Updated: Oct. 30, 2015 at 10:04 a.m. CDT</p> --]
-            <p>Updated: ${gf.getModificationDate(emergency)?string("MMM. dd, yyyy 'at' h:mm a z")}</p>
-          </div>
-
-        </div>
-      </a>
+[#assign content = cmsfn.asContentMap(cmsfn.nodeByPath('/homepage-data/emergency', 'gatoapps'))]
+[#if gf.hasChildren(content)]
+[#assign isEmergency = true]
+  [#assign notification = cmsfn.children(content, "mgnl:component")?first]
+  <div class="emergency-notification ${notification.color!color10}">
+    <div class="title">
+      <i class="emergency-icon fa fa-exclamation-circle" aria-hidden="true"></i>
+      Texas State Alert
     </div>
-  [/#if]
+    <a class="emergency-link" href="${gf.filterUrl(notification.link)}">
+      ${notification.text}
+    </a>
+    <div class="alert-timestamp">
+      [#-- <p>Updated: Aug. 29, 2019 at 11:29 a.m. CDT</p> --]
+      <p>Updated: ${gf.getModificationDate(notification)?string("MMM. dd, yyyy 'at' h:mm a z")}</p>
+    </div>
+  </div>
+  <script>
+  jQuery(document).ready(function($) {
+    $('body').addClass('emergency');
+    var notificationHeight = $('.emergency-notification').outerHeight();
+    $(window).on('scroll', function(e) {
+      if ($(window).scrollTop() > notificationHeight) {
+        $('body').removeClass('emergency');
+      }
+      else {
+        $('body').addClass('emergency');
+      }
+    })
+  })
+  </script>
 [/#if]
+  

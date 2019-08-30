@@ -11,8 +11,12 @@
   </head>
   <body class="${cmsfn.isEditMode()?then(' admin','')} ${(def.parameters.isHomeTemplate!false)?string(' txstate-home', '')}">
     [#assign isTXSTHome = true]
-    [#include "/gato-template-home/templates/pages/includes/emergency.ftl"]
+    
     [@skipnav/]
+    [#assign isEmergency = false]
+    [#if def.parameters.isHomeTemplate!false]
+      [#include "/gato-template-home/templates/pages/includes/emergency.ftl"]
+    [/#if]
     [#include "/gato-template-mobilefirst/templates/pages/includes/header.ftl"]
     [#include "/gato-template-mobilefirst/templates/pages/includes/menu.ftl"]
     <div class="page-container" id="panel">

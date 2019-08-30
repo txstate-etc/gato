@@ -1,0 +1,189 @@
+label: Emergency
+icon: icon-warning
+appClass: info.magnolia.ui.contentapp.ContentApp
+class: info.magnolia.ui.contentapp.ContentAppDescriptor
+permissions:
+  roles:
+    - superuser
+    - main2012-editor
+    - main2012-mobile-editor
+subApps:
+  browser:
+    label: Emergency
+    subAppClass: info.magnolia.ui.contentapp.browser.BrowserSubApp
+    class: info.magnolia.ui.contentapp.browser.BrowserSubAppDescriptor
+    actionbar:
+      defaultAction: editItem
+      sections:
+        - name: root
+          label: Emergency Notification
+          groups:
+            - name: addActions
+              items:
+                - name: addItem
+          availability:
+            nodes: false
+            root: true
+        - name: item
+          label: Emergency Notification
+          groups:
+            - name: editActions
+              items:
+                - name: editItem
+                - name: moveItem
+                - name: confirmDeletion
+            - name: activationActions
+              items:
+                - name: activate
+                - name: deactivate
+          availability:
+            nodeTypes:
+              - mgnl:component
+    actions:
+      addItem:
+        subAppId: detail
+        label: Add Alert
+        icon: icon-add-item
+        nodeType: mgnl:component
+        appName: emergency
+        class: info.magnolia.ui.contentapp.detail.action.CreateItemActionDefinition
+        availability:
+          root: true
+      editItem:
+        subAppId: detail
+        label: Edit Alert
+        icon: icon-edit
+        appName: emergency
+        class: info.magnolia.ui.contentapp.detail.action.EditItemActionDefinition
+        availability:
+          nodeTypes:
+            - mgnl:component
+      moveItem:
+        label: Move Alert
+        icon: icon-move
+        class: info.magnolia.ui.contentapp.movedialog.action.OpenMoveDialogActionDefinition
+        availability:
+          multiple: true
+          writePermissionRequired: true
+          rules:
+            - name: IsNotDeletedRule
+              implementationClass: info.magnolia.ui.framework.availability.IsNotDeletedRule
+      confirmDeletion:
+        label: Delete Alert
+        icon: icon-delete
+        successActionName: delete
+        class: info.magnolia.ui.framework.action.ConfirmationActionDefinition
+        availability:
+          multiple: true
+          writePermissionRequired: true
+          rules:
+            - name: IsNotDeletedRule
+              implementationClass: info.magnolia.ui.framework.availability.IsNotDeletedRule
+      delete:
+        asynchronous: true
+        notifyUser: false
+        command: markAsDeleted
+        class: info.magnolia.ui.framework.action.MarkNodeAsDeletedActionDefinition
+      activate:
+        command: activate
+        icon: icon-publish
+        catalog: versioned
+        class: info.magnolia.ui.framework.action.ActivationActionDefinition
+        availability:
+          multiple: true
+          writePermissionRequired: true
+      deactivate:
+        command: deactivate
+        icon: icon-unpublish
+        catalog: versioned
+        class: info.magnolia.ui.framework.action.DeactivationActionDefinition
+        availability:
+          multiple: true
+          writePermissionRequired: true
+          rules:
+            - name: IsNotDeletedRule
+              implementationClass: info.magnolia.ui.framework.availability.IsNotDeletedRule
+    workbench:
+      dropConstraintClass: info.magnolia.ui.workbench.tree.drop.AlwaysTrueDropConstraint
+      contentViews:
+        - name: tree
+          class: info.magnolia.ui.workbench.tree.TreePresenterDefinition
+          columns: &myColumns
+            - name: text
+              label: Text
+              editable: true
+              sortable: true
+              propertyName: text
+              class: info.magnolia.ui.workbench.column.definition.PropertyColumnDefinition
+            - name: status
+              width: 60
+              sortable: true
+              displayInChooseDialog: false
+              formatterClass: info.magnolia.ui.workbench.column.StatusColumnFormatter
+              class: info.magnolia.ui.workbench.column.definition.StatusColumnDefinition
+            - name: moddate
+              width: 160
+              sortable: true
+              displayInChooseDialog: false
+              formatterClass: info.magnolia.ui.workbench.column.DateColumnFormatter
+              propertyName: mgnl:lastModified
+              class: info.magnolia.ui.workbench.column.definition.MetaDataColumnDefinition
+    contentConnector:
+      implementationClass: edu.txstate.its.gato.apputil.GatoJcrContentConnector
+      includeProperties: false
+      workspace: gatoapps
+      rootPath: /homepage-data/emergency
+      defaultOrder: title
+      nodeTypes:
+        - name: mgnl:component
+          icon: icon-work-item
+  detail:
+    label: Edit Item
+    subAppClass: info.magnolia.ui.contentapp.detail.DetailSubApp
+    class: info.magnolia.ui.contentapp.detail.DetailSubAppDescriptor
+    actions:
+      commit:
+        implementationClass: info.magnolia.ui.form.action.SaveFormAction
+        class: info.magnolia.ui.form.action.SaveFormActionDefinition
+      cancel:
+        class: info.magnolia.ui.form.action.CancelFormActionDefinition
+    editor:
+      actions:
+        - name: commit
+        - name: cancel
+      form:
+        tabs:
+          - name: item
+            label: Emergency Notification
+            fields:
+              - name: text
+                class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                label: Text
+              - name: link
+                class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+                label: Link
+                appName: pages
+                identifierToPathConverter:
+                  class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
+                description: "Title will be clickable. Enter a full URL (http://www.google.com/) or use the \"Internal Link\" button to link to another page in this site."
+                buttonSelectNewLabel: "Internal Link..."
+              - name: script
+                class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
+                fields:
+                  - name: color
+                    class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+                transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+                initFunction: initColorPicker
+                scripts: [gato-lib/js/color-picker.js]
+                loadScriptsInOrder: true
+                styleName: single-color
+                label: Background Color
+                parameters:
+                  contentType: txstateHomeEmergency
+      nodeType:
+        icon: icon-work-item
+        name: mgnl:component
+    contentConnector:
+      implementationClass: edu.txstate.its.gato.apputil.GatoJcrContentConnector
+      workspace: gatoapps
+      rootPath: /homepage-data/emergency

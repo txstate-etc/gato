@@ -185,6 +185,12 @@ header {
   }
 }
 
+body.emergency {
+  header {
+    position: absolute;
+  }
+}
+
 
 //css for editing environment
 body.admin {

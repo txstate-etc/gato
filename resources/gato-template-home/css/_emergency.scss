@@ -1,0 +1,45 @@
+.emergency-notification {
+  padding: 4rem 0;
+  text-align: center;
+  position: static;
+  &.color5 {
+    background-color: $mc5-bg;
+    color: $mc5-text;
+    a,p {
+      color: $mc5-text;
+    }
+  }
+  &.color7 {
+    background-color: $mc7-bg;
+    color: $mc7-text;
+    a,p {
+      color: $mc7-text;
+    }
+  }
+  &.color10 {
+    background-color: $mc10-bg;
+    color: $mc10-text;
+    a,p {
+      color: $mc10-text;
+    }
+  }
+  .title {
+    font-family: $garamond;
+    font-size: 3rem;
+    font-weight: 500;
+    .emergency-icon {
+      margin-right: 1rem;
+    }
+  }
+  .emergency-link {
+    display: block;
+    font-size: 1.8rem;
+    padding: 2rem 0;
+  }
+}
+
+body:not(.emergency) {
+  .emergency-notification {
+    position: absolute;
+  }
+}
