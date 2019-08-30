@@ -56,7 +56,6 @@
           </figcaption>
           [/#if]
           [#if count == 10]
-            <h2>${count}</h2>
             [#break]
           [/#if]
         [/#list]
