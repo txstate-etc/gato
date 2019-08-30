@@ -43,6 +43,13 @@
   ul.nested li div.has-children {
     border-bottom: 1px solid #d8d8d8;
   }
+  
+  ul.nested li div.has-children + ul.nested li:last-child {
+    border-bottom: none;
+  }
+  ul.nested li ul.nested li:first-child {
+    border-top: none;
+  }
 
 }
 
