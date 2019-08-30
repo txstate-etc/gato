@@ -1,0 +1,10 @@
+nav.main-menu {
+  .navigation-children {
+    li.current-page {
+      a {
+        font-weight: bold;
+        color: $maroon;
+      }
+    }
+  }
+}

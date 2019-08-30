@@ -43,7 +43,7 @@
         [/#if]
         <ul class="navigation-children">
         [@navloop cmsfn.children(page, 'mgnl:page') ; subpage]
-          <li><a href="${cmsfn.link(subpage)}" data-path="${subpage['@path']}">${gf.nodeTitle(subpage)}[#if gf.hasNavChildren(subpage)]<i class="fa fa-angle-right arrow" aria-hidden="true"></i>[/#if]</a></li>
+          <li class="${navfn.isActive(content, subpage)?then("current-page", "")}"><a href="${cmsfn.link(subpage)}" data-path="${subpage['@path']}">${gf.nodeTitle(subpage)}[#if gf.hasNavChildren(subpage)]<i class="fa fa-angle-right arrow" aria-hidden="true"></i>[/#if]</a></li>
         [/@navloop]
         </ul>
       </div>
