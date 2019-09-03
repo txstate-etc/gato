@@ -6,7 +6,7 @@
   [#assign mobilesrc = gf.getImgDefault(content.mobileImage)]
   [#assign mobilesrcset = gf.getSrcSet(content.mobileImage)]
   [#assign imageWidth = gf.getImgWidth(content.mobileImage)]
-  [#assign imageWidth = gf.getImgHeight(content.mobileImage)]
+  [#assign imageHeight = gf.getImgHeight(content.mobileImage)]
 [#else]
   [#assign mobilesrc = src]
   [#assign mobilesrcset = srcset]
