@@ -11,7 +11,6 @@
   </head>
   <body class="${cmsfn.isEditMode()?then(' admin','')} ${(def.parameters.isHomeTemplate!false)?string(' txstate-home', '')}">
     [#assign isTXSTHome = true]
-    
     [@skipnav/]
     [#assign isEmergency = false]
     [#if def.parameters.isHomeTemplate!false]
@@ -35,7 +34,6 @@
               [/#list]
             </ul>
 
-
             <ul class="right-links dropdown">
               <li class="centered"><a href="#">Info For
                 <i class="fa fa-angle-down" aria-hidden="true"></i>
@@ -52,46 +50,48 @@
           </div>
         </div>
       [/#if]
-
-      [#if def.parameters.isHomeTemplate!false]
-        [#include "includes/top-feature.ftl"]
-      [#elseif def.parameters.isLandingTemplate!false]
-        [@cms.area name="landing-banner"/]
-      [/#if]
-      [#if def.parameters.isHomeTemplate!false]
-        [@cms.area name="homecontent"/]
-      [#else]
-        [#if !def.parameters.isHomeTemplate!false]
-          <div class="gato-section-full">
-            <div class="gato-section-centered">
-              <div class="gato-section">
-                [@breadcrumbs/]
-              </div>
-            </div>
-          </div>
+      <main>
+        [#if def.parameters.isHomeTemplate!false]
+          [#include "includes/top-feature.ftl"]
+        [#elseif def.parameters.isLandingTemplate!false]
+          [@cms.area name="landing-banner"/]
         [/#if]
-        <main class="contentcolumn ${content.intro?has_content?then('', 'no-intro')}">
-          [#assign hideSidebar = true /]
-          [@headline hideSidebar /]
-          [#if !(content.hideTitle!false)]
-            [#if content.intro?has_content]
-              <div class="page-intro-text">
-                ${gf.processRichText(cmsfn.decode(content).intro)}
-              </div>
-            [/#if]
-            [#if content.addTitleSeparator?has_content && content.addTitleSeparator == true]
-              <div class="gato-section-full gato-section-title-separator">
-                <div class="gato-section-centered">
-                  <div class="gato-section">
-                    <div class="intro-title-border"></div>
-                  </div>
+        [#if def.parameters.isHomeTemplate!false]
+          [@headline true /]
+          [@cms.area name="homecontent"/]
+        [#else]
+          [#if !def.parameters.isHomeTemplate!false]
+            <div class="gato-section-full">
+              <div class="gato-section-centered">
+                <div class="gato-section">
+                  [@breadcrumbs/]
                 </div>
               </div>
+            </div>
+          [/#if]
+          <div class="contentcolumn ${content.intro?has_content?then('', 'no-intro')}">
+            [#assign hideSidebar = true /]
+            [@headline hideSidebar /]
+            [#if !(content.hideTitle!false)]
+              [#if content.intro?has_content]
+                <div class="page-intro-text">
+                  ${gf.processRichText(cmsfn.decode(content).intro)}
+                </div>
+              [/#if]
+              [#if content.addTitleSeparator?has_content && content.addTitleSeparator == true]
+                <div class="gato-section-full gato-section-title-separator">
+                  <div class="gato-section-centered">
+                    <div class="gato-section">
+                      <div class="intro-title-border"></div>
+                    </div>
+                  </div>
+                </div>
+              [/#if]
             [/#if]
-          [/#if]        
-          [@cms.area name="landingcontent"/]
-        </main>
-      [/#if]
+            [@cms.area name="landingcontent"/]
+          </div>
+        [/#if]
+      </main>
     </div>
     [#include "/gato-template-mobilefirst/templates/pages/includes/footer.ftl"]
     [@cssjsmodals /]
