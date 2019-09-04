@@ -1,6 +1,7 @@
 [#assign oembed = gf.oEmbedCached(content, content.videourl)]
 [#switch ctx.orientation]
   [#case "normal"]
+  [#case "half"]
     [#assign left = (content.squarecropleft!0.0)?number]
     [#assign right = (content.squarecropright!0.0)?number]
     [#assign top = (content.squarecroptop!0.0)?number]
@@ -62,7 +63,7 @@
         </a>
       [/#if]      
     </div>
-    [#if (content.textStyle?? && content.textStyle == "caption") && content.caption?has_content]
+    [#if ((content.textStyle?? && content.textStyle == "caption") || content.videourl?has_content) && content.caption?has_content]
     <div class="caption">
       <p>${content.caption!''}</p>
     </div>

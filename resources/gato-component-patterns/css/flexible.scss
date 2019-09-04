@@ -1,17 +1,22 @@
+.mobilefirst-pattern.flexible-pattern {
+  max-width: 1200px;
+  margin: 0 auto;
+}
 .flexible {
     display: flex;
     width: 100%;
     flex-direction: column;
     padding: 6rem 0;
-
+    margin: 0rem 2rem;
     [data-eq~='800px'] & {
       max-height: none;
       padding: 4rem 0;
+      margin: 0;
     }
 
     .flex-row {
         display: flex;
-        width: 90%;
+        width: 100%;
         min-height: 350px;
         margin: 0 auto;
 
@@ -33,6 +38,10 @@
       display: inline-block;
       max-width: calc((100% - 40px) / 3);
       [data-eq~='800px'] & {
+        max-width: none;
+        margin-bottom: 2rem;
+      }
+      &.full {
         max-width: none;
       }
       &:not(:last-of-type) {
@@ -132,7 +141,7 @@
           }
         }
       }
-      &.wide {
+      &.wide, &.half {
         max-width: none;
         [data-eq~='800px'] & {
           max-width: none;
@@ -156,14 +165,16 @@
         height: 100%;
         position: relative;
         overflow: hidden;
-        .gato-card-image, .gato-card-video {
-          transform: scale(1.0);
-          transition: all 400ms ease;
-        }
+        a {
+          .gato-card-image, .gato-card-video {
+            transform: scale(1.0);
+            transition: all 400ms ease;
+          }
 
-        .gato-card-image:hover, .gato-card-video:hover{
-          transform: scale(1.1);
-          transition: all 400ms ease;
+          .gato-card-image:hover, .gato-card-video:hover{
+            transform: scale(1.1);
+            transition: all 400ms ease;
+          }
         }
 
         .overlay {
@@ -270,9 +281,6 @@
         margin-top: 1rem;
         padding: 0 2rem;
         min-height: 320px;
-        // &.text{
-        //   padding: 0;
-        // }
       }
     }
 
@@ -283,7 +291,7 @@
         height: 100%;
         background-repeat: no-repeat;
         background-position: 50% 50%;
-        min-height: 250px;
+        min-height: 320px;
       }
 }
 
