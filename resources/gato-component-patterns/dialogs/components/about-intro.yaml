@@ -15,7 +15,7 @@ form:
           rows: 3
         - name: text
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-          label: Subtitle
+          label: Text
           maxLength: 150
           rows: 3
         - name: desktopImage
