@@ -48,7 +48,7 @@
 [/#if]
 
 [#if !(ctx.barsonly!false)]
-<a href="${gf.filterUrl(content.link)}">
+[#if content.link?has_content]<a href="${gf.filterUrl(content.link)}">[/#if]
   <div class="card ${content.videourl?has_content?string('gato-card-video','gato-card-image')} ${gf.jsonGetString(oembed, 'provider_name')?lower_case}" style='background-image: url("${cardImage}")'>
     [#if content.videourl?has_content]
       <a href="${content.videourl}" class="feature-play-button"
@@ -63,7 +63,7 @@
     <p>${content.caption!''}</p>
   </div>
   [/#if]  
-</a>
+[#if content.link?has_content]</a>[/#if]
 [#else]
     <div class="slider-edit-bar" data-title="-${content.caption!'Explore Card'}" cms:edit></div>
 [/#if]
