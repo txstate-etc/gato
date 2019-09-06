@@ -30,7 +30,7 @@ public class HoursModel extends TrumbaEventModel {
   @Inject
   public HoursModel(Node content, RenderableDefinition definition, RenderingModel parent) {
     super(content, definition, parent);
-    this.specialTitle = PropertyUtil.getString(content, "caltitle", "Alkek Library");
+    this.specialTitle = PropertyUtil.getString(content, "caltitle", "");
     this.displayTitle = PropertyUtil.getString(content, "displaytitle", "");
     MagnoliaConfigurationProperties mcp = Components.getComponent(MagnoliaConfigurationProperties.class);
     String tz = mcp.getProperty("gato.timezone.default");
