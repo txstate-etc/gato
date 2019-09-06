@@ -65,5 +65,5 @@
   [/#if]  
 </a>
 [#else]
-    <div class="slider-edit-bar" data-title="-${content.title!'Explore Card'}" cms:edit></div>
+    <div class="slider-edit-bar" data-title="-${content.caption!'Explore Card'}" cms:edit></div>
 [/#if]

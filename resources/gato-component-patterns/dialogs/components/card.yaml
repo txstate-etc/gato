@@ -29,18 +29,10 @@ form:
           appName: pages
           identifierToPathConverter:
             class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter              
-        - name: imageAlt
-          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-          label: Alt. Text
-          description: >
-            Text describing the content of the image for users with visual impairments.
-            Required for Section 508 compliance.
         - name: caption
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Caption
-          description: >
-            Any additional text you might want to include with this image.
-            Will be used for a mouseover on the thumbnail and displayed below the full-size image.
+          required: true
         - name: orientation
           class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
           sortOptions: false
@@ -58,7 +50,6 @@ form:
             - name: tall
               label: Tall
               value: tall
-
     - name: tabThumbnail
       label: Crops
       fields:
