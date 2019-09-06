@@ -68,7 +68,7 @@
       <p>${content.caption!''}</p>
     </div>
     [/#if]    
-    [#if (content.textStyle?? && content.textStyle == "overlay") && content.callout?has_content]
+    [#if (content.textStyle?? && content.textStyle == "overlay") && content.calloutTitle?has_content]
     <div class="overlay ${content.color!}"></div>
     <div class="callout ${content.color!}">
       <div class="title">${content.calloutTitle!}</div>
@@ -76,6 +76,9 @@
     </div>
     [/#if]
     [#if !gf.isEmptyString(content.link)]
+      [#if (content.textStyle?? && content.textStyle == "none")]
+        <span class="visullyhidden">${content.imageAlt!"link"}></span>
+      [/#if]
     </a>
     [/#if]
 </div>

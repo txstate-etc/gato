@@ -55,6 +55,7 @@ form:
             - name: caption
               class: info.magnolia.ui.form.field.definition.TextFieldDefinition
               label: Caption
+              required: true
             - name: overlay
               label: ""
               class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
@@ -64,6 +65,7 @@ form:
                 - name: calloutTitle
                   class: info.magnolia.ui.form.field.definition.TextFieldDefinition
                   label: Title
+                  required: true
                 - name: callout
                   class: info.magnolia.ui.form.field.definition.TextFieldDefinition
                   label: Text
