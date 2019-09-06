@@ -33,17 +33,17 @@
                 <li><a href="${gf.filterUrl(component.link)}">${gf.filterLinkTitle(component.text, component.link)}</a></li>
               [/#list]
             </ul>
-
-            <ul class="right-links dropdown">
-              <li class="centered"><a href="#">Info For
+            <div class="dropdown">
+              <button class="btn-audience" aria-haspopup="true" aria-controls="audience-panel" aria-expanded="false">Info For
                 <i class="fa fa-angle-down" aria-hidden="true"></i>
-              </a></li>
-              <div class="dropdown-content">
+              </button>
+
+              <ul id="audience-panel" class="dropdown-content">
                 [#list cmsfn.children(globalLinks.superGroup2, "mgnl:component") as component]
                   <li><a href="${gf.filterUrl(component.link)}">${gf.filterLinkTitle(component.text, component.link)}</a></li>
                 [/#list]
-              </div>
-            </ul>
+              </ul>
+            </div>
           </div>
           <div class="bottom-bar">
             [@simplemenu/]
