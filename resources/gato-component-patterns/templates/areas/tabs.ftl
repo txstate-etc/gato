@@ -17,7 +17,7 @@
         <div class="links">
           <ul>
           [#list components as component ]
-            <li class="tab"><a>${component.tabLink}</a></li>
+            <li class="tab"><a tabindex=0>${component.tabLink}</a></li>
           [/#list]             
           </ul>
         </div>
