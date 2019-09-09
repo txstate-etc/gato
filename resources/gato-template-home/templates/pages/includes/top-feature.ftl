@@ -41,7 +41,7 @@
               [#if component.buttons?has_content]
               [#list cmsfn.children(component.buttons) as button]
               <div class="mf-button-container">
-                <a class="button solid ${button.color} ${button.isVideo?then("video", "link")}">${button.text}
+                <a class="button solid ${button.color} ${button.isVideo?then("video", "link")}" tabindex=0>${button.text}
                   [#if button.isVideo!false]
                   <p class="feature-play-button">
                     <object>
