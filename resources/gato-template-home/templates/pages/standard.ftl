@@ -34,7 +34,7 @@
               [/#list]
             </ul>
             <div class="dropdown">
-              <button class="btn-audience" aria-haspopup="true" aria-controls="audience-panel" aria-expanded="false">Info For
+              <button class="btn-audience" aria-haspopup="true" aria-controls="audience-panel" aria-expanded="false" role="button">Info For
                 <i class="fa fa-angle-down" aria-hidden="true"></i>
               </button>
 
