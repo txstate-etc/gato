@@ -229,6 +229,8 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
     register(DeltaBuilder.update("1.2.5", "")
       .addTask(new BootstrapSingleModuleResource("gatoapps.homepage-data.emergency.xml"))
       .addTask(new BootstrapSingleModuleResource("config.modules.ui-admincentral.config.appLauncherLayout.groups.homepage.apps.emergency.xml"))
+      .addTask(new BootstrapSingleModuleResource("gatoapps.homepage-data.home-hero.xml"))
+      .addTask(new BootstrapSingleModuleResource("config.modules.ui-admincentral.config.appLauncherLayout.groups.homepage.apps.home-hero.xml"))
     );
   }
 
