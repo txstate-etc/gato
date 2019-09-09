@@ -159,6 +159,7 @@ subApps:
               - name: text
                 class: info.magnolia.ui.form.field.definition.TextFieldDefinition
                 label: Text
+                rows: 3
               - name: link
                 class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
                 label: Link
@@ -180,6 +181,10 @@ subApps:
                 label: Background Color
                 parameters:
                   contentType: txstateHomeEmergency
+              - name: stylesheet
+                label: ""
+                class: edu.txstate.its.gato.vaadin.GatoCssIncludeDefinition
+                styles: [gato-template-home/css/emergency-dialog.css]
       nodeType:
         icon: icon-work-item
         name: mgnl:component

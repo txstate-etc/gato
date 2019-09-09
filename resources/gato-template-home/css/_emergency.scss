@@ -34,7 +34,10 @@
   .emergency-link {
     display: block;
     font-size: 1.8rem;
-    padding: 2rem 0;
+    padding: 2rem 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 3.4rem;
   }
 }
 
