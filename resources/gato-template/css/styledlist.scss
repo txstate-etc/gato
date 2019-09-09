@@ -6,7 +6,10 @@
   li:nth-child(even) {background-color: #F7F7F7};
   border-bottom: 1px solid #D8D8D8;
 
-
+  &.edit {
+    li:nth-child(even) {background-color: $white};
+    li:nth-child(odd) {background-color: #F7F7F7};
+  }
 
   .styled-list-item {
     font-weight: 500;
