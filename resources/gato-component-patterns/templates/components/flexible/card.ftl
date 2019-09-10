@@ -85,7 +85,9 @@
 
 [#if cardImageMobile?has_content]
 <div class="mobile">
+  [#if !gf.isEmptyString(content.link)]
   <a href="${gf.filterUrl(content.link)}">
+  [/#if]
     <div class="item card ${content.videourl?has_content?string('gato-card-video','gato-card-image')} ${gf.jsonGetString(oembed, 'provider_name')?lower_case} ${ctx.orientation!}" style='background-image: url("${cardImageMobile}")'>
       [#if content.videourl?has_content]
         <a href="${content.videourl}" class="feature-play-button"
@@ -106,7 +108,12 @@
       <div class="title">${content.calloutTitle!}</div>
       <p>${content.callout!}</p>
     </div>
-    [/#if]    
+    [/#if] 
+  [#if !gf.isEmptyString(content.link)]  
+    [#if (content.textStyle?? && content.textStyle == "none")]
+      <span class="visullyhidden">${content.imageAlt!"link"}></span>
+    [/#if] 
   </a>
+  [/#if]
 </div>
 [/#if]
