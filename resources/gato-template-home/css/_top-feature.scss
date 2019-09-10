@@ -10,25 +10,16 @@ div#top-feature {
   }
   .hero {
     p.feature-headline {
-      &.color1, .feature-play-button a { background-color: rgba($mc1-bg, 0.8); color: $mc1-text; } 
-      &.color2, .feature-play-button a { background-color: rgba($mc2-bg, 0.8); color: $mc2-text; }
-      &.color3, .feature-play-button a { background-color: rgba($mc3-bg, 0.8); color: $mc3-text; }
-      &.color4, .feature-play-button a { background-color: rgba($mc4-bg, 0.8); color: $mc4-text; }
-      &.color5, .feature-play-button a { background-color: rgba($mc5-bg, 0.8); color: $mc5-text; }
-      &.color6, .feature-play-button a { background-color: rgba($mc6-bg, 0.8); color: $mc6-text; }
-      &.color7, .feature-play-button a { background-color: rgba($mc7-bg, 0.8); color: $mc7-text; }
-      &.color9, .feature-play-button a { background-color: rgba($mc9-bg, 0.8); color: $mc9-text; }
+      &.color1 { background-color: rgba($mc1-bg, 0.8); color: $mc1-text; } 
+      &.color2 { background-color: rgba($mc2-bg, 0.8); color: $mc2-text; }
+      &.color3 { background-color: rgba($mc3-bg, 0.8); color: $mc3-text; }
+      &.color4 { background-color: rgba($mc4-bg, 0.8); color: $mc4-text; }
+      &.color5 { background-color: rgba($mc5-bg, 0.8); color: $mc5-text; }
+      &.color6 { background-color: rgba($mc6-bg, 0.8); color: $mc6-text; }
+      &.color7 { background-color: rgba($mc7-bg, 0.8); color: $mc7-text; }
+      &.color9 { background-color: rgba($mc9-bg, 0.8); color: $mc9-text; }
     }
-    .feature-play-button {
-      &.color1 a:after { border-left-color: $mc1-text; }
-      &.color2 a:after { border-left-color: $mc2-text; }
-      &.color3 a:after { border-left-color: $mc3-text; }
-      &.color4 a:after { border-left-color: $mc4-text; }
-      &.color5 a:after { border-left-color: $mc5-text; }
-      &.color6 a:after { border-left-color: $mc6-text; }
-      &.color7 a:after { border-left-color: $mc7-text; }
-      &.color9 a:after { border-left-color: $mc9-text; }
-    }
+
     figure {
       position: relative;
       overflow: hidden;
@@ -153,45 +144,69 @@ div#top-feature {
               padding-right: 4rem;
             }
             
-            &.color1 > .feature-play-button a {background-color: $white; &:after {border-left-color: $maroon}}
-            &.color2 > .feature-play-button a {background-color: $white; &:after {border-left-color: $gold}}
-            &.color3 > .feature-play-button a {background-color: $white; &:after {border-left-color: $charcoal}}
-            &.color4 > .feature-play-button a {background-color: $white; &:after {border-left-color: $blue}}
-            &.color5 > .feature-play-button a {background-color: $white; &:after {border-left-color: $river}}
-            &.color7 > .feature-play-button a {background-color: $maroon; &:after {border-left-color: $oldgold}}
-            &.white > .feature-play-button a {background-color: $maroon; &:after {border-left-color: $white}}
-
-            .feature-play-button {
+            &.feature-play-button {
               position: relative;
               margin-left: 1rem;
-              a {
-                @include vendor-prefix(border-radius, 50%);
-                border-radius: 8rem;
-                position: absolute;
-                width: 2rem;
-                height: 2rem;
-                &:after {
-                  left: 0;
-                  right: 0;
-                  margin: 0 auto;
-                  position: absolute;
-                  border: solid transparent;
-                  border-left-color: $white;
-                  border-width: .4rem 0 .4rem .8rem;
-                  content: "";
-                  height: 0;
-                  width: 0;
-                  position: absolute;
-                  top: 50%;
-                  margin-top: -.4rem;
-                  left: .2rem;
-                }
-                &:hover {
-                  @include vendor-prefix(transform, scale(1.15));
-                }
-                @include vendor-prefix(transition, all 0.2s cubic-bezier(0, 0.5, 0.25, 1));
+              padding-right: 5rem;
+              &.color1 a {
+                color: $white;
+                span {background-color: $white; &:after {border-left-color: $maroon}}
               }
-            }  
+              &.color2 a {
+                color: $white;
+                span {background-color: $white; &:after {border-left-color: $gold}}
+              }
+              &.color3 a {
+                color: $white;
+                span {background-color: $white; &:after {border-left-color: $charcoal}}
+              }
+              &.color4 a {
+                color: $white;
+                span {background-color: $white; &:after {border-left-color: $blue}}
+              }
+              &.color5 a {
+                color: $very-dark;
+                span {background-color: $very-dark; &:after {border-left-color: $river}}
+              }
+              &.color6 a {
+                color: $maroon;
+                span {background-color: $maroon; &:after {border-left-color: $sandstone}}
+              }
+              &.color7 a {
+                color: $maroon;
+                span {background-color: $maroon; &:after {border-left-color: $oldgold}}
+              }
+              &.white a {
+                color: $maroon;
+                span {background-color: $maroon; &:after {border-left-color: $white}}
+              }
+              
+              a {
+                text-decoration: none;
+                span {
+                  border-radius: 8rem;
+                  position: absolute;
+                  width: 2rem;
+                  height: 2rem;
+                  margin-left: 1rem;
+                  &:after {
+                    right: 0;
+                    margin: 0 auto;
+                    position: absolute;
+                    border: solid transparent;
+                    border-left-color: $white;
+                    border-width: .4rem 0 .4rem .8rem;
+                    content: "";
+                    height: 0;
+                    width: 0;
+                    position: absolute;
+                    top: 50%;
+                    margin-top: -.4rem;
+                    left: .2rem;
+                  }
+                }
+              }
+            }
           }        
         }
 

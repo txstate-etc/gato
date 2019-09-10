@@ -5,7 +5,7 @@ $button-padding: 1rem 2rem;
 }
 
 .mf-button-container {
-  a.button {
+  a.button, div.button {
     padding: $button-padding;
     border-width: 1px;
     border-style: solid;

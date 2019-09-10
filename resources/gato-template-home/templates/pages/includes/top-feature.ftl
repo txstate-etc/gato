@@ -41,16 +41,16 @@
               [#if component.buttons?has_content]
               [#list cmsfn.children(component.buttons) as button]
               <div class="mf-button-container">
-                <a class="button solid ${button.color} ${button.isVideo?then("video", "link")}" tabindex=0>${button.text}
-                  [#if button.isVideo!false]
-                  <p class="feature-play-button">
-                    <object>
-                      <a href="${button.link}"
-                      data-embed="${gf.jsonGetString(gf.oEmbedAutodiscover(button.link), 'html')?html}"><span class="visuallyhidden">Play Video</span></a>
-                    </object>
-                  </p>
-                  [/#if]      
-                </a>       
+                [#if button.isVideo!false]
+                  <div class="button solid ${button.color} feature-play-button video-button">
+                    <a href="${button.link}" aria-label="Play Video" data-embed="${gf.jsonGetString(gf.oEmbedAutodiscover(button.link), 'html')?html}">
+                      ${button.text}
+                      <span class="play" aria-hidden="true"></span>
+                    </a>
+                  </div>
+                [#else]
+                  <a class="button solid ${button.color} link" href="${gf.filterUrl(button.link)}">${button.text}</a>
+                [/#if]
               </div>
               [/#list]
               [/#if]
