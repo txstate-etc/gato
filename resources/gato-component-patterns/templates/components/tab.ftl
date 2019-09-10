@@ -1,5 +1,5 @@
 [#if !(ctx.barsonly!false)]
-<div class="overlay-content">
+<div class="overlay-content" id="panel${content.tabLink?replace(" ", "")}" role="tabpanel" aria-labelledby="tab${content.tabLink?replace(" ", "")}">
   <h2 class="title">${content.title}</h2>
   <div class="text">
     ${content.caption!''}

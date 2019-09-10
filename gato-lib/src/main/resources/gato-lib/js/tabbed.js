@@ -17,28 +17,36 @@ jQuery(document).ready(function($) {
     });
         
     //tabs animation
-    tabs.on('click', function(e) {
-        var indexOfElem = tabs.index(this);        
-        $(tabs).find('a.selected-tab').first().animate({
-            marginLeft: '0',
-          }, 200 , function() {
-            // Animation complete.
-            $('a.selected-tab').removeClass('selected-tab');
-            $('.overlay-content.selected-content').removeClass('selected-content');
-            $('.tab').eq(indexOfElem).find('a').first().addClass('selected-tab');
-            $('.overlay-content').eq(indexOfElem).addClass('selected-content');
+    var handleTabClick = function(e) {
+      var indexOfElem = tabs.index(this);        
+      $(tabs).find('a.selected-tab').first().animate({
+          marginLeft: '0',
+        }, 200 , function() {
+          // Animation complete.
+          $('a.selected-tab').attr('aria-selected', "false")
+          $('a.selected-tab').removeClass('selected-tab');
+          $('.overlay-content.selected-content').removeClass('selected-content');
+          $('.tab').eq(indexOfElem).find('a').first().addClass('selected-tab');
+          $('.tab').eq(indexOfElem).find('a').first().attr('aria-selected', "true");
+          $('.overlay-content').eq(indexOfElem).addClass('selected-content');
 
-          });
-
+        });
         $(tabs).eq(indexOfElem).find('a').first().animate({
             marginLeft: '10%',
            }, 200 , function() {
             // Animation complete.
-        });       
-
+        });  
+        
         $('.selected-content').fadeOut('fast', function() {
             $('.overlay-content').eq(indexOfElem).fadeIn('fast'); 
         }); 
-        
-    })    
+    }
+    
+    tabs.on('click', handleTabClick) 
+    tabs.on('keydown', function(e) {
+      if (e.keyCode == 13 || e.keyCode == 32) {
+        e.preventDefault()
+        handleTabClick.call(e.target.closest('li'))
+      }
+    })
 });
