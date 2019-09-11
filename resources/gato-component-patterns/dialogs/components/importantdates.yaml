@@ -16,7 +16,10 @@ form:
           label: Link Target
           appName: pages
           identifierToPathConverter:
-            class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter            
+            class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
+        - name: days
+          class: info.magnolia.ui.form.field.definition.HiddenFieldDefinition
+          defaultValue: 124
         - name: input
           label: Event Entry
           required: true
