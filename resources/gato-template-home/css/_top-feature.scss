@@ -288,7 +288,7 @@ div#top-feature {
       .slide-nav-wrap { display: none; }
       figure {
         .image-container {
-          &.activated {
+          &.activated, &.preview {
             .desktop {
               display: none;
             }
