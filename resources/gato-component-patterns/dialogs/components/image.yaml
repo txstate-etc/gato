@@ -26,12 +26,6 @@ form:
           appName: pages
           identifierToPathConverter:
             class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter              
-        - name: imageAlt
-          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-          label: Alt. Text
-          description: >
-            Text describing the content of the image for users with visual impairments.
-            Required for Section 508 compliance.
         - name: isWide
           class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
           label: Orientation
@@ -52,6 +46,18 @@ form:
               label: None
               value: none
           fields:
+            - name: none
+              label: ""
+              class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
+              transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+              fields:
+                - name: imageAlt
+                  class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                  label: Alt. Text
+                  required: true
+                  description: >
+                    Text describing the content of the image for users with visual impairments.
+                    Required for Section 508 compliance.
             - name: caption
               class: info.magnolia.ui.form.field.definition.TextFieldDefinition
               label: Caption
