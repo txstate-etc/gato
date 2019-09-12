@@ -25,32 +25,33 @@
             margin: 0;
             flex-flow: column;
             padding: 3rem 2rem !important;
+            bottom: 0;
         }
 
-        &.color1 .overlay-tabs .links ul {
+        &.color1 .overlay-tabs {
             border-bottom-color: #85595b
         }
 
-        &.color2 .overlay-tabs .links ul {
+        &.color2 .overlay-tabs {
             border-bottom-color: #978974
         }
 
-        &.color3 .overlay-tabs .links ul {
+        &.color3 .overlay-tabs {
             border-bottom-color: #727271
         }
 
-        &.color4 .overlay-tabs .links ul {
+        &.color4 .overlay-tabs {
             border-bottom-color: #4d87a7
         }
 
-        &.color5 .overlay-tabs .links ul {
+        &.color5 .overlay-tabs {
             border-bottom-color: #222222
         }
 
-        &.color6 .overlay-tabs .links ul {
+        &.color6 .overlay-tabs {
             border-bottom-color: #bab6af
         } 
-        &.color7 .overlay-tabs .links ul {
+        &.color7 .overlay-tabs {
             border-bottom-color: #b49b35
         }                                                            
       .panel-wrapper {
@@ -78,12 +79,12 @@
         [data-eq~="1000px"] & {
             width: 100%;
             overflow-x: scroll;
+            border-bottom: 1px solid rgb(216, 216, 216);
+            margin-bottom: 2rem; 
             .links {
-                margin-bottom: 2rem; 
                 ul {
                     flex-direction: row;
                     flex: 1 0 auto;
-                    border-bottom: 1px solid rgb(216, 216, 216);
                     .tab {
                         padding-right: 2rem;
                     }
