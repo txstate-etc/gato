@@ -12,8 +12,8 @@
 .super-list {
   @extend .grid-cell;
   padding: 0px;
-  width: 50%;
   &.super-list-left {
+    width: 40%;
     & > li:first-child {
       margin-left: -1.4rem;
       @media screen and (max-width: $md-breakpoint) {
@@ -23,6 +23,7 @@
   }
   &.super-list-right {
     text-align: right;
+    width: 60%;
     & > li:last-child {
       margin-right: -1.4rem;
       @media screen and (max-width: $md-breakpoint) {
@@ -62,6 +63,7 @@
     }
   }
   .more-tools{
+    display: none;
     position: relative;
     .super-list-sub {
       display: none;
