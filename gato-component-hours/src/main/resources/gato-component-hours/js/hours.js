@@ -89,7 +89,7 @@ jQuery(document).ready(function ($) {
       modalcontainer.empty();
 
       var headercontainer = $('<div class="hours-header-container">');
-      var firstgooddata = (data.fullcalendar_data || []).find(entry => !entry.canceled) || { title: 'Hours' }
+      var firstgooddata = (data.fullcalendar_data || []).find(function(entry) { return !entry.canceled }) || { title: 'Hours' }
       headercontainer.append('<h2>' + (data.title || firstgooddata.title) + '</h2>');
 
       if (data.pdf_link.length && !$('#all_pdf').length) {
