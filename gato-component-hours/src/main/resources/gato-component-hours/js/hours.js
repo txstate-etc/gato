@@ -121,7 +121,7 @@ jQuery(document).ready(function ($) {
           '<button id="'+headerid+'" aria-controls="'+regionid+'" aria-expanded="'+(i ? 'false' : 'true')+'">' + month.name +
           '<i class="fa fa-angle-down" aria-hidden="true"></i>'+
         '</button></h3>'+
-        '<ul id="'+regionid+'" class="hours-month'+(i ? '' : ' hours-shown')+'" role="region" aria-describedby="'+headerid+'">';
+        '<ul id="'+regionid+'" class="hours-month'+(i ? '' : ' hours-shown')+'" role="region" aria-labelledby="'+headerid+'">';
 
         for (var j = 1; j < month.days.length; j++) {
           var day = month.days[j];
