@@ -329,11 +329,12 @@ div#top-feature {
 
       p {
         flex: 1 0 60%;
-        margin: 1rem 1.5rem;
         color: $maroon;
         font-size: 1.4rem;
         line-height: 2rem;
-        margin: 2rem 1.5rem;        
+        margin: 0;
+        padding: 2rem 1.5rem;
+        min-width: 70px;
       }
       .arrow-container {
         flex: 1 0 10%;
