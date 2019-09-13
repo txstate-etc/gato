@@ -50,7 +50,9 @@
       }    
     .event {
       text-align: left;
-      flex: 1 1 calc(33.33% - 20px);
+      flex-grow: 1;
+      flex-shrink: 0;
+      flex-basis: calc(33.33% - 20px);
       padding: 0 2rem;
       [data-eq~="600px"] & {
         padding: 0;
@@ -92,7 +94,9 @@
     //push wrapped componenets to the left so they are in line with those above
     .events::after {
       content: '';
-      flex: 1 1 calc(33.33% - 20px);
+      flex-grow: 1;
+      flex-shrink: 0;
+      flex-basis: calc(33.33% - 20px);
     }
   }
 }
