@@ -15,11 +15,11 @@
     <div class="overlay-block title-type pattern-content ${ctx.overlayColor!color1} ${ctx.overlayPosition!'center'} ${textAlign}">
       <div class="overlay-tabs">
         <div class="links">
-          <ul role="tablist">
+          <div class="tab-list" role="tablist">
           [#list components as component ]
-            <li class="tab"><a id="tab${component.tabLink?replace(" ", "")}" tabindex=0 role="tab" aria-controls="panel${component.tabLink?replace(" ", "")}" aria-selected="${(component?index == 0)?then("true", "false")}">${component.tabLink}</a></li>
+            <div class="tab"><a id="tab${component.tabLink?replace(" ", "")}" tabindex=0 role="tab" aria-controls="panel${component.tabLink?replace(" ", "")}" aria-selected="${(component?index == 0)?then("true", "false")}">${component.tabLink}</a></div>
           [/#list]             
-          </ul>
+          </div>
         </div>
       </div>
     <div class="panel-wrapper" aria-live="polite">  
