@@ -31,7 +31,6 @@ jQuery(document).ready(function ($) {
         }
       })
       hourscontainer.keydown(function (e) {
-        console.log(e);
         if ((e.key === 'Escape' || e.key ==='Esc') && modal_shown) {
           hide_modal();
           e.preventDefault();
