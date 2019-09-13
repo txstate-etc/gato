@@ -4,7 +4,7 @@ jQuery(document).ready(function ($) {
     modal_shown = true;
     if ($('#hours-container').size() == 0) {
       $('body').append(
-        '<div class="hours-modal" role="dialog" aria-label="hours of operation" aria-description="modal presentation of hours of operation information">' +
+        '<div class="hours-modal" role="dialog" aria-modal="true" aria-label="hours of operation" aria-description="modal presentation of hours of operation information">' +
           '<div tabindex="0" class="hours-focusstart sr-only"></div>' +
           '<div id="hours-container">' +
             '<button class="hours-close"><i class="fa fa-close"><span class="sr-only">Close Hours Modal</span></i></button>' +
@@ -31,8 +31,11 @@ jQuery(document).ready(function ($) {
         }
       })
       hourscontainer.keydown(function (e) {
-        if (e.key === 'Escape' && modal_shown) {
+        console.log(e);
+        if ((e.key === 'Escape' || e.key ==='Esc') && modal_shown) {
           hide_modal();
+          e.preventDefault();
+          e.stopPropagation();
         }
       })
       $(window).click(function (e) {
@@ -54,11 +57,13 @@ jQuery(document).ready(function ($) {
     return dt.format('ha');
   }
 
-  var isSameTime = function (a, b = 2) {
-    return Math.abs(a.diff(b, 'minutes')) < 5;
+  var isSameTime = function (a, b) {
+    return Math.abs(a.diff(b || 2, 'minutes')) < 5;
   }
 
-  var padNumber = function (str, targetLength = 2, padString = 0) {
+  var padNumber = function (str, targetLength, padString) {
+    targetLength = targetLength || 2
+    padString = padString || 0
     str = String(str);
     targetLength = targetLength >> 0; //truncate if number, or convert non-number to 0;
     padString = String(typeof padString !== 'undefined' ? padString : ' ');
