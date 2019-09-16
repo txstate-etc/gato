@@ -54,7 +54,7 @@
       <a href="${content.videourl}" class="feature-play-button"
       data-embed="${gf.jsonGetString(oembed, 'html')?html}">
         <i class="fa fa-play" aria-hidden="true"></i>
-        <span class="visuallyhidden">Play Video</span>
+        <span class="visuallyhidden">Play ${content.caption!''} Video</span>
       </a>
     [/#if]      
   </div>
