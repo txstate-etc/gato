@@ -35,6 +35,7 @@
 
     .content-item {
       display: inline-block;
+      width: 100%;
       max-width: calc((100% - 40px) / 3);
       [data-eq~='800px'] & {
         max-width: none;
