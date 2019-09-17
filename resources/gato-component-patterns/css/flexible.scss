@@ -34,7 +34,6 @@
     }
 
     .content-item {
-      flex: 1 0 0;
       display: inline-block;
       max-width: calc((100% - 40px) / 3);
       [data-eq~='800px'] & {
@@ -89,7 +88,6 @@
             flex-basis: calc((100% / 3) * 2);
             [data-eq~='800px'] & {
               order: 2;
-              min-height: 320px;
             }
           }
           &.wide {
