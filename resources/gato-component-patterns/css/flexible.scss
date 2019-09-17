@@ -20,7 +20,7 @@
         min-height: 350px;
         margin: 0 auto;
 
-        [data-eq~='800px'] & {
+        @media (max-width:$sm-breakpoint) {
           flex-direction: column;
           padding: 0;
           width: 100%;
@@ -28,7 +28,7 @@
     }
     .flex-row:not(:first-of-type):last-of-type {
       margin-top: 2rem;
-      [data-eq~='800px'] & {
+      @media (max-width:$sm-breakpoint) {
         margin-top: 0;
       }
     }
@@ -37,7 +37,7 @@
       display: inline-block;
       width: 100%;
       max-width: calc((100% - 40px) / 3);
-      [data-eq~='800px'] & {
+      @media (max-width:$sm-breakpoint) {
         max-width: none;
         margin-bottom: 2rem;
       }
@@ -46,14 +46,14 @@
       }
       &:not(:last-of-type) {
         margin-right: 2rem;
-        [data-eq~='800px'] & {
+        @media (max-width:$sm-breakpoint) {
           margin-right: 0;
         }
       }
       &.text {
         padding: 0;
         max-width: none;
-        [data-eq~='800px'] & {
+        @media (max-width:$sm-breakpoint) {
           max-width: none;
         }
         .pattern-content {
@@ -81,13 +81,13 @@
           
           .textlink-image {
             flex-basis: calc(100% / 3);
-            [data-eq~='800px'] & {
+            @media (max-width:$sm-breakpoint) {
               display: none;
             }
           }
           .text-link {
             flex-basis: calc((100% / 3) * 2);
-            [data-eq~='800px'] & {
+            @media (max-width:$sm-breakpoint) {
               order: 2;
             }
           }
@@ -99,7 +99,7 @@
               flex-basis: 50%;
             }
           }
-          [data-eq~='800px'] & {
+          @media (max-width:$sm-breakpoint) {
             flex-direction: column;
             min-height: unset;
           }
@@ -128,7 +128,7 @@
             border-bottom-left-radius: 2px;
           }
         }
-        [data-eq~='800px'] & {
+        @media (max-width:$sm-breakpoint) {
           &.image-right, &.image-left {
             .pattern-content, .textlink-image {
               border-radius: 0;
@@ -146,7 +146,7 @@
       }
       &.wide, &.half {
         max-width: none;
-        [data-eq~='800px'] & {
+        @media (max-width:$sm-breakpoint) {
           max-width: none;
         }
       }
@@ -263,7 +263,7 @@
       }
       .desktop {
         &.mobile-image{
-          [data-eq~='800px'] & {
+          @media (max-width:$sm-breakpoint) {
             display: none;
           }
         }
@@ -271,15 +271,26 @@
       .mobile {
         display: none;
         border-radius: 2px;
-        [data-eq~='800px'] & {
+        @media (max-width:$sm-breakpoint) {
           display: block;
+        }
+        @media (max-width:$xs-breakpoint) {
+          display: none;
+        }
+        &.phone {
+          @media (max-width:$sm-breakpoint) {
+            display: none;
+          }
+          @media (max-width:$xs-breakpoint) {
+            display: block;
+          }
         }
       }
 
 
 
 
-      [data-eq~='800px'] & {
+      @media (max-width:$sm-breakpoint) {
         flex-grow: 1 !important;
         margin-top: 1rem;
         padding: 0 2rem;
