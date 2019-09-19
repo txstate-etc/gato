@@ -39,7 +39,7 @@
     [/#if]
   [/#if]
   [#assign half = false]
-  [#if hasSameWidth(components?first, components?last)]
+  [#if !rowHasRTE(components) && hasSameWidth(components?first, components?last)]
     [#assign half = true]
   [/#if]
 [#else]

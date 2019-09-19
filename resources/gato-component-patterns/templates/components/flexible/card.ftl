@@ -34,7 +34,6 @@
 [#assign oembed = gf.oEmbedCached(content, content.videourl)]
 [#switch ctx.orientation]
   [#case "normal"]
-  [#case "half"]
     [#assign left = (content.squarecropleft!0.0)?number]
     [#assign right = (content.squarecropright!0.0)?number]
     [#assign top = (content.squarecroptop!0.0)?number]
@@ -43,6 +42,7 @@
     [#break]
 
   [#case "wide"]
+  [#case "half"]
     [#assign left = (content.widecropleft!0.0)?number]
     [#assign right = (content.widecropright!0.0)?number]
     [#assign top = (content.widecroptop!0.0)?number]

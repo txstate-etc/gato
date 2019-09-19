@@ -62,6 +62,9 @@
         &.image-left, &.image-right {
           display: flex;
           max-width: 100%;
+          @media (max-width:$sm-breakpoint) {
+            padding: 0 2rem;
+          }
           .mobile-textlink-image {
             display: none;
             height: 100%;
