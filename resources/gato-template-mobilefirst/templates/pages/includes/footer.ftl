@@ -86,7 +86,6 @@
       [#else]
         <a href="https://www.tsus.edu">
           <img class="tsus-logo" src="${ctx.contextPath}/.resources/gato-template-mobilefirst/images/tsus-logo-horizontal.svg" alt="Texas State University System" />
-          <span class="visuallyhidden">Texas State University System</span>
         </a>
       [/#if]
       <ul class="bottom-footer-links">
