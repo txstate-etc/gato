@@ -95,8 +95,8 @@ div#top-feature {
             text-align: center;
           }
 
-          &.rightbottom {right: 10%; bottom: 20%; text-align: right;}
-          &.rightmiddle {right: 10%; bottom: 45%; text-align: right;}
+          &.rightbottom {right: 10%; bottom: 20%; text-align: right; justify-content: flex-end;}
+          &.rightmiddle {right: 10%; bottom: 45%; text-align: right; justify-content: flex-end;}
         }
         
         .button-wrap {
@@ -261,7 +261,6 @@ div#top-feature {
           }
           .caption-wrap {
             left: 5% !important; 
-            justify-content: center;
             bottom: 20% !important;
             right: unset !important;
 
@@ -269,6 +268,10 @@ div#top-feature {
               max-width: 100%;
               font-size: 2.4rem;
               line-height: 3.4rem;
+            }
+            &.middle, &.rightbottom, &.rightmiddle {
+              justify-content: flex-start;
+              text-align: inherit;
             }
           }
           .button-wrap {
@@ -279,7 +282,12 @@ div#top-feature {
             .buttons .button{
               margin-left: 0;
               margin-right: 2rem;
-            }          
+            } 
+            &.rightbottom, &.rightmiddle {
+              .mf-button-container:first-of-type .button {
+                margin-left: 0;
+              }
+            }         
           }          
         }
       }
