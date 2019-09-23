@@ -193,6 +193,9 @@ footer {
             position: absolute;
             font-size: 1rem;
           }
+          .fa-youtube-square::before {
+            content: '\f16a';
+          }
         }
       }
     }
