@@ -13,6 +13,9 @@ $content-width-lg: 1000px !default;
   &:focus {
     top: 0rem;
   }
+  @media (max-width: $sm-breakpoint) {
+    display: none;
+  }
 }
 
 .page_content {

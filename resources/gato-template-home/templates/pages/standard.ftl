@@ -57,7 +57,7 @@
           [@cms.area name="landing-banner"/]
         [/#if]
         [#if def.parameters.isHomeTemplate!false]
-          [@headline true /]
+    
           [@cms.area name="homecontent"/]
         [#else]
           [#if !def.parameters.isHomeTemplate!false]
