@@ -22,7 +22,7 @@
           </div>
         </div>
       </div>
-    <div class="panel-wrapper" aria-live="polite">  
+    <div class="panel-wrapper">
     [#list components as component ]
         [@cms.component content=component contextAttributes={"overlayPosition": ctx.overlayPosition, "overlayColor": ctx.overlayColor}/]
     [/#list]
