@@ -18,7 +18,7 @@
     border-top: 1px solid #D8D8D8;
     a.styled-link {
       position: relative;
-      color: #501214; //DO WE NEED THIS CONTENT TYPE FOR OTHER TEMPLATES
+      color: $styled-list-link-color;
       .external-link-icon {
         margin-left: 10px;
         margin-bottom: 1px;
