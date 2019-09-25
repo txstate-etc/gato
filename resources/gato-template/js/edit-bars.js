@@ -39,8 +39,8 @@ jQuery( document ).ready(function($) {
   magnolialabelchange('.fs-item-list', '.mgnlEditor.component', 'Filterable Search: List of Items');
   magnolialabelchange('.fs-people-list', '.mgnlEditor.component', 'Filterable Search: List of People');
   magnolialabelchange('.filter-group-add', '.mgnlEditor.mgnlPlaceholder', 'Add Filter Category');
-  magnolialabelchange('.fs-item-add', '.mgnlEditor.mgnlPlaceholder', 'Add Item to List');
-  magnolialabelchange('.fs-person-add', '.mgnlEditor.mgnlPlaceholder', 'Add Person to List');
+  magnolialabelchange('#result-list', '.fs-item-add .mgnlEditor.mgnlPlaceholder', 'Add Item to List');
+  magnolialabelchange('#result-list', '.fs-person-add .mgnlEditor.mgnlPlaceholder', 'Add Person to List');
   magnolialabelchange('.styled-list-item-add', '.mgnlEditor.mgnlPlaceholder', 'Add Item to List');
   titledlabelchange('.slider-edit-bar');
 });
