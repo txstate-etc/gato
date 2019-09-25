@@ -48,6 +48,7 @@ form:
                   required: true
                   targetWorkspace: dam
                   label: Image
+                  styleName: imageField
                   identifierToPathConverter:
                     class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
                   contentPreviewDefinition:
@@ -57,6 +58,7 @@ form:
                   class: info.magnolia.ui.form.field.definition.TextFieldDefinition
                   label: Alt. Text
                   required: true
+                  styleName: imageField
                 - name: thumbnail
                   class: edu.txstate.its.gato.vaadin.ThumbnailSelectorFieldDefinition
                   label: Crop Image
@@ -81,6 +83,10 @@ form:
                   parameters:
                     aspect: 1
                     controlName: image
+        - name: stylesheet
+          label: ""
+          class: edu.txstate.its.gato.vaadin.GatoCssIncludeDefinition
+          styles: [gato-area-filterable-search/dialogs/css/image-field-spacing.css]
     - name: tabTags
       label: Filter Tags
       fields:

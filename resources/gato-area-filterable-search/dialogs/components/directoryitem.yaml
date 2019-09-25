@@ -68,6 +68,7 @@ form:
                   required: true
                   targetWorkspace: dam
                   label: Image
+                  styleName: imageField
                   identifierToPathConverter:
                     class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
                   contentPreviewDefinition:
@@ -97,6 +98,10 @@ form:
                   parameters:
                     aspect: 1
                     controlName: image
+        - name: stylesheet
+          label: ""
+          class: edu.txstate.its.gato.vaadin.GatoCssIncludeDefinition
+          styles: [gato-area-filterable-search/dialogs/css/image-field-spacing.css]
     - name: tabTags
       label: tags
       fields:
