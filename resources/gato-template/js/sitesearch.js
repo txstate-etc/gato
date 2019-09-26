@@ -84,6 +84,8 @@ jQuery(document).ready(function($) {
         if(!isSiteSearchPage(params)) return;
         siteSearch((params.sitesearch || "txstate.edu"), (params.query || ""), params.page || 1, params.sort || "relevance", params.client || "txstate", params.site || "txstate_no_users");
         handleBreadCrumbs();
+        $('.banner-image').hide();
+        $('.organization-info').addClass('search-results-no-image')
     }
 
     var update_state = function(params){
@@ -248,6 +250,8 @@ jQuery(document).ready(function($) {
             $('.contentcolumn, .sidebar-container, .gato-herobanner, .gato-heroslider').show();
             $('.breadcrumbs').show();
             $('.searchbreadcrumbs').remove();
+            $('.banner-image').show();
+            $('.organization-info').removeClass('search-results-no-image')
             window.dispatchEvent(new Event('resize')); // allow any resize handlers to re-layout the page
         }
     });
