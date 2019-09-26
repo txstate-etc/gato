@@ -48,6 +48,7 @@ subApps:
               items:
                 - name: editItem
                 - name: moveItem
+                - name: duplicateItem
                 - name: confirmDeletion
             - name: activationActions
               items:
@@ -82,6 +83,14 @@ subApps:
         availability:
           nodeTypes:
             - mgnl:component
+      duplicateItem:
+        label: Duplicate Item
+        icon: icon-duplicate
+        class: info.magnolia.ui.framework.action.DuplicateNodeActionDefinition
+        availability:
+          rules:
+            - name: IsNotDeletedRule
+              implementationClass: info.magnolia.ui.framework.availability.IsNotDeletedRule
       moveItem:
         label: Move Item
         icon: icon-move
