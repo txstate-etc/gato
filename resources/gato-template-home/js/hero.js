@@ -20,10 +20,10 @@ document.addEventListener("DOMContentLoaded", function() {
     var lazyImages = [].slice.call(document.querySelectorAll("img.slide-image"));
   
     if ("IntersectionObserver" in window) {
-      let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+      var lazyImageObserver = new IntersectionObserver(function(entries, observer) {
         entries.forEach(function(entry) {
           if (entry.isIntersecting) {
-            let lazyImage = entry.target;
+            var lazyImage = entry.target;
             lazyImage.src = lazyImage.dataset.src;
             lazyImage.srcset = lazyImage.dataset.srcset;
             lazyImage.classList.remove("lazy");
