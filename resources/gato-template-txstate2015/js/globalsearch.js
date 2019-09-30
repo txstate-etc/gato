@@ -33,7 +33,7 @@ jQuery(document).ready(function($) {
 
   var query_is_person_page = function (query) {
     if (isBlank(query)) return false;
-    return query.match(/^searchid is \d+$/);
+    return query.toString().match(/^searchid is \d+$/);
   }
 
   var fill_web_search = function (query, sort, page, perpage) {
