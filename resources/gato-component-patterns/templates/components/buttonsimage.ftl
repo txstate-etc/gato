@@ -5,7 +5,7 @@
   [#if content.imageAlignment == 'image-left']
     <div class="pattern-image ${content.color!color1}">
       <div class="overlay-right"></div>
-      <img src="${gf.getImgDefault(content.image)}" alt="${content.imageAlt!}" srcset="${gf.getSrcSet(content.image)}" sizes="(max-width: 50em) 50vw, 100vw"/>
+      <img src="${gf.getImgDefault(content.image)}" alt="${content.imageAlt!}" srcset="${gf.getSrcSet(content.image)}" sizes="(max-width: 50em) 1000px, 50vw"/>
     </div>
   [/#if]
   <div class="pattern-content arrow title-type ${content.color!color1} ${content.alignContent!'text-center'}">
@@ -14,7 +14,7 @@
   [#if content.imageAlignment == 'image-right']
     <div class="pattern-image ${content.color!color1}">
       <div class="overlay-left"></div>
-      <img src="${gf.getImgDefault(content.image)}" alt="${content.imageAlt!}" srcset="${gf.getSrcSet(content.image)}" sizes="(max-width: 50em) 50vw, 100vw"/>
+      <img src="${gf.getImgDefault(content.image)}" alt="${content.imageAlt!}" srcset="${gf.getSrcSet(content.image)}" sizes="(max-width: 50em) 1000px, 50vw"/>
     </div>
   [/#if]
 </div>
