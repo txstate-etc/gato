@@ -20,6 +20,12 @@ form:
           appName: pages
           label: Confirmation Page
           description: "Once the form has been submitted successfully, where should the site visitor end up?"
+        - name: confidential
+          class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+          label: Confidential
+          buttonLabel: This form requests confidential information
+          description: Check this box if the form requests sensitive information, such as a SSN or other private information
+          defaultValue: false
     - name: tabresponse
       label: Auto Email Response
       fields:

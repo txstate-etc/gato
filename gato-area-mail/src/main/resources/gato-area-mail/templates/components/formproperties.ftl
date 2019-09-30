@@ -18,3 +18,8 @@
 
 <input type="hidden" id="formemailersetid" name="formemailersetid" value="${cmsfn.page(content).@id}" />
 <input type="hidden" id="thankyoupage" name="thankyoupage" value="${gf.absoluteUrl(content.redirect)}" />
+[#assign confidential = "false"]
+[#if content.confidential?? && content.confidential == true]
+  [#assign confidential = "true"]
+[/#if]
+<input type="hidden" id="confidential" name="confidential" value="${confidential}" />
