@@ -174,11 +174,9 @@
           .gato-card-image, .gato-card-video {
             transform: scale(1.0);
             transition: all 400ms ease;
-          }
-
-          .gato-card-image:hover, .gato-card-video:hover{
-            transform: scale(1.1);
-            transition: all 400ms ease;
+            &.hov {
+              transform: scale(1.1);
+            }
           }
         }
 
