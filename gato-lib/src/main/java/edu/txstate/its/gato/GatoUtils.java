@@ -213,7 +213,7 @@ public final class GatoUtils {
 
   public String damUrlShared(Asset asset) {
     try {
-      return "/dam/"+asset.getItemKey()+"/"+StringEscapeUtils.escapeHtml4(URLEncoder.encode(rawAssetFileName(asset), "UTF-8"));
+      return "/dam/"+asset.getItemKey().asString()+"/"+StringEscapeUtils.escapeHtml4(URLEncoder.encode(rawAssetFileName(asset), "UTF-8"));
     } catch (Exception e) {
       return "";
     }
