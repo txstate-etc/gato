@@ -213,7 +213,7 @@ public final class GatoUtils {
 
   public String damUrlShared(Asset asset) {
     try {
-      return "/dam/"+asset.getItemKey().asString()+"/"+StringEscapeUtils.escapeHtml4(URLEncoder.encode(rawAssetFileName(asset), "UTF-8"));
+      return "/"+asset.getItemKey().asString()+"/"+StringEscapeUtils.escapeHtml4(URLEncoder.encode(rawAssetFileName(asset), "UTF-8"));
     } catch (Exception e) {
       return "";
     }
@@ -222,7 +222,7 @@ public final class GatoUtils {
   public String damUrl(Object assetOrId) {
     Asset asset = toAsset(assetOrId);
     if (asset == null) return "";
-    return MgnlContext.getContextPath()+damUrlShared(asset);
+    return damPath()+damUrlShared(asset);
   }
 
   public String absoluteDamUrl(Object assetOrId) {
