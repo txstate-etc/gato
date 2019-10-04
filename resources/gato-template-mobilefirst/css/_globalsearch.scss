@@ -1,0 +1,205 @@
+body.search-page {
+  .breadcrumbs {
+    display: none;
+  }
+  .global-search {
+    max-width: 1200px;
+    margin: 0 auto;
+    #search-results.global {
+      margin: 0 2rem;
+      &.web {
+        .search-people {
+          display: none;
+        }
+      }
+      &.people {
+        .search-web, .search-side-people {
+          display: none;
+        }
+      }
+      .search-form {
+        position: relative;
+        border-bottom: 2px solid $search-form-input-line-color;
+        padding-bottom: 0.5rem;
+        margin-left: 2rem;
+        margin-bottom: 4rem;
+        margin-top: 2rem;
+        max-width: 45rem;
+        font-size: 2.4rem;
+        @media screen and (max-width: $mc-breakpoint) {
+          font-size: 2rem;
+        }
+        input.search {
+          background: transparent;
+          border: none;
+          width: 100%;
+          width: calc(100% - 30px);
+          color: #222;
+          font-size: 2rem;
+          font-weight: 500;
+          font-family: $search-form-input-font-family;
+          &:-ms-input-placeholder {color: $search-form-input-placeholder-color;}
+          &:focus{
+            outline-width: 0;
+          }
+        }
+        .icon {
+          background: transparent;
+          border: none;
+          float: right;
+          color: $search-form-icon-color;
+          position: absolute;
+          right: 0;
+          top: 0;
+        }
+      }
+      .search-result-columns {
+        display: flex;
+        @media screen and (max-width: $sm-breakpoint) {
+          flex-direction: column;
+        }
+        .search-column-main {
+          flex: 1 0 100% * 2.0/3.0;
+          min-height: 40rem;
+          padding: 0 2rem;
+          @media screen and (max-width: $sm-breakpoint) {
+            flex-basis: 100%;
+          }
+          .search-tabs {
+            width: 100%;
+            margin: 0 0 2rem 0;
+            list-style: none;
+            border-bottom: 1px solid $search-tabs-border-bottom-color;
+            overflow: hidden;
+            padding: 0;
+            display: flex;
+            li {
+              text-transform: uppercase;
+              cursor: pointer;
+              padding: 1rem;
+              width: 10rem;
+              text-align: center;
+              font-weight: bold;
+              font-size: 1.5rem;
+              background-color: $search-tab-background;
+              color: $search-tab-color;
+              &[aria-selected="true"] {
+                background-color: $search-selected-tab-background;
+                color: $search-selected-tab-color;
+              }
+            }
+          }
+          .search-count {
+            font-size: 1.7rem;
+            padding-bottom: 0.5rem;
+          }
+          .search-people-advanced {
+            margin-bottom: 2rem;
+            font-size: 1.7rem;
+          }
+          .search-people-advanced-info {
+            margin-top: -1rem;
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+            padding: 0 2rem;
+            .advanced-search-column {
+              width: 50%;
+              // float: left;
+              overflow: hidden;
+            }
+            .advanced-search-examples {
+              padding-top: 0.5rem;
+              // clear: both;
+            }
+            h4 {
+              margin: 0.5rem 0;
+            }
+          }
+          .search-people-contact {
+            text-align: center;
+            font-size: 1.6rem;
+          }
+          .person {
+            position: relative;
+            overflow: hidden;
+            margin-top: 1rem;
+            margin-bottom: 3rem;
+            .person-name {
+              border-bottom: 1px dotted $search-person-name-border;;
+              margin-bottom: 0.5rem;
+              padding: 0.5rem 0;
+              a {
+                font-weight: bold;
+                color: $search-person-name-color;
+                text-decoration: none;
+                &:hover {
+                  text-decoration: underline;
+                }
+              }
+            }
+            .person-category {
+              position: absolute;
+              top: 0.5rem;
+              right: 1rem;
+              font-weight: 500;
+              font-variant: small-caps;
+              text-transform: lowercase;
+            }
+            dl {
+              overflow: hidden;
+              margin: 0;
+              width: 50%;
+              float: left;
+            }
+
+            dt {
+              font-weight: 500;
+              float: left;
+              padding-right: 1rem;
+            }
+            dd {
+              margin: 0 0 0 1rem;
+            }
+            dt, dd {
+              line-height: 2.2rem;
+              font-size: 1.7rem;
+            }
+          }
+        }
+        .search-column-side {
+          flex: 1 0 100% * 1.0/3.0;
+          padding: 0 2rem;
+          @media screen and (max-width: $sm-breakpoint) {
+            flex-basis: 100%;
+          }
+          .search-side-box {
+            border: 1px solid $search-side-box-border;
+            margin-bottom: 3rem;
+            h4 {
+              margin: 0;
+              padding: 1rem;
+              background-color: $search-side-box-header-background;
+              color: $search-side-box-header-color;
+              font-weight: 500;
+            }
+            .search-people-more {
+              font-size: 1.6rem;
+              padding: 1rem 0;
+            }
+            .search-side-results {
+              padding: 1rem;
+              .person {
+                padding: 1rem 0;
+                font-size: 1.6rem;
+                .person-name {
+                  font-size: 1.8rem;
+                  font-weight: 500;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -9,6 +9,9 @@
     [#if def.parameters.isFilterableSearchTemplate!false]
       [#assign scripts = scripts + ['gato-area-filterable-search/js/filterablesearch.js']]
     [/#if]
+    [#if def.parameters.isSearchTemplate!false]
+      [#assign scripts = scripts + ['gato-template/js/globalsearch.js']]
+    [/#if]
 
     [@templatejs scripts/]
     [@templatehead/]
@@ -26,7 +29,7 @@
       [/#if]
     [/#if]
   </head>
-  <body class="${cmsfn.isEditMode()?string('admin','')}">
+  <body class="${cmsfn.isEditMode()?string('admin','')} ${(def.parameters.isSearchTemplate!false)?then('search-page', '')}">
     [@skipnav/]
     [@googletagmanagerbody /]
     [#include "includes/header.ftl"]
@@ -70,7 +73,9 @@
         [#if def.parameters.isFeatureTemplate!false]
           [@cms.area name="mobileFirstContent"/]
         [#else]
-          [#if def.parameters.isMailTemplate!false]
+          [#if def.parameters.isSearchTemplate!false]
+            [@cms.area name="searchcontent" /]
+          [#elseif def.parameters.isMailTemplate!false]
             [@cms.area name="mail"/]
           [#elseif def.parameters.isFilterableSearchTemplate!false]
             [@cms.area name="filterable-search-intro"/]

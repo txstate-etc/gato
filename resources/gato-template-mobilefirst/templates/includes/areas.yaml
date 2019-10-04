@@ -64,6 +64,10 @@ siteMap:  #informational
   templateScript: /gato-template-mobilefirst/templates/areas/sitemap.ftl
   parameters:
     tabs: true
+searchcontent: #global search
+  title: Global Search Page Content
+  type: noComponent
+  templateScript: /gato-template-mobilefirst/templates/areas/globalsearch.ftl
 socialmedia:
   type: single
   templateScript: /gato-template/templates/areas/optional-social.ftl

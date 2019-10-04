@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-txstate2015/css/txstate2015.scss"/>
     [#assign jsscripts = [
       'gato-template-txstate2015/js/includes.cjs',
-      'gato-template-txstate2015/js/globalsearch.js',
+      'gato-template/js/globalsearch.js',
       'gato-template-txstate2015/js/fontsdotcom.js'
     ]/]
     [#if gf.isCacheEnvironment()]
@@ -49,8 +49,8 @@
             <li id="search-tab-web" class="search-tab-web" role="tab" tabindex="0">Web</li>
             <li id="search-tab-people" class="search-tab-people" role="tab" tabindex="0">People</li>
           </ul>
-          <div class="search-web results-list" role="tabpanel" aria-labeledby="search-tab-web"></div>
-          <div class="search-people results-list" role="tabpanel" aria-labeledby="search-tab-people"></div>
+          <div class="search-web results-list" role="tabpanel" aria-labelledby="search-tab-web"></div>
+          <div class="search-people results-list" role="tabpanel" aria-labelledby="search-tab-people"></div>
         </div>
         <div class="search-column-side">
           <div class="search-side-box search-side-people">
