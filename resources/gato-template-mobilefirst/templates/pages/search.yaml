@@ -1,12 +1,12 @@
 templateScript: /gato-template-mobilefirst/templates/pages/standard.ftl
 renderType: site
 visible: true
-title: Calico Search 
+title: Calico Global Search 
 dialog: gato-template-mobilefirst:pages/page-properties
 areas: !include /gato-template-mobilefirst/templates/includes/areas.yaml
 parameters:
   isSearchTemplate: true
-  sortOrder: 310
+  sortOrder: 309
   favicon: /gato-template-mobilefirst/images/favicon.png
 variations:
   js:
