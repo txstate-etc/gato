@@ -309,6 +309,9 @@ jQuery(document).ready(function($) {
                             '<div class="layout-column twothirds search-title">' +
                                 '<h1 class="search-results-title" id="maincontent">Search</h1>' +
                             '</div>' +
+                            '<div class="gato-search-title-separator">' +
+                              '<div class="intro-title-border"></div>' +
+                            '</div>' +
                             '<div class="layout-column twothirds">' +
                                 '<div id="search-info" data-site="' + site + '" data-query="' + query + '" data-sort="' + sort + '"></div>' +
                                 '<div class="search-again">' +

@@ -20,6 +20,14 @@
       line-height: 4.2rem;
       font-weight: 400;
       margin: 3rem 0 1.5rem 0;
+      color: $very-dark;
+    }
+  }
+  .gato-search-title-separator {
+    padding: 0 2rem;
+    .intro-title-border {
+      height: 1px;
+      background-color: $almondmilk;
     }
   }
   .line-under-breadcrumbs {
