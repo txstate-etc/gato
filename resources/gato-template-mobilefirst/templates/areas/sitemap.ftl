@@ -3,7 +3,7 @@
 [#macro listNodes node rootNode depth]
     [#if node.title?has_content && node != rootNode]
       [#if cmsfn.metaData(node, "mgnl:activationStatus")?number > 0]
-        <div class="${(cmsfn.children(node, "mgnl:page")?size > 1)?then("has-children", "")}"><a href="${cmsfn.link(node)}">${node.title}</a></div>
+        <div class="${(gf.hasNavChildren(node))?then("has-children", "")}"><a href="${cmsfn.link(node)}">${node.title}</a></div>
       [/#if]
     [/#if]
 
