@@ -33,6 +33,16 @@
 	[/#list]
 [/#macro]
 
+[#macro navloopmax items max]
+  [#assign counter=0]
+  [#list items as item]
+    [#if !(item.hideInNav!false) && counter < max]
+      [#nested item]
+      [#assign counter = counter + 1]
+    [/#if]
+  [/#list]
+[/#macro]
+
 [#function min(a,b)]
   [#return (b > a)?then(a, b)]
 [/#function]

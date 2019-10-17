@@ -1,14 +1,15 @@
-[#macro gatonavigationdata page]
+[#macro gatonavigationdata page depth]
   {
     title: "${gf.nodeTitle(page)?json_string}",
     path: "${page['@path']}",
     href: "${cmsfn.link(page)}",
+    depth: "${depth}",
     children: [
       [#local first = true]
       [@navloop cmsfn.children(page, 'mgnl:page') ; subpage]
         [#if !first],[/#if]
         [#local first = false]
-        [@gatonavigationdata subpage /]
+        [@gatonavigationdata subpage depth+1/]
       [/@navloop]
     ]
   }
@@ -42,9 +43,16 @@
           <a class="navigation-current" href="${cmsfn.link(page)}">${gf.nodeTitle(page)}</a>
         [/#if]
         <ul class="navigation-children">
-        [@navloop cmsfn.children(page, 'mgnl:page') ; subpage]
-          <li class="${navfn.isActive(content, subpage)?then("current-page", "")}"><a href="${cmsfn.link(subpage)}" data-path="${subpage['@path']}">${gf.nodeTitle(subpage)}[#if gf.hasNavChildren(subpage)]<i class="fa fa-angle-right arrow" aria-hidden="true"></i>[/#if]</a></li>
-        [/@navloop]
+        [@navloopmax cmsfn.children(page, 'mgnl:page') 8 ; subpage]
+          <li class="${navfn.isActive(content, subpage)?then("current-page", "")}">
+            <a href="${cmsfn.link(subpage)}" data-path="${subpage['@path']}" data-depth="${subpage['@depth']}">
+              ${gf.nodeTitle(subpage)}
+              [#if gf.hasNavChildren(subpage) && subpage['@depth'] < 5]
+                <i class="fa fa-angle-right arrow" aria-hidden="true"></i>
+              [/#if]
+            </a>
+          </li>
+        [/@navloopmax]
         </ul>
       </div>
     </div>
@@ -65,11 +73,11 @@
 [/#macro]
 
 <script type="text/javascript">[@compress single_line=true]
-  var gatonavigationdata = [@gatonavigationdata homepage /]
+  var gatonavigationdata = [@gatonavigationdata homepage 1/]
 [/@compress]</script>
 <nav id="main-menu" class="main-menu" role="navigation" aria-expanded="false">
   <div class="menu-content">
-    [#if gf.hasNavChildren(page) || isHomePage]
+    [#if page['@depth'] < 4 && (gf.hasNavChildren(page) || isHomePage)]
       [@gatonavigationhtml page homepage/]
     [#else]
       [@gatonavigationhtml cmsfn.parent(page) homepage/]

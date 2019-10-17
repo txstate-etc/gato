@@ -212,10 +212,10 @@ jQuery(document).ready(function($) {
     html += '<div class="navigation-tree">';
     if (!data.isHomePage) html += '<a class="navigation-current" href="'+data.href+'">'+data.title+'</a>';
     html += '<ul class="navigation-children">';
-    for (var i = 0; i < data.children.length; i++) {
+    for (var i = 0; i < Math.min(data.children.length, 8); i++) {
       var subpage = data.children[i];
-      html += '<li><a href="'+subpage.href+'" data-path="'+subpage.path+'">'+
-        subpage.title+(subpage.children.length?'<i class="fa fa-angle-right arrow" aria-hidden="true"></i>':'')+
+      html += '<li><a href="'+subpage.href+'" data-path="'+subpage.path+'"'+'data-depth="'+ subpage.depth +'">'+
+        subpage.title+((subpage.children.length && subpage.depth < 5)?'<i class="fa fa-angle-right arrow" aria-hidden="true"></i>':'')+
       '</a></li>';
     }
     html += '</ul></div></div>';
@@ -224,8 +224,9 @@ jQuery(document).ready(function($) {
 
   var activate_nav_slide = function (e, lnk, infromtheright) {
     var path = lnk.data('path');
+    var depth = lnk.data('depth');
     var data = navbypath[path];
-    if (data.children.length) {
+    if (data.children.length && (depth < 5 || !infromtheright)) {
       e.preventDefault();
       if (animating) return;
       animating = 1;
