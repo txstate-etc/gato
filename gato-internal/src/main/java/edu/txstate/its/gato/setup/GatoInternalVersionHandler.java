@@ -235,6 +235,8 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
 
     register(DeltaBuilder.update("1.2.6", "")
       .addTask(new BootstrapSingleModuleResource("config.modules.site.config.site.templates.availability.templates.txst-search.xml"))
+      .addTask(new BootstrapSingleModuleResource("config.modules.site.config.site.templates.availability.templates.calico-sitemap.roles.xml"))
+      .addTask(new BootstrapSingleModuleResource("config.modules.site.config.site.templates.availability.templates.2015-sitemap.xml"))
     );
   }
 
