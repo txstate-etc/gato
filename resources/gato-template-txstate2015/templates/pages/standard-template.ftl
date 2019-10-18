@@ -63,6 +63,8 @@
           [#elseif def.parameters.isFilterableSearchTemplate!false]
 	          [@cms.area name="filterable-search-intro"/]
 	          [@cms.area name="filterable-search"/]
+					[#elseif def.parameters.isSiteMapTemplate!false]
+            [@cms.area name="siteMap" /]
 					[#elseif def.parameters.isPassthroughTemplate!false]
 						${gf.httpGetContentWithParameters(content.url)}
           [#else]

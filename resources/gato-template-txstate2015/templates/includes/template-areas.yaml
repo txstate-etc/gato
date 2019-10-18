@@ -64,3 +64,6 @@ gatoHours:
   availableComponents:
     hours:
       id: gato-component-hours:components/hours
+siteMap:
+  title: Site Map Content Area
+  templateScript: /gato-template/templates/areas/sitemap.ftl

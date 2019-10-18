@@ -61,7 +61,7 @@ calicoInformational:  #informational
     !include /gato-template-mobilefirst/templates/areas/available-components/informationalComponents.yaml    
 siteMap:  #informational
   title: Site Map Content Area
-  templateScript: /gato-template-mobilefirst/templates/areas/sitemap.ftl
+  templateScript: /gato-template/templates/areas/sitemap.ftl
   parameters:
     tabs: true
 searchcontent: #global search
