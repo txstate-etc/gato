@@ -68,6 +68,20 @@ footer {
               }
             }
           }
+          .site-map-link {
+            margin-top: 2rem;
+            a {
+              color: $white;
+              text-decoration: none;
+              font-size: 1.6rem;
+              display: inline-block;
+              transition: all 0.2s ease;
+              &:hover {
+                transform: translate(0px, -3px);
+                box-shadow: inset 0 -1px 0 0 $white;
+              }
+            }
+          }
         }
         .footer-column-content {
           .footer-column-title {

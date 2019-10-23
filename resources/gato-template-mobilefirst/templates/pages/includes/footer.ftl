@@ -19,6 +19,12 @@
           <div class="contact-info">
             [@cms.area name="siteinfo" content=gf.getOrCreateArea(homepage, 'siteinfo') editable=isHomePage/]
           </div>
+          [#assign sitemappath = cmsfn.asJCRNode(homepage).path + "/sitemap"]
+          [#if cmsfn.contentByPath(sitemappath)??]
+            <div class="site-map-link">
+              <a href="${cmsfn.link(cmsfn.contentByPath(sitemappath))}">Site Map</a>
+            </div>
+          [/#if]
           <div class="social-media-container">
             [@cms.area name="socialmedia" content=gf.getOrCreateArea(homepage, "socialmedia") editable=isHomePage contextAttributes={"shownotice":isHomePage}/]
           </div>
