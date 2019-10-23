@@ -47,28 +47,31 @@ public class CreateSiteMapCommand extends GatoBaseSchedulerCommand {
       Session session = MgnlContext.getJCRSession(this.getRepository());
       Node rootNode = session.getNode(this.getPath());
       for (Node siteRoot : NodeUtil.getNodes(rootNode, NodeTypes.Page.NAME)) {
-        int numSubpages = NodeUtil.asList(NodeUtil.getNodes(siteRoot, NodeTypes.Page.NAME)).size();
-        String pageTemplate = NodeTypes.Renderable.getTemplate(siteRoot);
-        if (numSubpages > 0 && !siteRoot.hasNode("sitemap")) {
-          if (ArrayUtils.contains(TEMPLATE_IDS_CALICO, pageTemplate)) {
-            log.info("Creating a sitemap for " + siteRoot.getName());
-            Node siteMapNode = NodeUtil.createPath(siteRoot, "sitemap", NodeTypes.Page.NAME);
-            PropertyUtil.setProperty(siteMapNode, "mgnl:template", "gato-template-mobilefirst:pages/sitemap");
-            PropertyUtil.setProperty(siteMapNode, "title", "Site Map");
-            PropertyUtil.setProperty(siteMapNode, "hideInNav", true);
-            PropertyUtil.setProperty(siteMapNode, "addTitleSeparator", true);
-            siteRoot.save();
-            publishSiteMap(context, siteMapNode);
-          }
-          else if(ArrayUtils.contains(TEMPLATE_IDS_2015, pageTemplate)) {
-            log.info("Creating a sitemap for " + siteRoot.getName());
-            Node siteMapNode = NodeUtil.createPath(siteRoot, "sitemap", NodeTypes.Page.NAME);
-            PropertyUtil.setProperty(siteMapNode, "mgnl:template", "gato-template-txstate2015:pages/sitemap");
-            PropertyUtil.setProperty(siteMapNode, "title", "Site Map");
-            PropertyUtil.setProperty(siteMapNode, "hideInNav", true);
-            PropertyUtil.setProperty(siteMapNode, "hideSidebar", true);
-            siteRoot.save();
-            publishSiteMap(context, siteMapNode);
+        boolean isPublished = PropertyUtil.getBoolean(siteRoot,"mgnl:activationStatus", false);
+        if (isPublished) {
+          int numSubpages = NodeUtil.asList(NodeUtil.getNodes(siteRoot, NodeTypes.Page.NAME)).size();
+          String pageTemplate = NodeTypes.Renderable.getTemplate(siteRoot);
+          if (numSubpages > 0 && !siteRoot.hasNode("sitemap")) {
+            if (ArrayUtils.contains(TEMPLATE_IDS_CALICO, pageTemplate)) {
+              log.info("Creating a sitemap for " + siteRoot.getName());
+              Node siteMapNode = NodeUtil.createPath(siteRoot, "sitemap", NodeTypes.Page.NAME);
+              PropertyUtil.setProperty(siteMapNode, "mgnl:template", "gato-template-mobilefirst:pages/sitemap");
+              PropertyUtil.setProperty(siteMapNode, "title", "Site Map");
+              PropertyUtil.setProperty(siteMapNode, "hideInNav", true);
+              PropertyUtil.setProperty(siteMapNode, "addTitleSeparator", true);
+              siteRoot.save();
+              publishSiteMap(context, siteMapNode);
+            }
+            else if(ArrayUtils.contains(TEMPLATE_IDS_2015, pageTemplate)) {
+              log.info("Creating a sitemap for " + siteRoot.getName());
+              Node siteMapNode = NodeUtil.createPath(siteRoot, "sitemap", NodeTypes.Page.NAME);
+              PropertyUtil.setProperty(siteMapNode, "mgnl:template", "gato-template-txstate2015:pages/sitemap");
+              PropertyUtil.setProperty(siteMapNode, "title", "Site Map");
+              PropertyUtil.setProperty(siteMapNode, "hideInNav", true);
+              PropertyUtil.setProperty(siteMapNode, "hideSidebar", true);
+              siteRoot.save();
+              publishSiteMap(context, siteMapNode);
+            }
           }
         }
       }
