@@ -239,6 +239,12 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       .addTask(new BootstrapSingleModuleResource("config.modules.site.config.site.templates.availability.templates.2015-sitemap.xml"))
       .addTask(new BootstrapSingleModuleResource("config.modules.gato-internal.commands.gato.createSiteMaps.xml"))
       .addTask(new BootstrapSingleModuleResource("config.modules.scheduler.config.jobs.createSiteMaps.xml"))
+      .addTask(new BootstrapSingleModuleResource("config.modules.pages.apps.pages.subApps.browser.actions.confirmDeletion.availability.rules.IsNotSiteMapRule.xml"))
+      .addTask(new BootstrapSingleModuleResource("config.modules.pages.apps.pages.subApps.browser.actions.confirmPageDeletion.availability.rules.IsNotSiteMapRule.xml"))
+      .addTask(new BootstrapSingleModuleResource("config.modules.pages.apps.pages.subApps.browser.actions.deactivate.availability.rules.IsNotSiteMapRule.xml"))
+      .addTask(new BootstrapSingleModuleResource("config.modules.pages.apps.pages.subApps.browser.actions.editPageName.availability.rules.IsNotSiteMapRule.xml"))
+      .addTask(new BootstrapSingleModuleResource("config.modules.pages.apps.pages.subApps.browser.actions.editTemplate.availability.rules.IsNotSiteMapRule.xml"))
+      .addTask(new BootstrapSingleModuleResource("config.modules.pages.apps.pages.subApps.browser.actions.move.availability.rules.IsNotSiteMapRule.xml"))
     );
   }
 
