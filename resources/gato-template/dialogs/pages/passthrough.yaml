@@ -10,6 +10,10 @@ form:
           class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
           buttonLabel: Hide the page title
           label: "" #without this, Magnolia makes its own messy label
+        - name: hideInNav
+          class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+          buttonLabel: Do not show this page in the navigation.
+          label: Hide in Menu
         - name: url
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Target URL          
