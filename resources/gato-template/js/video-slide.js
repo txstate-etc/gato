@@ -37,6 +37,8 @@ jQuery(function($) {
     close: function() {
       $('#video-modal').fadeOut(150);
       $('#video-modal .video-container').empty();
+      if (this.$cur)
+        this.$cur.focus();
       this.isOpen = false;
     }
   };
@@ -46,6 +48,7 @@ jQuery(function($) {
     // get list of siblings that have videos
     var $slides = $lnk.closest('.gato-slider, .slides').find('.slide:not(.slick-cloned)').find('.feature-play-button a, a.feature-play-button');
     vmodal.open($lnk, $slides);
+    $('#video-modal .video-modal-close').focus();
   });
 
   $('.video-nav a').blurclick(function(e) {
@@ -68,7 +71,9 @@ jQuery(function($) {
     vmodal.loadSlide(vmodal.$slides.eq(idx));
   });
 
-  $('#video-modal .video-modal-close').blurclick(vmodal.close);
+  $('#video-modal .video-modal-close').blurclick(function(e) {
+    vmodal.close();
+  });
   $('#video-modal').on('click', function (e) {
     if ($(e.target).closest('.video-container').length == 0) vmodal.close();
   });
