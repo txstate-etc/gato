@@ -6,10 +6,6 @@ form:
         - name: title
           class: info.magnolia.ui.form.field.definition.HiddenFieldDefinition
           defaultValue: "Site Map"
-        - name: hideTitle
-          class: info.magnolia.ui.form.field.definition.HiddenFieldDefinition
-          type: Boolean
-          defaultValue: false
         - name: intro
           class: info.magnolia.ui.form.field.definition.RichTextFieldDefinition
           label: Intro. Text

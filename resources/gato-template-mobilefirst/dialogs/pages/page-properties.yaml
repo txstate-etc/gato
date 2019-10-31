@@ -22,3 +22,7 @@ form:
           label: ""
           buttonLabel: Horizontal Separator Below Title
           defaultValue: true
+        - name: hideTitle
+          class: info.magnolia.ui.form.field.definition.HiddenFieldDefinition
+          defaultValue: false
+          type: Boolean
