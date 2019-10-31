@@ -44,6 +44,7 @@
           <div class="events">
               [#list model.items as event]
                 <div class="event">
+                  [#assign eventTitle = (event.title?length > 50)?then(event.title?substring(0, 50)+"...", event.title)]
                   <div class="date">
                   <!--Get day of the month-->
                       <div class="day">${event.endDate?string["d"]}</div> 
@@ -51,11 +52,13 @@
                     </div>
                   <div class="links">
                     <ul>
-                      [#if event.title?length &gt; 50]
-                        <li><a href="${gf.filterUrl(event.link)}">${event.title?substring(0, 50)}...</a></li>
+                      <li>
+                      [#if !gf.isEmptyString(event.link)]
+                        <a href="${gf.filterUrl(event.link)}">${eventTitle}</a>
                       [#else]
-                        <li><a href="${gf.filterUrl(event.link)}">${event.title}</a></li>
+                        ${eventTitle}
                       [/#if]
+                      </li>
                     </ul>
                   </div>
                 </div>
