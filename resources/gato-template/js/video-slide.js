@@ -83,4 +83,16 @@ jQuery(function($) {
     }
   });
 
+  $('.vmodal-container').focusout(function (e) {
+    var tabbable = $('.vmodal-container').find(':tabbable');
+    var first = tabbable.first();
+    var last = tabbable.last();
+    var targ = $(e.relatedTarget);
+    if (targ.is('.vmodal-focusstart')) {
+      last.focus();
+    }
+    else if (targ.is('.vmodal-focusend')) {
+      first.focus();
+    }
+  })
 });
