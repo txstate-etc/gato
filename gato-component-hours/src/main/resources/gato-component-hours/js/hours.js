@@ -106,12 +106,12 @@ jQuery(document).ready(function ($) {
       var chartdata = {};
       for (var i = 0; i < data.fullcalendar_data.length; i++) {
         var entry = data.fullcalendar_data[i]
-        if (entry.canceled || entry.end.isBefore(now)) continue
+        if (entry.end.isBefore(now)) continue
         var month = entry.start.format('YYYYMM')
         var day = parseInt(entry.start.format('D'))
         if (!chartdata[month]) chartdata[month] = { name: entry.start.format('MMMM YYYY'), shortname: entry.start.format('MMMM'), days: [] }
         if (!chartdata[month].days[day]) chartdata[month].days[day] = { label: day, open: [] }
-        chartdata[month].days[day].open.push({ start: entry.start, end: entry.end })
+        chartdata[month].days[day].open.push({ canceled: entry.canceled, start: entry.start, end: entry.end })
       }
 
       var startedprinting = false;
@@ -154,7 +154,9 @@ jQuery(document).ready(function ($) {
                 var lastclose = (((yesterday || {}).open || []).slice(-1)[0] || {}).end
                 var nextopen = (((tomorrow || {}).open || [])[0] || {}).start
                 line += '<span class="hours-interval">'
-                if (lastclose && nextopen && isSameTime(open, lastclose) && isSameTime(close, nextopen))
+                if (day.open[k].canceled)
+                  line += 'Closed';
+                else if (lastclose && nextopen && (isSameTime(open, lastclose) || open.isBefore(lastclose)) && (isSameTime(close, nextopen) || close.isAfter(nextopen)))
                   line += 'Open all day';
                 else if (lastclose && isSameTime(open, lastclose) || open.isBefore(now))
                   line += 'Closes at ' + friendlyTime(close);
@@ -164,8 +166,6 @@ jQuery(document).ready(function ($) {
                   line += 'Open from ' + friendlyTime(open) + ' to ' + friendlyTime(close);
                 line += '</span>';
               }
-            } else {
-              line += 'Closed';
             }
             line += '</span></li>';
             html += line;
