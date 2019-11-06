@@ -22,6 +22,7 @@
           <div class="events">
               [#list cmsfn.children(content.events) as event]
                 <div class="event">
+                [#assign eventTitle = (event.title?length > 50)?then(event.title?substring(0, 50)+"...", event.title)]
                   <div class="date">
                   <!--Get day of the month-->
                       <div class="day">${event.date?string["d"]}</div> 
@@ -29,11 +30,13 @@
                     </div>
                   <div class="links">
                     <ul>
-                      [#if event.title?length &gt; 50]
-                        <li><a href="${gf.filterUrl(event.link)}">${event.title?substring(0, 50)}...</a></li>
-                      [#else]
-                        <li><a href="${gf.filterUrl(event.link)}">${event.title}</a></li>
-                      [/#if]
+                      <li>
+                        [#if !gf.isEmptyString(event.link)]
+                          <a href="${gf.filterUrl(event.link)}">${eventTitle}</a>
+                        [#else]
+                          ${eventTitle}
+                        [/#if]
+                      </li>
                     </ul>
                   </div>
                 </div>
