@@ -20,3 +20,7 @@ form:
           class: info.magnolia.ui.form.field.definition.HiddenFieldDefinition
           type: Boolean
           defaultValue: true
+        - name: hideTitle
+          class: info.magnolia.ui.form.field.definition.HiddenFieldDefinition
+          defaultValue: false
+          type: Boolean
