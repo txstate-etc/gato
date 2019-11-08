@@ -138,8 +138,7 @@
 
         .caption {
           position: absolute;
-          background-color: $darkest-charcoal;
-          opacity: .9;
+          background-color: rgba($darkest-charcoal, 0.9);
           bottom: 3rem;;
           left: 2rem;
           margin-right: 2rem;

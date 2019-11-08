@@ -247,8 +247,7 @@
         }
         .caption {
           position: absolute;
-          background-color: $darkest-charcoal;
-          opacity: .9;
+          background-color: rgba($darkest-charcoal,0.9);
           bottom: 30px;
           left: 20px;
           margin-right: 20px;
