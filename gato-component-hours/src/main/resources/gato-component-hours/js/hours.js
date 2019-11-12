@@ -167,6 +167,9 @@ jQuery(document).ready(function ($) {
                 line += '</span>';
               }
             }
+            else {
+              line += 'Closed';
+            }
             line += '</span></li>';
             html += line;
           }
