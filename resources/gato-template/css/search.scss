@@ -198,11 +198,12 @@
       color: $search-pagination-link-color;
       text-decoration: none;
       float: left;
-      &.active,&[aria-selected="true"]{
+      &.active,&[aria-current="page"]{
         font-weight: 500;
         color: black;
         &, &:hover {
           background: $search-pagination-selected-background;
+          color: black;
         }
       }
       &:hover{
