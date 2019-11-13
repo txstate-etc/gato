@@ -498,7 +498,12 @@ function checkMandatories(theForm, alertText) {
         alert(alertText);
         var target,background;
         if (type === "select-one" || type == "checkbox" || type == "radio") {
-          target = $(mgnlField[0]).up().up();
+          if (!mgnlField[0]) {
+            target = $(mgnlField).up().up();
+          }
+          else {
+            target = $(mgnlField[0]).up().up();
+          }
           background = "#FFFFFF";
           target.scrollTo();
         }
