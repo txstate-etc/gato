@@ -1,11 +1,9 @@
 jQuery(document).ready(function($) {
     $('.overlay-content').first().css('display', 'inline-block'); 
-    $('.tab').find('a').first().css('margin-left', '10%');
-    $('.tab').find('a').first().addClass('selected-tab');
+    $('.tab-list button').first().addClass('selected-tab');
     $('.overlay-content').first().addClass('selected-content');
 
-    var tabs = $('.tab')
-
+    var tabs = $('.tab-list button')
     $(function () {
         $("#first").animate({
            width: '200px'
@@ -18,24 +16,25 @@ jQuery(document).ready(function($) {
         
     //tabs animation
     var handleTabClick = function(e) {
-      var indexOfElem = tabs.index(this);        
-      $(tabs).find('a.selected-tab').first().animate({
+      console.log("handletabclick")
+      var indexOfElem = tabs.index(this);
+      $('.tab-list button.selected-tab').first().animate({
           marginLeft: '0',
         }, 200 , function() {
           // Animation complete.
-          $('a.selected-tab').attr('aria-selected', "false");
-          $('a.selected-tab').attr('tabindex', -1);
-          $('a.selected-tab').removeClass('selected-tab');
+          $('.selected-tab').attr('aria-selected', "false");
+          $('.selected-tab').attr('tabindex', -1);
+          $('.selected-tab').removeClass('selected-tab');
           $('.overlay-content.selected-content').attr('tabindex', -1);
           $('.overlay-content.selected-content').removeClass('selected-content');
-          $('.tab').eq(indexOfElem).find('a').first().addClass('selected-tab');
-          $('.tab').eq(indexOfElem).find('a').first().attr('aria-selected', "true");
-          $('.tab').eq(indexOfElem).find('a').first().attr('tabindex', 0);
+          $('.tab-list button').eq(indexOfElem).addClass('selected-tab');
+          $('.tab-list button').eq(indexOfElem).attr('aria-selected', "true");
+          $('.tab-list button').eq(indexOfElem).attr('tabindex', 0);
           $('.overlay-content').eq(indexOfElem).addClass('selected-content');
           $('.overlay-content').eq(indexOfElem).attr('tabindex', 0);
 
         });
-        $(tabs).eq(indexOfElem).find('a').first().animate({
+        $('.tab-list button').eq(indexOfElem).animate({
             marginLeft: '10%',
            }, 200 , function() {
             // Animation complete.
@@ -46,46 +45,40 @@ jQuery(document).ready(function($) {
         }); 
     }
     
-    tabs.find('a').focus(function(e) {
-      handleTabClick.call($(e.target).closest('div'))
+    tabs.focus(function(e) {
+      handleTabClick.call($(e.target))
     });
     
-    tabs.on('click', handleTabClick) 
     tabs.on('keydown', function(e) {
       switch(e.keyCode) {
-        // case KeyCodes.RETURN:
-        // case KeyCodes.SPACE:
-        //   e.preventDefault()
-        //   handleTabClick.call($(e.target).closest('div'))
-        //   break;
         case KeyCodes.HOME:
           e.preventDefault()
-          tabs.first().find('a').focus();
+          tabs.first().focus();
           break;
         case KeyCodes.END:
           e.preventDefault()
-          tabs.last().find('a').focus();
+          tabs.last().focus();
           break;
         case KeyCodes.RIGHT:
         case KeyCodes.DOWN:
           e.preventDefault();
-          var focusedIndex = tabs.find(':focus').parent().index();
+          var focusedIndex = $(':focus').index();
           if (focusedIndex < tabs.length - 1) {
-            tabs.eq(focusedIndex + 1).find('a').focus();
+            tabs.eq(focusedIndex + 1).focus();
           }
           else {
-            tabs.first().find('a').focus();
+            tabs.first().focus();
           }
           break;
         case KeyCodes.LEFT:
         case KeyCodes.UP:
           e.preventDefault();
-          var focusedIndex = tabs.find(':focus').parent().index();
+          var focusedIndex = $(':focus').index();
           if (focusedIndex > 0) {
-            tabs.eq(focusedIndex - 1).find('a').focus();
+            tabs.eq(focusedIndex - 1).focus();
           }
           else {
-            tabs.last().find('a').focus();
+            tabs.last().focus();
           }
           break;
         default:

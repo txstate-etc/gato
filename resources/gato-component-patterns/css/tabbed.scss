@@ -69,31 +69,31 @@
           line-height: 2.8rem;
           margin: 0;
           text-align: left;
-          div.tab {
-            width: auto;
+          button {
             padding: 0;
             text-align: left;
-            display: inline-block;
             white-space: nowrap;
             margin-bottom: 1.4rem;
-            a {
-                cursor: pointer;
-                display: inline;
-                font-size: 1.4rem;
-                font-weight: 500;
-                line-height: 2.4rem;
-                border-width: 0;
-                border-style: solid;
-                padding-bottom: 3px;
-                transition: all 0.2s ease;
-                &:hover {
-                  box-shadow: inset 0 -1px 0 0;
-                  transform: translate(0px, -2px);
-                }
-                &.selected-tab {
-                  font-weight: 700;
-                  border-bottom-width: 1px;
-                }
+            border: 0;
+            background-color: transparent;
+            span {
+              font-weight: 500;
+              line-height: 2.4rem;
+              border-width: 0;
+              border-style: solid;
+              padding-bottom: 3px;
+              transition: all 0.2s ease;
+            }
+            &:hover span{
+              box-shadow: inset 0 -1px 0 0;
+              transform: translate(0px, -2px);
+            }
+            &.selected-tab {
+              margin-left: 10%;
+              span {
+                font-weight: 700;
+                border-bottom-width: 1px;
+              }
             }
           }
         }
@@ -106,14 +106,10 @@
                 div.tab-list {
                     flex-direction: row;
                     flex: 1 0 auto;
-                    .tab {
+                    button {
                         padding-right: 2rem;
-                    }
-                    div.tab {
                         margin-bottom: 0;
-                        a {
                         margin-left: 0 !important;
-                        }
                     }
                 }
             }

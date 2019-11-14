@@ -17,10 +17,10 @@
         <div class="links">
           <div class="tab-list" role="tablist">
           [#list components as component ]
-            <div class="tab">
-              <a id="tab${component.tabLink?replace(" ", "")}" tabindex="${(component?is_first)?then("0", "-1")}" role="tab" aria-controls="panel${component.tabLink?replace(" ", "")}" aria-selected="${(component?index == 0)?then("true", "false")}">${component.tabLink}</a>
-            </div>
-          [/#list]             
+            <button role="tab" id="tab${component.tabLink?replace(" ", "")}" tabindex="${(component?is_first)?then("0", "-1")}" aria-controls="panel${component.tabLink?replace(" ", "")}" aria-selected="${(component?index == 0)?then("true", "false")}">
+              <span>${component.tabLink}</span>
+            </button>
+          [/#list]
           </div>
         </div>
       </div>
