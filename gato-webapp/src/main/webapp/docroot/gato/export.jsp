@@ -29,7 +29,7 @@
 	String repo = request.getParameter("repo");
 	if (StringUtils.isEmpty(repo)) repo = ContentRepository.WEBSITE;
 
-	String[] workspaces = {"config", "dam", "gatoapps", "usergroups", "userroles", "users", "website"};
+	String[] workspaces = {"config", "dam", "gatoapps", "resources", "usergroups", "userroles", "users", "website"};
 	if (Arrays.asList(workspaces).contains(repo)) {
 		Session hm=MgnlContext.getJCRSession( repo );
 		response.setContentType("text/xml");
