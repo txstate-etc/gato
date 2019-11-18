@@ -59,6 +59,10 @@ public class CreateSiteMapCommand extends GatoBaseSchedulerCommand {
               PropertyUtil.setProperty(siteMapNode, "title", "Site Map");
               PropertyUtil.setProperty(siteMapNode, "hideInNav", true);
               PropertyUtil.setProperty(siteMapNode, "addTitleSeparator", true);
+              Node headerImageArea = NodeUtil.createPath(siteMapNode, "subpage-banner", NodeTypes.Area.NAME);
+              Node headerImage = NodeUtil.createPath(headerImageArea, "0", NodeTypes.Component.NAME);
+              PropertyUtil.setProperty(headerImage, "visible", "hidden");
+              PropertyUtil.setProperty(headerImage, "mgnl:template", "gato-template-mobilefirst:components/subpage-banner");
               siteRoot.save();
               publishSiteMap(context, siteMapNode);
             }
@@ -69,6 +73,10 @@ public class CreateSiteMapCommand extends GatoBaseSchedulerCommand {
               PropertyUtil.setProperty(siteMapNode, "title", "Site Map");
               PropertyUtil.setProperty(siteMapNode, "hideInNav", true);
               PropertyUtil.setProperty(siteMapNode, "hideSidebar", true);
+              Node headerImageArea = NodeUtil.createPath(siteMapNode, "headerImage", NodeTypes.Area.NAME);
+              Node headerImage = NodeUtil.createPath(headerImageArea, "0", NodeTypes.Component.NAME);
+              PropertyUtil.setProperty(headerImage, "visible", "hidden");
+              PropertyUtil.setProperty(headerImage, "mgnl:template", "gato-template-txstate2015:components/header-image");
               siteRoot.save();
               publishSiteMap(context, siteMapNode);
             }
