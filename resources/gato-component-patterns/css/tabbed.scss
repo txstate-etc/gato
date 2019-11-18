@@ -74,6 +74,7 @@
             text-align: left;
             white-space: nowrap;
             margin-bottom: 1.4rem;
+            margin-left: 0;
             border: 0;
             background-color: transparent;
             span {
@@ -118,6 +119,9 @@
 
     .overlay-content {
         display: none;
+        &.selected-content {
+          display: block;
+        }
         width: 70%;
         float: right;
         [data-eq~="1000px"] & {
