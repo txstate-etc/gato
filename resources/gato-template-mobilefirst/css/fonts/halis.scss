@@ -1,0 +1,60 @@
+/* Book Weight */
+@font-face {
+  font-family:"Halis GR";
+  src:url("#{$font-path}/halis/HalisGR-Book-webfont.woff2") format("woff2"),url("#{$font-path}/halis/HalisGR-Book-webfont.woff") format("woff"),url("#{$font-path}/halis/HalisGR-Book-webfont.ttf") format("ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family:"Halis GR";
+  src:url("#{$font-path}/halis/HalisGR-Book-Italic-webfont.woff2") format("woff2"),url("#{$font-path}/halis/HalisGR-Book-Italic-webfont.woff") format("woff");
+  font-weight: 400;
+  font-style: italic;
+}
+
+
+/* Regular Weight */
+@font-face {
+  font-family:"Halis GR";
+  src:url("#{$font-path}/halis/HalisGR-Regular-webfont.woff2") format("woff2"),url("#{$font-path}/halis/HalisGR-Regular-webfont.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family:"Halis GR";
+  src:url("#{$font-path}/halis/HalisGR-Regular-Italic-webfont.woff2") format("woff2"),url("#{$font-path}/halis/HalisGR-Regular-Italic-webfont.woff") format("woff"), url("#{$font-path}/halis/HalisGR-Regular-webfont.ttf") format("ttf");
+  font-weight: 500;
+  font-style: italic;
+}
+
+/* Medium Weight */
+@font-face {
+  font-family:"Halis GR";
+  src:url("#{$font-path}/halis/HalisGR-Medium-webfont.woff2") format("woff2"),url("#{$font-path}/halis/HalisGR-Medium-webfont.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family:"Halis GR";
+  src:url("#{$font-path}/halis/HalisGR-MediumItalic-webfont.woff2") format("woff2"),url("#{$font-path}/halis/HalisGR-MediumItalic-webfont.woff") format("woff");
+  font-weight: 600;
+  font-style: italic;
+}
+
+/* Bold Weight */
+@font-face {
+  font-family:"Halis GR";
+  src:url("#{$font-path}/halis/HalisGR-Bold-webfont.woff2") format("woff2"),url("#{$font-path}/halis/HalisGR-Bold-webfont.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family:"Halis GR";
+  src:url("#{$font-path}/halis/HalisGR-BoldItalic-webfont.woff2") format("woff2"),url("#{$font-path}/halis/HalisGR-BoldItalic-webfont.woff") format("woff");
+  font-weight: 700;
+  font-style: italic;
+}
