@@ -276,4 +276,7 @@ jQuery(document).ready(function($) {
     });
   }
   apply_up_actions();
+
+  //hide separator if there are no buttons
+  if ($('#main-menu .multilinks li').length == 0) $('.super-list.first').addClass('no-buttons');
 });

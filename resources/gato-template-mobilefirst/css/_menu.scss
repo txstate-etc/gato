@@ -121,6 +121,10 @@ nav.main-menu {
     &.first {
       padding-bottom: 1rem;
       border-bottom: 1px solid $dark-sandstone;
+      &.no-buttons {
+        padding-top: 1rem;
+        border-top: 1px solid $dark-sandstone;
+      }
     }
     &.second {
       margin-bottom: 1.0rem;
