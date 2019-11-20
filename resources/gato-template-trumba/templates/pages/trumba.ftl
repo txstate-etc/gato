@@ -6,33 +6,30 @@
   <head>
     [@googletagmanager /]
     <link rel="stylesheet" type="text/css" href="${gf.resourcePath()}/gato-template-trumba/css/standard.scss"/>
-    [@templatejs scripts=['gato-template-trumba/js/trumba.js'
+    [@templatejs scripts=['gato-template-trumba/js/trumba.js',
+                          'gato-template-mobilefirst/js/footer.js',
+                          'gato-template-mobilefirst/js/menu.js',
+                          'gato-template-mobilefirst/js/mobilefirst.js'
     ]/]
     <script type="text/javascript" src="//www.trumba.com/scripts/spuds.js"></script>
     [@templatehead/]
   </head>
-
   <body>
     [@skipnav/]
     [@googletagmanagerbody /]
-    <div id="panel" class="container">
-      [#include "/gato-template-txstate2015/templates/pages/includes/top-banner.ftl"]
-
-      <div class="header_no_image txstate-dept-title">
-        <div class="title">
-          <div class="dept_name">
-            <a class="parent_org" href="${cmsfn.link(homepage)}">Texas State University</a>
-            <span class="office_name"><a href="#">[@pagetitle content /]</a></span>
+    [#include "/gato-template-mobilefirst/templates/pages/includes/header.ftl"]
+    [#include "/gato-template-mobilefirst/templates/pages/includes/menu.ftl"]
+    <div class="page-container" id="panel">
+      [@cms.area name="organization-info" content=gf.getOrCreateArea(homepage, 'organization-info') editable=isHomePage contextAttributes={"isHome":def.parameters.isFeatureTemplate!false, "hasImage":false}/]
+      <div class="gato-section-full">
+        <div class="gato-section-centered">
+          <div class="gato-section">
+            [@breadcrumbs/]
           </div>
         </div>
       </div>
-
-      <div class="trail">
-        [@breadcrumbs/]
-      </div>
-
-      <div class="page_content">
-        <main class="contentcolumn">
+      <div class="main-content">
+        <main class="contentcolumn ${content.intro?has_content?then('', 'no-intro')}">
           <h1 id="maincontent" class="visuallyhidden">${gf.nodeTitle(content)}</h1>
           <div class="gato-section-full">
             <div class="gato-section-centered">
@@ -57,8 +54,7 @@
             </div>
           </div>
         </main>
-
-        <aside class="sidebar-container">
+        <aside>
           <div class="sidebar">
             [#if isMainCalendar]
               <div class="side_nav nav-without-title">
@@ -72,7 +68,7 @@
                 addTrumbaSpud({ webName: 'calendar.${content.calendar}', spudType: 'datefinder' });
               </script>
             </div>
-            [#if content.code?hasContent]
+            [#if content.code?has_content]
             <div class="side_nav nav-without-title">
               <button class="btn-submit-event">Submit Event</button>
             </div>
@@ -98,33 +94,9 @@
             </ul>
           </div>
         </aside>
-      </div> <!-- end of page_content -->
-      <footer class="footer">
-        <div class="footer_content">
-          <div class="footer_column footer_column_1">
-            <div class="social-tagline">Connect with Us:</div>
-            <div class="social-icons">
-              [@cms.area name="socialmedia" contextAttributes={"icononly": true}/]
-            </div>
-          </div>
-          <div class="footer_column footer_column_2">
-            <div class="txst_logo">
-              <a class="image_link" href="http://www.txstate.edu">
-                <!--[if lt IE 9]>
-                <img alt="Texas State University - The Rising Star of Texas" src="${gf.resourcePath()}/gato-template-txstate2015/images/txst_logo.png">
-                <![endif]-->
-                <!--[if gte IE 9]><!-->
-                <img alt="Texas State University - The Rising Star of Texas" src="${gf.resourcePath()}/gato-template-txstate2015/images/txst_logo.svg">
-                <!--<![endif]-->
-              </a>
-            </div>
-          </div>
-          <div class="footer_column footer_column_3">
-            <a class="apply_now about_txstate" href="http://www.txstate.edu/about">About Texas State</a>
-          </div>
-        </div>
-      </footer>
-    </div> <!-- end of the container -->
+      </div>
+      [#include "/gato-template-mobilefirst/templates/pages/includes/footer.ftl"]
+    </div>
     <div id="submit-event-modal">
     <button class="btn-close-modal">Close</button>
     <script id="trumbaSubmitEventJS" type="text/javascript" src="//www.trumba.com/ea/scripts/submitevent.js"></script>

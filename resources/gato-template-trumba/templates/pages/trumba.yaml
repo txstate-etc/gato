@@ -6,6 +6,46 @@ dialog: gato-template-trumba:pages/trumba
 areas:
   socialmedia:
     !include /gato-template/templates/areas/optional-social.yaml
+  organization-info:
+    type: single
+    title: Organization Information
+    templateScript: /gato-template-mobilefirst/templates/areas/org-info.ftl
+    availableComponents:
+      parentOrg:
+        id: gato-template-mobilefirst:components/parentOrganization
+  socialmedia:
+    type: single
+    templateScript: /gato-template/templates/areas/optional-social.ftl
+    createAreaNode: false
+    availableComponents:
+      sociallink:
+        id: gato-template-mobilefirst:components/mfsociallink
+  siteinfo:
+    type: single
+    title: Contact Information
+    availableComponents:
+      miscText:
+        id: gato-template:components/minrichtext
+  left-footer-links-header:
+    type: single
+    title: Left Footer Links Header
+    availableComponents:
+      header:
+        id: gato-template-mobilefirst:components/footerlinksheader
+  right-footer-links-header:
+    type: single
+    title: Right Footer Links Header
+    availableComponents:
+      header:
+        id: gato-template-mobilefirst:components/footerlinksheader
+  gato-footer-resources:
+    type: list
+    templateScript: /gato-template-mobilefirst/templates/areas/gato-footer-resources.ftl
+    availableComponents:
+      link:
+        id: gato-template:components/link
+  connect:
+    !include /gato-template/templates/areas/linklist.yaml
 parameters:
   sortOrder: 800
 variations:
