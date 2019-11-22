@@ -28,10 +28,17 @@ jQuery(document).ready(function($) {
         }
       })
       $('.overlay-content').not(':eq('+ tab.index() +')').velocity("fadeOut", {
-        duration: 100
+        duration: 200,
+        begin: function() {
+          var height = $(this).closest('.panel-wrapper').height();
+          $(this).closest('.panel-wrapper').css('height', height + "px")
+        },
       })
       $('.overlay-content').eq(tab.index()).velocity("fadeIn", {
-        duration: 100, delay: 100
+        duration: 200, delay: 200,
+        complete: function() {
+          $(this).closest('.panel-wrapper').css('height', "auto")
+        }
       })
     }
     
@@ -56,6 +63,8 @@ jQuery(document).ready(function($) {
     tabs.focus(function(e) {
       handleTabClick.call($(e.target))
     });
+    
+    tabs.on('click', handleTabClick);
     
     tabs.on('keydown', function(e) {
       switch(e.keyCode) {

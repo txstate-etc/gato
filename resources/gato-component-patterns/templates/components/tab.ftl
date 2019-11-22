@@ -1,5 +1,6 @@
 [#if !(ctx.barsonly!false)]
-<div class="overlay-content ${(ctx.first == "true")?then("selected-content", "")}" id="panel${content.tabLink?replace(" ", "")}" role="tabpanel" aria-labelledby="tab${content.tabLink?replace(" ", "")}" tabindex="${(ctx.first == "true")?then("0", "-1")}">
+<div class="overlay-content ${(ctx.first == "true")?then("selected-content", "")}" id="panel${content.tabLink?replace(" ", "")}" role="tabpanel" aria-labelledby="tab${content.tabLink?replace(" ", "")}" 
+    tabindex="${(ctx.first == "true")?then("0", "-1")}" style="opacity: ${(ctx.first == "true")?then("1", "0")}; display: ${(ctx.first == "true")?then("block", "none")}">
   <h2 class="title">${content.title}</h2>
   <div class="text">
     ${content.caption!''}
