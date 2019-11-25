@@ -3,11 +3,14 @@ package edu.txstate.its.gato;
 import info.magnolia.ui.form.field.definition.SelectFieldOptionDefinition;
 import info.magnolia.ui.form.field.factory.SelectFieldFactory;
 
-import org.apache.xmlrpc.XmlRpcClientLite;
-import java.util.Vector;
-import java.util.List;
+import com.google.gson.*;
+
+import org.apache.commons.io.IOUtils;
+
+import java.net.URL;
+
 import java.util.ArrayList;
-import java.util.ListIterator;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,32 +32,25 @@ public class DepartmentSelectorFieldFactory extends SelectFieldFactory<Departmen
     public List<SelectFieldOptionDefinition> getSelectFieldOptionDefinition() {
         List<SelectFieldOptionDefinition> res = new ArrayList<SelectFieldOptionDefinition>();
 
-        try{
-            //use xmlrpc to get list of departments
-            XmlRpcClientLite client =
-                new XmlRpcClientLite("http://apps.its.txstate.edu/people/RPC.mpl");
-                
-            String method = "getDepartmentList";
-            Vector params = new Vector();
-            Vector result = (Vector)client.execute( method, params );
-            
-            ListIterator i = result.listIterator();
-            while (i.hasNext() )
-            {
-                //make an option for each one
-                SelectFieldOptionDefinition option = new SelectFieldOptionDefinition();
-                String department = (String)i.next();
-                //set label and value for each option (same)
-                option.setValue(department);
-                option.setLabel(department);
-                res.add(option);
+        String url = "https://secure.its.txstate.edu/iphone/people/dept.pl";
+        try {
+          String json = IOUtils.toString(new URL(url).openStream());
+          JsonObject resultsObj = new JsonParser().parse(json).getAsJsonObject();
+          JsonArray results = resultsObj.get("results").getAsJsonArray();
+          for (JsonElement elem : results) {
+            SelectFieldOptionDefinition option = new SelectFieldOptionDefinition();
+            JsonObject departmentObj = elem.getAsJsonObject();
+            String department = departmentObj.get("name").getAsString();
+            if(department.length() > 0) {
+              option.setValue(department);
+              option.setLabel(department);
+              res.add(option);
             }
-            return res;
+          }
+        } catch(Exception e) {
+          e.printStackTrace();
         }
-        catch(Exception e){
-            log.warn("Malformed URL.  Unable to retrieve department list.");
-            return res;
-        }
+        return res;
     }
 
 
