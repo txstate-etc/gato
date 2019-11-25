@@ -16,7 +16,6 @@ jQuery(document).ready(function($) {
     if (params.type != type) {
       params.type = type;
       history.pushState(null, null, createHashQuery(params));
-      scroll_to_top();
     }
     if (type == 'people') {
       container.removeClass('web');
@@ -197,7 +196,6 @@ jQuery(document).ready(function($) {
       delete params.peoplepage;
     }
     history.pushState(null, null, createHashQuery(params));
-    scroll_to_top();
     load_from_state();
   }
 
