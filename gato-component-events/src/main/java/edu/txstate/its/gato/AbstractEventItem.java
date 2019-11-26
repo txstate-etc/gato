@@ -60,6 +60,10 @@ abstract class AbstractEventItem implements EventItem {
     return getHumanDate(getEndDate(), showEndDate, true);
   }
 
+  public String getAllDayDate() {
+    return getHumanDate(getStartDate(), true, false);
+  }
+
   public String getMachineMonth() {
     return machineMonthFormat.format(getStartDate());
   }

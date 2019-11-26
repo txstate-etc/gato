@@ -21,7 +21,6 @@
   [#assign eventRepeats = {}]
   [#if content.hideRepeats!false]
     [#list model.items as item]
-
       [#-- If the item's event ID is not in the hash or it has a later end date, save it in the hash --]
       [#if !endDateHash[item.eventId]?? || (endDateHash[item.eventId]?datetime < item.endDate?datetime)]
         [#assign endDateHash = endDateHash + {item.eventId : item.endDate}]
@@ -44,7 +43,6 @@
   [/#if]
 <div class="gato-events">
   [#list model.items as item]
-
     [#-- if content.hideRepeats is missing or false OR content.hideRepeats is true and this is the first/only recurrence of an event --]
     [#if (!content.hideRepeats?? || !content.hideRepeats) || (content.hideRepeats && recurrenceIdHash[item.eventId] == item.recurrenceId)]
 
@@ -60,26 +58,33 @@
               ${item.title}
             </a>
           [/@h2]
-          <div class="txst-eventdetail-dates">
-            <time class="dt-start dtstart" datetime="${item.machineStartDate}">
-              ${item.humanStartDate}
-            </time>
-            [#if item.showEndDate]
-              &ndash;
-              <time class="dt-end dtend" datetime="${item.machineEndDate}">
-                ${item.humanEndDate}
+          [#if item.allDay!false]
+            <div class="txst-eventdetail-dates">
+              <time class="dt-start dtstart">
+                ${item.allDayDate}
               </time>
-            [/#if]
+            </div>
+          [#else]
+            <div class="txst-eventdetail-dates">
+              <time class="dt-start dtstart" datetime="${item.machineStartDate}">
+                ${item.humanStartDate}
+              </time>
+              [#if item.showEndDate]
+                &ndash;
+                <time class="dt-end dtend" datetime="${item.machineEndDate}">
+                  ${item.humanEndDate}
+                </time>
+              [/#if]
 
-            [#-- If repeat events are hidden and this is a recurring event.  Don't show end date for one time events --]
-            [#if (content.hideRepeats!false) && (eventRepeats[item.eventId])]
-              <span class="repeat-event-enddate">
-                until ${abbrMonth(endDateHash[item.eventId]?string('MMMM'))} ${endDateHash[item.eventId]?string('dd')}
-              </span>
-            [/#if]
-          </div>
+              [#-- If repeat events are hidden and this is a recurring event.  Don't show end date for one time events --]
+              [#if (content.hideRepeats!false) && (eventRepeats[item.eventId])]
+                <span class="repeat-event-enddate">
+                  until ${abbrMonth(endDateHash[item.eventId]?string('MMMM'))} ${endDateHash[item.eventId]?string('dd')}
+                </span>
+              [/#if]
+            </div>
+          [/#if]
         </div>
-
         <div class="gato-accordion-content" id="${eventDomId}">
 
           <div class="thumb-container">

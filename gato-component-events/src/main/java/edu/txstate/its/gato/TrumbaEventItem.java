@@ -130,6 +130,10 @@ public class TrumbaEventItem extends AbstractEventItem {
     return getDate("endDateTime", "endTimeZoneOffset");
   }
 
+  public boolean getAllDay() {
+    return getPropertyBool("allDay");
+  }
+
   public String getEventId() {
     return getTitle();
   }
