@@ -122,9 +122,10 @@
       }
       .pattern-content {
         padding: 2rem;
-        // @media (max-width:$sm-breakpoint) {
-        //   padding-top: 2rem;
-        // }
+        padding-right: 4rem;
+        @media (max-width:$sm-breakpoint) {
+          padding-right: 2rem;
+        }
       }
     }
     &.image-left {
@@ -133,9 +134,10 @@
       }
       .pattern-content {
         padding: 2rem;
-        // @media (max-width:$sm-breakpoint) {
-        //   padding: 2rem 2rem 4rem 2rem;
-        // }
+        padding-left: 4rem;
+        @media (max-width:$sm-breakpoint) {
+          padding-left: 2rem;
+        }
       }
     }
   }
