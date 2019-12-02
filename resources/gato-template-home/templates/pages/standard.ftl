@@ -57,7 +57,7 @@
           [@cms.area name="landing-banner"/]
         [/#if]
         [#if def.parameters.isHomeTemplate!false]
-    
+
           [@cms.area name="homecontent"/]
         [#else]
           [#if !def.parameters.isHomeTemplate!false]
@@ -96,5 +96,6 @@
     [#include "/gato-template-mobilefirst/templates/pages/includes/footer.ftl"]
     [@cssjsmodals /]
     [#include "/gato-template/templates/includes/video-modal.ftl"]
+    <!--  GENERATED-CONTENT-ENDS-DHTN23TN423HT4D -->
   </body>
 </html>
