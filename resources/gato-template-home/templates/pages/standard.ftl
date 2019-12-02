@@ -64,7 +64,7 @@
             <div class="gato-section-full">
               <div class="gato-section-centered">
                 <div class="gato-section">
-                  [@breadcrumbs/]
+                  [@breadcrumbs true/]
                 </div>
               </div>
             </div>
