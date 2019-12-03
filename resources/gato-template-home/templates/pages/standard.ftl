@@ -3,6 +3,7 @@
 <!DOCTYPE HTML>
 <html lang="en">
   <head>
+    [@googletagmanager /]
     [#assign scripts = ['gato-template-home/js/standard.cjs']]
     [@templatejs scripts /]
 
