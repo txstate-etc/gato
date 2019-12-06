@@ -7,7 +7,7 @@
           initFunction: initIconPicker
           loadScriptsInOrder: true
           scripts: [gato-lib/js/jquery-ui/jquery-ui.min.js, gato-template/js/icon-list.js, gato-template/js/icon-picker-modal.js]
-          styles: [gato-lib/js/jquery-ui/jquery-ui.min.css, gato-lib/css/font-awesome.scss, gato-template/css/icon-picker.css]
+          styles: [gato-lib/css/font-awesome.scss, gato-template/css/icon-picker.css]
           description: Select an icon from the Font Awesome Icon library
         - name: title
           label: Title

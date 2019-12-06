@@ -5,10 +5,16 @@
     border-radius:0px;
     margin-left: 5px;
     border: 0px;
+    padding: 3px 10px;
+    font-size: 12px;
 }
 
 #btnSelectIcon:hover{
     background: #444;
+}
+
+#btnSelectIcon:focus{
+  outline: #93bbc4 solid 4px;
 }
 
 /* Character counter for title and text fields */
@@ -17,41 +23,43 @@
     font-size: 15px;
 }
 
-/* Styles for the icon picker dialog header */
-
-.ui-widget-header{
-    border-color: #eee;
-    background: #eee;
-}
-
-.ui-dialog .ui-dialog-titlebar{
-    padding: 5px 5px;
-}
-
-.ui-dialog-title{
-    display: none;
-}
-
-#close-icon-picker{
-    text-align: right;
-}
-
-#close-icon-picker i{
-    font-size: 20px;
-    padding: 3px;
-    color: #999;
-    cursor: pointer;
+#btnCloseIconModal {
+  width: 30px;
+  height: 30px;
+  border: 0;
+  background-color: transparent;
+  font-size: 24px;
+  align-self: flex-end;
 }
 
 /* White background for icon picker */
 #icon-modal{
-    background: #FFF;
+  background: #FFF;
+  position: absolute;
+  top: 0;
+  width: 75%;
+  height: 90%;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border: 1px solid #888;
+}
+
+#icon-modal .icon-modal-content {
+  display:flex;
+  flex-direction: column;
+  max-height: 100%;
 }
 
 /* Styles for search field */
 
 .search-wrapper{
     position: relative;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    align-self: center;
+    width: 75%;
 }
 
 #search_for{
@@ -73,17 +81,19 @@
 
 .icon-picker-items{
     margin-top: 5px;
-    max-height: 300px;
+    max-height: 375px;
     padding: 5px;
+    overflow-y: scroll;
 }
 
 .icon-picker-item {
     float: left;
-    margin: 0px 8px 12px 8px;
+    margin: 0px 11px 12px 11px;
     text-align: center;
     cursor: pointer;
     color: inherit;
     width: 10%;
+    position: relative;
 }
 
 label.icon-picker-item input[type=radio] + div span{
@@ -117,22 +127,7 @@ label.icon-picker-item input[type=radio]:hover + div{
 }
 
 /* Styles for the previews */
-.ui-dialog-buttonpane .preview{
-    margin-left: 10px;
-    position: relative;
-}
-
-.preview{
-    display: inline-block;
-    position: fixed;
-    text-align: center;
-}
-
-.preview-icon, .hover-icon{
+.preview-icon{
     font-size: 2rem;
     padding: 3px;
-}
-
-.preview-name, .hover-icon-name{
-    font-size: 0.8rem;
 }
