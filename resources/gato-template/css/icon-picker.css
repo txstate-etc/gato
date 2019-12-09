@@ -81,7 +81,7 @@
 
 .icon-picker-items{
     margin-top: 5px;
-    max-height: 375px;
+    max-height: 350px;
     padding: 5px;
     overflow-y: scroll;
 }
@@ -94,26 +94,14 @@
     color: inherit;
     width: 10%;
     position: relative;
-}
-
-label.icon-picker-item input[type=radio] + div span{
-    font-size:30px;
-    padding: 5px;
+    font-size: 28px;
 }
 
 
-label.icon-picker-item input[type=radio]:checked + div {
-    outline: 4px solid #93BBC4;
-    background-color: #eee;
-}
 
-label.icon-picker-item input[type=radio]:hover + div{
-    background-color: #eee;
-}
-
-.icon-picker-item > input{
-    visibility: hidden;
-    position: absolute;
+.icon-picker-item[aria-checked=true] {
+  outline: 4px solid #93BBC4;
+  background-color: #eee;
 }
 
 /* Message when no icons are returned from search */
@@ -124,6 +112,29 @@ label.icon-picker-item input[type=radio]:hover + div{
     vertical-align: middle;
     line-height: 250px;
     color: #999;
+}
+
+.icon-actions {
+  align-self: flex-end;
+  padding: 0 2rem;
+  margin-top: 1rem;
+}
+
+.icon-actions .btnIconAction {
+  border: 0px;
+  padding: 3px 10px;
+  font-size: 12px;
+}
+
+.icon-actions .btnIconAction#btnCancel {
+  color: white;
+  background: #666;
+  margin-right: 12px;
+}
+
+.icon-actions .btnIconAction#btnSave {
+  color: white;
+  background: #446100;
 }
 
 /* Styles for the previews */

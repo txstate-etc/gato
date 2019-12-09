@@ -1,6 +1,7 @@
 function initIconPicker(def, node, el, tmpl) {
   
   var selectedIcon;
+  var initialIcon;
 
   //if there is an icon saved already, return its name
   //if not, return the default graduation cap icon
@@ -17,36 +18,41 @@ function initIconPicker(def, node, el, tmpl) {
   }
   
   function save(){
-    var selected = $('input[type=radio][name=iconselect]:checked').val();
+    var selected = $('.icon-picker-item[aria-checked=true]').attr('id');
     $('input[type=hidden].icon').val(selected).change();
     selectedIcon = selected;
-    closeModal();
+    updatePreview(selected);
   }
   
   var modalhtml = "";
-  modalhtml += '<div id="icon-modal" title="Select Icon">';
-  modalhtml += '<div tabindex="0" class="focusstart sr-only"></div>';
-  modalhtml += '<div class="icon-modal-content">'
-  modalhtml += '<button id="btnCloseIconModal"><i class="fa fa-close" aria-hidden="true"></i><span class="sr-only">Close Dialog</span></button>';
-  modalhtml += '<div class="search-wrapper">';
-  modalhtml += '<input id="search_for" placeholder="Search Icons"/>';
-  modalhtml += '<label for="search_for" class="fa fa-search" rel="tooltip" title="search"></label>';
-  modalhtml += '</div>';
-  modalhtml += '<fieldset>';
-  modalhtml += '<legend class="sr-only">Icons</legend>';
-  modalhtml += '   <div class="icon-picker-items"></div>';
-  modalhtml += '</fieldset>';
-  modalhtml += '<div id="no-icons">No Icons Found</div>';
-  modalhtml += '</div>';
-  modalhtml += '<div tabindex="0" class="focusend sr-only"></div>';
-  modalhtml += '</div>';
-  var html = '<span class="preview-icon"></span>';
-  html += '<button id="btnSelectIcon">SELECT NEW ICON</button>';
+  modalhtml += '<div id="icon-modal" title="Select Icon">' +
+                 '<div tabindex="0" class="focusstart sr-only"></div>' +
+                 '<div class="icon-modal-content">' +
+                   '<button id="btnCloseIconModal"><i class="fa fa-close" aria-hidden="true"></i><span class="sr-only">Close Dialog</span></button>' +
+                   '<div class="search-wrapper">' +
+                     '<input id="search_for" placeholder="Search Icons"/>' +
+                     '<label for="search_for" class="fa fa-search" rel="tooltip" title="search"></label>' +
+                   '</div>' +
+                   '<fieldset>' +
+                     '<legend class="sr-only">Icons</legend>' +
+                     '<div class="icon-picker-items" role="radiogroup"></div>' +
+                   '</fieldset>' +
+                   '<div id="no-icons">No Icons Found</div>' +
+                   '<div class="icon-actions">' +
+                     '<button class="btnIconAction" id="btnCancel">CANCEL</button>' +
+                     '<button class="btnIconAction" id="btnSave">SAVE CHANGES</button>' +
+                  '</div>' +
+                '</div>' +
+                '<div tabindex="0" class="focusend sr-only"></div>' +
+              '</div>';
+  var html = '<span class="preview-icon"></span>' +
+             '<button id="btnSelectIcon">SELECT NEW ICON</button>';
   $(el).append(html);
   $(el).closest('.dialog-content').append(modalhtml);
   $('#icon-modal').hide();
   
   selectedIcon = getSelectedIcon();
+  initialIcon = selectedIcon;
   updatePreview(selectedIcon);
   
   //open the dialog when the Select Icon button is clicked
@@ -54,7 +60,13 @@ function initIconPicker(def, node, el, tmpl) {
     openModal();
   });
   
-  $('#btnCloseIconModal').click(function() {
+  $('#btnCloseIconModal, #btnCancel').click(function() {
+    reset();
+    closeModal();
+  })
+  
+  $('#btnSave').click(function() {
+    save();
     closeModal();
   })
   
@@ -63,6 +75,35 @@ function initIconPicker(def, node, el, tmpl) {
     if (e.key === 'Escape' || e.key ==='Esc') {
       closeModal();
     }
+  })
+  
+  $(".icon-picker-items").keydown(function(e) {
+    var target = $(e.target).closest('.icon-picker-item');
+    var index = target.index();
+    if (e.keyCode == 39 || e.keyCode == 40) {
+      e.preventDefault();
+      if (index == $(".icon-picker-item").length - 1) {
+        focusIcon(0);
+      }
+      else {
+        focusIcon(index + 1);
+      }
+    }
+    if (e.keyCode == 37 || e.keyCode == 38) {
+      e.preventDefault();
+      if (index == 0) {
+        focusIcon($(".icon-picker-item").length - 1);
+      }
+      else {
+        focusIcon(index - 1);
+      }
+    }
+  })
+  
+  $(".icon-picker-items").click(function(e) {
+    var target = $(e.target).closest('.icon-picker-item');
+    var index = target.index();
+    focusIcon(index);
   })
   
   //trap focus in modal
@@ -77,15 +118,33 @@ function initIconPicker(def, node, el, tmpl) {
       first.focus();
     }
   })
+  
+  var focusIcon = function(index) {
+    var element = $('.icon-picker-item').eq(index);
+    
+    $('.icon-picker-item').each(function() {
+      $(this).attr('tabindex', -1).attr('aria-checked', false);
+    })
+    element.attr('aria-checked', true).attr('tabindex', 0);
+    element.focus();
+  }
 
   var openModal = function() {
     $('#icon-modal').show();
     createIconGrid(icons);
-    //show the current icon as selected
-    $('input[type=radio][name=iconselect][value='+ getSelectedIcon() +']').prop('checked', true);
-    
     $('#no-icons').hide();
     $('#btnCloseIconModal').focus();
+  }
+  
+  var reset = function() {
+    $('#' + initialIcon).off('change').on('change', function(event) {
+       $('.icon-picker-item').each(function() {
+         $(this).attr('tabindex', -1).attr('aria-checked', false);
+       })
+       $('#' + initialIcon).attr('tabindex', 0).attr('aria-checked', true);
+       updatePreview($(this).val());
+       save();
+    });
   }
 
   var closeModal = function() {
@@ -94,20 +153,13 @@ function initIconPicker(def, node, el, tmpl) {
     $('#btnSelectIcon').focus();
   }
   
-  function attachIconEventHandlers(){
-    $('input[type=radio][name=iconselect]').off('change').on('change', function(event) {
-       $(this).prop("checked", true);
-       updatePreview($(this).val());
-       save();
-
-    });
-  }
-  
   function createInput(id) {
-    return '<label for="'+id+'" title="'+id+'" class="icon-picker-item">'+
-      '<input type="radio" name="iconselect" class="iconselect" value="'+id+'" id="'+id+'"/>'+
-      '<div><span class="fa fa-fw ' + id +'"></span><span class="sr-only">' + id.substring(3) + '</span></div>'+
-    '</label>';
+    var tabindex = (id == selectedIcon) ? 0 : -1;
+    var ariaChecked = (id == selectedIcon) ? true : false;
+    return '<div id="' + id + '" class="icon-picker-item" role="radio" aria-checked="'+ ariaChecked +'" tabindex="'+ tabindex +'">' +
+              '<i class="fa fa-w '+ id +'" aria-hidden="true"></i>' +
+              '<span class="sr-only">' + id.substring(3) + '</span>' +
+           '</div>';
   }
   
   var createIconGrid = function(iconList) {
@@ -117,26 +169,33 @@ function initIconPicker(def, node, el, tmpl) {
     }
     $('.icon-picker-items .icon-picker-item').remove();
     $('.icon-picker-items').append(html);
-    attachIconEventHandlers();
   }
   
   //narrow down the displayed icons as the user types
   $('#search_for').on("keyup", function(){
       var searchVal = $(this).val();
       function isSubstring(iconName){
-          return iconName.indexOf(searchVal) > -1;
+        return iconName.indexOf(searchVal) > -1;
       }
       var filteredIcons = icons.filter(isSubstring);
       createIconGrid(filteredIcons);
       //if no icons match the search term, display a message
       if(filteredIcons.length < 1){
-          $('#no-icons').show();
+        $('#no-icons').show();
       }
       else{
-          $('#no-icons').hide();
+        $('#no-icons').hide();
+        var focusOn = 0;
+        if (filteredIcons.includes(selectedIcon)) {
+          focusOn = $('#' + selectedIcon).parent().index();
+        }
+        var element = $('.icon-picker-items label').eq(focusOn);
+        element.find('input').prop('checked', true);
+        $('.icon-picker-item div').each(function() {
+          $(this).attr('tabindex', -1);
+        })
+        element.find('div').attr('tabindex', 0);
       }
   });
 
 }
-
-
