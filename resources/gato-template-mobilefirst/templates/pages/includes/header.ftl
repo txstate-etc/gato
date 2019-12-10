@@ -25,9 +25,9 @@
   <div class="search-wrapper">
       [#import "/gato-template/templates/includes/search-modal.ftl" as search]
       [#if def.parameters.isHomeTemplate!false || def.parameters.isSearchTemplate!false]
-        [@search.searchBar false false true/]
+        [@search.searchBar false true/]
       [#else]
-        [@search.searchBar false true false/]
+        [@search.searchBar true false/]
       [/#if]
   </div>
 </header>

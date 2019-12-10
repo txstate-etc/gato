@@ -48,44 +48,6 @@
   font-size: 1.8rem;
   display: none;
   ul {list-style: none; padding: 0; margin: 0;}
-  .txst_mobile_search {
-
-    .search_bar{
-      width: 100%;
-      &.mobile_search_bar{
-        border:none;
-      }
-    }
-
-    input.search {
-      width: 82%;
-      border: 10px solid $mobile-search-border;
-      border-right: 0px;
-      border-radius: 0px;
-      background: $mobile-search-background;
-      height: 60px;
-      font-size: 16px;
-      font-weight: 500;
-      box-sizing: border-box;
-      vertical-align: middle;
-      padding-left: 8px;
-      &::-webkit-input-placeholder {color: $search-placeholder;}
-      &:-moz-placeholder {color: $search-placeholder;}
-      &::-moz-placeholder {color: $search-placeholder;}
-      &:-ms-input-placeholder {color: $search-placeholder;}
-      -webkit-appearance: none;
-    }
-    .icon {
-      width: 18%;
-      border: 0;
-      background: $mobile-search-icon;
-      color: $hamburger-menu-color;
-      height: 60px;
-      font-size: 2rem;
-      vertical-align: middle;
-      text-align: center;
-    }
-  }
   .mobile_nav_container {
     padding: 1.8rem;
     letter-spacing: 1px;

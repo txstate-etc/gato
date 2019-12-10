@@ -29,7 +29,7 @@
             </button>
           </div>
         </div>
-        [@search.searchBar false false true/]
+        [@search.searchBar false true/]
       </div>
 
     </div>
