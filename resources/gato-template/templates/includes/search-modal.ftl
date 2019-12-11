@@ -1,7 +1,14 @@
 [#assign mypage = (cmsfn.ancestors(content)?first)!cmsfn.page(content)]
 [#macro searchBar sitesearch=true isHomePage=false site='txstate_no_users' client='txstate']
   [#assign placeholder = sitesearch?string('Search this site', 'Search all of Texas State')]
-
+  <script type="text/javascript">
+    var window.gatosearchvars = {
+      sitesearch: "${sitesearch}",
+      isHomePage: "${isHomePage}",
+      site: "${site}",
+      client: "${client}"
+    }
+  </script>
   <div id="search-modal-content" class="hidden">
     <div class="searchbar">
       <form class="searchbar-form" action="//www.txstate.edu/search">
