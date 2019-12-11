@@ -32,7 +32,7 @@ jQuery(document).ready(function($) {
               search.featured(request.term)
               .then(function(results){
                   var data = results.slice(0,3).map(function(obj, index){
-                      var result = {title: obj.title, url_display: obj.url_display, url: obj.url};
+                      var result = {title: obj.title, url_display: obj.url_display, url: obj.url, value: obj.title};
                       return result;
                   });
                   response(data);
@@ -51,7 +51,7 @@ jQuery(document).ready(function($) {
                       .append('<div class="display-link">' +
                           '<a href="#">' + item.url_display + '</a>' +
                       '</div>');
-        return $( '<li class="suggestion">' )
+        return $( '<li class="suggestion" aria-label="' + item.title + '">' )
           .append($result)
           .appendTo( ul );
       };
