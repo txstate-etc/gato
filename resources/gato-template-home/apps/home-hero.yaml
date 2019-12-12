@@ -221,6 +221,13 @@ subApps:
               sortable: true
               propertyName: title
               class: info.magnolia.ui.workbench.column.definition.PropertyColumnDefinition
+            - name: alt
+              label: Alt. Text
+              width: 100
+              editable: true
+              sortable: true
+              propertyName: alttext
+              class: info.magnolia.ui.workbench.column.definition.PropertyColumnDefinition
             - name: enabled
               label: Enabled
               width: 70
