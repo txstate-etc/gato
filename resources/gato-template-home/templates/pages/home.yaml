@@ -13,4 +13,4 @@ variations:
   js:
     templateScript: /gato-component-cssjs/templates/pages/jsvariation.ftl
   rss:
-    templateScript: /gato-template-rss/templates/pages/rssvariation.ftl
+    templateScript: /gato-template-txstate2015/templates/pages/homepage-rssvariation.ftl
