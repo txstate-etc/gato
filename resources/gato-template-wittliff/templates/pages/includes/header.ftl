@@ -29,8 +29,4 @@
       <a href="http://www.txstate.edu"><img src="${gf.resourcePath()}/gato-template-wittliff/images/txst-logo.svg" class="menu-txst-logo" alt="Texas State University"></a>
     </nav>
   </div>
-  <div class="search-wrapper">
-    [#import "/gato-template/templates/includes/search-modal.ftl" as search]
-    [@search.searchBar true true /]
-  </div>
 </header>

@@ -39,5 +39,6 @@
       [@sidebarmodal skipsocial=true /]
     [/#if]
     [#include "/gato-template/templates/includes/video-modal.ftl"]
+    [#include "/gato-template/templates/includes/search-modal.ftl"]
   </body>
 </html>

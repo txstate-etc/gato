@@ -23,9 +23,9 @@
 /gato-component-cards/js/packery.min.js
 /gato-template/js/percentdisplay.js
 /gato-template/js/sharelink.js
-/gato-template/js/sitesearch.js
+/gato-template/js/pagination.js
 /gato-template/js/search-gsa.js
-/gato-template/js/dropdownsearch.js
+/gato-template/js/sitesearch.js
 /gato-component-cards/js/masonry.js
 /gato-component-cards/js/gridlayout.js
 /gato-template/js/video-slide.js

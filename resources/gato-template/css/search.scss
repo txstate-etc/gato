@@ -2,107 +2,90 @@
 
 /* drop down search bar */
 
-.ui-dialog-titlebar{
-    display:none;
-}
-
-.ui-widget-overlay{
-    background-image: none !important;
-    background: $search-dd-overlay-background-color !important;
-    opacity: 0 !important;
-    transition: 0.3s linear;
-}
-
-.ui-widget-overlay-fade{
-    opacity: 0.9 !important;
-    transition: 0.2s linear;
+.search-modal {
+  position: fixed;
+  z-index: 5;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba($search-dd-overlay-background-color, 0.9);
 }
 
 #search-modal-content{
-    background: $search-dd-dropdown-background-color !important;
-    min-height: initial !important;
-    padding: 0px;
-    &.hidden{
-      display:none;
-    }
-}
-
-.ui-dialog {
-    z-index: 3;
-    border: none !important;
-    border-radius: 0px !important;
-    padding: 0px !important;
-    &.ui-widget{
+  background: $search-dd-dropdown-background-color !important;
+  min-height: initial !important;
+  padding: 0px;
+  
+  .searchbar {
+    max-width: 60rem;
+    margin: auto;
+    padding: 3rem 2rem 2.5rem 2rem;
+    .searchbar-content {
+      position: relative;
+      border-bottom: 3px solid $search-dd-input-line-color;
+      font-size: 2.4rem;
+      padding-bottom: 0.5rem;
+      @media screen and (max-width: $mc-breakpoint) {
+        font-size: 2rem;
+      }
+      input.search {
+        background: transparent;
+        border: none;
+        width: 100%;
+        color: $search-dd-input-color;
+        font-weight: 500;
         font-family: $search-dd-dialog-font-family;
+        &::-webkit-input-placeholder {color: $search-dd-input-placeholder-color;}
+        &::-moz-placeholder {color: $search-dd-input-placeholder-color;}
+        &:-ms-input-placeholder {color: $search-dd-input-placeholder-color;}
+        &:-moz-placeholder {color: $search-dd-input-placeholder-color; opacity: 1;}
+        &:focus{
+          outline-width: 0;
+        }
+      }
+      .icon {
+        background: transparent;
+        border: none;
+        float: right;
+        color: $search-dd-icon-color;
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
     }
-    .searchbar{
-        max-width: 60rem;
-        margin: auto;
-        padding: 3rem 2rem 2.5rem 2rem;
-        .searchbar-content {
-            position: relative;
-            border-bottom: 3px solid $search-dd-input-line-color;
-            font-size: 2.4rem;
-            padding-bottom: 0.5rem;
-            @media screen and (max-width: $mc-breakpoint) {
-                font-size: 2rem;
-            }
-            input.search {
-                background: transparent;
-                border: none;
-                width: 100%;
-                color: $search-dd-input-color;
-                font-weight: 500;
-                font-family: $search-dd-dialog-font-family;
-                &::-webkit-input-placeholder {color: $search-dd-input-placeholder-color;}
-                &::-moz-placeholder {color: $search-dd-input-placeholder-color;}
-                &:-ms-input-placeholder {color: $search-dd-input-placeholder-color;}
-                &:-moz-placeholder {color: $search-dd-input-placeholder-color; opacity: 1;}
-                &:focus{
-                    outline-width: 0;
-                }
-            }
-            .icon {
-                background: transparent;
-                border: none;
-                float: right;
-                color: $search-dd-icon-color;
-                position: absolute;
-                right: 0;
-                top: 0;
-            }
+    .search-radios {
+      text-align: right;
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: $search-dd-radio-label-color;
+      top: 1.5rem;
+      position: relative;
+      margin-bottom: 0.8rem;
+      fieldset {
+        border: 0;
+      }
+      span{
+        margin-left: 2rem;
+        input[type="radio"] {
+          position: relative;
+          bottom: 2px;
+          margin-right: 0.5rem;
         }
-        .search-radios{
-            text-align: right;
-            font-size: 1.4rem;
-            font-weight: 500;
-            color: $search-dd-radio-label-color;
-            top: 1.5rem;
-            position: relative;
-            margin-bottom: 0.8rem;
-            fieldset {
-              border: 0;
-            }
-            span{
-                margin-left: 2rem;
-                input[type="radio"] {
-                    position: relative;
-                    bottom: 2px;
-                    margin-right: 0.5rem;
-                }
-            }
-        }
-        .btn-close-search-dialog {
-          height: 5px;
-          overflow: hidden;
-          padding: 0;
-          border: 0;
-          line-height: 0;
-          background-color: transparent;
-          color: transparent;
-          position: absolute;
-        }
+      }
     }
+    .btn-close-search-dialog {
+      height: 5px;
+      overflow: hidden;
+      padding: 0;
+      border: 0;
+      line-height: 0;
+      background-color: transparent;
+      color: transparent;
+      position: absolute;
+    }
+  }
 }
 
 /* site search results */

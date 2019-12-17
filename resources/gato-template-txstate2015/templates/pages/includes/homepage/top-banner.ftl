@@ -29,7 +29,6 @@
             </button>
           </div>
         </div>
-        [@search.searchBar false true/]
       </div>
 
     </div>

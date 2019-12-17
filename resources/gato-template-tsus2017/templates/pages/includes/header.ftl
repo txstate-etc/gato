@@ -15,8 +15,4 @@
         </nav
       </div>
     </div>
-    <div class="search-wrapper">
-        [#import "/gato-template/templates/includes/search-modal.ftl" as search]
-        [@search.searchBar true false /]
-    </div>
 </header>

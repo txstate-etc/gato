@@ -88,5 +88,7 @@
         [/#if]
     [@cms.area name="gatoHours" content=gf.getOrCreateArea(homepage, 'gatoHours') /]
     [#include "/gato-template/templates/includes/video-modal.ftl"]
+		[#assign showSearchScope = true]
+		[#include "/gato-template/templates/includes/search-modal.ftl"]
 	</body>
 </html>

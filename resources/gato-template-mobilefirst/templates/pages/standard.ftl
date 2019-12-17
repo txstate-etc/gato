@@ -95,5 +95,11 @@
     </div>
     [@cssjsmodals /]
     [#include "/gato-template/templates/includes/video-modal.ftl"]
+    [#assign useGlobalSearch = false]
+    [#assign showSearchScope = true]
+    [#if def.parameters.isSearchTemplate!false || def.parameters.isPassthroughTemplate!false]
+      [#assign useGlobalSearch = true]
+    [/#if]
+    [#include "/gato-template/templates/includes/search-modal.ftl"]
   </body>
 </html>

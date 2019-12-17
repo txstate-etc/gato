@@ -22,12 +22,4 @@
       [@cms.area name="menulinks" content=gf.getOrCreateArea(homepage, 'menulinks') editable=isHomePage/]
     </div>
   </div>
-  <div class="search-wrapper">
-      [#import "/gato-template/templates/includes/search-modal.ftl" as search]
-      [#if def.parameters.isHomeTemplate!false || def.parameters.isSearchTemplate!false]
-        [@search.searchBar false true/]
-      [#else]
-        [@search.searchBar true false/]
-      [/#if]
-  </div>
 </header>

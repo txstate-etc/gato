@@ -61,6 +61,8 @@
     [@cssjsmodals /]
     [@sidebarmodal /]
     [#include "/gato-template/templates/includes/video-modal.ftl"]
+    [#assign useGlobalSearch = true]
+    [#include "/gato-template/templates/includes/search-modal.ftl"]
     <!--  GENERATED-CONTENT-ENDS-DHTN23TN423HT4D -->
   </body>
 </html>

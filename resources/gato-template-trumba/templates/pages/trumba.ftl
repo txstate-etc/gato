@@ -110,5 +110,7 @@
     <script type="text/javascript">
       var eventSubmissionModal = new modal($('submit-event-modal'));
     </script>
+    [#assign useGlobalSearch = true]
+    [#include "/gato-template/templates/includes/search-modal.ftl"]
   </body>
 </html>
