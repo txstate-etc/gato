@@ -97,7 +97,10 @@ jQuery(document).ready(function($) {
       },
       select: function(event, ui){
         event.preventDefault();
-        window.location = ui.item.url;
+        if (event.keyCode && event.keyCode == 9) 
+          $('.searchbar-content button.icon').focus()
+        else
+          window.location = ui.item.url;
       }
     })
     .autocomplete( "instance" )._renderItem = function( ul, item ) {
