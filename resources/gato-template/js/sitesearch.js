@@ -6,8 +6,8 @@ jQuery(document).ready(function($) {
     openSearch: function() {
       this.isOpen = true;
       $('.search-modal').velocity("fadeIn", {duration: 300});
-      $('#search-modal-content').velocity("slideDown", { 
-        delay: 10, 
+      $('#search-modal-content').velocity("slideDown", {
+        delay: 10,
         duration: 300,
         complete: function() {
           $('#search-text').focus();
@@ -31,7 +31,7 @@ jQuery(document).ready(function($) {
   $('.search-modal').on('click', function (e) {
     if ($(e.target).closest('#search-modal-content').length == 0) searchmodal.closeSearch();
   });
-  
+
   //close with escape key
   $(window).on('keydown', function(e) {
     if (searchmodal.isOpen && e.keyCode == 27) {
@@ -48,7 +48,7 @@ jQuery(document).ready(function($) {
   $('#search-modal-content').focusout(function (e) {
     var tabbable = $('#search-modal-content').find(':tabbable');
     var first = tabbable.first();
-    var last = tabbable.last(); 
+    var last = tabbable.last();
     var targ = $(e.relatedTarget);
     if (targ.is('.search-focusstart')) {
       last.focus();
@@ -97,7 +97,7 @@ jQuery(document).ready(function($) {
       },
       select: function(event, ui){
         event.preventDefault();
-        if (event.keyCode && event.keyCode == 9) 
+        if (event.keyCode && event.keyCode == 9)
           $('.searchbar-content button.icon').focus()
         else
           window.location = ui.item.url;
@@ -312,9 +312,9 @@ jQuery(document).ready(function($) {
                     '<a href="#" data-sort="date" class="sort-link ' + (sort == "date" ? "active" : "") + '">Sort By Date</a>' +
                   '</div>';
 
-    var globalSearchUrl = search_global_url+"#q=" + query;
-
+    var globalSearchUrl = search_global_url+"#q=" + encodeURIComponent(query);
     var searchResults = results.results;
+    var safequery = html_encode(query);
 
     var html =  '<div id="search-results">' +
                   '<div class="layout-column twothirds search-title">' +
@@ -324,11 +324,11 @@ jQuery(document).ready(function($) {
                     '<div class="intro-title-border"></div>' +
                   '</div>' +
                   '<div class="layout-column twothirds">' +
-                    '<div id="search-info" data-site="' + site + '" data-query="' + query + '" data-sort="' + sort + '"></div>' +
+                    '<div id="search-info" data-site="' + html_encode(site) + '" data-query="' + safequery + '" data-sort="' + html_encode(sort) + '"></div>' +
                       '<div class="search-again">' +
                         '<form class="searchbar-form">' +
                           '<label class="hidden" for="s">Search Terms</label>' +
-                          '<input id="s" type="text" class="search" name="q" value="'+ query +'"></input><button class="icon magnify"><i class="fa fa-search" aria-label="Start Search"></i><span class="visuallyhidden">Start Search</span></button>' +
+                          '<input id="s" type="text" class="search" name="q" value="'+ safequery +'"></input><button class="icon magnify"><i class="fa fa-search" aria-label="Start Search"></i><span class="visuallyhidden">Start Search</span></button>' +
                           '<button class="icon reset"><i class="fa fa-times" aria-label="Reset Search"></i><span class="visuallyhidden">Reset Search</span></button>' +
                         '</form>' +
                       '</div>' +
@@ -336,7 +336,7 @@ jQuery(document).ready(function($) {
                         '<div class="all-results-help-text">Didn\'t find what you were looking for?</div>' +
                           buildButton(globalSearchUrl) +
                       '</div>' +
-                      (searchResults.length > 0 ? '<div class="results-count">Results ' + range + ' of about ' + total + ' for ' + query + '.</div>' : "") +
+                      (searchResults.length > 0 ? '<div class="results-count">Results ' + range + ' of about ' + total + ' for ' + safequery + '.</div>' : "") +
                       (searchResults.length > 0 ? sorting : "") +
                       formatResults(searchResults) +
                       (searchResults.length > 0  && total > 10 ? window.txstsearch.html_pagination(page, Math.ceil(total/10)) : "" ) +
@@ -375,7 +375,7 @@ jQuery(document).ready(function($) {
   //build "Search All Texas State" button
   var buildButton = function(url){
     var html= '<div class="button-wrapper all-results-button">' +
-                '<a class="button three-d color6 medium" href="'+ url +'">' +
+                '<a class="button three-d color6 medium" href="'+ html_encode(url) +'">' +
                   '<span>Search All Texas State</span>' +
                 '</a>' +
              '</div>';

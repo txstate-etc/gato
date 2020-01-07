@@ -164,7 +164,7 @@ function createHashQuery(params) {
 }
 
 function html_encode( html ) {
-    return document.createElement( 'a' ).appendChild(
+    return document.createElement( 'div' ).appendChild(
         document.createTextNode( html ) ).parentNode.innerHTML;
 };
 

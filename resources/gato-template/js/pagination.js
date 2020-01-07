@@ -4,6 +4,8 @@ jQuery(document).ready(function($) {
         var ts = window.txstsearch;
 
         ts.html_pagination = function (page, lastpage) {
+          page = parseInt(page) || 1
+          lastpage = parseInt(lastpage) || 1
           if (lastpage == 1) return '';
             var html = '<nav aria-label="Pagination">';
             html += '<ul class="pagination">';
