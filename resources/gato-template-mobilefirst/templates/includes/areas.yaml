@@ -18,20 +18,6 @@ menulinks:
   availableComponents:
     linksmultifield:
       id: gato-template-mobilefirst:components/linksmultifield
-home-banner:
-  type: single
-  title: Mobile First Banner
-  templateScript: /gato-template-mobilefirst/templates/areas/home-banner-area.ftl
-  availableComponents:
-    banner:
-      id: gato-template-mobilefirst:components/home-banner
-subpage-banner:
-  type: single
-  title: Subpage Banner
-  templateScript: /gato-template-mobilefirst/templates/areas/subpage-banner-area.ftl
-  availableComponents:
-    banner:
-      id: gato-template-mobilefirst:components/subpage-banner
 calico-hero:
   type: single
   title: Calico Hero Image
