@@ -2,12 +2,16 @@
 areas:
   column1:
     availableComponents: !override
+      icontext:
+        id: gato-template:components/icontext
       textimage:
         id: gato-template:components/textimage
       separator:
         id: gato-template:components/separator
   column2:
     availableComponents: !override
+      icontext:
+        id: gato-template:components/icontext
       textimage:
         id: gato-template:components/textimage
       separator:
