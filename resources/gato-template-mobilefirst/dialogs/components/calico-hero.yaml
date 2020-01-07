@@ -1,0 +1,68 @@
+#Used on Calico Feature template
+form:
+  tabs:
+    - name: tabMain
+      label: Image
+      fields:
+        - name: visible
+          class: info.magnolia.ui.form.field.definition.SwitchableFieldDefinition
+          transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+          label: Banner Image
+          options:
+            - label: Show banner image.
+              value: shown
+              selected: true
+            - label: Do not show banner image.
+              value: hidden
+          fields:
+            - name: shown
+              class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
+              transformerClass:  info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+              label: ""
+              layout: vertical
+              fields:
+                - name: size
+                  class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
+                  label: Image Size
+                  styleName: addspace
+                  layout: horizontal
+                  multiselect: false
+                  sortOptions: false
+                  options:
+                    - name: large
+                      label: Large
+                      value: large
+                      selected: true
+                    - name: small
+                      label: Small
+                      value: small
+                - name: customize
+                  class: info.magnolia.ui.form.field.definition.SwitchableFieldDefinition
+                  transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+                  label: "Customize Image?"
+                  styleName: addspace
+                  layout: vertical
+                  options:
+                    - label: Use parent banner image (if available)
+                      value: inherit
+                      selected: true
+                    - label: Upload a new banner image
+                      value: image
+                  fields:
+                    - name: image
+                      class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+                      required: true
+                      styleName: addspace customimage
+                      appName: assets
+                      targetWorkspace: dam
+                      label: Image
+                      identifierToPathConverter:
+                        class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
+                      contentPreviewDefinition:
+                        contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
+                      description: "Image for this banner. Will be resized to fit the banner area."
+        - name: stylesheet
+          label: ""
+          class: edu.txstate.its.gato.vaadin.GatoCssIncludeDefinition
+          styles: [gato-template-mobilefirst/dialogs/css/calico-hero.css]
+actions: !include /gato-template/dialogs/common/actions-block.yaml

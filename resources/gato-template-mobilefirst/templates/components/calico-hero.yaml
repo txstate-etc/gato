@@ -1,0 +1,7 @@
+templateScript: /gato-template-mobilefirst/templates/components/calico-hero.ftl
+renderType: freemarker
+title: Calico Hero Image
+description: A full width image
+dialog: gato-template-mobilefirst:components/calico-hero
+parameters:
+  icon: /gato-template/images/banner.png

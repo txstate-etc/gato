@@ -1,7 +1,0 @@
-templateScript: /gato-template-mobilefirst/templates/components/subpage-banner.ftl
-renderType: freemarker
-title: Mobile First Banner (Subpage)
-description: A full width image or video with alternate text
-dialog: gato-template-mobilefirst:components/subpage-banner
-parameters:
-  icon: /gato-template/images/banner.png

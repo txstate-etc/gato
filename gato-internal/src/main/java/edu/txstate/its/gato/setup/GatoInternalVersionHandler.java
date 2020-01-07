@@ -246,6 +246,11 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       .addTask(new BootstrapSingleModuleResource("config.modules.pages.apps.pages.subApps.browser.actions.editTemplate.availability.rules.IsNotSiteMapRule.xml"))
       .addTask(new BootstrapSingleModuleResource("config.modules.pages.apps.pages.subApps.browser.actions.move.availability.rules.IsNotSiteMapRule.xml"))
     );
+    
+    register(DeltaBuilder.update("1.2.7", "")
+      .addTask(new UpdateCalicoHerosTask())
+      .addTasks(installOrUpdateTasks())
+    );
   }
 
   protected List<Task> installOrUpdateTasks() {

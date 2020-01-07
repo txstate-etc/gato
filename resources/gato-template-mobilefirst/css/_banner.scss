@@ -18,7 +18,7 @@
      @media (max-width: $xs-breakpoint) {
        padding-bottom: 62.5%;
     }
-    &.interior {
+    &.small {
       height: 10em;
       @media (max-width: $xl-breakpoint) {
         padding-bottom: 0;
@@ -54,8 +54,16 @@ body.admin {
     .mgnlEditorBar.mgnlEditor.component {
       margin-bottom: 0px !important;
     }
+    &.has-image {
+      width: 25%;
+      position: absolute;
+      left: 50%;
+      top: calc(50% + 30px);
+      transform: translate(-50%, -50%);
+      z-index: 2;
+    }
   }
-  .banner-image {
+  .banner-image, .organization-info {
     width: 100%;
   }
 }

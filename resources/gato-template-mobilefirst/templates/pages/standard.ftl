@@ -35,13 +35,8 @@
     [#include "includes/header.ftl"]
     [#include "includes/menu.ftl"]
     <div class="page-container" id="panel">
-      [#if def.parameters.isFeatureTemplate!false]
-        [@cms.area name="home-banner" content=gf.getOrCreateArea(homepage, 'home-banner')/]
-      [#else]
-        [@cms.area name="subpage-banner" content=gf.getOrCreateArea(page, 'subpage-banner')/]
-      [/#if]
-      [#import "/gato-template-mobilefirst/templates/includes/headerImageLogic.ftl" as headerLogic]
-      [@cms.area name="organization-info" content=gf.getOrCreateArea(homepage, 'organization-info') editable=isHomePage contextAttributes={"isHome":def.parameters.isFeatureTemplate!false, "hasImage":headerLogic.hasImage}/]
+      [@cms.area name="calico-hero" content=gf.getOrCreateArea(page, 'calico-hero')/]
+      [@cms.area name="organization-info" content=gf.getOrCreateArea(homepage, 'organization-info') editable=isHomePage /]
       [#if !(def.parameters.isFeatureTemplate!false) && !(def.parameters.isPassthroughTemplate!false)]
       <div class="gato-section-full">
         <div class="gato-section-centered">

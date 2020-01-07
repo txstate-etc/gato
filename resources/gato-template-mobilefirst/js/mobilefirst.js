@@ -2,7 +2,7 @@ jQuery(document).ready(function($) {
 
   magnolialabelchange('.menubar .menu', '.mgnlEditor.mgnlPlaceholder', 'Add Header Links');
   magnolialabelchange('.multilinks .editMultiLinks', '.mgnlEditor.mgnlEditorBar', 'Header Links');
-  magnolialabelchange('.addBannerImage', '.mgnlEditor.mgnlPlaceholder', 'Edit Banner Image');
+  magnolialabelchange('.addBannerImage', '.mgnlEditor.mgnlPlaceholder', 'Edit Hero Image');
   magnolialabelchange('.contact-info', '.mgnlEditor.mgnlPlaceholder', 'Add Contact Information');
   magnolialabelchange('.organization-info .addParentOrg', '.mgnlEditor.mgnlPlaceholder', "Add Parent Organization");
   magnolialabelchange('.mobilefirst_component_add', '.mgnlEditor.mgnlPlaceholder', "Add Section");
@@ -109,18 +109,21 @@ jQuery(document).ready(function($) {
     }
   })
 
-  //fix spacing in layout content types with no title or background color
-  // $('.gato-section-full:not(.has-background)').each(function() {
-  //   var section = $(this);
-  //   if (section.find('.section-title').length == 0) {
-  //     section.find('.layout-column').each(function() {
-  //       $(this).addClass('add-space')
-  //     })
-  //   }
-  // })
-
   $(document).ready(function() {
     var $patternImages = $('.mobilefirst-pattern .pattern-image img')
     objectFitImages($patternImages);
   });
+  
+  $('.organization-info').each(function() {
+    if ($('.banner-section .banner').children().length == 0 ) {
+      $(this).addClass('no-image')
+    }
+  })
+  
+  $('body.admin .addBannerImage').each(function() {
+    if ($('.banner-section .banner .banner-image').length > 0 ) {
+      $(this).addClass('has-image')
+    }
+  })
+  
 });

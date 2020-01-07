@@ -1,0 +1,9 @@
+.v-caption-addspace {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.v-caption-customimage {
+  display: flex !important;
+  align-items: center;
+}

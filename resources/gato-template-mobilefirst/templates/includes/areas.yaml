@@ -32,6 +32,13 @@ subpage-banner:
   availableComponents:
     banner:
       id: gato-template-mobilefirst:components/subpage-banner
+calico-hero:
+  type: single
+  title: Calico Hero Image
+  templateScript: /gato-template-mobilefirst/templates/areas/calico-hero-area.ftl
+  availableComponents:
+    hero:
+      id: gato-template-mobilefirst:components/calico-hero
 organization-info:
   type: single
   title: Organization Information
