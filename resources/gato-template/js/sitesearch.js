@@ -7,7 +7,7 @@ jQuery(document).ready(function($) {
       this.isOpen = true;
       $('.search-modal').velocity("fadeIn", {duration: 300});
       $('#search-modal-content').velocity("slideDown", {
-        delay: 10,
+        delay: 20,
         duration: 300,
         complete: function() {
           $('#search-text').focus();
@@ -16,7 +16,7 @@ jQuery(document).ready(function($) {
 
     closeSearch: function() {
       $('#search-modal-content').velocity("slideUp", {duration: 300});
-      $('.search-modal').velocity("fadeOut", { delay: 10, duration: 300});
+      $('.search-modal').velocity("fadeOut", { delay: 150, duration: 200});
       this.isOpen = false;
       $('.search-link.search-button').focus();
     }

@@ -4,7 +4,7 @@
   [#assign isSiteSearch = false]
   [#assign placeholder = 'Search all of Texas State']
 [/#if]
-<div class="search-modal" style="display: none" role="dialog">
+<div class="search-modal" style="display: none; opacity:0" role="dialog">
 <div class="search-focusstart visuallyhidden" tabindex=0></div>
 <div id="search-modal-content" style="display: none">
   <div class="searchbar">
