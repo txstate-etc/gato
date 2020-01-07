@@ -1,0 +1,20 @@
+!inherit:gato-template:components/rows/thirds
+areas:
+  column1:
+    availableComponents: !override
+      textimage:
+        id: gato-template:components/textimage
+      separator:
+        id: gato-template:components/separator
+  column2:
+    availableComponents: !override
+      textimage:
+        id: gato-template:components/textimage
+      separator:
+        id: gato-template:components/separator
+  column3:
+    availableComponents: !override
+      textimage:
+        id: gato-template:components/textimage
+      separator:
+        id: gato-template:components/separator

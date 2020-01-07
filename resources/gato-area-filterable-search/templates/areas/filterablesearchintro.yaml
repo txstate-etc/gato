@@ -7,3 +7,7 @@ availableComponents:
     id: gato-area-filterable-search:components/rows/full
   twocolumns:
     id: gato-area-filterable-search:components/rows/halves
+  threecolumns:
+    id: gato-area-filterable-search:components/rows/thirds
+  fourcolumns:
+    id: gato-area-filterable-search:components/rows/quarters
