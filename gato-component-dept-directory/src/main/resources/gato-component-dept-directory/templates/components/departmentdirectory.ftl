@@ -37,7 +37,7 @@
     [#assign filter = content.filter]
 [/#if]
 <div class="gato-departmentdirectory">
-    [#list model.getPeople(content.department) as person]
+    [#list model.getPeople(cmsfn.decode(content).department) as person]
         [#assign showRecord = true]
         [#if person.category == "Retired"]
             [#assign showRecord = false]
