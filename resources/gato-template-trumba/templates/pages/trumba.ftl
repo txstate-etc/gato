@@ -20,6 +20,7 @@
     [#include "/gato-template-mobilefirst/templates/pages/includes/header.ftl"]
     [#include "/gato-template-mobilefirst/templates/pages/includes/menu.ftl"]
     <div class="page-container" id="panel">
+      <div class="banner-section"></div>
       [@cms.area name="organization-info" content=gf.getOrCreateArea(homepage, 'organization-info') editable=isHomePage contextAttributes={"isHome":def.parameters.isFeatureTemplate!false, "hasImage":false}/]
       <div class="gato-section-full">
         <div class="gato-section-centered">
