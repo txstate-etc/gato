@@ -165,7 +165,7 @@ function createHashQuery(params) {
 
 function html_encode( html ) {
     return document.createElement( 'div' ).appendChild(
-        document.createTextNode( html ) ).parentNode.innerHTML;
+        document.createTextNode( html ) ).parentNode.innerHTML.replace(/'/g, '&apos;').replace(/"/g, '&quot;');
 };
 
 // Add an abort method to Prototype's Ajax implementation
