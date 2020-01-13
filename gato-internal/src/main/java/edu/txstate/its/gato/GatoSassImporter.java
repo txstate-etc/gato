@@ -45,13 +45,11 @@ public class GatoSassImporter implements Importer {
       else if (this.origin.hasPath(resourceurl)) actualurl = resourceurl;
       else if (this.origin.hasPath(cssurl)) actualurl = cssurl;
       Resource resource = this.origin.getByPath(actualurl);
-      Reader reader = resource.openReader();
       Import uriImport = new Import(
         new URI(url),
         new URI(resource.getPath()),
-        IOUtils.toString(reader)
+        GatoResourcesServlet.readResource(resource)
       );
-      reader.close();
       ret.add(uriImport);
     } catch (Exception e) {
       e.printStackTrace();

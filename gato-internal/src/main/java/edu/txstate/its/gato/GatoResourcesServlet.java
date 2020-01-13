@@ -84,12 +84,23 @@ public class GatoResourcesServlet extends ResourcesServlet {
     }
   }
 
+  public static String readResource(Resource resource) throws IOException {
+    String content = "";
+    Reader reader = resource.openReader();
+    try {
+      content = IOUtils.toString(reader);
+    } finally {
+      reader.close();
+    }
+    return content;
+  }
+
   protected synchronized String compileSass(Resource resource) throws IOException, URISyntaxException, CompilationException {
     String path = resource.getPath();
     if (this.cache.containsKey(path)) return this.cache.get(path);
 
     URI inputuri = new URI(path);
-    Output output = this.compiler.compileString(IOUtils.toString(resource.openReader()), new URI("/"), inputuri, this.options);
+    Output output = this.compiler.compileString(GatoResourcesServlet.readResource(resource), new URI("/"), inputuri, this.options);
     String ret = output.getCss();
     this.cache.put(path, ret);
     return ret;
@@ -100,16 +111,14 @@ public class GatoResourcesServlet extends ResourcesServlet {
     if (this.cache.containsKey(path)) return this.cache.get(path);
 
     StringBuilder ret = new StringBuilder(100000);
-    String cjs = IOUtils.toString(resource.openReader());
+    String cjs = GatoResourcesServlet.readResource(resource);
     String[] files = cjs.split("\\n");
     for (String file : files) {
       Resource r = this.origin.getByPath(file);
       if (file.endsWith(".cjs")) ret.append(compileCjs(r));
       else {
-        Reader reader = r.openReader();
         ret.append("/*** "+file+" ***/\n");
-        ret.append(IOUtils.toString(reader));
-        reader.close();
+        ret.append(GatoResourcesServlet.readResource(r));
       }
     }
     String finalret = ret.toString();
