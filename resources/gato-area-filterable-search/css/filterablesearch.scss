@@ -1,3 +1,13 @@
+$filterable-search-divider-color: lightgray !default;
+$filterable-search-results-bg-color: white !default;
+$filterable-search-result-title-color: darkgray !default;
+$filterable-search-active-filter-bg-color: darkgray !default;
+$filterable-search-active-filter-color: white !default;
+$filterable-search-toggle-filters-button-color: darkgray !default;
+$filterable-search-selected-filter-bg-color: darkgray !default;
+$filterable-search-selected-filter-color: white !default;
+$filterable-search-header-font: serif !default;
+
 %active-filter {
   background-color: $filterable-search-active-filter-bg-color;
   color: $filterable-search-active-filter-color;
@@ -255,7 +265,7 @@
       padding-top: 4rem;
       @media (max-width:$sm-breakpoint) {
         padding-top: 2rem;
-      }      
+      }
       #result-list {
         margin: 2rem 0rem;
       }
@@ -350,7 +360,7 @@
                 }
                 .no-margin {
                   margin: 0;
-                }                
+                }
               }
               .image-container {
                 display: none;
