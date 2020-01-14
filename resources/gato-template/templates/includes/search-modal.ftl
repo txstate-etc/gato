@@ -52,8 +52,10 @@
               searchField.attr('placeholder', 'Search all of Texas State');
               sitesearchfield.remove();
             }
-            searchField.focus();
           });
+          jQuery( "input[name=txst-search]:radio" ).on('mouseup', function(e){
+            jQuery('#search-text').focus();
+          })
         </script>
       [/#if]
       <button class="btn-close-search-dialog">Close Search Dialog</button>
