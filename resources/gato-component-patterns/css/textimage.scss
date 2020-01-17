@@ -72,7 +72,10 @@
         //}
         img {
           border-radius: 2px;
-          min-height: unset;
+          min-height: 360px;
+          @media (max-width:$sm-breakpoint) {
+            min-height: auto;
+          }
         }
         @media (max-width:$mn-breakpoint) {
           float: none;
