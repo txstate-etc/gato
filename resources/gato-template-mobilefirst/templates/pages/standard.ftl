@@ -65,6 +65,7 @@
           </div>
           [/#if]
         [/#if]
+        [#include "/gato-template/templates/includes/sacscocWarning.ftl"]
         [#if def.parameters.isFeatureTemplate!false]
           [@cms.area name="mobileFirstContent"/]
         [#else]

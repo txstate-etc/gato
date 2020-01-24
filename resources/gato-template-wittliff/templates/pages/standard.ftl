@@ -33,6 +33,7 @@
         [#if !(def.parameters.isSpecialTemplate!false) && !(def.parameters.isEventsTemplate!false)]
           [@headline hideSidebar /]
         [/#if]
+        [#include "/gato-template/templates/includes/sacscocWarning.ftl"]
         [#if def.parameters.isMailTemplate!false]
           [@cms.area name="mail" contextAttributes={"hideSidebar":hideSidebar} /]
         [#elseif def.parameters.isHomeTemplate!false]

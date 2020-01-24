@@ -1570,6 +1570,12 @@ public final class GatoUtils {
     return ret;
   }
 
+  public boolean jsonGetBoolean(JsonObject obj, String key) {
+    if (obj == null || StringUtils.isBlank(key) || !obj.has(key)) return false;
+    boolean ret = obj.getAsJsonPrimitive(key).getAsBoolean();
+    return ret;
+  }
+
   public String uuidToHtmlId(String uuid) {
     String ret = uuid.substring(0,8);
     if (ret.matches("^[^a-zA-Z].*")) ret = "f"+ret;
