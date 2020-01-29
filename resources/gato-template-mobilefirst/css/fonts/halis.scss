@@ -24,7 +24,7 @@
 
 @font-face {
   font-family:"Halis GR";
-  src:url("#{$font-path}/halis/HalisGR-Regular-Italic-webfont.woff2") format("woff2"),url("#{$font-path}/halis/HalisGR-Regular-Italic-webfont.woff") format("woff"), url("#{$font-path}/halis/HalisGR-Regular-webfont.ttf") format("ttf");
+  src:url("#{$font-path}/halis/HalisGR-Regular-Italic-webfont.woff2") format("woff2"),url("#{$font-path}/halis/HalisGR-Regular-Italic-webfont.woff") format("woff");
   font-weight: 500;
   font-style: italic;
 }
