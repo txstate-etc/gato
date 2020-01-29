@@ -12,7 +12,7 @@ our $magnoliapropertiespath = "/etc/magnolia/config";
 our @heavymodules = ('gato-lib', 'gato-internal', 'gato-component-cssjs', 'gato-component-dept-directory',
   'gato-component-faq', 'gato-component-gallery', 'gato-component-documents', 'gato-area-mail', 'gato-component-button',
   'gato-component-twitter', 'gato-component-rss', 'gato-component-events', 'gato-component-sitemap',
-  'gato-component-hours');
+  'gato-component-hours', 'gato-area-filterable-search');
 our $module = "";
 
 # place your local overrides in the root gato directory in a file named "rebuild_vars.pl"

@@ -166,5 +166,6 @@
     <module>gato-vaadin</module>
     <module>gato-component-rss</module>
     <module>gato-component-events</module>
+    <module>gato-area-filterable-search</module>
   </modules>
 </project>
