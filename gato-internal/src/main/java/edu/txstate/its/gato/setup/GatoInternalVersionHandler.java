@@ -251,6 +251,11 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       .addTask(new UpdateCalicoHerosTask())
       .addTasks(installOrUpdateTasks())
     );
+
+    register(DeltaBuilder.update("1.2.8", "")
+      .addTask(new SetPropertyTask(RepositoryConstants.CONFIG, "/modules/site/config/site/templates/availability", "class", "edu.txstate.its.gato.apputil.CalicoTemplateAvailability"))
+      .addTasks(installOrUpdateTasks())
+    );
   }
 
   protected List<Task> installOrUpdateTasks() {
