@@ -4,7 +4,7 @@
   <parent>
     <groupId>edu.txstate.its.gato</groupId>
     <artifactId>gato-base</artifactId>
-    <version>1.2.7</version>
+    <version>1.2.8</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
   <groupId>edu.txstate.its.gato</groupId>
@@ -36,6 +36,10 @@
     <dependency>
       <groupId>info.magnolia.pages</groupId>
       <artifactId>magnolia-pages-app</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>info.magnolia.site</groupId>
+      <artifactId>magnolia-site</artifactId>
     </dependency>
     <dependency>
       <groupId>info.magnolia.publishing</groupId>
