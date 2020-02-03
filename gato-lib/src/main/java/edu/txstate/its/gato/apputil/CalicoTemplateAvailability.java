@@ -36,7 +36,7 @@ public class CalicoTemplateAvailability extends ConfiguredSiteTemplateAvailabili
    //templates with type=subpage should not be allowed at the root level
     try {
       String type = templateDefinition.getType();
-      if (node.getDepth() == 1 && type.equals("subpage")) {
+      if (node.getDepth() == 1 && type.equals("subpage") && !isSuperUser()) {
         return false;
       }
     } catch (RepositoryException e) {
@@ -71,5 +71,10 @@ public class CalicoTemplateAvailability extends ConfiguredSiteTemplateAvailabili
     }
 
     return true;
+  }
+  
+  private boolean isSuperUser() {
+    Collection<String> roles = MgnlContext.getUser().getAllRoles();
+    return roles.contains("superuser");
   }
 }
