@@ -19,6 +19,38 @@ jQuery(function($) {
 					selected : $(filterlink).text() == activetab ? true : false
 				});
 				$(filterlink).on('click',handle_filterlink_click);
+
+				$(filterlink).on('keydown', function(e) {
+					if (e.keyCode == KeyCodes.ENTER) {
+						$(this).click();
+					}
+					else if (e.keyCode == KeyCodes.RIGHT || e.keyCode == KeyCodes.DOWN) {
+						var index = $(this).parent().index();
+						if (index == filters.length - 1) {
+							$(element).prev('ul.gato-card-filter').find('li').eq(0).find('a').focus();
+						}
+						else {
+							$(element).prev('ul.gato-card-filter').find('li').eq(index + 1).find('a').focus();
+						}
+					}
+					else if (e.keyCode == KeyCodes.LEFT || e.keyCode == KeyCodes.UP) {
+						var index = $(this).parent().index();
+						if (index == 0) {
+							$(element).prev('ul.gato-card-filter').find('li').eq(filters.length - 1).find('a').focus();
+						}
+						else {
+							$(element).prev('ul.gato-card-filter').find('li').eq(index - 1).find('a').focus();
+						}
+					}
+					else if (e.keyCode == KeyCodes.HOME) {
+						e.preventDefault();
+						$(element).prev('ul.gato-card-filter').find('li').eq(0).find('a').focus();
+					}
+					else if (e.keyCode == KeyCodes.END) {
+						e.preventDefault();
+						$(element).prev('ul.gato-card-filter').find('li').eq(filters.length - 1).find('a').focus();
+					}
+				})
 			});
 
 			// If none of the filters was chosen as selected, mark the first as selected as a default.
@@ -47,10 +79,12 @@ jQuery(function($) {
 			$.each(filters,function(i,filter){
 				if ( filter.selected ) {
 					$(filter.linkelement).attr('aria-selected',true);
+					$(filter.linkelement).attr('tabindex',"0");
 					$(filter.linkelement).addClass('grid-filter-selected');
 					currentFilter = filter.name;
 				} else {
 					$(filter.linkelement).attr('aria-selected',false);
+					$(filter.linkelement).attr('tabindex',"-1");
 					$(filter.linkelement).removeClass('grid-filter-selected');
 				}
 			});
