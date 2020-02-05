@@ -2,6 +2,7 @@ templateScript: /gato-area-filterable-search/templates/components/directory.ftl
 renderType: freemarker
 dialog: gato-area-filterable-search:components/directory
 title: List of People
+modelClass: edu.txstate.its.gato.FSDirectoryModel
 parameters:
   alphaBy: lastname,firstname #comma separated list of properties because Magnolia wouldn't read a sequence
   icon: /gato-area-filterable-search/images/people-list-icon.svg

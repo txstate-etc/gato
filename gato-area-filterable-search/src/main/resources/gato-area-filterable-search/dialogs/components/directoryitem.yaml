@@ -3,46 +3,72 @@ form:
     - name: tabMain
       label: Directory Listing
       fields:
-        - name: header
-          class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
-          transformerClass:  info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
-          label: Name
+        - name: datasource
+          class: info.magnolia.ui.form.field.definition.SwitchableFieldDefinition
+          transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+          label: Data Source
+          options:
+            - name: netid
+              label: Enter Net Id
+              value: netid
+              selected: true
+            - name: manual
+              label: Manual Entry
+              value: manual
           fields:
-            - name: prefix
+            - name: netid
+              label: Net ID
+              required: true
               class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-              label: Prefix
-            - name: firstname
-              class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-              label: First Name
-            - name: lastname
-              class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-              label: Last Name
+            - name: manual
+              label: ""
+              class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
+              layout: vertical
+              transformerClass:  info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+              fields:
+                - name: header
+                  class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
+                  transformerClass:  info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+                  label: Name
+                  fields:
+                    - name: prefix
+                      class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                      label: Prefix
+                    - name: firstname
+                      class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                      label: First Name
+                    - name: lastname
+                      class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                      label: Last Name
+                - name: position
+                  class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                  label: Position
+                - name: email
+                  class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                  label: Email
+                  validators:
+                    - name: validemail
+                      class: info.magnolia.ui.form.validator.definition.EmailValidatorDefinition
+                      errorMessage: Please enter a valid email address
+                - name: office
+                  class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                  label: Office
+                - name: phone
+                  class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                  label: Phone
         - name: link
           class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
           label: Link
           appName: pages
           identifierToPathConverter:
             class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
-        - name: position
-          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-          label: Position
         - name: description
           class: info.magnolia.ui.form.field.definition.RichTextFieldDefinition
           label: Description
           configJsFile: /.resources/gato-template/js/richeditor/minimal-config-with-lists.js
-        - name: email
-          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-          label: Email
-          validators:
-            - name: validemail
-              class: info.magnolia.ui.form.validator.definition.EmailValidatorDefinition
-              errorMessage: Please enter a valid email address
-        - name: office
-          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-          label: Office
-        - name: phone
-          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-          label: Phone
+    - name: tabImage
+      label: Image
+      fields:
         - name: includeImage
           class: info.magnolia.ui.form.field.definition.SwitchableFieldDefinition
           transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
