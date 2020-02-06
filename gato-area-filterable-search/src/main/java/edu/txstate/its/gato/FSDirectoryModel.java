@@ -10,6 +10,8 @@ import info.magnolia.rendering.template.RenderableDefinition;
 import info.magnolia.rendering.model.RenderingModel;
 import info.magnolia.rendering.model.RenderingModelImpl;
 
+import javax.inject.Inject;
+
 import javax.jcr.Node;
 
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -32,14 +34,18 @@ import com.google.gson.*;
 public class FSDirectoryModel<RD extends RenderableDefinition> extends RenderingModelImpl<RD> {
 
   private static final Logger log = LoggerFactory.getLogger(FSDirectoryModel.class);
+  private GatoUtils gf;
   
-  public FSDirectoryModel(Node content, RD definition, RenderingModel<?> parent) {
+  @Inject
+  public FSDirectoryModel(Node content, RD definition, RenderingModel<?> parent, GatoUtils gf) {
     super(content, definition, parent);
+    this.gf = gf;
   }
   
   public List<ContentMap> getPeople(List<ContentMap> list) {
     List<ContentMap> fullList = new ArrayList<ContentMap>(list);
     List<String> netids = getNetids();
+    if (netids.size() == 0) return list;
     Hashtable<String, FSPerson> peoplehash = initPeopleHash(netids);
     try {
       for (ContentMap c : fullList) {
@@ -113,12 +119,12 @@ public class FSDirectoryModel<RD extends RenderableDefinition> extends Rendering
     }
     try {
       CloseableHttpClient client = HttpClients.createDefault();
-      HttpPost httpPost = new HttpPost(baseUrl());
+      HttpPost httpPost = new HttpPost(gf.getConfigProperty("motion.basepath"));
       String json = "{\"query\":\"{users(filter:{netids: [%s]}){netid name {preferred legalFirst last} officePhone ldapAccount {email title}}}\"}";
       String query = String.format(json, String.join(",", quotednetids));
       httpPost.setEntity(new StringEntity(query, "UTF-8"));
       httpPost.setHeader("content-type", "application/json");
-      httpPost.setHeader("authorization", "Bearer " + bearerToken());
+      httpPost.setHeader("authorization", "Bearer " + gf.getConfigProperty("motion.bear.token"));
       CloseableHttpResponse response = client.execute(httpPost);
       HttpEntity entity = response.getEntity();
       String result = EntityUtils.toString(entity);
@@ -135,15 +141,4 @@ public class FSDirectoryModel<RD extends RenderableDefinition> extends Rendering
     }
     return peoplehash;
   }
-  
-  protected String baseUrl() {
-    MagnoliaConfigurationProperties mcp = Components.getComponent(MagnoliaConfigurationProperties.class);
-    return mcp.getProperty("motion.basepath");
-  }
-  
-  protected String bearerToken() {
-    MagnoliaConfigurationProperties mcp = Components.getComponent(MagnoliaConfigurationProperties.class);
-    return mcp.getProperty("motion.bear.token");
-  }
-  
 }

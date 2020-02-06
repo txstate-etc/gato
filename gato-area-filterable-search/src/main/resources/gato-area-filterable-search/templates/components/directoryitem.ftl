@@ -29,7 +29,11 @@
       <a href="${gf.filterUrl(content.link)}">
     [/#if]
     <div class="listitem-title" data-searchable="true">
+      [#if content.preferredname??]
+      ${content.preferredname}
+      [#else]
       ${content.prefix!} ${content.firstname!} ${content.lastname!}
+      [/#if]
     </div>
     <div class="listitem-alpha" data-alpha="true">
       ${content.lastname!}${content.firstname!}
