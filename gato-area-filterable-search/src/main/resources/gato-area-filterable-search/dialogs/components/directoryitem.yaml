@@ -20,6 +20,10 @@ form:
               label: Net ID
               required: true
               class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+              validators:
+                - name: validnetid
+                  class: edu.txstate.its.gato.NetIDValidatorDefinition
+                  errorMessage: Please enter a valid Net ID
             - name: manual
               label: ""
               class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
