@@ -7,8 +7,9 @@
   [#assign view="grid-view"]
 [/#if]
 
-
+[#if content.listitems??]
 [#assign people = model.getPeople(cmsfn.children(content.listitems))]
+[/#if]
 
 <div class="filterable-search directory ${view}">
   [@cms.area name="filtergroups" /]
