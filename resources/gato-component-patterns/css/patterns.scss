@@ -174,9 +174,10 @@ $pattern-max-height: 400px;
         border-style: solid;
         padding: 1rem 2rem;
         text-decoration: none;
-        font-family: $univers;
-        font-weight: 700;
-        font-size: 1.6rem;
+        text-transform: uppercase;
+        font-family: $halis;
+        font-weight: 600;
+        font-size: 1.5rem;
         line-height: 2.4rem;
         display: inline-block;
         transition: all 200ms ease;
@@ -322,17 +323,18 @@ $pattern-max-height: 400px;
     padding: 4rem 0rem;
   }
   .title {
-    font-family: $garamond;
-    font-size: 3.0rem;
-    font-weight: 400;
-    line-height: 3.6rem;
+    font-family: $halis;
+    font-size: 2.8rem;
+    font-weight: 600;
+    line-height: 3.4rem;
     margin-bottom: 1.5rem;
+    text-transform: uppercase;
   }
   .text {
     font-family: $univers;
-    font-size: 1.6rem;
+    font-size: 1.7rem;
     font-weight: 400;
-    line-height: 2.8rem;
+    line-height: 3.2rem;
     padding-bottom: 3rem;
     max-width: 500px;
     margin: 0 auto;

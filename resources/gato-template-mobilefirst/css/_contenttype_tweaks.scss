@@ -119,7 +119,9 @@
 .column_paragraph {
   .icontext {
     .icontext-title {
-      font-family: $univers;
+      font-family: $halis;
+      text-transform: uppercase;
+      font-weight: 600;
     }
     .icontext-text {
       margin: 0 0 3rem 0;
@@ -138,26 +140,49 @@ h2.event-list-title {
   line-height: 3.5rem
 }
 
+.gato-events div.txst-eventdetail .gato-accordion-header .txst-eventdetail-title {
+  font-family: $halis;
+  text-transform: uppercase;
+  font-size: 1.7rem;
+  line-height: 2.8rem;
+  font-weight: 600;
+}
+
 .has-background {
   .gato-events .gato-accordion.shown {
     background-color: $white;
   }
 }
 
+//Article List
+.column_paragraph a.gato-articlelink-link {
+  font-size: 1.6rem;
+  line-height: 3.2rem;
+  font-weight: 500;
+  text-decoration: underline;
+  color: $maroon;
+}
+
+.column_paragraph .gato-articlelink-summary {
+  line-height: 2.8rem;
+}
+
 //embed video
 .gatoStreamingWrapper {
-  h2.streaming-title {
-    font-family: $univers;
-    font-size: 2.7rem;
-    line-height: 3.5rem;
-    font-weight: 600;
+  .streaming-title {
+    font-family: $garamond;
+    font-size: 3rem;
+    line-height: 3.6rem;
+    font-weight: 400;
   }
 }
 
 //faq
 ul.gato-faq-hierarchy {
-  h2.gato-faq-header a {
+  .gato-faq-header a {
     font-family: $univers;
+    font-size: 1.7rem;
+    text-transform: none;
   }
   .gato-faqitem-answer {
     p {
@@ -194,22 +219,47 @@ ul.gato-faq-hierarchy {
   }
 }
 
+//image gallery
+.pswp__ui .pswp__caption__center {
+  font-size: 1.5rem;
+  line-height: 3.2rem;
+  font-weight: 400;
+  font-family: $univers;
+}
+
 //image card
 .gato-card {
   figcaption {
-    h2.title {
-      font-family: $univers;
+    .title {
+      font-family: $halis;
       font-weight: 600;
     }
+    .caption-content {
+      font-size: 1.7rem;
+      line-height: 3.2rem;
+    }
   }
+}
+
+//slider
+.gato-slider .slide .caption h3{
+  font-size: 1.8rem;
+  line-height: 2.8rem;
+  font-weight: 600;
+  font-family: $halis;
+  text-transform: uppercase;
+}
+
+.gato-slider .slide .caption p {
+  font-size: 1.7rem;
 }
 
 //text and image
 .gato-textimage {
   .gato-textimage-caption {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     padding: 1.2rem 1.4rem;
-    line-height: 2.2rem;
+    line-height: 3.2rem;
     text-align: center;
     a:hover{
       text-decoration: none;
@@ -252,3 +302,21 @@ ul.gato-faq-hierarchy {
   padding: 0 0 0 2rem;
 }
 
+//table
+table.gato-table {
+  tr {
+    font-size: 1.7rem;
+    line-height: 3.2rem;
+    th {
+      font-weight: 700;
+      font-family: $halis;
+      text-transform: uppercase;
+    }
+  }
+}
+
+//document
+.txst-filedownload {
+  font-size: 1.7rem;
+  line-height: 3.2rem;
+}

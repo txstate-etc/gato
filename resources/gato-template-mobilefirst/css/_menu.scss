@@ -107,8 +107,11 @@ nav.main-menu {
       background-color: $maroon;
       color: white;
       text-align: center;
-      font-size: 1.3rem;
-      font-weight: bold;
+      font-size: 1.5rem;
+      line-height: 2rem;
+      font-weight: 600;
+      font-family: $halis;
+      text-transform: uppercase;
       transition: background 0.2s, color 0.2s;
     }
     .editMultiLinks {
