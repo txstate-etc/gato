@@ -47,6 +47,9 @@ ul.gato-card-filter {
         font-size: 1.6rem;
         padding: 1.2rem 1.5rem;
       }
+      &:focus {
+        background-color: $gato-card-filter-border-color;
+      }
     }
 
     a.grid-filter-selected {

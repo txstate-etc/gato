@@ -21,10 +21,12 @@ jQuery(function($) {
 				$(filterlink).on('click',handle_filterlink_click);
 
 				$(filterlink).on('keydown', function(e) {
-					if (e.keyCode == KeyCodes.ENTER) {
+					if (e.keyCode == KeyCodes.ENTER || e.keyCode == KeyCodes.SPACE) {
+						e.preventDefault();
 						$(this).click();
 					}
 					else if (e.keyCode == KeyCodes.RIGHT || e.keyCode == KeyCodes.DOWN) {
+						e.preventDefault();
 						var index = $(this).parent().index();
 						if (index == filters.length - 1) {
 							$(element).prev('ul.gato-card-filter').find('li').eq(0).find('a').focus();
@@ -34,6 +36,7 @@ jQuery(function($) {
 						}
 					}
 					else if (e.keyCode == KeyCodes.LEFT || e.keyCode == KeyCodes.UP) {
+						e.preventDefault();
 						var index = $(this).parent().index();
 						if (index == 0) {
 							$(element).prev('ul.gato-card-filter').find('li').eq(filters.length - 1).find('a').focus();
