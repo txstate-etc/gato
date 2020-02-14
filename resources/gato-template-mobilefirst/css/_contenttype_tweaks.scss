@@ -22,10 +22,31 @@
         color: $white;
       }
     }
+    &.header-color-blue th{
+      background: $blue;
+      color: $white;
+      a{
+        color: $white;
+      }
+    }
+    &.header-color-river th{
+      background: $river;
+      color: $black;
+      a{
+        color: $black;
+      }
+    }
     &.header-color-sandstone th{
       background: $sandstone;
       color: $black;
       a{
+        color: $black;
+      }
+    }
+    &.header-color-oldgold th {
+      background: $oldgold;
+      color: $black;
+      a {
         color: $black;
       }
     }
@@ -69,18 +90,27 @@
 }
 //patterns
 .mobilefirst-pattern {
-  .pattern-content.color4 {
-    a {
-      border-color: $maroon;
-      color: $maroon;
+  .pattern-content {
+    //all of the text should be maroon for the old gold patterns
+    &.color7 {
+      .title, .text, .stat, .quotation-text, .quotation-source {
+        color: $maroon;
+      }
+    }
+    //sandstone and old gold need maroon links and buttons
+    &.color6, &.color7 {
+      a {
+        border-color: $maroon;
+        color: $maroon;
+      }
+    }
+    &.overlay-block.color7 {
+      p {
+        color: $maroon;
+      }
     }
   }
-  .pattern-content.color6 {
-    a {
-      border-color: $maroon;
-      color: $maroon;
-    }
-  }  
+
   //image next to sandstone content should have dark overlay
   .pattern-image.color4 {
     .overlay-left {
@@ -99,17 +129,23 @@
 
   //Call to Action: Margin-Buttons + Image
   &.insettextimage {
-    //sandstone inset
-    .inset.color4 {
-      a.button {
-        color: $maroon;
+    .pattern-content {
+      .inset.color6 {
+        a.button {
+          color: $maroon;
+        }
       }
-    }
-    //white inset
-    .inset.color5 {
-      border: 1px solid #d8d8d8;
-      a.button {
+      .inset.color7 {
         color: $maroon;
+        a, h2 {
+          color: $maroon;
+        }
+      }
+      .inset.color8 {
+        border: 1px solid #d8d8d8;
+        a.button {
+          color: $maroon;
+        }
       }
     }
   }

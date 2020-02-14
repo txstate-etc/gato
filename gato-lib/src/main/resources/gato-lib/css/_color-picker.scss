@@ -14,6 +14,8 @@ label.colorsel {
   &.color8 > span { background-color: $mc8-bg; color: $mc8-text; &:before { content: $mc8-name; } }
   &.color9 > span { background-color: $mc9-bg; color: $mc9-text; &:before { content: $mc9-name; } }
   &.color10 > span { background-color: $mc10-bg; color: $mc10-text; &:before { content: $mc10-name; } }
+  &.color11 > span { background-color: $mc11-bg; color: $mc11-text; &:before { content: $mc11-name; } }
+  &.color12 > span { background-color: $mc12-bg; color: $mc12-text; &:before { content: $mc12-name; } }
 
   input[type=radio] {
     border: 0;

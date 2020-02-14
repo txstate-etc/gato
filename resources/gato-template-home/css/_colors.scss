@@ -8,6 +8,7 @@ $blue:                #005481; // (0, 84, 129)
 $river:               #A1C1B5; // (161, 193, 181) //new river for mobile first template
 $sandstone:           #f5f1ee; // (245, 241, 238)
 $oldgold:             #E1C242; // (225, 194, 66) //new old gold for mobile first template
+$peach:               #DB6450;
 
 /* Neutral Colors */
 $white:               #FFFFFF;
@@ -66,6 +67,12 @@ $light-oldgold:        #E4C855; //10% lighter than oldgold
 $dark-oldgold:         #CBAF3B; //10% darker than oldgold
 $darker-oldgold:       #B49B35; //20% darker than oldgold
 $oldgold-shadow:       #9E882E; //30% darker than oldgold
+
+$lightest-peach:       #E28373; //20% lighter than peach
+$light-peach:          #DF7462; //10% lighter than peach
+$dark-peach:           #C55A48; //10% darker than peach
+$darker-peach:         #AF5040; //20% darker than peach
+$peach-shadow:         #994638; //30% darker than peach
 
 $template-color-count:      7;
 
@@ -221,3 +228,22 @@ $mc8-grad-bottom:           #b3b3b3;
 $mc8-comp-grad-top:         #e6e6e6;
 $mc8-comp-grad-bottom:      $mc8-bg;
 $mc8-shadow:                #808080;
+
+$mc11-name:                  'Peach';
+$mc11-bg:                    $peach;
+$mc11-text:                  $very-dark;
+$mc11-link:                  $very-dark;
+$mc11-header:                $very-dark;
+$mc11-border:                $peach-shadow;
+$mc11-comp-bg:               $lightest-peach;
+$mc11-comp-text:             $mc11-text;
+$mc11-comp-link:             $mc11-link;
+$mc11-comp-header:           $mc11-header;
+$mc11-comp-border:           $mc11-border;
+$mc11-hilite-bg:             $white;
+$mc11-hilite-text:           $very-dark;
+$mc11-grad-top:              $light-peach;
+$mc11-grad-bottom:           $dark-peach;
+$mc11-comp-grad-top:         $lightest-peach;
+$mc11-comp-grad-bottom:      $peach;
+$mc11-shadow:                $peach-shadow;

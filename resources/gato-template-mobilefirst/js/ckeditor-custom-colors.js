@@ -4,13 +4,19 @@ window.cktemplatevars = {
                          [ 'Default (Gold)', 'header-color-gold' ],
                          [ 'Maroon', 'header-color-maroon' ],
                          [ 'Charcoal','header-color-charcoal' ],
-                         [ 'Sandstone', 'header-color-sandstone' ]
+                         [ 'Deep Blue', 'header-color-blue'],
+                         [ 'River', 'header-color-river'],
+                         [ 'Sandstone', 'header-color-sandstone' ],
+                         [ 'Old Gold', 'header-color-oldgold']
                          ],
     default_header_color_class: 'header-color-gold',
     template_colors: [ ['Maroon', '#501214' ],
                                           ['Gold', '#6A5638'],
                                           ['Charcoal', '#363534'],
-                                          ['Sandstone', '#E8E3DB']
+                                          ['Deep Blue', '#00507A'],
+                                          ['River', '#6EA095'],
+                                          ['Sandstone', '#F5F1EE'],
+                                          ['Old Gold', '#EBBA45']
                      ],
     template_color_label: "Texas State Colors"
 }

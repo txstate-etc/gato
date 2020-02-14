@@ -51,6 +51,20 @@ $light-beige:         #D0B997;
 $lightest-beige:      #DCCAB1;
 $beige-shadow:        #76644B;
 
+$peach:               #DB6450;
+$lightest-peach:       #E28373; //20% lighter than peach
+$light-peach:          #DF7462; //10% lighter than peach
+$dark-peach:           #C55A48; //10% darker than peach
+$darker-peach:         #AF5040; //20% darker than peach
+$peach-shadow:         #994638; //30% darker than peach
+
+$admissionsred:       #CA2A2D;
+$lightest-admissionsred:       #D55557; //20% lighter than admissionsred
+$light-admissionsred:          #CF3F42; //10% lighter than admissionsred
+$dark-admissionsred:           #B62629; //10% darker than admissionsred
+$darker-admissionsred:         #A22224; //20% darker than admissionsred
+$admissionsred-shadow:         #8D1D1F; //30% darker than admissionsred
+
 $white:               #FFFFFF;
 $black:               #000000;
 $very-dark:           #222;    //light black?  almost black but not quite as black as #111?
@@ -274,3 +288,41 @@ $mc10-grad-bottom:          #a30d19;
 $mc10-comp-grad-top:        #c03944;
 $mc10-comp-grad-bottom:     $mc10-bg;
 $mc10-shadow:               #720912;
+
+$mc11-name:                  'Peach';
+$mc11-bg:                    $peach;
+$mc11-text:                  $very-dark;
+$mc11-link:                  $very-dark;
+$mc11-header:                $very-dark;
+$mc11-border:                $peach-shadow;
+$mc11-comp-bg:               $lightest-peach;
+$mc11-comp-text:             $mc11-text;
+$mc11-comp-link:             $mc11-link;
+$mc11-comp-header:           $mc11-header;
+$mc11-comp-border:           $mc11-border;
+$mc11-hilite-bg:             $white;
+$mc11-hilite-text:           $very-dark;
+$mc11-grad-top:              $light-peach;
+$mc11-grad-bottom:           $dark-peach;
+$mc11-comp-grad-top:         $lightest-peach;
+$mc11-comp-grad-bottom:      $peach;
+$mc11-shadow:                $peach-shadow;
+
+$mc12-name:                  'Red';
+$mc12-bg:                    $admissionsred;
+$mc12-text:                  $white;
+$mc12-link:                  $white;
+$mc12-header:                $white;
+$mc12-border:                $admissionsred-shadow;
+$mc12-comp-bg:               $lightest-admissionsred;
+$mc12-comp-text:             $mc12-text;
+$mc12-comp-link:             $mc12-link;
+$mc12-comp-header:           $mc12-header;
+$mc12-comp-border:           $mc12-border;
+$mc12-hilite-bg:             $white;
+$mc12-hilite-text:           $very-dark;
+$mc12-grad-top:              $light-admissionsred;
+$mc12-grad-bottom:           $dark-admissionsred;
+$mc12-comp-grad-top:         $lightest-admissionsred;
+$mc12-comp-grad-bottom:      $admissionsred;
+$mc12-shadow:                $admissionsred-shadow;
