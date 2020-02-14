@@ -42,7 +42,7 @@ form:
           scripts: [gato-lib/js/color-picker.js]
           label: Background Color
           parameters:
-            contentType: default
+            contentType: factsFigures
         - name: callout
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Callout

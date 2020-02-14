@@ -30,7 +30,7 @@ form:
           scripts: [gato-lib/js/color-picker.js]
           label: Background Color
           parameters:
-            contentType: default
+            contentType: factsFigures
         - name: buttons
           class: edu.txstate.its.gato.vaadin.GatoMultiValueFieldDefinition
           transformerClass: info.magnolia.ui.form.field.transformer.multi.MultiValueSubChildrenNodePropertiesTransformer

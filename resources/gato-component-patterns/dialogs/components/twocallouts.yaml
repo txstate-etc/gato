@@ -43,7 +43,7 @@ form:
           scripts: [gato-lib/js/color-picker.js]
           label: Background Color
           parameters:
-            contentType: default
+            contentType: factsFigures
             fieldName: colorLeft
         - name: buttonsLeft
           class: edu.txstate.its.gato.vaadin.GatoMultiValueFieldDefinition
@@ -101,7 +101,7 @@ form:
           scripts: [gato-lib/js/color-picker.js]
           label: Background Color
           parameters:
-            contentType: default
+            contentType: factsFigures
             fieldName: colorRight
         - name: buttonsRight
           class: edu.txstate.its.gato.vaadin.GatoMultiValueFieldDefinition

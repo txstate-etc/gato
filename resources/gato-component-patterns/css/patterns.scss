@@ -149,6 +149,20 @@ $pattern-max-height: 400px;
         color: $mc7-text;
       }
     }
+    &.color11 {
+      background-color: $mc11-bg;
+      color: $mc11-text;
+      a {
+        border-color: $mc11-text;
+        color: $mc11-link;
+      }
+      h2,h3,h4,h5,h6 {
+        color: $mc11-text;
+      }
+      p {
+        color: $mc11-text;
+      }
+    }
     //to fix text pasted in the rich editor in Edge
     font, span {
       color: inherit !important;
