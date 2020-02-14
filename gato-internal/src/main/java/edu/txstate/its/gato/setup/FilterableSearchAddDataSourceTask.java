@@ -27,7 +27,7 @@ public class FilterableSearchAddDataSourceTask extends GatoBaseUpgradeTask{
   @Override
   protected void doExecute(InstallContext installContext) throws RepositoryException, TaskExecutionException {
       log.info("Running FilterableSearchAddDataSourceTask");
-      System.out.println("*****************************");
+
       Session websiteSession = installContext.getJCRSession(RepositoryConstants.WEBSITE);
       visitByTemplate(websiteSession, "gato-area-filterable-search:components/directory", new NodeVisitor() {
         public void visit(Node n) throws RepositoryException {
@@ -35,9 +35,7 @@ public class FilterableSearchAddDataSourceTask extends GatoBaseUpgradeTask{
             Node listItemsNode = n.getNode("listitems");
             NodeIterator iter = listItemsNode.getNodes();
             while(iter.hasNext()) {
-              
               Node item = iter.nextNode();
-              System.out.println("*");
               if (!item.hasProperty("datasource")) {
                 PropertyUtil.setProperty(item, "datasource", "manual");
               }
@@ -45,6 +43,5 @@ public class FilterableSearchAddDataSourceTask extends GatoBaseUpgradeTask{
           }
         }
       });
-      System.out.println("*****************************");
   }
 }
