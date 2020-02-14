@@ -1,7 +1,7 @@
-[#macro callout lead title text="" buttons=[]]
+[#macro callout lead title text="" buttons=[] hasbackground=false]
 <div class="centered">
   <h2 class="visuallyhidden">${lead} ${title}</h2>
-  <div class="stat" aria-hidden="true">${lead}</div>
+  <div class="stat ${hasbackground?then('background', '')}" aria-hidden="true">${lead}</div>
   <div class="title" aria-hidden="true">${title}</div>
   [#if text?has_content]<div class="text">${text}</div>[/#if]
   [#if buttons?has_content]

@@ -10,7 +10,7 @@
     </div>
   [/#if]
   <div class="pattern-content callout arrow ${content.color!color1} ${content.alignContent!'text-center'}">
-    [@callout content.callout content.title content.text content.buttons/]
+    [@callout content.callout content.title content.text content.buttons content.callouthasbackground!false/]
   </div>
   [#if content.imageAlignment == 'image-right']
     <div class="pattern-image ${content.color!color1}">

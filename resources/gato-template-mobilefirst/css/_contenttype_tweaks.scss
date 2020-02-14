@@ -151,6 +151,38 @@
   }
 }
 
+//Facts/Figures
+.callout.pattern-content {
+  &.color1 .stat.background {
+    background-color: $gold;
+  }
+  &.color2 .stat.background {
+    background-color: $maroon;
+  }
+  &.color3 .stat.background {
+    background-color: $peach;
+  }
+  &.color4 .stat.background {
+    background-color: $peach;
+  }
+  &.color5 .stat.background {
+    background-color: $maroon;
+    color: $white;
+  }
+  &.color6 .stat.background {
+    background-color: $maroon;
+    color: $white;
+  }
+  &.color7 .stat.background {
+    background-color: $maroon;
+    color: $white;
+  }
+  &.color11 .stat.background {
+    background-color: $maroon;
+    color: $white;
+  }
+}
+
 //Icon and Text
 .column_paragraph {
   .icontext {

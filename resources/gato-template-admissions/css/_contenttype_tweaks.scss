@@ -1,0 +1,9 @@
+.callout.pattern-content {
+  &.color1 .stat.background {
+    background-color: $admissionsred;
+  }
+  &.color12 .stat.background {
+    background-color: $maroon;
+    color: $white;
+  }
+}

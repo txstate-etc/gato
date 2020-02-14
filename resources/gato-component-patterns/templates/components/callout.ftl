@@ -4,6 +4,6 @@
 [/#if]
 <div class="mobilefirst-pattern">
   <div class="callout pattern-content single ${content.color!color1} text-center">
-    [@callout content.callout content.title content.text content.buttons/]
+    [@callout content.callout content.title content.text content.buttons content.callouthasbackground!false/]
   </div>
 </div>

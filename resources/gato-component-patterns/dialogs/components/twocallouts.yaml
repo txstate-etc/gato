@@ -8,6 +8,12 @@ form:
           label: Callout
           required: true
           maxLength: 10
+        - name: callouthasbackground
+          class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+          label: ""
+          buttonLabel: Add Callout Background Color
+          defaultValue: false
+          description: Selecting this option will add a background color to both callouts.
         - name: titleLeft
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Title
