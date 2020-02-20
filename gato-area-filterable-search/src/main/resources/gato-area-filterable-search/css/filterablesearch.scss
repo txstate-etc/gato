@@ -266,6 +266,56 @@ $filterable-search-header-font: serif !default;
       @media (max-width:$sm-breakpoint) {
         padding-top: 2rem;
       }
+      .anchor-link-container {
+        position: relative;
+        .alphabet-anchors {
+          display: flex;
+          margin-bottom: 4rem;
+          overflow: scroll;
+          .anchor-letter {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-right: 5px;
+            min-width: 4rem;
+            min-height: 4rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 2px;
+            text-decoration: none;
+            color: #222;
+            &.active {
+              color: $white;
+              background-color: $maroon;
+            }
+            &.last {
+              margin-right: 0;
+            }
+          }
+          .alpha-arrow {
+            display: none;
+            background-color: $white;
+            color: $maroon;
+            border: none;
+            font-size: 2rem;
+            min-width: 4rem;
+            min-height: 4rem;
+            &.right {
+              position: absolute;
+              right: 0;
+            }
+            &.left {
+              position: absolute;
+              left: 0;
+            }
+            &.touch {
+              display: none !important;
+            }
+          }
+        }
+      }
+      
+
       #result-list {
         margin: 2rem 0rem;
       }
@@ -341,6 +391,7 @@ $filterable-search-header-font: serif !default;
         font-size: 3.2rem;
         font-family: $filterable-search-header-font;
         padding: 2rem 0rem;
+        display: block;
       }
       .listitem {
         display: flex;

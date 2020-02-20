@@ -457,11 +457,13 @@ jQuery(document).ready(function($) {
 
   var groupListItemsByHeader = function() {
     var html = "";
+    var activeAnchors = [];
     var fullList = $('#result-list ul.results');
     var firstItem = $('.filtered-results .listitem').first();
     var firstItemText = firstItem.find("*[data-alpha='true']").text().trim();
     var currentLetter = firstItemText.charAt().toUpperCase();
-    html += '<div class="alpha-header" aria-hidden="true">'+ currentLetter +'</div>';
+    activeAnchors.push(currentLetter);
+    html += '<a id="anchor-' + currentLetter + '" class="alpha-header" aria-hidden="true">'+ currentLetter +'</a>';
     html += '<ul class="results">';
     fullList.children('li').each(function(index, item) {
       var text = $(item).find("*[data-alpha='true']").text().trim().toUpperCase();
@@ -469,13 +471,15 @@ jQuery(document).ready(function($) {
       if (firstLetter != currentLetter) {
         html += '</ul>';
         currentLetter = firstLetter;
-        html += '<div class="alpha-header" aria-hidden="true">'+ currentLetter +'</div>';
+        activeAnchors.push(currentLetter);
+        html += '<a id="anchor-' + currentLetter + '"class="alpha-header">'+ currentLetter +'</a>';
         html += '<ul class="results">';
       }
       html += $(item).prop('outerHTML');
     })
     html += '</ul>';
     $('#result-list').html(html);
+    buildAlphaAnchors(activeAnchors);
     addMoreContentEventHandlers();
   }
 
@@ -488,8 +492,57 @@ jQuery(document).ready(function($) {
     html += '</ul>';
     $('#result-list').html(html);
     addMoreContentEventHandlers();
+    //remove anchor letter links
+    $('.alphabet-anchors').html("")
   }
-
+  
+  var buildAlphaAnchors = function(activeAnchors) {
+    var html = '<button class="alpha-arrow left"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i><span class="visuallyhidden">Scroll left</span></button>';
+    var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+    $.each(alphabet, function(i, letter) {
+      var last = (i == alphabet.length - 1 ) ? "last" : "";
+      if (activeAnchors.indexOf(letter) > -1) {
+        html += '<a class="anchor-letter active '+last +'" href="#anchor-' + letter + '">' + letter + '</a>';
+      }
+      else {
+        html += '<div class="anchor-letter '+ last +'">' + letter + '</div>';
+      }
+    })
+    html += '<button class="alpha-arrow right"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i><span class="visuallyhidden">Scroll right</span></button>';
+    $('.alphabet-anchors').append(html);
+    if ($('.alphabet-anchors')[0].scrollWidth > $('.filtered-results').width()) {
+      $('.alpha-arrow.right').show();
+    }
+    $('.alpha-arrow.right').click(function() {
+      var currentScrollLeft = $('.alphabet-anchors').scrollLeft();
+      $('.alphabet-anchors').scrollLeft(currentScrollLeft + $('.anchor-link-container').width())
+    })
+    $('.alpha-arrow.left').click(function() {
+      var currentScrollLeft = $('.alphabet-anchors').scrollLeft();
+      $('.alphabet-anchors').scrollLeft(currentScrollLeft - $('.anchor-link-container').width())
+    })
+  }
+  
+  $('.alphabet-anchors').scroll(function() {
+    var anchorContainer = $('.anchor-link-container');
+    var alphabetLinks = $('.alphabet-anchors');
+    if (alphabetLinks.scrollLeft() == (alphabetLinks[0].scrollWidth - anchorContainer.width()))
+      $('.alpha-arrow.right').hide();
+    else {
+      $('.alpha-arrow.right').show();
+    }
+    if (alphabetLinks.scrollLeft() > 0) {
+      $('.alpha-arrow.left').show();
+    }
+    else {
+      $('.alpha-arrow.left').hide();
+    }
+  })
+  
+  $('.alphabet-anchors').on("touchstart", function() {
+    $('.alpha-arrow').addClass('touch');
+  })
+  
   //on initial page load
   var urlParams = getUrlParameters();
   if (!(urlParams.q && urlParams.q.length > 0) && !urlParams.filters) {

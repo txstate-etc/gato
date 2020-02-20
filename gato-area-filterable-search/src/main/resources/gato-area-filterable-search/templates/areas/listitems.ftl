@@ -1,4 +1,8 @@
 <div class="filtered-results" data-headers=${(ctx.alphabetize == "alphaheaders")?then("true", "false")}>
+  <div class="anchor-link-container">
+    <div class="alphabet-anchors">
+    </div>
+  </div>
   <span id="result-count" class="result-count">Showing ## Results</span>
   [#if ctx.alphabetize == "none"]
     [#assign items = components]
