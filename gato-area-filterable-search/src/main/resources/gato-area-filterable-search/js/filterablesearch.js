@@ -578,5 +578,27 @@ jQuery(document).ready(function($) {
     var group = $(this);
     updateScreenReaderFilterGroupText(group);
   })
-
+  
+  var scrollTimer;
+  var prevST = 0;
+  var bttButton = $('#backtotop');
+  var toggleBackToTop = function() {
+    var st = $(this).scrollTop();
+    if (st > 500 && st < prevST) {
+      bttButton.show();
+    }
+    else {
+      bttButton.hide();
+    }
+    prevST = st;
+  }
+  $(window).scroll(function(){
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(toggleBackToTop, 100);
+  });
+  toggleBackToTop();
+  
+  bttButton.click(function(e) {
+    $(window).scrollTop(0);
+  })
 });

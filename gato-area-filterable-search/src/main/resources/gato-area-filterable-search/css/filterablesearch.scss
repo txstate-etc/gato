@@ -615,6 +615,20 @@ $filterable-search-header-font: serif !default;
         }
       }
     }
+    #backtotop {
+      background-color: $white;
+      color: $maroon;
+      border: 1px solid $maroon;
+      font-weight: 600;
+      padding: 1rem;
+      position: fixed;
+      right: 20px;
+      bottom: 120px;
+      display: none;
+      i {
+        font-weight: 600;
+      }
+    }
   }
   &.filters-open {
     .controls {

@@ -37,4 +37,8 @@
     <div class="popup-content">
     </div>
   </div>
+  <button id="backtotop" aria-hidden="true">
+    <i class="fa fa-angle-up" aria-hidden="true"></i>
+    BACK TO TOP
+  </button>
 </div>
