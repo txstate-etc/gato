@@ -599,6 +599,6 @@ jQuery(document).ready(function($) {
   toggleBackToTop();
   
   bttButton.click(function(e) {
-    $(window).scrollTop(0);
+    $('body').velocity('scroll', { offset: 0, mobileHA: false });
   })
 });
