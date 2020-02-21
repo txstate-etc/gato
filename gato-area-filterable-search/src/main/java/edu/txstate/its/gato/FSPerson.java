@@ -47,6 +47,15 @@ public class FSPerson {
     JsonObject ldapObj = user.getAsJsonObject("ldapAccount");
     return ldapObj.getAsJsonPrimitive("title").getAsString();
   }
+  
+  public void setOfficeLocation(String office) {
+    user.addProperty("officeLocation", office);
+  }
+  
+  public String getOfficeLocation() {
+    if (!user.has("officeLocation")) return "";
+    return user.getAsJsonPrimitive("officeLocation").getAsString();
+  }
 
   public void setImagePath(String image) {
     user.addProperty("imagePath", image);

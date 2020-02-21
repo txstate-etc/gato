@@ -69,6 +69,7 @@ public class FSDirectoryModel<RD extends RenderableDefinition> extends Rendering
               //email
               PropertyUtil.setProperty(n, "email", p.getEmail());
               //office
+              PropertyUtil.setProperty(n, "office", p.getOfficeLocation());
               //phone
               PropertyUtil.setProperty(n, "phone", p.getOfficePhone());
               //faculty profiles link
@@ -172,6 +173,9 @@ public class FSDirectoryModel<RD extends RenderableDefinition> extends Rendering
           FSPerson p = peoplehash.get(username);
           String dmid = profile.getAsJsonPrimitive("id").getAsString();
           p.setDmid(dmid);
+          if (profile.has("office_location")) {
+            p.setOfficeLocation(profile.getAsJsonPrimitive("office_location").getAsString());
+          }
           if (profile.has("portrait")) {
             JsonObject portrait = profile.getAsJsonObject("portrait");
             String imageFileName = portrait.getAsJsonPrimitive("filename").getAsString();
