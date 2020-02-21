@@ -419,10 +419,20 @@ $filterable-search-header-font: serif !default;
                 height: 120px;
                 margin-right: 3rem;
                 flex: none;
+                position: relative;
+                overflow: hidden;
                 img {
                   width: 100%;
                   height: 100%;
                   border-radius: 2px;
+                  &.fpimage {
+                    position: absolute;
+                    height: auto;
+                    &.wide {
+                      height: 100%;
+                      width: auto;
+                    }
+                  }
                 }
                 .btnShowMoreContent {
                   display: none;

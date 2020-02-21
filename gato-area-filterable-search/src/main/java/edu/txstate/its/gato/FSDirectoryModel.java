@@ -15,6 +15,7 @@ import javax.inject.Inject;
 import javax.jcr.Node;
 
 import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.HttpEntity;
@@ -70,8 +71,22 @@ public class FSDirectoryModel<RD extends RenderableDefinition> extends Rendering
               //office
               //phone
               PropertyUtil.setProperty(n, "phone", p.getOfficePhone());
-              //picture
               //faculty profiles link
+              if (p.getDmid().length() > 0)
+                PropertyUtil.setProperty(n, "fplink", gf.getConfigProperty("fp.profile.basepath") + "/" + p.getDmid());
+              //picture
+              if (p.getImagePath().length() > 0 && p.getDmid().length() > 0) {
+                PropertyUtil.setProperty(n, "fpimage", gf.getConfigProperty("fp.api.basepath") + "/files/photo/" +  p.getDmid() + "/" + p.getImagePath());
+                PropertyUtil.setProperty(n, "fpfacedetected", p.getFaceDetected());
+                if (p.getFaceAspect() > -1) {
+                  PropertyUtil.setProperty(n, "fpfaceaspect", p.getFaceAspect());
+                }
+                if (p.getFaceDetected()) {
+                  PropertyUtil.setProperty(n, "fpfaceleft", p.getFaceLeft());
+                  PropertyUtil.setProperty(n, "fpfacetop", p.getFaceTop());
+                  PropertyUtil.setProperty(n, "fpfacewidth", p.getFaceWidth());
+                }
+              }
             }
             else {
               //user is not in motion. Invalid?
@@ -88,7 +103,7 @@ public class FSDirectoryModel<RD extends RenderableDefinition> extends Rendering
     
     return fullList;
   }
-  
+
   protected List<String> getNetids() {
     List<String> results = new ArrayList<String>();
     try {
@@ -139,6 +154,65 @@ public class FSDirectoryModel<RD extends RenderableDefinition> extends Rendering
     } catch(Exception e) {
       e.printStackTrace();
     }
+    
+    try {
+      String url = constructFPUrl(netids);
+      CloseableHttpClient fpClient = HttpClients.createDefault();
+      HttpGet request = new HttpGet(url);
+      request.setHeader("X-Secret-Key", gf.getConfigProperty("fp.api.key"));
+      request.setHeader("content-type", "application/json");
+      CloseableHttpResponse fpResponse = fpClient.execute(request);
+      HttpEntity fpEntity = fpResponse.getEntity();
+      String fpResult = EntityUtils.toString(fpEntity);
+      JsonArray data = new JsonParser().parse(fpResult).getAsJsonArray();
+      for (JsonElement el : data) {
+        JsonObject profile = el.getAsJsonObject();
+        String username = profile.getAsJsonPrimitive("username").getAsString();
+        if (peoplehash.containsKey(username)) {
+          FSPerson p = peoplehash.get(username);
+          String dmid = profile.getAsJsonPrimitive("id").getAsString();
+          p.setDmid(dmid);
+          if (profile.has("portrait")) {
+            JsonObject portrait = profile.getAsJsonObject("portrait");
+            String imageFileName = portrait.getAsJsonPrimitive("filename").getAsString();
+            p.setImagePath(imageFileName);
+            if (portrait.has("face")) {
+              JsonObject face = portrait.getAsJsonObject("face");
+              boolean detected = face.getAsJsonPrimitive("detected").getAsBoolean();
+              p.setFaceDetected(detected);
+              if (face.has("aspect")) {
+                double aspect = face.getAsJsonPrimitive("aspect").getAsDouble();
+                p.setFaceAspect(aspect);
+              }
+              if (face.has("left")) {
+                double left = face.getAsJsonPrimitive("left").getAsDouble();
+                p.setFaceLeft(left);
+              }
+              if (face.has("top")) {
+                double top = face.getAsJsonPrimitive("top").getAsDouble();
+                p.setFaceTop(top);
+              }
+              if (face.has("width")) {
+                double width = face.getAsJsonPrimitive("width").getAsDouble();
+                p.setFaceWidth(width);
+              }
+            }
+          }
+        }
+      }
+      fpClient.close();
+    } catch(Exception e) {
+      e.printStackTrace();
+    }
     return peoplehash;
+  }
+  
+  private String constructFPUrl(List<String> netids) {
+    String url = gf.getConfigProperty("fp.api.basepath") + "/profiles?";
+    for (int i=0; i<netids.size(); i++) {
+      url += "netid[]=" + netids.get(i);
+      if (i != netids.size() - 1) url += "&";
+    }
+    return url;
   }
 }

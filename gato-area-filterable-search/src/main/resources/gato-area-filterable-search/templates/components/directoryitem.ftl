@@ -14,6 +14,11 @@
           true
         )]
       <img src="${gf.getImgDefault(content.image)}" alt="" srcset="${srcset}" />
+    [#elseif content.includeImage == "hasImage" && content.fpimage?has_content]
+      [#assign cropped = (content.fpfacedetected!false)?then("cropped", "")]
+      [#assign wide = (content.fpfaceaspect?? && content.fpfaceaspect > 1)?then("wide", "")]
+      [#assign style = (content.fpfacedetected!false)?then("left:-" + content.fpfaceleft + "%; top:-" + content.fpfacetop + "%; width:" + content.fpfacewidth + "%;", "")]
+      <img class="fpimage ${cropped} ${wide}" src="${gf.getImg(content.fpimage, 600, 600, false, true, 0, 0, 0, 0)}" alt="" style="${style}"/>
     [#else]
       <img class="default-image" src="${ctx.contextPath}/.resources/gato-area-filterable-search/images/star-placeholder.jpg" alt="" aria-hidden="true" />
     [/#if]
@@ -27,6 +32,8 @@
   <div class="info-container">
     [#if content.link?has_content]
       <a href="${gf.filterUrl(content.link)}">
+    [#elseif content.fplink?has_content]
+      <a href="${gf.filterUrl(content.fplink)}">
     [/#if]
     <div class="listitem-title" data-searchable="true">
       [#if content.preferredname??]
@@ -38,7 +45,7 @@
     <div class="listitem-alpha" data-alpha="true">
       ${content.lastname!}${content.firstname!}
     </div>
-    [#if content.link?has_content]
+    [#if content.link?has_content || content.fplink?has_content]
       </a>
     [/#if]
     [#if content.position?has_content]

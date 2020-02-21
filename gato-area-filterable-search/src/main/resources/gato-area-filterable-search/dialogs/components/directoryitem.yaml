@@ -95,7 +95,6 @@ form:
                 - name: image
                   class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
                   appName: assets
-                  required: true
                   targetWorkspace: dam
                   label: Image
                   styleName: imageField
