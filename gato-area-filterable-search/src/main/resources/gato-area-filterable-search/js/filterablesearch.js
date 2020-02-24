@@ -319,7 +319,7 @@ jQuery(document).ready(function($) {
     $('#more-content-popup #btn-close-more-content-popup').focus();
     //expand result area if the popup overlaps the footer
     var fSearchContainer = $('.result').last();
-    var footerTopOffset = Math.ceil($('.footer').offset().top);
+    var footerTopOffset = Math.ceil($('footer').offset().top);
     var popupBottom = Math.ceil(popup.offset().top + popup.outerHeight()) + 2;
     if (popupBottom >= footerTopOffset) {
       var initialBottomPadding = fSearchContainer.css('padding-bottom');
@@ -601,4 +601,12 @@ jQuery(document).ready(function($) {
   bttButton.click(function(e) {
     $('body').velocity('scroll', { offset: 0, mobileHA: false });
   })
+  
+  var setGridViewImageSize = function() {
+    $('.grid-view .image-container').each(function() {
+      var el = $(this);
+      el.css('height', el.css('width'))
+    })
+  }
+  resizeTimeout(setGridViewImageSize)
 });
