@@ -272,10 +272,11 @@ $filterable-search-header-font: serif !default;
           display: flex;
           margin-bottom: 4rem;
           overflow: scroll;
+          justify-content: space-between;
           .anchor-letter {
             font-size: 2.5rem;
             font-weight: 600;
-            margin-right: 5px;
+            margin-right: 4px;
             min-width: 4rem;
             min-height: 4rem;
             display: flex;

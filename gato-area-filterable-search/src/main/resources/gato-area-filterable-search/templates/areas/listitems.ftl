@@ -1,6 +1,6 @@
 <div class="filtered-results" data-headers=${(ctx.alphabetize == "alphaheaders")?then("true", "false")}>
   <div class="anchor-link-container">
-    <div class="alphabet-anchors">
+    <div class="alphabet-anchors" role="navigation" aria-label="Alphabetical Index" id="alphabet-index">
     </div>
   </div>
   <span id="result-count" class="result-count">Showing ## Results</span>
@@ -37,7 +37,7 @@
     <div class="popup-content">
     </div>
   </div>
-  <button id="backtotop" aria-hidden="true">
+  <button id="backtotop" aria-hidden="true" tabindex="-1">
     <i class="fa fa-angle-up" aria-hidden="true"></i>
     BACK TO TOP
   </button>
