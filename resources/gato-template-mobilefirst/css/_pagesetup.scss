@@ -123,6 +123,9 @@ body {
       margin-top: 0;
     }
   }
+  a {
+    transition: all 200ms ease;
+  }
 }
 
 .breadcrumbs {

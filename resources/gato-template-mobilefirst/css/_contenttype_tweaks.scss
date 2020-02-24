@@ -229,10 +229,13 @@ h2.event-list-title {
   font-weight: 500;
   text-decoration: underline;
   color: $maroon;
+  margin-bottom: 1rem;
+  display: inline-block;
 }
 
 .column_paragraph .gato-articlelink-summary {
   line-height: 2.8rem;
+  padding-top: 1.5rem;
 }
 
 //embed video
