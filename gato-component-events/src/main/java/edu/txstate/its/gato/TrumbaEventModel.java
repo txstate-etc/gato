@@ -100,7 +100,7 @@ public class TrumbaEventModel<RD extends RenderableDefinition> extends Rendering
       endDate = (Calendar)startDate.clone();
       final String days = PropertyUtil.getString(content, "days", "");
       if ( "range".equals(rangeType) || StringUtils.isEmpty(days) ) {
-        endDate.add( Calendar.DATE, 7 );
+        endDate.add( Calendar.DATE, 124 );
       } else {
         endDate.add( Calendar.DATE, Integer.parseInt( days ) );
       }
