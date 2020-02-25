@@ -1,36 +1,13 @@
-*,
-*:before,
-*:after {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-body {
-  position: relative;
-  margin: 0 auto;
-  font-family: $univers;
-  max-width: 2000px;
-  overflow-x: hidden;
-  box-shadow: 1px 1px 5px #cfcfcf;
-}
 
 .gato-section-full {
   &.has-background {
-    margin: 0;
-    .gato-section {
-      padding-top: 0;
-    }    
+    margin: 0; 
   }
-  .gato-section {
-    margin-right: 0px;
-  }  
 
   .gato-section-centered {
     margin: 0 auto;
     max-width: 1200px;
   }
-  
 
 }
 
@@ -39,100 +16,6 @@ body {
   position: relative;
 }
 
-.gato-section-full.pattern {
-  .gato-section-centered {
-    max-width: none;
-  }
-}
-
-.breadcrumbs {
-  padding: 1rem 2rem 0rem 2rem;
-  font-weight: 700;
-  font-size: 1.4rem;
-  line-height: 2rem;
-  @media (max-width: $sm-breakpoint) {
-    display: none !important;
-  }
-  a {
-    text-decoration: none;
-    color: $charcoal;
-    font-weight: 400;
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-  .separator i:before{
-    content: '/';
-  }
-}
-
-.contentcolumn {
-  min-height: 32rem;
-}
-
- .contentcolumn .gato-section-full:not(.gato-section-headline) {
-  padding: 4rem 0rem;
-  @media (max-width: $sm-breakpoint) {
-    padding: 2rem 0rem;
-  }
-  &.attached {
-    padding-top: 0;
-  }  
-}
-
-.contentcolumn .gato-section-full.pattern {
-  padding: 0rem;
-}
-
-.contentcolumn .headline {
-  font-family: $garamond;
-  color: $verydark;
-  font-weight: 400;
-  margin: 3rem 0rem 1.5rem 0rem;
-  font-size: 3.6rem;
-  text-align: center;
-  line-height: 4.2rem;
-  @media (max-width: $sm-breakpoint) {
-    text-align: left;
-  }
-}
-
-.contentcolumn.no-intro {
-  .headline {
-    margin-bottom: 4rem;
-  }
-}
-
-.contentcolumn .gato-section-full.gato-section-title-separator {
-  padding: 0;
-  .intro-title-border {
-    height: 1px;
-    background-color: $almondmilk;
-    margin: 0 2rem;
-  }
-}
-
 .mobilefirst-pattern {
   max-height: none;
-}
-
-.page-intro-text {
-  padding: 0 2rem;
-  text-align: center;
-  max-width: 600px;
-  margin: 0 auto;
-  padding-bottom: 4rem;
-  line-height: 2.8rem;
-  color: $verydark;
-  @media (max-width: $sm-breakpoint) {
-    text-align: left;
-    max-width: none;
-    margin: unset;
-  }
-  p {
-    margin: 0;
-    a{
-      color: $content-link-text;
-    }
-  }
 }
