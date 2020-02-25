@@ -28,7 +28,7 @@ form:
         - name: text
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           required: false
-          label: Text
+          label: Intro Text
           description: This text will appear below the title
           rows: 3
         - name: stylesheet

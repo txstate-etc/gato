@@ -1,5 +1,14 @@
 #panel {background-color: $content-background;}
 
+.gato-section-full {
+  .section-title {
+    margin-bottom: 1.5rem;
+  }
+  .section-text {
+    line-height: 3.1rem;
+  }
+}
+
 .trail {
   margin: auto;
   padding: 1.8rem 0 0 0;
