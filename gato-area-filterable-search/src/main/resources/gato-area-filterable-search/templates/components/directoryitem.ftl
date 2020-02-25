@@ -55,7 +55,7 @@
     [/#if]
     [#if content.email?has_content]
       <div class="listitem-email">
-        Email: ${content.email}
+        Email: <a href="mailto:${content.email}">${content.email}</a>
       </div>
     [/#if]
     [#if content.office?has_content]
