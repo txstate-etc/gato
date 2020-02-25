@@ -422,6 +422,7 @@ jQuery(document).ready(function($) {
     filterableSearch.addClass('grid-view');
     $('.btn-grid-view').prop('disabled', true);
     $('.btn-list-view').prop('disabled', false);
+    setImageContainerSize()
   });
 
   $('.btn-list-view').click(function(e) {
@@ -430,6 +431,7 @@ jQuery(document).ready(function($) {
     filterableSearch.addClass('list-view');
     $('.btn-list-view').prop('disabled', true);
     $('.btn-grid-view').prop('disabled', false);
+    setImageContainerSize()
   })
 
   $('#btn-close-more-content-popup').click(function() {
@@ -602,11 +604,11 @@ jQuery(document).ready(function($) {
     $('body').velocity('scroll', { offset: 0, mobileHA: false });
   })
   
-  var setGridViewImageSize = function() {
-    $('.grid-view .image-container').each(function() {
+  var setImageContainerSize = function() {
+    $('.image-container').each(function() {
       var el = $(this);
       el.css('height', el.css('width'))
     })
   }
-  resizeTimeout(setGridViewImageSize)
+  resizeTimeout(setImageContainerSize)
 });
