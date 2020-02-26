@@ -29,6 +29,9 @@
       padding-bottom: 3rem;
       float: left;
       margin: 0;
+      font-family: $garamond;
+      text-transform: none;
+      font-weight: 400;
 
       [data-eq~="600px"] & {
           float: none;

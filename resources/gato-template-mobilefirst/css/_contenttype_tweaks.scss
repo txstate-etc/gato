@@ -149,6 +149,14 @@
       }
     }
   }
+  
+  .tabbed {
+    .overlay-block.color7 {
+      .tab-list button {
+        color: $maroon;
+      }
+    }
+  }
 }
 
 //Facts/Figures
@@ -345,8 +353,10 @@ ul.gato-faq-hierarchy {
     padding: 1rem 2rem 0.9rem 2rem;
     background-color: $gold;
     color: $white;
-    font-weight: 700;
-    font-size: 1.4rem;
+    font-weight: 600;
+    font-size: 1.5rem;
+    font-family: $halis;
+    text-transform: uppercase;
     line-height: 2rem;
     border: 1px solid $gold;
     display: inline-block;
@@ -356,6 +366,17 @@ ul.gato-faq-hierarchy {
       transform: translate(0px, -3px);
       box-shadow: inset 0 -2px 0 0 $gold;
     }
+  }
+}
+
+//filterable search
+.btn-toggle-filters {
+  span.label {
+    font-family: $halis;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 2rem;
   }
 }
 

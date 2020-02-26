@@ -127,6 +127,13 @@
             width: 100%;
 
         }
+        .title {
+          font-family: $garamond;
+          font-size: 3rem;
+          line-height: 3.6rem;
+          text-transform: none;
+          font-weight: 400;
+        }
         .text {
             max-width: unset;
         }        
