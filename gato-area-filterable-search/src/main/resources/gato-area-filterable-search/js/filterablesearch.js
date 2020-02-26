@@ -48,6 +48,7 @@ jQuery(document).ready(function($) {
         element.removeClass('open');
       }
     })
+    toggleArrows();
   })
 
   //open and close filter lists
@@ -516,14 +517,12 @@ jQuery(document).ready(function($) {
       $('.alpha-arrow.right').show();
     }
     $('.alpha-arrow.right').click(function() {
-      var currentScrollLeft = $('.alphabet-anchors').scrollLeft();
-      $('.alphabet-anchors').scrollLeft(currentScrollLeft + $('.anchor-link-container').width())
+      $('.anchor-link-container').velocity('scroll', {axis: 'x', duration: 400, container: $('.alphabet-anchors'), offset: $('.anchor-link-container').width() - 80})
     })
     $('.alpha-arrow.left').click(function() {
-      var currentScrollLeft = $('.alphabet-anchors').scrollLeft();
-      $('.alphabet-anchors').scrollLeft(currentScrollLeft - $('.anchor-link-container').width())
+      $('.anchor-link-container').velocity('scroll', {axis: 'x', duration: 400, container: $('.alphabet-anchors'), offset: -$('.anchor-link-container').width() + 80})
     })
-    $('.anchor-letter').click(function(e) {
+    $('.anchor-letter.active').click(function(e) {
       e.preventDefault();
       var anchor = $($(this).attr('href'));
       var headerHeight = window.stickynavheight + 5;
@@ -531,7 +530,7 @@ jQuery(document).ready(function($) {
     })
   }
   
-  $('.alphabet-anchors').scroll(function() {
+  var toggleArrows = function() {
     var anchorContainer = $('.anchor-link-container');
     var alphabetLinks = $('.alphabet-anchors');
     if (alphabetLinks.scrollLeft() == (alphabetLinks[0].scrollWidth - anchorContainer.width()))
@@ -545,10 +544,14 @@ jQuery(document).ready(function($) {
     else {
       $('.alpha-arrow.left').hide();
     }
-  })
-  
-  $('.alphabet-anchors').on("touchstart", function() {
-    $('.alpha-arrow').addClass('touch');
+  }
+  resizeTimeout(toggleArrows)
+  $('.alphabet-anchors').scroll(toggleArrows)
+
+  $('.alphabet-anchors').on("touchstart", function(e) {
+    if ($(e.target).closest('.alpha-arrow').length == 0) {
+      $('.alpha-arrow').addClass('touch');
+    }
   })
 
   //on initial page load
