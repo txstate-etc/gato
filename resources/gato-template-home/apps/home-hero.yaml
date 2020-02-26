@@ -351,9 +351,6 @@ subApps:
                   - name: middle
                     label: Middle
                     value: middle                    
-                  - name: rightbottom
-                    label: Right Bottom
-                    value: rightbottom
                   - name: rightmiddle
                     label: Right Middle
                     value: rightmiddle                    

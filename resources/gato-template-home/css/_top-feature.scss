@@ -95,7 +95,6 @@ div#top-feature {
             text-align: center;
           }
 
-          &.rightbottom {right: 10%; bottom: 20%; text-align: right; justify-content: flex-end;}
           &.rightmiddle {right: 10%; bottom: 45%; text-align: right; justify-content: flex-end;}
         }
         
@@ -110,14 +109,6 @@ div#top-feature {
             right: 0;
             bottom: 35%;
             justify-content: center;
-          }
-          &.rightbottom {
-            right: 10%; 
-            bottom: 10%;
-            .button {
-              margin-right: 0;
-              margin-left: 2rem;
-            }
           }
           &.rightmiddle {
             right: 10%; 
@@ -269,7 +260,7 @@ div#top-feature {
               font-size: 2.4rem;
               line-height: 3.4rem;
             }
-            &.middle, &.rightbottom, &.rightmiddle {
+            &.middle, &.rightmiddle {
               justify-content: flex-start;
               text-align: inherit;
             }
@@ -283,7 +274,7 @@ div#top-feature {
               margin-left: 0;
               margin-right: 2rem;
             } 
-            &.rightbottom, &.rightmiddle {
+            &.rightmiddle {
               .mf-button-container:first-of-type .button {
                 margin-left: 0;
               }
