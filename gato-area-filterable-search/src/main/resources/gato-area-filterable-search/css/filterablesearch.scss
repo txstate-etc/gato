@@ -288,7 +288,7 @@ $filterable-search-header-font: serif !default;
             color: #222;
             &.active {
               color: $white;
-              background-color: $maroon;
+              background-color: $filterable-search-active-alpha-link-bg;
             }
             &.last {
               margin-right: 0;
@@ -297,7 +297,7 @@ $filterable-search-header-font: serif !default;
           .alpha-arrow {
             display: none;
             background-color: $white;
-            color: $maroon;
+            color: $filterable-search-button-text-color;
             border: none;
             font-size: 2rem;
             min-width: 4rem;
@@ -633,8 +633,8 @@ $filterable-search-header-font: serif !default;
     }
     #backtotop {
       background-color: $white;
-      color: $maroon;
-      border: 1px solid $maroon;
+      color: $filterable-search-button-text-color;
+      border: 1px solid $filterable-search-button-text-color;
       font-weight: 600;
       padding: 1rem;
       position: fixed;
