@@ -523,6 +523,12 @@ jQuery(document).ready(function($) {
       var currentScrollLeft = $('.alphabet-anchors').scrollLeft();
       $('.alphabet-anchors').scrollLeft(currentScrollLeft - $('.anchor-link-container').width())
     })
+    $('.anchor-letter').click(function(e) {
+      e.preventDefault();
+      var anchor = $($(this).attr('href'));
+      var headerHeight = window.stickynavheight + 5;
+      $('html').velocity('scroll', { duration: 400, offset: (anchor.offset().top-headerHeight)+'px' });
+    })
   }
   
   $('.alphabet-anchors').scroll(function() {
@@ -544,7 +550,7 @@ jQuery(document).ready(function($) {
   $('.alphabet-anchors').on("touchstart", function() {
     $('.alpha-arrow').addClass('touch');
   })
-  
+
   //on initial page load
   var urlParams = getUrlParameters();
   if (!(urlParams.q && urlParams.q.length > 0) && !urlParams.filters) {
