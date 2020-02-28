@@ -1,6 +1,9 @@
 package edu.txstate.its.gato;
 
 import com.google.gson.*;
+import com.google.i18n.phonenumbers.PhoneNumberUtil;
+import com.google.i18n.phonenumbers.PhoneNumberUtil.PhoneNumberFormat;
+import com.google.i18n.phonenumbers.Phonenumber.PhoneNumber;
 
 public class FSPerson {
 
@@ -33,7 +36,15 @@ public class FSPerson {
 
   public String getOfficePhone() {
     if (!user.has("officePhone") || (user.get("officePhone") instanceof JsonNull)) return "";
-    return user.getAsJsonPrimitive("officePhone").getAsString();
+    String phone = user.getAsJsonPrimitive("officePhone").getAsString();
+    PhoneNumberUtil phoneUtil = PhoneNumberUtil.getInstance();
+    try {
+      PhoneNumber num = phoneUtil.parse(phone, "US");
+      return phoneUtil.format(num, PhoneNumberFormat.NATIONAL);
+    } catch(Exception e) {
+      e.printStackTrace();
+      return "";
+    }
   }
 
   public String getEmail() {
