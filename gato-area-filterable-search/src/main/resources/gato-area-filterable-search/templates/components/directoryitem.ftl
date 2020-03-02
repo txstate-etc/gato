@@ -14,7 +14,7 @@
           true
         )]
       <img src="${gf.getImgDefault(content.image)}" alt="" srcset="${srcset}" />
-    [#elseif content.includeImage == "hasImage" && content.fpimage?has_content]
+    [#elseif content.includeImage == "fpimage" && content.fpimage?has_content]
       [#assign cropped = (content.fpfacedetected!false)?then("cropped", "")]
       [#assign wide = (content.fpfaceaspect?? && content.fpfaceaspect > 1)?then("wide", "")]
       [#assign style = (content.fpfacedetected!false)?then("left:-" + content.fpfaceleft + "%; top:-" + content.fpfacetop + "%; width:" + content.fpfacewidth + "%;", "")]

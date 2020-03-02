@@ -77,14 +77,18 @@ form:
           class: info.magnolia.ui.form.field.definition.SwitchableFieldDefinition
           transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
           label: Include Image?
+          layout: vertical
           options:
-            - name: hasImage
-              label: Add Image to Entry
-              value: hasImage
             - name: noImage
               label: No Image
               value: noImage
+            - name: fpImage
+              label: Faculty Profiles Image (if available)
+              value: fpimage
               selected: true
+            - name: hasImage
+              label: Custom Image
+              value: hasImage
           fields:
             - name: hasImage
               class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
