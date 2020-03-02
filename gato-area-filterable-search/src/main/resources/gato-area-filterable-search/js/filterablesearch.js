@@ -330,6 +330,18 @@ jQuery(document).ready(function($) {
     }
   }
 
+  $('#more-content-popup').focusout(function (e) {
+    var tabbable = $('#more-content-popup').find(':tabbable');
+    var first = tabbable.first();
+    var last = tabbable.last();
+    var targ = $(e.relatedTarget);
+    if (targ.is('.fspopup-focusstart')) {
+      last.focus();
+    } else if (targ.is('.fspopup-focusend')) {
+      first.focus();
+    }
+  })
+
   $('.filter-cbx').click(function(e) {
     var checkbox = $(this);
     toggleCheckbox(checkbox);
@@ -436,11 +448,22 @@ jQuery(document).ready(function($) {
   })
 
   $('#btn-close-more-content-popup').click(function() {
+    closeMoreContentPopup();
+  });
+
+  $('#more-content-popup').keydown(function(e) {
+    if (e.keyCode == KeyCodes.ESCAPE) {
+      var itemId = $('#btn-close-more-content-popup').attr('data-item-id');
+      closeMoreContentPopup();
+    }
+  })
+
+  var closeMoreContentPopup = function() {
     $('#more-content-popup').hide();
     $('.listitem .image-container').removeClass('arrow');
     var fSearchContainer = $('.result').last();
-    var itemId = $(this).attr('data-item-id');
-    $(this).removeAttr('data-item-id');
+    var itemId = $('#btn-close-more-content-popup').attr('data-item-id');
+    $('#btn-close-more-content-popup').removeAttr('data-item-id');
     $('#' + itemId).find('.btnShowMoreContent').attr('aria-expanded', false);
     $('#' + itemId).find('.btnShowMoreContent').focus();
     if (fSearchContainer.data('initial-bottom-padding')) {
@@ -448,13 +471,17 @@ jQuery(document).ready(function($) {
       fSearchContainer.css('padding-bottom', initialBottomPadding);
       fSearchContainer.removeAttr('data-initial-bottom-padding');
     }
-  });
+  }
 
   var addMoreContentEventHandlers = function() {
     $('.btnShowMoreContent').click(function() {
       var listitem = $(this).closest('.listitem')
-      if("false" == $(this).attr('aria-expanded'))
+      if("false" == $(this).attr('aria-expanded')) {
         gridViewShowMore(listitem)
+      }
+      else {
+        closeMoreContentPopup();
+      }
     })
   }
 

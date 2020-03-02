@@ -32,12 +32,14 @@
     Try adjusting or clearing your filters to display more results
   </div>
   <div id="more-content-popup">
+    <div tabindex="0" class="fspopup-focusstart sr-only"></div>
     <button id="btn-close-more-content-popup">
       <i class="fa fa-close" aria-hidden="true" aria-label="Close Popup"></i>
       <span>CLOSE<span class="visuallyhidden hidden-title"></span></span>
     </button>
     <div class="popup-content">
     </div>
+    <div tabindex="0" class="fspopup-focusend sr-only"></div>
   </div>
   <button id="backtotop" aria-hidden="true" tabindex="-1">
     <i class="fa fa-angle-up" aria-hidden="true"></i>
