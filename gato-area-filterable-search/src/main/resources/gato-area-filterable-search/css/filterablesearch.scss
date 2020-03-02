@@ -268,12 +268,15 @@ $filterable-search-header-font: serif !default;
       }
       .anchor-link-container {
         position: relative;
+        margin-bottom: 4rem;
         .alphabet-anchors {
           display: flex;
-          margin-bottom: 4rem;
           overflow: scroll;
           justify-content: space-between;
           padding-bottom: 20px;
+          list-style: none;
+          padding-left: 0;
+          margin: 0;
           .anchor-letter {
             font-size: 2.5rem;
             font-weight: 600;
@@ -294,25 +297,26 @@ $filterable-search-header-font: serif !default;
               margin-right: 0;
             }
           }
-          .alpha-arrow {
-            display: none;
-            background-color: $white;
-            color: $filterable-search-button-text-color;
-            border: none;
-            font-size: 2rem;
-            min-width: 4rem;
-            min-height: 4rem;
-            &.right {
-              position: absolute;
-              right: 0;
-            }
-            &.left {
-              position: absolute;
-              left: 0;
-            }
-            &.touch {
-              display: none !important;
-            }
+        }
+        .alpha-arrow {
+          display: none;
+          background-color: $white;
+          color: $filterable-search-button-text-color;
+          border: none;
+          font-size: 2rem;
+          min-width: 4rem;
+          min-height: 4rem;
+          &.right {
+            position: absolute;
+            right: 0;
+            top: 0;
+          }
+          &.left {
+            position: absolute;
+            left: 0;
+          }
+          &.touch {
+            display: none !important;
           }
         }
       }

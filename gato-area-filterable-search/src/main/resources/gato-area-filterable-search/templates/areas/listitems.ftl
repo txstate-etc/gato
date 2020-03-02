@@ -1,7 +1,9 @@
 <div class="filtered-results" data-headers=${(ctx.alphabetize == "alphaheaders")?then("true", "false")}>
-  <div class="anchor-link-container">
-    <div class="alphabet-anchors" role="navigation" aria-label="Alphabetical Index" id="alphabet-index">
-    </div>
+  <div class="anchor-link-container" role="navigation" aria-label="Alphabetical Index">
+    <button class="alpha-arrow left"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i><span class="visuallyhidden">Scroll left</span></button>
+    <ul class="alphabet-anchors" id="alphabet-index">
+    </ul>
+    <button class="alpha-arrow right"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i><span class="visuallyhidden">Scroll right</span></button>
   </div>
   <span id="result-count" class="result-count">Showing ## Results</span>
   [#if ctx.alphabetize == "none"]
