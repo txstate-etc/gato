@@ -1,7 +1,5 @@
-$pattern-max-height: 400px;
-
 .mobilefirst-pattern {
-  max-height: $pattern-max-height;
+  max-height: 550px;
   display: flex;
   justify-content: space-between;
   position: relative;
@@ -10,7 +8,7 @@ $pattern-max-height: 400px;
     max-height: none;
   }
   &.has-image {
-    min-height: 400px;
+    min-height: 450px;
     @media (max-width:$sm-breakpoint) {
       min-height: auto;
     }
@@ -20,7 +18,10 @@ $pattern-max-height: 400px;
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    padding: 0rem 2rem;
+    padding: 6rem 2rem;
+    @media (max-width:$sm-breakpoint) {
+      padding: 0rem 2rem;
+    }
   }
   .pattern-content {
     width: 50%;
@@ -296,7 +297,7 @@ $pattern-max-height: 400px;
   .pattern-image {
     width: 50%;
     position: relative;
-    max-height: $pattern-max-height;
+    max-height: none;
     @media (max-width: $sm-breakpoint) {
       height: 300px;
     }
