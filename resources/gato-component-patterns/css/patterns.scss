@@ -27,7 +27,7 @@
     width: 50%;
     &.single {
       width: 100%;
-      padding: 6rem 0rem;
+      padding: 0rem;
       @media (max-width:$sm-breakpoint) {
         padding: 4rem 0rem;
       }
