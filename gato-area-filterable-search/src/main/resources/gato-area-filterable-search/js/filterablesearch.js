@@ -524,10 +524,12 @@ jQuery(document).ready(function($) {
     addMoreContentEventHandlers();
     //remove anchor letter links
     $('.alphabet-anchors').html("")
+    $('.anchor-link-container').hide();
   }
   
   var buildAlphaAnchors = function(activeAnchors) {
     var html = '';
+    $('.anchor-link-container').show();
     var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
     $.each(alphabet, function(i, letter) {
       var last = (i == alphabet.length - 1 ) ? "last" : "";
