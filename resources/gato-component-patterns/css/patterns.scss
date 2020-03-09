@@ -246,15 +246,16 @@
           margin-bottom: 1.4rem;
           a {
             text-decoration: none;
-            font-family: $univers;
-            font-size: 1.6rem;
-            font-weight: 500;
+            font-family: $halis;
+            font-size: 1.5rem;
+            font-weight: 600;
             line-height: 2.4rem;
             padding-bottom: 3px;
             border-width: 0px 0px 1px 0px;
             border-style:  solid;
             transition: all 0.2s ease;
             display: inline-block;
+            text-transform: uppercase;
             &:hover {
               box-shadow: inset 0 -1px 0 0;
               transform: translate(0px, -2px);
