@@ -3,4 +3,8 @@ body {
     margin: 6px 0 0 6px;
     padding: 0;
   }
+  .twSimpleTableWrap {
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
 }

@@ -41,7 +41,7 @@
                       addTrumbaSpud({webName:'calendar.${content.calendar}', spudType:'tabchooser'});
                     </script>
                   </div>
-                  <div class="column_paragraph" id="main_spud">
+                  <div class="column_paragraph" id="main_spud" style="-webkit-overflow-scrolling: touch; overflow-x: scroll;">
                     <script type="text/javascript">
                       [#if isMainCalendar]
                         addTrumbaSpud({ webName: 'calendar.${content.calendar}', spudType: 'main', url: { filterview: "Exclude Long Exhibits" } });
