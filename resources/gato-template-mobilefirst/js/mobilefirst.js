@@ -108,11 +108,6 @@ jQuery(document).ready(function($) {
       }
     }
   })
-
-  $(document).ready(function() {
-    var $patternImages = $('.mobilefirst-pattern .pattern-image img')
-    objectFitImages($patternImages);
-  });
   
   $('.organization-info').each(function() {
     if ($('.banner-section .banner').children().length == 0 ) {
