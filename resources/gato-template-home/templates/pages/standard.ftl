@@ -93,8 +93,8 @@
           </div>
         [/#if]
       </main>
+      [#include "/gato-template-mobilefirst/templates/pages/includes/footer.ftl"]
     </div>
-    [#include "/gato-template-mobilefirst/templates/pages/includes/footer.ftl"]
     [@cssjsmodals /]
     [#include "/gato-template/templates/includes/video-modal.ftl"]
     [#assign useGlobalSearch = true]
