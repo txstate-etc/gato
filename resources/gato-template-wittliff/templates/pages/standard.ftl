@@ -31,7 +31,8 @@
       [/#if]
       <main class="contentcolumn">
         [#if !(def.parameters.isSpecialTemplate!false) && !(def.parameters.isEventsTemplate!false)]
-          [@headline hideSidebar /]
+        [#assign hideTitle = content.hideTitle!false]
+          [@headline hideSidebar hideTitle/]
         [/#if]
         [#include "/gato-template/templates/includes/sacscocWarning.ftl"]
         [#if def.parameters.isMailTemplate!false]

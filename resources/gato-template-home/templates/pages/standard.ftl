@@ -72,22 +72,21 @@
           [/#if]
           <div class="contentcolumn ${content.intro?has_content?then('', 'no-intro')}">
             [#assign hideSidebar = true /]
-            [@headline hideSidebar /]
-            [#if !(content.hideTitle!false)]
-              [#if content.intro?has_content]
-                <div class="page-intro-text">
-                  ${gf.processRichText(cmsfn.decode(content).intro)}
-                </div>
-              [/#if]
-              [#if content.addTitleSeparator?has_content && content.addTitleSeparator == true]
-                <div class="gato-section-full gato-section-title-separator">
-                  <div class="gato-section-centered">
-                    <div class="gato-section">
-                      <div class="intro-title-border"></div>
-                    </div>
+            [#assign hideTitle = false /]
+            [@headline hideSidebar hideTitle/]
+            [#if content.intro?has_content]
+              <div class="page-intro-text">
+                ${gf.processRichText(cmsfn.decode(content).intro)}
+              </div>
+            [/#if]
+            [#if content.addTitleSeparator?has_content && content.addTitleSeparator == true]
+              <div class="gato-section-full gato-section-title-separator">
+                <div class="gato-section-centered">
+                  <div class="gato-section">
+                    <div class="intro-title-border"></div>
                   </div>
                 </div>
-              [/#if]
+              </div>
             [/#if]
             [@cms.area name="landingcontent"/]
           </div>

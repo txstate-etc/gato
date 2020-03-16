@@ -5,7 +5,7 @@
 
 [#assign count = 0]
 <div id="top-feature" class="feature ${cmsfn.isEditMode()?then(' admin','')}">
-    [@headline true /]
+    [@headline true true/]
     <div class="hero">
       <figure class="feature top-slider" >
 

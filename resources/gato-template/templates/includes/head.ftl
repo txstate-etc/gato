@@ -214,8 +214,8 @@
   <a class="skip-nav" href="#${maincontent}">Skip to Content</a>
 [/#macro]
 
-[#macro headline hideSidebar=false]
-  [#if !isHomePage && !(content.hideTitle!false)]
+[#macro headline hideSidebar=false hideTitle=false]
+  [#if !isHomePage && !(hideTitle)]
     [#if hideSidebar]
       [#assign fullwidth = 'full-width']
     [/#if]

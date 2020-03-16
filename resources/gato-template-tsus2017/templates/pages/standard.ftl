@@ -18,7 +18,8 @@
             [#assign hideSidebar = true]
           [/#if]
           <main class="contentcolumn">
-            [@headline hideSidebar /]
+            [#assign hideTitle = content.hideTitle!false]
+            [@headline hideSidebar hideTitle/]
               [#include "/gato-template/templates/includes/sacscocWarning.ftl"]
               [#if def.parameters.isMailTemplate!false]
                   [@cms.area name="mail" contextAttributes={"hideSidebar":hideSidebar} /]
