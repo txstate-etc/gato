@@ -72,6 +72,7 @@ form:
         - name: text
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Button Text
+          required: true
           styleName: gato-button-text
         - name: url
           class: info.magnolia.ui.form.field.definition.LinkFieldDefinition

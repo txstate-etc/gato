@@ -92,6 +92,7 @@ form:
                 class: info.magnolia.ui.form.field.definition.TextFieldDefinition
                 label: Button Text
                 maxLength: 30
+                required: true
               - name: link
                 class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
                 label: Button Target
