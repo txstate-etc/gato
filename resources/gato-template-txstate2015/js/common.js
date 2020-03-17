@@ -99,7 +99,14 @@ jQuery(document).ready(function($) {
               window.location.hash = this.hash;
             }
             $(target).velocity('scroll', {
-                duration: 500
+                duration: 500,
+                complete: function() {
+                  target.focus();
+                  if (!target.is(":focus")) {
+                    target.attr('tabindex', '-1');
+                    target.focus();
+                  }
+                }
             });
         return false;
       }

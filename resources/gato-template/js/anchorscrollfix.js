@@ -8,7 +8,17 @@ function scrollToAnchor(hash, header) {
     var headerHeight = window.stickynavheight + 5;
   
     if (target.length) {
-      $('html').velocity('scroll', { duration: 400, offset: (target.offset().top-headerHeight)+'px' });
+      $('html').velocity('scroll', { 
+        duration: 400, 
+        offset: (target.offset().top-headerHeight)+'px',
+        complete: function(){
+          target.focus();
+          if (!target.is(":focus")) {
+            target.attr('tabindex', '-1');
+            target.focus();
+          }
+        }
+      });
     }
   }
 }
