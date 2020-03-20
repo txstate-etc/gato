@@ -10,9 +10,17 @@
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>mgnl:contentNode</sv:value>
     </sv:property>
+    <sv:property sv:name="itbo-editor" sv:type="String">
+      <sv:value>itbo-editor</sv:value>
+    </sv:property>
+    <sv:property sv:name="mobile-first-access" sv:type="String">
+      <sv:value>mobile-first-access</sv:value>
+    </sv:property>
     <sv:property sv:name="superuser" sv:type="String">
       <sv:value>superuser</sv:value>
     </sv:property>
+    <sv:property sv:name="university-marketing-editor" sv:type="String">
+      <sv:value>university-marketing-editor</sv:value>
+    </sv:property>
   </sv:node>
 </sv:node>
-

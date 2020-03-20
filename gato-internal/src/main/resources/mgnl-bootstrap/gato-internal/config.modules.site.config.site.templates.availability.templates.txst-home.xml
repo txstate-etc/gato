@@ -10,9 +10,11 @@
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>mgnl:contentNode</sv:value>
     </sv:property>
+    <sv:property sv:name="main2012-editor" sv:type="String">
+      <sv:value>main2012-editor</sv:value>
+    </sv:property>
     <sv:property sv:name="superuser" sv:type="String">
       <sv:value>superuser</sv:value>
     </sv:property>
   </sv:node>
 </sv:node>
-
