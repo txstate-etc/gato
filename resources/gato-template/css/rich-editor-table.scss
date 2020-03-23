@@ -84,6 +84,9 @@
     table.alternate-row-color tbody tr:nth-child(odd) {
        background-color: $table-altrow-bg;
     }
+    table.alternate-row-color tbody tr:nth-child(even) {
+       background-color: $body-background-color;
+    }
     table.auto-width{
       width: auto;
     }
