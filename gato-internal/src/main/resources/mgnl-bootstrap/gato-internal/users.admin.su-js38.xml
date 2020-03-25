@@ -37,7 +37,7 @@
     <sv:value>$2a$12$ieOJfRTraNt8yHDqXCoHS.ljeFUCs7NK89UN.kx9GLQmgahwWoQu6</sv:value>
   </sv:property>
   <sv:property sv:name="title" sv:type="String">
-    <sv:value>Jeff Snider - SU</sv:value>
+    <sv:value>Jeffrey Snider - SU</sv:value>
   </sv:property>
   <sv:node sv:name="acl_users">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
@@ -253,4 +253,3 @@
     </sv:property>
   </sv:node>
 </sv:node>
-
