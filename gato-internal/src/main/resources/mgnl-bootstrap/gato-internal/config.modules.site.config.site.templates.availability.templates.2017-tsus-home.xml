@@ -16,5 +16,8 @@
     <sv:property sv:name="tsus-editor" sv:type="String">
       <sv:value>tsus-editor</sv:value>
     </sv:property>
+    <sv:property sv:name="tsus-access" sv:type="String">
+      <sv:value>tsus-access</sv:value>
+    </sv:property>
   </sv:node>
 </sv:node>

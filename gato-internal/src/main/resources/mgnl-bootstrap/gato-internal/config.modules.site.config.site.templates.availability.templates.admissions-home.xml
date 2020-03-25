@@ -16,5 +16,8 @@
     <sv:property sv:name="ua-test-sandbox-editor" sv:type="String">
       <sv:value>ua-test-sandbox-editor</sv:value>
     </sv:property>
+    <sv:property sv:name="admissions-access" sv:type="String">
+      <sv:value>admissions-access</sv:value>
+    </sv:property>
   </sv:node>
 </sv:node>

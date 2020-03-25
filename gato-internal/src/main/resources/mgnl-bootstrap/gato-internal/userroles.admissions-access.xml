@@ -1,84 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sv:node xmlns:sv="http://www.jcp.org/jcr/sv/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" sv:name="mobile-first-access">
+<sv:node xmlns:sv="http://www.jcp.org/jcr/sv/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" sv:name="admissions-access">
   <sv:property sv:name="jcr:primaryType" sv:type="Name">
     <sv:value>mgnl:role</sv:value>
   </sv:property>
   <sv:property sv:name="jcr:uuid" sv:type="String">
-    <sv:value>31265df9-1be9-4723-9efe-8d667c457588</sv:value>
-  </sv:property>
-  <sv:property sv:name="mgnl:activationStatus" sv:type="Boolean">
-    <sv:value>true</sv:value>
+    <sv:value>95b41ce7-f6b4-4baa-9bca-7cd1fce1b816</sv:value>
   </sv:property>
   <sv:property sv:name="mgnl:created" sv:type="Date">
-    <sv:value>2019-02-22T10:31:20.854-06:00</sv:value>
+    <sv:value>2020-03-25T18:21:26.076Z</sv:value>
   </sv:property>
   <sv:property sv:name="mgnl:createdBy" sv:type="String">
-    <sv:value>System [nw13]</sv:value>
-  </sv:property>
-  <sv:property sv:name="mgnl:lastActivated" sv:type="Date">
-    <sv:value>2019-04-29T12:49:55.856-05:00</sv:value>
-  </sv:property>
-  <sv:property sv:name="mgnl:lastActivatedBy" sv:type="String">
-    <sv:value>mla116</sv:value>
+    <sv:value>System [su-js38]</sv:value>
   </sv:property>
   <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-    <sv:value>2020-03-25T18:20:52.699Z</sv:value>
+    <sv:value>2020-03-25T18:21:26.322Z</sv:value>
   </sv:property>
   <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
     <sv:value>su-js38</sv:value>
   </sv:property>
   <sv:property sv:name="title" sv:type="String">
-    <sv:value>Access to Mobile-First Template</sv:value>
+    <sv:value>Access to Admissions Template</sv:value>
   </sv:property>
   <sv:node sv:name="acl_userroles">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>mgnl:contentNode</sv:value>
     </sv:property>
     <sv:property sv:name="jcr:uuid" sv:type="String">
-      <sv:value>63bccb25-bb92-47f8-9e28-fd2cc67bcbc7</sv:value>
-    </sv:property>
-    <sv:property sv:name="mgnl:activationStatus" sv:type="Boolean">
-      <sv:value>true</sv:value>
+      <sv:value>a865a5d3-3aac-48d3-9bc8-297e4bcc90f0</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:created" sv:type="Date">
-      <sv:value>2019-02-22T10:31:20.855-06:00</sv:value>
+      <sv:value>2020-03-25T18:21:26.077Z</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:createdBy" sv:type="String">
-      <sv:value>System [nw13]</sv:value>
-    </sv:property>
-    <sv:property sv:name="mgnl:lastActivated" sv:type="Date">
-      <sv:value>2019-04-29T12:49:55.861-05:00</sv:value>
-    </sv:property>
-    <sv:property sv:name="mgnl:lastActivatedBy" sv:type="String">
-      <sv:value>mla116</sv:value>
+      <sv:value>System [su-js38]</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-      <sv:value>2020-03-25T18:20:52.325Z</sv:value>
+      <sv:value>2020-03-25T18:21:26.077Z</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
-      <sv:value>su-js38</sv:value>
+      <sv:value>System [su-js38]</sv:value>
     </sv:property>
     <sv:node sv:name="0">
       <sv:property sv:name="jcr:primaryType" sv:type="Name">
         <sv:value>mgnl:contentNode</sv:value>
       </sv:property>
       <sv:property sv:name="jcr:uuid" sv:type="String">
-        <sv:value>74eede10-bebe-4155-b918-51f9ddcb77bb</sv:value>
+        <sv:value>f189dca1-c11c-489f-99c7-a972d432e119</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:created" sv:type="Date">
-        <sv:value>2020-03-25T18:20:52.325Z</sv:value>
+        <sv:value>2020-03-25T18:21:26.077Z</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:createdBy" sv:type="String">
-        <sv:value>su-js38</sv:value>
+        <sv:value>System [su-js38]</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-        <sv:value>2020-03-25T18:20:52.325Z</sv:value>
+        <sv:value>2020-03-25T18:21:26.077Z</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
-        <sv:value>su-js38</sv:value>
+        <sv:value>System [su-js38]</sv:value>
       </sv:property>
       <sv:property sv:name="path" sv:type="String">
-        <sv:value>/mobile-first-access</sv:value>
+        <sv:value>/admissions-access</sv:value>
       </sv:property>
       <sv:property sv:name="permissions" sv:type="Long">
         <sv:value>8</sv:value>

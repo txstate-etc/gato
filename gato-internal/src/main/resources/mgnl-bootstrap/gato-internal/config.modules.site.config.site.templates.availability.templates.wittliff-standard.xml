@@ -19,5 +19,8 @@
     <sv:property sv:name="wittliff-sandbox-editor" sv:type="String">
       <sv:value>wittliff-sandbox-editor</sv:value>
     </sv:property>
+    <sv:property sv:name="wittliff-access" sv:type="String">
+      <sv:value>wittliff-access</sv:value>
+    </sv:property>
   </sv:node>
 </sv:node>

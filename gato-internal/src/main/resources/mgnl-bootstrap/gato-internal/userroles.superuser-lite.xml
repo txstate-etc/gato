@@ -22,10 +22,10 @@
     <sv:value>js38</sv:value>
   </sv:property>
   <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-    <sv:value>2020-03-16T16:32:23.818Z</sv:value>
+    <sv:value>2020-03-25T18:00:55.769Z</sv:value>
   </sv:property>
   <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
-    <sv:value>js38</sv:value>
+    <sv:value>su-js38</sv:value>
   </sv:property>
   <sv:property sv:name="mgnl:template" sv:type="String">
     <sv:value />
@@ -53,29 +53,29 @@
       <sv:value>js38</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-      <sv:value>2020-03-16T16:32:23.837Z</sv:value>
+      <sv:value>2020-03-25T18:00:55.769Z</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
-      <sv:value>js38</sv:value>
+      <sv:value>su-js38</sv:value>
     </sv:property>
     <sv:node sv:name="0">
       <sv:property sv:name="jcr:primaryType" sv:type="Name">
         <sv:value>mgnl:contentNode</sv:value>
       </sv:property>
       <sv:property sv:name="jcr:uuid" sv:type="String">
-        <sv:value>682e48b9-a0e3-4328-aa01-a19def9811e6</sv:value>
+        <sv:value>85664e47-e70b-46a7-8b59-6e4f9b6edc3d</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:created" sv:type="Date">
-        <sv:value>2020-03-16T16:32:23.837Z</sv:value>
+        <sv:value>2020-03-25T18:00:55.769Z</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:createdBy" sv:type="String">
-        <sv:value>js38</sv:value>
+        <sv:value>su-js38</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-        <sv:value>2020-03-16T16:32:23.837Z</sv:value>
+        <sv:value>2020-03-25T18:00:55.769Z</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
-        <sv:value>js38</sv:value>
+        <sv:value>su-js38</sv:value>
       </sv:property>
       <sv:property sv:name="path" sv:type="String">
         <sv:value>/*</sv:value>
@@ -108,29 +108,29 @@
       <sv:value>js38</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-      <sv:value>2020-03-16T16:32:23.672Z</sv:value>
+      <sv:value>2020-03-25T18:00:55.627Z</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
-      <sv:value>js38</sv:value>
+      <sv:value>su-js38</sv:value>
     </sv:property>
     <sv:node sv:name="0">
       <sv:property sv:name="jcr:primaryType" sv:type="Name">
         <sv:value>mgnl:contentNode</sv:value>
       </sv:property>
       <sv:property sv:name="jcr:uuid" sv:type="String">
-        <sv:value>9ba874be-8806-40a7-84e9-c5cad91a1ef8</sv:value>
+        <sv:value>a5da19f3-31a8-4465-870d-7212ff732c1f</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:created" sv:type="Date">
-        <sv:value>2020-03-16T16:32:23.672Z</sv:value>
+        <sv:value>2020-03-25T18:00:55.627Z</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:createdBy" sv:type="String">
-        <sv:value>js38</sv:value>
+        <sv:value>su-js38</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-        <sv:value>2020-03-16T16:32:23.672Z</sv:value>
+        <sv:value>2020-03-25T18:00:55.627Z</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
-        <sv:value>js38</sv:value>
+        <sv:value>su-js38</sv:value>
       </sv:property>
       <sv:property sv:name="path" sv:type="String">
         <sv:value>/*</sv:value>
@@ -163,29 +163,29 @@
       <sv:value>js38</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-      <sv:value>2020-03-16T16:32:23.751Z</sv:value>
+      <sv:value>2020-03-25T18:00:55.694Z</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
-      <sv:value>js38</sv:value>
+      <sv:value>su-js38</sv:value>
     </sv:property>
     <sv:node sv:name="0">
       <sv:property sv:name="jcr:primaryType" sv:type="Name">
         <sv:value>mgnl:contentNode</sv:value>
       </sv:property>
       <sv:property sv:name="jcr:uuid" sv:type="String">
-        <sv:value>3f482c0a-e8f0-4e2f-ac8e-9e01f6f6e519</sv:value>
+        <sv:value>6ccc6f21-6129-46e0-8114-c711ff74d6c2</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:created" sv:type="Date">
-        <sv:value>2020-03-16T16:32:23.751Z</sv:value>
+        <sv:value>2020-03-25T18:00:55.694Z</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:createdBy" sv:type="String">
-        <sv:value>js38</sv:value>
+        <sv:value>su-js38</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-        <sv:value>2020-03-16T16:32:23.751Z</sv:value>
+        <sv:value>2020-03-25T18:00:55.694Z</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
-        <sv:value>js38</sv:value>
+        <sv:value>su-js38</sv:value>
       </sv:property>
       <sv:property sv:name="path" sv:type="String">
         <sv:value>/admin</sv:value>
@@ -199,19 +199,19 @@
         <sv:value>mgnl:contentNode</sv:value>
       </sv:property>
       <sv:property sv:name="jcr:uuid" sv:type="String">
-        <sv:value>ea6120de-787c-4163-9294-54e329aacafa</sv:value>
+        <sv:value>d77002ef-2a24-4e3d-b31e-61c97cfb94c1</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:created" sv:type="Date">
-        <sv:value>2020-03-16T16:32:23.751Z</sv:value>
+        <sv:value>2020-03-25T18:00:55.694Z</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:createdBy" sv:type="String">
-        <sv:value>js38</sv:value>
+        <sv:value>su-js38</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-        <sv:value>2020-03-16T16:32:23.751Z</sv:value>
+        <sv:value>2020-03-25T18:00:55.694Z</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
-        <sv:value>js38</sv:value>
+        <sv:value>su-js38</sv:value>
       </sv:property>
       <sv:property sv:name="path" sv:type="String">
         <sv:value>/admin/*</sv:value>
@@ -244,35 +244,87 @@
       <sv:value>js38</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-      <sv:value>2020-03-16T16:32:23.530Z</sv:value>
+      <sv:value>2020-03-25T18:00:55.573Z</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
-      <sv:value>js38</sv:value>
+      <sv:value>su-js38</sv:value>
     </sv:property>
     <sv:node sv:name="0">
       <sv:property sv:name="jcr:primaryType" sv:type="Name">
         <sv:value>mgnl:contentNode</sv:value>
       </sv:property>
       <sv:property sv:name="jcr:uuid" sv:type="String">
-        <sv:value>794427ec-a58d-41fd-8f68-eea9f12f96b5</sv:value>
+        <sv:value>86c7295a-9c5e-4575-b8f2-84a586fdeb43</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:created" sv:type="Date">
-        <sv:value>2020-03-16T16:32:23.530Z</sv:value>
+        <sv:value>2020-03-25T18:00:55.573Z</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:createdBy" sv:type="String">
-        <sv:value>js38</sv:value>
+        <sv:value>su-js38</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-        <sv:value>2020-03-16T16:32:23.530Z</sv:value>
+        <sv:value>2020-03-25T18:00:55.573Z</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
-        <sv:value>js38</sv:value>
+        <sv:value>su-js38</sv:value>
       </sv:property>
       <sv:property sv:name="path" sv:type="String">
         <sv:value>/*</sv:value>
       </sv:property>
       <sv:property sv:name="permissions" sv:type="Long">
         <sv:value>63</sv:value>
+      </sv:property>
+    </sv:node>
+    <sv:node sv:name="00">
+      <sv:property sv:name="jcr:primaryType" sv:type="Name">
+        <sv:value>mgnl:contentNode</sv:value>
+      </sv:property>
+      <sv:property sv:name="jcr:uuid" sv:type="String">
+        <sv:value>85b95ef7-3315-4db5-a849-dfd78ee794c5</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:created" sv:type="Date">
+        <sv:value>2020-03-25T18:00:55.573Z</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:createdBy" sv:type="String">
+        <sv:value>su-js38</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:lastModified" sv:type="Date">
+        <sv:value>2020-03-25T18:00:55.573Z</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
+        <sv:value>su-js38</sv:value>
+      </sv:property>
+      <sv:property sv:name="path" sv:type="String">
+        <sv:value>/superuser</sv:value>
+      </sv:property>
+      <sv:property sv:name="permissions" sv:type="Long">
+        <sv:value>0</sv:value>
+      </sv:property>
+    </sv:node>
+    <sv:node sv:name="01">
+      <sv:property sv:name="jcr:primaryType" sv:type="Name">
+        <sv:value>mgnl:contentNode</sv:value>
+      </sv:property>
+      <sv:property sv:name="jcr:uuid" sv:type="String">
+        <sv:value>676ff277-a705-4924-89d8-1cbca1b1bdc7</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:created" sv:type="Date">
+        <sv:value>2020-03-25T18:00:55.573Z</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:createdBy" sv:type="String">
+        <sv:value>su-js38</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:lastModified" sv:type="Date">
+        <sv:value>2020-03-25T18:00:55.573Z</sv:value>
+      </sv:property>
+      <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
+        <sv:value>su-js38</sv:value>
+      </sv:property>
+      <sv:property sv:name="path" sv:type="String">
+        <sv:value>/superuser/*</sv:value>
+      </sv:property>
+      <sv:property sv:name="permissions" sv:type="Long">
+        <sv:value>0</sv:value>
       </sv:property>
     </sv:node>
   </sv:node>
@@ -299,29 +351,29 @@
       <sv:value>js38</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-      <sv:value>2020-03-16T16:32:23.799Z</sv:value>
+      <sv:value>2020-03-25T18:00:55.734Z</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
-      <sv:value>js38</sv:value>
+      <sv:value>su-js38</sv:value>
     </sv:property>
     <sv:node sv:name="0">
       <sv:property sv:name="jcr:primaryType" sv:type="Name">
         <sv:value>mgnl:contentNode</sv:value>
       </sv:property>
       <sv:property sv:name="jcr:uuid" sv:type="String">
-        <sv:value>3490042c-d13d-4d50-8ba9-83e610276f9d</sv:value>
+        <sv:value>12e382d9-d7ed-47a3-94ee-044d7893d74b</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:created" sv:type="Date">
-        <sv:value>2020-03-16T16:32:23.799Z</sv:value>
+        <sv:value>2020-03-25T18:00:55.734Z</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:createdBy" sv:type="String">
-        <sv:value>js38</sv:value>
+        <sv:value>su-js38</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-        <sv:value>2020-03-16T16:32:23.799Z</sv:value>
+        <sv:value>2020-03-25T18:00:55.734Z</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
-        <sv:value>js38</sv:value>
+        <sv:value>su-js38</sv:value>
       </sv:property>
       <sv:property sv:name="path" sv:type="String">
         <sv:value>/*</sv:value>
@@ -354,29 +406,29 @@
       <sv:value>js38</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-      <sv:value>2020-03-16T16:32:23.685Z</sv:value>
+      <sv:value>2020-03-25T18:00:55.638Z</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
-      <sv:value>js38</sv:value>
+      <sv:value>su-js38</sv:value>
     </sv:property>
     <sv:node sv:name="0">
       <sv:property sv:name="jcr:primaryType" sv:type="Name">
         <sv:value>mgnl:contentNode</sv:value>
       </sv:property>
       <sv:property sv:name="jcr:uuid" sv:type="String">
-        <sv:value>f37d2c01-3aca-4b46-9dd1-5695a3765156</sv:value>
+        <sv:value>73470307-bbd2-4a29-bdd0-2e9ba8ac68e6</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:created" sv:type="Date">
-        <sv:value>2020-03-16T16:32:23.685Z</sv:value>
+        <sv:value>2020-03-25T18:00:55.638Z</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:createdBy" sv:type="String">
-        <sv:value>js38</sv:value>
+        <sv:value>su-js38</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-        <sv:value>2020-03-16T16:32:23.685Z</sv:value>
+        <sv:value>2020-03-25T18:00:55.638Z</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
-        <sv:value>js38</sv:value>
+        <sv:value>su-js38</sv:value>
       </sv:property>
       <sv:property sv:name="path" sv:type="String">
         <sv:value>/*</sv:value>
@@ -387,3 +439,4 @@
     </sv:node>
   </sv:node>
 </sv:node>
+
