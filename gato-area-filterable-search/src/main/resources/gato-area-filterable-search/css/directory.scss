@@ -8,6 +8,12 @@
   }
   .listitem-email, .listitem-office, .listitem-phone {
     margin-bottom: 0.5rem;
+    a {
+      color: $content-link-text;
+      &:hover {
+        background: $content-link-hover;
+      }
+    }
   }
   &.list-view {
     .filtered-results {
