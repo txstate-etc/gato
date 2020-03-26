@@ -49,6 +49,7 @@ jQuery(document).ready(function($) {
       }
     })
     toggleArrows();
+    setImageContainerSize()
   })
 
   //open and close filter lists
