@@ -7,13 +7,25 @@
       <i class="emergency-icon fa fa-exclamation-circle" aria-hidden="true"></i>
       Texas State Alert
     </div>
-    <a class="emergency-link" href="${gf.filterUrl(notification.link)}">
-      ${notification.text}
-    </a>
-    <div class="alert-timestamp">
-      [#-- <p>Updated: Aug. 29, 2019 at 11:29 a.m. CDT</p> --]
-      <p>Updated: ${gf.getModificationDate(notification)?string("MMM. dd, yyyy 'at' h:mm a z")}</p>
+    [#if !gf.isEmptyString(notification.link)]
+      <a class="emergency-link" href="${gf.filterUrl(notification.link)}">
+        ${notification.text}
+      </a>
+    [#else]
+      <div class="emergency-link">
+        ${notification.text}
+      </div>
+    [/#if]
+    <div class="emergency-info">
+      ${gf.processRichText(cmsfn.decode(notification).info)}
     </div>
+    [#if notification.timestamp??]
+      [#if notification.timestamp="manualtimestamp"]
+        <div class="alert-timestamp">
+          <p>Updated: ${notification.manualtimestamp?string("MMM. dd, yyyy 'at' h:mm a z")}</p>
+        </div>
+      [/#if]
+    [/#if]
   </div>
   <script>
   jQuery(document).ready(function($) {

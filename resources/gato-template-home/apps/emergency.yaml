@@ -168,6 +168,16 @@ subApps:
                   class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
                 description: "Title will be clickable. Enter a full URL (http://www.google.com/) or use the \"Internal Link\" button to link to another page in this site."
                 buttonSelectNewLabel: "Internal Link..."
+              - name: info
+                class: info.magnolia.ui.form.field.definition.RichTextFieldDefinition
+                label: More Information
+                source: false
+                alignment: false
+                images: false
+                lists: false
+                tables: false
+                height: 500
+                configJsFile: /.resources/gato-template/js/richeditor/minimal-config.js
               - name: script
                 class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
                 fields:
@@ -181,6 +191,26 @@ subApps:
                 label: Background Color
                 parameters:
                   contentType: txstateHomeEmergency
+              - name: timestamp
+                class:  info.magnolia.ui.form.field.definition.SwitchableFieldDefinition
+                transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+                label: Timestamp
+                options:
+                  - name: none
+                    label: No Timestamp
+                    value: none
+                  # - name: automatic
+                  #   label: Based on Linked Page (If Available)
+                  #   value: automatic
+                  #   selected: true
+                  - name: timestamp
+                    label: Enter Timestamp
+                    value: manualtimestamp
+                fields:
+                  - name: manualtimestamp
+                    class: info.magnolia.ui.form.field.definition.DateFieldDefinition
+                    label: ""
+                    time: true
               - name: stylesheet
                 label: ""
                 class: edu.txstate.its.gato.vaadin.GatoCssIncludeDefinition
