@@ -15,6 +15,14 @@
       }
     }
   }
+  .listitem-description {
+    a {
+      color: $content-link-text;
+      &:hover {
+        background: $content-link-hover;
+      }
+    }
+  }
   &.list-view {
     .filtered-results {
       ul.results {
