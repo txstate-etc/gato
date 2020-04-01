@@ -3,10 +3,6 @@ form:
   tabs:
     - name: tabGeneral
       fields:
-        - name: information
-          class: info.magnolia.ui.form.field.definition.StaticFieldDefinition
-          label: Note
-          value: Introductory text and separator line will only be displayed if the page title is not hidden.
         - name: intro
           class: info.magnolia.ui.form.field.definition.RichTextFieldDefinition
           label: Intro. Text
