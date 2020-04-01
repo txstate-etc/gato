@@ -1,5 +1,8 @@
 .emergency-notification {
   padding: 4rem 0;
+  @media (max-width: $sm-breakpoint) {
+    padding: 2rem;
+  }
   text-align: center;
   position: static;
   &.color5 {
