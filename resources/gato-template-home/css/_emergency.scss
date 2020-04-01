@@ -1,7 +1,7 @@
 .emergency-notification {
   padding: 4rem 0;
   @media (max-width: $sm-breakpoint) {
-    padding: 2rem;
+    padding: 4rem 2rem;
   }
   text-align: center;
   position: static;
@@ -30,6 +30,7 @@
     font-family: $garamond;
     font-size: 3rem;
     font-weight: 500;
+    line-height: 35px;
     .emergency-icon {
       margin-right: 1rem;
     }
@@ -45,11 +46,5 @@
   .emergency-info {
     max-width: 600px;
     margin: 0 auto;
-  }
-}
-
-body:not(.emergency) {
-  .emergency-notification {
-    position: absolute;
   }
 }

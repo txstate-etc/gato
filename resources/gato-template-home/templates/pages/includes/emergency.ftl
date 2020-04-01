@@ -29,16 +29,24 @@
   </div>
   <script>
   jQuery(document).ready(function($) {
-    $('body').addClass('emergency');
-    var notificationHeight = $('.emergency-notification').outerHeight();
-    $(window).on('scroll', function(e) {
+    function positionHeader(notificationHeight) {
       if ($(window).scrollTop() > notificationHeight) {
         $('body').removeClass('emergency');
+        $('header').css('top', 0)
       }
       else {
         $('body').addClass('emergency');
+        $('header').css('top', notificationHeight)
       }
+    }
+    $('body').addClass('emergency');
+    $(window).on('scroll', function(e) {
+      positionHeader($('.emergency-notification').outerHeight())
     })
+    $(window).on('resize', function(e) {
+      positionHeader($('.emergency-notification').outerHeight())
+    })
+    positionHeader($('.emergency-notification').outerHeight());
   })
   </script>
 [/#if]

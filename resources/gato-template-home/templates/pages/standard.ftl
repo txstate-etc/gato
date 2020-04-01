@@ -13,13 +13,13 @@
   <body class="${cmsfn.isEditMode()?then(' admin','')} ${(def.parameters.isHomeTemplate!false)?string(' txstate-home', '')}">
     [#assign isTXSTHome = true]
     [@skipnav/]
-    [#assign isEmergency = false]
-    [#if def.parameters.isHomeTemplate!false]
-      [#include "/gato-template-home/templates/pages/includes/emergency.ftl"]
-    [/#if]
     [#include "/gato-template-mobilefirst/templates/pages/includes/header.ftl"]
     [#include "/gato-template-mobilefirst/templates/pages/includes/menu.ftl"]
     <div class="page-container" id="panel">
+      [#assign isEmergency = false]
+      [#if def.parameters.isHomeTemplate!false]
+        [#include "/gato-template-home/templates/pages/includes/emergency.ftl"]
+      [/#if]
       [#if !cmsfn.isEditMode()]
         <div class="header-bars">
           <div class="top-bar">
