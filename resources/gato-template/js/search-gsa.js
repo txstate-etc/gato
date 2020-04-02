@@ -46,7 +46,7 @@ Search.prototype.doSearch = function(query) {
       var item = data.items[i];
       var itemobj = {
         title: item.title,
-        summary_html: item.htmlSnippet,
+        summary_html: item.htmlSnippet || '',
         url: item.link,
         url_display: item.htmlFormattedUrl,
         date: "",
