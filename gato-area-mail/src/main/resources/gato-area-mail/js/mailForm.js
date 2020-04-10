@@ -638,3 +638,11 @@ function injectDummies() {
     
   }
 }
+
+function enableSubmitButton() {
+  if (!document.getElementById("btnsubmit").classList.contains("edit"))
+    document.getElementById("btnsubmit").disabled = false;
+}
+function disableSubmitButton() {
+  document.getElementById("btnsubmit").disabled = true;
+}

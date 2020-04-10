@@ -366,6 +366,11 @@ ul.gato-faq-hierarchy {
       transform: translate(0px, -3px);
       box-shadow: inset 0 -2px 0 0 $gold;
     }
+    &:disabled {
+      transition: none;
+      transform: none;
+      box-shadow: none;
+    }
   }
 }
 

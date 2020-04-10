@@ -323,6 +323,14 @@ body ul.gato-faq-hierarchy {
         width: 100%;
       }
     }
+    &:disabled {
+      background-color: white;
+      color: $mc1-bg;
+      &:after { border-color: inherit;}
+      &:before {
+        width: 0px;
+      }
+    }
     span {
       padding: 1.8rem 0;
     }

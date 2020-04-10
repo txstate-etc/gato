@@ -152,6 +152,10 @@
   button.submit{
     padding: 1.8rem 4rem;
     margin-top: 1rem;
+		&:disabled {
+			cursor: not-allowed;
+			opacity: 0.5;
+		}
   }
 
 	.picker__button--today[disabled] {

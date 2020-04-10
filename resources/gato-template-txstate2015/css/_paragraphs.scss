@@ -234,6 +234,9 @@
       box-shadow: 0 0 $form-submit-box-shadow-color;
       top: 4px;
     }
+    &:disabled{
+      background: $form-submit-background-color;
+    }
   }
 }
 

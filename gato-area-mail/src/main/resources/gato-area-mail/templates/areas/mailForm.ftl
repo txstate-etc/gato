@@ -18,13 +18,19 @@
         ${ctx.request.setAttribute("safeTitle", model.getSafeTitle(cmsfn.asJCRNode(component).identifier))}
         [@cms.component content=component /]
       [/#list]
-      [#assign disable='']
+      [#assign editMode='']
       [#if cmsfn.isEditMode()]
         <div class="mail_add" cms:add="box"></div>
-        [#assign disable = 'disabled']
+        [#assign editMode = 'edit']
       [/#if]
+      <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+      <script>
+        
+      </script>
+      <div class="g-recaptcha" data-sitekey="${gf.getConfigProperty('formemailer.recaptcha.site.key')!""}" data-callback="enableSubmitButton" data-expired-callback="disableSubmitButton"></div>
+      <br/>
       <div class="formelement">
-        <button class="submit" name="submit" value="${content.formproperties.formproperties.buttonText!'Submit'}" ${disable}><span>${content.formproperties.formproperties.buttonText!'Submit'}</span></button>
+        <button id="btnsubmit" class="submit ${editMode}" name="submit" value="${content.formproperties.formproperties.buttonText!'Submit'}" disabled><span>${content.formproperties.formproperties.buttonText!'Submit'}</span></button>
       </div>
       <div class="txst-khan-privacypolicylink"><a href="http://www.tr.txstate.edu/privacy-statement.html" target="_blank">Privacy Policy</a></div>
       <div class="gato-area-mail-important">
