@@ -30,7 +30,7 @@ public class DepartmentDirectoryModel<RD extends ConfiguredTemplateDefinition> e
     public Vector getPeople(String department){
         Vector result = new Vector();
         try {
-          String url = "https://secure.its.txstate.edu/iphone/people/json.pl?q=";
+          String url = "https://secure.its.txstate.edu/iphone/people/json.pl?n=500&q=";
           url += URLEncoder.encode("department contains \"" + department + "\"", "UTF-8");
           String json = IOUtils.toString(new URL(url).openStream());
           JsonObject resultsObj = new JsonParser().parse(json).getAsJsonObject();
