@@ -199,10 +199,10 @@ subApps:
                   - name: none
                     label: No Timestamp
                     value: none
-                  # - name: automatic
-                  #   label: Based on Linked Page (If Available)
-                  #   value: automatic
-                  #   selected: true
+                    selected: true
+                  - name: automatic
+                    label: Based on Linked Page (If Available)
+                    value: automatic
                   - name: timestamp
                     label: Enter Timestamp
                     value: manualtimestamp
@@ -211,6 +211,10 @@ subApps:
                     class: info.magnolia.ui.form.field.definition.DateFieldDefinition
                     label: ""
                     time: true
+                  - name: automatic
+                    label: Note
+                    class: info.magnolia.ui.form.field.definition.StaticFieldDefinition
+                    value: An automatic timestamp will only appear if you use the "INTERNAL LINK" button to select the linked page.
               - name: stylesheet
                 label: ""
                 class: edu.txstate.its.gato.vaadin.GatoCssIncludeDefinition

@@ -1642,4 +1642,8 @@ public final class GatoUtils {
     });
     return modifiableList;
   }
+  
+  public boolean isUUID(String input) {
+    return UUID_PATTERN.matcher(input).matches();
+  }
 }

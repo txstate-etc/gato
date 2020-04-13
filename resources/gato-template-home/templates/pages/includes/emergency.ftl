@@ -20,10 +20,20 @@
       ${gf.processRichText(cmsfn.decode(notification).info)}
     </div>
     [#if notification.timestamp??]
-      [#if notification.timestamp="manualtimestamp"]
+      [#if notification.timestamp == "manualtimestamp"]
         <div class="alert-timestamp">
           <p>Updated: ${notification.manualtimestamp?string("MMM. dd, yyyy 'at' h:mm a z")}</p>
         </div>
+      [#elseif notification.timestamp == "automatic" && !gf.isEmptyString(notification.link)]
+        [#if gf.isUUID(notification.link)]
+          [#assign targetcontent = cmsfn.contentById(notification.link)]
+          [#assign autotime = cmsfn.metaData(targetcontent, "mgnl:lastActivated")!]
+          [#if !gf.isEmptyString(autotime)]
+            <div class="alert-timestamp">
+              <p>Updated: ${autotime?datetime.iso?string("MMM. dd, yyyy 'at' h:mm a z")}</p>
+            </div>
+          [/#if]
+        [/#if]
       [/#if]
     [/#if]
   </div>
