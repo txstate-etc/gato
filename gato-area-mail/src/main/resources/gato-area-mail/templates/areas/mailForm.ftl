@@ -23,11 +23,11 @@
         <div class="mail_add" cms:add="box"></div>
         [#assign editMode = 'edit']
       [/#if]
-      <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+      <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoad" async defer></script>
       <script>
         
       </script>
-      <div class="g-recaptcha" data-sitekey="${gf.getConfigProperty('formemailer.recaptcha.site.key')!""}" data-callback="enableSubmitButton" data-expired-callback="disableSubmitButton"></div>
+      <div class="g-recaptcha" data-sitekey="${gf.getConfigProperty('formemailer.recaptcha.site.key')!""}" data-callback="enableSubmitButton" data-expired-callback="disableSubmitButton" ></div>
       <br/>
       <div class="formelement">
         <button id="btnsubmit" class="submit ${editMode}" name="submit" value="${content.formproperties.formproperties.buttonText!'Submit'}" disabled><span>${content.formproperties.formproperties.buttonText!'Submit'}</span></button>

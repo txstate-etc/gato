@@ -646,3 +646,7 @@ function enableSubmitButton() {
 function disableSubmitButton() {
   document.getElementById("btnsubmit").disabled = true;
 }
+function onRecaptchaLoad() {
+  document.getElementById('g-recaptcha-response').setAttribute('aria-hidden', true);
+  document.getElementById('g-recaptcha-response').setAttribute('aria-label', 'recaptcha response');
+}
