@@ -41,7 +41,11 @@
       <div class="gato-section-full">
         <div class="gato-section-centered">
           <div class="gato-section">
-            [@breadcrumbs/]
+            [#if cmsfn.metaData(homepage, "mgnl:template") == "gato-template-home:pages/home"]
+              [@breadcrumbs true/]
+            [#else]
+              [@breadcrumbs/]
+            [/#if]
           </div>
         </div>
       </div>
