@@ -75,6 +75,16 @@
             [#if cmsfn.isEditMode()]
               <div class="txst-khan-notice">Anchor for linking to this event: #event-${item.recurrenceId}</div>
             [/#if]
+            [#if item.facility?has_content]
+            <div class="event-location">
+              <span class="event-label">Location:</span> <div>${item.facility}</div>
+            </div>
+            [/#if]
+            [#if item.contact?has_content]
+            <div class="event-contact">
+              <span class="event-label">Contact:</span> <div>${item.contact}</div>
+            </div>
+            [/#if]
             [#if item.description?has_content]
               <div class="event-description">
                 <span class="p-description">${item.description}</span>
