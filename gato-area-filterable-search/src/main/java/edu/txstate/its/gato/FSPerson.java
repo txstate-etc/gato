@@ -131,6 +131,32 @@ public class FSPerson {
     return user.getAsJsonPrimitive("dmid").getAsString();
   }
 
+  public void setBiography(String bio) {
+    user.addProperty("biography", bio);
+  }
+  public String getBiography() {
+    if (!user.has("biography")) return "";
+    return user.getAsJsonPrimitive("biography").getAsString();
+  }
+
+  public void setTeachingInterests(String teaching) {
+    user.addProperty("teachingInterests", teaching);
+  }
+
+  public String getTeachingInterests() {
+    if (!user.has("teachingInterests")) return "";
+    return user.getAsJsonPrimitive("teachingInterests").getAsString();
+  }
+
+  public void setResearchInterests(String research) {
+    user.addProperty("researchInterests", research);
+  }
+
+  public String getResearchInterests() {
+    if (!user.has("researchInterests")) return "";
+    return user.getAsJsonPrimitive("researchInterests").getAsString();
+  }
+
   public String toString() {
     return user.toString();
   }

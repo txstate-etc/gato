@@ -88,6 +88,9 @@ public class FSDirectoryModel<RD extends RenderableDefinition> extends Rendering
                   PropertyUtil.setProperty(n, "fpfacewidth", p.getFaceWidth());
                 }
               }
+              PropertyUtil.setProperty(n, "biography", p.getBiography());
+              PropertyUtil.setProperty(n, "teachinginterests", p.getTeachingInterests());
+              PropertyUtil.setProperty(n, "researchinterests", p.getResearchInterests());
             }
             else {
               //user is not in motion. Invalid?
@@ -201,6 +204,15 @@ public class FSDirectoryModel<RD extends RenderableDefinition> extends Rendering
                 p.setFaceWidth(width);
               }
             }
+          }
+          if (profile.has("biography")) {
+            p.setBiography(profile.getAsJsonPrimitive("biography").getAsString());
+          }
+          if (profile.has("teaching_interests")) {
+            p.setTeachingInterests(profile.getAsJsonPrimitive("teaching_interests").getAsString());
+          }
+          if (profile.has("research_interests")) {
+            p.setResearchInterests(profile.getAsJsonPrimitive("research_interests").getAsString());
           }
         }
       }
