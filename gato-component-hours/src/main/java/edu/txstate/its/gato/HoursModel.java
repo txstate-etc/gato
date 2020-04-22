@@ -221,7 +221,7 @@ public class HoursModel extends TrumbaEventModel {
 
     if (firstOpen == null) {
       // a'. No known times; maybe they stopped entering them? Just return blank
-      return "";
+      return "Closed";
     }
 
     if (firstOpen.after(now)) {
