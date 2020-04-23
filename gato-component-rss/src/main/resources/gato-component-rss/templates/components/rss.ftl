@@ -69,7 +69,11 @@
             </div>
             [#if entry.link?has_content]
             <div class="gato-rss-more-link">
-              <a href="${entry.link}" aria-labelledby="${entry.cleanGuid}">Read more</a>
+              <a href="${entry.link}" aria-labelledby="${entry.cleanGuid}">Read more
+                [#if entry.title?has_content]
+                  <span class="visuallyhidden">about ${entry.title}</span>
+                [/#if]
+              </a>
             </div>
             [/#if]
           </div>
