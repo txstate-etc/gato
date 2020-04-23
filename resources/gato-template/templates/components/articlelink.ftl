@@ -11,5 +11,5 @@
   [#if content.summary?has_content]
     <div class="gato-articlelink-summary">${content.summary}</div>
   [/#if]
-  <a href="${gf.filterUrl(content.link)}" class="gato-articlelink-more">Read More</a>
+  <a href="${gf.filterUrl(content.link)}" class="gato-articlelink-more">Read More <span class="visuallyhidden">about ${content.title}</span></a>
 [/#if]
