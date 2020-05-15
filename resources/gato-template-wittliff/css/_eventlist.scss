@@ -108,10 +108,16 @@
                 font-weight: 500;
                 margin-right: 5px;
               }
+              a {
+                color: $wittliffred;
+              }
             }
             .event-description {
                 img {
                     max-width: 100%;
+                }
+                a {
+                  color: $wittliffred;
                 }
             }
             .event-icon-links {
