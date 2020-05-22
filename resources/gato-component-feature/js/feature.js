@@ -190,14 +190,13 @@ jQuery(document).ready(function($) {
 
     var timer;
     function onResize() {
-      cancelAnimationFrame(currentAnimationFrame)
       thisSlider.find(".moving-image").each(function(index,slide){
         $(slide).find('.image-container').height($(slide).width() * 9.0 / 16.0)
       })
 
       var slide = thisSlider.find('.slick-current')
       if(slide.hasClass('moving-image')){
-        startMovingImage(slide)
+        updateMovingImageState(slide)
       }
     }
     $(window).resize(function(){
