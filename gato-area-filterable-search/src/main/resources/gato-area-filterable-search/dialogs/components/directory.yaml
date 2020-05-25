@@ -54,4 +54,20 @@ form:
                 - name: grid
                   label: Grid View
                   value: grid
+        - name: separator
+          label: ''
+          class: info.magnolia.ui.form.field.definition.StaticFieldDefinition
+          value: '-------------------- Faculty Profiles Options --------------------'
+        - name: showbiography
+          class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+          label: ''
+          buttonLabel: Include Faculty Biography
+        - name: showteaching
+          class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+          label: ''
+          buttonLabel: Include Teaching Interests
+        - name: showresearch
+          class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+          label: ''
+          buttonLabel: Include Research Interests
 actions: !include /gato-template/dialogs/common/actions-block.yaml

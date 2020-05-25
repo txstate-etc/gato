@@ -1646,4 +1646,17 @@ public final class GatoUtils {
   public boolean isUUID(String input) {
     return UUID_PATTERN.matcher(input).matches();
   }
+  
+  public String truncateText(String text, int limit, String terminator) {
+    int initialLength = text.length();
+    if (initialLength < limit) return text;
+    if (!StringUtils.isEmpty(text)) {
+      int end = limit;
+      while(end < text.length() && text.charAt(end) != ' ') {
+        end++;
+      }
+      text = text.substring(0,end);
+    }
+    return (text.length() < initialLength) ? text + terminator : text;
+  }
 }

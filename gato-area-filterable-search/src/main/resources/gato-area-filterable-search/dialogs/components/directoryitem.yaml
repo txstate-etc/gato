@@ -10,20 +10,30 @@ form:
           options:
             - name: netid
               label: Enter Net Id
-              value: netid
+              value: netidgroup
               selected: true
             - name: manual
               label: Manual Entry
               value: manual
           fields:
-            - name: netid
-              label: Net ID
-              required: true
-              class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-              validators:
-                - name: validnetid
-                  class: edu.txstate.its.gato.NetIDValidatorDefinition
-                  errorMessage: Please enter a valid Net ID
+            - name: netidgroup
+              label: ''
+              class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
+              layout: vertical
+              transformerClass:  info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+              fields:
+                - name: netid
+                  label: Net ID
+                  required: true
+                  class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                  validators:
+                    - name: validnetid
+                      class: edu.txstate.its.gato.NetIDValidatorDefinition
+                      errorMessage: Please enter a valid Net ID
+                - name: note
+                  label: ''
+                  class: info.magnolia.ui.form.field.definition.StaticFieldDefinition
+                  value: "Note: When a NetID is provided, Gato automatically displays contact information related to that person. If the NetID is associated with a faculty profile, additional information may be displayed (e.g. biography and education, research interests, etc.) along with a link to the full profile on faculty.txstate.edu."
             - name: manual
               label: ""
               class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
@@ -60,16 +70,63 @@ form:
                 - name: phone
                   class: info.magnolia.ui.form.field.definition.TextFieldDefinition
                   label: Phone
-        - name: link
-          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
-          label: Link
-          appName: pages
-          identifierToPathConverter:
-            class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
+                - name: includeButton
+                  class: info.magnolia.ui.form.field.definition.SwitchableFieldDefinition
+                  transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+                  label: 'Include Button?'
+                  options:
+                    - name: noButton
+                      label: No Button
+                      value: noButton
+                    - name: hasButton
+                      label: Add Button
+                      value: hasButton
+                  fields:
+                    - name: hasButton
+                      class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
+                      transformerClass:  info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+                      label: ""
+                      layout: vertical
+                      fields:
+                        - name: buttontext
+                          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                          label: Button Text
+                          required: true
+                        - name: buttonlink
+                          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+                          label: Link
+                          required: true
+                          appName: pages
+                          identifierToPathConverter:
+                            class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
         - name: description
           class: info.magnolia.ui.form.field.definition.RichTextFieldDefinition
           label: Description
           configJsFile: /.resources/gato-template/js/richeditor/minimal-config-with-lists.js
+        - name: links
+          class: edu.txstate.its.gato.vaadin.GatoMultiValueFieldDefinition
+          transformerClass: info.magnolia.ui.form.field.transformer.multi.MultiValueSubChildrenNodePropertiesTransformer
+          label: Links
+          styleName: linksMultiField
+          maxFields: 4
+          field:
+            name: link
+            class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
+            transformerClass: info.magnolia.ui.form.field.transformer.composite.NoOpCompositeTransformer
+            layout: vertical
+            fields:
+              - name: text
+                class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                label: Link Text
+                required: true
+                maxLength: 30
+              - name: link
+                class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+                label: Link Target
+                required: true
+                appName: pages
+                identifierToPathConverter:
+                  class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
     - name: tabImage
       label: Image
       fields:

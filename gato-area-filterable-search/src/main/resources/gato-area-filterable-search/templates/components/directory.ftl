@@ -13,5 +13,5 @@
 
 <div class="filterable-search directory ${view}">
   [@cms.area name="filtergroups" /]
-  [@cms.area name="listitems" contextAttributes={"itemLabelClass": "person", "alphabetize": content.alphabetize!"alphaheaders", "alphaBy" : def.parameters.alphaBy!""}/]
+  [@cms.area name="listitems" contextAttributes={"itemLabelClass": "person", "alphabetize": content.alphabetize!"alphaheaders", "alphaBy" : def.parameters.alphaBy!"", "showbiography":content.showbiography!false,"showresearch":content.showresearch!false,"showteaching":content.showteaching!false }/]
 </div>

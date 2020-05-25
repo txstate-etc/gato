@@ -384,6 +384,31 @@ ul.gato-faq-hierarchy {
     line-height: 2rem;
   }
 }
+.filterable-search.directory {
+  .results .listitem .info-container {
+    .listitem-title {
+      //matches h3 style
+      font-family: $halis;
+      font-weight: 600;
+      font-size: 2.2rem;
+      line-height: 2.8rem;
+      color: $dark-gold;
+      text-transform: uppercase;
+      walls: green;
+    }
+    .listitem-heading {
+      font-family: $halis;
+      font-weight: 600;
+      font-size: 1.8rem;
+      line-height: 2.4rem;
+      color: $verydark;
+      text-transform: uppercase;
+    }
+    .linktofp {
+      color: $blue;
+    }
+  }
+}
 
 //separator
 .has-background .gato-separator hr {

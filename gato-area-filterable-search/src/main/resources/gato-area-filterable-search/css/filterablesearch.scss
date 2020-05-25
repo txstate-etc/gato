@@ -602,6 +602,12 @@ $filterable-search-header-font: serif !default;
         }
       }
       .popup-content {
+        a {
+          color: $content-link-text;
+          &:active, &:visited {
+            color: $content-link-text;
+          }
+        }
         .listitem-title {
           font-weight: 700;
           font-size: 1.8rem;
