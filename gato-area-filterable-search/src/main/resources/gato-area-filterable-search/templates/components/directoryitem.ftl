@@ -67,56 +67,58 @@
         ${cmsfn.decode(content).description}
       </div>
     [/#if]
-    [#if ctx.showbiography && content.biography?has_content]
-      <div class="listitem-biography">
-        <div class="listitem-heading">Biography and Education</div>
-        <div>${gf.truncateText(cmsfn.decode(content).biography, 300, "...")}</div>
-        [#if content.biography?length > 300]
-          <a class="linktofp" href="${gf.filterUrl(content.fplink)}#biography">
-            View Full Biography and Education<span class="visuallyhidden"> for ${displayname}</span>
-          </a>
-        [/#if]
+    <div class="scroll-area">
+      [#if ctx.showbiography && content.biography?has_content]
+        <div class="listitem-biography">
+          <div class="listitem-heading">Biography and Education</div>
+          <div>${gf.truncateText(cmsfn.decode(content).biography, 300, "...")}</div>
+          [#if content.biography?length > 300]
+            <a class="linktofp" href="${gf.filterUrl(content.fplink)}#biography">
+              View Full Biography and Education<span class="visuallyhidden"> for ${displayname}</span>
+            </a>
+          [/#if]
+        </div>
+      [/#if]
+      [#if ctx.showteaching && content.teachinginterests?has_content]
+        <div class="listitem-teaching">
+          <div class="listitem-heading">Teaching Interests</div>
+          <div>${gf.truncateText(cmsfn.decode(content).teachinginterests, 300, "...")}</div>
+          [#if content.teachinginterests?length > 300]
+            <a class="linktofp" href="${gf.filterUrl(content.fplink)}#teaching">
+              View Full Teaching Interests<span class="visuallyhidden"> for ${displayname}</span>
+            </a>
+          [/#if]
+        </div>
+      [/#if]
+      [#if ctx.showresearch && content.researchinterests?has_content]
+        <div class="listitem-teaching">
+          <div class="listitem-heading">Research Interests</div>
+          <div>${gf.truncateText(cmsfn.decode(content).researchinterests, 300, "...")}</div>
+          [#if content.researchinterests?length > 300]
+            <a class="linktofp" href="${gf.filterUrl(content.fplink)}#research">
+              View Full Research Interests<span class="visuallyhidden"> for ${displayname}</span>
+            </a>
+          [/#if]
+        </div>
+      [/#if]
+      [#if content.links?has_content || content.fplink?has_content]
+      <div class="links">
+        <ul>
+          [#if content.fplink?has_content]
+          <li>
+            <a href="${gf.filterUrl(content.fplink)}">View Full Profile<span class="visuallyhidden"> for ${displayname}</span></a>
+          </li>
+          [/#if]
+          [#if content.links?has_content]
+            [#list cmsfn.children(content.links) as lnk]
+              <li>
+                <a href="${gf.filterUrl(lnk.link)}">${lnk.text!}</a>
+              </li>
+            [/#list]
+          [/#if]
+        </ul>
       </div>
-    [/#if]
-    [#if ctx.showteaching && content.teachinginterests?has_content]
-      <div class="listitem-teaching">
-        <div class="listitem-heading">Teaching Interests</div>
-        <div>${gf.truncateText(cmsfn.decode(content).teachinginterests, 300, "...")}</div>
-        [#if content.teachinginterests?length > 300]
-          <a class="linktofp" href="${gf.filterUrl(content.fplink)}#teaching">
-            View Full Teaching Interests<span class="visuallyhidden"> for ${displayname}</span>
-          </a>
-        [/#if]
-      </div>
-    [/#if]
-    [#if ctx.showresearch && content.researchinterests?has_content]
-      <div class="listitem-teaching">
-        <div class="listitem-heading">Research Interests</div>
-        <div>${gf.truncateText(cmsfn.decode(content).researchinterests, 300, "...")}</div>
-        [#if content.researchinterests?length > 300]
-          <a class="linktofp" href="${gf.filterUrl(content.fplink)}#research">
-            View Full Research Interests<span class="visuallyhidden"> for ${displayname}</span>
-          </a>
-        [/#if]
-      </div>
-    [/#if]
-    [#if content.links?has_content || content.fplink?has_content]
-    <div class="links">
-      <ul>
-        [#if content.fplink?has_content]
-        <li>
-          <a href="${gf.filterUrl(content.fplink)}">View Full Profile<span class="visuallyhidden"> for ${displayname}</span></a>
-        </li>
-        [/#if]
-        [#if content.links?has_content]
-          [#list cmsfn.children(content.links) as lnk]
-            <li>
-              <a href="${gf.filterUrl(lnk.link)}">${lnk.text!}</a>
-            </li>
-          [/#list]
-        [/#if]
-      </ul>
+      [/#if]
     </div>
-    [/#if]
   </div>
 </div>

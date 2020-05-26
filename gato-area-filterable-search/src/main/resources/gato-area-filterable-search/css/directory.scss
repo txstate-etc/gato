@@ -2,53 +2,51 @@
   .listitem-alpha {
     display: none;
   }
-  .info-container {
-    .listitem-position {
-      margin-bottom: 1rem;
-    }
-    .listitem-email, .listitem-office, .listitem-phone {
-      margin-bottom: 0.5rem;
-      a {
-        color: $content-link-text !important;
-        &:hover {
-          background: $content-link-hover;
-        }
+  .listitem-position {
+    margin-bottom: 1rem;
+  }
+  .listitem-email, .listitem-office, .listitem-phone {
+    margin-bottom: 0.5rem;
+    a {
+      color: $content-link-text !important;
+      &:hover {
+        background: $content-link-hover;
       }
     }
-    .listitem-description {
-      a {
-        color: $content-link-text;
-        &:hover {
-          background: $content-link-hover;
-        }
+  }
+  .listitem-description {
+    a {
+      color: $content-link-text;
+      &:hover {
+        background: $content-link-hover;
       }
     }
-    .listitem-biography, .listitem-teaching, .listitem-research {
-      .listitem-heading {
-        padding: 2rem 0rem;
-      }
-      padding-bottom: 1rem;
-    }
-    .linktofp {
-      font-weight: 500;
-      text-decoration: none !important;
-      display: block;
+  }
+  .listitem-biography, .listitem-teaching, .listitem-research {
+    .listitem-heading {
       padding: 2rem 0rem;
     }
-    .links {
-      ul {
-        padding: 0;
-        list-style: none;
-        li:nth-child(even) {background-color: #F7F7F7};
-        border-bottom: 1px solid #D8D8D8;
-        li {
-          font-weight: 500;
-          padding: 1.2rem 1.2rem 1rem;
-          margin: 0;
-          border-top: 1px solid #D8D8D8;
-          a {
-            
-          }
+    padding-bottom: 1rem;
+  }
+  .linktofp {
+    font-weight: 500;
+    text-decoration: none !important;
+    display: block;
+    padding: 2rem 0rem;
+  }
+  .links {
+    ul {
+      padding: 0;
+      list-style: none;
+      li:nth-child(even) {background-color: #F7F7F7};
+      border-bottom: 1px solid #D8D8D8;
+      li {
+        font-weight: 500;
+        padding: 1.2rem 1.2rem 1rem;
+        margin: 0;
+        border-top: 1px solid #D8D8D8;
+        a {
+          
         }
       }
     }

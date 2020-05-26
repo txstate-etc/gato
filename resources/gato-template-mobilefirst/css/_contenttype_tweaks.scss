@@ -385,7 +385,7 @@ ul.gato-faq-hierarchy {
   }
 }
 .filterable-search.directory {
-  .results .listitem .info-container {
+  .results .listitem .info-container, #more-content-popup .popup-content {
     .listitem-title {
       //matches h3 style
       font-family: $halis;
@@ -406,6 +406,10 @@ ul.gato-faq-hierarchy {
     }
     .linktofp {
       color: $blue;
+    }
+    .listitem-biography, .listitem-teaching, .listitem-research {
+      font-size: 1.7rem;
+      line-height: 3.2rem;
     }
   }
 }

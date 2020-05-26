@@ -640,6 +640,10 @@ $filterable-search-header-font: serif !default;
             }
           }
         }
+        .scroll-area {
+          max-height: 300px;
+          overflow-y: scroll;
+        }
       }
     }
     #backtotop {
