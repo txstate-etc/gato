@@ -643,6 +643,17 @@ $filterable-search-header-font: serif !default;
         .scroll-area {
           max-height: 300px;
           overflow-y: scroll;
+          scrollbar-color: #501214 #d8d8d8;
+          scrollbar-width: thin;
+          &::-webkit-scrollbar {
+            width: 8px;
+            background-color: #d8d8d8;
+            border-radius: 10px;
+          }
+          &::-webkit-scrollbar-thumb {
+            background-color: #501214;
+            border-radius: 10px;
+          }
         }
       }
     }
