@@ -260,10 +260,11 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
     );
     
     register(DeltaBuilder.update("1.2.9", "")
-      // .addTask(new RemoveNodeTask("Remove Homepage Events Tool, Not Used in New Homepage", "/modules/ui-admincentral/config/appLauncherLayout/groups/homepage/apps/events"))
-      // .addTask(new RemoveNodeTask("Remove Homepage Top Slider Tool, Not Used in New Homepage", "/modules/ui-admincentral/config/appLauncherLayout/groups/homepage/apps/top-slider"))
-      // .addTask(new RemoveNodeTask("Remove Homepage News Feature Tool, Not Used in New Homepage", "/modules/ui-admincentral/config/appLauncherLayout/groups/homepage/apps/news-feature"))
-      // .addTask(new RemoveNodeTask("Remove Homepage Research Slider Tool, Not Used in New Homepage", "/modules/ui-admincentral/config/appLauncherLayout/groups/homepage/apps/research-slider"))
+      .addTask(new RemoveNodeTask("Remove Homepage Events Tool, Not Used in New Homepage", "/modules/ui-admincentral/config/appLauncherLayout/groups/homepage/apps/events"))
+      .addTask(new RemoveNodeTask("Remove Homepage Top Slider Tool, Not Used in New Homepage", "/modules/ui-admincentral/config/appLauncherLayout/groups/homepage/apps/top-slider"))
+      .addTask(new RemoveNodeTask("Remove Homepage News Feature Tool, Not Used in New Homepage", "/modules/ui-admincentral/config/appLauncherLayout/groups/homepage/apps/news-feature"))
+      .addTask(new RemoveNodeTask("Remove Homepage Research Slider Tool, Not Used in New Homepage", "/modules/ui-admincentral/config/appLauncherLayout/groups/homepage/apps/research-slider"))
+      .addTask(new FilterableSearchDirectoryUpdate())
       .addTasks(installOrUpdateTasks())
     );
   }
