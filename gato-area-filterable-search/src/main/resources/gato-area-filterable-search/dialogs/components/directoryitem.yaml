@@ -70,35 +70,6 @@ form:
                 - name: phone
                   class: info.magnolia.ui.form.field.definition.TextFieldDefinition
                   label: Phone
-                - name: includeButton
-                  class: info.magnolia.ui.form.field.definition.SwitchableFieldDefinition
-                  transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
-                  label: 'Include Button?'
-                  options:
-                    - name: noButton
-                      label: No Button
-                      value: noButton
-                    - name: hasButton
-                      label: Add Button
-                      value: hasButton
-                  fields:
-                    - name: hasButton
-                      class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
-                      transformerClass:  info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
-                      label: ""
-                      layout: vertical
-                      fields:
-                        - name: buttontext
-                          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-                          label: Button Text
-                          required: true
-                        - name: buttonlink
-                          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
-                          label: Link
-                          required: true
-                          appName: pages
-                          identifierToPathConverter:
-                            class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
         - name: description
           class: info.magnolia.ui.form.field.definition.RichTextFieldDefinition
           label: Description
