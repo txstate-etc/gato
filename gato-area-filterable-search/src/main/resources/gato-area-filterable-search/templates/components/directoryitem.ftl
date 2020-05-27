@@ -74,7 +74,7 @@
           <div>${gf.truncateText(cmsfn.decode(content).biography, 300, "...")}</div>
           [#if content.biography?length > 300]
             <a class="linktofp" href="${gf.filterUrl(content.fplink)}#biography">
-              View Full Biography and Education<span class="visuallyhidden"> for ${displayname}</span>
+              View Full Biography and Education<span class="visuallyhidden"> for ${displayname!}</span>
             </a>
           [/#if]
         </div>
@@ -85,7 +85,7 @@
           <div>${gf.truncateText(cmsfn.decode(content).teachinginterests, 300, "...")}</div>
           [#if content.teachinginterests?length > 300]
             <a class="linktofp" href="${gf.filterUrl(content.fplink)}#teaching">
-              View Full Teaching Interests<span class="visuallyhidden"> for ${displayname}</span>
+              View Full Teaching Interests<span class="visuallyhidden"> for ${displayname!}</span>
             </a>
           [/#if]
         </div>
@@ -96,7 +96,7 @@
           <div>${gf.truncateText(cmsfn.decode(content).researchinterests, 300, "...")}</div>
           [#if content.researchinterests?length > 300]
             <a class="linktofp" href="${gf.filterUrl(content.fplink)}#research">
-              View Full Research Interests<span class="visuallyhidden"> for ${displayname}</span>
+              View Full Research Interests<span class="visuallyhidden"> for ${displayname!}</span>
             </a>
           [/#if]
         </div>
@@ -112,7 +112,7 @@
           [#if content.links?has_content]
             [#list cmsfn.children(content.links) as lnk]
               <li>
-                <a href="${gf.filterUrl(lnk.link)}">${lnk.text!}</a>
+                <a href="${gf.filterUrl(lnk.link)}">${lnk.text!}<span class="visuallyhidden">,${displayname!}</span></a>
               </li>
             [/#list]
           [/#if]

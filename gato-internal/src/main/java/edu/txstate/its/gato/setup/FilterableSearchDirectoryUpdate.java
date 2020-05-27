@@ -53,16 +53,7 @@ public class FilterableSearchDirectoryUpdate extends GatoBaseUpgradeTask{
             }
             if (item.hasProperty("link")) {
               String src = PropertyUtil.getString(item, "link", "");
-              String linkText = "Custom Link";
-              if (item.hasProperty("datasource")) {
-                if (PropertyUtil.getString(item, "datasource", "").equals("manual")) {
-                  String name = (item.hasProperty("prefix") ? PropertyUtil.getString(item, "prefix", "") : "");
-                  name += " " + (item.hasProperty("firstname") ? PropertyUtil.getString(item, "firstname", "") : "");
-                  name += " " + (item.hasProperty("lastname") ? PropertyUtil.getString(item, "lastname", "") : "");
-                  if (name.trim().length() > 0)
-                    linkText = "More about " + name.trim();
-                }
-              }
+              String linkText = "More Information";
               if (src.length() > 0) {
                 Node links = NodeUtil.createPath(item, "links", NodeTypes.ContentNode.NAME);
                 Node newLink = NodeUtil.createPath(links, "0", NodeTypes.ContentNode.NAME);
