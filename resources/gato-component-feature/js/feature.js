@@ -19,7 +19,8 @@ jQuery(document).ready(function($) {
       scale: 1,
       transX: 0,
       transY: 0
-    }
+    },
+    image: null
   }
 
   var currentAnimationFrame
@@ -86,6 +87,11 @@ jQuery(document).ready(function($) {
       if (!slide) {
         slide = $('.slide.slick-current')
       }
+      currentMovingImage.image = slide.find('img')
+
+      var speedstr = slide.closest('.gato-slider').data('feature-timer')
+      currentMovingImage.duration = GATO_MOVINGIMAGE_TIMINGS[speedstr.toLowerCase()]
+
       var containerWidth = slide.width()
       var containerHeight = calculateImageContainerHeight(slide)
       currentMovingImage.container.width = containerWidth
@@ -151,7 +157,7 @@ jQuery(document).ready(function($) {
       }
 
       updateMovingImageState(slide)
-
+      
       animate({
         duration: currentMovingImage.duration,
         timing: function(timeFraction) {
@@ -165,7 +171,7 @@ jQuery(document).ready(function($) {
 
           var transform = 'scale(' + scale + ',' + scale + ') translate(' + transX + 'px,' + transY + 'px)'
         // console.log(transform)
-          $('.slide.slick-current.moving-image').find('img').css('transform', transform )
+          currentMovingImage.image.css('transform', transform )
         },
         callback: function() {
           if (slideshow.slick('slickGetOption', 'autoplay')) {
@@ -181,7 +187,6 @@ jQuery(document).ready(function($) {
       var current = $(slick.$slides[currentSlide]);
       if(current.hasClass('moving-image')){
         cancelAnimationFrame(currentAnimationFrame)
-        // current.find('img').css('transform', 'none')
       }
       if ($(slick.$slides[nextSlide]).hasClass('moving-image')) {
         startMovingImage($(slick.$slides[nextSlide]))
