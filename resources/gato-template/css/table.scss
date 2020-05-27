@@ -56,10 +56,10 @@
         th {border: 1px solid $table-header-border;}
     }
 
-    &.table-alt tr.odd td {
+    &.table-alt tr.even td {
         background-color: $table-altrow-bg;
     }
-    &.table-alt tr.even td {
+    &.table-alt tr.odd td {
       background-color: $body-background-color;
   }
     &.table-fontsm {
