@@ -23,7 +23,8 @@
   [/#if]
 <div class="wittliff-event-filters">
   <div class="month">
-    <select name="month">
+    <label for="selectmonth" class="visuallyhidden">Select Month</label>
+    <select name="month" id="selectmonth">
       <option value="">All Dates</option>
       [#list model.months as month]
         <option value="${month.key}">${month.name} (${month.count} Event${(month.count != 1)?string('s','')})</option>
@@ -31,7 +32,8 @@
     </select>
   </div>[#--
   --]<div class="category">
-    <select name="category">
+    <label for="selectcategory" class="visuallyhidden">Select Category</label>
+    <select name="category" id="selectcategory">
       <option value="">All Categories</option>
       [#list model.categories as cat]
         [#if cat == "Music" || cat == "Photography" || cat == "Literary"]
