@@ -27,7 +27,7 @@
       <script>
         
       </script>
-      <div class="g-recaptcha" data-sitekey="${gf.getConfigProperty('formemailer.recaptcha.site.key')!""}" data-callback="enableSubmitButton" data-expired-callback="disableSubmitButton" ></div>
+      <div class="g-recaptcha" data-size="compact" data-sitekey="${gf.getConfigProperty('formemailer.recaptcha.site.key')!""}" data-callback="enableSubmitButton" data-expired-callback="disableSubmitButton" ></div>
       <br/>
       <div class="formelement">
         <button id="btnsubmit" class="submit ${editMode}" name="submit" value="${content.formproperties.formproperties.buttonText!'Submit'}" disabled><span>${content.formproperties.formproperties.buttonText!'Submit'}</span></button>
