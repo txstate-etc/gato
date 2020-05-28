@@ -11,8 +11,8 @@
                           'gato-template-mobilefirst/js/menu.js',
                           'gato-template-mobilefirst/js/mobilefirst.js'
     ]/]
-    <script type="text/javascript" src="//www.trumba.com/scripts/spuds.js"></script>
     [@templatehead/]
+    <script type="text/javascript" src="//www.trumba.com/scripts/spuds.js"></script>
   </head>
   <body>
     [@skipnav/]
