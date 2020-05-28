@@ -75,6 +75,15 @@
           }
         }
       }
+      #more-content-popup {
+        .popup-content {
+          .links {
+            a {
+              color: $filterable-search-toggle-filters-button-color;
+            }
+          }
+        }
+      }
     }
   }
 }
