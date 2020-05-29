@@ -62,6 +62,7 @@ jQuery(document).ready(function($) {
       var slide = $(this).find('.slick-current')
       if(slide.hasClass('moving-image')){
         slide.find('img').load(function(){
+          updateMovingImageState(slide)
           startMovingImage(slide)
         })
       }
@@ -155,8 +156,6 @@ jQuery(document).ready(function($) {
       if (slideshow.slick('slickGetOption', 'autoplay')) {
         slideshow.slick('slickPause')
       }
-
-      updateMovingImageState(slide)
       
       animate({
         duration: currentMovingImage.duration,
@@ -189,7 +188,17 @@ jQuery(document).ready(function($) {
         cancelAnimationFrame(currentAnimationFrame)
       }
       if ($(slick.$slides[nextSlide]).hasClass('moving-image')) {
-        startMovingImage($(slick.$slides[nextSlide]))
+        updateMovingImageState($(slick.$slides[nextSlide]))
+        var transform = 'scale(' + currentMovingImage.start.scale + ',' + currentMovingImage.start.scale + ') translate(' + currentMovingImage.start.transX + 'px,' + currentMovingImage.start.transY + 'px)'
+        currentMovingImage.image.css('transform', transform )
+        $('.gato-slider .slides .slide.moving-image.slick-cloned img').css('transform', transform)
+      }
+    })
+    
+    $('.gato-slider').on('afterChange', function(event, slick, currentSlide) {
+      var current = $(slick.$slides[currentSlide]);
+      if(current.hasClass('moving-image')){
+        startMovingImage(current)
       }
     })
 
