@@ -67,7 +67,11 @@
         ${cmsfn.decode(content).description}
       </div>
     [/#if]
-    <div class="scroll-area">
+    [#assign scrolling=""]
+    [#if (ctx.showbiography && content.biography?has_content) || (ctx.showteaching && content.teachinginterests?has_content) || (ctx.showresearch && content.researchinterests?has_content)]
+      [#assign scrolling="scroll-area"]
+    [/#if]
+    <div class="${scrolling}">
       [#if ctx.showbiography && content.biography?has_content]
         <div class="listitem-biography">
           <div class="listitem-heading">Biography and Education</div>
@@ -91,7 +95,7 @@
         </div>
       [/#if]
       [#if ctx.showresearch && content.researchinterests?has_content]
-        <div class="listitem-teaching">
+        <div class="listitem-research">
           <div class="listitem-heading">Research Interests</div>
           <div>${gf.truncateText(cmsfn.decode(content).researchinterests, 300, "...")}</div>
           [#if content.researchinterests?length > 300]
