@@ -23,9 +23,14 @@ form:
         - name: confidential
           class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
           label: Confidential
-          buttonLabel: This form requests confidential information
-          description: Check this box if the form requests sensitive information, such as a SSN or other private information
+          styleName: confidentialfield
+          buttonLabel: Check this box to enable the secure submission feature. This is required when the form requests information which can be considered sensitive.
+          description: When enabled, data submitted through secure submission will not be emailed. Instead, Gato Managers and Editors can retrieve the data directly from Gato Edit using the Form Data tool. Review our <a href="https://gato.its.txstate.edu/user-guides/best-practices/form-best-practices/secure-submission">secure submission page</a> for information on proper use of this feature.
           defaultValue: false
+        - name: stylesheet
+          label: ""
+          class: edu.txstate.its.gato.vaadin.GatoCssIncludeDefinition
+          styles: [gato-area-mail/dialogs/css/formproperties.css]
     - name: tabresponse
       label: Auto Email Response
       fields:
