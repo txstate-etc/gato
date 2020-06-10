@@ -130,7 +130,7 @@ jQuery(document).ready(function($) {
     function animate({duration, draw, timing, callback}) {
       var start = performance.now()
 
-      currentAnimationFrame = requestAnimationFrame(function animate(time) {
+      currentAnimationFrame = animationframe(function animate(time) {
         let timeFraction = (time - start) / duration;
         if (timeFraction > 1) timeFraction = 1;
 
@@ -139,7 +139,7 @@ jQuery(document).ready(function($) {
         draw(progress);
 
         if (timeFraction < 1) {
-          currentAnimationFrame = requestAnimationFrame(animate);
+          currentAnimationFrame = animationframe(animate);
         }
         else {
           callback()
@@ -185,7 +185,7 @@ jQuery(document).ready(function($) {
     $('.gato-slider').on('beforeChange', function(event, slick, currentSlide, nextSlide) {
       var current = $(slick.$slides[currentSlide]);
       if(current.hasClass('moving-image')){
-        cancelAnimationFrame(currentAnimationFrame)
+        cancelanimationframe(currentAnimationFrame)
       }
       if ($(slick.$slides[nextSlide]).hasClass('moving-image')) {
         updateMovingImageState($(slick.$slides[nextSlide]))
