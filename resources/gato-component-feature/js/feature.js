@@ -127,9 +127,13 @@ jQuery(document).ready(function($) {
       currentMovingImage.startTime = performance.now()
     }
 
-    function animate({duration, draw, timing, callback}) {
+    function animate(args) { //{duration, draw, timing, callback}
       var start = performance.now()
-
+      var duration = args.duration
+      var draw = args.draw
+      var timing = args.timing
+      var callback = args.callback
+      
       currentAnimationFrame = animationframe(function animate(time) {
         let timeFraction = (time - start) / duration;
         if (timeFraction > 1) timeFraction = 1;
