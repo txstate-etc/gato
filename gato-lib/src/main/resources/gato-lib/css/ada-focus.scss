@@ -1,0 +1,9 @@
+$ada-focus-color:   #3dbbdb;
+
+*:focus,
+input:focus,
+select:focus,
+button:focus {
+outline: 3px solid $ada-focus-color !important;
+overflow: -moz-hidden-unscrollable;
+}
