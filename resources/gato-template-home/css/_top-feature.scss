@@ -1,4 +1,4 @@
-div#top-feature {
+div#home-hero {
   position: relative;
   background: $charcoal;
   padding-top: 123px;
@@ -9,7 +9,7 @@ div#top-feature {
     padding-top: 60px;
   }
   .hero {
-    p.feature-headline {
+    p.hero-headline {
       &.color1 { background-color: rgba($mc1-bg, 0.8); color: $mc1-text; } 
       &.color2 { background-color: rgba($mc2-bg, 0.8); color: $mc2-text; }
       &.color3 { background-color: rgba($mc3-bg, 0.8); color: $mc3-text; }
@@ -28,7 +28,7 @@ div#top-feature {
       background: $maroon;
 
 
-      .image-container {
+      .hero-image-container {
         display: none;
 
         &.activated {
@@ -44,7 +44,7 @@ div#top-feature {
           }              
         }
 
-        .slide-image {
+        .hero-image {
           height: 100%;
           background-size: cover;
           background-position-x: 50%;
@@ -203,7 +203,7 @@ div#top-feature {
         }
 
 
-        .feature-headline {
+        .hero-headline {
           font-family: $garamond;
           font-weight: 700;
           font-size: 4.2rem;
@@ -231,7 +231,7 @@ div#top-feature {
           padding: 0 2rem;
           
 
-          .feature-headline {
+          .hero-headline {
             a {
               max-width: 600px;
             }
@@ -246,7 +246,7 @@ div#top-feature {
         figcaption {
           padding: 0;
 
-          .feature-headline a {
+          .hero-headline a {
             font-size: 2.8rem;
             line-height: 3.6rem;
           }
@@ -255,7 +255,7 @@ div#top-feature {
             bottom: 20% !important;
             right: unset !important;
 
-            .feature-headline a {
+            .hero-headline a {
               max-width: 100%;
               font-size: 2.4rem;
               line-height: 3.4rem;
@@ -287,7 +287,7 @@ div#top-feature {
     @media (max-width: $sm-breakpoint){
       .slide-nav-wrap { display: none; }
       figure {
-        .image-container {
+        .hero-image-container {
           &.activated, &.preview {
             .desktop {
               display: none;

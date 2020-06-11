@@ -4,10 +4,10 @@
 [#assign mobileaspectratio = 4.0/3.0]
 
 [#assign count = 0]
-<div id="top-feature" class="feature ${cmsfn.isEditMode()?then(' admin','')}">
+<div id="home-hero" class="home-hero ${cmsfn.isEditMode()?then(' admin','')}">
     [@headline true true/]
     <div class="hero">
-      <figure class="feature top-slider" >
+      <figure class="hero-figure">
 
         [#list slides as component]
           [#if component.mobileImage?has_content]
@@ -23,9 +23,9 @@
           [/#if]
           [#if isEnabled(component)]
           [#assign count++]
-          <div class="image-container ${preview}">
-            <div class="slide-image desktop" style="background-image: url(${gf.getImgDefault(component.image)})"></div>
-            <div class="slide-image mobile" style="background-image: url(${gf.getImgDefault(mobileImage)})"></div>
+          <div class="hero-image-container ${preview}">
+            <div class="hero-image desktop" style="background-image: url(${gf.getImgDefault(component.image)})"></div>
+            <div class="hero-image mobile" style="background-image: url(${gf.getImgDefault(mobileImage)})"></div>
             [#if component.alttext?has_content]
               <span class="visuallyhidden">${component.alttext}</span>
             [/#if]
@@ -33,7 +33,7 @@
           <figcaption class="${preview}">
             <div class="caption-wrap ${component.overlayPosition!''}" id="${gf.uuidToHtmlId(component.@id)}">
               [#if component.title?has_content]
-                <p class="feature-headline ${component.color!}" style="max-width: ${component.titleWidth!}">
+                <p class="hero-headline ${component.color!}" style="max-width: ${component.titleWidth!}">
                       ${component.title}
                 </p>
               [/#if]
