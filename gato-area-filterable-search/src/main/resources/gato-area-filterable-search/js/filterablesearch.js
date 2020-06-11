@@ -647,7 +647,7 @@ jQuery(document).ready(function($) {
   })
   
   var setImageContainerSize = function() {
-    $('.image-container').each(function() {
+    $('.filterable-search.directory .results .result .listitem .image-container').each(function() {
       var el = $(this);
       el.css('height', el.css('width'))
     })
