@@ -158,6 +158,9 @@
       .item {
         border-radius: 2px;
         .a {position: relative;}
+        &.focused {
+          outline: 3px solid $ada-focus-color;
+        }
       }
       .text-link {
         padding: 2rem;

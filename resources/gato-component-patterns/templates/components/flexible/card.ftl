@@ -1,6 +1,6 @@
 [#macro buildCard imageDisplayed]
   [#if !gf.isEmptyString(content.link)]
-  <a href="${gf.filterUrl(content.link)}">
+  <a class="flexible-card-link" href="${gf.filterUrl(content.link)}">
   [/#if]
   <div class="card ${content.videourl?has_content?string('gato-card-video','gato-card-image')} ${gf.jsonGetString(oembed, 'provider_name')?lower_case}" style='background-image: url("${imageDisplayed}")'>
     [#if content.videourl?has_content]

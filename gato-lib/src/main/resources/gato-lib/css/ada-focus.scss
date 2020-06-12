@@ -4,6 +4,5 @@ $ada-focus-color:   #3dbbdb;
 input:focus,
 select:focus,
 button:focus {
-outline: 3px solid $ada-focus-color !important;
-overflow: -moz-hidden-unscrollable;
+  outline: 3px solid $ada-focus-color !important;
 }
