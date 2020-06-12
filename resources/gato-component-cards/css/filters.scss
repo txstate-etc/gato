@@ -49,6 +49,7 @@ ul.gato-card-filter {
       }
       &:focus {
         background-color: $gato-card-filter-border-color;
+        outline-offset: -3px;
       }
     }
 

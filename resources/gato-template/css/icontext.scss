@@ -140,4 +140,7 @@ a.icontext{
         text-decoration: none;
         color: $icontext-text-color;
     }
+    &:focus {
+      outline-offset: -3px;
+    }
 }
