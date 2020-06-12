@@ -30,6 +30,12 @@ header {
       }
     }
   }
+  .home-link:focus {
+    .logo-block {
+      outline: 3px solid $ada-focus-color;
+      outline-offset: -3px;
+    }
+  }
   .logo-block {
     position: absolute;
     top: 0;
