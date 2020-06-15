@@ -1,4 +1,4 @@
-<div class="footer row">
+<footer class="footer row">
   <div class="footer_content">
     <a href="#" class="btt"><i class="fa fa-chevron-up"></i>Top</a>
     <div class="footer_column footer_column_1">
@@ -31,4 +31,4 @@
       [@cms.area name="footerLinks" content=gf.getOrCreateArea(homepage, 'footerLinks') editable=isHomePage/]
     </div>
   </div> <!-- footer_content -->
-</div> <!-- footer -->
+</footer> <!-- footer -->
