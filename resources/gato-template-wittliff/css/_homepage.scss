@@ -179,6 +179,10 @@
         display: block;
         color: inherit;
         text-decoration: none;
+        &:focus {
+          outline-offset: -3px;
+          outline: 3px solid rgba($ada-focus-color, 0.5);
+        }
       }
     }
     .dates {
@@ -205,6 +209,10 @@
       }
       i {
         display: inline;
+      }
+      &:focus {
+        outline-offset: -3px;
+        outline: 3px solid rgba($ada-focus-color, 0.5);
       }
     }
     a.all {

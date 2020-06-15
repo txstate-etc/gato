@@ -273,6 +273,13 @@ body ul.gato-faq-hierarchy {
   height: 2px;
 }
 
+/* Department Directory */
+.gato-departmentdirectory {
+  .dd-entry.vcard {
+    line-height: 1.6;
+  }
+}
+
 .txst-form {
   button.submit{
     border-color: $mc1-bg;
