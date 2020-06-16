@@ -20,7 +20,8 @@ jQuery(document).ready(function($) {
       transX: 0,
       transY: 0
     },
-    image: null
+    image: null,
+    progress: 0
   }
 
   var currentAnimationFrame
@@ -133,7 +134,7 @@ jQuery(document).ready(function($) {
       var draw = args.draw
       var timing = args.timing
       var callback = args.callback
-      
+
       currentAnimationFrame = animationframe(function animate(time) {
         let timeFraction = (time - start) / duration;
         if (timeFraction > 1) timeFraction = 1;
@@ -160,20 +161,21 @@ jQuery(document).ready(function($) {
       if (slideshow.slick('slickGetOption', 'autoplay')) {
         slideshow.slick('slickPause')
       }
-      
+
       animate({
         duration: currentMovingImage.duration,
         timing: function(timeFraction) {
           return timeFraction;
         },
         draw: function(progress) {
+          currentMovingImage.progress = progress
           //progress will be a percentage in decimal format
           var scale = currentMovingImage.start.scale + progress * (currentMovingImage.target.scale - currentMovingImage.start.scale)
           var transX = currentMovingImage.start.transX + progress * (currentMovingImage.target.transX - currentMovingImage.start.transX)
           var transY = currentMovingImage.start.transY + progress * (currentMovingImage.target.transY - currentMovingImage.start.transY)
 
           var transform = 'scale(' + scale + ',' + scale + ') translate(' + transX + 'px,' + transY + 'px)'
-        // console.log(transform)
+         //console.log(transform)
           currentMovingImage.image.css('transform', transform )
         },
         callback: function() {
@@ -188,6 +190,7 @@ jQuery(document).ready(function($) {
 
     $('.gato-slider').on('beforeChange', function(event, slick, currentSlide, nextSlide) {
       var current = $(slick.$slides[currentSlide]);
+      current.find('.btnPauseSlider').removeClass('paused')
       if(current.hasClass('moving-image')){
         cancelanimationframe(currentAnimationFrame)
       }
@@ -198,7 +201,7 @@ jQuery(document).ready(function($) {
         $('.gato-slider .slides .slide.moving-image.slick-cloned img').css('transform', transform)
       }
     })
-    
+
     $('.gato-slider').on('afterChange', function(event, slick, currentSlide) {
       var current = $(slick.$slides[currentSlide]);
       if(current.hasClass('moving-image')){
@@ -267,6 +270,38 @@ jQuery(document).ready(function($) {
           description.html(originalText);
         }
       })
+    })
+    $('.btnPauseSlider').click(function() {
+      var $slideshow = $(this).closest('.slides')
+      var currentSlide = $slideshow.find('.slick-current')
+
+      if ($(this).hasClass('paused')) {
+        if ($slideshow.slick('slickGetOption', 'autoplay')) {
+          $slideshow.slick('slickPlay')
+        }
+        if (currentSlide.hasClass('moving-image')) {
+          startMovingImage(currentSlide)
+        }
+        $(this).removeClass('paused')
+      }
+      else {
+        if ($slideshow.slick('slickGetOption', 'autoplay')) {
+          $slideshow.slick('slickPause')
+        }
+        if (currentSlide.hasClass('moving-image')) {
+          cancelanimationframe(currentAnimationFrame)
+          var progress = currentMovingImage.progress
+          var scale = currentMovingImage.start.scale + progress * (currentMovingImage.target.scale - currentMovingImage.start.scale)
+          var transX = currentMovingImage.start.transX + progress * (currentMovingImage.target.transX - currentMovingImage.start.transX)
+          var transY = currentMovingImage.start.transY + progress * (currentMovingImage.target.transY - currentMovingImage.start.transY)
+          currentMovingImage.start.scale = scale
+          currentMovingImage.start.transX = transX
+          currentMovingImage.start.transY = transY
+          var timeRemaining = currentMovingImage.duration - (currentMovingImage.progress * currentMovingImage.duration)
+          currentMovingImage.duration = timeRemaining
+        }
+        $(this).addClass('paused')
+      }
     })
   })
 })
