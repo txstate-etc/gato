@@ -15,6 +15,7 @@
     </div>
     <div class="image-container">
       <img class="image" data-lazy="${gf.getImgDefault(content.image)}" data-srcset="${gf.getSrcSet(content.image)}" class="bg" alt="${content.alttext!}">
+      <button class="btnPauseSlider"><i class="fa fa-pause" aria-hidden="true"></i><span class="visuallyhidden">Pause</span></button>
     </div>
     <div class="caption moving-image-caption">
       [#if !gf.isEmptyString(content.title)]<h3>${content.title!''}</h3>[/#if]

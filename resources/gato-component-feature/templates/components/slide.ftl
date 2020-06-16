@@ -9,6 +9,7 @@
     [#assign bottom = (content.imagecropbottom!0.0)?number]
     <div class="image">
       <img data-lazy="${gf.getImgDefault(content.image, left, right, top, bottom, ctx.aspectratio)}" data-srcset="${gf.getSrcSet(content.image, left, right, top, bottom, ctx.aspectratio)}" class="bg" alt="${content.alttext!}">
+      <button class="btnPauseSlider"><i class="fa" aria-hidden="true"></i><span class="visuallyhidden">Pause</span></button>
     </div>
     [#if !gf.isEmptyString(content.title) || !gf.isEmptyString(content.subtext)]
     [#assign tidysubtext = gf.tidyHTML(cmsfn.decode(content).subtext!'')]
