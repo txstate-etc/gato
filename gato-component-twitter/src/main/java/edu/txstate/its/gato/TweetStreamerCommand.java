@@ -2,12 +2,17 @@ package edu.txstate.its.gato;
 
 import info.magnolia.context.Context;
 import info.magnolia.context.MgnlContext;
+import info.magnolia.init.MagnoliaConfigurationProperties;
 import info.magnolia.module.ModuleRegistry;
+import info.magnolia.objectfactory.Components;
 
 public class TweetStreamerCommand extends GatoBaseSchedulerCommand {
+  MagnoliaConfigurationProperties mcp = Components.getComponent(MagnoliaConfigurationProperties.class);
 
   public boolean doExecute(Context context) {
     if (!shouldExecute()) return true;
+    if ("true".equals(mcp.getProperty("twitter.disabled"))) return true;
+
     log.info("TweetStreamerCommand called.");
 
     boolean success = true;
