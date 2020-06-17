@@ -14,7 +14,6 @@
           data-embed="${gf.jsonGetString(gf.oEmbedCached(content, content.videourl), 'html')?html}"></a>
         </div>
       [/#if]
-      <button class="btnPauseSlider"><i class="fa fa-pause" aria-hidden="true"></i><span class="visuallyhidden">Pause</span></button>
     </div>
     [#if !gf.isEmptyString(content.title) || !gf.isEmptyString(content.subtext)]
       <div class="caption">

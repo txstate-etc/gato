@@ -356,26 +356,6 @@
         }
       }
     }
-    .btnPauseSlider {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background-color: transparent;
-      border: 0;
-      i {
-        text-shadow: 0px 0px 1px #363534;
-        color: #fff;
-        &:before {
-          font-family: FontAwesome;
-          content: "\f04c";
-        }
-      }
-      &.paused {
-        i:before {
-          content: "\f04b";
-        }
-      }
-    }
   }
   .arrow-container {
     position: absolute;
@@ -404,6 +384,9 @@
     &:hover, &:focus {
       color: #fff;
       transform: translateY(-50%) scale(1.1);
+      outline: 3px solid $ada-focus-color;
+      outline-offset: -20px;
+      overflow: -moz-hidden-unscrollable;
     }
   }
   .slick-prev {
@@ -477,5 +460,25 @@
   @at-root [data-eq~="700px"] {
     @include sliderdropbelow();
   }
-
+  .btnPauseSlider {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: 0;
+    z-index: 2;
+    i {
+      text-shadow: 0px 0px 1px #363534;
+      color: #fff;
+      &:before {
+        font-family: FontAwesome;
+        content: "\f04c";
+      }
+    }
+    &.paused {
+      i:before {
+        content: "\f04b";
+      }
+    }
+  }
 }

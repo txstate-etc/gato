@@ -190,7 +190,6 @@ jQuery(document).ready(function($) {
 
     $('.gato-slider').on('beforeChange', function(event, slick, currentSlide, nextSlide) {
       var current = $(slick.$slides[currentSlide]);
-      current.find('.btnPauseSlider').removeClass('paused')
       if(current.hasClass('moving-image')){
         cancelanimationframe(currentAnimationFrame)
       }
@@ -204,7 +203,8 @@ jQuery(document).ready(function($) {
 
     $('.gato-slider').on('afterChange', function(event, slick, currentSlide) {
       var current = $(slick.$slides[currentSlide]);
-      if(current.hasClass('moving-image')){
+      var paused = $(this).find('.btnPauseSlider').hasClass('paused')
+      if(current.hasClass('moving-image') && !paused){
         startMovingImage(current)
       }
     })
@@ -272,7 +272,7 @@ jQuery(document).ready(function($) {
       })
     })
     $('.btnPauseSlider').click(function() {
-      var $slideshow = $(this).closest('.slides')
+      var $slideshow = $(this).closest('.gato-slider').find('.slides')
       var currentSlide = $slideshow.find('.slick-current')
 
       if ($(this).hasClass('paused')) {
