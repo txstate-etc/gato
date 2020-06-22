@@ -10,12 +10,10 @@ import com.steadystate.css.parser.CSSOMParser;
 import com.steadystate.css.parser.SACParserCSS3;
 
 import info.magnolia.cms.beans.config.MIMEMapping;
-import info.magnolia.cms.core.MgnlNodeType;
 import info.magnolia.context.MgnlContext;
 import info.magnolia.context.SystemContext;
 import info.magnolia.dam.api.Asset;
 import info.magnolia.dam.api.metadata.MagnoliaAssetMetadata;
-import info.magnolia.dam.jcr.DamConstants;
 import info.magnolia.dam.templating.functions.DamTemplatingFunctions;
 import info.magnolia.init.MagnoliaConfigurationProperties;
 import info.magnolia.jcr.util.ContentMap;
@@ -25,7 +23,6 @@ import info.magnolia.jcr.util.NodeVisitor;
 import info.magnolia.jcr.util.PropertyUtil;
 import info.magnolia.link.LinkUtil;
 import info.magnolia.objectfactory.Components;
-import info.magnolia.rendering.context.RenderingContext;
 import info.magnolia.rendering.engine.RenderingEngine;
 import info.magnolia.repository.RepositoryConstants;
 import info.magnolia.templating.functions.TemplatingFunctions;
@@ -39,6 +36,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 import java.util.regex.Matcher;
 import java.util.Calendar;
 import java.util.Collection;
@@ -50,7 +48,6 @@ import java.util.Iterator;
 import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
@@ -64,10 +61,8 @@ import javax.inject.Inject;
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
 import javax.jcr.Property;
-import javax.jcr.PropertyType;
 import javax.jcr.Session;
 import javax.jcr.RepositoryException;
-import javax.jcr.PathNotFoundException;
 import javax.jcr.ValueFormatException;
 
 import org.apache.commons.lang3.StringUtils;
@@ -75,7 +70,6 @@ import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.commons.lang3.time.DateUtils;
 import org.apache.commons.codec.digest.DigestUtils;
 
-import org.apache.jackrabbit.JcrConstants;
 
 import org.codehaus.jackson.JsonNode;
 
@@ -1087,6 +1081,12 @@ public final class GatoUtils {
     return ret;
   }
 
+  public int printStuff(String stuff) {
+    System.out.println("PRINTING STUFF");
+    System.out.println(stuff);
+    return 1;
+  }
+
   public ContentMap getOrCreateArea(Object parent, String childName) {
     return getOrCreateNode(parent, childName, "mgnl:area");
   }
@@ -1478,7 +1478,22 @@ public final class GatoUtils {
     }
   }
   protected final ErrorHandler csserrorhandler = new SilencingErrorHandler();
+
   public String tidyCSS(String rawcss) {
+    rawcss = Arrays.stream(rawcss.split(System.lineSeparator()))                    
+      .map(line -> {
+          if (!line.contains("imagehandler/scaler/gato-edit.its.txstate.edu")) return line;
+          else {
+            System.out.println("Detected gato-edit link. Replacing with gato-docs: " + line);
+            String image = line.split("jcr:")[1];
+            String imageJCRId = image.split("/")[0];
+            String queryParams = image.split("\\?")[1].split("\\)")[0];
+            String getLinkInCurrentEnvironment = getImgDefault("jcr:" + imageJCRId).split("\\?")[0] + "?" + queryParams;
+            String linkUsingEnvironment = line.replaceFirst("\\burl.*\\w+\\)", "url(" + getLinkInCurrentEnvironment + ")");
+            return linkUsingEnvironment;
+          }
+        })
+      .collect(Collectors.joining());
     if (StringUtils.isBlank(rawcss)) return "";
     StringBuilder ret = new StringBuilder(rawcss.length());
     try {
