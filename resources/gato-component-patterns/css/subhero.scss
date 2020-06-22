@@ -1,0 +1,87 @@
+.mobilefirst-pattern {
+  &.subhero .subhero-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @media (max-width: $sm-breakpoint) {
+      display: none;
+    }
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    &.left {
+      align-items: flex-start;
+      .overlay-block {text-align: left;}
+    }
+    &.center {
+      align-items: center;
+      .overlay-block {text-align: center;}
+    }
+    &.right {
+      align-items: flex-end;
+      .overlay-block {text-align: right;}
+    }
+    min-height: 520px;
+    @media (max-width: $sm-breakpoint) {
+      min-height: initial;
+    }
+    &.mobile {
+      display: none;
+      @media (max-width: $sm-breakpoint) {
+        display: block;
+      }
+    }
+    .overlay-block {
+      padding: 6.4rem 2rem;
+      @media (max-width: $sm-breakpoint) {
+        padding: 4rem 2rem;
+        max-width: 100% !important;
+      }
+      .title {
+        font-size: 3.6rem;
+        line-height: 4.8rem;
+        font-family: $halis;
+        font-weight: 700;
+        margin-bottom: 2.4rem;
+      }
+      .subtitle {
+        font-size: 1.8rem;
+        line-height: 3.2rem;
+        font-weight: 700;
+        font-family: $halis;
+        margin-bottom: 1.6rem;
+      }
+      .text, .text p{
+        font-size: 1.7rem;
+        line-height: 3.2rem;
+        font-weight: 400;
+        margin-bottom: 1.6rem;
+      }
+      &.color1 { background-color: $mc1-bg;
+        .title, .subtitle, .text p, a { color: $mc1-text; }
+      }
+      &.color2 { background-color: $mc2-bg;
+        .title, .subtitle, .text p, a { color: $mc2-text; }
+      }
+      &.color3 { background-color: $mc3-bg;
+        .title, .subtitle, .text p, a { color: $mc3-text; }
+      }
+      &.color4 { background-color: $mc4-bg;
+        .title, .subtitle, .text p, a { color: $mc4-text; }
+      }
+      &.color5 { background-color: $mc5-bg;
+        .title, .subtitle, .text p, a { color: $mc5-text; }
+      }
+      &.color6 { background-color: $mc6-bg;
+        .title, .subtitle, .text p, a { color: $mc6-text; }
+      }
+      &.color7 { background-color: $mc7-bg;
+        .title, .subtitle, .text p, a { color: $mc7-text; }
+      }
+      &.color12 { background-color: $mc12-bg;
+        .title, .subtitle, .text p, a { color: $mc12-text; }
+      }
+    }
+  }
+}

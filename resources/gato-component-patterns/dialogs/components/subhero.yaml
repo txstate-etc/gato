@@ -1,0 +1,103 @@
+form:
+  tabs:
+    - name: tabMain
+      label: Subhero
+      fields:
+        - name: image
+          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+          appName: assets
+          required: true
+          targetWorkspace: dam
+          label: Image
+          identifierToPathConverter:
+            class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
+          contentPreviewDefinition:
+            contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
+        - name: mobileImage
+          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+          appName: assets
+          targetWorkspace: dam
+          label: Mobile Image
+          identifierToPathConverter:
+            class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
+          contentPreviewDefinition:
+            contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
+        - name: title
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Title
+        - name: subtitle
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Subtitle
+        - name: text
+          class: info.magnolia.ui.form.field.definition.RichTextFieldDefinition
+          label: Text
+          source: false
+          alignment: false
+          images: false
+          lists: false
+          tables: false
+          height: 500
+          configJsFile: /.resources/gato-template/js/richeditor/minimal-config.js
+        - name: color
+          class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
+          fields:
+            - name: color
+              class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+          transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+          initFunction: initColorPicker
+          loadScriptsInOrder: true
+          scripts: [gato-lib/js/color-picker.js]
+          label: Overlay Color
+          parameters:
+            contentType: subhero
+        - name: alignment
+          class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
+          label: Overlay Alignment
+          multiselect: false
+          sortOptions: false
+          layout: horizontal
+          options:
+            - name: left
+              label: Left
+              value: left
+            - name: center
+              label: Center
+              value: center
+              selected: true
+            - name: right
+              label: Right
+              value: right
+        - name: overlayWidth
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Overlay Width
+          placeholder: 600px
+          description: "Enter a max width (in pixels) for the overlay."
+        - name: opacity
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Overlay Opacity
+          placeholder: 100
+          description: Enter a percentage (0-100)
+        - name: buttons
+          class: edu.txstate.its.gato.vaadin.GatoMultiValueFieldDefinition
+          transformerClass: info.magnolia.ui.form.field.transformer.multi.MultiValueSubChildrenNodePropertiesTransformer
+          label: Buttons
+          maxFields: 2
+          minFields: 0
+          field:
+            name: button
+            class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
+            transformerClass: info.magnolia.ui.form.field.transformer.composite.NoOpCompositeTransformer
+            layout: vertical
+            fields:
+              - name: text
+                class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                label: Button Text
+                maxLength: 20
+              - name: link
+                class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+                label: Button Target
+                required: true
+                appName: pages
+                identifierToPathConverter:
+                  class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
+actions: !include /gato-template/dialogs/common/actions-block.yaml

@@ -1,0 +1,8 @@
+templateScript: /gato-component-patterns/templates/components/subhero.ftl
+renderType: freemarker
+title: Subhero
+description: A background image, title, text, and button(s)
+dialog: gato-component-patterns:components/subhero
+parameters:
+  icon: /gato-component-patterns/images/calltoaction-buttons.png
+  tab: Prebuilt Sections
