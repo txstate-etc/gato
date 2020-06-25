@@ -252,8 +252,6 @@ jQuery(document).ready(function($) {
     else
       html += '<dl class="person-email"><dt>Email:</dt><dd>'+
       '<a class="person-email person-email-unauthenticated" href="'+peoplesearch_token_url+'">log in to view email</a></dd></dl>';
-    if (!isBlank(result.altphone))
-      html += '<dl class="person-teamsphone"><dt>Teams Phone:</dt><dd>'+result.altphone+'</dd></dl>';
     html += '</div>';
     return html;
   }
