@@ -7,6 +7,7 @@ function modal(content) {
 	// let's make sure the modal content isn't shown when we're not modal
 
 	ensureReady(function () {
+		mymodal.originalDisplayStyle = mymodal.content.getStyle('display');
 		mymodal.content.setStyle({display: 'none'});
 		mymodal.init()
 	});
@@ -17,6 +18,7 @@ modal.prototype.init = function() {
 		// OUTER DIV
 		modal.outerdiv = $(document.createElement('div'));
 		modal.outerdiv.id = 'modal_outer';
+		modal.outerdiv.setAttribute('role', 'dialog')
 		modal.outerdiv.setStyle({
 			display: 'none',
 			position: 'absolute',
@@ -50,6 +52,13 @@ modal.prototype.init = function() {
 		});
 		modal.outerdiv.appendChild(modal.bgdiv);
 
+		modal.prefocus = $(document.createElement('div'));
+		modal.prefocus.setAttribute('tabindex', '0');
+		modal.prefocus.observe('focus', function (e) {
+			jQuery(modal.innerdiv).find(':tabbable').last().focus();
+		})
+		modal.outerdiv.appendChild(modal.prefocus)
+
 		// CONTENT DIV
 		modal.innerdiv = $(document.createElement('div'));
 		modal.innerdiv.setStyle({
@@ -66,6 +75,13 @@ modal.prototype.init = function() {
 		this.content.setStyle({cssFloat: 'none'});
 
 		modal.outerdiv.appendChild(modal.innerdiv);
+
+		modal.postfocus = $(document.createElement('div'));
+		modal.postfocus.setAttribute('tabindex', '0');
+		modal.postfocus.observe('focus', function (e) {
+			jQuery(modal.innerdiv).find(':tabbable').first().focus();
+		})
+		modal.outerdiv.appendChild(modal.postfocus)
 
 		// when the window is resized we're going to have to make sure the document body
 		// is tall enough to accomodate our content.  Otherwise it will get cut off.
@@ -90,9 +106,11 @@ modal.prototype.show = function() {
 	});
 
 	modal.outerdiv.setStyle({display: 'block'});
-	this.content.setStyle({display: 'block', cssFloat: 'none'});
+	this.content.setStyle({display: this.originalDisplayStyle, cssFloat: 'none'});
 	modal.innerdiv.appendChild(this.content);
 	this.resize();
+	window.scrollTo(0, 0);
+	jQuery(this.content).find(':tabbable').first().focus();
 	modal.currentmodal = this;
 	createCookie("modal_reload", this.reloadid());
 };
