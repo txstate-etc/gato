@@ -110,6 +110,7 @@ modal.prototype.show = function() {
 	modal.innerdiv.appendChild(this.content);
 	this.resize();
 	window.scrollTo(0, 0);
+	this.savefocus = document.activeElement;
 	jQuery(this.content).find(':tabbable').first().focus();
 	modal.currentmodal = this;
 	createCookie("modal_reload", this.reloadid());
@@ -121,7 +122,7 @@ modal.prototype.hide = function(cleanup) {
 	if (!cleanup) {
 		modal.outerdiv.setStyle({display: 'none'});
 		document.body.setStyle({height: 'auto'});
-
+		jQuery(this.savefocus).focus();
 		// undo what we did to aria-disabled on show()
 		$(document.body).childElements().each( function (itm) {
 			if (itm != modal.outerdiv) {
