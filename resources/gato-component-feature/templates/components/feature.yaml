@@ -5,10 +5,10 @@ description: Slideshow for highlighting featured content.
 dialog: gato-component-feature:components/feature
 areas:
   slides:
-    title: Image
+    title: Slides
     type: list
     renderType: freemarker
-    templateScript: /gato-component-feature/templates/areas/feature.ftl
+    templateScript: /gato-component-feature/templates/areas/feature-area.ftl
     availableComponents:
       slide:
         id: gato-component-feature:components/slide

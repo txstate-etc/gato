@@ -34,8 +34,4 @@ form:
             - name: fast
               value: fast
               label: Fast
-        # - name: carousel
-        #   class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
-        #   buttonLabel: Use the carousel style whenever possible.
-        #   label: ""
 actions: !include /gato-template/dialogs/common/actions-block.yaml

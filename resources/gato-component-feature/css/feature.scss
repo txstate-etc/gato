@@ -1,26 +1,40 @@
 @mixin sliderdropbelow() {
-  .gato-slider {
-    .slide{
-      .caption{
+  .gato-slideshow {
+    .slide {
+      .slide-content {
         position: relative;
-        padding: 1.2rem;
-        h3{
-          display: block;
-          margin-bottom: 0.6rem;
+        .slide-image {
+          position: relative;
+          img {
+            position: relative;
+            transform: none;
+            left: auto;
+            width: 100%;
+            display: block;
+          }
         }
-        h3, p {
-          padding: 0;
-          background-color: transparent !important;
-          transition-duration: 0s;
-        }
-      }
-      a:hover, a:focus {
         .caption {
+          position: relative;
+          padding: 1.2rem;
+          h3 {
+            display: block;
+            margin-bottom: 0.6rem;
+          }
           h3, p {
+            padding: 0;
             background-color: transparent !important;
+            transition-duration: 0s;
+          }
+        }
+        a:hover, a:focus {
+          .caption {
+            h3, p {
+              background-color: transparent !important;
+            }
           }
         }
       }
+
       &.color1 .caption { background-color: $mc1-bg; }
       &.color2 .caption { background-color: $mc2-bg; }
       &.color3 .caption { background-color: $mc3-bg; }
@@ -42,320 +56,265 @@
         }
       }
     }
-    .slick-prev, .slick-next { padding: 2rem 1rem; top: 50%; }
+    .arrow-container {
+      .prev, .next { padding: 2rem 1rem; top: 50%; }
+    }
   }
 }
 
-.gato-slider {
+.gato-slideshow {
   position: relative;
-  padding-bottom: 3.5rem;
-  .slide {
+  .slideshow-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  .slides {
     position: relative;
     overflow: hidden;
-    a{
-      background: transparent;
-      border-bottom: none;
-      display: block;
-      padding: 0;
-      margin: 0;
-      text-decoration: none;
+    height: 100%;
+    padding-left: 0;
+    order: 1;
+    margin-top: 0;
+    .slide {
+      @include absolutefill();
       overflow: hidden;
-      @include vendor-prefix(transition, opacity 0.3s ease-out);
-      &:hover {
-        opacity: 1;
-      }
-    }
-    div.image {
-      position: relative;
-      overflow: hidden;
-      img.bg {
-        width: 100%;
-        &:hover{
-          opacity: 1;
-        }
-      }
-    }
-    .caption {
-      position: absolute;
-      bottom: 0px;
-      left: 0px;
-      width: 100%;
-      box-sizing: border-box;
-      font-size: 1.3em;
-      background-color: transparent;
-      padding: 2.2rem;
-
-      h3 {
-        color: inherit;
-        margin: 0px 0px 1.5rem 0px;
-        font-weight: 600;
-        text-transform: none;
-        letter-spacing: 0.125rem;
-        border: none;
-        line-height: 1.2;
-        padding: 1.3rem 1.2rem;
-        font-size: 1.8rem;
-        transition: all 0.3s ease-in-out;
-        display: inline-block;
-        max-width: 100%;
-      }
-
-      p {
-        margin: 0px;
-        padding: 0.6rem 1.2rem 0.8rem 1.2rem;
-        font-size: 1.6rem;
-        transition: all 0.3s ease-in-out;
-        clear: both;
-      }
-
-      .feature-play-button {
-        top: -5.5rem;
-      }
-    }
-
-    .feature-play-button {
-      position: absolute;
-
-      margin: 0;
-      &.centered {
-        @include absolutecenter();
-        display: none;
-      }
       a {
-        @include vendor-prefix(border-radius, 50%);
-        width: 6rem;
-        height: 6rem;
-        border-radius: 8rem;
-        background: $feature-play-button-default-background;
-        &:after {
-          left: 0;
-          right: 0;
-          margin: 0 auto;
-          position: absolute;
-          border: solid transparent;
-          border-left-color: $feature-play-button-default-color;
-          border-width: 1rem 0 1rem 1.6rem;
-          content: "";
-          height: 0;
-          width: 0;
-          position: absolute;
-          top: 50%;
-          margin-top: -1rem;
-          left: .4rem;
-        }
+        background: transparent;
+        border-bottom: none;
+        display: block;
+        padding: 0;
+        margin: 0;
+        text-decoration: none;
+        overflow: hidden;
         &:hover {
-          @include vendor-prefix(transform, scale(1.15));
-          background: $feature-play-button-hover-background;
-        }
-        @include vendor-prefix(transition, all 0.2s cubic-bezier(0, 0.5, 0.25, 1));
-      }
-    }
-    &.color1 {
-      .caption {
-        h3, p{ background-color: rgba($mc1-bg, 0.9); color: $mc1-text; }
-      }
-      &>a:hover{
-        .caption h3, .caption p{
-          background: rgba($mc1-comp-bg, 0.9);
-        }
-      }
-    }
-    &.color2 {
-      .caption {
-        h3, p{ background-color: rgba($mc2-bg, 0.9); color: $mc2-text; }
-      }
-      &>a:hover{
-        .caption h3, .caption p{
-          background: rgba($mc2-comp-bg, 0.9);
-        }
-      }
-    }
-    &.color3 {
-      .caption {
-        h3, p{ background-color: rgba($mc3-bg, 0.9); color: $mc3-text; }
-      }
-      &>a:hover{
-        .caption h3, .caption p{
-          background: rgba($mc3-comp-bg, 0.9);
-        }
-      }
-    }
-    &.color4 {
-      .caption {
-        h3, p{ background-color: rgba($mc4-bg, 0.9); color: $mc4-text; }
-      }
-      &>a:hover{
-        .caption h3, .caption p{
-          background: rgba($mc4-comp-bg, 0.9);
-        }
-      }
-    }
-    &.color5 {
-      .caption {
-        h3, p{ background-color: rgba($mc5-bg, 0.9); color: $mc5-text; }
-      }
-      &>a:hover{
-        .caption h3, .caption p{
-          background: rgba($mc5-comp-bg, 0.9);
-        }
-      }
-    }
-    &.color6 {
-      .caption {
-        h3, p{ background-color: rgba($mc6-bg, 0.9); color: $mc6-text; }
-      }
-      &>a:hover{
-        .caption h3, .caption p{
-          background: rgba($mc6-comp-bg, 0.9);
-        }
-      }
-    }
-    &.color7 {
-      .caption {
-        h3, p{ background-color: rgba($mc7-bg, 0.9); color: $mc7-text; }
-      }
-      &>a:hover{
-        .caption h3, .caption p{
-          background: rgba($mc7-comp-bg, 0.9);
-        }
-      }
-    }
-
-    &.video-slide{
-      .caption{
-        a:hover{
-          background: transparent;
-        }
-      }
-      &.color1{
-        .caption{
-          a h3:hover{
-            background: rgba($mc1-comp-bg, 0.9);
-          }
-        }
-        .feature-play-button a{
-          background: rgba($mc1-bg, 0.9);
-          &:hover{
-            background: rgba($mc1-comp-bg, 0.9);
-          }
-          &:after{
-            border-left-color: $mc1-text;
-          }
-        }
-      }
-      &.color2{
-        .caption{
-          a h3:hover{
-            background: rgba($mc2-comp-bg, 0.9);
-          }
-        }
-        .feature-play-button a{
-          background: rgba($mc2-bg, 0.9);
-          &:hover{
-            background: rgba($mc2-comp-bg, 0.9);
-          }
-          &:after{
-            border-left-color: $mc2-text;
-          }
-        }
-      }
-      &.color3{
-        .caption{
-          a h3:hover{
-            background: rgba($mc3-comp-bg, 0.9);
-          }
-        }
-        .feature-play-button a{
-          background: rgba($mc3-bg, 0.9);
-          &:hover{
-            background: rgba($mc3-comp-bg, 0.9);
-          }
-          &:after{
-            border-left-color: $mc3-text;
-          }
-        }
-      }
-      &.color4{
-        .caption{
-          a h3:hover{
-            background: rgba($mc4-comp-bg, 0.9);
-          }
-        }
-        .feature-play-button a{
-          background: rgba($mc4-bg, 0.9);
-          &:hover{
-            background: rgba($mc4-comp-bg, 0.9);
-          }
-          &:after{
-            border-left-color: $mc4-text;
-          }
-        }
-      }
-      &.color5{
-        .caption{
-          a h3:hover{
-            background: rgba($mc5-comp-bg, 0.9);
-          }
-        }
-        .feature-play-button a{
-          background: rgba($mc5-bg, 0.9);
-          &:hover{
-            background: rgba($mc5-comp-bg, 0.9);
-          }
-          &:after{
-            border-left-color: $mc5-text;
-          }
-        }
-      }
-      &.color6{
-        .caption{
-          a h3:hover{
-            background: rgba($mc6-comp-bg, 0.9);
-          }
-        }
-        .feature-play-button a{
-          background: rgba($mc6-bg, 0.9);
-          &:hover{
-            background: rgba($mc6-comp-bg, 0.9);
-          }
-          &:after{
-            border-left-color: $mc6-text;
-          }
-        }
-      }
-      &.color7{
-        .caption{
-          a h3:hover{
-            background: rgba($mc7-comp-bg, 0.9);
-          }
-        }
-        .feature-play-button a{
-          background: rgba($mc7-bg, 0.9);
-          &:hover{
-            background: rgba($mc7-comp-bg, 0.9);
-          }
-          &:after{
-            border-left-color: $mc7-text;
-          }
-        }
-      }
-    }
-    &.moving-image{
-      .image-container{
-        position: relative;
-        .image{
-          position: absolute;
-          top: 0; left: 0;
-          max-width: none;
-          transform-origin: 0 0;
-        }
-      }
-      a:hover {
-        img {
           opacity: 1;
         }
+        &:focus .title {
+          outline: 3px solid $ada-focus-color;
+        }
+      }
+      .slide-image {
+        @include absolutefill();
+        @include coverimage();
+      }
+      .caption {
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        width: 100%;
+        box-sizing: border-box;
+        font-size: 1.3em;
+        background-color: transparent;
+        padding: 2.2rem;
+
+        h3 {
+          color: inherit;
+          margin: 0px 0px 1.5rem 0px;
+          font-weight: 600;
+          text-transform: none;
+          letter-spacing: 0.125rem;
+          border: none;
+          line-height: 1.2;
+          padding: 1.3rem 1.2rem;
+          font-size: 1.8rem;
+          transition: all 0.3s ease-in-out;
+          display: inline-block;
+          max-width: 100%;
+        }
+        p {
+          margin: 0px;
+          padding: 0.6rem 1.2rem 0.8rem 1.2rem;
+          font-size: 1.6rem;
+          transition: all 0.3s ease-in-out;
+          clear: both;
+        }
+      }
+      &.color1 {
+        .caption { h3, p{ background-color: rgba($mc1-bg, 0.9); color: $mc1-text; } }
+      }
+      &.color2 {
+        .caption { h3, p{ background-color: rgba($mc2-bg, 0.9); color: $mc2-text; } }
+      }
+      &.color3 {
+        .caption { h3, p{ background-color: rgba($mc3-bg, 0.9); color: $mc3-text; } }
+      }
+      &.color4 {
+        .caption { h3, p{ background-color: rgba($mc4-bg, 0.9); color: $mc4-text; } }
+      }
+      &.color5 {
+        .caption { h3, p{ background-color: rgba($mc5-bg, 0.9); color: $mc5-text; } }
+      }
+      &.color6 {
+        .caption { h3, p{ background-color: rgba($mc6-bg, 0.9); color: $mc6-text; } }
+      }
+      &.color7 {
+        .caption { h3, p{ background-color: rgba($mc7-bg, 0.9); color: $mc7-text; } }
+      }
+
+      &:focus {
+        border: 3px solid $ada-focus-color;
+      }
+
+      &.video-slide {
+        .caption{
+          a:hover{
+            background: transparent;
+          }
+        }
+        .feature-play-button {
+          position: absolute;
+          top: -5.5rem;
+          margin: 0;
+          &.centered {
+            @include absolutecenter();
+            display: none;
+          }
+          a {
+            @include vendor-prefix(border-radius, 50%);
+            width: 6rem;
+            height: 6rem;
+            border-radius: 8rem;
+            background: $feature-play-button-default-background;
+            &:after {
+              right: 0;
+              margin: 0 auto;
+              position: absolute;
+              border: solid transparent;
+              border-left-color: $feature-play-button-default-color;
+              border-width: 1rem 0 1rem 1.6rem;
+              content: "";
+              height: 0;
+              width: 0;
+              top: 50%;
+              margin-top: -1rem;
+              left: .4rem;
+            }
+            &:hover {
+              @include vendor-prefix(transform, scale(1.15));
+              background: $feature-play-button-hover-background;
+            }
+            @include vendor-prefix(transition, all 0.2s cubic-bezier(0, 0.5, 0.25, 1));
+          }
+        }
+        &.color1 {
+          .caption {
+            a h3:hover { background: rgba($mc1-comp-bg, 0.9); }
+          }
+          .feature-play-button a {
+            background: rgba($mc1-bg, 0.9);
+            &:hover{
+              background: rgba($mc1-comp-bg, 0.9);
+            }
+            &:after{
+              border-left-color: $mc1-text;
+            }
+          }
+        }
+        &.color2 {
+          .caption {
+            a h3:hover { background: rgba($mc1-comp-bg, 0.9); }
+          }
+          .feature-play-button a {
+            background: rgba($mc2-comp-bg, 0.9);
+            &:hover{
+              background: rgba($mc2-comp-bg, 0.9);
+            }
+            &:after{
+              border-left-color: $mc2-text;
+            }
+          }
+        }
+        &.color3 {
+          .caption {
+            a h3:hover { background: rgba($mc3-comp-bg, 0.9); }
+          }
+          .feature-play-button a{
+            background: rgba($mc3-bg, 0.9);
+            &:hover{
+              background: rgba($mc3-comp-bg, 0.9);
+            }
+            &:after{
+              border-left-color: $mc3-text;
+            }
+          }
+        }
+        &.color4{
+          .caption {
+            a h3:hover { background: rgba($mc4-comp-bg, 0.9); }
+          }
+          .feature-play-button a{
+            background: rgba($mc4-bg, 0.9);
+            &:hover{
+              background: rgba($mc4-comp-bg, 0.9);
+            }
+            &:after{
+              border-left-color: $mc4-text;
+            }
+          }
+        }
+        &.color5{
+          .caption {
+            a h3:hover { background: rgba($mc5-comp-bg, 0.9); }
+          }
+          .feature-play-button a{
+            background: rgba($mc5-bg, 0.9);
+            &:hover{
+              background: rgba($mc5-comp-bg, 0.9);
+            }
+            &:after{
+              border-left-color: $mc5-text;
+            }
+          }
+        }
+        &.color6{
+          .caption {
+            a h3:hover { background: rgba($mc6-comp-bg, 0.9); }
+          }
+          .feature-play-button a{
+            background: rgba($mc6-bg, 0.9);
+            &:hover{
+              background: rgba($mc6-comp-bg, 0.9);
+            }
+            &:after{
+              border-left-color: $mc6-text;
+            }
+          }
+        }
+        &.color7{
+          .caption {
+            a h3:hover { background: rgba($mc7-comp-bg, 0.9); }
+          }
+          .feature-play-button a{
+            background: rgba($mc7-bg, 0.9);
+            &:hover{
+              background: rgba($mc7-comp-bg, 0.9);
+            }
+            &:after{
+              border-left-color: $mc7-text;
+            }
+          }
+        }
+      }
+      &.moving-image{
+        .image-container{
+          position: relative;
+          .image{
+            position: absolute;
+            top: 0; left: 0;
+            max-width: none;
+            transform-origin: 0 0;
+          }
+        }
+        a:hover {
+          img {
+            opacity: 1;
+          }
+        }
       }
     }
+  }
+  @at-root [data-eq~="700px"] {
+    @include sliderdropbelow();
   }
   .arrow-container {
     position: absolute;
@@ -363,111 +322,100 @@
     top: 0;
     width: 100%;
     padding-top: 56.25%;
-  }
-  .slick-prev, .slick-next {
-    @include verticalcenter(-8%);
-    text-shadow: 0px 0px 1px $feature-arrow-text-shadow-color;
-    color: $white;
-    background-color: transparent;
-    padding: 2rem 2.2rem;
-    z-index: 1;
-    text-decoration: none;
-    font-size: 0px;
-    border: none;
-    outline: none;
-    transition: transform .2s ease-in-out;
-    &:before { font-size: 6.4rem !important; }
-    [data-eq~="1200px"] &:before { font-size: 36px; }
-    [data-eq~="800px"] &:before { font-size: 32px; }
-    [data-eq~="400px"] &:before { font-size: 28px; }
-    [data-eq~="200px"] &:before { font-size: 24px; }
-    &:hover, &:focus {
-      color: #fff;
-      transform: translateY(-50%) scale(1.1);
-      outline: 3px solid $ada-focus-color;
-      outline-offset: -20px;
-      overflow: -moz-hidden-unscrollable;
+    .prev, .next {
+      @include verticalcenter(-8%);
+      text-shadow: 0px 0px 1px $feature-arrow-text-shadow-color;
+      color: $white;
+      background-color: transparent;
+      padding: 2rem 2.2rem;
+      z-index: 1;
+      text-decoration: none;
+      font-size: 0px;
+      border: none;
+      outline: none;
+      transition: transform .2s ease-in-out;
+      font-size: 6.4rem;
+      &:hover {
+        color: #fff;
+        transform: translateY(-50%) scale(1.1);
+        outline: 3px solid $ada-focus-color;
+        outline-offset: -20px;
+        overflow: -moz-hidden-unscrollable;
+      }
+    }
+    .prev {
+      left: 0;
+    }
+    .next {
+      right: 0;
     }
   }
-  .slick-prev {
-    left: 0px;
-     @include fa(angle-left);
-  }
-  .slick-next {
-    right: 0px;
-     @include fa(angle-right);
-  }
-  .slick-dots {
-    position: absolute;
-    bottom: -3.5rem;
-    list-style: none;
-    display: block;
-    text-align: center;
-    padding: 0;
-    margin: 0;
+  .nav-dots {
+    display: flex;
+    justify-content: center;
     width: 100%;
-    li {
-        position: relative;
-        display: inline-block;
-        height: 20px;
+    padding-left: 0;
+    margin: 1rem auto;
+    order: 2;
+    button.dot {
+      border: 0;
+      background: transparent;
+      display: block;
+      height: 20px;
+      width: 20px;
+      outline: none;
+      line-height: 0px;
+      font-size: 0px;
+      color: transparent;
+      padding: 5px;
+      cursor: pointer;
+      position: relative;
+      &:hover {
+        outline: none;
+        &:before {
+          opacity: 1;
+          color: $page-indicator-hover;
+        }
+      }
+      &:focus {
+        outline: 3px solid $ada-focus-color;
+        outline-offset: -2px;
+        &:before {
+          opacity: 1;
+          color: $page-indicator-hover;
+        }
+      }
+      &:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: "•";
         width: 20px;
-        margin: 0 0.25rem;
-        padding: 0;
-        cursor: pointer;
-        button {
-            border: 0;
-            background: transparent;
-            display: block;
-            height: 20px;
-            width: 20px;
-            outline: none;
-            line-height: 0px;
-            font-size: 0px;
-            color: transparent;
-            padding: 5px;
-            cursor: pointer;
-            &:hover, &:focus {
-                outline: none;
-                &:before {
-                    opacity: 1;
-                    color: $page-indicator-hover;
-                }
-            }
-            &:before {
-                position: absolute;
-                top: 0;
-                left: 0;
-                content: "•";
-                width: 20px;
-                height: 20px;
-                font-size: 24px;
-                line-height: 20px;
-                text-align: center;
-                color: $page-indicator-inactive;
-                -webkit-font-smoothing: antialiased;
-                -moz-osx-font-smoothing: grayscale;
-                @include vendor-prefix(transition, all 0.2s ease);
-            }
-        }
-        &.slick-active button:before {
-            color: $page-indicator-active;
-            font-size: 25px;
-            transform: scale(1.25);
-        }
+        height: 20px;
+        font-size: 24px;
+        line-height: 20px;
+        text-align: center;
+        color: $page-indicator-inactive;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        @include vendor-prefix(transition, all 0.2s ease);
+      }
+      &.active:before {
+        color: $page-indicator-active;
+        font-size: 25px;
+        transform: scale(1.25);
+      }
     }
-  }
-
-  @at-root [data-eq~="700px"] {
-    @include sliderdropbelow();
   }
   .btnPauseSlider {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 12px;
+    right: 4px;
     background-color: transparent;
     border: 0;
     z-index: 2;
     i {
+      font-size: 2.4rem;
       text-shadow: 0px 0px 1px #363534;
       color: #fff;
       &:before {

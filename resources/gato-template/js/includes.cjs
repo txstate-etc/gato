@@ -13,6 +13,7 @@
 /gato-lib/js/fullcalendar/fullcalendar.min.js
 /gato-component-hours/js/hours.js
 /gato-component-gallery/js/gallery.js
+/gato-component-feature/js/featureslider.js
 /gato-component-feature/js/feature.js
 /gato-component-faq/js/expand.js
 /gato-template/js/standardista-table-sorting.js

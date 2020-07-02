@@ -1,34 +1,13 @@
-var GATO_MOVINGIMAGE_TIMINGS = { 'none':20000, 'slow':20000, 'medium':20000, 'fast':20000};
+var GATO_MOVINGIMAGE_TIMINGS = { 'none':20000, 'slow':20000, 'medium':20000, 'fast':20000}
 
 jQuery(document).ready(function($) {
-  var NONE = 0, SLOW = 10000, MEDIUM = 7500, FAST = 5000;
 
-  var currentMovingImage = {
-    startTime: 0,
-    duration: 20000,
-    container: {
-      width: 0,
-      height: 0
-    },
-    start: {
-      scale: 1,
-      transX: 0,
-      transY: 0
-    },
-    target: {
-      scale: 1,
-      transX: 0,
-      transY: 0
-    },
-    image: null,
-    progress: 0
-  }
+  var NONE = 0, SLOW = 10, MEDIUM = 7.5, FAST = 5;
 
-  var currentAnimationFrame
-
-  $('.gato-slider').each(function() {
-    var thisSlider = $(this);
-    var speed = $(this).attr('data-feature-timer');
+  $('.gato-slideshow').each(function() {
+    var $slideshow = $(this)
+    var speed = $(this).attr('data-feature-timer')
+    var movingimageduration = GATO_MOVINGIMAGE_TIMINGS[speed.toLowerCase()]
     switch(speed) {
       case 'none':
         speed = NONE;
@@ -47,261 +26,33 @@ jQuery(document).ready(function($) {
         if (isNaN(speed)) {
           speed = 0;
         } else {
-          speed *= 1000;
           if (speed > SLOW) {
             speed = SLOW;
           }
         }
         break;
     }
-
-    $(this).find('.slides').on('init', function(slick) {
-      $(this).find(".moving-image").each(function(index,slide){
-        $(slide).find('.image-container').height($(slide).width() * 9.0 / 16.0)
-      })
-
-      var slide = $(this).find('.slick-current')
-      if(slide.hasClass('moving-image')){
-        slide.find('img').load(function(){
-          updateMovingImageState(slide)
-          startMovingImage(slide)
-        })
-      }
-    })
-
-    $(this).find('.slides').slick({
-      dots: true,
-      adaptiveHeight: false,
-      autoplay: !isEditMode && (speed > 0),
-      autoplaySpeed: speed,
-      accessibility: true,
-      appendArrows: $(this).find('.arrow-container'),
-      slide: '.slide',
-      lazyLoad: 'progressive',
-      rows: 0
+    new GatoFeatureSlider({
+      container: $(this),
+      slides: '.slide',
+      leftarrow: '.arrow-container .prev',
+      rightarrow: '.arrow-container .next',
+      rotationtime: speed,
+      pausebutton: '.btnPauseSlider',
+      navdots: '.nav-dots .dot',
+      movingimageduration: movingimageduration
     });
-
-    function calculateImageContainerHeight(slide) {
-      return slide.width() * 9.0 / 16.0
-    }
-
-    function updateMovingImageState(slide) {
-      if (!slide) {
-        slide = $('.slide.slick-current')
-      }
-      currentMovingImage.image = slide.find('img')
-
-      var speedstr = slide.closest('.gato-slider').data('feature-timer')
-      currentMovingImage.duration = GATO_MOVINGIMAGE_TIMINGS[speedstr.toLowerCase()]
-
-      var containerWidth = slide.width()
-      var containerHeight = calculateImageContainerHeight(slide)
-      currentMovingImage.container.width = containerWidth
-      currentMovingImage.container.height = containerHeight
-      slide.find('.image-container').height(containerHeight)
-
-      var data = slide.find('.cropData')
-      var startCrop = {
-        left: parseFloat(data.attr('data-start-left')),
-        top: parseFloat(data.attr('data-start-top')),
-        right: parseFloat(data.attr('data-start-right')),
-        bottom: parseFloat(data.attr('data-start-bottom')),
-      }
-      var endCrop = {
-        left: parseFloat(data.attr('data-end-left')),
-        top: parseFloat(data.attr('data-end-top')),
-        right: parseFloat(data.attr('data-end-right')),
-        bottom: parseFloat(data.attr('data-end-bottom')),
-      }
-
-      var naturalWidth = slide.find('img')[0].offsetWidth
-      var naturalHeight = slide.find('img')[0].offsetHeight
-
-      currentMovingImage.start.scale = containerWidth / (naturalWidth * (startCrop.right - startCrop.left))
-      currentMovingImage.start.transX = -1 * naturalWidth * parseFloat(startCrop.left)
-      currentMovingImage.start.transY = -1 * naturalHeight * parseFloat(startCrop.top)
-
-      currentMovingImage.target.scale = containerWidth / (naturalWidth * (endCrop.right - endCrop.left))
-      currentMovingImage.target.transX = -1 * naturalWidth * parseFloat(endCrop.left)
-      currentMovingImage.target.transY = -1 * naturalHeight * parseFloat(endCrop.top)
-
-      currentMovingImage.startTime = performance.now()
-    }
-
-    function animate(args) { //{duration, draw, timing, callback}
-      var start = performance.now()
-      var duration = args.duration
-      var draw = args.draw
-      var timing = args.timing
-      var callback = args.callback
-
-      currentAnimationFrame = animationframe(function animate(time) {
-        let timeFraction = (time - start) / duration;
-        if (timeFraction > 1) timeFraction = 1;
-
-        let progress = timing(timeFraction)
-
-        draw(progress);
-
-        if (timeFraction < 1) {
-          currentAnimationFrame = animationframe(animate);
-        }
-        else {
-          callback()
-        }
-
-      });
-    }
-
-    function startMovingImage(slide) {
-      var slideshow = slide.closest('.slides')
-      var speedstr = slide.closest('.gato-slider').data('feature-timer')
-      var speed = GATO_MOVINGIMAGE_TIMINGS[speedstr.toLowerCase()]
-
-      if (slideshow.slick('slickGetOption', 'autoplay')) {
-        slideshow.slick('slickPause')
-      }
-
-      animate({
-        duration: currentMovingImage.duration,
-        timing: function(timeFraction) {
-          return timeFraction;
-        },
-        draw: function(progress) {
-          currentMovingImage.progress = progress
-          //progress will be a percentage in decimal format
-          var scale = currentMovingImage.start.scale + progress * (currentMovingImage.target.scale - currentMovingImage.start.scale)
-          var transX = currentMovingImage.start.transX + progress * (currentMovingImage.target.transX - currentMovingImage.start.transX)
-          var transY = currentMovingImage.start.transY + progress * (currentMovingImage.target.transY - currentMovingImage.start.transY)
-
-          var transform = 'scale(' + scale + ',' + scale + ') translate(' + transX + 'px,' + transY + 'px)'
-         //console.log(transform)
-          currentMovingImage.image.css('transform', transform )
-        },
-        callback: function() {
-          if (slideshow.slick('slickGetOption', 'autoplay')) {
-            setTimeout(function(){
-              slideshow.slick('slickPlay').slick('slickNext');
-            }, speed*0.1);
-          }
-        }
+    resizeTimeout(function() {
+      var maxHeight = 0;
+      $slideshow.find('.slides .slide .slide-content').each(function() {
+        var h = $(this).height()
+        if (h > maxHeight) maxHeight = h
       })
-    }
-
-    $('.gato-slider').on('beforeChange', function(event, slick, currentSlide, nextSlide) {
-      var current = $(slick.$slides[currentSlide]);
-      if(current.hasClass('moving-image')){
-        cancelanimationframe(currentAnimationFrame)
-      }
-      if ($(slick.$slides[nextSlide]).hasClass('moving-image')) {
-        updateMovingImageState($(slick.$slides[nextSlide]))
-        var transform = 'scale(' + currentMovingImage.start.scale + ',' + currentMovingImage.start.scale + ') translate(' + currentMovingImage.start.transX + 'px,' + currentMovingImage.start.transY + 'px)'
-        currentMovingImage.image.css('transform', transform )
-        $('.gato-slider .slides .slide.moving-image.slick-cloned img').css('transform', transform)
-      }
-    })
-
-    $('.gato-slider').on('afterChange', function(event, slick, currentSlide) {
-      var current = $(slick.$slides[currentSlide]);
-      var paused = $(this).find('.btnPauseSlider').hasClass('paused')
-      if(current.hasClass('moving-image') && !paused){
-        startMovingImage(current)
-      }
-    })
-
-    var timer;
-    function onResize() {
-      thisSlider.find(".moving-image").each(function(index,slide){
-        $(slide).find('.image-container').height($(slide).width() * 9.0 / 16.0)
-      })
-
-      var slide = thisSlider.find('.slick-current')
-      if(slide.hasClass('moving-image')){
-        updateMovingImageState(slide)
-      }
-    }
-    $(window).resize(function(){
-      clearTimeout(timer);
-      timer = setTimeout(onResize, 250);
-    });
-
-    //Limit text on image slides to two lines.  If the text goes over 2 lines, truncate it and
-    // //add an ellipsis.  This code calculates a maximum height based on the line height and removes
-    // //one word at a time until the content is truncated enough to fit on two lines.  It also removes
-    // //some special characters from the end of words so you don't have something like
-    // //question?... or fire!...  Once the position of the caption is relative (slider is in a smaller area),
-    // //the entire text is shown in the caption area under the image
-    resizeTimeout(function(){
-      jQuery('.gato-slider .slides .slide .caption p').each(function(){
-        var description = jQuery(this);
-        var originalText = description.data('orig-text').replace(/<br\/?>/i,'').replace(/<[^>]*\s[^>]*>/, '').replace(/\s+(<\/[^>]*>)/, '$1').replace(/(<[^\/][^>]*>)\s+/, '$1');
-        var caption = description.closest('.caption');
-        if(caption.css('position') == 'absolute' && !description.data('skip-truncation')){
-          var maxLineHeight = Math.round(2 * parseFloat(description.css('line-height')));
-          //if this has been resized, we need the reset the original text
-          description.html(originalText);
-          var height = Math.round(description.height());
-          //in this case, it is already small enough
-          if(height <= maxLineHeight) return
-          //remove one word at a time from the end until it fits
-          var wordsToRemove = 0;
-          var words = originalText.split(" ");
-          while(height > maxLineHeight){
-            var newText = words.slice(0, words.length-wordsToRemove).join(' ') + "...";
-            description.html(newText);
-            height = Math.round(description.height());
-            wordsToRemove++;
-          }
-          //If these characters appear right before the ellipsis it will look strange, so remove them
-          var uglyLastCharacters = [ ' ', '\u3000', ',', ';', '.', '!', '?' ];
-          if(newText.length > 4){
-            var lastChar = newText.charAt(newText.length-4);
-            var index = jQuery.inArray(lastChar, uglyLastCharacters);
-            while(index > -1 && newText.length > 4){
-              newText = newText.slice(0,newText.length-4) + newText.slice(newText.length-3);
-              lastChar = newText.charAt(newText.length-4);
-              index = jQuery.inArray(lastChar, uglyLastCharacters);
-            }
-          }
-          description.html(newText);
-        }
-        else{
-          //The caption is beneath the image, no need to truncate
-          description.html(originalText);
-        }
+      $slideshow.find('.slides').css('height', Math.max(maxHeight, ($slideshow.width() * 9.0/16.0)))
+      $slideshow.find(".slides .moving-image").each(function(index,slide){
+        $(slide).find('.image-container').height($slideshow.width() * 9.0 / 16.0)
       })
     })
-    $('.btnPauseSlider').click(function() {
-      var $slideshow = $(this).closest('.gato-slider').find('.slides')
-      var currentSlide = $slideshow.find('.slick-current')
+  });
 
-      if ($(this).hasClass('paused')) {
-        if ($slideshow.slick('slickGetOption', 'autoplay')) {
-          $slideshow.slick('slickPlay')
-        }
-        if (currentSlide.hasClass('moving-image')) {
-          startMovingImage(currentSlide)
-        }
-        $(this).removeClass('paused')
-      }
-      else {
-        if ($slideshow.slick('slickGetOption', 'autoplay')) {
-          $slideshow.slick('slickPause')
-        }
-        if (currentSlide.hasClass('moving-image')) {
-          cancelanimationframe(currentAnimationFrame)
-          var progress = currentMovingImage.progress
-          var scale = currentMovingImage.start.scale + progress * (currentMovingImage.target.scale - currentMovingImage.start.scale)
-          var transX = currentMovingImage.start.transX + progress * (currentMovingImage.target.transX - currentMovingImage.start.transX)
-          var transY = currentMovingImage.start.transY + progress * (currentMovingImage.target.transY - currentMovingImage.start.transY)
-          currentMovingImage.start.scale = scale
-          currentMovingImage.start.transX = transX
-          currentMovingImage.start.transY = transY
-          var timeRemaining = currentMovingImage.duration - (currentMovingImage.progress * currentMovingImage.duration)
-          currentMovingImage.duration = timeRemaining
-        }
-        $(this).addClass('paused')
-      }
-    })
-  })
-})
+});
