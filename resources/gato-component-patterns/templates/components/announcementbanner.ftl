@@ -4,9 +4,9 @@
   [#assign mobileImage = content.image]
 [/#if]
 
-[#macro subheroContent]
+[#macro announcementBannerContent]
     <div data-opacity="${content.opacity!100}" class="color-overlay ${content.color!"color1"}">
-      <div class="subhero-container ${content.alignment!"center"}">
+      <div class="announcementbanner-container ${content.alignment!"center"}">
         <div class="content-block" style="max-width: ${content.overlayWidth!}">
           <h2 class="title">${content.title!}</h2>
           <h3 class="subtitle">${content.subtitle!}</h3>
@@ -32,11 +32,11 @@
 [#if cmsfn.isEditMode()]
   <div cms:edit="bar"></div>
 [/#if]
-<div class="mobilefirst-pattern subhero" >
-  <div class="subhero-content pattern-content" style='background-image: url("${gf.getImgDefault(content.image)}")'>
-    [@subheroContent/]
+<div class="mobilefirst-pattern announcementbanner" >
+  <div class="announcementbanner-content pattern-content" style='background-image: url("${gf.getImgDefault(content.image)}")'>
+    [@announcementBannerContent/]
   </div>
-  <div class="subhero-content pattern-content mobile" style='background-image: url("${gf.getImgDefault(mobileImage)}")'>
-    [@subheroContent/]
+  <div class="announcementbanner-content pattern-content mobile" style='background-image: url("${gf.getImgDefault(mobileImage)}")'>
+    [@announcementBannerContent/]
   </div>
 </div>

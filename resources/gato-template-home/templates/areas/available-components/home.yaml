@@ -11,8 +11,8 @@ tabbed:
   id: gato-component-patterns:components/tabbed
 flexible:
   id: gato-component-patterns:components/flexible
-subhero:
-  id: gato-component-patterns:components/subhero
+announcementbanner:
+  id: gato-component-patterns:components/announcementbanner
 
 #patterns
 titlebuttons:

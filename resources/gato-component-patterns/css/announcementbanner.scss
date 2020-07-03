@@ -1,5 +1,5 @@
 .mobilefirst-pattern {
-  &.subhero .subhero-content {
+  &.announcementbanner .announcementbanner-content {
     width: 100%;
     @media (max-width: $sm-breakpoint) {
       display: none;
@@ -17,7 +17,7 @@
         display: block;
       }
     }
-    .subhero-container {
+    .announcementbanner-container {
       width: 100%;
       max-width: 1200px;
       margin: 0 auto;

@@ -1,8 +1,8 @@
-templateScript: /gato-component-patterns/templates/components/subhero.ftl
+templateScript: /gato-component-patterns/templates/components/announcementbanner.ftl
 renderType: freemarker
-title: Subhero
+title: Announcement Banner
 description: A background image, title, text, and button(s)
-dialog: gato-component-patterns:components/subhero
+dialog: gato-component-patterns:components/announcementbanner
 parameters:
   icon: /gato-component-patterns/images/calltoaction-buttons.png
   tab: Prebuilt Sections
