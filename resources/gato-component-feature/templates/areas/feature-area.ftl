@@ -26,6 +26,7 @@
     <i class="fa fa-pause" aria-hidden="true"></i>
     <span class="visuallyhidden">Pause Slider</span>
   </button>
+  <div class="visuallyhidden pause-status" aria-live="polite"></div> 
   <div class="slides">
     [#assign aspectratio = 16.0/9.0]
     [#list components as slide]

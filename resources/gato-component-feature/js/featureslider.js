@@ -108,6 +108,7 @@ jQuery(document).ready(function($) {
         if (slider.slides.eq(slider.current).hasClass('moving-image')) {
           slider.startMovingImage(slider.slides.eq(slider.current))
         }
+        $(this).siblings('.pause-status').text("Slideshow Playing")
       }
       else {
         $(this).addClass('paused');
@@ -125,6 +126,7 @@ jQuery(document).ready(function($) {
           var timeRemaining = currentMovingImage.duration - (currentMovingImage.progress * currentMovingImage.duration)
           currentMovingImage.duration = timeRemaining
         }
+        $(this).siblings('.pause-status').text("Slideshow Paused")
       }
     })
     slider.navdots.click(function(e) {
