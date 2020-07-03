@@ -131,24 +131,59 @@
       }
       &.color1 {
         .caption { h3, p{ background-color: rgba($mc1-bg, 0.9); color: $mc1-text; } }
+        a:hover {
+          .caption h3, .caption p {
+            background: rgba($mc1-comp-bg, 0.9);
+          }
+        }
       }
       &.color2 {
         .caption { h3, p{ background-color: rgba($mc2-bg, 0.9); color: $mc2-text; } }
+        a:hover {
+          .caption h3, .caption p {
+            background: rgba($mc2-comp-bg, 0.9);
+          }
+        }
       }
       &.color3 {
         .caption { h3, p{ background-color: rgba($mc3-bg, 0.9); color: $mc3-text; } }
+        a:hover {
+          .caption h3, .caption p {
+            background: rgba($mc3-comp-bg, 0.9);
+          }
+        }
       }
       &.color4 {
         .caption { h3, p{ background-color: rgba($mc4-bg, 0.9); color: $mc4-text; } }
+        a:hover {
+          .caption h3, .caption p {
+            background: rgba($mc4-comp-bg, 0.9);
+          }
+        }
       }
       &.color5 {
         .caption { h3, p{ background-color: rgba($mc5-bg, 0.9); color: $mc5-text; } }
+        a:hover {
+          .caption h3, .caption p {
+            background: rgba($mc5-comp-bg, 0.9);
+          }
+        }
       }
       &.color6 {
         .caption { h3, p{ background-color: rgba($mc6-bg, 0.9); color: $mc6-text; } }
+        a:hover {
+          .caption h3, .caption p {
+            background: rgba($mc6-comp-bg, 0.9);
+          }
+        }
       }
       &.color7 {
         .caption { h3, p{ background-color: rgba($mc7-bg, 0.9); color: $mc7-text; } }
+        a:hover {
+          .caption h3, .caption p {
+            background: rgba($mc7-comp-bg, 0.9);
+          }
+        }
       }
 
       &:focus {

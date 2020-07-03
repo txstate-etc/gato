@@ -8,7 +8,7 @@
   }
 }
 
-.gato-slider{
+.gato-slideshow .slides {
   .slide.color2 .caption{
     h3, p{
       [data-eq~="500px"] & { background-color: $mc2-bg }
@@ -17,23 +17,24 @@
     }
   }
   //these multicolors used the light version of the colors instead of the usual $mc-comp-bg colors for some reason
-  .slide.color5>a:hover{
+  .slide.color5 a:hover{
     .caption h3, .caption p{
       background: rgba($light-river, 0.9);
     }
   }
-  .slide.color6>a:hover{
+  .slide.color6 a:hover{
     .caption h3, .caption p{
       background: rgba($light-sandstone, 0.9);
+      color: red;
     }
   }
-  .slide.color7>a:hover{
+  .slide.color7 a:hover{
     .caption h3, .caption p{
       background: rgba($light-oldgold, 0.9);
     }
   }
-  .video-slide{
-    &.color5 caption{
+  .video-slide {
+    &.color5 .caption{
       a h3:hover{
         background: rgba($light-river, 0.9);
       }
@@ -41,7 +42,7 @@
         background: rgba($light-river, 0.9);
       }
     }
-    &.color6 caption{
+    &.color6 .caption{
       a h3:hover{
         background: rgba($light-sandstone, 0.9);
       }
@@ -49,7 +50,7 @@
         background: rgba($light-sandstone, 0.9);
       }
     }
-    &.color7 caption{
+    &.color7 .caption{
       a h3:hover{
         background: rgba($light-oldgold, 0.9);
       }

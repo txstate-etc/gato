@@ -1,267 +1,279 @@
-.tsus-slideshow .gato-slider{
-    margin-bottom: 0px;
-    .slick-prev, .slick-next{
+.tsus-slideshow .gato-slideshow {
+  margin-bottom: 0px;
+  padding-bottom: 3.5rem;
+
+  .arrow-container {
+    padding-top: 0;
+    .prev, .next {
+      display: none;
+    }
+  }
+  .nav-dots {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 0;
+    line-height: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 55px;
+    z-index: 1009;
+    text-align: center;
+    @media (max-width: $sm-breakpoint){
         display: none !important;
     }
-    .arrow-container {
-      padding-top: 0;
+    button.dot {
+      outline: none;
+      display: block;
+      padding: 0;
+      font-size: 0;
+      line-height: 0;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      position: relative;
+      border: none;
+      background: none;
+      margin: 0 8px;
+      &:hover {opacity: .7;}
+      &:before, &:after {
+        content: '';
+        position: absolute;
+        border-radius: 50%;
+        top: 50%;
+        left: 50%;
+        -webkit-transition: all .3s;
+        -o-transition: all .3s;
+        transition: all .3s;
+      }
+      &:before {
+        width: 8px;
+        height: 8px;
+        margin: -4px 0 0 -4px;
+        background-color: #f9f9f9;
+        opacity: 1;
+      }
+      &:after {
+        width: 12px;
+        height: 12px;
+        margin: -6px 0 0 -6px;
+        border: 1px solid #f9f9f9;
+        opacity: 0;
+        -webkit-transform: scale(0);
+        -ms-transform: scale(0);
+        -o-transform: scale(0);
+        transform: scale(0);
+      }
+      &.active:before {opacity: 0;}
+      &.active:after {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1);
+      }
+      &:focus {
+        outline: 3px solid $ada-focus-color;
+      }
     }
-    .slick-dots {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        font-size: 0;
-        line-height: 0;
+  }
+  .slides {
+    max-height: 750px;
+    .slide {
+      max-height: 750px;
+      .caption {
         position: absolute;
         left: 0;
-        right: 0;
-        bottom: 19px;
-        z-index: 1009;
-        text-align: center;
+        bottom: 10%;
+        padding: 2rem 1rem 2.4rem 10.5rem;
+        width: auto;
+        h3 {
+          font-size: 2.5rem;
+          line-height: 2.9rem;
+          letter-spacing: 0.1rem;
+          margin-bottom: 0.3rem;
+          margin-top: 0;
+          background-color: transparent;
+        }
+        p{
+          margin: 0;
+          font-size: 2rem;
+          line-height: 2.4rem;
+          letter-spacing: 0.05rem;
+          background-color: transparent;
+        }
         @media (max-width: $sm-breakpoint){
-            display: none !important;
+          width: 100%;
+          bottom: 0;
+          text-align: center;
+          padding: 0.4rem 1rem;
+          h3 {
+            font-size: 1.4rem;
+            line-height: 2rem;
+            letter-spacing: 0.05rem;
+            margin: 0;
+            width: 100%;
+          }
+          p{
+            font-size: 1.4rem;
+            line-height: 1.8rem;
+          }
         }
-        li {
-            display: inline-block;
-            vertical-align: top;
-            margin: 0 4px;
-            button {
-                outline: none;
-                display: block;
-                padding: 0;
-                font-size: 0;
-                line-height: 0;
-                width: 12px;
-                height: 12px;
-                border-radius: 50%;
-                position: relative;
-                border: none;
-                background: none;
-                &:hover {opacity: .7;}
-                &:before, &:after {
-                    content: '';
-                    position: absolute;
-                    border-radius: 50%;
-                    top: 50%;
-                    left: 50%;
-                    -webkit-transition: all .3s;
-                    -o-transition: all .3s;
-                    transition: all .3s;
-                }
-                &:before {
-                    width: 8px;
-                    height: 8px;
-                    margin: -4px 0 0 -4px;
-                    background-color: #f9f9f9;
-                    opacity: 1;
-                }
-                &:after {
-                    width: 12px;
-                    height: 12px;
-                    margin: -6px 0 0 -6px;
-                    border: 1px solid #f9f9f9;
-                    opacity: 0;
-                    -webkit-transform: scale(0);
-                    -ms-transform: scale(0);
-                    -o-transform: scale(0);
-                    transform: scale(0);
-                }
+        .feature-play-button {
+          top: 2rem;
+          left: 4rem;
+          @media (max-width: $sm-breakpoint){
+            top: -8rem;
+            left: 2rem;
+          }
+          a {
+            border: 1px solid $black;
+            &:hover {
+              transform: none;
             }
-            &.slick-active button:before {opacity: 0;}
-            &.slick-active button:after {
-                opacity: 1;
-                -webkit-transform: scale(1);
-                -ms-transform: scale(1);
-                -o-transform: scale(1);
-                transform: scale(1);
-            }
+          }
         }
-    }
-
-    .slide {
-        max-height: 750px;
-        .caption {
-            position: absolute;
-            left: 0;
-            bottom: 10%;
-            padding: 2rem 1rem 2.4rem 10.5rem;
-            width: auto;
+      }
+      &.color1, &.color2 ,&.color3 ,&.color4, &.color5, &.color6, &.color7 {
+        a:hover .caption {
+          h3, p {
+            background: transparent;
+          }
+        }
+        &.video-slide {
+          .caption a:hover {
             h3 {
-                font-size: 2.5rem;
-                line-height: 2.9rem;
-                letter-spacing: 0.1rem;
-                margin-bottom: 0.3rem;
-                margin-top: 0;
+              background: transparent;
             }
-            p{
-                margin: 0;
-                font-size: 2rem;
-                line-height: 2.4rem;
-                letter-spacing: 0.05rem;
+          }
+        }
+      }
+      &.color1{
+        .caption {
+          background-color: rgba($mc1-bg, 0.9);
+          h3, p {color: $mc1-text};
+          .feature-play-button {
+            a {
+              border-color: $mc1-text;
+              background-color: transparent;
             }
             @media (max-width: $sm-breakpoint){
-                width: 100%;
-                bottom: 0;
-                text-align: center;
-                padding: 0.4rem 1rem;
-                h3 {
-                    font-size: 1.4rem;
-                    line-height: 2rem;
-                    letter-spacing: 0.05rem;
-                    margin: 0;
-                    width: 100%;
-                }
-                p{
-                    font-size: 1.4rem;
-                    line-height: 1.8rem;
-
-                }
-            }
-            .feature-play-button {
-              top: 2rem;
-              left: 4rem;
-              @media (max-width: $sm-breakpoint){
-                top: -8rem;
-                left: 2rem;
-              }
               a {
-                border: 1px solid $black;
-                &:hover {
-                    transform: none;
-                }
-              }
-            }
-        }
-        .caption {
-            h3, p {
-                background-color: transparent !important;
-            }
-        }
-        &.color1{
-            .caption {
+                border-color: transparent;
                 background-color: rgba($mc1-bg, 0.9);
-                h3, p {color: $mc1-text};
-                .feature-play-button {
-                  a {
-                    border-color: $mc1-text;
-                    background-color: transparent;
-                  }
-                  @media (max-width: $sm-breakpoint){
-                    a {
-                        border-color: transparent;
-                        background-color: rgba($mc1-bg, 0.9);
-                    }
-                  }
-                }
-            }
-        }
-        &.color2{
-            .caption {
-              background-color: rgba($mc2-bg, 0.9);
-              h3, p {color: $mc2-text};
-              .feature-play-button {
-                a { border-color: $mc2-text;
-                    background-color: transparent;
-                }
-                @media (max-width: $sm-breakpoint){
-                    a {
-                        border-color: transparent;
-                        background-color: rgba($mc2-bg, 0.9);
-                    }
-                }
               }
             }
+          }
         }
-        &.color3{
-            .caption {
-              background-color: rgba($mc3-bg, 0.9);
-              h3, p {color: $mc3-text};
-              .feature-play-button {
-                a { border-color: $mc3-text;
-                    background-color: transparent;
-                }
-                @media (max-width: $sm-breakpoint){
-                    a {
-                        border-color: transparent;
-                        background-color: rgba($mc3-bg, 0.9);
-                    }
-                }
+      }
+      &.color2{
+        .caption {
+          background-color: rgba($mc2-bg, 0.9);
+          h3, p {color: $mc2-text};
+          .feature-play-button {
+            a { border-color: $mc2-text;
+              background-color: transparent;
+            }
+            @media (max-width: $sm-breakpoint){
+              a {
+                border-color: transparent;
+                background-color: rgba($mc2-bg, 0.9);
               }
             }
+          }
         }
-        &.color4{
-            .caption {
-              background-color: rgba($mc4-bg, 0.9);
-              h3, p {color: $mc4-text};
-              .feature-play-button {
-                a { border-color: $mc4-text;
-                    background-color: transparent;
-                }
-                @media (max-width: $sm-breakpoint){
-                    a {
-                        border-color: transparent;
-                        background-color: rgba($mc4-bg, 0.9);
-                    }
-                }
+      }
+      &.color3{
+        .caption {
+          background-color: rgba($mc3-bg, 0.9);
+          h3, p {color: $mc3-text};
+          .feature-play-button {
+            a { border-color: $mc3-text;
+              background-color: transparent;
+            }
+            @media (max-width: $sm-breakpoint){
+              a {
+                border-color: transparent;
+                background-color: rgba($mc3-bg, 0.9);
               }
             }
+          }
         }
-        &.color5{
-            .caption {
-              background-color: rgba($mc5-bg, 0.9);
-              h3, p {color: $mc5-text};
-              .feature-play-button {
-                a { border-color: $mc5-text;
-                    background-color: transparent;
-                }
-                @media (max-width: $sm-breakpoint){
-                    a {
-                        border-color: transparent;
-                        background-color: rgba($mc5-bg, 0.9);
-                    }
-                }
+      }
+      &.color4{
+        .caption {
+          background-color: rgba($mc4-bg, 0.9);
+          h3, p {color: $mc4-text};
+          .feature-play-button {
+            a { border-color: $mc4-text;
+              background-color: transparent;
+            }
+            @media (max-width: $sm-breakpoint){
+              a {
+                border-color: transparent;
+                background-color: rgba($mc4-bg, 0.9);
               }
             }
+          }
         }
-        &.color6{
-            .caption {
-              background-color: rgba($mc6-bg, 0.9);
-              h3, p {color: $mc6-text};
-              .feature-play-button {
-                a { border-color: $mc6-text;
-                    background-color: transparent;
-                }
-                @media (max-width: $sm-breakpoint){
-                    a {
-                        border-color: transparent;
-                        background-color: rgba($mc6-bg, 0.9);
-                    }
-                }
+      }
+      &.color5{
+        .caption {
+          background-color: rgba($mc5-bg, 0.9);
+          h3, p {color: $mc5-text};
+          .feature-play-button {
+            a { border-color: $mc5-text;
+              background-color: transparent;
+            }
+            @media (max-width: $sm-breakpoint){
+              a {
+                border-color: transparent;
+                background-color: rgba($mc5-bg, 0.9);
               }
             }
+          }
         }
-        &.color7{
-            .caption {
-              background-color: rgba($mc7-bg, 0.9);
-              h3, p {color: $mc7-text};
-              .feature-play-button {
-                a { border-color: $mc7-text;
-                    background-color: transparent;
-                }
-                @media (max-width: $sm-breakpoint){
-                    a {
-                        border-color: transparent;
-                        background-color: rgba($mc7-bg, 0.9);
-                    }
-                }
+      }
+      &.color6{
+        .caption {
+          background-color: rgba($mc6-bg, 0.9);
+          h3, p {color: $mc6-text};
+          .feature-play-button {
+            a { border-color: $mc6-text;
+              background-color: transparent;
+            }
+            @media (max-width: $sm-breakpoint){
+              a {
+                border-color: transparent;
+                background-color: rgba($mc6-bg, 0.9);
               }
             }
+          }
         }
-    }
-
-    .moving-image-caption {
+      }
+      &.color7{
+        .caption {
+          background-color: rgba($mc7-bg, 0.9);
+          h3, p {color: $mc7-text};
+          .feature-play-button {
+            a { border-color: $mc7-text;
+              background-color: transparent;
+            }
+            @media (max-width: $sm-breakpoint){
+              a {
+                border-color: transparent;
+                background-color: rgba($mc7-bg, 0.9);
+              }
+            }
+          }
+        }
+      }
+      .moving-image-caption {
         p {
           font-style: italic;
         }
+      }
     }
+  }
 }
