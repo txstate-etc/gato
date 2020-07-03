@@ -68,11 +68,11 @@
           font-family: $halis;
           text-transform: uppercase;
           line-height: 2.4rem;
+          font-weight: 600;
           a {
             text-decoration: underline;
             border: none;
             color: $maroon;
-            font-weight: initial;
             &:hover {
               box-shadow: none;
             }
