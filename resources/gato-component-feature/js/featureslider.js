@@ -96,7 +96,7 @@ jQuery(document).ready(function($) {
     });
     $window.blur(function (e) { slider.pauseschedule(); });
     $window.focus(function (e) { slider.schedule(); });
-    
+
     slider.container.click(function(e) { if (slider.stopclick) e.preventDefault(); slider.stopclick = false; });
     slider.leftarrow.click(function(e) { e.preventDefault(); slider.left(); });
     slider.rightarrow.click(function(e) { e.preventDefault(); slider.right(); });
@@ -128,7 +128,7 @@ jQuery(document).ready(function($) {
       }
     })
     slider.navdots.click(function(e) {
-      var navindex = $(e.target).closest('li').index()
+      var navindex = $(e.target).index()
       slider.activate(navindex, 300)
     })
     slider.reset();
@@ -157,7 +157,6 @@ jQuery(document).ready(function($) {
     if (slider.slides.eq(this.current).hasClass('moving-image')) {
       var loaded = false;
       slider.slides.eq(this.current).find('img').on('load', function(){
-        console.log("image loaded")
         slider.updateMovingImageState(slider.slides.eq(slider.current))
         slider.startMovingImage(slider.slides.eq(slider.current))
       })
@@ -438,7 +437,6 @@ jQuery(document).ready(function($) {
   }
   window.GatoFeatureSlider.prototype.resizeMovingImage = function () {
     var slider = this
-    console.log("resize")
     var activeSlide = slider.slides.eq(slider.current)
     if (activeSlide.hasClass('moving-image')) {
       slider.updateMovingImageState(activeSlide)

@@ -355,7 +355,7 @@
     justify-content: center;
     width: 100%;
     padding-left: 0;
-    margin: 1rem auto;
+    margin: 1.5rem auto;
     order: 2;
     button.dot {
       border: 0;
@@ -370,6 +370,7 @@
       padding: 5px;
       cursor: pointer;
       position: relative;
+      margin: 0 0.25rem;
       &:hover {
         outline: none;
         &:before {

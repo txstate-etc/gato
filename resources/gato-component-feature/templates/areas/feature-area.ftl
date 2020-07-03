@@ -22,6 +22,10 @@
       </button>
     [/#list]
   </div>
+  <button class="btnPauseSlider">
+    <i class="fa fa-pause" aria-hidden="true"></i>
+    <span class="visuallyhidden">Pause Slider</span>
+  </button>
   <div class="slides">
     [#assign aspectratio = 16.0/9.0]
     [#list components as slide]
@@ -29,7 +33,7 @@
       [#if !colorClass?matches("color[1-7]")]
         [#assign colorClass = "color${(slide_index % colorCount)+1}" /]
       [/#if]
-        [@cms.component content=slide contextAttributes={"slideactive": (slide_index == 0)?string("active", ""), "colorClass": colorClass, "aspectratio": aspectratio} editable=false /]
+      [@cms.component content=slide contextAttributes={"slideactive": (slide_index == 0)?string("active", ""), "colorClass": colorClass, "aspectratio": aspectratio} editable=false /]
     [/#list]
-  </>
+  </div>
 </div>
