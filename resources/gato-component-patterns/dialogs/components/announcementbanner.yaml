@@ -72,10 +72,19 @@ form:
           label: Overlay Width
           placeholder: 600px
           description: "Enter a max width (in pixels) for the overlay."
+        - name: opacityinfo
+          label: ""
+          class: info.magnolia.ui.form.field.definition.StaticFieldDefinition
+          value: "Warning: before publishing, this section needs to be manually checked to confirm the background color and opacity meet AA accessibility standards."
         - name: opacity
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Overlay Opacity
-          placeholder: 100
+          placeholder: 50
+          description: Enter a percentage (0-100)
+        - name: mobileopacity
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Mobile Overlay Opacity
+          placeholder: 50
           description: Enter a percentage (0-100)
         - name: buttons
           class: edu.txstate.its.gato.vaadin.GatoMultiValueFieldDefinition

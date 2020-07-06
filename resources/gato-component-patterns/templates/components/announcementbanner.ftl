@@ -5,7 +5,7 @@
 [/#if]
 
 [#macro announcementBannerContent]
-    <div data-opacity="${content.opacity!100}" class="color-overlay ${content.color!"color1"}">
+    <div data-opacity="${content.opacity!50}" data-mobileopacity="${content.mobileopacity!}" class="color-overlay ${content.color!"color1"}">
       <div class="announcementbanner-container ${content.alignment!"center"}">
         <div class="content-block" style="max-width: ${content.overlayWidth!}">
           <h2 class="title">${content.title!}</h2>
