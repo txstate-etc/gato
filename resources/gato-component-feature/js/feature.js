@@ -48,7 +48,8 @@ jQuery(document).ready(function($) {
         var h = $(this).height()
         if (h > maxHeight) maxHeight = h
       })
-      $slideshow.find('.slides').css('height', Math.max(maxHeight, ($slideshow.width() * 9.0/16.0)))
+      if ($slideshow.find('.slides .slide').length > 0)
+        $slideshow.find('.slides').css('height', Math.max(maxHeight, ($slideshow.width() * 9.0/16.0)))
       $slideshow.find(".slides .moving-image").each(function(index,slide){
         $(slide).find('.image-container').height($slideshow.width() * 9.0 / 16.0)
       })
