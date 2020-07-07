@@ -1,5 +1,5 @@
 [#include "/gato-template/templates/includes/commonmacros.ftl"]
-<div class="txst-iframe-container">
+<div class="txst-iframe-container" tabindex=0>
 
   [#if !gf.isEmptyString(content.title)]
     [@h2]${content.title}[/@h2]

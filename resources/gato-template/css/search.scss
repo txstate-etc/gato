@@ -17,7 +17,7 @@
   background: $search-dd-dropdown-background-color !important;
   min-height: initial !important;
   padding: 0px;
-  
+
   .searchbar {
     max-width: 60rem;
     margin: auto;
@@ -84,6 +84,7 @@
       background-color: transparent;
       color: transparent;
       position: absolute;
+      outline: 0px !important;
     }
   }
 }

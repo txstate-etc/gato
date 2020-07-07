@@ -5,4 +5,7 @@
   position: relative;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
+  &:focus {
+    outline-offset: -3px;
+  }
 }
