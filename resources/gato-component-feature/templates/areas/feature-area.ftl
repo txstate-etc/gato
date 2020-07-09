@@ -10,8 +10,8 @@
 <div class="slideshow-wrapper">
   [#if components?size > 1]
     <div class="arrow-container">
-      <button class="prev" tabindex="-1"><i class="fa fa-angle-left"></i><span class="visuallyhidden">Previous Slide</span></button>
-      <button class="next" tabindex="-1"><i class="fa fa-angle-right"></i><span class="visuallyhidden">Next Slide</span></button>
+      <button class="prev" tabindex="-1" aria-hidden="true"><i class="fa fa-angle-left"></i><span class="visuallyhidden">Previous Slide</span></button>
+      <button class="next" tabindex="-1" aria-hidden="true"><i class="fa fa-angle-right"></i><span class="visuallyhidden">Next Slide</span></button>
     </div>
     <div class="nav-dots" role="tablist">
       [#list components as slide]
@@ -45,4 +45,5 @@
       [@cms.component content=slide contextAttributes={"slideactive": (slide_index == 0)?string("active", ""), "colorClass": colorClass, "aspectratio": aspectratio} editable=false /]
     [/#list]
   </div>
+  <div aria-hidden="true" class="keyboard-instructions">Use Left and Right Arrow Keys to Interact with Slideshow</div>
 </div>

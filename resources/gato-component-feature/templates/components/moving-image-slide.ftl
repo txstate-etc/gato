@@ -3,7 +3,7 @@
   [#if ctx.slideactive?has_content && ctx.slideactive == "active"]
     [#assign active = true]
   [/#if]
-  <div id="slidepanel${gf.uuidToHtmlId(content.@id)}" class="slide moving-image ${ctx.slideactive!''} ${ctx.colorClass!}" role="tabpanel" tabindex="${active?then("0", "-1")}" aria-labelledby="slidetab${gf.uuidToHtmlId(content.@id)}">
+  <div id="slidepanel${gf.uuidToHtmlId(content.@id)}" class="slide moving-image ${ctx.slideactive!''} ${ctx.colorClass!}" role="tabpanel" aria-hidden="${active?then("false", "true")}" aria-labelledby="slidetab${gf.uuidToHtmlId(content.@id)}">
     <div class="slide-content">
     [#if content.link?has_content]
       <a class="slide-link" href="${gf.filterUrl(content.link!)}" tabindex="${active?then(0,-1)}">

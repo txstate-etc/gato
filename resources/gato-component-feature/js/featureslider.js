@@ -145,6 +145,9 @@ jQuery(document).ready(function($) {
         slider.navdots.eq(slider.current).focus()
       }
     })
+    slider.navdots.focus(function(e) {
+      slider.container.find('.keyboard-instructions').show()
+    })
     slider.container.find('img[data-src]').each(function () {
       var img = $(this);
       $window.load(function () {
@@ -194,7 +197,7 @@ jQuery(document).ready(function($) {
     var prev = slider.current
     if (slidefromright) { // sliding from the right
       next.velocity({translateX: ['0%','100%']}, {duration: speed, complete: function() {
-        next.attr('tabindex', 0)
+        next.attr('aria-hidden', false)
         slider.navdots.eq(index).addClass('active')
         slider.navdots.eq(index).attr('aria-selected', true)
         slider.navdots.eq(index).attr('tabindex', 0)
@@ -212,7 +215,7 @@ jQuery(document).ready(function($) {
           }
         }});
       curr.velocity({translateX: ['-100%','0%']}, {duration: speed, complete: function() {
-        curr.attr('tabindex', -1)
+        curr.attr('aria-hidden', true)
         slider.navdots.eq(prev).removeClass('active')
         slider.navdots.eq(prev).attr('aria-selected', false)
         slider.navdots.eq(prev).attr('tabindex', -1)
@@ -220,7 +223,7 @@ jQuery(document).ready(function($) {
       }});
     } else { // sliding from the left
       next.velocity({translateX: ['0%','-100%']}, {duration: speed, complete: function() {
-        next.attr('tabindex', 0)
+        next.attr('aria-hidden', false)
         slider.navdots.eq(index).addClass('active')
         slider.navdots.eq(index).attr('aria-selected', true)
         slider.navdots.eq(index).attr('tabindex', 0)
@@ -237,7 +240,7 @@ jQuery(document).ready(function($) {
         }
       }});
       curr.velocity({translateX: ['100%','0%']}, {duration: speed, complete: function() {
-        curr.attr('tabindex', -1)
+        curr.attr('aria-hidden', true)
         slider.navdots.eq(prev).removeClass('active')
         slider.navdots.eq(prev).attr('aria-selected', false)
         slider.navdots.eq(prev).attr('tabindex', -1)
@@ -306,7 +309,7 @@ jQuery(document).ready(function($) {
         }
       },
       complete: function() {
-        next.attr('tabindex', 0)
+        next.attr('aria-hidden', false)
         slider.navdots.eq(nextIndex).addClass('active')
         slider.navdots.eq(nextIndex).attr('aria-selected', true)
         slider.navdots.eq(nextIndex).attr('tabindex', 0)
@@ -318,7 +321,7 @@ jQuery(document).ready(function($) {
     curr.velocity({translateX: [(xdiff < 0 ? -1 : 1)*next.outerWidth()+'px', xdiff+'px']}, {
       duration: 150,
       complete: function() {
-        curr.attr('tabindex', -1)
+        curr.attr('aria-hidden', true)
         slider.navdots.eq(startIndex).removeClass('active')
         slider.navdots.eq(startIndex).attr('aria-selected', false)
         slider.navdots.eq(startIndex).attr('tabindex', -1)

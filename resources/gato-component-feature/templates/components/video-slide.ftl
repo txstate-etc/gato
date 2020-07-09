@@ -4,7 +4,7 @@
     [#assign active = true]
   [/#if]
   [#assign notitle = (!gf.isEmptyString(content.title) || content.subtext?has_content)?string("","no-title")]
-  <div id="slidepanel${gf.uuidToHtmlId(content.@id)}" class="slide video-slide ${ctx.slideactive!''} ${ctx.colorClass!} ${notitle}" role="tabpanel" tabindex="${active?then("0", "-1")}" aria-labelledby="slidetab${gf.uuidToHtmlId(content.@id)}">
+  <div id="slidepanel${gf.uuidToHtmlId(content.@id)}" class="slide video-slide ${ctx.slideactive!''} ${ctx.colorClass!} ${notitle}" role="tabpanel" aria-hidden="${active?then("false", "true")}" aria-labelledby="slidetab${gf.uuidToHtmlId(content.@id)}">
     <div class="slide-content">
       [#assign left = (content.imagecropleft!0.0)?number]
       [#assign right = (content.imagecropright!0.0)?number]
