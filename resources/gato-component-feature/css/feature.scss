@@ -374,9 +374,6 @@
       &:hover {
         color: #fff;
         transform: translateY(-50%) scale(1.1);
-        outline: 3px solid $ada-focus-color;
-        outline-offset: -20px;
-        overflow: -moz-hidden-unscrollable;
       }
     }
     .prev {

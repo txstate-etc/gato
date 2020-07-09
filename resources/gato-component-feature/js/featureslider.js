@@ -98,8 +98,16 @@ jQuery(document).ready(function($) {
     $window.focus(function (e) { slider.schedule(); });
 
     slider.container.click(function(e) { if (slider.stopclick) e.preventDefault(); slider.stopclick = false; });
-    slider.leftarrow.click(function(e) { e.preventDefault(); slider.left(); });
-    slider.rightarrow.click(function(e) { e.preventDefault(); slider.right(); });
+    slider.leftarrow.click(function(e) {
+      e.preventDefault();
+      slider.left();
+      slider.navdots.eq(slider.current).focus()
+    });
+    slider.rightarrow.click(function(e) {
+      e.preventDefault();
+      slider.right();
+      slider.navdots.eq(slider.current).focus()
+    });
     slider.pausebutton.click(function(e) {
       e.preventDefault();
       if ($(this).hasClass('paused')) {
