@@ -37,7 +37,7 @@ form:
           lists: false
           tables: false
           height: 500
-          configJsFile: /.resources/gato-template/js/richeditor/minimal-config.js
+          configJsFile: /.resources/gato-template/js/richeditor/ti-richeditor-config.js
         - name: color
           class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
           fields:
