@@ -320,12 +320,12 @@ jQuery(document).ready(function($) {
     listitem.find('.image-container').addClass('arrow');
     $('#more-content-popup #btn-close-more-content-popup').focus();
     //expand result area if the popup overlaps the footer
-    var fSearchContainer = $('.result').last();
+    var fSearchContainer = $('.results').last();
     var footerTopOffset = Math.ceil($('footer').offset().top);
     var popupBottom = Math.ceil(popup.offset().top + popup.outerHeight()) + 2;
     if (popupBottom >= footerTopOffset) {
       var initialBottomPadding = fSearchContainer.css('padding-bottom');
-      var adjustedBottomPadding = parseInt(initialBottomPadding) + (popupBottom - footerTopOffset) + $('#more-content-popup').height() + "px";
+      var adjustedBottomPadding = parseInt(initialBottomPadding) + (popupBottom - footerTopOffset) + 40 + "px";
       fSearchContainer.attr('data-initial-bottom-padding', fSearchContainer.css('padding-bottom'));
       fSearchContainer.css('padding-bottom', adjustedBottomPadding);
     }
@@ -462,7 +462,7 @@ jQuery(document).ready(function($) {
   var closeMoreContentPopup = function() {
     $('#more-content-popup').hide();
     $('.listitem .image-container').removeClass('arrow');
-    var fSearchContainer = $('.result').last();
+    var fSearchContainer = $('.results').last();
     var itemId = $('#btn-close-more-content-popup').attr('data-item-id');
     $('#btn-close-more-content-popup').removeAttr('data-item-id');
     $('#' + itemId).find('.btnShowMoreContent').attr('aria-expanded', false);
@@ -527,7 +527,7 @@ jQuery(document).ready(function($) {
     $('.alphabet-anchors').html("")
     $('.anchor-link-container').hide();
   }
-  
+
   var buildAlphaAnchors = function(activeAnchors) {
     var html = '';
     $('.anchor-link-container').show();
@@ -559,7 +559,7 @@ jQuery(document).ready(function($) {
       $('html').velocity('scroll', { duration: 400, offset: (anchor.offset().top-headerHeight)+'px' });
     })
   }
-  
+
   var toggleArrows = function() {
     var anchorContainer = $('.anchor-link-container');
     var alphabetLinks = $('.alphabet-anchors');
@@ -619,11 +619,11 @@ jQuery(document).ready(function($) {
     var group = $(this);
     updateScreenReaderFilterGroupText(group);
   })
-  
+
   var scrollTimer;
   var prevST = 0;
   var bttButton = $('#backtotop');
-  
+
   var toggleBackToTop = function() {
     var st = $(this).scrollTop();
     if (st > 500 && st < prevST) {
@@ -641,11 +641,11 @@ jQuery(document).ready(function($) {
     scrollTimer = animationframe(toggleBackToTop)
   });
   toggleBackToTop()
-  
+
   bttButton.click(function(e) {
     $('body').velocity('scroll', { offset: 0, mobileHA: false });
   })
-  
+
   var setImageContainerSize = function() {
     $('.filterable-search.directory .results .result .listitem .image-container').each(function() {
       var el = $(this);
