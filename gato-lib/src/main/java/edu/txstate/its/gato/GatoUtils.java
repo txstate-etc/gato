@@ -1480,7 +1480,8 @@ public final class GatoUtils {
   protected final ErrorHandler csserrorhandler = new SilencingErrorHandler();
 
   public String tidyCSS(String rawcss) {
-    rawcss = Arrays.stream(rawcss.split(System.lineSeparator()))                    
+    if (StringUtils.isBlank(rawcss)) return "";
+    rawcss = Arrays.stream(rawcss.split(System.lineSeparator()))
       .map(line -> {
           if (!line.contains("imagehandler/scaler/gato-edit.its.txstate.edu")) return line;
           else {
@@ -1494,7 +1495,6 @@ public final class GatoUtils {
           }
         })
       .collect(Collectors.joining());
-    if (StringUtils.isBlank(rawcss)) return "";
     StringBuilder ret = new StringBuilder(rawcss.length());
     try {
       InputSource source = new InputSource(new StringReader(rawcss));
@@ -1657,11 +1657,11 @@ public final class GatoUtils {
     });
     return modifiableList;
   }
-  
+
   public boolean isUUID(String input) {
     return UUID_PATTERN.matcher(input).matches();
   }
-  
+
   public String truncateText(String text, int limit, String terminator) {
     int initialLength = text.length();
     if (initialLength < limit) return text;
