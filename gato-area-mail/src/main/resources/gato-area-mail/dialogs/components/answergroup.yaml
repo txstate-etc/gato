@@ -1,0 +1,10 @@
+form:
+  tabs:
+    - name: tabMain
+      label: ""
+      fields:
+        - name: text
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          required: true
+          label: Answer Text
+actions: !include /gato-template/dialogs/common/actions-block.yaml

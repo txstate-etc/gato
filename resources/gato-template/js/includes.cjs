@@ -18,6 +18,7 @@
 /gato-component-faq/js/expand.js
 /gato-template/js/standardista-table-sorting.js
 /gato-area-mail/js/mailForm.js
+/gato-area-mail/js/conditionalfield.js
 /gato-component-streaming/js/streaming.js
 /gato-template/js/sidebarheightfix.js
 /gato-lib/js/jquery-ui/jquery-ui.min.js

@@ -1,0 +1,24 @@
+templateScript: /gato-area-mail/templates/components/answergroup.ftl
+renderType: freemarker
+dialog: gato-area-mail:components/answergroup
+title: Answer
+areas:
+  conditionalformfields:
+    type: list
+    templateScript: /gato-area-mail/templates/areas/conditional-fields-area.ftl
+    modelClass: edu.txstate.its.gato.MailModel
+    availableComponents:
+      formedit:
+        id: gato-area-mail:components/formedit
+      formselection:
+        id: gato-area-mail:components/formselection
+      formfile:
+        id: gato-area-mail:components/formfile
+      html:
+        id: gato-template:components/html
+      textimage:
+        id: gato-template:components/textimage
+      separator:
+        id: gato-template:components/separator
+parameters:
+  icon: /gato-area-mail/images/textfield_icon.png

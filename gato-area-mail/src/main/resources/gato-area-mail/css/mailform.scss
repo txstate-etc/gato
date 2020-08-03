@@ -224,3 +224,31 @@
 .gato-area-mail-important {
   display: none;
 }
+
+.formelement.conditional {
+	.txst-khan-notice {
+		display: none;
+	}
+	&.edit {
+		.txst-khan-notice {
+			padding: 1rem;
+			display: block;
+		}
+	}
+}
+
+.conditional-answer {
+	display: none;
+	&.active {
+		display: block;
+	}
+	&.edit {
+		margin-left: 2rem;
+		.conditional-questions {
+			margin-left: 4rem;
+		}
+	}
+}
+.answer-add {
+	margin-left: 2rem;
+}

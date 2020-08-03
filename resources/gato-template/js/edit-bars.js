@@ -22,6 +22,7 @@ jQuery( document ).ready(function($) {
   magnolialabelchange('#sidebar-paragraphs', '.mgnlEditor.mgnlPlaceholder', 'Add Content');
   magnolialabelchange('.tsus-rightcolumn', '.mgnlEditor.mgnlPlaceholder', 'Add Content');
   magnolialabelchange('.mail_add', '.mgnlEditor.mgnlPlaceholder', 'Add Form Content');
+  magnolialabelchange('.answer-add', '.mgnlEditor.mgnlPlaceholder', 'Add Answer');
   magnolialabelchange('#gato-customjs-modal', '.mgnlEditor.mgnlPlaceholder', 'Add Custom Javascript');
   magnolialabelchange('#gato-customcss-modal', '.mgnlEditor.mgnlPlaceholder', 'Add Custom CSS');
   magnolialabelchange('.event_add', '.mgnlEditor.mgnlPlaceholder', 'Add Event');
@@ -43,4 +44,5 @@ jQuery( document ).ready(function($) {
   magnolialabelchange('#result-list', '.fs-person-add .mgnlEditor.mgnlPlaceholder', 'Add Person to List');
   magnolialabelchange('.styled-list-item-add', '.mgnlEditor.mgnlPlaceholder', 'Add Item to List');
   titledlabelchange('.slider-edit-bar');
+  titledlabelchange('.answer-edit-bar');
 });

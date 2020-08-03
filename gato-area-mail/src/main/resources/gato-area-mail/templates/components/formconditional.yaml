@@ -1,0 +1,13 @@
+templateScript: /gato-area-mail/templates/components/formconditional.ftl
+renderType: freemarker
+dialog: gato-area-mail:components/formconditional
+title: Conditional Form Section
+areas:
+  answers:
+    type: list
+    templateScript: /gato-area-mail/templates/areas/answers-area.ftl
+    availableComponents:
+      filter:
+        id: gato-area-mail:components/answergroup
+parameters:
+  icon: /gato-area-mail/images/textfield_icon.png
