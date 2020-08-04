@@ -22,4 +22,7 @@ form:
               label: Radio Buttons
               selected: true
               value: radio
+            - name: select
+              label: Select Box
+              value: select
 actions: !include /gato-template/dialogs/common/actions-block.yaml

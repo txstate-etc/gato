@@ -5,6 +5,27 @@
   <input type="hidden" name="mgnlMandatory" value="${title}" />
 [/#if]
 
+[#if content.type == "select"]
+  [#if (content.title!"")?has_content || content.mandatory!false]
+    <label for="${title}" class="txst-form-text-label">
+      ${cmsfn.decode(content).title!}
+      [#if content.mandatory!false]*[/#if]
+    </label>
+  [/#if]
+  [#assign answers = []]
+  [#if content.answers??]
+    <div class="txst-khan-alert txst-khan-notice">
+      Select an answer to add conditional questions.
+    </div>
+    [#assign answers = cmsfn.children(content.answers)]
+  [/#if]
+  <select class="conditional-select" name="${title}" id="${title}" [#if content.mandatory!false]aria-required="true"[/#if]>
+    <option value="not selected">Please select:</option>
+    [#list answers as answer]
+      <option value="${answer.text}" data-answergroup="ans${gf.uuidToHtmlId(answer.@id)}">${answer.text}</option>
+    [/#list]
+  </select>
+[#else]
 <fieldset class="selectiongroup">
   [#if (content.title!"")?has_content || content.mandatory!false]
     <legend for="${title}" class="txst-form-text-label">
@@ -26,5 +47,5 @@
     [/#list]
   </div>
 </fieldset>
-
+[/#if]
 [@cms.area name="answers"/]
