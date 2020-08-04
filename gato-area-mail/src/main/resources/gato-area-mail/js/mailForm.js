@@ -626,6 +626,8 @@ function injectDummies() {
 
   for (var i=0;i<numSelectionGroups;i++) {
     var element = document.getElementsByClassName("txst-form-selectiongroup")[i];
+    var conditional = element.up('.conditional-answer')
+    if (conditional && !conditional.hasClassName('active')) continue;
     var name = element.id;
     var id = element.id + "-dummy-item";
     var type = element.children[0].type
