@@ -13,10 +13,13 @@
     </legend>
   [/#if]
   <div class="txst-form-selectiongroup" id="${title}">
-    <div class="txst-khan-alert txst-khan-notice">
-    Select an answer to add conditional questions.
-    </div>
-    [#assign answers = cmsfn.children(content.answers)![]]
+    [#assign answers = []]
+    [#if content.answers??]
+      <div class="txst-khan-alert txst-khan-notice">
+        Select an answer to add conditional questions.
+      </div>
+      [#assign answers = cmsfn.children(content.answers)]
+    [/#if]
     [#list answers as answer]
       <input type="radio" class="radio choice" name=${title} id=${title}${answer?index} value=${answer.text} data-answergroup="ans${gf.uuidToHtmlId(answer.@id)}" />
       <label for="${title}${answer?index}" class="txst-form-selection-label">${answer.text}</label>
