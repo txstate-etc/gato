@@ -41,7 +41,7 @@
 	[#if page.customcss?has_content]
 		[#list cmsfn.children(page.customcss, 'mgnl:component') as entry]
 			[#if (entry.inherit!false) || !isAncestor]
-				${gf.tidyCSS(cmsfn.decode(entry).customCSS)}
+				${gf.tidyCSS(cmsfn.decode(entry).customCSS!'')}
 			[/#if]
 		[/#list]
 	[/#if]
