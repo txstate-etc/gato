@@ -213,8 +213,8 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       .addTask(new AddMobileFirstFooterLinkHeadersTask())
       .addTask(new SetPropertyTask("REVERT - Automatically open the Add Component dialog in wide mode", RepositoryConstants.CONFIG, "/modules/pages/dialogs/newComponent", "wide", Boolean.FALSE ))
       .addTasks(installOrUpdateTasks())
-    );    
-    
+    );
+
     register(DeltaBuilder.update("1.2.3", "")
       .addTask(new BootstrapSingleModuleResource("config.modules.site.config.site.templates.availability.templates.calico-informational.xml"))
       .addTasks(installOrUpdateTasks())
@@ -246,7 +246,7 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       .addTask(new BootstrapSingleModuleResource("config.modules.pages.apps.pages.subApps.browser.actions.editTemplate.availability.rules.IsNotSiteMapRule.xml"))
       .addTask(new BootstrapSingleModuleResource("config.modules.pages.apps.pages.subApps.browser.actions.move.availability.rules.IsNotSiteMapRule.xml"))
     );
-    
+
     register(DeltaBuilder.update("1.2.7", "")
       .addTask(new UpdateCalicoHerosTask())
       .addTasks(installOrUpdateTasks())
@@ -258,13 +258,19 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       .addTask(new UpdateCalicoColorsTask())
       .addTasks(installOrUpdateTasks())
     );
-    
+
     register(DeltaBuilder.update("1.2.9", "")
       .addTask(new RemoveNodeTask("Remove Homepage Events Tool, Not Used in New Homepage", "/modules/ui-admincentral/config/appLauncherLayout/groups/homepage/apps/events"))
       .addTask(new RemoveNodeTask("Remove Homepage Top Slider Tool, Not Used in New Homepage", "/modules/ui-admincentral/config/appLauncherLayout/groups/homepage/apps/top-slider"))
       .addTask(new RemoveNodeTask("Remove Homepage News Feature Tool, Not Used in New Homepage", "/modules/ui-admincentral/config/appLauncherLayout/groups/homepage/apps/news-feature"))
       .addTask(new RemoveNodeTask("Remove Homepage Research Slider Tool, Not Used in New Homepage", "/modules/ui-admincentral/config/appLauncherLayout/groups/homepage/apps/research-slider"))
       .addTask(new FilterableSearchDirectoryUpdate())
+      .addTasks(installOrUpdateTasks())
+    );
+
+    register(DeltaBuilder.update("1.2.10", "")
+      .addTask(new RemoveNodeTask("Remove Old Homepage Events Data", "Remove data for old homepage events tool", "gatoapps", "/homepage-data/events-dates"))
+      .addTask(new RemoveNodeTask("Remove Old Homepage Features Data", "Remove data for old homepage news feature, research slider, and top slider", "gatoapps", "/homepage-data/features"))
       .addTasks(installOrUpdateTasks())
     );
   }
@@ -278,7 +284,7 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
     tasks.add(new SetPropertyTask(RepositoryConstants.CONFIG, "/server/filters/servlets/ResourcesServlet", "servletClass", "edu.txstate.its.gato.GatoResourcesServlet"));
     tasks.add(new SetPropertyTask(RepositoryConstants.CONFIG, "/modules/pages/apps/pages/subApps/detail/actions/pasteComponents/availability/rules/acceptsClipboardContent", "implementationClass", "edu.txstate.its.gato.GatoPasteComponentAvailability"));
     tasks.add(new SetPropertyTask(RepositoryConstants.CONFIG, "/modules/pages/apps/pages/subApps/detail/actions/pasteComponents/availability/rules/isComponentAddible", "implementationClass", "edu.txstate.its.gato.GatoIsElementAddibleRule"));
-    tasks.add(new SetPropertyTask(RepositoryConstants.CONFIG, "/modules/pages/apps/pages/subApps/detail/actions/pasteComponents", "class", "edu.txstate.its.gato.GatoPasteComponentActionDefinition"));    
+    tasks.add(new SetPropertyTask(RepositoryConstants.CONFIG, "/modules/pages/apps/pages/subApps/detail/actions/pasteComponents", "class", "edu.txstate.its.gato.GatoPasteComponentActionDefinition"));
     tasks.add(new BootstrapSingleModuleResource("config.server.MIMEMapping.scss.xml"));
     tasks.add(new BootstrapSingleModuleResource("config.server.MIMEMapping.cjs.xml"));
     tasks.add(new RandomizeCacheStrTask());
