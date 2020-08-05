@@ -41,10 +41,14 @@
       </div>
       [#assign answers = cmsfn.children(content.answers)]
     [/#if]
+    <div>
     [#list answers as answer]
-      <input type="radio" class="radio choice" name=${title} id=${title}${answer?index} value=${answer.text} data-answergroup="ans${gf.uuidToHtmlId(answer.@id)}" />
-      <label for="${title}${answer?index}" class="txst-form-selection-label">${answer.text}</label>
+      <div>
+        <input type="radio" class="radio choice" name=${title} id=${title}${answer?index} value=${answer.text} data-answergroup="ans${gf.uuidToHtmlId(answer.@id)}" />
+        <label for="${title}${answer?index}" class="txst-form-selection-label">${answer.text}</label>
+      </div>
     [/#list]
+    </div>
   </div>
 </fieldset>
 [/#if]

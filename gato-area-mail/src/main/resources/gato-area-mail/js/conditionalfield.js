@@ -1,7 +1,7 @@
 jQuery(document).ready(function($) {
   $('.formelement.conditional').each(function() {
     var $field = $(this)
-    $field.find('.conditional-questions input, .conditional-questions textarea').each(function() {
+    $field.find('.conditional-questions input, .conditional-questions textarea, .conditional-questions select').each(function() {
       var $input = $(this)
       removeName($input)
     })
@@ -9,23 +9,23 @@ jQuery(document).ready(function($) {
       var $selected = $(e.target)
       var answergroupid = $selected.data('answergroup')
       $('.conditional-answer').removeClass('active')
-      $('.conditional-answer input, .conditional-answer textarea').each(function() {
+      $('.conditional-answer input, .conditional-answer textarea, .conditional-answer select').each(function() {
         removeName($(this))
       })
       $('#' + answergroupid).addClass('active')
-      $('#' + answergroupid).find('input, textarea').each(function() {
+      $('#' + answergroupid).find('input, textarea, select').each(function() {
         replaceName($(this))
       })
     })
     $(this).find('.conditional-select').change(function(e) {
       var answergroupid = ($(this).find(':selected').data('answergroup'))
       $('.conditional-answer').removeClass('active')
-      $('.conditional-answer input, .conditional-answer textarea').each(function() {
+      $('.conditional-answer input, .conditional-answer textarea, .conditional-answer select').each(function() {
         removeName($(this))
       })
       if (answergroupid) {
         $('#' + answergroupid).addClass('active')
-        $('#' + answergroupid).find('input, textarea').each(function() {
+        $('#' + answergroupid).find('input, textarea, select').each(function() {
           replaceName($(this))
         })
       }
