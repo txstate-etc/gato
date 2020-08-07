@@ -1,0 +1,12 @@
+templateScript: /gato-area-mail/templates/components/formconditionalv2.ftl
+renderType: freemarker
+dialog: gato-area-mail:components/formconditionalv2
+title: Conditional Form Version 2
+areas:
+  questions:
+    type: list
+    availableComponents:
+      edit:
+        id: gato-area-mail:components/conditional/formedit
+parameters:
+  icon: /gato-area-mail/images/textfield_icon.png

@@ -1,0 +1,18 @@
+form:
+  tabs:
+    - name: tabInput
+      label: Add Conditional Questions
+      fields:
+        - name: questionlist
+          label: Questions
+          class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
+          initFunction: initquestionlist
+          limit: 10
+          scripts: [gato-lib/js/restful.js, gato-area-mail/js/editor/questionlist.js]
+          styles: [gato-area-mail/css/editor/questionlist.scss]
+          loadScriptsInOrder: true
+          fields:
+            - name: questionlist
+              class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+              transformerClass: edu.txstate.its.gato.vaadin.JsonTransformer
+actions: !include /gato-template/dialogs/common/actions-block.yaml

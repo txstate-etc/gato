@@ -1,0 +1,7 @@
+templateScript: /gato-area-mail/templates/components/formedit.ftl
+renderType: freemarker
+dialog: gato-area-mail:components/conditional/formedit
+description: "A text input box. Can be either a single line field or a multi-line text area, and can be set to accept a specified data type"
+title: Text Field
+parameters:
+  icon: /gato-area-mail/images/textfield_icon.png

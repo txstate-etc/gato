@@ -24,6 +24,8 @@ availableComponents:
     id: gato-area-mail:components/formfile
   formconditional:
     id: gato-area-mail:components/formconditional
+  formconditionalv2:
+    id: gato-area-mail:components/formconditionalv2
   html:
     id: gato-template:components/html
   textimage:
