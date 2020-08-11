@@ -252,3 +252,15 @@
 .answer-add {
 	margin-left: 2rem;
 }
+
+.dependent-question {
+	display: none;
+}
+
+.edit .dependent-question {
+	display: block;
+}
+
+.edit .dependentquestion-add, .edit .dependent-question {
+	margin-left: 4rem;
+}

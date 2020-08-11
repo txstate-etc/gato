@@ -5,6 +5,7 @@ title: Conditional Form Version 2
 areas:
   questions:
     type: list
+    templateScript: /gato-area-mail/templates/areas/dependent-questions.ftl
     availableComponents:
       edit:
         id: gato-area-mail:components/conditional/formedit

@@ -1,4 +1,4 @@
-[#assign title = ctx.request.getAttribute("safeTitle")]
+[#assign title = ctx.safeTitle]
 
 <div class="formelement conditional ${(cmsfn.isEditMode())?then("edit", "")}">
 [#if content.mandatory!false]

@@ -1,11 +1,9 @@
 // require jQuery
 (function () {
 
-  //what will the name be? the question text is too long. Maybe the name is the node name, like 0 00 01 02 etc and the question
-  //is one of the other parameters
   var questionhtml = function (name, id, value, answernode) {
     if (!id) id = Math.random().toString(16).substring(2);
-    //will need to get answers too
+
     var html = '<div class="gato-question">'+
             '<input type="text" name="'+name+'_questiontext" id="'+name+'_questiontext" value="'+(value||'')+'">'+
             '<input type="hidden" class="questionid" name="'+name+'_questionid" value="'+id+'">'+
@@ -16,7 +14,7 @@
             '<div class="gato-answerlist">'
            if (answernode) {
               $.each(answernode.getChildren(), function(idx, node) {
-                html += answerhtml(name,node.name, node.prophash.id, node.prophash.name)
+                html += answerhtml(name,node.name, node.prophash.id, node.prophash.title)
               })
             }
             html += '</div>'+
@@ -46,7 +44,7 @@
     html =  '<div class="gato-questionlist">';
     $.each(groupnode.getChildren(), function (idx, node) {
       var answersnode = node.nodehash.answerlist
-      html += questionhtml(node.name, node.prophash.id, node.prophash.name, answersnode);
+      html += questionhtml(node.name, node.prophash.id, node.prophash.title, answersnode);
     });
     if (!groupnode.getChildren().length) {
       html += questionhtml(0);
@@ -58,7 +56,6 @@
       var nh = groupnode.getChildren().reduce(function (acc, curr) { acc[curr.prophash.id] = curr; return acc; }, {});
       groupnode.clearNodes();
       groupnode.clearProperties();
-      var namehash = {};
       parentdiv.find('.gato-question').each(function (idx) {
         var $question = $(this);
         var $questiontextinput = $question.find('input[type="text"]');
@@ -75,7 +72,7 @@
             groupnode.addChild(n);
           }
           n.setProperty('id', $questionidinput.val());
-          n.setProperty('name', $questiontextinput.val());
+          n.setProperty('title', $questiontextinput.val());
 
           var answersnode = n.nodehash.answerlist
           var anh = answersnode.getChildren().reduce(function(acc, curr) { acc[curr.prophash.id] = curr; return acc; }, {});
@@ -95,7 +92,7 @@
                 answersnode.addChild(an)
               }
               an.setProperty('id',$answeridinput.val())
-              an.setProperty('name', $answertextinput.val())
+              an.setProperty('title', $answertextinput.val())
             }
           })
         }

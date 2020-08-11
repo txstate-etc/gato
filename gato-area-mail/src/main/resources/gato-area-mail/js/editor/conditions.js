@@ -15,7 +15,7 @@ function initConditionSelector(def, node, el, tmpl) {
     for (var j=0; j< questions.length; j++) {
       questionsExist = true
       var question = questions[j];
-      var questionText = question.prophash.name
+      var questionText = question.prophash.title
       var questionId = question.prophash.id
       var answernode = question.nodehash.answerlist
       html +='<li class="question-li">' + '<span class="question-text">'+questionText+'</span>'
@@ -26,10 +26,10 @@ function initConditionSelector(def, node, el, tmpl) {
         for(var k=0; k<answers.length; k++) {
           answersExist = true
           var answer = answers[k]
-          var inputId = "answer-" + questionId + "-" + answer.prophash.name;
+          var inputId = "answer-" + questionId + "-" + answer.prophash.title;
           html+= '<li>'+
                   '<input id="'+inputId+'" name="answer-' + questionId + '" type="checkbox" value="' + answer.prophash.id +'"'+ (preselected[answer.prophash.id] ? 'checked="checked"' : '') + '>'+
-                  '<label for=' + inputId + '>' + answer.prophash.name + '</label>'+
+                  '<label for=' + inputId + '>' + answer.prophash.title + '</label>'+
                   '</li>'
         }
         html+= '</ul>'

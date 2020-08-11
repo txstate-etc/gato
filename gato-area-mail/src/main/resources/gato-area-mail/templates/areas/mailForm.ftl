@@ -15,8 +15,7 @@
       </div>
 
       [#list components as component]
-        ${ctx.request.setAttribute("safeTitle", model.getSafeTitle(cmsfn.asJCRNode(component).identifier))}
-        [@cms.component content=component /]
+        [@cms.component content=component contextAttributes={"formModel": model, "safeTitle": model.getSafeTitle(cmsfn.asJCRNode(component).identifier) }/]
       [/#list]
       [#assign editMode='']
       [#if cmsfn.isEditMode()]
@@ -25,7 +24,7 @@
       [/#if]
       <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoad" async defer></script>
       <script>
-        
+
       </script>
       <div class="g-recaptcha" data-size="compact" data-sitekey="${gf.getConfigProperty('formemailer.recaptcha.site.key')!""}" data-callback="enableSubmitButton" data-expired-callback="disableSubmitButton" ></div>
       <br/>
