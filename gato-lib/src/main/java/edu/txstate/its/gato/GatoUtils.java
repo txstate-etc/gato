@@ -89,8 +89,6 @@ public final class GatoUtils {
   private static final Pattern HASHTAG_PATTERN = Pattern.compile("(^|)#(\\w+)");
   private static final Pattern ITEMKEY_PATTERN = Pattern.compile("^([a-z]+):([a-f0-9\\-]+)$");
   private static final Pattern EXTERNAL_LINK_PATTERN = Pattern.compile("^(\\w+:)?//.*$");
-  private static final Pattern MEDIAFLO_ID_PATTERN = Pattern.compile("contentContainer_([a-f\\d\\-]+)");
-  private static final Pattern MEDIAFLO_URL_PATTERN = Pattern.compile("^https?://mediaflo.*$");
   private static final Pattern DACAST_URL_PATTERN = Pattern.compile("https?://.*dacast\\.com.*?(\\d+[_/][a-z][_/]\\d+)");
   private static final Pattern DACAST_SCRIPT_PATTERN = Pattern.compile("id=\"(\\d+[_/][a-z][_/]\\d+)\".*dacast\\.com");
   private static final Pattern JSONP_PATTERN = Pattern.compile("^\\s*\\w+\\((.+?)\\);?\\s*$");
@@ -1560,14 +1558,7 @@ public final class GatoUtils {
   public JsonObject oEmbedAutodiscover(String url) {
     if (StringUtils.isBlank(url)) return null;
     try {
-      Matcher m = MEDIAFLO_URL_PATTERN.matcher(url);
-      String oEmbedUrl;
-      if (m.find()) {
-        String mediafloUrl = m.group();
-        oEmbedUrl = "https://secure.its.txstate.edu/mediaflo_oembed/mediaflo_oembed?format=json&url="+URLEncoder.encode(mediafloUrl, "UTF-8");
-      } else {
-        oEmbedUrl = Jsoup.connect(url).get().select("link[type=\"application/json+oembed\"]").attr("href");
-      }
+      String oEmbedUrl = Jsoup.connect(url).get().select("link[type=\"application/json+oembed\"]").attr("href");
       String oEmbedJson = httpGetContent(oEmbedUrl);
       if (StringUtils.isBlank(oEmbedJson)) return null;
       return parseJSON(oEmbedJson);
