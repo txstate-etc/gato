@@ -139,19 +139,8 @@ form:
           initFunction: initFormEdit
           scripts: [gato-area-mail/js/formedit.js]
           styles: [gato-area-mail/css/formedit.css]
-    - name: tabTags
+    - name: tabConditions
       label: Add Conditions
-      fields:
-        - name: conditions
-          label: Conditions
-          class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
-          initFunction: initConditionSelector
-          scripts: [gato-lib/js/restful.js,gato-area-mail/js/editor/conditions.js]
-          styles: [gato-area-mail/css/editor/conditions.scss]
-          loadScriptsInOrder: true
-          fields:
-            - name: conditions
-              class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
-              transformerClass: edu.txstate.its.gato.vaadin.JsonTransformer
+      fields: !include /gato-area-mail/includes/conditiontab.yaml
 actions: !include /gato-template/dialogs/common/actions-block.yaml
 label: Text Field

@@ -470,8 +470,6 @@ function checkMandatories(theForm, alertText) {
       if (mgnlField.type) type = mgnlField.type;
       else if (mgnlField[0] && mgnlField[0].type) type = mgnlField[0].type
 
-      var conditional = m[i].up('.conditional-answer')
-
       switch (type) {
         case "select-one":
           if (mgnlField.selectedIndex == 0) ok = false;
@@ -496,8 +494,6 @@ function checkMandatories(theForm, alertText) {
         default:
           if (!mgnlField.value) ok = false;
       }
-
-      if (conditional && !conditional.hasClassName('active')) ok = true
 
       if (!ok) {
         alert(alertText);
@@ -626,7 +622,7 @@ function injectDummies() {
 
   for (var i=0;i<numSelectionGroups;i++) {
     var element = document.getElementsByClassName("txst-form-selectiongroup")[i];
-    var conditional = element.up('.conditional-answer')
+    var conditional = element.up('.dependent-question')
     if (conditional && !conditional.hasClassName('active')) continue;
     var name = element.id;
     var id = element.id + "-dummy-item";

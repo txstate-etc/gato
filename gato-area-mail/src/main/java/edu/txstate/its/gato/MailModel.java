@@ -39,7 +39,7 @@ public class MailModel<RD extends ConfiguredTemplateDefinition> extends Renderin
       String title = safeComponentTitle(component);
       titleMap.put(component.getIdentifier(), title);
 
-      if (component.getProperty("mgnl:template").getString().equals("gato-area-mail:components/formconditionalv2")) {
+      if (component.getProperty("mgnl:template").getString().equals("gato-area-mail:components/formconditional")) {
         if (component.hasNode("questionlist")) {
           Node conditions = component.getNode("questionlist");
           for (Node condition : NodeUtil.getNodes(conditions)) {

@@ -237,24 +237,11 @@
 	}
 }
 
-.conditional-answer {
-	display: none;
-	&.active {
-		display: block;
-	}
-	&.edit {
-		margin-left: 2rem;
-		.conditional-questions {
-			margin-left: 4rem;
-		}
-	}
-}
-.answer-add {
-	margin-left: 2rem;
-}
-
 .dependent-question {
-	display: none;
+  display: none;
+  &.active {
+    display: block;
+  }
 }
 
 .edit .dependent-question {

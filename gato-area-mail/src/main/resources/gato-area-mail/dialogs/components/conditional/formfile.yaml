@@ -1,0 +1,26 @@
+form:
+  tabs:
+    - name: tabFile
+      label: Add Field
+      fields:
+        - name: title
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          required: true
+          label: Title
+        - name: mandatory
+          class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+          label: Mandatory
+          buttonLabel: Field is mandatory
+        - name: extension
+          class: info.magnolia.ui.form.field.definition.MultiValueFieldDefinition
+          label: Allow specific file types
+          buttonSelectAddLabel: Add File Type
+          description: To limit uploads to files of a particular type, enter the file type extensions you'd like to permit (e.g. DOC, TXT, PDF). If you want to allow all file types, don't add anything here.
+          field:
+            name: textField
+            class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+    - name: tabConditions
+      label: Add Conditions
+      fields: !include /gato-area-mail/includes/conditiontab.yaml
+actions: !include /gato-template/dialogs/common/actions-block.yaml
+label: File Field

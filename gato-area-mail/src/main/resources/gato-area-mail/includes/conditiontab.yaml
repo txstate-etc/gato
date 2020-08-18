@@ -1,0 +1,15 @@
+  - name: info
+    class: info.magnolia.ui.form.field.definition.StaticFieldDefinition
+    label: ""
+    value: "This field will be hidden or shown depending on the form submitter's response to the question below. Select answers for which this field should appear."
+  - name: conditions
+    label: ""
+    class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
+    initFunction: initConditionSelector
+    scripts: [gato-lib/js/restful.js,gato-area-mail/js/editor/conditions.js]
+    styles: [gato-area-mail/css/editor/conditions.scss]
+    loadScriptsInOrder: true
+    fields:
+      - name: conditions
+        class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+        transformerClass: edu.txstate.its.gato.vaadin.JsonTransformer

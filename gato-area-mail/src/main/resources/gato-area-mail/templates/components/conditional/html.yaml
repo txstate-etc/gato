@@ -1,0 +1,2 @@
+!inherit:gato-template:components/html
+dialog: gato-area-mail:components/conditional/html

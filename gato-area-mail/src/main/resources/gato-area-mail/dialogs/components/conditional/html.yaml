@@ -1,0 +1,6 @@
+!inherit:gato-template:components/html
+form:
+  tabs:
+    - name: tabConditions
+      label: Add Conditions
+      fields: !include /gato-area-mail/includes/conditiontab.yaml

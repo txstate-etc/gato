@@ -1,0 +1,7 @@
+form:
+  tabs:
+    - name: tabConditions
+      label: Add Conditions
+      fields: !include /gato-area-mail/includes/conditiontab.yaml
+actions: !include /gato-template/dialogs/common/actions-block.yaml
+label: Text Field

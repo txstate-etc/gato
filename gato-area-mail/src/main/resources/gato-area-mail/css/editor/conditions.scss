@@ -1,12 +1,8 @@
-.condition-questions {
+.gato-question {
+  font-weight: bold
+}
+.gato-answers {
   list-style: none;
-  .question-li {
-    margin-bottom: 20px;
-  }
-  .question-text {
-    font-weight: bold;
-  }
-  .gato-conditions {
-    list-style: none;
-  }
+  padding-left: 20px;
+  margin-top: 5px;
 }

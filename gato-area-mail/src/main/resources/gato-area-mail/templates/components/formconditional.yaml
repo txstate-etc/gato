@@ -1,13 +1,23 @@
 templateScript: /gato-area-mail/templates/components/formconditional.ftl
 renderType: freemarker
 dialog: gato-area-mail:components/formconditional
-title: Conditional Form Section
+title: Conditional Form Field
 areas:
-  answers:
+  questions:
     type: list
-    templateScript: /gato-area-mail/templates/areas/answers-area.ftl
+    templateScript: /gato-area-mail/templates/areas/dependent-questions.ftl
     availableComponents:
-      filter:
-        id: gato-area-mail:components/answergroup
+      edit:
+        id: gato-area-mail:components/conditional/formedit
+      file:
+        id: gato-area-mail:components/conditional/formfile
+      selection:
+        id: gato-area-mail:components/conditional/formselection
+      html:
+        id: gato-area-mail:components/conditional/html
+      separator:
+        id: gato-area-mail:components/conditional/separator
+      textimage:
+        id: gato-area-mail:components/conditional/textimage
 parameters:
   icon: /gato-area-mail/images/textfield_icon.png

@@ -1,12 +1,12 @@
 form:
   tabs:
     - name: tabInput
-      label: Add Filtering Question
+      label: Add Field
       fields:
         - name: title
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-          label: Question
           required: true
+          label: Title
         - name: mandatory
           class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
           label: Mandatory
@@ -25,16 +25,20 @@ form:
             - name: select
               label: Select Box
               value: select
-        - name: answers
-          label: Answers
-          class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
-          initFunction: initanswerlist
-          limit: 5
-          scripts: [gato-lib/js/restful.js, gato-area-mail/js/editor/answerlist.js]
-          styles: [gato-area-mail/css/editor/answerlist.scss]
-          loadScriptsInOrder: true
-          fields:
-            - name: answers
-              class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
-              transformerClass: edu.txstate.its.gato.vaadin.JsonTransformer
+            - name: checkbox
+              label: Checkboxes
+              value: checkbox
+        - name: options
+          class: info.magnolia.ui.form.field.definition.MultiValueFieldDefinition
+          transformerClass: info.magnolia.ui.form.field.transformer.multi.MultiValueChildNodeTransformer
+          label: Options
+          buttonSelectAddLabel: Add Option
+          description: List the options available to the site visitor.
+          field:
+            name: textField
+            class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+    - name: tabConditions
+      label: Add Conditions
+      fields: !include /gato-area-mail/includes/conditiontab.yaml
 actions: !include /gato-template/dialogs/common/actions-block.yaml
+label: Selection
