@@ -245,7 +245,17 @@
 }
 
 .edit .dependent-question {
-	display: block;
+  display: block;
+  background-color: #e0e0e0;
+  input,textarea {
+    filter: unquote("grayscale()");
+  }
+  &.active {
+    background-color: transparent;
+    input,textarea {
+      filter: none;
+    }
+  }
 }
 
 .edit .dependentquestion-add, .edit .dependent-question {
