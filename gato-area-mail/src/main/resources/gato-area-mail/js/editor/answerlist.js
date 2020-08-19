@@ -4,7 +4,7 @@
   var answerhtml = function(name, id, value) {
     if (!id) id = Math.random().toString(16).substring(2);
     var html = '<div class="gato-answer">'+
-                 '<input type="text" name="'+name+'_answertext" id="'+name+'_answertext" value="'+(value||'')+'">'+
+                 '<input type="text" name="'+name+'_answertext" id="'+name+'_answertext" value=\''+(value||'')+'\'>'+
                  '<input type="hidden" class="answerid" name="'+name+'_answerid" value="'+id+'">'+
                  '<div tabindex="0" role="button" class="v-button v-widget inline v-button-inline"><span class="v-button-wrap"><span class="v-button-caption"><span class="icon-arrow2_n"></span></span></span></div>'+
                  '<div tabindex="0" role="button" class="v-button v-widget inline v-button-inline"><span class="v-button-wrap"><span class="v-button-caption"><span class="icon-arrow2_s"></span></span></span></div>'+
