@@ -20,4 +20,4 @@ areas:
       textimage:
         id: gato-area-mail:components/conditional/textimage
 parameters:
-  icon: /gato-area-mail/images/textfield_icon.png
+  icon: /gato-area-mail/images/conditional.png
