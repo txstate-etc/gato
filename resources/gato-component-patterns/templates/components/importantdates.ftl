@@ -50,8 +50,8 @@
                   [#assign eventTitle = (event.title?length > 50)?then(event.title?substring(0, 50)+"...", event.title)]
                   <div class="date">
                   <!--Get day of the month-->
-                      <div class="day">${event.endDate?string["d"]}</div> 
-                      <div class="month">${event.endDate?string["MMM"]?upper_case}</div>
+                      <div class="day">${event.startDate?string["d"]}</div> 
+                      <div class="month">${event.startDate?string["MMM"]?upper_case}</div>
                     </div>
                   <div class="links">
                     <ul>
