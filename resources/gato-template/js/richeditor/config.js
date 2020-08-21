@@ -112,7 +112,7 @@
                    { name: "images",        items: ["Image", "Flash"]},
                    { name: "undo",          items: [ "Undo", "Redo" ] },
                    { name: "tools",         items: [ "Source" ] },
-                   { name: "paragraph",     items: [ "JustifyLeft", "JustifyCenter", "JustifyRight", "JustifyBlock", "NumberedList", "BulletedList","Indent", "Outdent"] },
+                   { name: "paragraph",     items: [ "JustifyLeft", "JustifyCenter", "JustifyRight", "NumberedList", "BulletedList","Indent", "Outdent"] },
                    //{ name: "templates",     items: [ "Templates" ]},
                    { name: "styles",        items: [ "Styles"]},
                    { name: "colors",        items: [ "TextColor" ] }
