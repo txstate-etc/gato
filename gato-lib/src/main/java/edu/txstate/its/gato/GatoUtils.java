@@ -733,11 +733,19 @@ public final class GatoUtils {
     return body.html();
   }
 
+  public final Pattern JUSTIFIED_STYLE_PATTERN = Pattern.compile("text-align:justify", Pattern.CASE_INSENSITIVE);
+  public String richTextRemoveJustifiedText(String rawhtml) {
+    if (StringUtils.isBlank(rawhtml)) return "";
+    Matcher matcher = JUSTIFIED_STYLE_PATTERN.matcher(rawhtml);
+    return matcher.replaceAll("text-align:left");
+  }
+
   public String processRichTextLevel(Object str, long headerlevel) {
     if (str == null) return "";
     String rawhtml = (String)str;
     rawhtml = richTextFindAndReplaceImages(rawhtml);
     rawhtml = richTextRemoveEmptyHeaders(rawhtml);
+    rawhtml = richTextRemoveJustifiedText(rawhtml);
     if (headerlevel > 0) {rawhtml = fixHeaders(rawhtml, headerlevel);}
     return rawhtml;
   }
