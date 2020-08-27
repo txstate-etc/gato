@@ -8,22 +8,22 @@ areas:
     type: list
     templateScript: /gato-template/templates/components/rows/column.ftl
     availableComponents:
-      !include /gato-template/templates/areas/availableComponentsSmallColumns.yaml
+      !include /gato-template/templates/areas/availableComponents.yaml
   column2:
     type: list
     templateScript: /gato-template/templates/components/rows/column.ftl
     availableComponents:
-      !include /gato-template/templates/areas/availableComponentsSmallColumns.yaml
+      !include /gato-template/templates/areas/availableComponents.yaml
   column3:
     type: list
     templateScript: /gato-template/templates/components/rows/column.ftl
     availableComponents:
-      !include /gato-template/templates/areas/availableComponentsSmallColumns.yaml
+      !include /gato-template/templates/areas/availableComponents.yaml
   column4:
     type: list
     templateScript: /gato-template/templates/components/rows/column.ftl
     availableComponents:
-      !include /gato-template/templates/areas/availableComponentsSmallColumns.yaml
+      !include /gato-template/templates/areas/availableComponents.yaml
 parameters:
   icon: /gato-template/images/4column.svg
   tab: Build a Section

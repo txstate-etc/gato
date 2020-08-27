@@ -9,6 +9,8 @@ streaming:
     id: gato-component-streaming:components/streaming
 icontext:
   id: gato-template:components/icontext
+imagecard:
+  id: gato-component-cards:components/regular/image
 gallery:
   id: gato-component-gallery:components/gallery
 html:
@@ -23,3 +25,5 @@ styledlist:
   id: gato-template:components/styledlist
 textimage:
   id: gato-template:components/textimage
+videocard:
+  id: gato-component-cards:components/regular/video

@@ -7,6 +7,8 @@ streaming:
     id: gato-component-streaming:components/streaming
 faqhierarchy:
   id: gato-component-faq:components/faq-hierarchy
+imagecard:
+  id: gato-component-cards:components/regular/image
 gallery:
   id: gato-component-gallery:components/gallery
 html:
@@ -23,3 +25,5 @@ table:
   id: gato-template:components/table
 textimage:
   id: gato-template:components/textimage
+videocard:
+  id: gato-component-cards:components/regular/video

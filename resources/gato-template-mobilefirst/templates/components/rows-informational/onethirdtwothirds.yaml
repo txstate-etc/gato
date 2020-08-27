@@ -8,7 +8,7 @@ areas:
     type: list
     templateScript: /gato-template/templates/components/rows/column.ftl
     availableComponents:
-      !include /gato-template-mobilefirst/templates/areas/available-components/availableComponentsSmallColumnsInformational.yaml
+      !include /gato-template-mobilefirst/templates/areas/available-components/availableComponentsInformational.yaml
   column2:
     type: list
     templateScript: /gato-template/templates/components/rows/column.ftl

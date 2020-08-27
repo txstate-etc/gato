@@ -13,6 +13,8 @@ faqhierarchy:
   id: gato-component-faq:components/faq-hierarchy
 icontext:
   id: gato-template:components/icontext
+imagecard:
+  id: gato-component-cards:components/regular/image
 gallery:
   id: gato-component-gallery:components/gallery
 html:
@@ -29,3 +31,6 @@ table:
   id: gato-template:components/table
 textimage:
   id: gato-template:components/textimage
+videocard:
+  id: gato-component-cards:components/regular/video
+  

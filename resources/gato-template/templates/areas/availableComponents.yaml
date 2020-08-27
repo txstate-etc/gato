@@ -16,10 +16,10 @@ faqhierarchy:
   id: gato-component-faq:components/faq-hierarchy
 icontext:
   id: gato-template:components/icontext
+imagecard:
+  id: gato-component-cards:components/regular/image
 gallery:
   id: gato-component-gallery:components/gallery
-# gallerym:
-#   id: gato-component-gallery:components/gallerym
 percentdisplay:
   id: gato-template:components/percentdisplay
 html:
@@ -42,3 +42,5 @@ textimage:
   id: gato-template:components/textimage
 twitter:
   id: gato-component-twitter:components/twitter
+videocard:
+  id: gato-component-cards:components/regular/video
