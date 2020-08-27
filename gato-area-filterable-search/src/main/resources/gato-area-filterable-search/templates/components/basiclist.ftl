@@ -6,7 +6,7 @@
 [#if content.view! == "grid" || (content.view! == "both" && content.both == "grid")]
   [#assign view="grid-view"]
 [/#if]
-<div class="filterable-search ${view}">
+<div class="filterable-search basic-list ${view}">
   [@cms.area name="filtergroups" contextAttributes={"description": ctx.description!""}/]
   [@cms.area name="listitems" contextAttributes={"itemLabelClass": "item", "alphabetize": content.alphabetize!"alphaheaders", "alphaBy" : def.parameters.alphaBy!""}/]
 </div>

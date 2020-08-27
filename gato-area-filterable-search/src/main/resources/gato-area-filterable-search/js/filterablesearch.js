@@ -651,6 +651,10 @@ jQuery(document).ready(function($) {
       var el = $(this);
       el.css('height', el.css('width'))
     })
+    $('.filterable-search.basic-list.grid-view .results .result .listitem .image-container').each(function() {
+      var el = $(this);
+      el.css('height', el.css('width'))
+    })
   }
   resizeTimeout(setImageContainerSize)
 });
