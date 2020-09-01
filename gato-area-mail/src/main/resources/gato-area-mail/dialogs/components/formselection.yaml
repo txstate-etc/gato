@@ -7,6 +7,10 @@ form:
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           required: true
           label: Title
+        - name: helptext
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Help Text
+          maxLength: 100
         - name: mandatory
           class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
           label: Mandatory
@@ -30,12 +34,19 @@ form:
               value: checkbox
         - name: options
           class: info.magnolia.ui.form.field.definition.MultiValueFieldDefinition
-          transformerClass: info.magnolia.ui.form.field.transformer.multi.MultiValueChildNodeTransformer
           label: Options
-          buttonSelectAddLabel: Add Option
-          description: List the options available to the site visitor.
+          transformerClass: info.magnolia.ui.form.field.transformer.multi.MultiValueSubChildrenNodePropertiesTransformer
           field:
-            name: textField
-            class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+            name: compositeField
+            layout: vertical
+            class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
+            transformerClass: info.magnolia.ui.form.field.transformer.composite.NoOpCompositeTransformer
+            fields:
+              - name: answer
+                class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                label: Answer
+              - name: helptext
+                class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+                label: Help Text
 actions: !include /gato-template/dialogs/common/actions-block.yaml
 label: Selection

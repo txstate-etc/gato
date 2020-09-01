@@ -90,14 +90,18 @@ $feature-play-button-hover-background: $light-default-blue;
 
 /* Forms */
 $form-alert-link-color: $default-graphite;
-$form-textfield-border-color: $default-blue;
-$form-textfield-background-color: $default-ice;
+$form-textfield-border-color: $form-gray;
+$form-helptext-color: $medium-gray;
 $form-submit-text-color: $white;
 $form-submit-box-shadow-color: $default-blue-shadow;
 $form-submit-background-color: $default-blue;
 $form-submit-hover-background-color: $light-default-blue;
 $form-datepicker-weekday-color: $default-graphite;
 $form-datepicker-inactive-month: $barely-gray;
+$form-error-background: $form-error-pink;
+$form-selection-background-color: $default-graphite;
+$form-selection-text-color: $white;
+$form-checkbox-check-color: $default-graphite;
 
 /* Department Directory */
 $directory-name-color: $default-blue;

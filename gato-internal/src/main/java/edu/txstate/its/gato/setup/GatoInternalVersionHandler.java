@@ -271,6 +271,7 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
     register(DeltaBuilder.update("1.2.10", "")
       .addTask(new RemoveNodeTask("Remove Old Homepage Events Data", "Remove data for old homepage events tool", "gatoapps", "/homepage-data/events-dates"))
       .addTask(new RemoveNodeTask("Remove Old Homepage Features Data", "Remove data for old homepage news feature, research slider, and top slider", "gatoapps", "/homepage-data/features"))
+      .addTask(new UpdateFormSelectionFieldDataTask())
       .addTasks(installOrUpdateTasks())
     );
   }

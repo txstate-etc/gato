@@ -36,6 +36,9 @@ for Texas State email addresses for the validation--]
 [#if content.mandatory!false]
   <input type="hidden" name="mgnlMandatory" value="${title}" />
 [/#if]
+[#if content.helptext??]
+  <div class="helptext" id="${title}-help">${content.helptext}</div>
+[/#if]
 [#assign needCounter=(content.maxlength?? && content.maxlength > 0 && dataType == "none")]
 [#if needCounter]
   <div class="charcounter">
@@ -45,7 +48,14 @@ for Texas State email addresses for the validation--]
 [#assign limited=needCounter?string('limited','')]
 
 [#if content.lines?? && content.lines == "multi" && dataType == "none"]
-  <textarea name="${title}" id="${title}" rows="7" cols="60" class="${limited}" [#if content.mandatory!false]aria-required="true"[/#if] aria-invalid="false" data-aria-describedby="${title}-error"></textarea>
+  <textarea name="${title}" 
+            id="${title}" 
+            rows="7" 
+            cols="60" 
+            class="${limited}" 
+            [#if content.mandatory!false]aria-required="true"[/#if] 
+            aria-invalid="false" data-aria-describedby="${title}-error" 
+            [#if content.helptext??]data-help="${title}-help" aria-describedby="${title}-help"[/#if]></textarea>
   [#assign validating=needCounter]
 [#else]
   [#assign inputSize = "60"]
@@ -83,7 +93,15 @@ for Texas State email addresses for the validation--]
     [#default]
       [#assign validating = false]
   [/#switch]
-  <input type="${inputType}" id="${title}" name="${title}" class="text ${limited}" size="${inputSize}" [#if content.mandatory!false]aria-required="true"[/#if] aria-invalid="false" data-aria-describedby="${title}-error"/>
+  <input type="${inputType}" 
+         id="${title}" 
+         name="${title}" 
+         class="text ${limited}" 
+         size="${inputSize}" 
+         [#if content.mandatory!false]aria-required="true"[/#if] 
+         aria-invalid="false" 
+         data-aria-describedby="${title}-error" 
+         [#if content.helptext??]data-help="${title}-help" aria-describedby="${title}-help"[/#if]/>
 
   [#if (content.dataType!"") == "date"]
     <script type="text/javascript">

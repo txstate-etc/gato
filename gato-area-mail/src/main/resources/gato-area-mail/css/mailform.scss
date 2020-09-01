@@ -1,14 +1,15 @@
 .txst-form-validicon {
-	display: inline-block;
-	color: #b30e1b;
-	line-height: 12px;
-	min-height: 12px;
-	font-size: 11px;
-	padding: 3px 0px 3px 20px;
-	margin-left: 2px;
+	display: flex;
+	color: #000;
+	line-height: 15px;
+	min-height: 15px;
+	font-size: 14px;
+	padding: 10px;
 	width: 250px;
 	white-space: normal;
-	vertical-align: middle;
+  vertical-align: middle;
+  position: relative;
+  margin-top: 8px;
 }
 
 .valid-icon-cont {
@@ -26,7 +27,8 @@
     width: 100%;
     height: auto;
     &[type=radio]{
-      width: auto;
+      height: 20px;
+      width: 20px;
     }
     &[type=checkbox]{
       width: auto;
@@ -39,12 +41,23 @@
 }
 
 .txst-form-pass {
-	color: black;
-	background: url(../../gato-template/images/validpass.png) no-repeat center left;
+	&:before {
+    font-family: 'FontAwesome';
+    content: "\f058";
+    color: #55885a;
+    font-size: 20px;
+  }
 }
 
 .txst-form-fail {
-	background: url(../../gato-template/images/validfail.png) no-repeat center left;
+  background-color: $form-error-background;
+  &:before {
+    font-family: 'FontAwesome';
+    content: "\f05a";
+    margin-right: 10px;
+    color: #cb3744;
+    font-size: 20px;
+  }
 }
 
 .txst-form-prog {
@@ -83,17 +96,92 @@
     white-space: normal;
 }
 
-.txst-form-selection-label {
-    margin-left: 0.5em;
+input {
+  &[type=radio]{
+    height: 20px;
+    width: 20px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 50%;
+    border: 2px solid $form-textfield-border-color;
+    margin-right: 10px;
+    &:checked {
+      border: 6px solid $white;
+    }
+  }
+  &[type=checkbox]{
+    position: absolute;
+    left: -9999px;
+
+    & + label {
+      position: relative;
+      padding-left: 4rem;
+    }
+
+    & + label:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      width: 20px; 
+      height: 20px;
+      border: 2px solid $form-textfield-border-color;
+      border-radius: 3px;
+      background: #fff;
+    }
+
+    &:checked + label:before {
+      border-color: $white;
+    }
+
+    &:checked + label:after {
+      font-family: 'FontAwesome';
+      content: '\f00c';
+      position: absolute;
+      top: 4px;
+      left: 3px;
+      font-size: 16px;
+      line-height: 0.8;
+      color: $form-checkbox-check-color;
+      transition: all .2s;
+    }
+  }
 }
+
 
 .txst-form-selection-label:hover {
     text-decoration: underline;
 }
 
 .txst-form-selection-item {
-  display: block;
   width: 100% !important;
+  border: 2px solid $form-textfield-border-color;
+  padding: 10px;
+  div.helptext {
+    margin-bottom: 0 !important;
+    margin-left: 30px;
+    margin-top: 10px;
+    &.checkbox {
+      margin-left: 40px;
+    }
+  }
+  .field-cont {
+    display: flex;
+  }
+  &.selected {
+    background-color: $form-selection-background-color;
+    border-color: $form-selection-background-color;
+    color: $form-selection-text-color;
+      div.helptext {
+      color: $form-selection-text-color;
+    }
+  }
+  &.focused {
+    border-color: $ada-focus-color;
+    input {
+      outline: none;
+    }
+  }
 }
 
 .txst-form {
@@ -110,12 +198,18 @@
     white-space: normal !important;
     fieldset.selectiongroup {
       border: 0;
+      padding: 0;
       legend {
         width: 100%;
       }
     }
     >select{
       width: 100%;
+    }
+    .helptext {
+      font-size: 1.4rem;
+      color: $form-helptext-color;
+      margin-bottom: 1rem;
     }
   }
   .gato-textimage {
@@ -135,12 +229,15 @@
       }
     }
   }
-  input.text, textarea, picker__input{
+  input.text, textarea, picker__input {
     width: 100%;
-    border: 3px solid $form-textfield-border-color;
+    border: 2px solid $form-textfield-border-color;
     border-radius: 3px;
-    background-color: $form-textfield-background-color;
-    padding: 0.5rem 1rem;
+    padding: 1rem;
+    &:focus {
+      border-color: $ada-focus-color;
+      outline: none;
+    }
   }
   textarea{
     max-width: 60rem;
@@ -149,6 +246,7 @@
     line-height: 1rem;
     font-size: 1.6rem;
   }
+
   button.submit{
     padding: 1.8rem 4rem;
     margin-top: 1rem;

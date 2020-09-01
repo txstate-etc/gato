@@ -348,6 +348,10 @@ ul.gato-faq-hierarchy {
 }
 
 //form
+.txst-form-cont {
+  display: flex;
+  justify-content: center;
+}
 .txst-form {
   button.submit {
     padding: 1rem 2rem 0.9rem 2rem;
