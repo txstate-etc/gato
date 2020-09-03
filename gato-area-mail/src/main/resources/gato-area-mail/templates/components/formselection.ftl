@@ -12,8 +12,8 @@
       [#if content.mandatory!false]*[/#if]
     </label>
   [/#if]
-  <select name="${title}" id="${title}" [#if content.mandatory!false]aria-required="true"[/#if]>
-  <option value="not selected">Please select:</option>
+  <select class="txst-select" name="${title}" id="${title}" [#if content.mandatory!false]aria-required="true"[/#if]>
+  <option value="not selected">Select</option>
   [#list cmsfn.children(content.options) as option]
     [#assign value = option.answer?keep_before("|")]
     [#assign label = option.answer?keep_after("|")]
