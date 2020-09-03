@@ -14,8 +14,8 @@
     [#if content.answers??]
       [#assign answers = cmsfn.children(content.answers)]
     [/#if]
-    <select class="conditional-select" name="${title}" id="${title}" [#if content.mandatory!false]aria-required="true"[/#if]>
-      <option value="not selected">Please select:</option>
+    <select class="txst-select conditional-select" name="${title}" id="${title}" [#if content.mandatory!false]aria-required="true"[/#if]>
+      <option value="not selected">Select</option>
       [#list answers as answer]
         <option class="choice" value="${answer.title}" data-id=${answer.id}>${answer.title}</option>
       [/#list]
@@ -28,14 +28,14 @@
           [#if content.mandatory!false]*[/#if]
         </legend>
       [/#if]
-      <div class="txst-form-selectiongroup conditional" id="${title}">
+      <div class="txst-form-selectiongroup radio-type conditional" id="${title}">
         [#assign answers = []]
         [#if content.answers??]
           [#assign answers = cmsfn.children(content.answers)]
         [/#if]
         <div>
           [#list answers as answer]
-            <div>
+            <div class="txst-form-selection-item">
               <input type="radio" class="radio choice" name=${title} id=${title}${answer?index} value="${answer.title}" data-id=${answer.id} />
               <label for="${title}${answer?index}" class="txst-form-selection-label">${answer.title}</label>
             </div>
