@@ -7,6 +7,10 @@ form:
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Question
           required: true
+        - name: helptext
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Help Text
+          maxLength: 100
         - name: mandatory
           class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
           label: Mandatory
