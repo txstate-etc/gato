@@ -374,6 +374,9 @@ input {
   &.active {
     display: block;
   }
+  .conditionalert {
+    margin-bottom: 3rem;
+  }
 }
 
 .edit .dependent-question {
