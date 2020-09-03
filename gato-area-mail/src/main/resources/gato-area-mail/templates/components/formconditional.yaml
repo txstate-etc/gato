@@ -9,15 +9,15 @@ areas:
     availableComponents:
       edit:
         id: gato-area-mail:components/conditional/formedit
-      file:
-        id: gato-area-mail:components/conditional/formfile
       selection:
         id: gato-area-mail:components/conditional/formselection
+      file:
+        id: gato-area-mail:components/conditional/formfile
       html:
         id: gato-area-mail:components/conditional/html
-      separator:
-        id: gato-area-mail:components/conditional/separator
       textimage:
         id: gato-area-mail:components/conditional/textimage
+      separator:
+        id: gato-area-mail:components/conditional/separator
 parameters:
   icon: /gato-area-mail/images/conditional.png
