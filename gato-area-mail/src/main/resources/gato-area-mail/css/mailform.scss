@@ -153,10 +153,19 @@ input {
     text-decoration: underline;
 }
 
+.txst-form-selectiongroup {
+  display: flex;
+  flex-direction: column;
+}
+
 .txst-form-selection-item {
   width: 100% !important;
   border: 2px solid $form-textfield-border-color;
   padding: 10px;
+  &:not(:last-child) {
+    margin-bottom: 8px;
+  }
+  
   div.helptext {
     margin-bottom: 0 !important;
     margin-left: 30px;
@@ -354,7 +363,10 @@ input {
 			padding: 1rem;
 			display: block;
 		}
-	}
+  }
+  fieldset, select.txst-select {
+    margin-bottom: 3rem;
+  }
 }
 
 .dependent-question {

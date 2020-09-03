@@ -635,8 +635,8 @@ function form_fixcolumns() {
   });
 }
 
-Event.observe(document,'dom:loaded', form_fixcolumns);
-Event.observe(window,orientationChangeEventName, form_fixcolumns);
+//Event.observe(document,'dom:loaded', form_fixcolumns);
+//Event.observe(window,orientationChangeEventName, form_fixcolumns);
 
 //update character counter for fields that have a maximum length defined
 Event.observe(document, 'dom:loaded', function(){

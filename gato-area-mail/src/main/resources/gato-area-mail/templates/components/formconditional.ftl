@@ -33,14 +33,14 @@
         [#if content.answers??]
           [#assign answers = cmsfn.children(content.answers)]
         [/#if]
-        <div>
+
           [#list answers as answer]
             <div class="txst-form-selection-item">
               <input type="radio" class="radio choice" name=${title} id=${title}${answer?index} value="${answer.title}" data-id=${answer.id} />
               <label for="${title}${answer?index}" class="txst-form-selection-label">${answer.title}</label>
             </div>
           [/#list]
-        </div>
+     
       </div>
     </fieldset>
   [/#if]
