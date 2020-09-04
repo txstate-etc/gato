@@ -20,11 +20,12 @@
     <select class="txst-select conditional-select" name="${title}" id="${title}" [#if content.mandatory!false]aria-required="true"[/#if] [#if content.helptext??]aria-describedby="${title}-help"[/#if]>
       <option value="not selected">Select</option>
       [#list answers as answer]
-        <option class="choice" value="${answer.title}" data-id=${answer.id}>${answer.title}</option>
+        <option class="choice" value="${answer.title}" data-id=${answer.id} [#if answer.helptext?has_content]data-help="${answer.helptext}"[/#if]>${answer.title}</option>
       [/#list]
     </select>
+    <div aria-live="polite" id="${title}-option-help" class="helptext conditional"></div>
   [#else]
-    <fieldset class="selectiongroup">
+    <fieldset class="selectiongroup conditional">
       [#if (content.title!"")?has_content || content.mandatory!false]
         <legend for="${title}">
           <div class="txst-form-text-label">
