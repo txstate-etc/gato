@@ -21,9 +21,10 @@
     [#assign value = option.answer?keep_before("|")]
     [#assign label = option.answer?keep_after("|")]
     [#if !label?has_content][#assign label = value][/#if]
-    <option value="${value}">${label}</option>
+    <option value="${value}" [#if option.helptext?has_content]data-help="${option.helptext}"[/#if]>${label}</option>
   [/#list]
   </select>
+  <div aria-live="polite" id="${title}-option-help" class="helptext"></div>
 [#else]
   <fieldset class="selectiongroup">
   [#if (content.title!"")?has_content || content.mandatory!false]

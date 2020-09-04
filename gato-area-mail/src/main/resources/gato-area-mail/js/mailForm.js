@@ -490,6 +490,18 @@ Event.observe(document, 'dom:loaded', function() {
       target.up('.txst-form-selection-item').removeClassName('focused')
     })
   })
+  $$('.formelement select.txst-select').each(function(select) {
+    select.on('change', function(event) {
+      var helpfieldid = this.identify() + '-option-help';
+      if (this.selectedIndex > 0) {
+        var helptext = this.options[this.selectedIndex].readAttribute('data-help');
+        $(helpfieldid).update(helptext)
+      }
+      else {
+        $(helpfieldid).update("")
+      }
+    })
+  })
 });
 
 // form; check for mandatory fields
