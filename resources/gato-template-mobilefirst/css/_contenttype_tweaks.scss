@@ -349,8 +349,14 @@ ul.gato-faq-hierarchy {
 
 //form
 .txst-form-cont {
-  display: flex;
-  justify-content: center;
+  max-width: 50%;
+  margin: 0 auto;
+  @media (max-width: $sm-breakpoint) {
+    max-width: 75%;
+  }
+  @media (max-width: $mn-breakpoint) {
+    max-width: 100%;
+  }
 }
 .txst-form {
   button.submit {
