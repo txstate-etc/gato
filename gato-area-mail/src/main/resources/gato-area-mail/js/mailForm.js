@@ -580,6 +580,9 @@ function checkMandatories(theForm, alertText) {
             begin: function() {
               target.setStyle({backgroundColor: '#ff0000'});
             },
+            complete: function() {
+              target.setStyle({backgroundColor: ""})
+            },
             duration: 2500
           });
         } catch (err) {
