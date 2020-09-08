@@ -48,11 +48,26 @@
               [#list model.items as event]
                 <div class="event">
                   [#assign eventTitle = (event.title?length > 50)?then(event.title?substring(0, 50)+"...", event.title)]
-                  <div class="date">
-                  <!--Get day of the month-->
+                  [#assign startDate = event.startDate?date?string]
+                  [#assign endDate = event.endDate?date?string]
+                  [#if startDate == endDate]
+                    <div class="date">
                       <div class="day">${event.startDate?string["d"]}</div> 
                       <div class="month">${event.startDate?string["MMM"]?upper_case}</div>
                     </div>
+                  [#else]
+                    <div class="date-span">
+                      <div class="date">
+                        <div class="day">${event.startDate?string["d"]}</div> 
+                        <div class="month">${event.startDate?string["MMM"]?upper_case}</div>
+                      </div>
+                      <span class="dash"> - </span>
+                      <div class="date">
+                        <div class="day">${event.endDate?string["d"]}</div> 
+                        <div class="month">${event.endDate?string["MMM"]?upper_case}</div>
+                      </div>
+                    </div>
+                  [/#if]
                   <div class="links">
                     <ul>
                       <li>

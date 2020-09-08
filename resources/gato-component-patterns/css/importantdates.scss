@@ -98,6 +98,24 @@
       [data-eq~="600px"] & {
         padding-top: 3rem;
       }
+      
+    }
+    
+    .date-span {
+      display: flex;
+      align-items: flex-start;
+      [data-eq~="600px"] & {
+        align-items: center;
+      }
+      .dash {
+        margin: 0 0.5rem;
+        font-weight: 900;
+        font-size: 4rem !important;
+        line-height: 4rem;
+        [data-eq~="600px"] & {
+          padding-top: 2rem;
+        }
+      }
     }
 
     //push wrapped componenets to the left so they are in line with those above
