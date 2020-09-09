@@ -57,7 +57,7 @@ form:
               label: Integer
               value: integer
             - name: regex
-              label: Regular Expression
+              label: Regular Expressione
               value: regex
           fields:
             - name: none
@@ -79,7 +79,7 @@ form:
                       label: Multiple Lines
                       value: multi
                 - name: maxlength
-                  label: Maximum Length
+                  label: Maximum Character Count
                   class: info.magnolia.ui.form.field.definition.TextFieldDefinition
                   type: Long
                   styleName: max-length

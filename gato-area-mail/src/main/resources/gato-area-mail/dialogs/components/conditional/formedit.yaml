@@ -79,7 +79,7 @@ form:
                       label: Multiple Lines
                       value: multi
                 - name: maxlength
-                  label: Maximum Length
+                  label: Maximum Character Count
                   class: info.magnolia.ui.form.field.definition.TextFieldDefinition
                   type: Long
                   styleName: max-length
