@@ -54,6 +54,19 @@
       }
     }
   }
+  &.list-view {
+    .filtered-results {
+      ul.results {
+        & > li {
+          .listitem {
+            .image-container {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
   &.grid-view {
     .filtered-results {
       ul.results {
