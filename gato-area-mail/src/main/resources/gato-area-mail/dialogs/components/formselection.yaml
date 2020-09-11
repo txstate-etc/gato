@@ -46,7 +46,7 @@ form:
                 class: info.magnolia.ui.form.field.definition.TextFieldDefinition
                 label: Answer
               - name: helptext
-                class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+                class: info.magnolia.ui.form.field.definition.TextFieldDefinition
                 label: Help Text
 actions: !include /gato-template/dialogs/common/actions-block.yaml
 label: Selection
