@@ -2,10 +2,16 @@
   [#assign conditions=gf.propertyValues(component.conditions)![]]
   <div class="dependent-question" data-conditions="${conditions?join(",")}">
     [@cms.component content=component contextAttributes={"safeTitle":ctx.formModel.getSafeTitle(cmsfn.asJCRNode(component).identifier)}/]
-    [#if conditions?size == 0]
-      <div class="txst-khan-notice conditionalert">
-        No conditions have been selected for this dependent question. It will not appear on your form.
-      </div>
+    [#if cmsfn.isEditMode()]
+      [#if conditions?size == 0]
+        <div class="txst-khan-notice conditionalert">
+          No conditions have been selected for this dependent question. It will not appear on your form.
+        </div>
+      [#else]
+        <div class="txst-khan-notice inactivealert">
+          This field is hidden based on your current answer.
+        </div>
+      [/#if]
     [/#if]
   </div>
 [/#list]

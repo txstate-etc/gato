@@ -365,6 +365,12 @@ input {
   .helptext.conditional, fieldset.conditional {
     margin-bottom: 3rem;
   }
+  .dependent-question .txst-khan-notice.inactivealert {
+    margin-bottom: 3rem;
+  }
+  .dependent-question.active .txst-khan-notice.inactivealert {
+    display: none;
+  }
 }
 
 .dependent-question {
