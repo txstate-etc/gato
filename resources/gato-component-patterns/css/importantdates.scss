@@ -23,6 +23,12 @@
           font-weight: 600;
         }
       }
+      @media (max-width:$sm-breakpoint) {
+        flex-direction: column;
+        .events {
+          padding-top: 3.2rem;
+        }
+      }
     }
     h2.title {
       text-align: left;
