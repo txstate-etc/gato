@@ -471,13 +471,6 @@ Event.observe(document, 'dom:loaded', function() {
       }
     })
   })
-  $$('.formelement .selectiongroup .txst-form-selectiongroup.checkbox-type .txst-form-selection-label-cont').each(function(item) {
-    item.on('click', function(event) {
-      var target = event.target
-      var input = target.up('.txst-form-selection-item').down('input')
-      input.click()
-    })
-  })
   $$('.formelement .selectiongroup .txst-form-selection-item input').each(function(item) {
     item.on('focus', function(event) {
       var target = event.target
@@ -488,6 +481,13 @@ Event.observe(document, 'dom:loaded', function() {
     item.on('blur', function(event) {
       var target = event.target
       target.up('.txst-form-selection-item').removeClassName('focused')
+    })
+  })
+  $$('.formelement .selectiongroup .txst-form-selection-item').each(function(elem) {
+    elem.on('click', function(event) {
+      var target = event.target;
+      if (target.tagName.toLowerCase() == "input" || target.tagName.toLowerCase() == "label") return;
+      elem.down('input').click()
     })
   })
   $$('.formelement select.txst-select').each(function(select) {
