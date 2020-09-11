@@ -105,7 +105,7 @@ input {
     appearance: none;
     border-radius: 50%;
     border: 2px solid $form-textfield-border-color;
-    margin-right: 10px;
+    margin-right: 15px;
     &:checked {
       border: 6px solid $white;
     }
@@ -116,7 +116,7 @@ input {
 
     & + label {
       position: relative;
-      padding-left: 3.5rem;
+      padding-left: 3.8rem;
     }
 
     & + label:before {
@@ -169,11 +169,8 @@ input {
   
   div.helptext {
     margin-bottom: 0 !important;
-    margin-left: 30px;
+    margin-left: 40px;
     margin-top: 10px;
-    &.checkbox {
-      margin-left: 40px;
-    }
   }
   
   &.selected {
