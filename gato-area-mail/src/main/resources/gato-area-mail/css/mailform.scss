@@ -116,7 +116,7 @@ input {
 
     & + label {
       position: relative;
-      padding-left: 4rem;
+      padding-left: 3.5rem;
     }
 
     & + label:before {
@@ -161,6 +161,7 @@ input {
 .txst-form-selection-item {
   width: 100% !important;
   border: 2px solid $form-textfield-border-color;
+  border-radius: 2px;
   padding: 10px;
   &:not(:last-child) {
     margin-bottom: 8px;

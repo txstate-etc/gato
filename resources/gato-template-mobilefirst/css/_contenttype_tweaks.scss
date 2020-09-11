@@ -369,7 +369,8 @@ ul.gato-faq-hierarchy {
     text-transform: uppercase;
     line-height: 2rem;
     border: 1px solid $gold;
-    display: inline-block;
+    display: block;
+    width: 100%;
     border-radius: 2px;
     transition: all 0.2s ease;
     &:hover {
