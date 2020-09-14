@@ -3,11 +3,13 @@
 
   var answerhtml = function(name, id, value, helptext) {
     if (!id) id = Math.random().toString(16).substring(2);
+    var escapedValue = value ? value.replace(/"/g, '&quot;') : ''
+    var escapedHelpText = helptext ? helptext.replace(/"/g, '&quot;') : ''
     var html = '<div class="gato-answer">'+
                  '<label class="gato-answer-label" for="'+name+'_answertext">Answer:</label>' +
-                 '<input class="answertext" type="text" name="'+name+'_answertext" id="'+name+'_answertext" value=\''+(value||'')+'\'>'+
+                 '<input class="answertext" type="text" name="'+name+'_answertext" id="'+name+'_answertext" value="'+ escapedValue +'">'+
                  '<label class="gato-helptext-label" for="'+name+'_helptext">Help Text:</label>' +
-                 '<input class="helptext" type="text" name="'+name+'_helptext" id="'+name+'_helptext" value=\''+(helptext||'')+'\'>'+
+                 '<input class="helptext" type="text" name="'+name+'_helptext" id="'+name+'_helptext" value="'+ escapedHelpText +'">'+
                  '<input type="hidden" class="answerid" name="'+name+'_answerid" value="'+id+'">'+
                  '<div tabindex="0" role="button" class="v-button v-widget inline v-button-inline"><span class="v-button-wrap"><span class="v-button-caption"><span class="icon-arrow2_n"></span></span></span></div>'+
                  '<div tabindex="0" role="button" class="v-button v-widget inline v-button-inline"><span class="v-button-wrap"><span class="v-button-caption"><span class="icon-arrow2_s"></span></span></span></div>'+
@@ -96,7 +98,7 @@
       $answer = $(answerhtml(answersnode.getChildren().length));
       $answer.appendTo(parentdiv.find('.gato-answerlist'));
       addhandlers($answer);
-      $answer.find('input[type="text"]').focus();
+      $answer.find('input[type="text"].answertext').focus();
     })
   }
 })();
