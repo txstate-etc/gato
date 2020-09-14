@@ -96,7 +96,18 @@
     white-space: normal;
 }
 
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
 input {
+  &[type=text]{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
   &[type=radio]{
     height: 20px;
     width: 20px;
@@ -206,6 +217,7 @@ input {
       padding: 0;
       legend {
         width: 100%;
+        padding: 1px 0;
       }
     }
     >select{
