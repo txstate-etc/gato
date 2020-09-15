@@ -425,9 +425,6 @@ Event.observe(document, 'dom:loaded', function() {
         };
       }
     }
-    itm.up('.formelement').setStyle({
-      whiteSpace: 'nowrap'
-    });
   });
 
   $$('form.txst-form').each(function(form) {

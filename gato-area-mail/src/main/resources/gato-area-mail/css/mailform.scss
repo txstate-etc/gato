@@ -1,5 +1,5 @@
 .txst-form-validicon {
-	display: flex;
+	display: none;
 	color: #000;
 	line-height: 15px;
 	min-height: 15px;
@@ -10,6 +10,9 @@
   vertical-align: middle;
   position: relative;
   margin-top: 8px;
+  &.txst-form-pass, &.txst-form-fail {
+    display: flex;
+  }
 }
 
 .valid-icon-cont {
