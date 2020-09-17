@@ -30,7 +30,7 @@
   </script>
 [/#if]
 
-  <span class='valid-icon-cont'>
+  <div class='valid-icon-cont'>
     <div class="txst-form-validicon txst-form-file" id="${title}-error" role="alert">&nbsp;</div>
-  </span>
+  </div>
 </div>

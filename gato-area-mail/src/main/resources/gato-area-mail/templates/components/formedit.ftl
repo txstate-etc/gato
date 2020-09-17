@@ -126,9 +126,9 @@ for Texas State email addresses for the validation--]
  </script>
 [/#if]
 [#if validating]
-  <span class="valid-icon-cont">
+  <div class="valid-icon-cont">
     <div class="txst-form-validicon txst-form-${dataType!}" id="${title}-error" role="alert" aria-hidden="true">&nbsp;</div>
-  </span>
+  </div>
 [/#if]
 
 </div>
