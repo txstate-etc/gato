@@ -6,6 +6,10 @@ form:
     - name: tabAspect
       label: Cropping
       fields:
+        - name: info
+          class: info.magnolia.ui.form.field.definition.StaticFieldDefinition
+          label: Note
+          value: "For best results, 16:9 cropping is recommended for cards in full width columns"
         - name: aspect
           class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
           multiselect: false
