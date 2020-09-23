@@ -65,6 +65,9 @@
           if ($answerhelpinput.val().length) {
             n.setProperty('helptext', $answerhelpinput.val());
           }
+          else {
+            n.setProperty('helptext', '')
+          }
         }
       })
       hidden.val(answersnode.json()).change();
