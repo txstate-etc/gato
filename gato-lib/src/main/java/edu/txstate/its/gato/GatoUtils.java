@@ -1474,7 +1474,6 @@ public final class GatoUtils {
     return Jsoup.parse("<!DOCTYPE html><html><head></head><body>"+rawhtml+"</body></html>").body().html();
   }
 
-  protected final CSSOMParser cssparser = new CSSOMParser(new SACParserCSS3());
   public static class SilencingErrorHandler implements ErrorHandler {
     public void warning(CSSParseException exception) throws CSSException {
     }
@@ -1504,6 +1503,7 @@ public final class GatoUtils {
     StringBuilder ret = new StringBuilder(rawcss.length());
     try {
       InputSource source = new InputSource(new StringReader(rawcss));
+      CSSOMParser cssparser = new CSSOMParser(new SACParserCSS3());
       cssparser.setErrorHandler(csserrorhandler);
       CSSStyleSheet sheet = cssparser.parseStyleSheet(source, null, null);
       for (int i = 0; i < sheet.getCssRules().getLength(); i++) {
