@@ -1,6 +1,7 @@
 package edu.txstate.its.gato;
 
 import info.magnolia.init.MagnoliaConfigurationProperties;
+import info.magnolia.objectfactory.Components;
 import info.magnolia.rendering.model.RenderingModel;
 import info.magnolia.rendering.model.RenderingModelImpl;
 import info.magnolia.rendering.template.configured.ConfiguredTemplateDefinition;

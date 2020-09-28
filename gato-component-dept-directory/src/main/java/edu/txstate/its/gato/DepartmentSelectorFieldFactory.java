@@ -1,6 +1,7 @@
 package edu.txstate.its.gato;
 
 import info.magnolia.init.MagnoliaConfigurationProperties;
+import info.magnolia.objectfactory.Components;
 import info.magnolia.ui.form.field.definition.SelectFieldOptionDefinition;
 import info.magnolia.ui.form.field.factory.SelectFieldFactory;
 
@@ -27,7 +28,7 @@ public class DepartmentSelectorFieldFactory extends SelectFieldFactory<Departmen
     //@Inject
     public DepartmentSelectorFieldFactory(DepartmentSelectorDefinition definition, Item relatedFieldItem) {
         super(definition, relatedFieldItem);
-        this.deptUrl = Components.getComponent(MagnoliaConfigurationProperties.class).getProperty('gato.peoplesearch.dept_url');
+        this.deptUrl = Components.getComponent(MagnoliaConfigurationProperties.class).getProperty("gato.peoplesearch.dept_url");
     }
 
     //Get the options (list of departments) for the select field
