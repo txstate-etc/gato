@@ -246,12 +246,9 @@ jQuery(document).ready(function($) {
       html += '<dl class="person-netid"><dt>NetID:</dt><dd>'+result.userid+'</dd></dl>';
     if (!isBlank(result.phone))
       html += '<dl class="person-phone"><dt>Phone:</dt><dd>'+result.phone+'</dd></dl>';
-    if (result.email != 'unauthenticated')
+    if (!isBlank(result.email))
       html += '<dl class="person-email"><dt>Email:</dt><dd>'+
       '<a class="person-email" href="mailto:'+html_encode(result.email)+'">'+html_encode(result.email)+'</a></dd></dl>';
-    else
-      html += '<dl class="person-email"><dt>Email:</dt><dd>'+
-      '<a class="person-email person-email-unauthenticated" href="'+peoplesearch_token_url+'">log in to view email</a></dd></dl>';
     html += '</div>';
     return html;
   }

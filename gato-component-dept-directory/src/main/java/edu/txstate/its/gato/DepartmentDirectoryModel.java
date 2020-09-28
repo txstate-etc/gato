@@ -1,5 +1,6 @@
 package edu.txstate.its.gato;
 
+import info.magnolia.init.MagnoliaConfigurationProperties;
 import info.magnolia.rendering.model.RenderingModel;
 import info.magnolia.rendering.model.RenderingModelImpl;
 import info.magnolia.rendering.template.configured.ConfiguredTemplateDefinition;
@@ -20,9 +21,10 @@ import org.apache.commons.io.IOUtils;
 
 public class DepartmentDirectoryModel<RD extends ConfiguredTemplateDefinition> extends RenderingModelImpl<ConfiguredTemplateDefinition> {
 
-
+    protected String peopleUrl;
     public DepartmentDirectoryModel(Node content, ConfiguredTemplateDefinition definition, RenderingModel<?> parent) throws PathNotFoundException, RepositoryException {
-        super(content, definition, parent);
+      super(content, definition, parent);
+      this.peopleUrl = Components.getComponent(MagnoliaConfigurationProperties.class).getProperty("gato.peoplesearch.url");
     }
 
     //Retrieve Faculty and/or Staff for a particular
@@ -30,7 +32,7 @@ public class DepartmentDirectoryModel<RD extends ConfiguredTemplateDefinition> e
     public Vector getPeople(String department){
         Vector result = new Vector();
         try {
-          String url = "https://secure.its.txstate.edu/iphone/people/json.pl?n=500&q=";
+          String url = this.peopleUrl + "?n=500&q=";
           url += URLEncoder.encode("department contains \"" + department + "\"", "UTF-8");
           String json = IOUtils.toString(new URL(url).openStream());
           JsonObject resultsObj = new JsonParser().parse(json).getAsJsonObject();
