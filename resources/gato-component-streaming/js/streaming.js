@@ -49,7 +49,6 @@ function createPlayer(el, url) {
 
   if (vInfo.playerType == "embed") return oEmbedFinished(el, vInfo.embed, vInfo);
   if (vInfo.playerType == "flow") return buildFlowPlayer(el, vInfo);
-  if (vInfo.playerType == "mediaflo") return oEmbedGetInfo(el, "https://secure.its.txstate.edu/mediaflo_oembed/mediaflo_oembed?format=json&url="+encodeURIComponent(vInfo.url), vInfo);
   return oEmbedAutodiscover(el, vInfo);
 }
 
