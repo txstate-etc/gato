@@ -26,32 +26,4 @@ form:
           class: info.magnolia.ui.form.field.definition.StaticFieldDefinition
           label: ""
           value: "Suggested: Use this field to display specific language in the search box. For example: if \"degrees\" is input here, the search bar will read \"Search degrees.\" If this field is left blank, the search bar will simply read \"Search.\""
-        - name: view
-          label: View(s)
-          class: info.magnolia.ui.form.field.definition.SwitchableFieldDefinition
-          transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
-          layout: vertical
-          options:
-            - name: list
-              label: List View Only
-              value: list
-              selected: true
-            - name: grid
-              label: Grid View Only
-              value: grid
-            - name: both
-              label: List View and Grid View
-              value: both
-          fields:
-            - name: both #this needs to match the value from the both option above
-              class: info.magnolia.ui.form.field.definition.SelectFieldDefinition
-              label: Default View
-              options:
-                - name: list
-                  label: List View
-                  value: list
-                  selected: true
-                - name: grid
-                  label: Grid View
-                  value: grid
 actions: !include /gato-template/dialogs/common/actions-block.yaml

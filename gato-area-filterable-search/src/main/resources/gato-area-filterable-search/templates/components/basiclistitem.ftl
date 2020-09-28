@@ -3,8 +3,12 @@
 <div cms:edit="bar"></div>
 [/#if]
 <div class="listitem" data-tags="${tags?join(",")}" data-keywords="[#if content.keywords?has_content]${content.keywords?join(',')}[/#if]" id="${gf.uuidToHtmlId(content.@id)}">
-  <div class="image-container">
+  [#assign usingImage = false]
   [#if content.includeImage?? && content.includeImage == "hasImage" && content.image?has_content]
+    [#assign usingImage = true ]
+  [/#if]
+  <div class="image-container ${usingImage?then('', 'contains-default-image')}">
+  [#if usingImage!false]
     [#assign srcset = gf.getSrcSet(
         content.image,
         (content.imagecropleft!0)?number!0,

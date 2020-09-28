@@ -1,11 +1,9 @@
 [#if cmsfn.isEditMode()]
 <div class="fs-people-list" cms:edit="bar"></div>
 [/#if]
+[#assign view="grid-view"]
+[#assign showList=true]
 [#include "/gato-area-filterable-search/templates/includes/viewsettings.ftl"]
-[#assign view="list-view"]
-[#if content.view! == "grid" || (content.view! == "both" && content.both == "grid")]
-  [#assign view="grid-view"]
-[/#if]
 
 [#if content.listitems??]
 [#assign people = model.getPeople(cmsfn.children(content.listitems))]

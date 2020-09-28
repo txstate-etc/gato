@@ -444,6 +444,17 @@ $filterable-search-header-font: serif !default;
                 .btnShowMoreContent {
                   display: none;
                 }
+                @at-root .filterable-search.list-view.indent .filtered-results ul li .listitem .image-container {
+                  display: block;
+                  .default-image {
+                    visibility: hidden;
+                  }
+                  @media (max-width:$mn-breakpoint) {
+                    &.contains-default-image {
+                      height: 0 !important;
+                    }
+                  }
+                }
               }
               @media (max-width:$mn-breakpoint) {
                 display: block;
