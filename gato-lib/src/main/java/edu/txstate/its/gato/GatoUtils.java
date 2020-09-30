@@ -1521,7 +1521,7 @@ public final class GatoUtils {
       String savedurl = PropertyUtil.getString(n, "embedsavedurl", "");
       if (StringUtils.isBlank(embed) || saved.before(cutoffdate) || !savedurl.equals(url)) {
         embed = (new GsonBuilder()).create().toJson(oEmbedAutodiscover(url));
-        if (!StringUtils.isBlank(embed)) {
+        if (!StringUtils.isBlank(embed) && embed != "null") {
           Node sn = nodeInSystemContext(n);
           sn.setProperty("embed", embed);
           sn.setProperty("embedsaved", Calendar.getInstance());
@@ -1559,8 +1559,9 @@ public final class GatoUtils {
   public JsonObject oEmbedAutodiscover(String url) {
     if (StringUtils.isBlank(url)) return null;
     try {
-      String oEmbedUrl = Jsoup.connect(url).get().select("link[type=\"application/json+oembed\"]").attr("href");
-      String oEmbedJson = httpGetContent(oEmbedUrl);
+      String oEmbedUrl = Jsoup.connect(url).followRedirects(true).get().select("link[type=\"application/json+oembed\"]").attr("href");
+      String finalUrl = new URL(new URL(url), oEmbedUrl).toString();
+      String oEmbedJson = httpGetContent(finalUrl);
       if (StringUtils.isBlank(oEmbedJson)) return null;
       return parseJSON(oEmbedJson);
     } catch (Exception e) {
