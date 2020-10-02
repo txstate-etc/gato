@@ -45,8 +45,8 @@ jQuery(document).ready(function($) {
         var conditions = $question.data('conditions').split(',')
         var conditionsMet = false;
         //one of the conditions needs to be in activeConditions
-        for (var condition of conditions) {
-          if (activeConditions.indexOf(condition) > -1) {
+        for (var i=0; i<conditions.length; i++) {
+          if (activeConditions.indexOf(conditions[i]) > -1) {
             conditionsMet = true;
             continue;
           }
