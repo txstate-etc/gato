@@ -45,4 +45,29 @@ jQuery( document ).ready(function($) {
   magnolialabelchange('.styled-list-item-add', '.mgnlEditor.mgnlPlaceholder', 'Add Item to List');
   titledlabelchange('.slider-edit-bar');
   titledlabelchange('.answer-edit-bar');
+
+  waitforselector('.megasection-bar', '.mgnlEditorBar.mgnlEditor.component', function(el) {
+    el.addClass('megasection-edit-bar')
+  });
+
+  waitforselector('.section-bar', '.mgnlEditorBar.mgnlEditor.component', function(el) {
+    el.addClass('layout-edit-bar')
+  });
+
+  waitforselector('.layout-column', '.mgnlEditorBar.mgnlEditor.component', function(el) {
+    el.addClass('content-edit-bar')
+  });
+
+  waitforselector('.add-layout', '.mgnlEditor.mgnlPlaceholder .mgnlEditorBar.mgnlEditor.component', function(el) {
+    el.addClass('layout-edit-bar')
+  })
+
+  waitforselector('.section-grid-edit', '.mgnlEditorBar.mgnlEditor.component', function(el) {
+    el.addClass('layout-edit-bar')
+  })
+
+  waitforselector('.gato-card-add', '.mgnlEditorBar.mgnlEditor.component', function(el) {
+    el.addClass('content-edit-bar')
+  });
+
 });
