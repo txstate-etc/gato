@@ -5,6 +5,7 @@ package edu.txstate.its.gato.setup;
 */
 
 import javax.jcr.Node;
+import javax.jcr.NodeIterator;
 import javax.jcr.Session;
 import javax.jcr.RepositoryException;
 import javax.jcr.PathNotFoundException;
@@ -16,6 +17,8 @@ import info.magnolia.jcr.util.PropertyUtil;
 import info.magnolia.module.delta.TaskExecutionException;
 import info.magnolia.module.InstallContext;
 import info.magnolia.repository.RepositoryConstants;
+
+import org.apache.commons.lang3.StringUtils;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,6 +39,15 @@ public class RemoveCalicoInformationalTemplateTask extends GatoBaseUpgradeTask {
         if (templateId.equals("gato-template-mobilefirst:pages/informational")) {
           if (n.hasNode("calicoInformational")) {
             Node contentNode = n.getNode("calicoInformational");
+            NodeIterator children = contentNode.getNodes();
+            while (children.hasNext()) {
+              Node node = children.nextNode();
+              String sectionTemplateId = NodeTypes.Renderable.getTemplate(node);
+              if (StringUtils.indexOf(sectionTemplateId, "rows-informational") > -1) {
+                sectionTemplateId = StringUtils.replace(sectionTemplateId, "rows-informational", "rows-interior");
+                NodeTypes.Renderable.set(node, sectionTemplateId);
+              }
+            }
             if (n.hasNode("contentParagraph")) {
               n.getNode("contentParagraph").remove();
             }

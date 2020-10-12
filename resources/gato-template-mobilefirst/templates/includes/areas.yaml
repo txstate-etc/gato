@@ -44,15 +44,8 @@ contentParagraph: #variable
   parameters:
     tabs: true
   availableComponents:
-    !include /gato-template-mobilefirst/templates/areas/available-components/interiorComponents.yaml
-calicoInformational:  #informational
-  title: Informational Page Main Content Area
-  templateScript: /gato-template-mobilefirst/templates/areas/mobilefirst-content.ftl
-  parameters:
-    tabs: true
-  availableComponents:
-    !include /gato-template-mobilefirst/templates/areas/available-components/informationalComponents.yaml    
-siteMap:  #informational
+    !include /gato-template-mobilefirst/templates/areas/available-components/interiorComponents.yaml   
+siteMap:
   title: Site Map Content Area
   templateScript: /gato-template/templates/areas/sitemap.ftl
   parameters:
