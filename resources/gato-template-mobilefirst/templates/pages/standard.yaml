@@ -2,7 +2,7 @@ templateScript: /gato-template-mobilefirst/templates/pages/standard.ftl
 renderType: site
 visible: true
 type: subpage
-title: Calico Variable #formerly "Mobile First"
+title: Calico #formerly "Mobile First" and "Calico Variable"
 dialog: gato-template-mobilefirst:pages/page-properties
 areas: !include /gato-template-mobilefirst/templates/includes/areas.yaml
 parameters:

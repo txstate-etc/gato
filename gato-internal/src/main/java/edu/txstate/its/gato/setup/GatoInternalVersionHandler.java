@@ -274,6 +274,12 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       .addTask(new UpdateFormSelectionFieldDataTask())
       .addTasks(installOrUpdateTasks())
     );
+
+    register(DeltaBuilder.update("1.3.0", "")
+      .addTask(new RemoveCalicoInformationalTemplateTask())
+      .addTask(new RemoveNodeTask("Remove Calico Informational Template", "Remove calico informational template from Sites", "config", "/modules/site/config/site/templates/availability/templates/calico-informational"))
+      .addTasks(installOrUpdateTasks())
+    );
   }
 
   protected List<Task> installOrUpdateTasks() {
