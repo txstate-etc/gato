@@ -35,11 +35,28 @@ div.mgnlEditorBar {
       display: none;
     }
     &.component {
-      display: block !important;
+      display: flex !important;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .mgnlEditorBarLabel {
+      margin-left: 0px !important;
+      padding-left: 8px !important;
+    }
+    .mgnlEditorBarButtons {
+      order: 2;
+      display: flex !important;
+      align-items: center;
+      .icon-edit {
+        order: 2;
+      }
     }
   }
   &.mgnlPlaceholder {
     display: block !important;
+    .mgnlEditorBar.component {
+      display: block !important;
+    }
   }
 }
 

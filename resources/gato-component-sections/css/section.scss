@@ -3,3 +3,8 @@
     text-align: center;
   }
 }
+
+.megasection-bar > .mgnlEditorBar.component .mgnlEditorBarButtons .editorIcon.icon-edit:before {
+  font-family: 'FontAwesome';
+  content: "\f013";
+}
