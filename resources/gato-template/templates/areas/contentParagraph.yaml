@@ -1,4 +1,20 @@
 title: Main Content Area
 templateScript: /gato-template/templates/areas/main-content.ftl
 availableComponents:
-  !include /gato-template/templates/areas/layoutComponents.yaml
+  #!include /gato-template/templates/areas/layoutComponents.yaml
+  megaonecolumn:
+    id: gato-component-sections:components/full-section
+  megatwocolumn:
+    id: gato-component-sections:components/halves-section
+  megaonethirdtwothirds:
+    id: gato-component-sections:components/onethirdtwothirds-section
+  megatwothirdsonethird:
+    id: gato-component-sections:components/twothirdsonethird-section
+  megathreecolumn:
+    id: gato-component-sections:components/thirds-section
+  megafourcolumn:
+    id: gato-component-sections:components/quarters-section
+  megacollage:
+    id: gato-component-sections:components/collage-section
+  megamosaic:
+    id: gato-component-sections:components/mosaic-section

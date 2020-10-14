@@ -30,17 +30,31 @@ styledlist:
 
 
 #layouts
-full:
-  id: gato-template-mobilefirst:components/rows-interior/full
-halves:
-  id: gato-template-mobilefirst:components/rows-interior/halves
-onethirdtwothirds:
-  id: gato-template-mobilefirst:components/rows-interior/onethirdtwothirds
-twothirdsonethird:
-  id: gato-template-mobilefirst:components/rows-interior/twothirdsonethird
-thirds:
-  id: gato-template-mobilefirst:components/rows-interior/thirds
-quarters:
-  id: gato-template-mobilefirst:components/rows-interior/quarters
-cardlayoutgrid:
-  id: gato-component-cards:components/layouts/grid
+# full:
+#   id: gato-template-mobilefirst:components/rows-interior/full
+# halves:
+#   id: gato-template-mobilefirst:components/rows-interior/halves
+# onethirdtwothirds:
+#   id: gato-template-mobilefirst:components/rows-interior/onethirdtwothirds
+# twothirdsonethird:
+#   id: gato-template-mobilefirst:components/rows-interior/twothirdsonethird
+# thirds:
+#   id: gato-template-mobilefirst:components/rows-interior/thirds
+# quarters:
+#   id: gato-template-mobilefirst:components/rows-interior/quarters
+# cardlayoutgrid:
+#   id: gato-component-cards:components/layouts/grid
+fullmegasection:
+  id: gato-template-mobilefirst:components/sections-interior/full-section
+halvesmegasection:
+  id: gato-template-mobilefirst:components/sections-interior/halves-section
+onethirdtwothirdsmegasection:
+  id: gato-template-mobilefirst:components/sections-interior/onethirdtwothirds-section
+twothirdsonethirdmegasection:
+  id: gato-template-mobilefirst:components/sections-interior/twothirdsonethird-section
+thirdsmegasection:
+  id: gato-template-mobilefirst:components/sections-interior/thirds-section
+quartersmegasection:
+  id: gato-template-mobilefirst:components/sections-interior/quarters-section
+megamosaic:
+  id: gato-component-sections:components/mosaic-section
