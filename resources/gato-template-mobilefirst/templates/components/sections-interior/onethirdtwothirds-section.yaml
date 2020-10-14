@@ -1,0 +1,27 @@
+templateScript: /gato-component-sections/templates/components/section.ftl
+renderType: freemarker
+title: Two Column Small-Large Section
+dialog: gato-component-sections:components/section
+description: Creates a section containing a two column layout. The first column is smaller than the second.
+areas:
+  layouts:
+    type: list
+    templateScript: /gato-component-sections/templates/areas/layouts-area.ftl
+    availableComponents:
+      full:
+        id: gato-template-mobilefirst:components/rows-interior/full
+      halves:
+        id: gato-template-mobilefirst:components/rows-interior/halves
+      onethirdtwothirds:
+        id: gato-template-mobilefirst:components/rows-interior/onethirdtwothirds
+      twothirdsonethird:
+        id: gato-template-mobilefirst:components/rows-interior/twothirdsonethird
+      thirds:
+        id: gato-template-mobilefirst:components/rows-interior/thirds
+      quarters:
+        id: gato-template-mobilefirst:components/rows-interior/quarters
+      cardlayoutgrid:
+        id: gato-component-cards:components/layouts/grid
+parameters:
+  icon: /gato-template/images/2column_small-big.svg
+  tab: Build a Section

@@ -1,6 +1,9 @@
 [#include "/gato-template/templates/includes/commonmacros.ftl"]
 [#macro sectionLabel editclass='section-bar']
   [#local headerlevel = 2]
+  [#if ctx.headerlevel??]
+    [#local headerlevel = ctx.headerlevel]
+  [/#if]
   [#if cmsfn.isEditMode()]
     <div cms:edit="bar" class="${editclass}"></div>
   [/#if]
@@ -24,3 +27,4 @@
   [/#if]
   [#nested headerlevel]
 [/#macro]
+

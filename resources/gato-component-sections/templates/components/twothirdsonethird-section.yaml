@@ -1,0 +1,29 @@
+templateScript: /gato-component-sections/templates/components/section.ftl
+renderType: freemarker
+title: Two Column Large-Small Megasection
+dialog: gato-component-sections:components/section
+description: Creates a section containing a two column layout. The first column is larger than the second.
+areas:
+  layouts:
+    type: list
+    templateScript: /gato-component-sections/templates/areas/layouts-area.ftl
+    availableComponents:
+      full:
+        id: gato-template:components/rows/full
+      halves:
+        id: gato-template:components/rows/halves
+      onethirdtwothirds:
+        id: gato-template:components/rows/onethirdtwothirds
+      twothirdsonethird:
+        id: gato-template:components/rows/twothirdsonethird
+      thirds:
+        id: gato-template:components/rows/thirds
+      quarters:
+        id: gato-template:components/rows/quarters
+      cardlayoutgrid:
+        id: gato-component-cards:components/layouts/grid
+      cardlayoutmasonry:
+        id: gato-component-cards:components/layouts/masonry
+parameters:
+  icon: /gato-template/images/2column_big-small.svg
+  tab: Build a Section

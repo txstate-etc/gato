@@ -1,0 +1,52 @@
+form:
+  tabs:
+    - name: tabGeneral
+      label: Section Properties
+      fields:
+        - name: information
+          class: info.magnolia.ui.form.field.definition.StaticFieldDefinition
+          label: ""
+          value: Adding a title to your section is optional.
+        - name: title
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          required: false
+          label: Title
+          description: "Enter a title for the section."
+        - name: titleAlign
+          class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
+          multiselect: false
+          label: Title Alignment
+          layout: horizontal
+          type: String
+          sortOptions: false
+          options:
+            - name: left
+              label: Left
+            - name: center
+              label: Center
+              selected: true
+        - name: anchor
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          required: false
+          label: Anchor
+          description: "Enter anchor name here."
+    - name: tabBackground
+      label: Background Color
+      fields:
+        - name: showBackgroundColor
+          class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
+          multiselect: false
+          label: Background Color
+          type: Boolean
+          sortOptions: false
+          options:
+            - name: noBackground
+              label: No Background Color
+              selected: true
+              value: false
+            - name: addBackground
+              label: Add Background Color
+              value: true
+        
+actions: !include /gato-template/dialogs/common/actions-block.yaml
+label: Section

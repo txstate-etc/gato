@@ -1,0 +1,27 @@
+templateScript: /gato-component-sections/templates/components/section.ftl
+renderType: freemarker
+title: Three Column Section
+dialog: gato-component-sections:components/section
+description: Creates a section containing a three column layout. Columns have equal size.
+areas:
+  layouts:
+    type: list
+    templateScript: /gato-component-sections/templates/areas/layouts-area.ftl
+    availableComponents:
+      full:
+        id: gato-template-mobilefirst:components/rows-home/full
+      halves:
+        id: gato-template-mobilefirst:components/rows-home/halves
+      onethirdtwothirds:
+        id: gato-template-mobilefirst:components/rows-home/onethirdtwothirds
+      twothirdsonethird:
+        id: gato-template-mobilefirst:components/rows-home/twothirdsonethird
+      thirds:
+        id: gato-template-mobilefirst:components/rows-home/thirds
+      quarters:
+        id: gato-template-mobilefirst:components/rows-home/quarters
+      cardlayoutgrid:
+        id: gato-component-cards:components/layouts/grid
+parameters:
+  icon: /gato-template/images/3column.svg
+  tab: Build a Section
