@@ -36,7 +36,7 @@ public class RemoveCalicoInformationalTemplateTask extends GatoBaseUpgradeTask {
     visitPages(session, new NodeVisitor() {
       public void visit(Node n) throws RepositoryException {
         String templateId = NodeTypes.Renderable.getTemplate(n);
-        if (templateId.equals("gato-template-mobilefirst:pages/informational")) {
+        if ((null != templateId) && templateId.equals("gato-template-mobilefirst:pages/informational")) {
           if (n.hasNode("calicoInformational")) {
             Node contentNode = n.getNode("calicoInformational");
             NodeIterator children = contentNode.getNodes();
