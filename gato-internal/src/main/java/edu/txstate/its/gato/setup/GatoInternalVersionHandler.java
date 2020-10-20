@@ -279,6 +279,7 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       .addTask(new RemoveCalicoInformationalTemplateTask())
       .addTask(new RemoveNodeTask("Remove Calico Informational Template", "Remove calico informational template from Sites", "config", "/modules/site/config/site/templates/availability/templates/calico-informational"))
       .addTask(new SetPropertyTask(RepositoryConstants.CONFIG, "/modules/pages/apps/pages/subApps/detail/actions/addComponent", "class", "edu.txstate.its.gato.GatoCreateComponentActionDefinition"))
+      .addTask(new MigrateToMegasectionsTask())
       .addTasks(installOrUpdateTasks())
     );
   }
