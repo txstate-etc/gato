@@ -7,7 +7,6 @@ jQuery( document ).ready(function($) {
   magnolialabelchange('.txst-gallery-image.add', '.mgnlEditor.mgnlPlaceholder', 'Add Image');
   magnolialabelchange('.feature_add', '.mgnlEditor.mgnlPlaceholder', 'Add Slide');
   magnolialabelchange('.feature_max', '.mgnlEditor.mgnlPlaceholder', 'Maximum slides added');
-  magnolialabelchange('.gato-section', '.section-bar>.mgnlEditor.component', 'Section');
   magnolialabelchange('.column_add', '.mgnlEditor.mgnlPlaceholder', 'Add Content');
   magnolialabelchange('.genEmergency_add', '.mgnlEditor.mgnlPlaceholder', 'Add Emergency Information');
   magnolialabelchange('.emergencyHours_add', '.mgnlEditor.mgnlPlaceholder', 'Add Emergency Hours');
@@ -43,6 +42,8 @@ jQuery( document ).ready(function($) {
   magnolialabelchange('#result-list', '.fs-item-add .mgnlEditor.mgnlPlaceholder', 'Add Item to List');
   magnolialabelchange('#result-list', '.fs-person-add .mgnlEditor.mgnlPlaceholder', 'Add Person to List');
   magnolialabelchange('.styled-list-item-add', '.mgnlEditor.mgnlPlaceholder', 'Add Item to List');
+  magnolialabelchange('.add-layout', '.mgnlEditor.mgnlPlaceholder', 'Add Additional Layout');
+
   titledlabelchange('.slider-edit-bar');
   titledlabelchange('.answer-edit-bar');
 

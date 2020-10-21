@@ -1,6 +1,6 @@
 templateScript: /gato-template/templates/components/rows/onethirdtwothirds.ftl
 renderType: freemarker
-title: Two Columns Small-Large
+title: Two Column Small-Large Layout
 dialog: gato-template:components/rows/section
 description: This paragraph creates a two column row with a smaller column on the left and a larger column on the right.
 areas:
