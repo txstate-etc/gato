@@ -49,7 +49,13 @@
 #icon-modal .icon-modal-content {
   display:flex;
   flex-direction: column;
-  max-height: 100%;
+  height: 100%;
+}
+
+#icon-modal .icon-modal-content fieldset {
+  max-height: 80%;
+  /*flex: 1 0 auto;*/
+  overflow-y: scroll;
 }
 
 /* Styles for search field */
@@ -80,10 +86,8 @@
 /* Styles for the icon picker grid */
 
 .icon-picker-items{
-    margin-top: 5px;
-    max-height: 350px;
-    padding: 5px;
-    overflow-y: scroll;
+  margin-top: 5px;
+  padding: 5px;
 }
 
 .icon-picker-item {
