@@ -82,6 +82,16 @@ public class MigrateToMegasectionsTask extends GatoBaseUpgradeTask {
                 megasectionLayouts = NodeUtil.createPath(currentMegasection, "layouts", "mgnl:area");
               }
               NodeUtil.moveNode(layout, megasectionLayouts);
+              //if the first layout in this megasection has a title, move it to the megasection title
+              NodeIterator iterMSLayouts = megasectionLayouts.getNodes();
+              if (iterMSLayouts.hasNext()) {
+                Node firstMSLayout = iterMSLayouts.nextNode();
+                String firstLayoutTitle = PropertyUtil.getString(firstMSLayout, "title", null);
+                if (null != firstLayoutTitle) {
+                  PropertyUtil.setProperty(currentMegasection, "title", firstLayoutTitle);
+                  PropertyUtil.setProperty(firstMSLayout, "title", null);
+                }
+              }
             } else {
               //make a new megasection, move background color property, update curentMegasection
               String layoutName = layout.getName();
