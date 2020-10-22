@@ -7,12 +7,6 @@
   [#if cmsfn.isEditMode()]
     <div cms:edit="bar" class="${editclass}"></div>
   [/#if]
-  [#if content.attachSection!false]
-    [#if (ctx.hasThereBeenSectionWithTitleBefore)]
-      [#assign offset=1]
-      [#local headerlevel++]
-    [/#if]
-  [/#if]
   [#if content.anchor?has_content]
     <div id=${content.anchor}></div>
   [/#if]    

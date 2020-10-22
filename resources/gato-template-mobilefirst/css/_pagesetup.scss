@@ -38,9 +38,6 @@ body {
   @media (max-width: $sm-breakpoint) {
     padding: 2rem 0rem;
   }
-  &.attached {
-    padding-top: 0;
-  }  
 }
 
 .contentcolumn .gato-section-full.pattern {

@@ -1,11 +1,9 @@
-[#include "/gato-template/templates/includes/commonmacros.ftl"]
 [#assign hideSidebar = ctx.getAttribute("hideSidebar")!false]
 [#assign mainContentClass = hideSidebar?string(' full-width','')]
 [#list components as component]
   [#assign hasBackgroundClass = (component.showBackgroundColor!false)?string(' has-background','')]
   [#assign cardLayoutClass = gf.isCardSection(component)?string(' card-layout', '')]
-  [#assign attached = gf.isAttached(component)?then(' attached', '')]
-  <div id="${gf.htmlId(component)}" class="gato-section-full${mainContentClass}${hasBackgroundClass}${cardLayoutClass}${attached}">
+  <div id="${gf.htmlId(component)}" class="gato-section-full${mainContentClass}${hasBackgroundClass}${cardLayoutClass}">
     <div class="gato-section-centered">
       <div class="gato-section eq-parent">
         [#if cmsfn.isEditMode() && hasBackgroundClass == " has-background"]
@@ -13,7 +11,7 @@
             Background color will not show up if this section is next to the sidebar.
           </div>
         [/#if]
-        [@cms.component content=component contextAttributes={"hasThereBeenSectionWithTitleBefore": hasThereBeenSectionWithTitleBefore(components, component?counter)!false}/]
+        [@cms.component content=component /]
       </div>
     </div>
   </div>
