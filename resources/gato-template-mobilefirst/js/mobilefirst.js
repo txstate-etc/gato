@@ -8,6 +8,7 @@ jQuery(document).ready(function($) {
   magnolialabelchange('.mobilefirst_component_add', '.mgnlEditor.mgnlPlaceholder', "Add Section");
   magnolialabelchange('.footer-column.center .footer-column-title', '.mgnlEditor.mgnlPlaceholder', 'Customize Title for Links');
   magnolialabelchange('.footer-column.right .add-links-title', '.mgnlEditor.mgnlPlaceholder', 'Add Title for Links');
+  magnolialabelchange('main', '.megasection-bar>.mgnlEditor.component', 'Section');
 
   /* Header Animation */
   var header = $('header');
