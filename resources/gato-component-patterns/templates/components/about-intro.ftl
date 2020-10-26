@@ -1,12 +1,13 @@
-[#if cmsfn.isEditMode()]
-<div cms:edit="bar"></div>
-[/#if]
-[#if content.mobileImage?has_content]
-    [#assign mobileImage = content.mobileImage]
-[#else] 
-    [#assign mobileImage = content.desktopImage]
-[/#if]
-<div class="gato-section-centered">
+[#include "/gato-component-patterns/templates/includes/pattern.ftl"]
+[@prebuiltsection]
+    [#if cmsfn.isEditMode()]
+    <div cms:edit="bar"></div>
+    [/#if]
+    [#if content.mobileImage?has_content]
+        [#assign mobileImage = content.mobileImage]
+    [#else] 
+        [#assign mobileImage = content.desktopImage]
+    [/#if]
     <div class="mobilefirst-pattern about centered">
         <div class="pattern-content title-type about-intro">
             <div class="about">
@@ -28,4 +29,4 @@
             </div>
         </div>
     </div>
-</div>    
+[/@prebuiltsection]

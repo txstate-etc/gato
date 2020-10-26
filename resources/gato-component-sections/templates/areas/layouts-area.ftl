@@ -1,5 +1,5 @@
 [#list components as component]
-  <div id="${gf.htmlId(component)}">
+  <div id="${gf.htmlId(component)}" class="gato-section eq-parent">
     [@cms.component content=component /]
   </div>
 [/#list]

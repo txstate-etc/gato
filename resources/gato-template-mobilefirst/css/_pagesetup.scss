@@ -49,6 +49,7 @@ body {
     margin-right: 0px;
   }
   &.has-background {
+    background-color: $sandstone;
     .gato-section {
       padding-top: 0;
     }
@@ -61,6 +62,9 @@ body {
   }
   .section-text {
     margin-bottom: 2rem;
+  }
+  .megasection-bar {
+    padding: 0;
   }
 }
 

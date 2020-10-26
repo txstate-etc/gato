@@ -1,7 +1,8 @@
-[#if cmsfn.isEditMode()]
-<div cms:edit="bar"></div>
-[/#if]
-<div class="gato-section-centered">
+[#include "/gato-component-patterns/templates/includes/pattern.ftl"]
+[@prebuiltsection]
+  [#if cmsfn.isEditMode()]
+  <div cms:edit="bar"></div>
+  [/#if]
   <div class="mobilefirst-pattern">
     <div class="pattern-content single arrow title-type text-center importantdates">
       <div class="centered content-flex">
@@ -89,4 +90,4 @@
         </div>
       </div>
   </div>
-</div>
+[/@prebuiltsection]

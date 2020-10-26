@@ -1,3 +1,5 @@
+[#include "/gato-component-patterns/templates/includes/pattern.ftl"]
+
 [#if content.mobileImage?has_content]
   [#assign mobileImage = content.mobileImage]
 [#else]
@@ -29,6 +31,7 @@
     </div>
 [/#macro]
 
+[@prebuiltsection]
 [#if cmsfn.isEditMode()]
   <div cms:edit="bar"></div>
 [/#if]
@@ -40,3 +43,4 @@
     [@announcementBannerContent/]
   </div>
 </div>
+[/@prebuiltsection]

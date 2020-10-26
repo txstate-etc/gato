@@ -44,18 +44,18 @@ quoteimage:
 styledlist:
   id: gato-component-patterns:components/styledlist
 
-#layouts
-full:
-  id: gato-template-mobilefirst:components/rows-home/full
-halves:
-  id: gato-template-mobilefirst:components/rows-home/halves
-onethirdtwothirds:
-  id: gato-template-mobilefirst:components/rows-home/onethirdtwothirds
-twothirdsonethird:
-  id: gato-template-mobilefirst:components/rows-home/twothirdsonethird
-thirds:
-  id: gato-template-mobilefirst:components/rows-home/thirds
-quarters:
-  id: gato-template-mobilefirst:components/rows-home/quarters
-cardlayoutgrid:
-  id: gato-component-cards:components/layouts/grid
+#sections
+fullmegasection:
+  id: gato-template-mobilefirst:components/sections-home/full-section
+halvesmegasection:
+  id: gato-template-mobilefirst:components/sections-home/halves-section
+onethirdtwothirdsmegasection:
+  id: gato-template-mobilefirst:components/sections-home/onethirdtwothirds-section
+twothirdsonethirdmegasection:
+  id: gato-template-mobilefirst:components/sections-home/twothirdsonethird-section
+thirdsmegasection:
+  id: gato-template-mobilefirst:components/sections-home/thirds-section
+quartersmegasection:
+  id: gato-template-mobilefirst:components/sections-home/quarters-section
+megamosaic:
+  id: gato-component-sections:components/mosaic-section

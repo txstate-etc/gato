@@ -67,12 +67,32 @@
       max-width: 600px;
     }
   }
+
+  .megasection-bar, .add-layout, .msection-title, .background-color-warning {
+    margin-#{$sidebar-leftright}: 25%;
+    @media (max-width: $md-breakpoint) {
+      margin-#{$sidebar-leftright}: 29%;
+    }
+    @media (max-width: $sm-breakpoint) {
+      margin-#{$sidebar-leftright}: 33%;
+    }
+    @media (max-width: $sidebar-moves-below-point) {
+      margin-#{$sidebar-leftright}: 0;
+    }
+  }
+  &.full-width {
+    .megasection-bar, .add-layout, .msection-title, .background-color-warning {
+      margin-#{$sidebar-leftright}: 0;
+    }
+  }
 }
 
 .section-bar > .mgnlEditorBar.component .mgnlEditorBarButtons .editorIcon.icon-edit:before {
   font-family: 'FontAwesome';
   content: "\f013";
 }
+
+
 
 .layout-column {
   @extend .grid-cell;

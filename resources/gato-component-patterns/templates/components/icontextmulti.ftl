@@ -1,3 +1,5 @@
+[#include "/gato-component-patterns/templates/includes/pattern.ftl"]
+[@prebuiltsection]
 [#if cmsfn.isEditMode()]
 <div cms:edit="bar"></div>
 [/#if]
@@ -6,3 +8,4 @@
     [@cms.area name="iconList" contextAttributes={"colorClass":content.color!}/]
   </div>
 </div>
+[/@prebuiltsection]
