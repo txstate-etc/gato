@@ -1,5 +1,5 @@
 [#include "/gato-component-patterns/templates/includes/pattern.ftl"]
-[@prebuiltsection]
+[@prebuiltsection hasBackground=content.showBackgroundColor!false]
 [#if cmsfn.isEditMode()]
 <div cms:edit="bar"></div>
 [/#if]

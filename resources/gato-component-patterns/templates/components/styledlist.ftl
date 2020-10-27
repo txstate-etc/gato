@@ -1,5 +1,5 @@
 [#include "/gato-component-patterns/templates/includes/pattern.ftl"]
-[@prebuiltsection]
+[@prebuiltsection hasBackground=content.showBackgroundColor!false]
   [#assign columns = ((content.includeImage == "hasImage")?then(content.columnsWithImage, content.columnsNoImage))]
   [#if cmsfn.isEditMode()]
   <div cms:edit="bar"></div>
