@@ -128,6 +128,9 @@ public class MigrateToMegasectionsTask extends GatoBaseUpgradeTask {
       public void visit(Node n) throws RepositoryException {
         String templateId = NodeTypes.Renderable.getTemplate(n);
         if (null != templateId) {
+          if (StringUtils.contains(templateId, "mail") || StringUtils.contains(templateId, "redirect")) {
+            return;
+          }
           try {
             if (templateId.equals("gato-template-txstate2015:pages/standard-template")
                 || templateId.equals("gato-template-tsus2017:pages/home")
@@ -139,16 +142,20 @@ public class MigrateToMegasectionsTask extends GatoBaseUpgradeTask {
                 || templateId.equals("gato-template-admissions:pages/standard")) {
               //2015, wittliff, tsus, calico, admissions contentParagraph area
               wrapLayoutsInSections(n, "contentParagraph");
+              n.getSession().save();
             } else if (templateId.equals("gato-template-mobilefirst:pages/home")
                 || templateId.equals("gato-template-admissions:pages/home")) {
               //mobilefirst template mobileFirstContent area
               wrapLayoutsInSections(n, "mobileFirstContent");
+              n.getSession().save();
             } else if (templateId.equals("gato-template-home:pages/landing")) {
               //texas state home landing page, landingcontent area
               wrapLayoutsInSections(n, "landingcontent");
+              n.getSession().save();
             } else if (templateId.equals("gato-template-home:pages/home")) {
               //texas state home page, homecontent area
               wrapLayoutsInSections(n, "homecontent");
+              n.getSession().save();
             } else {
               //This template has no layouts or we are not adding megasections
               log.warn("MigrateToMegasections: No Layout Changes for page " + n.getPath() + " with template id " + templateId + ".");
