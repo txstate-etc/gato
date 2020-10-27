@@ -19,12 +19,12 @@
     a.styled-link {
       position: relative;
       color: $styled-list-link-color;
-      .external-link-icon {
-        margin-left: 10px;
-        margin-bottom: 1px;
-        font-weight: bold;
-        position: absolute;
-        bottom: 0;
+      &.external:after {
+        font-family: FontAwesome;
+        content: "\f08e";
+        display: inline-block;
+        text-decoration: none;
+        margin-left: 5px;
       }
     }
   }

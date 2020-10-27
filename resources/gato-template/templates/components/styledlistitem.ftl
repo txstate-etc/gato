@@ -11,11 +11,10 @@
   [#else]
     [#assign isExternal = false]
   [/#if]
-  <a class="styled-link" href="${gf.filterUrl(content.link)}">
+  <a class="styled-link [#if isExternal!false]external[/#if]" href="${gf.filterUrl(content.link)}">
 [/#if]
 
 ${content.text}
-[#if isExternal!false] <i class="fa fa-external-link external-link-icon" aria-hidden="true"></i>[/#if]
 
 [#if !gf.isEmptyString(content.link)]
   </a>
