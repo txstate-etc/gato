@@ -1,6 +1,6 @@
 templateScript: /gato-component-sections/templates/components/section.ftl
 renderType: freemarker
-title: Two Column Large-Small Megasection
+title: Two Column Large-Small Section
 dialog: gato-component-sections:components/section
 description: Creates a section containing a two column layout. The first column is larger than the second.
 areas:

@@ -1,6 +1,6 @@
 templateScript: /gato-component-sections/templates/components/section.ftl
 renderType: freemarker
-title: Three Column Megasection
+title: Three Column Section
 dialog: gato-component-sections:components/section
 description: Creates a section containing a three column layout. Columns have equal size.
 areas:

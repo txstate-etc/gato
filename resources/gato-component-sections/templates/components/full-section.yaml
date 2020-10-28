@@ -1,6 +1,6 @@
 templateScript: /gato-component-sections/templates/components/section.ftl
 renderType: freemarker
-title: One Column Megasection
+title: One Column Section
 dialog: gato-component-sections:components/section
 description: Creates a section containing a one column layout.
 areas:

@@ -153,6 +153,17 @@ div.mgnlEditorBar.area.childFocus {
   }
 }
 
+div.mgnlEditorBar.component.moveOver {
+  @extend %bar;
+  background-color: $edit-bar-teal !important;
+  &.layout-edit-bar {
+    background-color: $edit-bar-gold-move !important;
+  }
+  &.content-edit-bar {
+    background-color: $edit-bar-purple-move !important;
+  }
+}
+
 div.mgnlEditorBar.area.childFocus ~ div.mgnlPlaceholder div.mgnlPlaceholderBox, div.mgnlEditorBar.area.childFocus ~ * div.mgnlPlaceholder div.mgnlPlaceholderBox, div.mgnlEditorBar.area.init ~ * div.mgnlPlaceholder div.mgnlPlaceholderBox, div.mgnlEditorBar.area.init ~ div.mgnlPlaceholder div.mgnlPlaceholderBox {
 	border: none !important;
 }
