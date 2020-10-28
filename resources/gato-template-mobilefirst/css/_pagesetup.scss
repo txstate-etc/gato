@@ -45,23 +45,33 @@ body {
 }
 
 .gato-section-full {
-  .gato-section {
-    margin-right: 0px;
+  .gato-section-centered {
+    max-width: 1200px;
+    .gato-section {
+      margin-right: 0px;
+      &:not(:last-child) {
+        margin-bottom: 4rem;
+      }
+      .section-title {
+        margin-top: 2rem;
+        margin-bottom: 1.5rem;
+      }
+      .section-text {
+        margin-bottom: 2rem;
+      }
+    }
   }
   &.has-background {
     background-color: $sandstone;
+    margin-bottom: 0;
     .gato-section {
       padding-top: 0;
     }
   }
-  .section-title {
-    margin-top: 2rem;
-  }
-  .section-title.has-text {
-    margin-bottom: 1.5rem;
-  }
-  .section-text {
-    margin-bottom: 2rem;
+  &.pattern {
+    gato-section-centered {
+      max-width: none;
+    }
   }
   .megasection-bar {
     padding: 0;
@@ -87,25 +97,6 @@ body {
   }
 }
 
-.gato-section-full .gato-section-centered {
-  max-width: 1200px;
-}
-
-.gato-section-full.pattern {
-  .gato-section-centered {
-    max-width: none;
-  }
-}
-
-.gato-section-full.has-background {
-  margin-bottom: 0;
-}
-
-.gato-section-full {
-  .section-title {
-    margin-bottom: 1.5rem;
-  }
-}
 .layout-column {
   padding: 2rem;
   .column_paragraph:last-of-type {
