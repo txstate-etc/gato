@@ -71,4 +71,8 @@ jQuery( document ).ready(function($) {
     el.addClass('content-edit-bar')
   });
 
+  waitforselector('.gato-card', '.mgnlEditorBar.mgnlEditor.component', function(el) {
+    el.addClass('content-edit-bar')
+  })
+
 });
