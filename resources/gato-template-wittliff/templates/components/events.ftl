@@ -63,12 +63,12 @@
         </div>
         <div class="event-content" aria-expanded="false">
           <div class="event-category"></div>
-          <div class="event-title">
+          <h2 class="event-title">
             ${item.cancelled?string('CANCELLED - ','')}
             <span class="p-name summary">
               ${item.title}
             </span>
-          </div>
+          </h2>
           <a href="#" class="event-details">
             Event Details
             <i class="fa fa-cog"></i>
