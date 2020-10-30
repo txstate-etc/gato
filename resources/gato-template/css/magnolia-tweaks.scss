@@ -13,6 +13,7 @@ $edit-bar-purple-move:#c9afcc;
   border-color: $edit-bar-teal !important;
   color: $very-dark !important;
   border-style: solid;
+  margin-bottom: 12px !important;
 }
 
 %layoutbar {
@@ -38,6 +39,7 @@ div.mgnlEditorBar {
       display: flex !important;
       justify-content: space-between;
       align-items: center;
+      padding: 22px 0 !important;
     }
     .mgnlEditorBarLabel {
       margin-left: 0px !important;
@@ -50,13 +52,15 @@ div.mgnlEditorBar {
       align-items: center;
       .icon-edit {
         order: 2;
+        margin-left: 10px !important;
       }
     }
   }
   &.mgnlPlaceholder {
-    display: block !important;
+    display: flex !important;
     .mgnlEditorBar.component {
-      display: block !important;
+      display: flex !important;
+      width: 100% !important;
     }
   }
 }
