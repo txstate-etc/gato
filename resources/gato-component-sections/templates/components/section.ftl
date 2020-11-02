@@ -20,6 +20,11 @@
     [#if !gf.isEmptyString(content.anchor)]
       <div id=${content.anchor}></div>
     [/#if]
+    [#if content.text?has_content]
+      <div class="msection-text-container ${content.titleAlign!'center'}">
+        <p class="msection-text">${content.text}</p>
+      </div>
+    [/#if]
     [#assign headerlevel= gf.isEmptyString(content.title)?then(2,3)]
     [@cms.area name="layouts" contextAttributes={"headerlevel":headerlevel}/]
   </div>

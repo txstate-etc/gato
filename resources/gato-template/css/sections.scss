@@ -68,7 +68,7 @@
     }
   }
 
-  .megasection-bar, .add-layout, .msection-title, .background-color-warning {
+  .megasection-bar, .add-layout, .msection-title, .background-color-warning, .msection-text-container {
     margin-#{$sidebar-leftright}: 25%;
     @media (max-width: $md-breakpoint) {
       margin-#{$sidebar-leftright}: 29%;
@@ -81,8 +81,22 @@
     }
   }
   &.full-width {
-    .megasection-bar, .add-layout, .msection-title, .background-color-warning {
+    .megasection-bar, .add-layout, .msection-title, .background-color-warning, .msection-text-container {
       margin-#{$sidebar-leftright}: 0;
+    }
+  }
+
+  .msection-text-container {
+    margin-bottom: 3rem;
+    &.center {
+      .msection-text {
+        max-width: 600px;
+        margin: 0 auto;
+        text-align: center;
+      }
+    }
+    .msection-text {
+      padding: 0 2rem;
     }
   }
 }
