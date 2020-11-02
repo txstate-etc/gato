@@ -397,7 +397,6 @@ subApps:
                     - name: text
                       class: info.magnolia.ui.form.field.definition.TextFieldDefinition
                       label: Button Text
-                      maxLength: 20
                     - name: link
                       class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
                       label: Button Target
