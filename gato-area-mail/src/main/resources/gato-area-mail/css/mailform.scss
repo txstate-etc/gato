@@ -394,6 +394,14 @@ textarea {
   }
   .conditionalert {
     margin-bottom: 3rem;
+    background-color: $form-error-background;
+    display: flex;
+    padding: 1rem;
+    i {
+      color: #cb3744;
+      margin-right: 1rem;
+      font-size: 25px;
+    }
   }
 }
 
