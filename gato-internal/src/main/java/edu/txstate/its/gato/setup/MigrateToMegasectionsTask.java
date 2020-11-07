@@ -98,16 +98,12 @@ public class MigrateToMegasectionsTask extends GatoBaseUpgradeTask {
                 }
               }
             } else {
-              //make a new megasection, move background color property, update curentMegasection
+              //make a new megasection, update curentMegasection
               String layoutName = layout.getName();
               Node megasection = NodeUtil.createPath(layoutsArea, "temp" + layoutName, "mgnl:component");
               Node megasectionLayouts = NodeUtil.createPath(megasection, "layouts", "mgnl:area");
               NodeUtil.moveNodeAfter(megasection, layout);
               PropertyUtil.setProperty(megasection, "mgnl:template", layoutsToSections.get(layoutTemplateId));
-              boolean hasBackground = PropertyUtil.getBoolean(layout, "showBackgroundColor", false);
-              if (hasBackground) {
-                PropertyUtil.setProperty(megasection, "showBackgroundColor", true);
-              }
               NodeUtil.moveNode(layout, megasectionLayouts);
               NodeUtil.renameNode(megasection, layoutName);
               currentMegasection = megasection;
