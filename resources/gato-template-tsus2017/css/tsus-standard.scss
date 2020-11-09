@@ -15,12 +15,6 @@
   }
 }
 
-.gato-section-full {
-  .megasection-bar, .background-color-warning {
-    padding: 0 2rem;
-  }
-}
-
 .gato-section {
   & + .gato-section {
     border-top: 1px dashed #d9d9d9;

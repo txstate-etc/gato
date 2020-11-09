@@ -2,7 +2,7 @@
 [#assign mainContentClass = hideSidebar?string(' full-width','')]
 [#list components as component]
   [#assign hasBackgroundClass = (component.showBackgroundColor!false)?string(' has-background','')]
-  [@cms.component content=component contextAttributes={"hasBackground": component.showBackgroundColor!false}/]
+  [@cms.component content=component contextAttributes={"hideSidebar":hideSidebar, "hasBackground":hasBackgroundClass}/]
 [/#list]
 [#if cmsfn.isEditMode()]
   <div class="gato-section-full ${mainContentClass}">

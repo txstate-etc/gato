@@ -46,4 +46,25 @@ form:
           required: false
           label: Anchor
           description: "Enter anchor name here."
+    - name: tabBackground
+      label: Background Color
+      fields:
+        - name: info
+          class: info.magnolia.ui.form.field.definition.StaticFieldDefinition
+          label: ""
+          value: Background color will only show up if this section is not next to the sidebar.
+        - name: showBackgroundColor
+          class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
+          multiselect: false
+          label: Background Color
+          type: Boolean
+          sortOptions: false
+          options:
+            - name: noBackground
+              label: No Background Color
+              selected: true
+              value: false
+            - name: addBackground
+              label: Add Background Color
+              value: true
 actions: !include /gato-template/dialogs/common/actions-block.yaml

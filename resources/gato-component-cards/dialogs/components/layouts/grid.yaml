@@ -63,12 +63,12 @@ form:
             - name: 1
               label: Crop image cards to 1:1 square
               value: 1
-        # - name: showBackgroundColor
-        #   class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
-        #   defaultValue: false
-        #   label: ""
-        #   type: Boolean
-        #   buttonLabel: Add a background color to the whole section.
+        - name: showBackgroundColor
+          class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+          defaultValue: false
+          label: ""
+          type: Boolean
+          buttonLabel: Add a background color to the whole section.
     - name: tabFiltering
       label: Filtering
       fields: !include /gato-component-cards/dialogs/tabs/filtering.yaml

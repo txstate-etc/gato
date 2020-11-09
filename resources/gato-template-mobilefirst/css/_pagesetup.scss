@@ -44,6 +44,16 @@ body {
   padding: 0rem;
 }
 
+.contentcolumn .gato-msection .gato-section-full.msection {
+  padding-bottom: 0;
+}
+
+.gato-msection {
+  &.has-background {
+    background-color: $sandstone;
+  }
+}
+
 .gato-section-full {
   .gato-section-centered {
     max-width: 1200px;
@@ -68,7 +78,6 @@ body {
     }
   }
   &.has-background {
-    background-color: $sandstone;
     margin-bottom: 0;
     .gato-section {
       padding-top: 0;

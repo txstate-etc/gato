@@ -14,6 +14,14 @@ jQuery(document).ready(function ($) {
           cmp.removeClass('full-width');
         }
       });
+      $('.gato-msection').each(function (i, cmp) {
+        var msection = $(cmp)
+        if (msection.offset().top > sidebar.offset().top+sidebar.outerHeight()) {
+          msection.addClass('full-width')
+        } else {
+          msection.removeClass('full-width')
+        }
+      });
     };
 
     resizeTimeout(expandsectionsaftersidebar);

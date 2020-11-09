@@ -3,6 +3,11 @@
     text-align: center;
   }
 }
+.msection-text-container {
+  &.center {
+    text-align: center;
+  }
+}
 
 .megasection-bar > .mgnlEditorBar.component .mgnlEditorBarButtons .editorIcon.icon-edit:before {
   font-family: 'FontAwesome';
