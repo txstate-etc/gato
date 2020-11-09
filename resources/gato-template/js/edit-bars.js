@@ -43,6 +43,7 @@ jQuery( document ).ready(function($) {
   magnolialabelchange('#result-list', '.fs-person-add .mgnlEditor.mgnlPlaceholder', 'Add Person to List');
   magnolialabelchange('.styled-list-item-add', '.mgnlEditor.mgnlPlaceholder', 'Add Item to List');
   magnolialabelchange('.add-layout', '.mgnlEditor.mgnlPlaceholder', 'Add Additional Layout');
+  magnolialabelchange('.megasection-bar', '.mgnlEditor.component', 'Section');
 
   titledlabelchange('.slider-edit-bar');
   titledlabelchange('.answer-edit-bar');
