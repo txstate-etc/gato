@@ -33,7 +33,7 @@ body {
   min-height: 32rem;
 }
 
- .contentcolumn .gato-section-full:not(.gato-section-headline) {
+ .contentcolumn .gato-msection {
   padding: 4rem 0rem;
   @media (max-width: $sm-breakpoint) {
     padding: 2rem 0rem;
@@ -74,6 +74,9 @@ body {
       }
       .section-text {
         margin-bottom: 2rem;
+      }
+      .background-color-warning {
+        display: none;
       }
     }
   }
