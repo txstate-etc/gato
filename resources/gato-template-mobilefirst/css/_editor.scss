@@ -9,4 +9,30 @@ body.admin {
   div#modal_outer {
     z-index: 80000 !important;
   }
+
+  .mgnlEditorBarButtons {
+    height: 48px !important;
+    padding-right: 0px !important;
+    .editorIcon {
+      width: 48px !important;
+      height: 100% !important;
+      padding-left: 0 !important;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      &:hover {
+        &:after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: black;
+          opacity: 0.15;
+        }
+      }
+    }
+  }
 }
