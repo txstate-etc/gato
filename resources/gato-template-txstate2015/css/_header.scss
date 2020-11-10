@@ -142,10 +142,21 @@ input[type="search"]:focus {outline: none;}
   .headerImage_admin {
     margin: 0px auto 0px auto;
     width: 60%;
+    .mgnlEditorBar.mgnlEditor.component {
+      padding: 0 !important;
+    }
   }
 
   .parentOrg_add{
     width: 50%;
+  }
+
+  .parentOrg_edit {
+    position: absolute;
+    top: -15px;
+    .mgnlEditorBar.mgnlEditor.component {
+      padding: 0 !important;
+    }
   }
 
   @at-root body.admin .header_no_image {
