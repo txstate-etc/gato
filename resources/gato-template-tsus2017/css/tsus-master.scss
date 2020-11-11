@@ -40,12 +40,16 @@ body {
     max-width: 1000px;
   }
   .msection-title {
-    text-align: center;
+    &.center {
+      text-align: center;
+    }
   }
   .section-title {
-    color: $red;
-    font-size: 2.5rem;
-    text-transform: uppercase;
+    text-align: left;
+    padding: 2rem;
+    &.center {
+      text-align: center;
+    }
     @media (max-width: $sm-breakpoint) {
       font-size: 1.7rem;
     }
@@ -68,39 +72,39 @@ a, a:link, a:visited {
       opacity: 0.9;
     }
   }
+}
 
-  /* Headers */
-  h1 {
-    font-size: 3rem;
-    margin-bottom: 2rem;
-  }
+ /* Headers */
+ h1 {
+  font-size: 3.2rem;
+  margin-bottom: 2rem;
+}
 
-  h2 {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-  }
+h2 {
+  font-size: 2.8rem;
+  margin-bottom: 2rem;
+}
 
-  h3 {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    text-transform: uppercase;
-    color: $midnight;
-  }
+h3 {
+  font-size: 2.2rem;
+  color: $red;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+}
 
-  h4 {
-    font-size: 1.8rem;
-    margin-bottom: 2rem;
-  }
+h4 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
 
-  h5 {
-    font-size: 1.6rem;
-    margin-bottom: 2rem;
-  }
+h5 {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+}
 
-  h6 {
-    font-size: 1.4rem;
-    margin-bottom: 2rem;
-  }
+h6 {
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
 }
 
 /*Blockquotes*/

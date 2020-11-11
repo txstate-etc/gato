@@ -20,11 +20,6 @@
     border-top: 1px dashed #d9d9d9;
     padding-top: 35px;
   }
-  .section-title {
-    color: $red;
-    text-align: center;
-    padding: 2rem 1rem;
-  }
 }
 
 .sidebar-container {
@@ -41,6 +36,7 @@
           font-size: 1.6rem;
           line-height: 2.2rem;
           margin-bottom: 2rem;
+          color: black;
           @media (max-width: $sm-breakpoint){
               margin: 0 0 1rem;
           }
