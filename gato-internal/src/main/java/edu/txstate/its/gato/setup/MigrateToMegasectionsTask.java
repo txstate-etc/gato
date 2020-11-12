@@ -116,6 +116,33 @@ public class MigrateToMegasectionsTask extends GatoBaseUpgradeTask {
           log.warn("MigrateToMegasections: template ID for layout " + layout.getPath() + " is null.");
         }
       }
+      //If a megasection has only one layout and that layout has a background color,
+      //then copy the background color to the section.
+      //Don’t do this if the layout has a title or introduction text.
+      NodeIterator iterMSections = layoutsArea.getNodes();
+      while (iterMSections.hasNext()) {
+        Node msection = iterMSections.nextNode();
+        String msectionTemplateId = NodeTypes.Renderable.getTemplate(msection);
+        if (StringUtils.contains(msectionTemplateId, "gato-component-section")
+          || StringUtils.contains(msectionTemplateId, "sections-home")
+          || StringUtils.contains(msectionTemplateId, "sections-interior")) {
+
+          if (msection.hasNode("layouts")) {
+            Node msectionLayouts = msection.getNode("layouts");
+            if (msectionLayouts.getNodes().getSize() == 1) {
+              Node singleLayout = msectionLayouts.getNodes().nextNode();
+              boolean hasBackground = PropertyUtil.getBoolean(singleLayout, "showBackgroundColor", false);
+              if (hasBackground) {
+                String singleLayoutTitle = PropertyUtil.getString(singleLayout, "title", "");
+                String singleLayoutText = PropertyUtil.getString(singleLayout, "text", "");
+                if (StringUtils.isEmpty(singleLayoutTitle) && StringUtils.isEmpty(singleLayoutText)) {
+                  PropertyUtil.setProperty(msection, "showBackgroundColor", true);
+                }
+              }
+            }
+          }
+        }
+      }
     }
     else {
       log.warn("MigrateToMegasections: Page " + page.getPath() + " has no " + areaName + " area.");
