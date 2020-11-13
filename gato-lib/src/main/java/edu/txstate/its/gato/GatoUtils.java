@@ -667,6 +667,7 @@ public final class GatoUtils {
   }
 
   public void updateTag(Element h, long level) {
+    level = Math.min(6, level);
     h.tagName("h"+Long.toString(level));
   }
 
