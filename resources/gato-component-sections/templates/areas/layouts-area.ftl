@@ -5,7 +5,7 @@
 
   <div id="${gf.htmlId(component)}" class="gato-section-full ${(ctx.hideSidebar!false)?then('full-width', '')} ${hasBackgroundClass}${cardLayoutClass}${patternClass}">
     <div class="gato-section-centered">
-      <div class="gato-section eq-parent">
+      <div class="gato-section eq-parent ${hasBackgroundClass}">
         [#if cmsfn.isEditMode() && (component.showBackgroundColor!false)]
           <div class="txst-khan-notice background-color-warning">
             Background color will not show up if this section is next to the sidebar.

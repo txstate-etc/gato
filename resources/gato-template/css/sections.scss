@@ -13,10 +13,13 @@
   background-color: transparent;
   &.full-width .gato-section {
     margin-#{$sidebar-leftright}: 0;
+    &.has-background {
+      background-color: $section-background-color;
+    }
   }
   &.has-background {
     margin-bottom: 3rem;
-    &.full-width {
+    &.full-width.pattern {
       background-color: $section-background-color;
     }
     &:not(.full-width) .gato-section {

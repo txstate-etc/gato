@@ -78,6 +78,9 @@ body {
       .background-color-warning {
         display: none;
       }
+      &.has-background {
+        background-color: $sandstone;
+      }
     }
   }
   &.has-background {
