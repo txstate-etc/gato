@@ -1,0 +1,47 @@
+
+#patterns
+titlebuttons:
+  id: gato-component-patterns:components/titlebuttons
+titlelinks:
+  id: gato-component-patterns:components/titlelinks
+twocolcta:
+  id: gato-component-patterns:components/twocolcta
+icontextmulti:
+  id: gato-component-patterns:components/icontextmulti
+insettextimage:
+  id: gato-component-patterns:components/insettextimage
+textimagebuttons:
+  id: gato-component-patterns:components/textimagebuttons
+textimagelinks:
+  id: gato-component-patterns:components/textimagelinks
+imageoverlay:
+  id: gato-component-patterns:components/imageoverlay
+callout:
+  id: gato-component-patterns:components/callout
+calloutimage:
+  id: gato-component-patterns:components/calloutimage
+twocallouts:
+  id: gato-component-patterns:components/twocallouts
+quoteimage:
+  id: gato-component-patterns:components/quoteimage
+styledlist:
+  id: gato-component-patterns:components/styledlist
+flexible:
+  id: gato-component-patterns:components/flexible
+
+
+#sections
+fullmegasection:
+  id: gato-template-mobilefirst:components/sections-interior/full-section
+halvesmegasection:
+  id: gato-template-mobilefirst:components/sections-interior/halves-section
+onethirdtwothirdsmegasection:
+  id: gato-template-mobilefirst:components/sections-interior/onethirdtwothirds-section
+twothirdsonethirdmegasection:
+  id: gato-template-mobilefirst:components/sections-interior/twothirdsonethird-section
+thirdsmegasection:
+  id: gato-template-mobilefirst:components/sections-interior/thirds-section
+quartersmegasection:
+  id: gato-template-mobilefirst:components/sections-interior/quarters-section
+megamosaic:
+  id: gato-component-sections:components/mosaic-section

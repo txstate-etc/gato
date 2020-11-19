@@ -3,5 +3,8 @@ title: Admissions
 areas:
   templatecss:
     templateScript: /gato-template-admissions/templates/areas/templatecss.ftl
+  contentParagraph: #variable
+    availableComponents:
+      !include /gato-template-admissions/templates/areas/available-components/interiorComponents.yaml
 parameters:
   sortOrder: 311
