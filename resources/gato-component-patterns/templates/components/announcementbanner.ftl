@@ -33,7 +33,7 @@
 
 [@prebuiltsection]
 [#if cmsfn.isEditMode()]
-  <div cms:edit="bar"></div>
+  <div class="content-edit" cms:edit="bar"></div>
 [/#if]
 <div class="mobilefirst-pattern announcementbanner" >
   <div class="announcementbanner-content pattern-content" style='background-image: url("${gf.getImgDefault(content.image)}")'>

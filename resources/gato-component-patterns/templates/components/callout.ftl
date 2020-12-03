@@ -2,7 +2,7 @@
 [#include "/gato-component-patterns/templates/includes/pattern.ftl"]
 [@prebuiltsection]
   [#if cmsfn.isEditMode()]
-  <div cms:edit="bar"></div>
+  <div class="content-edit" cms:edit="bar"></div>
   [/#if]
   <div class="mobilefirst-pattern">
     <div class="callout pattern-content single ${content.color!color1} text-center">

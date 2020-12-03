@@ -2,7 +2,7 @@
 [@prebuiltsection]
   [#assign hasBorder = content.border!false]
   [#if cmsfn.isEditMode()]
-  <div cms:edit="bar"></div>
+  <div class="content-edit" cms:edit="bar"></div>
   [/#if]
   <div class="mobilefirst-pattern has-image ${content.imageAlignment!'image-right'} ${hasBorder?then('border', '')}">
     <div class="pattern-image with-quotation">

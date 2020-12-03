@@ -1,7 +1,7 @@
 [#include "/gato-component-patterns/templates/includes/pattern.ftl"]
 [@prebuiltsection]
   [#if cmsfn.isEditMode()]
-    <div cms:edit="bar"></div>
+    <div class="content-edit" cms:edit="bar"></div>
   [/#if]
   [#assign textAlign = (content.overlayPosition == "center")?then('text-center', 'text-left')]
   <div class="mobilefirst-pattern image-overlay" style='background-image: linear-gradient(180deg, rgba(43,46,52, 0.4), rgba(43,46,52, 0.4)), url("${gf.getImgDefault(content.image)}")'>

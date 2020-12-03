@@ -1,7 +1,7 @@
 [#include "/gato-component-patterns/templates/includes/pattern.ftl"]
 [@prebuiltsection]
   [#if cmsfn.isEditMode()]
-  <div cms:edit="bar"></div>
+  <div class="content-edit" cms:edit="bar"></div>
   [/#if]
   <div class="textImagePatternWrapper ${(content.hasBackground!false)?then('background', '')}">
     <div class="mobilefirst-pattern insettextimage ${content.imageAlignment!'image-right'}">

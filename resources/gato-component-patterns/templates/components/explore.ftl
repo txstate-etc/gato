@@ -1,7 +1,7 @@
 [#include "/gato-template/templates/includes/commonmacros.ftl"]
 [#include "/gato-component-patterns/templates/includes/pattern.ftl"]
 [@prebuiltsection]
-  [#if cmsfn.isEditMode()]<div cms:edit></div>[/#if]
+  [#if cmsfn.isEditMode()]<div class="properties-edit" cms:edit></div>[/#if]
   <div class="mobilefirst-pattern">
     <div class="pattern-content explore">
     [#if content.includeTitle?? && content.includeTitle == "hasTitle"]

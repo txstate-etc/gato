@@ -2,7 +2,7 @@
 [#include "/gato-component-patterns/templates/includes/pattern.ftl"]
 [@prebuiltsection]
   [#if cmsfn.isEditMode()]
-  <div cms:edit="bar"></div>
+  <div class="content-edit" cms:edit="bar"></div>
   [/#if]
   <div class="mobilefirst-pattern has-image ${content.imageAlignment!'image-right'}">
     [#if content.imageAlignment == 'image-left']

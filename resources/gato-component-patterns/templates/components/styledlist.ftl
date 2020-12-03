@@ -2,7 +2,7 @@
 [@prebuiltsection hasBackground=content.showBackgroundColor!false]
   [#assign columns = ((content.includeImage == "hasImage")?then(content.columnsWithImage, content.columnsNoImage))]
   [#if cmsfn.isEditMode()]
-  <div cms:edit="bar"></div>
+  <div class="properties-edit" cms:edit="bar"></div>
   [#if content.alphabetize!false]
     <div class="txst-khan-notice">
       List items are currently displayed in alphabetical order. Moving items in the editing environment

@@ -2,6 +2,6 @@
 [#include "/gato-component-patterns/templates/includes/pattern.ftl"]
 [@prebuiltsection]
   [#assign mobileImage = getMobileImage(content.image, content.mobileImage!)]
-  [#if cmsfn.isEditMode()]<div cms:edit></div>[/#if]
+  [#if cmsfn.isEditMode()]<div class="properties-edit" cms:edit></div>[/#if]
     [@cms.area name="tabs" contextAttributes={"overlayPosition": content.overlayPosition, "overlayColor": content.color, "desktopImage": content.image, "mobileImage": mobileImage}/]
 [/@prebuiltsection]
