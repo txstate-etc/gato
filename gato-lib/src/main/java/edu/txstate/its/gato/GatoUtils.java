@@ -1487,8 +1487,11 @@ public final class GatoUtils {
             System.out.println("Detected gato-edit link. Replacing with gato-docs: " + line);
             String image = line.split("jcr:")[1];
             String imageJCRId = image.split("/")[0];
-            String queryParams = image.split("\\?")[1].split("\\)")[0];
-            String getLinkInCurrentEnvironment = getImgDefault("jcr:" + imageJCRId).split("\\?")[0] + "?" + queryParams;
+            String queryParams = "";
+            if (image.indexOf('?') > -1) {
+              queryParams = "?" + image.split("\\?")[1].split("\\)")[0];
+            }
+            String getLinkInCurrentEnvironment = getImgDefault("jcr:" + imageJCRId).split("\\?")[0] + queryParams;
             String linkUsingEnvironment = line.replaceFirst("\\burl.*\\w+\\)", "url(" + getLinkInCurrentEnvironment + ")");
             return linkUsingEnvironment;
           }
