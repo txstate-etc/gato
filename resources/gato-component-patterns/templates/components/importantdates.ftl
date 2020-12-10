@@ -49,23 +49,27 @@
               [#list model.items as event]
                 <div class="event">
                   [#assign eventTitle = (event.title?length > 50)?then(event.title?substring(0, 50)+"...", event.title)]
-                  [#assign startDate = event.startDate?date?string]
-                  [#assign endDate = event.endDate?date?string]
-                  [#if startDate == endDate]
+                  [#assign startDate = event.startDate]
+                  [#assign endDate = event.endDate]
+                  [#assign allDay = event.allDay!false]
+                  [#if allDay && event.endDate?time?string['HH:mm'] == "00:00" ]
+                    [#assign endDate = model.fixAllDayEventEndDate(event.endDate)]
+                  [/#if]
+                  [#if startDate?date?string == endDate?date?string]
                     <div class="date">
-                      <div class="day">${event.startDate?string["d"]}</div> 
-                      <div class="month">${event.startDate?string["MMM"]?upper_case}</div>
+                      <div class="day">${startDate?string["d"]}</div> 
+                      <div class="month">${startDate?string["MMM"]?upper_case}</div>
                     </div>
                   [#else]
                     <div class="date-span">
                       <div class="date">
-                        <div class="day">${event.startDate?string["d"]}</div> 
-                        <div class="month">${event.startDate?string["MMM"]?upper_case}</div>
+                        <div class="day">${startDate?string["d"]}</div> 
+                        <div class="month">${startDate?string["MMM"]?upper_case}</div>
                       </div>
                       <span class="dash"> - </span>
                       <div class="date">
-                        <div class="day">${event.endDate?string["d"]}</div> 
-                        <div class="month">${event.endDate?string["MMM"]?upper_case}</div>
+                        <div class="day">${endDate?string["d"]}</div> 
+                        <div class="month">${endDate?string["MMM"]?upper_case}</div>
                       </div>
                     </div>
                   [/#if]

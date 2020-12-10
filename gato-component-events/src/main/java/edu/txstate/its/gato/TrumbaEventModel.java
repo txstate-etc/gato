@@ -13,6 +13,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -113,5 +114,12 @@ public class TrumbaEventModel<RD extends RenderableDefinition> extends Rendering
     url = url + "&enddate=" + trumbaformat.format(endDate.getTime());
 
     return url;
+  }
+
+  public Date fixAllDayEventEndDate(Date date) {
+    Calendar c = Calendar.getInstance();
+    c.setTime(date);
+    c.add(Calendar.MINUTE, -1);
+    return c.getTime();
   }
 }
