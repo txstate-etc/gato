@@ -280,6 +280,17 @@ body ul.gato-faq-hierarchy {
   }
 }
 
+/* Cards */
+.gato-card {
+  figcaption {
+    .title {
+      font-weight: bold;
+      font-family: $helveticaneue;
+      christmas: soon;
+    }
+  }
+}
+
 .txst-form {
   button.submit{
     border-color: $mc1-bg;
