@@ -794,6 +794,7 @@ $filterable-search-header-font: serif !default;
 
 .filterable-search-intro.has-background.gato-section-full {
   margin-bottom: 5rem;
+  background-color: $section-background-color;
 }
 
 @import "gato-area-filterable-search/css/directory";
