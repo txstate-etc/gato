@@ -96,6 +96,11 @@ public class MigrateToMegasectionsTask extends GatoBaseUpgradeTask {
                   PropertyUtil.setProperty(currentMegasection, "text", firstLayoutText);
                   PropertyUtil.setProperty(firstMSLayout, "text", null);
                 }
+                String firstLayoutTitleAlign = PropertyUtil.getString(firstMSLayout, "titleAlign", null);
+                if (null != firstLayoutTitleAlign) {
+                  PropertyUtil.setProperty(currentMegasection, "titleAlign", firstLayoutTitleAlign);
+                  PropertyUtil.setProperty(firstMSLayout, "titleAlign", null);
+                }
               }
             } else {
               //make a new megasection, update curentMegasection
