@@ -1,4 +1,4 @@
-<div class="gato-msection ${ctx.hasBackground!''} ${(ctx.hideSidebar!false)?then('full-width', '')}">
+<div id="${gf.htmlId(content)}" class="gato-msection ${ctx.hasBackground!''} ${(ctx.hideSidebar!false)?then('full-width', '')}">
   <div class="gato-section-full msection ${(ctx.hideSidebar!false)?then('full-width', '')}">
     <div class="gato-section-centered">
       <div class="gato-section eq-parent">
