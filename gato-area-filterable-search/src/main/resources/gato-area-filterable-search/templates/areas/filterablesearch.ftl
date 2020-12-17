@@ -2,8 +2,9 @@
 [#if cmsfn.isEditMode()]
   <div class="filterable-search-add" cms:add="box"></div>
 [/#if]
+  [#assign filtersOpen = component?has_content && component.filtersOpen!false]
   <div class="gato-section-centered">
-    <div class="filterable-search-container [#if cmsfn.isEditMode()]filters-open[/#if]">
+    <div class="filterable-search-container [#if cmsfn.isEditMode() || filtersOpen]filters-open[/#if]">
     <div class="search-container mobile">
       <label for="mobile-search-field" class="visuallyhidden">Search [#if component?has_content]${component.description!"List Items"}[/#if]</label>
       <input id="mobile-search-field" type="search" class="fs-search" placeholder="Search [#if component?has_content]${component.description!""}[/#if]"/>
