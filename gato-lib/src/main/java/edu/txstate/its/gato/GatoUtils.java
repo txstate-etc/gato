@@ -1375,24 +1375,40 @@ public final class GatoUtils {
   public String httpGetContent(String link) {
     String output = "";
     HttpURLConnection c = null;
-    try {
-      URL myurl = new URL(link);
-      c = (HttpURLConnection) myurl.openConnection();
-      c.setConnectTimeout(5000);
-      if (c.getResponseCode() >= 200 && c.getResponseCode() <= 299) {
-        BufferedReader in = new BufferedReader(new InputStreamReader(c.getInputStream()));
-        String inputLine;
-        while ((inputLine = in.readLine()) != null)
-            output += inputLine.trim() + "\n";
-        in.close();
-      }
-    } catch (Exception e) {
-      output = "";
-    } finally {
-      try {
-        c.disconnect();
-      } catch (Exception e) {
+    HashMap<String, Integer> visited = new HashMap<String, Integer>();
 
+    while (true) {
+      try {
+        int times = visited.compute(link, (key, count) -> count == null ? 1 : count + 1);
+        if (times > 3) throw new Exception("Stuck in redirect loop");
+        URL myurl = new URL(link);
+        c = (HttpURLConnection) myurl.openConnection();
+        c.setConnectTimeout(5000);
+        c.setInstanceFollowRedirects(false);
+        if (c.getResponseCode() >= 200 && c.getResponseCode() <= 299) {
+          BufferedReader in = new BufferedReader(new InputStreamReader(c.getInputStream()));
+          String inputLine;
+          while ((inputLine = in.readLine()) != null)
+              output += inputLine.trim() + "\n";
+          in.close();
+          break;
+        } else if (c.getResponseCode() == HttpURLConnection.HTTP_MOVED_PERM || c.getResponseCode() == HttpURLConnection.HTTP_MOVED_TEMP) {
+          String location = java.net.URLDecoder.decode(c.getHeaderField("Location"), "UTF-8");
+          URL next     = new URL(myurl, location);  // Deal with relative URLs
+          link     = next.toExternalForm();
+        } else if (c.getResponseCode() == 403 && link.startsWith("http:")) {
+          link = link.replaceFirst("^http:", "https:");
+        }
+      } catch (Exception e) {
+        e.printStackTrace();
+        output = "";
+        break;
+      } finally {
+        try {
+          c.disconnect();
+        } catch (Exception e) {
+
+        }
       }
     }
     return output;
