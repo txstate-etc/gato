@@ -15,7 +15,7 @@
     <div class="caption">
       <p>${content.caption!''}</p>
     </div>
-  [/#if]    
+  [/#if]
   [#if (content.textStyle?? && content.textStyle == "overlay") && content.calloutTitle?has_content]
     <div class="overlay ${content.color!}"></div>
     <div class="callout ${content.color!}">
@@ -31,7 +31,7 @@
   [/#if]
 [/#macro]
 
-[#assign oembed = gf.oEmbedCached(content, content.videourl)]
+[#assign oembed = gf.oEmbedCached(content)]
 [#switch ctx.orientation]
   [#case "normal"]
     [#assign left = (content.squarecropleft!0.0)?number]
@@ -54,7 +54,7 @@
     [#assign left = (content.fullcropleft!0.0)?number]
     [#assign right = (content.fullcropright!0.0)?number]
     [#assign top = (content.fullcroptop!0.0)?number]
-    [#assign bottom = (content.fullcropbottom!0.0)?number]  
+    [#assign bottom = (content.fullcropbottom!0.0)?number]
     [#assign aspectratio = 3.37]
     [#break]
 
@@ -62,7 +62,7 @@
     [#assign left = (content.imagecropleft!0.0)?number]
     [#assign right = (content.imagecropright!0.0)?number]
     [#assign top = (content.imagecroptop!0.0)?number]
-    [#assign bottom = (content.imagecropbottom!0.0)?number]  
+    [#assign bottom = (content.imagecropbottom!0.0)?number]
     [#assign aspectratio = 1]
 
   [/#switch]

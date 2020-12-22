@@ -15,7 +15,7 @@
         [#if content.videourl?has_content]
           <div class="feature-play-button centered">
             <a href="${content.videourl}" aria-label="Play Video"
-            data-embed="${gf.jsonGetString(gf.oEmbedCached(content, content.videourl), 'html')?html}" tabindex="${active?then(0,-1)}"></a>
+            data-embed="${gf.jsonGetString(gf.oEmbedCached(content), 'html')?html}" tabindex="${active?then(0,-1)}"></a>
           </div>
         [/#if]
       </div>
@@ -36,7 +36,7 @@
           [#if content.videourl?has_content]
             <div class="feature-play-button">
               <a href="${content.videourl}" aria-label="Play Video"
-              data-embed="${gf.jsonGetString(gf.oEmbedCached(content, content.videourl), 'html')?html}" tabindex="${active?then(0,-1)}"></a>
+              data-embed="${gf.jsonGetString(gf.oEmbedCached(content), 'html')?html}" tabindex="${active?then(0,-1)}"></a>
             </div>
           [/#if]
         </div>

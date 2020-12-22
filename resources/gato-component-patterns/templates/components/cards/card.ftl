@@ -1,4 +1,4 @@
-[#assign oembed = gf.oEmbedCached(content, content.videourl)]
+[#assign oembed = gf.oEmbedCached(content)]
 [#switch content.orientation]
   [#case "normal"]
     [#assign left = (content.squarecropleft!0.0)?number]
@@ -20,7 +20,7 @@
     [#assign left = (content.tallcropleft!0.0)?number]
     [#assign right = (content.tallcropright!0.0)?number]
     [#assign top = (content.tallcroptop!0.0)?number]
-    [#assign bottom = (content.tallcropbottom!0.0)?number]  
+    [#assign bottom = (content.tallcropbottom!0.0)?number]
     [#assign aspectratio = 0.5]
     [#break]
 
@@ -28,7 +28,7 @@
     [#assign left = (content.imagecropleft!0.0)?number]
     [#assign right = (content.imagecropright!0.0)?number]
     [#assign top = (content.imagecroptop!0.0)?number]
-    [#assign bottom = (content.imagecropbottom!0.0)?number]  
+    [#assign bottom = (content.imagecropbottom!0.0)?number]
     [#assign aspectratio = 1]
 
   [/#switch]
@@ -56,13 +56,13 @@
         <i class="fa fa-play" aria-hidden="true"></i>
         <span class="visuallyhidden">Play ${content.caption!''} Video</span>
       </a>
-    [/#if]      
+    [/#if]
   </div>
   [#if content.caption?has_content]
   <div class="caption">
     <p>${content.caption!''}</p>
   </div>
-  [/#if]  
+  [/#if]
 [#if content.link?has_content]</a>[/#if]
 [#else]
     <div class="slider-edit-bar" data-title="-${content.caption!'Explore Card'}" cms:edit></div>

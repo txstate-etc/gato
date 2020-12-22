@@ -1527,21 +1527,23 @@ public final class GatoUtils {
     return ret.toString();
   }
 
-  public JsonObject oEmbedCached(Object node, String url) {
-    Node n = toNode(node);
-    if (n == null || StringUtils.isBlank(url)) return new JsonObject();
+  public JsonObject oEmbedCached(Object node) {
     try {
+      Node n = toNode(node);
+      if (n == null) return new JsonObject();
+      n = NodeUtil.unwrap(n);
+      String url = PropertyUtil.getString(n, "videourl", "").trim();
+      if (StringUtils.isBlank(url)) return new JsonObject();
       String json = getDaCastEmbedJson(url);
       if (!StringUtils.isBlank(json)) return parseJSON(json);
-      n = NodeUtil.unwrap(n);
       String embed = PropertyUtil.getString(n, "embed");
       Calendar saved = PropertyUtil.getDate(n, "embedsaved", Calendar.getInstance());
       Calendar cutoffdate = Calendar.getInstance();
       cutoffdate.add(Calendar.MONTH, -2);
       String savedurl = PropertyUtil.getString(n, "embedsavedurl", "");
-      if (StringUtils.isBlank(embed) || saved.before(cutoffdate) || !savedurl.equals(url)) {
+      if (StringUtils.isBlank(embed) || "null".equals(embed) || saved.before(cutoffdate) || !savedurl.equals(url)) {
         embed = (new GsonBuilder()).create().toJson(oEmbedAutodiscover(url));
-        if (!StringUtils.isBlank(embed) && embed != "null") {
+        if (!StringUtils.isBlank(embed) && !"null".equals(embed)) {
           Node sn = nodeInSystemContext(n);
           sn.setProperty("embed", embed);
           sn.setProperty("embedsaved", Calendar.getInstance());
@@ -1552,7 +1554,7 @@ public final class GatoUtils {
       return parseJSON(embed);
     } catch (Exception e) {
       e.printStackTrace();
-      return null;
+      return new JsonObject();
     }
   }
 
