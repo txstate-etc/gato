@@ -3,7 +3,7 @@
 [#if (ctx.cardindex!0) % 2 == 1][#assign indexclass = indexclass + ' halves-edge'][/#if]
 [#if (ctx.cardindex!0) % 3 == 2][#assign indexclass = indexclass + ' thirds-edge'][/#if]
 [#if (ctx.cardindex!0) % 4 == 3][#assign indexclass = indexclass + ' fourths-edge'][/#if]
-[#assign oembed = gf.oEmbedCached(content, content.videourl)]
+[#assign oembed = gf.oEmbedCached(content)]
 <div class="gato-card ${content.videourl?has_content?string('gato-card-video','gato-card-image')} ${gf.jsonGetString(oembed, 'provider_name')?lower_case} eq-parent ${ctx.cardsize!} ${content.color!'color1'}${indexclass}" data-tags="${gf.toJSON(gf.getTags(content))?html}">
   [#if content.link?has_content]
     <a class="gato-card-image-link" href="${gf.filterUrl(content.link!)}">
