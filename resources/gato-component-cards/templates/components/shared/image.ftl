@@ -3,8 +3,8 @@
 [#if (ctx.cardindex!0) % 2 == 1][#assign indexclass = indexclass + ' halves-edge'][/#if]
 [#if (ctx.cardindex!0) % 3 == 2][#assign indexclass = indexclass + ' thirds-edge'][/#if]
 [#if (ctx.cardindex!0) % 4 == 3][#assign indexclass = indexclass + ' fourths-edge'][/#if]
-[#assign oembed = gf.oEmbedCached(content)]
-<div class="gato-card ${content.videourl?has_content?string('gato-card-video','gato-card-image')} ${gf.jsonGetString(oembed, 'provider_name')?lower_case} eq-parent ${ctx.cardsize!} ${content.color!'color1'}${indexclass}" data-tags="${gf.toJSON(gf.getTags(content))?html}">
+[#assign oembed = gf.oEmbedCached(content)!]
+<div class="gato-card ${content.videourl?has_content?string('gato-card-video','gato-card-image')} ${oembed?has_content?then(gf.jsonGetString(oembed, 'provider_name')?lower_case, '')} eq-parent ${ctx.cardsize!} ${content.color!'color1'}${indexclass}" data-tags="${gf.toJSON(gf.getTags(content))?html}">
   [#if content.link?has_content]
     <a class="gato-card-image-link" href="${gf.filterUrl(content.link!)}">
   [/#if]
@@ -29,7 +29,7 @@
         <img src="${gf.getImgDefault(content.image)}" sizes="${ctx.sizes}"
           alt="${content.alttext!}" srcset="${gf.getSrcSet(content.image)}"
           width="${gf.getImgWidth(content.image)?c}" height="${gf.getImgHeight(content.image)?c}"/>
-      [#elseif gf.jsonGetString(oembed, 'thumbnail_url')?has_content]
+      [#elseif oembed?has_content && gf.jsonGetString(oembed, 'thumbnail_url')?has_content]
         <img src="${gf.getImg(gf.jsonGetString(oembed, 'thumbnail_url'), 1280, 720, true, false, 0, 0, 0, 0)}" alt="${content.alttext!}" class="oembed_image"/>
       [#else]
         <img src="${gf.resourcePath()}/gato-component-cards/images/video-default.png" class="default"
@@ -37,7 +37,7 @@
       [/#if]
       [#if content.videourl?has_content]
         <a href="${content.videourl}" class="feature-play-button"
-        data-embed="${gf.jsonGetString(oembed, 'html')?html}">
+        [#if oembed?has_content]data-embed="${gf.jsonGetString(oembed, 'html')?html}"[/#if]>
           <i class="fa fa-play" aria-hidden="true"></i>
           <span class="visuallyhidden">Play Video</span>
         </a>
