@@ -487,41 +487,40 @@ jQuery(document).ready(function($) {
   }
 
   var groupListItemsByHeader = function() {
-    var html = "";
+    if ($('#result-list .alpha-header').length > 0) return
+    var html = $('<div>')
     var activeAnchors = [];
     var fullList = $('#result-list ul.results');
     var firstItem = $('.filtered-results .listitem').first();
     var firstItemText = firstItem.find("*[data-alpha='true']").text().trim();
     var currentLetter = firstItemText.charAt().toUpperCase();
     activeAnchors.push(currentLetter);
-    html += '<a id="anchor-' + currentLetter + '" class="alpha-header" aria-hidden="true">'+ currentLetter +'</a>';
-    html += '<ul class="results">';
+    html.append('<a id="anchor-' + currentLetter + '" class="alpha-header" aria-hidden="true">'+ currentLetter +'</a>');
+    var currentAlphaList = $('<ul class="results">').appendTo(html);
     fullList.children('li').each(function(index, item) {
       var text = $(item).find("*[data-alpha='true']").text().trim().toUpperCase();
       var firstLetter = text.charAt();
       if (firstLetter != currentLetter) {
-        html += '</ul>';
         currentLetter = firstLetter;
         activeAnchors.push(currentLetter);
-        html += '<a id="anchor-' + currentLetter + '"class="alpha-header">'+ currentLetter +'</a>';
-        html += '<ul class="results">';
+        html.append('<a id="anchor-' + currentLetter + '"class="alpha-header">'+ currentLetter +'</a>');
+        currentAlphaList = $('<ul class="results">').appendTo(html);
       }
-      html += $(item).prop('outerHTML');
-    })
-    html += '</ul>';
-    $('#result-list').html(html);
+      $(item).detach().appendTo(currentAlphaList)
+    });
+    fullList.replaceWith(html)
     buildAlphaAnchors(activeAnchors);
     addMoreContentEventHandlers();
   }
 
   var removeAlphaHeaders = function() {
-    var html = '<ul class="results">';
+    var html = $('<ul class="results">');
     var results = $('#result-list .result');
     results.each(function(index, item) {
-      html +=  $(item).prop('outerHTML');
+      $(item).detach().appendTo(html)
     })
-    html += '</ul>';
-    $('#result-list').html(html);
+    $('#result-list').html("")
+    html.appendTo($('#result-list'));
     addMoreContentEventHandlers();
     //remove anchor letter links
     $('.alphabet-anchors').html("")

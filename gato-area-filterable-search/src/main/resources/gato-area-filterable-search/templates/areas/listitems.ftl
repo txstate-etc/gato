@@ -23,7 +23,7 @@
       <li class="result">[@cms.component content=component/]</li>
     [/#list]
     [#if cmsfn.isEditMode()]
-    <li><div class='fs-${ctx.itemLabelClass!"item"}-add' cms:add="box"></div></li>
+    <li class="result additem"><div class='fs-${ctx.itemLabelClass!"item"}-add' cms:add="box"></div></li>
     [/#if]
     </ul>
   </div>

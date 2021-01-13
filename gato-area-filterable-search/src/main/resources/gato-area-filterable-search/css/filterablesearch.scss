@@ -377,6 +377,9 @@ $filterable-search-header-font: serif !default;
           }
           &.has-background {
             background-color: $filterable-search-results-bg-color;
+            &.additem {
+              background-color: transparent;
+            }
           }
         }
         &:last-child {
