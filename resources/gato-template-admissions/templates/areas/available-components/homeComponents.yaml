@@ -33,6 +33,8 @@ styledlist:
   id: gato-component-patterns:components/styledlist
 flexible:
   id: gato-component-patterns:components/flexible
+announcementbanner:
+  id: gato-component-patterns:components/announcementbanner
 
 #sections
 
