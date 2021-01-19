@@ -4,7 +4,7 @@ $button-padding: 1rem 2rem;
   box-shadow: inset 0 -2px 0 0 $color;
 }
 
-.mf-button-container {
+.mf-button-container, .button-wrapper.classic {
   a.button, div.button {
     padding: $button-padding;
     border-width: 1px;
@@ -185,5 +185,63 @@ $button-padding: 1rem 2rem;
   }
   &.center {
     text-align: center;
+  }
+}
+
+// adjustments for 2015 buttons that end up in calico templates
+// because editors switch the template on a 2015 page
+div.button-wrapper.classic {
+  a.button {
+    &.gradient, &.three-d {
+      box-shadow: none;
+      background-image: none;
+      transition: all 0.2s ease;
+      &:hover {
+        background-image: none;
+        box-shadow: none;
+      }
+      &:active {
+        top: 0;
+      }
+      &.color1 {
+        border-color: $mc1-bg;
+        background-color: $mc1-bg;
+      }
+      &.color2 {
+        border-color: $mc2-bg;
+        background-color: $mc2-bg;
+      }
+      &.color3 {
+        border-color: $mc3-bg;
+        background-color: $mc3-bg;
+      }
+      &.color4 {
+        border-color: $mc4-bg;
+        background-color: $mc4-bg;
+      }
+      &.color5 {
+        border-color: $mc5-bg;
+        background-color: $mc5-bg;
+      }
+      &.color6 {
+        border-color: $mc6-bg;
+        background-color: $mc6-bg;
+      }
+      &.color7 {
+        border-color: $mc7-bg;
+        background-color: $mc7-bg;
+      }
+    }
+    &.rollover {
+      &.large span {
+        line-height: 2rem;
+      }
+      span {
+        font-size: 1.5rem;
+      }
+      &:hover {
+        box-shadow: none;
+      }
+    }
   }
 }
