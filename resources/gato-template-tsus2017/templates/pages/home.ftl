@@ -11,7 +11,7 @@
     <body class="${cmsfn.isEditMode()?string('admin','')}">
 
         [#include "includes/header.ftl"]
-        <div class="contentcolumn">
+        <main class="contentcolumn">
           [#assign hideSidebar = true]
           [@headline hideSidebar true/]
             <!-- slideshow -->
@@ -27,7 +27,7 @@
                     [@cms.area name="tsuslogos" /]
                   </div>
             </div>
-        </div>
+        </main>
         [#include "includes/footer.ftl"]
         [@cssjsmodals /]
         [@sidebarmodal skipsocial=true /]

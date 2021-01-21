@@ -22,6 +22,12 @@ $content-width-lg: 1000px !default;
   position: relative;
 }
 
+main {
+  img {
+    height: auto;
+  }
+}
+
 .contentcolumn {
   @media (max-width: $sidebar-moves-below-point) {
     min-height: 0px !important;
