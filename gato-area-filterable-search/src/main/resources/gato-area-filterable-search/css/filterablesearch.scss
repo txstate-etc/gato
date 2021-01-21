@@ -272,7 +272,7 @@ $filterable-search-header-font: serif !default;
         margin-bottom: 4rem;
         .alphabet-anchors {
           display: flex;
-          overflow: scroll;
+          overflow: auto;
           justify-content: space-between;
           padding-bottom: 20px;
           list-style: none;

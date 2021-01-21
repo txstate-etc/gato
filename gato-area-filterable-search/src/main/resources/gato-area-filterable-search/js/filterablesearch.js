@@ -562,7 +562,7 @@ jQuery(document).ready(function($) {
   var toggleArrows = function() {
     var anchorContainer = $('.anchor-link-container');
     var alphabetLinks = $('.alphabet-anchors');
-    if (alphabetLinks.scrollLeft() == (alphabetLinks[0].scrollWidth - anchorContainer.width()))
+    if (Math.abs(alphabetLinks.scrollLeft() - (alphabetLinks[0].scrollWidth - anchorContainer.width())) < 0.5)
       $('.alpha-arrow.right').hide();
     else {
       $('.alpha-arrow.right').show();
