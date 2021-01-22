@@ -29,7 +29,20 @@ form:
         - name: filtersOpen
           class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
           label: Filter Display
-          buttonLabel: Open filters on page load
+          buttonLabel: Display Filter/Search toolbar by default
+        - name: defaultView
+          label: Default View
+          class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
+          multiselect: false
+          sortOptions: false
+          options:
+            - name: list
+              label: List View
+              value: list
+            - name: grid
+              label: Grid View
+              value: grid
+              selected: true
         - name: separator
           label: ''
           class: info.magnolia.ui.form.field.definition.StaticFieldDefinition

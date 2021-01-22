@@ -29,5 +29,21 @@ form:
         - name: filtersOpen
           class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
           label: Filter Display
-          buttonLabel: Open filters on page load
+          buttonLabel: Display Filter/Search toolbar by default
+        - name: defaultView
+          label: Default View
+          class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
+          multiselect: false
+          sortOptions: false
+          options:
+            - name: auto
+              label: Auto
+              value: auto
+              selected: true
+            - name: list
+              label: List View
+              value: list
+            - name: grid
+              label: Grid View
+              value: grid
 actions: !include /gato-template/dialogs/common/actions-block.yaml
