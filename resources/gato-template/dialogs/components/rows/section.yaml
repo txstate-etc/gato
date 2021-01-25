@@ -21,10 +21,10 @@ form:
           sortOptions: false
           options:
             - name: left
+              selected: true
               label: Left
             - name: center
               label: Center
-              selected: true
         - name: text
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           required: false

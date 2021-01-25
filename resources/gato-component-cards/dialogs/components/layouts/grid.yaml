@@ -18,9 +18,9 @@ form:
           options:
             - name: left
               label: Left
+              selected: true
             - name: center
               label: Center
-              selected: true
         - name: cardsize
           class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
           multiselect: false

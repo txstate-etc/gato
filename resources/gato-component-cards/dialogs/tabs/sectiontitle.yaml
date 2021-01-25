@@ -17,9 +17,9 @@
   options:
     - name: left
       label: Left
+      selected: true
     - name: center
       label: Center
-      selected: true
 - name: stylesheet
   label: ""
   class: edu.txstate.its.gato.vaadin.GatoCssIncludeDefinition

@@ -228,6 +228,7 @@ public class GatoCreateComponentAction extends AbstractAction<GatoCreateComponen
               Node layoutsAreaNode = NodeUtil.createPath(megasectionNode, "layouts", NodeTypes.Area.NAME);
               Node layout = NodeUtil.createPath(layoutsAreaNode, "0", NodeTypes.Component.NAME);
               PropertyUtil.setProperty(layout, "mgnl:template", megasections.get(componentId));
+              PropertyUtil.setProperty(layout, "titleAlign", "left");
               Node updatedNode = item.applyChanges();
               updatedNode.getSession().save();
             } catch(Exception e) {
