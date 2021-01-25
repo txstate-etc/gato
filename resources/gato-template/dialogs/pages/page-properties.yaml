@@ -96,10 +96,8 @@ form:
           label: Alt. Text*
           description: If left blank, above image will NOT be used.
         - name: socialdescription
-          class: info.magnolia.ui.form.field.definition.RichTextFieldDefinition
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Description
-          source: true
-          height: 400
-          configJsFile: /.resources/gato-template/js/richeditor/minimal-config.js
+          rows: 4
 actions: !include /gato-template/dialogs/common/actions-block.yaml
 label: Page Properties
