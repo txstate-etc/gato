@@ -17,7 +17,6 @@
     [#assign bottom = (content.squarecropbottom!0.0)?number]
     [#assign aspectratio = 1]
   [/#if]
-  [#assign aspectratio = 1]
   [#assign img = gf.getImgDefault(content.image, left, right, top, bottom, aspectratio)]
   [#assign mobileImg = gf.getImgDefault(content.image, (content.fullcropleft!0.0)?number, (content.fullcropright!0.0)?number, (content.fullcroptop!0.0)?number, (content.fullcropbottom!0.0)?number, 1.777)]
 [/#if]
