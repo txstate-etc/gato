@@ -1,0 +1,14 @@
+!inherit:gato-template:pages/page-properties
+form:
+  tabs:
+    - name: tabGeneral
+      fields:
+        - name: addTitleSeparator
+          class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+          label: ""
+          buttonLabel: Horizontal Separator Below Title
+          defaultValue: true
+        - name: hideTitle
+          class: info.magnolia.ui.form.field.definition.HiddenFieldDefinition
+          defaultValue: false
+          type: Boolean

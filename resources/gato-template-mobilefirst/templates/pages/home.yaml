@@ -3,7 +3,7 @@ renderType: site
 visible: true
 type: calicofeature
 title: Calico Feature #Formerly "Mobile First Home"
-dialog: gato-template-mobilefirst:pages/page-properties
+dialog: gato-template-mobilefirst:pages/feature-page-properties
 areas: !include /gato-template-mobilefirst/templates/includes/areas.yaml
 parameters:
   isFeatureTemplate: true
