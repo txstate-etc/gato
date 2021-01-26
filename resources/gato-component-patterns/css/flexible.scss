@@ -64,28 +64,45 @@
           @media (max-width:$sm-breakpoint) {
             padding: 0 2rem;
           }
-          .mobile-textlink-image {
-            display: none;
-            height: 100%;
-            width: auto;
-            min-height: 300px;
-            [data-eq~='800px'] & {
-              display: block;
-              order: 1;
-            }
-          }
           
-          .textlink-image, .mobile-textlink-image {
+          .textlink-image {
             background-repeat: no-repeat;
             background-position: 50% 50%;
             background-size: cover;
+            &.widecrop, &.fullcrop {
+              display: none;
+            }
+            @media (max-width:$sm-breakpoint) {
+              height: 100%;
+              width: auto;
+              min-height: 300px;
+              &.squarecrop {
+                display: none;
+              }
+              &.fullcrop {
+                display: block;
+              }
+            }
+            @media (max-width:$xs-breakpoint) {
+              &.fullcrop {
+                display: none;
+              }
+              &.widecrop {
+                display: block;
+              }
+            }
+            @media (max-width:$mc-breakpoint) {
+              &.widecrop {
+                display: none;
+              }
+              &.squarecrop {
+                display: block;
+              }
+            }
           }
           
           .textlink-image {
             flex-basis: calc(100% / 3);
-            @media (max-width:$sm-breakpoint) {
-              display: none;
-            }
           }
           .text-link {
             flex-basis: calc((100% / 3) * 2);
@@ -96,6 +113,39 @@
           &.wide {
             .textlink-image {
               flex-basis: 50%;
+              &.squarecrop {
+                display: none;
+              }
+              &.widecrop {
+                display: block;
+              }
+              &.fullcrop {
+                display: none;
+              }
+              @media (max-width:$sm-breakpoint) {
+                &.widecrop {
+                  display: none;
+                }
+                &.fullcrop {
+                  display: block;
+                }
+              }
+              @media (max-width:$xs-breakpoint) {
+                &.fullcrop {
+                  display: none;
+                }
+                &.widecrop {
+                  display: block;
+                }
+              }
+              @media (max-width:$mc-breakpoint) {
+                &.widecrop {
+                  display: none;
+                }
+                &.squarecrop {
+                  display: block;
+                }
+              }
             }
             .text-link {
               flex-basis: 50%;

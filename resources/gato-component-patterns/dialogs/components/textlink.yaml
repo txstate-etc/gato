@@ -162,7 +162,7 @@ form:
                   loadScriptsInOrder: true
                   label: ''
                   parameters:
-                    aspect: 2.21
+                    aspect: 1.6
                     controlName: wide
                 - name: full
                   class: edu.txstate.its.gato.vaadin.ThumbnailSelectorFieldDefinition
@@ -186,7 +186,7 @@ form:
                   loadScriptsInOrder: true
                   label: ''
                   parameters:
-                    aspect: 3.37
+                    aspect: 2.3
                     controlName: full
         - name: stylesheet
           label: ""
