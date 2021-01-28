@@ -19,7 +19,7 @@ areas:
       thirds:
         id: gato-template-mobilefirst:components/rows-interior/thirds
       quarters:
-        id: gato-template-mobilefirst:components/rows-hointeriorme/quarters
+        id: gato-template-mobilefirst:components/rows-interior/quarters
       cardlayoutgrid:
         id: gato-component-cards:components/layouts/grid
 parameters:
