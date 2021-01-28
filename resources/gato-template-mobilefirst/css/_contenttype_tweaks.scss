@@ -230,6 +230,22 @@ h2.event-list-title {
   }
 }
 
+//rss
+.gato-rss-item.gato-accordion {
+  .gato-accordion-header {
+    font-family: $halis;
+    text-transform: uppercase;
+    font-size: 1.7rem;
+    line-height: 2.8rem;
+    font-weight: 600;
+  }
+  .gato-accordion-content {
+    .gato-rss-thumbnail img {
+      max-width: 100%;
+    }
+  }
+}
+
 //Article List
 .column_paragraph a.gato-articlelink-link {
   font-size: 1.6rem;

@@ -21,6 +21,8 @@ html:
   id: gato-template:components/html
 richeditor:
   id: gato-template:components/richeditor
+rss:
+  id: gato-component-rss:components/rss
 separator:
   id: gato-template:components/separator
 feature:
@@ -31,6 +33,8 @@ table:
   id: gato-template:components/table
 textimage:
   id: gato-template:components/textimage
+twitter:
+  id: gato-component-twitter:components/twitter
 videocard:
   id: gato-component-cards:components/regular/video
   
