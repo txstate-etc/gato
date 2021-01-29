@@ -45,15 +45,37 @@
       window.accordion.toggle($(this));
     });
 
-    $('#gato-accordion-expand-all').on('click', function(e) {
-      e.preventDefault();
-      window.accordion.show($('.gato-accordion-header'));
-    });
+    //expand/collapse all accordions on page
+    $('#gato-page-accordion-toggle').on('click', function(e) {
+      e.preventDefault()
+      if ($(this).hasClass('expanded')) {
+        $(this).removeClass('expanded')
+        $(this).text('Expand All Content')
+        window.accordion.hide($('.gato-accordion-header'))
+        $('.gato-accordion-toggle, .gato-faq-toggle').removeClass('expanded')
+        $('.gato-accordion-toggle, .gato-faq-toggle').find('.action').text('Expand')
+      } else {
+        $(this).addClass('expanded')
+        $(this).text('Collapse All Content')
+        window.accordion.show($('.gato-accordion-header'))
+        $('.gato-accordion-toggle, .gato-faq-toggle').addClass('expanded')
+        $('.gato-accordion-toggle, .gato-faq-toggle').find('.action').text('Collapse')
+      }
+    })
 
-    $('#gato-accordion-collapse-all').on('click', function(e) {
-      e.preventDefault();
-      window.accordion.hide($('.gato-accordion-header'));
-    });
+    $('.gato-accordion-toggle').on('click', function(e) {
+      e.preventDefault()
+      var items = $(this).closest('.accordion-controls').next()
+      if ($(this).hasClass('expanded')) {
+        $(this).removeClass('expanded')
+        $(this).find('.action').text('Expand')
+        window.accordion.hide(items.find('.gato-accordion-header'));
+      } else {
+        $(this).addClass('expanded')
+        $(this).find('.action').text('Collapse')
+        window.accordion.show(items.find('.gato-accordion-header'));
+      }
+    })
 
     // if the url contains an anchor that lives inside an faq, let's open the FAQ to that item
     if (document.location.hash.match(/^#[a-z][\w\-\:\.]*$/i)) {

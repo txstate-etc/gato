@@ -34,7 +34,15 @@
   [#if model.items?has_content]
     [#include "/gato-lib/templates/includes/accordion.ftl"]
   [/#if]
-
+  [#if content.displayType != "showTitleOnly"]
+    <div class="accordion-controls">
+      <a href="#" class="gato-accordion-toggle">
+        <span class="action">Expand</span>
+        <span class="visuallyhidden">RSS Feed Results</span>
+      </a>
+    </div>
+  [/#if]
+  <div class="gato-rss-items">
   [#list model.items as entry]
     [#assign entryDomId]r${gf.md5(entry.cleanGuid)[0..8]}[/#assign]
     <div class="gato-rss-item ${model.collapsible?string('gato-accordion', '')}"
@@ -81,5 +89,5 @@
       </div>
     </div>
   [/#list]
-
+  </div>
 [/#if]

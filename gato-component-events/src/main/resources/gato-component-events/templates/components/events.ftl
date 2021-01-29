@@ -41,7 +41,13 @@
 
     [/#list]
   [/#if]
-<div class="gato-events">
+  <div class="accordion-controls">
+    <a href="#" class="gato-accordion-toggle">
+      <span class="action">Expand</span>
+      <span class="visuallyhidden">Event List</span>
+    </a>
+  </div>
+  <div class="gato-events">
   [#list model.items as item]
     [#-- if content.hideRepeats is missing or false OR content.hideRepeats is true and this is the first/only recurrence of an event --]
     [#if (!content.hideRepeats?? || !content.hideRepeats) || (content.hideRepeats && recurrenceIdHash[item.eventId] == item.recurrenceId)]
@@ -141,7 +147,7 @@
       </div>
     [/#if]
   [/#list]
-</div>
+  </div>
 [#else]
 
   <div class="txst-events-empty">

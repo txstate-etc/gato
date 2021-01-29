@@ -1,17 +1,17 @@
 jQuery(document).ready(function($) {
-  $('.gato-faqitem-question, .gato-faq-group-title').click(function(e) {
-    e.preventDefault();
-    window.accordion.toggle($(this));
-  });
-
-  $('#gato-expand-all-faqs').click(function(e) {
-    e.preventDefault();
-    window.accordion.show($(':not(.shown) > .gato-faq-header'));
-  });
-  $('#gato-collapse-all-faqs').click(function(e) {
-    e.preventDefault();
-    window.accordion.hide($('.shown > .gato-faqitem-question'));
-  });
+  $('.gato-faq-toggle').on('click', function(e) {
+    e.preventDefault()
+    var faqs = $(this).closest('.gato-faq-expand-collapse').next()
+    if ($(this).hasClass('expanded')) {
+      $(this).removeClass('expanded')
+      $(this).find('.action').text('Expand')
+      window.accordion.hide(faqs.find('.shown > .gato-faqitem-question'));
+    } else {
+      $(this).addClass('expanded')
+      $(this).find('.action').text('Collapse')
+      window.accordion.show(faqs.find(':not(.shown) > .gato-faq-header'));
+    }
+  })
 
   // if the url contains an anchor that lives inside an faq, let's open the FAQ to that item
   if (document.location.hash.match(/^#[a-z][\w\-\:\.]*$/i)) {

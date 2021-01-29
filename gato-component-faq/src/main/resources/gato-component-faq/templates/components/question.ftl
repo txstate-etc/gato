@@ -1,7 +1,7 @@
 [#include "/gato-template/templates/includes/commonmacros.ftl"]
 [#assign depth = ctx.depth]
 <li class="gato-faqitem">
-  [@h2 offset=depth class='gato-faqitem-question gato-faq-header']
+  [@h2 offset=depth class='gato-faqitem-question gato-faq-header gato-accordion-header']
   <a href="#" aria-haspopup="true" aria-expanded="false" aria-controls="${gf.uuidToHtmlId(content.@id)}">
     <i class="fa fa-caret-right" aria-hidden="true"></i>
     ${content.question}
