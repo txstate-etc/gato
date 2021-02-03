@@ -25,6 +25,12 @@ calico-hero:
   availableComponents:
     hero:
       id: gato-template-mobilefirst:components/calico-hero
+bannerAnnouncement:
+  type: single
+  title: Banner Announcement
+  availableComponents:
+    announcement:
+      id: gato-template-mobilefirst:components/announcement
 organization-info:
   type: single
   title: Organization Information

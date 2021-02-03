@@ -8,3 +8,4 @@ areas:
       !include /gato-template-admissions/templates/areas/available-components/homeComponents.yaml
 parameters:
   sortOrder: 310
+  isAdmissionsHome: true

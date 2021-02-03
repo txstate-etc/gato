@@ -35,8 +35,23 @@
     [#include "includes/header.ftl"]
     [#include "includes/menu.ftl"]
     <div class="page-container" id="panel">
-      [@cms.area name="calico-hero" content=gf.getOrCreateArea(page, 'calico-hero')/]
+      <div class="banner-section">
+        [@cms.area name="calico-hero" content=gf.getOrCreateArea(page, 'calico-hero')/]
+        [#assign hero = gf.singleComponent(page, 'calico-hero')!]
+        [#assign showAnnouncement = false]
+        [#if def.parameters.isAdmissionsHome!false]
+          [#if gf.isEmptyString(hero) || hero.size == "large"]
+            [#assign showAnnouncement = true]
+            [@cms.area name="bannerAnnouncement" content=gf.getOrCreateArea(page, 'bannerAnnouncement')/]
+          [/#if]
+        [/#if]
+      </div>
       [@cms.area name="organization-info" content=gf.getOrCreateArea(homepage, 'organization-info') editable=isHomePage /]
+      [#if showAnnouncement]
+        <div class="mobile-announcement">
+          [@cms.area name="bannerAnnouncement" content=gf.getOrCreateArea(page, 'bannerAnnouncement')/]
+        </div>
+      [/#if]
       [#if !(def.parameters.isFeatureTemplate!false) && !(def.parameters.isPassthroughTemplate!false)]
       <div class="gato-section-full">
         <div class="gato-section-centered">

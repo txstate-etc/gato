@@ -13,5 +13,4 @@ form:
           appName: pages
           identifierToPathConverter:
             class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter              
-
 actions: !include /gato-template/dialogs/common/actions-block.yaml
