@@ -62,10 +62,10 @@ form:
             - name: left
               label: Left align text
               value: text-left
+              selected: true
             - name: center
               label: Center align text
               value: text-center
-              selected: true
         - name: buttons
           class: edu.txstate.its.gato.vaadin.GatoMultiValueFieldDefinition
           transformerClass: info.magnolia.ui.form.field.transformer.multi.MultiValueSubChildrenNodePropertiesTransformer
