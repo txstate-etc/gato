@@ -282,6 +282,11 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       .addTask(new MigrateToMegasectionsTask())
       .addTasks(installOrUpdateTasks())
     );
+
+    register(DeltaBuilder.update("1.3.1", "")
+      .addTask(new SetPropertyTask("Turn off usage metrics", RepositoryConstants.CONFIG, "/server", "usageMetrics", Boolean.FALSE ))
+      .addTasks(installOrUpdateTasks())
+      );
   }
 
   protected List<Task> installOrUpdateTasks() {
