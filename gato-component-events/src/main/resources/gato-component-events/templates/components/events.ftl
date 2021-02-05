@@ -69,6 +69,16 @@
               <time class="dt-start dtstart">
                 ${item.allDayDate}
               </time>
+              [#assign actualEndDate = item.endDate]
+              [#if item.endDate?time?string['HH:mm'] == "00:00"]
+                [#assign actualEndDate = model.fixAllDayEventEndDate(item.endDate)]
+              [/#if]
+              [#if item.startDate?date?string != actualEndDate?date?string]
+                &ndash;
+                <time class="dt-end dtend">
+                  ${abbrMonth(actualEndDate?string('MMMM'))} ${actualEndDate?string('dd')}
+                </time>
+              [/#if]
             </div>
           [#else]
             <div class="txst-eventdetail-dates">
