@@ -614,38 +614,40 @@ function rgb2hex(rgb) {
 }
 
 function form_fixcolumns() {
-  $$('.txst-form-selectiongroup').each(function(selectiongroup){
-    var availableInnerWidth = selectiongroup.getWidth();
-
+  jQuery('.txst-form-selectiongroup').each(function() {
+    var selectiongroup = jQuery(this)
+    var availableInnerWidth = selectiongroup.width()
+    
     var maxItemOuterWidth = 0;
-    selectiongroup.select('.txst-form-selection-item').each(function(item){
+    selectiongroup.find('.txst-form-selection-item').each(function() {
+      var item = jQuery(this)
       // Setting the element to inline briefly lets me get the width of what is inside, rather than the space it could fill up in the parent
-      item.setStyle({display:'inline', width: 'auto'});
-      var itemOuterWidth = item.getWidth();
-      item.setStyle({display:'block'});
-      if ( maxItemOuterWidth < itemOuterWidth ) {
-        maxItemOuterWidth = itemOuterWidth;
+      item.css('display', 'inline').css('width', 'auto')
+      var itemOuterWidth = item.width();
+      item.css('display', 'block')
+      if(maxItemOuterWidth < itemOuterWidth) {
+        maxItemOuterWidth = itemOuterWidth
       }
-    });
+    })
 
     var numberOfColumns = 1;
-    if ( (maxItemOuterWidth+10)*3 < availableInnerWidth ) {
-      var numberOfColumns = 3;
-    } else if ( (maxItemOuterWidth+10)*2 < availableInnerWidth ) {
-      var numberOfColumns = 2;
+    if ( (maxItemOuterWidth+10)*3 < availableInnerWidth) {
+      numberOfColumns = 3;
+    } else if ( (maxItemOuterWidth+10) * 2 < availableInnerWidth ) {
+      numberOfColumns = 2;
     }
 
-    selectiongroup.select('.txst-form-selection-item').each(function(item){
-      item.setStyle({
-        width: parseInt((availableInnerWidth-(numberOfColumns*10))/numberOfColumns, 10) + "px",
-        float: 'left',
-        marginTop: '10px'
-      });
-    });
+    selectiongroup.find('.txst-form-selection-item').each(function() {
+      var item = jQuery(this)
+      var width = parseInt((availableInnerWidth-(numberOfColumns*10))/numberOfColumns, 10) + "px"
+      item.css({ 'width': width, 'float': 'left', 'marginTop': '10px' })
+    })
 
-    selectiongroup.insert({bottom: new Element("div",{style:"clear:both"})});
-  });
+    selectiongroup.append('<div style="clear:both"></div>')
+  })
+  
 }
+
 
 //update character counter for fields that have a maximum length defined
 jQuery(document).ready(function($) {
