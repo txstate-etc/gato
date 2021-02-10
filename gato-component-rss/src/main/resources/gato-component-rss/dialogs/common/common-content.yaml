@@ -43,6 +43,7 @@
   - name: startCollapsed
     class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
     label: Start Collapsed
+    styleName: collapsedfield
     buttonLabel: Collapse summaries/full contents on initial page load. Not applicable to Title Only feeds.
   - name: hideFeedInformation
     class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
@@ -66,3 +67,7 @@
     label: Show Thumbnails
     description: Depends on media:thumbnail tags in the feed. This is what WordPress does.
     buttonLabel: Will display thumbnail images for each item.
+  - name: stylesheet
+    label: ""
+    class: edu.txstate.its.gato.vaadin.GatoCssIncludeDefinition
+    styles: [gato-component-rss/dialogs/css/rss.css]
