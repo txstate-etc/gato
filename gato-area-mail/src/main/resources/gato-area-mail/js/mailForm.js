@@ -647,24 +647,20 @@ function form_fixcolumns() {
   });
 }
 
-//Event.observe(document,'dom:loaded', form_fixcolumns);
-//Event.observe(window,orientationChangeEventName, form_fixcolumns);
-
 //update character counter for fields that have a maximum length defined
-Event.observe(document, 'dom:loaded', function(){
-  $$('textarea.limited, input.limited').invoke('observe', 'keyup', function(){
+jQuery(document).ready(function($) {
+  $('textarea.limited, input.limited').on('keyup', function() {
     var length = this.value.length;
-    var charcounterdiv = $(this).previous('.charcounter');
-    var maxlength = charcounterdiv.down('.maxchars').textContent;
-    charcounterdiv.down('.charsentered').textContent = length;
-    if(length > maxlength){
-      charcounterdiv.setStyle({color: '#b30e1b', fontWeight: 'bold'});
-    }
-    else{
-      charcounterdiv.setStyle({color: '#222', fontWeight: 'normal'});
+    var charcounterdiv = $(this).prev('.charcounter');
+    var maxlength = charcounterdiv.find('.maxchars').text();
+    charcounterdiv.find('.charsentered').text(length);
+    if (length > maxlength) {
+      charcounterdiv.css('color', '#b30e1b').css('font-weight', 'bold');
+    } else {
+      charcounterdiv.css('color', '#222').css('font-weight', 'normal');
     }
   });
-});
+})
 
 //make links in the mail template open in new tab or window
 jQuery(document).ready(function($){
