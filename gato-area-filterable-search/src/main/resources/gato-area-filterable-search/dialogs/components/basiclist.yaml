@@ -37,7 +37,7 @@ form:
           sortOptions: false
           options:
             - name: auto
-              label: Auto
+              label: Auto (Based on the number of items with images)
               value: auto
               selected: true
             - name: list
