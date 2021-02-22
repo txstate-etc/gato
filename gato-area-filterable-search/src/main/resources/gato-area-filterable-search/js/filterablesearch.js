@@ -434,8 +434,11 @@ jQuery(document).ready(function($) {
     var filterableSearch = $('.filterable-search')
     filterableSearch.removeClass('list-view');
     filterableSearch.addClass('grid-view');
-    $('.btn-grid-view').prop('disabled', true);
     $('.btn-list-view').prop('disabled', false);
+    setTimeout(function() {
+      $('.btn-list-view').focus();
+      $('.btn-grid-view').prop('disabled', true);
+    }, 50)
     setImageContainerSize()
   });
 
@@ -443,8 +446,11 @@ jQuery(document).ready(function($) {
     var filterableSearch = $('.filterable-search')
     filterableSearch.removeClass('grid-view');
     filterableSearch.addClass('list-view');
-    $('.btn-list-view').prop('disabled', true);
     $('.btn-grid-view').prop('disabled', false);
+    setTimeout(function() {
+      $('.btn-grid-view').focus();
+      $('.btn-list-view').prop('disabled', true);
+    }, 50)
     setImageContainerSize()
   })
 
