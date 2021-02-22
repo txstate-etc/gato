@@ -3,8 +3,8 @@ function txstValidate(type, elem, icon) {
   this.type = type;
   this.elem = elem;
   this.icon = icon;
-  this.fromDate = this.parse(elem.valid_fromDate);
-  this.toDate = this.parse(elem.valid_toDate);
+  this.fromDate = this.parse(elem.prop('valid_fromDate'));
+  this.toDate = this.parse(elem.prop('valid_toDate'));
   this.isSpinning = false;
 
   var spinnerOptions = {
@@ -29,23 +29,23 @@ function txstValidate(type, elem, icon) {
   // watch for keyup events, but ignore special keys like Control
   // this array MUST be ordered
   var ignorekeys = [9, 16, 17, 18, 20, 27, 33, 34, 36, 37, 38, 39, 40, 45, 91, 92, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 144, 145, 224];
-  elem.observe('keyup', function(e) {
+  elem.on('keyup', function(e) {
     if (e.keyCode == 13) this.registerChange(true);
     else if (ignorekeys.binarySearch(e.keyCode) == -1) this.registerChange();
   }.bind(this));
-  elem.observe('focus', function(e) {
+  elem.on('focus', function(e) {
     this.registerChange(true);
   }.bind(this));
-  elem.observe('blur', function(e) {
+  elem.on('blur', function(e) {
     this.registerChange(true);
   }.bind(this));
-  elem.observe('change', function(e) {
+  elem.on('change', function(e) {
     this.registerChange(true);
   }.bind(this));
   if (this.type == 'file') {
-    icon.observe('click', function() {
-      if (this.icon.hasClassName('txst-form-fail')) {
-        this.elem.value = '';
+    icon.on('click', function() {
+      if (this.icon.hasClass('txst-form-fail')) {
+        this.elem.val('')
         this.registerChange(true);
       }
     }.bind(this));
@@ -54,7 +54,7 @@ function txstValidate(type, elem, icon) {
 
 txstValidate.prototype.registerChange = function(immediate) {
   clearTimeout(this.progressTimer);
-  if (!this.elem.value) {
+  if (!this.elem.val().length) {
     this.hide();
     return;
   }
@@ -79,7 +79,7 @@ txstValidate.prototype.showPassOrFail = function() {
 };
 
 txstValidate.prototype.evaluate = function() {
-  var val = this.elem.value;
+  var val = this.elem.val();
 
   // this is not a mandatory check, so we'll pass any empty values
   if (!val) return true;
@@ -98,19 +98,19 @@ txstValidate.prototype.evaluate = function() {
   if (type == 'phone') return val.replace(/\D/g, '').match(/^\d{10}$/);
   if (type == 'netid' || type == 'anumber') return this.checkNetIdOrANumber(val);
   if (type == 'regex') {
-    var re = new RegExp(this.elem.valid_regex, 'i');
+    var re = new RegExp(this.elem.prop('valid_regex'), 'i');
     return val.strip().match(re);
   }
-  if (type == 'file' && this.elem.allowableFileExts.length) {
-    var re = new RegExp('\\.(' + this.elem.allowableFileExts.join('|') + ')$', 'i');
+  if (type == 'file' && this.elem.prop('allowableFileExts').length) {
+    var re = new RegExp('\\.(' + this.elem.prop('allowableFileExts').join('|') + ')$', 'i');
     return val.match(re);
   }
-  if(type == 'maxlength') return val.length <= this.elem.maxchars;
+  if(type == 'maxlength') return val.length <= this.elem.data('maxchars');
   return true;
 };
 
 txstValidate.prototype.getErrorMsg = function() {
-  var val = this.elem.value;
+  var val = this.elem.val();
   var type = this.type;
   if (type == 'date') {
     var msg = 'must be a valid date';
@@ -132,40 +132,38 @@ txstValidate.prototype.getErrorMsg = function() {
   if (type == 'phone') return 'must be a 10 digit phone number';
   if (type == 'netid') return 'must be a valid TX State Net ID';
   if (type == 'anumber') return 'must be a valid Student ID';
-  if (type == 'maxlength') return 'must be ' + this.elem.maxchars + ' characters or less';
+  if (type == 'maxlength') return 'must be ' + this.elem.data('maxchars') + ' characters or less';
   if (type == 'regex') {
     if (this.elem.valid_msg) return this.elem.valid_msg;
     else return 'does not appear to be valid';
   }
-  if (type == 'file') return 'allowable extensions: ' + this.elem.allowableFileExts.join(', ');
+  if (type == 'file') return 'allowable extensions: ' + this.elem.prop('allowableFileExts').join(', ');
   return '';
 };
 
 txstValidate.prototype.hide = function() {
-  this.icon.removeClassName('txst-form-pass');
-  this.icon.removeClassName('txst-form-fail');
-  this.icon.removeClassName('txst-form-prog');
-  this.icon.innerHTML = '&nbsp;';
+  this.icon.removeClass('txst-form-pass');
+  this.icon.removeClass('txst-form-fail');
+  this.icon.removeClass('txst-form-prog');
+  this.icon.text('&nbsp;');
   this.spinner.stop();
   this.isSpinning = false;
 };
 
 txstValidate.prototype.showProgress = function() {
-  this.icon.removeClassName('txst-form-pass');
-  this.icon.removeClassName('txst-form-fail');
-  this.icon.addClassName('txst-form-prog');
+  this.icon.removeClass('txst-form-pass');
+  this.icon.removeClass('txst-form-fail');
+  this.icon.addClass('txst-form-prog');
 
   if (!this.isSpinning) {
     this.spinner.spin();
     this.isSpinning = true;
   }
 
-  this.icon.up('.valid-icon-cont').insert({
-    top: this.spinner.el
-  });
+  this.icon.closest('.valid-icon-cont').append(this.spinner.el)
 
   //Need to move spinner down if the error message text gets wrapped.
-  var valTextHeight = this.icon.getHeight();
+  var valTextHeight = this.icon.height();
   if (valTextHeight > 18) {
     var offset = (valTextHeight - 18) / 2;
     offset += 8;
@@ -176,20 +174,20 @@ txstValidate.prototype.showProgress = function() {
 };
 
 txstValidate.prototype.showPassed = function() {
-  this.icon.removeClassName('txst-form-fail');
-  this.icon.removeClassName('txst-form-prog');
-  this.icon.setAttribute('aria-hidden', 'true');
-  this.icon.addClassName('txst-form-pass');
+  this.icon.removeClass('txst-form-fail');
+  this.icon.removeClass('txst-form-prog');
+  this.icon.attr('aria-hidden', 'true');
+  this.icon.addClass('txst-form-pass');
   if (this.curMessage) {
-    this.icon.innerHTML = this.curMessage;
+    this.icon.text(this.curMessage);
   } else {
-    this.icon.innerHTML = '&nbsp;';
+    this.icon.text('')
   }
-  this.elem.setAttribute('aria-invalid', 'false');
-  if (this.elem.getAttribute('data-help')) {
-    this.elem.setAttribute('aria-describedby', this.elem.getAttribute('data-help'));
+  this.elem.attr('aria-invalid', 'false');
+  if (this.elem.attr('data-help')) {
+    this.elem.attr('aria-describedby', this.elem.attr('data-help'));
   } else {
-    this.elem.removeAttribute('aria-describedby');
+    this.elem.removeAttr('aria-describedby');
   }
   
   this.spinner.stop();
@@ -197,17 +195,17 @@ txstValidate.prototype.showPassed = function() {
 };
 
 txstValidate.prototype.showFailed = function() {
-  this.icon.removeClassName('txst-form-prog');
-  this.icon.removeClassName('txst-form-pass');
-  this.icon.addClassName('txst-form-fail');
-  this.icon.setAttribute('aria-hidden', 'false');
-  this.icon.innerHTML = this.getErrorMsg();
-  this.elem.setAttribute('aria-invalid', 'true');
-  var describedby = this.elem.getAttribute('data-aria-describedby');
-  if (this.elem.getAttribute('data-help')) {
-    describedby = describedby + " " + this.elem.getAttribute('data-help')
+  this.icon.removeClass('txst-form-prog');
+  this.icon.removeClass('txst-form-pass');
+  this.icon.addClass('txst-form-fail');
+  this.icon.attr('aria-hidden', 'false');
+  this.icon.text(this.getErrorMsg());
+  this.elem.attr('aria-invalid', 'true');
+  var describedby = this.elem.attr('data-aria-describedby');
+  if (this.elem.attr('data-help')) {
+    describedby = describedby + " " + this.elem.attr('data-help')
   }
-  this.elem.setAttribute('aria-describedby', describedby);
+  this.elem.attr('aria-describedby', describedby);
 
   this.spinner.stop();
   this.isSpinning = false;
@@ -220,47 +218,40 @@ txstValidate.prototype.showFailed = function() {
 txstValidate.prototype.clean = function() {
   var ipt = this.elem;
   var type = this.type;
-  if (type == 'date' && ipt.value) {
-    var mydate = this.parse(ipt.value);
-    if (mydate) ipt.value = mydate.format('YYYY-MM-DD');
+  if (type == 'date' && ipt.val().length) {
+    var mydate = this.parse(ipt.val());
+    if (mydate) ipt.val(mydate.format('YYYY-MM-DD'));
   }
-  if (type == 'phone' && ipt.value) {
-    var phone = ipt.value.replace(/\D/g, '');
-    ipt.value = phone.substr(0, 3) + '-' + phone.substr(3, 3) + '-' + phone.substr(6, 4);
+  if (type == 'phone' && ipt.val().length) {
+    var phone = ipt.val().replace(/\D/g, '');
+    ipt.val(phone.substr(0, 3) + '-' + phone.substr(3, 3) + '-' + phone.substr(6, 4))
   }
-  if (type != 'file') ipt.value = ipt.value.strip();
+  if (type != 'file') ipt.val(ipt.val().strip());
 };
 
 txstValidate.prototype.focus = function() {
   this.elem.focus();
-  this.elem.scrollTo();
+  this.elem.get(0).scrollTo();
   var oset = document.viewport.getScrollOffsets();
   window.scrollTo((oset[0] > 50 ? oset[0] - 50 : 0), (oset[1] > 50 ? oset[1] - 50 : 0));
-  var background = this.elem.getStyle("backgroundColor");
+  var background = this.elem.css("backgroundColor");
   //the highlight breaks if the endcolor is transparent
   if(background == "transparent") background = "#ffffff";
   var target = this.elem;
   jQuery(target).velocity({backgroundColor: rgb2hex(background)}, {
     begin: function() {
-      target.setStyle({backgroundColor: '#ff5555'});
+      target.css({'backgroundColor': '#ff5555'});
     },
     duration: 1500
   });
 };
 
 txstValidate.prototype.checkNetIdOrANumber = function(inputToCheck) {
+
   if (this.asyncTimer) {
     clearTimeout(this.asyncTimer);
     this.asyncTimer = null;
   }
-
-  if (this.curInput == inputToCheck) {
-    return this.curPassed;
-  }
-
-  this.curInput = '';
-  this.curMessage = '';
-  this.curPassed = false;
 
   if (this.type == "netid" && !inputToCheck.match(/^\s*([a-z]{2}\d{2,5}|[a-z]{3}\d+|[a-z]_[a-z]\d+)\s*$/i)) {
     return false;
@@ -270,44 +261,8 @@ txstValidate.prototype.checkNetIdOrANumber = function(inputToCheck) {
     return false;
   }
 
-  this.asyncTimer = setTimeout(function() {
-    this.asyncTimer = null;
-    jsonp.request("https://secure.its.txstate.edu/iphone/ldap/query.pl", {
-      "netid": inputToCheck.toUpperCase(),
-      "anumber": inputToCheck.toUpperCase(),
-      "timeout": 6000
-    }, function(ret) {
-      // return variable is a prototype hash.  http://api.prototypejs.org/language/Hash/
-      if (ret.get("sAMAccountName")) {
-        this.curPassed = true;
+  return true
 
-        if (this.type == "netid") {
-          this.curInput = ret.get("sAMAccountName");
-          this.elem.value = ret.get("sAMAccountName");
-        } else {
-          this.curInput = ret.get("txstatePersonID1");
-          this.elem.value = ret.get("txstatePersonID1");
-        }
-
-        this.curMessage = ret.get("displayName") + ' (' + this.curInput + ')';
-        this.showPassed();
-      } else if ("true" == ret.get("timeout")) {
-        // if the request timed out, assume success.
-        this.curPassed = true;
-        this.curInput = inputToCheck;
-        this.showPassed();
-      } else if (this.elem.value == inputToCheck) {
-        // netid not found? that's an error
-        this.curPassed = false;
-        this.curInput = inputToCheck;
-        this.showFailed();
-      } else {
-        // ignore the error if the text has changed since we sent the request
-      }
-    }.bind(this));
-  }.bind(this), 1000);
-
-  return this.curPassed;
 };
 
 txstValidate.prototype.checkDate = function(datestr, dateobj) {
@@ -363,31 +318,39 @@ txstValidate.isDateSupported = function isDateSupported() {
   return txstValidate.dateSupport;
 };
 
-Event.observe(document, 'dom:loaded', function() {
-  $$('.txst-form-validicon').each(function(itm) {
-    var type = '';
-    var ipt = itm.up('.formelement').down('input,textarea');
-    while (ipt.type == 'hidden') ipt = ipt.next('input,textarea');
-    if (itm.hasClassName('txst-form-date')) type = 'date';
-    if (itm.hasClassName('txst-form-keystring')) type = 'keystring';
-    if (itm.hasClassName('txst-form-email')) type = 'email';
-    if (itm.hasClassName('txst-form-txemail')) type = 'txemail';
-    if (itm.hasClassName('txst-form-integer')) type = 'integer';
-    if (itm.hasClassName('txst-form-decimal')) type = 'decimal';
-    if (itm.hasClassName('txst-form-zip')) type = 'zip';
-    if (itm.hasClassName('txst-form-phone')) type = 'phone';
-    if (itm.hasClassName('txst-form-netid')) type = 'netid';
-    if (itm.hasClassName('txst-form-anumber')) type = 'anumber';
-    if (itm.hasClassName('txst-form-regex')) type = 'regex';
-    if (itm.hasClassName('txst-form-file')) type = 'file';
+
+jQuery(document).ready(function($) {
+  $('.txst-form-validicon').each(function() {
+    var itm = $(this)
+    var type = ''
+    var inputs = itm.closest('.formelement').find('input,textarea')
+    var ipt;
+    for (var i=0; i< inputs.length; i++) {
+      ipt = $(inputs[i])
+      if (ipt.attr('type') != 'hidden') break;
+    }
+    
+    if (itm.hasClass('txst-form-date')) type = 'date';
+    if (itm.hasClass('txst-form-keystring')) type = 'keystring';
+    if (itm.hasClass('txst-form-email')) type = 'email';
+    if (itm.hasClass('txst-form-txemail')) type = 'txemail';
+    if (itm.hasClass('txst-form-integer')) type = 'integer';
+    if (itm.hasClass('txst-form-decimal')) type = 'decimal';
+    if (itm.hasClass('txst-form-zip')) type = 'zip';
+    if (itm.hasClass('txst-form-phone')) type = 'phone';
+    if (itm.hasClass('txst-form-netid')) type = 'netid';
+    if (itm.hasClass('txst-form-anumber')) type = 'anumber';
+    if (itm.hasClass('txst-form-regex')) type = 'regex';
+    if (itm.hasClass('txst-form-file')) type = 'file';
     //The only validation available on a type 'none' field is maxlength
-    if (itm.hasClassName('txst-form-none')) type = 'maxlength';
-    if (!type) return;
-    var vld = new txstValidate(type, ipt, itm);
-    var myform = itm.up().up('form');
-    if (myform.txstValidate == null) myform.txstValidate = [];
-    myform.txstValidate.push(vld);
-    if (ipt.value) vld.registerChange(true);
+    if (itm.hasClass('txst-form-none')) type = 'maxlength';
+    if (!type) return
+    var vld = new txstValidate(type, ipt, itm)
+    var myform = itm.closest('form')
+    if (myform.data('txstValidate') == null)
+      myform.data('txstValidate', [])
+    myform.data('txstValidate').push(vld);
+    if (ipt.val()) vld.registerChange(true);
     if (type == 'date') {
       var subtitle;
       var fmt = 'MMM&#160;D,&#160;YYYY';
@@ -399,44 +362,23 @@ Event.observe(document, 'dom:loaded', function() {
         subtitle = 'on or before ' + vld.toDate.format(fmt);
       }
       if (subtitle) {
-        ipt.insert({
-          before: "<span class='txst-form-text-subtitle'>Please enter a date " + subtitle + ".</span>"
-        });
-      }
-
-      if (txstValidate.isDateSupported()) {
-        ipt.type = "date";
-      } else {
-        var rangeLow = [1900,0,1];
-        var rangeHigh = [2100,0,1];
-        if (vld.fromDate) {
-          rangeLow = vld.fromDate.toArray();
-        }
-        if (vld.toDate) {
-          rangeHigh = vld.toDate.toArray();
-        }
-        var dateOpts = {
-          format: "yyyy-mm-dd",
-          min: rangeLow,
-          max: rangeHigh,
-          selectYears: 200,
-          selectMonths: true,
-          onClose: function() { vld.registerChange(); }
-        };
+        $("<span class='txst-form-text-subtitle'>Please enter a date " + subtitle + ".</span>").insertBefore(ipt)
       }
     }
   });
 
-  $$('form.txst-form').each(function(form) {
-    form.observe('submit', function(e) {
+  $('form.txst-form').each(function() {
+    var form = $(this)
 
+    form.on('submit', function(e) {
       // a bit of coupling with the existing mandatory check on Gato form pages
-      if (form.failedMandatories) return;
+      if (form.prop('failedMandatories')) return;
 
       var passed = true;
       var firstbadfield = null;
-      for (var i = 0; i < form.txstValidate.length; i++) {
-        var vld = form.txstValidate[i];
+      var formvalidate = form.data('txstValidate')
+      for (var i=0; i < formvalidate.length; i++) {
+        var vld = formvalidate[i]
         if (!vld.evaluate()) {
           passed = false;
           if (!firstbadfield) firstbadfield = vld;
@@ -446,139 +388,145 @@ Event.observe(document, 'dom:loaded', function() {
         }
       }
       if (!passed) {
-        e.stop();
+        e.preventDefault();
         alert('There are still errors in the form.');
         firstbadfield.focus();
       }
-    });
-  });
+    })
+  })
 
-  $$('.formelement .selectiongroup .txst-form-selectiongroup').each(function(group) {
-    group.on('change', '.txst-form-selection-item', function(event) {
-      var target = event.target;
-      if (group.hasClassName('radio-type')) {
-        group.select('.txst-form-selection-item.selected').each(function(item) {
-          item.removeClassName('selected')
+  $('.formelement .selectiongroup .txst-form-selectiongroup').each(function() {
+    var group = $(this)
+    group.on('change', '.txst-form-selection-item', function(e) {
+      var target = e.target;
+      if (group.hasClass('radio-type')) {
+        group.find('.txst-form-selection-item.selected').each(function() {
+          $(this).removeClass('selected')
         })
-      }
-      if (group.hasClassName('checkbox-type') && target.up('.txst-form-selection-item').hasClassName('selected')) {
-        target.up('.txst-form-selection-item').removeClassName('selected')
+        $(target).closest('.txst-form-selection-item').addClass('selected')
       } else {
-        target.up('.txst-form-selection-item').addClassName('selected')
+        if (group.hasClass('checkbox-type') && $(target).closest('.txst-form-selection-item').hasClass('selected')) {
+          $(target).closest('.txst-form-selection-item').removeClass('selected')
+        } else {
+          $(target).closest('.txst-form-selection-item').addClass('selected')
+        }
       }
     })
   })
-  $$('.formelement .selectiongroup .txst-form-selection-item input').each(function(item) {
-    item.on('focus', function(event) {
-      var target = event.target
-      target.up('.txst-form-selection-item').addClassName('focused')
+
+  $('.formelement .selectiongroup .txst-form-selection-item input').each(function() {
+    $(this).on('focus', function(e) {
+      var target = $(e.target)
+      target.closest('.txst-form-selection-item').addClass('focused')
     })
   })
-  $$('.formelement .selectiongroup .txst-form-selection-item input').each(function(item) {
-    item.on('blur', function(event) {
-      var target = event.target
-      target.up('.txst-form-selection-item').removeClassName('focused')
+
+  $('.formelement .selectiongroup .txst-form-selection-item input').each(function() {
+    $(this).on('blur', function(e) {
+      var target = $(e.target)
+      target.closest('.txst-form-selection-item').removeClass('focused')
     })
   })
-  $$('.formelement .selectiongroup .txst-form-selection-item').each(function(elem) {
-    elem.on('click', function(event) {
-      var target = event.target;
-      if (target.tagName.toLowerCase() == "input" || target.tagName.toLowerCase() == "label") return;
-      elem.down('input').click()
+
+  $('.formelement .selectiongroup .txst-form-selection-item').each(function() {
+    var elem = $(this)
+    elem.on('click', function(e) {
+      var target = $(e.target)
+      if (target.is('input') || target.is('label')) return
+      elem.find('input').trigger('click')
     })
   })
-  $$('.formelement select.txst-select').each(function(select) {
-    select.on('change', function(event) {
-      var helpfieldid = this.identify() + '-option-help';
-      if (this.selectedIndex > 0) {
-        var helptext = this.options[this.selectedIndex].readAttribute('data-help');
-        $(helpfieldid).update(helptext)
+
+  $('.formelement select.txst-select').each(function() {
+    var selectfield = $(this)
+    selectfield.on('change', function(e) {
+      var helpfieldid = '#' + selectfield.attr('id') + '-option-help'
+      if (selectfield.prop('selectedIndex') > 0) {
+        var options = selectfield.find('option')
+        var helptext = options.get(selectfield.prop('selectedIndex')).getAttribute('data-help')
+        $(helpfieldid).text(helptext)
+      } else {
+        $(helpfieldid).text('')
       }
-      else {
-        $(helpfieldid).update("")
-      }
     })
   })
+
+  //make links in the mail template open in new tab or window
+  $('.txst-form a').not('.txstate-khan-notice a').attr('target', '_blank');
+
+  //update character counter for fields that have a maximum length defined
+  $('textarea.limited, input.limited').on('keyup', function() {
+    var length = this.value.length;
+    var charcounterdiv = $(this).prev('.charcounter');
+    var maxlength = charcounterdiv.find('.maxchars').text();
+    charcounterdiv.find('.charsentered').text(length);
+    if (length > maxlength) {
+      charcounterdiv.css('color', '#b30e1b').css('font-weight', 'bold');
+    } else {
+      charcounterdiv.css('color', '#222').css('font-weight', 'normal');
+    }
+  });
 });
 
 // form; check for mandatory fields
 function checkMandatories(theForm, alertText) {
-  var m = theForm.mgnlMandatory;
+  //var m = theForm.mgnlMandatory;
+  var m = jQuery(theForm).find('[name=mgnlMandatory]')
   var i = 0;
   var ok = true;
-  if (m) {
-    if (!m[0]) {
-      var tmp = m;
-      m = new Object();
-      m[0] = tmp;
-    }
-    while (m[i]) {
-      var name = m[i].value;
-      var type;
-      var mgnlField;
-      if (document.all) mgnlField = theForm(name);
-      else mgnlField = theForm[name];
-
-      if (mgnlField.type) type = mgnlField.type;
-      else if (mgnlField[0] && mgnlField[0].type) type = mgnlField[0].type
-
-      switch (type) {
+  if (m.length > 0) {
+    m.each(function() {
+      var name = jQuery(this).val()
+      var type, mgnlField;
+      mgnlField = jQuery(theForm).find('#' + name)
+      if (mgnlField.prop('type')) type = mgnlField.prop('type')
+      else if (mgnlField.find('input').length > 0 && mgnlField.find('input').first().prop('type')) {
+        type = mgnlField.find('input').first().prop('type')
+      }
+      switch(type) {
         case "select-one":
-          if (mgnlField.selectedIndex == 0) ok = false;
+          if (mgnlField.prop('selectedIndex') == 0) ok = false;
           break;
         case "checkbox":
         case "radio":
-          var obj = new Object();
-          if (!mgnlField[0]) obj[0] = mgnlField;
-          else obj = mgnlField;
           var okSmall = false;
-          var ii = 0;
-          while (obj[ii]) {
-            isDummy = obj[ii].id.substring(obj[ii].id.length - 11) == "-dummy-item";
-            if (obj[ii].checked && !isDummy) {
-              okSmall = true;
-              break;
+          mgnlField.find('input').each(function() {
+            if (jQuery(this).prop('checked')) {
+              okSmall = true
+              return false
             }
-            ii++;
-          }
+          })
           if (!okSmall) ok = false;
           break;
         default:
-          if (!mgnlField.value) ok = false;
+          if (!mgnlField.val()) ok = false;
       }
-
       if (!ok) {
-        alert(alertText);
-        var target,background;
-        if (type === "select-one" || type == "checkbox" || type == "radio") {
-          if (!mgnlField[0]) {
-            target = $(mgnlField).up().up();
-          }
-          else {
-            target = $(mgnlField[0]).up().up();
-          }
-          background = "#FFFFFF";
-          target.scrollTo();
-        }
-        else {
+        alert(alertText)
+        var target, background = "#FFFFFF";
+        if (type === "select-one") {
+          target = mgnlField.closest('.formelement')
+        } else if (type == "checkbox" || type == "radio") {
+          target = mgnlField
+        } else {
           // type is input or textarea or file
+          target = mgnlField
           mgnlField.focus();
-          mgnlField.scrollTo();
-          var oset = document.viewport.getScrollOffsets();
-          window.scrollTo((oset[0] > 50 ? oset[0] - 50 : 0), (oset[1] > 50 ? oset[1] - 50 : 0));
-          target = mgnlField;
-          if(type == "file")
-            background = '#ffffff';
-          else
-            background = jQuery(target).css("backgroundColor");
+        }
+        if (target) {
+          var oset = window.stickynavheight || 40
+          jQuery('html').velocity('scroll', {
+            duration: 200,
+            offset: (target.closest('.formelement').offset().top - oset) + 'px',
+          })
         }
         try {
-          jQuery(target).velocity({backgroundColor: rgb2hex(background)}, {
+          target.velocity({backgroundColor: rgb2hex(background)}, {
             begin: function() {
-              target.setStyle({backgroundColor: '#ff0000'});
+              target.css('background-color','#ff0000')
             },
             complete: function() {
-              target.setStyle({backgroundColor: ""})
+              target.css('background-color', '')
             },
             duration: 2500
           });
@@ -589,8 +537,7 @@ function checkMandatories(theForm, alertText) {
         theForm.failedMandatories = true;
         return false;
       }
-      i++;
-    }
+    })
   }
   theForm.failedMandatories = !ok;
   if (ok) {
@@ -647,28 +594,6 @@ function form_fixcolumns() {
   })
   
 }
-
-
-//update character counter for fields that have a maximum length defined
-jQuery(document).ready(function($) {
-  $('textarea.limited, input.limited').on('keyup', function() {
-    var length = this.value.length;
-    var charcounterdiv = $(this).prev('.charcounter');
-    var maxlength = charcounterdiv.find('.maxchars').text();
-    charcounterdiv.find('.charsentered').text(length);
-    if (length > maxlength) {
-      charcounterdiv.css('color', '#b30e1b').css('font-weight', 'bold');
-    } else {
-      charcounterdiv.css('color', '#222').css('font-weight', 'normal');
-    }
-  });
-})
-
-//make links in the mail template open in new tab or window
-jQuery(document).ready(function($){
-  $('.txst-form a').not('.txstate-khan-notice a').attr('target', '_blank');
-});
-
 
 function injectDummies() {
   var numSelectionGroups = document.getElementsByClassName("txst-form-selectiongroup").length;

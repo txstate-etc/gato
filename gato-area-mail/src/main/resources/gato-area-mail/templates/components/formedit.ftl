@@ -52,7 +52,8 @@ for Texas State email addresses for the validation--]
             id="${title}" 
             rows="7" 
             cols="60" 
-            class="${limited}" 
+            class="${limited}"
+            [#if needCounter!false]data-maxchars="${content.maxlength!0}"[/#if]
             [#if content.mandatory!false]aria-required="true"[/#if] 
             aria-invalid="false" data-aria-describedby="${title}-error" 
             [#if content.helptext??]data-help="${title}-help" aria-describedby="${title}-help"[/#if]></textarea>
@@ -98,6 +99,7 @@ for Texas State email addresses for the validation--]
          name="${title}" 
          class="text ${limited}" 
          size="${inputSize}" 
+         [#if needCounter!false]data-maxchars="${content.maxlength!0}"[/#if]
          [#if content.mandatory!false]aria-required="true"[/#if] 
          aria-invalid="false" 
          data-aria-describedby="${title}-error" 
@@ -119,11 +121,6 @@ for Texas State email addresses for the validation--]
       $('${title}').valid_msg = '${message}';
     </script>
   [/#if]
-[/#if]
-[#if needCounter ]
-  <script type="text/javascript">
-    $('${title}').maxchars = parseInt(${(content.maxlength!0)?c}, 10);
- </script>
 [/#if]
 [#if validating]
   <div class="valid-icon-cont">
