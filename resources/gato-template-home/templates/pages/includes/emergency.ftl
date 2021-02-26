@@ -1,7 +1,7 @@
 [#assign emergencycontent = cmsfn.asContentMap(cmsfn.nodeByPath('/homepage-data/emergency', 'gatoapps'))]
-[#if gf.hasChildren(emergencycontent)]
-[#assign isEmergency = true]
-  [#assign notification = cmsfn.children(emergencycontent, "mgnl:component")?first]
+[#if gf.nonDeletedChildren(emergencycontent, "mgnl:component")?size > 0]
+  [#assign isEmergency = true]
+  [#assign notification = gf.nonDeletedChildren(emergencycontent, "mgnl:component")?first]
   <div class="emergency-notification ${notification.color!color10}">
     <div class="title">
       <i class="emergency-icon fa fa-exclamation-circle" aria-hidden="true"></i>
