@@ -53,7 +53,7 @@ for Texas State email addresses for the validation--]
             rows="7" 
             cols="60" 
             class="${limited}"
-            [#if needCounter!false]data-maxchars="${content.maxlength!0}"[/#if]
+            [#if needCounter!false]data-maxchars="${(content.maxlength!0)?c}"[/#if]
             [#if content.mandatory!false]aria-required="true"[/#if] 
             aria-invalid="false" data-aria-describedby="${title}-error" 
             [#if content.helptext??]data-help="${title}-help" aria-describedby="${title}-help"[/#if]></textarea>
@@ -99,7 +99,7 @@ for Texas State email addresses for the validation--]
          name="${title}" 
          class="text ${limited}" 
          size="${inputSize}" 
-         [#if needCounter!false]data-maxchars="${content.maxlength!0}"[/#if]
+         [#if needCounter!false]data-maxchars="${(content.maxlength!0)?c}"[/#if]
          [#if content.mandatory!false]aria-required="true"[/#if] 
          aria-invalid="false" 
          data-aria-describedby="${title}-error" 

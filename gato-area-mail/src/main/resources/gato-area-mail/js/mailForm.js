@@ -101,7 +101,7 @@ txstValidate.prototype.evaluate = function() {
     var re = new RegExp(this.elem.prop('valid_regex'), 'i');
     return val.strip().match(re);
   }
-  if (type == 'file' && this.elem.prop('allowableFileExts').length) {
+  if (type == 'file' && this.elem.prop('allowableFileExts').length && this.elem.prop('allowableFileExts').join().length > 0) {
     var re = new RegExp('\\.(' + this.elem.prop('allowableFileExts').join('|') + ')$', 'i');
     return val.match(re);
   }
