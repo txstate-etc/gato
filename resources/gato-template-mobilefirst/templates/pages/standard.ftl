@@ -40,7 +40,7 @@
         [#assign hero = gf.singleComponent(page, 'calico-hero')!]
         [#assign showAnnouncement = false]
         [#if def.parameters.isAdmissionsHome!false]
-          [#if gf.isEmptyString(hero) || hero.size == "large"]
+          [#if gf.isEmptyString(hero) || hero.size! == "large"]
             [#assign showAnnouncement = true]
             [@cms.area name="bannerAnnouncement" content=gf.getOrCreateArea(page, 'bannerAnnouncement')/]
           [/#if]
