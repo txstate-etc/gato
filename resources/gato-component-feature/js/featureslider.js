@@ -262,6 +262,10 @@ jQuery(document).ready(function($) {
 
   window.GatoFeatureSlider.prototype.schedule = function () {
     var slider = this;
+    var mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (!mediaQuery || mediaQuery.matches) {
+      return
+    }
     if (slider.slides.length > 1 && slider.rotationtime > 0 && !window.isEditMode) {
       var delay = slider.rotationtime;
       if (slider.rotationminimum) delay = Math.floor(Math.random() * (slider.rotationtime - slider.rotationminimum) + slider.rotationminimum);
@@ -417,6 +421,10 @@ jQuery(document).ready(function($) {
   }
   window.GatoFeatureSlider.prototype.startMovingImage = function (slide) {
     var slider = this
+    var mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (!mediaQuery || mediaQuery.matches) {
+      return
+    }
     if (slider.pausebutton.hasClass('paused')) return;
     if (slider.rotationtime > 0) {
       slider.pauseschedule()
