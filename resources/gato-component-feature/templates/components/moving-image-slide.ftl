@@ -1,3 +1,4 @@
+[#include "/gato-template/templates/includes/commonmacros.ftl"]
 [#if !(ctx.barsonly!false)]
   [#assign active = false]
   [#if ctx.slideactive?has_content && ctx.slideactive == "active"]
@@ -21,7 +22,7 @@
       <img class="image" ${active?then("", "data-")}src="${gf.getImgDefault(content.image)}" ${active?then("", "data-")}srcset="${gf.getSrcSet(content.image)}" class="bg" alt="${content.alttext!}">
     </div>
     <div class="caption moving-image-caption">
-      [#if !gf.isEmptyString(content.title)]<h3 class="title">${content.title!''}</h3>[/#if]
+      [#if !gf.isEmptyString(content.title)][@h2 class="title"]${content.title!''}[/@h2][/#if]
       [#if !gf.isEmptyString(content.subtext)]<p data-orig-text="${content.subtext!''}">${content.subtext!''}</p>[/#if]
     </div>
 

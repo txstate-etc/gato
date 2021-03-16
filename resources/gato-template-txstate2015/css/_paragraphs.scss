@@ -10,7 +10,7 @@
 
 .gato-slideshow .slides {
   .slide.color2 .caption{
-    h3, p{
+    .title, p{
       [data-eq~="500px"] & { background-color: $mc2-bg }
       /* gold needs to be a little darker when transparent to ensure contrast with text */
       background-color: rgba(100, 81, 53, 0.9);
@@ -18,23 +18,23 @@
   }
   //these multicolors used the light version of the colors instead of the usual $mc-comp-bg colors for some reason
   .slide.color5 a:hover{
-    .caption h3, .caption p{
+    .caption .title, .caption p{
       background: rgba($light-river, 0.9);
     }
   }
   .slide.color6 a:hover{
-    .caption h3, .caption p{
+    .caption .title, .caption p{
       background: rgba($light-sandstone, 0.9);
     }
   }
   .slide.color7 a:hover{
-    .caption h3, .caption p{
+    .caption .title, .caption p{
       background: rgba($light-oldgold, 0.9);
     }
   }
   .video-slide {
     &.color5 .caption{
-      a h3:hover{
+      a .title:hover{
         background: rgba($light-river, 0.9);
       }
       .feature-play-button a:hover{
@@ -42,7 +42,7 @@
       }
     }
     &.color6 .caption{
-      a h3:hover{
+      a .title:hover{
         background: rgba($light-sandstone, 0.9);
       }
       .feature-play-button a:hover{
@@ -50,7 +50,7 @@
       }
     }
     &.color7 .caption{
-      a h3:hover{
+      a .title:hover{
         background: rgba($light-oldgold, 0.9);
       }
       .feature-play-button a:hover{

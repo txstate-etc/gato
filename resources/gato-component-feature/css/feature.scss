@@ -16,11 +16,11 @@
         .caption {
           position: relative;
           padding: 1.2rem;
-          h3 {
+          .title {
             display: block;
             margin-bottom: 0.6rem;
           }
-          h3, p {
+          .title, p {
             padding: 0;
             background-color: transparent !important;
             transition-duration: 0s;
@@ -28,7 +28,7 @@
         }
         a:hover, a:focus {
           .caption {
-            h3, p {
+            .title, p {
               background-color: transparent !important;
             }
           }
@@ -108,7 +108,7 @@
         background-color: transparent;
         padding: 2.2rem;
 
-        h3 {
+        .title {
           color: inherit;
           margin: 0px 0px 1.5rem 0px;
           font-weight: 600;
@@ -131,57 +131,57 @@
         }
       }
       &.color1 {
-        .caption { h3, p{ background-color: rgba($mc1-bg, 0.9); color: $mc1-text; } }
+        .caption { .title, p{ background-color: rgba($mc1-bg, 0.9); color: $mc1-text; } }
         a:hover {
-          .caption h3, .caption p {
+          .caption .title, .caption p {
             background: rgba($mc1-comp-bg, 0.9);
           }
         }
       }
       &.color2 {
-        .caption { h3, p{ background-color: rgba($mc2-bg, 0.9); color: $mc2-text; } }
+        .caption { .title, p{ background-color: rgba($mc2-bg, 0.9); color: $mc2-text; } }
         a:hover {
-          .caption h3, .caption p {
+          .caption .title, .caption p {
             background: rgba($mc2-comp-bg, 0.9);
           }
         }
       }
       &.color3 {
-        .caption { h3, p{ background-color: rgba($mc3-bg, 0.9); color: $mc3-text; } }
+        .caption { .title, p{ background-color: rgba($mc3-bg, 0.9); color: $mc3-text; } }
         a:hover {
-          .caption h3, .caption p {
+          .caption .title, .caption p {
             background: rgba($mc3-comp-bg, 0.9);
           }
         }
       }
       &.color4 {
-        .caption { h3, p{ background-color: rgba($mc4-bg, 0.9); color: $mc4-text; } }
+        .caption { .title, p{ background-color: rgba($mc4-bg, 0.9); color: $mc4-text; } }
         a:hover {
-          .caption h3, .caption p {
+          .caption .title, .caption p {
             background: rgba($mc4-comp-bg, 0.9);
           }
         }
       }
       &.color5 {
-        .caption { h3, p{ background-color: rgba($mc5-bg, 0.9); color: $mc5-text; } }
+        .caption { .title, p{ background-color: rgba($mc5-bg, 0.9); color: $mc5-text; } }
         a:hover {
-          .caption h3, .caption p {
+          .caption .title, .caption p {
             background: rgba($mc5-comp-bg, 0.9);
           }
         }
       }
       &.color6 {
-        .caption { h3, p{ background-color: rgba($mc6-bg, 0.9); color: $mc6-text; } }
+        .caption { .title, p{ background-color: rgba($mc6-bg, 0.9); color: $mc6-text; } }
         a:hover {
-          .caption h3, .caption p {
+          .caption .title, .caption p {
             background: rgba($mc6-comp-bg, 0.9);
           }
         }
       }
       &.color7 {
-        .caption { h3, p{ background-color: rgba($mc7-bg, 0.9); color: $mc7-text; } }
+        .caption { .title, p{ background-color: rgba($mc7-bg, 0.9); color: $mc7-text; } }
         a:hover {
-          .caption h3, .caption p {
+          .caption .title, .caption p {
             background: rgba($mc7-comp-bg, 0.9);
           }
         }
@@ -234,7 +234,7 @@
         }
         &.color1 {
           .caption {
-            a h3:hover { background: rgba($mc1-comp-bg, 0.9); }
+            a .title:hover { background: rgba($mc1-comp-bg, 0.9); }
           }
           .feature-play-button a {
             background: rgba($mc1-bg, 0.9);
@@ -248,7 +248,7 @@
         }
         &.color2 {
           .caption {
-            a h3:hover { background: rgba($mc1-comp-bg, 0.9); }
+            a .title:hover { background: rgba($mc1-comp-bg, 0.9); }
           }
           .feature-play-button a {
             background: rgba($mc2-comp-bg, 0.9);
@@ -262,7 +262,7 @@
         }
         &.color3 {
           .caption {
-            a h3:hover { background: rgba($mc3-comp-bg, 0.9); }
+            a .title:hover { background: rgba($mc3-comp-bg, 0.9); }
           }
           .feature-play-button a{
             background: rgba($mc3-bg, 0.9);
@@ -276,7 +276,7 @@
         }
         &.color4{
           .caption {
-            a h3:hover { background: rgba($mc4-comp-bg, 0.9); }
+            a .title:hover { background: rgba($mc4-comp-bg, 0.9); }
           }
           .feature-play-button a{
             background: rgba($mc4-bg, 0.9);
@@ -290,7 +290,7 @@
         }
         &.color5{
           .caption {
-            a h3:hover { background: rgba($mc5-comp-bg, 0.9); }
+            a .title:hover { background: rgba($mc5-comp-bg, 0.9); }
           }
           .feature-play-button a{
             background: rgba($mc5-bg, 0.9);
@@ -304,7 +304,7 @@
         }
         &.color6{
           .caption {
-            a h3:hover { background: rgba($mc6-comp-bg, 0.9); }
+            a .title:hover { background: rgba($mc6-comp-bg, 0.9); }
           }
           .feature-play-button a{
             background: rgba($mc6-bg, 0.9);
@@ -318,7 +318,7 @@
         }
         &.color7{
           .caption {
-            a h3:hover { background: rgba($mc7-comp-bg, 0.9); }
+            a .title:hover { background: rgba($mc7-comp-bg, 0.9); }
           }
           .feature-play-button a{
             background: rgba($mc7-bg, 0.9);

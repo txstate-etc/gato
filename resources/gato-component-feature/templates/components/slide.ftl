@@ -1,3 +1,4 @@
+[#include "/gato-template/templates/includes/commonmacros.ftl"]
 [#if !(ctx.barsonly!false)]
   [#assign active = false]
   [#if ctx.slideactive?has_content && ctx.slideactive == "active"]
@@ -18,7 +19,7 @@
       [#if !gf.isEmptyString(content.title) || !gf.isEmptyString(content.subtext)]
         [#assign tidysubtext = gf.tidyHTML(cmsfn.decode(content).subtext!'')]
         <div class="caption">
-          [#if content.title?has_content]<h3 class="title">${content.title}</h3>[/#if]
+          [#if content.title?has_content][@h2 class="title"]${content.title}[/@h2][/#if]
           [#if content.subtext?has_content]<p data-orig-text="${tidysubtext?html}" data-skip-truncation="${ctx.skiptruncation!'false'}">${tidysubtext}</p>[/#if]
         </div>
       [/#if]

@@ -1,3 +1,4 @@
+[#include "/gato-template/templates/includes/commonmacros.ftl"]
 [#if !(ctx.barsonly!false)]
   [#assign active = false]
   [#if ctx.slideactive?has_content && ctx.slideactive == "active"]
@@ -25,7 +26,7 @@
             [#if content.link?has_content]
               <a href="${gf.filterUrl(content.link!)}" class="slide-link" tabindex="${active?then("0", "-1")}">
             [/#if]
-            <h3 class="title">${content.title}</h3>
+            [@h2 class="title"]${content.title}[/@h2]
             [#if content.link?has_content]
               </a>
             [/#if]

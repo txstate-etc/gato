@@ -88,7 +88,7 @@
         bottom: 10%;
         padding: 2rem 1rem 2.4rem 10.5rem;
         width: auto;
-        h3 {
+        .title {
           font-size: 2.5rem;
           line-height: 2.9rem;
           letter-spacing: 0.1rem;
@@ -108,7 +108,7 @@
           bottom: 0;
           text-align: center;
           padding: 0.4rem 1rem;
-          h3 {
+          .title {
             font-size: 1.4rem;
             line-height: 2rem;
             letter-spacing: 0.05rem;
@@ -137,13 +137,13 @@
       }
       &.color1, &.color2 ,&.color3 ,&.color4, &.color5, &.color6, &.color7 {
         a:hover .caption {
-          h3, p {
+          .title, p {
             background: transparent;
           }
         }
         &.video-slide {
           .caption a:hover {
-            h3 {
+            .title {
               background: transparent;
             }
           }
@@ -152,7 +152,7 @@
       &.color1{
         .caption {
           background-color: rgba($mc1-bg, 0.9);
-          h3, p {color: $mc1-text};
+          .title, p {color: $mc1-text};
           .feature-play-button {
             a {
               border-color: $mc1-text;
@@ -170,7 +170,7 @@
       &.color2{
         .caption {
           background-color: rgba($mc2-bg, 0.9);
-          h3, p {color: $mc2-text};
+          .title, p {color: $mc2-text};
           .feature-play-button {
             a { border-color: $mc2-text;
               background-color: transparent;
@@ -187,7 +187,7 @@
       &.color3{
         .caption {
           background-color: rgba($mc3-bg, 0.9);
-          h3, p {color: $mc3-text};
+          .title, p {color: $mc3-text};
           .feature-play-button {
             a { border-color: $mc3-text;
               background-color: transparent;
@@ -204,7 +204,7 @@
       &.color4{
         .caption {
           background-color: rgba($mc4-bg, 0.9);
-          h3, p {color: $mc4-text};
+          .title, p {color: $mc4-text};
           .feature-play-button {
             a { border-color: $mc4-text;
               background-color: transparent;
@@ -221,7 +221,7 @@
       &.color5{
         .caption {
           background-color: rgba($mc5-bg, 0.9);
-          h3, p {color: $mc5-text};
+          .title, p {color: $mc5-text};
           .feature-play-button {
             a { border-color: $mc5-text;
               background-color: transparent;
@@ -238,7 +238,7 @@
       &.color6{
         .caption {
           background-color: rgba($mc6-bg, 0.9);
-          h3, p {color: $mc6-text};
+          .title, p {color: $mc6-text};
           .feature-play-button {
             a { border-color: $mc6-text;
               background-color: transparent;
@@ -255,7 +255,7 @@
       &.color7{
         .caption {
           background-color: rgba($mc7-bg, 0.9);
-          h3, p {color: $mc7-text};
+          .title, p {color: $mc7-text};
           .feature-play-button {
             a { border-color: $mc7-text;
               background-color: transparent;
