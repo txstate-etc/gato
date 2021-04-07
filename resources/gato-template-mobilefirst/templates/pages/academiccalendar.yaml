@@ -1,0 +1,15 @@
+templateScript: /gato-template-mobilefirst/templates/pages/standard.ftl
+renderType: site
+visible: true
+title: Academic Calendar 
+dialog: gato-template-mobilefirst:pages/page-properties
+areas: !include /gato-template-mobilefirst/templates/includes/areas.yaml
+parameters:
+  isAcademicCalendar: true
+  sortOrder: 310
+  favicon: /gato-template-mobilefirst/images/favicon.png
+variations:
+  js:
+    templateScript: /gato-component-cssjs/templates/pages/jsvariation.ftl
+  rss:
+    templateScript: /gato-template-rss/templates/pages/rssvariation.ftl

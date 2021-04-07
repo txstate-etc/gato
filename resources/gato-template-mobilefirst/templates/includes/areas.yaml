@@ -60,6 +60,10 @@ searchcontent: #global search
   title: Global Search Page Content
   type: noComponent
   templateScript: /gato-template-mobilefirst/templates/areas/globalsearch.ftl
+academiccalendar:
+  title: Academic Calendar Content
+  type: noComponent
+  templateScript: /gato-template-mobilefirst/templates/areas/academic-calendar.ftl
 socialmedia:
   type: single
   templateScript: /gato-template/templates/areas/optional-social.ftl

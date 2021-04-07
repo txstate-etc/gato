@@ -287,6 +287,11 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       .addTask(new SetPropertyTask("Turn off usage metrics", RepositoryConstants.CONFIG, "/server", "usageMetrics", Boolean.FALSE ))
       .addTasks(installOrUpdateTasks())
       );
+    
+    register(DeltaBuilder.update("1.3.2", "")
+      .addTask(new BootstrapSingleModuleResource("config.modules.site.config.site.templates.availability.templates.academic-calendar.xml"))
+      .addTasks(installOrUpdateTasks())
+    );
   }
 
   protected List<Task> installOrUpdateTasks() {

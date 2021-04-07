@@ -100,6 +100,8 @@
             [@cms.area name="siteMap" /]
           [#elseif def.parameters.isPassthroughTemplate!false]
 						${gf.httpGetContentWithParameters(content.url)}
+          [#elseif def.parameters.isAcademicCalendar!false]
+            [@cms.area name="academiccalendar"/]
           [#else]
             [@cms.area name="calicoInformational"/]
           [/#if]
