@@ -22,8 +22,8 @@ abstract class AbstractEventItem implements EventItem {
   public static DateFormat machineTimeFormat = new SimpleDateFormat( "HH:mm:00Z" );
   public static DateFormat machineMonthFormat = new SimpleDateFormat("yyyyMM");
   public static DateFormat humanMonthFormat = new SimpleDateFormat("MMMM");
-  public static DateFormat humanDateTimeFormat = new SimpleDateFormat(" dd, h:mma");
-  public static DateFormat humanDateFormat = new SimpleDateFormat(" dd");
+  public static DateFormat humanDateTimeFormat = new SimpleDateFormat(" d, h:mma");
+  public static DateFormat humanDateFormat = new SimpleDateFormat(" d");
   public static DateFormat humanTimeFormat = new SimpleDateFormat("h:mma");
 
   private TimeZone defaultTZ;

@@ -76,7 +76,7 @@
               [#if item.startDate?date?string != actualEndDate?date?string]
                 &ndash;
                 <time class="dt-end dtend">
-                  ${abbrMonth(actualEndDate?string('MMMM'))} ${actualEndDate?string('dd')}
+                  ${abbrMonth(actualEndDate?string('MMMM'))} ${actualEndDate?string('d')}
                 </time>
               [/#if]
             </div>
@@ -95,7 +95,7 @@
               [#-- If repeat events are hidden and this is a recurring event.  Don't show end date for one time events --]
               [#if (content.hideRepeats!false) && (eventRepeats[item.eventId])]
                 <span class="repeat-event-enddate">
-                  until ${abbrMonth(endDateHash[item.eventId]?string('MMMM'))} ${endDateHash[item.eventId]?string('dd')}
+                  until ${abbrMonth(endDateHash[item.eventId]?string('MMMM'))} ${endDateHash[item.eventId]?string('d')}
                 </span>
               [/#if]
             </div>
