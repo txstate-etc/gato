@@ -199,13 +199,7 @@ footer {
           color: $white;
           i { color: $white;}
           span {
-            width: 1px;
-            height: 1px;
-            overflow: hidden;
-            margin: -1px;
-            clip: rect(0,0,0,0);
-            position: absolute;
-            font-size: 1rem;
+            @include sr-only();
           }
           .fa-youtube-square::before {
             content: '\f16a';
