@@ -1,0 +1,15 @@
+templateScript: /gato-component-sections/templates/components/section.ftl
+renderType: freemarker
+title: One Column Section
+dialog: gato-component-sections:components/section
+description: Creates a section containing a one column layout.
+areas:
+  layouts:
+    type: single
+    templateScript: /gato-component-sections/templates/areas/layouts-area.ftl
+    availableComponents:
+      full:
+        id: gato-template-mobilefirst:components/rows-academiccalendar/full
+parameters:
+  icon: /gato-template/images/onecolumn.svg
+  tab: Build a Section

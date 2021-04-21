@@ -101,6 +101,7 @@
           [#elseif def.parameters.isPassthroughTemplate!false]
 						${gf.httpGetContentWithParameters(content.url)}
           [#elseif def.parameters.isAcademicCalendar!false]
+            [@cms.area name="academiccalendar-intro"/]
             [@cms.area name="academiccalendar"/]
           [#else]
             [@cms.area name="calicoInformational"/]
