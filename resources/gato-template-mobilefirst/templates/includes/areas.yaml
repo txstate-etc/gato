@@ -70,6 +70,7 @@ academiccalendar-intro:
 academiccalendar:
   title: Academic Calendar Content
   type: noComponent
+  modelClass: edu.txstate.its.gato.TrumbaEventModel
   templateScript: /gato-template-mobilefirst/templates/areas/academic-calendar.ftl
 socialmedia:
   type: single

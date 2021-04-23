@@ -1,0 +1,13 @@
+.academic-calendar-container {
+  padding: 0rem 2rem;
+  .event-table {
+    width: 100%;
+    border: 1px solid lightgray;
+    th {
+      background-color: $sandstone;
+    }
+    td {
+      border: 1px solid lightgray;
+    }
+  }
+}
