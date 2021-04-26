@@ -12,6 +12,9 @@
     [#if def.parameters.isSearchTemplate!false]
       [#assign scripts = scripts + ['gato-template/js/globalsearch.js']]
     [/#if]
+    [#if def.parameters.isAcademicCalendar!false]
+      [#assign scripts = scripts + ['gato-template-mobilefirst/js/academiccalendar.js']]
+    [/#if]
 
     [@templatejs scripts/]
     [@templatehead/]

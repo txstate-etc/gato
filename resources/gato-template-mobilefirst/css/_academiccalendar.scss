@@ -1,5 +1,130 @@
 .academic-calendar-container {
   padding: 0rem 2rem;
+  .btn-ac {
+    font-size: 1.4rem;
+    font-weight: bold;
+    background: none;
+    border: 0;
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    &#btn-toggle-more-filters {
+      font-weight: normal;
+      i:before {
+        content: "\f0d7";
+      }
+      &[aria-expanded="true"] {
+        i:before {
+          content: "\f0d8";
+        }
+      }
+    }
+    &#btn-reset-filters {
+      background-color: $white;
+      border: 2px solid $maroon;
+     // align-self: flex-end;
+    }
+    &#btn-go {
+      background-color: $maroon;
+      color: $white;
+     // align-self: flex-end;
+
+    }
+    &#btn-subscribe {
+      background-color: $white;
+      border: 2px solid $maroon;
+      i {
+        color: $maroon;
+      }
+    }
+  }
+  .ac-filters {
+    background-color: $sandstone;
+    padding:  0.5rem 2rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    .filters {
+      display: flex;
+      flex-direction: column;
+      flex: 0 1 60%;
+      .shown, .more {
+        display: flex;
+        justify-content: space-between;
+      }
+      .more {
+        display: none;
+        &.expanded {
+          display: flex;
+        }
+      }
+      .ac-filter {
+        width: calc(100% / 3);
+        display: flex;
+        flex-direction: column;
+        .ac-dropdown {
+          background-color: $white;
+          padding: 0.5rem;
+          position: relative;
+          .dropdown-controls {
+            display: flex;
+            justify-content: space-between;
+            .selected-filters {
+              list-style: none;
+              margin: 0;
+              padding-left: 0;
+              .filter {
+                background-color: $almost-white;
+                padding: 0.5rem;
+                .remove-filter {
+                  border: 0;
+                  background-color: $almost-white;
+                }
+              }
+            }
+            .remove-all-filters {
+              color: #a4a4a4;
+              background-color: transparent;
+              border: 0;
+            }
+            .toggle-dropdown {
+              background-color: transparent;
+              border: 0;
+            }
+          }
+          .menu {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: $white;
+            list-style: none;
+            margin: 0;
+            padding-left: 0;
+            width: 100%;
+            li {
+              padding: 0 1rem 1rem 1rem;
+            }
+          }
+          &.expanded {
+            .dropdown-controls {
+              border-bottom: 3px solid #B9AB95;
+            }
+            .menu {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+    .actions {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  #btn-manage-events {
+    color: $white;
+    background-color: $maroon;
+    margin-bottom: 2rem;
+  }
   .event-table {
     width: 100%;
     border: 1px solid lightgray;
