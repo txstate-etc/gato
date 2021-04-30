@@ -1592,12 +1592,14 @@ public final class GatoUtils {
     }
   }
 
+  public int jsonGetInteger(JsonObject obj, String key) {
+    if (obj == null || StringUtils.isBlank(key) || !obj.has(key)) return 0;
+    return obj.getAsJsonPrimitive(key).getAsInt();
+  }
+
   public String jsonGetString(JsonObject obj, String key) {
     if (obj == null || StringUtils.isBlank(key) || !obj.has(key)) return "";
-    String str = obj.getAsJsonPrimitive(key).toString();
-    String ret = StringEscapeUtils.unescapeJava(str);
-    ret = ret.substring(1, ret.length()-1);
-    return ret;
+    return obj.getAsJsonPrimitive(key).getAsString();
   }
 
   public boolean jsonGetBoolean(JsonObject obj, String key) {
