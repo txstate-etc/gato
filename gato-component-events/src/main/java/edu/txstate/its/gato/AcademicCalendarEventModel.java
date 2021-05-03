@@ -80,4 +80,19 @@ public class AcademicCalendarEventModel extends TrumbaEventModel {
     url = url + "&enddate=" + trumbaformat.format(endDate.getTime());
     return url;
   }
+
+  public String dateSuffix(Date date) {
+    Calendar day = Calendar.getInstance();
+    day.setTime(date);
+    int dayOfMonth = day.get(Calendar.DAY_OF_MONTH);
+    if (dayOfMonth == 11 || dayOfMonth == 12 || dayOfMonth == 13) {
+      return "th";
+    }
+    switch(dayOfMonth % 10) {
+      case 1: return "st";
+      case 2: return "nd";
+      case 3: return "rd";
+      default: return "th";
+    }
+  }
 }
