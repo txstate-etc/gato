@@ -149,4 +149,29 @@ public class TrumbaEventItem extends AbstractEventItem {
     }
     return categories;
   }
+
+  public List<String> getFilterCategories() {
+    List categories = new ArrayList<String>();
+    for (String cat : getCustomProperty("Filter Category").split(", ")) {
+      categories.add(cat);
+    }
+    return categories;
+  }
+
+  public List<String> getPartsOfTerm() {
+    List partsOfTerm = new ArrayList<String>();
+    for (String pot : getCustomProperty("Part of Term").split(", ")) {
+      partsOfTerm.add(pot);
+    }
+    return partsOfTerm;
+  }
+
+  public String getApplicableTerm() {
+    return getCustomProperty("Applicable Term");
+  }
+
+  public String getEndingTitle() {
+    return getCustomProperty("Ending Title");
+  }
+
 }
