@@ -9,6 +9,9 @@
     border-radius: 4px;
     &#btn-toggle-more-filters {
       font-weight: normal;
+      @media (max-width: $sm-breakpoint) {
+        display: none;
+      }
       i:before {
         content: "\f0d7";
       }
@@ -18,15 +21,33 @@
         }
       }
     }
+    &#btn-more-filters-mobile {
+      display: none;
+      border: 2px solid $maroon;
+      background-color: $white;
+      i {
+        color: $maroon;
+      }
+      @media (max-width: $sm-breakpoint) {
+        display: block;
+      }
+      @media (max-width: $mn-breakpoint) {
+        span {display: none}
+      }
+    }
     &#btn-reset-filters {
       background-color: $white;
       border: 2px solid $maroon;
-     // align-self: flex-end;
+      @media (max-width: $sm-breakpoint) {
+        display: none;
+      }
     }
     &#btn-go {
       background-color: $maroon;
       color: $white;
-     // align-self: flex-end;
+      @media (max-width: $sm-breakpoint) {
+       display: none;
+      }
 
     }
     &#btn-subscribe {
@@ -34,6 +55,9 @@
       border: 2px solid $maroon;
       i {
         color: $maroon;
+      }
+      @media (max-width: $sm-breakpoint) {
+        display: none;
       }
     }
   }
@@ -62,6 +86,9 @@
         display: flex;
         flex-direction: column;
         margin-right: 2rem;
+        @media (max-width: $sm-breakpoint) {
+          width: 50%;
+        }
         .ac-dropdown {
           background-color: $white;
           padding: 0.5rem;
@@ -132,11 +159,46 @@
             }
           }
         }
+        @media (max-width: $sm-breakpoint) {
+          &.desktop {
+            display: none;
+          }
+        }
       }
     }
     .actions {
       display: flex;
       flex-direction: column;
+      .subscribe-download {
+        display: flex;
+        .download-container {
+          position: relative;
+          @media (max-width: $sm-breakpoint) {
+            display: none;
+          }
+          #btn-download-print {
+            background-color: $white;
+            box-shadow: 0px 3px 6px rgba(0,0,0,0.101);
+            font-weight: normal;
+          }
+          #download-menu {
+            display: none;
+            width: 100%;
+            position: absolute;
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+            background-color: $white;
+            box-shadow: 0px 3px 6px rgba(0,0,0,0.101);
+            &.expanded {
+              display: block;
+            }
+            li {
+              padding: 0 1rem 1rem 1rem;
+            }
+          }
+        }
+      }
     }
   }
   .manage-events-container {

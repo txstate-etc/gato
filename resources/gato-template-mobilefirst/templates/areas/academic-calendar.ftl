@@ -4,9 +4,9 @@
       <div class="ac-filters">
         <div class="filters">
           <div class="shown">
-            <div class="ac-filter">
+            <div class="ac-filter desktop">
               <div id="lbl-audience">Audience</div>
-              <div class="ac-dropdown multiple">
+              <div id="select-audience" class="ac-dropdown multiple">
                 <div class="dropdown-controls">
                   <ul class="selected-filters">
                     <li id="active-audience-all" class="filter">
@@ -106,15 +106,27 @@
               <span>Show more filters</span>
               <i class="fa" aria-hidden="true"></i>
             </button>
+            <button id="btn-more-filters-mobile" class="btn-ac">
+              <i class="fa fa-filter" aria-label="Show More Filters"></i>
+              <span aria-hidden="true">More filters</span>
+            </button>
             <button id="btn-reset-filters" class="btn-ac">Reset Filters</button>
             <button id="btn-go" class="btn-ac">Go</button>
           </div>
-          <div>
+          <div class="subscribe-download">
             <button id="btn-subscribe" class="btn-ac">
               <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
                 Subscribe
             </button>
-            <span>Download and Print <i class="fa fa-caret-down" aria-hidden="true"></i></span>
+            <div class="download-container">
+              <button id="btn-download-print" class="btn-ac" aria-haspopup="true" aria-expanded="false" aria-controls="download-menu">
+                <span>Download and Print <i class="fa fa-caret-down" aria-hidden="true"></i></span>
+              </button>
+              <ul id="download-menu">
+                <li>Printable Version</li>
+                <li>Download CSV</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>

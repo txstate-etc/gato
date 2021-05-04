@@ -159,5 +159,16 @@ jQuery(document).ready(function($) {
     }
   })
 
+  $('#btn-download-print').on('click', function() {
+    var menu = $('#download-menu')
+    if (menu.hasClass('expanded')) {
+      menu.removeClass('expanded')
+      $(this).attr('aria-expanded', false)
+    } else {
+      menu.addClass('expanded')
+      $(this).attr('aria-expanded', true)
+    }
+  })
+
   
 })
