@@ -136,11 +136,11 @@
           Manage Events
         </button>
         <ul id="manage-events-menu">
-          <li>Add to my Calendar</li>
-          <li>My Events</li>
-          <li>Email Reminder</li>
-          <li>Email me Event Updates</li>
-          <li>Email to Friends</li>
+          <li data-action="atmc">Add to my Calendar</li>
+          <li data-action="myevents">My Events</li>
+          <li data-action="remindemail">Email Reminder</li>
+          <li data-action="notify">Email me Event Updates</li>
+          <li data-action="forward">Email to Friends</li>
         </ul>
       </div>
       <table class="event-table">
@@ -154,7 +154,7 @@
         <tbody>
         [#list model.items as item]
           <tr>
-            <td><span class="event-cbx" tabindex="0" role="checkbox" aria-checked="false" aria-label="Select event: ${item.title}"></span></td>
+            <td><span class="event-cbx" data-value="${item.recurrenceId}" tabindex="0" role="checkbox" aria-checked="false" aria-label="Select event: ${item.title}"></span></td>
             <td>
               [#assign startDate = item.machineStartDate?datetime("yyyy-MM-dd'T'HH:mm:ssZ")]
               ${startDate?string["MMMM d"]}${model.dateSuffix(item.startDate)}

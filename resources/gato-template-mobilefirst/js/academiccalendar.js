@@ -159,6 +159,24 @@ jQuery(document).ready(function($) {
     }
   })
 
+  $('#manage-events-menu li').on('click', function() {
+    var action = $(this).data('action')
+    var url = 'https://eventactions.com/eventactions/txstate#/'
+    if (action === "myevents") {
+      url += "myevents"
+    } else {
+      url += 'actions/' + action + '/'
+      var selectedEvents = []
+      $('.event-cbx.is-checked').each(function() {
+        selectedEvents.push($(this).data('value'))
+      })
+      url += selectedEvents.join(',')
+    }
+    $('#manage-events-menu').removeClass('expanded')
+    $('#btn-manage-events').attr('aria-expanded', false)
+    window.open(url, 'manage', "width=750,height=800")
+  })
+
   $('#btn-download-print').on('click', function() {
     var menu = $('#download-menu')
     if (menu.hasClass('expanded')) {
@@ -169,6 +187,4 @@ jQuery(document).ready(function($) {
       $(this).attr('aria-expanded', true)
     }
   })
-
-  
 })
