@@ -198,14 +198,15 @@ jQuery(document).ready(function($) {
   })
   
   $('#btn-toggle-more-filters').on('click', function() {
-    var moreFilters = $('.filters .more')
-    if (moreFilters.hasClass('expanded')) {
-      moreFilters.removeClass('expanded')
-      $(this).find('span').text('Show more filters')
+    var moreFilterRow = $('.filter-row.bottom')
+    var moreFilters = $('.filter-row.bottom .filter-group')
+    if (moreFilterRow.hasClass('expanded')) {
+      moreFilterRow.removeClass('expanded')
+      $(this).find('span').text('More filters')
       $(this).attr('aria-expanded', false)
     } else {
-      moreFilters.addClass('expanded')
-      $(this).find('span').text('Hide more filters')
+      moreFilterRow.addClass('expanded')
+      $(this).find('span').text('Fewer filters')
       $(this).attr('aria-expanded', true)
     }
   })

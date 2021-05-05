@@ -5,18 +5,21 @@
     font-weight: bold;
     background: none;
     border: 0;
-    padding: 1rem 2rem;
+    padding: 1rem 1.5rem;
     border-radius: 4px;
     &#btn-toggle-more-filters {
       font-weight: normal;
       @media (max-width: $sm-breakpoint) {
         display: none;
       }
-      i:before {
+      i.fa-filter {
+        color: $maroon;
+      }
+      i.arrow:before {
         content: "\f0d7";
       }
       &[aria-expanded="true"] {
-        i:before {
+        i.arrow:before {
           content: "\f0d8";
         }
       }
@@ -35,145 +38,132 @@
         span {display: none}
       }
     }
-    &#btn-reset-filters {
-      background-color: $white;
-      border: 2px solid $maroon;
-      @media (max-width: $sm-breakpoint) {
-        display: none;
-      }
-    }
-    &#btn-go {
-      background-color: $maroon;
-      color: $white;
-      @media (max-width: $sm-breakpoint) {
-       display: none;
-      }
-
-    }
-    &#btn-subscribe {
-      background-color: $white;
-      border: 2px solid $maroon;
-      i {
-        color: $maroon;
-      }
-      @media (max-width: $sm-breakpoint) {
-        display: none;
-      }
-    }
+    // &#btn-reset-filters {
+    //   background-color: $white;
+    //   border: 2px solid $maroon;
+    //   @media (max-width: $sm-breakpoint) {
+    //     display: none;
+    //   }
+    // }
+    // &#btn-go {
+    //   background-color: $maroon;
+    //   color: $white;
+    //   @media (max-width: $sm-breakpoint) {
+    //    display: none;
+    //   }
+    // }
+    // &#btn-subscribe {
+    //   background-color: $white;
+    //   border: 2px solid $maroon;
+    //   i {
+    //     color: $maroon;
+    //   }
+    //   @media (max-width: $sm-breakpoint) {
+    //     display: none;
+    //   }
+    // }
   }
   .ac-filters {
     background-color: $sandstone;
     padding:  0.5rem 2rem;
     margin-bottom: 2rem;
-    display: flex;
-    justify-content: space-between;
-    .filters {
+    .filter-row {
       display: flex;
-      flex-direction: column;
-      flex: 0 1 60%;
-      .shown, .more {
+      justify-content: space-between;
+      .filter-group {
         display: flex;
-        justify-content: space-between;
-      }
-      .more {
-        display: none;
-        &.expanded {
+        flex: 1 0 55%;
+        .ac-filter {
+          width: calc(100% / 3);
           display: flex;
-        }
-        @media (max-width: $sm-breakpoint) {
-          display: none !important;
-        }
-      }
-      .ac-filter {
-        width: calc(100% / 3);
-        display: flex;
-        flex-direction: column;
-        margin-right: 2rem;
-        @media (max-width: $sm-breakpoint) {
-          width: 50%;
-        }
-        .ac-dropdown {
-          background-color: $white;
-          padding: 0.5rem;
-          position: relative;
-          box-shadow: 0px 3px 6px rgba(0,0,0,0.101);
-          .dropdown-controls {
-            display: flex;
-            justify-content: space-between;
-            .selected-filters {
+          flex-direction: column;
+          margin-right: 2rem;
+          @media (max-width: $sm-breakpoint) {
+            width: 50%;
+          }
+          .ac-dropdown {
+            background-color: $white;
+            padding: 0.5rem;
+            position: relative;
+            box-shadow: 0px 3px 6px rgba(0,0,0,0.101);
+            .dropdown-controls {
+              display: flex;
+              justify-content: space-between;
+              .selected-filters {
+                list-style: none;
+                margin: 0;
+                padding-left: 0;
+                display: flex;
+                flex-wrap: wrap;
+                .filter {
+                  background-color: $almost-white;
+                  border-radius: 3px;
+                  padding: 0 0.5rem;
+                  font-size: 1.4rem;
+                  line-height: 2.2rem;
+                  margin: 0 3px 3px 0;
+                  .remove-filter {
+                    border: 0;
+                    background-color: $almost-white;
+                  }
+                }
+              }
+              .filter-actions {
+                display: flex;
+                button {
+                  padding: 0 0.5rem;
+                  &.remove-all-filters {
+                    color: #a4a4a4;
+                    background-color: transparent;
+                    border: 0;
+                  }
+                  &.toggle-dropdown {
+                    background-color: transparent;
+                    border: 0;
+                  }
+                }
+              }
+            }
+            .menu {
+              display: none;
+              position: absolute;
+              right: 0;
+              background-color: $white;
               list-style: none;
               margin: 0;
               padding-left: 0;
-              display: flex;
-              flex-wrap: wrap;
-              .filter {
-                background-color: $almost-white;
-                border-radius: 3px;
-                padding: 0 0.5rem;
-                font-size: 1.4rem;
-                line-height: 2.2rem;
-                margin: 0 3px 3px 0;
-                .remove-filter {
-                  border: 0;
-                  background-color: $almost-white;
+              width: 100%;
+              z-index: 1;
+              box-shadow: 0px 3px 6px rgba(0,0,0,0.101);
+              li {
+                padding: 0 1rem 1rem 1rem;
+                &.active, &.hover {
+                  background-color: rgba(0,0,0,0.05);
                 }
               }
             }
-            .filter-actions {
-              display: flex;
-              button {
-                padding: 0 0.5rem;
-                &.remove-all-filters {
-                  color: #a4a4a4;
-                  background-color: transparent;
-                  border: 0;
-                }
-                &.toggle-dropdown {
-                  background-color: transparent;
-                  border: 0;
-                }
+            &.expanded {
+              .dropdown-controls {
+                border-bottom: 3px solid #B9AB95;
+              }
+              .menu {
+                display: block;
               }
             }
-          }
-          .menu {
-            display: none;
-            position: absolute;
-            right: 0;
-            background-color: $white;
-            list-style: none;
-            margin: 0;
-            padding-left: 0;
-            width: 100%;
-            z-index: 1;
-            box-shadow: 0px 3px 6px rgba(0,0,0,0.101);
-            li {
-              padding: 0 1rem 1rem 1rem;
-              &.active, &:hover {
-                background-color: rgba(0,0,0,0.05);
-              }
-            }
-          }
-          &.expanded {
-            .dropdown-controls {
-              border-bottom: 3px solid #B9AB95;
-            }
-            .menu {
-              display: block;
-            }
-          }
-        }
-        @media (max-width: $sm-breakpoint) {
-          &.desktop {
-            display: none;
           }
         }
       }
-    }
-    .actions {
-      display: flex;
-      flex-direction: column;
-      .subscribe-download {
+      .action-group {
         display: flex;
+        #btn-reset-filters {
+          background-color: $white;
+        }
+        #btn-subscribe {
+          background-color: $white;
+          i {
+            color: $maroon;
+          }
+        }
         #select-download-print {
           @media (max-width: $sm-breakpoint) {
             display: none;
@@ -217,6 +207,21 @@
             .menu {
               display: block;
             }
+          }
+        }
+      }
+      &.top {
+        margin-bottom: 2rem;
+      }
+      &.bottom {
+        justify-content: flex-end;
+        .filter-group {
+          display: none;
+        }
+        &.expanded {
+          justify-content: space-between;
+          .filter-group {
+            display: flex;
           }
         }
       }

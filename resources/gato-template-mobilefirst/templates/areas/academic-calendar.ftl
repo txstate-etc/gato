@@ -2,8 +2,8 @@
   <div class="gato-section-centered">
     <div class="academic-calendar-container">
       <div class="ac-filters">
-        <div class="filters">
-          <div class="shown">
+        <div class="filter-row top">
+          <div class="filter-group">
             <div class="ac-filter desktop">
               <div id="lbl-audience">Audience</div>
               <div id="select-audience" class="ac-dropdown multiple">
@@ -72,7 +72,30 @@
               </div>
             </div>
           </div>
-          <div id="more-filters" class="more">
+          <div class="action-group">
+            <button id="btn-toggle-more-filters" class="btn-ac" aria-haspopup="true" aria-expanded="false" aria-controls="more-filters">
+              <i class="fa fa-filter" aria-label="Show More Filters"></i>
+              <span>More filters</span>
+              <i class="arrow fa" aria-hidden="true"></i>
+            </button>
+            <button id="btn-more-filters-mobile" class="btn-ac">
+              <i class="fa fa-filter" aria-label="Show More Filters"></i>
+              <span aria-hidden="true">More filters</span>
+            </button>
+            <div class="mf-button-container">
+              <a id="btn-reset-filters" class="button reverse color1">
+                <span>Reset Filters</span>
+              </a>
+            </div>
+            <div class="mf-button-container">
+              <a id="btn-go" role="button" class="button solid color1">
+                <span>Go</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="filter-row bottom">
+          <div class="filter-group">
             <div class="ac-filter">
               <label for="ac-startdate">Start Date</label>
               <input type="date" id="ac-startdate"/>
@@ -99,25 +122,13 @@
               </div>
             </div>
           </div>
-        </div>
-        <div class="actions">
-          <div>
-            <button id="btn-toggle-more-filters" class="btn-ac" aria-haspopup="true" aria-expanded="false" aria-controls="more-filters">
-              <span>Show more filters</span>
-              <i class="fa" aria-hidden="true"></i>
-            </button>
-            <button id="btn-more-filters-mobile" class="btn-ac">
-              <i class="fa fa-filter" aria-label="Show More Filters"></i>
-              <span aria-hidden="true">More filters</span>
-            </button>
-            <button id="btn-reset-filters" class="btn-ac">Reset Filters</button>
-            <button id="btn-go" class="btn-ac">Go</button>
-          </div>
-          <div class="subscribe-download">
-            <button id="btn-subscribe" class="btn-ac">
-              <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
-                Subscribe
-            </button>
+          <div class="action-group">
+            <div class="mf-button-container">
+              <a id="btn-subscribe" role="button" class="button reverse color1">
+                <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+                <span>Subscribe</span>
+              </a>
+            </div>
             <div id="select-download-print" class="ac-dropdown">
               <div class="dropdown-controls">
                 <div class="text">Download and Print</div>
