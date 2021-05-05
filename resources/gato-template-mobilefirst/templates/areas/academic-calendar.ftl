@@ -22,19 +22,19 @@
                   </div>
                 </div>
                 <ul id="audience-menu" class="menu">
-                  <li>
+                  <li tabindex="-1">
                     <span id="audience-all" class="filter-cbx" tabindex="0" role="checkbox" aria-checked="false" aria-labelledby="lblaudience-all" data-name="All"></span>
                     <div id="lblaudience-all" class="filter-label">All</div>
                   </li>
-                  <li>
+                  <li tabindex="-1">
                     <span id="audience-student" class="filter-cbx" tabindex="0" role="checkbox" aria-checked="false" aria-labelledby="lblaudience-student" data-name="Student"></span>
                     <div id="lblaudience-student" class="filter-label">Student</div>
                   </li>
-                  <li>
+                  <li tabindex="-1">
                     <span id="audience-faculty" class="filter-cbx" tabindex="0" role="checkbox" aria-checked="false" aria-labelledby="lblaudience-faculty" data-name="Faculty"></span>
                     <div id="lblaudience-faculty" class="filter-label">Faculty</div>
                   </li>
-                  <li>
+                  <li tabindex="-1">
                     <span id="audience-staff" class="filter-cbx" tabindex="0" role="checkbox" aria-checked="false" aria-labelledby="lblaudience-faculty" data-name="Staff"></span>
                     <div id="lblaudience-staff" class="filter-label">Staff</div>
                   </li>
@@ -118,13 +118,18 @@
               <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
                 Subscribe
             </button>
-            <div class="download-container">
-              <button id="btn-download-print" class="btn-ac" aria-haspopup="true" aria-expanded="false" aria-controls="download-menu">
-                <span>Download and Print <i class="fa fa-caret-down" aria-hidden="true"></i></span>
-              </button>
-              <ul id="download-menu">
-                <li>Printable Version</li>
-                <li>Download CSV</li>
+            <div id="select-download-print" class="ac-dropdown">
+              <div class="dropdown-controls">
+                <div class="text">Download and Print</div>
+                <div class="dp-actions">
+                  <button class="toggle-dropdown" aria-haspopup="true" aria-expanded="false" aria-controls="download-print-menu">
+                    <i class="fa fa-caret-down" aria-label="View download and print options"></i>
+                  </button>
+                </div>
+              </div>
+              <ul id="download-print-menu" class="menu">
+                <li tabindex="-1"><a href="#">Printable Version</a></li>
+                <li tabindex="-1"><a href="#">Download CSV</a></li>
               </ul>
             </div>
           </div>
@@ -136,17 +141,16 @@
           Manage Events
         </button>
         <ul id="manage-events-menu">
-          <li data-action="atmc">Add to my Calendar</li>
-          <li data-action="myevents">My Events</li>
-          <li data-action="remindemail">Email Reminder</li>
-          <li data-action="notify">Email me Event Updates</li>
-          <li data-action="forward">Email to Friends</li>
+          <li tabindex="-1" data-action="atmc">Add to my Calendar</li>
+          <li tabindex="-1" data-action="myevents">My Events</li>
+          <li tabindex="-1" data-action="remindemail">Email Reminder</li>
+          <li tabindex="-1" data-action="notify">Email me Event Updates</li>
+          <li tabindex="-1" data-action="forward">Email to Friends</li>
         </ul>
       </div>
       <table class="event-table">
         <thead>
           <tr>
-            <td class="none"><span class="sr-only">No content</span></td>
             <th>Date</th>
             <th>Event</th>
           </tr>
@@ -154,8 +158,8 @@
         <tbody>
         [#list model.items as item]
           <tr>
-            <td><span class="event-cbx" data-value="${item.recurrenceId}" tabindex="0" role="checkbox" aria-checked="false" aria-label="Select event: ${item.title}"></span></td>
             <td>
+              <span class="event-cbx" data-value="${item.recurrenceId}" tabindex="0" role="checkbox" aria-checked="false" aria-label="Select event: ${item.title}"></span>
               [#assign startDate = item.machineStartDate?datetime("yyyy-MM-dd'T'HH:mm:ssZ")]
               ${startDate?string["MMMM d"]}${model.dateSuffix(item.startDate)}
             </td>

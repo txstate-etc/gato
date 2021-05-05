@@ -80,6 +80,9 @@
         &.expanded {
           display: flex;
         }
+        @media (max-width: $sm-breakpoint) {
+          display: none !important;
+        }
       }
       .ac-filter {
         width: calc(100% / 3);
@@ -171,31 +174,48 @@
       flex-direction: column;
       .subscribe-download {
         display: flex;
-        .download-container {
-          position: relative;
+        #select-download-print {
           @media (max-width: $sm-breakpoint) {
             display: none;
           }
-          #btn-download-print {
-            background-color: $white;
-            box-shadow: 0px 3px 6px rgba(0,0,0,0.101);
-            font-weight: normal;
+          background-color: $white;
+          padding: 0.5rem;
+          position: relative;
+          box-shadow: 0px 3px 6px rgba(0,0,0,0.101);
+          .dropdown-controls {
+            display: flex;
+            justify-content: space-between;
+            .dp-actions {
+              .toggle-dropdown {
+                background-color: transparent;
+                border: 0;
+              }
+            }
           }
-          #download-menu {
+          .menu {
             display: none;
-            width: 100%;
             position: absolute;
-            list-style: none;
-            padding-left: 0;
-            margin: 0;
+            right: 0;
             background-color: $white;
+            list-style: none;
+            margin: 0;
+            padding-left: 0;
+            width: 100%;
             z-index: 1;
             box-shadow: 0px 3px 6px rgba(0,0,0,0.101);
-            &.expanded {
-              display: block;
-            }
             li {
               padding: 0 1rem 1rem 1rem;
+              &.active, &:hover {
+                background-color: rgba(0,0,0,0.05);
+              }
+            }
+          }
+          &.expanded {
+            .dropdown-controls {
+              border-bottom: 3px solid #B9AB95;
+            }
+            .menu {
+              display: block;
             }
           }
         }
@@ -228,6 +248,9 @@
       }
       li {
         padding: 0 1rem 1rem 1rem;
+        &.active, &:hover {
+          background-color: rgba(0,0,0,0.05);
+        }
       }
     }
   }
@@ -239,8 +262,13 @@
       background-color: $sandstone;
       border: 0;
     }
+    tbody {
+      tr:nth-child(even) td {background-color: #F7F7F7};
+    }
     td {
       border: 1px solid lightgray;
+      padding: 1rem 2rem;
+      font-size: 1.4rem;
       span.event-cbx {
         min-width: 20px;
         width: 20px;
@@ -250,6 +278,7 @@
         border-radius: 2px;
         vertical-align: middle;
         position: relative;
+        margin-right: 2rem;
         &.is-checked {
           border-width: 2px;
           background-color: $maroon;
@@ -265,6 +294,11 @@
           }
         }
       }
+    }
+    .event-description {
+      font-size: 1.2rem;
+      padding: 0.5rem 0;
+      color: #727272;
     }
   }
 }
