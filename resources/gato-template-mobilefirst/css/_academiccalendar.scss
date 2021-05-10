@@ -26,7 +26,7 @@
     }
     &#btn-more-filters-mobile {
       display: none;
-      border: 2px solid $maroon;
+      border: 1.75px solid $maroon;
       background-color: $white;
       i {
         color: $maroon;
@@ -38,33 +38,45 @@
         span {display: none}
       }
     }
-    // &#btn-reset-filters {
-    //   background-color: $white;
-    //   border: 2px solid $maroon;
-    //   @media (max-width: $sm-breakpoint) {
-    //     display: none;
-    //   }
-    // }
-    // &#btn-go {
-    //   background-color: $maroon;
-    //   color: $white;
-    //   @media (max-width: $sm-breakpoint) {
-    //    display: none;
-    //   }
-    // }
-    // &#btn-subscribe {
-    //   background-color: $white;
-    //   border: 2px solid $maroon;
-    //   i {
-    //     color: $maroon;
-    //   }
-    //   @media (max-width: $sm-breakpoint) {
-    //     display: none;
-    //   }
-    // }
+    &#btn-reset-filters {
+      background-color: $white;
+      border: 1.75px solid $maroon;
+      &:hover {
+        border-width: 2.75px;
+      }
+      @media (max-width: $sm-breakpoint) {
+        display: none;
+      }
+    }
+    &#btn-go {
+      background-color: $maroon;
+      color: $white;
+      &:hover {
+        background-color: $darkest-maroon;
+      }
+      @media (max-width: $sm-breakpoint) {
+       display: none;
+      }
+    }
+    &#btn-subscribe {
+      background-color: $white;
+      border: 1.75px solid $maroon;
+      &:hover {
+        border-width: 2.75px;
+      }
+      i {
+        color: $maroon;
+      }
+      @media (max-width: $sm-breakpoint) {
+        display: none;
+      }
+    }
   }
   .ac-filters {
     background-color: $sandstone;
+    @media (max-width: $mn-breakpoint) {
+      background-color: $white;
+    }
     padding:  0.5rem 2rem;
     margin-bottom: 2rem;
     .filter-row {
@@ -80,11 +92,17 @@
           margin-right: 2rem;
           @media (max-width: $sm-breakpoint) {
             width: 50%;
+            &.desktop {
+              display: none;
+            }
           }
           .ac-dropdown {
             background-color: $white;
             padding: 0.5rem;
             position: relative;
+            @media (max-width: $mn-breakpoint) {
+              position: static;
+            }
             box-shadow: 0px 3px 6px rgba(0,0,0,0.101);
             .dropdown-controls {
               display: flex;
@@ -135,16 +153,46 @@
               width: 100%;
               z-index: 1;
               box-shadow: 0px 3px 6px rgba(0,0,0,0.101);
+              @media (max-width: $mn-breakpoint) {
+                position: fixed;
+                bottom: 0;
+                box-shadow: 0px -3px 6px rgba(0,0,0,0.101);
+              }
               li {
                 padding: 0 1rem 1rem 1rem;
                 &.active, &.hover {
                   background-color: rgba(0,0,0,0.05);
+                }
+                &.cancel {
+                  color: #D32626;
+                  display: none;
+                  @media (max-width: $mn-breakpoint) {
+                    display: block;
+                  }
+                }
+                @media (max-width: $mn-breakpoint) {
+                  text-align: center;
+                  padding: 1rem 0;
+                  position: relative;
+                  &:not(:last-child):after {
+                    content: '';
+                    width: 80%;
+                    height: 1px;
+                    background:#e9e9e9;
+                    position: absolute;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    bottom: 0;
+                  }
                 }
               }
             }
             &.expanded {
               .dropdown-controls {
                 border-bottom: 3px solid #B9AB95;
+                @media (max-width: $mn-breakpoint) {
+                  border: 0;
+                }
               }
               .menu {
                 display: block;
@@ -155,15 +203,6 @@
       }
       .action-group {
         display: flex;
-        #btn-reset-filters {
-          background-color: $white;
-        }
-        #btn-subscribe {
-          background-color: $white;
-          i {
-            color: $maroon;
-          }
-        }
         #select-download-print {
           @media (max-width: $sm-breakpoint) {
             display: none;
@@ -234,6 +273,9 @@
     #btn-manage-events {
       color: $white;
       background-color: $maroon;
+      &:hover {
+        background-color: $darkest-maroon;
+      }
       &[aria-expanded=true] {
         background-color: $white;
         color: $maroon;

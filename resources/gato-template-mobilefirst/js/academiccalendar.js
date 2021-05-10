@@ -48,6 +48,7 @@ jQuery(document).ready(function($) {
     for (var p of relevantPartsOfTerm) {
       $('#pot-menu').append('<li tabindex="-1">' + p + '</li>')
     }
+    $('#pot-menu').append('<li class="cancel" tabindex="-1">Cancel</li>')
     $('#pot-menu li').on('click', function(e) {
       handleChangePartOfTerm($(this))
     })
@@ -70,23 +71,27 @@ jQuery(document).ready(function($) {
 
   var handleChangeSemester = function(selected) {
     var value = selected.text()
-    filterState.semester = value
-    filterState.partofterm = 'Full Term'
-    filterState.categories = []
-    filterState.startDate = ''
-    filterState.endDate = ''
+    if (!selected.hasClass('cancel')) {
+      filterState.semester = value
+      filterState.partofterm = 'Full Term'
+      filterState.categories = []
+      filterState.startDate = ''
+      filterState.endDate = ''
+      updateDropdowns()
+    }
     selected.closest('.ac-dropdown').find('.toggle-dropdown').trigger('click')
-    updateDropdowns()
   }
 
   var handleChangePartOfTerm = function(selected) {
     var value = selected.text()
-    filterState.partofterm = value
-    filterState.categories = []
-    filterState.startDate = ''
-    filterState.endDate = ''
+    if (!selected.hasClass('cancel')) {
+      filterState.partofterm = value
+      filterState.categories = []
+      filterState.startDate = ''
+      filterState.endDate = ''
+      updateDropdowns()
+    }
     selected.closest('.ac-dropdown').find('.toggle-dropdown').trigger('click')
-    updateDropdowns()
   }
 
   var toggleCheckbox = function(cb) {
@@ -124,6 +129,7 @@ jQuery(document).ready(function($) {
   for (var s of semesters) {
     $('#semester-menu').append('<li tabindex="-1">' + s + '</li>')
   }
+  $('#semester-menu').append('<li class="cancel" tabindex="-1">Cancel</li>')
   
   $('.ac-dropdown').each(function() {
     var dropdown = $(this)

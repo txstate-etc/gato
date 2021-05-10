@@ -6,7 +6,7 @@
           <div class="filter-group">
             <div class="ac-filter desktop">
               <div id="lbl-audience">Audience</div>
-              <div id="select-audience" class="ac-dropdown multiple">
+              <div id="select-audience" tabindex="0" class="ac-dropdown multiple" aria-labelledby="lbl-audience">
                 <div class="dropdown-controls">
                   <ul class="selected-filters">
                     <li id="active-audience-all" class="filter">
@@ -42,8 +42,8 @@
               </div>
             </div>
             <div class="ac-filter">
-              <label>Semester</label>
-              <div id="select-semester" class="ac-dropdown">
+              <label id="lbl-semester">Semester</label>
+              <div id="select-semester" class="ac-dropdown" tabindex="0" aria-labelledby="lbl-semester">
                 <div class="dropdown-controls">
                   <div class="selected-value">Please Select</div>
                   <div class="filter-actions">
@@ -57,8 +57,8 @@
               </div>
             </div>
             <div class="ac-filter">
-              <label>Part of Term</label>
-              <div id="select-partofterm" class="ac-dropdown">
+              <label id="lbl-partofterm">Part of Term</label>
+              <div id="select-partofterm" class="ac-dropdown" tabindex="0" aria-labelledby="lbl-partofterm">
                 <div class="dropdown-controls">
                   <div class="selected-value">Please Select</div>
                   <div class="filter-actions">
@@ -82,16 +82,8 @@
               <i class="fa fa-filter" aria-label="Show More Filters"></i>
               <span aria-hidden="true">More filters</span>
             </button>
-            <div class="mf-button-container">
-              <a id="btn-reset-filters" class="button reverse color1">
-                <span>Reset Filters</span>
-              </a>
-            </div>
-            <div class="mf-button-container">
-              <a id="btn-go" role="button" class="button solid color1">
-                <span>Go</span>
-              </a>
-            </div>
+            <button id="btn-reset-filters" class="btn-ac">Reset Filters</button>
+            <button id="btn-go" class="btn-ac">Go</button>
           </div>
         </div>
         <div class="filter-row bottom">
@@ -106,7 +98,7 @@
             </div>
             <div class="ac-filter">
               <div id="lbl-category">Category</div>
-              <div class="ac-dropdown multiple">
+              <div id="select-category" class="ac-dropdown multiple" tabindex="0" aria-labelledby="lbl-category">
                 <div class="dropdown-controls">
                   <ul class="selected-filters">
                   </ul>
@@ -123,12 +115,10 @@
             </div>
           </div>
           <div class="action-group">
-            <div class="mf-button-container">
-              <a id="btn-subscribe" role="button" class="button reverse color1">
-                <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
-                <span>Subscribe</span>
-              </a>
-            </div>
+            <button id="btn-subscribe" class="btn-ac">
+              <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+              Subscribe
+            </button>
             <div id="select-download-print" class="ac-dropdown">
               <div class="dropdown-controls">
                 <div class="text">Download and Print</div>
@@ -193,6 +183,8 @@
         [/#list]
         </tbody>
       </table>
+      <div id="mobile-calendar-modal">
+      </div>
     </div>
   </div>
 </div>
