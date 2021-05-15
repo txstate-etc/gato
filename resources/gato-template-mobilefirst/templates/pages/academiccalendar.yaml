@@ -2,7 +2,7 @@ templateScript: /gato-template-mobilefirst/templates/pages/standard.ftl
 renderType: site
 visible: true
 title: Academic Calendar 
-dialog: gato-template-mobilefirst:pages/page-properties
+dialog: gato-template-mobilefirst:pages/academic-calendar-page-properties
 areas: !include /gato-template-mobilefirst/templates/includes/areas.yaml
 parameters:
   isAcademicCalendar: true
