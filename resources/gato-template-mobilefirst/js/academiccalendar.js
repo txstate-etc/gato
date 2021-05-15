@@ -29,38 +29,35 @@ jQuery(document).ready(function($) {
       }
     }
   })
-  console.log(dropdownData)
 
+  var manageEventOptions = {
+    "Add to my Calendar": "atmc",
+    "My Events": "myevents",
+    "Email Reminder": "remindemail",
+    "Email me Event Updates": "notify",
+    "Email to Friends": "forward"
+  }
+  
   var filterState = {
     audience: [],
-    semester: 'Spring 2021',
-    partofterm: 'Full Term',
+    semester: '',
+    partofterm: '',
     startDate: '',
     endDate: '',
     category: []
   }
 
-  var updateDropdowns = function () {
-    $('#select-semester').find('.selected-value').text(filterState.semester)
-    $('#select-partofterm').find('.selected-value').text(filterState.partofterm)
+  var updateDropdowns = function() {
+    console.log('updating for ' + filterState.partofterm + ' in ' + filterState.semester)
     var relevantPartsOfTerm = Object.keys(dropdownData[filterState.semester])
     $('#pot-menu').empty();
     for (var p of relevantPartsOfTerm) {
-      $('#pot-menu').append('<li tabindex="-1">' + p + '</li>')
+      $('#pot-menu').append('<li role="option" tabindex="-1">' + p + '</li>')
     }
-    $('#pot-menu').append('<li class="cancel" tabindex="-1">Cancel</li>')
-    $('#pot-menu li').on('click', function(e) {
-      handleChangePartOfTerm($(this))
-    })
-    $('#pot-menu li').on('keydown', function(e) {
-      if (e.keyCode === KeyCodes.ENTER || e.keyCode === KeyCodes.SPACE || e.keyCode === KeyCodes.RETURN) {
-        handleChangePartOfTerm($(this))
-      }
-    })
     var relevantCategories = dropdownData[filterState.semester][filterState.partofterm].categories
     $('#category-menu').empty()
     for (var c of relevantCategories) {
-      $('#category-menu').append('<li tabindex="-1">' + c + '</li>')
+      $('#category-menu').append('<li id="select-category-'+ c + '"role="option" tabindex="-1">' + c + '</li>')
     }
 
     var minDate = moment(dropdownData[filterState.semester][filterState.partofterm].mindate).format('YYYY-MM-DD')
@@ -70,28 +67,17 @@ jQuery(document).ready(function($) {
   }
 
   var handleChangeSemester = function(selected) {
-    var value = selected.text()
-    if (!selected.hasClass('cancel')) {
-      filterState.semester = value
-      filterState.partofterm = 'Full Term'
-      filterState.categories = []
-      filterState.startDate = ''
-      filterState.endDate = ''
-      updateDropdowns()
-    }
-    selected.closest('.ac-dropdown').find('.toggle-dropdown').trigger('click')
+    filterState.semester = selected
+    $('#select-partofterm').data('acdropdown').updateSelectedItem('Full Term')
+    handleChangePartOfTerm('Full Term')
   }
 
   var handleChangePartOfTerm = function(selected) {
-    var value = selected.text()
-    if (!selected.hasClass('cancel')) {
-      filterState.partofterm = value
-      filterState.categories = []
-      filterState.startDate = ''
-      filterState.endDate = ''
-      updateDropdowns()
-    }
-    selected.closest('.ac-dropdown').find('.toggle-dropdown').trigger('click')
+    filterState.partofterm = selected
+    filterState.categories = []
+    filterState.startDate = ''
+    filterState.endDate = ''
+    updateDropdowns()
   }
 
   var toggleCheckbox = function(cb) {
@@ -101,27 +87,31 @@ jQuery(document).ready(function($) {
       cb.addClass('is-checked')
     }
     if ($('.event-cbx.is-checked').length > 0) {
-      $('.manage-events-container').css('display', 'block')
+      $('#select-manage-events').css('display', 'block')
     } else {
-      $('.manage-events-container').css('display', 'none')
+      $('#select-manage-events').css('display', 'none')
     }
   }
 
   var manageEvent = function(action) {
-    var url = 'https://eventactions.com/eventactions/txstate#/'
-    if (action === "myevents") {
-      url += "myevents"
-    } else {
-      url += 'actions/' + action + '/'
-      var selectedEvents = []
-      $('.event-cbx.is-checked').each(function() {
-        selectedEvents.push($(this).data('value'))
-      })
-      url += selectedEvents.join(',')
-    }
-    $('#manage-events-menu').removeClass('expanded')
-    $('#btn-manage-events').attr('aria-expanded', false)
-    window.open(url, 'manage', "width=750,height=800")
+    if ($('#calendarActionUrl').length > 0) {
+      var url = $('#calendarActionUrl').data('url') + '/'
+      var trumbaAction = manageEventOptions[action]
+      if (!trumbaAction) trumbaAction = "myevents"
+      if (trumbaAction === "myevents") {
+        url = url.replace('actions', 'myevents')
+      } else {
+        url += trumbaAction + '/'
+        var selectedEvents = []
+        $('.event-cbx.is-checked').each(function() {
+          selectedEvents.push($(this).data('value'))
+        })
+        url += selectedEvents.join(',')
+      }
+      $('#manage-events-menu').removeClass('expanded')
+      $('#btn-manage-events').attr('aria-expanded', false)
+      window.open(url, 'manage', "width=750,height=800")
+    } 
   }
 
   var semesters = Object.keys(dropdownData)
@@ -129,79 +119,6 @@ jQuery(document).ready(function($) {
   for (var s of semesters) {
     $('#semester-menu').append('<li tabindex="-1">' + s + '</li>')
   }
-  $('#semester-menu').append('<li class="cancel" tabindex="-1">Cancel</li>')
-  
-  $('.ac-dropdown').each(function() {
-    var dropdown = $(this)
-    var menu = $(this).find('.menu')
-    
-    var closeMenu = function() {
-      dropdown.removeClass('expanded')
-      dropdown.find('.toggle-dropdown').attr('aria-expanded', false).focus()
-
-    }
-
-    var openMenu = function() {
-      dropdown.addClass('expanded')
-      dropdown.find('.toggle-dropdown').attr('aria-expanded', true)
-    }
-
-    dropdown.find('.toggle-dropdown').on('click', function() {
-      if (dropdown.hasClass('expanded')) {
-        closeMenu()
-      } else {
-        openMenu()
-      }
-    })
-
-    dropdown.on('keydown', function(e) {
-      if (e.keyCode === KeyCodes.ESCAPE) {
-        closeMenu()
-      } else if (e.keyCode === KeyCodes.DOWN) {
-        e.preventDefault()
-        if (!dropdown.hasClass('expanded')) {
-          openMenu()
-        } else {
-          dropdown.find('.menu li').eq(0).focus()
-        }
-      }
-    })
-
-    menu.on('keydown', function(e) {
-      e.preventDefault()
-      var menuItems = $(this).find('li')
-      if (e.keyCode === KeyCodes.DOWN) {
-        e.stopPropagation()
-        var idx = menuItems.index(e.target)
-        if (idx === menuItems.length - 1) {
-          menuItems.eq(0).focus()
-        } else {
-          menuItems.eq(idx + 1).focus()
-        }
-      } else if (e.keyCode === KeyCodes.UP) {
-        e.stopPropagation()
-        var idx = menuItems.index(e.target)
-        if (idx === 0) {
-          menuItems.eq(menuItems.length -1).focus()
-        } else {
-          menuItems.eq(idx - 1).focus()
-        }
-      }
-    })
-  })
-
-  $('#semester-menu li').on('click', function(e) {
-    handleChangeSemester($(this))
-  })
-  $('#semester-menu li').on('keydown', function(e) {
-    if (e.keyCode === KeyCodes.ENTER || e.keyCode === KeyCodes.SPACE || e.keyCode === KeyCodes.RETURN) {
-      handleChangeSemester($(this))
-    }
-  })
-
-  $('#pot-menu li').on('click', function(e) {
-    handleChangePartOfTerm($(this))
-  })
   
   $('#btn-toggle-more-filters').on('click', function() {
     var moreFilterRow = $('.filter-row.bottom')
@@ -229,66 +146,42 @@ jQuery(document).ready(function($) {
     }
   })
 
-  $('#btn-manage-events').on('click', function() {
-    var menu = $('#manage-events-menu')
-    if (menu.hasClass('expanded')) {
-      menu.removeClass('expanded')
-      $(this).attr('aria-expanded', false)
-    } else {
-      menu.addClass('expanded')
-      $(this).attr('aria-expanded', true)
-    }
+  var currentSemester = $('#currentSemester').data('semester')
+  if (dropdownData[currentSemester]) {
+      filterState.semester = currentSemester
+      filterState.partofterm = 'Full Term'
+      updateDropdowns()
+  }
+
+  $('#select-audience').acdropdown({
+    multiple: true
+  })
+
+  $('#select-semester').acdropdown({
+    onSelect: function(item) {
+      handleChangeSemester(item)
+    },
+    selected: currentSemester
   })
   
-  $('#btn-manage-events').on('keydown', function(e) {
-    var menu = $('#manage-events-menu')
-    if (e.keyCode === KeyCodes.ESCAPE) {
-      menu.removeClass('expanded')
-      $(this).attr('aria-expanded', false)
-    } else if (e.keyCode === KeyCodes.DOWN) {
-      e.preventDefault()
-      if (!menu.hasClass('expanded')) {
-        menu.addClass('expanded')
-        $(this).attr('aria-expanded', true)
-      } else {
-        menu.find('li').eq(0).focus()
-      }
-    }
+  $('#select-partofterm').acdropdown({
+    onSelect: function(item) {
+      handleChangePartOfTerm(item)
+    },
+    selected: 'Full Term'
+  })
+  $('#select-category').acdropdown( {
+    multiple: true
   })
 
-  $('#manage-events-menu li').on('click', function() {
-    var action = $(this).data('action')
-    manageEvent(action)
+  $('#select-download-print').acdropdown( {
+    showSelected: false
   })
 
-  $('#manage-events-menu li').on('keydown', function(e) {
-    var menu = $('#manage-events-menu')
-    var menuItems = menu.find('li')
-    var button = $('#btn-manage-events')
-    if (e.keyCode === KeyCodes.ESCAPE) {
-      menu.removeClass('expanded')
-      button.attr('aria-expanded', false).focus()
-    } else if (e.keyCode === KeyCodes.DOWN) {
-      e.preventDefault()
-      e.stopPropagation()
-      var idx = menuItems.index(e.target)
-      if (idx === menuItems.length - 1) {
-        menuItems.eq(0).focus()
-      } else {
-        menuItems.eq(idx + 1).focus()
-      }
-    } else if (e.keyCode === KeyCodes.UP) {
-      e.preventDefault()
-      e.stopPropagation()
-      var idx = menuItems.index(e.target)
-      if (idx === 0) {
-        menuItems.eq(menuItems.length -1).focus()
-      } else {
-        menuItems.eq(idx - 1).focus()
-      }
-    } else if (e.keyCode === KeyCodes.ENTER || e.keyCode === KeyCodes.SPACE || e.keyCode === KeyCodes.RETURN) {
-      var action = $(this).data('action')
-      manageEvent(action)
+  $('#select-manage-events').acdropdown( {
+    showSelected: false,
+    onSelect: function(item) {
+      manageEvent(item)
     }
   })
 

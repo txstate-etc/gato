@@ -1,73 +1,61 @@
 <div class="gato-section-full">
   <div class="gato-section-centered">
+  <div style="background-color: #EBC2EB; padding: 2rem">
+    [#assign parent = cmsfn.parent(content, "mgnl:page")]
+    Pulling dates from ${parent.firstSemesterShown!} to ${parent.lastSemesterShown!}
+    <br></br>
+    Current semester is ${model.guessCurrentSemester()}
+  </div>
     <div class="academic-calendar-container">
+      <div id="currentSemester" data-semester="${model.guessCurrentSemester()}"></div>
+      [#if model.items?size > 0]
+        <div id="calendarActionUrl" data-url="${model.items[0].calendarUrl?keep_before_last('/')}"></div>
+      [/#if]
+      <div id="calendarUrl" data-url=""></div>
       <div class="ac-filters">
         <div class="filter-row top">
           <div class="filter-group">
             <div class="ac-filter desktop">
               <div id="lbl-audience">Audience</div>
-              <div id="select-audience" tabindex="0" class="ac-dropdown multiple" aria-labelledby="lbl-audience">
-                <div class="dropdown-controls">
-                  <ul class="selected-filters">
-                    <li id="active-audience-all" class="filter">
-                      All
-                      <button class="remove-filter"><i class="fa fa-close" aria-label="Remove filter all"></i></button>
-                    </li>
+              <div id="select-audience" tabindex="0" class="ac-dropdown multiple" aria-labelledby="lbl-audience" role="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="audience-menu" aria-describedby="audience-info">
+                <div class="input">
+                  <div class="text">Select a few...</div>
+                  <ul class="selected-items">
                   </ul>
-                  <div class="filter-actions">
+                  <div class="actions">
                     <button class="remove-all-filters"><i class="fa fa-close" aria-label="Remove all audience filters"></i></button>
-                    <button class="toggle-dropdown" aria-haspopup="true" aria-expanded="false" aria-controls="audience-menu">
-                      <i class="fa fa-caret-down" aria-label="View audience options"></i>
-                    </button>
+                    <i class="fa fa-caret-down" aria-hidden="true"></i>
                   </div>
                 </div>
-                <ul id="audience-menu" class="menu">
-                  <li tabindex="-1">
-                    <span id="audience-all" class="filter-cbx" tabindex="0" role="checkbox" aria-checked="false" aria-labelledby="lblaudience-all" data-name="All"></span>
-                    <div id="lblaudience-all" class="filter-label">All</div>
-                  </li>
-                  <li tabindex="-1">
-                    <span id="audience-student" class="filter-cbx" tabindex="0" role="checkbox" aria-checked="false" aria-labelledby="lblaudience-student" data-name="Student"></span>
-                    <div id="lblaudience-student" class="filter-label">Student</div>
-                  </li>
-                  <li tabindex="-1">
-                    <span id="audience-faculty" class="filter-cbx" tabindex="0" role="checkbox" aria-checked="false" aria-labelledby="lblaudience-faculty" data-name="Faculty"></span>
-                    <div id="lblaudience-faculty" class="filter-label">Faculty</div>
-                  </li>
-                  <li tabindex="-1">
-                    <span id="audience-staff" class="filter-cbx" tabindex="0" role="checkbox" aria-checked="false" aria-labelledby="lblaudience-faculty" data-name="Staff"></span>
-                    <div id="lblaudience-staff" class="filter-label">Staff</div>
-                  </li>
+                <ul id="audience-menu" class="menu" role="listbox">
+                  <li id="select-audience-Students" role="option" tabindex="-1">Students</li>
+                  <li id="select-audience-Faculty" role="option" tabindex="-1">Faculty</li>
+                  <li id="select-audience-Staff" role="option" tabindex="-1">Staff</li>
                 </ul>
+                <div id="audience-info" class="info visuallyhidden">
+                  <span class="count">0 items selected</span>
+                </div>
               </div>
             </div>
             <div class="ac-filter">
               <label id="lbl-semester">Semester</label>
-              <div id="select-semester" class="ac-dropdown" tabindex="0" aria-labelledby="lbl-semester">
-                <div class="dropdown-controls">
-                  <div class="selected-value">Please Select</div>
-                  <div class="filter-actions">
-                    <button class="toggle-dropdown" aria-haspopup="true" aria-expanded="false" aria-controls="semester-menu">
-                      <i class="fa fa-caret-down" aria-label="View semester options"></i>
-                    </button>
-                  </div>
+              <div id="select-semester" class="ac-dropdown" tabindex="0" aria-labelledby="lbl-semester" role="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="semester-menu">
+                <div class="input">
+                  <div class="text">Choose...</div>
+                  <i class="fa fa-caret-down" aria-hidden="true"></i>
                 </div>
-                <ul id="semester-menu" class="menu">
+                <ul id="semester-menu" class="menu" role="listbox">
                 </ul>
               </div>
             </div>
             <div class="ac-filter">
               <label id="lbl-partofterm">Part of Term</label>
-              <div id="select-partofterm" class="ac-dropdown" tabindex="0" aria-labelledby="lbl-partofterm">
-                <div class="dropdown-controls">
-                  <div class="selected-value">Please Select</div>
-                  <div class="filter-actions">
-                    <button class="toggle-dropdown" aria-haspopup="true" aria-expanded="false" aria-controls="pot-menu">
-                      <i class="fa fa-caret-down" aria-label="View Part of Term options"></i>
-                    </button>
-                  </div>
+              <div id="select-partofterm" class="ac-dropdown" tabindex="0" aria-labelledby="lbl-partofterm" role="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="pot-menu">
+                <div class="input">
+                  <div class="text">Choose...</div>
+                  <i class="fa fa-caret-down" aria-hidden="true"></i>
                 </div>
-                <ul id="pot-menu" class="menu">
+                <ul id="pot-menu" class="menu" role="listbox">
                 </ul>
               </div>
             </div>
@@ -98,19 +86,21 @@
             </div>
             <div class="ac-filter">
               <div id="lbl-category">Category</div>
-              <div id="select-category" class="ac-dropdown multiple" tabindex="0" aria-labelledby="lbl-category">
-                <div class="dropdown-controls">
-                  <ul class="selected-filters">
+              <div id="select-category" class="ac-dropdown multiple" tabindex="0" aria-labelledby="lbl-category" role="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="category-menu" aria-describedby="category-info">
+                <div class="input">
+                  <div class="text">Select a few...</div>
+                  <ul class="selected-items">
                   </ul>
-                  <div class="filter-actions">
+                  <div class="actions">
                     <button class="remove-all-filters"><i class="fa fa-close" aria-label="Remove all category filters"></i></button>
-                    <button class="toggle-dropdown" aria-haspopup="true" aria-expanded="false" aria-control="audience-menu">
-                      <i class="fa fa-caret-down" aria-label="View category options"></i>
-                    </button>
+                    <i class="fa fa-caret-down" aria-hidden="true"></i>
                   </div>
                 </div>
-                <ul id="category-menu" class="menu">
+                <ul id="category-menu" class="menu" role="listbox">
                 </ul>
+                <div id="category-info" class="info visuallyhidden">
+                  <span class="count">0 items selected</span>
+                </div>
               </div>
             </div>
           </div>
@@ -119,35 +109,35 @@
               <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
               Subscribe
             </button>
-            <div id="select-download-print" class="ac-dropdown">
-              <div class="dropdown-controls">
+            <div id="select-download-print" class="ac-dropdown" tabindex="0" aria-label="Download and Print menu" role="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="download-print-menu">
+              <div class="input">
                 <div class="text">Download and Print</div>
-                <div class="dp-actions">
-                  <button class="toggle-dropdown" aria-haspopup="true" aria-expanded="false" aria-controls="download-print-menu">
-                    <i class="fa fa-caret-down" aria-label="View download and print options"></i>
-                  </button>
-                </div>
+                <i class="fa fa-caret-down" aria-hidden="true"></i>
               </div>
-              <ul id="download-print-menu" class="menu">
-                <li tabindex="-1"><a href="#">Printable Version</a></li>
-                <li tabindex="-1"><a href="#">Download CSV</a></li>
+              <ul id="download-print-menu" class="menu" role="listbox">
+                <li role="option" tabindex="-1"><a href="#">Printable Version</a></li>
+                <li role="option" tabindex="-1"><a href="#">Download CSV</a></li>
               </ul>
             </div>
           </div>
         </div>
       </div>
       <div class="manage-events-container">
-        <button id="btn-manage-events" class="btn-ac" aria-haspopup="true" aria-expanded="false" aria-controls="manage-events-menu">
-          <i class="fa fa-calendar" aria-hidden="true"></i>
-          Manage Events
-        </button>
-        <ul id="manage-events-menu">
-          <li tabindex="-1" data-action="atmc">Add to my Calendar</li>
-          <li tabindex="-1" data-action="myevents">My Events</li>
-          <li tabindex="-1" data-action="remindemail">Email Reminder</li>
-          <li tabindex="-1" data-action="notify">Email me Event Updates</li>
-          <li tabindex="-1" data-action="forward">Email to Friends</li>
-        </ul>
+        <div id="select-manage-events" class="ac-dropdown" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false" aria-controls="manage-events-menu">
+          <div class="input">
+            <div class="text">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              Manage Events
+            </div>
+          </div>
+          <ul id="manage-events-menu" class="menu" role="listbox">
+            <li role="option" tabindex="-1" data-action="atmc">Add to my Calendar</li>
+            <li role="option" tabindex="-1" data-action="myevents">My Events</li>
+            <li role="option" tabindex="-1" data-action="remindemail">Email Reminder</li>
+            <li role="option" tabindex="-1" data-action="notify">Email me Event Updates</li>
+            <li role="option" tabindex="-1" data-action="forward">Email to Friends</li>
+          </ul>
+        </div>
       </div>
       <table class="event-table">
         <thead>
@@ -157,12 +147,21 @@
           </tr>
         </thead>
         <tbody>
+        [#assign thisyear = .now?date?string["yyyy"]]
         [#list model.items as item]
           <tr>
             <td>
-              <span class="event-cbx" data-value="${item.recurrenceId}" tabindex="0" role="checkbox" aria-checked="false" aria-label="Select event: ${item.title}"></span>
-              [#assign startDate = item.machineStartDate?datetime("yyyy-MM-dd'T'HH:mm:ssZ")]
-              ${startDate?string["MMMM d"]}${model.dateSuffix(item.startDate)}
+              <div class="date-column">
+                <span class="event-cbx" data-value="${item.recurrenceId}" tabindex="0" role="checkbox" aria-checked="false" aria-label="Select event: ${item.title}"></span>
+                <div class="date">
+                  [#assign startDate = item.machineStartDate?datetime("yyyy-MM-dd'T'HH:mm:ssZ")]
+                  ${startDate?string["MMMM d"]}${model.dateSuffix(item.startDate)}
+                  [#assign year=startDate?string["yyyy"]]
+                  [#if year != thisyear]
+                  <div class="eventyear">${year}</div>
+                  [/#if]
+                </div>
+              </div>
             </td>
             </td>
             <td>
