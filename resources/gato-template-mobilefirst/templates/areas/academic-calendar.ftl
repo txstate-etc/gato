@@ -16,7 +16,7 @@
         <div class="filter-row top">
           <div class="filter-group">
             <div class="ac-filter desktop">
-              <div id="lbl-audience">Audience</div>
+              <label id="lbl-audience">Audience</label>
               <div id="select-audience" tabindex="0" class="ac-dropdown multiple" aria-labelledby="lbl-audience" role="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="audience-menu" aria-describedby="audience-info">
                 <div class="input">
                   <div class="text">Select a few...</div>
@@ -85,7 +85,7 @@
               <input type="date" id="ac-enddate"/>
             </div>
             <div class="ac-filter">
-              <div id="lbl-category">Category</div>
+              <label id="lbl-category">Category</label>
               <div id="select-category" class="ac-dropdown multiple" tabindex="0" aria-labelledby="lbl-category" role="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="category-menu" aria-describedby="category-info">
                 <div class="input">
                   <div class="text">Select a few...</div>
@@ -109,6 +109,9 @@
               <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
               Subscribe
             </button>
+            <div id="subscribe-help" tabindex="0">
+              <i class="fa fa-question-circle" aria-label="More information about subscribing"></i>
+            </div>
             <div id="select-download-print" class="ac-dropdown" tabindex="0" aria-label="Download and Print menu" role="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="download-print-menu">
               <div class="input">
                 <div class="text">Download and Print</div>

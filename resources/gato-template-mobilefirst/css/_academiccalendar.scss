@@ -7,9 +7,10 @@
     border: 0;
     padding: 1rem 1.5rem;
     border-radius: 4px;
+    max-height: 4rem;
     &#btn-toggle-more-filters {
       font-weight: normal;
-      @media (ax-width: $sm-breakpoint) {
+      @media (max-width: $sm-breakpoint) {
         display: none;
       }
       i.fa-filter {
@@ -41,6 +42,7 @@
     &#btn-reset-filters {
       background-color: $white;
       border: 1.75px solid $maroon;
+      margin-right: 1rem;
       &:hover {
         border-width: 2.75px;
       }
@@ -61,6 +63,7 @@
     &#btn-subscribe {
       background-color: $white;
       border: 1.75px solid $maroon;
+      margin-right: 0.5rem;
       &:hover {
         border-width: 2.75px;
       }
@@ -95,6 +98,10 @@
             &.desktop {
               display: none;
             }
+          }
+          label {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
           }
           .ac-dropdown {
             background-color: $white;
@@ -195,6 +202,13 @@
       }
       .action-group {
         display: flex;
+        align-items: flex-end;
+        #subscribe-help {
+          align-self: flex-start;
+          color: $medium-gray;
+          font-size: 20px;
+          margin-right: 0.5rem;
+        }
         #select-download-print {
           @media (max-width: $sm-breakpoint) {
             display: none;
@@ -208,7 +222,7 @@
             justify-content: space-between;
             align-items: center;
             font-size: 1.4rem;
-            padding: 0.5rem;
+            padding: 1rem;
           }
           .menu {
             display: none;
