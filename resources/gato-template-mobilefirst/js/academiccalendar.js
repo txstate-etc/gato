@@ -88,8 +88,10 @@ jQuery(document).ready(function($) {
     }
     if ($('.event-cbx.is-checked').length > 0) {
       $('#select-manage-events').css('display', 'block')
+      $('#manage-help').css('display', 'block')
     } else {
       $('#select-manage-events').css('display', 'none')
+      $('#manage-help').css('display', 'none')
     }
   }
 
@@ -182,6 +184,47 @@ jQuery(document).ready(function($) {
     showSelected: false,
     onSelect: function(item) {
       manageEvent(item)
+    }
+  })
+
+  $('#mobile-calendar-modal').focusout(function (e) {
+    var tabbable = $('#mobile-calendar-modal').find(':tabbable');
+    var first = tabbable.first();
+    var last = tabbable.last();
+    var targ = $(e.relatedTarget);
+    if (targ.is('.focusstart')) {
+      last.focus();
+    } else if (targ.is('.focusend')) {
+      first.focus();
+    }
+  })
+
+  $('#mobile-calendar-modal').on('keydown', function(e) {
+   if (e.keyCode === KeyCodes.ESCAPE) {
+    $(this).removeClass('shown')
+    $('#btn-more-filters-mobile').attr('aria-expanded', false)
+   }
+  })
+
+  $('#btn-more-filters-mobile').on('click', function() {
+    var modal = $('#mobile-calendar-modal')
+    $('#mobile-category').empty()
+    for (var cat of dropdownData[filterState.semester][filterState.partofterm].categories) {
+      $('#mobile-category').append('<li><div class="mobile-filter-cbx" role="checkbox" tabindex="0">'+ cat +'</div></li>')
+    }
+    $(this).attr('aria-expanded', true)
+    modal.addClass('shown')
+    modal.find('.invisible-focus').focus();
+  })
+
+  $('.toggle-mobile-subscribe').on('click', function() {
+    var container = $(this).closest('.mobile-subscribe-container')
+    if (container.hasClass('expanded')) {
+      container.removeClass('expanded')
+      $(this).attr('aria-expanded', false)
+    } else {
+      container.addClass('expanded')
+      $(this).attr('aria-expanded', true)
     }
   })
 

@@ -66,7 +66,7 @@
               <span>More filters</span>
               <i class="arrow fa" aria-hidden="true"></i>
             </button>
-            <button id="btn-more-filters-mobile" class="btn-ac">
+            <button id="btn-more-filters-mobile" class="btn-ac" aria-haspopup="dialog">
               <i class="fa fa-filter" aria-label="Show More Filters"></i>
               <span aria-hidden="true">More filters</span>
             </button>
@@ -76,15 +76,15 @@
         </div>
         <div class="filter-row bottom">
           <div class="filter-group">
-            <div class="ac-filter">
+            <div class="ac-filter desktop">
               <label for="ac-startdate">Start Date</label>
               <input type="date" id="ac-startdate"/>
             </div>
-            <div class="ac-filter">
+            <div class="ac-filter desktop">
               <label for="ac-enddate">End Date</label>
               <input type="date" id="ac-enddate"/>
             </div>
-            <div class="ac-filter">
+            <div class="ac-filter desktop">
               <label id="lbl-category">Category</label>
               <div id="select-category" class="ac-dropdown multiple" tabindex="0" aria-labelledby="lbl-category" role="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="category-menu" aria-describedby="category-info">
                 <div class="input">
@@ -105,12 +105,14 @@
             </div>
           </div>
           <div class="action-group">
-            <button id="btn-subscribe" class="btn-ac">
-              <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
-              Subscribe
-            </button>
-            <div id="subscribe-help" tabindex="0">
-              <i class="fa fa-question-circle" aria-label="More information about subscribing"></i>
+            <div class="subscribe-container">
+              <button id="btn-subscribe" class="btn-ac">
+                <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+                Subscribe
+              </button>
+              <div id="subscribe-help" tabindex="0">
+                <i class="fa fa-question-circle" aria-label="More information about subscribing"></i>
+              </div>
             </div>
             <div id="select-download-print" class="ac-dropdown" tabindex="0" aria-label="Download and Print menu" role="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="download-print-menu">
               <div class="input">
@@ -140,6 +142,9 @@
             <li role="option" tabindex="-1" data-action="notify">Email me Event Updates</li>
             <li role="option" tabindex="-1" data-action="forward">Email to Friends</li>
           </ul>
+        </div>
+        <div id="manage-help" tabindex="0">
+          <i class="fa fa-question-circle" aria-label="More information about managing events"></i>
         </div>
       </div>
       <table class="event-table">
@@ -185,7 +190,64 @@
         [/#list]
         </tbody>
       </table>
-      <div id="mobile-calendar-modal">
+      <div id="mobile-calendar-modal" role="dialog" aria-modal="true">
+        <div class="instructions">Select all that apply</div>
+        <div tabindex="0" class="focusstart sr-only"></div>
+        <div class="content">
+          <div class="invisible-focus" tabindex="-1"></div>
+          <div class="filter-label">Audience</div>
+          <ul id="mobile-audience" class="mobile-filter-group">
+            <li>
+              <div class="mobile-filter-cbx" role="checkbox" tabindex="0">Student</div>
+            </li>
+            <li>
+              <div class="mobile-filter-cbx" role="checkbox" tabindex="0">Faculty</div>
+            </li>
+            <li>
+              <div class="mobile-filter-cbx" role="checkbox" tabindex="0">Staff</div>
+            </li>
+          </ul>
+          <div class="divider">
+            <div></div>
+          </div>
+          <div class="filter-label">Category</div>
+          <ul id="mobile-category" class="mobile-filter-group">
+          </ul>
+          <div class="divider">
+            <div></div>
+          </div>
+          <div class="filter-label">Specific Dates</div>
+          <div class="mobile-dates">
+            <label for="mobile-start-date" class="visuallyhidden">Start Date</label>
+            <input id="mobile-start-date" class="mobile-date" type="date" placeholder="Start">
+            <label for="mobile-end-date" class="visuallyhidden">End Date</label>
+            <input id="mobile-end-date" class="mobile-date" type="date" placeholder="End">
+          </div>
+          <div class="mobile-subscribe-container">
+            <button class="toggle-mobile-subscribe" aria-haspopup="true" aria-expanded="false" aria-controls="mobile-subscribe-panel">
+              <span>Subscribe to this filtered calendar</span>
+              <i class="fa" aria-hidden="true"></i>
+            </button>
+            <div id="mobile-subscribe-panel">
+              <div class="subscribe-icons">
+                <i class="fa fa-facebook-square" aria-hidden="true"></i>
+              </div>
+              <div class="subscribe-description">
+                Save this filtered academic calendar to your personal calendar by subscribing.
+                This includes any updates made to the calendar in the future automatically.
+              </div>
+              <button id="btn-mobile-subscribe" class="btn-ac">
+                <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+                Subscribe
+              </button>
+            </div>
+          </div>
+          <div class="mobile-filter-buttons">
+            <button id="mobile-filter-reset" class="btn-ac">Reset</button>
+            <button id="mobile-filter-go" class="btn-ac">Go</button>
+          </div>
+        </div>
+        <div tabindex="0" class="focusend sr-only"></div>
       </div>
     </div>
   </div>
