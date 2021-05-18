@@ -228,4 +228,44 @@ jQuery(document).ready(function($) {
     }
   })
 
+  $('#btn-subscribe').on('mouseover', function(e) {
+    $('#subscribe-tooltip').addClass('shown')
+  })
+
+  $('#btn-subscribe').on('mouseout', function(e) {
+    $('#subscribe-tooltip').removeClass('shown')
+  })
+
+  $('#subscribe-help').on('click', function() {
+    $('#subscribe-tooltip').toggleClass('shown')
+  })
+
+  $('#subscribe-help').on('keydown', function(e) {
+    if (e.keyCode === KeyCodes.ENTER || e.keyCode === KeyCodes.SPACE || e.keyCode === KeyCodes.RETURN) {
+      e.preventDefault()
+      e.stopPropagation()
+      $('#subscribe-tooltip').toggleClass('shown')
+    }
+  })
+
+  $('#select-manage-events').on('mouseover', function(e) {
+    $('#manage-tooltip').addClass('shown')
+  })
+
+  $('#select-manage-events').on('mouseout', function(e) {
+    $('#manage-tooltip').removeClass('shown')
+  })
+
+  $('#manage-help').on('click', function() {
+    $('#manage-tooltip').toggleClass('shown')
+  })
+
+  $('#manage-help').on('keydown', function(e) {
+    if (e.keyCode === KeyCodes.ENTER || e.keyCode === KeyCodes.SPACE || e.keyCode === KeyCodes.RETURN) {
+      e.preventDefault()
+      e.stopPropagation()
+      $('#manage-tooltip').toggleClass('shown')
+    }
+  })
+
 })

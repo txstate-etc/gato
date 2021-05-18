@@ -110,7 +110,8 @@
                 <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
                 Subscribe
               </button>
-              <div id="subscribe-help" tabindex="0">
+              <span id="subscribe-tooltip" class="tooltip">Save <strong>all</strong> events to your calendar, including any changes made.</span>
+              <div id="subscribe-help" tabindex="0" role="button">
                 <i class="fa fa-question-circle" aria-label="More information about subscribing"></i>
               </div>
             </div>
@@ -143,6 +144,7 @@
             <li role="option" tabindex="-1" data-action="forward">Email to Friends</li>
           </ul>
         </div>
+        <span id="manage-tooltip" class="tooltip">Save <strong>selected</strong> events to your calendar.</span>
         <div id="manage-help" tabindex="0">
           <i class="fa fa-question-circle" aria-label="More information about managing events"></i>
         </div>

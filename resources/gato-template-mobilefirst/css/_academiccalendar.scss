@@ -206,6 +206,7 @@
         align-items: flex-end;
         .subscribe-container{
           display: flex;
+          position: relative;
           #subscribe-help {
             color: $medium-gray;
             font-size: 20px;
@@ -213,6 +214,10 @@
             @media (max-width: $sm-breakpoint) {
               display: none;
             }
+          }
+          #subscribe-tooltip {
+            top: 130%;
+            left: -75%;
           }
         }
         #select-download-print {
@@ -286,6 +291,7 @@
   }
   .manage-events-container {
     display: flex;
+    position: relative;
     #select-manage-events {
       display: none;
       margin-bottom: 2rem;
@@ -318,6 +324,12 @@
         #manage-events-menu {
           display: block;
         }
+      }
+    }
+    #manage-tooltip {
+      top: 90%;
+      &:after {
+        left: 10%;
       }
     }
     #manage-help {
@@ -516,6 +528,29 @@
           color: $white;
         }
       }
+    }
+  }
+  .tooltip { 
+    display: none;
+    background-color: #ddd5c9;
+    position: absolute;
+    font-size: 1.3rem;
+    padding: 0.5rem;
+    white-space: nowrap;
+    border-radius: 4px;
+    &.shown {
+      display: block;
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      margin-left: -8px;
+      border-width: 8px;
+      border-style: solid;
+      border-color: transparent transparent #ddd5c9 transparent;
+
     }
   }
 }
