@@ -132,6 +132,35 @@
                 &:hover {
                   background-color: rgba(0,0,0,0.05);
                 }
+                &.cancel {
+                  display: none;
+                  color: #D32626;
+                  @media (max-width: $mn-breakpoint) {
+                    display: block;
+                  }
+                }
+              }
+            }
+            &#select-semester, &#select-partofterm {
+              @media (max-width: $mn-breakpoint) {
+                .menu {
+                  position: fixed;
+                  bottom: 0;
+                  li {
+                    text-align: center;
+                    position: relative;
+                    display: block;
+                    &:not(:first-child) {
+                      &:before {
+                        content: "";
+                        display: block;
+                        margin: 0 auto; 
+                        width: 90%;
+                        border-bottom: 1px solid $medium-gray;
+                      }
+                    }
+                  }
+                }
               }
             }
             &.expanded {
@@ -143,6 +172,9 @@
                   margin: 0 auto; 
                   width: 90%;
                   border-bottom: 3px solid #B9AB95;
+                  @media (max-width: $mn-breakpoint) {
+                    display: none;
+                  }
                 }
               }
             }
@@ -482,6 +514,7 @@
           width: 100%;
           display: flex;
           justify-content: space-between;
+          align-items: center;
           i:before {
             font-family: FontAwesome;
             content: "\f0d9";
@@ -491,10 +524,11 @@
           display: none;
           text-align: center;
           .subscribe-icons {
-            padding: 3rem;
-            i {
-              font-size: 3.2rem;
-              color: $maroon;
+            display: flex;
+            justify-content: space-around;
+            img {
+              width: 25%;
+              padding: 2rem;
             }
           }
           .subscribe-description {

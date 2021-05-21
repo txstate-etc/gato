@@ -67,9 +67,13 @@ jQuery(document).ready(function($) {
   }
 
   var handleChangeSemester = function(selected) {
-    filterState.semester = selected
-    $('#select-partofterm').data('acdropdown').updateSelectedItem('Full Term')
-    handleChangePartOfTerm('Full Term')
+    if (selected != 'Cancel') {
+      filterState.semester = selected
+      $('#select-partofterm').data('acdropdown').updateSelectedItem('Full Term')
+      handleChangePartOfTerm('Full Term')
+    } else {
+      $('#select-semester').data('acdropdown').updateSelectedItem(filterState.semester)
+    }
   }
 
   var handleChangePartOfTerm = function(selected) {
@@ -121,6 +125,7 @@ jQuery(document).ready(function($) {
   for (var s of semesters) {
     $('#semester-menu').append('<li tabindex="-1">' + s + '</li>')
   }
+  $('#semester-menu').append('<li class="cancel" tabindex="-1">Cancel</li>')
   
   $('#btn-toggle-more-filters').on('click', function() {
     var moreFilterRow = $('.filter-row.bottom')

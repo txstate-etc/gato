@@ -232,7 +232,10 @@
             </button>
             <div id="mobile-subscribe-panel">
               <div class="subscribe-icons">
-                <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                <img src="${ctx.contextPath}/.resources/gato-template-mobilefirst/images/academic-calendar/netid.svg" alt="Net ID"/>
+                <img src="${ctx.contextPath}/.resources/gato-template-mobilefirst/images/academic-calendar/facebook.svg" alt="Facebook logo"/>
+                <img src="${ctx.contextPath}/.resources/gato-template-mobilefirst/images/academic-calendar/gmail.svg" alt="Gmail logo"/>
+                <img src="${ctx.contextPath}/.resources/gato-template-mobilefirst/images/academic-calendar/outlook.svg" alt="Outlook logo"/>
               </div>
               <div class="subscribe-description">
                 Save this filtered academic calendar to your personal calendar by subscribing.
