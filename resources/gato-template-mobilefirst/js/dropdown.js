@@ -24,6 +24,10 @@
     function updateSelectedCount(count) {
       return count + (count === 1 ? ' item': ' items') + ' selected'
     }
+
+    function safeString(val) {
+      return val.replace(/\W/g, '_')
+    }
   
     base.init = function() {
       var dropdown = base.$el
@@ -95,7 +99,7 @@
           } else if ($(e.target).is('.remove-filter')) {
             e.stopPropagation()
             var selection = $(e.target).data('text')
-            $('#' + base.$el.attr('id') + '-' + selection).removeClass('selected')
+            $('#' + base.$el.attr('id') + '-' + safeString(selection)).removeClass('selected')
             $(e.target).closest('li').remove()
             base.$el.find('.info').text(updateSelectedCount(base.$el.find('.selected-items').find('li').length))
             if (base.$el.find('.selected-items li').length < 1) {
@@ -130,14 +134,14 @@
       } else {
         var selectedItems = base.$el.find('.selected-items')
         var html = '<li>' +
-                      '<div id="selected-'+ selection +'" class="selected-item">' + selection + 
+                      '<div id="selected-'+ safeString(selection) +'" class="selected-item">' + selection + 
                         '<button class="remove-filter" data-text="' + selection + '"><i class="fa fa-close" aria-label="Remove filter ' + selection + '"></i></button>' +
                       '</div>' + 
                     '</li>'
         selectedItems.append(html)
-        $('#selected-' + selection + ' .remove-filter').on('click', function(e) {
+        $('#selected-' + safeString(selection) + ' .remove-filter').on('click', function(e) {
           e.stopPropagation()
-          $('#' + base.$el.attr('id') + '-' + selection).removeClass('selected')
+          $('#' + base.$el.attr('id') + '-' + safeString(selection)).removeClass('selected')
           $(this).closest('li').remove()
           base.$el.find('.info').text(updateSelectedCount(selectedItems.find('li').length))
           if (selectedItems.find('li').length < 1) {
@@ -158,6 +162,11 @@
       if (base.settings.showSelected) {
         base.$el.find('.text').text(selection)
       }
+    }
+
+    base.addMenuItem = function(text) {
+      var selectId = base.$el.attr('id')
+      base.$el.find('.menu').append('<li id="'+ selectId + '-' + safeString(text) +'" role="option" tabindex="-1">' + text + '</li>')
     }
 
     base.init()

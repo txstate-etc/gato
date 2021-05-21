@@ -47,17 +47,51 @@ jQuery(document).ready(function($) {
     category: []
   }
 
+  $('#select-audience').acdropdown({
+    multiple: true
+  })
+
+  $('#select-semester').acdropdown({
+    onSelect: function(item) {
+      handleChangeSemester(item)
+    }
+  })
+  
+  $('#select-partofterm').acdropdown({
+    onSelect: function(item) {
+      handleChangePartOfTerm(item)
+    },
+    selected: 'Full Term'
+  })
+  $('#select-category').acdropdown( {
+    multiple: true
+  })
+
+  $('#select-download-print').acdropdown( {
+    showSelected: false
+  })
+
+  $('#select-manage-events').acdropdown( {
+    showSelected: false,
+    onSelect: function(item) {
+      manageEvent(item)
+    }
+  })
+
   var updateDropdowns = function() {
     console.log('updating for ' + filterState.partofterm + ' in ' + filterState.semester)
     var relevantPartsOfTerm = Object.keys(dropdownData[filterState.semester])
+    $('#select-semester').data('acdropdown').updateSelectedItem(filterState.semester)
     $('#pot-menu').empty();
     for (var p of relevantPartsOfTerm) {
-      $('#pot-menu').append('<li role="option" tabindex="-1">' + p + '</li>')
+      //$('#pot-menu').append('<li role="option" tabindex="-1">' + p + '</li>')
+      $('#select-partofterm').data('acdropdown').addMenuItem(p)
     }
     var relevantCategories = dropdownData[filterState.semester][filterState.partofterm].categories
     $('#category-menu').empty()
     for (var c of relevantCategories) {
-      $('#category-menu').append('<li id="select-category-'+ c + '"role="option" tabindex="-1">' + c + '</li>')
+      //$('#category-menu').append('<li id="select-category-'+ c + '"role="option" tabindex="-1">' + c + '</li>')
+      $('#select-category').data('acdropdown').addMenuItem(c)
     }
 
     var minDate = moment(dropdownData[filterState.semester][filterState.partofterm].mindate).format('YYYY-MM-DD')
@@ -123,8 +157,10 @@ jQuery(document).ready(function($) {
   var semesters = Object.keys(dropdownData)
   // TODO: How am I supposed to sort these?
   for (var s of semesters) {
-    $('#semester-menu').append('<li tabindex="-1">' + s + '</li>')
+    //$('#semester-menu').append('<li tabindex="-1">' + s + '</li>')
+    $('#select-semester').data('acdropdown').addMenuItem(s)
   }
+  
   $('#semester-menu').append('<li class="cancel" tabindex="-1">Cancel</li>')
   
   $('#btn-toggle-more-filters').on('click', function() {
@@ -159,38 +195,6 @@ jQuery(document).ready(function($) {
       filterState.partofterm = 'Full Term'
       updateDropdowns()
   }
-
-  $('#select-audience').acdropdown({
-    multiple: true
-  })
-
-  $('#select-semester').acdropdown({
-    onSelect: function(item) {
-      handleChangeSemester(item)
-    },
-    selected: currentSemester
-  })
-  
-  $('#select-partofterm').acdropdown({
-    onSelect: function(item) {
-      handleChangePartOfTerm(item)
-    },
-    selected: 'Full Term'
-  })
-  $('#select-category').acdropdown( {
-    multiple: true
-  })
-
-  $('#select-download-print').acdropdown( {
-    showSelected: false
-  })
-
-  $('#select-manage-events').acdropdown( {
-    showSelected: false,
-    onSelect: function(item) {
-      manageEvent(item)
-    }
-  })
 
   $('#mobile-calendar-modal').focusout(function (e) {
     var tabbable = $('#mobile-calendar-modal').find(':tabbable');
