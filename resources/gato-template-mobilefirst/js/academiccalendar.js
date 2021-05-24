@@ -137,6 +137,26 @@ jQuery(document).ready(function($) {
     updateResults()
   }
 
+  var openMobileFilters = function() {
+    var modal = $('#mobile-calendar-modal')
+    $('#mobile-category').empty()
+    for (var cat of dropdownData[filterState.semester][filterState.partofterm].categories) {
+      $('#mobile-category').append('<li><div class="mobile-filter-cbx" role="checkbox" tabindex="0">'+ cat +'</div></li>')
+    }
+    $('#panel').attr('aria-hidden', true)
+    $(this).attr('aria-expanded', true)
+    modal.css('top', $('.academic-calendar-container').offset().top + 'px')
+    modal.addClass('shown')
+    modal.find('.invisible-focus').focus();
+  }
+
+  var closeMobileFilters = function() {
+    $('#panel').attr('aria-hidden', false)
+    $('#mobile-calendar-modal').removeClass('shown')
+    $('#btn-more-filters-mobile').attr('aria-expanded', false)
+    $('#btn-more-filters-mobile').focus()
+  }
+
   var toggleCheckbox = function(cb) {
     if (cb.hasClass('is-checked')) {
       cb.removeClass('is-checked')
@@ -229,20 +249,12 @@ jQuery(document).ready(function($) {
 
   $('#mobile-calendar-modal').on('keydown', function(e) {
    if (e.keyCode === KeyCodes.ESCAPE) {
-    $(this).removeClass('shown')
-    $('#btn-more-filters-mobile').attr('aria-expanded', false)
+    closeMobileFilters()
    }
   })
 
   $('#btn-more-filters-mobile').on('click', function() {
-    var modal = $('#mobile-calendar-modal')
-    $('#mobile-category').empty()
-    for (var cat of dropdownData[filterState.semester][filterState.partofterm].categories) {
-      $('#mobile-category').append('<li><div class="mobile-filter-cbx" role="checkbox" tabindex="0">'+ cat +'</div></li>')
-    }
-    $(this).attr('aria-expanded', true)
-    modal.addClass('shown')
-    modal.find('.invisible-focus').focus();
+    openMobileFilters()
   })
 
   $('.toggle-mobile-subscribe').on('click', function() {

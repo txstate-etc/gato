@@ -120,6 +120,9 @@
     [#if def.parameters.isSearchTemplate!false || def.parameters.isPassthroughTemplate!false]
       [#assign useGlobalSearch = true]
     [/#if]
+    [#if def.parameters.isAcademicCalendar!false]
+      [#include "/gato-template-mobilefirst/templates/pages/includes/academic-calendar-modal.ftl"]
+    [/#if]
     [#include "/gato-template/templates/includes/search-modal.ftl"]
   </body>
 </html>

@@ -380,6 +380,7 @@
   .event-table {
     width: 100%;
     border: 1px solid lightgray;
+    margin-bottom: 7rem;
     th {
       background-color: $sandstone;
       border: 0;
@@ -433,143 +434,7 @@
       color: #727272;
     }
   }
-  #mobile-calendar-modal {
-    &.shown {
-      display: block;
-    }
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: $white;
-    .instructions {
-      background-color: $sandstone;
-      width: 100%;
-      text-align: center;
-      margin-bottom: 1rem;
-      font-weight: bold;
-      padding: 1rem 0;
-    }
-    .content {
-      max-width: 400px;
-      margin: 0 auto;
-      padding: 0 1rem;
-      .invisible-focus:focus {
-        outline: none;
-      }
-      .filter-label {
-        font-size: 1.8rem;
-        font-weight: bold;
-        margin-bottom: 1rem;
-      }
-      .mobile-dates {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 1rem;
-        .mobile-date {
-          border: 2px solid $maroon;
-          height: 4rem;
-          width: 15rem;
-        }
-      }
-      .mobile-filter-group {
-        display: flex;
-        flex-wrap: wrap;
-        list-style: none;
-        padding-left: 0;
-        margin: 0;
-        li {
-          padding-right: 2rem;
-          margin-bottom: 1rem;
-          .mobile-filter-cbx {
-            border: 2px solid $maroon;
-            border-radius: 4px;
-            padding: 0.8rem 1.2rem;
-            color: $maroon;
-            font-size: 1.6rem;
-            line-height: 2.1rem;
-            @media (max-width: $mn-breakpoint ) {
-              padding: 0.5rem 1.2rem;
-            }
-            &[aria-checked=true] {
-              font-weight: bold;
-              color: $white;
-              background-color: $maroon;
-            }
-          }
-        }
-      }
-      .divider {
-        padding: 1rem 0;
-        div {
-          height: 3px;
-          width: 100%;
-          background-color: $sandstone;
-        }
-      }
-      .mobile-subscribe-container {
-        padding: 0 1rem;
-        margin-bottom: 2rem;
-        .toggle-mobile-subscribe {
-          background-color: transparent;
-          border: 0;
-          font-size: 1.8rem;
-          font-weight: bold;
-          width: 100%;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          i:before {
-            font-family: FontAwesome;
-            content: "\f0d9";
-          }
-        }
-        #mobile-subscribe-panel {
-          display: none;
-          text-align: center;
-          .subscribe-icons {
-            display: flex;
-            justify-content: space-around;
-            img {
-              width: 25%;
-              padding: 2rem;
-            }
-          }
-          .subscribe-description {
-            text-align: left;
-            margin-bottom: 2rem;
-          }
-          #btn-mobile-subscribe {
-            border: 1.75px solid $maroon;
-            color: $maroon;
-          }
-        }
-        &.expanded {
-          .toggle-mobile-subscribe {
-            i:before {
-              content: "\f0d7";
-            }
-          }
-          #mobile-subscribe-panel {
-            display: block;
-          }
-        }
-      }
-      .mobile-filter-buttons {
-        text-align: center;
-        #mobile-filter-reset {
-          border: 1.75px solid $maroon;
-          color: $maroon;
-        }
-        #mobile-filter-go {
-          background-color: $maroon;
-          color: $white;
-        }
-      }
-    }
-  }
+  
   .tooltip { 
     display: none;
     background-color: #ddd5c9;
@@ -591,6 +456,143 @@
       border-style: solid;
       border-color: transparent transparent #ddd5c9 transparent;
 
+    }
+  }
+}
+#mobile-calendar-modal {
+  &.shown {
+    display: block;
+  }
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: $white;
+  .instructions {
+    background-color: $sandstone;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    padding: 1rem 0;
+  }
+  .content {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    .invisible-focus:focus {
+      outline: none;
+    }
+    .filter-label {
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+    .mobile-dates {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+      .mobile-date {
+        border: 2px solid $maroon;
+        height: 4rem;
+        width: 15rem;
+      }
+    }
+    .mobile-filter-group {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+      li {
+        padding-right: 2rem;
+        margin-bottom: 1rem;
+        .mobile-filter-cbx {
+          border: 2px solid $maroon;
+          border-radius: 4px;
+          padding: 0.8rem 1.2rem;
+          color: $maroon;
+          font-size: 1.6rem;
+          line-height: 2.1rem;
+          @media (max-width: $mn-breakpoint ) {
+            padding: 0.5rem 1.2rem;
+          }
+          &[aria-checked=true] {
+            font-weight: bold;
+            color: $white;
+            background-color: $maroon;
+          }
+        }
+      }
+    }
+    .divider {
+      padding: 1rem 0;
+      div {
+        height: 3px;
+        width: 100%;
+        background-color: $sandstone;
+      }
+    }
+    .mobile-subscribe-container {
+      padding: 0 1rem;
+      margin-bottom: 2rem;
+      .toggle-mobile-subscribe {
+        background-color: transparent;
+        border: 0;
+        font-size: 1.8rem;
+        font-weight: bold;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        i:before {
+          font-family: FontAwesome;
+          content: "\f0d9";
+        }
+      }
+      #mobile-subscribe-panel {
+        display: none;
+        text-align: center;
+        .subscribe-icons {
+          display: flex;
+          justify-content: space-around;
+          img {
+            width: 25%;
+            padding: 2rem;
+          }
+        }
+        .subscribe-description {
+          text-align: left;
+          margin-bottom: 2rem;
+        }
+        #btn-mobile-subscribe {
+          border: 1.75px solid $maroon;
+          color: $maroon;
+        }
+      }
+      &.expanded {
+        .toggle-mobile-subscribe {
+          i:before {
+            content: "\f0d7";
+          }
+        }
+        #mobile-subscribe-panel {
+          display: block;
+        }
+      }
+    }
+    .mobile-filter-buttons {
+      text-align: center;
+      #mobile-filter-reset {
+        border: 1.75px solid $maroon;
+        color: $maroon;
+      }
+      #mobile-filter-go {
+        background-color: $maroon;
+        color: $white;
+      }
     }
   }
 }
