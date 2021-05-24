@@ -7,7 +7,8 @@
     Current semester is ${model.guessCurrentSemester()}
   </div>
     <div class="academic-calendar-container">
-      <div id="currentSemester" data-semester="${model.guessCurrentSemester()}"></div>
+      [#assign currentSemester = model.guessCurrentSemester()]
+      <div id="currentSemester" data-semester="${currentSemester}"></div>
       [#if model.items?size > 0]
         <div id="calendarActionUrl" data-url="${model.items[0].calendarUrl?keep_before_last('/')}"></div>
       [/#if]
@@ -159,7 +160,7 @@
         <tbody>
         [#assign thisyear = .now?date?string["yyyy"]]
         [#list model.items as item]
-          <tr>
+          <tr class="row ${item.applicableTerm?contains(currentSemester)?then('', 'row-hidden')}" aria-hidden="${item.applicableTerm?contains(currentSemester)?then('false', 'true')}">
             <td>
               <div class="date-column">
                 <span class="event-cbx" data-value="${item.recurrenceId}" tabindex="0" role="checkbox" aria-checked="false" aria-label="Select event: ${item.title}"></span>

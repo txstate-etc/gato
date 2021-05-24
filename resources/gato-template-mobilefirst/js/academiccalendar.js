@@ -100,6 +100,24 @@ jQuery(document).ready(function($) {
     $('#ac-enddate').attr('min', minDate).attr('max', maxDate)
   }
 
+  var updateResults = function() {
+    var rows = $('.event-table tbody tr')
+    rows.removeClass('row-hidden').attr('aria-hidden', false)
+    for (var row of rows) {
+      //check if row matches filters. hide it if it doesn't
+      var eventData = $(row).find('.event-data')
+      if (eventData.data('semester').indexOf(filterState.semester) < 0) {
+        hideRow(row)
+      } else if (eventData.data('partsofterm').indexOf(filterState.partofterm) < 0) {
+        hideRow(row)
+      }
+    }
+  }
+
+  var hideRow = function(row) {
+    $(row).addClass('row-hidden').attr('aria-hidden', true)
+  }
+
   var handleChangeSemester = function(selected) {
     if (selected != 'Cancel') {
       filterState.semester = selected
@@ -116,6 +134,7 @@ jQuery(document).ready(function($) {
     filterState.startDate = ''
     filterState.endDate = ''
     updateDropdowns()
+    updateResults()
   }
 
   var toggleCheckbox = function(cb) {

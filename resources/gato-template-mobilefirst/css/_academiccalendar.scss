@@ -146,6 +146,9 @@
                 .menu {
                   position: fixed;
                   bottom: 0;
+                  left: 0;
+                  right: 0;
+                  box-shadow: 0px -3px 6px rgba(0,0,0,0.101);
                   li {
                     text-align: center;
                     position: relative;
@@ -383,6 +386,9 @@
     }
     tbody {
       tr:nth-child(even) td {background-color: #F7F7F7};
+      tr.row-hidden {
+        display: none;
+      }
     }
     td {
       border: 1px solid lightgray;
