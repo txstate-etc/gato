@@ -54,6 +54,7 @@
             </div>
           </div>
           <div class="mobile-filter-buttons">
+            <button id="mobile-filter-cancel" class="btn-ac">Cancel</button>
             <button id="mobile-filter-reset" class="btn-ac">Reset</button>
             <button id="mobile-filter-go" class="btn-ac">Go</button>
           </div>

@@ -585,6 +585,20 @@
     }
     .mobile-filter-buttons {
       text-align: center;
+      button {
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 1.4rem;
+        background: none;
+        border: 0;
+        padding: 1rem 1.5rem;
+        border-radius: 4px;
+        max-height: 4rem;
+      }
+      #mobile-filter-cancel {
+        border: none;
+        color: $maroon;
+      }
       #mobile-filter-reset {
         border: 1.75px solid $maroon;
         color: $maroon;
@@ -592,6 +606,7 @@
       #mobile-filter-go {
         background-color: $maroon;
         color: $white;
+        border-color: $maroon;
       }
     }
   }

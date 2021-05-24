@@ -253,6 +253,10 @@ jQuery(document).ready(function($) {
    }
   })
 
+  $('#mobile-filter-cancel').on('click',function() {
+    closeMobileFilters()
+  })
+
   $('#btn-more-filters-mobile').on('click', function() {
     openMobileFilters()
   })
