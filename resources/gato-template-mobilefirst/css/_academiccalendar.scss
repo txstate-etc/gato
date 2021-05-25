@@ -386,7 +386,7 @@
       border: 0;
     }
     tbody {
-      tr:nth-child(even) td {background-color: #F7F7F7};
+      tr.has-background td {background-color: #F7F7F7};
       tr.row-hidden {
         display: none;
       }

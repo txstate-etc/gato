@@ -112,6 +112,15 @@ jQuery(document).ready(function($) {
     }
   }
 
+  var updateStripes = function() {
+    $('.event-table tbody tr:not(".row-hidden")').each(function(i,v) {
+      $(v).removeClass('has-background');
+      if (i % 2 == 1) {
+        $(v).addClass('has-background');
+      }
+    });
+  }
+
   var hideRow = function(row) {
     $(row).addClass('row-hidden').attr('aria-hidden', true)
   }
@@ -133,6 +142,7 @@ jQuery(document).ready(function($) {
     filterState.endDate = ''
     updateDropdowns()
     updateResults()
+    updateStripes()
   }
 
   var openMobileFilters = function() {
@@ -196,6 +206,8 @@ jQuery(document).ready(function($) {
   for (var s of semesters) {
     $('#select-semester').data('acdropdown').addMenuItem(s)
   }
+
+  updateStripes()
   
   $('#btn-toggle-more-filters').on('click', function() {
     var moreFilterRow = $('.filter-row.bottom')
