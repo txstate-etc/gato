@@ -84,13 +84,11 @@ jQuery(document).ready(function($) {
     $('#select-semester').data('acdropdown').updateSelectedItem(filterState.semester)
     $('#pot-menu').empty();
     for (var p of relevantPartsOfTerm) {
-      //$('#pot-menu').append('<li role="option" tabindex="-1">' + p + '</li>')
       $('#select-partofterm').data('acdropdown').addMenuItem(p)
     }
     var relevantCategories = dropdownData[filterState.semester][filterState.partofterm].categories
     $('#category-menu').empty()
     for (var c of relevantCategories) {
-      //$('#category-menu').append('<li id="select-category-'+ c + '"role="option" tabindex="-1">' + c + '</li>')
       $('#select-category').data('acdropdown').addMenuItem(c)
     }
 
@@ -144,7 +142,7 @@ jQuery(document).ready(function($) {
       $('#mobile-category').append('<li><div class="mobile-filter-cbx" role="checkbox" tabindex="0">'+ cat +'</div></li>')
     }
     $('#panel').attr('aria-hidden', true)
-    $(this).attr('aria-expanded', true)
+    $('#btn-more-filters-mobile').attr('aria-expanded', true)
     modal.css('top', $('.academic-calendar-container').offset().top + 'px')
     modal.addClass('shown')
     modal.find('.invisible-focus').focus();
@@ -196,11 +194,8 @@ jQuery(document).ready(function($) {
   var semesters = Object.keys(dropdownData)
   // TODO: How am I supposed to sort these?
   for (var s of semesters) {
-    //$('#semester-menu').append('<li tabindex="-1">' + s + '</li>')
     $('#select-semester').data('acdropdown').addMenuItem(s)
   }
-  
-  $('#semester-menu').append('<li class="cancel" tabindex="-1">Cancel</li>')
   
   $('#btn-toggle-more-filters').on('click', function() {
     var moreFilterRow = $('.filter-row.bottom')

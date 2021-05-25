@@ -37,7 +37,7 @@
     [@googletagmanagerbody /]
     [#include "includes/header.ftl"]
     [#include "includes/menu.ftl"]
-    <div class="page-container" id="panel">
+    <div class="page-container" id="panel" aria-hidden="false">
       <div class="banner-section">
         [@cms.area name="calico-hero" content=gf.getOrCreateArea(page, 'calico-hero')/]
         [#assign hero = gf.singleComponent(page, 'calico-hero')!]

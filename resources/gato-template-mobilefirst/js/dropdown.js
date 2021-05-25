@@ -11,8 +11,108 @@
       return base.$el.hasClass('expanded')
     }
 
+    function buildMobileMenu() {
+      var html = '<div class="ac-mobile-menu" role="dialog" aria-modal="true">' +
+                  '<div tabindex="0" class="menu-focusstart visuallyhidden"></div>' +
+                  '<div id="mobile-menu-content">' +
+                  '<ul>'
+      var menuItems = base.$el.find('.menu li')
+      menuItems.each(function() {
+        html += '<li tabindex="0">' + $(this).text() + '</li>'
+      })
+      html +=         '<li tabindex="0" class="cancel">Cancel</li>'
+      html +=       '</ul>'
+      html +=     '</div>' +
+                  '<div tabindex="0" class="menu-focusend visuallyhidden"></div>' +
+                '</div>'
+      return html
+    }
+
+    function openMobileMenu() {
+      $('.ac-mobile-menu').addClass('shown')
+      $('.ac-mobile-menu').find('li').first().focus()
+      $('body').children().not('.ac-mobile-menu').each(function() {
+        if (!$(this).attr('aria-hidden') || $(this).attr('aria-hidden') == "false") {
+          $(this).attr('aria-hidden', true).attr('data-hidden', true)
+        }
+      })
+    }
+
+    function closeMobileMenu() {
+      $('.ac-mobile-menu').removeClass('shown')
+        $('body').children('*[data-hidden="true"]').each(function() {
+          $(this).attr('aria-hidden', false).removeAttr('data-hidden')
+          base.$el.focus()
+        })
+    }
+
+    function handleMobileMenu() {
+      if ($('.ac-mobile-menu').length > 0) {
+        $('.ac-mobile-menu').remove()
+      } 
+      $('body').append(buildMobileMenu())
+      $('.ac-mobile-menu').on('click', function(e) {
+        if ($(e.target).hasClass('cancel')) {
+          closeMobileMenu()
+        } else {
+          base.selectItem($(e.target))
+          closeMobileMenu()
+        }
+      })
+      $('.ac-mobile-menu').on('keydown', function(e) {
+        if (e.keyCode === KeyCodes.ESCAPE) {
+          closeMobileMenu()
+        } else if (e.keyCode == KeyCodes.DOWN) {
+          e.preventDefault()
+          var idx = $('.ac-mobile-menu li').index(e.target)
+          var newIdx = Math.min(idx + 1, $('.ac-mobile-menu li').length - 1)
+          $('.ac-mobile-menu li').eq(newIdx).focus()
+        } else if (e.keyCode == KeyCodes.UP) {
+          var idx = $('.ac-mobile-menu li').index(e.target)
+          var newIdx = Math.max(0, idx - 1)
+          $('.ac-mobile-menu li').eq(newIdx).focus()
+        } else if (e.keyCode === KeyCodes.ENTER || e.keyCode === KeyCodes.SPACE || e.keyCode === KeyCodes.RETURN) {
+          e.preventDefault()
+          if ($(e.target).hasClass('cancel')) {
+            closeMobileMenu()
+          } else {
+            base.selectItem($(e.target))
+            closeMobileMenu()
+          }
+        }
+      })
+      $('#mobile-menu-content').focusout(function (e) {
+        var tabbable = $('.ac-mobile-menu').find(':tabbable');
+        var first = tabbable.first();
+        var last = tabbable.last();
+        var targ = $(e.relatedTarget);
+        if ($('.ac-mobile-menu').css('display') != 'none' ) {
+          if (targ.is('.menu-focusstart')) {
+            last.focus();
+          } else if (targ.is('.menu-focusend')) {
+            first.focus();
+          }
+        }
+      })
+    }
+
     function openMenu() {
-      base.$el.addClass('expanded')
+      if (window.matchMedia) {
+        if (window.matchMedia("(max-width: 31.25em)").matches) {
+          handleMobileMenu()
+          openMobileMenu()
+        } else {
+          base.$el.addClass('expanded')
+        }
+      }
+      else {
+        if ($(window).width() < 501) {
+          handleMobileMenu()
+          openMobileMenu()
+        } else {
+          base.$el.addClass('expanded')
+        }
+      }
       base.$el.attr('aria-expanded', true)
     }
 

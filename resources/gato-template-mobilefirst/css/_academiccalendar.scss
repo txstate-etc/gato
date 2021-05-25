@@ -143,27 +143,27 @@
             }
             &#select-semester, &#select-partofterm {
               @media (max-width: $mn-breakpoint) {
-                .menu {
-                  position: fixed;
-                  bottom: 0;
-                  left: 0;
-                  right: 0;
-                  box-shadow: 0px -3px 6px rgba(0,0,0,0.101);
-                  li {
-                    text-align: center;
-                    position: relative;
-                    display: block;
-                    &:not(:first-child) {
-                      &:before {
-                        content: "";
-                        display: block;
-                        margin: 0 auto; 
-                        width: 90%;
-                        border-bottom: 1px solid $medium-gray;
-                      }
-                    }
-                  }
-                }
+                // .menu {
+                //   position: fixed;
+                //   bottom: 0;
+                //   left: 0;
+                //   right: 0;
+                //   box-shadow: 0px -3px 6px rgba(0,0,0,0.101);
+                //   li {
+                //     text-align: center;
+                //     position: relative;
+                //     display: block;
+                //     &:not(:first-child) {
+                //       &:before {
+                //         content: "";
+                //         display: block;
+                //         margin: 0 auto; 
+                //         width: 90%;
+                //         border-bottom: 1px solid $medium-gray;
+                //       }
+                //     }
+                //   }
+                // }
               }
             }
             &.expanded {
@@ -461,9 +461,9 @@
 }
 #mobile-calendar-modal {
   &.shown {
-    display: block;
+    visibility: visible;
   }
-  display: none;
+  visibility: hidden;
   position: absolute;
   top: 0;
   left: 0;
@@ -607,6 +607,53 @@
         background-color: $maroon;
         color: $white;
         border-color: $maroon;
+      }
+    }
+  }
+}
+
+.ac-mobile-menu {
+  position: fixed;
+  z-index: 5;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  &.shown {
+    visibility: visible;
+  }
+  #mobile-menu-content {
+    background-color: $white;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    box-shadow: 0px -3px 6px rgba(0,0,0,0.101);
+    ul {
+      list-style: none;
+      margin: 0;
+      padding-left: 0;
+      li {
+        text-align: center;
+        position: relative;
+        display: block;
+        padding-bottom: 1rem;
+        &:first-child {
+          margin-top: 1rem;
+        }
+        &.cancel {
+          color: #D32626;
+        }
+        &:not(:last-child) {
+          &:after {
+            content: "";
+            display: block;
+            margin: 0 auto; 
+            width: 90%;
+            border-bottom: 1px solid $medium-gray;
+            margin-top: 1rem;
+          }
+        }
       }
     }
   }
