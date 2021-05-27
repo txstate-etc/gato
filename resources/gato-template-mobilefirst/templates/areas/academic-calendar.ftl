@@ -160,28 +160,66 @@
         <tbody>
         [#assign thisyear = .now?date?string["yyyy"]]
         [#list model.items as item]
-          <tr class="row ${item.applicableTerm?contains(currentSemester)?then('', 'row-hidden')}" aria-hidden="${item.applicableTerm?contains(currentSemester)?then('false', 'true')}">
+          [#assign hasEndTitle = !gf.isEmptyString(item.getEndingTitle())]
+          [#assign isOneDay = (item.startDate?string['yyyy-MM-dd'] == item.endDate?string['yyyy-MM-dd'])]
+          [#assign start = item.startDate]
+          [#assign end = item.endDate]
+          [#if item.allDay]
+            [#if isOneDay]
+              [#-- adjust end date for trumba all day issue --]
+              [#if item.endDate?time?string['HH:mm'] == "00:00"]
+                [#assign end = model.fixAllDayEventEndDate(end)]
+              [/#if]
+              [#if hasEndTitle && item.title == item.getEndingTitle()]
+                [#if item.startDate?time?string['HH:mm'] == "00:00"]
+                  [#assign start = model.fixAllDayEventEndDate(start)]
+                [/#if]
+              [/#if]
+            [#else]
+              [#if hasEndTitle]
+                [#if item.title == item.getEndingTitle()]
+                  [#-- This is an ending event --]
+                  [#if item.endDate?time?string['HH:mm'] == "00:00"]
+                    <!-- not working. start is wrong-->
+                    [#assign start = model.fixAllDayEventEndDate(start)]
+                    [#assign end = model.fixAllDayEventEndDate(end)]
+                  [/#if]
+                [#else]
+                  [#-- This is a starting event --]
+                  [#assign end = start]
+                [/#if]
+              [#else]
+                 [#-- adjust end date for trumba all day issue --]
+                [#if item.endDate?time?string['HH:mm'] == "00:00"]
+                  [#assign end = model.fixAllDayEventEndDate(end)]
+                [/#if]
+              [/#if]
+            [/#if]
+          [#else]
+            [#if !isOneDay]
+              [#if hasEndTitle]
+                [#assign end = start]
+              [/#if]  
+            [/#if]
+          [/#if]
+          <tr class="row ${(item.applicableTerm?contains(currentSemester) && item.partsOfTerm?seq_contains('Full Term'))?then('', 'row-hidden')}" aria-hidden="${item.applicableTerm?contains(currentSemester)?then('false', 'true')}">
             <td>
               <div class="date-column">
                 <span class="event-cbx" data-value="${item.recurrenceId}" tabindex="0" role="checkbox" aria-checked="false" aria-label="Select event: ${item.title}"></span>
                 <div class="date">
-                  [#assign startDate = item.machineStartDate?datetime("yyyy-MM-dd'T'HH:mm:ssZ")]
-                  ${startDate?string["MMMM d"]}${model.dateSuffix(item.startDate)}
-                  [#assign year=startDate?string["yyyy"]]
-                  [#if year != thisyear]
+                  ${start?string["MMMM d"]}${model.dateSuffix(start)}
+                  [#assign year=start?string["EEEE, yyyy"]]
                   <div class="eventyear">${year}</div>
-                  [/#if]
                 </div>
               </div>
-            </td>
             </td>
             <td>
               <div class="event-data"
                    data-semester="${item.applicableTerm}"
                    data-partsofterm="${item.partsOfTerm?join(',')}"
                    data-categories="${item.filterCategories?join(',')}"
-                   data-startdate="${item.machineStartDate}"
-                   data-enddate="${item.machineEndDate}"></div>
+                   data-startdate="${start?string['yyyy-MM-dd']}"
+                   data-enddate="${end?string('yyyy-MM-dd')}"></div>
               <div style="display: flex; flex-direction: column;">
                 <div class="event-title">${item.title}</div>
                 [#if item.description?has_content]

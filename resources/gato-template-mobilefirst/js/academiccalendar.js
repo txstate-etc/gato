@@ -102,13 +102,49 @@ jQuery(document).ready(function($) {
     var rows = $('.event-table tbody tr')
     rows.removeClass('row-hidden').attr('aria-hidden', false)
     for (var row of rows) {
-      //check if row matches filters. hide it if it doesn't
+      var showEvent = true
+      // check if row matches filters. hide it if it doesn't
       var eventData = $(row).find('.event-data')
+      var categories = eventData.data('categories').split(',')
       if (eventData.data('semester').indexOf(filterState.semester) < 0) {
-        hideRow(row)
+        showEvent = false
       } else if (eventData.data('partsofterm').indexOf(filterState.partofterm) < 0) {
-        hideRow(row)
+        showEvent = false
       }
+
+      // event should be shown if it starts or ends in the selected range
+      if (showEvent) {
+        var eventStart = moment(eventData.data('startdate'))
+        var eventEnd = moment(eventData.data('enddate'))
+        if (filterState.startDate && filterState.endDate) {
+          // if the event ends before the selected range
+          if (eventEnd.isBefore(moment(filterState.startDate))) {
+            showEvent = false
+          }
+          // if the event ends after the selected range
+          if (eventStart.isAfter(moment(filterState.endDate).endOf('day'), 'day')) {
+            showEvent = false
+          }
+        } else if (filterState.startDate && !filterState.endDate) {
+          // don't show events that end before the selected start date
+          if (eventEnd.isBefore(moment(filterState.startDate))) {
+            showEvent = false
+          }
+        } else if (filterState.endDate && !filterState.startDate) {
+          // don't show events that start after the selected end date
+          if (eventStart.isAfter(moment(filterState.endDate).endOf('day'), 'day')) {
+            showEvent = false
+          }
+        }
+      }
+      
+      // if (filterState.category.length > 0) {
+      //   var eventHasCategory = filterState.category.some(function(cat) {
+      //     return eventData.data('categories').indexOf(cat) >= 0
+      //   })
+      //   if (!eventHasCategory) showEvent = false
+      // }
+      if (!showEvent) hideRow(row)
     }
   }
 
@@ -144,6 +180,24 @@ jQuery(document).ready(function($) {
     updateResults()
     updateStripes()
   }
+
+  $('#ac-startdate').on('change', function() {
+    filterState.startDate = $(this).val()
+    updateResults()
+    updateStripes()
+  })
+
+  $('#ac-enddate').on('change', function() {
+    filterState.endDate = $(this).val()
+    updateResults()
+    updateStripes()
+  })
+
+  var handleChangeCategory = function (selected) {
+
+  }
+
+  
 
   var openMobileFilters = function() {
     var modal = $('#mobile-calendar-modal')
@@ -318,5 +372,4 @@ jQuery(document).ready(function($) {
       $('#manage-tooltip').toggleClass('shown')
     }
   })
-
 })
