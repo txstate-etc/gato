@@ -68,6 +68,7 @@ public class AcademicCalendarEventModel extends TrumbaEventModel {
           endObj.addProperty("title", t.getCustomProperty("Ending Title"));
           endObj.addProperty("eventId", t.getRecurrenceId() + "e");
           endObj.addProperty("startDateTime", t.getPropertyString("endDateTime"));
+          endObj.addProperty("startTimeZoneOffset", t.getPropertyString("endTimeZoneOffset"));
           items.add(new TrumbaEventItem(endObj));
         }
       }
