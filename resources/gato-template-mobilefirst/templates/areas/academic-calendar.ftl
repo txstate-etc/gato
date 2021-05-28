@@ -207,7 +207,7 @@
               <div class="date-column">
                 <span class="event-cbx" data-value="${item.recurrenceId}" tabindex="0" role="checkbox" aria-checked="false" aria-label="Select event: ${item.title}"></span>
                 <div class="date">
-                  ${start?string["MMMM d"]}${model.dateSuffix(start)}
+                  <span>${start?string["MMMM d"]}${model.dateSuffix(start)}</span>
                   [#assign year=start?string["EEEE, yyyy"]]
                   <div class="eventyear">${year}</div>
                 </div>
@@ -220,7 +220,7 @@
                    data-categories="${item.filterCategories?join(',')}"
                    data-startdate="${start?string['yyyy-MM-dd']}"
                    data-enddate="${end?string('yyyy-MM-dd')}"></div>
-              <div style="display: flex; flex-direction: column;">
+              <div class="event-details" style="display: flex; flex-direction: column;">
                 <div class="event-title">${item.title}</div>
                 [#if item.description?has_content]
                   <div class="event-description">${item.description}</div>

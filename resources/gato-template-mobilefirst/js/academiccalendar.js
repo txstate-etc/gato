@@ -68,7 +68,12 @@ jQuery(document).ready(function($) {
   })
 
   $('#select-download-print').acdropdown( {
-    showSelected: false
+    showSelected: false,
+    onSelect: function(item) {
+      if (item == 'Printable Version') {
+        openPrintView()
+      }
+    }
   })
 
   $('#select-manage-events').acdropdown( {
@@ -137,7 +142,7 @@ jQuery(document).ready(function($) {
           }
         }
       }
-      
+
       // if (filterState.category.length > 0) {
       //   var eventHasCategory = filterState.category.some(function(cat) {
       //     return eventData.data('categories').indexOf(cat) >= 0
@@ -253,6 +258,45 @@ jQuery(document).ready(function($) {
       $('#btn-manage-events').attr('aria-expanded', false)
       window.open(url, 'manage', "width=750,height=800")
     } 
+  }
+
+  var openPrintView = function() {
+    var printWin = window.open('', 'Academic Calendar')
+    var head = '<title>Academic Calendar</title>' + 
+               '<style>' +
+                  'h1 { text-align: center }' +
+                  'table { margin: 0 auto; border: 1px solid #E2E2E3; width: 75%; border-collapse: collapse; border-spacing: 0; font-family: Helvetica, sans-serif; font-size: 14px; margin-bottom: 50px }' +
+                  'table tr th {  background-color: #e8e3db; border: 0; padding: 20px 0 }' +
+                  'tbody tr:nth-child(even) td { background-color: #F9FAFB }' +
+                  'td { border: 1px solid #e2e2e3 } ' +
+                  '.date-head, .date-col, .event-head, .event-col { padding: 10px 30px; text-align: left }' +
+                  '.date-col div, .event-col div { display: flex; flex-direction: column }' +
+                  '.date-col div span { margin-bottom: 3px }' +
+                  '.date-col div .eventyear { color: rgba(124,124,124,0.8) }' +
+                  '.event-col .event-title { margin-bottom: 7px }' +
+                  '.event-col .event-description { color: #727272; font-size: 12px }' +
+               '</style>'
+    var body = '<h1>Academic Calendar</h1>'
+    body += '<table>' +
+              '<thead>' +
+                '<tr>' +
+                  '<th class="date-head">Date</th>' +
+                  '<th class="event-head">Event</th>' +
+                '<tr>' +
+              '</thead>' +
+              '<tbody>'
+    var visibleRows = $('.event-table tbody tr:not(".row-hidden")')
+    for (var r of visibleRows) {
+      var dateCol = $(r).find('.date')
+      var eventDetails = $(r).find('.event-details')
+      body += '<tr>' +
+                '<td class="date-col"><div>' + dateCol.html() + '</div></td>' +
+                '<td class="event-col"><div>' + eventDetails.html() + '</div></td>' +
+              '</tr>'
+    }
+    body += '</tbody></table>'
+    printWin.document.head.innerHTML = head
+    printWin.document.body.innerHTML = body
   }
 
   var semesters = Object.keys(dropdownData)
@@ -371,5 +415,9 @@ jQuery(document).ready(function($) {
       e.stopPropagation()
       $('#manage-tooltip').toggleClass('shown')
     }
+  })
+
+  $('#open-printable').on('click', function(e) {
+    openPrintView();
   })
 })
