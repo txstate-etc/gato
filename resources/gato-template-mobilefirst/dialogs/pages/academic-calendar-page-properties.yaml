@@ -3,11 +3,16 @@ form:
   tabs:
     - name: tabGeneral
       fields:
+        - name: calendarId
+          class: edu.txstate.its.gato.TrumbaSelectDefinition
+          label: Calendar
+          sortOptions: false
         - name: firstSemesterShown
           class: info.magnolia.ui.form.field.definition.SelectFieldDefinition
           label: First Semester Shown
           required: true
           sortOptions: false
+          styleName: first-semester
           options:
             - label: Spring 2018
               value: Spring 2018
@@ -38,6 +43,7 @@ form:
           label: Last Semester Shown
           required: true
           sortOptions: false
+          styleName: last-semester
           options:
             - label: Spring 2021
               value: Spring 2021
@@ -64,11 +70,21 @@ form:
             - label: Fall 2024
               value: Fall 2024
         - name: addTitleSeparator
-          class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
-          label: ""
-          buttonLabel: Horizontal Separator Below Title
+          class: info.magnolia.ui.form.field.definition.HiddenFieldDefinition
           defaultValue: false
+          type: Boolean
         - name: hideTitle
           class: info.magnolia.ui.form.field.definition.HiddenFieldDefinition
           defaultValue: false
           type: Boolean
+        - name: hideInNav
+          class: info.magnolia.ui.form.field.definition.HiddenFieldDefinition
+          defaultValue: false
+          type: Boolean
+        - name: hideSidebar
+          class: info.magnolia.ui.form.field.definition.HiddenFieldDefinition
+          defaultValue: false
+        - name: stylesheet
+          label: ""
+          class: edu.txstate.its.gato.vaadin.GatoCssIncludeDefinition
+          styles: [gato-template-mobilefirst/dialogs/css/academic-calendar.css]

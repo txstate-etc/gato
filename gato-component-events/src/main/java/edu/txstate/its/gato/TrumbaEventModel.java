@@ -42,12 +42,16 @@ public class TrumbaEventModel<RD extends RenderableDefinition> extends Rendering
   public TrumbaEventModel(Node content, RD definition, RenderingModel<?> parent) {
     super(content, definition, parent);
     try {
-      this.calendarId = PropertyUtil.getString(content, "calendarId", defaultCalendarId);
+      this.calendarId = getCalendarId();
       this.items = initList();
     } catch (Exception e) {
       log.error("Failed to fetch JSON feed.", e);
       this.error = e;
     }
+  }
+
+  protected String getCalendarId() {
+    return PropertyUtil.getString(content, "calendarId", defaultCalendarId);
   }
 
   public Exception getError() { return error; }

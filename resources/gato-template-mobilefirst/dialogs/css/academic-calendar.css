@@ -1,0 +1,4 @@
+.field-section-first-semester .v-form-field-label, .field-section-last-semester .v-form-field-label {
+  text-overflow: unset;
+  font-size: 11px;
+}

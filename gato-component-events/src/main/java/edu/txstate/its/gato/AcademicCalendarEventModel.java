@@ -33,6 +33,17 @@ public class AcademicCalendarEventModel extends TrumbaEventModel {
     super(content, definition, parent);
   }
 
+  protected String getCalendarId() {
+    try {
+      Node page = NodeUtil.getNearestAncestorOfType(content, "mgnl:page");
+      String id =  PropertyUtil.getString(page, "calendarId");
+      return (null == id) ? defaultCalendarId : id;
+    } catch(Exception e) {
+      e.printStackTrace();
+    }
+    return defaultCalendarId;
+  }
+
   protected List<EventItem> initList() throws UnsupportedEncodingException {
     final List<EventItem> items = new ArrayList<EventItem>();
 
@@ -55,21 +66,23 @@ public class AcademicCalendarEventModel extends TrumbaEventModel {
       for (JsonElement e : cal) {
         TrumbaEventItem t = new TrumbaEventItem((JsonObject) e);
         String applicableTerm = t.getCustomProperty("Applicable Term");
-        if (firstSemesterShown.length() > 0 && compareSemester(applicableTerm, firstSemesterShown) < 0) {
-          continue;
-        }
-        if (lastSemesterShown.length() > 0 && compareSemester(applicableTerm, lastSemesterShown) > 0) {
-          continue;
-        }
-        items.add(t);
-        if (t.getCustomProperty("Ending Title").length() > 0) {
-          String jsonString = e.toString();
-          JsonObject endObj = new JsonParser().parse(jsonString).getAsJsonObject();
-          endObj.addProperty("title", t.getCustomProperty("Ending Title"));
-          endObj.addProperty("eventId", t.getRecurrenceId() + "e");
-          endObj.addProperty("startDateTime", t.getPropertyString("endDateTime"));
-          endObj.addProperty("startTimeZoneOffset", t.getPropertyString("endTimeZoneOffset"));
-          items.add(new TrumbaEventItem(endObj));
+        if (applicableTerm.length() > 0) {
+          if (firstSemesterShown.length() > 0 && compareSemester(applicableTerm, firstSemesterShown) < 0) {
+            continue;
+          }
+          if (lastSemesterShown.length() > 0 && compareSemester(applicableTerm, lastSemesterShown) > 0) {
+            continue;
+          }
+          items.add(t);
+          if (t.getCustomProperty("Ending Title").length() > 0) {
+            String jsonString = e.toString();
+            JsonObject endObj = new JsonParser().parse(jsonString).getAsJsonObject();
+            endObj.addProperty("title", t.getCustomProperty("Ending Title"));
+            endObj.addProperty("eventId", t.getRecurrenceId() + "e");
+            endObj.addProperty("startDateTime", t.getPropertyString("endDateTime"));
+            endObj.addProperty("startTimeZoneOffset", t.getPropertyString("endTimeZoneOffset"));
+            items.add(new TrumbaEventItem(endObj));
+          }
         }
       }
     } catch (Exception e) {
