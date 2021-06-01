@@ -78,11 +78,13 @@
   }
   .ac-filters {
     background-color: $sandstone;
-    @media (max-width: $mn-breakpoint) {
-      background-color: $white;
-    }
     padding: 0.5rem 2rem;
     margin-bottom: 2rem;
+    @media (max-width: $mn-breakpoint) {
+      background-color: $white;
+      padding: 0;
+      margin-bottom: 0;
+    }
     .filter-row {
       display: flex;
       justify-content: space-between;
@@ -395,18 +397,28 @@
       border: 1px solid lightgray;
       padding: 1rem 2rem;
       font-size: 1.4rem;
+      line-height: 1.8rem;
+      @media (max-width: $mn-breakpoint) {
+        font-size: 1.2rem;
+        line-height: 1.6rem;
+        padding: 1rem 0.5rem;
+      }
       .date-column {
         display: flex;
+        align-items: center;
         span.event-cbx {
           min-width: 20px;
           width: 20px;
           height: 20px;
           display: inline-block;
-          border: 1px solid $maroon;
+          border: 1.5px solid $maroon;
           border-radius: 2px;
           vertical-align: middle;
           position: relative;
           margin-right: 2rem;
+          @media (max-width: $mn-breakpoint) {
+            margin-right: 0.8rem;
+          }
           &.is-checked {
             border-width: 2px;
             background-color: $maroon;
@@ -425,6 +437,11 @@
         .date {
           display: flex;
           flex-direction: column;
+          @media (max-width: $mn-breakpoint) {
+            span {
+              white-space: nowrap;
+            }
+          }
         }
       }
     }
