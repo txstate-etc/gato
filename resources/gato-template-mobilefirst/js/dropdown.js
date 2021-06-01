@@ -52,7 +52,7 @@
       } 
       $('body').append(buildMobileMenu())
       $('.ac-mobile-menu').on('click', function(e) {
-        if ($(e.target).hasClass('cancel')) {
+        if ($(e.target).hasClass('cancel') || $(e.target).closest('#mobile-menu-content').length === 0) {
           closeMobileMenu()
         } else {
           base.selectItem($(e.target))
