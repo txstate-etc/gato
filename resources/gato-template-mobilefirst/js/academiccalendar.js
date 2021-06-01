@@ -340,6 +340,15 @@ jQuery(document).ready(function($) {
       updateDropdowns()
   }
 
+  $('#btn-reset-filters').on('click', function() {
+    filterState.semester = currentSemester
+    filterState.partofterm = 'Full Term'
+    updateDropdowns()
+    $('#select-partofterm').data('acdropdown').updateSelectedItem('Full Term')
+    updateResults()
+    updateStripes()
+  })
+
   $('#mobile-calendar-modal').focusout(function (e) {
     var tabbable = $('#mobile-calendar-modal').find(':tabbable');
     var first = tabbable.first();
