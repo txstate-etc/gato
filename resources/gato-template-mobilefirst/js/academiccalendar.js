@@ -215,15 +215,19 @@ jQuery(document).ready(function($) {
   var handleChangeCategory = function (selected) {
 
   }
-
   
 
   var openMobileFilters = function() {
     var modal = $('#mobile-calendar-modal')
     $('#mobile-category').empty()
     for (var cat of dropdownData[filterState.semester][filterState.partofterm].categories) {
-      $('#mobile-category').append('<li><div class="mobile-filter-cbx" role="checkbox" tabindex="0">'+ cat +'</div></li>')
+      var checked = false
+      if (filterState.category.indexOf(cat) > -1) {
+        checked = true
+      }
+      $('#mobile-category').append('<li><div class="mobile-filter-cbx '+ (checked ? 'is-checked' : '') + '" role="checkbox" tabindex="0" aria-checked="' + checked + '">'+ cat +'</div></li>')
     }
+    addMobileFilterEvents()
     $('#panel').attr('aria-hidden', true)
     $('#btn-more-filters-mobile').attr('aria-expanded', true)
     modal.css('top', $('.academic-calendar-container').offset().top + 'px')
@@ -232,10 +236,38 @@ jQuery(document).ready(function($) {
   }
 
   var closeMobileFilters = function() {
+    removeMobileFilterEvents()
     $('#panel').attr('aria-hidden', false)
     $('#mobile-calendar-modal').removeClass('shown')
     $('#btn-more-filters-mobile').attr('aria-expanded', false)
     $('#btn-more-filters-mobile').focus()
+  }
+
+  var handleMobileFilterSelection = function(checkbox) {
+    if (checkbox.hasClass('is-checked')) {
+      checkbox.removeClass('is-checked')
+      checkbox.attr('aria-checked', false)
+    } else {
+      checkbox.addClass('is-checked')
+      checkbox.attr('aria-checked', true)
+    }
+  }
+
+  var addMobileFilterEvents = function() {
+    $('.mobile-filter-cbx').on('click', function() {
+      handleMobileFilterSelection($(this))
+    })
+
+    $('.mobile-filter-cbx').on('keydown', function(e) {
+      if (e.keyCode === KeyCodes.ENTER || e.keyCode === KeyCodes.SPACE || e.keyCode === KeyCodes.RETURN) {
+        e.preventDefault()
+        handleMobileFilterSelection($(this))
+      }
+    })
+  }
+
+  var removeMobileFilterEvents = function () {
+    $('.mobile-filter-cbx').off('click, keydown')
   }
 
   var toggleCheckbox = function(cb) {
@@ -445,4 +477,5 @@ jQuery(document).ready(function($) {
   $('#open-printable').on('click', function(e) {
     openPrintView();
   })
+
 })

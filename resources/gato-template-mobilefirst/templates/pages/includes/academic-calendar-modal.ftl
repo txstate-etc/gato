@@ -3,8 +3,8 @@
         <div tabindex="0" class="focusstart sr-only"></div>
         <div class="content">
           <div class="invisible-focus" tabindex="-1"></div>
-          <div class="filter-label">Audience</div>
-          <ul id="mobile-audience" class="mobile-filter-group">
+          <div id="lbl-mobile-audience" class="filter-label">Audience</div>
+          <ul id="mobile-audience" class="mobile-filter-group" role="group" aria-labelledby="lbl-mobile-audience">
             <li>
               <div class="mobile-filter-cbx" role="checkbox" tabindex="0">Student</div>
             </li>
@@ -18,8 +18,8 @@
           <div class="divider">
             <div></div>
           </div>
-          <div class="filter-label">Category</div>
-          <ul id="mobile-category" class="mobile-filter-group">
+          <div id="lbl-mobile-category" class="filter-label">Category</div>
+          <ul id="mobile-category" class="mobile-filter-group" role="group" aria-labelledby="lbl-mobile-category">
           </ul>
           <div class="divider">
             <div></div>
