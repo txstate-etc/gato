@@ -99,13 +99,15 @@ jQuery(document).ready(function($) {
 
     var minDate = moment(dropdownData[filterState.semester][filterState.partofterm].mindate).format('YYYY-MM-DD')
     var maxDate = moment(dropdownData[filterState.semester][filterState.partofterm].maxdate).format('YYYY-MM-DD')
-    $('#ac-startdate').attr('min', minDate).attr('max', maxDate)
-    $('#ac-enddate').attr('min', minDate).attr('max', maxDate)
+    $('#ac-startdate').attr('min', minDate).attr('max', maxDate).val('')
+    $('#ac-enddate').attr('min', minDate).attr('max', maxDate).val('')
   }
 
   var updateResults = function() {
+    console.log(filterState)
     var rows = $('.event-table tbody tr')
     rows.removeClass('row-hidden').attr('aria-hidden', false)
+    var showEmptyMessage = true
     for (var row of rows) {
       var showEvent = true
       // check if row matches filters. hide it if it doesn't
@@ -149,7 +151,19 @@ jQuery(document).ready(function($) {
       //   })
       //   if (!eventHasCategory) showEvent = false
       // }
-      if (!showEvent) hideRow(row)
+      if (!showEvent) {
+        hideRow(row)
+      } else {
+        showEmptyMessage = false
+      }
+    }
+    
+    if (showEmptyMessage) {
+      $('.event-table').addClass('empty')
+      $('.empty-message').show()
+    } else {
+      $('.event-table').removeClass('empty')
+      $('.empty-message').hide()
     }
   }
 
@@ -343,6 +357,8 @@ jQuery(document).ready(function($) {
   $('#btn-reset-filters').on('click', function() {
     filterState.semester = currentSemester
     filterState.partofterm = 'Full Term'
+    filterState.startDate = ''
+    filterState.endDate = ''
     updateDropdowns()
     $('#select-partofterm').data('acdropdown').updateSelectedItem('Full Term')
     updateResults()

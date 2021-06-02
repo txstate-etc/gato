@@ -231,6 +231,10 @@
         [/#list]
         </tbody>
       </table>
+      <div class="empty-message">
+        <h2>No Results Found</h2>
+        <p>Please refine your filters and try again.</p>
+      </div>
     </div>
   </div>
 </div>

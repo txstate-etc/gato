@@ -450,6 +450,9 @@
       padding: 0.5rem 0;
       color: #727272;
     }
+    &.empty {
+      display: none;
+    }
   }
   
   .tooltip { 
@@ -474,6 +477,25 @@
       border-style: solid;
       border-color: transparent transparent #ddd5c9 transparent;
 
+    }
+  }
+  .empty-message {
+    display: none;
+    background-color: #fcfcfc;
+    border: 1px solid #E2E2E3;
+    text-align: center;
+    padding: 7rem 0;
+    margin-bottom: 7rem;
+    h2 {
+      font-size: 2rem;
+      font-family: $univers;
+      font-weight: bold;
+      line-height: 2.2rem;
+      margin-bottom: 4rem;
+    }
+    p {
+      font-size: 1.5rem;
+      line-height: 2.5rem;
     }
   }
 }
