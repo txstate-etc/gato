@@ -221,6 +221,7 @@
         dropdown.find('.selected-items').empty()
         dropdown.find('.menu li').removeClass('selected')
         dropdown.find('.text').removeClass('hidden')
+        base.settings.onChange('')
       })
     }
 
@@ -230,6 +231,7 @@
         if (base.settings.showSelected) {
           base.$el.find('.text').text(selection)
         }
+        base.settings.onChange(selection)
         closeMenu()
       } else {
         var selectedItems = base.$el.find('.selected-items')
@@ -246,14 +248,26 @@
           base.$el.find('.info').text(updateSelectedCount(selectedItems.find('li').length))
           if (selectedItems.find('li').length < 1) {
             base.$el.find('.text').removeClass('hidden')
+            base.settings.onChange('')
+          } else {
+            var allSelected = []
+            base.$el.find('.menu li.selected').each(function() {
+              allSelected.push($(this).text())
+            })
+            base.settings.onChange(allSelected.join(','))
           }
         })
         base.$el.find('.text').addClass('hidden')
         item.addClass('selected')
         base.$el.find('.info').text(updateSelectedCount(selectedItems.find('li').length))
+        //get all selected Items
+        var allSelected = []
+        base.$el.find('.menu li.selected').each(function() {
+         allSelected.push($(this).text())
+        })
+        base.settings.onChange(allSelected.join(','))
       }
       
-      base.settings.onSelect(selection)
       base.$el.focus()
     }
 
@@ -274,7 +288,7 @@
 
   $.acdropdown.defaultOptions = {
     multiple: false,
-    onSelect: function(value) {
+    onChange: function(value) {
       console.log(value)
     },
     showSelected: true,

@@ -48,28 +48,34 @@ jQuery(document).ready(function($) {
   }
 
   $('#select-audience').acdropdown({
-    multiple: true
+    multiple: true,
+    onChange: function(items) {
+      handleChangeAudience(items)
+    }
   })
 
   $('#select-semester').acdropdown({
-    onSelect: function(item) {
+    onChange: function(item) {
       handleChangeSemester(item)
     }
   })
   
   $('#select-partofterm').acdropdown({
-    onSelect: function(item) {
+    onChange: function(item) {
       handleChangePartOfTerm(item)
     },
     selected: 'Full Term'
   })
   $('#select-category').acdropdown( {
-    multiple: true
+    multiple: true,
+    onChange: function(items) {
+      handleChangeCategory(items)
+    }
   })
 
   $('#select-download-print').acdropdown( {
     showSelected: false,
-    onSelect: function(item) {
+    onChange: function(item) {
       if (item == 'Printable Version') {
         openPrintView()
       }
@@ -78,7 +84,7 @@ jQuery(document).ready(function($) {
 
   $('#select-manage-events').acdropdown( {
     showSelected: false,
-    onSelect: function(item) {
+    onChange: function(item) {
       manageEvent(item)
     }
   })
@@ -145,12 +151,20 @@ jQuery(document).ready(function($) {
         }
       }
 
-      // if (filterState.category.length > 0) {
-      //   var eventHasCategory = filterState.category.some(function(cat) {
-      //     return eventData.data('categories').indexOf(cat) >= 0
+      if (showEvent && filterState.category.length > 0) {
+        var eventHasCategory = filterState.category.some(function(cat) {
+          return eventData.data('categories').indexOf(cat) >= 0
+        })
+        if (!eventHasCategory) showEvent = false
+      }
+
+      // if (showEvent && filterState.audience.length > 0) {
+      //   var eventHasAudience = filterState.audience.some(function(audience) {
+      //     return eventData.data('audience').indexOf(audience) >= 0
       //   })
-      //   if (!eventHasCategory) showEvent = false
+      //   if (!eventHasAudience) showEvent = false
       // }
+
       if (!showEvent) {
         hideRow(row)
       } else {
@@ -213,7 +227,13 @@ jQuery(document).ready(function($) {
   })
 
   var handleChangeCategory = function (selected) {
+    filterState.category = selected.split(',')
+    updateResults()
+    updateStripes()
+  }
 
+  var handleChangeAudience = function (selected) {
+    filterState.audience = selected.split(',')
   }
   
 
