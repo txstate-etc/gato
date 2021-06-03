@@ -11,6 +11,7 @@
       <div id="currentSemester" data-semester="${currentSemester}"></div>
       [#if model.items?size > 0]
         <div id="calendarActionUrl" data-url="${model.items[0].calendarUrl?keep_before_last('/')}"></div>
+        <div id="calendarSubscribeUrl" data-url="${model.items[0].calendarUrl?keep_before_last('/actions')}"></div>
       [/#if]
       <div id="calendarUrl" data-url=""></div>
       <div class="ac-filters">

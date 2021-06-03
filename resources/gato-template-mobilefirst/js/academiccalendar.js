@@ -326,6 +326,37 @@ jQuery(document).ready(function($) {
     } 
   }
 
+
+  var subscribe = function() {
+    // filter order is Audience, Applicable Term, Part of Term, Filter Category
+    if ($('#calendarSubscribeUrl').length > 0) {
+      var url = $('#calendarSubscribeUrl').data('url') + 'subscribe?'
+      var queryString = 'filter1=_'
+      if (filterState.audience.length > 0) {
+        for (var audience of filterState.audience) {
+          queryString += audience + '_'
+        }
+      }
+      queryString += '&filter2=_'
+      if (filterState.semester) {
+        queryString += filterState.semester + '_'
+      }
+      queryString += '&filter3=_'
+      if (filterState.partofterm) {
+        queryString += filterState.partofterm + '_'
+      }
+      queryString += '&filter4=_'
+      if (filterState.category.length > 0) {
+        for (var cat of filterState.category) {
+          queryString += cat + '_'
+        }
+      }
+      queryString += '&filterfield1=Audience&filterfield2=Applicable Term&filterfield3=Part of Term&filterfield4=Filter Category'
+      url += encodeURIComponent(queryString)
+      window.open(url, 'subscribe', "width=750,height=800")
+    }
+  }
+
   var openPrintView = function() {
     var printWin = window.open('', 'Academic Calendar')
     var head = '<title>Academic Calendar</title>' + 
@@ -416,6 +447,8 @@ jQuery(document).ready(function($) {
     updateResults()
     updateStripes()
   })
+
+  $('#btn-subscribe, #btn-mobile-subscribe').on('click', subscribe)
 
   $('#mobile-calendar-modal').focusout(function (e) {
     var tabbable = $('#mobile-calendar-modal').find(':tabbable');
