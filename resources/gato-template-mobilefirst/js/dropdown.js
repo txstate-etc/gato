@@ -103,6 +103,7 @@
           openMobileMenu()
         } else {
           base.$el.addClass('expanded')
+          base.$el.find('.menu').velocity("slideDown", {duration: 200})
         }
       }
       else {
@@ -111,6 +112,7 @@
           openMobileMenu()
         } else {
           base.$el.addClass('expanded')
+          base.$el.find('.menu').velocity("slideDown", {duration: 200})
         }
       }
       base.$el.attr('aria-expanded', true)
@@ -119,6 +121,7 @@
     function closeMenu() {
       base.$el.removeClass('expanded')
       base.$el.attr('aria-expanded', false)
+      base.$el.find('.menu').velocity("slideUp", {duration: 200})
     }
 
     function updateSelectedCount(count) {

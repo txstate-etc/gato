@@ -89,6 +89,14 @@ jQuery(document).ready(function($) {
     }
   })
 
+  $('#select-manage-events').on('click', function() {
+    if ($(this).hasClass('expanded')) {
+      $(this).velocity({'paddingRight': '4rem'}, {duration: 200})
+    } else {
+      $(this).velocity({'paddingRight': 0}, {duration: 200})
+    }
+  })
+
   var updateDropdowns = function() {
     console.log('updating for ' + filterState.partofterm + ' in ' + filterState.semester)
     var relevantPartsOfTerm = Object.keys(dropdownData[filterState.semester])
