@@ -35,7 +35,8 @@ jQuery(document).ready(function($) {
     "My Events": "myevents",
     "Email Reminder": "remindemail",
     "Email me Event Updates": "notify",
-    "Email to Friends": "forward"
+    "Email to Friends": "forward",
+    "all": "all"
   }
   
   var filterState = {
@@ -96,6 +97,21 @@ jQuery(document).ready(function($) {
       $(this).velocity({'paddingRight': 0}, {duration: 200})
     }
   })
+
+  var isMobile = function() {
+    var isMobile = false;
+    if (window.matchMedia) {
+      if (window.matchMedia("(max-width: 50em)").matches) {
+        isMobile = true;
+      }
+    }
+    else {
+      if ($(window).width() < 801) {
+        isMobile = true;
+      }
+    }
+    return isMobile;
+  }
 
   var updateDropdowns = function() {
     console.log('updating for ' + filterState.partofterm + ' in ' + filterState.semester)
@@ -305,11 +321,20 @@ jQuery(document).ready(function($) {
       cb.addClass('is-checked')
     }
     if ($('.event-cbx.is-checked').length > 0) {
-      $('#select-manage-events').css('display', 'block')
-      $('#manage-help').css('display', 'block')
+      if (isMobile()) {
+        if ($('#mobile-manage-events').css('display') == "none")
+          $('#mobile-manage-events').velocity('slideDown', { duration: 200 })
+      } else {
+        $('#select-manage-events').css('display', 'block')
+        $('#manage-help').css('display', 'block')
+      }
     } else {
-      $('#select-manage-events').css('display', 'none')
-      $('#manage-help').css('display', 'none')
+      if (isMobile()) {
+        $('#mobile-manage-events').velocity('slideUp', { duration: 200 })
+      } else {
+        $('#select-manage-events').css('display', 'none')
+        $('#manage-help').css('display', 'none')
+      }
     }
   }
 
@@ -493,6 +518,10 @@ jQuery(document).ready(function($) {
       container.addClass('expanded')
       $(this).attr('aria-expanded', true)
     }
+  })
+
+  $('#btn-mobile-manage-events').on('click', function() {
+    manageEvent('all')
   })
 
   $('#btn-subscribe').on('mouseover', function(e) {

@@ -236,6 +236,14 @@
         <h2>No Results Found</h2>
         <p>Please refine your filters and try again.</p>
       </div>
+      <div id="mobile-manage-events">
+        <div class="flex-container">
+          <button id="btn-mobile-manage-events" class="btn-ac">
+            <i class="fa fa-calendar" aria-hidden="true"></i>
+            Manage Events
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </div>

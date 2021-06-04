@@ -543,6 +543,28 @@
       line-height: 2.5rem;
     }
   }
+  #mobile-manage-events {
+    display: none;
+    background-color: $sandstone;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    padding: 1rem 2rem;
+    .flex-container {
+      display: flex;
+      justify-content: flex-end;
+      button {
+        background-color: $maroon;
+        color: $white;
+        border: 0;
+        i {
+          margin-right: 5px;
+        }
+      }
+    }
+  }
 }
 #mobile-calendar-modal {
   &.shown {
