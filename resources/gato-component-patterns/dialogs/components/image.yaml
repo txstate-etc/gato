@@ -34,6 +34,7 @@ form:
           class:  info.magnolia.ui.form.field.definition.SwitchableFieldDefinition
           transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
           label: Text Style
+          styleName: flexible-text-style
           options:
             - name: hasCaption
               label: Caption
@@ -53,6 +54,7 @@ form:
               fields:
                 - name: imageAlt
                   class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                  styleName: flexible-image-alt
                   label: Alt. Text
                   required: true
                   description: >
@@ -90,7 +92,10 @@ form:
                   label: Overlay
                   parameters:
                     contentType: default
-
+        - name: stylesheet
+          label: ""
+          class: edu.txstate.its.gato.vaadin.GatoCssIncludeDefinition
+          styles: [gato-component-patterns/dialogs/css/flexible-section.css]
     - name: tabThumbnail
       label: Crops
       fields:

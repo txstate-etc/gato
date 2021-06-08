@@ -1,0 +1,9 @@
+.flexible-text-style .v-horizontallayout { width: 100%; }
+.flexible-text-style .v-slot-flexible-image-alt { width: 100%; }
+.flexible-text-style .v-slot-flexible-image-alt .v-widget { width: 100%; }
+.flexible-text-style input.flexible-image-alt { width: 100%; }
+
+.v-caption-flexible-image-alt {
+  display: flex;
+  align-items: center;
+}
