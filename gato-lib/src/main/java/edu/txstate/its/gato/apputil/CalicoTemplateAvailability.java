@@ -43,16 +43,6 @@ public class CalicoTemplateAvailability extends ConfiguredSiteTemplateAvailabili
       log.error("Can't verify availability of the template", e);
     }
 
-    //Calico feature template should not be allowed as a subpage
-    try {
-      String type = templateDefinition.getType();
-      if(node.getDepth() > 1 && type.equals("calicofeature") && !isSuperUser()) {
-        return false;
-      }
-    } catch (RepositoryException e) {
-      log.error("Can't verify availability of the template", e);
-    }
-
     try {
       final Workspace workspace = node.getSession().getWorkspace();
       if (!RepositoryConstants.WEBSITE.equals(workspace.getName())) {
