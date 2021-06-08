@@ -4,6 +4,6 @@
 .flexible-text-style input.flexible-image-alt { width: 100%; }
 
 .v-caption-flexible-image-alt {
-  display: flex;
+  display: flex !important;
   align-items: center;
 }
