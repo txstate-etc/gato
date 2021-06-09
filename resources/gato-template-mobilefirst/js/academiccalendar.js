@@ -50,6 +50,7 @@ jQuery(document).ready(function($) {
 
   $('#select-audience').acdropdown({
     multiple: true,
+    placeholder: 'Select a few...',
     onChange: function(items) {
       handleChangeAudience(items)
     }
@@ -60,15 +61,28 @@ jQuery(document).ready(function($) {
       handleChangeSemester(item)
     }
   })
-  
+
+  $('#mobile-select-semester').acdropdown({
+    onChange: function(item) {
+      handleChangeSemester(item)
+    }
+  })
+
   $('#select-partofterm').acdropdown({
     onChange: function(item) {
       handleChangePartOfTerm(item)
-    },
-    selected: 'Full Term'
+    }
   })
+
+  $('#mobile-select-partofterm').acdropdown({
+    onChange: function(item) {
+      handleChangePartOfTerm(item)
+    }
+  })
+
   $('#select-category').acdropdown( {
     multiple: true,
+    placeholder: 'Select a few...',
     onChange: function(items) {
       handleChangeCategory(items)
     }
@@ -80,21 +94,6 @@ jQuery(document).ready(function($) {
       if (item == 'Printable Version') {
         openPrintView()
       }
-    }
-  })
-
-  $('#select-manage-events').acdropdown( {
-    showSelected: false,
-    onChange: function(item) {
-      manageEvent(item)
-    }
-  })
-
-  $('#select-manage-events').on('click', function() {
-    if ($(this).hasClass('expanded')) {
-      $(this).velocity({'paddingRight': '4rem'}, {duration: 200})
-    } else {
-      $(this).velocity({'paddingRight': 0}, {duration: 200})
     }
   })
 
@@ -113,28 +112,249 @@ jQuery(document).ready(function($) {
     return isMobile;
   }
 
-  var updateDropdowns = function() {
-    console.log('updating for ' + filterState.partofterm + ' in ' + filterState.semester)
+  var updateFilterOptions = function () {
+    // for part of term, category and date filters, make sure options are correct for selected semester and part of term
+    // available parts of term depends on semester, available categories and dates depend on both semester and part of term
     var relevantPartsOfTerm = Object.keys(dropdownData[filterState.semester])
-    $('#select-semester').data('acdropdown').updateSelectedItem(filterState.semester)
-    $('#pot-menu').empty();
+    $('#pot-menu').empty()
+    $('#mobile-partofterm-menu').empty()
     for (var p of relevantPartsOfTerm) {
       $('#select-partofterm').data('acdropdown').addMenuItem(p)
+      $('#mobile-select-partofterm').data('acdropdown').addMenuItem(p)
     }
     var relevantCategories = dropdownData[filterState.semester][filterState.partofterm].categories
     $('#category-menu').empty()
-    for (var c of relevantCategories) {
-      $('#select-category').data('acdropdown').addMenuItem(c)
+    $('#mobile-category').empty()
+    for (var cat of relevantCategories) {
+      $('#select-category').data('acdropdown').addMenuItem(cat)
+      $('#mobile-category').append('<li><div class="mobile-filter-cbx" role="checkbox" tabindex="0" aria-checked="false">'+ cat +'</div></li>')
     }
-
     var minDate = moment(dropdownData[filterState.semester][filterState.partofterm].mindate).format('YYYY-MM-DD')
     var maxDate = moment(dropdownData[filterState.semester][filterState.partofterm].maxdate).format('YYYY-MM-DD')
-    $('#ac-startdate').attr('min', minDate).attr('max', maxDate).val('')
-    $('#ac-enddate').attr('min', minDate).attr('max', maxDate).val('')
+    $('#ac-startdate').attr('min', minDate).attr('max', maxDate)
+    $('#mobile-startdate').attr('min', minDate).attr('max', maxDate)
+    $('#ac-enddate').attr('min', minDate).attr('max', maxDate)
+    $('#mobile-enddate').attr('min', minDate).attr('max', maxDate)
+  }
+
+  var syncFiltersWithState = function () {
+    $('#select-audience').data('acdropdown').resetSelected()
+    for (var audience of filterState.audience) {
+      $('#select-audience').data('acdropdown').updateSelectedItem(audience)
+    }
+    $('#mobile-audience .mobile-filter-cbx').each(function() {
+      if (filterState.audience.indexOf($(this).text()) > -1) {
+        $(this).addClass('is-checked').attr('aria-checked', true)
+      } else {
+        $(this).removeClass('is-checked').attr('aria-checked', false)
+      }
+    })
+    $('#select-semester').data('acdropdown').updateSelectedItem(filterState.semester)
+    $('#mobile-select-semester').data('acdropdown').updateSelectedItem(filterState.semester)
+    $('#select-partofterm').data('acdropdown').updateSelectedItem(filterState.partofterm)
+    $('#mobile-select-partofterm').data('acdropdown').updateSelectedItem(filterState.partofterm)
+    $('#ac-startdate').val(filterState.startDate)
+    $('#mobile-startdate').val(filterState.startDate)
+    $('#ac-enddate').val(filterState.endDate)
+    $('#mobile-enddate').val(filterState.endDate)
+    $('#select-category').data('acdropdown').resetSelected()
+    for (var cat of filterState.category) {
+      $('#select-category').data('acdropdown').updateSelectedItem(cat)
+    }
+    $('#mobile-category .mobile-filter-cbx').each(function() {
+      if (filterState.category.indexOf($(this).text()) > -1) {
+        $(this).addClass('is-checked').attr('aria-checked', true)
+      } else {
+        $(this).removeClass('is-checked').attr('aria-checked', false)
+      }
+    })
+    removeMobileFilterEvents()
+    addMobileFilterEvents()
+  }
+
+  var updateStripes = function() {
+    $('.event-table tbody tr:not(".row-hidden")').each(function(i,v) {
+      $(v).removeClass('has-background');
+      if (i % 2 == 1) {
+        $(v).addClass('has-background');
+      }
+    });
+  }
+
+  var openPrintView = function() {
+    var printWin = window.open('', 'Academic Calendar')
+    var head = '<title>Academic Calendar</title>' + 
+               '<style>' +
+                  'h1 { text-align: center }' +
+                  'table { margin: 0 auto; border: 1px solid #E2E2E3; width: 75%; border-collapse: collapse; border-spacing: 0; font-family: Helvetica, sans-serif; font-size: 14px; margin-bottom: 50px }' +
+                  'table tr th {  background-color: #e8e3db; border: 0; padding: 20px 0 }' +
+                  'tbody tr:nth-child(even) td { background-color: #F9FAFB }' +
+                  'td { border: 1px solid #e2e2e3 } ' +
+                  '.date-head, .date-col, .event-head, .event-col { padding: 10px 30px; text-align: left }' +
+                  '.date-col div, .event-col div { display: flex; flex-direction: column }' +
+                  '.date-col div span { margin-bottom: 3px }' +
+                  '.date-col div .eventyear { color: rgba(124,124,124,0.8) }' +
+                  '.event-col .event-title { margin-bottom: 7px }' +
+                  '.event-col .event-description { color: #727272; font-size: 12px }' +
+               '</style>'
+    var body = '<h1>Academic Calendar</h1>'
+    body += '<table>' +
+              '<thead>' +
+                '<tr>' +
+                  '<th class="date-head">Date</th>' +
+                  '<th class="event-head">Event</th>' +
+                '<tr>' +
+              '</thead>' +
+              '<tbody>'
+    var visibleRows = $('.event-table tbody tr:not(".row-hidden")')
+    for (var r of visibleRows) {
+      var dateCol = $(r).find('.date')
+      var eventDetails = $(r).find('.event-details')
+      body += '<tr>' +
+                '<td class="date-col"><div>' + dateCol.html() + '</div></td>' +
+                '<td class="event-col"><div>' + eventDetails.html() + '</div></td>' +
+              '</tr>'
+    }
+    body += '</tbody></table>'
+    printWin.document.head.innerHTML = head
+    printWin.document.body.innerHTML = body
+  }
+
+  var subscribe = function() {
+    // filter order is Audience, Applicable Term, Part of Term, Filter Category
+    if ($('#calendarSubscribeUrl').length > 0) {
+      var url = $('#calendarSubscribeUrl').data('url') + 'subscribe?'
+      var queryString = 'filter1=_'
+      if (filterState.audience.length > 0) {
+        for (var audience of filterState.audience) {
+          queryString += audience + '_'
+        }
+      }
+      queryString += '&filter2=_'
+      if (filterState.semester) {
+        queryString += filterState.semester + '_'
+      }
+      queryString += '&filter3=_'
+      if (filterState.partofterm) {
+        queryString += filterState.partofterm + '_'
+      }
+      queryString += '&filter4=_'
+      if (filterState.category.length > 0) {
+        for (var cat of filterState.category) {
+          queryString += cat + '_'
+        }
+      }
+      queryString += '&filterfield1=Audience&filterfield2=Applicable Term&filterfield3=Part of Term&filterfield4=Filter Category'
+      url += encodeURIComponent(queryString)
+      window.open(url, 'subscribe', "width=750,height=800")
+    }
+  }
+
+  var toggleCheckbox = function(cb) {
+    if (cb.hasClass('is-checked')) {
+      cb.removeClass('is-checked')
+    } else {
+      cb.addClass('is-checked')
+    }
+    if ($('.event-cbx.is-checked').length > 0) {
+      if (isMobile()) {
+        if ($('#mobile-manage-events').css('display') == "none")
+          $('#mobile-manage-events').velocity('slideDown', { duration: 200 })
+      } else {
+        $('#select-manage-events').css('display', 'block')
+        $('#manage-help').css('display', 'block')
+      }
+    } else {
+      if (isMobile()) {
+        $('#mobile-manage-events').velocity('slideUp', { duration: 200 })
+      } else {
+        $('#select-manage-events').css('display', 'none')
+        $('#manage-help').css('display', 'none')
+      }
+    }
+  }
+
+  var manageEvent = function(action) {
+    if ($('#calendarActionUrl').length > 0) {
+      var url = $('#calendarActionUrl').data('url') + '/'
+      var trumbaAction = manageEventOptions[action]
+      if (!trumbaAction) trumbaAction = "myevents"
+      if (trumbaAction === "myevents") {
+        url = url.replace('actions', 'myevents')
+      } else {
+        url += trumbaAction + '/'
+        var selectedEvents = []
+        $('.event-cbx.is-checked').each(function() {
+          selectedEvents.push($(this).data('value'))
+        })
+        url += selectedEvents.join(',')
+      }
+      $('#manage-events-menu').removeClass('expanded')
+      $('#btn-manage-events').attr('aria-expanded', false)
+      window.open(url, 'manage', "width=750,height=800")
+    } 
+  }
+
+  var initialMobileState
+
+  var openMobileFilters = function () {
+    var modal = $('#mobile-calendar-modal')
+    // addMobileFilterEvents()
+    $('#panel').attr('aria-hidden', true)
+    $('#btn-more-filters-mobile').attr('aria-expanded', true)
+    modal.css('top', $('.academic-calendar-container').offset().top + 'px')
+    modal.addClass('shown')
+    modal.find('.invisible-focus').focus()
+
+    //save filter state
+    initialMobileState = $.extend(true, {}, filterState)
+  }
+
+  var closeMobileFilters = function() {
+    // removeMobileFilterEvents()
+    $('#panel').attr('aria-hidden', false)
+    $('#mobile-calendar-modal').removeClass('shown')
+    $('#btn-more-filters-mobile').attr('aria-expanded', false)
+    $('#btn-more-filters-mobile').focus()
+  }
+
+  var handleMobileFilterSelection = function(checkbox) {
+    if (checkbox.hasClass('is-checked')) {
+      checkbox.removeClass('is-checked')
+      checkbox.attr('aria-checked', false)
+    } else {
+      checkbox.addClass('is-checked')
+      checkbox.attr('aria-checked', true)
+    }
+    var list = checkbox.closest('ul')
+    var filter = list.data('filter')
+    var checked = list.find('.is-checked')
+    var selected = []
+    checked.each(function() {
+      selected.push($(this).text())
+    })
+    filterState[filter] = selected
+    syncFiltersWithState()
+  }
+
+  var addMobileFilterEvents = function() {
+    $('.mobile-filter-cbx').on('click', function() {
+      handleMobileFilterSelection($(this))
+    })
+
+    $('.mobile-filter-cbx').on('keydown', function(e) {
+      if (e.keyCode === KeyCodes.ENTER || e.keyCode === KeyCodes.SPACE || e.keyCode === KeyCodes.RETURN) {
+        e.preventDefault()
+        handleMobileFilterSelection($(this))
+      }
+    })
+  }
+
+  var removeMobileFilterEvents = function () {
+    $('.mobile-filter-cbx').off('')
   }
 
   var updateResults = function() {
-    console.log(filterState)
     var rows = $('.event-table tbody tr')
     rows.removeClass('row-hidden').attr('aria-hidden', false)
     var showEmptyMessage = true
@@ -203,240 +423,78 @@ jQuery(document).ready(function($) {
       $('.event-table').removeClass('empty')
       $('.empty-message').hide()
     }
-  }
-
-  var updateStripes = function() {
-    $('.event-table tbody tr:not(".row-hidden")').each(function(i,v) {
-      $(v).removeClass('has-background');
-      if (i % 2 == 1) {
-        $(v).addClass('has-background');
-      }
-    });
+    $('.mobile-showing-message .currentview').text('Showing ' + filterState.semester + ' Semester, ' + filterState.partofterm)
   }
 
   var hideRow = function(row) {
     $(row).addClass('row-hidden').attr('aria-hidden', true)
   }
 
+  $('#btn-reset-filters, #mobile-filter-reset').on('click', function() {
+    handleChangeSemester(currentSemester)
+  })
+
+  $('#btn-go').on('click', function() {
+    updateResults()
+    updateStripes()
+  })
+
+  $('#mobile-filter-go').on('click', function() {
+    updateResults()
+    updateStripes()
+    closeMobileFilters()
+  })
+
+  var handleChangeAudience = function (selected) {
+    filterState.audience = isBlank(selected) ? [] : selected.split(',')
+    syncFiltersWithState()
+  }
+
   var handleChangeSemester = function(selected) {
-    if (selected != 'Cancel') {
-      filterState.semester = selected
-      $('#select-partofterm').data('acdropdown').updateSelectedItem('Full Term')
-      handleChangePartOfTerm('Full Term')
-    } else {
-      $('#select-semester').data('acdropdown').updateSelectedItem(filterState.semester)
-    }
+    filterState.semester = selected
+    handleChangePartOfTerm('Full Term')
   }
 
   var handleChangePartOfTerm = function(selected) {
     filterState.partofterm = selected
-    filterState.categories = []
+    filterState.category = []
     filterState.startDate = ''
     filterState.endDate = ''
-    updateDropdowns()
-    updateResults()
-    updateStripes()
+    updateFilterOptions()
+    syncFiltersWithState()
   }
-
-  $('#ac-startdate').on('change', function() {
-    filterState.startDate = $(this).val()
-    updateResults()
-    updateStripes()
-  })
-
-  $('#ac-enddate').on('change', function() {
-    filterState.endDate = $(this).val()
-    updateResults()
-    updateStripes()
-  })
 
   var handleChangeCategory = function (selected) {
-    filterState.category = selected.split(',')
-    updateResults()
-    updateStripes()
-  }
-
-  var handleChangeAudience = function (selected) {
-    filterState.audience = selected.split(',')
+    filterState.category = isBlank(selected) ? [] : selected.split(',')
+    syncFiltersWithState()
   }
   
+  $('#ac-startdate, #mobile-startdate').on('change', function() {
+    filterState.startDate = $(this).val()
+    syncFiltersWithState()
+  })
 
-  var openMobileFilters = function() {
-    var modal = $('#mobile-calendar-modal')
-    $('#mobile-category').empty()
-    for (var cat of dropdownData[filterState.semester][filterState.partofterm].categories) {
-      var checked = false
-      if (filterState.category.indexOf(cat) > -1) {
-        checked = true
-      }
-      $('#mobile-category').append('<li><div class="mobile-filter-cbx '+ (checked ? 'is-checked' : '') + '" role="checkbox" tabindex="0" aria-checked="' + checked + '">'+ cat +'</div></li>')
-    }
-    addMobileFilterEvents()
-    $('#panel').attr('aria-hidden', true)
-    $('#btn-more-filters-mobile').attr('aria-expanded', true)
-    modal.css('top', $('.academic-calendar-container').offset().top + 'px')
-    modal.addClass('shown')
-    modal.find('.invisible-focus').focus();
-  }
+  $('#ac-enddate, #mobile-enddate').on('change', function() {
+    filterState.endDate = $(this).val()
+    syncFiltersWithState()
+  })
 
-  var closeMobileFilters = function() {
-    removeMobileFilterEvents()
-    $('#panel').attr('aria-hidden', false)
-    $('#mobile-calendar-modal').removeClass('shown')
-    $('#btn-more-filters-mobile').attr('aria-expanded', false)
-    $('#btn-more-filters-mobile').focus()
-  }
-
-  var handleMobileFilterSelection = function(checkbox) {
-    if (checkbox.hasClass('is-checked')) {
-      checkbox.removeClass('is-checked')
-      checkbox.attr('aria-checked', false)
-    } else {
-      checkbox.addClass('is-checked')
-      checkbox.attr('aria-checked', true)
-    }
-  }
-
-  var addMobileFilterEvents = function() {
-    $('.mobile-filter-cbx').on('click', function() {
-      handleMobileFilterSelection($(this))
-    })
-
-    $('.mobile-filter-cbx').on('keydown', function(e) {
-      if (e.keyCode === KeyCodes.ENTER || e.keyCode === KeyCodes.SPACE || e.keyCode === KeyCodes.RETURN) {
-        e.preventDefault()
-        handleMobileFilterSelection($(this))
-      }
-    })
-  }
-
-  var removeMobileFilterEvents = function () {
-    $('.mobile-filter-cbx').off('click, keydown')
-  }
-
-  var toggleCheckbox = function(cb) {
-    if (cb.hasClass('is-checked')) {
-      cb.removeClass('is-checked')
-    } else {
-      cb.addClass('is-checked')
-    }
-    if ($('.event-cbx.is-checked').length > 0) {
-      if (isMobile()) {
-        if ($('#mobile-manage-events').css('display') == "none")
-          $('#mobile-manage-events').velocity('slideDown', { duration: 200 })
-      } else {
-        $('#select-manage-events').css('display', 'block')
-        $('#manage-help').css('display', 'block')
-      }
-    } else {
-      if (isMobile()) {
-        $('#mobile-manage-events').velocity('slideUp', { duration: 200 })
-      } else {
-        $('#select-manage-events').css('display', 'none')
-        $('#manage-help').css('display', 'none')
-      }
-    }
-  }
-
-  var manageEvent = function(action) {
-    if ($('#calendarActionUrl').length > 0) {
-      var url = $('#calendarActionUrl').data('url') + '/'
-      var trumbaAction = manageEventOptions[action]
-      if (!trumbaAction) trumbaAction = "myevents"
-      if (trumbaAction === "myevents") {
-        url = url.replace('actions', 'myevents')
-      } else {
-        url += trumbaAction + '/'
-        var selectedEvents = []
-        $('.event-cbx.is-checked').each(function() {
-          selectedEvents.push($(this).data('value'))
-        })
-        url += selectedEvents.join(',')
-      }
-      $('#manage-events-menu').removeClass('expanded')
-      $('#btn-manage-events').attr('aria-expanded', false)
-      window.open(url, 'manage', "width=750,height=800")
-    } 
-  }
-
-
-  var subscribe = function() {
-    // filter order is Audience, Applicable Term, Part of Term, Filter Category
-    if ($('#calendarSubscribeUrl').length > 0) {
-      var url = $('#calendarSubscribeUrl').data('url') + 'subscribe?'
-      var queryString = 'filter1=_'
-      if (filterState.audience.length > 0) {
-        for (var audience of filterState.audience) {
-          queryString += audience + '_'
-        }
-      }
-      queryString += '&filter2=_'
-      if (filterState.semester) {
-        queryString += filterState.semester + '_'
-      }
-      queryString += '&filter3=_'
-      if (filterState.partofterm) {
-        queryString += filterState.partofterm + '_'
-      }
-      queryString += '&filter4=_'
-      if (filterState.category.length > 0) {
-        for (var cat of filterState.category) {
-          queryString += cat + '_'
-        }
-      }
-      queryString += '&filterfield1=Audience&filterfield2=Applicable Term&filterfield3=Part of Term&filterfield4=Filter Category'
-      url += encodeURIComponent(queryString)
-      window.open(url, 'subscribe', "width=750,height=800")
-    }
-  }
-
-  var openPrintView = function() {
-    var printWin = window.open('', 'Academic Calendar')
-    var head = '<title>Academic Calendar</title>' + 
-               '<style>' +
-                  'h1 { text-align: center }' +
-                  'table { margin: 0 auto; border: 1px solid #E2E2E3; width: 75%; border-collapse: collapse; border-spacing: 0; font-family: Helvetica, sans-serif; font-size: 14px; margin-bottom: 50px }' +
-                  'table tr th {  background-color: #e8e3db; border: 0; padding: 20px 0 }' +
-                  'tbody tr:nth-child(even) td { background-color: #F9FAFB }' +
-                  'td { border: 1px solid #e2e2e3 } ' +
-                  '.date-head, .date-col, .event-head, .event-col { padding: 10px 30px; text-align: left }' +
-                  '.date-col div, .event-col div { display: flex; flex-direction: column }' +
-                  '.date-col div span { margin-bottom: 3px }' +
-                  '.date-col div .eventyear { color: rgba(124,124,124,0.8) }' +
-                  '.event-col .event-title { margin-bottom: 7px }' +
-                  '.event-col .event-description { color: #727272; font-size: 12px }' +
-               '</style>'
-    var body = '<h1>Academic Calendar</h1>'
-    body += '<table>' +
-              '<thead>' +
-                '<tr>' +
-                  '<th class="date-head">Date</th>' +
-                  '<th class="event-head">Event</th>' +
-                '<tr>' +
-              '</thead>' +
-              '<tbody>'
-    var visibleRows = $('.event-table tbody tr:not(".row-hidden")')
-    for (var r of visibleRows) {
-      var dateCol = $(r).find('.date')
-      var eventDetails = $(r).find('.event-details')
-      body += '<tr>' +
-                '<td class="date-col"><div>' + dateCol.html() + '</div></td>' +
-                '<td class="event-col"><div>' + eventDetails.html() + '</div></td>' +
-              '</tr>'
-    }
-    body += '</tbody></table>'
-    printWin.document.head.innerHTML = head
-    printWin.document.body.innerHTML = body
-  }
-
+  // Initial Load
   var semesters = Object.keys(dropdownData)
   // TODO: How am I supposed to sort these?
   for (var s of semesters) {
     $('#select-semester').data('acdropdown').addMenuItem(s)
+    $('#mobile-select-semester').data('acdropdown').addMenuItem(s)
   }
-
+  var currentSemester = $('#currentSemester').data('semester')
+  if (dropdownData[currentSemester]) {
+      filterState.semester = currentSemester
+      filterState.partofterm = 'Full Term'
+      updateFilterOptions()
+      syncFiltersWithState()
+  }
   updateStripes()
-  
+
   $('#btn-toggle-more-filters').on('click', function() {
     var moreFilterRow = $('.filter-row.bottom')
     var moreFilters = $('.filter-row.bottom .filter-group')
@@ -450,38 +508,6 @@ jQuery(document).ready(function($) {
       $(this).attr('aria-expanded', true)
     }
   })
-
-  $('.event-cbx').on('click', function(e) {
-    var cb = $(this)
-    toggleCheckbox(cb)
-  })
-
-  $('.event-cbx').on('keydown', function(e) {
-    if (e.keyCode === KeyCodes.ENTER || e.keyCode === KeyCodes.SPACE || e.keyCode === KeyCodes.RETURN) {
-      e.preventDefault()
-      toggleCheckbox($(this))
-    }
-  })
-
-  var currentSemester = $('#currentSemester').data('semester')
-  if (dropdownData[currentSemester]) {
-      filterState.semester = currentSemester
-      filterState.partofterm = 'Full Term'
-      updateDropdowns()
-  }
-
-  $('#btn-reset-filters').on('click', function() {
-    filterState.semester = currentSemester
-    filterState.partofterm = 'Full Term'
-    filterState.startDate = ''
-    filterState.endDate = ''
-    updateDropdowns()
-    $('#select-partofterm').data('acdropdown').updateSelectedItem('Full Term')
-    updateResults()
-    updateStripes()
-  })
-
-  $('#btn-subscribe, #btn-mobile-subscribe').on('click', subscribe)
 
   $('#mobile-calendar-modal').focusout(function (e) {
     var tabbable = $('#mobile-calendar-modal').find(':tabbable');
@@ -502,11 +528,47 @@ jQuery(document).ready(function($) {
   })
 
   $('#mobile-filter-cancel').on('click',function() {
+    filterState = initialMobileState
+    
+    syncFiltersWithState()
     closeMobileFilters()
   })
 
   $('#btn-more-filters-mobile').on('click', function() {
     openMobileFilters()
+  })
+
+  $('#btn-subscribe, #btn-mobile-subscribe').on('click', subscribe)
+
+  $('.event-cbx').on('click', function(e) {
+    var cb = $(this)
+    toggleCheckbox(cb)
+  })
+
+  $('.event-cbx').on('keydown', function(e) {
+    if (e.keyCode === KeyCodes.ENTER || e.keyCode === KeyCodes.SPACE || e.keyCode === KeyCodes.RETURN) {
+      e.preventDefault()
+      toggleCheckbox($(this))
+    }
+  })
+
+  $('#select-manage-events').acdropdown( {
+    showSelected: false,
+    onChange: function(item) {
+      manageEvent(item)
+    }
+  })
+
+  $('#select-manage-events').on('click', function() {
+    if ($(this).hasClass('expanded')) {
+      $(this).velocity({'paddingRight': '4rem'}, {duration: 200})
+    } else {
+      $(this).velocity({'paddingRight': 0}, {duration: 200})
+    }
+  })
+
+  $('#btn-mobile-manage-events').on('click', function() {
+    manageEvent('all')
   })
 
   $('.toggle-mobile-subscribe').on('click', function() {
@@ -520,9 +582,7 @@ jQuery(document).ready(function($) {
     }
   })
 
-  $('#btn-mobile-manage-events').on('click', function() {
-    manageEvent('all')
-  })
+  // manage and subscribe tooltips
 
   $('#btn-subscribe').on('mouseover', function(e) {
     $('#subscribe-tooltip').addClass('shown')
@@ -563,9 +623,4 @@ jQuery(document).ready(function($) {
       $('#manage-tooltip').toggleClass('shown')
     }
   })
-
-  $('#open-printable').on('click', function(e) {
-    openPrintView();
-  })
-
 })

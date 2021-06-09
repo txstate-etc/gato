@@ -63,6 +63,10 @@
             </div>
           </div>
           <div class="action-group">
+            <div class="mobile-showing-message">
+              <span class="showing">Showing:</span>
+              <span class="currentview">${currentSemester} Semester, Full Term</span>
+            </div>
             <button id="btn-toggle-more-filters" class="btn-ac" aria-haspopup="true" aria-expanded="false" aria-controls="more-filters">
               <i class="fa fa-filter" aria-label="Show More Filters"></i>
               <span>More filters</span>
@@ -70,7 +74,7 @@
             </button>
             <button id="btn-more-filters-mobile" class="btn-ac" aria-haspopup="dialog">
               <i class="fa fa-filter" aria-label="Show More Filters"></i>
-              <span aria-hidden="true">More filters</span>
+              <span aria-hidden="true">Filters</span>
             </button>
             <button id="btn-reset-filters" class="btn-ac">Reset Filters</button>
             <button id="btn-go" class="btn-ac">Go</button>
@@ -203,7 +207,7 @@
               [/#if]  
             [/#if]
           [/#if]
-          <tr class="row ${(item.applicableTerm?contains(currentSemester) && item.partsOfTerm?seq_contains('Full Term'))?then('', 'row-hidden')}" aria-hidden="${item.applicableTerm?contains(currentSemester)?then('false', 'true')}">
+          <tr class="row ${(item.applicableTerm?contains(currentSemester) && item.partsOfTerm?seq_contains('Full Term'))?then('', 'row-hidden')}" aria-hidden="${(item.applicableTerm?contains(currentSemester) && item.partsOfTerm?seq_contains('Full Term'))?then('false', 'true')}">
             <td>
               <div class="date-column">
                 <span class="event-cbx" data-value="${item.recurrenceId}" tabindex="0" role="checkbox" aria-checked="false" aria-label="Select event: ${item.title}"></span>

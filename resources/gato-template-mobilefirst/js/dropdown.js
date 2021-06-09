@@ -131,6 +131,36 @@
     function safeString(val) {
       return val.replace(/\W/g, '_')
     }
+
+    function selectMultiSelectItem(val) {
+      var selectedItems = base.$el.find('.selected-items')
+      var html = '<li>' +
+                    '<div id="selected-'+ safeString(val) +'" class="selected-item">' + val + 
+                      '<button class="remove-filter" data-text="' + val + '"><i class="fa fa-close" aria-label="Remove filter ' + val + '"></i></button>' +
+                    '</div>' + 
+                  '</li>'
+      var newItem = $(html)
+      selectedItems.append(newItem)
+      $('#selected-' + safeString(val) + ' .remove-filter').on('click', function(e) {
+        e.stopPropagation()
+        $('#' + base.$el.attr('id') + '-' + safeString(val)).removeClass('selected')
+        $(this).closest('li').remove()
+        base.$el.find('.info').text(updateSelectedCount(selectedItems.find('li').length))
+        if (selectedItems.find('li').length < 1) {
+          base.$el.find('.text').removeClass('hidden')
+          base.settings.onChange('')
+        } else {
+          var allSelected = []
+          base.$el.find('.menu li.selected').each(function() {
+            allSelected.push($(this).text())
+          })
+          base.settings.onChange(allSelected.join(','))
+        }
+      })
+      base.$el.find('.text').addClass('hidden')
+      $('#' + base.$el.attr('id') + '-' + safeString(val)).addClass('selected')
+      base.$el.find('.info').text(updateSelectedCount(selectedItems.find('li').length))
+    }
   
     base.init = function() {
       var dropdown = base.$el
@@ -237,32 +267,7 @@
         base.settings.onChange(selection)
         closeMenu()
       } else {
-        var selectedItems = base.$el.find('.selected-items')
-        var html = '<li>' +
-                      '<div id="selected-'+ safeString(selection) +'" class="selected-item">' + selection + 
-                        '<button class="remove-filter" data-text="' + selection + '"><i class="fa fa-close" aria-label="Remove filter ' + selection + '"></i></button>' +
-                      '</div>' + 
-                    '</li>'
-        selectedItems.append(html)
-        $('#selected-' + safeString(selection) + ' .remove-filter').on('click', function(e) {
-          e.stopPropagation()
-          $('#' + base.$el.attr('id') + '-' + safeString(selection)).removeClass('selected')
-          $(this).closest('li').remove()
-          base.$el.find('.info').text(updateSelectedCount(selectedItems.find('li').length))
-          if (selectedItems.find('li').length < 1) {
-            base.$el.find('.text').removeClass('hidden')
-            base.settings.onChange('')
-          } else {
-            var allSelected = []
-            base.$el.find('.menu li.selected').each(function() {
-              allSelected.push($(this).text())
-            })
-            base.settings.onChange(allSelected.join(','))
-          }
-        })
-        base.$el.find('.text').addClass('hidden')
-        item.addClass('selected')
-        base.$el.find('.info').text(updateSelectedCount(selectedItems.find('li').length))
+        selectMultiSelectItem(selection)
         //get all selected Items
         var allSelected = []
         base.$el.find('.menu li.selected').each(function() {
@@ -275,15 +280,32 @@
     }
 
     base.updateSelectedItem = function(selection) {
-      base.settings.selected = selection
-      if (base.settings.showSelected) {
-        base.$el.find('.text').text(selection)
+      if (!base.settings.multiple) {
+        base.settings.selected = selection
+        if (base.settings.showSelected) {
+          base.$el.find('.text').text(selection)
+        }
+      } else {
+        selectMultiSelectItem(selection)
       }
+      
     }
 
     base.addMenuItem = function(text) {
       var selectId = base.$el.attr('id')
       base.$el.find('.menu').append('<li id="'+ selectId + '-' + safeString(text) +'" role="option" tabindex="-1">' + text + '</li>')
+    }
+
+    base.resetSelected = function() {
+      if (!base.settings.multiple) {
+        if (base.settings.showSelected) {
+          base.$el.find('.text').text(base.settings.placeholder)
+        }
+      } else {
+        base.$el.find('.selected-items').empty()
+        base.$el.find('.menu li').removeClass('selected')
+        base.$el.find('.text').removeClass('hidden')
+      }
     }
 
     base.init()
@@ -295,7 +317,8 @@
       console.log(value)
     },
     showSelected: true,
-    selected: undefined
+    selected: undefined,
+    placeholder: 'Choose...'
   }
 
   $.fn.acdropdown = function(options) {
