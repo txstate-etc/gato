@@ -253,7 +253,8 @@ jQuery(document).ready(function($) {
       dataRow.push($(row).find('.event-title').text())
       var description = $(row).find('.event-description')
       dataRow.push(description.length > 0 ? description.text() : "")
-      dataRow.push('links go here')
+      var weblink = $(row).find('.event-link')
+      dataRow.push(weblink.length > 0 ? weblink.attr('href') : "")
       data.push(dataRow)
     }
     var csvString = ""

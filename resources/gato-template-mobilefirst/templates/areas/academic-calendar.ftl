@@ -224,7 +224,13 @@
                    data-startdate="${start?string['yyyy-MM-dd']}"
                    data-enddate="${end?string('yyyy-MM-dd')}"></div>
               <div class="event-details" style="display: flex; flex-direction: column;">
+                [#if !gf.isEmptyString(item.link)]
+                  <a class="event-link" href="${item.link}">
+                [/#if]
                 <div class="event-title">${item.title}</div>
+                [#if !gf.isEmptyString(item.link)]
+                  </a>
+                [/#if]
                 [#if item.description?has_content]
                   <div class="event-description">${item.description}</div>
                 [/#if]
