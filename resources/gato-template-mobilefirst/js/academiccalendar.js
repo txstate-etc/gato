@@ -510,7 +510,6 @@ jQuery(document).ready(function($) {
 
   var handleChangePartOfTerm = function(selected) {
     filterState.partofterm = selected
-    filterState.audience = []
     filterState.category = []
     filterState.startDate = ''
     filterState.endDate = ''
