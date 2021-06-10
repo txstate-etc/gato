@@ -2,11 +2,20 @@ jQuery(document).ready(function($) {
 
   //make hash: semester -> part of term -> {min date, max date, categories}
   var dropdownData = {}
+  var audienceData = {}
   $('.event-table .event-data').each(function() {
     var event = $(this)
     var semester = event.data('semester')
     if (!dropdownData[semester]) {
       dropdownData[semester] = {}
+    }
+    if (event.data('audiences').length > 0) {
+      var audiences = event.data('audiences').split(',')
+      for (var a of audiences) {
+        if (!audienceData[a]) {
+          audienceData[a] = 1
+        }
+      }
     }
     var partsofterm = event.data('partsofterm').split(',')
     var startDate = moment(event.data('startdate'))
@@ -402,12 +411,12 @@ jQuery(document).ready(function($) {
         if (!eventHasCategory) showEvent = false
       }
 
-      // if (showEvent && filterState.audience.length > 0) {
-      //   var eventHasAudience = filterState.audience.some(function(audience) {
-      //     return eventData.data('audience').indexOf(audience) >= 0
-      //   })
-      //   if (!eventHasAudience) showEvent = false
-      // }
+      if (showEvent && filterState.audience.length > 0) {
+        var eventHasAudience = filterState.audience.some(function(audience) {
+          return eventData.data('audiences').indexOf(audience) >= 0
+        })
+        if (!eventHasAudience) showEvent = false
+      }
 
       if (!showEvent) {
         hideRow(row)
@@ -457,6 +466,7 @@ jQuery(document).ready(function($) {
 
   var handleChangePartOfTerm = function(selected) {
     filterState.partofterm = selected
+    filterState.audience = []
     filterState.category = []
     filterState.startDate = ''
     filterState.endDate = ''
@@ -480,6 +490,14 @@ jQuery(document).ready(function($) {
   })
 
   // Initial Load
+  var audiences = Object.keys(audienceData)
+  for (var a of audiences) {
+    $('#select-audience').data('acdropdown').addMenuItem(a)
+    var html = '<li>' + 
+                '<div class="mobile-filter-cbx" role="checkbox" tabindex="0">' + a + '</div>' + 
+               '</li>'
+    $('#mobile-audience').append(html)
+  }
   var semesters = Object.keys(dropdownData)
   // TODO: How am I supposed to sort these?
   for (var s of semesters) {

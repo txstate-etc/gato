@@ -5,15 +5,6 @@
           <div class="invisible-focus" tabindex="-1"></div>
           <div id="lbl-mobile-audience" class="filter-label">Audience</div>
           <ul id="mobile-audience" class="mobile-filter-group" role="group" aria-labelledby="lbl-mobile-audience" data-filter="audience">
-            <li>
-              <div class="mobile-filter-cbx" role="checkbox" tabindex="0">Students</div>
-            </li>
-            <li>
-              <div class="mobile-filter-cbx" role="checkbox" tabindex="0">Faculty</div>
-            </li>
-            <li>
-              <div class="mobile-filter-cbx" role="checkbox" tabindex="0">Staff</div>
-            </li>
           </ul>
           <div class="divider">
             <div></div>

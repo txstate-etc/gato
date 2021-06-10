@@ -30,9 +30,6 @@
                   </div>
                 </div>
                 <ul id="audience-menu" class="menu" role="listbox">
-                  <li id="select-audience-Students" role="option" tabindex="-1">Students</li>
-                  <li id="select-audience-Faculty" role="option" tabindex="-1">Faculty</li>
-                  <li id="select-audience-Staff" role="option" tabindex="-1">Staff</li>
                 </ul>
                 <div id="audience-info" class="info visuallyhidden">
                   <span class="count">0 items selected</span>
@@ -220,6 +217,7 @@
             </td>
             <td>
               <div class="event-data"
+                   data-audiences="${item.audiences?join(',')}"
                    data-semester="${item.applicableTerm}"
                    data-partsofterm="${item.partsOfTerm?join(',')}"
                    data-categories="${item.filterCategories?join(',')}"

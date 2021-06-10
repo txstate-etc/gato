@@ -174,4 +174,12 @@ public class TrumbaEventItem extends AbstractEventItem {
     return getCustomProperty("Ending Title");
   }
 
+  public List<String> getAudiences() {
+    List audiences = new ArrayList<String>();
+    for (String audience : getCustomProperty("Audience").split(", ")) {
+      audiences.add(audience);
+    }
+    return audiences;
+  }
+
 }
