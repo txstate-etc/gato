@@ -484,6 +484,7 @@ jQuery(document).ready(function($) {
   }
 
   $('#btn-reset-filters, #mobile-filter-reset').on('click', function() {
+    filterState.audience = []
     handleChangeSemester(currentSemester)
   })
 
