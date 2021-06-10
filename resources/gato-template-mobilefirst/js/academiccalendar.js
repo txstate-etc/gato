@@ -102,6 +102,8 @@ jQuery(document).ready(function($) {
     onChange: function(item) {
       if (item == 'Printable Version') {
         openPrintView()
+      } else {
+        buildCSV()
       }
     }
   })
@@ -227,6 +229,47 @@ jQuery(document).ready(function($) {
     body += '</tbody></table>'
     printWin.document.head.innerHTML = head
     printWin.document.body.innerHTML = body
+  }
+
+  var csvCell = function(val) {
+    if (isBlank(val)) return ""
+    var value = val.toString()
+    value = value.replace(/"/g, '""')
+    if (value.search(/("|,|\n)/g) >= 0)
+      value = '"' + value + '"'
+    return value
+  }
+
+  var buildCSV = function() {
+    var visibleRows = $('.event-table tbody tr:not(".row-hidden")')
+    var data = [['Semester', 'Part of Term', 'Category', 'Date', 'Event Title', 'Event Description', 'Link(s)']]
+    for (var row of visibleRows) {
+      var eventData = $(row).find('.event-data')
+      var dataRow = [eventData.data('semester')] 
+      dataRow.push(eventData.data('partsofterm'))
+      dataRow.push(eventData.data('categories'))
+      var momentDate = moment(eventData.data('startdate'))
+      dataRow.push(momentDate.format('dddd, MMMM Do, YYYY'))
+      dataRow.push($(row).find('.event-title').text())
+      var description = $(row).find('.event-description')
+      dataRow.push(description.length > 0 ? description.text() : "")
+      dataRow.push('links go here')
+      data.push(dataRow)
+    }
+    var csvString = ""
+    var rowCount = data.length
+    for (var i = 0; i < rowCount; i++) {
+      var colCount = data[i].length
+      for (var j = 0; j < colCount; j++) {
+        csvString += csvCell(data[i][j])
+        if (j < colCount - 1) csvString += ','
+      }
+      if (i < rowCount - 1) csvString +='\n'
+    }
+    var link = document.createElement('a');
+    link.setAttribute('href', 'data:text/csv;charset=utf-8,' + encodeURIComponent(csvString));
+    link.setAttribute('download', 'academic_calendar.csv');
+    link.click();
   }
 
   var subscribe = function() {
