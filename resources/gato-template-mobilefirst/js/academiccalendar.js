@@ -557,6 +557,13 @@ jQuery(document).ready(function($) {
   }
   updateStripes()
 
+  // display message if this calendar is an old, cached version
+  var dataLoadedTime = $('#calendarTimestamp').data('time')
+  var fiveMinutesAgo = moment().subtract(5, 'minutes')
+  if (moment(dataLoadedTime).isBefore(fiveMinutesAgo)) {
+    $('.calendar-data-error').show()
+  }
+
   $('#btn-toggle-more-filters').on('click', function() {
     var moreFilterRow = $('.filter-row.bottom')
     var moreFilters = $('.filter-row.bottom .filter-group')

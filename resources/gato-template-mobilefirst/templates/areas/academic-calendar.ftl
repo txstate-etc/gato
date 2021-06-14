@@ -9,6 +9,7 @@
     <div class="academic-calendar-container">
       [#assign currentSemester = model.guessCurrentSemester()]
       <div id="currentSemester" data-semester="${currentSemester}"></div>
+      <div id="calendarTimestamp" data-time="${.now?iso_utc}"></div>
       [#if model.items?size > 0]
         <div id="calendarActionUrl" data-url="${model.items[0].calendarUrl?keep_before_last('/')}"></div>
         <div id="calendarSubscribeUrl" data-url="${model.items[0].calendarUrl?keep_before_last('/actions')}"></div>
