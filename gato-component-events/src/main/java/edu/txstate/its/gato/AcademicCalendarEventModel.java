@@ -1,10 +1,12 @@
 package edu.txstate.its.gato;
 
+import info.magnolia.context.MgnlContext;
 import info.magnolia.jcr.util.NodeUtil;
 import info.magnolia.jcr.util.PropertyUtil;
 import info.magnolia.rendering.model.RenderingModel;
 import info.magnolia.rendering.template.RenderableDefinition;
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import javax.inject.Inject;
@@ -16,11 +18,12 @@ import java.util.Calendar;
 import java.util.Comparator;
 import java.util.Collections;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 
 import com.google.gson.*;
 import org.apache.commons.io.IOUtils;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -48,45 +51,52 @@ public class AcademicCalendarEventModel extends TrumbaEventModel {
     final List<EventItem> items = new ArrayList<EventItem>();
 
     try {
-      final String url = constructUrl();
-      log.debug("Using URL: {}", url);
-      String firstSemesterShown = "";
-      String lastSemesterShown = "";
-      try {
-        Node page = NodeUtil.getNearestAncestorOfType(content, "mgnl:page");
-        firstSemesterShown = PropertyUtil.getString(page, "firstSemesterShown", "");
-        lastSemesterShown = PropertyUtil.getString(page, "lastSemesterShown", "");
-      } catch(Exception e) {
-        e.printStackTrace();
-      }
+      throw new Exception();
+      // final String url = constructUrl();
+      // log.debug("Using URL: {}", url);
+      // String firstSemesterShown = "";
+      // String lastSemesterShown = "";
+      // try {
+      //   Node page = NodeUtil.getNearestAncestorOfType(content, "mgnl:page");
+      //   firstSemesterShown = PropertyUtil.getString(page, "firstSemesterShown", "");
+      //   lastSemesterShown = PropertyUtil.getString(page, "lastSemesterShown", "");
+      // } catch(Exception e) {
+      //   e.printStackTrace();
+      // }
+      
+      // String json = IOUtils.toString(new URL(url).openStream());
+      // JsonArray cal = new JsonParser().parse(json).getAsJsonArray();
 
-      String json = IOUtils.toString(new URL(url).openStream());
-      JsonArray cal = new JsonParser().parse(json).getAsJsonArray();
-
-      for (JsonElement e : cal) {
-        TrumbaEventItem t = new TrumbaEventItem((JsonObject) e);
-        String applicableTerm = t.getCustomProperty("Applicable Term");
-        if (applicableTerm.length() > 0) {
-          if (firstSemesterShown.length() > 0 && compareSemester(applicableTerm, firstSemesterShown) < 0) {
-            continue;
-          }
-          if (lastSemesterShown.length() > 0 && compareSemester(applicableTerm, lastSemesterShown) > 0) {
-            continue;
-          }
-          items.add(t);
-          if (t.getCustomProperty("Ending Title").length() > 0) {
-            String jsonString = e.toString();
-            JsonObject endObj = new JsonParser().parse(jsonString).getAsJsonObject();
-            endObj.addProperty("title", t.getCustomProperty("Ending Title"));
-            endObj.addProperty("eventId", t.getRecurrenceId() + "e");
-            endObj.addProperty("startDateTime", t.getPropertyString("endDateTime"));
-            endObj.addProperty("startTimeZoneOffset", t.getPropertyString("endTimeZoneOffset"));
-            items.add(new TrumbaEventItem(endObj));
-          }
-        }
-      }
+      // for (JsonElement e : cal) {
+      //   TrumbaEventItem t = new TrumbaEventItem((JsonObject) e);
+      //   String applicableTerm = t.getCustomProperty("Applicable Term");
+      //   if (applicableTerm.length() > 0) {
+      //     if (firstSemesterShown.length() > 0 && compareSemester(applicableTerm, firstSemesterShown) < 0) {
+      //       continue;
+      //     }
+      //     if (lastSemesterShown.length() > 0 && compareSemester(applicableTerm, lastSemesterShown) > 0) {
+      //       continue;
+      //     }
+      //     items.add(t);
+      //     if (t.getCustomProperty("Ending Title").length() > 0) {
+      //       String jsonString = e.toString();
+      //       JsonObject endObj = new JsonParser().parse(jsonString).getAsJsonObject();
+      //       endObj.addProperty("title", t.getCustomProperty("Ending Title"));
+      //       endObj.addProperty("eventId", t.getRecurrenceId() + "e");
+      //       endObj.addProperty("startDateTime", t.getPropertyString("endDateTime"));
+      //       endObj.addProperty("startTimeZoneOffset", t.getPropertyString("endTimeZoneOffset"));
+      //       items.add(new TrumbaEventItem(endObj));
+      //     }
+      //   }
+      // }
     } catch (Exception e) {
       e.printStackTrace();
+      HttpServletResponse resp = MgnlContext.getWebContext().getResponse();
+      try {
+        resp.sendError(500);
+      } catch(IOException ioe) {
+        ioe.printStackTrace();
+      }
     }
     Collections.sort(items, new Comparator<EventItem>() {
       @Override

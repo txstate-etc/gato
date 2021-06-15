@@ -559,7 +559,7 @@ jQuery(document).ready(function($) {
 
   // display message if this calendar is an old, cached version
   var dataLoadedTime = $('#calendarTimestamp').data('time')
-  var fiveMinutesAgo = moment().subtract(5, 'minutes')
+  var fiveMinutesAgo = moment().subtract(1, 'hours')
   if (moment(dataLoadedTime).isBefore(fiveMinutesAgo)) {
     $('.calendar-data-error').show()
   }
