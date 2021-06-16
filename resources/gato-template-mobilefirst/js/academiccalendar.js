@@ -692,4 +692,21 @@ jQuery(document).ready(function($) {
       $('#manage-tooltip').toggleClass('shown')
     }
   })
+
+  resizeTimeout(function() {
+    if (isMobile()) {
+      if ($('#select-manage-events').css('display') == "block") {
+        $('#select-manage-events').hide()
+        $('#manage-help').hide()
+        $('#mobile-manage-events').show()
+      }
+    } else {
+      closeMobileFilters()
+      if ($('#mobile-manage-events').css('display') == "block") {
+        $('#mobile-manage-events').hide()
+        $('#manage-help').show()
+        $('#select-manage-events').show()
+      }
+    }
+  })
 })
