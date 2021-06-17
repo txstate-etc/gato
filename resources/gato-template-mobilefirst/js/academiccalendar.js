@@ -556,7 +556,7 @@ jQuery(document).ready(function($) {
       syncFiltersWithState()
   }
   updateStripes()
-
+  
   // display message if this calendar is an old, cached version
   var dataLoadedTime = $('#calendarTimestamp').data('time')
   var fiveMinutesAgo = moment().subtract(1, 'hours')
@@ -566,9 +566,9 @@ jQuery(document).ready(function($) {
 
   $('#btn-toggle-more-filters').on('click', function() {
     var moreFilterRow = $('.filter-row.bottom')
-    var moreFilters = $('.filter-row.bottom .filter-group')
     if (moreFilterRow.hasClass('expanded')) {
       moreFilterRow.removeClass('expanded')
+      moreFilterRow.find('.filter-actions').removeClass('smaller')
       $(this).find('span').text('More filters')
       $(this).attr('aria-expanded', false)
     } else {
@@ -709,4 +709,24 @@ jQuery(document).ready(function($) {
       }
     }
   })
+
+  if (typeof(ResizeObserver) != "undefined") {
+    var audienceObserver = new ResizeObserver(function(entries) {
+      var filterActions = $('.ac-filters .filter-row.top .filter-actions')
+      filterActions.removeClass('smaller')
+      if (filterActions.width() < 300) {
+        filterActions.addClass('smaller')
+      } 
+    })
+    audienceObserver.observe(document.querySelector('.ac-filter.audience'))
+
+    var categoryObserver = new ResizeObserver(function(entries) {
+      var filterActions = $('.ac-filters .filter-row.bottom .filter-actions')
+      filterActions.removeClass('smaller')
+      if (filterActions.width() < 300) {
+        filterActions.addClass('smaller')
+      } 
+    })
+    categoryObserver.observe(document.querySelector('.ac-filter.category'))
+  }
 })

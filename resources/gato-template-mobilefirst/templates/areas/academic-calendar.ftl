@@ -16,51 +16,49 @@
       [/#if]
       <div id="calendarUrl" data-url=""></div>
       <div class="ac-filters">
-        <div class="filter-row top">
-          <div class="filter-group">
-            <div class="ac-filter desktop">
-              <label id="lbl-audience">Audience</label>
-              <div id="select-audience" tabindex="0" class="ac-dropdown multiple" aria-labelledby="lbl-audience" role="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="audience-menu" aria-describedby="audience-info">
-                <div class="input">
-                  <div class="text">Select a few...</div>
-                  <ul class="selected-items">
-                  </ul>
-                  <div class="actions">
-                    <button class="remove-all-filters"><i class="fa fa-close" aria-label="Remove all audience filters"></i></button>
-                    <i class="fa fa-caret-down" aria-hidden="true"></i>
-                  </div>
-                </div>
-                <ul id="audience-menu" class="menu" role="listbox">
+        <div class="filter-row top eq-parent">
+          <div class="ac-filter audience">
+            <label id="lbl-audience">Audience</label>
+            <div id="select-audience" tabindex="0" class="ac-dropdown multiple" aria-labelledby="lbl-audience" role="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="audience-menu" aria-describedby="audience-info">
+              <div class="input">
+                <div class="text">Select a few...</div>
+                <ul class="selected-items">
                 </ul>
-                <div id="audience-info" class="info visuallyhidden">
-                  <span class="count">0 items selected</span>
-                </div>
-              </div>
-            </div>
-            <div class="ac-filter">
-              <label id="lbl-semester">Semester</label>
-              <div id="select-semester" class="ac-dropdown" tabindex="0" aria-labelledby="lbl-semester" role="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="semester-menu">
-                <div class="input">
-                  <div class="text">Choose...</div>
+                <div class="actions">
+                  <button class="remove-all-filters"><i class="fa fa-close" aria-label="Remove all audience filters"></i></button>
                   <i class="fa fa-caret-down" aria-hidden="true"></i>
                 </div>
-                <ul id="semester-menu" class="menu" role="listbox">
-                </ul>
               </div>
-            </div>
-            <div class="ac-filter">
-              <label id="lbl-partofterm">Part of Term</label>
-              <div id="select-partofterm" class="ac-dropdown" tabindex="0" aria-labelledby="lbl-partofterm" role="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="pot-menu">
-                <div class="input">
-                  <div class="text">Choose...</div>
-                  <i class="fa fa-caret-down" aria-hidden="true"></i>
-                </div>
-                <ul id="pot-menu" class="menu" role="listbox">
-                </ul>
+              <ul id="audience-menu" class="menu" role="listbox">
+              </ul>
+              <div id="audience-info" class="info visuallyhidden">
+                <span class="count">0 items selected</span>
               </div>
             </div>
           </div>
-          <div class="action-group">
+          <div class="ac-filter">
+            <label id="lbl-semester">Semester</label>
+            <div id="select-semester" class="ac-dropdown" tabindex="0" aria-labelledby="lbl-semester" role="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="semester-menu">
+              <div class="input">
+                <div class="text">Choose...</div>
+                <i class="fa fa-caret-down" aria-hidden="true"></i>
+              </div>
+              <ul id="semester-menu" class="menu" role="listbox">
+              </ul>
+            </div>
+          </div>
+          <div class="ac-filter">
+            <label id="lbl-partofterm">Part of Term</label>
+            <div id="select-partofterm" class="ac-dropdown" tabindex="0" aria-labelledby="lbl-partofterm" role="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="pot-menu">
+              <div class="input">
+                <div class="text">Choose...</div>
+                <i class="fa fa-caret-down" aria-hidden="true"></i>
+              </div>
+              <ul id="pot-menu" class="menu" role="listbox">
+              </ul>
+            </div>
+          </div>
+          <div class="filter-actions eq-parent">
             <div class="mobile-showing-message">
               <span class="showing">Showing:</span>
               <span class="currentview">${currentSemester} Semester, Full Term</span>
@@ -79,36 +77,34 @@
           </div>
         </div>
         <div class="filter-row bottom">
-          <div class="filter-group">
-            <div class="ac-filter desktop">
-              <label for="ac-startdate">Start Date</label>
-              <input type="date" id="ac-startdate"/>
-            </div>
-            <div class="ac-filter desktop">
-              <label for="ac-enddate">End Date</label>
-              <input type="date" id="ac-enddate"/>
-            </div>
-            <div class="ac-filter desktop">
-              <label id="lbl-category">Category</label>
-              <div id="select-category" class="ac-dropdown multiple" tabindex="0" aria-labelledby="lbl-category" role="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="category-menu" aria-describedby="category-info">
-                <div class="input">
-                  <div class="text">Select a few...</div>
-                  <ul class="selected-items">
-                  </ul>
-                  <div class="actions">
-                    <button class="remove-all-filters"><i class="fa fa-close" aria-label="Remove all category filters"></i></button>
-                    <i class="fa fa-caret-down" aria-hidden="true"></i>
-                  </div>
-                </div>
-                <ul id="category-menu" class="menu" role="listbox">
+          <div class="ac-filter date">
+            <label for="ac-startdate">Start Date</label>
+            <input type="date" id="ac-startdate"/>
+          </div>
+          <div class="ac-filter date">
+            <label for="ac-enddate">End Date</label>
+            <input type="date" id="ac-enddate"/>
+          </div>
+          <div class="ac-filter category">
+            <label id="lbl-category">Category</label>
+            <div id="select-category" class="ac-dropdown multiple" tabindex="0" aria-labelledby="lbl-category" role="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="category-menu" aria-describedby="category-info">
+              <div class="input">
+                <div class="text">Select a few...</div>
+                <ul class="selected-items">
                 </ul>
-                <div id="category-info" class="info visuallyhidden">
-                  <span class="count">0 items selected</span>
+                <div class="actions">
+                  <button class="remove-all-filters"><i class="fa fa-close" aria-label="Remove all category filters"></i></button>
+                  <i class="fa fa-caret-down" aria-hidden="true"></i>
                 </div>
+              </div>
+              <ul id="category-menu" class="menu" role="listbox">
+              </ul>
+              <div id="category-info" class="info visuallyhidden">
+                <span class="count">0 items selected</span>
               </div>
             </div>
           </div>
-          <div class="action-group">
+          <div class="filter-actions">
             <div class="subscribe-container">
               <button id="btn-subscribe" class="btn-ac">
                 <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
