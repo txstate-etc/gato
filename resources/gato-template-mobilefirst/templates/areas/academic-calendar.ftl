@@ -130,115 +130,117 @@
           </div>
         </div>
       </div>
-      <div class="manage-events-container">
-        <div id="select-manage-events" class="ac-dropdown" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false" aria-owns="manage-events-menu" aria-describedby="manage-tooltip">
-          <div class="input">
-            <div class="text">
-              <i class="fa fa-calendar" aria-hidden="true"></i>
-              Manage Events
-            </div>
-          </div>
-          <ul id="manage-events-menu" class="menu" role="listbox">
-            <li role="option" tabindex="-1" data-action="atmc">Add to my Calendar</li>
-            <li role="option" tabindex="-1" data-action="myevents">My Events</li>
-            <li role="option" tabindex="-1" data-action="remindemail">Email Reminder</li>
-            <li role="option" tabindex="-1" data-action="notify">Email me Event Updates</li>
-            <li role="option" tabindex="-1" data-action="forward">Email to Friends</li>
-          </ul>
-        </div>
-        <span id="manage-tooltip" class="tooltip">Save <strong>selected</strong> events to your calendar.</span>
-        <div id="manage-help" tabindex="0">
-          <i class="fa fa-question-circle" aria-label="More information about managing events"></i>
-        </div>
-      </div>
-      <table class="event-table">
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Event</th>
-          </tr>
-        </thead>
-        <tbody>
-        [#assign thisyear = .now?date?string["yyyy"]]
-        [#list model.items as item]
-          [#assign hasEndTitle = !gf.isEmptyString(item.getEndingTitle())]
-          [#assign isOneDay = (item.startDate?string['yyyy-MM-dd'] == item.endDate?string['yyyy-MM-dd'])]
-          [#assign start = item.startDate]
-          [#assign end = item.endDate]
-          [#if item.allDay]
-            [#if isOneDay]
-              [#-- adjust end date for trumba all day issue --]
-              [#if item.endDate?time?string['HH:mm'] == "00:00"]
-                [#assign end = model.fixAllDayEventEndDate(end)]
-              [/#if]
-              [#if hasEndTitle && item.title == item.getEndingTitle()]
-                [#if item.startDate?time?string['HH:mm'] == "00:00"]
-                  [#assign start = model.fixAllDayEventEndDate(start)]
-                [/#if]
-              [/#if]
-            [#else]
-              [#if hasEndTitle]
-                [#if item.title == item.getEndingTitle()]
-                  [#-- This is an ending event --]
-                  [#if item.endDate?time?string['HH:mm'] == "00:00"]
-                    <!-- not working. start is wrong-->
-                    [#assign start = model.fixAllDayEventEndDate(start)]
-                    [#assign end = model.fixAllDayEventEndDate(end)]
-                  [/#if]
-                [#else]
-                  [#-- This is a starting event --]
-                  [#assign end = start]
-                [/#if]
-              [#else]
-                 [#-- adjust end date for trumba all day issue --]
+      <div class="events-flex-container">
+        <table class="event-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Event</th>
+            </tr>
+          </thead>
+          <tbody>
+          [#assign thisyear = .now?date?string["yyyy"]]
+          [#list model.items as item]
+            [#assign hasEndTitle = !gf.isEmptyString(item.getEndingTitle())]
+            [#assign isOneDay = (item.startDate?string['yyyy-MM-dd'] == item.endDate?string['yyyy-MM-dd'])]
+            [#assign start = item.startDate]
+            [#assign end = item.endDate]
+            [#if item.allDay]
+              [#if isOneDay]
+                [#-- adjust end date for trumba all day issue --]
                 [#if item.endDate?time?string['HH:mm'] == "00:00"]
                   [#assign end = model.fixAllDayEventEndDate(end)]
                 [/#if]
+                [#if hasEndTitle && item.title == item.getEndingTitle()]
+                  [#if item.startDate?time?string['HH:mm'] == "00:00"]
+                    [#assign start = model.fixAllDayEventEndDate(start)]
+                  [/#if]
+                [/#if]
+              [#else]
+                [#if hasEndTitle]
+                  [#if item.title == item.getEndingTitle()]
+                    [#-- This is an ending event --]
+                    [#if item.endDate?time?string['HH:mm'] == "00:00"]
+                      <!-- not working. start is wrong-->
+                      [#assign start = model.fixAllDayEventEndDate(start)]
+                      [#assign end = model.fixAllDayEventEndDate(end)]
+                    [/#if]
+                  [#else]
+                    [#-- This is a starting event --]
+                    [#assign end = start]
+                  [/#if]
+                [#else]
+                  [#-- adjust end date for trumba all day issue --]
+                  [#if item.endDate?time?string['HH:mm'] == "00:00"]
+                    [#assign end = model.fixAllDayEventEndDate(end)]
+                  [/#if]
+                [/#if]
+              [/#if]
+            [#else]
+              [#if !isOneDay]
+                [#if hasEndTitle]
+                  [#assign end = start]
+                [/#if]  
               [/#if]
             [/#if]
-          [#else]
-            [#if !isOneDay]
-              [#if hasEndTitle]
-                [#assign end = start]
-              [/#if]  
-            [/#if]
-          [/#if]
-          <tr class="row ${(item.applicableTerm?contains(currentSemester) && item.partsOfTerm?seq_contains('Full Term'))?then('', 'row-hidden')}" aria-hidden="${(item.applicableTerm?contains(currentSemester) && item.partsOfTerm?seq_contains('Full Term'))?then('false', 'true')}">
-            <td>
-              <div class="date-column">
-                <span class="event-cbx" data-value="${item.recurrenceId}" tabindex="0" role="checkbox" aria-checked="false" aria-label="Select event: ${item.title}"></span>
-                <div class="date">
-                  <span>${start?string["MMMM d"]}${model.dateSuffix(start)}</span>
-                  [#assign year=start?string["EEEE, yyyy"]]
-                  <div class="eventyear">${year}</div>
+            <tr class="row ${(item.applicableTerm?contains(currentSemester) && item.partsOfTerm?seq_contains('Full Term'))?then('', 'row-hidden')}" aria-hidden="${(item.applicableTerm?contains(currentSemester) && item.partsOfTerm?seq_contains('Full Term'))?then('false', 'true')}">
+              <td>
+                <div class="date-column">
+                  <span class="event-cbx" data-value="${item.recurrenceId}" tabindex="0" role="checkbox" aria-checked="false" aria-label="Select event: ${item.title}"></span>
+                  <div class="date">
+                    <span>${start?string["MMMM d"]}${model.dateSuffix(start)}</span>
+                    [#assign year=start?string["EEEE, yyyy"]]
+                    <div class="eventyear">${year}</div>
+                  </div>
                 </div>
+              </td>
+              <td>
+                <div class="event-data"
+                    data-audiences="${item.audiences?join(',')}"
+                    data-semester="${item.applicableTerm}"
+                    data-partsofterm="${item.partsOfTerm?join(',')}"
+                    data-categories="${item.filterCategories?join(',')}"
+                    data-startdate="${start?string['yyyy-MM-dd']}"
+                    data-enddate="${end?string('yyyy-MM-dd')}"></div>
+                <div class="event-details" style="display: flex; flex-direction: column;">
+                  [#if !gf.isEmptyString(item.link)]
+                    <a class="event-link" href="${item.link}">
+                  [/#if]
+                  <div class="event-title">${item.title}</div>
+                  [#if !gf.isEmptyString(item.link)]
+                    </a>
+                  [/#if]
+                  [#if item.description?has_content]
+                    <div class="event-description">${item.description}</div>
+                  [/#if]
               </div>
-            </td>
-            <td>
-              <div class="event-data"
-                   data-audiences="${item.audiences?join(',')}"
-                   data-semester="${item.applicableTerm}"
-                   data-partsofterm="${item.partsOfTerm?join(',')}"
-                   data-categories="${item.filterCategories?join(',')}"
-                   data-startdate="${start?string['yyyy-MM-dd']}"
-                   data-enddate="${end?string('yyyy-MM-dd')}"></div>
-              <div class="event-details" style="display: flex; flex-direction: column;">
-                [#if !gf.isEmptyString(item.link)]
-                  <a class="event-link" href="${item.link}">
-                [/#if]
-                <div class="event-title">${item.title}</div>
-                [#if !gf.isEmptyString(item.link)]
-                  </a>
-                [/#if]
-                [#if item.description?has_content]
-                  <div class="event-description">${item.description}</div>
-                [/#if]
+              </td>
+            </tr>
+          [/#list]
+          </tbody>
+        </table>
+        <div class="manage-events-container">
+          <div id="select-manage-events" class="ac-dropdown" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false" aria-owns="manage-events-menu" aria-describedby="manage-tooltip">
+            <div class="input">
+              <div class="text">
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+                Manage Events
+              </div>
             </div>
-            </td>
-          </tr>
-        [/#list]
-        </tbody>
-      </table>
+            <ul id="manage-events-menu" class="menu" role="listbox">
+              <li role="option" tabindex="-1" data-action="atmc">Add to my Calendar</li>
+              <li role="option" tabindex="-1" data-action="myevents">My Events</li>
+              <li role="option" tabindex="-1" data-action="remindemail">Email Reminder</li>
+              <li role="option" tabindex="-1" data-action="notify">Email me Event Updates</li>
+              <li role="option" tabindex="-1" data-action="forward">Email to Friends</li>
+            </ul>
+          </div>
+          <span id="manage-tooltip" class="tooltip">Save <strong>selected</strong> events to your calendar.</span>
+          <div id="manage-help" tabindex="0">
+            <i class="fa fa-question-circle" aria-label="More information about managing events"></i>
+          </div>
+        </div>
+      </div>
       <div class="empty-message">
         <h2>No Results Found</h2>
         <p>Please refine your filters and try again.</p>

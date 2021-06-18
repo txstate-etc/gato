@@ -306,8 +306,10 @@ jQuery(document).ready(function($) {
   var toggleCheckbox = function(cb) {
     if (cb.hasClass('is-checked')) {
       cb.removeClass('is-checked')
+      cb.attr('aria-checked', false)
     } else {
       cb.addClass('is-checked')
+      cb.attr('aria-checked', true)
     }
     if ($('.event-cbx.is-checked').length > 0) {
       if (isMobile()) {
