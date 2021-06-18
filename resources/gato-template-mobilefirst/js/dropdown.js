@@ -4,6 +4,7 @@
     var base = this
     base.$el = $(el)
     base.el = el
+    base.currentSelected
 
     base.$el.data('acdropdown', base)
 
@@ -134,11 +135,13 @@
 
     function selectMultiSelectItem(val) {
       var selectedItems = base.$el.find('.selected-items')
-      var html = '<li>' +
+      var html = '<li role="option" tabindex="-1" aria-selected="true" class="selected-listitem" data-text="' + val + '">' +
                     '<div id="selected-'+ safeString(val) +'" class="selected-item">' + val + 
-                      '<button class="remove-filter" data-text="' + val + '"><i class="fa fa-close" aria-label="Remove filter ' + val + '"></i></button>' +
+                    '<i class="fa fa-close remove-filter" aria-hidden="true"></i>' +
+                    '<span class="visuallyhidden">, press delete to remove</span>'
                     '</div>' + 
                   '</li>'
+      
       var newItem = $(html)
       selectedItems.append(newItem)
       $('#selected-' + safeString(val) + ' .remove-filter').on('click', function(e) {
@@ -154,8 +157,10 @@
           base.$el.find('.menu li.selected').each(function() {
             allSelected.push($(this).text())
           })
+          base.currentSelected = allSelected.join(',')
           base.settings.onChange(allSelected.join(','))
         }
+        base.$el.focus()
       })
       base.$el.find('.text').addClass('hidden')
       $('#' + base.$el.attr('id') + '-' + safeString(val)).addClass('selected')
@@ -166,9 +171,15 @@
       var dropdown = base.$el
       base.settings = $.extend({}, $.acdropdown.defaultOptions, options)
       base.$menu = dropdown.find('.menu')
+
       
-      if (base.settings.selected && base.settings.showSelected) {
-        base.$el.find('.text').text(base.settings.selected)
+      if (base.settings.selected ) {
+        base.currentSelected = base.settings.selected
+        if (base.settings.showSelected) {
+          base.$el.find('.text').text(base.settings.selected)
+        }
+      } else {
+        base.currentSelected = ''
       }
 
       dropdown.on('click', function() {
@@ -220,16 +231,41 @@
             openMenu()
             menuItems.eq(menuItems.length - 1).focus()
           }
+        } else if (e.keyCode === KeyCodes.LEFT) {
+            var selectedItems = dropdown.find('.selected-items li')
+            if ($(e.target).is('.selected-listitem')) {
+              var idx = selectedItems.index(e.target)
+              if (idx > 0) {
+                selectedItems.eq(idx - 1).focus()
+              }
+            } else {
+              if (selectedItems.length > 0) {
+                selectedItems.eq(selectedItems.length - 1).focus()
+              }
+            }
+        } else if (e.keyCode === KeyCodes.RIGHT) {
+          if ($(e.target).is('.selected-listitem')) {
+            var selectedItems = dropdown.find('.selected-items li')
+            var idx = selectedItems.index(e.target)
+            if (idx < selectedItems.length - 1) {
+              selectedItems.eq(idx + 1).focus()
+            }
+          }
         } else if (e.keyCode === KeyCodes.ESCAPE) {
           closeMenu()
         } else if (e.keyCode === KeyCodes.ENTER || e.keyCode === KeyCodes.SPACE || e.keyCode === KeyCodes.RETURN) {
           e.preventDefault()
-          if ($(e.target).is('.remove-all-filters')) {
-            e.stopPropagation()
-            dropdown.find('.selected-items').empty()
-            dropdown.find('.menu li').removeClass('selected')
-            dropdown.find('.text').removeClass('hidden')
-          } else if ($(e.target).is('.remove-filter')) {
+          if (menuIsOpen()) {
+            if ($(e.target).is('.menu li')) {
+              base.selectItem($(e.target))
+            }
+          } else {
+            openMenu()
+            menuItems.eq(0).focus()
+          }
+        } else if (e.keyCode === KeyCodes.DELETE || e.keyCode === KeyCodes.BACK_SPACE) {
+          e.preventDefault()
+          if ($(e.target).find('.remove-filter').length > 0) {
             e.stopPropagation()
             var selection = $(e.target).data('text')
             $('#' + base.$el.attr('id') + '-' + safeString(selection)).removeClass('selected')
@@ -237,14 +273,16 @@
             base.$el.find('.info').text(updateSelectedCount(base.$el.find('.selected-items').find('li').length))
             if (base.$el.find('.selected-items li').length < 1) {
               base.$el.find('.text').removeClass('hidden')
+              base.settings.onChange('')
+            } else {
+              var allSelected = []
+              base.$el.find('.menu li.selected').each(function() {
+                allSelected.push($(this).text())
+              })
+              base.currentSelected = allSelected.join(',')
+              base.settings.onChange(allSelected.join(','))
             }
-          } else if (menuIsOpen()) {
-            if ($(e.target).is('.menu li')) {
-              base.selectItem($(e.target))
-            }
-          } else {
-            openMenu()
-            menuItems.eq(0).focus()
+            base.$el.focus()
           }
         }
       })
@@ -255,15 +293,20 @@
         dropdown.find('.menu li').removeClass('selected')
         dropdown.find('.text').removeClass('hidden')
         base.settings.onChange('')
+        base.currentSelected = ''
+        closeMenu()
       })
     }
 
     base.selectItem = function(item) {
       var selection = item.text()
       if (!base.settings.multiple) {
+        base.currentSelected = selection
         if (base.settings.showSelected) {
           base.$el.find('.text').text(selection)
         }
+        base.$el.find('.menu li').attr('aria-selected', false)
+        item.attr('aria-selected', true)
         base.settings.onChange(selection)
         closeMenu()
       } else {
@@ -273,6 +316,7 @@
         base.$el.find('.menu li.selected').each(function() {
          allSelected.push($(this).text())
         })
+        base.currentSelected = allSelected.join(',')
         base.settings.onChange(allSelected.join(','))
       }
       
@@ -282,6 +326,14 @@
     base.updateSelectedItem = function(selection) {
       if (!base.settings.multiple) {
         base.settings.selected = selection
+        base.currentSelected = selection
+        var menuItems = base.$el.find('.menu li')
+        menuItems.attr('aria-selected', false)
+        menuItems.each(function() {
+          if ($(this).text() === selection) {
+            $(this).attr('aria-selected', true)
+          }
+        })
         if (base.settings.showSelected) {
           base.$el.find('.text').text(selection)
         }
@@ -293,7 +345,15 @@
 
     base.addMenuItem = function(text) {
       var selectId = base.$el.attr('id')
-      base.$el.find('.menu').append('<li id="'+ selectId + '-' + safeString(text) +'" role="option" tabindex="-1">' + text + '</li>')
+      var itemId = selectId + '-' + safeString(text)
+      base.$el.find('.menu').append('<li id="'+ itemId +'" role="option" tabindex="-1">' + text + '</li>')
+      if (!base.settings.multiple) {
+        if (text == base.currentSelected) {
+          $('#' + itemId).attr('aria-selected', true)
+        } else {
+          $('#' + itemId).attr('aria-selected', false)
+        }
+      }
     }
 
     base.resetSelected = function() {

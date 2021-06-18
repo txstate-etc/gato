@@ -19,13 +19,13 @@
         <div class="filter-row top eq-parent">
           <div class="ac-filter audience">
             <label id="lbl-audience">Audience</label>
-            <div id="select-audience" tabindex="0" class="ac-dropdown multiple" aria-labelledby="lbl-audience" role="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="audience-menu" aria-describedby="audience-info">
+            <div id="select-audience" tabindex="0" class="ac-dropdown multiple" aria-labelledby="lbl-audience" role="button" aria-haspopup="listbox" aria-expanded="false" aria-owns="audience-menu" aria-describedby="audience-info">
               <div class="input">
                 <div class="text">Select a few...</div>
-                <ul class="selected-items">
+                <ul class="selected-items" role="listbox">
                 </ul>
                 <div class="actions">
-                  <button class="remove-all-filters"><i class="fa fa-close" aria-label="Remove all audience filters"></i></button>
+                  <button class="remove-all-filters" tabindex="-1"><i class="fa fa-close" aria-label="Remove all audience filters"></i></button>
                   <i class="fa fa-caret-down" aria-hidden="true"></i>
                 </div>
               </div>
@@ -33,12 +33,13 @@
               </ul>
               <div id="audience-info" class="info visuallyhidden">
                 <span class="count">0 items selected</span>
+                <span>&nbsp;use up and down arrows to browse choices, left and right to hilite previous choices, backspace to delete choices</span>
               </div>
             </div>
           </div>
           <div class="ac-filter">
             <label id="lbl-semester">Semester</label>
-            <div id="select-semester" class="ac-dropdown" tabindex="0" aria-labelledby="lbl-semester" role="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="semester-menu">
+            <div id="select-semester" class="ac-dropdown" tabindex="0" aria-labelledby="lbl-semester" role="button" aria-haspopup="listbox" aria-expanded="false" aria-owns="semester-menu">
               <div class="input">
                 <div class="text">Choose...</div>
                 <i class="fa fa-caret-down" aria-hidden="true"></i>
@@ -49,7 +50,7 @@
           </div>
           <div class="ac-filter">
             <label id="lbl-partofterm">Part of Term</label>
-            <div id="select-partofterm" class="ac-dropdown" tabindex="0" aria-labelledby="lbl-partofterm" role="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="pot-menu">
+            <div id="select-partofterm" class="ac-dropdown" tabindex="0" aria-labelledby="lbl-partofterm" role="button" aria-haspopup="listbox" aria-expanded="false" aria-owns="pot-menu">
               <div class="input">
                 <div class="text">Choose...</div>
                 <i class="fa fa-caret-down" aria-hidden="true"></i>
@@ -63,7 +64,7 @@
               <span class="showing">Showing:</span>
               <span class="currentview">${currentSemester} Semester, Full Term</span>
             </div>
-            <button id="btn-toggle-more-filters" class="btn-ac" aria-haspopup="true" aria-expanded="false" aria-controls="more-filters">
+            <button id="btn-toggle-more-filters" class="btn-ac" aria-haspopup="true" aria-expanded="false" aria-owns="more-filters">
               <i class="fa fa-filter" aria-label="Show More Filters"></i>
               <span>More filters</span>
               <i class="arrow fa" aria-hidden="true"></i>
@@ -87,13 +88,13 @@
           </div>
           <div class="ac-filter category">
             <label id="lbl-category">Category</label>
-            <div id="select-category" class="ac-dropdown multiple" tabindex="0" aria-labelledby="lbl-category" role="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="category-menu" aria-describedby="category-info">
+            <div id="select-category" class="ac-dropdown multiple" tabindex="0" aria-labelledby="lbl-category" role="button" aria-haspopup="listbox" aria-expanded="false" aria-owns="category-menu" aria-describedby="category-info">
               <div class="input">
                 <div class="text">Select a few...</div>
-                <ul class="selected-items">
+                <ul class="selected-items" role="listbox">
                 </ul>
                 <div class="actions">
-                  <button class="remove-all-filters"><i class="fa fa-close" aria-label="Remove all category filters"></i></button>
+                  <button class="remove-all-filters" tabindex="-1><i class="fa fa-close" aria-label="Remove all category filters"></i></button>
                   <i class="fa fa-caret-down" aria-hidden="true"></i>
                 </div>
               </div>
@@ -101,12 +102,13 @@
               </ul>
               <div id="category-info" class="info visuallyhidden">
                 <span class="count">0 items selected</span>
+                <span>&nbsp;use up and down arrows to browse choices, left and right to hilite previous choices, backspace to delete choices</span>
               </div>
             </div>
           </div>
           <div class="filter-actions">
             <div class="subscribe-container">
-              <button id="btn-subscribe" class="btn-ac">
+              <button id="btn-subscribe" class="btn-ac" aria-describedby="subscribe-tooltip">
                 <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
                 Subscribe
               </button>
@@ -115,7 +117,7 @@
                 <i class="fa fa-question-circle" aria-label="More information about subscribing"></i>
               </div>
             </div>
-            <div id="select-download-print" class="ac-dropdown" tabindex="0" aria-label="Download and Print menu" role="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="download-print-menu">
+            <div id="select-download-print" class="ac-dropdown" tabindex="0" aria-label="Download and Print menu" role="button" aria-haspopup="listbox" aria-expanded="false" aria-owns="download-print-menu">
               <div class="input">
                 <div class="text">Download and Print</div>
                 <i class="fa fa-caret-down" aria-hidden="true"></i>
@@ -129,7 +131,7 @@
         </div>
       </div>
       <div class="manage-events-container">
-        <div id="select-manage-events" class="ac-dropdown" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false" aria-controls="manage-events-menu">
+        <div id="select-manage-events" class="ac-dropdown" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false" aria-owns="manage-events-menu" aria-describedby="manage-tooltip">
           <div class="input">
             <div class="text">
               <i class="fa fa-calendar" aria-hidden="true"></i>
@@ -243,7 +245,7 @@
       </div>
       <div id="mobile-manage-events">
         <div class="flex-container">
-          <button id="btn-mobile-manage-events" class="btn-ac">
+          <button id="btn-mobile-manage-events" class="btn-ac" aria-describedby="manage-tooltip">
             <i class="fa fa-calendar" aria-hidden="true"></i>
             Manage Events
           </button>
