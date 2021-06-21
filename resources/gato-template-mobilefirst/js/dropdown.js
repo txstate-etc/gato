@@ -286,6 +286,8 @@
             }
             base.$el.focus()
           }
+        } else if (e.keyCode === KeyCodes.TAB) {
+          closeMenu()
         }
       })
 
