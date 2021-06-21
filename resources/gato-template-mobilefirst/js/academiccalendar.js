@@ -627,6 +627,9 @@ jQuery(document).ready(function($) {
     showSelected: false,
     onChange: function(item) {
       manageEvent(item)
+    },
+    onMenuClose: function () {
+      $('#select-manage-events').velocity({'paddingRight': 0}, {duration: 200})
     }
   })
 

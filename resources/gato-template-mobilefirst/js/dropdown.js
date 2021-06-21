@@ -41,10 +41,11 @@
 
     function closeMobileMenu() {
       $('.ac-mobile-menu').removeClass('shown')
-        $('body').children('*[data-hidden="true"]').each(function() {
-          $(this).attr('aria-hidden', false).removeAttr('data-hidden')
-          base.$el.focus()
-        })
+      $('body').children('*[data-hidden="true"]').each(function() {
+        $(this).attr('aria-hidden', false).removeAttr('data-hidden')
+        base.$el.focus()
+      })
+      base.settings.onMenuClose()
     }
 
     function handleMobileMenu() {
@@ -123,6 +124,7 @@
       base.$el.removeClass('expanded')
       base.$el.attr('aria-expanded', false)
       base.$el.find('.menu').velocity("slideUp", {duration: 200})
+      base.settings.onMenuClose()
     }
 
     function updateSelectedCount(count) {
@@ -378,7 +380,10 @@
     },
     showSelected: true,
     selected: undefined,
-    placeholder: 'Choose...'
+    placeholder: 'Choose...',
+    onMenuClose: function() {
+
+    }
   }
 
   $.fn.acdropdown = function(options) {
