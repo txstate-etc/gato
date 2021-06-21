@@ -10,21 +10,21 @@ jQuery(document).ready(function($) {
       dropdownData[semester] = {}
     }
     if (event.data('audiences').length > 0) {
-      var audiences = event.data('audiences').split(',')
+      var audiences = event.data('audiences').split(';')
       for (var a of audiences) {
         if (!audienceData[a]) {
           audienceData[a] = 1
         }
       }
     }
-    var partsofterm = event.data('partsofterm').split(',')
+    var partsofterm = event.data('partsofterm').split(';')
     var startDate = moment(event.data('startdate'))
     var endDate = moment(event.data('enddate'))
     for (var p of partsofterm) {
       if (!dropdownData[semester][p]) {
         dropdownData[semester][p] = {categories: [], mindate: "", maxdate: ""}
       }
-      var categories = event.data('categories').split(',')
+      var categories = event.data('categories').split(';')
       for (var c of categories) {
         if (c.length && dropdownData[semester][p].categories.indexOf(c) == -1) {
           dropdownData[semester][p].categories.push(c)
@@ -417,7 +417,6 @@ jQuery(document).ready(function($) {
       var showEvent = true
       // check if row matches filters. hide it if it doesn't
       var eventData = $(row).find('.event-data')
-      var categories = eventData.data('categories').split(',')
       if (eventData.data('semester').indexOf(filterState.semester) < 0) {
         showEvent = false
       } else if (eventData.data('partsofterm').indexOf(filterState.partofterm) < 0) {
@@ -502,7 +501,7 @@ jQuery(document).ready(function($) {
   })
 
   var handleChangeAudience = function (selected) {
-    filterState.audience = isBlank(selected) ? [] : selected.split(',')
+    filterState.audience = isBlank(selected) ? [] : selected.split(';')
     syncFiltersWithState()
   }
 
@@ -521,7 +520,7 @@ jQuery(document).ready(function($) {
   }
 
   var handleChangeCategory = function (selected) {
-    filterState.category = isBlank(selected) ? [] : selected.split(',')
+    filterState.category = isBlank(selected) ? [] : selected.split(';')
     syncFiltersWithState()
   }
   

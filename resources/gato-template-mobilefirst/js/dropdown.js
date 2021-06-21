@@ -159,8 +159,8 @@
           base.$el.find('.menu li.selected').each(function() {
             allSelected.push($(this).text())
           })
-          base.currentSelected = allSelected.join(',')
-          base.settings.onChange(allSelected.join(','))
+          base.currentSelected = allSelected.join(';')
+          base.settings.onChange(allSelected.join(';'))
         }
         base.$el.focus()
       })
@@ -281,8 +281,8 @@
               base.$el.find('.menu li.selected').each(function() {
                 allSelected.push($(this).text())
               })
-              base.currentSelected = allSelected.join(',')
-              base.settings.onChange(allSelected.join(','))
+              base.currentSelected = allSelected.join(';')
+              base.settings.onChange(allSelected.join(';'))
             }
             base.$el.focus()
           }
@@ -320,8 +320,8 @@
         base.$el.find('.menu li.selected').each(function() {
          allSelected.push($(this).text())
         })
-        base.currentSelected = allSelected.join(',')
-        base.settings.onChange(allSelected.join(','))
+        base.currentSelected = allSelected.join(';')
+        base.settings.onChange(allSelected.join(';'))
       }
       
       base.$el.focus()

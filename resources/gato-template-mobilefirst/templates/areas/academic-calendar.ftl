@@ -192,10 +192,10 @@
                 </td>
                 <td>
                   <div class="event-data"
-                      data-audiences="${item.audiences?join(',')}"
+                      data-audiences="${item.audiences?join(';')}"
                       data-semester="${item.applicableTerm}"
-                      data-partsofterm="${item.partsOfTerm?join(',')}"
-                      data-categories="${item.filterCategories?join(',')}"
+                      data-partsofterm="${item.partsOfTerm?join(';')}"
+                      data-categories="${item.filterCategories?join(';')}"
                       data-startdate="${start?string['yyyy-MM-dd']}"
                       data-enddate="${end?string('yyyy-MM-dd')}"></div>
                   <div class="event-details" style="display: flex; flex-direction: column;">
