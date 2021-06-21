@@ -1,12 +1,10 @@
 package edu.txstate.its.gato;
 
-import info.magnolia.context.MgnlContext;
 import info.magnolia.jcr.util.NodeUtil;
 import info.magnolia.jcr.util.PropertyUtil;
 import info.magnolia.rendering.model.RenderingModel;
 import info.magnolia.rendering.template.RenderableDefinition;
 
-import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import javax.inject.Inject;
@@ -22,8 +20,6 @@ import java.util.List;
 
 import com.google.gson.*;
 import org.apache.commons.io.IOUtils;
-
-import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -90,12 +86,7 @@ public class AcademicCalendarEventModel extends TrumbaEventModel {
       }
     } catch (Exception e) {
       e.printStackTrace();
-      HttpServletResponse resp = MgnlContext.getWebContext().getResponse();
-      try {
-        resp.sendError(500);
-      } catch(IOException ioe) {
-        ioe.printStackTrace();
-      }
+      return null;
     }
     Collections.sort(items, new Comparator<EventItem>() {
       @Override

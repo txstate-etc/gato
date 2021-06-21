@@ -723,7 +723,8 @@ jQuery(document).ready(function($) {
         filterActions.addClass('smaller')
       } 
     })
-    audienceObserver.observe(document.querySelector('.ac-filter.audience'))
+    if ($('.ac-filter.audience').length > 0)
+      audienceObserver.observe(document.querySelector('.ac-filter.audience'))
 
     var categoryObserver = new ResizeObserver(function(entries) {
       var filterActions = $('.ac-filters .filter-row.bottom .filter-actions')
@@ -732,6 +733,7 @@ jQuery(document).ready(function($) {
         filterActions.addClass('smaller')
       } 
     })
-    categoryObserver.observe(document.querySelector('.ac-filter.category'))
+    if ($('.ac-filter.category').length > 0)
+      categoryObserver.observe(document.querySelector('.ac-filter.category'))
   }
 })
