@@ -11,7 +11,8 @@ jQuery(document).ready(function($) {
     }
     if (event.data('audiences').length > 0) {
       var audiences = event.data('audiences').split(';')
-      for (var a of audiences) {
+      for (var i = 0; i < audiences.length; i++) {
+        var a = audiences[i]
         if (!audienceData[a]) {
           audienceData[a] = 1
         }
@@ -20,12 +21,14 @@ jQuery(document).ready(function($) {
     var partsofterm = event.data('partsofterm').split(';')
     var startDate = moment(event.data('startdate'))
     var endDate = moment(event.data('enddate'))
-    for (var p of partsofterm) {
+    for (var j = 0; j < partsofterm.length; j++) {
+      var p = partsofterm[j]
       if (!dropdownData[semester][p]) {
         dropdownData[semester][p] = {categories: [], mindate: "", maxdate: ""}
       }
       var categories = event.data('categories').split(';')
-      for (var c of categories) {
+      for (var k = 0; k < categories.length; k++) {
+        var c = categories[k]
         if (c.length && dropdownData[semester][p].categories.indexOf(c) == -1) {
           dropdownData[semester][p].categories.push(c)
         }
@@ -38,7 +41,6 @@ jQuery(document).ready(function($) {
       }
     }
   })
-
   var manageEventOptions = {
     "Add to my Calendar": "atmc",
     "My Events": "myevents",
@@ -129,14 +131,16 @@ jQuery(document).ready(function($) {
     var relevantPartsOfTerm = Object.keys(dropdownData[filterState.semester])
     $('#pot-menu').empty()
     $('#mobile-partofterm-menu').empty()
-    for (var p of relevantPartsOfTerm) {
+    for (var i = 0; i < relevantPartsOfTerm.length; i++) {
+      var p = relevantPartsOfTerm[i]
       $('#select-partofterm').data('acdropdown').addMenuItem(p)
       $('#mobile-select-partofterm').data('acdropdown').addMenuItem(p)
     }
     var relevantCategories = dropdownData[filterState.semester][filterState.partofterm].categories
     $('#category-menu').empty()
     $('#mobile-category').empty()
-    for (var cat of relevantCategories) {
+    for (var j = 0; j < relevantCategories.length; j++) {
+      var cat = relevantCategories[j]
       $('#select-category').data('acdropdown').addMenuItem(cat)
       $('#mobile-category').append('<li><div class="mobile-filter-cbx" role="checkbox" tabindex="0" aria-checked="false">'+ cat +'</div></li>')
     }
@@ -150,8 +154,8 @@ jQuery(document).ready(function($) {
 
   var syncFiltersWithState = function () {
     $('#select-audience').data('acdropdown').resetSelected()
-    for (var audience of filterState.audience) {
-      $('#select-audience').data('acdropdown').updateSelectedItem(audience)
+    for (var i = 0; i < filterState.audience.length; i++) {
+      $('#select-audience').data('acdropdown').updateSelectedItem(filterState.audience[i])
     }
     $('#mobile-audience .mobile-filter-cbx').each(function() {
       if (filterState.audience.indexOf($(this).text()) > -1) {
@@ -169,8 +173,8 @@ jQuery(document).ready(function($) {
     $('#ac-enddate').val(filterState.endDate)
     $('#mobile-enddate').val(filterState.endDate)
     $('#select-category').data('acdropdown').resetSelected()
-    for (var cat of filterState.category) {
-      $('#select-category').data('acdropdown').updateSelectedItem(cat)
+    for (var j = 0; j < filterState.category.length; j++) {
+      $('#select-category').data('acdropdown').updateSelectedItem(filterState.category[j])
     }
     $('#mobile-category .mobile-filter-cbx').each(function() {
       if (filterState.category.indexOf($(this).text()) > -1) {
@@ -218,7 +222,8 @@ jQuery(document).ready(function($) {
               '</thead>' +
               '<tbody>'
     var visibleRows = $('.event-table tbody tr:not(".row-hidden")')
-    for (var r of visibleRows) {
+    for (var i = 0; i < visibleRows.length; i++) {
+      var r = visibleRows[i]
       var dateCol = $(r).find('.date')
       var eventDetails = $(r).find('.event-details')
       body += '<tr>' +
@@ -243,7 +248,8 @@ jQuery(document).ready(function($) {
   var buildCSV = function() {
     var visibleRows = $('.event-table tbody tr:not(".row-hidden")')
     var data = [['Semester', 'Part of Term', 'Category', 'Date', 'Event Title', 'Event Description', 'Link(s)']]
-    for (var row of visibleRows) {
+    for (var i = 0; i < visibleRows.length; i++) {
+      var row = visibleRows[i]
       var eventData = $(row).find('.event-data')
       var dataRow = [eventData.data('semester')] 
       dataRow.push(eventData.data('partsofterm'))
@@ -279,8 +285,8 @@ jQuery(document).ready(function($) {
       var url = $('#calendarSubscribeUrl').data('url') + 'subscribe?'
       var queryString = 'filter1=_'
       if (filterState.audience.length > 0) {
-        for (var audience of filterState.audience) {
-          queryString += audience + '_'
+        for (var i = 0; i < filterState.audience.length; i++) {
+          queryString += filterState.audience[i] + '_'
         }
       }
       queryString += '&filter2=_'
@@ -293,8 +299,8 @@ jQuery(document).ready(function($) {
       }
       queryString += '&filter4=_'
       if (filterState.category.length > 0) {
-        for (var cat of filterState.category) {
-          queryString += cat + '_'
+        for (var j = 0; j < filterState.category.length; j++) {
+          queryString += filterState.category[j] + '_'
         }
       }
       queryString += '&filterfield1=Audience&filterfield2=Applicable Term&filterfield3=Part of Term&filterfield4=Filter Category'
@@ -413,7 +419,8 @@ jQuery(document).ready(function($) {
     var rows = $('.event-table tbody tr')
     rows.removeClass('row-hidden').attr('aria-hidden', false)
     var showEmptyMessage = true
-    for (var row of rows) {
+    for (var i = 0; i < rows.length; i++) {
+      var row = rows[i]
       var showEvent = true
       // check if row matches filters. hide it if it doesn't
       var eventData = $(row).find('.event-data')
@@ -536,7 +543,8 @@ jQuery(document).ready(function($) {
 
   // Initial Load
   var audiences = Object.keys(audienceData)
-  for (var a of audiences) {
+  for (var i = 0; i < audiences.length; i++) {
+    var a = audiences[i]
     $('#select-audience').data('acdropdown').addMenuItem(a)
     var html = '<li>' + 
                 '<div class="mobile-filter-cbx" role="checkbox" tabindex="0">' + a + '</div>' + 
@@ -545,7 +553,8 @@ jQuery(document).ready(function($) {
   }
   var semesters = Object.keys(dropdownData)
   // TODO: How am I supposed to sort these?
-  for (var s of semesters) {
+  for (var j=0; j < semesters.length; j++) {
+    var s = semesters[j]
     $('#select-semester').data('acdropdown').addMenuItem(s)
     $('#mobile-select-semester').data('acdropdown').addMenuItem(s)
   }
