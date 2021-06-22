@@ -110,82 +110,83 @@
   }
 }
 
-.academic-calendar-container {
-  padding: 0rem 2rem;
-  position: relative;
-  .btn-ac {
-    font-size: 1.4rem;
-    font-weight: bold;
-    background: none;
-    border: 0;
-    padding: 1rem 1.5rem;
-    border-radius: 4px;
-    max-height: 4rem;
-    &#btn-toggle-more-filters {
-      font-weight: normal;
-      @media (max-width: $sm-breakpoint) {
-        display: none;
-      }
-      i.fa-filter {
-        color: $maroon;
-      }
-      i.arrow:before {
-        content: "\f0d7"
-      }
-      &[aria-expanded="true"] {
-        i.arrow:before {
-          content: "\f0d8";
-        }
-      }
-    }
-    &#btn-more-filters-mobile {
+.btn-ac {
+  font-size: 1.4rem;
+  font-weight: bold;
+  background: none;
+  border: 0;
+  padding: 1rem 1.5rem;
+  border-radius: 4px;
+  max-height: 4rem;
+  &#btn-toggle-more-filters {
+    font-weight: normal;
+    @media (max-width: $sm-breakpoint) {
       display: none;
-      border: 1.75px solid $maroon;
-      background-color: $white;
-      i {
-        color: $maroon;
-      }
-      @media (max-width: $sm-breakpoint) {
-        display: block;
-        white-space: nowrap;
-      }
     }
-    &#btn-reset-filters {
-      background-color: $white;
-      border: 1.75px solid $maroon;
-      margin-right: 1rem;
-      &:hover {
-        border-width: 2.75px;
-      }
-      @media (max-width: $sm-breakpoint) {
-        display: none;
-      }
+    i.fa-filter {
+      color: $maroon;
     }
-    &#btn-go {
-      background-color: $maroon;
-      color: $white;
-      &:hover {
-        background-color: $darkest-maroon;
-      }
-      @media (max-width: $sm-breakpoint) {
-        display: none;
-      }
+    i.arrow:before {
+      content: "\f0d7"
     }
-    &#btn-subscribe {
-      background-color: $white;
-      border: 1.75px solid $maroon;
-      margin-right: 0.5rem;
-      &:hover {
-        border-width: 2.75px;
-      }
-      i {
-        color: $maroon;
-      }
-      @media (max-width: $sm-breakpoint) {
-        display: none;
+    &[aria-expanded="true"] {
+      i.arrow:before {
+        content: "\f0d8";
       }
     }
   }
+  &#btn-more-filters-mobile {
+    display: none;
+    border: 1.75px solid $maroon;
+    background-color: $white;
+    i {
+      color: $maroon;
+    }
+    @media (max-width: $sm-breakpoint) {
+      display: block;
+      white-space: nowrap;
+    }
+  }
+  &#btn-reset-filters {
+    background-color: $white;
+    border: 1.75px solid $maroon;
+    margin-right: 1rem;
+    &:hover {
+      border-width: 2.75px;
+    }
+    @media (max-width: $sm-breakpoint) {
+      display: none;
+    }
+  }
+  &#btn-go {
+    background-color: $maroon;
+    color: $white;
+    &:hover {
+      background-color: $darkest-maroon;
+    }
+    @media (max-width: $sm-breakpoint) {
+      display: none;
+    }
+  }
+  &#btn-subscribe {
+    background-color: $white;
+    border: 1.75px solid $maroon;
+    margin-right: 0.5rem;
+    &:hover {
+      border-width: 2.75px;
+    }
+    i {
+      color: $maroon;
+    }
+    @media (max-width: $sm-breakpoint) {
+      display: none;
+    }
+  }
+}
+
+.academic-calendar-container {
+  padding: 0rem 2rem;
+  position: relative;
   .ac-filters {
     background-color: $sandstone;
     padding: 1rem 2rem;
@@ -661,6 +662,8 @@
         border: 2px solid $maroon;
         height: 4rem;
         width: 15rem;
+        background-color: $white;
+        -webkit-appearance: none
       }
     }
     .mobile-filter-group {
