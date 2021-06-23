@@ -150,9 +150,10 @@
   &#btn-reset-filters {
     background-color: $white;
     border: 1.75px solid $maroon;
-    margin-right: 1rem;
+    margin: 0 1.1rem 0 0.1rem;
     &:hover {
       border-width: 2.75px;
+      margin: 0 1rem 0 0;
     }
     @media (max-width: $sm-breakpoint) {
       display: none;
@@ -171,9 +172,10 @@
   &#btn-subscribe {
     background-color: $white;
     border: 1.75px solid $maroon;
-    margin-right: 0.5rem;
+    margin: 0 0.6rem 0 0.1rem;
     &:hover {
       border-width: 2.75px;
+      margin: 0 0.5rem 0 0;
     }
     i {
       color: $maroon;
