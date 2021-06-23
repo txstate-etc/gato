@@ -130,8 +130,8 @@
           <table class="event-table">
             <thead>
               <tr>
-                <th>Date</th>
-                <th>Event</th>
+                <th class="date-header">Date</th>
+                <th class="event-header">Event</th>
               </tr>
             </thead>
             <tbody>
