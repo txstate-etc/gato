@@ -12,3 +12,7 @@ form:
           class: info.magnolia.ui.form.field.definition.HiddenFieldDefinition
           defaultValue: false
           type: Boolean
+        - name: hideSidebar
+          class: info.magnolia.ui.form.field.definition.HiddenFieldDefinition
+          defaultValue: false
+          type: Boolean
