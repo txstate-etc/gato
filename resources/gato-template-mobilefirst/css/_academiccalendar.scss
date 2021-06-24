@@ -338,6 +338,16 @@
             #subscribe-tooltip {
               top: 130%;
               left: -115%;
+              &:after {
+                content: "";
+                position: absolute;
+                bottom: 100%;
+                left: 50%;
+                margin-left: -8px;
+                border-width: 8px;
+                border-style: solid;
+                border-color: transparent transparent #ddd5c9 transparent;
+              }
             }
           }
           #select-download-print {
@@ -411,6 +421,7 @@
       display: flex;
       position: relative;
       order: 1;
+      align-items: flex-start;
       #select-manage-events {
         display: none;
         margin-bottom: 2rem;
@@ -458,9 +469,16 @@
         }
       }
       #manage-tooltip {
-        top: 90%;
+        position: relative;
         &:after {
-          left: 10%;
+          content: "";
+          position: absolute;
+          top: 50%;
+          right: 100%; /* To the left of the tooltip */
+          margin-top: -8px;
+          border-width: 8px;
+          border-style: solid;
+          border-color: transparent #ddd5c9 transparent transparent;
         }
       }
       #manage-help {
@@ -468,6 +486,7 @@
         color: $medium-gray;
         font-size: 20px;
         margin-left: 0.5rem;
+        margin-right: 1rem;
         @media (max-width: $sm-breakpoint) {
           display: none;
         }
@@ -577,17 +596,6 @@
     z-index: 1;
     &.shown {
       display: block;
-    }
-    &:after {
-      content: "";
-      position: absolute;
-      bottom: 100%;
-      left: 50%;
-      margin-left: -8px;
-      border-width: 8px;
-      border-style: solid;
-      border-color: transparent transparent #ddd5c9 transparent;
-
     }
   }
   .empty-message {

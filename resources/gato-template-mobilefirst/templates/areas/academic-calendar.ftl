@@ -231,10 +231,10 @@
                 <li role="option" tabindex="-1" data-action="forward">Email to Friends</li>
               </ul>
             </div>
-            <span id="manage-tooltip" class="tooltip">Save <strong>selected</strong> events to your calendar.</span>
             <div id="manage-help" tabindex="0">
               <i class="fa fa-question-circle" aria-label="More information about managing events"></i>
             </div>
+            <span id="manage-tooltip" class="tooltip">Save <strong>selected</strong> events to your calendar.</span>
           </div>
         </div>
         <div class="empty-message">
