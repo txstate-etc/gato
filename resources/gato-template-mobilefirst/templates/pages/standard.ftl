@@ -71,6 +71,12 @@
       <main class="contentcolumn ${content.intro?has_content?then('', 'no-intro')}">
         [#assign hideSidebar = true /]
         [#assign hideTitle = false /]
+        [#if def.parameters.isAcademicCalendar!false]
+        <div class="calendar-data-error">
+          <h2 class="error-title">Error: 500 - INTERNAL SERVER </h2>
+          <p class="error-description">Having trouble connecting to the data source. The following calendar is cached and may not be completely accurate</p>
+        </div>
+        [/#if]
         [@headline hideSidebar hideTitle/]
         [#if content.intro?has_content]
           <div class="page-intro-text">
