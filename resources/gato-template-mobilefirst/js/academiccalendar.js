@@ -503,6 +503,8 @@ jQuery(document).ready(function($) {
       $('#select-manage-events').css('display', 'none')
       $('#manage-help').css('display', 'none')
     }
+    updateResults()
+    updateStripes()
   })
 
   $('#btn-go').on('click', function() {
