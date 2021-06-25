@@ -502,9 +502,13 @@
         background-color: $sandstone;
         border: 0;
         text-align: left;
+        padding-top: 2rem;
+        padding-bottom: 1.5rem;
         &.date-header { padding-left: 6rem; }
         &.event-header { padding-left: 2rem; }
         @media (max-width: $mn-breakpoint) {
+          padding-top: 1.6rem;
+          padding-bottom: 1.6rem;
           &.date-header { padding-left: 3.3rem; }
           &.event-header { padding-left: 0.5rem; }
         }
