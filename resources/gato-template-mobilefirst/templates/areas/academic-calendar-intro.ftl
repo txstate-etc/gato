@@ -11,3 +11,6 @@
     </div>
   </div>
 [/#if]
+[#if cmsfn.isEditMode()]
+  <div cms:add="box"></div>
+[/#if]
