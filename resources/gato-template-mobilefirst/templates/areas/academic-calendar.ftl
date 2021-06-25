@@ -108,7 +108,7 @@
                 <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
                 Subscribe
               </button>
-              <span id="subscribe-tooltip" class="tooltip">Save <strong>all</strong> events to your calendar, including any changes made.</span>
+              <span id="subscribe-tooltip" class="tooltip">Save <strong>all filtered</strong> events to your calendar, including any changes made.</span>
               <div id="subscribe-help" tabindex="0" role="button">
                 <i class="fa fa-question-circle" aria-label="More information about subscribing"></i>
               </div>
