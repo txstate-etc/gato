@@ -119,7 +119,7 @@
                 <i class="fa fa-caret-down" aria-hidden="true"></i>
               </div>
               <ul id="download-print-menu" class="menu" role="listbox">
-                <li role="option" tabindex="-1"><a href="#">Printable Version</a></li>
+                <li role="option" tabindex="-1"><a href="#" aria-label="printable version opens in a new tab or window">Printable Version</a></li>
                 <li role="option" tabindex="-1"><a href="#">Download CSV</a></li>
               </ul>
               </div>
@@ -200,7 +200,7 @@
                       data-enddate="${end?string('yyyy-MM-dd')}"></div>
                   <div class="event-details" style="display: flex; flex-direction: column;">
                     [#if !gf.isEmptyString(item.link)]
-                      <a class="event-link" href="${item.link}">
+                      <a class="event-link" href="${item.link}" target="_blank" title="open in new tab or window">
                     [/#if]
                     <div class="event-title">${item.title}</div>
                     [#if !gf.isEmptyString(item.link)]
