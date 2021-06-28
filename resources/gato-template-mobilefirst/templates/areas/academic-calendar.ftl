@@ -90,7 +90,7 @@
                 <ul class="selected-items" role="listbox">
                 </ul>
                 <div class="actions">
-                  <button class="remove-all-filters" tabindex="-1><i class="fa fa-close" aria-label="Remove all category filters"></i></button>
+                  <button class="remove-all-filters" tabindex="-1"><i class="fa fa-close" aria-label="Remove all category filters"></i></button>
                   <i class="fa fa-caret-down" aria-hidden="true"></i>
                 </div>
               </div>

@@ -5,6 +5,7 @@
     base.$el = $(el)
     base.el = el
     base.currentSelected
+    base.contextPath = window.location.pathname.substring(0, window.location.pathname.indexOf("/.magnolia"))
 
     base.$el.data('acdropdown', base)
 
@@ -139,7 +140,7 @@
       var selectedItems = base.$el.find('.selected-items')
       var html = '<li role="option" tabindex="-1" aria-selected="true" class="selected-listitem" data-text="' + val + '">' +
                     '<div id="selected-'+ safeString(val) +'" class="selected-item">' + val + 
-                    '<i class="fa fa-close remove-filter" aria-hidden="true"></i>' +
+                    '<img class="remove-filter" src="' + base.contextPath + '/.resources/gato-template-mobilefirst/images/academic-calendar/academic-calendar-x.svg" aria-hidden="true"/>' +
                     '<span class="visuallyhidden">, press delete to remove</span>'
                     '</div>' + 
                   '</li>'

@@ -9,6 +9,9 @@
     align-items: center;
     font-size: 1.4rem;
     padding: 1rem;
+    .actions {
+      white-space: nowrap;
+    }
   }
   .menu {
     display: none;
@@ -57,6 +60,7 @@
   }
   &.multiple {
     .input {
+      align-items: normal;
       .text {
         &.hidden {
           display: none;
@@ -72,20 +76,21 @@
           .selected-item {
             background-color: $almost-white;
             color: $medium-gray;
+            display: flex;
+            align-items: center;
             font-size: 1.4rem;
             line-height: 1.4rem;
-            padding: 0.2rem 0.5rem;
+            padding: 0.2rem 1.5rem 0.2rem 0.5rem;
             border-radius: 4px;
             margin-right: 0.5rem;
             margin-bottom: 0.5rem;
+            white-space: nowrap;
             .remove-filter {
               margin-left: 0.5rem;
               background-color: transparent;
               border: 0;
               padding: 0;
-              i {
-                color: #a4a4a4;
-              }
+              max-height: 8px;
             }
           }
         }
@@ -193,6 +198,7 @@
     background-color: $sandstone;
     padding: 1rem 2rem;
     margin-bottom: 2rem;
+    border-radius: 4px;
     @media (max-width: $sm-breakpoint) {
       padding: 1rem 2rem;
       margin-bottom: 1rem;
