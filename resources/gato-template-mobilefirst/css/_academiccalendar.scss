@@ -617,6 +617,9 @@
         font-size: 1.2rem;
         padding: 0.5rem 0;
         color: #545454;
+        a {
+          color: $content-link-text;
+        }
       }
       &.empty {
         display: none;
