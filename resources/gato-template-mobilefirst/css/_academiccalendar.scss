@@ -688,9 +688,10 @@
   position: absolute;
   top: 0;
   left: 0;
-  bottom: 0;
   width: 100%;
   background-color: $white;
+  z-index: 1;
+  padding-bottom: 4rem;
   .instructions {
     background-color: $sandstone;
     width: 100%;

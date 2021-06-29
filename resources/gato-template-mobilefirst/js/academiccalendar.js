@@ -361,7 +361,7 @@ jQuery(document).ready(function($) {
   var openMobileFilters = function () {
     var modal = $('#mobile-calendar-modal')
     // addMobileFilterEvents()
-    $('#panel').attr('aria-hidden', true)
+    $('#panel').attr('aria-hidden', true).css('overflow-y', 'hidden').css('height', '100vh')
     $('#btn-more-filters-mobile').attr('aria-expanded', true)
     modal.css('top', $('.academic-calendar-container').offset().top + 'px')
     modal.addClass('shown')
@@ -373,7 +373,7 @@ jQuery(document).ready(function($) {
 
   var closeMobileFilters = function() {
     // removeMobileFilterEvents()
-    $('#panel').attr('aria-hidden', false)
+    $('#panel').attr('aria-hidden', false).css('overflow-y', '').css('height', 'auto')
     $('#mobile-calendar-modal').removeClass('shown')
     $('#btn-more-filters-mobile').attr('aria-expanded', false)
     $('#btn-more-filters-mobile').focus()
