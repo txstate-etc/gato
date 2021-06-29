@@ -822,7 +822,8 @@
       }
     }
     .mobile-filter-buttons {
-      text-align: center;
+      display: flex;
+      justify-content: center;
       button {
         text-transform: uppercase;
         font-weight: bold;
@@ -836,10 +837,13 @@
       #mobile-filter-cancel {
         border: none;
         color: $maroon;
+        padding-left: 0;
+        padding-right: 1rem;
       }
       #mobile-filter-reset {
         border: 1.75px solid $maroon;
         color: $maroon;
+        margin: 0 1rem;
       }
       #mobile-filter-go {
         background-color: $maroon;
