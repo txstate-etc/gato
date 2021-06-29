@@ -72,7 +72,7 @@
               <i class="fa fa-filter" aria-label="Show More Filters"></i>
               <span aria-hidden="true">Filters</span>
             </button>
-            <button id="btn-reset-filters" class="btn-ac">Reset Filters</button>
+            <button id="btn-reset-filters" class="btn-ac">Reset All</button>
             <button id="btn-go" class="btn-ac">Go</button>
           </div>
         </div>

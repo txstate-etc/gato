@@ -738,9 +738,9 @@ jQuery(document).ready(function($) {
     var audienceObserver = new ResizeObserver(function(entries) {
       var filterActions = $('.ac-filters .filter-row.top .filter-actions')
       filterActions.removeClass('smaller')
-      if (filterActions.width() < 300) {
+      if ($('#btn-toggle-more-filters').outerWidth() < 120) {
         filterActions.addClass('smaller')
-      } 
+      }
     })
     if ($('.ac-filter.audience').length > 0)
       audienceObserver.observe(document.querySelector('.ac-filter.audience'))
