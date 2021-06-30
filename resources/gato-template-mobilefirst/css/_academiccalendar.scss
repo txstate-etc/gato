@@ -307,6 +307,8 @@
               box-shadow: 0px 3px 6px rgba(0,0,0,0.101);
               border-radius: 4px;
               font-size: 1.4rem;
+              padding: 1rem;
+              -webkit-appearance: none;
             }
           }
         }
@@ -724,7 +726,7 @@
         height: 4rem;
         width: 15rem;
         background-color: $white;
-        -webkit-appearance: none
+        -webkit-appearance: none;
       }
     }
     .mobile-filter-group {
