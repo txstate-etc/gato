@@ -1097,8 +1097,12 @@ public final class GatoUtils {
     try {
       if (!n.hasNode(childName)) {
         Session scs = sc.getJCRSession(n.getSession().getWorkspace().getName());
-        Node scchild = scs.getNodeByIdentifier(n.getIdentifier()).addNode(childName, type);
-        scs.save();
+        if (!tf.isEditMode() && (!childName.startsWith("empty-") || !n.getName().equals("global-data"))) {
+          return this.getOrCreateNode(scs.getNode("/global-data"), "empty-"+type.replaceAll("[^\\w-]+", "-"), type);
+        } else {
+          Node scchild = scs.getNodeByIdentifier(n.getIdentifier()).addNode(childName, type);
+          scs.save();
+        }
       }
       child = tf.asContentMap(n.getNode(childName));
     } catch (Exception e) {
