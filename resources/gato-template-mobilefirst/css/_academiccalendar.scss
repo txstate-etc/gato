@@ -178,6 +178,7 @@
     background-color: $white;
     border: 1.75px solid $maroon;
     margin: 0 0.6rem 0 0.1rem;
+    white-space: nowrap;
     &:hover {
       border-width: 2.75px;
       margin: 0 0.5rem 0 0;
@@ -249,6 +250,7 @@
         .filter-actions {
           display: flex;
           margin-top: 2rem;
+          min-width: 30%;
           @media (max-width: $sm-breakpoint) {
             margin-top: 0;
             justify-content: space-between;
@@ -315,14 +317,20 @@
         .filter-actions {
           display: flex;
           margin-top: 2rem;
+          min-width: 30%;
           @media (max-width: $sm-breakpoint) {
             margin-top: 0;
           }
           &.smaller {
             flex-direction: column;
+            min-width: 20%;
             .subscribe-container {
+              justify-content: flex-end;
               #btn-subscribe {
                 margin-bottom: 1rem;
+              }
+              #subscribe-help {
+                margin-right: 0;
               }
               #subscribe-tooltip {
                 left: -230%;
@@ -377,6 +385,7 @@
               padding: 1rem;
               .text {
                 margin-right: 1rem;
+                white-space: nowrap;
               }
             }
             .menu {
