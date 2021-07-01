@@ -491,20 +491,21 @@ jQuery(document).ready(function($) {
     $(row).addClass('row-hidden').attr('aria-hidden', true)
   }
 
-  $('#btn-reset-filters, #mobile-filter-reset').on('click', function() {
+  $('#btn-reset-filters').on('click', function() {
     filterState.audience = []
     handleChangeSemester(currentSemester)
     $('.event-cbx.is-checked').each(function() {
       $(this).removeClass('is-checked').attr('aria-checked', false)
     })
-    if (isMobile()) {
-      $('#mobile-manage-events').velocity('slideUp', { duration: 200 })
-    } else {
-      $('#select-manage-events').css('display', 'none')
-      $('#manage-help').css('display', 'none')
-    }
+    $('#select-manage-events').css('display', 'none')
+    $('#manage-help').css('display', 'none')
     updateResults()
     updateStripes()
+  })
+
+  $('#btn-reset-filters, #mobile-filter-reset').on('click', function() {
+    filterState.audience = []
+    handleChangeSemester(currentSemester)
   })
 
   $('#btn-go').on('click', function() {
