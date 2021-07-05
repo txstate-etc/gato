@@ -34,6 +34,18 @@
               background: transparent;
           }
       }
+      i {
+        display: none;
+      }
+      &.sort-asc .header-container,
+      &.sort-desc .header-container {
+        i {
+          display: inline-block;
+        }
+      }
+      &.sort-desc .header-container i:before {
+        content: "\f0d7";
+      }
   }
 
   .headerrow th { text-align: center; }

@@ -16,7 +16,7 @@
 /gato-component-feature/js/featureslider.js
 /gato-component-feature/js/feature.js
 /gato-component-faq/js/expand.js
-/gato-template/js/standardista-table-sorting.js
+/gato-template/js/gatotable.js
 /gato-area-mail/js/mailForm.js
 /gato-area-mail/js/conditionalfield.js
 /gato-component-streaming/js/streaming.js
