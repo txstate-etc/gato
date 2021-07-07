@@ -261,13 +261,15 @@ document.observe('dom:loaded', function () {
 // let's set a variable on dom:loaded so we know that setting a dom:loaded observer will
 // no longer work
 var gato_dom_loaded = false;
-document.observe('dom:loaded', function() {
-	gato_dom_loaded = true;
-});
+jQuery(document).ready(function($) {
+  gato_dom_loaded = true
+})
 
 function ensureReady(closure) {
-	if (gato_dom_loaded) closure();
-	else document.observe('dom:loaded', closure);
+  if (gato_dom_loaded) closure();
+  else {
+    jQuery(document).ready(closure)
+  }
 }
 
 // Shrinks the font-size of the given element until

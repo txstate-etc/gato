@@ -97,7 +97,7 @@
       [/#if]
       </div>
     <script type="text/javascript">
-        var navmodal = new modal($('gato-navcolumn'));
+        var navmodal = new modal(jQuery('#gato-navcolumn'));
         navmodal.addToMainbar('Sidenav');
     </script>
   [/#if]
@@ -109,7 +109,7 @@
       [@cms.area name="gato-banners"/]
     </div>
     <script type="text/javascript">
-      var bannmodal = new modal($('gato-banner-modal'));
+      var bannmodal = new modal(jQuery('#gato-banner-modal'));
       bannmodal.addToMainbar('Banners');
     </script>
   [/#if]

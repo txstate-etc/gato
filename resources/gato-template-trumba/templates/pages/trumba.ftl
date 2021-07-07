@@ -109,7 +109,7 @@
     </script>
     </div>
     <script type="text/javascript">
-      var eventSubmissionModal = new modal($('submit-event-modal'));
+      var eventSubmissionModal = new modal(jQuery('#submit-event-modal'));
     </script>
     [#assign useGlobalSearch = true]
     [#include "/gato-template/templates/includes/search-modal.ftl"]
