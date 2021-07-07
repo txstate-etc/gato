@@ -215,6 +215,11 @@ subApps:
                     label: Note
                     class: info.magnolia.ui.form.field.definition.StaticFieldDefinition
                     value: An automatic timestamp will only appear if you use the "INTERNAL LINK" button to select the linked page.
+              - name: showInEdit
+                class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+                label: Preview
+                buttonLabel: Show in Edit Interface
+                defaultValue: true
               - name: stylesheet
                 label: ""
                 class: edu.txstate.its.gato.vaadin.GatoCssIncludeDefinition
