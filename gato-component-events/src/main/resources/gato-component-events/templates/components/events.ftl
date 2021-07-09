@@ -66,32 +66,50 @@
           [/@h2]
           [#if item.allDay!false]
             <div class="txst-eventdetail-dates">
-              <time class="dt-start dtstart">
-                ${item.allDayDate}
-              </time>
               [#assign actualEndDate = item.endDate]
               [#if item.endDate?time?string['HH:mm'] == "00:00"]
                 [#assign actualEndDate = model.fixAllDayEventEndDate(item.endDate)]
               [/#if]
               [#if item.startDate?date?string != actualEndDate?date?string]
-                &ndash;
-                <time class="dt-end dtend">
-                  ${abbrMonth(actualEndDate?string('MMMM'))} ${actualEndDate?string('d')}
+                [#if item.startDate?date?string['MMMM'] == actualEndDate?date?string['MMMM']]
+                  <span class="dow-range">${item.startDate?date?string['EEEE']} &ndash; ${actualEndDate?date?string['EEEE']},</span>
+                  <time class="dt-start dtstart">${item.startDate?date?string['MMMM']} ${item.startDate?date?string['d']}</time>
+                   &ndash;
+                  <time class="dt-end dtend">${actualEndDate?date?string['d']}</time>
+                [#else]
+                  <time class="dt-start dtstart">
+                    ${item.startDate?date?string['EEEE, MMMM d']}
+                  </time>
+                  &ndash;
+                  <time class="dt-end dtend">
+                    ${actualEndDate?date?string['EEEE, MMMM d']}
+                  </time>
+                [/#if]
+              [#else]
+                <time class="dt-start dtstart">
+                  ${item.startDate?date?string['EEEE, MMMM d']}
                 </time>
               [/#if]
             </div>
           [#else]
             <div class="txst-eventdetail-dates">
-              <time class="dt-start dtstart" datetime="${item.machineStartDate}">
-                ${item.humanStartDate}
-              </time>
-              [#if item.showEndDate]
+              [#if item.startDate?date?string['MMMM d yy'] == item.endDate?date?string['MMMM d yy']]
+                <time class="dt-start dtstart" datetime="${item.machineStartDate}">
+                  ${item.startDate?date?string['EEEE, MMMM d']}, ${item.startDate?date?string['h:mm a']}
+                </time>
+                &ndash;
+                <time class="dt-end dtend">
+                  ${item.endDate?date?string['h:mm a']}
+                </time>
+              [#else]
+                <time class="dt-start dtstart" datetime="${item.machineStartDate}">
+                  ${item.startDate?date?string['EEEE, MMMM d, h:mm a']}
+                </time>
                 &ndash;
                 <time class="dt-end dtend" datetime="${item.machineEndDate}">
-                  ${item.humanEndDate}
+                  ${item.endDate?date?string['EEEE, MMMM d, h:mm a']}
                 </time>
               [/#if]
-
               [#-- If repeat events are hidden and this is a recurring event.  Don't show end date for one time events --]
               [#if (content.hideRepeats!false) && (eventRepeats[item.eventId])]
                 <span class="repeat-event-enddate">
