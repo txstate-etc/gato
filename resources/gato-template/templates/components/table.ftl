@@ -23,15 +23,23 @@
       <caption><p>${content.tableCaption}</p></caption>
       [/#if]
       [#if content.tableHeader && rows?size > 0]
-          [#assign headers = rows?first?replace('\\s+$','','r')?split("\t")]
-          [#assign startingRow = 1]
-          <thead>
-              <tr>
-                  [#list headers as col]
-                      <th>${(col?has_content)?string(col, "&nbsp;")}</th>
-                  [/#list]
-              </tr>
-          </thead>
+        [#assign headers = rows?first?replace('\\s+$','','r')?split("\t")]
+        [#assign headercolspan = 1]
+        [#if headers?size < maxwidth]
+          [#assign headercolspan = maxwidth - headers?size + 1]
+        [/#if]
+        [#assign startingRow = 1]
+        <thead>
+            <tr>
+                [#list headers as col]
+                    [#assign cs = ""]
+                    [#if col?is_last && headercolspan > 1]
+                      [#assign cs = "colspan='" + headercolspan + "'"]
+                    [/#if]
+                    <th ${cs}>${(col?has_content)?string(col, "&nbsp;")}</th>
+                [/#list]
+            </tr>
+        </thead>
       [/#if]
       [#if rows?size > startingRow]
         <tbody>

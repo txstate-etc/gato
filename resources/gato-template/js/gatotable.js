@@ -5,14 +5,14 @@ jQuery(document).ready(function($) {
       var date = moment(val)
       return date.isValid()
     }
-    
+
     var table = $(this)
 
     // make sure there is a table head
     if (table.find('thead').length === 0) {
       return
     }
-    
+
     function sortRows(header) {
       var rows = table.find('tr:gt(0)').toArray()
       var columnIndex = header.index()
@@ -59,6 +59,7 @@ jQuery(document).ready(function($) {
 
     table.find('th').each(function() {
       var header = $(this)
+      if (header.attr('colspan')) return
       var headerText = $(this).text()
       header.contents().wrap('<span class="header-container" role="button" tabindex="0" aria-label="sort by ' + headerText + '">')
       header.find('.header-container').append('<i class="fa fa-caret-up" aria-hidden="true" style="margin-left: 10px"></i>')
@@ -72,6 +73,6 @@ jQuery(document).ready(function($) {
           sortRows($(this))
         }
       })
-    })    
+    })
   })
 })
