@@ -14,7 +14,6 @@ jQuery(document).ready(function($) {
     }
 
     function sortRows(header) {
-      var rows = table.find('tr:gt(0)').toArray()
       var columnIndex = header.index()
       table.find('thead th').each(function() {
         if ($(this).index() != columnIndex) {
@@ -30,28 +29,36 @@ jQuery(document).ready(function($) {
         header.addClass('sort-asc')
         direction = 'ascending'
       }
-      rows.sort(function(a,b) {
-        var valA = $(a).find('td').eq(columnIndex).text()
-        var valB = $(b).find('td').eq(columnIndex).text()
-        if (!isNaN(valA) && !isNaN(valB)) {
-          return valA - valB
-        } else if (isDate(valA) && isDate(valB)) {
-          var dateA = moment(valA)
-          var dateB = moment(valB)
-          if (dateA.isBefore(dateB)) return -1
-          else if (dateA.isAfter(dateB)) return 1
-          else return 0
-        } else {
-          return valA.toString().localeCompare(valB.toString())
+      table.find('tbody').each(function() {
+        var tbody = $(this)
+        // look for th in first row
+        var rows = tbody.find('tr').toArray()
+        if (tbody.find('tr th').length > 0) {
+          rows = tbody.find('tr:gt(0)').toArray()
         }
+        rows.sort(function(a,b) {
+          var valA = $(a).find('td').eq(columnIndex).text()
+          var valB = $(b).find('td').eq(columnIndex).text()
+          if (!isNaN(valA) && !isNaN(valB)) {
+            return valA - valB
+          } else if (isDate(valA) && isDate(valB)) {
+            var dateA = moment(valA)
+            var dateB = moment(valB)
+            if (dateA.isBefore(dateB)) return -1
+            else if (dateA.isAfter(dateB)) return 1
+            else return 0
+          } else {
+            return valA.toString().localeCompare(valB.toString())
+          }
+        })
+        if (direction == 'descending') rows.reverse()
+        for (var i = 0; i < rows.length; i++){
+          $(rows[i]).removeClass('odd').removeClass('even')
+          $(rows[i]).addClass(i%2 == 0 ? 'even' : 'odd')
+          tbody.append(rows[i])
+        }
+        sortDescription.text('Table now sorted by ' + header.text() + ', ' + direction)
       })
-      if (direction == 'descending') rows.reverse()
-      for (var i = 0; i < rows.length; i++){
-        $(rows[i]).removeClass('odd').removeClass('even')
-        $(rows[i]).addClass(i%2 == 0 ? 'even' : 'odd')
-        table.append(rows[i])
-      }
-      sortDescription.text('Table now sorted by ' + header.text() + ', ' + direction)
     }
 
     table.after('<span class="visuallyhidden sort-description" aria-live="polite"></span>')
