@@ -36,7 +36,7 @@
                     [#if col?is_last && headercolspan > 1]
                       [#assign cs = "colspan='" + headercolspan + "'"]
                     [/#if]
-                    <th ${cs}>${(col?has_content)?string(col, "&nbsp;")}</th>
+                    <th ${cs}>${(col?has_content)?string(col, "")}</th>
                 [/#list]
             </tr>
         </thead>
@@ -59,7 +59,7 @@
                         [#if (content.tableResponsive!false) && content.tableHeader && col_index < headers?size]
                           <div class="carded-label">${headers[col_index]}</div>
                         [/#if]
-                        ${(col?trim?has_content)?string(col, "&nbsp;")}
+                        ${(col?trim?has_content)?string(col, "")}
                       </td>
                       [#assign tbodyhascontent = true]
                     [/#if]

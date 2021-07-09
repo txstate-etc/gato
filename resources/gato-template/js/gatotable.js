@@ -68,6 +68,7 @@ jQuery(document).ready(function($) {
       var header = $(this)
       if (header.attr('colspan')) return
       var headerText = $(this).text()
+      if (headerText.length < 1) return
       header.contents().wrap('<span class="header-container" role="button" tabindex="0" aria-label="sort by ' + headerText + '">')
       header.find('.header-container').append('<i class="fa fa-caret-up" aria-hidden="true" style="margin-left: 10px"></i>')
 
