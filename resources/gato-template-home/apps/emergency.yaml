@@ -121,6 +121,13 @@ subApps:
               displayInChooseDialog: false
               formatterClass: info.magnolia.ui.workbench.column.StatusColumnFormatter
               class: info.magnolia.ui.workbench.column.definition.StatusColumnDefinition
+            - name: showInEdit
+              label: Display in Edit/Preview
+              width: 160
+              editable: true
+              sortable: true
+              propertyName: showInEdit
+              class: info.magnolia.ui.workbench.column.definition.BooleanPropertyColumnDefinition
             - name: moddate
               width: 160
               sortable: true
@@ -218,7 +225,7 @@ subApps:
               - name: showInEdit
                 class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
                 label: Preview
-                buttonLabel: Show in Edit Interface
+                buttonLabel: Display in edit / preview modes
                 defaultValue: true
               - name: stylesheet
                 label: ""
