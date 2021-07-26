@@ -3,14 +3,17 @@
     [#local content = cmsfn.inherit(content)]
 
     [#if content.googleanalytics?has_content]
-      <script async src="https://www.googletagmanager.com/gtag/js?id=${content.googleanalytics}"></script>
+      [#list content.googleanalytics?split(",") as prop]
+        <script async src="https://www.googletagmanager.com/gtag/js?id=${prop}"></script>
+      [/#list]
       <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-
-        gtag('config', '${content.googleanalytics}');
-        gtag('event', 'page_view', { 'send_to': '${content.googleanalytics}' })
+        [#list content.googleanalytics?split(",") as prop]
+          gtag('config', '${prop}');
+          gtag('event', 'page_view', { 'send_to': '${prop}' })
+        [/#list]
       </script>
     [/#if]
 
@@ -20,17 +23,20 @@
       [#else]
         [#local gapath = '${thisPagePath}.html']
       [/#if]
-      <script async src="https://www.googletagmanager.com/gtag/js?id=${globalData.analytics.global_account}"></script>
+      [#list globalData.analytics.global_account?split(",") as prop]
+        <script async src="https://www.googletagmanager.com/gtag/js?id=${prop}"></script>
+      [/#list]
       <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
+        [#list globalData.analytics.global_account?split(",") as prop]
+          gtag('config', '${prop}');
+          gtag('event', 'page_view', { 'send_to': '${prop}' })
+        [/#list]
 
-        gtag('config', '${globalData.analytics.global_account}');
-        gtag('event', 'page_view', { 'send_to': '${globalData.analytics.global_account}' })
       </script>
     [/#if]
-
   [/#if]
 [/#macro]
 

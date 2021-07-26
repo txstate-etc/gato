@@ -69,9 +69,14 @@ form:
               class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
               transformerClass: edu.txstate.its.gato.vaadin.JsonTransformer
         - name: googleanalytics
-          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-          description: Website Domain ID<br/><br/>This account id is assigned by Google Analytics when you create an account or add a new site.  It looks like UA-1234567-1.  Enter that code here to enable Google Analytics for this page and all subpages.<br/><br/>You can learn more about Google Analytics and sign up for a free account at <a href="http://www.google.com/analytics/">http://www.google.com/analytics/</a>
           label: Google Analytics
+          class: info.magnolia.ui.form.field.definition.MultiValueFieldDefinition
+          transformerClass: info.magnolia.ui.form.field.transformer.multi.MultiValueJSONTransformer
+          field:
+            name: propertylist
+            class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+            label: ""
+          description: Website Domain ID<br/><br/>This account id is assigned by Google Analytics when you create an account or add a new site.  It looks like UA-1234567-1 or G-ABC123DEF4.  Enter that code here to enable Google Analytics for this page and all subpages.<br/><br/>You can learn more about Google Analytics and sign up for a free account at <a href="http://www.google.com/analytics/">http://www.google.com/analytics/</a>
     - name: tabAlternateContent
       label: Social Sharing
       fields:
