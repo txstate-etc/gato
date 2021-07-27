@@ -294,6 +294,8 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
     );
 
     register(DeltaBuilder.update("1.3.3", "")
+      .addTask(new BootstrapSingleModuleResource("config.modules.gato-internal.commands.gato.create404Pages.xml"))
+      .addTask(new BootstrapSingleModuleResource("config.modules.scheduler.config.jobs.create404Pages.xml"))
       .addTasks(installOrUpdateTasks())
     );
   }

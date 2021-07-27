@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sv:node xmlns:sv="http://www.jcp.org/jcr/sv/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" sv:name="create404Pages">
+  <sv:property sv:name="jcr:primaryType" sv:type="Name">
+    <sv:value>mgnl:contentNode</sv:value>
+  </sv:property>
+  <sv:property sv:name="catalog" sv:type="String">
+    <sv:value>gato</sv:value>
+  </sv:property>
+  <sv:property sv:name="command" sv:type="String">
+    <sv:value>create404Pages</sv:value>
+  </sv:property>
+  <sv:property sv:name="cron" sv:type="String">
+    <sv:value>0 0 6 1/1 * ? *</sv:value>
+  </sv:property>
+  <sv:property sv:name="description" sv:type="String">
+    <sv:value>Create 404 pages for sites that do not have them</sv:value>
+  </sv:property>
+  <sv:property sv:name="enabled" sv:type="String">
+    <sv:value>true</sv:value>
+  </sv:property>
+  <sv:node sv:name="params">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>mgnl:contentNode</sv:value>
+    </sv:property>
+    <sv:property sv:name="path" sv:type="String">
+      <sv:value>/</sv:value>
+    </sv:property>
+    <sv:property sv:name="repository" sv:type="String">
+      <sv:value>website</sv:value>
+    </sv:property>
+  </sv:node>
+</sv:node>
