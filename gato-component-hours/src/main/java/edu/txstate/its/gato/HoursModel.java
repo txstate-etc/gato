@@ -24,13 +24,11 @@ public class HoursModel extends TrumbaEventModel {
   protected final DateFormat fullTimeFormat = new SimpleDateFormat( "h:mma" );
   protected final DateFormat shortTimeFormat = new SimpleDateFormat( "ha" );
   protected String defaultCalendarId = "1411151";
-  protected String specialTitle;
   protected String displayTitle;
 
   @Inject
   public HoursModel(Node content, RenderableDefinition definition, RenderingModel parent) {
     super(content, definition, parent);
-    this.specialTitle = PropertyUtil.getString(content, "caltitle", "");
     this.displayTitle = PropertyUtil.getString(content, "displaytitle", "");
     MagnoliaConfigurationProperties mcp = Components.getComponent(MagnoliaConfigurationProperties.class);
     String tz = mcp.getProperty("gato.timezone.default");
@@ -148,8 +146,8 @@ public class HoursModel extends TrumbaEventModel {
     Calendar startDate = Calendar.getInstance();
     Calendar endDate = Calendar.getInstance();
     startDate.add( Calendar.DATE, -1 );
-    endDate.add( Calendar.DATE, 94 );
     endDate.set( Calendar.DAY_OF_MONTH, 1 );
+    endDate.add( Calendar.MONTH, 7 );
 
     url = url + "?startdate=" + trumbaformat.format(startDate.getTime());
     url = url + "&enddate=" + trumbaformat.format(endDate.getTime());
@@ -157,9 +155,7 @@ public class HoursModel extends TrumbaEventModel {
   }
 
   public boolean itemIsApplicable(EventItem item) {
-    return !item.isCancelled() &&
-        // if we are looking for a special title and this item does not match, skip it
-        (StringUtils.isBlank(this.specialTitle) || item.getTitle().equalsIgnoreCase(this.specialTitle));
+    return !item.isCancelled();
   }
 
   public boolean isOpen() {

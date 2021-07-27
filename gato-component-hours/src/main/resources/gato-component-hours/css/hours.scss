@@ -49,12 +49,15 @@
     * {
       margin: 0;
     }
-    h2 { margin-right: 1rem; }
     .hours-pdf {
-      display: inline-block;
-      background-color: $mc1-bg;
-      color: $mc1-text;
+      margin-left: auto;
+      margin-right: 1rem;
+      background-color: $white;
+      color: $black;
       padding: 0.7rem;
+      &:hover {
+        color: $white;
+      }
     }
 
   }

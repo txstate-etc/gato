@@ -96,23 +96,13 @@ jQuery(document).ready(function ($) {
       var firstgooddata = (data.fullcalendar_data || []).find(function(entry) { return !entry.canceled }) || { title: 'Hours' }
       headercontainer.append('<h2>' + (data.title || firstgooddata.title) + '</h2>');
 
-      if (data.pdf_link.length && !$('#all_pdf').length) {
-        var pdflink = $('<a href="'+data.pdf_link+'" class="hours-pdf"> <i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF Version</a>');
-        headercontainer.append(pdflink);
-      }
+      var pdflink = $('<button class="hours-pdf"> <i class="fa fa-print" aria-hidden="true"></i> Print</button>');
+      pdflink.click(function () { openPrintableView(data) })
+      headercontainer.append(pdflink);
       modalcontainer.append(headercontainer);
 
       var now = moment();
-      var chartdata = {};
-      for (var i = 0; i < data.fullcalendar_data.length; i++) {
-        var entry = data.fullcalendar_data[i]
-        if (entry.end.isBefore(now)) continue
-        var month = entry.start.format('YYYYMM')
-        var day = parseInt(entry.start.format('D'))
-        if (!chartdata[month]) chartdata[month] = { name: entry.start.format('MMMM YYYY'), shortname: entry.start.format('MMMM'), days: [] }
-        if (!chartdata[month].days[day]) chartdata[month].days[day] = { label: day, open: [] }
-        chartdata[month].days[day].open.push({ canceled: entry.canceled, start: entry.start, end: entry.end })
-      }
+      var chartdata = getChartData(data, now);
 
       var startedprinting = false;
       var months = Object.keys(chartdata);
@@ -133,45 +123,7 @@ jQuery(document).ready(function ($) {
           var tomorrow = j === month.days.length - 1 ? (i === months.length - 1 ? undefined : chartdata[months[i+1]].days[1]) : month.days[j+1]
           if (day && day.open.length || j >= now.date() || startedprinting) {
             startedprinting = true;
-            var dow = moment(months[i]+padNumber(j)+'120000', 'YYYYMMDDHHmmss');
-            var line = '<li class="hours-day">'+
-              '<span class="hours-date-container">'+
-                '<span class="hours-date">'+
-                  '<span class="hours-number">'+
-                    '<span>' + j + '</span><span class="sr-only"> '+month.shortname+'</span>'+
-                  '</span>'+
-                  '<span class="hours-dow">'+
-                    '<span aria-hidden="true">'+dow.format('ddd')+'</span>'+
-                    '<span class="sr-only">'+dow.format('dddd')+'</span>'+
-                  '</span>'+
-                '</span>'+
-              '</span>'+
-              '<span class="hours-description">';
-            if (day) {
-              for (var k = 0; k < day.open.length; k++) {
-                var open = day.open[k].start
-                var close = day.open[k].end
-                var lastclose = (((yesterday || {}).open || []).slice(-1)[0] || {}).end
-                var nextopen = (((tomorrow || {}).open || [])[0] || {}).start
-                line += '<span class="hours-interval">'
-                if (day.open[k].canceled)
-                  line += 'Closed';
-                else if (lastclose && nextopen && (isSameTime(open, lastclose) || open.isBefore(lastclose)) && (isSameTime(close, nextopen) || close.isAfter(nextopen)))
-                  line += 'Open all day';
-                else if (lastclose && isSameTime(open, lastclose) || open.isBefore(now))
-                  line += 'Closes at ' + friendlyTime(close);
-                else if (nextopen && isSameTime(close, nextopen))
-                  line += 'Opens at ' + friendlyTime(open);
-                else
-                  line += 'Open from ' + friendlyTime(open) + ' to ' + friendlyTime(close);
-                line += '</span>';
-              }
-            }
-            else {
-              line += 'Closed';
-            }
-            line += '</span></li>';
-            html += line;
+            html += getLine(months[i], month, j, day, yesterday, tomorrow, now);
           }
         }
         html += '</ul>';
@@ -193,4 +145,205 @@ jQuery(document).ready(function ($) {
       });
     });
   });
+  function openPrintableView (data) {
+    var printWin = window.open('', 'hoursprintwin', 'width=800,height=1000');
+    printWin.document.head.innerHTML = '<title>Printable Hours - ' + data.title + '</title><style>' + getPrintableCss() + '</style>';
+    printWin.document.body.innerHTML = getPrintableHTML(data);
+    printWin.focus();
+    printWin.print();
+  }
+  function getPrintableCss () {
+    return `
+    html {
+      font-size: 7px;
+    }
+    body {
+      font-size: 1.6rem;
+    }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+      font-size: 1.6rem;
+    }
+    h1 {
+      margin: 0;
+      font-size: 3rem;
+      padding-bottom: 0.7rem;
+      text-align: center;
+    }
+    @media print {
+      .page-container { page-break-after: always; }
+    }
+    .page-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-items: flex-start;
+    }
+    .hours-container {
+      width: 30%;
+    }
+    .hours-header {
+      font-size: 2.2rem;
+      padding-bottom: 1rem;
+      margin: 0;
+    }
+    .hours-month {
+      padding: 0;
+      margin: 0 0 2rem 0;
+      transition: height 0.3s;
+      overflow: hidden;
+    }
+    .hours-day {
+      display: flex;
+      align-items: stretch;
+      border-top: 1px solid #d1d1d1;
+      border-left: 1px solid #d1d1d1;
+      border-right: 1px solid #d1d1d1;
+    }
+    .hours-day:last-child {
+      border-bottom: 1px solid #d1d1d1;
+    }
+    .hours-day:nth-child(2n) {
+      background-color: #f1f1f1;
+    }
+    .hours-date-container {
+      display: block;
+      position: relative;
+      border-right: 1px solid #d1d1d1;
+      background-color: white;
+      color: black;
+      margin-right: 0.5rem;
+      width: 4rem;
+      min-height: 4rem;
+    }
+    .hours-date {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .hours-dow, .hours-number {
+      display: block;
+      line-height: 1.1;
+      text-align: center;
+    }
+    .hours-number {
+      font-size: 2rem;
+    }
+    .hours-dow {
+      font-size: 1.3rem;
+    }
+    .hours-description {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      line-height: 1.4;
+      padding: 0 0.8rem;
+    }
+    .hours-interval {
+      display: block;
+    }
+    `;
+  }
+  function getPrintableHTML (data) {
+    var now = moment();
+    var chartdata = getChartData(data, now);
+
+    var startedprinting = false;
+    var months = Object.keys(chartdata);
+    var firstgooddata = (data.fullcalendar_data || []).find(function(entry) { return !entry.canceled }) || {};
+    var title = data.title || firstgooddata.title;
+
+    var html = '';
+    if (title) html += '<h1>'+(title)+'</h1>';
+    html += '<div class="page-container">';
+    for (var i = 0; i < months.length; i++) {
+      if (i !== 0 && i % 3 === 0) {
+        html += '</div>';
+        if (title) html += '<h1>'+(title)+'</h1>';
+        html += '<div class="page-container">';
+      }
+      var month = chartdata[months[i]];
+      var headerid = 'hours-header-' + months[i];
+      html += '<div class="hours-container"><h2 class="hours-header" id="'+headerid+'">'+month.name+'</h3>' +
+      '<ul class="hours-month" role="region" aria-labelledby="'+headerid+'">';
+
+      for (var j = 1; j < month.days.length; j++) {
+        var day = month.days[j];
+        var yesterday = j === 1 ? (i === 0 ? undefined : chartdata[months[i-1]].days.slice(-1)[0]) : month.days[j-1]
+        var tomorrow = j === month.days.length - 1 ? (i === months.length - 1 ? undefined : chartdata[months[i+1]].days[1]) : month.days[j+1]
+        if (day && day.open.length || j >= now.date() || startedprinting) {
+          startedprinting = true;
+          html += getLine(months[i], month, j, day, yesterday, tomorrow, now);
+        }
+      }
+      html += '</ul></div>';
+    }
+    return html + '</div>';
+  }
+  function getChartData (data, now) {
+    var chartdata = {};
+    for (var i = 0; i < data.fullcalendar_data.length; i++) {
+      var entry = data.fullcalendar_data[i];
+      if (entry.end.isBefore(now)) continue;
+      var month = entry.start.format('YYYYMM');
+      var day = parseInt(entry.start.format('D'));
+      if (!chartdata[month]) chartdata[month] = { name: entry.start.format('MMMM YYYY'), shortname: entry.start.format('MMMM'), days: [] };
+      if (!chartdata[month].days[day]) chartdata[month].days[day] = { label: day, open: [] };
+      chartdata[month].days[day].open.push({ canceled: entry.canceled, start: entry.start, end: entry.end });
+    }
+    return chartdata;
+  }
+  function getLine (monthKey, month, j, day, yesterday, tomorrow, now) {
+    var dow = moment(monthKey+padNumber(j)+'120000', 'YYYYMMDDHHmmss');
+    var line = '<li class="hours-day">'+
+      '<span class="hours-date-container">'+
+        '<span class="hours-date">'+
+          '<span class="hours-number">'+
+            '<span>' + j + '</span><span class="sr-only"> '+month.shortname+'</span>'+
+          '</span>'+
+          '<span class="hours-dow">'+
+            '<span aria-hidden="true">'+dow.format('ddd')+'</span>'+
+            '<span class="sr-only">'+dow.format('dddd')+'</span>'+
+          '</span>'+
+        '</span>'+
+      '</span>'+
+      '<span class="hours-description">';
+    line += getDescription(day, yesterday, tomorrow, now)
+    line += '</span></li>';
+    return line;
+  }
+  function getDescription (day, yesterday, tomorrow, now) {
+    var line = '<span class="hours-interval">'
+    if (day) {
+      for (var k = 0; k < day.open.length; k++) {
+        var open = day.open[k].start
+        var close = day.open[k].end
+        var lastclose = (((yesterday || {}).open || []).slice(-1)[0] || {}).end
+        var nextopen = (((tomorrow || {}).open || [])[0] || {}).start
+        if (day.open[k].canceled)
+          line += 'Closed';
+        else if (lastclose && nextopen && (isSameTime(open, lastclose) || open.isBefore(lastclose)) && (isSameTime(close, nextopen) || close.isAfter(nextopen)))
+          line += 'Open all day';
+        else if (lastclose && isSameTime(open, lastclose) || open.isBefore(now))
+          line += 'Closes at ' + friendlyTime(close);
+        else if (nextopen && isSameTime(close, nextopen))
+          line += 'Opens at ' + friendlyTime(open);
+        else
+          line += 'Open from ' + friendlyTime(open) + ' to ' + friendlyTime(close);
+      }
+    }
+    else {
+      line += 'Closed';
+    }
+    return line + '</span>';
+  }
 });

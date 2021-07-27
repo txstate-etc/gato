@@ -12,7 +12,6 @@
     "today_abbreviated" : "${model.getAbbreviated()?json_string}",
     "today_full" : "${model.getFull()?json_string}",
     "currently_open" : ${model.isOpen()?string('true','false')},
-    "pdf_link" : "${gf.filterUrl(content.pdflink!)?json_string}",
     "fullcalendar_data" : data
   };
 </script>

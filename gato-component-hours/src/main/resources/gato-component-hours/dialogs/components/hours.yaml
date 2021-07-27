@@ -6,10 +6,6 @@ form:
         - name: calendarId
           class: edu.txstate.its.gato.TrumbaSelectDefinition
           label: Calendar
-        - name: caltitle
-          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-          label: Filter Event Title
-          description: If you enter a title here, only events matching that title will be considered for the primary display. Events with other titles will appear in the full calendar.
         - name: displaytitle
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Display Name
@@ -20,16 +16,7 @@ form:
           appName: pages
           identifierToPathConverter:
             class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
-        - name: pdflink
-          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
-          appName: assets
-          targetWorkspace: dam
-          label: PDF Version
-          identifierToPathConverter:
-            class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
-          contentPreviewDefinition:
-            contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
-          description: If you have a PDF version of your hours information, you may link to it here.
+#       - name: displaystyle
 #          class: info.magnolia.ui.form.field.definition.SwitchableFieldDefinition
 #          transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
 #          selectionType: radio
