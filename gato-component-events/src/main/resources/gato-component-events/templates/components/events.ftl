@@ -1,4 +1,15 @@
 [#include "/gato-template/templates/includes/commonmacros.ftl"]
+
+[#macro formatTime date]
+  [#if date?time?string['ha'] == "12AM"]
+    Midnight
+  [#elseif date?time?string['ha'] == "12PM"]
+    Noon
+  [#else]
+    ${date?time?string['h:mm a']?replace(':00', '')?replace('PM', 'p.m.')?replace('AM', 'a.m.')}
+  [/#if]
+[/#macro]
+
 [#assign offset = 0]
 [#if !gf.isEmptyString(content.title)]
   [@h2 class="event-list-title" offset=offset]${content.title}[/@h2]
@@ -95,19 +106,19 @@
             <div class="txst-eventdetail-dates">
               [#if item.startDate?date?string['MMMM d yy'] == item.endDate?date?string['MMMM d yy']]
                 <time class="dt-start dtstart" datetime="${item.machineStartDate}">
-                  ${item.startDate?date?string['EEEE, MMMM d']}, ${item.startDate?date?string['h:mm a']}
+                  ${item.startDate?date?string['EEEE, MMMM d']}, [@formatTime item.startDate/]
                 </time>
                 &ndash;
                 <time class="dt-end dtend">
-                  ${item.endDate?date?string['h:mm a']}
+                  [@formatTime item.endDate/]
                 </time>
               [#else]
                 <time class="dt-start dtstart" datetime="${item.machineStartDate}">
-                  ${item.startDate?date?string['EEEE, MMMM d, h:mm a']}
+                  ${item.startDate?date?string['EEEE, MMMM d']}, [@formatTime item.startDate/]
                 </time>
                 &ndash;
                 <time class="dt-end dtend" datetime="${item.machineEndDate}">
-                  ${item.endDate?date?string['EEEE, MMMM d, h:mm a']}
+                  ${item.endDate?date?string['EEEE, MMMM d']}, [@formatTime item.endDate/]
                 </time>
               [/#if]
               [#-- If repeat events are hidden and this is a recurring event.  Don't show end date for one time events --]
