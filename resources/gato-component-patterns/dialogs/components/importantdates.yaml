@@ -35,7 +35,7 @@ form:
             - name: calendarId
               class: edu.txstate.its.gato.TrumbaSelectDefinition
               label: Calendar
-              sortOptions: false   
+              sortOptions: false
             - name: events
               class: edu.txstate.its.gato.vaadin.GatoMultiValueFieldDefinition
               transformerClass: info.magnolia.ui.form.field.transformer.multi.MultiValueSubChildrenNodePropertiesTransformer
@@ -57,14 +57,23 @@ form:
                     type: Date
                     class: info.magnolia.ui.form.field.definition.DateFieldDefinition
                     label: Date
-                    dateFormat: yyyy-MM-dd                  
+                    dateFormat: yyyy-MM-dd
                   - name: link
                     class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
                     label: Target
                     appName: pages
                     identifierToPathConverter:
                       class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
-              
+        - name: anchor
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          required: false
+          label: Anchor
+          description: "Enter anchor name here."
+          validators:
+            - name: htmlid
+              class: info.magnolia.ui.form.validator.definition.RegexpValidatorDefinition
+              errorMessage: Anchor name must include at least one character and may not contain spaces.
+              pattern: ^[\S]+$
         - name: stylesheet
           label: ""
           class: edu.txstate.its.gato.vaadin.GatoCssIncludeDefinition

@@ -1,17 +1,19 @@
 jQuery(document).ready(function($) {
+  window.stickynavheight = $('#panel .header-bars').height();
+
   magnolialabelchange('.menubar .menu', '.mgnlEditor.mgnlPlaceholder', 'Add Header Links');
   magnolialabelchange('.multilinks .editMultiLinks', '.mgnlEditor.mgnlEditorBar', 'Header Links');
   magnolialabelchange('.mobilefirst_component_add', '.mgnlEditor.mgnlPlaceholder', "Add Section");
   magnolialabelchange('.addBannerImage', '.mgnlEditor.mgnlPlaceholder', 'Edit Banner Image');
-  
+
   magnolialabelchange('.tabbed_add', '.mgnlEditor.mgnlPlaceholder', 'Add Tab');
   magnolialabelchange('.tabbed_max', '.mgnlEditor.mgnlPlaceholder', 'Maximum tabs added');
 
   magnolialabelchange('.explore_add', '.mgnlEditor.mgnlPlaceholder', 'Add Card');
   magnolialabelchange('.explore_max', '.mgnlEditor.mgnlPlaceholder', 'Maximum cards added');
-  
+
   var $audienceButton = $('.top-bar .btn-audience');
-  
+
   var closeAudiencePanel = function() {
     $('.dropdown').removeClass("open")
     $audienceButton.attr('aria-expanded', 'false')
@@ -27,7 +29,7 @@ jQuery(document).ready(function($) {
       button.attr('aria-expanded', 'true');
     }
   })
-  
+
   $('.top-bar .btn-audience').on('keydown', function(e){
     //close menu on ESC
     if (e.keyCode == KeyCodes.ESCAPE && $('.dropdown').hasClass('open')) {
@@ -59,6 +61,5 @@ jQuery(document).ready(function($) {
       $items.get(index).focus();
     }
   })
-  
+
 });
-  

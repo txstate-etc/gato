@@ -1,4 +1,7 @@
 [#include "/gato-component-patterns/templates/includes/pattern.ftl"]
+[#if !gf.isEmptyString(content.anchor)]
+  <div id=${content.anchor}></div>
+[/#if]
 [@prebuiltsection hasBackground=content.showBackgroundColor!false]
   [#assign columns = ((content.includeImage == "hasImage")?then(content.columnsWithImage, content.columnsNoImage))]
   [#if cmsfn.isEditMode()]

@@ -1,11 +1,14 @@
 [#include "/gato-component-patterns/templates/includes/pattern.ftl"]
+[#if !gf.isEmptyString(content.anchor)]
+  <div id=${content.anchor}></div>
+[/#if]
 [@prebuiltsection]
     [#if cmsfn.isEditMode()]
     <div class="content-edit" cms:edit="bar"></div>
     [/#if]
     [#if content.mobileImage?has_content]
         [#assign mobileImage = content.mobileImage]
-    [#else] 
+    [#else]
         [#assign mobileImage = content.desktopImage]
     [/#if]
     <div class="mobilefirst-pattern about centered">
@@ -25,7 +28,7 @@
                 <div class="image">
                     <img class="desktop" src="${gf.getImgDefault(content.desktopImage)}" alt=""/>
                     <img class="mobile" src="${gf.getImgDefault(mobileImage)}" alt=""/>
-                </div>                
+                </div>
             </div>
         </div>
     </div>

@@ -4,6 +4,9 @@
   <div class="content-edit" cms:edit="bar"></div>
   [/#if]
   <div class="mobilefirst-pattern">
+    [#if !gf.isEmptyString(content.anchorLeft)]
+      <div id=${content.anchorLeft}></div>
+    [/#if]
     <div class="pattern-content callout twocolcta ${content.colorLeft!color1} ${content.alignContent!'text-center'}">
       <div class="centered">
         <h2 class="title cta">${content.titleLeft}</h2>
@@ -21,6 +24,9 @@
         [/#if]
       </div>
     </div>
+    [#if !gf.isEmptyString(content.anchorRight)]
+      <div id=${content.anchorRight}></div>
+    [/#if]
     <div class="pattern-content callout twocolcta ${content.colorRight!color1} ${content.alignContent!'text-center'}">
       <div class="centered">
         <h2 class="title cta">${content.titleRight}</h2>

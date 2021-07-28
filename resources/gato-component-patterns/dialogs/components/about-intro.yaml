@@ -6,12 +6,12 @@ form:
         - name: subheading
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Subheading
-          maxLength: 150      
+          maxLength: 150
           rows: 3
         - name: title
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Title
-          maxLength: 150                      
+          maxLength: 150
           rows: 3
         - name: text
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
@@ -38,7 +38,7 @@ form:
             class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
           contentPreviewDefinition:
             contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
-          description: "You may upload an image, or choose one from the Digital Asset Manager. If you upload an image, the DAM image will be ignored."          
+          description: "You may upload an image, or choose one from the Digital Asset Manager. If you upload an image, the DAM image will be ignored."
         - name: buttons
           class: edu.txstate.its.gato.vaadin.GatoMultiValueFieldDefinition
           transformerClass: info.magnolia.ui.form.field.transformer.multi.MultiValueSubChildrenNodePropertiesTransformer
@@ -62,10 +62,19 @@ form:
                 appName: pages
                 identifierToPathConverter:
                   class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
-
+        - name: anchor
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          required: false
+          label: Anchor
+          description: "Enter anchor name here."
+          validators:
+            - name: htmlid
+              class: info.magnolia.ui.form.validator.definition.RegexpValidatorDefinition
+              errorMessage: Anchor name must include at least one character and may not contain spaces.
+              pattern: ^[\S]+$
     - name: tabCornerImage
       label: Corner Image
-      fields:      
+      fields:
         - name: image
           class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
           appName: assets
@@ -93,4 +102,4 @@ form:
           label: ""
           class: edu.txstate.its.gato.vaadin.GatoCssIncludeDefinition
           styles: [gato-component-patterns/dialogs/css/fix-link-multifield.css]
-actions: !include /gato-template/dialogs/common/actions-block.yaml      
+actions: !include /gato-template/dialogs/common/actions-block.yaml

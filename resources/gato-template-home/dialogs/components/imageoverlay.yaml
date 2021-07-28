@@ -2,7 +2,7 @@ form:
   tabs:
     - name: tabMain
       label: "Background Image: Text"
-      fields:          
+      fields:
         - name: image
           class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
           appName: assets
@@ -13,7 +13,7 @@ form:
             class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
           contentPreviewDefinition:
             contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
-          description: "You may upload an image, or choose one from the Digital Asset Manager. If you upload an image, the DAM image will be ignored."   
+          description: "You may upload an image, or choose one from the Digital Asset Manager. If you upload an image, the DAM image will be ignored."
         - name: color
           class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
           fields:
@@ -25,7 +25,7 @@ form:
           scripts: [gato-lib/js/color-picker.js]
           label: Overlay Color
           parameters:
-            contentType: default                          
+            contentType: default
         - name: overlayPosition
           class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
           label: Overlay Position
@@ -80,10 +80,20 @@ form:
                 appName: pages
                 identifierToPathConverter:
                   class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
+        - name: anchor
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          required: false
+          label: Anchor
+          description: "Enter anchor name here."
+          validators:
+            - name: htmlid
+              class: info.magnolia.ui.form.validator.definition.RegexpValidatorDefinition
+              errorMessage: Anchor name must include at least one character and may not contain spaces.
+              pattern: ^[\S]+$
         - name: stylesheet
           label: ""
           class: edu.txstate.its.gato.vaadin.GatoCssIncludeDefinition
           styles: [gato-component-patterns/dialogs/css/fix-link-multifield.css]
-       
+
 
 actions: !include /gato-template/dialogs/common/actions-block.yaml

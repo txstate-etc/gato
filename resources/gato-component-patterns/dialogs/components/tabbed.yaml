@@ -29,7 +29,7 @@ form:
           validators:
             - name: image
               class: edu.txstate.its.gato.dialog.field.validator.DamChooserImageValidatorDefinition
-              errorMessage: Must be an image file.            
+              errorMessage: Must be an image file.
         - name: mobileImage
           class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
           appName: assets
@@ -43,7 +43,7 @@ form:
           validators:
             - name: image
               class: edu.txstate.its.gato.dialog.field.validator.DamChooserImageValidatorDefinition
-              errorMessage: Must be an image file.                  
+              errorMessage: Must be an image file.
         - name: overlayPosition
           class: info.magnolia.ui.form.field.definition.OptionGroupFieldDefinition
           label: Overlay Position
@@ -58,8 +58,14 @@ form:
             - name: right
               label: Right
               value: right
-        # - name: carousel
-        #   class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
-        #   buttonLabel: Use the carousel style whenever possible.
-        #   label: ""
+        - name: anchor
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          required: false
+          label: Anchor
+          description: "Enter anchor name here."
+          validators:
+            - name: htmlid
+              class: info.magnolia.ui.form.validator.definition.RegexpValidatorDefinition
+              errorMessage: Anchor name must include at least one character and may not contain spaces.
+              pattern: ^[\S]+$
 actions: !include /gato-template/dialogs/common/actions-block.yaml

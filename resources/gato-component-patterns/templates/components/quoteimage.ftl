@@ -1,4 +1,7 @@
 [#include "/gato-component-patterns/templates/includes/pattern.ftl"]
+[#if !gf.isEmptyString(content.anchor)]
+  <div id=${content.anchor}></div>
+[/#if]
 [@prebuiltsection]
   [#assign hasBorder = content.border!false]
   [#if cmsfn.isEditMode()]

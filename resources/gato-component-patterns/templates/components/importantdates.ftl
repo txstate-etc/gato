@@ -1,4 +1,7 @@
 [#include "/gato-component-patterns/templates/includes/pattern.ftl"]
+[#if !gf.isEmptyString(content.anchor)]
+    <div id=${content.anchor}></div>
+[/#if]
 [@prebuiltsection]
   [#if cmsfn.isEditMode()]
   <div class="content-edit" cms:edit="bar"></div>
@@ -26,7 +29,7 @@
                 [#assign eventTitle = (event.title?length > 50)?then(event.title?substring(0, 50)+"...", event.title)]
                   <div class="date">
                   <!--Get day of the month-->
-                      <div class="day">${event.date?string["d"]}</div> 
+                      <div class="day">${event.date?string["d"]}</div>
                       <div class="month">${event.date?string["MMM"]?upper_case}</div>
                     </div>
                   <div class="links">
@@ -57,18 +60,18 @@
                   [/#if]
                   [#if startDate?date?string == endDate?date?string]
                     <div class="date">
-                      <div class="day">${startDate?string["d"]}</div> 
+                      <div class="day">${startDate?string["d"]}</div>
                       <div class="month">${startDate?string["MMM"]?upper_case}</div>
                     </div>
                   [#else]
                     <div class="date-span">
                       <div class="date">
-                        <div class="day">${startDate?string["d"]}</div> 
+                        <div class="day">${startDate?string["d"]}</div>
                         <div class="month">${startDate?string["MMM"]?upper_case}</div>
                       </div>
                       <span class="dash"> - </span>
                       <div class="date">
-                        <div class="day">${endDate?string["d"]}</div> 
+                        <div class="day">${endDate?string["d"]}</div>
                         <div class="month">${endDate?string["MMM"]?upper_case}</div>
                       </div>
                     </div>
@@ -89,8 +92,8 @@
                   [#break]
                 [/#if]
               [/#list]
-            </div>        
-        [/#if]  
+            </div>
+        [/#if]
         </div>
       </div>
   </div>

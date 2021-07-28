@@ -64,6 +64,16 @@ form:
                 appName: pages
                 identifierToPathConverter:
                   class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
+        - name: anchorLeft
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          required: false
+          label: Anchor
+          description: "Enter anchor name here."
+          validators:
+            - name: htmlid
+              class: info.magnolia.ui.form.validator.definition.RegexpValidatorDefinition
+              errorMessage: Anchor name must include at least one character and may not contain spaces.
+              pattern: ^[\S]+$
         - name: stylesheet
           label: ""
           class: edu.txstate.its.gato.vaadin.GatoCssIncludeDefinition
@@ -119,4 +129,14 @@ form:
                 appName: pages
                 identifierToPathConverter:
                   class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
+        - name: anchorRight
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          required: false
+          label: Anchor
+          description: "Enter anchor name here."
+          validators:
+            - name: htmlid
+              class: info.magnolia.ui.form.validator.definition.RegexpValidatorDefinition
+              errorMessage: Anchor name must include at least one character and may not contain spaces.
+              pattern: ^[\S]+$
 actions: !include /gato-template/dialogs/common/actions-block.yaml
