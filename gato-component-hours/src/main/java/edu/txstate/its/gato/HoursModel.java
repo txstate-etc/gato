@@ -147,7 +147,7 @@ public class HoursModel extends TrumbaEventModel {
     Calendar endDate = Calendar.getInstance();
     startDate.add( Calendar.DATE, -1 );
     endDate.set( Calendar.DAY_OF_MONTH, 1 );
-    endDate.add( Calendar.MONTH, 7 );
+    endDate.add( Calendar.MONTH, 6 );
 
     url = url + "?startdate=" + trumbaformat.format(startDate.getTime());
     url = url + "&enddate=" + trumbaformat.format(endDate.getTime());
