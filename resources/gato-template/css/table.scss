@@ -87,6 +87,15 @@
         font-size: 1.6rem;
         padding-left: 1rem;
     }
+  &.sortable {
+    thead th span {
+      text-decoration: underline;
+      cursor: pointer;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
 }
 
 .table-wrapper {
