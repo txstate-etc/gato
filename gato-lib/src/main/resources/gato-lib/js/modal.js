@@ -29,33 +29,33 @@ modal.prototype.init = function() {
 			e.stopPropagation()
 		})
 		modal.outerdiv.append(modal.bgdiv)
-		
+
 		// Trap focus in modal. If this element is reached via tabbing, move focus to the last tabbable element in the modal
 		modal.prefocus = jQuery('<div tabindex="0">')
 		modal.prefocus.on('focus', function(e) {
 			jQuery(modal.innerdiv).find(':tabbable').last().focus()
 		})
 		modal.outerdiv.append(modal.prefocus)
-		
+
 		// CONTENT DIV
 		modal.innerdiv = jQuery('<div>')
 		modal.innerdiv.css({ "position":"relative", "margin":"30px auto", "backgroundColor":"white", "box-shadow":"0px 0px 50px black", "float":"none" })
 		modal.outerdiv.append(modal.innerdiv)
-		
+
 		// Trap focus in modal. If this element is reached via tabbing, move focus to the first tabbable element in the modal
 		modal.postfocus = jQuery('<div tabindex="0">')
 		modal.postfocus.on('focus', function(e) {
 			jQuery(modal.innerdiv).find(':tabbable').first().focus();
 		})
 		modal.outerdiv.append(modal.postfocus)
-		
+
 		// when the window is resized we're going to have to make sure the document body
 		// is tall enough to accomodate our content.  Otherwise it will get cut off.
 		jQuery(window).on('resize', function(e) {
 			if (modal.currentmodal) modal.currentmodal.resize()
 		})
 	}
-	
+
 	if (readCookie("modal_reload") == this.reloadid()) this.show();
 }
 
@@ -72,7 +72,7 @@ modal.prototype.show = function() {
 			itm.attr('aria-disabled', true)
 		}
 	})
-	
+
 	modal.outerdiv.css('display', 'block')
 	this.content.css('display', this.originalDisplayStyle)
 	this.content.css('float', 'none')
@@ -96,7 +96,7 @@ modal.prototype.hide = function(cleanup) {
 		jQuery('body').children().each(function() {
 			var itm = jQuery(this)
 			if (!itm.is('#modal_outer')) {
-				if (itm.data('modal_disabled')) itm.attr('aria-disabled', item.data('save_aria_disable'))
+				if (itm.data('modal_disabled')) itm.attr('aria-disabled', itm.data('save_aria_disable'))
 				itm.data('modal_disabled', false)
 			}
 		})
