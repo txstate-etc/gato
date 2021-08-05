@@ -1,12 +1,16 @@
 [#include "/gato-template/templates/includes/commonmacros.ftl"]
 
-[#macro formatTime date]
+[#macro formatTime date includeAMPM=true]
   [#if date?time?string['ha'] == "12AM"]
     Midnight
   [#elseif date?time?string['ha'] == "12PM"]
     Noon
   [#else]
-    ${date?time?string['h:mm a']?replace(':00', '')?replace('PM', 'p.m.')?replace('AM', 'a.m.')}
+    [#if !includeAMPM]
+      ${date?time?string['h:mm']?replace(':00', '')}
+    [#else]
+      ${date?time?string['h:mm a']?replace(':00', '')?replace('PM', 'p.m.')?replace('AM', 'a.m.')}
+    [/#if]
   [/#if]
 [/#macro]
 
@@ -106,7 +110,8 @@
             <div class="txst-eventdetail-dates">
               [#if item.startDate?date?string['MMMM d yy'] == item.endDate?date?string['MMMM d yy']]
                 <time class="dt-start dtstart" datetime="${item.machineStartDate}">
-                  ${item.startDate?date?string['EEEE, MMMM d']}, [@formatTime item.startDate/]
+                  [#assign includeAMPM = !(item.startDate?date?string['a'] == item.endDate?date?string['a'])]
+                  ${item.startDate?date?string['EEEE, MMMM d']}, [@formatTime item.startDate includeAMPM/]
                 </time>
                 &ndash;
                 <time class="dt-end dtend">
