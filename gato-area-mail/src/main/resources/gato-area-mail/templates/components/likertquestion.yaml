@@ -1,0 +1,7 @@
+templateScript: /gato-area-mail/templates/components/likertquestion.ftl
+renderType: freemarker
+dialog: gato-area-mail:components/likertquestion
+title: Likert Question
+modelClass: edu.txstate.its.gato.MailModel
+parameters:
+  icon: /gato-area-mail/images/selection_icon.png

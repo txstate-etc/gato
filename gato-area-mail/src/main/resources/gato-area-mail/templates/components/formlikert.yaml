@@ -1,0 +1,13 @@
+templateScript: /gato-area-mail/templates/components/formlikert.ftl
+renderType: freemarker
+dialog: gato-area-mail:components/formlikert
+title: Likert Scale Field
+areas:
+  questions:
+    type: list
+    templateScript: /gato-area-mail/templates/areas/likert-area.ftl
+    availableComponents:
+      edit:
+        id: gato-area-mail:components/likertquestion
+parameters:
+  icon: /gato-area-mail/images/selection_icon.png

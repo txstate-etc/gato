@@ -1,0 +1,46 @@
+form:
+  tabs:
+    - name: tabFile
+      label: Add Field
+      fields:
+        - name: title
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Title
+        - name: instructions
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Instructions
+        - name: scale
+          label: Scale
+          class: edu.txstate.its.gato.vaadin.GatoMultiValueFieldDefinition
+          transformerClass: info.magnolia.ui.form.field.transformer.multi.MultiValueSubChildrenNodePropertiesTransformer
+          maxFields: 10
+          minFields: 3
+          styleName: likert-scale
+          field:
+            name: option
+            class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
+            transformerClass: info.magnolia.ui.form.field.transformer.composite.NoOpCompositeTransformer
+            styleName: scale-item
+            fields:
+              - name: label
+                class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                label: Label
+                required: true
+                maxLength: 25
+                styleName: scale-item-label
+              - name: val
+                class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                label: Value
+                required: true
+                styleName: scale-item-value
+                validators:
+                  - name: number
+                    class: info.magnolia.ui.form.validator.definition.RegexpValidatorDefinition
+                    errorMessage: Value must be a number
+                    pattern: ^\d+$
+        - name: stylesheet
+          label: ""
+          class: edu.txstate.its.gato.vaadin.GatoCssIncludeDefinition
+          styles: [gato-area-mail/dialogs/css/formlikert.css]
+actions: !include /gato-template/dialogs/common/actions-block.yaml
+label: Likert Scale Field

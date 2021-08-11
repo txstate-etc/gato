@@ -54,6 +54,14 @@ public class MailModel<RD extends ConfiguredTemplateDefinition> extends Renderin
             titleMap.put(question.getIdentifier(), questionTitle);
           }
         }
+      } else if (component.getProperty("mgnl:template").getString().equals("gato-area-mail:components/formlikert")) {
+        if (component.hasNode("questions")) {
+          Node questions = component.getNode("questions");
+          for (Node question : NodeUtil.getNodes(questions)) {
+            String questionTitle = safeComponentTitle(question);
+            titleMap.put(question.getIdentifier(), questionTitle);
+          }
+        }
       }
     }
 

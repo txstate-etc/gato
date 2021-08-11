@@ -1,0 +1,7 @@
+.v-slot-scale-item-label {
+  margin-right: 15px;
+}
+
+.v-caption-scale-item-label, .v-caption-scale-item-value {
+  display: inline-block !important;
+}

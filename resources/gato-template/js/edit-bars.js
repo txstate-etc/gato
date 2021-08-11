@@ -22,6 +22,7 @@ jQuery( document ).ready(function($) {
   magnolialabelchange('.tsus-rightcolumn', '.mgnlEditor.mgnlPlaceholder', 'Add Content');
   magnolialabelchange('.mail_add', '.mgnlEditor.mgnlPlaceholder', 'Add Form Content');
   magnolialabelchange('.dependentquestion-add', '.mgnlEditor.mgnlPlaceholder', 'Add Dependent Question');
+  magnolialabelchange('.likertquestion-add', '.mgnlEditor.mgnlPlaceholder', 'Add Question');
   magnolialabelchange('#gato-customjs-modal', '.mgnlEditor.mgnlPlaceholder', 'Add Custom Javascript');
   magnolialabelchange('#gato-customcss-modal', '.mgnlEditor.mgnlPlaceholder', 'Add Custom CSS');
   magnolialabelchange('.event_add', '.mgnlEditor.mgnlPlaceholder', 'Add Event');

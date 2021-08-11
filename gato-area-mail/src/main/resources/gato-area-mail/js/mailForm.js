@@ -189,7 +189,7 @@ txstValidate.prototype.showPassed = function() {
   } else {
     this.elem.removeAttr('aria-describedby');
   }
-  
+
   this.spinner.stop();
   this.isSpinning = false;
 };
@@ -329,7 +329,7 @@ jQuery(document).ready(function($) {
       ipt = $(inputs[i])
       if (ipt.attr('type') != 'hidden') break;
     }
-    
+
     if (itm.hasClass('txst-form-date')) type = 'date';
     if (itm.hasClass('txst-form-keystring')) type = 'keystring';
     if (itm.hasClass('txst-form-email')) type = 'email';
@@ -466,6 +466,15 @@ jQuery(document).ready(function($) {
       charcounterdiv.css('color', '#222').css('font-weight', 'normal');
     }
   });
+
+  $('.formelement.likert .likert-table .likert-option').on('click', function(e) {
+    var name = $(this).find('input').attr('name')
+    $('input[name="' + name + '"]').parent().removeClass('selected')
+    $(this).addClass('selected')
+    var target = $(e.target)
+    if (target.is('input') || target.is('label')) return
+    $(this).find('input').trigger('click')
+  })
 });
 
 // form; check for mandatory fields
@@ -564,7 +573,7 @@ function form_fixcolumns() {
   jQuery('.txst-form-selectiongroup').each(function() {
     var selectiongroup = jQuery(this)
     var availableInnerWidth = selectiongroup.width()
-    
+
     var maxItemOuterWidth = 0;
     selectiongroup.find('.txst-form-selection-item').each(function() {
       var item = jQuery(this)
@@ -592,7 +601,7 @@ function form_fixcolumns() {
 
     selectiongroup.append('<div style="clear:both"></div>')
   })
-  
+
 }
 
 function injectDummies() {

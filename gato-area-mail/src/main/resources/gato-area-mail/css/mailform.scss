@@ -138,7 +138,7 @@ textarea {
         content: '';
         position: absolute;
         left: 0;
-        width: 20px; 
+        width: 20px;
         height: 20px;
         border: 2px solid $form-textfield-border-color;
         border-radius: 3px;
@@ -181,13 +181,13 @@ textarea {
   &:not(:last-child) {
     margin-bottom: 8px;
   }
-  
+
   div.helptext {
     margin-bottom: 0 !important;
     margin-left: 40px;
     margin-top: 10px;
   }
-  
+
   &.selected {
     background-color: $form-selection-background-color;
     border-color: $form-selection-background-color;
@@ -235,7 +235,7 @@ textarea {
     .txst-select {
       display: block;
 	    padding: 1rem;
-      max-width: 100%; 
+      max-width: 100%;
       box-sizing: border-box;
       margin: 0;
       border: 2px solid $form-textfield-border-color;
@@ -422,3 +422,75 @@ textarea {
 .edit .dependentquestion-add, .edit .dependent-question {
 	margin-left: 4rem;
 }
+
+.formelement.likert {
+  .likert-table {
+    display: grid;
+    grid-template-columns: 30% repeat(var(--numCol), calc(70%/var(--numCol)));
+    justify-items: center;
+    border-top: 2px solid $form-textfield-border-color;
+    border-left: 2px solid $form-textfield-border-color;
+    & > * {
+      border-bottom: 2px solid $form-textfield-border-color;
+      border-right: 2px solid $form-textfield-border-color;
+    }
+    div {
+      width: 100%;
+      padding: 1rem;
+    }
+    .scale-header {
+      font-weight: bold;
+      text-align: center;
+    }
+    .likert-question {
+      justify-self: start;
+    }
+    .likert-option {
+      text-align: center;
+      &.selected {
+        background-color: $form-selection-background-color;
+      }
+      .mobile-label {
+        display: none;
+      }
+    }
+    .likertquestion-add {
+      grid-column-start: 1;
+      grid-column-end: calc(var(--numCol) + 2);
+    }
+    @media (max-width:$sm-breakpoint) {
+      grid-template-columns: 100%;
+      border: 0;
+      & > * {
+       border: 0;
+      }
+      .scale-header, .empty {
+        display: none;
+      }
+      .likert-question {
+        padding-left: 0;
+        font-weight: 500;
+      }
+      .likert-option {
+        text-align: unset;
+        display: flex;
+        border: 2px solid $form-textfield-border-color;
+        margin-bottom: 8px;
+        .mobile-label {
+          display: block;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+        &.selected {
+          border-color: $form-selection-background-color;
+          .mobile-label {
+            color: $form-selection-text-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+
