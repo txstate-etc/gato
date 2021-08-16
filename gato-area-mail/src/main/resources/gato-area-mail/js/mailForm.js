@@ -605,28 +605,26 @@ function form_fixcolumns() {
 }
 
 function injectDummies() {
-  var numSelectionGroups = document.getElementsByClassName("txst-form-selectiongroup").length;
-
-  for (var i=0;i<numSelectionGroups;i++) {
-    var element = document.getElementsByClassName("txst-form-selectiongroup")[i];
-    var conditional = element.up('.dependent-question')
-    if (conditional && !conditional.hasClassName('active')) continue;
-    var name = element.id;
-    var id = element.id + "-dummy-item";
-    var type = element.children[0].type
-    var dummyInput = document.createElement('input');
-    dummyInput.setAttribute('name', name);
-    dummyInput.setAttribute('id', id);
-    dummyInput.setAttribute('type', type);
-    dummyInput.setAttribute('style', 'display:none');
-    dummyInput.setAttribute('aria-hidden', 'true');
-    dummyInput.setAttribute('aria-label', 'hidden');
-    dummyInput.setAttribute('title', 'hidden');
-    dummyInput.setAttribute('value', '');
-    dummyInput.setAttribute('checked', 'checked');
-    element.appendChild(dummyInput);
-
-  }
+  jQuery('.txst-form-selectiongroup').each(function() {
+    var selectionGroup = jQuery(this)
+    var conditional = selectionGroup.closest('.dependent-question')
+    if (conditional.length && !conditional.hasClassName('active')) return false
+    var name = selectionGroup.attr('id')
+    var id = name + "-dummy-item"
+    var type = selectionGroup.find('input').attr('type')
+    var dummyInput = jQuery('<input>')
+    dummyInput.attr('name', name)
+    dummyInput.attr('id', id)
+    dummyInput.prop('type', type)
+    dummyInput.css('display', 'none')
+    dummyInput.attr('aria-hidden', true)
+    dummyInput.attr('aria-label', 'hidden')
+    dummyInput.attr('title', 'hidden')
+    dummyInput.val('')
+    if (jQuery('input[name="' + name + '"]:checked').length < 1)
+      dummyInput.prop('checked', true)
+    selectionGroup.append(dummyInput)
+  })
 }
 
 function enableSubmitButton() {
