@@ -489,6 +489,9 @@ function checkMandatories(theForm, alertText) {
       var type, mgnlField;
       mgnlField = jQuery(theForm).find('#' + name)
       if (mgnlField.prop('type')) type = mgnlField.prop('type')
+      else if (mgnlField.hasClass('likert-question')) {
+        type = 'likert'
+      }
       else if (mgnlField.find('input').length > 0 && mgnlField.find('input').first().prop('type')) {
         type = mgnlField.find('input').first().prop('type')
       }
@@ -506,6 +509,16 @@ function checkMandatories(theForm, alertText) {
             }
           })
           if (!okSmall) ok = false;
+          break;
+        case "likert":
+          var okSmall = false;
+          jQuery('input[name="' + name + '"]').each(function() {
+            if (jQuery(this).prop('checked')) {
+              okSmall = true
+              return false
+            }
+          })
+          if (!okSmall) ok = false
           break;
         default:
           if (!mgnlField.val()) ok = false;
@@ -610,21 +623,34 @@ function injectDummies() {
     var conditional = selectionGroup.closest('.dependent-question')
     if (conditional.length && !conditional.hasClassName('active')) return false
     var name = selectionGroup.attr('id')
-    var id = name + "-dummy-item"
     var type = selectionGroup.find('input').attr('type')
-    var dummyInput = jQuery('<input>')
-    dummyInput.attr('name', name)
-    dummyInput.attr('id', id)
-    dummyInput.prop('type', type)
-    dummyInput.css('display', 'none')
-    dummyInput.attr('aria-hidden', true)
-    dummyInput.attr('aria-label', 'hidden')
-    dummyInput.attr('title', 'hidden')
-    dummyInput.val('')
-    if (jQuery('input[name="' + name + '"]:checked').length < 1)
-      dummyInput.prop('checked', true)
-    selectionGroup.append(dummyInput)
+    if (jQuery('input[name="' + name + '"]:checked').length < 1) {
+      var dummyInput = createDummyInput(name, type)
+      selectionGroup.append(dummyInput)
+    }
   })
+  jQuery('.likert-question').each(function() {
+    var name = jQuery(this).attr('id')
+    if (jQuery('input[name="' + name + '"]:checked').length < 1) {
+      var dummyInput = createDummyInput(name, 'radio')
+      jQuery(this).append(dummyInput)
+    }
+  })
+}
+
+function createDummyInput(name, type) {
+  var id = name + "-dummy-item"
+  var dummyInput = jQuery('<input>')
+  dummyInput.attr('name', name)
+  dummyInput.attr('id', id)
+  dummyInput.prop('type', type)
+  dummyInput.css('display', 'none')
+  dummyInput.attr('aria-hidden', true)
+  dummyInput.attr('aria-label', 'hidden')
+  dummyInput.attr('title', 'hidden')
+  dummyInput.val('')
+  dummyInput.prop('checked', true)
+  return dummyInput
 }
 
 function enableSubmitButton() {

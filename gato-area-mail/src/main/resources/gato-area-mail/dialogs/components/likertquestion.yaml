@@ -7,5 +7,9 @@ form:
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Question Text
           required: true
+        - name: mandatory
+          class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+          label: Mandatory
+          buttonLabel: Field is mandatory
 actions: !include /gato-template/dialogs/common/actions-block.yaml
 label: Question
