@@ -446,9 +446,14 @@ textarea {
       justify-self: start;
     }
     .likert-option {
-      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       &.selected {
         background-color: $form-selection-background-color;
+      }
+      input {
+        margin-right: 0;
       }
       .mobile-label {
         display: none;
@@ -474,8 +479,12 @@ textarea {
       .likert-option {
         text-align: unset;
         display: flex;
+        justify-content: flex-start;
         border: 2px solid $form-textfield-border-color;
         margin-bottom: 8px;
+        input {
+          margin-right: 15px;
+        }
         .mobile-label {
           display: block;
           &:hover {
