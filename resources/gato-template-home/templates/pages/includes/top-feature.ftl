@@ -8,7 +8,6 @@
     [@headline true true/]
     <div class="hero">
       <figure class="hero-figure">
-
         [#list slides as component]
           [#if component.mobileImage?has_content]
             [#assign mobileImage = component.mobileImage]
@@ -24,7 +23,18 @@
           [#if isEnabled(component) || preview == 'preview']
             [#assign count++]
             <div class="hero-image-container ${preview}">
+            [#if component.video?has_content]
+              <video autoplay muted loop class="hero-video">
+                <source src="${gf.filterUrl(component.video)}">
+              </video>
+              <button class="btnPauseVideo">
+                <i class="fa fa-pause" aria-hidden="true"></i>
+                <span class="visuallyhidden">Pause Background Video</span>
+              </button>
+              <div class="hero-image desktop reduced-motion" style="background-image: url(${gf.getImgDefault(component.image)})"></div>
+            [#else]
               <div class="hero-image desktop" style="background-image: url(${gf.getImgDefault(component.image)})"></div>
+            [/#if]
               <div class="hero-image mobile" style="background-image: url(${gf.getImgDefault(mobileImage)})"></div>
               [#if component.alttext?has_content]
                 <span class="visuallyhidden">${component.alttext}</span>

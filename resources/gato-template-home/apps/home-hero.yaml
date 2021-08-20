@@ -241,7 +241,7 @@ subApps:
               editable: true
               sortable: true
               propertyName: preview
-              class: info.magnolia.ui.workbench.column.definition.BooleanPropertyColumnDefinition              
+              class: info.magnolia.ui.workbench.column.definition.BooleanPropertyColumnDefinition
             - name: status
               width: 60
               sortable: true
@@ -306,6 +306,16 @@ subApps:
                 contentPreviewDefinition:
                   contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
                 description: "This image will appear on small screen sizes."
+              - name: video
+                class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+                appName: assets
+                targetWorkspace: dam
+                label: Video
+                identifierToPathConverter:
+                  class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
+                contentPreviewDefinition:
+                  contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
+                description: "This video will not be displayed on small screens"
               - name: alttext
                 class: info.magnolia.ui.form.field.definition.TextFieldDefinition
                 label: Image Alt Text
@@ -347,13 +357,13 @@ subApps:
                     selected: true
                   - name: leftbottom
                     label: Left Bottom
-                    value: leftbottom                   
+                    value: leftbottom
                   - name: middle
                     label: Middle
-                    value: middle                    
+                    value: middle
                   - name: rightmiddle
                     label: Right Middle
-                    value: rightmiddle                    
+                    value: rightmiddle
 
               - name: scheduling
                 class: info.magnolia.ui.form.field.definition.StaticFieldDefinition
@@ -378,11 +388,11 @@ subApps:
                 class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
                 label: Preview
                 defaultValue: false
-                buttonLabel: Force this image to be selected when in edit / preview modes.                
+                buttonLabel: Force this image to be selected when in edit / preview modes.
 
           - name: buttonsTab
             label: Buttons
-            fields:              
+            fields:
               - name: buttons
                 class: edu.txstate.its.gato.vaadin.GatoMultiValueFieldDefinition
                 transformerClass: info.magnolia.ui.form.field.transformer.multi.MultiValueSubChildrenNodePropertiesTransformer
@@ -403,7 +413,7 @@ subApps:
                       required: true
                       appName: pages
                       identifierToPathConverter:
-                        class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter  
+                        class: edu.txstate.its.gato.FlexibleIdentifierToPathConverter
                     - name: color
                       class: info.magnolia.ui.form.field.definition.SelectFieldDefinition
                       label: Solid Color
