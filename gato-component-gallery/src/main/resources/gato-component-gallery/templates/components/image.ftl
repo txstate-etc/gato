@@ -24,11 +24,12 @@
 
 <!--Check for whitespace in alt text-->
 [#if gf.isEmptyString(content.imageAlt)]
-  [#assign altText = ""]
+  [#assign altText = "Gallery Image " + ctx.imgIndex]
   [#else]
   [#assign altText = content.imageAlt]
 [/#if]
 
 <a href="${gf.getImgDefault(content.image)}" title="${content.caption!''}" data-size="${imageSize}" data-srcset="${gf.getSrcSet(content.image)}">
-  <img src="${thumb}" srcset="${thumbsrcset}" sizes="225px" alt="${altText}" />
+  <img src="${thumb}" srcset="${thumbsrcset}" sizes="225px" alt="${altText}" aria-describedby="${ctx.galleryId}"/>
+  <span class="visuallyhidden">Click to activate full screen</span>
 </a>

@@ -1,7 +1,7 @@
 <ul class="gato-gallery txst-gallery">
   [#list components as component ]
     <li class="gato-gallery-image txst-gallery-image">
-      [@cms.component content=component /]
+      [@cms.component content=component contextAttributes={"imgIndex": component?index + 1, "galleryId": ctx.galleryId}/]
     </li>
   [/#list]
   [#if cmsfn.isEditMode()]
