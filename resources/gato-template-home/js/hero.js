@@ -23,6 +23,14 @@
         $(this).addClass('paused')
       }
     })
+    $('.hero-image-container.activated, .hero-image-container.preview').each(function() {
+      if ($(this).find('video').length ) {
+        $('figure.hero-figure').addClass('hasVideo')
+      }
+    })
+    resizeTimout(function() {
+
+    })
   });
 })(jQuery);
 

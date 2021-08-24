@@ -40,7 +40,7 @@
                 <span class="visuallyhidden">${component.alttext}</span>
               [/#if]
             </div>
-            <figcaption class="${preview}">
+            <figcaption class="${preview} ${component.video?has_content?then('hasVideo', '')}">
               <div class="caption-wrap ${component.overlayPosition!''}" id="${gf.uuidToHtmlId(component.@id)}">
                 [#if component.title?has_content]
                   <p class="hero-headline ${component.color!}" style="max-width: ${component.titleWidth!}">

@@ -27,6 +27,11 @@ div#home-hero {
       margin: 0;
       background: $maroon;
 
+      &.hasVideo {
+        @media (prefers-reduced-motion: no-preference) {
+          height: unset;
+        }
+      }
 
       .hero-image-container {
         display: none;
@@ -49,6 +54,12 @@ div#home-hero {
           background-size: cover;
           background-position-x: 50%;
           background-position-y: top;
+          &.reduced-motion {
+            display: none;
+          }
+        }
+        .hero-video {
+          width: 100%;
         }
         .btnPauseVideo {
           position: absolute;
@@ -69,6 +80,9 @@ div#home-hero {
         @media (prefers-reduced-motion) {
           .hero-video, .btnPauseVideo {
             display: none;
+          }
+          .hero-image.reduced-motion {
+            display: block;
           }
         }
       }
@@ -94,7 +108,7 @@ div#home-hero {
         &.preview {
           display: flex;
         }
-        &.mobile {
+        &.mobile, &.hasVideo {
           display: none;
         }
 
@@ -264,6 +278,9 @@ div#home-hero {
     @media (max-width: $sm-breakpoint){
       figure {
         height: 450px;
+        @media (prefers-reduced-motion: no-preference) {
+          height: 450px !important;
+        }
         figcaption {
           padding: 0;
 
