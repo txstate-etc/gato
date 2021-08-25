@@ -28,9 +28,6 @@
         $('figure.hero-figure').addClass('hasVideo')
       }
     })
-    resizeTimout(function() {
-
-    })
   });
 })(jQuery);
 

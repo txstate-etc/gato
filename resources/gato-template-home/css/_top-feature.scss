@@ -27,12 +27,6 @@ div#home-hero {
       margin: 0;
       background: $maroon;
 
-      &.hasVideo {
-        @media (prefers-reduced-motion: no-preference) {
-          height: unset;
-        }
-      }
-
       .hero-image-container {
         display: none;
 
@@ -60,6 +54,8 @@ div#home-hero {
         }
         .hero-video {
           width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
         .btnPauseVideo {
           position: absolute;
