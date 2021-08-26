@@ -331,6 +331,11 @@ subApps:
                 placeholder: 300px
                 description: "Enter a max width (in pixels) for the title."
                 type: Integer
+              - name: showTitle
+                class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+                label: Show Title
+                defaultValue: true
+                buttonLabel: Show Title on Larger Screens
               - name: script
                 class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
                 fields:
