@@ -4,6 +4,7 @@
       [#list cmsfn.children(parentnode) as socialink]
         [#if socialink.link?has_content]
           [#assign slink = socialink.link?lower_case]
+          [#assign iconPrefix = "fab"]
           [#if slink?contains("facebook")]
             [#assign iconclass="fa-facebook-square"]
             [#assign alttext="Facebook"]
@@ -49,6 +50,9 @@
           [#elseif slink?contains("plus.google")]
             [#assign iconclass="fa-google-plus-square"]
             [#assign alttext="Google Plus"]
+          [#elseif slink?contains("tiktok")]
+            [#assign iconclass="fa-tiktok"]
+            [#assign alttext="TikTok"]
           [/#if]
 
           [#if !alttext?has_content]
@@ -70,13 +74,14 @@
           [/#if]
           [#if !iconclass?has_content]
             [#assign iconclass = 'fa-share-alt-square']
+            [#assign iconPrefix = 'fas']
           [/#if]
           <li>
             <a href="${gf.filterUrl(socialink.link)}" class="gato-sociallink ${(ctx.icononly!false)?string('icononly','')}">
                [#if socialink.icon?has_content]
                  <img src="${damfn.getAssetLink(socialink.icon)!}" alt="${title}"/>[#--
                --][#else][#--
-                 --]<i class="fa ${iconclass}" [#if title?has_content]aria-label="${title}"[#else]aria-hidden="true"[/#if]></i>[#--
+                 --]<i class="${iconPrefix} ${iconclass}" [#if title?has_content]aria-label="${title}"[#else]aria-hidden="true"[/#if]></i>[#--
                --][/#if][#--
                --]<span class="${linktextclass}">${linktext}</span>[#--
              --]</a>
