@@ -137,7 +137,8 @@ footer {
               position: relative;
               font-weight: 500;
               &:after {
-                font-family: "FontAwesome";
+                font-family: "Font Awesome 5 Free";
+                font-weight: 900;
                 content: "\f107";
                 position: absolute;
                 right: 1rem;
@@ -285,67 +286,78 @@ body.admin {
     text-decoration: none;
     .fa-facebook-square {
       &:before {
-        font-family: "FontAwesome";
-        content: '\f09a';
+        font-family: "Font Awesome 5 Brands";
+        font-weight: 400;
+        content: '\f39e';
       }
     }
     .fa-twitter-square {
       &:before {
-        font-family: "FontAwesome";
+        font-family: "Font Awesome 5 Brands";
+        font-weight: 400;
         content: '\f099';
       }
     }
     .fa-youtube-square {
       &:before {
-        font-family: "FontAwesome";
-        content: '\f167';
+        font-family: "Font Awesome 5 Brands";
+        font-weight: 400;
+        content: '\f167' !important;
       }
     }
     .fa-vimeo-square {
       &:before {
-        font-family: "FontAwesome";
+        font-family: "Font Awesome 5 Brands";
+        font-weight: 400;
         content: '\f27d';
       }
     }
     .fa-pinterest-square {
       &:before {
-        font-family: "FontAwesome";
+        font-family: "Font Awesome 5 Brands";
+        font-weight: 400;
         content: '\f231';
       }
     }
     .fa-tumblr-square {
       &:before {
-        font-family: "FontAwesome";
+        font-family: "Font Awesome 5 Brands";
+        font-weight: 400;
         content: '\f173';
       }
     }
   	.fa-linkedin-square {
       &:before {
-        font-family: "FontAwesome";
+        font-family: "Font Awesome 5 Brands";
+        font-weight: 400;
         content: '\f0e1';
       }
     }
     .fa-rss-square {
       &:before {
-        font-family: "FontAwesome";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
         content: '\f09e';
       }
     }
     .fa-snapchat-square {
       &:before {
-        font-family: "FontAwesome";
+        font-family: "Font Awesome 5 Brands";
+        font-weight: 400;
         content: '\f2ac';
       }
     }
     .fa-share-alt-square {
       &:before {
-        font-family: "FontAwesome";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
         content: '\f1e0';
       }
     }
     .fa-google-plus-square {
       &:before {
-        font-family: "FontAwesome";
+        font-family: "Font Awesome 5 Brands";
+        font-weight: 400;
         content: '\f0d5';
       }
     }

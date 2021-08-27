@@ -174,8 +174,9 @@ body.wittliff-events #gato-share-panel {
     border-bottom: 2px solid $wittliffbrown;
     width: 47.5%;
     &:after {
-      @extend .fa;
-      content: $fa-var-angle-down;
+      @extend %fa-icon;
+      @extend .fas;
+      content: fa-content($fa-var-angle-down);
       @include verticalcenter();
       right: 1rem;
       font-size: 4rem;
@@ -188,10 +189,11 @@ body.wittliff-events #gato-share-panel {
         padding-left: 5rem;
       }
       &:before {
-        @extend .fa;
+        @extend %fa-icon;
+        @extend .far;
         font-size: 3rem;
         color: $sienna;
-        content: $fa-var-calendar;
+        content: fa-content($fa-var-calendar-alt);
         @include verticalcenter();
         left: 1rem;
         z-index: -1;

@@ -79,10 +79,11 @@ body ul.gato-faq-hierarchy {
     align-items: stretch;
     transform: perspective(1px) translateZ(0);
     &:after {
-      @extend .fa;
+      @extend %fa-icon;
+      @extend .fas;
       display: flex;
       align-items: center;
-      content: $fa-var-long-arrow-right;
+      content: fa-content($fa-var-long-arrow-alt-right);
       margin-left: 1.5rem;
       border-width: 0 0 0 2px;
       border-style: solid;
@@ -308,10 +309,11 @@ body ul.gato-faq-hierarchy {
     background: white;
     color: $mc1-bg;
     &:after {
-      @extend .fa;
+      @extend %fa-icon;
+      @extend .fas;
       display: flex;
       align-items: center;
-      content: $fa-var-long-arrow-right;
+      content: fa-content($fa-var-long-arrow-alt-right);
       margin-left: 2.3rem;
       padding: 0 2.3rem;
       font-size: 1.8rem;

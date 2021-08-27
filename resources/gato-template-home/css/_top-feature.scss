@@ -68,7 +68,8 @@ div#home-hero {
           text-shadow: 0px 0px 2px #363534;
           &.paused {
             i:before {
-              font-family: FontAwesome;
+              font-family: 'Font Awesome 5 Free';
+              font-weight: 900;
               content: "\f04b";
             }
           }

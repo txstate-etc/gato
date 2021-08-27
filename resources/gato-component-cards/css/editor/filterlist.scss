@@ -1,10 +1,9 @@
-@import "gato-lib/css/font-awesome";
 
 .gato-filterlist-alert {
   color: red;
   &:not(:empty):before {
-    @extend .fa;
-    @extend .fa-exclamation-circle;
+    font-family: "FontAwesome";
+    content: '\f06a';
     padding-right: 0.5rem;
   }
 }

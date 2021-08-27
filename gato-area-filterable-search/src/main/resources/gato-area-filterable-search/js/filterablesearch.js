@@ -239,7 +239,7 @@ jQuery(document).ready(function($) {
   var buildActiveFilter = function(name, id) {
     var html = '<li id="active_' + id +'">' +
       '<span class="active-filter">' + name +
-        '<button class="remove-filter" aria-label="remove filter ' +  name + '"><i class="fa fa-times" aria-hidden="true"></i></button>' +
+        '<button class="remove-filter" aria-label="remove filter ' +  name + '"><i class="fas fa-times" aria-hidden="true"></i></button>' +
       '</span>' +
     '</li>';
     return html;

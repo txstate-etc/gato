@@ -20,8 +20,9 @@
       position: relative;
       color: $styled-list-link-color;
       &.external:after {
-        font-family: FontAwesome;
-        content: "\f08e";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        content: "\f35d";
         display: inline-block;
         text-decoration: none;
         margin-left: 5px;

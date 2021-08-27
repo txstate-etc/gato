@@ -453,7 +453,8 @@
       text-shadow: 0px 0px 1px #363534;
       color: #fff;
       &:before {
-        font-family: FontAwesome;
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
         content: "\f04c";
       }
     }

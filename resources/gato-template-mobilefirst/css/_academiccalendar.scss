@@ -49,7 +49,7 @@
       &:before {
         content: "";
         display: block;
-        margin: 0 auto; 
+        margin: 0 auto;
         width: 90%;
         border-bottom: 3px solid #B9AB95;
         @media (max-width: $mn-breakpoint) {
@@ -421,7 +421,7 @@
                 &:before {
                   content: "";
                   display: block;
-                  margin: 0 auto; 
+                  margin: 0 auto;
                   width: 90%;
                   border-bottom: 3px solid #B9AB95;
                 }
@@ -452,7 +452,7 @@
         .input {
           padding: 1rem 1.5rem;
         }
-    
+
         #manage-events-menu {
           display: none;
           position: absolute;
@@ -596,7 +596,8 @@
               background-color: $maroon;
               color: $white;
               &:before {
-                font-family: FontAwesome;
+                font-family: "Font Awesome 5 Free";
+                font-weight: bold;
                 font-size: 1.4rem;
                 content: "\f00c";
                 position: absolute;
@@ -637,8 +638,8 @@
       }
     }
   }
-  
-  .tooltip { 
+
+  .tooltip {
     display: none;
     background-color: #ddd5c9;
     position: absolute;
@@ -801,7 +802,8 @@
         justify-content: space-between;
         align-items: center;
         i:before {
-          font-family: FontAwesome;
+          font-family: "Font Awesome 5 Free";
+          font-weight: 900;
           content: "\f0d9";
         }
       }
@@ -905,7 +907,7 @@
           &:after {
             content: "";
             display: block;
-            margin: 0 auto; 
+            margin: 0 auto;
             width: 90%;
             border-bottom: 1px solid $medium-gray;
             margin-top: 1rem;

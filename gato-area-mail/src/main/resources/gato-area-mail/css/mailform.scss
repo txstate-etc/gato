@@ -45,7 +45,8 @@
 
 .txst-form-pass {
 	&:before {
-    font-family: 'FontAwesome';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
     content: "\f058";
     color: #55885a;
     font-size: 20px;
@@ -55,7 +56,8 @@
 .txst-form-fail {
   background-color: $form-error-background;
   &:before {
-    font-family: 'FontAwesome';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
     content: "\f05a";
     margin-right: 10px;
     color: #cb3744;
@@ -150,7 +152,8 @@ textarea {
       }
 
       &:checked + label:after {
-        font-family: 'FontAwesome';
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
         content: '\f00c';
         position: absolute;
         top: 4px;
