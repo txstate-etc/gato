@@ -4,9 +4,11 @@
           fields:
             - name: icon
               class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
+            - name: prefix
+              class: edu.txstate.its.gato.vaadin.HiddenFieldDefinition
           initFunction: initIconPicker
           loadScriptsInOrder: true
-          scripts: [gato-lib/js/jquery-ui/jquery-ui.min.js, gato-template/js/icon-list.js, gato-template/js/icon-picker-modal.js]
+          scripts: [gato-lib/js/jquery-ui/jquery-ui.min.js, gato-template/js/iconList.js, gato-template/js/iconCategories.js, gato-template/js/icon-picker-modal.js]
           styles: [gato-lib/css/font-awesome.scss, gato-template/css/icon-picker.css]
           description: Select an icon from the Font Awesome Icon library
         - name: title

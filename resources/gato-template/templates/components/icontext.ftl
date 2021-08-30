@@ -2,9 +2,14 @@
 [#assign iconColor = content.color!"color1"]
 [#assign float = content.align!"center"]
 
+[#assign prefix = 'fa']
+[#if content.prefix??]
+    [#assign prefix = content.prefix]
+[/#if]
+
 [#macro buildIconText]
     <div class="icontext-icon ${iconColor}">
-        <i class="fa ${content.icon!'fa-graduation-cap'}" aria-hidden="true"></i>
+        <i class="${prefix} ${content.icon!'fa-graduation-cap'}" aria-hidden="true"></i>
     </div>
     [#if !gf.isEmptyString(content.title)]
         [@h2 class="icontext-title"]${content.title}[/@h2]
