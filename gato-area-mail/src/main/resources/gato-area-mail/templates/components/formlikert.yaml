@@ -10,4 +10,4 @@ areas:
       edit:
         id: gato-area-mail:components/likertquestion
 parameters:
-  icon: /gato-area-mail/images/selection_icon.png
+  icon: /gato-area-mail/images/likert.png
