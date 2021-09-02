@@ -128,6 +128,7 @@ public final class GatoUtils {
 
     // let's see if it's an id for something in the website tree
     String websiteLink="";
+    String damLink="";
     try{
       Matcher m = UUID_PATTERN.matcher(url);
       if (m.matches()) {
@@ -136,11 +137,16 @@ public final class GatoUtils {
         if (hash == null) hash = "";
         String sup = tf.link(RepositoryConstants.WEBSITE, uid);
         if (!StringUtils.isBlank(sup)) websiteLink = sup+hash;
+        else {
+          sup = tf.link("dam", uid);
+          if (!StringUtils.isBlank(sup)) damLink = "/dam/jcr:" + uid + sup;
+        }
       }
     } catch(Exception e) {
       // we expect this to throw sometimes, it's no big deal
     }
     if (!StringUtils.isBlank(websiteLink)) return websiteLink;
+    if (!StringUtils.isBlank(damLink)) return damLink;
 
     // let's see if it's an item key for something in DAM
     if (ITEMKEY_PATTERN.matcher(url).matches()) {

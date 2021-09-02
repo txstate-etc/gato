@@ -48,8 +48,17 @@ public class FlexibleIdentifierToPathConverter extends BaseIdentifierToPathConve
       String hash = m.group(2);
       if (hash == null) hash = "";
       String sup = super.convertToPresentation(uid, targetType, locale);
-      if (StringUtils.isBlank(sup)) return hash;
-      else return sup+hash;
+      if (StringUtils.isBlank(sup)) {
+        this.setWorkspaceName("dam");
+        sup = super.convertToPresentation(uuid, targetType, locale);
+        this.setWorkspaceName("website");
+        if (StringUtils.isBlank(sup)) return hash;
+        else {
+          return uuid;
+        }
+      } else {
+        return sup+hash;
+      }
     } else {
       return uuid;
     }
