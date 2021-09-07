@@ -2833,6 +2833,36 @@ var categoryData = [
       ]
   },
   {
+    "key": "sociamedia",
+    "label": "Social Media",
+    "icons": [
+        "fa-tiktok",
+        "fa-twitter",
+        "fa-twitter-square",
+        "fa-facebook",
+        "fa-facebook-f",
+        "fa-facebook-messenger",
+        "fa-facebook-square",
+        "fa-instagram",
+        "fa-instagram-square",
+        "fa-youtube",
+        "fa-youtube-square",
+        "fa-linkedin",
+        "fa-linkedin-in",
+        "fa-snapchat",
+        "fa-snapchat-ghost",
+        "fa-snapchat-square",
+        "fa-spotify",
+        "fa-discord",
+        "fa-reddit",
+        "fa-reddit-alien",
+        "fa-reddit-square",
+        "fa-vimeo",
+        "fa-vimeo-square",
+        "fa-vimeo-v"
+    ]
+  },
+  {
       "key": "spinners",
       "label": "Spinners",
       "icons": [
