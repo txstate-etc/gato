@@ -1,9 +1,9 @@
 [#include "/gato-template/templates/includes/commonmacros.ftl"]
 
 [#macro formatTime date includeAMPM=true]
-  [#if date?time?string['ha'] == "12AM"]
+  [#if date?time?string['h:mma'] == "12:00AM"]
     Midnight
-  [#elseif date?time?string['ha'] == "12PM"]
+  [#elseif date?time?string['h:mma'] == "12:00PM"]
     Noon
   [#else]
     [#if !includeAMPM]
