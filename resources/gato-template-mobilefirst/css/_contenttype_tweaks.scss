@@ -365,10 +365,10 @@ ul.gato-faq-hierarchy {
 
 //form
 .txst-form-cont {
-  max-width: 50%;
+  max-width: 75%;
   margin: 0 auto;
   @media (max-width: $sm-breakpoint) {
-    max-width: 75%;
+    max-width: 80%;
   }
   @media (max-width: $mn-breakpoint) {
     max-width: 100%;

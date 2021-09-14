@@ -217,7 +217,7 @@ textarea {
   word-wrap: break-word;
   .formelement {
     margin-bottom: 3rem;
-    max-width: 60rem;
+    max-width: 75rem;
     white-space: normal !important;
     fieldset.selectiongroup {
       border: 0;
@@ -427,6 +427,7 @@ textarea {
 }
 
 .formelement.likert {
+  max-width: none;
   .likert-table {
     display: grid;
     grid-template-columns: 30% repeat(var(--numCol), calc(70%/var(--numCol)));
