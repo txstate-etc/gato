@@ -217,7 +217,6 @@ textarea {
   word-wrap: break-word;
   .formelement {
     margin-bottom: 3rem;
-    max-width: 75rem;
     white-space: normal !important;
     fieldset.selectiongroup {
       border: 0;
@@ -284,9 +283,6 @@ textarea {
       border-color: $ada-focus-color;
       outline: none;
     }
-  }
-  textarea{
-    max-width: 60rem;
   }
   input[type=file]{
     line-height: 1rem;
