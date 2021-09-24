@@ -24,7 +24,7 @@ public class NetIDValidator extends AbstractStringValidator {
   protected static final Pattern NETID_PATTERN = Pattern.compile("^\\s*([a-z]{2}\\d{2,5}|[a-z]{3}\\d+|[a-z]_[a-z]\\d+)\\s*$", Pattern.CASE_INSENSITIVE);
   private Item item;
   private GatoUtils gf;
-  
+
   public NetIDValidator(Item item, String errorMessage, GatoUtils gf) {
     super(errorMessage);
     this.item = item;
@@ -42,7 +42,7 @@ public class NetIDValidator extends AbstractStringValidator {
       String motionUrl = gf.getConfigProperty("motion.basepath");
       CloseableHttpClient client = HttpClients.createDefault();
       HttpPost httpPost = new HttpPost(motionUrl);
-      String json = "{\"query\":\"{user(netid:%s){id}}\"}";
+      String json = "{\"query\":\"{users(filter: { netids:[%s] }){id}}\"}";
       String query = String.format(json,"\\\"" + value.trim() + "\\\"");
       httpPost.setEntity(new StringEntity(query, "UTF-8"));
       httpPost.setHeader("content-type", "application/json");
@@ -52,9 +52,9 @@ public class NetIDValidator extends AbstractStringValidator {
       String result = EntityUtils.toString(entity);
       JsonObject obj = new JsonParser().parse(result).getAsJsonObject();
       JsonObject data = obj.getAsJsonObject("data");
-      JsonElement user = data.get("user");
-      if (user instanceof JsonNull) return false;
+      JsonArray users = data.getAsJsonArray("users");
       client.close();
+      if (users.size() == 0) return false;
     } catch(Exception e) {
       e.printStackTrace();
       return false;
