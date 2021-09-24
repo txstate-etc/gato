@@ -42,7 +42,7 @@ public class NetIDValidator extends AbstractStringValidator {
       String motionUrl = gf.getConfigProperty("motion.basepath");
       CloseableHttpClient client = HttpClients.createDefault();
       HttpPost httpPost = new HttpPost(motionUrl);
-      String json = "{\"query\":\"{users(filter: { netids:[%s] }){id}}\"}";
+      String json = "{\"query\":\"{users(filter: { netids:[%s] }){netid}}\"}";
       String query = String.format(json,"\\\"" + value.trim() + "\\\"");
       httpPost.setEntity(new StringEntity(query, "UTF-8"));
       httpPost.setHeader("content-type", "application/json");
