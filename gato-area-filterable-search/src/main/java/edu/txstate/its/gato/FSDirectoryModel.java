@@ -36,13 +36,13 @@ public class FSDirectoryModel<RD extends RenderableDefinition> extends Rendering
 
   private static final Logger log = LoggerFactory.getLogger(FSDirectoryModel.class);
   private GatoUtils gf;
-  
+
   @Inject
   public FSDirectoryModel(Node content, RD definition, RenderingModel<?> parent, GatoUtils gf) {
     super(content, definition, parent);
     this.gf = gf;
   }
-  
+
   public List<ContentMap> getPeople(List<ContentMap> list) {
     List<ContentMap> fullList = new ArrayList<ContentMap>(list);
     List<String> netids = getNetids();
@@ -104,7 +104,7 @@ public class FSDirectoryModel<RD extends RenderableDefinition> extends Rendering
     } catch(Exception e) {
       e.printStackTrace();
     }
-    
+
     return fullList;
   }
 
@@ -129,17 +129,17 @@ public class FSDirectoryModel<RD extends RenderableDefinition> extends Rendering
     }
     return results;
   }
-  
+
   protected Hashtable<String, FSPerson> initPeopleHash(List<String> netids) {
     Hashtable<String, FSPerson> peoplehash = new Hashtable<String,FSPerson>();
     String[] quotednetids = new String[netids.size()];
     for (int i=0; i<netids.size(); i++) {
-      quotednetids[i] = "\\\"" + netids.get(i) + "\\\"";
+      quotednetids[i] = "\"" + netids.get(i) + "\"";
     }
     try {
       CloseableHttpClient client = HttpClients.createDefault();
       HttpPost httpPost = new HttpPost(gf.getConfigProperty("motion.basepath"));
-      String json = "{\"query\":\"{users(filter:{netids: [%s]}){netid name {preferred legalFirst last} officePhone ldapAccount {email title}}}\"}";
+      String json = "{\"query\":\"query GetUsersInfo($netids:[StringCI!]) {users(filter:{netids:$netids}){netid name {preferred legalFirst last} officePhone ldapAccount {email title}}}\",\"variables\":{\"netids\":[%s]}}";
       String query = String.format(json, String.join(",", quotednetids));
       httpPost.setEntity(new StringEntity(query, "UTF-8"));
       httpPost.setHeader("content-type", "application/json");
@@ -158,7 +158,7 @@ public class FSDirectoryModel<RD extends RenderableDefinition> extends Rendering
     } catch(Exception e) {
       e.printStackTrace();
     }
-    
+
     try {
       String url = constructFPUrl(netids);
       CloseableHttpClient fpClient = HttpClients.createDefault();
@@ -222,7 +222,7 @@ public class FSDirectoryModel<RD extends RenderableDefinition> extends Rendering
     }
     return peoplehash;
   }
-  
+
   private String constructFPUrl(List<String> netids) {
     String url = gf.getConfigProperty("fp.api.basepath") + "/profiles?";
     for (int i=0; i<netids.size(); i++) {
