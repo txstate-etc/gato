@@ -134,12 +134,12 @@ public class FSDirectoryModel<RD extends RenderableDefinition> extends Rendering
     Hashtable<String, FSPerson> peoplehash = new Hashtable<String,FSPerson>();
     String[] quotednetids = new String[netids.size()];
     for (int i=0; i<netids.size(); i++) {
-      quotednetids[i] = "\\\"" + netids.get(i) + "\\\"";
+      quotednetids[i] = "\"" + netids.get(i) + "\"";
     }
     try {
       CloseableHttpClient client = HttpClients.createDefault();
       HttpPost httpPost = new HttpPost(gf.getConfigProperty("motion.basepath"));
-      String json = "{\"query\":\"{users(filter:{netids: [%s]}){netid name {preferred legalFirst last} officePhone ldapAccount {email title}}}\"}";
+      String json = "{\"query\":\"{query GetUsersInfo($netids:[StringCI!]) {users(filter:{netids:$netids}){netid name {preferred legalFirst last} officePhone ldapAccount {email title}}}}\",\"variables\":{\"netids\":[%s]}}";
       String query = String.format(json, String.join(",", quotednetids));
       httpPost.setEntity(new StringEntity(query, "UTF-8"));
       httpPost.setHeader("content-type", "application/json");
