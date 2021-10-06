@@ -64,6 +64,7 @@
   border-radius: 10px;
   background-color: white;
   border: 1px solid #999;
+  font-family: 'Univers W01', Helvetica, Calibri, Arial, sans-serif !important;
 }
 
 #icon-modal .icon-modal-content fieldset {
@@ -89,6 +90,7 @@
     border: 1px solid #999;
     height: 30px;
     padding: 0px 0px 0px 30px;
+    font-family: 'Univers W01', Helvetica, Calibri, Arial, sans-serif !important;
 }
 
 #search_for + label{
