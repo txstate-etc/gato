@@ -92,6 +92,10 @@ div#home-hero {
 
       p { margin: 0; }
 
+      .hideTitle {
+        display: none;
+      }
+
       figcaption {
         width: 100%;
         height: 100%;
@@ -105,7 +109,7 @@ div#home-hero {
         &.preview {
           display: flex;
         }
-        &.mobile, &.hideTitle {
+        &.mobile {
           display: none;
         }
 
@@ -278,13 +282,14 @@ div#home-hero {
         @media (prefers-reduced-motion: no-preference) {
           height: 450px !important;
         }
-        figcaption {
-          padding: 0;
-
-          &.hideTitle.activated {
+        .hideTitle {
+          display: block;
+          .activated {
             display: flex;
           }
-
+        }
+        figcaption {
+          padding: 0;
           .hero-headline a {
             font-size: 2.8rem;
             line-height: 3.6rem;

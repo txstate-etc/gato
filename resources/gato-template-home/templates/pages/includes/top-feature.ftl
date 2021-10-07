@@ -24,6 +24,7 @@
             [#assign count++]
             <div class="hero-image-container ${preview}">
             [#if component.video?has_content]
+              <div id="videostatus" class="visuallyhidden" aria-live="polite"></div>
               <video autoplay muted loop class="hero-video">
                 <source src="${gf.filterUrl(component.video)}">
               </video>
@@ -44,33 +45,35 @@
             [#if component.showTitle?? && component.showTitle == false]
               [#assign showTitle = false]
             [/#if]
-            <figcaption class="${preview} ${showTitle?then('', 'hideTitle')}">
-              <div class="caption-wrap ${component.overlayPosition!''}" id="${gf.uuidToHtmlId(component.@id)}">
-                [#if component.title?has_content]
-                  <p class="hero-headline ${component.color!}" style="max-width: ${component.titleWidth!}">
-                        ${component.title}
-                  </p>
-                [/#if]
-              </div>
-              <div class="button-wrap ${component.overlayPosition!''}">
-                [#if component.buttons?has_content]
-                [#list cmsfn.children(component.buttons) as button]
-                <div class="mf-button-container">
-                  [#if button.isVideo!false]
-                    <div class="button solid ${button.color} feature-play-button video-button">
-                      <a href="${button.link}" aria-label="Play Video" data-embed="${gf.jsonGetString(gf.oEmbedAutodiscover(button.link), 'html')?html}">
-                        ${button.text}
-                        <span class="play" aria-hidden="true"></span>
-                      </a>
-                    </div>
-                  [#else]
-                    <a class="button solid ${button.color} link" href="${gf.filterUrl(button.link)}">${button.text}</a>
+            <div class="${showTitle?then('', 'hideTitle')}">
+              <figcaption class="${preview}">
+                <div class="caption-wrap ${component.overlayPosition!''}" id="${gf.uuidToHtmlId(component.@id)}">
+                  [#if component.title?has_content]
+                    <p class="hero-headline ${component.color!}" style="max-width: ${component.titleWidth!}">
+                          ${component.title}
+                    </p>
                   [/#if]
                 </div>
-                [/#list]
-                [/#if]
-              </div>
-            </figcaption>
+                <div class="button-wrap ${component.overlayPosition!''}">
+                  [#if component.buttons?has_content]
+                  [#list cmsfn.children(component.buttons) as button]
+                  <div class="mf-button-container">
+                    [#if button.isVideo!false]
+                      <div class="button solid ${button.color} feature-play-button video-button">
+                        <a href="${button.link}" aria-label="Play Video" data-embed="${gf.jsonGetString(gf.oEmbedAutodiscover(button.link), 'html')?html}">
+                          ${button.text}
+                          <span class="play" aria-hidden="true"></span>
+                        </a>
+                      </div>
+                    [#else]
+                      <a class="button solid ${button.color} link" href="${gf.filterUrl(button.link)}">${button.text}</a>
+                    [/#if]
+                  </div>
+                  [/#list]
+                  [/#if]
+                </div>
+              </figcaption>
+            </div>
           [/#if]
           [#if count == 10]
             [#break]

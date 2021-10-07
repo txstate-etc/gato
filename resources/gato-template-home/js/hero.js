@@ -17,9 +17,11 @@
       var video = $(this).parent().find('.hero-video')
       if ($(this).hasClass('paused')) {
         video[0].play()
+        $('#videostatus').text('background video playing')
         $(this).removeClass('paused')
       } else {
         video[0].pause()
+        $('#videostatus').text('background video paused')
         $(this).addClass('paused')
       }
     })
