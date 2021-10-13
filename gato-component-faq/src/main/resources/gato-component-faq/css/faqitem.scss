@@ -89,6 +89,8 @@ ul.gato-faq-hierarchy {
     }
   }
   li.shown > .gato-faq-header i:before {
-    content: $fa-var-caret-down;
+    @extend %fa-icon;
+    @extend .fas;
+    content: fa-content($fa-var-caret-down);
   }
 }

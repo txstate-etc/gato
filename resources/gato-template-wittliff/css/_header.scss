@@ -218,7 +218,9 @@ strong {
               background-color: $menu-border-color;
               border-left: 0px;
               i:before {
-                content: $fa-var-angle-up;
+                @extend %fa-icon;
+                @extend .fas;
+                content: fa-content($fa-var-angle-up);
               }
             }
             .simplemenu-subitems {
@@ -264,7 +266,9 @@ strong {
   &.menu-out {
     .main-menu {
       >button i:before {
-        content: $fa-var-times;
+        @extend %fa-icon;
+        @extend .fas;
+        content: fa-content($fa-var-times);
       }
       .main-menu-panel {
         /* unnecessary as long as we use velocity 'slideDown' animation */

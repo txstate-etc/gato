@@ -66,7 +66,9 @@
     padding-bottom: 0.5rem;
     margin-bottom: 1.5rem;
     &.hours-shown i:before {
-      content: $fa-var-angle-up;
+      @extend %fa-icon;
+      @extend .fas;
+      content: fa-content($fa-var-angle-up);
     }
     button {
       display: flex;

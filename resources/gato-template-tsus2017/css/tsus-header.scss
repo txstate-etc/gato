@@ -76,7 +76,9 @@ header{
               > button {
                 background-color: mix($tsus-darkblue, $white, 70);;
                 i:before {
-                  content: $fa-var-angle-up;
+                  @extend %fa-icon;
+                  @extend .fas;
+                  content: fa-content($fa-var-angle-up);
                 }
               }
               .simplemenu-subitems {
@@ -123,7 +125,9 @@ header{
   &.menu-out {
     .main-menu {
       >button i:before {
-        content: $fa-var-times;
+        @extend %fa-icon;
+        @extend .fas;
+        content: fa-content($fa-var-times);
       }
       .main-menu-panel {
         /* unnecessary as long as we use velocity 'slideDown' animation */
