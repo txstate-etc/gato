@@ -94,13 +94,17 @@
                 }
                 i {
                     &:before {
-                      content: $fa-var-angle-down;
+                      @extend %fa-icon;
+                      @extend .fas;
+                      content: fa-content($fa-var-angle-down);
                     }
                 }
             }
             &.shown {
                 .event-details i:before {
-                    content: $fa-var-angle-up;
+                  @extend %fa-icon;
+                  @extend .fas;
+                  content: fa-content($fa-var-angle-up);
                 }
             }
             .event-location, .event-contact {
