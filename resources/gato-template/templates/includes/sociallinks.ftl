@@ -18,7 +18,7 @@
             [#assign iconclass="fa-instagram"]
             [#assign alttext="Instagram"]
           [#elseif slink?contains("linkedin")]
-            [#assign iconclass="fa-linkedin-square"]
+            [#assign iconclass="fa-linkedin"]
             [#assign alttext="LinkedIn"]
           [#elseif slink?contains("pinterest")]
             [#assign iconclass="fa-pinterest-square"]
