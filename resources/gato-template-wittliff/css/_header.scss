@@ -13,7 +13,7 @@ html {
 body {
   background-color: $white;
   margin: 0 auto;
-  font-family: $helveticaneue;
+  font-family: $roboto;
   font-weight: 300;
   letter-spacing: .03rem;
   line-height: 1.2;
@@ -129,7 +129,7 @@ strong {
     > button.icon {
       white-space: nowrap;
       span {
-        font-family: $helveticaneue;
+        font-family: $roboto;
         font-size: 2rem;
         letter-spacing: .05rem;
         padding-right: 0.5rem;
@@ -209,7 +209,7 @@ strong {
           display: block;
           color: $white;
           text-decoration: none;
-          font-family: $helveticaneue;
+          font-family: $roboto;
         }
         > li {
           position: relative;
@@ -351,7 +351,7 @@ strong {
   text-decoration: none;
   padding-left: 1.5rem;
   border: 2px solid $white;
-  font-family: $helveticaneue;
+  font-family: $roboto;
   font-size: 1.8rem;
   font-weight: 500;
   letter-spacing: 0.05rem;
