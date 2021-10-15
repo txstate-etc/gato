@@ -18,33 +18,37 @@
     background: $light-silver;
   }
 }
-h1 {
+h1, .column_paragraph h1 {
   font-family: $garamond;
   font-size: 5.5rem;
   letter-spacing: 0.2rem;
 }
-h2{
+h2, .column_paragraph h2 {
   font-family: $garamond;
   font-size: 4.5rem;
   letter-spacing: normal;
 }
-h3{
+h3, .column_paragraph h3{
   font-size: 3.3rem;
   letter-spacing: normal;
 }
-h4 {
+h4, .column_paragraph h4 {
   font-size: 2.8rem;
   letter-spacing: normal;
 }
-h5 {
+h5, .column_paragraph h5 {
   font-size: 2.5rem;
   letter-spacing: normal;
 }
-h6 {
+h6, .column_paragraph h6 {
   font-size: 2.2rem;
   letter-spacing: normal;
 }
-h2, h3, h4, h5, h6 {
+h2, .column_paragraph h2,
+h3, .column_paragraph h3,
+h4, .column_paragraph h4,
+h5, .column_paragraph h5,
+h6, .column_paragraph h6 {
   font-weight: 400;
   a:hover{
     text-decoration: none;
