@@ -49,7 +49,9 @@ jQuery(document).ready(function($) {
     "Email to Friends": "forward",
     "all": "all"
   }
-  
+
+  var defaultAudiences = ['Student']
+
   var filterState = {
     audience: [],
     semester: '',
@@ -198,7 +200,7 @@ jQuery(document).ready(function($) {
 
   var openPrintView = function() {
     var printWin = window.open('', 'Academic Calendar')
-    var head = '<title>Academic Calendar</title>' + 
+    var head = '<title>Academic Calendar</title>' +
                '<style>' +
                   'h1 { text-align: center }' +
                   'table { margin: 0 auto; border: 1px solid #E2E2E3; width: 75%; border-collapse: collapse; border-spacing: 0; font-family: Helvetica, sans-serif; font-size: 14px; margin-bottom: 50px }' +
@@ -251,7 +253,7 @@ jQuery(document).ready(function($) {
     for (var i = 0; i < visibleRows.length; i++) {
       var row = visibleRows[i]
       var eventData = $(row).find('.event-data')
-      var dataRow = [eventData.data('semester')] 
+      var dataRow = [eventData.data('semester')]
       dataRow.push(eventData.data('partsofterm'))
       dataRow.push(eventData.data('categories'))
       var momentDate = moment(eventData.data('startdate'))
@@ -353,7 +355,7 @@ jQuery(document).ready(function($) {
       $('#manage-events-menu').removeClass('expanded')
       $('#btn-manage-events').attr('aria-expanded', false)
       window.open(url, 'manage', "width=750,height=800")
-    } 
+    }
   }
 
   var initialMobileState
@@ -476,7 +478,7 @@ jQuery(document).ready(function($) {
         showEmptyMessage = false
       }
     }
-    
+
     if (showEmptyMessage) {
       $('.event-table').addClass('empty')
       $('.empty-message').show()
@@ -492,7 +494,7 @@ jQuery(document).ready(function($) {
   }
 
   $('#btn-reset-filters').on('click', function() {
-    filterState.audience = []
+    filterState.audience = defaultAudiences
     handleChangeSemester(currentSemester)
     $('.event-cbx.is-checked').each(function() {
       $(this).removeClass('is-checked').attr('aria-checked', false)
@@ -504,7 +506,7 @@ jQuery(document).ready(function($) {
   })
 
   $('#btn-reset-filters, #mobile-filter-reset').on('click', function() {
-    filterState.audience = []
+    filterState.audience = defaultAudiences
     handleChangeSemester(currentSemester)
   })
 
@@ -526,7 +528,7 @@ jQuery(document).ready(function($) {
 
   var handleChangeSemester = function(selected) {
     filterState.semester = selected
-    handleChangePartOfTerm('Full Term')
+    handleChangePartOfTerm(defaultPartOfTerm)
   }
 
   var handleChangePartOfTerm = function(selected) {
@@ -542,7 +544,7 @@ jQuery(document).ready(function($) {
     filterState.category = isBlank(selected) ? [] : selected.split(';')
     syncFiltersWithState()
   }
-  
+
   $('#ac-startdate, #mobile-startdate').on('change', function() {
     filterState.startDate = $(this).val()
     syncFiltersWithState()
@@ -558,8 +560,8 @@ jQuery(document).ready(function($) {
   for (var i = 0; i < audiences.length; i++) {
     var a = audiences[i]
     $('#select-audience').data('acdropdown').addMenuItem(a)
-    var html = '<li>' + 
-                '<div class="mobile-filter-cbx" role="checkbox" tabindex="0">' + a + '</div>' + 
+    var html = '<li>' +
+                '<div class="mobile-filter-cbx" role="checkbox" tabindex="0">' + a + '</div>' +
                '</li>'
     $('#mobile-audience').append(html)
   }
@@ -571,14 +573,16 @@ jQuery(document).ready(function($) {
     $('#mobile-select-semester').data('acdropdown').addMenuItem(s)
   }
   var currentSemester = $('#currentSemester').data('semester')
+  var defaultPartOfTerm = $('#defaultPartOfTerm').data('term')
   if (dropdownData[currentSemester]) {
       filterState.semester = currentSemester
-      filterState.partofterm = 'Full Term'
+      filterState.partofterm = defaultPartOfTerm
+      filterState.audience = defaultAudiences
       updateFilterOptions()
       syncFiltersWithState()
   }
   updateStripes()
-  
+
   // display message if this calendar is an old, cached version
   var dataLoadedTime = $('#calendarTimestamp').data('time')
   var fiveMinutesAgo = moment().subtract(1, 'hours')
@@ -620,7 +624,7 @@ jQuery(document).ready(function($) {
 
   $('#mobile-filter-cancel').on('click',function() {
     filterState = initialMobileState
-    
+
     syncFiltersWithState()
     closeMobileFilters()
   })
@@ -751,7 +755,7 @@ jQuery(document).ready(function($) {
       filterActions.removeClass('smaller')
       if (filterActions.width() < 300) {
         filterActions.addClass('smaller')
-      } 
+      }
     })
     if ($('.ac-filter.category').length > 0)
       categoryObserver.observe(document.querySelector('.ac-filter.category'))

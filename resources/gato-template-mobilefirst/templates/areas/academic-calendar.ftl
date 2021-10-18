@@ -4,8 +4,10 @@
     [#assign eventList = model.items]
     <div class="academic-calendar-container">
       [#assign currentSemester = model.guessCurrentSemester()]
+      [#assign defaultPartOfTerm = "Main Parts of Term"]
       <div id="currentSemester" data-semester="${currentSemester}"></div>
       <div id="calendarTimestamp" data-time="${.now?iso_utc}"></div>
+      <div id="defaultPartOfTerm" data-term="${defaultPartOfTerm}"></div>
       [#if eventList?size > 0]
         <div id="calendarActionUrl" data-url="${eventList[0].calendarUrl?keep_before_last('/')}"></div>
         <div id="calendarSubscribeUrl" data-url="${eventList[0].calendarUrl?keep_before_last('/actions')}"></div>
@@ -61,7 +63,7 @@
           <div class="filter-actions eq-parent">
             <div class="mobile-showing-message">
               <span class="showing">Showing:</span>
-              <span class="currentview">${currentSemester} Semester, Full Term</span>
+              <span class="currentview">${currentSemester} Semester, ${defaultPartOfTerm}</span>
             </div>
             <button id="btn-toggle-more-filters" class="btn-ac" aria-haspopup="true" aria-expanded="false" aria-owns="more-filters">
               <i class="fa fa-filter" aria-label="Show More Filters"></i>
@@ -182,10 +184,10 @@
                 [#if !isOneDay]
                   [#if hasEndTitle]
                     [#assign end = start]
-                  [/#if]  
+                  [/#if]
                 [/#if]
               [/#if]
-              <tr class="row ${(item.applicableTerm?contains(currentSemester) && item.partsOfTerm?seq_contains('Full Term'))?then('', 'row-hidden')}" aria-hidden="${(item.applicableTerm?contains(currentSemester) && item.partsOfTerm?seq_contains('Full Term'))?then('false', 'true')}">
+              <tr class="row ${(item.applicableTerm?contains(currentSemester) && item.partsOfTerm?seq_contains(defaultPartOfTerm))?then('', 'row-hidden')}" aria-hidden="${(item.applicableTerm?contains(currentSemester) && item.partsOfTerm?seq_contains(defaultPartOfTerm))?then('false', 'true')}">
                 <td>
                   <div class="date-column">
                     <span class="event-cbx" data-value="${item.recurrenceId}" tabindex="0" role="checkbox" aria-checked="false" aria-label="Select event: ${item.title}"></span>
