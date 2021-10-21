@@ -200,6 +200,7 @@ body ul.gato-faq-hierarchy {
   .content {
     .progress-title {
       letter-spacing: 3px;
+      font-size: 3.5rem;
     }
   }
 }
@@ -356,6 +357,17 @@ body ul.gato-faq-hierarchy {
     }
     span {
       padding: 1.8rem 0;
+    }
+  }
+}
+
+/* Slider */
+.gato-slideshow {
+  .slide {
+    .caption {
+      p {
+        font-weight: 400;
+      }
     }
   }
 }
