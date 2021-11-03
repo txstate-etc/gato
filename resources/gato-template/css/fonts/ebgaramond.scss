@@ -1,0 +1,31 @@
+$font-path-ebgaramond: $font-path/ebgaramond;
+
+/* Regular */
+@include fontface(EB Garamond, normal, 400, "#{$font-path-ebgaramond}/EBGaramond-Regular");
+
+/* Regular Italic */
+@include fontface(EB Garamond, italic, 400, "#{$font-path-ebgaramond}/EBGaramond-Italic");
+
+/* Medium */
+@include fontface(EB Garamond, normal, 500, "#{$font-path-ebgaramond}/EBGaramond-Medium");
+
+/* Medium Italic */
+@include fontface(EB Garamond, italic, 500, "#{$font-path-ebgaramond}/EBGaramond-MediumItalic");
+
+/* Semi Bold */
+@include fontface(EB Garamond, normal, 600, "#{$font-path-ebgaramond}/EBGaramond-SemiBold");
+
+/* Semi Bold Italic */
+@include fontface(EB Garamond, italic, 600, "#{$font-path-ebgaramond}/EBGaramond-SemiBoldItalic");
+
+/* Bold */
+@include fontface(EB Garamond, normal, 700, "#{$font-path-ebgaramond}/EBGaramond-Bold");
+
+/* Bold Italic */
+@include fontface(EB Garamond, italic, 700, "#{$font-path-ebgaramond}/EBGaramond-BoldItalic");
+
+/* Extra Bold */
+@include fontface(EB Garamond, normal, 800, "#{$font-path-ebgaramond}/EBGaramond-ExtraBold");
+
+/* Extra Bold Italic */
+@include fontface(EB Garamond, italic, 800, "#{$font-path-ebgaramond}/EBGaramond-ExtraBoldItalic");

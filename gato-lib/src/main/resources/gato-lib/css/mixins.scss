@@ -101,3 +101,21 @@
     height: auto;
   }
 }
+
+@mixin fontface ($familyname, $fontstyle, $fontweight, $path, $extensions: woff2 woff ttf) {
+  $src: null;
+  $validExtensions: (ttf, woff, woff2);
+  @each $ext in $extensions {
+    @if index($validExtensions, $ext) {
+      $format: if($ext == 'ttf', truetype, $ext);
+      $src: append($src, url(quote($path + "." + $ext)) format(quote($format)), comma);
+    }
+  }
+
+  @font-face {
+    font-family: quote($familyname);
+    font-style: $fontstyle;
+    font-weight: $fontweight;
+    src: $src;
+  }
+}

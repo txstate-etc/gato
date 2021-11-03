@@ -1,0 +1,38 @@
+$font-path-roboto: $font-path/roboto;
+
+/* Regular */
+@include fontface(Roboto, normal, 400, "#{$font-path-roboto}/Roboto-Regular");
+
+/* Regular Italic */
+@include fontface(Roboto, italic, 400, "#{$font-path-roboto}/Roboto-Italic");
+
+/* Medium */
+@include fontface(Roboto, normal, 500, "#{$font-path-roboto}/Roboto-Medium");
+
+/* Medium Italic */
+@include fontface(Roboto, italic, 500, "#{$font-path-roboto}/Roboto-MediumItalic");
+
+/* Bold */
+@include fontface(Roboto, normal, 700, "#{$font-path-roboto}/Roboto-Bold");
+
+/* Bold Italic*/
+@include fontface(Roboto, italic, 700, "#{$font-path-roboto}/Roboto-BoldItalic");
+
+/* Black */
+@include fontface(Roboto, normal, 900, "#{$font-path-roboto}/Roboto-Black");
+
+/* Black Italic */
+@include fontface(Roboto, italic, 900, "#{$font-path-roboto}/Roboto-BlackItalic");
+
+
+// // Point Neue Helvetica to Roboto if anyone is using it in custom CSS
+@include fontface(Neue Helvetica W01, normal, 200, "#{$font-path-roboto}/Roboto-Regular");
+@include fontface(Neue Helvetica W01, italic, 200, "#{$font-path-roboto}/Roboto-Italic");
+@include fontface(Neue Helvetica W01, normal, 300, "#{$font-path-roboto}/Roboto-Regular");
+@include fontface(Neue Helvetica W01, italic, 300, "#{$font-path-roboto}/Roboto-Italic");
+@include fontface(Neue Helvetica W01, normal, 400, "#{$font-path-roboto}/Roboto-Regular");
+@include fontface(Neue Helvetica W01, italic, 400, "#{$font-path-roboto}/Roboto-Italic");
+@include fontface(Neue Helvetica W01, normal, 500, "#{$font-path-roboto}/Roboto-Medium");
+@include fontface(Neue Helvetica W01, italic, 500, "#{$font-path-roboto}/Roboto-MediumItalic");
+@include fontface(Neue Helvetica W01, normal, 700, "#{$font-path-roboto}/Roboto-Bold");
+@include fontface(Neue Helvetica W01, italic, 700, "#{$font-path-roboto}/Roboto-BoldItalic");
