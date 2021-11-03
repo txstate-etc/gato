@@ -1,0 +1,31 @@
+$font-path-nunitosans: $font-path/nunitosans;
+
+/* Regular */
+@include fontface(Nunito Sans, normal, 400, "#{$font-path-nunitosans}/NunitoSans-Regular");
+
+/* Regular Italic */
+@include fontface(Nunito Sans, italic, 400, "#{$font-path-nunitosans}/NunitoSans-Italic");
+
+/* Semi Bold */
+@include fontface(Nunito Sans, normal, 600, "#{$font-path-nunitosans}/NunitoSans-SemiBold");
+
+/* Semi Bold Italic*/
+@include fontface(Nunito Sans, italic, 600, "#{$font-path-nunitosans}/NunitoSans-SemiBoldItalic");
+
+/* Bold */
+@include fontface(Nunito Sans, normal, 700, "#{$font-path-nunitosans}/NunitoSans-Bold");
+
+/* Bold Italic*/
+@include fontface(Nunito Sans, italic, 700, "#{$font-path-nunitosans}/NunitoSans-BoldItalic");
+
+/* Extra Bold */
+@include fontface(Nunito Sans, normal, 800, "#{$font-path-nunitosans}/NunitoSans-ExtraBold");
+
+/* Extra Bold Italic*/
+@include fontface(Nunito Sans, italic, 800, "#{$font-path-nunitosans}/NunitoSans-ExtraBoldItalic");
+
+/* Black */
+@include fontface(Nunito Sans, normal, 900, "#{$font-path-nunitosans}/NunitoSans-Black");
+
+/* Black Italic */
+@include fontface(Nunito Sans, italic, 900, "#{$font-path-nunitosans}/NunitoSans-BlackItalic");
