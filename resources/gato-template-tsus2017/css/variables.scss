@@ -53,5 +53,6 @@ $content-width-lg: 970px;
 $sidebar-moves-below-point: $md-breakpoint;
 
 //Font paths
-$tsus-google-font-path-roboto:resources/gato-template-tsus2017/css/fonts/Google-fonts/Roboto;
 $tsus-google-font-path-lato:resources/gato-template-tsus2017/css/fonts/Google-fonts/Lato;
+
+$font-path: unquote($resource-root)/gato-template/css/fonts
