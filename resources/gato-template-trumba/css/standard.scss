@@ -1,7 +1,8 @@
 @import "gato-template/css/variables";
 @import "gato-template-mobilefirst/css/variables";
-@import "gato-template-txstate2015/css/fonts/univers";
-@import "gato-template-txstate2015/css/fonts/garamond";
+@import "gato-template-mobilefirst/css/fonts/halis";
+@import "gato-template/css/fonts/nunitosans";
+@import "gato-template/css/fonts/ebgaramond";
 
 @import "gato-template/css/includes";
 @import "gato-component-patterns/css/patterns";
@@ -22,5 +23,5 @@
 
 /* Footer */
 @import "gato-template-mobilefirst/css/footer";
- 
+
 @import "gato-template-trumba/css/trumba";
