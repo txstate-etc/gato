@@ -210,7 +210,7 @@
 
 //Events
 h2.event-list-title {
-  font-family: $univers;
+  font-family: $nunito;
   font-weight: 600;
   font-size: 2.7rem;
   line-height: 3.5rem
@@ -275,7 +275,7 @@ h2.event-list-title {
 //faq
 ul.gato-faq-hierarchy {
   .gato-faq-header a {
-    font-family: $univers;
+    font-family: $nunito;
     font-size: 1.7rem;
     text-transform: none;
   }
@@ -285,21 +285,21 @@ ul.gato-faq-hierarchy {
     }
     //force faq headers to look like they start at h3
     .h3styles {
-      font-family: $univers;
+      font-family: $nunito;
       font-weight: 500;
       font-size: 2.2rem;
       line-height: 2.8rem;
       color: $dark-gold;
     }
     .h4styles {
-      font-family: $univers;
+      font-family: $nunito;
       font-weight: 500;
       font-size: 1.8rem;
       line-height: 2.4rem;
       color: $verydark;
     }
     .h5styles {
-      font-family: $univers;
+      font-family: $nunito;
       font-weight: 500;
       font-size: 1.6rem;
       line-height: 2.2rem;
@@ -319,7 +319,7 @@ ul.gato-faq-hierarchy {
   font-size: 1.5rem;
   line-height: 3.2rem;
   font-weight: 400;
-  font-family: $univers;
+  font-family: $nunito;
 }
 
 //image card
