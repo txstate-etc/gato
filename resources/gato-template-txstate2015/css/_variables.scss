@@ -93,13 +93,14 @@
  $quicklinks-text:                  $white;
 
  //fonts
-$univers: 'Univers W01', Helvetica, Calibri, Arial, sans-serif;
-$garamond: 'Adobe Garamond W01', Garamond, 'Goudy Old Style', 'Times New Roman', serif;
+$font-path: unquote($resource-root)/gato-template/css/fonts;
+$garamond: 'EB Garamond', Garamond, 'Goudy Old Style', 'Times New Roman', serif;
+$nunito: 'Nunito Sans', sans-serif;
 
 //Search Drop Down
 $search-dd-overlay-background-color:  $gold;
 $search-dd-dropdown-background-color: $sandstone;
-$search-dd-dialog-font-family:        $univers;
+$search-dd-dialog-font-family:        $nunito;
 $search-dd-input-line-color:        $gold;
 $search-dd-input-color:               $very-dark;
 $search-dd-input-placeholder-color:   $gold;
@@ -122,7 +123,7 @@ $search-side-box-border:           $sandstone;
 $search-side-box-header-background: $sandstone;
 $search-side-box-header-color:     $maroon;
 $search-form-input-line-color:     $gold;
-$search-form-input-font-family:    $univers;
+$search-form-input-font-family:    $nunito;
 $search-form-input-placeholder-color: $gold;
 $search-form-icon-color:           $gold;
 
@@ -139,7 +140,7 @@ $sitesearch-results-page-title-color:  $maroon;
 $sitesearch-result-search-input:       $gold;
 $sitesearch-result-search-color:       $gold;
 $sitesearch-help-text-color:           $gold;
-$sitesearch-font-family:               $univers;
+$sitesearch-font-family:               $nunito;
 
 @import "gato-template-txstate2015/css/colors";
 
