@@ -6,6 +6,12 @@ $font-path-nunitosans: $font-path/nunitosans;
 /* Regular Italic */
 @include fontface(Nunito Sans, italic, 400, "#{$font-path-nunitosans}/NunitoSans-Italic");
 
+/* Semi Bold 500 */
+@include fontface(Nunito Sans, normal, 500, "#{$font-path-nunitosans}/NunitoSans-SemiBold");
+
+/* Semi Bold 500 Italic*/
+@include fontface(Nunito Sans, italic, 500, "#{$font-path-nunitosans}/NunitoSans-SemiBoldItalic");
+
 /* Semi Bold */
 @include fontface(Nunito Sans, normal, 600, "#{$font-path-nunitosans}/NunitoSans-SemiBold");
 
