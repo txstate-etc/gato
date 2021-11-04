@@ -115,7 +115,8 @@
       border-bottom: 2px solid $table-carded-border;
     }
     td {
-      display: block;
+      display: flex;
+      justify-content: space-between;
       text-align: right;
       border: 0px;
       border-bottom: 1px dotted $table-carded-border;
@@ -125,7 +126,6 @@
     }
     td .carded-label {
       display: block;
-      float: left;
       font-weight: 400;
     }
   }
