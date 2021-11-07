@@ -39,7 +39,7 @@ for Texas State email addresses for the validation--]
 [#if content.helptext??]
   <div class="helptext" id="${title}-help">${content.helptext}</div>
 [/#if]
-[#assign needCounter=(content.maxlength?? && content.maxlength > 0 && dataType == "none")]
+[#assign needCounter=(content.maxlength?? && content.maxlength > 0 && (dataType == "none" || dataType == "integer" || dataType == "keystring"))]
 [#if needCounter]
   <div class="charcounter">
     <span class="charsentered">0</span>/<span class="maxchars">${content.maxlength}</span>
@@ -48,14 +48,14 @@ for Texas State email addresses for the validation--]
 [#assign limited=needCounter?string('limited','')]
 
 [#if content.lines?? && content.lines == "multi" && dataType == "none"]
-  <textarea name="${title}" 
-            id="${title}" 
-            rows="7" 
-            cols="60" 
+  <textarea name="${title}"
+            id="${title}"
+            rows="7"
+            cols="60"
             class="${limited}"
             [#if needCounter!false]data-maxchars="${(content.maxlength!0)?c}"[/#if]
-            [#if content.mandatory!false]aria-required="true"[/#if] 
-            aria-invalid="false" data-aria-describedby="${title}-error" 
+            [#if content.mandatory!false]aria-required="true"[/#if]
+            aria-invalid="false" data-aria-describedby="${title}-error"
             [#if content.helptext??]data-help="${title}-help" aria-describedby="${title}-help"[/#if]></textarea>
   [#assign validating=needCounter]
 [#else]
@@ -73,6 +73,7 @@ for Texas State email addresses for the validation--]
       [#assign inputType = "date"]
       [#break]
     [#case "integer"]
+      [#assign validating = needCounter]
     [#case "decimal"]
       [#assign inputSize = "12"]
       [#break]
@@ -94,15 +95,15 @@ for Texas State email addresses for the validation--]
     [#default]
       [#assign validating = false]
   [/#switch]
-  <input type="${inputType}" 
-         id="${title}" 
-         name="${title}" 
-         class="text ${limited}" 
-         size="${inputSize}" 
+  <input type="${inputType}"
+         id="${title}"
+         name="${title}"
+         class="text ${limited}"
+         size="${inputSize}"
          [#if needCounter!false]data-maxchars="${(content.maxlength!0)?c}"[/#if]
-         [#if content.mandatory!false]aria-required="true"[/#if] 
-         aria-invalid="false" 
-         data-aria-describedby="${title}-error" 
+         [#if content.mandatory!false]aria-required="true"[/#if]
+         aria-invalid="false"
+         data-aria-describedby="${title}-error"
          [#if content.helptext??]data-help="${title}-help" aria-describedby="${title}-help"[/#if]/>
 
   [#if (content.dataType!"") == "date"]
@@ -124,7 +125,7 @@ for Texas State email addresses for the validation--]
 [/#if]
 [#if validating]
   <div class="valid-icon-cont">
-    <div class="txst-form-validicon txst-form-${dataType!}" id="${title}-error" role="alert" aria-hidden="true">&nbsp;</div>
+    <div class="txst-form-validicon txst-form-${dataType!} ${needCounter?then('limited', '')}" id="${title}-error" role="alert" aria-hidden="true">&nbsp;</div>
   </div>
 [/#if]
 

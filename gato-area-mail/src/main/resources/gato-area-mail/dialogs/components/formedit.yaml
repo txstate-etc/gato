@@ -117,6 +117,28 @@ form:
                       label: Other e-mail
                       value: other
                       selected: true
+            - name: integer
+              class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
+              label: ""
+              transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+              fields:
+                - name: maxlength
+                  label: Maximum Character Count
+                  class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                  type: Long
+                  styleName: max-length
+                  description: "Enter a maximum number of characters to constrain the length of the text the form submitter enters.  For example, only allow them to enter up to 125 characters."
+            - name: keystring
+              class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
+              label: ""
+              transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+              fields:
+                - name: maxlength
+                  label: Maximum Character Count
+                  class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                  type: Long
+                  styleName: max-length
+                  description: "Enter a maximum number of characters to constrain the length of the text the form submitter enters.  For example, only allow them to enter up to 125 characters."
             - name: date
               class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
               label: Date Range

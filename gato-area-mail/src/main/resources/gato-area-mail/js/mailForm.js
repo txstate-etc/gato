@@ -329,7 +329,6 @@ jQuery(document).ready(function($) {
       ipt = $(inputs[i])
       if (ipt.attr('type') != 'hidden') break;
     }
-
     if (itm.hasClass('txst-form-date')) type = 'date';
     if (itm.hasClass('txst-form-keystring')) type = 'keystring';
     if (itm.hasClass('txst-form-email')) type = 'email';
@@ -342,8 +341,7 @@ jQuery(document).ready(function($) {
     if (itm.hasClass('txst-form-anumber')) type = 'anumber';
     if (itm.hasClass('txst-form-regex')) type = 'regex';
     if (itm.hasClass('txst-form-file')) type = 'file';
-    //The only validation available on a type 'none' field is maxlength
-    if (itm.hasClass('txst-form-none')) type = 'maxlength';
+    if (itm.hasClass('txst-form-none')) type = 'none';
     if (!type) return
     var vld = new txstValidate(type, ipt, itm)
     var myform = itm.closest('form')
@@ -364,6 +362,10 @@ jQuery(document).ready(function($) {
       if (subtitle) {
         $("<span class='txst-form-text-subtitle'>Please enter a date " + subtitle + ".</span>").insertBefore(ipt)
       }
+    }
+    if (itm.hasClass('limited')) {
+      var vldLength = new txstValidate('maxlength', ipt, itm)
+      myform.data('txstValidate').push(vldLength);
     }
   });
 
