@@ -56,13 +56,15 @@ public class FSPerson {
   public String getPosition() {
     if (!user.has("ldapAccount") || (user.get("ldapAccount") instanceof JsonNull)) return "";
     JsonObject ldapObj = user.getAsJsonObject("ldapAccount");
-    return ldapObj.getAsJsonPrimitive("title").getAsString();
+    if (!ldapObj.get("title").isJsonNull()) {
+      return ldapObj.getAsJsonPrimitive("title").getAsString();
+    } else return "";
   }
-  
+
   public void setOfficeLocation(String office) {
     user.addProperty("officeLocation", office);
   }
-  
+
   public String getOfficeLocation() {
     if (!user.has("officeLocation")) return "";
     return user.getAsJsonPrimitive("officeLocation").getAsString();
