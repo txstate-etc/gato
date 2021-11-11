@@ -64,7 +64,7 @@
           @media (max-width:$sm-breakpoint) {
             padding: 0 2rem;
           }
-          
+
           .textlink-image {
             background-repeat: no-repeat;
             background-position: 50% 50%;
@@ -100,7 +100,7 @@
               }
             }
           }
-          
+
           .textlink-image {
             flex-basis: calc(100% / 3);
           }
@@ -262,7 +262,7 @@
           text-align: center;
 
           .title {
-            font-family: "Adobe Garamond W01",Garamond,"Goudy Old Style","Times New Roman",serif;
+            font-family: $garamond;
             font-weight: 400;
             font-size: 3.6rem;
             width: 100%;
