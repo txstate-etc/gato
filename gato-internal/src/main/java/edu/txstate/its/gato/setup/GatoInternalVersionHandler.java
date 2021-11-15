@@ -298,6 +298,11 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       .addTask(new BootstrapSingleModuleResource("config.modules.scheduler.config.jobs.create404Pages.xml"))
       .addTasks(installOrUpdateTasks())
     );
+
+    register(DeltaBuilder.update("1.3.4", "")
+      .addTask(new BootstrapSingleModuleResource("config.modules.dam-app.apps.assets.subApps.browser.workbench.contentViews.list.columns.size.xml"))
+      .addTasks(installOrUpdateTasks())
+    );
   }
 
   protected List<Task> installOrUpdateTasks() {

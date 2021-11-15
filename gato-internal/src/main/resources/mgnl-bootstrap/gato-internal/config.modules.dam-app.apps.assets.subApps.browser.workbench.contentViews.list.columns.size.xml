@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sv:node xmlns:sv="http://www.jcp.org/jcr/sv/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" sv:name="size">
+  <sv:property sv:name="jcr:primaryType" sv:type="Name">
+    <sv:value>mgnl:contentNode</sv:value>
+  </sv:property>
+  <sv:property sv:name="class" sv:type="String">
+    <sv:value>edu.txstate.its.gato.AssetSizeColumnDefinition</sv:value>
+  </sv:property>
+  <sv:property sv:name="displayInChooseDialog" sv:type="String">
+    <sv:value>false</sv:value>
+  </sv:property>
+  <sv:property sv:name="expandRatio" sv:type="Long">
+    <sv:value>1</sv:value>
+  </sv:property>
+  <sv:property sv:name="formatterClass" sv:type="String">
+    <sv:value>edu.txstate.its.gato.AssetSizeColumnFormatter</sv:value>
+  </sv:property>
+  <sv:property sv:name="label" sv:type="String">
+    <sv:value>Size</sv:value>
+  </sv:property>
+  <sv:property sv:name="name" sv:type="String">
+    <sv:value>Size</sv:value>
+  </sv:property>
+  <sv:property sv:name="sortable" sv:type="String">
+    <sv:value>true</sv:value>
+  </sv:property>
+</sv:node>
