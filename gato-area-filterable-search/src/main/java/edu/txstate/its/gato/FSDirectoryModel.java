@@ -54,7 +54,7 @@ public class FSDirectoryModel<RD extends RenderableDefinition> extends Rendering
         String datasource = PropertyUtil.getString(n, "datasource", "");
         if (datasource.equals("manual")) continue;
         else if (datasource.equals("netidgroup")) {
-          String netid = PropertyUtil.getString(n, "netid", "");
+          String netid = PropertyUtil.getString(n, "netid", "").toLowerCase();
           if (netid.length() > 0) {
             FSPerson p = (FSPerson) peoplehash.get(netid);
             if (null != p) {
@@ -119,7 +119,7 @@ public class FSDirectoryModel<RD extends RenderableDefinition> extends Rendering
           if (dataSource.equals("netidgroup")) {
             String netid = PropertyUtil.getString(item, "netid", "");
             if (netid.length() > 0) {
-              results.add(netid);
+              results.add(netid.toLowerCase());
             }
           }
         }
