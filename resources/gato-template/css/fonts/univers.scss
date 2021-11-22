@@ -1,0 +1,10 @@
+$font-path-nunitosans: $font-path/nunitosans;
+
+// Use Nunito Sans anywhere editors are using Univers in custom CSS
+
+@include fontface(Univers W01, normal, 400, "#{$font-path-nunitosans}/NunitoSans-Regular");
+@include fontface(Univers W01, italic, 400, "#{$font-path-nunitosans}/NunitoSans-Italic");
+@include fontface(Univers W01, normal, 500, "#{$font-path-nunitosans}/NunitoSans-SemiBold");
+@include fontface(Univers W01, italic, 500, "#{$font-path-nunitosans}/NunitoSans-SemiBoldItalic");
+@include fontface(Univers W01, normal, 700, "#{$font-path-nunitosans}/NunitoSans-Bold");
+@include fontface(Univers W01, italic, 700, "#{$font-path-nunitosans}/NunitoSans-BoldItalic");

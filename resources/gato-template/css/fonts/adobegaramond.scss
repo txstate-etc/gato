@@ -1,0 +1,10 @@
+$font-path-ebgaramond: $font-path/ebgaramond;
+
+// Use EB Garamond anywhere editors are using Adobe Garamond in custom CSS
+
+@include fontface(Adobe Garamond W01, normal, 400, "#{$font-path-ebgaramond}/EBGaramond-Regular");
+@include fontface(Adobe Garamond W01, italic, 400, "#{$font-path-ebgaramond}/EBGaramond-Italic");
+@include fontface(Adobe Garamond W01, normal, 500, "#{$font-path-ebgaramond}/EBGaramond-Medium");
+@include fontface(Adobe Garamond W01, italic, 500, "#{$font-path-ebgaramond}/EBGaramond-MediumItalic");
+@include fontface(Adobe Garamond W01, normal, 700, "#{$font-path-ebgaramond}/EBGaramond-Bold");
+@include fontface(Adobe Garamond W01, italic, 700, "#{$font-path-ebgaramond}/EBGaramond-BoldItalic");
