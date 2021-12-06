@@ -22,7 +22,7 @@ import org.slf4j.LoggerFactory;
 
 public class CreateSiteMapCommand extends GatoBaseSchedulerCommand {
   public static Logger log = LoggerFactory.getLogger(CreateSiteMapCommand.class);
-  public static final String[] TEMPLATE_IDS_CALICO = {"gato-template-mobilefirst:pages/standard", 
+  public static final String[] TEMPLATE_IDS_CALICO = {"gato-template-mobilefirst:pages/standard",
                                                       "gato-template-mobilefirst:pages/home",
                                                       "gato-template-mobilefirst:pages/mail",
                                                       "gato-template-mobilefirst:pages/filterablesearch",
@@ -30,7 +30,7 @@ public class CreateSiteMapCommand extends GatoBaseSchedulerCommand {
                                                       "gato-template-admissions:pages/home",
                                                       "gato-template-admissions:pages/standard",
                                                       "gato-template-admissions:pages/mail"};
-  
+
   public static final String[] TEMPLATE_IDS_2015 = {"gato-template-txstate2015:pages/mail-template",
                                                     "gato-template-txstate2015:pages/standard-template",
                                                     "gato-template-txstate2015:pages/filterablesearch"};
@@ -41,7 +41,7 @@ public class CreateSiteMapCommand extends GatoBaseSchedulerCommand {
   public CreateSiteMapCommand(ComponentProvider cp) {
     this.cp = cp;
   }
-  
+
   public boolean doExecute(Context context) {
     try {
       Session session = MgnlContext.getJCRSession(this.getRepository());
@@ -58,6 +58,7 @@ public class CreateSiteMapCommand extends GatoBaseSchedulerCommand {
               PropertyUtil.setProperty(siteMapNode, "mgnl:template", "gato-template-mobilefirst:pages/sitemap");
               PropertyUtil.setProperty(siteMapNode, "title", "Site Map");
               PropertyUtil.setProperty(siteMapNode, "hideInNav", true);
+              PropertyUtil.setProperty(siteMapNode, "currency", "999999");
               PropertyUtil.setProperty(siteMapNode, "addTitleSeparator", true);
               Node headerImageArea = NodeUtil.createPath(siteMapNode, "subpage-banner", NodeTypes.Area.NAME);
               Node headerImage = NodeUtil.createPath(headerImageArea, "0", NodeTypes.Component.NAME);
@@ -72,6 +73,7 @@ public class CreateSiteMapCommand extends GatoBaseSchedulerCommand {
               PropertyUtil.setProperty(siteMapNode, "mgnl:template", "gato-template-txstate2015:pages/sitemap");
               PropertyUtil.setProperty(siteMapNode, "title", "Site Map");
               PropertyUtil.setProperty(siteMapNode, "hideInNav", true);
+              PropertyUtil.setProperty(siteMapNode, "currency", "999999");
               PropertyUtil.setProperty(siteMapNode, "hideSidebar", true);
               Node headerImageArea = NodeUtil.createPath(siteMapNode, "headerImage", NodeTypes.Area.NAME);
               Node headerImage = NodeUtil.createPath(headerImageArea, "0", NodeTypes.Component.NAME);

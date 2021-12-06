@@ -301,6 +301,7 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
 
     register(DeltaBuilder.update("1.3.4", "")
       .addTask(new BootstrapSingleModuleResource("config.modules.dam-app.apps.assets.subApps.browser.workbench.contentViews.list.columns.size.xml"))
+      .addTask(new AddCurrencyToSitemapsTask())
       .addTasks(installOrUpdateTasks())
     );
   }
