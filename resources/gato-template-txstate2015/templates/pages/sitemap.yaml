@@ -1,7 +1,8 @@
 templateScript: /gato-template-txstate2015/templates/pages/standard-template.ftl
 renderType: site
-title: TXST Site Map 
+title: TXST Site Map
 areas: !include /gato-template-txstate2015/templates/includes/template-areas.yaml
+dialog: gato-template-txstate2015:pages/sitemap-page-properties
 parameters:
   isSiteMapTemplate: true
   favicon: /gato-template-mobilefirst/images/favicon.png

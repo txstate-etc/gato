@@ -1,0 +1,12 @@
+!inherit:gato-template:pages/page-properties
+form:
+  tabs:
+    - name: tabGeneral
+      fields:
+        - name: title
+          class: info.magnolia.ui.form.field.definition.HiddenFieldDefinition
+          defaultValue: "Site Map"
+        - name: hideTitle
+          class: info.magnolia.ui.form.field.definition.HiddenFieldDefinition
+          defaultValue: false
+          type: Boolean
