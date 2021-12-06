@@ -11,7 +11,7 @@
       'gato-template-txstate2015/js/fontsdotcom.js'
     ]/]
 		[#if def.parameters.isFilterableSearchTemplate!false]
-      [#assign scripts = scripts + ['gato-area-filterable-search/js/filterablesearch.js']]
+      [#assign scripts = scripts + ['gato-area-filterable-search/js/filterablesearch.js','gato-template/js/backtotop.js']]
     [/#if]
     [@templatejs scripts /]
 		[@templatehead/]
@@ -85,6 +85,12 @@
 			[#include "includes/footer.ftl"]
 		</div> <!-- end of the container -->
 		[@cssjsmodals /]
+		[#if def.parameters.isFilterableSearchTemplate!false && !cmsfn.isEditMode()]
+				<button id="backtotop" aria-hidden="true" tabindex="-1">
+				<i class="fa fa-angle-up" aria-hidden="true"></i>
+				BACK TO TOP
+			</button>
+    [/#if]
         [#if hideSidebar]
             [@sidebarmodal/]
         [/#if]

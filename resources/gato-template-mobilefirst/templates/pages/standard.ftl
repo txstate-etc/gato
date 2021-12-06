@@ -120,6 +120,12 @@
       [#include "includes/footer.ftl"]
     </div>
     [@cssjsmodals /]
+    [#if !cmsfn.isEditMode()]
+    <button id="backtotop" aria-hidden="true" tabindex="-1">
+      <i class="fa fa-angle-up" aria-hidden="true"></i>
+      BACK TO TOP
+    </button>
+    [/#if]
     [#include "/gato-template/templates/includes/video-modal.ftl"]
     [#assign useGlobalSearch = false]
     [#assign showSearchScope = true]

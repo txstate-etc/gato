@@ -31,3 +31,4 @@
 /gato-component-cards/js/masonry.js
 /gato-component-cards/js/gridlayout.js
 /gato-template/js/video-slide.js
+/gato-template/js/backtotop.js

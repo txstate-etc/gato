@@ -41,10 +41,4 @@
     </div>
     <div tabindex="0" class="fspopup-focusend sr-only"></div>
   </div>
-  [#if !cmsfn.isEditMode()]
-  <button id="backtotop" aria-hidden="true" tabindex="-1">
-    <i class="fa fa-angle-up" aria-hidden="true"></i>
-    BACK TO TOP
-  </button>
-  [/#if]
 </div>
