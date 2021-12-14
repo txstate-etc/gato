@@ -10,7 +10,7 @@
       [#assign scripts = scripts + ['gato-area-filterable-search/js/filterablesearch.js']]
     [/#if]
     [#if def.parameters.isSearchTemplate!false]
-      [#assign scripts = scripts + ['gato-template/js/globalsearch.js']]
+      [#assign scripts = scripts + ['gato-template/js/globalsearch.js', 'gato-template-mobilefirst/js/searchfooterfix.js']]
     [/#if]
     [#if def.parameters.isAcademicCalendar!false]
       [#assign scripts = scripts + ['gato-template-mobilefirst/js/dropdown.js','gato-template-mobilefirst/js/academiccalendar.js']]
@@ -68,55 +68,57 @@
         </div>
       </div>
       [/#if]
-      <main class="contentcolumn ${content.intro?has_content?then('', 'no-intro')}">
-        [#assign hideSidebar = true /]
-        [#assign hideTitle = false /]
-        [#if def.parameters.isAcademicCalendar!false]
-        <div class="calendar-data-error">
-          <h2 class="error-title">Error: 500 - INTERNAL SERVER </h2>
-          <p class="error-description">Having trouble connecting to the data source. The following calendar is cached and may not be completely accurate</p>
-        </div>
-        [/#if]
-        [@headline hideSidebar hideTitle/]
-        [#if content.intro?has_content]
-          <div class="page-intro-text">
-            ${gf.processRichText(cmsfn.decode(content).intro)}
+      <div class="main-content">
+        <main class="contentcolumn ${content.intro?has_content?then('', 'no-intro')}">
+          [#assign hideSidebar = true /]
+          [#assign hideTitle = false /]
+          [#if def.parameters.isAcademicCalendar!false]
+          <div class="calendar-data-error">
+            <h2 class="error-title">Error: 500 - INTERNAL SERVER </h2>
+            <p class="error-description">Having trouble connecting to the data source. The following calendar is cached and may not be completely accurate</p>
           </div>
-        [/#if]
-        [#if content.addTitleSeparator?has_content && content.addTitleSeparator == true]
-        <div class="gato-section-full gato-section-title-separator">
-          <div class="gato-section-centered">
-            <div class="gato-section">
-                <div class="intro-title-border"></div>
+          [/#if]
+          [@headline hideSidebar hideTitle/]
+          [#if content.intro?has_content]
+            <div class="page-intro-text">
+              ${gf.processRichText(cmsfn.decode(content).intro)}
+            </div>
+          [/#if]
+          [#if content.addTitleSeparator?has_content && content.addTitleSeparator == true]
+          <div class="gato-section-full gato-section-title-separator">
+            <div class="gato-section-centered">
+              <div class="gato-section">
+                  <div class="intro-title-border"></div>
+              </div>
             </div>
           </div>
-        </div>
-        [/#if]
-        [#include "/gato-template/templates/includes/sacscocWarning.ftl"]
-        [#if def.parameters.isFeatureTemplate!false]
-          [@cms.area name="mobileFirstContent"/]
-        [#else]
-          [#if def.parameters.isSearchTemplate!false]
-            [@cms.area name="searchcontent" /]
-          [#elseif def.parameters.isMailTemplate!false]
-            [@cms.area name="mail"/]
-          [#elseif def.parameters.isFilterableSearchTemplate!false]
-            [@cms.area name="filterable-search-intro"/]
-            [@cms.area name="filterable-search"/]
-          [#elseif def.parameters.isVariableTemplate!false]
-            [@cms.area name="contentParagraph"/]
-          [#elseif def.parameters.isSiteMapTemplate!false]
-            [@cms.area name="siteMap" /]
-          [#elseif def.parameters.isPassthroughTemplate!false]
-						${gf.httpGetContentWithParameters(content.url)}
-          [#elseif def.parameters.isAcademicCalendar!false]
-            [@cms.area name="academiccalendar-intro"/]
-            [@cms.area name="academiccalendar"/]
-          [#else]
-            [@cms.area name="calicoInformational"/]
           [/#if]
-        [/#if]
-      </main>
+          [#include "/gato-template/templates/includes/sacscocWarning.ftl"]
+          [#if def.parameters.isFeatureTemplate!false]
+            [@cms.area name="mobileFirstContent"/]
+          [#else]
+            [#if def.parameters.isSearchTemplate!false]
+              [@cms.area name="searchcontent" /]
+            [#elseif def.parameters.isMailTemplate!false]
+              [@cms.area name="mail"/]
+            [#elseif def.parameters.isFilterableSearchTemplate!false]
+              [@cms.area name="filterable-search-intro"/]
+              [@cms.area name="filterable-search"/]
+            [#elseif def.parameters.isVariableTemplate!false]
+              [@cms.area name="contentParagraph"/]
+            [#elseif def.parameters.isSiteMapTemplate!false]
+              [@cms.area name="siteMap" /]
+            [#elseif def.parameters.isPassthroughTemplate!false]
+              ${gf.httpGetContentWithParameters(content.url)}
+            [#elseif def.parameters.isAcademicCalendar!false]
+              [@cms.area name="academiccalendar-intro"/]
+              [@cms.area name="academiccalendar"/]
+            [#else]
+              [@cms.area name="calicoInformational"/]
+            [/#if]
+          [/#if]
+        </main>
+      </div>
       [#include "includes/footer.ftl"]
     </div>
     [@cssjsmodals /]
