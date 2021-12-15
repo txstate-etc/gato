@@ -1,6 +1,7 @@
-function txstValidate(type, elem, icon) {
+function txstValidate(types, elem, icon) {
   // set properties
-  this.type = type;
+  this.types = types;
+  this.errorType = ''
   this.elem = elem;
   this.icon = icon;
   this.fromDate = this.parse(elem.prop('valid_fromDate'));
@@ -42,7 +43,7 @@ function txstValidate(type, elem, icon) {
   elem.on('change', function(e) {
     this.registerChange(true);
   }.bind(this));
-  if (this.type == 'file') {
+  if (this.types.indexOf('file') > -1) {
     icon.on('click', function() {
       if (this.icon.hasClass('txst-form-fail')) {
         this.elem.val('')
@@ -85,33 +86,44 @@ txstValidate.prototype.evaluate = function() {
   if (!val) return true;
 
   // figure out what we're checking for and check it
-  var type = this.type;
-  if (type == 'date') {
-    return this.checkDate(val);
+  var types = this.types;
+  this.errorType = ''
+  for (var i = 0; i < types.length; i++) {
+    var type = types[i]
+    if ((type == 'date' && !this.checkDate(val)) ||
+        (type == 'keystring' && !val.match(/^\s*[a-z][\w\-]*\s*$/i)) ||
+        (type == 'email' && !val.match(/^\s*[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}\s*$/i)) ||
+        (type == 'txemail' && !val.match(/^\s*[a-z0-9._%+-]+@(txstate\.edu|tsus\.edu|tjctc\.org)\s*$/i)) ||
+        (type == 'integer' && !val.match(/^\s*-?\d+\s*$/)) ||
+        (type == 'decimal' && !val.match(/^\s*-?(\d+|(\d*\.\d+))\s*$/)) ||
+        (type == 'zip' && !val.match(/^\s*\d{5}(-\d{4})?\s*$/)) ||
+        (type == 'phone' && !val.replace(/\D/g, '').match(/^\d{10}$/))||
+        ((type == 'netid' || type == 'anumber') && !this.checkNetIdOrANumber(val, type)) ||
+        (type == 'maxlength' && val.length > this.elem.data('maxchars'))) {
+          this.errorType = type
+          break
+        }
+    if (type == 'regex') {
+      var re = new RegExp(this.elem.prop('valid_regex'), 'i');
+      if(!val.strip().match(re)) {
+        this.errorType = type
+        break
+      }
+    }
+    if (type == 'file' && this.elem.prop('allowableFileExts').length && this.elem.prop('allowableFileExts').join().length > 0) {
+      var re = new RegExp('\\.(' + this.elem.prop('allowableFileExts').join('|') + ')$', 'i');
+      if (!val.match(re)) {
+        this.errorType = type
+        break
+      }
+    }
   }
-  if (type == 'keystring') return val.match(/^\s*[a-z][\w\-]*\s*$/i);
-  if (type == 'email') return val.match(/^\s*[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}\s*$/i);
-  if (type == 'txemail') return val.match(/^\s*[a-z0-9._%+-]+@(txstate\.edu|tsus\.edu|tjctc\.org)\s*$/i);
-  if (type == 'integer') return val.match(/^\s*-?\d+\s*$/);
-  if (type == 'decimal') return val.match(/^\s*-?(\d+|(\d*\.\d+))\s*$/);
-  if (type == 'zip') return val.match(/^\s*\d{5}(-\d{4})?\s*$/);
-  if (type == 'phone') return val.replace(/\D/g, '').match(/^\d{10}$/);
-  if (type == 'netid' || type == 'anumber') return this.checkNetIdOrANumber(val);
-  if (type == 'regex') {
-    var re = new RegExp(this.elem.prop('valid_regex'), 'i');
-    return val.strip().match(re);
-  }
-  if (type == 'file' && this.elem.prop('allowableFileExts').length && this.elem.prop('allowableFileExts').join().length > 0) {
-    var re = new RegExp('\\.(' + this.elem.prop('allowableFileExts').join('|') + ')$', 'i');
-    return val.match(re);
-  }
-  if(type == 'maxlength') return val.length <= this.elem.data('maxchars');
-  return true;
+  return this.errorType.length == 0;
 };
 
 txstValidate.prototype.getErrorMsg = function() {
   var val = this.elem.val();
-  var type = this.type;
+  var type = this.errorType
   if (type == 'date') {
     var msg = 'must be a valid date';
     if (this.fromDate && this.toDate) {
@@ -134,7 +146,7 @@ txstValidate.prototype.getErrorMsg = function() {
   if (type == 'anumber') return 'must be a valid Student ID';
   if (type == 'maxlength') return 'must be ' + this.elem.data('maxchars') + ' characters or less';
   if (type == 'regex') {
-    if (this.elem.valid_msg) return this.elem.valid_msg;
+    if (this.elem.prop('valid_msg')) return this.elem.prop('valid_msg');
     else return 'does not appear to be valid';
   }
   if (type == 'file') return 'allowable extensions: ' + this.elem.prop('allowableFileExts').join(', ');
@@ -246,18 +258,18 @@ txstValidate.prototype.focus = function() {
   });
 };
 
-txstValidate.prototype.checkNetIdOrANumber = function(inputToCheck) {
+txstValidate.prototype.checkNetIdOrANumber = function(inputToCheck, which) {
 
   if (this.asyncTimer) {
     clearTimeout(this.asyncTimer);
     this.asyncTimer = null;
   }
 
-  if (this.type == "netid" && !inputToCheck.match(/^\s*([a-z]{2}\d{2,5}|[a-z]{3}\d+|[a-z]_[a-z]\d+)\s*$/i)) {
+  if (which == "netid" && !inputToCheck.match(/^\s*([a-z]{2}\d{2,5}|[a-z]{3}\d+|[a-z]_[a-z]\d+)\s*$/i)) {
     return false;
   }
 
-  if (this.type == "anumber" && !inputToCheck.match(/A\d{8}$/i)) {
+  if (which == "anumber" && !inputToCheck.match(/A\d{8}$/i)) {
     return false;
   }
 
@@ -322,34 +334,37 @@ txstValidate.isDateSupported = function isDateSupported() {
 jQuery(document).ready(function($) {
   $('.txst-form-validicon').each(function() {
     var itm = $(this)
-    var type = ''
+    var types = []
     var inputs = itm.closest('.formelement').find('input,textarea')
     var ipt;
     for (var i=0; i< inputs.length; i++) {
       ipt = $(inputs[i])
       if (ipt.attr('type') != 'hidden') break;
     }
-    if (itm.hasClass('txst-form-date')) type = 'date';
-    if (itm.hasClass('txst-form-keystring')) type = 'keystring';
-    if (itm.hasClass('txst-form-email')) type = 'email';
-    if (itm.hasClass('txst-form-txemail')) type = 'txemail';
-    if (itm.hasClass('txst-form-integer')) type = 'integer';
-    if (itm.hasClass('txst-form-decimal')) type = 'decimal';
-    if (itm.hasClass('txst-form-zip')) type = 'zip';
-    if (itm.hasClass('txst-form-phone')) type = 'phone';
-    if (itm.hasClass('txst-form-netid')) type = 'netid';
-    if (itm.hasClass('txst-form-anumber')) type = 'anumber';
-    if (itm.hasClass('txst-form-regex')) type = 'regex';
-    if (itm.hasClass('txst-form-file')) type = 'file';
-    if (itm.hasClass('txst-form-none')) type = 'none';
-    if (!type) return
-    var vld = new txstValidate(type, ipt, itm)
+    if (itm.hasClass('txst-form-date')) types.push('date')
+    if (itm.hasClass('txst-form-keystring')) types.push('keystring')
+    if (itm.hasClass('txst-form-email')) types.push('email')
+    if (itm.hasClass('txst-form-txemail')) types.push('txemail')
+    if (itm.hasClass('txst-form-integer')) types.push('integer')
+    if (itm.hasClass('txst-form-decimal')) types.push('decimal')
+    if (itm.hasClass('txst-form-zip')) types.push('zip')
+    if (itm.hasClass('txst-form-phone')) types.push('phone')
+    if (itm.hasClass('txst-form-netid')) types.push('netid')
+    if (itm.hasClass('txst-form-anumber')) types.push('anumber')
+    if (itm.hasClass('txst-form-regex')) types.push('regex')
+    if (itm.hasClass('txst-form-file')) types.push('file')
+    if (itm.hasClass('txst-form-none')) types.push('none') // not sure I need this
+    if (itm.hasClass('limited')) {
+      types.push('maxlength')
+    }
+    if (!types.length) return
+    var vld = new txstValidate(types, ipt, itm)
     var myform = itm.closest('form')
     if (myform.data('txstValidate') == null)
       myform.data('txstValidate', [])
     myform.data('txstValidate').push(vld);
     if (ipt.val()) vld.registerChange(true);
-    if (type == 'date') {
+    if (types.indexOf('date') > -1) {
       var subtitle;
       var fmt = 'MMM&#160;D,&#160;YYYY';
       if (vld.fromDate && vld.toDate) {
@@ -362,10 +377,6 @@ jQuery(document).ready(function($) {
       if (subtitle) {
         $("<span class='txst-form-text-subtitle'>Please enter a date " + subtitle + ".</span>").insertBefore(ipt)
       }
-    }
-    if (itm.hasClass('limited')) {
-      var vldLength = new txstValidate('maxlength', ipt, itm)
-      myform.data('txstValidate').push(vldLength);
     }
   });
 
