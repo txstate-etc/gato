@@ -6,7 +6,7 @@
   </div>
 
 [#else]
-  [#assign offset = (ctx.headerlevel!2)-2]
+  [#assign offset = 0]
   [#if !(content.hideFeedInformation!false)]
     <div class="gato-rss-feedinformation">
       [#if model.feed.thumbnail?has_content]
