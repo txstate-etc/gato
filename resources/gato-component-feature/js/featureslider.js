@@ -260,14 +260,14 @@ jQuery(document).ready(function($) {
       slider.schedule();
   }
 
-  window.GatoFeatureSlider.prototype.schedule = function () {
+  window.GatoFeatureSlider.prototype.schedule = function (overrideDelay = undefined) {
     var slider = this;
     var mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
     if (!mediaQuery || mediaQuery.matches) {
       return
     }
     if (slider.slides.length > 1 && slider.rotationtime > 0 && !window.isEditMode) {
-      var delay = slider.rotationtime;
+      var delay = overrideDelay || slider.rotationtime;
       if (slider.rotationminimum) delay = Math.floor(Math.random() * (slider.rotationtime - slider.rotationminimum) + slider.rotationminimum);
       clearTimeout(slider.rotationtimer);
       slider.rotationtimer = setTimeout(function () {
@@ -449,9 +449,7 @@ jQuery(document).ready(function($) {
       },
       callback: function() {
         if (slider.rotationtime > 0) {
-          setTimeout(function() {
-            slider.schedule()
-          }, slider.rotationtime*0.1)
+          slider.schedule(slider.rotationtime * 0.2)
         }
       }
     })
