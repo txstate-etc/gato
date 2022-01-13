@@ -1,9 +1,9 @@
 var GATO_MOVINGIMAGE_TIMINGS = { 'none':20000, 'slow':20000, 'medium':20000, 'fast':20000}
+var GATO_SLIDER_TIMINGS = { 'slow': 10, 'medium': 7.5, 'fast': 5 }
 
 jQuery(document).ready(function($) {
 
-  var NONE = 0, SLOW = 10, MEDIUM = 7.5, FAST = 5;
-
+  var NONE = 0
   $('.gato-slideshow').each(function() {
     var $slideshow = $(this)
     var speed = $(this).attr('data-feature-timer')
@@ -13,21 +13,21 @@ jQuery(document).ready(function($) {
         speed = NONE;
         break;
       case 'slow':
-        speed = SLOW;
+        speed = GATO_SLIDER_TIMINGS.slow;
         break;
       case 'medium':
-        speed = MEDIUM;
+        speed = GATO_SLIDER_TIMINGS.medium;
         break;
       case 'fast':
-        speed = FAST;
+        speed = GATO_SLIDER_TIMINGS.fast;
         break;
       default:
         speed = parseInt(speed, 10);
         if (isNaN(speed)) {
           speed = 0;
         } else {
-          if (speed > SLOW) {
-            speed = SLOW;
+          if (speed > GATO_SLIDER_TIMINGS.slow) {
+            speed = GATO_SLIDER_TIMINGS.slow;
           }
         }
         break;
