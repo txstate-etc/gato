@@ -1,0 +1,3 @@
+.v-slot-gato-custom-field, .v-slot-gato-custom-field + .v-slot {
+  width: auto !important;
+}

@@ -4,6 +4,7 @@ import com.vaadin.v7.data.Item;
 import com.vaadin.v7.data.util.PropertysetItem;
 import com.vaadin.ui.Component;
 import com.vaadin.v7.ui.Field;
+import com.vaadin.annotations.StyleSheet;
 
 import info.magnolia.objectfactory.ComponentProvider;
 import info.magnolia.ui.api.i18n.I18NAuthoringSupport;
@@ -16,8 +17,9 @@ import javax.jcr.Node;
 
 /**
  * Custom Vaadin field for loading a javascript file that creates the UI for a field.
- * @see GatoJsIncludeDefinition for configuration options. 
+ * @see GatoJsIncludeDefinition for configuration options.
  */
+@StyleSheet("vaadin://css/gatocustomfield.css")
 public class GatoJsInclude extends CompositeField {
 
     public GatoJsInclude(GatoJsIncludeDefinition definition, FieldFactoryFactory fieldFactoryFactory, ComponentProvider componentProvider, Item relatedFieldItem, I18NAuthoringSupport i18nAuthoringSupport) {
@@ -39,6 +41,7 @@ public class GatoJsInclude extends CompositeField {
             field.setWidth(100, Unit.PERCENTAGE);
 
             if (fieldDefinition.getStyleName() == null) {
+                field.addStyleName("gato-custom-field");
                 field.addStyleName(fieldDefinition.getName());
             }
 
