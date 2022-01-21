@@ -20,7 +20,7 @@
             <div id="select-audience" tabindex="0" class="ac-dropdown multiple" aria-labelledby="lbl-audience" role="button" aria-haspopup="listbox" aria-expanded="false" aria-owns="audience-menu" aria-describedby="audience-info">
               <div class="input">
                 <div class="text">Select a few...</div>
-                <ul class="selected-items" role="listbox">
+                <ul class="selected-items" role="listbox" aria-label="Selected Audiences">
                 </ul>
                 <div class="actions">
                   <button class="remove-all-filters" tabindex="-1">
@@ -66,8 +66,8 @@
               <span class="currentview">${currentSemester} Semester, ${defaultPartOfTerm}</span>
             </div>
             <button id="btn-toggle-more-filters" class="btn-ac" aria-haspopup="true" aria-expanded="false" aria-owns="more-filters">
-              <i class="fa fa-filter" aria-label="Show More Filters"></i>
-              <span>More filters</span>
+              <i class="fa fa-filter" aria-hidden="true"></i>
+              <span><span class="visuallyhidden">Show</span>More filters</span>
               <i class="arrow fa" aria-hidden="true"></i>
             </button>
             <button id="btn-more-filters-mobile" class="btn-ac" aria-haspopup="dialog">
@@ -92,7 +92,7 @@
             <div id="select-category" class="ac-dropdown multiple" tabindex="0" aria-labelledby="lbl-category" role="button" aria-haspopup="listbox" aria-expanded="false" aria-owns="category-menu" aria-describedby="category-info">
               <div class="input">
                 <div class="text">Select a few...</div>
-                <ul class="selected-items" role="listbox">
+                <ul class="selected-items" role="listbox" aria-label="Selected Categories">
                 </ul>
                 <div class="actions">
                   <button class="remove-all-filters" tabindex="-1">
@@ -118,7 +118,8 @@
               </button>
               <span id="subscribe-tooltip" class="tooltip">Save <strong>all filtered</strong> events to your calendar, including any changes made.</span>
               <div id="subscribe-help" tabindex="0" role="button">
-                <i class="fa fa-question-circle" aria-label="More information about subscribing"></i>
+                <i class="fa fa-question-circle" aria-hidden="true"></i>
+                <span class="visuallyhidden">More information about subscribing</span>
               </div>
             </div>
             <div id="select-download-print" class="ac-dropdown" tabindex="0" aria-label="Download and Print menu" role="button" aria-haspopup="listbox" aria-expanded="false" aria-owns="download-print-menu">
