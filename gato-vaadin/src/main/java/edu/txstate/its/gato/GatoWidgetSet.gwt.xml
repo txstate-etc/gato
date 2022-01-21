@@ -26,7 +26,6 @@
 
     <entry-point class="edu.txstate.its.gato.vaadin.client.GatoWidgetSet" />
 
-    
 
 
 
@@ -36,11 +35,12 @@
 
 
 
-    
 
-    
 
-    
+
+
+
+
 
     <inherits name="info.magnolia.ui.vaadin.gwt.CommonWidgetSet" />
 
@@ -53,4 +53,8 @@
     <inherits name="com.vaadin.v7.Vaadin7WidgetSet" />
 
     <inherits name="org.vaadin.easyuploads.Widgetset" />
+
+    
+
+    <inherits name="org.vaadin.aceeditor.AceEditorWidgetSet" />
 </module>

@@ -4,7 +4,7 @@
   <parent>
     <groupId>edu.txstate.its.gato</groupId>
     <artifactId>gato-base</artifactId>
-    <version>1.3.4</version>
+    <version>1.4.0</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
   <groupId>edu.txstate.its.gato</groupId>
