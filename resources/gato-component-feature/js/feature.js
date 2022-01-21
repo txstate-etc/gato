@@ -1,4 +1,4 @@
-var GATO_MOVINGIMAGE_TIMINGS = { 'none':20000, 'slow':20000, 'medium':20000, 'fast':20000}
+var GATO_MOVINGIMAGE_TIMINGS = { 'none':20000, 'slow':20000, 'medium':15000, 'fast':10000}
 var GATO_SLIDER_TIMINGS = { 'slow': 10, 'medium': 7.5, 'fast': 5 }
 
 jQuery(document).ready(function($) {
