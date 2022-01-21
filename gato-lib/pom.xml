@@ -88,7 +88,7 @@
     <dependency>
       <artifactId>resteasy-client</artifactId>
       <groupId>org.jboss.resteasy</groupId>
-      <version>3.15.2.Final</version>
+      <version>4.5.7.Final</version>
       <exclusions>
         <exclusion>
           <groupId>commons-logging</groupId>
