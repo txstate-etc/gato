@@ -304,6 +304,10 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
       .addTask(new AddCurrencyToSitemapsTask())
       .addTasks(installOrUpdateTasks())
     );
+
+    register(DeltaBuilder.update("1.4.0", "")
+      .addTasks(installOrUpdateTasks())
+    );
   }
 
   protected List<Task> installOrUpdateTasks() {
