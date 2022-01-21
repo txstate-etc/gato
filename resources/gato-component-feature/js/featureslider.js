@@ -1,7 +1,4 @@
-var GATO_MOVINGIMAGE_TIMINGS = { 'none':20000, 'slow':20000, 'medium':20000, 'fast':20000}
-
 jQuery(document).ready(function($) {
-(function ($) {
   var $window = $(window);
   window.GatoFeatureSlider = function (opts) {
     var slider = this;
@@ -461,6 +458,4 @@ jQuery(document).ready(function($) {
       slider.updateMovingImageState(activeSlide)
     }
   }
-})(jQuery);
-
 })
