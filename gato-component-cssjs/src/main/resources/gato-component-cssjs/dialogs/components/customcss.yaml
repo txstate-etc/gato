@@ -3,8 +3,8 @@ form:
     - name: tabGeneral
       label: Custom CSS
       fields:
-        - !include /gato-component-cssjs/dialogs/includes/inherit.yaml
-        - !include /gato-component-cssjs/dialogs/includes/description.yaml
+        - !include /gato-component-cssjs/dialogincludes/inherit.yaml
+        - !include /gato-component-cssjs/dialogincludes/description.yaml
         - name: customCSS
           class: info.magnolia.ui.form.field.definition.CodeFieldDefinition
           label: Styles

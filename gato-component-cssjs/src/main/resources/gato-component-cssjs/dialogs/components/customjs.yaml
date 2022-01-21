@@ -20,8 +20,8 @@ form:
             - name: jquery
               label: jQuery
               value: jquery
-        - !include /gato-component-cssjs/dialogs/includes/inherit.yaml
-        - !include /gato-component-cssjs/dialogs/includes/description.yaml
+        - !include /gato-component-cssjs/dialogincludes/inherit.yaml
+        - !include /gato-component-cssjs/dialogincludes/description.yaml
         - name: customJS
           class: info.magnolia.ui.form.field.definition.CodeFieldDefinition
           label: Javascript Code
