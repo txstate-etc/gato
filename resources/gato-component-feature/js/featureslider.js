@@ -169,6 +169,10 @@ jQuery(document).ready(function($) {
       slider.slides.eq(this.current).find('img').on('load', function(){
         slider.updateMovingImageState(slider.slides.eq(slider.current))
         slider.startMovingImage(slider.slides.eq(slider.current))
+      }).each(function(){
+        if(this.complete) {
+          $(this).trigger('load');
+        }
       })
     }
     slider.schedule();
