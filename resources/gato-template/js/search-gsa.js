@@ -37,7 +37,7 @@ Search.prototype.doSearch = function(query) {
   var dfd = $.Deferred();
   $.get(self.opts.url, params).then(function (data) {
     var result = {};
-    result.total = Math.min(100, parseInt(data.queries.request[0].totalResults, 10));
+    result.total = data.queries.request[0].totalResults ? Math.min(100, parseInt(data.queries.request[0].totalResults, 10)) : 0;
     result.start = params.start;
     result.end = (params.start + params.num - 1) > result.total ? result.total : (params.start + params.num - 1);
     result.type = "web";
@@ -59,7 +59,6 @@ Search.prototype.doSearch = function(query) {
       }
       googleresults.push(itemobj);
     }
-
     if (params.start === 1) {
       self.featured(params.q, true).then(function (featuredresults) {
         var seen = {}
@@ -70,6 +69,7 @@ Search.prototype.doSearch = function(query) {
           if (!seen[googleresults[i].url]) featuredresults.push(googleresults[i]);
         }
         result.results = featuredresults;
+        if (googleresults.length === 0) result.total = featuredresults.length
         dfd.resolve(result)
       }).fail(function (e) {
         result.results = googleresults;

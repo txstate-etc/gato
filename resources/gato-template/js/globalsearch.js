@@ -265,6 +265,7 @@ jQuery(document).ready(function($) {
   }
 
   var html_result_total = function (start, end, total) {
+    end = Math.min(end, total)
     if (end > 0) {
       if (start+1 == end) {
         return '<div class="search-count">Showing result '+(start+1)+' of '+total+'.</div>';
