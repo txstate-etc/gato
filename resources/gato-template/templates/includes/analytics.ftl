@@ -1,41 +1,31 @@
 [#macro googleanalytics]
   [#if cacheEnvironment]
+    [#local globalAccounts = (globalData.analytics.global_account!"")?split(",")]
     [#local content = cmsfn.inherit(content)]
-
-    [#if content.googleanalytics?has_content]
-      [#list content.googleanalytics?split(",") as prop]
-        <script async src="https://www.googletagmanager.com/gtag/js?id=${prop}"></script>
-      [/#list]
-      <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        [#list content.googleanalytics?split(",") as prop]
-          gtag('config', '${prop}');
-          gtag('event', 'page_view', { 'send_to': '${prop}' })
-        [/#list]
-      </script>
+    [#local localAccounts = (content.googleanalytics!"")?split(",")]
+    [#if globalAccounts?has_content]
+      [#local primaryAccount = globalAccounts[0]]
+    [#elseif localAccounts?has_content]
+      [#local primaryAccount = localAccounts[0]]
     [/#if]
-
-    [#if (globalData.analytics.global_account)?has_content && !(content.googleanalyticsSkipGlobal!false)]
-      [#if isHomePage]
-          [#local gapath = '${thisPagePath}/']
-      [#else]
-        [#local gapath = '${thisPagePath}.html']
-      [/#if]
-      [#list globalData.analytics.global_account?split(",") as prop]
-        <script async src="https://www.googletagmanager.com/gtag/js?id=${prop}"></script>
-      [/#list]
+    [#if primaryAccount?has_content]
+      <!-- Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=${primaryAccount}"></script>
       <script>
+        window.sendAnalyticsEvents = true;
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag(){window.dataLayer.push(arguments);}
         gtag('js', new Date());
-        [#list globalData.analytics.global_account?split(",") as prop]
+        [#if !(content.googleanalyticsSkipGlobal!false)]
+          [#list globalAccounts as prop]
+            gtag('config', '${prop}');
+          [/#list]
+        [/#if]
+        [#list localAccounts as prop]
           gtag('config', '${prop}');
-          gtag('event', 'page_view', { 'send_to': '${prop}' })
         [/#list]
-
       </script>
+      <!-- End Google Analytics -->
     [/#if]
   [/#if]
 [/#macro]
