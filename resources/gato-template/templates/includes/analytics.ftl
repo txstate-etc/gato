@@ -3,9 +3,9 @@
     [#local globalAccounts = (globalData.analytics.global_account!"")?split(",")]
     [#local content = cmsfn.inherit(content)]
     [#local localAccounts = (content.googleanalytics!"")?split(",")]
-    [#if globalAccounts?has_content]
+    [#if globalAccounts[0]?has_content]
       [#local primaryAccount = globalAccounts[0]]
-    [#elseif localAccounts?has_content]
+    [#elseif localAccounts[0]?has_content]
       [#local primaryAccount = localAccounts[0]]
     [/#if]
     [#if primaryAccount?has_content]
@@ -18,11 +18,11 @@
         gtag('js', new Date());
         [#if !(content.googleanalyticsSkipGlobal!false)]
           [#list globalAccounts as prop]
-            gtag('config', '${prop}');
+            [#if prop?has_content]gtag('config', '${prop}');[/#if]
           [/#list]
         [/#if]
         [#list localAccounts as prop]
-          gtag('config', '${prop}');
+          [#if prop?has_content]gtag('config', '${prop}');[/#if]
         [/#list]
       </script>
       <!-- End Google Analytics -->
