@@ -168,13 +168,6 @@ function html_encode( html ) {
         document.createTextNode( html ) ).parentNode.innerHTML.replace(/'/g, '&apos;').replace(/"/g, '&quot;');
 };
 
-// Add an abort method to Prototype's Ajax implementation
-Ajax.Request.prototype.abort = function() {
-	this.transport.onreadystatechange = Prototype.emptyFunction;
-	this.transport.abort();
-	if (Ajax.activeRequestCount > 0) Ajax.activeRequestCount--;
-}
-
 function cssDim(dim) {
 	if (dim == "thin") return 1;
 	if (dim == "medium") return 3;
@@ -184,31 +177,6 @@ function cssDim(dim) {
 	return Math.round(fl);
 }
 
-// getHeight() and getWidth() are provided by prototype but sometimes are too limited
-// let's add some methods that automatically subtract the width of the borders and padding
-// getInnerXXXX functions will subtract border width,
-// getContentXXXX functions will subtract border width AND padding
-// redraw function forces an element to be redrawn, useful for IE when it's being stubborn
-Element.addMethods({ getInnerDimensions: function(element) {
-	return {
-		width: element.getWidth()-cssDim(element.getStyle('border-left-width'))-cssDim(element.getStyle('border-right-width')),
-		height: element.getHeight()-cssDim(element.getStyle('border-top-width'))-cssDim(element.getStyle('border-bottom-width'))
-	};
-}, getInnerHeight: function(element) {
-	return element.getInnerDimensions().height;
-}, getInnerWidth: function (element) {
-	return element.getInnerDimensions().width;
-}, getContentDimensions: function(element) {
-	var inner = element.getInnerDimensions();
-	return {
-		width: inner.width-cssDim(element.getStyle('padding-left'))-cssDim(element.getStyle('padding-right')),
-		height: inner.height-cssDim(element.getStyle('padding-top'))-cssDim(element.getStyle('padding-bottom'))
-	};
-}, getContentHeight: function (element) {
-	return element.getContentDimensions().height;
-}, getContentWidth: function (element) {
-	return element.getContentDimensions().width;
-}});
 function getDocHeight() {
 	var ch = oh = ih = sh = 0;
 	if (document.body.clientHeight) ch = document.body.clientHeight;
@@ -242,22 +210,6 @@ function ie_redraw() {
 	}
 }
 
-// clear search fields of their default when clicked
-document.observe('dom:loaded', function () {
-	$$('.txst-banner-search input, input.search-default, .search-box-content input.query').each(function(fld) {
-		fld.observe('focus', function (event) {
-			if (this.value == this.defaultValue) this.value = '';
-			this.addClassName('focused');
-		});
-		fld.observe('blur', function (event) {
-			if (this.value == '') {
-				this.value = this.defaultValue;
-				this.removeClassName('focused');
-			}
-		});
-	});
-});
-
 // let's set a variable on dom:loaded so we know that setting a dom:loaded observer will
 // no longer work
 var gato_dom_loaded = false;
@@ -272,38 +224,6 @@ function ensureReady(closure) {
   }
 }
 
-// Shrinks the font-size of the given element until
-// it fits inside its parent.
-var fitText = function(item) {
-	item = $(item);
-	item.origFontSize = parseFloat(item.getStyle('fontSize'));
-
-	var doFit = function() {
-		var boxLayout = new Element.Layout(item.up(), true);
-		var boxHeight = boxLayout.get('height');
-		var boxWidth = boxLayout.get('width');
-
-		while (true) {
-			var layout = new Element.Layout(item);
-			var height = layout.get('margin-box-height');
-			var width = layout.get('margin-box-width');
-			if (height >= boxHeight || width >= boxWidth) {
-				var fontSize = parseFloat(item.getStyle('fontSize')) - 1;
-				if (fontSize >= 8) {
-					item.setStyle({ fontSize: fontSize + 'px' });
-					continue;
-				}
-			}
-			break;
-		}
-	};
-
-	doFit();
-	Event.observe(window, 'resize', function (e) {
-		item.setStyle({ fontSize: item.origFontSize + 'px' });
-		doFit();
-	});
-};
 
 // hooking an observer to window.resize can be dangerous for performance
 // depending on browser your function could be called for every pixel between
