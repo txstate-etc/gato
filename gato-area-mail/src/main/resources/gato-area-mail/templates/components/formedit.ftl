@@ -95,6 +95,11 @@ for Texas State email addresses for the validation--]
     [#default]
       [#assign validating = false]
   [/#switch]
+  [#if (content.dataType!"") == "regex"]
+    [#assign regex = (content.regexregex!"")?replace("\\", "\\\\")]
+    [#assign regex = regex?replace("'", "\\\'")]
+    [#assign message = (content.regexerror!"")?replace("'", "\\\'")]
+  [/#if]
   <input type="${inputType}"
          id="${title}"
          name="${title}"
@@ -104,24 +109,9 @@ for Texas State email addresses for the validation--]
          [#if content.mandatory!false]aria-required="true"[/#if]
          aria-invalid="false"
          data-aria-describedby="${title}-error"
-         [#if content.helptext??]data-help="${title}-help" aria-describedby="${title}-help"[/#if]/>
-
-  [#if (content.dataType!"") == "date"]
-    <script type="text/javascript">
-      $('${title}').valid_fromDate = '${content.datefrom!""}';
-      $('${title}').valid_toDate = '${content.dateto!""}';
-    </script>
-  [/#if]
-
-  [#if (content.dataType!"") == "regex"]
-    [#assign regex = (content.regexregex!"")?replace("\\", "\\\\")]
-    [#assign regex = regex?replace("'", "\\\'")]
-    [#assign message = (content.regexerror!"")?replace("'", "\\\'")]
-    <script type="text/javascript">
-      $('${title}').valid_regex = '${regex}';
-      $('${title}').valid_msg = '${message}';
-    </script>
-  [/#if]
+         [#if content.helptext??]data-help="${title}-help" aria-describedby="${title}-help"[/#if]
+         [#if (content.dataType!"") == "date"] data-valid_fromdate='${content.datefrom!""}' data-valid_todate='${content.dateto!""}'[/#if]
+         [#if (content.dataType!"") == "regex"] data-valid_regex='${regex}' data-valid_msg='${message}'[/#if]/>
 [/#if]
 [#if validating]
   <div class="valid-icon-cont">

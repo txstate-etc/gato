@@ -4,8 +4,8 @@ function txstValidate(types, elem, icon) {
   this.errorType = ''
   this.elem = elem;
   this.icon = icon;
-  this.fromDate = this.parse(elem.prop('valid_fromDate'));
-  this.toDate = this.parse(elem.prop('valid_toDate'));
+  this.fromDate = this.parse(elem.data('valid_fromdate'));
+  this.toDate = this.parse(elem.data('valid_todate'));
   this.isSpinning = false;
 
   var spinnerOptions = {
@@ -104,14 +104,14 @@ txstValidate.prototype.evaluate = function() {
           break
         }
     if (type == 'regex') {
-      var re = new RegExp(this.elem.prop('valid_regex'), 'i');
-      if(!val.strip().match(re)) {
+      var re = new RegExp(this.elem.data('valid_regex'), 'i');
+      if(!val.trim().match(re)) {
         this.errorType = type
         break
       }
     }
-    if (type == 'file' && this.elem.prop('allowableFileExts').length && this.elem.prop('allowableFileExts').join().length > 0) {
-      var re = new RegExp('\\.(' + this.elem.prop('allowableFileExts').join('|') + ')$', 'i');
+    if (type == 'file' && this.elem.data('allowable_file_exts').length && this.elem.data('allowable_file_exts').replace(',', '').length > 0) {
+      var re = new RegExp('\\.(' + this.elem.data('allowable_file_exts').replace(',', '|') + ')$', 'i');
       if (!val.match(re)) {
         this.errorType = type
         break
@@ -146,10 +146,10 @@ txstValidate.prototype.getErrorMsg = function() {
   if (type == 'anumber') return 'must be a valid Student ID';
   if (type == 'maxlength') return 'must be ' + this.elem.data('maxchars') + ' characters or less';
   if (type == 'regex') {
-    if (this.elem.prop('valid_msg')) return this.elem.prop('valid_msg');
+    if (this.elem.data('valid_msg')) return this.elem.data('valid_msg');
     else return 'does not appear to be valid';
   }
-  if (type == 'file') return 'allowable extensions: ' + this.elem.prop('allowableFileExts').join(', ');
+  if (type == 'file') return 'allowable extensions: ' + this.elem.data('allowable_file_exts')
   return '';
 };
 
@@ -179,9 +179,7 @@ txstValidate.prototype.showProgress = function() {
   if (valTextHeight > 18) {
     var offset = (valTextHeight - 18) / 2;
     offset += 8;
-    this.spinner.el.setStyle({
-      marginTop: offset + 'px'
-    });
+    this.icon.closest('.valid-icon-cont .txst-form-spinner').css('margin-top', offset + 'px')
   }
 };
 
@@ -238,7 +236,7 @@ txstValidate.prototype.clean = function() {
     var phone = ipt.val().replace(/\D/g, '');
     ipt.val(phone.substr(0, 3) + '-' + phone.substr(3, 3) + '-' + phone.substr(6, 4))
   }
-  if (type != 'file') ipt.val(ipt.val().strip());
+  if (type != 'file') ipt.val(ipt.val().trim());
 };
 
 txstValidate.prototype.focus = function() {
