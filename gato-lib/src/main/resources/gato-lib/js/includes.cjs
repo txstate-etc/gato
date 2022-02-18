@@ -1,6 +1,5 @@
 /gato-lib/js/jquery-noconflict.js
 /gato-lib/js/keycodes.js
-/gato-lib/js/prototype.js
 /gato-lib/js/velocity.js
 /gato-lib/js/elementqueries.js
 /gato-lib/js/gato-lib.js

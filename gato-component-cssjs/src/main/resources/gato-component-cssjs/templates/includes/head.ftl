@@ -16,9 +16,14 @@
 			[#local code][@enclose includes=gatojs.getIncludes(entry.includes) code=code depth=0 /][/#local]
 			[#if (entry.inherit!false) || !isAncestor]
 				[#if entry.framework == "prototype"]
-					$(document).observe('dom:loaded', function () {
+				jQuery.ajax({
+					url: '${gf.resourcePath()}/gato-lib/js/prototype.js',
+					dataType: 'script',
+					success: function () {
 						${code}
-					});
+					},
+					cache: true
+				})
 				[#elseif entry.framework == "jquery"]
 					jQuery(document).ready(function ($) {
 						${code}
