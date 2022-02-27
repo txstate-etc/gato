@@ -1,5 +1,8 @@
 package edu.txstate.its.gato;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+
 import info.magnolia.cms.security.JCRSessionOp;
 import info.magnolia.context.MgnlContext;
 import info.magnolia.context.SystemContext;
@@ -17,10 +20,15 @@ import io.bit3.jsass.Options;
 import io.bit3.jsass.Output;
 import io.bit3.jsass.OutputStyle;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.io.IOException;
 import java.io.Reader;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.Map;
 import java.util.TreeMap;
@@ -44,12 +52,16 @@ public class GatoResourcesServlet extends ResourcesServlet {
   protected final Compiler compiler;
   protected final Options options;
   protected final Map<String, String> cache;
+  protected final GatoUtils gf;
+  protected final ResourceLinker mylinker;
 
   @Inject
-  public GatoResourcesServlet(final SystemContext syscontext, ResourceOrigin origin, ResourceLinker linker) {
+  public GatoResourcesServlet(final SystemContext syscontext, ResourceOrigin origin, ResourceLinker linker, GatoUtils gf) {
     super(linker);
     this.origin = origin;
     this.sc = syscontext;
+    this.mylinker = linker;
+    this.gf = gf;
     this.compiler = new Compiler();
     this.options = new Options();
     this.options.getImporters().add(new GatoSassImporter(this.origin));
@@ -106,24 +118,57 @@ public class GatoResourcesServlet extends ResourcesServlet {
     return ret;
   }
 
-  protected synchronized String compileCjs(Resource resource) throws IOException {
-    String path = resource.getPath();
-    if (this.cache.containsKey(path)) return this.cache.get(path);
-
-    StringBuilder ret = new StringBuilder(100000);
+  protected JsonArray collectFileContent(Resource resource, JsonArray ret) throws IOException {
     String cjs = GatoResourcesServlet.readResource(resource);
     String[] files = cjs.split("\\n");
     for (String file : files) {
       Resource r = this.origin.getByPath(file);
-      if (file.endsWith(".cjs")) ret.append(compileCjs(r));
+      if (file.endsWith(".cjs")) collectFileContent(r, ret);
       else {
-        ret.append("/*** "+file+" ***/\n");
-        ret.append(GatoResourcesServlet.readResource(r));
+        JsonObject fileObj = new JsonObject();
+        fileObj.addProperty("name", "/.resources" + file);
+        fileObj.addProperty("content", GatoResourcesServlet.readResource(r));
+        ret.add(fileObj);
       }
     }
-    String finalret = ret.toString();
-    this.cache.put(path, finalret);
-    return finalret;
+    return ret;
+  }
+
+  protected synchronized String compileCjs(Resource resource) throws IOException {
+    String path = resource.getPath();
+    if (this.cache.containsKey(path)) return this.cache.get(path);
+
+    JsonObject body = new JsonObject();
+    body.add("files", collectFileContent(resource, new JsonArray()));
+    byte[] postBody = gf.toJSON(body).getBytes("UTF-8");
+    StringBuffer jsonString = new StringBuffer();
+    HttpURLConnection http = (HttpURLConnection) new URL("http://uglifyjs:3000").openConnection();
+    try {
+      http.setRequestMethod("POST");
+      http.setDoOutput(true);
+      http.setFixedLengthStreamingMode(postBody.length);
+      http.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+      http.connect();
+      try(OutputStream os = http.getOutputStream()) {
+          os.write(postBody);
+      }
+      BufferedReader in = new BufferedReader(new InputStreamReader(http.getInputStream()));
+      String inputLine;
+      while ((inputLine = in.readLine()) != null) {
+          jsonString.append(inputLine);
+      }
+      in.close();
+    } finally {
+      try {
+        http.disconnect();
+      } catch (Exception e) {}
+    }
+    JsonObject json = gf.parseJSON(jsonString.toString());
+    String code = gf.jsonGetString(json, "code");
+    String map = gf.jsonGetString(json, "map");
+    this.cache.put(path, code);
+    this.cache.put(path + ".map", map);
+    return code;
   }
 
   @Override
@@ -143,7 +188,19 @@ public class GatoResourcesServlet extends ResourcesServlet {
     if (path.endsWith(".compiled.css")) {
       String newpath = path.replaceFirst("\\.compiled\\.css$", ".scss");
       request.setAttribute("javax.servlet.forward.path_info", newpath);
+    } else if (path.endsWith(".cjs")) {
+      System.out.println(path);
+      response.addHeader("SourceMap", "/.resources" + path + ".map");
+    } else if (path.endsWith(".cjs.map")) {
+      System.out.println(path.replaceAll("\\.map$", ""));
+      final Resource resource = mylinker.getResource(path.replaceAll("\\.map$", ""));
+      final String jsout = this.cache.get(resource.getPath() + ".map");
+      response.setContentType("application/json");
+      IOUtils.write(jsout, response.getOutputStream(), StandardCharsets.UTF_8);
+      response.getOutputStream().flush();
+      return;
     }
+
     super.doGet(request, response);
   }
 
