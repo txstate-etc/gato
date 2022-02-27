@@ -9,7 +9,6 @@
 /gato-lib/js/photoswipe/photoswipe-ui-default.js
 /gato-lib/js/photoswipe-util.js
 /gato-lib/js/spin.min.js
-/gato-lib/js/fullcalendar/fullcalendar.min.js
 /gato-component-hours/js/hours.js
 /gato-component-gallery/js/gallery.js
 /gato-component-feature/js/featureslider.js
