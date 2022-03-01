@@ -284,28 +284,28 @@ jQuery(document).ready(function($) {
   var subscribe = function() {
     // filter order is Audience, Applicable Term, Part of Term, Filter Category
     if ($('#calendarSubscribeUrl').length > 0) {
-      var url = $('#calendarSubscribeUrl').data('url') + 'subscribe?'
-      var queryString = 'filter1=_'
+      var url = $('#calendarSubscribeUrl').data('url') + 'subscribe?filter='
+      var qsParts = []
+      var queryString = '?'
       if (filterState.audience.length > 0) {
-        for (var i = 0; i < filterState.audience.length; i++) {
-          queryString += filterState.audience[i] + '_'
-        }
+        var qsAudience = filterState.audience.map(function(a) {
+          return a.replace('_', '._')
+        }).join('_')
+        qsParts.push('filter1=_' + qsAudience + '_&filterfield1=Audience')
       }
-      queryString += '&filter2=_'
       if (filterState.semester) {
-        queryString += filterState.semester + '_'
+        qsParts.push('filter2=_' + filterState.semester.replace('_', '._') + '_&filterfield2=Applicable Term')
       }
-      queryString += '&filter3=_'
       if (filterState.partofterm) {
-        queryString += filterState.partofterm + '_'
+        qsParts.push('filter3=_' + filterState.partofterm.replace('_', '._') + '_&filterfield3=Part of Term')
       }
-      queryString += '&filter4=_'
       if (filterState.category.length > 0) {
-        for (var j = 0; j < filterState.category.length; j++) {
-          queryString += filterState.category[j] + '_'
-        }
+        var qsCategory = filterState.category.map(function(c) {
+          return c.replace('_', '._')
+        }).join('_')
+        qsParts.push('filter4=_' + qsCategory + '_@filterfield4=Filter Category')
       }
-      queryString += '&filterfield1=Audience&filterfield2=Applicable Term&filterfield3=Part of Term&filterfield4=Filter Category'
+      queryString += qsParts.join('&')
       url += encodeURIComponent(queryString)
       window.open(url, 'subscribe', "width=750,height=800")
     }
