@@ -25,6 +25,9 @@
         }
         span {
           left: 0;
+          &.visuallyhidden {
+            color: $black !important;
+          }
         }
       }
     }
