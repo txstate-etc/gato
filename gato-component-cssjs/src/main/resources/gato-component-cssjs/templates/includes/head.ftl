@@ -16,14 +16,9 @@
 			[#local code][@enclose includes=gatojs.getIncludes(entry.includes) code=code depth=0 /][/#local]
 			[#if (entry.inherit!false) || !isAncestor]
 				[#if entry.framework == "prototype"]
-				jQuery.ajax({
-					url: '${gf.resourcePath()}/gato-lib/js/prototype.js',
-					dataType: 'script',
-					success: function () {
+					$(document).observe('dom:loaded', function () {
 						${code}
-					},
-					cache: true
-				})
+					});
 				[#elseif entry.framework == "jquery"]
 					jQuery(document).ready(function ($) {
 						${code}
@@ -39,6 +34,20 @@
 [#macro customJS page ancestorstopdown]
   [@inheritLoop page ancestorstopdown ; curr, isAncestor]
     [@pageCustomJS page=curr isAncestor=isAncestor /]
+  [/@inheritLoop]
+[/#macro]
+
+[#macro includePrototype page ancestorstopdown]
+	[#local found = 0]
+  [@inheritLoop page ancestorstopdown ; curr, isAncestor]
+    [#if curr.customjs?has_content]
+			[#list cmsfn.children(curr.customjs, 'mgnl:component') as entry]
+				[#if entry.framework == "prototype" && found == 0]
+					<script src="${gf.resourcePath()}/gato-lib/js/prototype.js"></script>
+					[#local found = 1]
+				[/#if]
+			[/#list]
+		[/#if]
   [/@inheritLoop]
 [/#macro]
 

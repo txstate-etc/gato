@@ -20,6 +20,7 @@
 [#macro templatehead publisher="Texas State University"]
   [@meta publisher /]
   [@customCSS page ancestorstopdown /]
+  [@includePrototype page ancestorstopdown /]
   <script type="text/javascript" src="${gf.replaceExtension(cmsfn.link(page), 'js')}"></script>
   [@rssautodiscover /]
   [@title publisher /]
