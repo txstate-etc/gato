@@ -189,10 +189,8 @@ public class GatoResourcesServlet extends ResourcesServlet {
       String newpath = path.replaceFirst("\\.compiled\\.css$", ".scss");
       request.setAttribute("javax.servlet.forward.path_info", newpath);
     } else if (path.endsWith(".cjs")) {
-      System.out.println(path);
       response.addHeader("SourceMap", "/.resources" + path + ".map");
     } else if (path.endsWith(".cjs.map")) {
-      System.out.println(path.replaceAll("\\.map$", ""));
       final Resource resource = mylinker.getResource(path.replaceAll("\\.map$", ""));
       final String jsout = this.cache.get(resource.getPath() + ".map");
       response.setContentType("application/json");
