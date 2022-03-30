@@ -52,7 +52,7 @@
     function handleMobileMenu() {
       if ($('.ac-mobile-menu').length > 0) {
         $('.ac-mobile-menu').remove()
-      } 
+      }
       $('body').append(buildMobileMenu())
       $('.ac-mobile-menu').on('click', function(e) {
         if ($(e.target).hasClass('cancel') || $(e.target).closest('#mobile-menu-content').length === 0) {
@@ -139,12 +139,12 @@
     function selectMultiSelectItem(val) {
       var selectedItems = base.$el.find('.selected-items')
       var html = '<li role="option" tabindex="-1" aria-selected="true" class="selected-listitem" data-text="' + val + '">' +
-                    '<div id="selected-'+ safeString(val) +'" class="selected-item">' + val + 
-                    '<img class="remove-filter" src="' + base.contextPath + '/.resources/gato-template-mobilefirst/images/academic-calendar/academic-calendar-x.svg" aria-hidden="true"/>' +
+                    '<div id="selected-'+ safeString(val) +'" class="selected-item">' + val +
+                    '<img class="remove-filter" src="' + magnolia_assets_url + '/gato-template-mobilefirst/images/academic-calendar/academic-calendar-x.svg" aria-hidden="true"/>' +
                     '<span class="visuallyhidden">, press delete to remove</span>'
-                    '</div>' + 
+                    '</div>' +
                   '</li>'
-      
+
       var newItem = $(html)
       selectedItems.append(newItem)
       $('#selected-' + safeString(val) + ' .remove-filter').on('click', function(e) {
@@ -169,13 +169,13 @@
       $('#' + base.$el.attr('id') + '-' + safeString(val)).addClass('selected')
       base.$el.find('.info').text(updateSelectedCount(selectedItems.find('li').length))
     }
-  
+
     base.init = function() {
       var dropdown = base.$el
       base.settings = $.extend({}, $.acdropdown.defaultOptions, options)
       base.$menu = dropdown.find('.menu')
 
-      
+
       if (base.settings.selected ) {
         base.currentSelected = base.settings.selected
         if (base.settings.showSelected) {
@@ -324,7 +324,7 @@
         base.currentSelected = allSelected.join(';')
         base.settings.onChange(allSelected.join(';'))
       }
-      
+
       base.$el.focus()
     }
 
@@ -345,7 +345,7 @@
       } else {
         selectMultiSelectItem(selection)
       }
-      
+
     }
 
     base.addMenuItem = function(text) {
