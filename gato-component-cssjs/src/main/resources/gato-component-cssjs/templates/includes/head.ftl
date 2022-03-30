@@ -1,11 +1,11 @@
 [#macro enclose includes code depth]
-  [#if depth gte includes?size]
-    ${code}
-  [#else]
-    jQuery.getScript('${includes[depth]}', function () {
-      [@enclose includes=includes code=code depth=depth+1/]
-    });
-  [/#if]
+	[#if depth gte includes?size]
+		${code}
+	[#else]
+		jQuery.getScript('${includes[depth]}', function () {
+			[@enclose includes=includes code=code depth=depth+1/]
+		});
+	[/#if]
 [/#macro]
 
 [#macro pageCustomJS page isAncestor]
@@ -32,15 +32,15 @@
 [/#macro]
 
 [#macro customJS page ancestorstopdown]
-  [@inheritLoop page ancestorstopdown ; curr, isAncestor]
-    [@pageCustomJS page=curr isAncestor=isAncestor /]
-  [/@inheritLoop]
+	[@inheritLoop page ancestorstopdown ; curr, isAncestor]
+		[@pageCustomJS page=curr isAncestor=isAncestor /]
+	[/@inheritLoop]
 [/#macro]
 
 [#macro includePrototype page ancestorstopdown]
 	[#local found = 0]
-  [@inheritLoop page ancestorstopdown ; curr, isAncestor]
-    [#if curr.customjs?has_content]
+	[@inheritLoop page ancestorstopdown ; curr, isAncestor]
+		[#if curr.customjs?has_content]
 			[#list cmsfn.children(curr.customjs, 'mgnl:component') as entry]
 				[#if entry.framework == "prototype" && found == 0]
 					<script src="${gf.resourcePath()}/gato-lib/js/prototype.js"></script>
@@ -48,7 +48,7 @@
 				[/#if]
 			[/#list]
 		[/#if]
-  [/@inheritLoop]
+	[/@inheritLoop]
 [/#macro]
 
 [#macro pageCustomCSS page isAncestor]
@@ -62,22 +62,22 @@
 [/#macro]
 
 [#macro customCSS page ancestorstopdown]
-  <style type="text/css">
-  [#compress]
+	<style type="text/css">
+	[#compress]
 		[@inheritLoop page ancestorstopdown ; curr, isAncestor]
 			[@pageCustomCSS page=curr isAncestor=isAncestor /]
 		[/@inheritLoop]
-  [/#compress]
-  </style>
+	[/#compress]
+	</style>
 [/#macro]
 
 [#macro cssjsmodals]
 	[#if cmsfn.isEditMode()]
-    <div id="gato-customjs-modal" class="gato-custom-column">
-      [@cms.area name="customjs" /]
+		<div id="gato-customjs-modal" class="gato-custom-column">
+			[@cms.area name="customjs" /]
 		</div>
-    <div id="gato-customcss-modal" class="gato-custom-column">
-      [@cms.area name="customcss" /]
+		<div id="gato-customcss-modal" class="gato-custom-column">
+			[@cms.area name="customcss" /]
 		</div>
 	[/#if]
 [/#macro]
