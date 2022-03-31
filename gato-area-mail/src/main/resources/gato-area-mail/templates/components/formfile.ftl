@@ -19,7 +19,7 @@
     [#list content.extension as extension]
       [#assign exts = exts + gf.getEquivalentExtensions(extension)]
     [/#list]
-    [#assign extensions = exts?join("','")]
+    [#assign extensions = exts?join(",")]
   [/#if]
   <input type="file"
          id="${title}"

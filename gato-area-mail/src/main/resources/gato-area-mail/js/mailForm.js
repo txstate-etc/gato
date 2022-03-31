@@ -110,8 +110,8 @@ txstValidate.prototype.evaluate = function() {
         break
       }
     }
-    if (type == 'file' && this.elem.data('allowable_file_exts').length && this.elem.data('allowable_file_exts').replace(',', '').length > 0) {
-      var re = new RegExp('\\.(' + this.elem.data('allowable_file_exts').replace(',', '|') + ')$', 'i');
+    if (type == 'file' && this.elem.data('allowable_file_exts').length && this.elem.data('allowable_file_exts').replaceAll(',', '').length > 0) {
+      var re = new RegExp('\\.(' + this.elem.data('allowable_file_exts').replaceAll(',', '|') + ')$', 'i');
       if (!val.match(re)) {
         this.errorType = type
         break
