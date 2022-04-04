@@ -4,8 +4,8 @@ jQuery(document).ready(function($) {
   $('a').on('click', function() {
     if (window.sendAnalyticsEvents) {
       var link = $(this);
-      gtag('event', 'Links', {
-        'event_action': document.title + " <" + window.location + ">",
+      gtag('event', document.title + " <" + window.location + ">", {
+        'event_category': 'Links',
         'event_label': link.text() + " <" + link.attr('href') + ">"
       });
     }
