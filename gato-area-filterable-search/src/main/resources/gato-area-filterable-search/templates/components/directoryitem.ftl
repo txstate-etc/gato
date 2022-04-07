@@ -75,7 +75,7 @@
       [#if ctx.showbiography && content.biography?has_content]
         <div class="listitem-biography">
           <div class="listitem-heading">Biography and Education</div>
-          <div>${gf.truncateText(cmsfn.decode(content).biography, 300, "...")}</div>
+          <div>${gf.tidyHTML(gf.truncateText(cmsfn.decode(content).biography, 300, "..."))}</div>
           [#if content.biography?length > 300]
             <a class="linktofp" href="${gf.filterUrl(content.fplink)}#biography">
               View Full Biography and Education<span class="visuallyhidden"> for ${displayname!}</span>
@@ -86,7 +86,7 @@
       [#if ctx.showteaching && content.teachinginterests?has_content]
         <div class="listitem-teaching">
           <div class="listitem-heading">Teaching Interests</div>
-          <div>${gf.truncateText(cmsfn.decode(content).teachinginterests, 300, "...")}</div>
+          <div>${gf.tidyHTML(gf.truncateText(cmsfn.decode(content).teachinginterests, 300, "..."))}</div>
           [#if content.teachinginterests?length > 300]
             <a class="linktofp" href="${gf.filterUrl(content.fplink)}#teaching">
               View Full Teaching Interests<span class="visuallyhidden"> for ${displayname!}</span>
@@ -97,7 +97,7 @@
       [#if ctx.showresearch && content.researchinterests?has_content]
         <div class="listitem-research">
           <div class="listitem-heading">Research Interests</div>
-          <div>${gf.truncateText(cmsfn.decode(content).researchinterests, 300, "...")}</div>
+          <div>${gf.tidyHTML(gf.truncateText(cmsfn.decode(content).researchinterests, 300, "..."))}</div>
           [#if content.researchinterests?length > 300]
             <a class="linktofp" href="${gf.filterUrl(content.fplink)}#research">
               View Full Research Interests<span class="visuallyhidden"> for ${displayname!}</span>
