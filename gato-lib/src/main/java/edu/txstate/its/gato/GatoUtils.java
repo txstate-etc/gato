@@ -1675,6 +1675,8 @@ public final class GatoUtils {
             aSortBy += PropertyUtil.getString(nodeA, fields[i], "");
             bSortBy += PropertyUtil.getString(nodeB, fields[i], "");
           }
+          aSortBy = aSortBy.toLowerCase().replaceFirst("^the ", "");
+          bSortBy = bSortBy.toLowerCase().replaceFirst("^the ", "");
           return aSortBy.compareToIgnoreCase(bSortBy);
         } catch(Exception e) {
           e.printStackTrace();

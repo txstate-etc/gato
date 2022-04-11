@@ -498,13 +498,13 @@ jQuery(document).ready(function($) {
     var activeAnchors = [];
     var fullList = $('#result-list ul.results');
     var firstItem = $('.filtered-results .listitem').first();
-    var firstItemText = firstItem.find("*[data-alpha='true']").text().trim();
+    var firstItemText = firstItem.find("*[data-alpha='true']").text().trim().replace(/^the /i, '');
     var currentLetter = firstItemText.charAt().toUpperCase();
     activeAnchors.push(currentLetter);
     html.append('<a id="anchor-' + currentLetter + '" class="alpha-header" aria-hidden="true">'+ currentLetter +'</a>');
     var currentAlphaList = $('<ul class="results">').appendTo(html);
     fullList.children('li').each(function(index, item) {
-      var text = $(item).find("*[data-alpha='true']").text().trim().toUpperCase();
+      var text = $(item).find("*[data-alpha='true']").text().trim().toUpperCase().replace(/^THE\s/i, '');
       var firstLetter = text.charAt();
       if (firstLetter != currentLetter) {
         currentLetter = firstLetter;
