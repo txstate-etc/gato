@@ -64,6 +64,8 @@ public class FSDirectoryModel<RD extends RenderableDefinition> extends Rendering
               PropertyUtil.setProperty(n,"firstname",p.getFirstName());
               //last name
               PropertyUtil.setProperty(n,"lastname",p.getLastName());
+              //pronouns
+              PropertyUtil.setProperty(n, "pronouns", p.getPronouns());
               //position
               PropertyUtil.setProperty(n, "position", p.getPosition());
               //email
@@ -139,7 +141,7 @@ public class FSDirectoryModel<RD extends RenderableDefinition> extends Rendering
     try {
       CloseableHttpClient client = HttpClients.createDefault();
       HttpPost httpPost = new HttpPost(gf.getConfigProperty("motion.basepath"));
-      String json = "{\"query\":\"query GetUsersInfo($netids:[StringCI!]) {users(filter:{netids:$netids}){netid name {preferred legalFirst last} officePhone ldapAccount {email title}}}\",\"variables\":{\"netids\":[%s]}}";
+      String json = "{\"query\":\"query GetUsersInfo($netids:[StringCI!]) {users(filter:{netids:$netids}){netid name { pronouns preferred legalFirst last} officePhone ldapAccount {email title}}}\",\"variables\":{\"netids\":[%s]}}";
       String query = String.format(json, String.join(",", quotednetids));
       httpPost.setEntity(new StringEntity(query, "UTF-8"));
       httpPost.setHeader("content-type", "application/json");

@@ -28,6 +28,13 @@ public class FSPerson {
     JsonObject nameObj = user.getAsJsonObject("name");
     return nameObj.getAsJsonPrimitive("last").getAsString();
   }
+  public String getPronouns() {
+    if (!user.has("name") || (user.get("name") instanceof JsonNull)) return "";
+    JsonObject nameObj = user.getAsJsonObject("name");
+    if (!nameObj.get("pronouns").isJsonNull()) {
+      return nameObj.getAsJsonPrimitive("pronouns").getAsString();
+    } else return "";
+  }
 
   public String getNetId() {
     if (!user.has("netid") || (user.get("netid") instanceof JsonNull)) return "";

@@ -42,6 +42,11 @@
     <div class="listitem-alpha" data-alpha="true">
       ${content.lastname!}${content.firstname!}
     </div>
+    [#if content.pronouns?has_content]
+      <div class="listitem-pronouns">
+        ${content.pronouns}
+      </div>
+    [/#if]
     [#if content.position?has_content]
       <div class="listitem-position" data-searchable="true">
         ${content.position}
