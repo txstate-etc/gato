@@ -30,7 +30,8 @@
     [/#if]
   </div>
   <div class="info-container">
-    <div class="listitem-title" data-searchable="true">
+    [#assign hasPronouns = content.pronouns?has_content && content.pronouns != 'None Selected']
+    <div class="listitem-title ${hasPronouns?then('has-pronouns', '')}" data-searchable="true">
       [#if content.preferredname??]
         ${content.preferredname}
         [#assign displayname = content.preferredname]
@@ -42,7 +43,7 @@
     <div class="listitem-alpha" data-alpha="true">
       ${content.lastname!}${content.firstname!}
     </div>
-    [#if content.pronouns?has_content]
+    [#if hasPronouns]
       <div class="listitem-pronouns">
         ${content.pronouns}
       </div>

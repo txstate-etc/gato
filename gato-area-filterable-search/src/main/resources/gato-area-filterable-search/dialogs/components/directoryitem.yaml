@@ -54,6 +54,27 @@ form:
                     - name: lastname
                       class: info.magnolia.ui.form.field.definition.TextFieldDefinition
                       label: Last Name
+                - name: pronouns
+                  class: info.magnolia.ui.form.field.definition.SelectFieldDefinition
+                  type: String
+                  label: Pronouns
+                  sortOptions: false
+                  options:
+                    - name: none
+                      value: None Selected
+                      label: None Selected
+                    - name: he
+                      value: He/Him/His/Himself
+                      label: He/Him/His/Himself
+                    - name: she
+                      value: She/Her/Hers/Herself
+                      label: She/Her/Hers/Herself
+                    - name: they
+                      value: They/Them/Theirs/Themselves
+                      label: They/Them/Theirs/Themselves
+                    - name: ask
+                      value: Ask for My Pronouns
+                      label: Ask for My Pronouns
                 - name: position
                   class: info.magnolia.ui.form.field.definition.TextFieldDefinition
                   label: Position

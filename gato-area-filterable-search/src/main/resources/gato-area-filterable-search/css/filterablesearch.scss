@@ -345,6 +345,9 @@ $filterable-search-header-font: serif !default;
             font-weight: 700;
             margin-bottom: 1rem;
             font-size: 1.8rem;
+            &.has-pronouns {
+              margin-bottom: 0;
+            }
           }
           .listitem-description {
             a {
