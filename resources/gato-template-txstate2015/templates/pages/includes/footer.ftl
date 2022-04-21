@@ -22,7 +22,7 @@
           <img alt="Texas State University - The Rising Star of Texas" src="${gf.resourcePath()}/gato-template-txstate2015/images/txst_logo.png">
           <![endif]-->
           <!--[if gte IE 9]><!-->
-          <img alt="Texas State University - The Rising Star of Texas" src="${gf.resourcePath()}/gato-template-txstate2015/images/txst_logo.svg">
+          <img alt="Texas State University - The Rising Star of Texas" src="${gf.resourcePath()}/gato-template-txstate2015/images/txstate-2022.svg">
           <!--<![endif]-->
         </a>
       </div>
