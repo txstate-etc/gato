@@ -65,6 +65,7 @@
     <meta property="og:image:width" content="${gf.getImgWidth(page.socialimage)?c}">
     <meta property="og:image:height" content="${gf.getImgHeight(page.socialimage)?c}">
     <meta property="og:image:alt" content="${page.socialimagealt}">
+    <meta name="twitter:card" content="summary_large_image"/>
   [/#if]
   [#if page.socialdescription?has_content]
     <meta property="og:description" content="${page.socialdescription}">
