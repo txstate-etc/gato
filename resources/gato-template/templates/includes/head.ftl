@@ -62,8 +62,8 @@
   <meta property="og:logo" content="${gf.resourcePath()}/gato-template-txstate2015/images/txst_logo.svg">
   [#if page.socialimage?has_content && page.socialimagealt?has_content]
     <meta property="og:image" content="${gf.absoluteDamUrl(page.socialimage)}">
-    <meta property="og:image:width" content="${gf.getImgWidth(page.socialimage)}">
-    <meta property="og:image:height" content="${gf.getImgHeight(page.socialimage)}">
+    <meta property="og:image:width" content="${gf.getImgWidth(page.socialimage)?c}">
+    <meta property="og:image:height" content="${gf.getImgHeight(page.socialimage)?c}">
     <meta property="og:image:alt" content="${page.socialimagealt}">
   [/#if]
   [#if page.socialdescription?has_content]
