@@ -17,8 +17,8 @@
 [#macro javascriptvariables]
   [#-- this should never be concatenated in with other javascript because it changes every
        second and that will break all manner of cache solutions --]
-  <script type="text/javascript" src="${gf.resourcePath()}/gato-lib/js/serverTime.js"></script>
   <script type="text/javascript">
+    var serverDateTime = new Date();
     var magnolia_assets_url = "${gf.resourcePath()}";
     var isEditMode = ${cmsfn.isEditMode()?string};
     [#nested]
