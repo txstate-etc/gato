@@ -88,6 +88,12 @@
               color: $filterable-search-toggle-filters-button-color;
             }
           }
+          .listitem-title.has-pronouns {
+            padding-bottom: 0.4rem;
+          }
+          .listitem-pronouns {
+            margin-bottom: 2rem;
+          }
         }
       }
     }
