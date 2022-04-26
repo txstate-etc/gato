@@ -308,6 +308,12 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
     register(DeltaBuilder.update("1.4.0", "")
       .addTasks(installOrUpdateTasks())
     );
+
+    register(DeltaBuilder.update("1.4.1", "")
+      .addTask(new SetPropertyTask(RepositoryConstants.CONFIG, "/modules/pages/dialogs/editPage/form/tabs/tabPage/fields/jcrName", "label", "URL Slug"))
+      .addTask(new BootstrapSingleModuleResource("config.modules.pages.dialogs.editPage.form.tabs.tabPage.fields.slughelptext.xml"))
+      .addTasks(installOrUpdateTasks())
+    );
   }
 
   protected List<Task> installOrUpdateTasks() {
