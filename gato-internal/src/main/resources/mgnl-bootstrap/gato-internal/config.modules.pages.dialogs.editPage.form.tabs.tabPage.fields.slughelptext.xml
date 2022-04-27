@@ -10,6 +10,6 @@
     <sv:value/>
   </sv:property>
   <sv:property sv:name="value" sv:type="String">
-    <sv:value>Keep it as simple as possible. Separate words with hyphens and do not use special characters or capital letters.</sv:value>
+    <sv:value>Must be all lowercase. Separate words with hyphens and do not use special characters.</sv:value>
   </sv:property>
 </sv:node>
