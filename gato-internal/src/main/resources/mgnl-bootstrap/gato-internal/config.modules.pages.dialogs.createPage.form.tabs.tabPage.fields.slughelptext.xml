@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sv:node xmlns:sv="http://www.jcp.org/jcr/sv/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" sv:name="slughelptext">
+  <sv:property sv:name="jcr:primaryType" sv:type="Name">
+    <sv:value>mgnl:contentNode</sv:value>
+  </sv:property>
+  <sv:property sv:name="class" sv:type="String">
+    <sv:value>info.magnolia.ui.form.field.definition.StaticFieldDefinition</sv:value>
+  </sv:property>
+  <sv:property sv:name="label" sv:type="String">
+    <sv:value/>
+  </sv:property>
+  <sv:property sv:name="value" sv:type="String">
+    <sv:value>Must be all lowercase. Separate words with hyphens and do not use special characters.</sv:value>
+  </sv:property>
+</sv:node>

@@ -14,6 +14,7 @@ import info.magnolia.module.delta.DeltaBuilder;
 import info.magnolia.module.delta.FindAndChangeTemplateIdTask;
 import info.magnolia.module.delta.IsAuthorInstanceDelegateTask;
 import info.magnolia.module.delta.MoveNodeTask;
+import info.magnolia.module.delta.NewPropertyTask;
 import info.magnolia.module.delta.NodeExistsDelegateTask;
 import info.magnolia.module.delta.OrderFilterBeforeTask;
 import info.magnolia.module.delta.OrderNodeBeforeTask;
@@ -312,6 +313,8 @@ public class GatoInternalVersionHandler extends DefaultModuleVersionHandler {
     register(DeltaBuilder.update("1.4.1", "")
       .addTask(new SetPropertyTask(RepositoryConstants.CONFIG, "/modules/pages/dialogs/editPage/form/tabs/tabPage/fields/jcrName", "label", "URL Slug"))
       .addTask(new BootstrapSingleModuleResource("config.modules.pages.dialogs.editPage.form.tabs.tabPage.fields.slughelptext.xml"))
+      .addTask(new NewPropertyTask("Add URL Slug Label", "/modules/pages/dialogs/createPage/form/tabs/tabPage/fields/jcrName", "label", "URL Slug"))
+      .addTask(new BootstrapSingleModuleResource("config.modules.pages.dialogs.createPage.form.tabs.tabPage.fields.slughelptext.xml"))
       .addTasks(installOrUpdateTasks())
     );
   }
