@@ -29,9 +29,6 @@ div#video-modal {
     @include vendor-prefix(transform, translate(-50%, -50%));
     width: 70%;
     max-width: 1080px;
-    .gatoEmbedContainer {
-      padding-bottom: 56.25%;
-    }
   }
 
   .video-nav {

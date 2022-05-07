@@ -37,7 +37,7 @@
       [/#if]
       [#if content.videourl?has_content]
         <a href="${content.videourl}" class="feature-play-button"
-        [#if oembed?has_content]data-embed="${gf.jsonGetString(oembed, 'html')?html}"[/#if]>
+        [#if oembed?has_content]data-embed="${gf.jsonGetString(oembed, 'html')?html}" data-embedwidth="${gf.jsonGetString(oembed, 'width')}" data-embedheight="${gf.jsonGetString(oembed, 'height')}"[/#if]>
           <i class="fa fa-play" aria-hidden="true"></i>
           <span class="visuallyhidden">Play Video</span>
         </a>

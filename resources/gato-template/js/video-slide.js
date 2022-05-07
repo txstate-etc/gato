@@ -7,6 +7,10 @@ jQuery(function($) {
 
     loadSlide: function($lnk) {
       var dataEmbed = $lnk.data('embed') || '';
+      var dataWidth = $lnk.data('embedwidth') || '';
+      var dataHeight = $lnk.data('embedheight') || '';
+      var noAspect = typeof dataWidth === 'string' && dataWidth.includes('%');
+      var padBottom = noAspect ? '0%' : (100.0 * Number(dataHeight) / Number(dataWidth)) + '%';
 
       // special treatment for youtube and vimeo to autoplay when the modal appears
       dataEmbed = dataEmbed.replace(/src="(.*?youtube\.com.*?)"/i, 'src="$1&autoplay=1"');
@@ -16,7 +20,7 @@ jQuery(function($) {
       dataEmbed = dataEmbed.replace(/src="(.*?facebook\.com.*?)"/i, 'src="$1&autoplay=true"');
 
       var dataUrl = $lnk.attr('href');
-      var $container = $('<div class="gatoEmbedContainer" data-url="' + dataUrl + '" data-embed=\''+ dataEmbed +'\'></div>');
+      var $container = $('<div class="gatoEmbedContainer' + (noAspect ? ' noAspect' : '') + '" style="padding-bottom: ' + padBottom + '" data-url="' + dataUrl + '" data-embed=\''+ dataEmbed +'\'></div>');
       $('#video-modal .video-container').empty().append($container);
       createPlayer($container, dataUrl, { autoplay: true });
       this.$cur = $lnk;

@@ -3,7 +3,11 @@
   height: 0;
   max-width: 100%;
 
-  iframe, object, embed {
+  &.noAspect {
+    height: auto;
+  }
+
+  &:not(.noAspect) > * {
     position: absolute;
     top: 0;
     left: 0;

@@ -1597,8 +1597,19 @@ public final class GatoUtils {
       if (StringUtils.isBlank(oEmbedJson)) return null;
       return parseJSON(oEmbedJson);
     } catch (Exception e) {
-      e.printStackTrace();
-      return null;
+      System.out.println("Could not autodiscover oembed URL:");
+      System.out.println(e.getLocalizedMessage());
+      try {
+        String finalUrl = new URL(new URL(url), "/oembed?format=json&url=" + URLEncoder.encode(url)).toString();
+        System.out.println("trying " + finalUrl);
+        String oEmbedJson = httpGetContent(finalUrl);
+        if (StringUtils.isBlank(oEmbedJson)) return null;
+        return parseJSON(oEmbedJson);
+      } catch (Exception e2) {
+        System.out.println("/oembed?url=... failed: ");
+        System.out.println(e2.getLocalizedMessage());
+        return null;
+      }
     }
   }
 
