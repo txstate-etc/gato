@@ -121,48 +121,74 @@ body.search-page {
           }
           .person {
             position: relative;
-            overflow: hidden;
             margin-top: 1rem;
             margin-bottom: 3rem;
-            .person-name {
+            .person-header {
+              position: relative;
               border-bottom: 1px dotted $search-person-name-border;;
               margin-bottom: 0.5rem;
               padding: 0.5rem 0;
-              a {
-                font-weight: bold;
-                color: $search-person-name-color;
-                text-decoration: none;
-                &:hover {
-                  text-decoration: underline;
+              display: flex;
+              .person-header-left {
+                display: flex;
+                flex-wrap: wrap;
+                flex-grow: 3;
+                padding-right: 1rem;
+                .person-name {
+                  padding-right: 1rem;
+                  a {
+                    font-weight: bold;
+                    color: $search-person-name-color;
+                    text-decoration: none;
+                    &:hover {
+                      text-decoration: underline;
+                    }
+                  }
+                }
+                .person-pronouns {
+                  flex-grow:3;
+                  font-weight: 400;
                 }
               }
-            }
-            .person-category {
-              position: absolute;
-              top: 0.5rem;
-              right: 1rem;
-              font-weight: 500;
-              font-variant: small-caps;
-              text-transform: lowercase;
-            }
-            dl {
-              overflow: hidden;
-              margin: 0;
-              width: 50%;
-              float: left;
+              .person-category {
+                margin-left: auto;
+                top: 0.5rem;
+                right: 1rem;
+                font-weight: 500;
+                font-variant: small-caps;
+                text-transform: lowercase;
+              }
             }
 
-            dt {
-              font-weight: 500;
-              float: left;
-              padding-right: 1rem;
-            }
-            dd {
-              margin: 0 0 0 1rem;
-            }
-            dt, dd {
-              line-height: 2.2rem;
-              font-size: 1.7rem;
+            .person-attributes {
+              position: relative;
+              display:flex;
+              flex-wrap: wrap;
+              dl {
+                overflow: hidden;
+                margin: 0;
+                float: left;
+                //[data-eq~="800px"] & { flex-basis: 50%; }
+                //[data-eq~="400px"] & { flex-basis: 100%; }
+                flex-basis: 50%;
+                @media screen and (max-width: $sm-breakpoint) {
+                  flex-basis: 100%;
+                }
+
+              }
+
+              dt {
+                font-weight: 500;
+                float: left;
+                padding-right: 1rem;
+              }
+              dd {
+                margin: 0 0 0 1rem;
+              }
+              dt, dd {
+                line-height: 2.2rem;
+                font-size: 1.7rem;
+              }
             }
           }
         }

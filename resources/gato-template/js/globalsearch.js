@@ -229,13 +229,15 @@ jQuery(document).ready(function($) {
   }
 
   var fullname = function(result) {
-    return result.name_title+(result.name_title ? ' ' : '')+result.firstname+' '+result.lastname;
+    return (result.name_title+(result.name_title ? ' ' : '')+result.firstname+' '+result.lastname).substring(0,25)
   }
 
   var html_result_people = function (result) {
-    var html = '<div class="person">'+
+    var html = '<div class="person">'+'<div class="person-header">'+'<div class="person-header-left">'+
                '<div class="person-name"><a href="#" data-searchid="'+result.searchid+'">'+fullname(result)+'</a></div>'+
-               '<div class="person-category">'+result.category+'</div>';
+               ( !isBlank(result.pronouns) ? '<div class="person-pronouns">'+result.pronouns+'</div>' : '' )+'</div>'+
+               '<div class="person-category">'+result.category+'</div>'+'</div>';
+    html += '<div class="person-attributes">'+='<div class="person-attributes-column-setter">&blank </div>'
     if (!isBlank(result.title))
       html += '<dl class="person-title"><dt>Title:</dt><dd>'+result.title+'</dd></dl>';
     if (!isBlank(result.department))
@@ -249,7 +251,8 @@ jQuery(document).ready(function($) {
     if (!isBlank(result.email))
       html += '<dl class="person-email"><dt>Email:</dt><dd>'+
       '<a class="person-email" href="mailto:'+html_encode(result.email)+'">'+html_encode(result.email)+'</a></dd></dl>';
-    html += '</div>';
+
+    html += '</div></div>';
     return html;
   }
 
