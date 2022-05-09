@@ -233,11 +233,11 @@ jQuery(document).ready(function($) {
   }
 
   var html_result_people = function (result) {
-    var html = '<div class="person">'+'<div class="person-header">'+'<div class="person-header-left">'+
+    var html = '<div class="person">'+'<div class="person-header">'+'<div class="person-header-naming">'+
                '<div class="person-name"><a href="#" data-searchid="'+result.searchid+'">'+fullname(result)+'</a></div>'+
                ( !isBlank(result.pronouns) ? '<div class="person-pronouns">'+result.pronouns+'</div>' : '' )+'</div>'+
                '<div class="person-category">'+result.category+'</div>'+'</div>';
-    html += '<div class="person-attributes">'+='<div class="person-attributes-column-setter">&blank </div>'
+    html += '<div class="person-attributes">'
     if (!isBlank(result.title))
       html += '<dl class="person-title"><dt>Title:</dt><dd>'+result.title+'</dd></dl>';
     if (!isBlank(result.department))

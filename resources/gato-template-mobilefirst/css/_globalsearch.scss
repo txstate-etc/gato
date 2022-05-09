@@ -129,7 +129,7 @@ body.search-page {
               margin-bottom: 0.5rem;
               padding: 0.5rem 0;
               display: flex;
-              .person-header-left {
+              .person-header-naming {
                 display: flex;
                 flex-wrap: wrap;
                 flex-grow: 3;
@@ -146,6 +146,7 @@ body.search-page {
                   }
                 }
                 .person-pronouns {
+                  color: $search-person-name-color;
                   flex-grow:3;
                   font-weight: 400;
                 }
