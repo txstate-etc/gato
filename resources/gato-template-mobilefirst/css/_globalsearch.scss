@@ -59,7 +59,8 @@ body.search-page {
           flex-direction: column;
         }
         .search-column-main {
-          flex: 1 0 100% * 2.0/3.0;
+          //flex: 1 0 100% * 2.0/3.0;
+          flex: 1 0 80%;
           min-height: 40rem;
           padding: 0 2rem;
           @media screen and (max-width: $sm-breakpoint) {
@@ -132,10 +133,11 @@ body.search-page {
               .person-header-naming {
                 display: flex;
                 flex-wrap: wrap;
-                flex-grow: 3;
-                padding-right: 1rem;
+                flex: 1 0 80%;
+                overflow: hidden;
                 .person-name {
                   padding-right: 1rem;
+                  white-space: nowrap;
                   a {
                     font-weight: bold;
                     color: $search-person-name-color;
@@ -147,14 +149,17 @@ body.search-page {
                 }
                 .person-pronouns {
                   color: $search-person-name-color;
-                  flex-grow:3;
                   font-weight: 400;
+                }
+                @media screen and (max-width: $sm-breakpoint) {
+                  flex-direction: column;
                 }
               }
               .person-category {
                 margin-left: auto;
                 top: 0.5rem;
                 right: 1rem;
+                padding-left: 1rem;
                 font-weight: 500;
                 font-variant: small-caps;
                 text-transform: lowercase;
@@ -169,13 +174,7 @@ body.search-page {
                 overflow: hidden;
                 margin: 0;
                 float: left;
-                //[data-eq~="800px"] & { flex-basis: 50%; }
-                //[data-eq~="400px"] & { flex-basis: 100%; }
                 flex-basis: 50%;
-                @media screen and (max-width: $sm-breakpoint) {
-                  flex-basis: 100%;
-                }
-
               }
 
               dt {
@@ -189,6 +188,28 @@ body.search-page {
               dt, dd {
                 line-height: 2.2rem;
                 font-size: 1.7rem;
+              }
+              @media screen and (max-width: $sm-breakpoint) {
+                /* Reorder                   from:            to:
+                 1 title    2 department    1 title         1 title
+                 3 address  4 netid      =  2 department    2 department
+                 5 phone    6 email         3 address       3 netid
+                                            4 netid         4 email
+                                            5 phone         5 address
+                                            6 email         6 phone */
+                
+                dl {
+                  flex-basis: 100%;
+                }
+                .person-email {
+                  order: 4;
+                }
+                .person-address {
+                  order: 5;
+                }
+                .person-phone {
+                  order: 6;
+                }
               }
             }
           }

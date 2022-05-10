@@ -227,9 +227,8 @@ jQuery(document).ready(function($) {
              (result.featured || !moment(result.date).isValid() ? "" : '<span class="result-date">'+moment(result.date).format('MM-DD-YYYY')+'</span>') +
            '</div>';
   }
-
   var fullname = function(result) {
-    return (result.name_title+(result.name_title ? ' ' : '')+result.firstname+' '+result.lastname).substring(0,25)
+    return result.name_title+(result.name_title ? ' ' : '')+result.firstname+' '+result.lastname
   }
 
   var html_result_people = function (result) {
@@ -246,8 +245,12 @@ jQuery(document).ready(function($) {
       html += '<dl class="person-address"><dt>Address:</dt><dd>'+result.address+'</dd></dl>';
     if (!isBlank(result.userid) && result.userid != "unauthenticated")
       html += '<dl class="person-netid"><dt>NetID:</dt><dd>'+result.userid+'</dd></dl>';
-    if (!isBlank(result.phone))
-      html += '<dl class="person-phone"><dt>Phone:</dt><dd>'+result.phone+'</dd></dl>';
+    if (!isBlank(result.phone)) {
+      if (!isBlank(result.phoneURI))
+        html += '<dl class="person-phone"><dt>Phone:</dt><dd><a href="'+result.phoneURI+'">'+result.phone+'</a></dd></dl>';
+      else
+        html += '<dl class="person-phone"><dt>Phone:</dt><dd>'+result.phone+'</dd></dl>';
+    }
     if (!isBlank(result.email))
       html += '<dl class="person-email"><dt>Email:</dt><dd>'+
       '<a class="person-email" href="mailto:'+html_encode(result.email)+'">'+html_encode(result.email)+'</a></dd></dl>';
