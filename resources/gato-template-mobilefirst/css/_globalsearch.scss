@@ -16,6 +16,14 @@ body.search-page {
         .search-web, .search-side-people {
           display: none;
         }
+        .search-result-columns {
+          .search-column-main {
+            flex: 1 0 80%;
+          }
+          .search-column-side {
+            flex: 1 0 20%;
+          }
+        }
       }
       .search-form {
         position: relative;
@@ -59,8 +67,7 @@ body.search-page {
           flex-direction: column;
         }
         .search-column-main {
-          //flex: 1 0 100% * 2.0/3.0;
-          flex: 1 0 80%;
+          flex: 1 0 100% * 2.0/3.0;
           min-height: 40rem;
           padding: 0 2rem;
           @media screen and (max-width: $sm-breakpoint) {
@@ -197,7 +204,7 @@ body.search-page {
                                             4 netid         4 email
                                             5 phone         5 address
                                             6 email         6 phone */
-                
+
                 dl {
                   flex-basis: 100%;
                 }
