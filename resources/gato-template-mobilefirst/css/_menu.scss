@@ -168,7 +168,7 @@ body.no-touch {
     .navigation-children {
       a {
         &:hover, &:focus {
-          padding-left: 1rem;
+          text-decoration: underline;
           font-weight: bold;
         }
       }
