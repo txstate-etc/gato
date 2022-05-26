@@ -1,9 +1,9 @@
 <div class="banner">
 	<div class="banner_content">
 		<div class="banner_logo">
-			    <a href="https://www.txstate.edu">
-			    	<img src="${gf.resourcePath()}/gato-template-txstate2015/images/txst-secondary.png" alt="Texas State University Logo"/>
-			    </a>
+			<a href="https://www.txstate.edu">
+				<img src="${gf.resourcePath()}/gato-template-txstate2015/images/txst-secondary.svg" alt="Texas State University Logo"/>
+			</a>
 		</div>
 		<div class="hamburger standard-hamburger">
 			[#if !def.parameters.isSearchTemplate!false]
