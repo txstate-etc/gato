@@ -14,9 +14,13 @@
       <div class="slide-image ${gf.getImgWideOrTall(content.image, 1.78)}">
         <img ${active?then("", "data-")}src="${gf.getImgDefault(content.image, left, right, top, bottom, ctx.aspectratio)}" ${active?then("", "data-")}srcset="${gf.getSrcSet(content.image, left, right, top, bottom, ctx.aspectratio)}" alt="${content.alttext!}">
         [#if content.videourl?has_content]
+          [#assign oembed = gf.oEmbedCached(content)!]
           <div class="feature-play-button centered">
             <a href="${content.videourl}" aria-label="Play Video"
-            data-embed="${gf.jsonGetString(gf.oEmbedCached(content), 'html')?html}" tabindex="${active?then(0,-1)}"></a>
+            data-embed="${gf.jsonGetString(oembed, 'html')?html}"
+            data-embedwidth="${gf.jsonGetString(oembed, 'width')}"
+            data-embedheight="${gf.jsonGetString(oembed, 'height')}"
+            tabindex="${active?then(0,-1)}"></a>
           </div>
         [/#if]
       </div>
@@ -35,9 +39,13 @@
             [#assign tidysubtext = gf.tidyHTML(cmsfn.decode(content).subtext!'')]
             <p data-orig-text="${tidysubtext?html}" data-skip-truncation="${ctx.skiptruncation!'false'}">${tidysubtext}</p>[/#if]
           [#if content.videourl?has_content]
+            [#assign oembed = gf.oEmbedCached(content)!]
             <div class="feature-play-button">
               <a href="${content.videourl}" aria-label="Play Video"
-              data-embed="${gf.jsonGetString(gf.oEmbedCached(content), 'html')?html}" tabindex="${active?then(0,-1)}"></a>
+                data-embed="${gf.jsonGetString(oembed, 'html')?html}"
+                data-embedwidth="${gf.jsonGetString(oembed, 'width')}"
+                data-embedheight="${gf.jsonGetString(oembed, 'height')}"
+                tabindex="${active?then(0,-1)}"></a>
             </div>
           [/#if]
         </div>
