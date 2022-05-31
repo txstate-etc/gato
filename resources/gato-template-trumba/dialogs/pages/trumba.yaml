@@ -13,5 +13,32 @@ form:
         - name: code
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Submission Form Code
+        - name: currency
+          class: info.magnolia.ui.form.field.definition.SelectFieldDefinition
+          description: Send a note to the site owner when this page's content hasn't been updated for this long.
+          label: Update Reminder
+          sortOptions: false
+          options:
+            - name: inherit
+              label: Inherit from parent page (default)
+              selected: true
+            - name: never
+              label: Don't send reminders
+              value: 999999
+            - name: yearly
+              label: One year
+              value: 365
+            - name: six-months
+              label: Six months
+              value: 183
+            - name: three-months
+              label: Three months
+              value: 90
+            - name: monthly
+              label: One month
+              value: 30
+            - name: weekly
+              label: One week
+              value: 7
 actions: !include /gato-template/dialogs/common/actions-block.yaml
 label: Page Properties
