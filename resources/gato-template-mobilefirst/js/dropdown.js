@@ -140,7 +140,7 @@
       var selectedItems = base.$el.find('.selected-items')
       var html = '<li role="option" tabindex="-1" aria-selected="true" class="selected-listitem" data-text="' + val + '">' +
                     '<div id="selected-'+ safeString(val) +'" class="selected-item">' + val +
-                    '<img class="remove-filter" src="' + magnolia_assets_url + '/gato-template-mobilefirst/images/academic-calendar/academic-calendar-x.svg" aria-hidden="true"/>' +
+                    '<img class="remove-filter" alt="" src="' + magnolia_assets_url + '/gato-template-mobilefirst/images/academic-calendar/academic-calendar-x.svg" aria-hidden="true"/>' +
                     '<span class="visuallyhidden">, press delete to remove</span>'
                     '</div>' +
                   '</li>'
