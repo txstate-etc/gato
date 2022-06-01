@@ -1,4 +1,4 @@
-[#assign oembed = gf.oEmbedCached(content)]
+[#assign oembed = gf.oEmbedCached(content)!]
 [#switch content.orientation]
   [#case "normal"]
     [#assign left = (content.squarecropleft!0.0)?number]
@@ -52,7 +52,10 @@
   <div class="card ${content.videourl?has_content?string('gato-card-video','gato-card-image')} ${gf.jsonGetString(oembed, 'provider_name')?lower_case}" style='background-image: url("${cardImage}")'>
     [#if content.videourl?has_content]
       <a href="${content.videourl}" class="feature-play-button"
-      data-embed="${gf.jsonGetString(oembed, 'html')?html}">
+        data-embed="${gf.jsonGetString(oembed, 'html')?html}"
+        data-embedwidth="${gf.jsonGetString(oembed, 'width')}"
+        data-embedheight="${gf.jsonGetString(oembed, 'height')}"
+      >
         <i class="fa fa-play" aria-hidden="true"></i>
         <span class="visuallyhidden">Play ${content.caption!''} Video</span>
       </a>

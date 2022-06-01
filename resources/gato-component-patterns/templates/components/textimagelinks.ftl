@@ -13,8 +13,12 @@
           <div class="video-wrapper">
             <img src="${gf.getImgDefault(content.image)}" alt="${content.imageAlt!}" srcset="${gf.getSrcSet(content.image)}" sizes="(max-width: 50em) 1000px, 50vw"/>
             [#if content.videourl?has_content]
+              [#assign oembed = gf.oEmbedCached(content)!]
               <a href="${content.videourl}" class="feature-play-button video-left"
-              data-embed="${gf.jsonGetString(gf.oEmbedAutodiscover(content.videourl), 'html')?html}">
+              data-embed="${gf.jsonGetString(oembed, 'html')?html}"
+              data-embedwidth="${gf.jsonGetString(oembed, 'width')}"
+              data-embedheight="${gf.jsonGetString(oembed, 'height')}"
+            >
                 <i class="fa fa-play" aria-hidden="true"></i>
                 <span class="visuallyhidden">Play Video</span>
               </a>

@@ -59,8 +59,13 @@
                   [#list cmsfn.children(component.buttons) as button]
                   <div class="mf-button-container">
                     [#if button.isVideo!false]
+                      [#assign oembed = gf.oEmbedAutodiscover(button.link)!]
                       <div class="button solid ${button.color} feature-play-button video-button">
-                        <a href="${button.link}" aria-label="Play Video" data-embed="${gf.jsonGetString(gf.oEmbedAutodiscover(button.link), 'html')?html}">
+                        <a href="${button.link}" aria-label="Play Video"
+                          data-embed="${gf.jsonGetString(oembed, 'html')?html}"
+                          data-embedwidth="${gf.jsonGetString(oembed, 'width')}"
+                          data-embedheight="${gf.jsonGetString(oembed, 'height')}"
+                        >
                           ${button.text}
                           <span class="play" aria-hidden="true"></span>
                         </a>

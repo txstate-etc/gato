@@ -5,7 +5,10 @@
   <div class="card ${content.videourl?has_content?string('gato-card-video','gato-card-image')} ${gf.jsonGetString(oembed, 'provider_name')?lower_case}" style='background-image: url("${imageDisplayed}")'>
     [#if content.videourl?has_content]
       <a href="${content.videourl}" class="feature-play-button"
-      data-embed="${gf.jsonGetString(oembed, 'html')?html}">
+        data-embed="${gf.jsonGetString(oembed, 'html')?html}"
+        data-embedwidth="${gf.jsonGetString(oembed, 'width')}"
+        data-embedheight="${gf.jsonGetString(oembed, 'height')}"
+      >
         <i class="fa fa-play" aria-hidden="true"></i>
         <span class="visuallyhidden">Play Video</span>
       </a>
@@ -31,7 +34,7 @@
   [/#if]
 [/#macro]
 
-[#assign oembed = gf.oEmbedCached(content)]
+[#assign oembed = gf.oEmbedCached(content)!]
 [#switch ctx.orientation]
   [#case "normal"]
     [#assign left = (content.squarecropleft!0.0)?number]
@@ -84,12 +87,12 @@
 
 
 <div class="item desktop ${content.image?has_content?string('mobile-image', 'no-mobile-image')}">
-  [@buildCard cardImage/]
+  [@buildCard cardImage /]
 </div>
 
 [#if cardImageTablet?has_content]
   <div class="mobile">
-    [@buildCard cardImageTablet/]
+    [@buildCard cardImageTablet /]
   </div>
 [/#if]
 
