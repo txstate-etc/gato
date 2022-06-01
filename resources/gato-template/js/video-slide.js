@@ -7,9 +7,13 @@ jQuery(function($) {
 
     loadSlide: function($lnk) {
       var dataEmbed = $lnk.data('embed') || '';
-      var dataWidth = $lnk.data('embedwidth') || '';
-      var dataHeight = $lnk.data('embedheight') || '';
+      var dataWidth = $lnk.data('embedwidth') || NaN;
+      var dataHeight = $lnk.data('embedheight') || NaN;
       var noAspect = typeof dataWidth === 'string' && dataWidth.includes('%');
+      if (!noAspect && (isNaN(Number(dataWidth)) || isNaN(Number(dataHeight)))) {
+        dataWidth = '1280'
+        dataHeight = '720'
+      }
       var padBottom = noAspect ? '0%' : (100.0 * Number(dataHeight) / Number(dataWidth)) + '%';
 
       // special treatment for youtube and vimeo to autoplay when the modal appears
