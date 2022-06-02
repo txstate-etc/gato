@@ -374,6 +374,15 @@ public final class GatoUtils {
     }
   }
 
+  public String getImgAttributes(Object assetOrId) {
+    long width = getImgWidth(assetOrId);
+    long height = getImgHeight(assetOrId);
+    String ret = "";
+    if (width > 0) ret += " width=\"" + width + "\"";
+    if (height > 0) ret += " height=\"" + height + "\"";
+    return ret;
+  }
+
   public float getImgAspectRatio(Object assetOrId) {
     try {
       MagnoliaAssetMetadata md = toAsset(assetOrId).getMetadata(MagnoliaAssetMetadata.class);
