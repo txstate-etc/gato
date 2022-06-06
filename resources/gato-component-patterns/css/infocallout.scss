@@ -1,0 +1,44 @@
+.infocallout {
+  border: 1px solid $form-gray;
+  border-left: 10px solid $blue;
+  border-radius: 2px;
+  max-width: 960px;
+  margin: 0 auto;
+  @media (max-width:$sm-breakpoint) {
+    border-left: 1px solid $form-gray;
+    border-top: 10px solid $blue;
+  }
+  .infocallout-content {
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    @media (max-width:$sm-breakpoint) {
+      flex-direction: column;
+    }
+    i {
+      color: $blue;
+      font-size: 7.2rem;
+      padding: 3rem;
+      @media (max-width:$sm-breakpoint) {
+       padding: 2rem;
+      }
+    }
+    & > div {
+      padding: 2rem 2rem 2rem 0;
+      @media (max-width:$sm-breakpoint) {
+        padding-left: 2rem;
+      }
+    }
+    .infocallout-title {
+      font-family: $halis;
+      font-weight: 600;
+      font-size: 2rem;
+      line-height: 3.2rem;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .infocallout-text p:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

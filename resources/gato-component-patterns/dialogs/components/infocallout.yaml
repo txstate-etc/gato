@@ -1,0 +1,21 @@
+form:
+  tabs:
+    - name: tabMain
+      label: Information Callout
+      fields:
+        - name: title
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Title
+          required: true
+        - name: text
+          required: true
+          class: info.magnolia.ui.form.field.definition.RichTextFieldDefinition
+          label: Text
+          source: false
+          alignment: false
+          images: false
+          lists: false
+          tables: false
+          height: 500
+          configJsFile: /.resources/gato-template/js/richeditor/minimal-config.js
+actions: !include /gato-template/dialogs/common/actions-block.yaml

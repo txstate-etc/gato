@@ -1,0 +1,8 @@
+templateScript: /gato-component-patterns/templates/components/infocallout.ftl
+renderType: freemarker
+title: Information Callout
+description: Simple callout with a title and text
+dialog: gato-component-patterns:components/infocallout
+parameters:
+  icon: /gato-component-patterns/images/infocallout.png
+  tab: Prebuilt Sections
