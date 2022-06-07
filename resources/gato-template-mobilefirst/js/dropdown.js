@@ -118,12 +118,20 @@
           base.$el.find('.menu').velocity("slideDown", {duration: 200})
         }
       }
-      base.$el.attr('aria-expanded', true)
+      if (!base.settings.multiple) {
+        base.$el.attr('aria-expanded', true)
+      } else {
+        base.$el.find('.text').attr('aria-expanded', true)
+      }
     }
 
     function closeMenu() {
       base.$el.removeClass('expanded')
-      base.$el.attr('aria-expanded', false)
+      if (!base.settings.multiple) {
+        base.$el.attr('aria-expanded', false)
+      } else {
+        base.$el.find('.text').attr('aria-expanded', false)
+      }
       base.$el.find('.menu').velocity("slideUp", {duration: 200})
       base.settings.onMenuClose()
     }
@@ -134,6 +142,16 @@
 
     function safeString(val) {
       return val.replace(/\W/g, '_')
+    }
+
+    function showPlaceholder(show) {
+      if (show) {
+        base.$el.find('.text').text(base.settings.placeholder)
+        base.$el.find('.selected-items').css('display', 'none')
+      } else {
+        base.$el.find('.text').text('')
+        base.$el.find('.selected-items').css('display','flex')
+      }
     }
 
     function selectMultiSelectItem(val) {
@@ -153,7 +171,7 @@
         $(this).closest('li').remove()
         base.$el.find('.info').text(updateSelectedCount(selectedItems.find('li').length))
         if (selectedItems.find('li').length < 1) {
-          base.$el.find('.text').removeClass('hidden')
+          showPlaceholder(true)
           base.settings.onChange('')
         } else {
           var allSelected = []
@@ -165,7 +183,7 @@
         }
         base.$el.focus()
       })
-      base.$el.find('.text').addClass('hidden')
+      showPlaceholder(false)
       $('#' + base.$el.attr('id') + '-' + safeString(val)).addClass('selected')
       base.$el.find('.info').text(updateSelectedCount(selectedItems.find('li').length))
     }
@@ -275,7 +293,7 @@
             $(e.target).closest('li').remove()
             base.$el.find('.info').text(updateSelectedCount(base.$el.find('.selected-items').find('li').length))
             if (base.$el.find('.selected-items li').length < 1) {
-              base.$el.find('.text').removeClass('hidden')
+              showPlaceholder(true)
               base.settings.onChange('')
             } else {
               var allSelected = []
@@ -296,7 +314,7 @@
         e.stopPropagation()
         dropdown.find('.selected-items').empty()
         dropdown.find('.menu li').removeClass('selected')
-        dropdown.find('.text').removeClass('hidden')
+        showPlaceholder(true)
         base.settings.onChange('')
         base.currentSelected = ''
         closeMenu()
@@ -362,15 +380,11 @@
     }
 
     base.resetSelected = function() {
-      if (!base.settings.multiple) {
-        if (base.settings.showSelected) {
-          base.$el.find('.text').text(base.settings.placeholder)
-        }
-      } else {
+      if (base.settings.multiple) {
         base.$el.find('.selected-items').empty()
         base.$el.find('.menu li').removeClass('selected')
-        base.$el.find('.text').removeClass('hidden')
       }
+      showPlaceholder(true)
     }
 
     base.init()

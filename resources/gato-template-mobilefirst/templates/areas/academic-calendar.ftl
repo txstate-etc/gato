@@ -17,11 +17,11 @@
         <div class="filter-row top eq-parent">
           <div class="ac-filter audience">
             <label id="lbl-audience">Audience</label>
-            <div id="select-audience" tabindex="0" class="ac-dropdown multiple" aria-labelledby="lbl-audience" role="button" aria-haspopup="listbox" aria-expanded="false" aria-owns="audience-menu" aria-describedby="audience-info">
+            <div id="select-audience" tabindex="0" class="ac-dropdown multiple">
               <div class="input">
-                <div class="text">Select a few...</div>
                 <ul class="selected-items" role="listbox" aria-label="Selected Audiences">
                 </ul>
+                <span id="search-audience" class="text" aria-labelledby="lbl-audience" role="button" aria-haspopup="listbox" aria-expanded="false" aria-owns="audience-menu" aria-describedby="audience-info"></span>
                 <div class="actions">
                   <button class="remove-all-filters" tabindex="-1">
                     <i class="fa fa-close" aria-hidden="true"></i>
@@ -78,7 +78,7 @@
             <button id="btn-go" class="btn-ac">Go</button>
           </div>
         </div>
-        <div class="filter-row bottom">
+        <div id="more-filters" class="filter-row bottom">
           <div class="ac-filter date">
             <label for="ac-startdate">Start Date</label>
             <input type="date" id="ac-startdate"/>
@@ -89,11 +89,11 @@
           </div>
           <div class="ac-filter category">
             <label id="lbl-category">Category</label>
-            <div id="select-category" class="ac-dropdown multiple" tabindex="0" aria-labelledby="lbl-category" role="button" aria-haspopup="listbox" aria-expanded="false" aria-owns="category-menu" aria-describedby="category-info">
+            <div id="select-category" class="ac-dropdown multiple" tabindex="0">
               <div class="input">
-                <div class="text">Select a few...</div>
                 <ul class="selected-items" role="listbox" aria-label="Selected Categories">
                 </ul>
+                <span id="search-category" class="text" aria-labelledby="lbl-category" role="button" aria-haspopup="listbox" aria-expanded="false" aria-owns="category-menu" aria-describedby="category-info"></span>
                 <div class="actions">
                   <button class="remove-all-filters" tabindex="-1">
                     <i class="fa fa-close" aria-hidden=true></i>
