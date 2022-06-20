@@ -188,8 +188,6 @@ public class GatoResourcesServlet extends ResourcesServlet {
     if (path.endsWith(".compiled.css")) {
       String newpath = path.replaceFirst("\\.compiled\\.css$", ".scss");
       request.setAttribute("javax.servlet.forward.path_info", newpath);
-    } else if (path.endsWith(".cjs")) {
-      response.addHeader("SourceMap", "/.resources" + path + ".map");
     } else if (path.endsWith(".cjs.map")) {
       final Resource resource = mylinker.getResource(path.replaceAll("\\.map$", ""));
       final String jsout = this.cache.get(resource.getPath() + ".map");
@@ -216,7 +214,7 @@ public class GatoResourcesServlet extends ResourcesServlet {
         response.getOutputStream().flush();
         return;
       } else if (extension.equals("cjs")) {
-        String jsout = compileCjs(resource);
+        String jsout = "//# sourceMappingURL=" + gf.resourcePath() + resource.getPath() + resource.getName() + ".map\n" + compileCjs(resource);
         response.setContentType("application/javascript");
         IOUtils.write(jsout, response.getOutputStream(), StandardCharsets.UTF_8);
         response.getOutputStream().flush();
