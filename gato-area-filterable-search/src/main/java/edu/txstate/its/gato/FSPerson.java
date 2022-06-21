@@ -43,6 +43,7 @@ public class FSPerson {
 
   public String getOfficePhone() {
     if (!user.has("officePhone") || (user.get("officePhone") instanceof JsonNull)) return "";
+    if (user.get("officePhone").isJsonNull()) return "";
     String phone = user.getAsJsonPrimitive("officePhone").getAsString();
     PhoneNumberUtil phoneUtil = PhoneNumberUtil.getInstance();
     try {
@@ -57,7 +58,9 @@ public class FSPerson {
   public String getEmail() {
     if (!user.has("ldapAccount") || (user.get("ldapAccount") instanceof JsonNull)) return "";
     JsonObject ldapObj = user.getAsJsonObject("ldapAccount");
-    return ldapObj.getAsJsonPrimitive("email").getAsString();
+    if (!ldapObj.get("email").isJsonNull()) {
+      return ldapObj.getAsJsonPrimitive("email").getAsString();
+    } else return "";
   }
 
   public String getPosition() {
