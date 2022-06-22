@@ -6,7 +6,7 @@ jQuery(document).ready(function($) {
     slider.current = opts.current || 0;
     slider.container = opts.container instanceof jQuery ? opts.container : $(opts.container);
     if (slider.container.length > 1) {
-      console.log('GatoFeatureSlider container should contain exactly one element, multiple sliders should be given separate GatoFeatureSlider instances. Only the first slider on the page will be functional.');
+      console.warn('GatoFeatureSlider container should contain exactly one element, multiple sliders should be given separate GatoFeatureSlider instances. Only the first slider on the page will be functional.');
       slider.container = slider.container.eq(0);
     }
     slider.slides = opts.slides instanceof jQuery ? opts.slides : slider.container.find(opts.slides);
@@ -14,6 +14,9 @@ jQuery(document).ready(function($) {
     slider.rightarrow = opts.rightarrow instanceof jQuery ? opts.rightarrow : slider.container.find(opts.rightarrow);
     slider.pausebutton = opts.pausebutton instanceof jQuery ? opts.pausebutton : slider.container.find(opts.pausebutton);
     slider.navdots = opts.navdots instanceof jQuery ? opts.navdots : slider.container.find(opts.navdots);
+    slider.rotationtime = opts.rotationtime*1000 || 0;
+    slider.rotationminimum = opts.rotationminimum*1000 || 0;
+    slider.movingimageduration = opts.movingimageduration || 20000;
 
     slider.currentMovingImage = {
       startTime: 0,
@@ -160,22 +163,15 @@ jQuery(document).ready(function($) {
         img.attr('srcset', img.data('srcset')).removeAttr('data-srcset');
       });
     });
-    slider.rotationtime = opts.rotationtime*1000 || 0;
-    slider.rotationminimum = opts.rotationminimum*1000 || 0;
-    slider.movingimageduration = opts.movingimageduration || 20000;
 
-    if (slider.slides.eq(this.current).hasClass('moving-image')) {
-      var loaded = false;
-      slider.slides.eq(this.current).find('img').on('load', function(){
-        slider.updateMovingImageState(slider.slides.eq(slider.current))
-        slider.startMovingImage(slider.slides.eq(slider.current))
-      }).each(function(){
-        if(this.complete) {
-          $(this).trigger('load');
-        }
+    const currentslide = slider.slides.eq(this.current);
+    if (currentslide.hasClass('moving-image')) {
+      slider.pauseschedule()
+      currentslide.find('img').afterload(function(){
+        slider.updateMovingImageState(currentslide)
+        slider.startMovingImage(currentslide)
       })
     }
-    slider.schedule();
   }
   window.GatoFeatureSlider.prototype.cleanindex = function (index) {
     var size = this.slides.length;
@@ -410,7 +406,6 @@ jQuery(document).ready(function($) {
       let progress = timing(timeFraction)
 
       draw(progress);
-
       if (timeFraction < 1) {
         slider.movingImageAnimationFrame = animationframe(animate);
       }
