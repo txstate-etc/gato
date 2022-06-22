@@ -214,7 +214,7 @@ public class GatoResourcesServlet extends ResourcesServlet {
         response.getOutputStream().flush();
         return;
       } else if (extension.equals("cjs")) {
-        String jsout = "//# sourceMappingURL=" + gf.resourcePath() + resource.getPath() + resource.getName() + ".map\n" + compileCjs(resource);
+        String jsout = "//# sourceMappingURL=" + gf.resourcePath() + resource.getPath() + ".map\n" + compileCjs(resource);
         response.setContentType("application/javascript");
         IOUtils.write(jsout, response.getOutputStream(), StandardCharsets.UTF_8);
         response.getOutputStream().flush();
