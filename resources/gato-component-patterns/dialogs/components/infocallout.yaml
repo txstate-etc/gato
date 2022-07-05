@@ -6,7 +6,7 @@ form:
         - name: title
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Title
-          required: true
+          maxLength: 100
         - name: text
           required: true
           class: info.magnolia.ui.form.field.definition.RichTextFieldDefinition
