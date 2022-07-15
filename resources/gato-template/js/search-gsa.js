@@ -24,13 +24,18 @@ window.Search = function(opts) {
 Search.prototype.doSearch = function(query) {
   var self = this;
   self.query = query;
+  const istxstate = /txst(ate)?\.edu/.test(self.opts.sitesearch)
+  const issupportsite = self.opts.site === 'support_sites'
   var params = {
     cx: self.opts.cx,
     key: 'AIzaSyAmrKoaQqaobY1foPLpmsDwOQrdCyIpyvs',
-    siteSearch: self.opts.sitesearch,
+    siteSearch: !istxstate && !issupportsite ? self.opts.sitesearch : undefined, // no siteSearch until google has txst.edu fully indexed
     start: self.opts.start,
     num: self.opts.num,
-    q: self.query,
+    q: self.query + (istxstate && !issupportsite
+      ? ' (site:' + self.opts.sitesearch.replace(/txst\.edu/, 'txstate.edu') + ' OR site:' + self.opts.sitesearch.replace(/txstate\.edu/, 'txst.edu') + ')'
+      : ''
+    ),
     sort: (self.opts.sort == 'date' ? 'date:a:s' : '')
   };
 
