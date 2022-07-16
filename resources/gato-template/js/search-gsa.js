@@ -65,7 +65,7 @@ Search.prototype.doSearch = function(query) {
       googleresults.push(itemobj);
     }
     if (params.start === 1) {
-      self.featured(params.q, true).then(function (featuredresults) {
+      self.featured(self.query, true).then(function (featuredresults) {
         var seen = {}
         for (var i = 0; i < featuredresults.length; i++) {
           seen[featuredresults[i].url] = true;
