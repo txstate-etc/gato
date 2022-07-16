@@ -1600,6 +1600,7 @@ public final class GatoUtils {
   public JsonObject oEmbedAutodiscover(String url) {
     if (StringUtils.isBlank(url)) return null;
     try {
+      url = url.replaceAll("yuja\\.com/V/Watch", "yuja.com/V/Video");
       String oEmbedUrl = Jsoup.connect(url).followRedirects(true).get().select("link[type=\"application/json+oembed\"]").attr("href");
       String finalUrl = new URL(new URL(url), oEmbedUrl).toString();
       String oEmbedJson = httpGetContent(finalUrl);
