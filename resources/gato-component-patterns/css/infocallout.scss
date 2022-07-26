@@ -37,6 +37,9 @@
       text-transform: uppercase;
       margin-bottom: 1.5rem;
     }
+    .infocallout-text a {
+      color: $blue;
+    }
     .infocallout-text p:last-child {
       margin-bottom: 0;
     }
