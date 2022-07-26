@@ -32,7 +32,7 @@
         <div class="formelement">
           <button id="btnsubmit" class="submit ${editMode}" name="submit" value="${content.formproperties.formproperties.buttonText!'Submit'}" disabled><span>${content.formproperties.formproperties.buttonText!'Submit'}</span></button>
         </div>
-        <div class="txst-khan-privacypolicylink"><a href="http://www.tr.txstate.edu/privacy-statement.html" target="_blank">Privacy Policy</a></div>
+        <div class="txst-khan-privacypolicylink"><a href="https://www.tr.txst.edu/privacy-statement.html" target="_blank">Privacy Policy</a></div>
         <div class="gato-area-mail-important">
           <label for="gato-important">If you happen to see this, do not fill this field.</label><br>
           <input type="text" name="gato-important" id="gato-important" value="">

@@ -9,14 +9,14 @@
       <span class="label">Search</span>
     </button>
   </div>
-  <a class="home-link" href="http://www.txstate.edu">
+  <a class="home-link" href="http://www.txst.edu">
     <div class="logo-block">
       <img src="${ctx.contextPath}/.resources/gato-template-mobilefirst/images/txst-header-logo.svg" alt="Texas State University" />
     </div>
   </a>
   <div class="menubar">
     <div class="menu">
-      <a class="logo" href="http://www.txstate.edu">
+      <a class="logo" href="http://www.txst.edu">
         <img src="${ctx.contextPath}/.resources/gato-template-mobilefirst/images/txst-sticky-logo.svg" alt="Texas State University" />
       </a>
       [@cms.area name="menulinks" content=gf.getOrCreateArea(homepage, 'menulinks') editable=isHomePage/]

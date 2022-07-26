@@ -85,7 +85,7 @@
     <div class="bottom-footer-content">
       [#if !isTXSTHome!false]
         <div class="logo">
-        <a href="http://www.txstate.edu">
+        <a href="http://www.txst.edu">
           <img src="${ctx.contextPath}/.resources/gato-template-mobilefirst/images/txst-footer-logo.svg" alt="Texas State University" />
         </a>
         </div>
