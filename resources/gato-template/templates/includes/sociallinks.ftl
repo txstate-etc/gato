@@ -41,7 +41,7 @@
           [#elseif slink?contains("wordpress")]
             [#assign iconclass="fa-rss-square"]
             [#assign alttext="Wordpress"]
-          [#elseif slink?contains("txstate.edu")]
+          [#elseif slink?contains("txstate.edu") || slink?contains("txst.edu")]
             [#assign iconclass="fa-star"]
             [#assign alttext="Texas State"]
           [#elseif slink?matches(r".*youtu\.?be.*")]

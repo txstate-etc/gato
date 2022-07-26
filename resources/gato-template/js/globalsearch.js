@@ -145,7 +145,7 @@ jQuery(document).ready(function($) {
         htmlshort += 'No people match your search.';
       } else if (data.results.length == 1) {
         if (sortvalue(data.results[0].category) > 3) {
-          html += '<div class="search-people-contact">Error in listing?<br>Contact the <a href="http://www.registrar.txstate.edu/our-services/address-change.html">Registrar\'s Office</a>.<br>Students may request a <a href="http://www.registrar.txstate.edu/our-services/privacy-hold.html">Privacy Hold</a>.</div>';
+          html += '<div class="search-people-contact">Error in listing?<br>Contact the <a href="http://www.registrar.txst.edu/our-services/address-change.html">Registrar\'s Office</a>.<br>Students may request a <a href="http://www.registrar.txst.edu/our-services/privacy-hold.html">Privacy Hold</a>.</div>';
         } else {
           html += '<div class="search-people-contact">Error in listing?<br>Contact <a href="mailto:hr@txstate.edu">hr@txstate.edu</a>.</div>';
         }

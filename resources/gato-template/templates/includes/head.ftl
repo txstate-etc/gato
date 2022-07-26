@@ -179,7 +179,7 @@
 [#macro breadcrumbs hidetxstate=false]
   <div class="breadcrumbs">
     [#if !hidetxstate]
-      <a href="http://www.txstate.edu">Texas State</a>
+      <a href="http://www.txst.edu">Texas State</a>
       <span class="separator"><i class="fa fa-angle-right"></i></span>
     [/#if]
     [#-- Put the parent organization in the breadcrumbs if there is one --]

@@ -58,7 +58,7 @@ form:
           description: Gato will automatically create an RSS feed to make it easy for people to subscribe to this page and to be updated with changes.
         - name: permissions
           label: Password Protect Page
-          description: 'If you enable protection, users must enter their NetID to view the page. Groups can be requested with <a target="_blank" href="https://itac.txstate.edu/forms/security-groups.html">this form</a> (be sure to mention it is for Gato), and managed in the <a target="_blank" href="https://tim.txstate.edu/onlinetoolkit/Home/RoleManagement.aspx">Online Toolkit</a>.'
+          description: 'If you enable protection, users must enter their NetID to view the page. Groups can be requested with <a target="_blank" href="https://itac.txst.edu/forms/security-groups.html">this form</a> (be sure to mention it is for Gato), and managed in the <a target="_blank" href="https://tim.txstate.edu/onlinetoolkit/Home/RoleManagement.aspx">Online Toolkit</a>.'
           class: edu.txstate.its.gato.vaadin.GatoJsIncludeDefinition
           initFunction: initprotectedpages
           scripts: [gato-lib/js/jquery-ui/jquery-ui.min.js,gato-lib/js/restful.js, gato-template/js/protectedpages.js]

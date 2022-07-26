@@ -15,7 +15,7 @@
 		[@cms.area name="footer-hours" content=gf.getOrCreateArea(homepage, 'footer-hours') editable=isHomePage/]
 	</div>
 
-	<a href="http://www.txstate.edu" class="texas-state"><img src="${gf.resourcePath()}/gato-template-wittliff/images/txst-logo-black-color.svg" alt="Texas State University"></a>
+	<a href="http://www.txst.edu" class="texas-state"><img src="${gf.resourcePath()}/gato-template-wittliff/images/txst-logo-black-color.svg" alt="Texas State University"></a>
 </div>
 
 <div class="footer-column-links">

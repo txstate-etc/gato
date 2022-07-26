@@ -33,7 +33,7 @@ form:
                 - name: note
                   label: ''
                   class: info.magnolia.ui.form.field.definition.StaticFieldDefinition
-                  value: "Note: When a NetID is provided, Gato automatically displays contact information related to that person. If the NetID is associated with a faculty profile, additional information may be displayed (e.g. biography and education, research interests, etc.) along with a link to the full profile on faculty.txstate.edu."
+                  value: "Note: When a NetID is provided, Gato automatically displays contact information related to that person. If the NetID is associated with a faculty profile, additional information may be displayed (e.g. biography and education, research interests, etc.) along with a link to the full profile on faculty.txst.edu."
             - name: manual
               label: ""
               class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition

@@ -27,7 +27,7 @@ form:
           label: Confidential
           styleName: confidentialfield
           buttonLabel: Check this box to enable the secure submission feature. This is required when the form requests information which can be considered sensitive.
-          description: When enabled, data submitted through secure submission will not be emailed. Instead, Gato Managers and Editors can retrieve the data directly from Gato Edit using the Form Data tool. Review our <a href="https://gato.its.txstate.edu/user-guides/best-practices/form-best-practices/secure-submission">secure submission page</a> for information on proper use of this feature.
+          description: When enabled, data submitted through secure submission will not be emailed. Instead, Gato Managers and Editors can retrieve the data directly from Gato Edit using the Form Data tool. Review our <a href="https://gato.its.txst.edu/user-guides/best-practices/form-best-practices/secure-submission">secure submission page</a> for information on proper use of this feature.
           defaultValue: false
         - name: stylesheet
           label: ""

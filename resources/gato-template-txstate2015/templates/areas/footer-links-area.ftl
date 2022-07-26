@@ -24,7 +24,7 @@
 [/#list]
 </ul>
 [#if linkGroup == 'option1']
-    <a class="apply_now" href="http://www.txstate.edu/admissions#apply">Apply Now</a>
+    <a class="apply_now" href="http://www.txst.edu/admissions#apply">Apply Now</a>
 [#else]
-    <a class="apply_now about_txstate" href="http://www.txstate.edu/about">About Texas State</a>
+    <a class="apply_now about_txstate" href="http://www.txst.edu/about">About Texas State</a>
 [/#if]

@@ -187,7 +187,7 @@ jQuery(document).ready(function($) {
     var html = '';
     if (data.isHomePage) {
       html +=
-      '<a class="home" href="//www.txstate.edu">'+
+      '<a class="home" href="//www.txst.edu">'+
         '<i class="fa fa-home arrow" aria-hidden="true"></i>'+
         '<span>Home</span>'+
       '</a>';

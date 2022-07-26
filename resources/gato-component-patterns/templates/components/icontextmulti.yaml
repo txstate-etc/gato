@@ -22,11 +22,11 @@ areas:
           templateId: gato-component-patterns:components/icontext
           icon: fa-graduation-cap
           title: Default Icon
-          link: www.txstate.edu
+          link: www.txst.edu
         iconText2:
           nodeType: mgnl:component
           templateId: gato-component-patterns:components/icontext
           icon: fa-university
           title: Default Icon
-          link: www.txstate.edu
+          link: www.txst.edu
       generatorClass: info.magnolia.rendering.generator.CopyGenerator

@@ -90,8 +90,8 @@
             </div>
             <ul class="side_nav nav-without-title calendar-util">
               <li><a href="http://events.txstate.edu/admin">Admin Login</a></li>
-              <li><a href="http://universityevents.its.txstate.edu/">Calendar Support</a></li>
-              <li><a href="http://universityevents.its.txstate.edu/request-forms/request-calendar.html">Request a Calendar</a></li>
+              <li><a href="http://universityevents.its.txst.edu/">Calendar Support</a></li>
+              <li><a href="http://universityevents.its.txst.edu/request-forms/request-calendar.html">Request a Calendar</a></li>
             </ul>
           </div>
         </aside>

@@ -19,7 +19,7 @@
   [#local isHome = !cmsfn.parent(page)?has_content]
   <div class="navigation-up">
     [#if isHome]
-      <a class="home" href="//www.txstate.edu">
+      <a class="home" href="//www.txst.edu">
         <i class="fa fa-home arrow" aria-hidden="true"></i>
         <span>Home</span>
       </a>

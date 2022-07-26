@@ -17,7 +17,7 @@ form:
         - name: tableHelp
           class: info.magnolia.ui.form.field.definition.StaticFieldDefinition
           label: ""
-          value: "If you have a row where only the left column has text, and you put an asterisk(*) in front, that row will be displayed as a sub-section header. <br><br>See our <a target='_blank' href='https://gato.its.txstate.edu/user-guides/tutorials/contenttypes/table.html'>help page</a> for more details."
+          value: "If you have a row where only the left column has text, and you put an asterisk(*) in front, that row will be displayed as a sub-section header. <br><br>See our <a target='_blank' href='https://gato.its.txst.edu/user-guides/tutorials/contenttypes/table.html'>help page</a> for more details."
         - name: tableCaption
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Caption
