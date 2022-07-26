@@ -6,7 +6,7 @@
 <div cms:edit="bar"></div>
 [/#if]
 [#if !gf.isEmptyString(content.link)]
-  [#if gf.filterUrl(content.link)?matches("^(\\w+:)?//.*$") && !content.link?lower_case?contains("txstate.edu")]
+  [#if gf.filterUrl(content.link)?matches("^(\\w+:)?//.*$") && !content.link?lower_case?contains("txstate.edu") && !content.link?lower_case?contains("txst.edu")]
     [#assign isExternal = true]
   [#else]
     [#assign isExternal = false]
