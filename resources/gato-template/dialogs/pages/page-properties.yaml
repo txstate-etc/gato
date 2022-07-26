@@ -83,7 +83,7 @@ form:
         - name: socialinfo
           class: info.magnolia.ui.form.field.definition.StaticFieldDefinition
           label: ''
-          value: If someone makes a Facebook post about this page, the below details will be used for the post.
+          value: If someone makes a social post about this page, the below details will be used for the post.
         - name: socialtitle
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           label: Title
