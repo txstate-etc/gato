@@ -4,11 +4,11 @@
   <groupId>edu.txstate.its.gato</groupId>
   <artifactId>gato-base</artifactId>
   <name>Gato Base</name>
-  <version>1.4.1</version>
+  <version>1.4.2</version>
   <packaging>pom</packaging>
 
   <properties>
-    <gatoVersion>1.4.1</gatoVersion>
+    <gatoVersion>1.4.2</gatoVersion>
     <magnoliaBundleVersion>5.7.15</magnoliaBundleVersion>
     <vaadinVersion>8.4.2</vaadinVersion>
     <gwtVersion>2.8.2</gwtVersion>
