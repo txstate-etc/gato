@@ -201,6 +201,7 @@ footer {
           i { color: $white;}
           span {
             @include sr-only();
+            font-size: 1.6rem;
           }
           .fa-youtube-square::before {
             content: '\f16a';
