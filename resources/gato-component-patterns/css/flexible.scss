@@ -223,6 +223,13 @@
         height: 100%;
         position: relative;
         overflow: hidden;
+        &.color1 { background-color: invert($mc1-text); }
+        &.color2 { background-color: invert($mc2-text); }
+        &.color3 { background-color: invert($mc3-text); }
+        &.color4 { background-color: invert($mc4-text); }
+        &.color5 { background-color: invert($mc5-text); }
+        &.color6 { background-color: invert($mc6-text); }
+        &.color7 { background-color: invert($mc7-text); }
         a {
           .gato-card-image, .gato-card-video {
             transform: scale(1.0);

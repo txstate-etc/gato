@@ -86,7 +86,7 @@
 [/#if]
 
 
-<div class="item desktop ${content.image?has_content?string('mobile-image', 'no-mobile-image')}">
+<div class="item desktop ${content.image?has_content?string('mobile-image', 'no-mobile-image')} ${content.color!}">
   [@buildCard cardImage /]
 </div>
 
