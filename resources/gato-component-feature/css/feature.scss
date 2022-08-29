@@ -204,6 +204,9 @@
           &.centered {
             @include absolutecenter();
             display: none;
+            &.no-caption {
+              display: block;
+            }
           }
           a {
             @include vendor-prefix(border-radius, 50%);
