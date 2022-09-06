@@ -33,29 +33,24 @@
 [#elseif model.items?has_content]
   [#assign endDateHash = {}]
   [#assign recurrenceIdHash = {}]
-  [#assign eventRepeats = {}]
+
   [#if content.hideRepeats!false]
     [#list model.items as item]
-      [#-- If the item's event ID is not in the hash or it has a later end date, save it in the hash --]
-      [#if !endDateHash[item.eventId]?? || (endDateHash[item.eventId]?datetime < item.endDate?datetime)]
-        [#assign endDateHash = endDateHash + {item.eventId : item.endDate}]
-      [/#if]
 
-      [#-- If the item's event ID has not been added yet or its first occurrence is before the current value --]
-      [#if !recurrenceIdHash[item.eventId]?? || item.recurrenceId?number < recurrenceIdHash[item.eventId]?number]
-        [#assign recurrenceIdHash = recurrenceIdHash + {item.eventId : item.recurrenceId}]
-      [/#if]
+      [#if item.seriesId?has_content]
+        [#-- If the item's series ID is not in the hash or it has a later end date, save it in the hash --]
+        [#if !endDateHash[item.seriesId]?? || (endDateHash[item.seriesId]?datetime < item.endDate?datetime)]
+          [#assign endDateHash = endDateHash + {item.seriesId : item.endDate}]
+        [/#if]
 
-      [#-- If an event ID is seen more than once, that means it is recurring --]
-      [#-- We only want to display the end dates for recurring events --]
-      [#if !eventRepeats[item.eventId]??]
-        [#assign eventRepeats = eventRepeats + {item.eventId : false}]
-      [#else]
-        [#assign eventRepeats = eventRepeats + {item.eventId : true}]
+        [#-- If the item's series ID has not been added yet or its first occurrence is before the current value --]
+        [#if !recurrenceIdHash[item.seriesId]?? || item.recurrenceId?number < recurrenceIdHash[item.seriesId]?number]
+          [#assign recurrenceIdHash = recurrenceIdHash + {item.seriesId : item.recurrenceId}]
+        [/#if]
       [/#if]
-
     [/#list]
   [/#if]
+
   <div class="accordion-controls">
     <a href="#" class="gato-accordion-toggle">
       <span class="action">Expand</span>
@@ -65,8 +60,7 @@
   <div class="gato-events">
   [#list model.items as item]
     [#-- if content.hideRepeats is missing or false OR content.hideRepeats is true and this is the first/only recurrence of an event --]
-    [#if (!content.hideRepeats?? || !content.hideRepeats) || (content.hideRepeats && recurrenceIdHash[item.eventId] == item.recurrenceId)]
-
+    [#if (!content.hideRepeats?? || !content.hideRepeats) || (content.hideRepeats && (!item.seriesId?has_content || recurrenceIdHash[item.seriesId] == item.recurrenceId))]
       [#assign eventClass=item.cancelled?string('txst-eventdetail-cancelled','h-event vevent')]
       [#assign eventDomId]e${item.recurrenceId}[/#assign]
 
@@ -105,6 +99,12 @@
                   ${item.startDate?date?string['EEEE, MMMM d']}
                 </time>
               [/#if]
+              [#-- If repeat events are hidden and this is a recurring event.  Don't show end date for one time events --]
+              [#if (content.hideRepeats!false) && item.seriesId?has_content]
+                <span class="repeat-event-enddate">
+                  until ${abbrMonth(endDateHash[item.seriesId]?string('MMMM'))} ${endDateHash[item.seriesId]?string('d')}
+                </span>
+              [/#if]
             </div>
           [#else]
             <div class="txst-eventdetail-dates">
@@ -127,9 +127,9 @@
                 </time>
               [/#if]
               [#-- If repeat events are hidden and this is a recurring event.  Don't show end date for one time events --]
-              [#if (content.hideRepeats!false) && (eventRepeats[item.eventId])]
+              [#if (content.hideRepeats!false) && item.seriesId?has_content]
                 <span class="repeat-event-enddate">
-                  until ${abbrMonth(endDateHash[item.eventId]?string('MMMM'))} ${endDateHash[item.eventId]?string('d')}
+                  until ${abbrMonth(endDateHash[item.seriesId]?string('MMMM'))} ${endDateHash[item.seriesId]?string('d')}
                 </span>
               [/#if]
             </div>

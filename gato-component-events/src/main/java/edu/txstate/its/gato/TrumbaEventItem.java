@@ -138,6 +138,10 @@ public class TrumbaEventItem extends AbstractEventItem {
     return getTitle();
   }
 
+  public String getSeriesId() {
+    return getPropertyString("seriesID");
+  }
+
   public String getRecurrenceId() {
     return getPropertyString("eventID");
   }
