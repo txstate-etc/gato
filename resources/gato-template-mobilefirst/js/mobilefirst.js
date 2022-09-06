@@ -40,7 +40,7 @@ jQuery(document).ready(function($) {
      logoblock.velocity({translateY: "-120px"},
       {duration: animationDuration,
        complete: function() {
-         logoblock.css('display', 'none')
+         logoblock.parent().css('display', 'none')
        }})
 
        menubar.velocity({translateY: "60px"},
@@ -67,7 +67,8 @@ jQuery(document).ready(function($) {
       logoblock.velocity({translateY: "0px"},
         {duration: animationDuration,
          begin: function() {
-           logoblock.css('display', 'flex')
+          //  logoblock.css('display', 'flex')
+          logoblock.parent().css('display', 'inline')
          }})
 
        menubar.velocity({translateY: "0px"},
@@ -109,17 +110,17 @@ jQuery(document).ready(function($) {
       }
     }
   })
-  
+
   $('.organization-info').each(function() {
     if ($('.banner-section .banner').children().length == 0 ) {
       $(this).addClass('no-image')
     }
   })
-  
+
   $('body.admin .addBannerImage').each(function() {
     if ($('.banner-section .banner .banner-image').length > 0 ) {
       $(this).addClass('has-image')
     }
   })
-  
+
 });
