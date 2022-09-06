@@ -1325,7 +1325,14 @@ public final class GatoUtils {
 
   public String linkifyTweet(String text) {
     if (text != null) {
-      text = LINK_PATTERN.matcher(text).replaceAll("<a href=\"$1\">$1</a>");
+      Matcher m = LINK_PATTERN.matcher(text);
+      StringBuffer newText = new StringBuffer();
+      while (m.find()) {
+        String replacement = "<a href=\"" + (m.group(1).endsWith(".") ? m.group(1).replaceAll("\\.+$", "") : m.group(1)) + "\">" + m.group(1) + "</a>";
+        m.appendReplacement(newText, replacement);
+      }
+      m.appendTail(newText);
+      text = newText.toString();
       text = USER_PATTERN.matcher(text).replaceAll("<a href=\"//twitter.com/$2\">$0</a>");
       text = HASHTAG_PATTERN.matcher(text).replaceAll("<a href=\"//twitter.com/search?q=%23$2\">$0</a>");
     }
