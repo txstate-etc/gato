@@ -46,9 +46,17 @@
         [@navloopmax cmsfn.children(page, 'mgnl:page') 8 ; subpage]
           <li class="${navfn.isActive(content, subpage)?then("current-page", "")}">
             <a href="${cmsfn.link(subpage)}" data-path="${subpage['@path']}" data-depth="${subpage['@depth']}">
-              ${gf.nodeTitle(subpage)}
               [#if gf.hasNavChildren(subpage) && subpage['@depth'] < 5]
-                <i class="fa fa-angle-right arrow" aria-hidden="true"></i>
+                [#assign words = gf.nodeTitle(subpage)?word_list]
+                [#list words as word]
+                  [#if !word?is_last]
+                    ${word + ' '}
+                  [#else]
+                    <span class='last-word'>${word}<i class="fa fa-angle-right arrow" aria-hidden="true"></i></span>
+                  [/#if]
+                [/#list]
+              [#else]
+                ${gf.nodeTitle(subpage)}
               [/#if]
             </a>
           </li>

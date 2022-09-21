@@ -214,9 +214,21 @@ jQuery(document).ready(function($) {
     html += '<ul class="navigation-children">';
     for (var i = 0; i < Math.min(data.children.length, 8); i++) {
       var subpage = data.children[i];
-      html += '<li><a href="'+subpage.href+'" data-path="'+subpage.path+'"'+'data-depth="'+ subpage.depth +'">'+
-        subpage.title+((subpage.children.length && subpage.depth < 5)?'<i class="fa fa-angle-right arrow" aria-hidden="true"></i>':'')+
-      '</a></li>';
+      html += '<li>'
+      html += '<a href="'+subpage.href+'" data-path="'+subpage.path+'"'+'data-depth="'+ subpage.depth +'">'
+      if (subpage.children.length && subpage.depth < 5) {
+        var titleWords = subpage.title.split(' ')
+        for (var j = 0; j < titleWords.length; j++) {
+          if (j < titleWords.length - 1) {
+            html += titleWords[j] + ' '
+          } else {
+            html += '<span class="last-word">' + titleWords[j] + '<i class="fa fa-angle-right arrow" aria-hidden="true"></i>'
+          }
+        }
+      } else {
+        html += subpage.title
+      }
+      html += '</a></li>';
     }
     html += '</ul></div></div>';
     return html;

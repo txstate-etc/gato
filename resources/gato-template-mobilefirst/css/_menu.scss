@@ -88,6 +88,9 @@ nav.main-menu {
       margin-bottom: 0.1rem;
       font-size: 1.6rem;
       transition: padding 0.1s;
+      .last-word {
+        white-space: nowrap;
+      }
       i {
         margin-left: 1rem;
       }
