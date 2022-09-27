@@ -165,7 +165,7 @@ body.no-touch {
     }
     .navigation-current {
       &:hover, &:focus {
-        padding-left: 2rem;
+        text-decoration: underline;
       }
     }
     .navigation-children {
