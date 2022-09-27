@@ -20,5 +20,5 @@ form:
         - name: ignoreReplies
           class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
           label: Exclude Replies
-          buttonLabel: Don't display tweets that are replies to other tweeters.
+          buttonLabel: Don't display tweets that are replies.
 actions: !include /gato-template/dialogs/common/actions-block.yaml
