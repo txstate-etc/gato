@@ -17,8 +17,19 @@
       </div>
       <div class="search-column-side">
         <div class="search-side-box search-side-people">
-          <h4>People</h4>
+          <h2>People</h2>
           <div class="search-side-results"></div>
+        </div>
+        [#if cmsfn.isEditMode()]
+            <div class="feedback-add" cms:add="box"></div>
+          [/#if]
+        <div class="search-side-box search-feedback [#if cmsfn.isEditMode()]edit[/#if]">
+          <h2>Search Feedback</h2>
+          [#if component?has_content]
+            <div class="search-feedback-content">
+              [@cms.component content=component /]
+            </div>
+          [/#if]
         </div>
       </div>
     </div>

@@ -9,6 +9,7 @@ jQuery(document).ready(function($) {
   magnolialabelchange('.footer-column.center .footer-column-title', '.mgnlEditor.mgnlPlaceholder', 'Customize Title for Links');
   magnolialabelchange('.footer-column.right .add-links-title', '.mgnlEditor.mgnlPlaceholder', 'Add Title for Links');
   magnolialabelchange('main', '.megasection-bar>.mgnlEditor.component', 'Section');
+  magnolialabelchange('.feedback-add', '.mgnlEditor.mgnlPlaceholder', 'Add Feedback Information');
 
   /* Header Animation */
   var header = $('header');

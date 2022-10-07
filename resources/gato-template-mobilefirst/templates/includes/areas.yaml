@@ -43,14 +43,14 @@ mobileFirstContent: #feature
   title: Home Page Main Content Area
   templateScript: /gato-template-mobilefirst/templates/areas/mobilefirst-content.ftl
   availableComponents:
-    !include /gato-template-mobilefirst/templates/areas/available-components/homeComponents.yaml      
+    !include /gato-template-mobilefirst/templates/areas/available-components/homeComponents.yaml
 contentParagraph: #variable
   title: Variable Page Main Content Area
   templateScript: /gato-template-mobilefirst/templates/areas/mobilefirst-content.ftl
   parameters:
     tabs: true
   availableComponents:
-    !include /gato-template-mobilefirst/templates/areas/available-components/interiorComponents.yaml   
+    !include /gato-template-mobilefirst/templates/areas/available-components/interiorComponents.yaml
 siteMap:
   title: Site Map Content Area
   templateScript: /gato-template/templates/areas/sitemap.ftl
@@ -58,8 +58,11 @@ siteMap:
     tabs: true
 searchcontent: #global search
   title: Global Search Page Content
-  type: noComponent
+  type: single
   templateScript: /gato-template-mobilefirst/templates/areas/globalsearch.ftl
+  availableComponents:
+    miscTextWithTitle:
+      id: gato-template:components/miscrichtext
 academiccalendar-intro:
   title: Academic Calendar Intro Content
   type: single

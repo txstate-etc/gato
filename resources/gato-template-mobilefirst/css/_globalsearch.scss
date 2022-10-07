@@ -13,7 +13,7 @@ body.search-page {
         }
       }
       &.people {
-        .search-web, .search-side-people {
+        .search-web, .search-side-people, .search-feedback {
           display: none;
         }
         .search-result-columns {
@@ -119,7 +119,7 @@ body.search-page {
               padding-top: 0.5rem;
               // clear: both;
             }
-            h4 {
+            h2 {
               margin: 0.5rem 0;
             }
           }
@@ -230,12 +230,16 @@ body.search-page {
           .search-side-box {
             border: 1px solid $search-side-box-border;
             margin-bottom: 3rem;
-            h4 {
+            h2 {
               margin: 0;
               padding: 1rem;
               background-color: $search-side-box-header-background;
               color: $search-side-box-header-color;
               font-weight: 500;
+              font-family: $halis;
+              font-size: 1.8rem;
+              line-height: 2.4rem;
+              text-transform: uppercase;
             }
             .search-people-more {
               font-size: 1.6rem;
@@ -250,6 +254,18 @@ body.search-page {
                   font-size: 1.8rem;
                   font-weight: 500;
                 }
+              }
+            }
+            &.search-feedback {
+              .search-feedback-content {
+                padding: 1rem;
+                font-size: 1.6rem;
+                p {
+                  font-size: 1.6rem;
+                }
+              }
+              &.edit {
+                display: block !important;
               }
             }
           }

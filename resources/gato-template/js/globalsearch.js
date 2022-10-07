@@ -98,6 +98,7 @@ jQuery(document).ready(function($) {
   var fill_people_search = function (query, page, perpage) {
     if (!page || page < 1) page = 1;
     $('.search-side-people').hide();
+    $('.search-feedback').hide()
     $('.search-people').html('');
     $('.search-side-results').html('');
     if (isBlank(query)) return;
@@ -129,9 +130,9 @@ jQuery(document).ready(function($) {
       html += '<div class="search-people-advanced"><a href="#">Advanced Search</a></div>';
       html += '<div class="search-people-advanced-info" style="display: none;">'+
       '<div class="advanced-search-intro">People Search allows for very detailed searches. You may combine any of these phrases to create a search string:</div>'+
-      '<div class="advanced-search-column"><h4>Fields</h4>lastname<br>firstname<br>email<br>department<br>address<br>phone<br>userid (Texas State NetID)<br>searchid (unique ID only for search)</div>'+
-      '<div class="advanced-search-column"><h4>Operators</h4>is<br>contains<br>begins with<br>ends with</div>'+
-      '<div class="advanced-search-examples"><h4>Examples</h4>lastname contains taylor<br>'+
+      '<div class="advanced-search-column"><h2>Fields</h2>lastname<br>firstname<br>email<br>department<br>address<br>phone<br>userid (Texas State NetID)<br>searchid (unique ID only for search)</div>'+
+      '<div class="advanced-search-column"><h2>Operators</h2>is<br>contains<br>begins with<br>ends with</div>'+
+      '<div class="advanced-search-examples"><h2>Examples</h2>lastname contains taylor<br>'+
       'email contains jb<br>lastname begins with bura<br>department contains athletics</div>'+
       '</div>';
       for (var i = start; i < end; i++) {
@@ -159,6 +160,7 @@ jQuery(document).ready(function($) {
       $('.search-side-people').css('display', '');
       $('.search-people').html(html);
       $('.search-side-people .search-side-results').html(htmlshort);
+      $('.search-feedback').css('display', '');
       create_event_handlers_people();
     })
     .fail(function(error) {
@@ -166,6 +168,7 @@ jQuery(document).ready(function($) {
       $('.search-side-people').css('display', '');
       $('.search-people').html('There was an error connecting to the peoplesearch server. Please try again later.');
       $('.search-side-people .search-side-results').html('There was an error connecting to the peoplesearch server. Please try again later.');
+      $('.search-feedback').css('display', '');
     })
   }
 
