@@ -61,8 +61,8 @@ searchcontent: #global search
   type: single
   templateScript: /gato-template-mobilefirst/templates/areas/globalsearch.ftl
   availableComponents:
-    miscTextWithTitle:
-      id: gato-template:components/miscrichtext
+    searchFeedback:
+      id: gato-template-mobilefirst:components/searchfeedback
 academiccalendar-intro:
   title: Academic Calendar Intro Content
   type: single

@@ -1,0 +1,5 @@
+templateScript: /gato-template-mobilefirst/templates/components/searchfeedback.ftl
+dialog: gato-template-mobilefirst:components/searchfeedback
+description: Feedback for global search results
+title: Search Feedback
+renderType: freemarker
