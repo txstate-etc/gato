@@ -12,4 +12,7 @@ form:
           label: Answer
           required: true
           configJsFile: /.resources/gato-template/js/richeditor/config.js
+        - name: anchor
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Anchor
 actions: !include /gato-template/dialogs/common/actions-block.yaml

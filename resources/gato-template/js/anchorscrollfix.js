@@ -6,10 +6,18 @@ function scrollToAnchor(hash, header) {
   if (elementExists) {
     var target = $(hash);
     var headerHeight = window.stickynavheight + 5;
-  
     if (target.length) {
-      $('html').velocity('scroll', { 
-        duration: 400, 
+      // check if it is an faq question or in an faq answer
+      if (target.hasClass('faq-question-anchor')) {
+        var parent = target.parents('.gato-faqitem-question')
+        window.accordion.show(parent, {instant: true})
+      } else if (target.parents('.gato-faqitem-answer').length) {
+        var $lis = $(target).parents('.gato-faqitem, .gato-faq-group')
+        var $lnks = $lis.find('> .gato-faqitem-question, > .gato-faq-group-title')
+        window.accordion.show($lnks, {instant: true})
+      }
+      $('html').velocity('scroll', {
+        duration: 400,
         offset: (target.offset().top-headerHeight)+'px',
         complete: function(){
           target.focus();
