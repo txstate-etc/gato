@@ -132,19 +132,31 @@ jQuery(document).ready(function($) {
     group.find('.header .sr-filters-selected').text(text);
   }
 
-  var itemContainsQuery = function(item, query) {
-    var found = false;
-    var searchables = item.find("*[data-searchable='true']");
-    $.each(searchables, function(idx, elem) {
-      if ($(elem).text().toLowerCase().indexOf(query) > -1) {
-          found = true;
-          return false;
+  var splitwords = function (str) {
+    return str.trim().toLocaleLowerCase().split(/\W+/).filter(function (w) { return w && !stopwords[w] })
+  }
+
+  var itemIndex = {}
+  var itemContainsQuery = function(item, words) {
+    var id = item.attr('id')
+    if (!itemIndex[id]) {
+      var textchunks = item.find("*[data-searchable='true']").map(function () { return $(this).text() }).get()
+      textchunks.push(item.data('keywords'))
+      var moretext = $.map(item.data('tags').split(','), function (t) { return $('#' + t).data('name') })
+      textchunks = textchunks.concat(moretext)
+      var itemwordset = new Set()
+      $.each(textchunks, function(idx, text) {
+        var itemwords = splitwords(text)
+        for (var i = 0; i < itemwords.length; i++) {
+          var w = itemwords[i]
+          for (var j = 1; j <= w.length; j++) {
+            itemwordset.add(w.substring(0, j))
+          }
         }
-    });
-    if (!found && item.data('keywords').toLowerCase().indexOf(query) > -1) {
-      found = true;
+      });
+      itemIndex[id] = itemwordset
     }
-    return found;
+    return words.every(w => itemIndex[id].has(w));
   }
 
   var itemMatchesFilters = function(item) {
@@ -208,11 +220,12 @@ jQuery(document).ready(function($) {
     updateUrlParameters(arrFilters, query);
     updateActiveFilters(arrFilters);
 
+    var words = splitwords(query)
     $('.filtered-results .listitem').each(function(index, item) {
       item = $(item);
       var isRelevant = true;
       if (query.length > 0) {
-        isRelevant = itemContainsQuery(item, query);
+        isRelevant = itemContainsQuery(item, words);
         if (isRelevant) {
           isRelevant = itemMatchesFilters(item);
         }
@@ -633,3 +646,107 @@ jQuery(document).ready(function($) {
   }
   resizeTimeout(setImageContainerSize)
 });
+
+const stopwords = {
+  myself: true,
+  our: true,
+  ours: true,
+  ourselves: true,
+  you: true,
+  your: true,
+  yours: true,
+  yourself: true,
+  yourselves: true,
+  him: true,
+  his: true,
+  himself: true,
+  she: true,
+  her: true,
+  hers: true,
+  herself: true,
+  its: true,
+  itself: true,
+  they: true,
+  them: true,
+  their: true,
+  theirs: true,
+  themselves: true,
+  what: true,
+  which: true,
+  who: true,
+  whom: true,
+  this: true,
+  that: true,
+  these: true,
+  those: true,
+  are: true,
+  was: true,
+  were: true,
+  been: true,
+  being: true,
+  have: true,
+  has: true,
+  had: true,
+  having: true,
+  does: true,
+  did: true,
+  doing: true,
+  the: true,
+  and: true,
+  but: true,
+  because: true,
+  until: true,
+  while: true,
+  for: true,
+  with: true,
+  about: true,
+  against: true,
+  between: true,
+  into: true,
+  through: true,
+  during: true,
+  before: true,
+  after: true,
+  above: true,
+  below: true,
+  from: true,
+  down: true,
+  out: true,
+  off: true,
+  over: true,
+  under: true,
+  again: true,
+  further: true,
+  then: true,
+  once: true,
+  here: true,
+  there: true,
+  when: true,
+  where: true,
+  why: true,
+  how: true,
+  all: true,
+  any: true,
+  both: true,
+  each: true,
+  few: true,
+  more: true,
+  most: true,
+  other: true,
+  some: true,
+  such: true,
+  nor: true,
+  not: true,
+  only: true,
+  own: true,
+  same: true,
+  than: true,
+  too: true,
+  very: true,
+  can: true,
+  will: true,
+  just: true,
+  don: true,
+  should: true,
+  now: true
+}
