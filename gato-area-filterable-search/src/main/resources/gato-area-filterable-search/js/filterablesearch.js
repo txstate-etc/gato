@@ -177,7 +177,7 @@ jQuery(document).ready(function($) {
     return isRelevant;
   }
 
-  var updateResultsShown = function() {
+  var updateResultsShown = function(query) {
     var totalItems = $('.filtered-results .listitem').length;
     var itemsHidden = $('.result.listitem-hidden').length;
     var resultCountText = "";
@@ -188,6 +188,7 @@ jQuery(document).ready(function($) {
       var itemsShown = totalItems - itemsHidden;
       resultCountText = itemsShown + (itemsShown == 1 ? " result" : " results of " + totalItems);
     }
+    if (query && query.length > 0) resultCountText += ' (searching "' + query + '")'
     $('#result-count').text(resultCountText);
     $('#mobile-result-count').text(resultCountText);
     if (itemsHidden == totalItems) {
@@ -244,7 +245,7 @@ jQuery(document).ready(function($) {
       }
     });
 
-    updateResultsShown();
+    updateResultsShown(query);
     updateStripes();
     updateAlphaHeaders();
   }
