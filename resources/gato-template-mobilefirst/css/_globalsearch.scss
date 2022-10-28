@@ -235,11 +235,10 @@ body.search-page {
               padding: 1rem;
               background-color: $search-side-box-header-background;
               color: $search-side-box-header-color;
-              font-weight: 500;
-              font-family: $halis;
-              font-size: 1.8rem;
-              line-height: 2.4rem;
-              text-transform: uppercase;
+              font-weight: 400;
+              font-family: $nunito;
+              font-size: 2rem;
+              line-height: 3rem;
             }
             .search-people-more {
               font-size: 1.6rem;
@@ -260,6 +259,11 @@ body.search-page {
               .search-feedback-content {
                 padding: 1rem;
                 font-size: 1.6rem;
+                h3 {
+                  font-family: $nunito;
+                  font-size: 2rem;
+                  text-transform: none;
+                }
                 p {
                   font-size: 1.6rem;
                 }
