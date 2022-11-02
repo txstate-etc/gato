@@ -108,7 +108,7 @@ function oEmbedFinished(el, embedcode, vInfo) {
 
 function buildUnknownPlayer(el, url) {
   if (url.startsWith("http")) {
-    jQuery(el).append('<a href="' + url + '">' + url + '</a>');
+    jQuery(el).append('<div style="background: white; padding: 2em;">There was an error loading this video, try clicking:<br><a href="' + url + '">' + url + '</a></div>');
   } else {
     el.innerHTML = "Sorry, we're unable to play this video.";
   }

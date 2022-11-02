@@ -21,6 +21,7 @@ jQuery(function($) {
       if (dataEmbed.indexOf('?') !== -1) dataEmbed = dataEmbed.replace(/src="(.*?vimeo\.com.*?)"/i, 'src="$1&autoplay=1"');
       else dataEmbed = dataEmbed.replace(/src="(.*?vimeo\.com.*?)"/i, 'src="$1?autoplay=1"');
       dataEmbed = dataEmbed.replace(/src="(.*?mediaflo\.txstate\.edu.*?autoPlay=)\w+(.*?)"/i, 'src="$1true$2"');
+      dataEmbed = dataEmbed.replace(/src="(.*?yuja\.com.*?)"/, 'src="$1&autostart=1"').replace(/&preload=false/, '');
       dataEmbed = dataEmbed.replace(/src="(.*?facebook\.com.*?)"/i, 'src="$1&autoplay=true"');
 
       var dataUrl = $lnk.attr('href');

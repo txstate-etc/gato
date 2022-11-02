@@ -15,13 +15,15 @@
         <img ${active?then("", "data-")}src="${gf.getImgDefault(content.image, left, right, top, bottom, ctx.aspectratio)}" ${active?then("", "data-")}srcset="${gf.getSrcSet(content.image, left, right, top, bottom, ctx.aspectratio)}" alt="${content.alttext!}">
         [#if content.videourl?has_content]
           [#assign oembed = gf.oEmbedCached(content)!]
-          <div class="feature-play-button centered [#if gf.isEmptyString(content.title) && gf.isEmptyString(content.subtext)] no-caption [/#if]">
-            <a href="${content.videourl}" aria-label="Play Video"
-            data-embed="${gf.jsonGetString(oembed, 'html')?html}"
-            data-embedwidth="${gf.jsonGetString(oembed, 'width')}"
-            data-embedheight="${gf.jsonGetString(oembed, 'height')}"
-            tabindex="${active?then(0,-1)}"></a>
-          </div>
+          [#if oembed?has_content]
+            <div class="feature-play-button centered [#if gf.isEmptyString(content.title) && gf.isEmptyString(content.subtext)] no-caption [/#if]">
+              <a href="${content.videourl}" aria-label="Play Video"
+              data-embed="${gf.jsonGetString(oembed, 'html')?html}"
+              data-embedwidth="${gf.jsonGetString(oembed, 'width')}"
+              data-embedheight="${gf.jsonGetString(oembed, 'height')}"
+              tabindex="${active?then(0,-1)}"></a>
+            </div>
+          [/#if]
         [/#if]
       </div>
       [#if !gf.isEmptyString(content.title) || !gf.isEmptyString(content.subtext)]
