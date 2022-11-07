@@ -198,7 +198,10 @@ footer {
         padding: 0rem 0.5rem 1rem 0.5rem;
         .gato-sociallink {
           color: $white;
-          i { color: $white;}
+          i {
+            color: $white;
+            line-height: 0.9;
+          }
           span {
             @include sr-only();
             font-size: 1.6rem;
