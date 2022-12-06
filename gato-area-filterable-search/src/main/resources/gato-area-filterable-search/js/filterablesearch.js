@@ -133,7 +133,8 @@ jQuery(document).ready(function($) {
   }
 
   var splitwords = function (str) {
-    return str.trim().toLocaleLowerCase().split(/\W+/).filter(function (w) { return w && !stopwords[w] })
+    if (!str) return []
+    return String(str).trim().toLocaleLowerCase().split(/\W+/).filter(function (w) { return w && !stopwords[w] })
   }
 
   var itemIndex = {}
