@@ -182,11 +182,12 @@
               [/#if]
             </div>
           [/#if]
-
-          <a class="txst-eventdetail-morelink" href="${itemlink}">
-            <span class="linktext">more about event</span>
-            <i class="fa fa-angle-right" aria-hidden="true"></i>
-          </a>
+          [#if itemlink?has_content]
+            <a class="txst-eventdetail-morelink" href="${itemlink}">
+              <span class="linktext">more about event</span>
+              <i class="fa fa-angle-right" aria-hidden="true"></i>
+            </a>
+          [/#if]
         </div>
       </div>
     [/#if]
