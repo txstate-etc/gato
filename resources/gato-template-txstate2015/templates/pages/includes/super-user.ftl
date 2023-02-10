@@ -9,17 +9,6 @@
       [#list cmsfn.children(globalLinks.superGroup2, "mgnl:component") as component]
         <li><a href="${gf.filterUrl(component.link)}">${gf.filterLinkTitle(component.text, component.link)}</a></li>
       [/#list]
-      <li class="more-tools">
-        <a href="#" class="needsclick">
-          ${globalLinks.superGroup3.text!'Online Services'}
-          <i class="fa fa-caret-down"></i>
-        </a>
-        <ul class="super-list-sub">
-          [#list cmsfn.children(globalLinks.superGroup3, "mgnl:component") as component]
-            <li><a href="${gf.filterUrl(component.link)}">${gf.filterLinkTitle(component.text, component.link)}</a></li>
-          [/#list]
-        </ul>
-      </li>
     </ul>
   </div>
 </div>

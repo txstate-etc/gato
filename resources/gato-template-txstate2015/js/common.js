@@ -176,8 +176,6 @@ jQuery(document).ready(function($) {
   });
   /*** END SLIDEOUT MENU ***/
 
-  $('.more-tools > a').hovermenu('.super-list-sub');
-
   //remove hover effect from rich editor image and font awesome links
   $('.column_paragraph a, .footer_content a, .txst-form a, .masonry-section .gato-card a').each(function(){
     if($(this).find('img, .fa').length > 0){
