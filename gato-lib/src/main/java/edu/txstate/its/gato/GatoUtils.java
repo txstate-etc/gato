@@ -138,8 +138,8 @@ public final class GatoUtils {
         String sup = tf.link(RepositoryConstants.WEBSITE, uid);
         if (!StringUtils.isBlank(sup)) websiteLink = sup+hash;
         else {
-          sup = tf.link("dam", uid);
-          if (!StringUtils.isBlank(sup)) damLink = "/dam/jcr:" + uid + sup;
+          sup = damUrl(url);
+          if (!StringUtils.isBlank(sup)) damLink = sup;
         }
       }
     } catch(Exception e) {
