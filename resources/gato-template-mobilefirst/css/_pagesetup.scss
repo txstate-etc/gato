@@ -100,13 +100,14 @@ body {
 }
 
 .contentcolumn .headline {
-  font-family: $garamond;
+  font-family: $halis;
   color: $verydark;
-  font-weight: 400;
+  font-weight: 600;
   margin: 3rem 0rem 1.5rem 0rem;
   font-size: 3.6rem;
   text-align: center;
-  line-height: 4.2rem;
+  line-height: 5rem;
+  text-transform: uppercase;
   @media (max-width: $sm-breakpoint) {
     text-align: left;
   }
