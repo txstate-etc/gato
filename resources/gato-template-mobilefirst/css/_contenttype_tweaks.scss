@@ -396,6 +396,14 @@ ul.gato-faq-hierarchy {
     line-height: 2rem;
   }
 }
+.filterable-search-container .filterable-search .filtered-results .alpha-header {
+  font-family: $nunito;
+  font-weight: 600;
+  font-size: 3rem;
+  line-height: 4.2rem;
+  color: $verydark;
+  }
+
 .filterable-search.directory {
   .results .listitem .info-container, #more-content-popup .popup-content {
     .listitem-title {
