@@ -3,6 +3,9 @@ form:
     - name: tabGeneral
       label: ""
       fields:
+        - name: title
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Title
         - name: alphabetize
           class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
           label: Alphabetize
