@@ -267,28 +267,6 @@ ul.gato-faq-hierarchy {
     p {
       margin-bottom: 3rem;
     }
-    //force faq headers to look like they start at h3
-    .h3styles {
-      font-family: $nunito;
-      font-weight: 500;
-      font-size: 2.2rem;
-      line-height: 2.8rem;
-      color: $dark-gold;
-      text-transform: none;
-    }
-    .h4styles {
-      font-family: $nunito;
-      font-weight: 500;
-      font-size: 1.8rem;
-      line-height: 2.4rem;
-      color: $verydark;
-    }
-    .h5styles {
-      font-family: $nunito;
-      font-weight: 500;
-      font-size: 1.6rem;
-      line-height: 2.2rem;
-    }
   }
 }
 .has-background {
