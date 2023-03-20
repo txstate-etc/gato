@@ -176,15 +176,20 @@
   [/#if]
 [/#macro]
 
-[#macro breadcrumbs hidetxstate=false]
+[#macro breadcrumbs hidetxstate=false isCalico=false]
   <div class="breadcrumbs">
     [#if !hidetxstate]
       <a href="http://www.txst.edu">Texas State</a>
       <span class="separator"><i class="fa fa-angle-right"></i></span>
     [/#if]
     [#-- Put the parent organization in the breadcrumbs if there is one --]
-    [#if (homepage.parentOrganization)?? && cmsfn.children(homepage.parentOrganization)?size gt 0 ]
-      [#local parentOrg = cmsfn.children(homepage.parentOrganization)?first]
+    [#if isCalico]
+      [#assign parentOrgArea = homepage["organization-info"]]
+    [#else]
+      [#assign parentOrgArea = homepage.parentOrganization]
+    [/#if]
+    [#if (parentOrgArea)?? && cmsfn.children(parentOrgArea)?size gt 0 ]
+      [#local parentOrg = cmsfn.children(parentOrgArea)?first]
       [#if parentOrg.parent_name?? && parentOrg.parent_name?length gt 0]
         <a href="${gf.filterUrl(parentOrg.url!)}">${parentOrg.parent_name}</a>
         <span class="separator"><i class="fa fa-angle-right"></i></span>
