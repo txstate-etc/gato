@@ -3,7 +3,14 @@
 	[@cms.area name="headerImage" /]
 	<div class="title">
     <div class="dept_name">
-      [@cms.area name="parentOrganization" content=gf.getOrCreateArea(homepage, 'parentOrganization') editable=isHomePage  /]
+      [#if isHomePage]
+        [@cms.area name="parentOrganization" content=gf.getOrCreateArea(homepage, 'parentOrganization') editable=isHomePage /]
+      [#else]
+        [#assign parentOrgContent = homepage.parentOrganization!homepage["organization-info"]!]
+        [#if parentOrgContent?has_content]
+          [@cms.area name="parentOrganization" content=parentOrgContent editable=false /]
+        [/#if]
+      [/#if]
       <span class="office_name"><a href="${cmsfn.link(homepage)}">${gf.nodeTitle(homepage)}</a></span>
     </div>
   </div>

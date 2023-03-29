@@ -49,7 +49,14 @@
           [/#if]
         [/#if]
       </div>
-      [@cms.area name="organization-info" content=gf.getOrCreateArea(homepage, 'organization-info') editable=isHomePage /]
+      [#if isHomePage]
+        [@cms.area name="organization-info" content=gf.getOrCreateArea(homepage, 'organization-info') editable=isHomePage /]
+      [#else]
+        [#assign parentOrgContent = homepage["organization-info"]!homepage.parentOrganization!]
+        [#if parentOrgContent?has_content]
+          [@cms.area name="organization-info" content=parentOrgContent editable=false /]
+        [/#if]
+      [/#if]
       [#if showAnnouncement]
         <div class="mobile-announcement">
           [@cms.area name="bannerAnnouncement" content=gf.getOrCreateArea(page, 'bannerAnnouncement')/]
